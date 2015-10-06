@@ -43,15 +43,6 @@ angular.module('binary', ['ionic'])
           controller: 'OptionsTabCtrl'
         }
       }
-    })
-
-    .state('tabs.navstack', {
-      url: '/navstack',
-      views: {
-        'about-tab': {
-          templateUrl: 'templates/nav-stack.html'
-        }
-      }
     });
 
 
@@ -78,11 +69,4 @@ angular.module('binary', ['ionic'])
 
 .controller('OptionsTabCtrl', function($scope) {
   console.log('OptionsTabCtrl');
-})
-
-
-
-
-
-
-;
+});
