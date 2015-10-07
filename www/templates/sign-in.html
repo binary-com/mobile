@@ -1,0 +1,29 @@
+<ion-view class="sign-in">
+  <ion-content>
+
+
+    <div class="branding">
+      <img src="img/logo.svg"   class="logo" alt="Binary Logo">
+      <img src="img/binary.svg" class="slogan" alt="Binary.com">
+    </div>
+    <div class="list">
+      <label class="item-input">
+        <i class="icon ion-ios-email placeholder-icon"></i>
+        <input type="text" placeholder="Email">
+      </label>
+      <label class="item-input">
+        <i class="icon ion-android-lock placeholder-icon icon-small"></i>
+        <input type="password" placeholder="Password">
+      </label>
+      <label class="item-input">
+        <i class="icon ion-ios-world placeholder-icon icon-small"></i>
+        <input type="text" placeholder="Language">
+      </label>
+    </div>
+    <div class="padding">
+      <button class="button button-block button-positive btn-signin" ng-click="signIn(user)">
+        Sign In
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
