@@ -7750,17 +7750,41 @@ button {
       .sign-in .list label.item-input i.icon-small {
         font-size: 36px; }
     .sign-in .list label.item-input input[type=text], .sign-in .list label.item-input input[type=password] {
-      color: #efefef;
+      color: #f1f1f1;
       font-family: arial;
       font-weight: 400;
       font-size: 20px;
       line-height: 1;
       line-height: 1.6;
       margin-left: 10px; }
+  .sign-in .list label.item-select {
+    background-color: #2a3052;
+    border-width: 0 0 1px 0; }
+    .sign-in .list label.item-select i {
+      font-size: 40px;
+      width: 40px;
+      color: #5e668f;
+      text-align: center; }
+      .sign-in .list label.item-select i.icon-small {
+        font-size: 36px; }
+    .sign-in .list label.item-select .input-label {
+      background-color: #2a3052;
+      color: #b1b1b1;
+      font-family: arial;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1;
+      line-height: 1.6;
+      margin-left: 10px; }
+    .sign-in .list label.item-select select {
+      background-color: #2a3052;
+      color: #f1f1f1;
+      font-size: 16px;
+      max-width: 40%;
+      font-weight: 300;
+      text-transform: uppercase; }
   .sign-in button.btn-signin {
     background-color: #e98024 !important;
     width: 84%;
     margin: 0 auto;
     font-size: 20px; }
-
-/* GENERAL */

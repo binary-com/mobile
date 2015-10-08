@@ -28,7 +28,7 @@
 			i {
 				font-size: 40px;
 				width: 40px;
-				color: #5e668f;
+				color: $blue;
 				text-align: center;
 
 				&.icon-small {
@@ -38,13 +38,45 @@
 
 			input[type=text],
 			input[type=password] {
-				color: #efefef;
+				color: $white;
 				font-family: arial;
 				font-weight: 400;
 				font-size: 20px;
 				line-height: 1;
 				line-height: 1.6;
 			    margin-left: 10px;
+			}
+		}
+		label.item-select {
+			background-color: $darkblue;
+			border-width: 0 0 1px 0;
+			i {
+				font-size: 40px;
+				width: 40px;
+				color: $blue;
+				text-align: center;
+
+				&.icon-small {
+					font-size: 36px;
+				}
+			}
+			.input-label {
+				background-color: $darkblue;
+				color: darken($white, 25%);
+				font-family: arial;
+				font-weight: 400;
+				font-size: 20px;
+				line-height: 1;
+				line-height: 1.6;
+			    margin-left: 10px;
+			}
+			select {
+				background-color: $darkblue;
+				color: $white;
+				font-size: 16px;
+				max-width: 40%;
+				font-weight: 300;
+				text-transform: uppercase;
 			}
 		}
 	}
