@@ -17,7 +17,7 @@ ionic serve
 
 To update SCSS files, run the following command in another terminal
 ```
-gulp sass // compile scss files to css
+gulp sass // compiles scss files to css
 // or 
-gulp watch // compile scss files to css live
+gulp watch // compiles scss files to css everytime a scss file gets changed
 ```
