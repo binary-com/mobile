@@ -7700,6 +7700,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.center {
+  text-align: center; }
+
 @font-face {
   font-family: roboto;
   src: url(fonts/Roboto/roboto-thin.ttf);
@@ -7753,7 +7756,7 @@ button {
       color: #efefef;
       font-family: arial;
       font-weight: 400;
-      font-size: 20px;
+      font-size: 16px;
       line-height: 1;
       line-height: 1.6;
       margin-left: 10px; }
@@ -7772,7 +7775,7 @@ button {
       color: #afafaf;
       font-family: arial;
       font-weight: 400;
-      font-size: 20px;
+      font-size: 16px;
       line-height: 1;
       line-height: 1.6;
       margin-left: 10px; }
@@ -7788,6 +7791,8 @@ button {
     width: 84%;
     margin: 0 auto;
     font-size: 20px; }
+  .sign-in .help {
+    color: #fff; }
 
 .trade .bar-header {
   background-color: #2a3052; }
