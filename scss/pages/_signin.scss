@@ -41,7 +41,7 @@
 				color: $white;
 				font-family: arial;
 				font-weight: 400;
-				font-size: 20px;
+				font-size: 16px;
 				line-height: 1;
 				line-height: 1.6;
 			    margin-left: 10px;
@@ -65,7 +65,7 @@
 				color: darken($white, 25%);
 				font-family: arial;
 				font-weight: 400;
-				font-size: 20px;
+				font-size: 16px;
 				line-height: 1;
 				line-height: 1.6;
 			    margin-left: 10px;
@@ -74,7 +74,7 @@
 				background-color: $darkblue;
 				color: $white;
 				font-size: 16px;
-				max-width: 40%;
+				max-width: 50%;
 				font-weight: 300;
 				text-transform: uppercase;
 			}
@@ -85,5 +85,8 @@
 		width: 84%;
 		margin: 0 auto;
 		font-size: 20px;
+	}
+	.help{
+		color:#fff;
 	}
 }
