@@ -3,28 +3,20 @@ angular.module('binary', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state('signin', {
-      url: '/sign-in',
-      templateUrl: 'templates/sign-in.html',
-      controller: 'SignInCtrl'
-    })
-    .state('forgotpassword', {
-      url: '/forgot-password',
-      templateUrl: 'templates/forgot-password.html'
-    })
     .state('tabs', {
       url: '/tab',
       abstract: true,
       templateUrl: 'templates/tabs.html'
     })
-    .state('tabs.trade', {
+    .state('signin', {
+      url: '/sign-in',
+      templateUrl: 'templates/sign-in.html',
+      controller: 'SignInCtrl'
+    })
+    .state('trade', {
       url: '/trade',
-      views: {
-        'trade-tab': {
-          templateUrl: 'templates/trade.html',
-          controller: 'TradeTabCtrl'
-        }
-      }
+      templateUrl: 'templates/trade.html',
+      controller: 'TradeController'
     })
     .state('tabs.account', {
       url: '/account',
@@ -54,13 +46,37 @@ angular.module('binary', ['ionic'])
 
   $scope.signIn = function(user) {
     console.log('Sign-In', user);
-    $state.go('tabs.trade');
+    $state.go('trade');
+  };
+})
+.controller('MassihTabCtrl', function($scope) {
+  console.log('MassihTabCtrl');
+  //$state.go('massih');
+})
+.controller('TradeController', function($scope, $ionicPopover) {
+  console.log('TradeTabCtrl -  show me');
+
+  $ionicPopover.fromTemplateUrl('templates/options.html', {
+    scope: $scope
+  }).then(function(popover) {
+    console.log('popover', popover);
+    $scope.popover = popover;
+    // $scope.popover.initialize({
+    //   hardwareBackButtonClose: true
+    // });
+
+  });
+
+  $scope.displayOptions = function($event) {
+    console.log('options is clicked!!');
+    $scope.popover.show($event);
   };
 
-})
+  $scope.$on('popover.hidden', function() {
+    // Execute action
+    console.log('it is hiden');
+  });
 
-.controller('TradeTabCtrl', function($scope) {
-  console.log('TradeTabCtrl');
 })
 
 .controller('AccountTabCtrl', function($scope) {
@@ -70,3 +86,10 @@ angular.module('binary', ['ionic'])
 .controller('OptionsTabCtrl', function($scope) {
   console.log('OptionsTabCtrl');
 });
+
+
+
+
+
+
+
