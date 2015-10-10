@@ -1,0 +1,21 @@
+.options {
+
+	background-color: $darkblue;
+	label.item-input {
+		border-width: 0;
+		margin: 1px;
+	}
+	label.item-radio {
+		width: calc(50% - 2px);
+		float: left;
+		//border-color: transparent;
+		border-width: 0;
+		margin: 1px;
+		&:nth-child(1) {
+			//margin: 2px 1px 0 0;
+ 		}
+ 		&:nth-child(2) {
+			//margin: 2px 0 0 1px;
+ 		}
+	}
+}
