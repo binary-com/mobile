@@ -1,0 +1,117 @@
+.trade {
+
+	.bar-header {
+		background-color: $darkblue;
+		button {
+			background-color: $darkblue;
+			color: $white;
+		}
+
+		h1 {
+			img {
+				height: 80%;
+				padding-top: 10px;
+			}
+		}
+	}
+	.contract-summary {
+		padding-top: 60px;
+		padding-bottom: 16px;
+		text-align: center;
+		font-size: 22px;
+		span {
+			color: $orange;
+		}
+	}
+	.contract-chart {
+
+	}
+	.contract-payout {
+		background-color: lighten($grey, 20%);
+		border-top: 1px solid $grey;
+		border-bottom: 1px solid $grey;
+		> .col:nth-child(1) {
+			font-size: 20px;
+			text-align: center;
+			line-height: 48px;
+		}
+
+		> .col:nth-child(2) {
+			input {
+				font-size: 30px;
+				width: 120px;
+				height: 48px;
+				border-radius: 5px;
+				border: 1px solid $grey;
+				line-height: 34px;
+				text-align: center;
+				padding-left: 18px;
+			}
+		}
+
+		>  .col:nth-child(3) {
+			//background-color: purple;
+
+			.button {
+				float: right;
+				margin: 0;
+				//margin-left: 10px;
+				min-width: 40px;
+				min-height: 40px;
+				border: none;
+				color: $white;
+				border-radius: 0;
+
+				&.plus {
+					background-color: $darkblue;
+					border-radius: 0 5px 5px 0;
+				}
+				&.minus {
+					background-color: $grey;
+					border-radius: 5px 0 0 5px;
+				}
+			}
+		}
+	}
+
+	.contract-price {
+		background-color: lighten($grey, 20%);
+		border-bottom: 1px solid $grey;
+		margin-top: 0px;
+		> .col:nth-child(1) {
+			font-size: 20px;
+			text-align: left;
+			padding-left: 38px;
+			line-height: 48px;
+		}
+
+		> .col:nth-child(2) {
+			font-size: 36px;
+			color: $orange;
+			text-align: center;
+			line-height: 48px;
+		}
+	}
+
+	.contract-purchase {
+		margin-top: 10%;
+		button {
+			background-color: $orange !important;
+			width: 84%;
+			margin: 0 auto;
+			font-size: 20px;
+		}
+	}
+}
+
+
+// .popover {
+//     height: auto !important;
+// }
+// .popover ion-header-bar {
+//     position: relative;
+// }
+// .popover ion-content {
+//     top: 0;
+//     position: relative;
+// }

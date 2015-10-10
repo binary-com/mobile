@@ -7750,7 +7750,7 @@ button {
       .sign-in .list label.item-input i.icon-small {
         font-size: 36px; }
     .sign-in .list label.item-input input[type=text], .sign-in .list label.item-input input[type=password] {
-      color: #f1f1f1;
+      color: #efefef;
       font-family: arial;
       font-weight: 400;
       font-size: 20px;
@@ -7769,7 +7769,7 @@ button {
         font-size: 36px; }
     .sign-in .list label.item-select .input-label {
       background-color: #2a3052;
-      color: #b1b1b1;
+      color: #afafaf;
       font-family: arial;
       font-weight: 400;
       font-size: 20px;
@@ -7778,8 +7778,8 @@ button {
       margin-left: 10px; }
     .sign-in .list label.item-select select {
       background-color: #2a3052;
-      color: #f1f1f1;
-      font-size: 16px;
+      color: #efefef;
+      font-size: 14px;
       max-width: 40%;
       font-weight: 300;
       text-transform: uppercase; }
@@ -7788,3 +7788,82 @@ button {
     width: 84%;
     margin: 0 auto;
     font-size: 20px; }
+
+.trade .bar-header {
+  background-color: #2a3052; }
+  .trade .bar-header button {
+    background-color: #2a3052;
+    color: #efefef; }
+  .trade .bar-header h1 img {
+    height: 80%;
+    padding-top: 10px; }
+.trade .contract-summary {
+  padding-top: 60px;
+  padding-bottom: 16px;
+  text-align: center;
+  font-size: 22px; }
+  .trade .contract-summary span {
+    color: #e98024; }
+.trade .contract-payout {
+  background-color: #f7f7f7;
+  border-top: 1px solid #c4c4c4;
+  border-bottom: 1px solid #c4c4c4; }
+  .trade .contract-payout > .col:nth-child(1) {
+    font-size: 20px;
+    text-align: center;
+    line-height: 48px; }
+  .trade .contract-payout > .col:nth-child(2) input {
+    font-size: 30px;
+    width: 120px;
+    height: 48px;
+    border-radius: 5px;
+    border: 1px solid #c4c4c4;
+    line-height: 34px;
+    text-align: center;
+    padding-left: 18px; }
+  .trade .contract-payout > .col:nth-child(3) .button {
+    float: right;
+    margin: 0;
+    min-width: 40px;
+    min-height: 40px;
+    border: none;
+    color: #efefef;
+    border-radius: 0; }
+    .trade .contract-payout > .col:nth-child(3) .button.plus {
+      background-color: #2a3052;
+      border-radius: 0 5px 5px 0; }
+    .trade .contract-payout > .col:nth-child(3) .button.minus {
+      background-color: #c4c4c4;
+      border-radius: 5px 0 0 5px; }
+.trade .contract-price {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #c4c4c4;
+  margin-top: 0px; }
+  .trade .contract-price > .col:nth-child(1) {
+    font-size: 20px;
+    text-align: left;
+    padding-left: 38px;
+    line-height: 48px; }
+  .trade .contract-price > .col:nth-child(2) {
+    font-size: 36px;
+    color: #e98024;
+    text-align: center;
+    line-height: 48px; }
+.trade .contract-purchase {
+  margin-top: 10%; }
+  .trade .contract-purchase button {
+    background-color: #e98024 !important;
+    width: 84%;
+    margin: 0 auto;
+    font-size: 20px; }
+
+.options {
+  background-color: #2a3052; }
+  .options label.item-input {
+    border-width: 0;
+    margin: 1px; }
+  .options label.item-radio {
+    width: calc(50% - 2px);
+    float: left;
+    border-width: 0;
+    margin: 1px; }
