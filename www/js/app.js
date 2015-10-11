@@ -3,38 +3,20 @@ angular.module('binary', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state('tabs', {
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'templates/tabs.html'
-    })
     .state('signin', {
       url: '/sign-in',
       templateUrl: 'templates/sign-in.html',
-      controller: 'SignInCtrl'
+      controller: 'SignInController'
     })
     .state('trade', {
       url: '/trade',
       templateUrl: 'templates/trade.html',
       controller: 'TradeController'
     })
-    .state('tabs.account', {
-      url: '/account',
-      views: {
-        'account-tab': {
-          templateUrl: 'templates/account.html',
-          controller: 'AccountTabCtrl'
-        }
-      }
-    })
-    .state('tabs.options', {
-      url: '/options',
-      views: {
-        'options-tab': {
-          templateUrl: 'templates/options.html',
-          controller: 'OptionsTabCtrl'
-        }
-      }
+    .state('tradein', {
+      url: '/trade-in',
+      templateUrl: 'templates/trade-in.html',
+      controller: 'TradeInControllere'
     });
 
 
@@ -42,29 +24,21 @@ angular.module('binary', ['ionic'])
 
 })
 
-.controller('SignInCtrl', function($scope, $state) {
+.controller('SignInController', function($scope, $state) {
 
   $scope.signIn = function(user) {
     console.log('Sign-In', user);
     $state.go('trade');
   };
 })
-.controller('MassihTabCtrl', function($scope) {
-  console.log('MassihTabCtrl');
-  //$state.go('massih');
-})
-.controller('TradeController', function($scope, $ionicPopover) {
-  console.log('TradeTabCtrl -  show me');
+
+.controller('TradeController', function($scope, $state, $ionicPopover) {
 
   $ionicPopover.fromTemplateUrl('templates/options.html', {
     scope: $scope
   }).then(function(popover) {
     console.log('popover', popover);
     $scope.popover = popover;
-    // $scope.popover.initialize({
-    //   hardwareBackButtonClose: true
-    // });
-
   });
 
   $scope.displayOptions = function($event) {
@@ -77,15 +51,24 @@ angular.module('binary', ['ionic'])
     console.log('it is hiden');
   });
 
+  $scope.purchase = function() {
+
+    $state.go('tradein');
+  };
+
+  $scope.logout = function() {
+    $state.go('signin');
+  }
+
 })
 
-.controller('AccountTabCtrl', function($scope) {
-  console.log('AccountTabCtrl');
-})
-
-.controller('OptionsTabCtrl', function($scope) {
-  console.log('OptionsTabCtrl');
+.controller('TradeInControllere', function($scope, $state) {
+  console.log('TradeInControllere');
+  $scope.back = function() {
+    $state.go('trade');
+  }
 });
+
 
 
 
