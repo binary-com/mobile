@@ -7863,12 +7863,78 @@ button {
     font-size: 20px; }
 
 .options {
-  background-color: #2a3052; }
+  background-color: #e98024;
+  height: 84%;
+  width: 80%; }
+  .options .bar-header {
+    background-color: #e98024; }
+    .options .bar-header h1.title {
+      line-height: 54px; }
+  .options .popover-arrow:after {
+    background-color: #e98024; }
+  .options [class*="options"] {
+    border-radius: 0 !important; }
+    .options [class*="options"]:first-child {
+      margin-top: 5px; }
+    .options [class*="options"] h1 {
+      background-color: #c66714;
+      color: #efefef;
+      border-radius: 0 !important;
+      font-size: 14px;
+      text-align: center;
+      padding: 4px 0;
+      margin: 0; }
+  .options .options-trade .options-ticks {
+    background-color: #f7f7f7;
+    border-top: 1px solid #c4c4c4;
+    border-bottom: 1px solid #c4c4c4; }
+    .options .options-trade .options-ticks > .col:nth-child(1) {
+      font-size: 14px;
+      text-align: center;
+      line-height: 32px; }
+    .options .options-trade .options-ticks > .col:nth-child(2) input {
+      font-size: 18px;
+      width: 100px;
+      height: 32px;
+      border-radius: 5px;
+      border: 1px solid #c4c4c4;
+      line-height: 26px;
+      text-align: center;
+      padding-left: 18px; }
+    .options .options-trade .options-ticks > .col:nth-child(3) .button {
+      float: right;
+      margin: 0;
+      padding: 0;
+      height: 30px;
+      width: 30px;
+      min-width: 30px;
+      min-height: 30px;
+      border: none;
+      color: #efefef;
+      border-radius: 0; }
+      .options .options-trade .options-ticks > .col:nth-child(3) .button:before {
+        line-height: 26px; }
+      .options .options-trade .options-ticks > .col:nth-child(3) .button.plus {
+        background-color: #2a3052;
+        border-radius: 0 5px 5px 0; }
+      .options .options-trade .options-ticks > .col:nth-child(3) .button.minus {
+        background-color: #c4c4c4;
+        border-radius: 5px 0 0 5px; }
+  .options label .input-label {
+    padding: 0; }
   .options label.item-input {
     border-width: 0;
-    margin: 1px; }
-  .options label.item-radio {
-    width: calc(50% - 2px);
-    float: left;
-    border-width: 0;
-    margin: 1px; }
+    margin: 1px 0; }
+  .options label.item-select {
+    height: 33px; }
+  .options label.item-radio .item-content {
+    padding-top: 4px;
+    padding-bottom: 4px; }
+  .options label.item-radio .radio-icon {
+    padding: 0 14px 0 0; }
+  .options button {
+    background-color: #ee9b52;
+    color: #efefef; }
+
+.popover-backdrop.active {
+  background-color: rgba(0, 0, 0, 0.5); }
