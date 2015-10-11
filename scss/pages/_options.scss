@@ -1,21 +1,137 @@
 .options {
+	$optionColor : $orange;
+	background-color: $optionColor;
+	height: 84%;
+	width: 80%;
 
-	background-color: $darkblue;
-	label.item-input {
-		border-width: 0;
-		margin: 1px;
+	.bar-header {
+		background-color: $optionColor;
+		h1.title {
+			line-height: 54px;
+		}
 	}
-	label.item-radio {
-		width: calc(50% - 2px);
-		float: left;
-		//border-color: transparent;
-		border-width: 0;
-		margin: 1px;
-		&:nth-child(1) {
-			//margin: 2px 1px 0 0;
- 		}
- 		&:nth-child(2) {
-			//margin: 2px 0 0 1px;
- 		}
+	.popover-arrow {
+		&:after {
+			background-color: $optionColor;
+		}
 	}
+	[class*="options"] {
+		border-radius: 0 !important;
+		//margin-bottom: 30px;
+		&:first-child {
+			margin-top: 5px;
+		}
+		h1 {
+			background-color: darken($optionColor, 10%);
+			color: $white;
+			border-radius: 0 !important;
+
+			font-size: 14px;
+			text-align: center;
+			padding: 4px 0;
+			margin: 0;
+		}
+	}
+	.options-account {
+
+	}
+	.options-underlying {
+
+	}
+	.options-trade {
+		.options-ticks {
+			background-color: lighten($grey, 20%);
+			border-top: 1px solid $grey;
+			border-bottom: 1px solid $grey;
+			> .col:nth-child(1) {
+				font-size: 14px;
+				text-align: center;
+				line-height: 32px;
+			}
+
+			> .col:nth-child(2) {
+				input {
+					font-size: 18px;
+					width: 100px;
+					height: 32px;
+					border-radius: 5px;
+					border: 1px solid $grey;
+					line-height: 26px;
+					text-align: center;
+					padding-left: 18px;
+				}
+			}
+
+			> .col:nth-child(3) {
+				.button {
+					float: right;
+					margin: 0;
+					padding: 0;
+
+					height: 30px;
+					width: 30px;
+					min-width: 30px;
+					min-height: 30px;
+
+					border: none;
+					color: $white;
+					border-radius: 0;
+
+					&:before {
+						line-height: 26px;
+					}
+					&:after {
+
+					}
+
+
+					&.plus {
+						background-color: $darkblue;
+						border-radius: 0 5px 5px 0;
+					}
+					&.minus {
+						background-color: $grey;
+						border-radius: 5px 0 0 5px;
+					}
+				}
+			}
+		}
+	}
+	.options-amount {
+
+	}
+	.options-save {
+
+	}
+
+	label {
+		.input-label {
+			padding: 0;
+		}
+		&.item-input {
+			border-width: 0;
+			margin: 1px 0;
+		}
+		&.item-select {
+			height: 33px;
+		}
+		&.item-radio {
+			.item-content {
+				padding-top: 4px;
+				padding-bottom: 4px;
+			}
+			.radio-icon {
+				padding: 0 14px 0 0;
+			}
+		}
+	}
+
+	button {
+		background-color: lighten($orange, 10%);
+		color: $white;
+	}
+}
+
+.popover-backdrop.active {
+	background-color: rgba(0, 0, 0, 0.5);
 }
