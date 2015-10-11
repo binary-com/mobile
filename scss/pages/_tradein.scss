@@ -1,0 +1,34 @@
+.trade-in {
+	// fixme: duplicate (trade and tradein pages - create a mixing)
+	.contract-summary {
+		padding-top: 20px;
+		padding-bottom: 16px;
+		text-align: center;
+		font-size: 22px;
+		span {
+			color: $orange;
+		}
+	}
+	.contract-chart {}
+
+	.list {
+		a {
+			i {
+				//color: $orange;
+			}
+			.badge {
+				background: $orange;
+				display: block;
+				border-radius: 0;
+				width: 100px;
+			}
+
+		}
+	}
+	button {
+		width: 40%;
+		//margin: 0 auto;
+		background-color: $darkblue !important;
+	}
+
+}
