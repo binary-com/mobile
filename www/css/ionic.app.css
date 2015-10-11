@@ -7938,3 +7938,19 @@ button {
 
 .popover-backdrop.active {
   background-color: rgba(0, 0, 0, 0.5); }
+
+.trade-in .contract-summary {
+  padding-top: 20px;
+  padding-bottom: 16px;
+  text-align: center;
+  font-size: 22px; }
+  .trade-in .contract-summary span {
+    color: #e98024; }
+.trade-in .list a .badge {
+  background: #e98024;
+  display: block;
+  border-radius: 0;
+  width: 100px; }
+.trade-in button {
+  width: 40%;
+  background-color: #2a3052 !important; }
