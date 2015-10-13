@@ -1,28 +1,21 @@
 .options {
-	$optionColor : $orange;
+	$optionColor : $darkblue;
 	background-color: $optionColor;
-	height: 84%;
-	width: 80%;
 
 	.bar-header {
-		background-color: $optionColor;
+		background-color: $white;
+
 		h1.title {
-			line-height: 54px;
+			line-height: 46px;
+			color: $darkblue;
 		}
 	}
-	.popover-arrow {
-		&:after {
-			background-color: $optionColor;
-		}
-	}
+
 	[class*="options"] {
 		border-radius: 0 !important;
-		//margin-bottom: 30px;
-		&:first-child {
-			margin-top: 5px;
-		}
+
 		h1 {
-			background-color: darken($optionColor, 10%);
+			background-color: $darkblue;
 			color: $white;
 			border-radius: 0 !important;
 
@@ -32,12 +25,13 @@
 			margin: 0;
 		}
 	}
+
 	.options-account {
 
 	}
 	.options-underlying {
-
 	}
+
 	.options-trade {
 		.options-ticks {
 			background-color: lighten($grey, 20%);
@@ -97,11 +91,11 @@
 			}
 		}
 	}
+
 	.options-amount {
-
 	}
-	.options-save {
 
+	.options-save {
 	}
 
 	label {
@@ -127,8 +121,10 @@
 	}
 
 	button {
-		background-color: lighten($orange, 10%);
-		color: $white;
+		background-color: $white;
+		color: $darkblue;
+		width: 80%;
+		margin: 20px auto 0 !important;
 	}
 }
 

@@ -1,7 +1,7 @@
 {
   "name": "binary-app",
   "version": "1.0.0",
-  "description": "c: An Ionic project",
+  "description": "Binary App",
   "repository": {
     "type": "git",
     "url": "git@github.com:binary-com/mobile.git"
