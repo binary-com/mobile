@@ -1,0 +1,18 @@
+.bar-header {
+		background-color: $darkblue;
+		button {
+			background-color: $darkblue;
+			color: $white;
+		}
+
+		h1 {
+			img {
+				height: 80%;
+				padding-top: 10px;
+			}
+		}
+		
+	}
+.bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before{
+			font-size: 24px;
+		}
