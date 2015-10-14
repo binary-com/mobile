@@ -1,8 +1,13 @@
 <ion-view class="options">
-	<ion-header-bar>
-		<h1 class="title">OPTIONS</h1>
-	</ion-header-bar>
+	<div class="bar bar-header">
+      <a class="button icon-left ion-chevron-left button-clear" href=""></a>
+      <h1 class="title">
+        <img src="img/binary.svg" alt="Binary.com">
+      </h1>
+      <button class="button icon ion-log-out" ng-click="logout()"></button>
+    </div>
 	<ion-content>
+	
 		<div class="options-account">
 			<h1>Select Account</h1>
 
@@ -10,14 +15,12 @@
 				<div class="input-label">Account</div>
 				<select>
 					<option>VRTC12345</option>
-					<option>VC12345</option>
-					<option selected="selected">TC12345</option>
+					<option selected="selected">CR12345</option>
 				</select>
 			</label>
 		</div>
-		<div class="options-upderlying">
-			<h1>Select Underlying</h1>
-
+		<div class="options-market">
+			<h1>Select Market</h1>
 			<label class="item item-radio">
 				<input type="radio" name="underlying">
 				<div class="item-content">Forex</div>
@@ -28,9 +31,10 @@
 				<div class="item-content">Random</div>
 				<i class="radio-icon ion-checkmark"></i>
 			</label>
-
+		</div>
+		<div class="options-upderlying">
+			<h1>Select Underlying</h1>
 			<label class="item item-input item-select">
-				<!-- <i class="icon ion-ios-world placeholder-icon icon-small"></i> -->
 				<div class="input-label">Underlying</div>
 				<select>
 					<option>USD/JPY</option>
@@ -40,7 +44,7 @@
 			</label>
 		</div>
 		<div class="options-trade">
-			<h1>Select Trade</h1>
+			<h1>Select Trade Type</h1>
 
 			<label class="item item-radio">
 				<input type="radio" name="trade">
@@ -63,9 +67,39 @@
 				<i class="radio-icon ion-checkmark"></i>
 			</label>
 
-			<div class="options-ticks row">
-				<div class="col">No. ticks</div>
-				<div class="col">
+			<div class="options-ticks">
+				<h1>Select number of Ticks</h1>
+				<label class="item item-radio">
+				<input type="radio" name="trade">
+				<div class="item-content">5</div>
+				<i class="radio-icon ion-checkmark"></i>
+			</label>
+			<label class="item item-radio">
+				<input type="radio" name="trade">
+				<div class="item-content">6</div>
+				<i class="radio-icon ion-checkmark"></i>
+			</label>
+			<label class="item item-radio">
+				<input type="radio" name="trade">
+				<div class="item-content">7</div>
+				<i class="radio-icon ion-checkmark"></i>
+			</label>
+			<label class="item item-radio">
+				<input type="radio" name="trade">
+				<div class="item-content">8</div>
+				<i class="radio-icon ion-checkmark"></i>
+			</label>
+			<label class="item item-radio">
+				<input type="radio" name="trade">
+				<div class="item-content">9</div>
+				<i class="radio-icon ion-checkmark"></i>
+			</label>
+			<label class="item item-radio">
+				<input type="radio" name="trade">
+				<div class="item-content">10</div>
+				<i class="radio-icon ion-checkmark"></i>
+			</label>
+				<!-- <div class="col">
 					<input type="number" value="5">
 				</div>
 				<div class="col">
@@ -73,7 +107,7 @@
 						<a class="button minus icon ion-android-remove"></a>
 						<a class="button plus icon ion-android-add"></a>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div class="options-amount">

@@ -7700,12 +7700,6 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-body * {
-  font-family: roboto, sans-serif !important; }
-
-.center {
-  text-align: center; }
-
 @font-face {
   font-family: roboto;
   src: url(../fonts/Roboto/Roboto-Thin.ttf);
@@ -7720,6 +7714,24 @@ body * {
   font-family: roboto;
   src: url(../fonts/Roboto/Roboto-Bold.ttf);
   font-weight: 700; }
+
+body * {
+  font-family: roboto, sans-serif !important; }
+
+.center {
+  text-align: center; }
+
+.bar-header {
+  background-color: #2a3052; }
+  .bar-header button {
+    background-color: #2a3052;
+    color: #efefef; }
+  .bar-header h1 img {
+    height: 80%;
+    padding-top: 10px; }
+
+.bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before {
+  font-size: 24px; }
 
 ::-webkit-input-placeholder {
   color: #5e668f; }
@@ -7801,14 +7813,6 @@ button {
   .sign-in .help {
     color: #fff; }
 
-.trade .bar-header {
-  background-color: #2a3052; }
-  .trade .bar-header button {
-    background-color: #2a3052;
-    color: #efefef; }
-  .trade .bar-header h1 img {
-    height: 80%;
-    padding-top: 10px; }
 .trade .contract-summary {
   padding-top: 60px;
   padding-bottom: 16px;
@@ -7869,76 +7873,69 @@ button {
     margin: 0 auto;
     font-size: 20px; }
 
-.options {
-  background-color: #2a3052; }
-  .options .bar-header {
-    background-color: #efefef; }
-    .options .bar-header h1.title {
-      line-height: 46px;
-      color: #2a3052; }
-  .options [class*="options"] {
-    border-radius: 0 !important; }
-    .options [class*="options"] h1 {
-      background-color: #2a3052;
-      color: #efefef;
-      border-radius: 0 !important;
-      font-size: 14px;
-      text-align: center;
-      padding: 4px 0;
-      margin: 0; }
-  .options .options-trade .options-ticks {
-    background-color: #f7f7f7;
-    border-top: 1px solid #c4c4c4;
-    border-bottom: 1px solid #c4c4c4; }
-    .options .options-trade .options-ticks > .col:nth-child(1) {
-      font-size: 14px;
-      text-align: center;
-      line-height: 32px; }
-    .options .options-trade .options-ticks > .col:nth-child(2) input {
-      font-size: 18px;
-      width: 100px;
-      height: 32px;
-      border-radius: 5px;
-      border: 1px solid #c4c4c4;
-      line-height: 26px;
-      text-align: center;
-      padding-left: 18px; }
-    .options .options-trade .options-ticks > .col:nth-child(3) .button {
-      float: right;
-      margin: 0;
-      padding: 0;
-      height: 30px;
-      width: 30px;
-      min-width: 30px;
-      min-height: 30px;
-      border: none;
-      color: #efefef;
-      border-radius: 0; }
-      .options .options-trade .options-ticks > .col:nth-child(3) .button:before {
-        line-height: 26px; }
-      .options .options-trade .options-ticks > .col:nth-child(3) .button.plus {
-        background-color: #2a3052;
-        border-radius: 0 5px 5px 0; }
-      .options .options-trade .options-ticks > .col:nth-child(3) .button.minus {
-        background-color: #c4c4c4;
-        border-radius: 5px 0 0 5px; }
-  .options label .input-label {
-    padding: 0; }
-  .options label.item-input {
-    border-width: 0;
-    margin: 1px 0; }
-  .options label.item-select {
-    height: 33px; }
-  .options label.item-radio .item-content {
-    padding-top: 4px;
-    padding-bottom: 4px; }
-  .options label.item-radio .radio-icon {
-    padding: 0 14px 0 0; }
-  .options button {
-    background-color: #efefef;
+.options [class*="options"] {
+  border-radius: 0 !important; }
+  .options [class*="options"] h1 {
     color: #2a3052;
-    width: 80%;
-    margin: 20px auto 0 !important; }
+    border-radius: 0 !important;
+    font-size: 14px;
+    text-align: center;
+    padding: 4px 0;
+    margin: 0; }
+.options .options-account {
+  padding-top: 60px; }
+.options .options-market .item {
+  display: inline-block; }
+.options .options-trade .item {
+  display: inline-block; }
+.options .options-trade .options-ticks {
+  background-color: #f7f7f7; }
+  .options .options-trade .options-ticks > .col:nth-child(1) {
+    font-size: 14px;
+    text-align: center;
+    line-height: 32px; }
+  .options .options-trade .options-ticks > .col:nth-child(2) input {
+    font-size: 18px;
+    width: 100px;
+    height: 32px;
+    border-radius: 5px;
+    border: 1px solid #c4c4c4;
+    line-height: 26px;
+    text-align: center;
+    padding-left: 18px; }
+  .options .options-trade .options-ticks > .col:nth-child(3) .button {
+    float: right;
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    border: none;
+    color: #efefef;
+    border-radius: 0; }
+    .options .options-trade .options-ticks > .col:nth-child(3) .button:before {
+      line-height: 26px; }
+    .options .options-trade .options-ticks > .col:nth-child(3) .button.plus {
+      background-color: #2a3052;
+      border-radius: 0 5px 5px 0; }
+    .options .options-trade .options-ticks > .col:nth-child(3) .button.minus {
+      background-color: #c4c4c4;
+      border-radius: 5px 0 0 5px; }
+.options .options-amount .item {
+  display: inline-block; }
+.options label .input-label {
+  padding: 0; }
+.options label.item-input {
+  border-width: 0;
+  margin: 1px 0; }
+.options label.item-select {
+  height: 33px; }
+.options label.item-radio .item-content {
+  padding-top: 4px;
+  padding-bottom: 4px; }
+.options label.item-radio .radio-icon {
+  padding: 0 14px 0 0; }
 
 .popover-backdrop.active {
   background-color: rgba(0, 0, 0, 0.5); }
