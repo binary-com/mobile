@@ -1,22 +1,13 @@
 .options {
-	$optionColor : $darkblue;
-	background-color: $optionColor;
-
-	.bar-header {
-		background-color: $white;
-
-		h1.title {
-			line-height: 46px;
-			color: $darkblue;
-		}
-	}
+	// $optionColor : $darkblue;
+	// background-color: $optionColor;
 
 	[class*="options"] {
 		border-radius: 0 !important;
 
 		h1 {
-			background-color: $darkblue;
-			color: $white;
+			// background-color: $darkblue;
+			color: $darkblue;
 			border-radius: 0 !important;
 
 			font-size: 14px;
@@ -27,16 +18,28 @@
 	}
 
 	.options-account {
+		padding-top: 60px;
 
 	}
-	.options-underlying {
+	.options-market{
+		.item{
+			display: inline-block;
+		}
+	}
+	.options-upderlying {
+		.item{
+			// display: inline-block;
+		}
 	}
 
 	.options-trade {
+		.item{
+			display: inline-block;
+		}
 		.options-ticks {
 			background-color: lighten($grey, 20%);
-			border-top: 1px solid $grey;
-			border-bottom: 1px solid $grey;
+			// border-top: 1px solid $grey;
+			// border-bottom: 1px solid $grey;
 			> .col:nth-child(1) {
 				font-size: 14px;
 				text-align: center;
@@ -93,6 +96,9 @@
 	}
 
 	.options-amount {
+		.item{
+			display: inline-block;
+		}
 	}
 
 	.options-save {
@@ -120,12 +126,6 @@
 		}
 	}
 
-	button {
-		background-color: $white;
-		color: $darkblue;
-		width: 80%;
-		margin: 20px auto 0 !important;
-	}
 }
 
 .popover-backdrop.active {
