@@ -7763,6 +7763,10 @@ button {
       line-height: 1;
       line-height: 1.6;
       margin-left: 10px; }
+    .sign-in .list label.item-input.error {
+      border-bottom-color: #ff0000; }
+      .sign-in .list label.item-input.error i {
+        color: #ff0000; }
   .sign-in .list label.item-select {
     background-color: #2a3052;
     border-width: 0 0 1px 0; }
