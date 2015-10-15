@@ -8,21 +8,22 @@
  */
 
 angular
-	.module('binary.controllers')
-	.controller('SignInController', ['$scope',
-		function($scope, $state) {
+	.module('binary')
+	.controller('SignInController',
+		function($scope, $state, websocketService) {
 			$scope.language = 'EN';
-			$scope.massih = 'hazrati';
 			$scope.signIn = function(token, language) {
 				$scope.tokenError = false;
 				// Validate the token
 				if (token && token.length === 48) {
+					websocketService.send.authentication(token);
 					// send it for auth
 					// if auth:
 					// $state.go('trade');
 				} else {
 					// apply error class to the input
 					$scope.tokenError = true;
+
 				}
 			};
 
@@ -30,4 +31,14 @@ angular
 				$state.go('help');
 			};
 
-	}]);
+			$scope.$on('authorize', function(e, response) {
+				if (response && typeof response.authorize !== 'undefined') {
+					console.log('scope.on', response.authorize);
+					alert(response.authorize.email);
+				} else {
+
+				}
+
+			});
+
+	});

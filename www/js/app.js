@@ -7,9 +7,7 @@
  * The main module of binary app
  */
 
-angular.module('binary', [
-  'ionic',
-  'binary.controllers'])
+angular.module('binary', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -42,5 +40,4 @@ angular.module('binary', [
 
 
    $urlRouterProvider.otherwise('/sign-in');
-
 });
