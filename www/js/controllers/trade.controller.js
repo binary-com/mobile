@@ -8,7 +8,7 @@
  */
 
 angular
-	.module('binary.controllers')
+	.module('binary')
 	.controller('TradeController',
 		function($scope, $state) {
 

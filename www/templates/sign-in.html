@@ -5,9 +5,13 @@
       <img src="img/binary.svg" class="slogan" alt="Binary.com">
     </div>
     <div class="list">
-      <label class="item-input">
+      <label class="item-input" ng-class="{'error': tokenError}">
         <i class="icon ion-android-lock placeholder-icon icon-small"></i>
-        <input type="password" ng-model="token" placeholder="Paste your token here">
+        <input type="text" placeholder="Paste your token here"
+			ng-model="token"
+			min-length="48"
+			max-length="48"
+        	ngRequired>
       </label>
       <label class="item item-input item-select">
         <i class="icon ion-ios-world placeholder-icon icon-small"></i>
@@ -15,23 +19,23 @@
           Language
         </div>
         <select ng-model="language">
-          <option class="ZH_TW">繁體中文</option>
-          <option class="DE">Deutsch</option>
-          <option class="ID">Bahasa Indonesia</option>
-          <option class="ZH_CN">简体中文</option>
-          <option class="VI">Vietnamese</option>
-          <option class="AR">Arabic</option>
-          <option class="PL">Polish</option>
-          <option class="RU">Русский</option>
-          <option class="PT">Português</option>
-          <option class="ES">Español</option>
-          <option class="FR">Français</option>
-          <option class="EN" selected="selected">English</option>
+          <option value="ZH_TW">繁體中文</option>
+          <option value="DE">Deutsch</option>
+          <option value="ID">Bahasa Indonesia</option>
+          <option value="ZH_CN">简体中文</option>
+          <option value="VI">Vietnamese</option>
+          <option value="AR">Arabic</option>
+          <option value="PL">Polish</option>
+          <option value="RU">Русский</option>
+          <option value="PT">Português</option>
+          <option value="ES">Español</option>
+          <option value="FR">Français</option>
+          <option value="EN" selected="selected">English</option>
         </select>
       </label>
     </div>
     <div class="padding">
-      <button class="button button-block button-positive btn-signin" ng-click="signIn()">
+      <button class="button button-block button-positive btn-signin" ng-click="signIn(token, language)">
         Sign In
       </button>
     </div>
