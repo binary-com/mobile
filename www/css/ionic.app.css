@@ -7715,29 +7715,43 @@ a.button {
   src: url(../fonts/Roboto/Roboto-Bold.ttf);
   font-weight: 700; }
 
+::-webkit-input-placeholder {
+  color: #5e668f; }
+
+button {
+  border: none !important; }
+
 body * {
   font-family: roboto, sans-serif !important; }
 
+.button {
+  border-color: #b2b2b2;
+  background-color: #e98024;
+  color: #fff; }
+
 .center {
   text-align: center; }
+
+.item {
+  border-width: 0; }
+
+.item-select select {
+  max-width: 100%; }
+
+.item-complex .item-content, .item-radio .item-content {
+  background-color: #f2f2f2; }
 
 .bar-header {
   background-color: #2a3052; }
   .bar-header button {
     background-color: #2a3052;
-    color: #efefef; }
+    color: #fff; }
   .bar-header h1 img {
     height: 80%;
     padding-top: 10px; }
 
 .bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before {
   font-size: 24px; }
-
-::-webkit-input-placeholder {
-  color: #5e668f; }
-
-button {
-  border: none !important; }
 
 .sign-in {
   background-color: #2a3052; }
@@ -7767,8 +7781,14 @@ button {
       text-align: center; }
       .sign-in .list label.item-input i.icon-small {
         font-size: 36px; }
+<<<<<<< HEAD
     .sign-in .list label.item-input input[type=text], .sign-in .list label.item-input input[type=password] {
       color: #efefef;
+=======
+    .sign-in .list label.item-input input[type=text],
+    .sign-in .list label.item-input input[type=password] {
+      color: #fff;
+>>>>>>> ea3bf06892e6ec7df74b9fccd67607a559d2c148
       font-family: arial;
       font-weight: 400;
       font-size: 16px;
@@ -7791,7 +7811,7 @@ button {
         font-size: 36px; }
     .sign-in .list label.item-select .input-label {
       background-color: #2a3052;
-      color: #afafaf;
+      color: #bfbfbf;
       font-family: arial;
       font-weight: 400;
       font-size: 16px;
@@ -7800,7 +7820,7 @@ button {
       margin-left: 10px; }
     .sign-in .list label.item-select select {
       background-color: #2a3052;
-      color: #efefef;
+      color: #fff;
       font-size: 14px;
       max-width: 40%;
       font-weight: 300;
@@ -7843,7 +7863,7 @@ button {
     min-width: 40px;
     min-height: 40px;
     border: none;
-    color: #efefef;
+    color: #fff;
     border-radius: 0; }
     .trade .contract-payout > .col:nth-child(3) .button.plus {
       background-color: #2a3052;
@@ -7873,6 +7893,10 @@ button {
     margin: 0 auto;
     font-size: 20px; }
 
+.options .options-content {
+  padding-left: 5%;
+  padding-right: 5%; }
+
 .options [class*="options"] {
   border-radius: 0 !important; }
   .options [class*="options"] h1 {
@@ -7885,6 +7909,7 @@ button {
 .options .options-account {
   padding-top: 60px; }
 .options .options-market .item {
+<<<<<<< HEAD
   display: inline-block; }
 .options .options-trade .item {
   display: inline-block; }
@@ -7924,6 +7949,55 @@ button {
       border-radius: 5px 0 0 5px; }
 .options .options-amount .item {
   display: inline-block; }
+=======
+  display: inline-block;
+  width: 50%; }
+
+.options .options-market .item-content {
+  padding: 0;
+  text-align: center; }
+
+.options .options-market .item-radio input:checked ~ .item-content {
+  background: #2a3052;
+  color: #fff; }
+
+.options .options-trade .item {
+  display: inline-block;
+  width: 50%; }
+
+.options .options-trade .item-content {
+  padding: 0;
+  text-align: center; }
+
+.options .options-trade .item-radio input:checked ~ .item-content {
+  background: #2a3052;
+  color: #fff; }
+
+.options .options-ticks .item {
+  display: inline-block;
+  width: 16%; }
+
+.options .options-ticks .item-content {
+  padding: 0;
+  text-align: center; }
+
+.options .options-ticks .item-radio input:checked ~ .item-content {
+  background: #2a3052;
+  color: #fff; }
+
+.options .options-amount .item {
+  display: inline-block;
+  width: 30%; }
+
+.options .options-amount .item-content {
+  padding: 0;
+  text-align: center; }
+
+.options .options-amount .item-radio input:checked ~ .item-content {
+  background: #2a3052;
+  color: #fff; }
+
+>>>>>>> ea3bf06892e6ec7df74b9fccd67607a559d2c148
 .options label .input-label {
   padding: 0; }
 .options label.item-input {
