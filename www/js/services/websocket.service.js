@@ -8,20 +8,16 @@
  */
 
 angular
-	.module('binary.services')
-	.factory('webSocketFactory',
-		function() {
+	.module('binary')
+	.service('websocketService',
+		function($rootScope) {
 			var dataStream = '';
 			var token = '';
 			var language = '';
-			var dataBuffer = [];
-
-			var getDataStream = function(language) {
-				var l = language ? 'l=' + language : '';
-				return 'wss://www.binary.com/websockets/v2' + l;
-			};
+			var wsBuffer = [];
 
 			var websocketIsConnected = function() {
+
 				return !!dataStream && dataStream.readyState !== 3;
 			};
 
@@ -30,14 +26,23 @@ angular
 				return true;
 			};
 
-			var init = function(token) {
-				dataStream = new WebSocket(getDataStream(language));
+			var broadcast = function(message) {
+				if (message && typeof message.msg_type !== 'undefined') {
+					$rootScope.$broadcast(message.msg_type, message);
+				} else {
+					console.log('Error in receiving messages from websocket');
+				}
+			};
+
+			var init = function() {
+				dataStream = new WebSocket('wss://www.binary.com/websockets/v2?l=' + language);
 
 				dataStream.onopen = function() {
 					dataStream.send(JSON.stringify({authorize: token}));
 				};
-				dataStream.onmessage = function() {
-
+				dataStream.onmessage = function(message) {
+					console.log('message: ', message.data);
+					broadcast(JSON.parse(message.data));
 				};
 				dataStream.onclose = function(e) {
 					console.log('socket is closed ', e);
@@ -47,17 +52,11 @@ angular
 				};
 			};
 
-			this.authenticate = function(token, language) {
-				init();
-			};
-
-			this.send = function(data) {
+			var transmit = function(data) {
 				if (websocketIsConnected() && userIsAuthorized()) {
 					dataStream.send(JSON.stringify(data));
 				} else {
 					// go back to login page
-					// it shouldn't usually happen
-					// we need to keep track of this
 				}
 			};
 
@@ -67,12 +66,12 @@ angular
 				}
 			};
 
+			this.send = {
+				authentication: function(_token, _language) {
+					token = _token;
+					language = _language;
+					init();
+				}
+			};
 
 	});
-
-
-
-
-
-
-
