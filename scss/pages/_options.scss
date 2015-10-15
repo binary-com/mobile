@@ -1,133 +1,162 @@
 .options {
-	// $optionColor : $darkblue;
-	// background-color: $optionColor;
-
-	[class*="options"] {
-		border-radius: 0 !important;
-
-		h1 {
-			// background-color: $darkblue;
-			color: $darkblue;
-			border-radius: 0 !important;
-
-			font-size: 14px;
-			text-align: center;
-			padding: 4px 0;
-			margin: 0;
-		}
-	}
-
-	.options-account {
-		padding-top: 60px;
-
-	}
-	.options-market{
-		.item{
-			display: inline-block;
-		}
-	}
-	.options-upderlying {
-		.item{
-			// display: inline-block;
-		}
-	}
-
-	.options-trade {
-		.item{
-			display: inline-block;
-		}
-		.options-ticks {
-			background-color: lighten($grey, 20%);
-			// border-top: 1px solid $grey;
-			// border-bottom: 1px solid $grey;
-			> .col:nth-child(1) {
-				font-size: 14px;
-				text-align: center;
-				line-height: 32px;
-			}
-
-			> .col:nth-child(2) {
-				input {
-					font-size: 18px;
-					width: 100px;
-					height: 32px;
-					border-radius: 5px;
-					border: 1px solid $grey;
-					line-height: 26px;
-					text-align: center;
-					padding-left: 18px;
-				}
-			}
-
-			> .col:nth-child(3) {
-				.button {
-					float: right;
-					margin: 0;
-					padding: 0;
-
-					height: 30px;
-					width: 30px;
-					min-width: 30px;
-					min-height: 30px;
-
-					border: none;
-					color: $white;
-					border-radius: 0;
-
-					&:before {
-						line-height: 26px;
-					}
-					&:after {
-
-					}
-
-
-					&.plus {
-						background-color: $darkblue;
-						border-radius: 0 5px 5px 0;
-					}
-					&.minus {
-						background-color: $grey;
-						border-radius: 5px 0 0 5px;
-					}
-				}
-			}
-		}
-	}
-
-	.options-amount {
-		.item{
-			display: inline-block;
-		}
-	}
-
-	.options-save {
-	}
-
-	label {
-		.input-label {
-			padding: 0;
-		}
-		&.item-input {
-			border-width: 0;
-			margin: 1px 0;
-		}
-		&.item-select {
-			height: 33px;
-		}
-		&.item-radio {
-			.item-content {
-				padding-top: 4px;
-				padding-bottom: 4px;
-			}
-			.radio-icon {
-				padding: 0 14px 0 0;
-			}
-		}
-	}
-
+    .options-content {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    [class*="options"] {
+        border-radius: 0 !important;
+        h1 {
+            // background-color: $darkblue;
+            color: $darkblue;
+            border-radius: 0 !important;
+            font-size: 14px;
+            text-align: center;
+            padding: 4px 0;
+            margin: 0;
+        }
+    }
+    .options-account {
+        padding-top: 60px;
+    }
+    .options-market {
+        .item {
+            display: inline-block;
+            width: 50%;
+        }
+        .item-content {
+            padding: 0;
+            text-align: center;
+        }
+        .item-radio {
+            input:checked ~ .item-content {
+                background: $darkblue;
+                color: $white;
+            }
+        }
+    }
+    .options-upderlying {
+        .item {
+            // display: inline-block;
+        }
+    }
+    .options-trade {
+        .item {
+            display: inline-block;
+            width: 50%;
+        }
+        .item-content {
+            padding: 0;
+            text-align: center;
+        }
+        .item-radio {
+            input:checked ~ .item-content {
+                background: $darkblue;
+                color: $white;
+            }
+        }
+    }
+    .options-ticks {
+        .item {
+            display: inline-block;
+            width: 16%;
+        }
+        .item-content {
+            padding: 0;
+            text-align: center;
+        }
+        .item-radio {
+            input:checked ~ .item-content {
+                background: $darkblue;
+                color: $white;
+            }
+        }
+        // 	background-color: lighten($grey, 20%);
+        // 	> .col:nth-child(1) {
+        // 		font-size: 14px;
+        // 		text-align: center;
+        // 		line-height: 32px;
+        // 	}
+        // 	> .col:nth-child(2) {
+        // 		input {
+        // 			font-size: 18px;
+        // 			width: 00px;
+        // 			height: 32px;
+        // 			border-radius: 5px;
+        // 			border: 1px solid $grey;
+        // 			line-height: 26px;
+        // 			text-align: center;
+        // 			padding-left: 18px;
+        // 		}
+        // 	}
+        // 	> .col:nth-child(3) {
+        // 		.button {
+        // 			float: right;
+        // 			margin: 0;
+        // 			padding: 0;
+        // 			height: 30px;
+        // 			width: 30px;
+        // 			min-width: 30px;
+        // 			min-height: 30px;
+        // 			border: none;
+        // 			color: $white;
+        // 			border-radius: 0;
+        // 			&:before {
+        // 				line-height: 26px;
+        // 			}
+        // 			&:after {
+        // 			}
+        // 			&.plus {
+        // 				background-color: $darkblue;
+        // 				border-radius: 0 5px 5px 0;
+        // 			}
+        // 			&.minus {
+        // 				background-color: $grey;
+        // 				border-radius: 5px 0 0 5px;
+        // 			}
+        // 		}
+        // 	}
+        // }
+    }
+    .options-amount {
+        .item {
+            display: inline-block;
+            width: 30%;
+        }
+        .item-content {
+            padding: 0;
+            text-align: center;
+        }
+        .item-radio {
+            input:checked ~ .item-content {
+                background: $darkblue;
+                color: $white;
+            }
+        }
+    }
+    .options-save {}
+    label {
+        .input-label {
+            padding: 0;
+        }
+        &.item-input {
+            border-width: 0;
+            margin: 1px 0;
+        }
+        &.item-select {
+            height: 33px;
+        }
+        &.item-radio {
+            .item-content {
+                padding-top: 4px;
+                padding-bottom: 4px;
+            }
+            .radio-icon {
+                padding: 0 14px 0 0;
+            }
+        }
+    }
 }
 
 .popover-backdrop.active {
-	background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
