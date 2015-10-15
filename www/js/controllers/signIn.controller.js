@@ -35,6 +35,7 @@ angular
 				if (response && typeof response.authorize !== 'undefined') {
 					console.log('scope.on', response.authorize);
 					alert(response.authorize.email);
+					$state.go('trade');
 				} else {
 
 				}
