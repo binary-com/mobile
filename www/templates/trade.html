@@ -1,43 +1,44 @@
 <ion-view class="trade">
-  <ion-content>
     <div class="bar bar-header">
-      <button class="button icon ion-android-options" ng-click="displayOptions($event)"></button>
-      <h1 class="title">
+        <button class="button icon ion-android-options" ng-click="displayOptions($event)"></button>
+        <h1 class="title">
         <img src="img/binary.svg" alt="Binary.com">
       </h1>
-      <button class="button icon ion-log-out" ng-click="logout()"></button>
+        <button class="button icon ion-log-out" ng-click="logout()"></button>
     </div>
-    <div class="contract-summary">
-      <span>USD/JPY</span>
-      will
-      <span>RISE</span>
-      over next
-      <span>5</span>
-      ticks
-    </div>
-    <div class="contract-chart">
-      <img src="img/chart.png" alt="Chart">
-    </div>
-    <div class="contract-payout row">
-      <div class="col">Payout</div>
-      <div class="col">
-        <input type="number" value="5">
-      </div>
-      <div class="col">
-        <div class="button-bar">
-          <a class="button minus icon ion-android-remove"></a>
-          <a class="button plus icon ion-android-add"></a>
+    <ion-content>
+        <div class="contract-summary">
+            <span>USD/JPY</span> will
+            <span>RISE</span> over next
+            <span>5</span> ticks
         </div>
-      </div>
+        <div class="contract-chart">
+            <img src="img/chart.png" alt="Chart" height="200px" width="100%">
+        </div>
+        <div class="contract-payout row">
+            <div class="col">Payout</div>
+            <div class="col">
+                <input type="number" value="5">
+            </div>
+            <div class="col">
+                <div class="button-bar">
+                    <a class="button minus icon ion-android-remove"></a>
+                    <a class="button plus icon ion-android-add"></a>
+                </div>
+            </div>
+        </div>
+        <div class="contract-price row">
+            <div class="col">Price</div>
+            <div class="col">USD 7.1</div>
+        </div>
+        <div class="contract-purchase">
+            <button class="button button-block button-positive" ng-click="purchase()">
+                BUY
+            </button>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer row">
+        <div class="col balance">Balance: <strong>USD465</strong></div>
+        <div class="col account">CR24354</div>
     </div>
-    <div class="contract-price row">
-      <div class="col">Price</div>
-      <div class="col">USD 7.1</div>
-    </div>
-    <div class="contract-purchase">
-      <button class="button button-block button-positive" ng-click="purchase()">
-        BUY
-      </button>
-    </div>
-  </ion-content>
 </ion-view>
