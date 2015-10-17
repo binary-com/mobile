@@ -19,16 +19,18 @@
         </div>
         <div class="options-market">
             <h1>Select Market</h1>
-            <label class="item item-radio">
+            <div class="row">
+            <label class="item item-radio col">
                 <input type="radio" name="underlying">
                 <div class="item-content">Forex</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-radio">
+            <label class="item item-radio col">
                 <input type="radio" name="underlying">
                 <div class="item-content">Random</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
+            </div>
         </div>
         <div class="options-upderlying">
             <!-- <h1>Select Underlying</h1> -->
@@ -43,59 +45,65 @@
         </div>
         <div class="options-trade">
             <h1>Select Trade Type</h1>
-            <label class="item item-radio">
+            <div class="row">
+            <label class="item item-radio col">
                 <input type="radio" name="trade">
                 <div class="item-content">Up</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-radio">
+            <label class="item item-radio col">
                 <input type="radio" name="trade">
                 <div class="item-content">Down</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-radio">
+            </div>
+            <div class="row">
+            <label class="item item-radio col">
                 <input type="radio" name="trade">
                 <div class="item-content">Digit Match</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-radio">
+            <label class="item item-radio col">
                 <input type="radio" name="trade">
                 <div class="item-content">Digit Differs</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
+            </div>
         </div>
         <div class="options-ticks">
             <h1>Select number of Ticks</h1>
-            <label class="item item-radio">
+            <div class="row">
+            <label class="item item-radio col">
                 <input type="radio" name="tick">
                 <div class="item-content">5</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-radio">
+            <label class="item item-radio col">
                 <input type="radio" name="tick">
                 <div class="item-content">6</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-radio">
+            <label class="item item-radio col">
                 <input type="radio" name="tick">
                 <div class="item-content">7</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-radio">
+            <label class="item item-radio col">
                 <input type="radio" name="tick">
                 <div class="item-content">8</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-radio">
+            <label class="item item-radio col">
                 <input type="radio" name="tick">
                 <div class="item-content">9</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-radio">
+            <label class="item item-radio col">
                 <input type="radio" name="tick">
                 <div class="item-content">10</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
+            </div>
             <!-- <div class="col">
 			<input type="number" value="5">
 	</div>
@@ -108,17 +116,18 @@
         </div>
         <div class="options-amount">
             <h1>Select Amount</h1>
-            <label class="item item-radio">
+            <div class="row">
+            <label class="item item-radio col">
                 <input type="radio" name="amount">
                 <div class="item-content">Payout</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-radio">
+            <label class="item item-radio col">
                 <input type="radio" name="amount">
                 <div class="item-content">Stake</div>
                 <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
-            <label class="item item-input item-select">
+            <label class="item item-input item-select col">
                 <select>
                     <option selected="selected">USD</option>
                     <option>EUR</option>
@@ -126,6 +135,7 @@
                 </select>
                 <!-- <input type="number" value="10" min="5" max="10"> -->
             </label>
+            </div>
         </div>
         <div class="options-save">
             <button class="button button-block" ng-click="backToTradePage()">
