@@ -9340,6 +9340,18 @@ body * {
 .bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before {
   font-size: 24px; }
 
+.bar-footer {
+  background-color: #2a3052;
+  bottom: 0;
+  border-top-width: 0;
+  border-bottom-width: 1px; }
+  .bar-footer .account {
+    text-align: center;
+    color: #e98024; }
+  .bar-footer .balance {
+    text-align: center;
+    color: #e98024; }
+
 .sign-in {
   background-color: #2a3052; }
   .sign-in .branding {
@@ -9421,7 +9433,7 @@ body * {
   text-align: center;
   font-size: 22px; }
   .trade .contract-summary span {
-    color: #e98024; }
+    font-weight: bold; }
 
 .trade .contract-payout {
   background-color: #f7f7f7;
@@ -9481,6 +9493,8 @@ body * {
 .options .options-content {
   padding-left: 5%;
   padding-right: 5%; }
+  .options .options-content .col {
+    padding: 1px; }
 
 .options [class*="options"] {
   border-radius: 0 !important; }
@@ -9504,8 +9518,7 @@ body * {
   margin-bottom: 10px;
   padding: 10px 0; }
   .options .options-market .item {
-    display: inline-block;
-    width: 50%; }
+    display: inline-block; }
   .options .options-market .item-content {
     padding: 0;
     text-align: center; }
@@ -9521,8 +9534,7 @@ body * {
   border-bottom: 1px solid #f2f2f2;
   padding: 10px 0; }
   .options .options-trade .item {
-    display: inline-block;
-    width: 50%; }
+    display: inline-block; }
   .options .options-trade .item-content {
     padding: 0;
     text-align: center; }
