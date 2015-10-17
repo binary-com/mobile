@@ -2,6 +2,9 @@
     .options-content {
         padding-left: 5%;
         padding-right: 5%;
+        .col{
+            padding:1px;
+        }
     }
     [class*="options"] {
         border-radius: 0 !important;
@@ -29,7 +32,6 @@
     	padding:10px 0;
         .item {
             display: inline-block;
-            width: 50%;
         }
         .item-content {
             padding: 0;
@@ -58,7 +60,6 @@
     	padding:10px 0;
         .item {
             display: inline-block;
-            width: 50%;
         }
         .item-content {
             padding: 0;
