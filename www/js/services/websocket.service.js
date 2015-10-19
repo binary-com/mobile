@@ -1,16 +1,16 @@
 /**
- * @name SignInController
+ * @name websocketService
  * @author Massih Hazrati
  * @contributors []
- * @since 10/12/2015
+ * @since 10/15/2015
  * @copyright Binary Ltd
- * Handles sign-in functionalities
+ * Handles websocket functionalities
  */
 
 angular
 	.module('binary')
 	.service('websocketService',
-		function($rootScope) {
+		function($rootScope, messageService) {
 			var dataStream = '';
 			var token = '';
 			var language = '';
@@ -26,14 +26,6 @@ angular
 				return true;
 			};
 
-			var broadcast = function(message) {
-				if (message && typeof message.msg_type !== 'undefined') {
-					$rootScope.$broadcast(message.msg_type, message);
-				} else {
-					console.log('Error in receiving messages from websocket');
-				}
-			};
-
 			var init = function() {
 				dataStream = new WebSocket('wss://www.binary.com/websockets/v2?l=' + language);
 
@@ -41,8 +33,7 @@ angular
 					dataStream.send(JSON.stringify({authorize: token}));
 				};
 				dataStream.onmessage = function(message) {
-					console.log('message: ', message.data);
-					broadcast(JSON.parse(message.data));
+					messageService.process(message);
 				};
 				dataStream.onclose = function(e) {
 					console.log('socket is closed ', e);
@@ -52,6 +43,7 @@ angular
 				};
 			};
 
+			// TODO: remove this function
 			var transmit = function(data) {
 				if (websocketIsConnected() && userIsAuthorized()) {
 					dataStream.send(JSON.stringify(data));
@@ -71,7 +63,23 @@ angular
 					token = _token;
 					language = _language;
 					init();
+				},
+				proposal: function() {
+					var data = messageService.getProposal();
+					dataStream.send(JSON.stringify(data));
+				},
+				forget: function(_id) {
+					var data = {
+						'forget': _id
+					};
+					dataStream.send(JSON.stringify(data));
+				},
+				buy: function(_id, _price) {
+					var data = {
+						buy: _id,
+						price: _price
+					};
+					dataStream.send(JSON.stringify(data));
 				}
 			};
-
 	});
