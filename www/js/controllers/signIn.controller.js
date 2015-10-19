@@ -17,13 +17,9 @@ angular
 				// Validate the token
 				if (token && token.length === 48) {
 					websocketService.send.authentication(token);
-					// send it for auth
-					// if auth:
-					// $state.go('trade');
 				} else {
 					// apply error class to the input
 					$scope.tokenError = true;
-
 				}
 			};
 
@@ -32,14 +28,11 @@ angular
 			};
 
 			$scope.$on('authorize', function(e, response) {
-				if (response && typeof response.authorize !== 'undefined') {
-					console.log('scope.on', response.authorize);
-					alert(response.authorize.email);
+				if (response) {
 					$state.go('trade');
 				} else {
-
+					// empty the token input
+					// 'red' it
 				}
-
 			});
-
 	});
