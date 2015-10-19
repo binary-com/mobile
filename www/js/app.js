@@ -32,6 +32,11 @@ angular.module('binary', ['ionic'])
       templateUrl: 'templates/options.html',
       controller: 'OptionsController'
     })
+    .state('accounts', {
+      url: '/accounts',
+      templateUrl: 'templates/accounts.html',
+      controller: 'AccountsController'
+    })
     .state('contract', {
       url: '/contract',
       templateUrl: 'templates/contract.html',
