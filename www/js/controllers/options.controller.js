@@ -12,6 +12,10 @@ angular
 	.controller('OptionsController',
 		function($scope, $state) {
 
+			$scope.goToManageAccounts = function() {
+				$state.go('accounts');
+			};
+
 			$scope.backToTradePage = function() {
 				$state.go('trade');
 			};
