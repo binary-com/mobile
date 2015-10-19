@@ -1,17 +1,14 @@
 <ion-view class="trade-in">
   <ion-content>
-    <div class="contract-summary">
-      <span>USD/CAD</span>
-      will
-      <span>RISE</span>
-      over next
-      <span>10</span>
-      ticks
-    </div>
-    <div class="contract-chart">
+	<div class="contract-summary">
+		<p>BALANCE AFTER: {{tempData.balance_after}}</p>
+		<p>BUY PRICE: {{tempData.buy_price}}</p>
+		<p>NOTE: {{tempData.longcode}}</p>
+	</div>
+	<!-- <div class="contract-chart">
       <img src="img/chart.png" alt="Chart">
-    </div>
-    <div class="list">
+    </div> -->
+	<div class="list">
 		<a class="item item-icon-left" href="#">
 			<i class="icon ion-android-done-all"></i>
 			Buy Price
