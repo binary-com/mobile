@@ -1,12 +1,35 @@
 <ion-view class="accounts">
-	<ion-content>
-
-		<h1>Account Types</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo aliquid atque quas praesentium assumenda est accusamus officia reiciendis quis, aliquam dolorem nobis reprehenderit blanditiis voluptatibus, hic totam dignissimos rem iste, exercitationem quo veritatis! Placeat sapiente eaque qui expedita laboriosam. Consectetur odit ducimus quod a velit nisi quia suscipit, cupiditate, quibusdam!</p>
-		<button class="button button-block button-positive" ng-click="back()">
+    <div class="bar bar-header">
+        <a class="button icon-left ion-chevron-left button-clear" ng-click="back()"></a>
+        <h1 class="title">
+	<img src="img/binary.svg" alt="Binary.com">
+	</h1>
+        <!-- <button class="button icon ion-log-out" ng-click="logout()"></button> -->
+    </div>
+    <ion-content class="accounts-content">
+        <h1>My Accounts</h1>
+        <div class="added-account row">
+            <div class="account-id col col-50">VRTC12345</div>
+            <div class="account-balance col-33">USD9745.98</div>
+            <div class="account-setting col ion-android-remove-circle"></div>
+        </div>
+        <div class="added-account row">
+            <div class="account-id col col-50">MLT34519</div>
+            <div class="account-balance col-33">USD97</div>
+            <div class="account-setting col ion-android-remove-circle"></div>
+        </div>
+        <div class="added-account row">
+            <div class="account-id col col-50">MF45789</div>
+            <div class="account-balance col-33">USD945.20</div>
+            <div class="account-setting col ion-android-remove-circle"></div>
+        </div>
+        <div class="add-account">
+            <a href=""><i class="ion-android-add-circle"></i>Add more accounts</a>
+            
+        </div>
+        <!-- <button class="button button-block button-positive" ng-click="back()">
 			<i class="icon ion-ios-arrow-back"></i>
 			Add account ...
-		</button>
-
-	</ion-content>
+		</button> -->
+    </ion-content>
 </ion-view>
