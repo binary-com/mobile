@@ -8,16 +8,20 @@
     </div>
     <ion-content class="options-content">
 
-        <div class="options-account">
-        	<a href="" ng-click="goToManageAccounts()">Manage Accounts</a>
-            <!-- <h1>Select Account</h1> -->
-            <label class="item item-input item-select">
+        <div class="options-account row">
+             <!-- <h1>Select Account</h1> -->
+            <label class="item item-input item-select col col-90">
                 <div class="input-label"><h1>Account</h1></div>
                 <select>
                     <option>VRTC12345</option>
                     <option selected="selected">CR12345</option>
                 </select>
+
             </label>
+            
+            <div class="manage-account col">
+            <a  href="" ng-click="goToManageAccounts()"><i class="ion-ios-gear"></i></a>
+</div>
         </div>
         <div class="options-market">
             <h1>Select Market</h1>
