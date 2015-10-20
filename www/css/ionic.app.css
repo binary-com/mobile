@@ -9511,6 +9511,11 @@ body * {
   padding-top: 60px;
   padding-bottom: 10px;
   border-bottom: 1px solid #f2f2f2; }
+  .options .options-account .manage-account {
+    text-align: right;
+    font-size: 20px; }
+    .options .options-account .manage-account i:before {
+      margin-top: 3px; }
 
 .options .options-market {
   border-bottom: 1px solid #f2f2f2;
@@ -9605,3 +9610,23 @@ body * {
 .trade-in button {
   width: 40%;
   background-color: #2a3052 !important; }
+
+.accounts-content {
+  padding-left: 5%;
+  padding-right: 5%; }
+  .accounts-content .add-account {
+    margin-top: 60px; }
+  .accounts-content .added-account {
+    padding: 15px 0 10px;
+    border-bottom: 1px solid #f2f2f2; }
+    .accounts-content .added-account .account-id {
+      color: #2a3052;
+      font-size: 16px;
+      font-weight: bold; }
+    .accounts-content .added-account .account-balance {
+      color: #e98024;
+      font-size: 16px;
+      padding: 5px; }
+    .accounts-content .added-account .account-setting {
+      text-align: right;
+      font-size: 20px; }

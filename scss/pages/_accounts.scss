@@ -1,0 +1,25 @@
+.accounts-content{
+		padding-left: 5%;
+        padding-right: 5%;
+	.add-account{
+		margin-top: 60px;
+	}
+	.added-account{
+		padding:15px 0 10px;
+		border-bottom: 1px solid $lightgray;
+		.account-id{
+			color: $darkblue;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.account-balance{
+			color:$orange;
+			font-size: 16px;
+			padding: 5px;
+		}
+		.account-setting{
+			text-align: right;
+			font-size: 20px;
+		}
+	}
+}
