@@ -9315,6 +9315,8 @@ body * {
   border-color: #b2b2b2;
   background-color: #e98024;
   color: #fff; }
+  .button :hover {
+    color: #fff !important; }
 
 .center {
   text-align: center; }
@@ -9428,15 +9430,15 @@ body * {
     color: #fff; }
 
 .trade .contract-summary {
-  padding-top: 60px;
-  padding-bottom: 16px;
+  padding: 60px 10px 10px 10px;
   text-align: center;
-  font-size: 22px; }
+  font-size: 16px;
+  background-color: #f2f2f2; }
   .trade .contract-summary span {
     font-weight: bold; }
 
 .trade .contract-payout {
-  background-color: #f7f7f7;
+  background-color: #f2f2f2;
   border-top: 1px solid #c4c4c4;
   border-bottom: 1px solid #c4c4c4; }
   .trade .contract-payout > .col:nth-child(1) {
@@ -9444,7 +9446,7 @@ body * {
     text-align: center;
     line-height: 48px; }
   .trade .contract-payout > .col:nth-child(2) input {
-    font-size: 30px;
+    font-size: 24px;
     width: 120px;
     height: 48px;
     border-radius: 5px;
@@ -9468,7 +9470,7 @@ body * {
       border-radius: 5px 0 0 5px; }
 
 .trade .contract-price {
-  background-color: #f7f7f7;
+  background-color: #f2f2f2;
   border-bottom: 1px solid #c4c4c4;
   margin-top: 0px; }
   .trade .contract-price > .col:nth-child(1) {
@@ -9477,7 +9479,7 @@ body * {
     padding-left: 38px;
     line-height: 48px; }
   .trade .contract-price > .col:nth-child(2) {
-    font-size: 36px;
+    font-size: 24px;
     color: #e98024;
     text-align: center;
     line-height: 48px; }
@@ -9511,6 +9513,11 @@ body * {
   padding-top: 60px;
   padding-bottom: 10px;
   border-bottom: 1px solid #f2f2f2; }
+  .options .options-account .manage-account {
+    text-align: right;
+    font-size: 20px; }
+    .options .options-account .manage-account i:before {
+      margin-top: 3px; }
 
 .options .options-market {
   border-bottom: 1px solid #f2f2f2;
@@ -9605,3 +9612,35 @@ body * {
 .trade-in button {
   width: 40%;
   background-color: #2a3052 !important; }
+
+.accounts-content {
+  padding-left: 5%;
+  padding-right: 5%; }
+  .accounts-content h1 {
+    margin-top: 60px;
+    font-size: 24px; }
+  .accounts-content .added-account {
+    padding: 15px 0 10px;
+    border-bottom: 1px solid #f2f2f2; }
+    .accounts-content .added-account .account-id {
+      color: #2a3052;
+      font-size: 16px;
+      font-weight: bold; }
+    .accounts-content .added-account .account-balance {
+      color: #e98024;
+      font-size: 16px;
+      padding: 5px; }
+    .accounts-content .added-account .account-setting {
+      text-align: right;
+      font-size: 20px; }
+  .accounts-content .add-account {
+    padding: 15px;
+    text-align: center;
+    font-size: 16px; }
+    .accounts-content .add-account i {
+      margin-right: 5px;
+      font-size: 20px; }
+
+.help-content {
+  padding-left: 5%;
+  padding-right: 5%; }
