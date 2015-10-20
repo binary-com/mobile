@@ -24,6 +24,13 @@
         padding-bottom:10px;
         border-bottom: 1px solid $lightgray;
         // margin-bottom: 20px;
+    .manage-account{
+        text-align: right;
+        font-size: 20px;
+        i:before{
+            margin-top:3px;
+        }
+    }
     }
     .options-market {
     	border-bottom: 1px solid $lightgray;
