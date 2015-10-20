@@ -17,11 +17,11 @@
             <img src="img/chart.png" alt="Chart" height="200px" width="100%">
         </div>
         <div class="contract-payout row">
-            <div class="col">Payout</div>
-            <div class="col">
+            <div class="col col-33">Payout</div>
+            <div class="col col-33">
                 <input type="number" value="{{amount}}">
             </div>
-            <div class="col">
+            <div class="col col-33">
                 <div class="button-bar">
                     <a ng-click="subtractAmount()" class="button minus icon ion-android-remove"></a>
                     <a ng-click="addAmount()" class="button plus icon ion-android-add"></a>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="contract-price row">
-            <div class="col">Price</div>
+            <div class="col col-33">Price</div>
             <div class="col">USD {{price}}</div>
         </div>
         <div class="contract-purchase">
