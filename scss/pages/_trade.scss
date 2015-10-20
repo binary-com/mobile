@@ -1,11 +1,10 @@
 .trade {
 	.contract-summary {
-		padding-top: 60px;
-		padding-bottom: 16px;
+		padding: 60px 10px 10px 10px;
 		text-align: center;
-		font-size: 22px;
+		font-size: 16px;
+		background-color:$lightgray;
 		span {
-			// color: $orange;
 			font-weight: bold;
 		}
 	}
@@ -14,7 +13,7 @@
 
 	}
 	.contract-payout {
-		background-color: lighten($grey, 20%);
+		background-color: $lightgray;
 		border-top: 1px solid $grey;
 		border-bottom: 1px solid $grey;
 		> .col:nth-child(1) {
@@ -25,7 +24,7 @@
 
 		> .col:nth-child(2) {
 			input {
-				font-size: 30px;
+				font-size: 24px;
 				width: 120px;
 				height: 48px;
 				border-radius: 5px;
@@ -62,7 +61,7 @@
 	}
 
 	.contract-price {
-		background-color: lighten($grey, 20%);
+		background-color: $lightgray;
 		border-bottom: 1px solid $grey;
 		margin-top: 0px;
 		> .col:nth-child(1) {
@@ -73,7 +72,7 @@
 		}
 
 		> .col:nth-child(2) {
-			font-size: 36px;
+			font-size: 24px;
 			color: $orange;
 			text-align: center;
 			line-height: 48px;
