@@ -19,4 +19,17 @@ angular
 			$scope.backToTradePage = function() {
 				$state.go('trade');
 			};
+
+
+			// Update values
+			$scope.updateTicks = function(_tick) {
+				console.log('tick number: ', _tick);
+			};
+			$scope.updateBasis = function(_basis) {
+				console.log('basis: ', _basis);
+			};
+
+
+
+
 	});
