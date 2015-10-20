@@ -55,24 +55,20 @@
             <label class="item item-radio col">
                 <input type="radio" name="trade">
                 <div class="item-content">Up</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             <label class="item item-radio col">
                 <input type="radio" name="trade">
                 <div class="item-content">Down</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             </div>
             <div class="row">
             <label class="item item-radio col">
                 <input type="radio" name="trade">
                 <div class="item-content">Digit Match</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             <label class="item item-radio col">
                 <input type="radio" name="trade">
                 <div class="item-content">Digit Differs</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             </div>
         </div>
@@ -80,34 +76,28 @@
             <h1>Select number of Ticks</h1>
             <div class="row">
             <label class="item item-radio col">
-                <input type="radio" name="tick">
+                <input type="radio" name="tick" value="5" ng-model="ticks" ng-change="updateTicks(ticks)">
                 <div class="item-content">5</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             <label class="item item-radio col">
-                <input type="radio" name="tick">
+                <input type="radio" name="tick" value="6" ng-model="ticks" ng-change="updateTicks(ticks)">
                 <div class="item-content">6</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             <label class="item item-radio col">
-                <input type="radio" name="tick">
+                <input type="radio" name="tick" value="7" ng-model="ticks" ng-change="updateTicks(ticks)">
                 <div class="item-content">7</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             <label class="item item-radio col">
-                <input type="radio" name="tick">
+                <input type="radio" name="tick" value="8" ng-model="ticks" ng-change="updateTicks(ticks)">
                 <div class="item-content">8</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             <label class="item item-radio col">
-                <input type="radio" name="tick">
+                <input type="radio" name="tick" value="9" ng-model="ticks" ng-change="updateTicks(ticks)">
                 <div class="item-content">9</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             <label class="item item-radio col">
-                <input type="radio" name="tick">
+                <input type="radio" name="tick" value="10" ng-model="ticks" ng-change="updateTicks(ticks)">
                 <div class="item-content">10</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             </div>
         </div>
@@ -115,14 +105,12 @@
             <h1>Select Amount</h1>
             <div class="row">
             <label class="item item-radio col">
-                <input type="radio" name="amount">
+                <input type="radio" name="amount" value="payout" ng-model="basis" ng-change="updateBasis(basis)">
                 <div class="item-content">Payout</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             <label class="item item-radio col">
-                <input type="radio" name="amount">
+                <input type="radio" name="amount" value="stake" ng-model="basis" ng-change="updateBasis(basis)">
                 <div class="item-content">Stake</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
             </label>
             <label class="item item-input item-select col">
                 <select>
