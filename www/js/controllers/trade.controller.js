@@ -21,7 +21,7 @@ angular
 
 			var proposalId = '';
 
-			websocketService.send.proposal();
+			//websocketService.send.proposal();
 
 			$scope.displayOptions = function($event) {
 
@@ -29,8 +29,10 @@ angular
 			};
 
 			$scope.purchase = function() {
-
-				websocketService.send.buy(proposalId, 100);
+				// temp: for testing
+				websocketService.get.tradingTimes();
+				// uncomment it
+				//websocketService.send.buy(proposalId, 100);
 			};
 
 			$scope.$on('proposal', function(e, response) {

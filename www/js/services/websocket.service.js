@@ -82,4 +82,12 @@ angular
 					dataStream.send(JSON.stringify(data));
 				}
 			};
+			this.get = {
+				tradingTimes: function(_date) {
+					var data = {
+						trading_times: (_date) ? _date : 'today'
+					};
+					dataStream.send(JSON.stringify(data));
+				}
+			};
 	});
