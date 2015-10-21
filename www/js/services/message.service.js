@@ -54,11 +54,37 @@ angular
 								$rootScope.$broadcast('buy', message.buy);
 							}
 							break;
+						case 'trading_times':
+							if(message.trading_times) {
+								//$rootScope.$broadcast('trading_times');
+								processMarkets(message.trading_times);
+							}
+							break;
 						default:
 
-							console.log('another message type: ', messageType);
+							console.log('another message type: ', message);
 					}
 				}
+			};
+
+			var processMarkets = function(_markets) {
+				console.log('markets: ', _markets);
+				var market = _markets.markets;
+				var forexSymbols = [];
+				var randomSymbols = [];
+				for (var i = 0; i < market.length; i++) {
+					if (market[i].name === 'Forex') {
+						for (var j = 0; j < market[i].submarkets.length; j++) {
+							forexSymbols = forexSymbols.concat(market[i].submarkets[j].symbols);
+						}
+					} else if (market[i].name === 'Randoms') {
+						for (var k = 0; k < market[i].submarkets.length; k++) {
+							randomSymbols = randomSymbols.concat(market[i].submarkets[k].symbols);
+						}
+					}
+				}
+				console.log('forex symbols: ', forexSymbols);
+				console.log('rendom symbols: ', randomSymbols);
 			};
 
 			this.getAccountInfo = function(_field) {
@@ -87,3 +113,20 @@ angular
 				return contract;
 			};
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
