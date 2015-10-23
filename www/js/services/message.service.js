@@ -24,8 +24,10 @@ angular
 				symbol: 'R_25'
 			};
 
-
 			var contract = {};
+
+			var forex = [];
+			var random = [];
 
 			this.process = function(response) {
 				var message = JSON.parse(response.data);
@@ -83,6 +85,8 @@ angular
 						}
 					}
 				}
+				forex = forexSymbols;
+				random = randomSymbols;
 				console.log('forex symbols: ', forexSymbols);
 				console.log('rendom symbols: ', randomSymbols);
 			};
@@ -111,6 +115,15 @@ angular
 			this.getContract = function() {
 
 				return contract;
+			};
+
+			this.getMarket = {
+				forex: function() {
+					return forex;
+				},
+				random: function() {
+					return random;
+				}
 			};
 	});
 
