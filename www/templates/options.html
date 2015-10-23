@@ -1,131 +1,123 @@
 <ion-view class="options">
-    <div class="bar bar-header">
-        <a class="button icon-left ion-chevron-left button-clear" ng-click="backToTradePage()"></a>
-        <h1 class="title">
-	<img src="img/binary.svg" alt="Binary.com">
-	</h1>
-        <!-- <button class="button icon ion-log-out" ng-click="logout()"></button> -->
-    </div>
-    <ion-content class="options-content">
+	<div class="bar bar-header">
+		<a class="button icon-left ion-chevron-left button-clear" ng-click="backToTradePage()"></a>
+		<h1 class="title">
+			<img src="img/binary.svg" alt="Binary.com">
+		</h1>
+		<!-- <button class="button icon ion-log-out" ng-click="logout()"></button> -->
+	</div>
+	<ion-content class="options-content">
+		<div class="options-account row">
+			<label class="item item-input item-select col col-90">
+				<div class="input-label">
+					<h1>Account</h1>
+				</div>
 
-        <div class="options-account row">
-             <!-- <h1>Select Account</h1> -->
-            <label class="item item-input item-select col col-90">
-                <div class="input-label"><h1>Account</h1></div>
-                <select>
-                    <option>VRTC12345</option>
-                    <option selected="selected">CR12345</option>
-                </select>
+				<select>
+					<option>VRTC12345</option>
+					<option selected="selected">CR12345</option>
+				</select>
+			</label>
 
-            </label>
-            
-            <div class="manage-account col">
-            <a  href="" ng-click="goToManageAccounts()"><i class="ion-ios-gear"></i></a>
-</div>
-        </div>
-        <div class="options-market">
-            <h1>Select Market</h1>
-            <div class="row">
-            <label class="item item-radio col">
-                <input type="radio" name="underlying">
-                <div class="item-content">Forex</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
-            </label>
-            <label class="item item-radio col">
-                <input type="radio" name="underlying">
-                <div class="item-content">Random</div>
-                <!-- <i class="radio-icon ion-checkmark"></i> -->
-            </label>
-            </div>
-        </div>
-        <div class="options-upderlying">
-            <!-- <h1>Select Underlying</h1> -->
-            <label class="item item-input item-select">
-                <div class="input-label"><h1>Underlying</h1></div>
-                <select>
-                    <option>USD/JPY</option>
-                    <option selected="selected">USD/CAD</option>
-                    <option>EUR/USD</option>
-                </select>
-            </label>
-        </div>
-        <div class="options-trade">
-            <h1>Select Trade Type</h1>
-            <div class="row">
-            <label class="item item-radio col">
-                <input type="radio" name="trade">
-                <div class="item-content">Up</div>
-            </label>
-            <label class="item item-radio col">
-                <input type="radio" name="trade">
-                <div class="item-content">Down</div>
-            </label>
-            </div>
-            <div class="row">
-            <label class="item item-radio col">
-                <input type="radio" name="trade">
-                <div class="item-content">Digit Match</div>
-            </label>
-            <label class="item item-radio col">
-                <input type="radio" name="trade">
-                <div class="item-content">Digit Differs</div>
-            </label>
-            </div>
-        </div>
-        <div class="options-ticks">
-            <h1>Select number of Ticks</h1>
-            <div class="row">
-            <label class="item item-radio col">
-                <input type="radio" name="tick" value="5" ng-model="ticks" ng-change="updateTicks(ticks)">
-                <div class="item-content">5</div>
-            </label>
-            <label class="item item-radio col">
-                <input type="radio" name="tick" value="6" ng-model="ticks" ng-change="updateTicks(ticks)">
-                <div class="item-content">6</div>
-            </label>
-            <label class="item item-radio col">
-                <input type="radio" name="tick" value="7" ng-model="ticks" ng-change="updateTicks(ticks)">
-                <div class="item-content">7</div>
-            </label>
-            <label class="item item-radio col">
-                <input type="radio" name="tick" value="8" ng-model="ticks" ng-change="updateTicks(ticks)">
-                <div class="item-content">8</div>
-            </label>
-            <label class="item item-radio col">
-                <input type="radio" name="tick" value="9" ng-model="ticks" ng-change="updateTicks(ticks)">
-                <div class="item-content">9</div>
-            </label>
-            <label class="item item-radio col">
-                <input type="radio" name="tick" value="10" ng-model="ticks" ng-change="updateTicks(ticks)">
-                <div class="item-content">10</div>
-            </label>
-            </div>
-        </div>
-        <div class="options-amount">
-            <h1>Select Amount</h1>
-            <div class="row">
-            <label class="item item-radio col">
-                <input type="radio" name="amount" value="payout" ng-model="basis" ng-change="updateBasis(basis)">
-                <div class="item-content">Payout</div>
-            </label>
-            <label class="item item-radio col">
-                <input type="radio" name="amount" value="stake" ng-model="basis" ng-change="updateBasis(basis)">
-                <div class="item-content">Stake</div>
-            </label>
-            <label class="item item-input item-select col">
-                <select>
-                    <option selected="selected">USD</option>
-                    <option>EUR</option>
-                    <option>AUD</option>
-                </select>
-                <!-- <input type="number" value="10" min="5" max="10"> -->
-            </label>
-            </div>
-        </div>
-        <div class="options-save">
-            <button class="button button-block" ng-click="backToTradePage()">
-                SAVE
-            </button>
-        </div>
-    </ion-content>
+			<div class="manage-account col">
+				<a  href="" ng-click="goToManageAccounts()"><i class="ion-ios-gear"></i></a>
+			</div>
+		</div>
+		<div class="options-market">
+			<h1>Select Market</h1>
+			<div class="row">
+				<label class="item item-radio col">
+					<input type="radio" name="market" value="forex" ng-model="market" ng-change="updateMarket(market)">
+					<div class="item-content">Forex</div>
+				</label>
+				<label class="item item-radio col">
+					<input type="radio" name="market" value="random" ng-model="market" ng-change="updateMarket(market)"
+					<div class="item-content">Random</div>
+				</label>
+			</div>
+		</div>
+		<div class="options-upderlying">
+			<label class="item item-input item-select">
+				<div class="input-label"><h1>Underlying</h1></div>
+				<select>
+					<option ng-repeat="u in markets[market] track by $index" value="{{u.symbol}}">{{u.name}}</option>
+				</select>
+			</label>
+		</div>
+		<div class="options-trade">
+			<h1>Select Trade Type</h1>
+			<div class="row">
+				<label class="item item-radio col">
+					<input type="radio" name="trade">
+					<div class="item-content">Up</div>
+				</label>
+				<label class="item item-radio col">
+					<input type="radio" name="trade">
+					<div class="item-content">Down</div>
+				</label>
+			</div>
+			<div class="row">
+				<label class="item item-radio col">
+					<input type="radio" name="trade">
+					<div class="item-content">Digit Match</div>
+				</label>
+				<label class="item item-radio col">
+					<input type="radio" name="trade">
+					<div class="item-content">Digit Differs</div>
+				</label>
+			</div>
+		</div>
+		<div class="options-ticks">
+			<h1>Select number of Ticks</h1>
+			<div class="row">
+				<label class="item item-radio col">
+					<input type="radio" name="tick" value="5" ng-model="ticks" ng-change="updateTicks(ticks)">
+					<div class="item-content">5</div>
+				</label>
+				<label class="item item-radio col">
+					<input type="radio" name="tick" value="6" ng-model="ticks" ng-change="updateTicks(ticks)">
+					<div class="item-content">6</div>
+				</label>
+				<label class="item item-radio col">
+					<input type="radio" name="tick" value="7" ng-model="ticks" ng-change="updateTicks(ticks)">
+					<div class="item-content">7</div>
+				</label>
+				<label class="item item-radio col">
+					<input type="radio" name="tick" value="8" ng-model="ticks" ng-change="updateTicks(ticks)">
+					<div class="item-content">8</div>
+				</label>
+				<label class="item item-radio col">
+					<input type="radio" name="tick" value="9" ng-model="ticks" ng-change="updateTicks(ticks)">
+					<div class="item-content">9</div>
+				</label>
+				<label class="item item-radio col">
+					<input type="radio" name="tick" value="10" ng-model="ticks" ng-change="updateTicks(ticks)">
+					<div class="item-content">10</div>
+				</label>
+			</div>
+		</div>
+		<div class="options-amount">
+			<h1>Select Amount</h1>
+			<div class="row">
+				<label class="item item-radio col">
+					<input type="radio" name="amount" value="payout" ng-model="basis" ng-change="updateBasis(basis)">
+					<div class="item-content">Payout</div>
+				</label>
+				<label class="item item-radio col">
+					<input type="radio" name="amount" value="stake" ng-model="basis" ng-change="updateBasis(basis)">
+					<div class="item-content">Stake</div>
+				</label>
+				<label class="item item-input item-select col">
+					<select>
+						<option selected="selected">USD</option>
+						<option>EUR</option>
+						<option>AUD</option>
+					</select>
+				</label>
+			</div>
+		</div>
+		<div class="options-save">
+			<button class="button button-block" ng-click="backToTradePage()">SAVE</button>
+		</div>
+	</ion-content>
 </ion-view>

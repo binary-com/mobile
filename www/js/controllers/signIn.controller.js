@@ -15,7 +15,7 @@ angular
 			$scope.signIn = function(token, language) {
 				$scope.tokenError = false;
 				// Validate the token
-				if (token && token.length === 48) {
+				if (token && token.length === 15) {
 					websocketService.send.authentication(token);
 				} else {
 					// apply error class to the input
