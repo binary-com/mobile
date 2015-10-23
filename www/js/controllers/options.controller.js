@@ -10,7 +10,12 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $state) {
+		function($scope, $state, messageService) {
+
+			$scope.markets = {
+				forex: messageService.getMarket.forex(),
+				random: messageService.getMarket.random()
+			};
 
 			$scope.goToManageAccounts = function() {
 				$state.go('accounts');
@@ -22,6 +27,10 @@ angular
 
 
 			// Update values
+			$scope.updateMarket = function(_market) {
+				console.log('selected market: ', _market);
+			};
+
 			$scope.updateTicks = function(_tick) {
 				console.log('tick number: ', _tick);
 			};
