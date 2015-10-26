@@ -1,35 +1,29 @@
 <ion-view class="accounts">
-    <div class="bar bar-header">
-        <a class="button icon-left ion-chevron-left button-clear" ng-click="back()"></a>
-        <h1 class="title">
-	<img src="img/binary.svg" alt="Binary.com">
-	</h1>
-        <!-- <button class="button icon ion-log-out" ng-click="logout()"></button> -->
-    </div>
-    <ion-content class="accounts-content">
-        <h1>My Accounts</h1>
-        <div class="added-account row">
-            <div class="account-id col col-50">VRTC12345</div>
-            <div class="account-balance col-33">USD9745.98</div>
-            <div class="account-setting col ion-android-remove-circle"></div>
-        </div>
-        <div class="added-account row">
-            <div class="account-id col col-50">MLT34519</div>
-            <div class="account-balance col-33">USD97</div>
-            <div class="account-setting col ion-android-remove-circle"></div>
-        </div>
-        <div class="added-account row">
-            <div class="account-id col col-50">MF45789</div>
-            <div class="account-balance col-33">USD945.20</div>
-            <div class="account-setting col ion-android-remove-circle"></div>
-        </div>
-        <div class="add-account">
-            <a href=""><i class="ion-android-add-circle"></i>Add more accounts</a>
-            
-        </div>
-        <!-- <button class="button button-block button-positive" ng-click="back()">
-			<i class="icon ion-ios-arrow-back"></i>
-			Add account ...
-		</button> -->
-    </ion-content>
+	<div class="bar bar-header">
+		<a class="button icon-left ion-chevron-left button-clear" ng-click="back()"></a>
+		<h1 class="title">
+			<img src="img/binary.svg" alt="Binary.com">
+		</h1>
+		<!-- <button class="button icon ion-log-out" ng-click="logout()"></button> -->
+	</div>
+	<ion-content class="accounts-content">
+		<h1>My Accounts</h1>
+		<div class="account row" ng-repeat="account in accounts">
+			<div class="col-90">{{account}}</div>
+			<a href="" ng-click="removeAccount(account)">
+				<i class="delete ion-android-remove-circle"></i>
+			</a>
+		</div>
+		<div class="add-account">
+			<label class="item-input col-80" ng-class="{'error': tokenError}">
+				<i class="icon ion-android-lock placeholder-icon icon-small"></i>
+				<input type="text" placeholder="Add a new token to your account"
+					ng-model="token" ngRequired>
+			</label>
+			<button class="button button-stable col-20" ng-click="addAccount(token)">
+				<i class="ion-android-add-circle"></i>
+				Add
+			</button>
+		</div>
+	</ion-content>
 </ion-view>

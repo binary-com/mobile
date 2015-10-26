@@ -13,9 +13,13 @@
 					<h1>Account</h1>
 				</div>
 
-				<select>
+				<!-- <select>
 					<option>VRTC12345</option>
 					<option selected="selected">CR12345</option>
+				</select> -->
+
+				<select>
+					<option ng-repeat="account in accounts" value="{{account}}">{{account}}</option>
 				</select>
 			</label>
 
