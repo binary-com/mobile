@@ -36,6 +36,7 @@ angular
 					switch(messageType) {
 						case 'authorize':
 							if (message.authorize) {
+								console.log('AuTh: ', message.authorize);
 								$rootScope.$broadcast('authorize', true);
 								// save the data
 								account = message.authorize;

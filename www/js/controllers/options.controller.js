@@ -10,7 +10,9 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $state, messageService) {
+		function($scope, $state, messageService, storageService) {
+			// read list of accounts
+			$scope.accounts = storageService.token.get();
 
 			$scope.markets = {
 				forex: messageService.getMarket.forex(),
@@ -37,8 +39,5 @@ angular
 			$scope.updateBasis = function(_basis) {
 				console.log('basis: ', _basis);
 			};
-
-
-
 
 	});
