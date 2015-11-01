@@ -10,13 +10,13 @@
 angular
 	.module('binary')
 	.controller('AccountsController',
-		function($scope, $state, websocketService, storageService) {
+		function($scope, $state, websocketService, tokenService) {
 			// read list of accounts
-			$scope.accounts = storageService.token.get();
+			$scope.accounts = tokenService.getAllTokens();
 
 			$scope.removeAccount = function(_token) {
-				storageService.token.remove(_token);
-				$scope.accounts = storageService.token.get();
+				tokenService.removeFromList(_token);
+				$scope.accounts = tokenService.getAllTokens();
 			};
 
 			$scope.addAccount = function(_token) {
@@ -24,7 +24,7 @@ angular
 				// Validate the token
 				if (_token && _token.length === 15) {
 					$scope.newToken = _token;
-					websocketService.send.authentication(_token);
+					tokenService.validateToken(_token);
 				} else {
 					// apply error class to the input
 					$scope.tokenError = true;
@@ -34,8 +34,9 @@ angular
 			$scope.$on('authorize', function(e, response) {
 				if (response) {
 					// add it to the token list
-					storageService.token.add($scope.newToken);
-					$scope.accounts = storageService.token.get();
+					tokenService.saveInList($scope.newToken);
+					$scope.accounts = tokenService.getAllTokens();
+					$scope.$apply();
 				} else {
 					$scope.tokenError = true;
 				}
