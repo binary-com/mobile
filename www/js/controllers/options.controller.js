@@ -10,34 +10,112 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $state, messageService, storageService) {
-			// read list of accounts
-			$scope.accounts = storageService.token.get();
+		function($scope, $state, config, websocketService, tokenService, tradeService) {
 
-			$scope.markets = {
-				forex: messageService.getMarket.forex(),
-				random: messageService.getMarket.random()
+			var init = function() {
+				// ACCOUNTS
+				$scope.accounts = tokenService.getAllTokens();
+				$scope.selectedAccount = tokenService.getDefaultToken();
+
+				// MARKET & UNDERLYINGS
+				$scope.selectedSymbol = tradeService.getProposal().symbol;
+				$scope.market = tradeService.getMarketForASymbol($scope.selectedSymbol).market;
+				$scope.symbols = tradeService.getAllSymbolsForAMarket($scope.market);
+
+				// TRADE TYPE & TICK & BASIS
+				$scope.tradeType = tradeService.getProposal().contract_type;
+				$scope.ticks = tradeService.getProposal().duration;
+				$scope.basis = tradeService.getProposal().basis;
+
+				// CURRENCY
+				websocketService.sendRequestFor.currencies();
+				$scope.currencies = tradeService.getAllCurrencies();
+				$scope.selectedCurrency = tradeService.getProposal().currency;
 			};
 
-			$scope.goToManageAccounts = function() {
-				$state.go('accounts');
+			init();
+
+			$scope.updateAccount = function(_account) {
+				$scope.selectedAccount = _account;
+				// reauthorize()
 			};
 
-			$scope.backToTradePage = function() {
-				$state.go('trade');
-			};
-
-
-			// Update values
 			$scope.updateMarket = function(_market) {
-				console.log('selected market: ', _market);
+				$scope.market = _market;
+				$scope.symbols = tradeService.getAllSymbolsForAMarket($scope.market);
+				$scope.selectedSymbol = $scope.symbols[0].symbol;
+				$scope.tradeType = 'CALL';
+			};
+
+			$scope.updateSymbol = function(_selectedSymbol) {
+				$scope.selectedSymbol = _selectedSymbol;
+			};
+
+			$scope.updateTradeType = function(_tradeType) {
+				$scope.tradeType = _tradeType;
 			};
 
 			$scope.updateTicks = function(_tick) {
-				console.log('tick number: ', _tick);
-			};
-			$scope.updateBasis = function(_basis) {
-				console.log('basis: ', _basis);
+				$scope.ticks = _tick;
 			};
 
+			$scope.updateBasis = function(_basis) {
+				$scope.basis = _basis;
+			};
+
+			$scope.updateCurrency = function(_currency) {
+				$scope.selectedCurrency = _currency;
+			};
+
+			// Navigations
+
+			$scope.navigateToManageAccounts = function() {
+				$state.go('accounts');
+			};
+
+			$scope.navigateToTradePage = function() {
+				$state.go('trade');
+			};
+
+			$scope.saveChanges = function() {
+				var proposal = {
+					proposal: 1,
+					symbol: $scope.selectedSymbol,
+					contract_type: $scope.tradeType,
+					duration: $scope.ticks,
+					basis: $scope.basis,
+					currency: $scope.selectedCurrency,
+					amount: tradeService.getAmount(),
+					duration_unit: 't'
+				};
+				tradeService.updateProposal(proposal);
+				tradeService.sendProposal();
+
+				$state.go('trade', {}, { reload: true, inherit: false, notify: true });
+			};
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
