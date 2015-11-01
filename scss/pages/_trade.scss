@@ -16,13 +16,13 @@
 		background-color: $lightgray;
 		border-top: 1px solid $grey;
 		border-bottom: 1px solid $grey;
-		> .col:nth-child(1) {
+		.basis {
 			font-size: 20px;
 			text-align: center;
 			line-height: 48px;
 		}
 
-		> .col:nth-child(2) {
+		.amount {
 			input {
 				font-size: 24px;
 				width: 120px;
@@ -71,7 +71,7 @@
 			line-height: 48px;
 		}
 
-		> .col:nth-child(2) {
+		.price {
 			font-size: 24px;
 			color: $orange;
 			text-align: center;
