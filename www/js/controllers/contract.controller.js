@@ -10,8 +10,8 @@
 angular
 	.module('binary')
 	.controller('ContractController',
-		function($scope, $state, messageService) {
-			$scope.tempData = messageService.getContract();
+		function($scope, $state) {
+			//$scope.tempData = messageService.getContract();
 			$scope.back = function() {
 				$state.go('trade');
 			};
