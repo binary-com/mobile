@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.service('tokenService',
-		function(websocketService, storageService, $translate) {
+		function(websocketService, $translate) {
 			this.defaultTokenExist = function() {
 				return localStorage['default_token'] ? true : false;
 			};
