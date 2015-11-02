@@ -1,6 +1,6 @@
-<ion-view class="trade">
+<ion-view class="trade" ng-init="init()">
     <div class="bar bar-header">
-        <button class="button icon ion-android-options" ng-click="displayOptions($event)"></button>
+        <button class="button icon ion-android-options" ng-click="navigateToOptionsPage()"></button>
         <h1 class="title">
         <img src="img/binary.svg" alt="Binary.com">
       </h1>
@@ -11,14 +11,15 @@
             <!-- <span>USD/JPY</span> will
             <span>RISE</span> over next
             <span>5</span> ticks -->
-            {{longcode}}
+            {{proposal.longcode}}
         </div>
         <div class="contract-chart">
             <img src="img/chart.png" alt="Chart" height="200px" width="100%">
         </div>
         <div class="contract-payout row">
-            <div class="col col-33">Payout</div>
-            <div class="col col-33">
+            <div class="col col-33 basis" ng-show="basis == 'payout'">Payout</div>
+            <div class="col col-33 basis" ng-show="basis == 'stake'">Stake</div>
+            <div class="col col-33 amount">
                 <input type="number" value="{{amount}}">
             </div>
             <div class="col col-33">
@@ -30,7 +31,8 @@
         </div>
         <div class="contract-price row">
             <div class="col col-33">Price</div>
-            <div class="col">USD {{price}}</div>
+            <div class="col price" ng-show="basis == 'payout'">USD {{proposal.ask_price}}</div>
+            <div class="col price" ng-show="basis == 'stake'">USD {{proposal.payout}}</div>
         </div>
         <div class="contract-purchase">
             <button class="button button-block button-positive" ng-click="purchase()">

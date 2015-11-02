@@ -10,72 +10,61 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, messageService, websocketService) {
-			// set the default amount
-			$scope.amount = 5;
+		function($scope, $state, tradeService, websocketService) {
+			$scope.proposal = {};
 
-			$scope.account = {
-				currency: messageService.getAccountInfo('currency'),
-				balance: messageService.getAccountInfo('balance')
-			};
+			// get balance of the current account
 
-			var proposalId = '';
+			// send the current proposal
+			tradeService.sendProposal();
+			// send the tick request
 
-			//websocketService.send.proposal();
-			websocketService.get.tradingTimes();
 
-			$scope.displayOptions = function($event) {
+			var init = function() {
+				$scope.amount = tradeService.getAmount();
+				$scope.basis = tradeService.getBasis();
+			}
 
-				$state.go('options');
-			};
-
-			$scope.purchase = function() {
-				websocketService.send.buy(proposalId, 100);
-			};
+			init();
 
 			$scope.$on('proposal', function(e, response) {
-				proposalId = response.id;
-				if (response) {
-					$scope.longcode = response.longcode;
-					// TODO: update condition for stake
-					// $scope.price = (true) ? response.ask_price : response.payout;
-					$scope.price = response.ask_price;
-					$scope.$apply();
-				}
+				init();
+				$scope.proposal = response;
+
+				$scope.$apply();
 			});
 
-			$scope.$on('buy', function(e, response) {
-				if (response) {
-					messageService.updateContract(response);
-					$state.go('contract');
-				}
+			$scope.$on('ticks', function(e, response) {
+				console.log('x ticks');
 			});
-
-			$scope.logout = function() {
-				//websocketService.close();
-				$state.go('signin');
-			};
 
 			$scope.subtractAmount = function() {
-				// TODO: handle negative values
-				if ($scope.amount !== 1) {
+				if ($scope.amount > 2) {
 					$scope.amount -= 1;
-					messageService.updateProposal.amount($scope.amount);
-					websocketService.send.forget(proposalId);
-					websocketService.send.proposal();
+					tradeService.setAmount($scope.amount);
+					tradeService.sendProposal();
 				}
 			};
 
 			$scope.addAmount = function() {
-				console.log('adding amount');
 				// TODO: limit to the account balance for stake
 				// TODO: figure out how to handle it for payout
-				if ($scope.amount !== 100000) {
+				if ($scope.amount < 100000) {
 					$scope.amount += 1;
-					messageService.updateProposal.amount($scope.amount);
-					websocketService.send.forget(proposalId);
-					websocketService.send.proposal();
+					tradeService.setAmount($scope.amount);
+					tradeService.sendProposal();
 				}
 			};
 
+			$scope.updateBasis = function(_basis) {
+				console.log('basis updated: ', _basis);
+			};
+
+			$scope.buy = function() {
+				console.log('buying a contract');
+			};
+
+			$scope.navigateToOptionsPage = function($event) {
+				$state.go('options');
+			};
 	});
