@@ -3,3 +3,5 @@ bootstrap.json
 build/
 ext/
 node_modules/
+bower_components/
+www/lib/

@@ -7852,11 +7852,11 @@ body * {
   background-color: #f2f2f2;
   border-top: 1px solid #c4c4c4;
   border-bottom: 1px solid #c4c4c4; }
-  .trade .contract-payout > .col:nth-child(1) {
+  .trade .contract-payout .basis {
     font-size: 20px;
     text-align: center;
     line-height: 48px; }
-  .trade .contract-payout > .col:nth-child(2) input {
+  .trade .contract-payout .amount input {
     font-size: 24px;
     width: 120px;
     height: 48px;
@@ -7888,7 +7888,7 @@ body * {
     text-align: left;
     padding-left: 38px;
     line-height: 48px; }
-  .trade .contract-price > .col:nth-child(2) {
+  .trade .contract-price .price {
     font-size: 24px;
     color: #e98024;
     text-align: center;

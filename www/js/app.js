@@ -7,7 +7,17 @@
  * The main module of binary app
  */
 
-angular.module('binary', ['ionic'])
+angular.module('binary', ['ionic', 'pascalprecht.translate'])
+
+.config(['$translateProvider',
+	function($translateProvider) {
+		$translateProvider.preferredLanguage('en');
+		$translateProvider.useStaticFilesLoader({
+			prefix: '/i18n/',
+			suffix: '.json'
+		});
+	}
+])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
