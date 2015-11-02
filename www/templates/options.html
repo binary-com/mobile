@@ -1,10 +1,9 @@
 <ion-view class="options">
 	<div class="bar bar-header">
-		<a class="button icon-left ion-chevron-left button-clear" ng-click="backToTradePage()"></a>
+		<a class="button icon-left ion-chevron-left button-clear" ng-click="navigateToTradePage()"></a>
 		<h1 class="title">
 			<img src="img/binary.svg" alt="Binary.com">
 		</h1>
-		<!-- <button class="button icon ion-log-out" ng-click="logout()"></button> -->
 	</div>
 	<ion-content class="options-content">
 		<div class="options-account row">
@@ -12,19 +11,18 @@
 				<div class="input-label">
 					<h1>Account</h1>
 				</div>
-
-				<!-- <select>
-					<option>VRTC12345</option>
-					<option selected="selected">CR12345</option>
-				</select> -->
-
-				<select>
-					<option ng-repeat="account in accounts" value="{{account}}">{{account}}</option>
+				<select ng-change="updateAccount(selectedAccount)" ng-model="selectedAccount">
+					<option
+						ng-repeat="account in accounts"
+						value="{{account}}"
+						ng-selected="account == selectedAccount">
+						{{account}}
+					</option>
 				</select>
 			</label>
 
 			<div class="manage-account col">
-				<a  href="" ng-click="goToManageAccounts()"><i class="ion-ios-gear"></i></a>
+				<a  href="" ng-click="navigateToManageAccounts()"><i class="ion-ios-gear"></i></a>
 			</div>
 		</div>
 		<div class="options-market">
@@ -43,8 +41,13 @@
 		<div class="options-upderlying">
 			<label class="item item-input item-select">
 				<div class="input-label"><h1>Underlying</h1></div>
-				<select>
-					<option ng-repeat="u in markets[market] track by $index" value="{{u.symbol}}">{{u.name}}</option>
+				<select ng-change="updateSymbol(selectedSymbol)" ng-model="selectedSymbol">
+					<option
+						ng-repeat="s in symbols"
+						value="{{s.symbol}}"
+						ng-selected="s.symbol == selectedSymbol">
+						{{s.name}}
+					</option>
 				</select>
 			</label>
 		</div>
@@ -52,21 +55,29 @@
 			<h1>Select Trade Type</h1>
 			<div class="row">
 				<label class="item item-radio col">
-					<input type="radio" name="trade">
+					<input type="radio" name="tradeType" value="CALL"
+						ng-model="tradeType"
+						ng-change="updateTradeType(tradeType)">
 					<div class="item-content">Up</div>
 				</label>
 				<label class="item item-radio col">
-					<input type="radio" name="trade">
+					<input type="radio" name="tradeType" value="PUT"
+						ng-model="tradeType"
+						ng-change="updateTradeType(tradeType)">
 					<div class="item-content">Down</div>
 				</label>
 			</div>
 			<div class="row">
-				<label class="item item-radio col">
-					<input type="radio" name="trade">
+				<label class="item item-radio col" ng-show="market == 'random'">
+					<input type="radio" name="tradeType" value="DIGITMATCH"
+						ng-model="tradeType"
+						ng-change="updateTradeType(tradeType)">
 					<div class="item-content">Digit Match</div>
 				</label>
-				<label class="item item-radio col">
-					<input type="radio" name="trade">
+				<label class="item item-radio col" ng-show="market == 'random'">
+					<input type="radio" name="tradeType" value="DIGITDIFF"
+						ng-model="tradeType"
+						ng-change="updateTradeType(tradeType)">
 					<div class="item-content">Digit Differs</div>
 				</label>
 			</div>
@@ -104,24 +115,31 @@
 			<h1>Select Amount</h1>
 			<div class="row">
 				<label class="item item-radio col">
-					<input type="radio" name="amount" value="payout" ng-model="basis" ng-change="updateBasis(basis)">
+					<input type="radio" name="amount" value="payout"
+						ng-model="basis"
+						ng-change="updateBasis(basis)">
 					<div class="item-content">Payout</div>
 				</label>
 				<label class="item item-radio col">
-					<input type="radio" name="amount" value="stake" ng-model="basis" ng-change="updateBasis(basis)">
+					<input type="radio" name="amount" value="stake"
+						ng-model="basis"
+						ng-change="updateBasis(basis)">
 					<div class="item-content">Stake</div>
 				</label>
 				<label class="item item-input item-select col">
-					<select>
-						<option selected="selected">USD</option>
-						<option>EUR</option>
-						<option>AUD</option>
+					<select ng-change="updateCurrency(selectedCurrency)" ng-model="selectedCurrency">
+						<option
+							ng-repeat="c in currencies"
+							value="{{c}}"
+							ng-selected="c == selectedCurrency">
+							{{c}}
+						</option>
 					</select>
 				</label>
 			</div>
 		</div>
 		<div class="options-save">
-			<button class="button button-block" ng-click="backToTradePage()">SAVE</button>
+			<button class="button button-block" ng-click="saveChanges()">SAVE</button>
 		</div>
 	</ion-content>
 </ion-view>

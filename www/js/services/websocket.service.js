@@ -10,30 +10,27 @@
 angular
 	.module('binary')
 	.service('websocketService',
-		function($rootScope, messageService) {
+		function($rootScope) {
 			var dataStream = '';
-			var token = '';
-			var language = '';
-			var wsBuffer = [];
-
-			var websocketIsConnected = function() {
-
-				return !!dataStream && dataStream.readyState !== 3;
-			};
-
-			var userIsAuthorized = function() {
-				// how to know if the user is authorized
-				return true;
-			};
+			var messageBuffer = [];
 
 			var init = function() {
-				dataStream = new WebSocket('wss://www.binary.com/websockets/v2?l=' + language);
+				// if (dataStream) {
+				// 	dataStream.close();
+				// }
+
+				var language = localStorage['language'];
+				var token = localStorage['default_token'];
+
+				dataStream = new WebSocket('wss://www.binary.com/websockets/v3?l=' + language);
 
 				dataStream.onopen = function() {
 					dataStream.send(JSON.stringify({authorize: token}));
+					//messageBuffer.push({authorize: token});
+					//sendBufferMessages();
 				};
 				dataStream.onmessage = function(message) {
-					messageService.process(message);
+					receiveMessage(message);
 				};
 				dataStream.onclose = function(e) {
 					console.log('socket is closed ', e);
@@ -43,51 +40,147 @@ angular
 				};
 			};
 
-			// TODO: remove this function
-			var transmit = function(data) {
-				if (websocketIsConnected() && userIsAuthorized()) {
-					dataStream.send(JSON.stringify(data));
+			var socket = {
+				isReady: dataStream && dataStream.readyState === 1,
+				isClosed: !dataStream || dataStream.readyState === 3
+			};
+
+			var sendMessage = function(_data) {
+				// if (socket.isReady) {
+				// 	dataStream.send(JSON.stringify(_data))
+				// } else {
+				// 	messageBuffer.push(_data);
+				// 	if (socket.isClosed) {
+				// 		init();
+				// 	}
+				// }
+				waitForConnection(function() {
+					dataStream.send(JSON.stringify(_data));
+				});
+			};
+
+			// var sendBufferMessages = function() {
+			// 	while (messageBuffer.length > 0) {
+			// 		dataStream.send(JSON.stringify(messageBuffer.shift()));
+			// 	}
+			// };
+
+			var receiveMessage = function(_response) {
+				var message = JSON.parse(_response.data);
+				if (message) {
+					var messageType = message.msg_type;
+					switch(messageType) {
+						case 'authorize':
+							if (message.authorize) {
+								message.authorize.token = message.echo_req.authorize;
+								$rootScope.$broadcast('authorize', message.authorize);
+							} else {
+								$rootScope.$broadcast('authorize', false);
+							}
+							break;
+						case 'active_symbols':
+							sessionStorage['active_symbols'] = JSON.stringify(message.active_symbols);
+							break;
+						case 'payout_currencies':
+							sessionStorage['currencies'] = JSON.stringify(message.payout_currencies);
+							break;
+						case 'proposal':
+							$rootScope.$broadcast('proposal', message.proposal);
+							break;
+						case 'contracts_for':
+							console.log('contract for: ', message);
+							break;
+						default:
+							console.log('another message type: ', message);
+					}
+				}
+			};
+
+			this.authenticate = function(_token) {
+				init();
+				var data = {
+					authorize: _token
+				};
+				sendMessage(data);
+			};
+
+			this.sendRequestFor = {
+				symbols: function() {
+					var data = {
+						active_symbols: "brief"
+					};
+					sendMessage(data);
+					setInterval(function(){
+						sendMessage(data);
+					}, 60 * 1000);
+				},
+				currencies: function() {
+					var data = {
+						payout_currencies: 1
+					};
+					sendMessage(data);
+				},
+				contractsForSymbol: function(_symbol) {
+					var data = {
+						contracts_for: _symbol
+					};
+					sendMessage(data);
+				},
+				ticksForSymbol: function(_symbol) {
+					var data = {
+						ticks: _symbol
+					};
+					sendMessage(data);
+				},
+				forgetProposals: function() {
+					var data = {
+						forget_all: 'proposal'
+					};
+					sendMessage(data);
+				},
+				proposal: function(_proposal) {
+					sendMessage(_proposal);
+				}
+			};
+
+			var waitForConnection = function(callback) {
+				if (dataStream.readyState === 3) {
+					this.init();
+					setTimeout(function() {
+						waitForConnection(callback);
+					}, 1000);
+				} else if (dataStream.readyState === 1) {
+					callback();
 				} else {
-					// go back to login page
-				}
-			};
-
-			this.close = function() {
-				if (dataStream) {
-					dataStream.close();
-				}
-			};
-
-			this.send = {
-				authentication: function(_token, _language) {
-					token = _token;
-					language = _language;
-					init();
-				},
-				proposal: function() {
-					var data = messageService.getProposal();
-					dataStream.send(JSON.stringify(data));
-				},
-				forget: function(_id) {
-					var data = {
-						'forget': _id
-					};
-					dataStream.send(JSON.stringify(data));
-				},
-				buy: function(_id, _price) {
-					var data = {
-						buy: _id,
-						price: _price
-					};
-					dataStream.send(JSON.stringify(data));
-				}
-			};
-			this.get = {
-				tradingTimes: function(_date) {
-					var data = {
-						trading_times: (_date) ? _date : 'today'
-					};
-					dataStream.send(JSON.stringify(data));
+					setTimeout(function() {
+						waitForConnection(callback);
+					}, 1000);
 				}
 			};
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

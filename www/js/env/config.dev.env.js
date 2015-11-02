@@ -8,7 +8,7 @@
 
 angular
 	.module('binary')
-	.constant('config.dev', {
+	.constant('config', {
 		'markets': {
 			'forex': {
 				'submarket': '',
@@ -21,11 +21,21 @@ angular
 				'duration_type': 'tick'
 			}
 		},
-		'defaults': {
-			'market': 'forex',
-			'trade-type': 'up',
+		'default': {
+			'market': 'random',
+			'trade-type': 'PUT',
 			'ticks': 5,
-			'payout': 'payout'
+			'payout': 'stake',
+			'proposal': {
+				'proposal': '1',
+				'symbol': 'R_25',
+				'contract_type': 'PUT',
+				'duration': '5',
+				'basis': 'stake',
+				'currency': 'USD',
+				'amount': '5',
+				'duration_unit': 't'
+			}
 		},
 		'language': 'en'
 });
