@@ -5,3 +5,15 @@ ext/
 node_modules/
 bower_components/
 www/lib/
+platforms/ios/c.xcodeproj/
+platforms/ios/c/
+platforms/ios/www/css/ionic.app.css
+platforms/ios/www/css/ionic.app.min.css
+platforms/ios/www/fonts/
+platforms/ios/www/img/binary.svg
+platforms/ios/www/img/chart.png
+platforms/ios/www/img/logo.svg
+platforms/ios/www/js/controllers/
+platforms/ios/www/js/services/
+platforms/ios/www/templates/
+plugins/
