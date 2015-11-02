@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.service('languageService',
-		function(storageService, $translate) {
+		function($translate) {
 
 			/**
 			 * Update default languge in local storage
