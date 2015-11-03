@@ -14,8 +14,8 @@
 	}
 	.contract-payout {
 		background-color: $lightgray;
-		border-top: 1px solid $grey;
-		border-bottom: 1px solid $grey;
+		border-top: 1px solid $gray;
+		border-bottom: 1px solid $gray;
 		.basis {
 			font-size: 20px;
 			text-align: center;
@@ -28,7 +28,7 @@
 				width: 120px;
 				height: 48px;
 				border-radius: 5px;
-				border: 1px solid $grey;
+				border: 1px solid $gray;
 				line-height: 34px;
 				text-align: center;
 				padding-left: 18px;
@@ -53,7 +53,7 @@
 					border-radius: 0 5px 5px 0;
 				}
 				&.minus {
-					background-color: $grey;
+					background-color: $gray;
 					border-radius: 5px 0 0 5px;
 				}
 			}
@@ -62,7 +62,7 @@
 
 	.contract-price {
 		background-color: $lightgray;
-		border-bottom: 1px solid $grey;
+		border-bottom: 1px solid $gray;
 		margin-top: 0px;
 		> .col:nth-child(1) {
 			font-size: 20px;
@@ -79,13 +79,40 @@
 		}
 	}
 
-	.contract-purchase {
+	.contract-purchase,
+	.contract-back {
 		margin-top: 10%;
 		button {
 			background-color: $orange !important;
 			width: 84%;
 			margin: 0 auto;
 			font-size: 20px;
+		}
+	}
+
+
+
+	.contract-details {
+		margin-top: 20px;
+		.row {
+			padding: 0;
+			.col {
+				border-top: 1px solid $gray;
+				&:first-child {
+					background-color: $lightgray;
+					text-align: right;
+					border-right: 1px solid $gray;
+					padding: 4px 10px 4px 0;
+				}
+				&:last-child {
+					text-align: center;
+					font-weight: bold;
+					color: $green;
+				}
+			}
+			&:last-child {
+				border-bottom: 1px solid $gray;
+			}
 		}
 	}
 }

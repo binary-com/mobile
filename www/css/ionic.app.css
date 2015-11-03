@@ -7893,13 +7893,30 @@ body * {
     color: #e98024;
     text-align: center;
     line-height: 48px; }
-.trade .contract-purchase {
+.trade .contract-purchase, .trade .contract-back {
   margin-top: 10%; }
-  .trade .contract-purchase button {
+  .trade .contract-purchase button, .trade .contract-back button {
     background-color: #e98024 !important;
     width: 84%;
     margin: 0 auto;
     font-size: 20px; }
+.trade .contract-details {
+  margin-top: 20px; }
+  .trade .contract-details .row {
+    padding: 0; }
+    .trade .contract-details .row .col {
+      border-top: 1px solid #c4c4c4; }
+      .trade .contract-details .row .col:first-child {
+        background-color: #f2f2f2;
+        text-align: right;
+        border-right: 1px solid #c4c4c4;
+        padding: 4px 10px 4px 0; }
+      .trade .contract-details .row .col:last-child {
+        text-align: center;
+        font-weight: bold;
+        color: #4CBB17; }
+    .trade .contract-details .row:last-child {
+      border-bottom: 1px solid #c4c4c4; }
 
 .options .options-content {
   padding-left: 5%;
