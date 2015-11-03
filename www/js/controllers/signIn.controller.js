@@ -24,7 +24,7 @@ angular
 				if (response && response.token) {
 					tokenService.saveInList(response.token);
 					languageService.load(); // rename it
-					//tradeService.sendProposal();
+					tradeService.sendProposal();
 					websocketService.sendRequestFor.currencies();
 					websocketService.sendRequestFor.symbols();
 					$state.go('trade');

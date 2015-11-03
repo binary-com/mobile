@@ -11,16 +11,22 @@ angular
 	.module('binary')
 	.service('tradeService',
 		function(websocketService, config) {
+
+			// TODO: rename it
 			this.updateProposal = function(_proposal) {
 				if (_proposal) {
 					localStorage['proposal'] = JSON.stringify(_proposal);
 				}
 			};
 
+			// TODO: rename it
 			this.sendProposal = function() {
 				websocketService.sendRequestFor.forgetProposals();
-				var proposal = (localStorage['proposal']) ? JSON.parse(localStorage['proposal']) : config.default.proposal;
-				websocketService.sendRequestFor.proposal(proposal);
+				if (!localStorage.proposal) {
+					localStorage.proposal = JSON.stringify(config.default.proposal);
+				}
+
+				websocketService.sendRequestFor.proposal(JSON.parse(localStorage.proposal));
 			};
 
 			this.getProposal = function() {
@@ -28,7 +34,7 @@ angular
 					return JSON.parse(localStorage['proposal']);
 				}
 				return false;
-			}
+			};
 
 			this.getMarketForASymbol = function(_symbol) {
 				var data = JSON.parse(sessionStorage['active_symbols']);
@@ -74,5 +80,5 @@ angular
 			this.getBasis = function() {
 				var proposal = this.getProposal();
 				return (proposal && proposal.basis) ? proposal.basis : 'payout';
-			}
+			};
 	});
