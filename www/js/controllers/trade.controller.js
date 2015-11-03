@@ -21,9 +21,11 @@ angular
 
 
 			var init = function() {
+				$scope.tradeMode = true;
+
 				$scope.amount = tradeService.getAmount();
 				$scope.basis = tradeService.getBasis();
-			}
+			};
 
 			init();
 
@@ -39,6 +41,7 @@ angular
 			});
 
 			$scope.subtractAmount = function() {
+				$scope.amount = parseInt($scope.amount);
 				if ($scope.amount > 2) {
 					$scope.amount -= 1;
 					tradeService.setAmount($scope.amount);
@@ -49,6 +52,7 @@ angular
 			$scope.addAmount = function() {
 				// TODO: limit to the account balance for stake
 				// TODO: figure out how to handle it for payout
+				$scope.amount = parseInt($scope.amount);
 				if ($scope.amount < 100000) {
 					$scope.amount += 1;
 					tradeService.setAmount($scope.amount);
@@ -60,11 +64,36 @@ angular
 				console.log('basis updated: ', _basis);
 			};
 
-			$scope.buy = function() {
+			$scope.purchase = function() {
 				console.log('buying a contract');
+				// disable the button
+				$('.contract-purchase button').attr('disabled', true);
+				// make the purchase
+				console.log('proposal: ', $scope.proposal.id);
+				console.log('proposal: ', $scope.proposal.ask_price);
+				websocketService.sendRequestFor.purchase($scope.proposal.id, $scope.proposal.ask_price);
 			};
+
+			$scope.$on('purchase', function(e, response) {
+				$scope.tradeMode = false;
+
+				$scope.contract = {
+					longcode: response.longcode,
+					payout: $scope.proposal.payout,
+					cost: response.buy_price,
+					profit: parseFloat($scope.proposal.payout) - parseFloat(response.buy_price),
+					balance: response.balance_after
+				};
+
+				$scope.$apply();
+			});
 
 			$scope.navigateToOptionsPage = function($event) {
 				$state.go('options');
+			};
+
+			$scope.backToTrade = function() {
+				$('.contract-purchase button').attr('disabled', false);
+				$scope.tradeMode = true;
 			};
 	});
