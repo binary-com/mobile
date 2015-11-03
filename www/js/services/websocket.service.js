@@ -90,6 +90,9 @@ angular
 						case 'contracts_for':
 							console.log('contract for: ', message);
 							break;
+						case 'buy':
+							$rootScope.$broadcast('purchase', message.buy);
+							break;
 						default:
 							console.log('another message type: ', message);
 					}
@@ -140,12 +143,19 @@ angular
 				},
 				proposal: function(_proposal) {
 					sendMessage(_proposal);
+				},
+				purchase: function(_proposalId, price) {
+					var data = {
+						buy: _proposalId,
+						price: price || 0
+					};
+					sendMessage(data);
 				}
 			};
 
 			var waitForConnection = function(callback) {
 				if (dataStream.readyState === 3) {
-					this.init();
+					init();
 					setTimeout(function() {
 						waitForConnection(callback);
 					}, 1000);
