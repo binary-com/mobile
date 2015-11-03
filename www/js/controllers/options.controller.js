@@ -10,7 +10,11 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $state, config, websocketService, tokenService, tradeService) {
+		function($scope, $rootScope, $state, config, websocketService, tokenService, tradeService) {
+
+			$rootScope.$on('refresh:options', function(e, response) {
+				init();
+			});
 
 			var init = function() {
 				// ACCOUNTS
@@ -31,6 +35,8 @@ angular
 				websocketService.sendRequestFor.currencies();
 				$scope.currencies = tradeService.getAllCurrencies();
 				$scope.selectedCurrency = tradeService.getProposal().currency;
+
+				console.log('market: ', $scope.market);
 			};
 
 			init();

@@ -1,47 +1,83 @@
 <ion-view class="trade" ng-init="init()">
-    <div class="bar bar-header">
-        <button class="button icon ion-android-options" ng-click="navigateToOptionsPage()"></button>
-        <h1 class="title">
-        <img src="img/binary.svg" alt="Binary.com">
-      </h1>
-        <!-- <button class="button icon ion-log-out" ng-click="logout()"></button> -->
-    </div>
-    <ion-content>
-        <div class="contract-summary">
-            <!-- <span>USD/JPY</span> will
-            <span>RISE</span> over next
-            <span>5</span> ticks -->
-            {{proposal.longcode}}
-        </div>
-        <div class="contract-chart">
-            <img src="img/chart.png" alt="Chart" height="200px" width="100%">
-        </div>
-        <div class="contract-payout row">
-            <div class="col col-33 basis" ng-show="basis == 'payout'">Payout</div>
-            <div class="col col-33 basis" ng-show="basis == 'stake'">Stake</div>
-            <div class="col col-33 amount">
-                <input type="number" value="{{amount}}">
-            </div>
-            <div class="col col-33">
-                <div class="button-bar">
-                    <a ng-click="subtractAmount()" class="button minus icon ion-android-remove"></a>
-                    <a ng-click="addAmount()" class="button plus icon ion-android-add"></a>
-                </div>
-            </div>
-        </div>
-        <div class="contract-price row">
-            <div class="col col-33">Price</div>
-            <div class="col price" ng-show="basis == 'payout'">USD {{proposal.ask_price}}</div>
-            <div class="col price" ng-show="basis == 'stake'">USD {{proposal.payout}}</div>
-        </div>
-        <div class="contract-purchase">
-            <button class="button button-block button-positive" ng-click="purchase()">
-                BUY
-            </button>
-        </div>
-    </ion-content>
-    <div class="bar bar-footer row">
-        <div class="col balance">Balance: <strong>{{account.currency}}{{account.balance | currency:"$"}}</strong></div>
-        <div class="col account">CR24354</div>
-    </div>
+	<div class="bar bar-header">
+		<button class="button icon ion-android-options"
+			ng-click="navigateToOptionsPage()"
+			ng-disabled="!tradeMode"></button>
+		<h1 class="title">
+			<img src="img/binary.svg" alt="Binary.com">
+		</h1>
+	</div>
+	<ion-content>
+		<div ng-show="tradeMode">
+			<div class="contract-summary">
+				<!-- <span>USD/JPY</span> will
+				<span>RISE</span> over next
+				<span>5</span> ticks -->
+				{{proposal.longcode}}
+			</div>
+			<div class="contract-chart">
+				<img src="img/chart.png" alt="Chart" height="200px" width="100%">
+			</div>
+			<div class="contract-payout row">
+				<div class="col col-33 basis" ng-show="basis == 'payout'">Payout</div>
+				<div class="col col-33 basis" ng-show="basis == 'stake'">Stake</div>
+				<div class="col col-33 amount">
+					<input type="number" value="{{amount}}">
+				</div>
+				<div class="col col-33">
+					<div class="button-bar">
+						<a ng-click="subtractAmount()" class="button minus icon ion-android-remove"></a>
+						<a ng-click="addAmount()" class="button plus icon ion-android-add"></a>
+					</div>
+				</div>
+			</div>
+			<div class="contract-price row">
+				<div class="col col-33">Price</div>
+				<div class="col price" ng-show="basis == 'payout'">USD {{proposal.ask_price}}</div>
+				<div class="col price" ng-show="basis == 'stake'">USD {{proposal.payout}}</div>
+			</div>
+			<div class="contract-purchase">
+				<button class="button button-block button-positive" ng-click="purchase()">
+					BUY
+				</button>
+			</div>
+		</div>
+		<div ng-hide="tradeMode">
+			<div class="contract-summary">
+				{{contract.longcode}}
+			</div>
+			<div class="contract-chart">
+				<img src="img/chart.png" alt="Chart" height="200px" width="100%">
+			</div>
+			<div class="contract-details">
+				<div class="row">
+					<div class="col">Potential Payout</div>
+					<div class="col">{{contract.payout | currency}}</div>
+				</div>
+				<div class="row">
+					<div class="col">Total Cost</div>
+					<div class="col">{{contract.cost | currency}}</div>
+				</div>
+				<div class="row">
+					<div class="col">Potential Profit</div>
+					<div class="col">{{contract.profit | currency}}</div>
+				</div>
+				<div class="row">
+					<div class="col">Account Balance</div>
+					<div class="col">{{contract.balance | currency}}</div>
+				</div>
+
+			</div>
+			<div class="contract-back">
+				<button class="button button-block button-positive" ng-click="backToTrade()">
+					Back
+				</button>
+			</div>
+		</div>
+
+	</ion-content>
+	<div class="bar bar-footer row">
+		<div class="col balance">Balance: <strong>{{account.currency}}{{account.balance | currency:"$"}}</strong></div>
+		<div class="col account">CR24354</div>
+	</div>
 </ion-view>
