@@ -21,7 +21,7 @@ angular
 
 			this.getDefaultToken = function() {
 				return localStorage['default_token'];
-			}
+			};
 
 			this.validateToken = function(_token) {
 				websocketService.authenticate(_token);
@@ -39,8 +39,8 @@ angular
 						localStorage['tokens'] = JSON.stringify(tokens);
 					}
 				} else {
-					var tokens = [_token];
-					localStorage['tokens'] = JSON.stringify(tokens);
+					//var tokens = [_token];
+					localStorage['tokens'] = JSON.stringify([_token]);
 				}
 			};
 
@@ -60,5 +60,5 @@ angular
 					return JSON.parse(localStorage['tokens']);
 				}
 				return [];
-			}
+			};
 	});
