@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.controller('AccountsController',
-		function($scope, $state, websocketService, tokenService) {
+		function($scope, $rootScope, $state, websocketService, tokenService) {
 			// read list of accounts
 			$scope.accounts = tokenService.getAllTokens();
 
@@ -42,8 +42,9 @@ angular
 				}
 			});
 
+			// TODO: rename to navigateToOptionsPage
 			$scope.back = function() {
-
+				$rootScope.$broadcast('refresh:options');
 				$state.go('options');
 			};
 	});
