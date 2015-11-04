@@ -10,16 +10,24 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $rootScope, $state, config, websocketService, tokenService, tradeService) {
+		function($scope, $rootScope, $state, config, websocketService, accountService, tradeService) {
 
 			$rootScope.$on('refresh:options', function(e, response) {
+				$scope.accounts = accountService.getAllAccounts();
 				init();
+			});
+
+			$('.account-select').change(function() {
+				var token = $('.account-select option:selected').val();
+				accountService.validateAccount(token);
+				accountService.setDefaultAccount(token);
+
+				$scope.accounts = accountService.getAllAccounts();
 			});
 
 			var init = function() {
 				// ACCOUNTS
-				$scope.accounts = tokenService.getAllTokens();
-				$scope.selectedAccount = tokenService.getDefaultToken();
+				$scope.accounts = accountService.getAllAccounts();
 
 				// MARKET & UNDERLYINGS
 				$scope.selectedSymbol = tradeService.getProposal().symbol;
@@ -35,16 +43,17 @@ angular
 				websocketService.sendRequestFor.currencies();
 				$scope.currencies = tradeService.getAllCurrencies();
 				$scope.selectedCurrency = tradeService.getProposal().currency;
-
-				console.log('market: ', $scope.market);
 			};
 
 			init();
 
-			$scope.updateAccount = function(_account) {
-				$scope.selectedAccount = _account;
-				// reauthorize()
-			};
+			// $scope.updateAccount = function(_token) {
+			// 	accountService.validateAccount(_token);
+			// 	accountService.setDefaultAccount(_token);
+			// 	//$scope.selectedAccount = _token;
+			// 	$scope.accounts = accountService.getAllAccounts();
+			// 	$scope.selectedAccount = accountService.getDefaultAccount().token;
+			// };
 
 			$scope.updateMarket = function(_market) {
 				$scope.market = _market;
