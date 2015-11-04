@@ -11,12 +11,12 @@
 				<div class="input-label">
 					<h1>Account</h1>
 				</div>
-				<select ng-change="updateAccount(selectedAccount)" ng-model="selectedAccount">
+				<select class="account-select">
 					<option
 						ng-repeat="account in accounts"
-						value="{{account}}"
-						ng-selected="account == selectedAccount">
-						{{account}}
+						value="{{account.token}}"
+						ng-selected="{{account.is_default}}">
+						{{account.id}}
 					</option>
 				</select>
 			</label>
