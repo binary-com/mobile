@@ -10,32 +10,45 @@
 angular
 	.module('binary')
 	.controller('AccountsController',
-		function($scope, $rootScope, $state, websocketService, tokenService) {
-			// read list of accounts
-			$scope.accounts = tokenService.getAllTokens();
+		function($scope, $rootScope, $state, websocketService, accountService) {
+			// Get all accounts
+			$scope.accounts = accountService.getAllAccounts();
 
 			$scope.removeAccount = function(_token) {
-				tokenService.removeFromList(_token);
-				$scope.accounts = tokenService.getAllTokens();
+				accountService.removeAccount(_token);
+				$scope.accounts = accountService.getAllAccounts();
+			};
+
+			$scope.setAccountAsDefault = function(_token) {
+				accountService.setDefaultAccount(_token);
+				$scope.accounts = accountService.getAllAccounts();
 			};
 
 			$scope.addAccount = function(_token) {
+				$scope.token = "";
 				$scope.tokenError = false;
 				// Validate the token
 				if (_token && _token.length === 15) {
 					$scope.newToken = _token;
-					tokenService.validateToken(_token);
+
+					accountService.validateAccount(_token);
 				} else {
 					// apply error class to the input
 					$scope.tokenError = true;
 				}
 			};
 
+			$scope.removeAllAccounts = function() {
+				accountService.removeAllAccounts();
+				$state.go('sign-in');
+			};
+
 			$scope.$on('authorize', function(e, response) {
 				if (response) {
 					// add it to the token list
-					tokenService.saveInList($scope.newToken);
-					$scope.accounts = tokenService.getAllTokens();
+					response.token = $scope.newToken;
+					accountService.addAccount(response);
+					$scope.accounts = accountService.getAllAccounts();
 					$scope.$apply();
 				} else {
 					$scope.tokenError = true;
