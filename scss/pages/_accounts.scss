@@ -7,20 +7,49 @@
 		font-size: 24px;
 	}
 
+	.remove-all-accounts {
+		a {
+			color: $red;
+		}
+	}
+
 	.account{
 		padding:15px 0 10px;
 		border-bottom: 1px solid $lightgray;
-		div {
+		&> div {
 			color: $darkblue;
 			font-size: 16px;
-		}
-		a {
-			text-align: right;
-			font-size: 20px;
-			color: $red;
+
+			.id {
+				color: $darkblue;
+				display: block;
+			}
+			.default {
+				color: $orange;
+				font-size: 12px;
+			}
+			.token {
+				color: $green;
+				font-size: 12px;
+				display: block;
+			}
 
 		}
+		a {
+			&.remove {
+				text-align: right;
+				font-size: 20px;
+				color: $red;
+				line-height: 40px;
+			}
+			&.set-default {
+				color: $blue;
+				font-size: 12px;
+				//text-decoration: none;
+			}
+		}
 	}
+
 	.add-account{
 		margin-top: 20px;
 		label {
@@ -37,15 +66,6 @@
 			color: white;
 
 			background-color: $darkblue;
-
-
 		}
-			// padding:15px;
-			// text-align: center;
-			// font-size: 16px;
-			// i{
-			// 	margin-right: 5px;
-			// 	font-size: 20px;
-			// }
 	}
 }
