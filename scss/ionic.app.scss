@@ -26,12 +26,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "scss/core/colors";
 @import "scss/core/fonts";
 @import "scss/core/forms";
+
 @import "scss/shared/general";
 @import "scss/shared/header";
 @import "scss/shared/footer";
+
 @import "scss/pages/signin";
 @import "scss/pages/trade";
 @import "scss/pages/options";
-@import "scss/pages/contract";
 @import "scss/pages/accounts";
 @import "scss/pages/help";
