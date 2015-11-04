@@ -10,20 +10,22 @@
 angular
 	.module('binary')
 	.controller('SignInController',
-		function($scope, $state, tokenService, languageService, websocketService, tradeService) {
+		function($scope, $state, accountService, languageService, websocketService, tradeService) {
 
 
 			var init = function() {
-				//websocketService.init(languageService.read());
-				if (tokenService.defaultTokenExist()){
-					tokenService.validateDefaultToken();
+				websocketService.init();
+				if (accountService.hasDefaultAccount()){
+					accountService.validateAccount();
 				}
 			};
 
 			$scope.$on('authorize', function(e, response) {
-				if (response && response.token) {
-					tokenService.saveInList(response.token);
-					languageService.load(); // rename it
+				if (response) {
+					accountService.addAccount(response);
+					accountService.setDefaultAccount(response.token);
+					// TODO: Rename it - refactor languageService
+					languageService.load();
 					tradeService.sendProposal();
 					websocketService.sendRequestFor.currencies();
 					websocketService.sendRequestFor.symbols();
@@ -37,13 +39,13 @@ angular
 
 			$scope.signIn = function(_token) {
 				var language = $('.language option:selected').val();
+				// TODO: Rename it - refactor languageService
 				languageService.update(language);
 
 				$scope.tokenError = false;
 
 				if(_token && _token.length === 15) {
-					tokenService.updateDefaultToken(_token);
-					tokenService.validateToken();
+					accountService.validateAccount(_token);
 				} else {
 					$scope.tokenError = true;
 				}

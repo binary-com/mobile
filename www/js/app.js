@@ -46,11 +46,6 @@ angular.module('binary', ['ionic', 'pascalprecht.translate'])
       url: '/accounts',
       templateUrl: 'templates/accounts.html',
       controller: 'AccountsController'
-    })
-    .state('contract', {
-      url: '/contract',
-      templateUrl: 'templates/contract.html',
-      controller: 'ContractController'
     });
 
 
