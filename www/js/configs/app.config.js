@@ -1,5 +1,5 @@
 /**
- * @name config.dev
+ * @name app.config
  * @author Massih Hazrati
  * @contributors []
  * @since 10/25/2015
