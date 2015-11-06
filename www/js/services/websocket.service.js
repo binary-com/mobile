@@ -85,6 +85,9 @@ angular
 						case 'balance':
 							$rootScope.$broadcast('balance', message.balance);
 							break;
+						case 'tick':
+							$rootScope.$broadcast('tick', message.tick);
+							break;
 						default:
 							console.log('another message type: ', message);
 					}
