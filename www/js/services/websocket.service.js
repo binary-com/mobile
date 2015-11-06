@@ -142,6 +142,12 @@ angular
 					};
 					sendMessage(data);
 				},
+				forgetTicks: function() {
+					var data = {
+						forget_all: 'ticks'
+					};
+					sendMessage(data);
+				},
 				proposal: function(_proposal) {
 					sendMessage(_proposal);
 				},
