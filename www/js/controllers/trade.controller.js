@@ -15,8 +15,8 @@ angular
 
 			// send the current proposal
 			tradeService.sendProposal();
-			// TODO: send the tick request
 
+			var tick = '';
 
 			var init = function() {
 				$scope.tradeMode = true;
@@ -25,8 +25,13 @@ angular
 				$scope.basis = tradeService.getBasis();
 
 				websocketService.sendRequestFor.balance();
-				var proposalRequest = JSON.parse(localStorage.proposal);
-				websocketService.sendRequestFor.ticksForSymbol(proposalRequest.symbol);
+
+				var newTick = JSON.parse(localStorage.proposal).symbol;
+				if (!tick || tick !== newTick) {
+					tick = newTick;
+					websocketService.sendRequestFor.forgetTicks();
+					websocketService.sendRequestFor.ticksForSymbol(newTick);
+				}
 			};
 
 			init();
@@ -43,7 +48,6 @@ angular
 			});
 
 			$scope.$on('tick', function(e, response) {
-				console.log('res ', response);
 				$scope.tick = response.quote;
 				$scope.$apply();
 			});
