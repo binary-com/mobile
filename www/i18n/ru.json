@@ -1,0 +1,8 @@
+{
+	"signin" : {
+		"language": "f-Language",
+		"add_account": "f-Add Account",
+		"need_help": "f-Need Help?",
+		"paste_token": "f-Paste your token here"
+	}
+}
