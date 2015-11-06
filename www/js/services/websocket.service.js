@@ -68,10 +68,10 @@ angular
 							}
 							break;
 						case 'active_symbols':
-							sessionStorage['active_symbols'] = JSON.stringify(message.active_symbols);
+							sessionStorage.active_symbols = JSON.stringify(message.active_symbols);
 							break;
 						case 'payout_currencies':
-							sessionStorage['currencies'] = JSON.stringify(message.payout_currencies);
+							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
 							break;
 						case 'proposal':
 							$rootScope.$broadcast('proposal', message.proposal);
@@ -81,6 +81,9 @@ angular
 							break;
 						case 'buy':
 							$rootScope.$broadcast('purchase', message.buy);
+							break;
+						case 'balance':
+							$rootScope.$broadcast('balance', message.balance);
 							break;
 						default:
 							console.log('another message type: ', message);
@@ -145,7 +148,14 @@ angular
 						price: price || 0
 					};
 					sendMessage(data);
+				},
+				balance: function() {
+					var data = {
+						balance: 1
+					};
+					sendMessage(data);
 				}
+
 			};
 
 	});
