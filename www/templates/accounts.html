@@ -27,7 +27,7 @@
 				</span>
 				<span class="token">{{account.token}}</span>
 			</div>
-			<a href="" class="remove"
+			<a href="" class="remove" ng-hide="account.is_default"
 				ng-click="removeAccount(account.token)">
 				<i class="delete ion-android-remove-circle"></i>
 			</a>
