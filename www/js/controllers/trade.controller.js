@@ -10,14 +10,12 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, tradeService, websocketService) {
+		function($scope, $state, tradeService, websocketService, accountService) {
 			$scope.proposal = {};
-
-			// get balance of the current account
 
 			// send the current proposal
 			tradeService.sendProposal();
-			// send the tick request
+			// TODO: send the tick request
 
 
 			var init = function() {
@@ -25,6 +23,8 @@ angular
 
 				$scope.amount = tradeService.getAmount();
 				$scope.basis = tradeService.getBasis();
+
+				websocketService.sendRequestFor.balance();
 			};
 
 			init();
@@ -32,7 +32,11 @@ angular
 			$scope.$on('proposal', function(e, response) {
 				init();
 				$scope.proposal = response;
+				$scope.$apply();
+			});
 
+			$scope.$on('balance', function(e, response) {
+				$scope.account = response;
 				$scope.$apply();
 			});
 
