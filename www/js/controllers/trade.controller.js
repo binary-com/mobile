@@ -25,6 +25,8 @@ angular
 				$scope.basis = tradeService.getBasis();
 
 				websocketService.sendRequestFor.balance();
+				var proposalRequest = JSON.parse(localStorage.proposal);
+				websocketService.sendRequestFor.ticksForSymbol(proposalRequest.symbol);
 			};
 
 			init();
@@ -40,8 +42,10 @@ angular
 				$scope.$apply();
 			});
 
-			$scope.$on('ticks', function(e, response) {
-				console.log('x ticks');
+			$scope.$on('tick', function(e, response) {
+				console.log('res ', response);
+				$scope.tick = response.quote;
+				$scope.$apply();
 			});
 
 			$scope.subtractAmount = function() {
