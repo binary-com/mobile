@@ -16,7 +16,9 @@
 				{{proposal.longcode}}
 			</div>
 			<div class="contract-chart">
+				<p>{{tick}}</p>
 				<img src="img/chart.png" alt="Chart" height="200px" width="100%">
+				}
 			</div>
 			<div class="contract-payout row">
 				<div class="col col-33 basis" ng-show="basis == 'payout'">Payout</div>
@@ -77,7 +79,7 @@
 
 	</ion-content>
 	<div class="bar bar-footer row">
-		<div class="col balance">Balance: <strong>{{account.currency}}{{account.balance | currency:"$"}}</strong></div>
-		<div class="col account">CR24354</div>
+		<div class="col balance">Balance: <strong>{{account.balance | currency:"$"}}</strong></div>
+		<div class="col account">{{account.loginid}}</div>
 	</div>
 </ion-view>
