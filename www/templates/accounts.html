@@ -1,48 +1,11 @@
 <ion-view class="accounts">
 	<div class="bar bar-header">
-		<a class="button icon-left ion-chevron-left button-clear" ng-click="back()"></a>
+		<a class="button icon-left ion-chevron-left button-clear" ng-click="navigateToOptionsPage()"></a>
 		<h1 class="title">
 			<img src="img/binary.svg" alt="Binary.com">
 		</h1>
-		<!-- <button class="button icon ion-log-out" ng-click="logout()"></button> -->
 	</div>
 	<ion-content class="accounts-content">
-		<h1>My Accounts</h1>
-		<div class="remove-all-accounts">
-			<a href=""
-				ng-click="removeAllAccounts()">
-				Remove All Accounts & Sign Out
-			</a>
-		</div>
-		<div class="account row" ng-repeat="account in accounts">
-			<div class="col-90">
-				<span class="id">
-					{{account.id}}
-					<span class="default" ng-show="account.is_default">(Default)</span>
-					<a href="" class="set-default"
-						ng-click="setAccountAsDefault(account.token)"
-						ng-hide="account.is_default">
-						set as default
-					</a>
-				</span>
-				<span class="token">{{account.token}}</span>
-			</div>
-			<a href="" class="remove" ng-hide="account.is_default"
-				ng-click="removeAccount(account.token)">
-				<i class="delete ion-android-remove-circle"></i>
-			</a>
-		</div>
-		<div class="add-account">
-			<label class="item-input col-80" ng-class="{'error': tokenError}">
-				<i class="icon ion-android-lock placeholder-icon icon-small"></i>
-				<input type="text" placeholder="Add a new token to your account"
-					ng-model="token" ngRequired>
-			</label>
-			<button class="button button-stable col-20"
-				ng-click="addAccount(token);token = null">
-				<i class="ion-android-add-circle"></i>
-				Add
-			</button>
-		</div>
+		<manage-accounts></manage-accounts>
 	</ion-content>
 </ion-view>
