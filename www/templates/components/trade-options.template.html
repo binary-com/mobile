@@ -1,0 +1,116 @@
+<div class="options-market">
+	<h1>Select Market</h1>
+	<div class="row">
+		<label class="item item-radio col">
+			<input type="radio" name="market" value="forex" ng-model="market" ng-change="updateMarket(market)">
+			<div class="item-content">Forex</div>
+		</label>
+		<label class="item item-radio col">
+			<input type="radio" name="market" value="random" ng-model="market" ng-change="updateMarket(market)">
+			<div class="item-content">Random</div>
+		</label>
+	</div>
+</div>
+<div class="options-upderlying">
+	<label class="item item-input item-select">
+		<div class="input-label"><h1>Underlying</h1></div>
+		<select ng-change="updateSymbol(selectedSymbol)" ng-model="selectedSymbol">
+			<option
+				ng-repeat="s in symbols"
+				value="{{s.symbol}}"
+				ng-selected="s.symbol == selectedSymbol">
+				{{s.name}}
+			</option>
+		</select>
+	</label>
+</div>
+<div class="options-trade">
+	<h1>Select Trade Type</h1>
+	<div class="row">
+		<label class="item item-radio col">
+			<input type="radio" name="tradeType" value="CALL"
+				ng-model="tradeType"
+				ng-change="updateTradeType(tradeType)">
+			<div class="item-content">Up</div>
+		</label>
+		<label class="item item-radio col">
+			<input type="radio" name="tradeType" value="PUT"
+				ng-model="tradeType"
+				ng-change="updateTradeType(tradeType)">
+			<div class="item-content">Down</div>
+		</label>
+	</div>
+	<div class="row">
+		<label class="item item-radio col" ng-show="market == 'random'">
+			<input type="radio" name="tradeType" value="DIGITMATCH"
+				ng-model="tradeType"
+				ng-change="updateTradeType(tradeType)">
+			<div class="item-content">Digit Match</div>
+		</label>
+		<label class="item item-radio col" ng-show="market == 'random'">
+			<input type="radio" name="tradeType" value="DIGITDIFF"
+				ng-model="tradeType"
+				ng-change="updateTradeType(tradeType)">
+			<div class="item-content">Digit Differs</div>
+		</label>
+	</div>
+</div>
+<div class="options-ticks">
+	<h1>Select number of Ticks</h1>
+	<div class="row">
+		<label class="item item-radio col">
+			<input type="radio" name="tick" value="5" ng-model="ticks" ng-change="updateTicks(ticks)">
+			<div class="item-content">5</div>
+		</label>
+		<label class="item item-radio col">
+			<input type="radio" name="tick" value="6" ng-model="ticks" ng-change="updateTicks(ticks)">
+			<div class="item-content">6</div>
+		</label>
+		<label class="item item-radio col">
+			<input type="radio" name="tick" value="7" ng-model="ticks" ng-change="updateTicks(ticks)">
+			<div class="item-content">7</div>
+		</label>
+		<label class="item item-radio col">
+			<input type="radio" name="tick" value="8" ng-model="ticks" ng-change="updateTicks(ticks)">
+			<div class="item-content">8</div>
+		</label>
+		<label class="item item-radio col">
+			<input type="radio" name="tick" value="9" ng-model="ticks" ng-change="updateTicks(ticks)">
+			<div class="item-content">9</div>
+		</label>
+		<label class="item item-radio col">
+			<input type="radio" name="tick" value="10" ng-model="ticks" ng-change="updateTicks(ticks)">
+			<div class="item-content">10</div>
+		</label>
+	</div>
+</div>
+<div class="options-amount">
+	<h1>Select Amount</h1>
+	<div class="row">
+		<label class="item item-radio col">
+			<input type="radio" name="amount" value="payout"
+				ng-model="basis"
+				ng-change="updateBasis(basis)">
+			<div class="item-content">Payout</div>
+		</label>
+		<label class="item item-radio col">
+			<input type="radio" name="amount" value="stake"
+				ng-model="basis"
+				ng-change="updateBasis(basis)">
+			<div class="item-content">Stake</div>
+		</label>
+		<label class="item item-input item-select col">
+			<select ng-change="updateCurrency(selectedCurrency)" ng-model="selectedCurrency">
+				<option
+					ng-repeat="c in currencies"
+					value="{{c}}"
+					ng-selected="c == selectedCurrency">
+					{{c}}
+				</option>
+			</select>
+		</label>
+	</div>
+</div>
+<div class="options-save">
+	<button class="button button-block" ng-click="saveChanges()">SAVE</button>
+</div>
