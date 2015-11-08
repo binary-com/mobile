@@ -4,5 +4,19 @@
 		"add_account": "Add Account",
 		"need_help": "Need Help?",
 		"paste_token": "Paste your token here"
+	},
+	"account": {
+		"my_accounts": "My Accounts",
+		"account": "Account",
+		"remove_all": "Remove All Accounts & Sign Out",
+		"default": "Default",
+		"set_as_default": "Set as default",
+		"add": "Add"
+	},
+	"alert" : {
+		"error": "Error!",
+		"not_valid": "Please enter a valid token",
+		"not_auth": "Sorry, we couldn't authenticate you",
+		"not_unique": "You've already added this account"
 	}
 }
