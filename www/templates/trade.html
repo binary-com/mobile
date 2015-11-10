@@ -20,8 +20,8 @@
 				<img src="img/chart.png" alt="Chart" height="200px" width="100%">
 			</div>
 			<div class="contract-payout row">
-				<div class="col col-33 basis" ng-show="basis == 'payout'">{{'options.payout' | translate }}</div>
-				<div class="col col-33 basis" ng-show="basis == 'stake'">{{'options.stake' | translate }}</div>
+				<div class="col col-33 basis" ng-show="basis == 'payout'">{{'trade.payout' | translate }}</div>
+				<div class="col col-33 basis" ng-show="basis == 'stake'">{{'trade.stake' | translate }}</div>
 				<div class="col col-33 amount">
 					<input type="number" value="{{amount}}">
 				</div>
@@ -33,13 +33,13 @@
 				</div>
 			</div>
 			<div class="contract-price row">
-				<div class="col col-33">{{'options.stake' | translate }}</div>
+				<div class="col col-33">{{'trade.stake' | translate }}</div>
 				<div class="col price" ng-show="basis == 'payout'">USD {{proposal.ask_price}}</div>
 				<div class="col price" ng-show="basis == 'stake'">USD {{proposal.payout}}</div>
 			</div>
 			<div class="contract-purchase">
 				<button class="button button-block button-positive" ng-click="purchase()">
-					{{'options.buy' | translate }}
+					{{'trade.buy' | translate }}
 				</button>
 			</div>
 		</div>
@@ -52,33 +52,33 @@
 			</div>
 			<div class="contract-details">
 				<div class="row">
-					<div class="col">{{'options.potential_payout' | translate }}</div>
+					<div class="col">{{'trade.potential_payout' | translate }}</div>
 					<div class="col">{{contract.payout | currency}}</div>
 				</div>
 				<div class="row">
-					<div class="col">{{'options.total_cost' | translate }}</div>
+					<div class="col">{{'trade.total_cost' | translate }}</div>
 					<div class="col">{{contract.cost | currency}}</div>
 				</div>
 				<div class="row">
-					<div class="col">{{'options.potential_profit' | translate }}</div>
+					<div class="col">{{'trade.potential_profit' | translate }}</div>
 					<div class="col">{{contract.profit | currency}}</div>
 				</div>
 				<div class="row">
-					<div class="col">{{'options.account_balance' | translate }}</div>
+					<div class="col">{{'trade.account_balance' | translate }}</div>
 					<div class="col">{{contract.balance | currency}}</div>
 				</div>
 
 			</div>
 			<div class="contract-back">
 				<button class="button button-block button-positive" ng-click="backToTrade()">
-					{{'options.back' | translate }}
+					{{'trade.back' | translate }}
 				</button>
 			</div>
 		</div>
 
 	</ion-content>
 	<div class="bar bar-footer row">
-		<div class="col balance">{{'options.balance' | translate }}: <strong>{{account.balance | currency:"$"}}</strong></div>
+		<div class="col balance">{{'trade.balance' | translate }}: <strong>{{account.balance | currency:"$"}}</strong></div>
 		<div class="col account">{{account.loginid}}</div>
 	</div>
 </ion-view>
