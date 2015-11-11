@@ -9,33 +9,31 @@
 angular
 	.module('binary')
 	.constant('config', {
-		'markets': {
-			'forex': {
-				'submarket': '',
-				'trade_type': ['up', 'down'],
-				'duration_type': 'tick'
+		'tradeTypes': [
+			{
+				name: 'Up',
+				value: 'CALL',
+				markets: ['forex', 'random'],
+				digits: false
 			},
-			'random': {
-				'submarket': '',
-				'trade_type': ['up', 'down', 'digits'],
-				'duration_type': 'tick'
+			{
+				name: 'Down',
+				value: 'PUT',
+				markets: ['forex', 'random'],
+				digits: false
+			},
+			{
+				name: 'Digit Match',
+				value: 'DIGITMATCH',
+				markets: ['random'],
+				digits: true
+			},
+			{
+				name: 'Digit Differs',
+				value: 'DIGITDIFF',
+				markets: ['random'],
+				digits: true
 			}
-		},
-		'default': {
-			'market': 'random',
-			'trade-type': 'PUT',
-			'ticks': 5,
-			'payout': 'stake',
-			'proposal': {
-				'proposal': '1',
-				'symbol': 'R_25',
-				'contract_type': 'PUT',
-				'duration': '5',
-				'basis': 'stake',
-				'currency': 'USD',
-				'amount': '5',
-				'duration_unit': 't'
-			}
-		},
+		],
 		'language': 'en'
 });

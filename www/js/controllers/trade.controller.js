@@ -10,19 +10,19 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, tradeService, websocketService, accountService) {
+		function($scope, $state, marketService, proposalService, websocketService, accountService) {
 			$scope.proposal = {};
 
 			// send the current proposal
-			tradeService.sendProposal();
+			proposalService.send();
 
 			var tick = '';
 
 			var init = function() {
 				$scope.tradeMode = true;
 
-				$scope.amount = tradeService.getAmount();
-				$scope.basis = tradeService.getBasis();
+				$scope.amount = marketService.getAmount();
+				$scope.basis = marketService.getBasis();
 
 				websocketService.sendRequestFor.balance();
 
@@ -37,6 +37,7 @@ angular
 			init();
 
 			$scope.$on('proposal', function(e, response) {
+				//console.log('getting the proposal', response);
 				init();
 				$scope.proposal = response;
 				$scope.$apply();
@@ -56,8 +57,8 @@ angular
 				$scope.amount = parseInt($scope.amount);
 				if ($scope.amount > 2) {
 					$scope.amount -= 1;
-					tradeService.setAmount($scope.amount);
-					tradeService.sendProposal();
+					marketService.setAmount($scope.amount);
+					proposalService.send();
 				}
 			};
 
@@ -67,8 +68,8 @@ angular
 				$scope.amount = parseInt($scope.amount);
 				if ($scope.amount < 100000) {
 					$scope.amount += 1;
-					tradeService.setAmount($scope.amount);
-					tradeService.sendProposal();
+					marketService.setAmount($scope.amount);
+					proposalService.send();
 				}
 			};
 
@@ -77,18 +78,18 @@ angular
 			};
 
 			$scope.purchase = function() {
-				console.log('buying a contract');
+				//console.log('buying a contract', $scope.proposal);
 				// disable the button
 				$('.contract-purchase button').attr('disabled', true);
 				// make the purchase
-				console.log('proposal: ', $scope.proposal.id);
-				console.log('proposal: ', $scope.proposal.ask_price);
+				// console.log('proposal: ', $scope.proposal.id);
+				// console.log('proposal: ', $scope.proposal.ask_price);
 				websocketService.sendRequestFor.purchase($scope.proposal.id, $scope.proposal.ask_price);
 			};
 
 			$scope.$on('purchase', function(e, response) {
 				$scope.tradeMode = false;
-
+				//console.log('purchase: ', response);
 				$scope.contract = {
 					longcode: response.longcode,
 					payout: $scope.proposal.payout,
