@@ -9,7 +9,7 @@
 		<div class="options-account row">
 			<label class="item item-input item-select col col-90">
 				<div class="input-label">
-					<h1>Account</h1>
+					<h1>{{'options.account' | translate }}</h1>
 				</div>
 				<select class="account-select">
 					<option
@@ -26,21 +26,21 @@
 			</div>
 		</div>
 		<div class="options-market">
-			<h1>Select Market</h1>
+			<h1>{{'options.select_market' | translate }}</h1>
 			<div class="row">
 				<label class="item item-radio col">
 					<input type="radio" name="market" value="forex" ng-model="market" ng-change="updateMarket(market)">
-					<div class="item-content">Forex</div>
+					<div class="item-content">{{'options.forex' | translate }}</div>
 				</label>
 				<label class="item item-radio col">
 					<input type="radio" name="market" value="random" ng-model="market" ng-change="updateMarket(market)">
-					<div class="item-content">Random</div>
+					<div class="item-content">{{'options.random' | translate }}</div>
 				</label>
 			</div>
 		</div>
 		<div class="options-upderlying">
 			<label class="item item-input item-select">
-				<div class="input-label"><h1>Underlying</h1></div>
+				<div class="input-label"><h1>{{'options.underlying' | translate }}</h1></div>
 				<select ng-change="updateSymbol(selectedSymbol)" ng-model="selectedSymbol">
 					<option
 						ng-repeat="s in symbols"
@@ -52,19 +52,19 @@
 			</label>
 		</div>
 		<div class="options-trade">
-			<h1>Select Trade Type</h1>
+			<h1>{{'options.trade_type' | translate }}</h1>
 			<div class="row">
 				<label class="item item-radio col">
 					<input type="radio" name="tradeType" value="CALL"
 						ng-model="tradeType"
 						ng-change="updateTradeType(tradeType)">
-					<div class="item-content">Up</div>
+					<div class="item-content">{{'options.up' | translate }}</div>
 				</label>
 				<label class="item item-radio col">
 					<input type="radio" name="tradeType" value="PUT"
 						ng-model="tradeType"
 						ng-change="updateTradeType(tradeType)">
-					<div class="item-content">Down</div>
+					<div class="item-content">{{'options.down' | translate }}</div>
 				</label>
 			</div>
 			<div class="row">
@@ -72,59 +72,59 @@
 					<input type="radio" name="tradeType" value="DIGITMATCH"
 						ng-model="tradeType"
 						ng-change="updateTradeType(tradeType)">
-					<div class="item-content">Digit Match</div>
+					<div class="item-content">{{'options.digit_match' | translate }}</div>
 				</label>
 				<label class="item item-radio col" ng-show="market == 'random'">
 					<input type="radio" name="tradeType" value="DIGITDIFF"
 						ng-model="tradeType"
 						ng-change="updateTradeType(tradeType)">
-					<div class="item-content">Digit Differs</div>
+					<div class="item-content">{{'options.digit_differs' | translate }}</div>
 				</label>
 			</div>
 		</div>
 		<div class="options-ticks">
-			<h1>Select number of Ticks</h1>
+			<h1>{{'options.number_of_ticks' | translate }}</h1>
 			<div class="row">
 				<label class="item item-radio col">
 					<input type="radio" name="tick" value="5" ng-model="ticks" ng-change="updateTicks(ticks)">
-					<div class="item-content">5</div>
+					<div class="item-content">{{'options.five' | translate }}</div>
 				</label>
 				<label class="item item-radio col">
 					<input type="radio" name="tick" value="6" ng-model="ticks" ng-change="updateTicks(ticks)">
-					<div class="item-content">6</div>
+					<div class="item-content">{{'options.six' | translate }}</div>
 				</label>
 				<label class="item item-radio col">
 					<input type="radio" name="tick" value="7" ng-model="ticks" ng-change="updateTicks(ticks)">
-					<div class="item-content">7</div>
+					<div class="item-content">{{'options.seven' | translate }}</div>
 				</label>
 				<label class="item item-radio col">
 					<input type="radio" name="tick" value="8" ng-model="ticks" ng-change="updateTicks(ticks)">
-					<div class="item-content">8</div>
+					<div class="item-content">{{'options.eight' | translate }}</div>
 				</label>
 				<label class="item item-radio col">
 					<input type="radio" name="tick" value="9" ng-model="ticks" ng-change="updateTicks(ticks)">
-					<div class="item-content">9</div>
+					<div class="item-content">{{'options.nine' | translate }}</div>
 				</label>
 				<label class="item item-radio col">
 					<input type="radio" name="tick" value="10" ng-model="ticks" ng-change="updateTicks(ticks)">
-					<div class="item-content">10</div>
+					<div class="item-content">{{'options.ten' | translate }}</div>
 				</label>
 			</div>
 		</div>
 		<div class="options-amount">
-			<h1>Select Amount</h1>
+			<h1>{{'options.select_amount' | translate }}</h1>
 			<div class="row">
 				<label class="item item-radio col">
 					<input type="radio" name="amount" value="payout"
 						ng-model="basis"
 						ng-change="updateBasis(basis)">
-					<div class="item-content">Payout</div>
+					<div class="item-content">{{'options.payout' | translate }}</div>
 				</label>
 				<label class="item item-radio col">
 					<input type="radio" name="amount" value="stake"
 						ng-model="basis"
 						ng-change="updateBasis(basis)">
-					<div class="item-content">Stake</div>
+					<div class="item-content">{{'options.stake' | translate }}</div>
 				</label>
 				<label class="item item-input item-select col">
 					<select ng-change="updateCurrency(selectedCurrency)" ng-model="selectedCurrency">
@@ -139,7 +139,7 @@
 			</div>
 		</div>
 		<div class="options-save">
-			<button class="button button-block" ng-click="saveChanges()">SAVE</button>
+			<button class="button button-block" ng-click="saveChanges()">{{'options.save' | translate }}</button>
 		</div>
 	</ion-content>
 </ion-view>
