@@ -7,6 +7,16 @@
 	</div>
 	<ion-content class="options-content">
 		<change-account></change-account>
-		<trade-options></trade-options>
+		<!-- <trade-options></trade-options> -->
+		<markets-option></markets-option>
+		<symbols-option></symbols-option>
+		<trade-types-option></trade-types-option>
+		<ticks-option></ticks-option>
+		<digits-option ng-if="displayDigits"></digits-option>
+		<payout-stake-option></payout-stake-option>
+
+		<div class="options-save">
+			<button class="button button-block" ng-click="saveChanges()">SAVE</button>
+		</div>
 	</ion-content>
 </ion-view>
