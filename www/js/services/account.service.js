@@ -4,185 +4,140 @@
  * @contributors []
  * @since 10/26/2015
  * @copyright Binary Ltd
- *
  */
 
 angular
 	.module('binary')
 	.service('accountService',
-		function(websocketService, $translate) {
-			var accounts = {
-				validate: function(_token) {
-					websocketService.authenticate(_token);
-				},
-				exist: function() {
-					return localStorage.accounts && JSON.parse(localStorage.accounts) instanceof Array;
-				},
-				find: function(_accounts, _token) {
-					var index = -1;
-					_accounts.forEach(function(el, i) {
-						if (_accounts[i].token === _token) {
-							index = i;
-						}
-					});
-					return index;
-				},
-				findById: function(_accounts, _id) {
-					var index = -1;
-					_accounts.forEach(function(el, i) {
-						if (_accounts[i].id === _id) {
-							index = i;
-						}
-					});
-					return index;
-				},
-				setDefault: function(_accounts, _index) {
-					_accounts[_index].is_default = true;
-					localStorage.accounts = JSON.stringify(_accounts);
-				},
-				getDefault: function(_accounts) {
-					var defaultAccount = {};
-					_accounts.forEach(function(el, i) {
-						if (_accounts[i].is_default === true) {
-							defaultAccount = _accounts[i];
-						}
-					});
-					return defaultAccount;
-				},
-				isDefault: function(_accounts, _index) {
-					return _accounts[_index].is_default;
-				},
-				unsetDefault: function(_accounts) {
-					_accounts.forEach(function(el, i) {
-						_accounts[i].is_default = false;
-					});
-					return _accounts;
-				},
-				add: function(_accounts, _account) {
-					_accounts.push(_account);
-					localStorage.accounts = JSON.stringify(_accounts);
-				},
-				remove: function(_accounts, _index) {
-					_accounts.splice(_index, 1);
-					localStorage.accounts = JSON.stringify(_accounts);
-				},
-				removeAll: function() {
-					localStorage.removeItem('accounts');
-				},
-				getAll: function() {
-					if (localStorage.accounts) {
-						return JSON.parse(localStorage.accounts);
+		function(websocketService) {
+			/**
+			 * find a {key,value} in an array of objects and return its index
+			 * returns -1 if not found
+			 * @param  {Array of Objects} _accounts
+			 * @param  {String} _key
+			 * @param  {String, Number, Boolean} _value
+			 * @return {Number} Index of the found array element
+			 */
+			var findIndex = function(_accounts, _key, _value) {
+				var index = -1;
+				_accounts.forEach(function(el, i) {
+					if (_accounts[i][_key] === _value) {
+						index = i;
 					}
-					return [];
-				}
+				});
+				return index;
 			};
 
 			/**
-			 * Returns the list of all accounts stored in localStorage.accounts
-			 * @return {Array} List of all accounts
+			 * Check if the 'accounts' localStorage exist
+			 * @return {Boolean}
 			 */
-			this.getAllAccounts = function() {
-				if (accounts.exist()) {
-					return JSON.parse(localStorage.accounts);
-				}
-				return [];
+			var storageExist = function() {
+				return localStorage.accounts && JSON.parse(localStorage.accounts) instanceof Array;
 			};
 
 			/**
-			 * Remove an account from the list of accounts stored in localStorage.accounts
+			 * Returns the list of all accounts
+			 * @return {Array}
+			 */
+			this.getAll = function() {
+				return storageExist() ? JSON.parse(localStorage.accounts) : [];
+			};
+
+			/**
+			 * Removes the 'accounts' localStorage
+			 */
+			this.removeAll = function() {
+				localStorage.removeItem('accounts');
+			};
+
+			/**
+			 * Send a token for validation
+			 * if '_token' param is not passed, validates the default token
 			 * @param  {String} _token
-			 * @return {Array}  List of all accounts
 			 */
-			this.removeAccount = function(_token) {
-				var accountList = accounts.getAll();
-				var index = accounts.find(accountList, _token);
-				if (index > -1 && !accounts.isDefault(accountList, index)) {
-					accounts.remove(accountList, index);
+			this.validate = function(_token) {
+				if (_token) {
+					websocketService.authenticate(_token);
+				} else {
+					var accountList = this.getAll();
+					var defaultAccountIndex = findIndex(accountList, 'is_default', true);
+					// If default account exist
+					if (defaultAccountIndex > -1) {
+						var token = accountList[defaultAccountIndex].token;
+						websocketService.authenticate(token);
+					}
 				}
 			};
 
 			/**
-			 * Adds an account to the list of accounts stored in localStorage.accounts
-			 * @param {Object} _account : containing: id and token
+			 * Add an account to the 'accounts' localStorage
+			 * @param {Object} _account
 			 */
-			this.addAccount = function(_account) {
+			this.add = function(_account) {
 				var account = {
 					id: _account.loginid,
 					token: _account.token,
+					currency: _account.currency,
+					email: _account.email,
 					is_default: false
 				};
 
-				if (accounts.exist()) {
-					var accountList = accounts.getAll();
-					var index = accounts.find(accountList, _account.token);
-					if (index === -1) {
-						accounts.add(accountList, account);
-					}
-				} else{
-					accounts.add([], account);
+				var accountList = this.getAll();
+				accountList.push(account);
+				localStorage.accounts = JSON.stringify(accountList);
+			};
+
+			/**
+			 * Removes an account from 'accounts' localStorage
+			 * Doesn't remove the default account
+			 * @param  {String} _token
+			 */
+			this.remove = function(_token) {
+				var accountList = this.getAll();
+				var index = findIndex(accountList, 'token', _token);
+				// If the token exist and is not the default token
+				if (index > -1 && accountList[index].is_default !== true) {
+					accountList.splice(index, 1);
+					localStorage.accounts = JSON.stringify(accountList);
 				}
 			};
 
-			this.validateAccount = function(_token) {
-				if (_token) {
-					accounts.validate(_token);
-				} else {
-					var accountList = accounts.getAll();
-					var defaultAccount = accounts.getDefault(accountList);
-					accounts.validate(defaultAccount.token);
+			/**
+			 * Set the passed token as the default account
+			 * @param {String} _token
+			 */
+			this.setDefault = function(_token) {
+				var accountList = this.getAll();
+				var index = findIndex(accountList, 'token', _token);
+				// Make sure the token exist
+				if (index > -1) {
+					accountList.forEach(function(el, i) {
+						accountList[i].is_default = (accountList[i].token === _token) ? true : false;
+					});
+					localStorage.accounts = JSON.stringify(accountList);
 				}
 			};
 
-			this.hasDefaultAccount = function() {
-				var accountList = accounts.getAll();
-				if (accountList.length > 0 && accounts.getDefault(accountList)) {
-					return true;
-				}
-				return false;
+			/**
+			 * Check if the default account exist
+			 * @return {Boolean}
+			 */
+			this.hasDefault = function() {
+				var accountList = this.getAll();
+				var index = findIndex(accountList, 'is_default', true);
+				return (index > -1) ? true : false;
 			};
 
-			this.setDefaultAccount = function(_token) {
-				var accountList = accounts.getAll();
-				if (accountList.length > 0) {
-					var index = accounts.find(accountList, _token);
-					accounts.unsetDefault(accountList);
-					accounts.setDefault(accountList, index);
-				}
-			};
-
-			this.getDefaultAccount = function() {
-				var accountList = accounts.getAll();
-				return accounts.getDefault(accountList);
-			};
-
-			this.removeAllAccounts = function() {
-				accounts.removeAll();
-			};
-
+			/**
+			 * Check if the token/account is unique
+			 * Only one token for each account is allowed
+			 * @param  {String}  _id : loginid
+			 * @return {Boolean}
+			 */
 			this.isUnique = function(_id) {
-				var accountList = accounts.getAll();
-				return (accounts.findById(accountList, _id) > -1) ? false : true;
+				var accountList = this.getAll();
+				var index = findIndex(accountList, 'id', _id);
+				return (index > -1) ? false : true;
 			};
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

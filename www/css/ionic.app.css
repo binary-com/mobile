@@ -7721,6 +7721,21 @@ a.button {
 button {
   border: none !important; }
 
+.spinner {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0; }
+  .spinner svg {
+    margin: 0 auto;
+    display: block;
+    width: 50px;
+    height: 50px;
+    stroke: #fff; }
+
+.spinner svg {
+  fill: red; }
+
 body * {
   font-family: roboto, sans-serif !important; }
 

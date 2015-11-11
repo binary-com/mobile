@@ -1,0 +1,13 @@
+<div class="options-market">
+	<h1>Select Market{{forex}}</h1>
+	<div class="row">
+		<label class="item item-radio col" ng-show="market.forex">
+			<input type="radio" name="market" value="forex" ng-model="selected.market" ng-change="updateMarket(selected.market)">
+			<div class="item-content">Forex</div>
+		</label>
+		<label class="item item-radio col" ng-show="market.random">
+			<input type="radio" name="market" value="random" ng-model="selected.market" ng-change="updateMarket(selected.market)">
+			<div class="item-content">Random</div>
+		</label>
+	</div>
+</div>
