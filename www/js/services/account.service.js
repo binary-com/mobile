@@ -27,6 +27,15 @@ angular
 					});
 					return index;
 				},
+				findById: function(_accounts, _id) {
+					var index = -1;
+					_accounts.forEach(function(el, i) {
+						if (_accounts[i].id === _id) {
+							index = i;
+						}
+					});
+					return index;
+				},
 				setDefault: function(_accounts, _index) {
 					_accounts[_index].is_default = true;
 					localStorage.accounts = JSON.stringify(_accounts);
@@ -148,6 +157,11 @@ angular
 
 			this.removeAllAccounts = function() {
 				accounts.removeAll();
+			};
+
+			this.isUnique = function(_id) {
+				var accountList = accounts.getAll();
+				return (accounts.findById(accountList, _id) > -1) ? false : true;
 			};
 	});
 
