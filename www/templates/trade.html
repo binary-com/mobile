@@ -15,11 +15,8 @@
 				<span>5</span> ticks -->
 				{{proposal.longcode}}
 			</div>
-			<div class="contract-chart">
-				<p>{{tick}}</p>
-				<img src="img/chart.png" alt="Chart" height="200px" width="100%">
-			</div>
-			<div class="contract-payout row">
+			<chart-trade></chart-trade>
+			<!-- <div class="contract-payout row">
 				<div class="col col-33 basis" ng-show="basis == 'payout'">Payout</div>
 				<div class="col col-33 basis" ng-show="basis == 'stake'">Stake</div>
 				<div class="col col-33 amount">
@@ -41,7 +38,7 @@
 				<button class="button button-block button-positive" ng-click="purchase()">
 					BUY
 				</button>
-			</div>
+			</div> -->
 		</div>
 		<div ng-hide="tradeMode">
 			<div class="contract-summary">

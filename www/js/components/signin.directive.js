@@ -43,6 +43,7 @@ angular
 
 
 				scope.$on('authorize', function(e, response) {
+					websocketService.sendRequestFor.symbols();
 					scope.showSpinner = false;
 					if (response) {
 						if (accountService.isUnique(response.loginid)) {
