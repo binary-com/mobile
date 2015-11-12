@@ -68,7 +68,9 @@ angular
 							}
 							break;
 						case 'active_symbols':
-							sessionStorage.active_symbols = JSON.stringify(message.active_symbols);
+							var markets = message.active_symbols;
+							var groupedMarkets = _.groupBy(markets, 'market');
+							sessionStorage.active_symbols = JSON.stringify(groupedMarkets);
 							break;
 						case 'payout_currencies':
 							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
@@ -77,9 +79,12 @@ angular
 							$rootScope.$broadcast('proposal', message.proposal);
 							break;
 						case 'contracts_for':
-							console.log('contract for: ', message);
+							var symbol = message.echo_req.contracts_for;
+							var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_type');
+							$rootScope.$broadcast('symbol', groupedSymbol);
 							break;
 						case 'buy':
+							//console.log('buy: ', message);
 							$rootScope.$broadcast('purchase', message.buy);
 							break;
 						case 'balance':
@@ -89,7 +94,7 @@ angular
 							$rootScope.$broadcast('tick', message.tick);
 							break;
 						default:
-							console.log('another message type: ', message);
+							//console.log('another message type: ', message);
 					}
 				}
 			};
