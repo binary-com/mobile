@@ -37,13 +37,13 @@ angular
 					if (accountService.hasDefault()) {
 						accountService.validate();
 					}
+					websocketService.sendRequestFor.symbols();
 				};
 
 				init();
 
 
 				scope.$on('authorize', function(e, response) {
-					websocketService.sendRequestFor.symbols();
 					scope.showSpinner = false;
 					if (response) {
 						if (accountService.isUnique(response.loginid)) {
