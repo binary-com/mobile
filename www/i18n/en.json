@@ -7,6 +7,7 @@
 	},
 	"accounts": {
 		"my_accounts": "My Accounts",
+		"account": "Account",
 		"remove_all": "Remove All Accounts & Sign Out",
 		"default": "Default",
 		"set_as_default": "Set as default",
