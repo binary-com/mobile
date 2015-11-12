@@ -49,8 +49,7 @@ angular
 			});
 
 			$scope.$on('tick', function(e, response) {
-				$scope.tick = response.quote;
-        $scope.chartGenerator.addTick(response);
+				$scope.tick = response;
 				$scope.$apply();
 			});
 
