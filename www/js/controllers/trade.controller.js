@@ -49,7 +49,7 @@ angular
 			});
 
 			$scope.$on('tick', function(e, response) {
-				$scope.tick = response.quote;
+				$scope.tick = response;
 				$scope.$apply();
 			});
 
