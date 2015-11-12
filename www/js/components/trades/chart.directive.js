@@ -16,8 +16,7 @@ angular
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/chart.template.html',
 			link: function(scope, element) {
-				var chartGenerator = function chartGenerator(){
-					var maxEntries = 20;
+				var chartGenerator = function chartGenerator(maxEntries){
 					// Generate empty chart to begin with
 					var chart = c3.generate({
 						bindto: '#chart',
@@ -60,7 +59,7 @@ angular
 					};
 				};
 
-				scope.chartGenerator = chartGenerator();
+				scope.chartGenerator = chartGenerator(15);
 
 
 				scope.$parent.$watch('tick', function(value){
