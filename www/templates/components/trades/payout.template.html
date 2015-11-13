@@ -1,0 +1,20 @@
+<div class="contract-payout row">
+	<div class="col col-33 basis" ng-show="basis == 'payout'">{{'trade.payout' | translate}}</div>
+	<div class="col col-33 basis" ng-show="basis == 'stake'">{{'trade.stake' | translate}}</div>
+	<div class="col col-33 amount">
+		<input type="number" min="1" max="100000"
+			ng-model="amount"
+			ng-change="updateAmount(amount, '{{amount}}')">
+	</div>
+	<div class="col col-33">
+		<div class="button-bar">
+			<a ng-click="subtractAmount()" class="button minus icon ion-android-remove"></a>
+			<a ng-click="addAmount()" class="button plus icon ion-android-add"></a>
+		</div>
+	</div>
+</div>
+<div class="contract-price row">
+	<div class="col col-33">{{basis == 'payout' ? ('trade.stake' | translate) : ('trade.payout' | translate) }}</div>
+	<div class="col price" ng-show="basis == 'payout'">USD {{proposal.ask_price}}</div>
+	<div class="col price" ng-show="basis == 'stake'">USD {{proposal.payout}}</div>
+</div>
