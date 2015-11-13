@@ -24,7 +24,7 @@ angular
 				$ionicPopup) {
 		return {
 			restrict: 'E',
-			templateUrl: 'templates/components/signin.template.html',
+			templateUrl: 'templates/components/accounts/signin.template.html',
 			link: function(scope, element) {
 
 				/**
