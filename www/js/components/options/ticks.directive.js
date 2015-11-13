@@ -20,9 +20,7 @@ angular
 
 				scope.updateTick = function(_tick) {
 					scope.$parent.selected.tick = _tick;
-					//console.log('selected.tick: ', _tick);
 				};
-
 			}
 		};
 	}]);

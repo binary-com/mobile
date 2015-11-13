@@ -18,7 +18,6 @@ angular
 			link: function(scope, element) {
 				scope.updateTradeType = function(_tradeType) {
 					scope.$parent.selected.tradeType = _tradeType;
-					//console.log('aha, ', _tradeType);
 
 					scope.$parent.displayDigits = false;
 					var tradeTypes = config.tradeTypes;
