@@ -13,9 +13,9 @@ angular
 		function($scope, $rootScope, $state, config, proposalService) {
 			$scope.selected = {};
 
-			$scope.$watch('selected', function(value){
+			//$scope.$watch('selected', function(value){
 				//console.log('scope is changing: ', value);
-			}, true);
+			//}, true);
 
 			// Navigations
 
@@ -28,14 +28,10 @@ angular
 			};
 
 			$scope.saveChanges = function() {
-				//console.log('scope.selected: ', $scope.selected);
 				proposalService.update($scope.selected);
 				proposalService.send();
 
 				$state.go('trade', {}, { reload: true, inherit: false, notify: true });
-				//$state.go('trade');
-
-				//console.log('get.proposal: ', proposalService.get());
 			};
 	});
 
