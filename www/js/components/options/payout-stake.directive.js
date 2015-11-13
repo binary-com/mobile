@@ -18,9 +18,7 @@ angular
 				scope.$parent.selected.basis = 'payout';
 				scope.updateBasis = function(_basis) {
 					scope.$parent.selected.basis = _basis;
-					//console.log('selected.basis: ', _basis);
 				};
-
 			}
 		};
 	}]);
