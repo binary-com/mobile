@@ -38,4 +38,17 @@ angular
 				}
 			};
 
+			this.contractError = {
+				notAvailable: function() {
+					$translate(['alert.error', 'alert.contract_error'])
+					.then(function (translation) {
+						displayAlert(translation['alert.error'], translation['alert.contract_error']);
+					});
+				}
+			};
+
+			this.optionError = {
+				noTick: function() {}
+			};
+
 	});
