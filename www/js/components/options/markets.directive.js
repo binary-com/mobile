@@ -17,12 +17,7 @@ angular
 			link: function(scope, element) {
 				var updateSymbols = function(_market) {
 					scope.symbols = marketService.getAllSymbolsForAMarket(_market);
-					//console.log('market: ', _market);
-					//console.log('symbols: ', scope.symbols);
-
-					//if (!scope.$parent.selected.symbol) {
-						scope.$parent.selected.symbol = scope.symbols[0].symbol;
-					//}
+					scope.$parent.selected.symbol = scope.symbols[0].symbol;
 
 					marketService.getSymbolDetails(scope.selected.symbol);
 				};
@@ -37,7 +32,7 @@ angular
 					if (!scope.$parent.selected.market) {
 						scope.$parent.selected.market = 'forex';
 					}
-					//console.log('selected market: ', scope.$parent.selected);
+
 					updateSymbols(scope.$parent.selected.market);
 				};
 
@@ -46,7 +41,6 @@ angular
 				scope.updateMarket = function(_market) {
 					scope.$parent.selected.market = _market;
 					updateSymbols(scope.$parent.selected.market);
-
 				};
 			}
 		};

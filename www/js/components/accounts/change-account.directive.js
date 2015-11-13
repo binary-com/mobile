@@ -14,7 +14,7 @@ angular
 		function(accountService, $state) {
 		return {
 			restrict: 'E',
-			templateUrl: 'templates/components/change-account.template.html',
+			templateUrl: 'templates/components/accounts/change-account.template.html',
 			link: function(scope, element) {
 				/**
 				 * On load:
