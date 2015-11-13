@@ -12,12 +12,11 @@ angular
 		function(websocketService) {
 
 			var createProposal = function(_data) {
-				//console.log('data1: ', _data);
 				var proposal = {
 					proposal: 1,
 					symbol: _data.symbol,
 					contract_type: _data.tradeType || _data.contract_type,
-					duration: _data.tick,
+					duration: _data.duration || _data.tick,
 					basis: _data.basis,
 					currency: _data.currency || 'USD',
 					amount: _data.amount || 5,
@@ -30,7 +29,6 @@ angular
 					proposal.barrier = _data.barrier;
 				}
 
-				//console.log('data2: ', proposal);
 				return proposal;
 			};
 
@@ -40,9 +38,8 @@ angular
 				}
 			};
 
-			this.send = function() {
+			this.send = function(_oldId) {
 				websocketService.sendRequestFor.forgetProposals();
-
 				websocketService.sendRequestFor.proposal(JSON.parse(localStorage.proposal));
 			};
 
