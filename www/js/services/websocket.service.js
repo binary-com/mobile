@@ -77,8 +77,6 @@ angular
 							break;
 						case 'proposal':
 							$rootScope.$broadcast('proposal', message.proposal);
-							//console.log('_id: ', message.proposal.id);
-							console.log('_id: ', message.proposal.id);
 							break;
 						case 'contracts_for':
 							var symbol = message.echo_req.contracts_for;

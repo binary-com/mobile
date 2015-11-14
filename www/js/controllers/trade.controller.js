@@ -28,6 +28,7 @@ angular
 			websocketService.sendRequestFor.balance();
 			$scope.$on('balance', function(e, _balance) {
 				$scope.account = _balance;
+				console.log('acc: ', _balance);
 				$scope.$apply();
 			});
 
