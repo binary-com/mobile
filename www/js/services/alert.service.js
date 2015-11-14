@@ -47,8 +47,13 @@ angular
 				}
 			};
 
-			this.optionError = {
-				noTick: function() {}
+			this.optionsError = {
+				noTick: function() {
+					$translate(['alert.error', 'alert.no_tick'])
+					.then(function (translation) {
+						displayAlert(translation['alert.error'], translation['alert.no_tick']);
+					});
+				}
 			};
 
 	});
