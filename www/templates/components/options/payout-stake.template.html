@@ -1,28 +1,18 @@
 
 <div class="options-amount">
-	<h1>Select Payout Type</h1>
+	<h1>{{'options.payout_type' | translate}}</h1>
 	<div class="row">
 		<label class="item item-radio col">
 			<input type="radio" name="amount" value="payout"
 				ng-model="selected.basis"
 				ng-change="updateBasis(selected.basis)">
-			<div class="item-content">Payout</div>
+			<div class="item-content">{{'options.payout' | translate}}</div>
 		</label>
 		<label class="item item-radio col">
 			<input type="radio" name="amount" value="stake"
 				ng-model="selected.basis"
 				ng-change="updateBasis(selected.basis)">
-			<div class="item-content">Stake</div>
+			<div class="item-content">{{'options.stake' | translate}}</div>
 		</label>
-		<!-- <label class="item item-input item-select col">
-			<select ng-change="updateCurrency(selectedCurrency)" ng-model="selectedCurrency">
-				<option
-					ng-repeat="c in currencies"
-					value="{{c}}"
-					ng-selected="c == selectedCurrency">
-					{{c}}
-				</option>
-			</select>
-		</label> -->
 	</div>
 </div>
