@@ -63,10 +63,12 @@
     .options-trade {
     	border-bottom: 1px solid $lightgray;
     	// margin-top: 10px;
-    	// margin-bottom: 10px;
+    	//margin-bottom: 10px;
     	padding:10px 0;
         .item {
             display: inline-block;
+            width: 50%;
+            padding: 0 2px;
         }
         .item-content {
             padding: 0;
@@ -81,8 +83,6 @@
     }
     .options-ticks {
     	border-bottom: 1px solid $lightgray;
-    	// margin-top: 10px;
-    	// margin-bottom: 10px;
     	padding:10px 0;
         .item {
             display: inline-block;
@@ -98,57 +98,9 @@
                 color: $white;
             }
         }
-        // 	background-color: lighten($grey, 20%);
-        // 	> .col:nth-child(1) {
-        // 		font-size: 14px;
-        // 		text-align: center;
-        // 		line-height: 32px;
-        // 	}
-        // 	> .col:nth-child(2) {
-        // 		input {
-        // 			font-size: 18px;
-        // 			width: 00px;
-        // 			height: 32px;
-        // 			border-radius: 5px;
-        // 			border: 1px solid $grey;
-        // 			line-height: 26px;
-        // 			text-align: center;
-        // 			padding-left: 18px;
-        // 		}
-        // 	}
-        // 	> .col:nth-child(3) {
-        // 		.button {
-        // 			float: right;
-        // 			margin: 0;
-        // 			padding: 0;
-        // 			height: 30px;
-        // 			width: 30px;
-        // 			min-width: 30px;
-        // 			min-height: 30px;
-        // 			border: none;
-        // 			color: $white;
-        // 			border-radius: 0;
-        // 			&:before {
-        // 				line-height: 26px;
-        // 			}
-        // 			&:after {
-        // 			}
-        // 			&.plus {
-        // 				background-color: $darkblue;
-        // 				border-radius: 0 5px 5px 0;
-        // 			}
-        // 			&.minus {
-        // 				background-color: $grey;
-        // 				border-radius: 5px 0 0 5px;
-        // 			}
-        // 		}
-        // 	}
-        // }
     }
     .options-amount {
     	border-bottom: 1px solid $lightgray;
-    	// margin-top: 10px;
-    	// margin-bottom: 10px;
     	padding:10px 0;
         .item {
             display: inline-block;
