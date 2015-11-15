@@ -16,6 +16,7 @@ angular
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/payout.template.html',
 			link: function(scope, element) {
+
 				scope.basis = scope.$parent.proposalToSend.basis || 'payout';
 				scope.amount = scope.$parent.proposalToSend.amount || 5;
 
