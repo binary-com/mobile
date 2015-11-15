@@ -12,8 +12,7 @@ angular
 		'accountService',
 		'websocketService',
 		'$state',
-		'$rootScope',
-		function(accountService, websocketService, $state, $rootScope) {
+		function(accountService, websocketService, $state) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/change-account.template.html',
