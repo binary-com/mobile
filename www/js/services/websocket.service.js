@@ -71,6 +71,7 @@ angular
 							var markets = message.active_symbols;
 							var groupedMarkets = _.groupBy(markets, 'market');
 							sessionStorage.active_symbols = JSON.stringify(groupedMarkets);
+							$rootScope.$broadcast('symbols:updated');
 							break;
 						case 'payout_currencies':
 							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
