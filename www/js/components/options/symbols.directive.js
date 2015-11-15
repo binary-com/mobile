@@ -18,7 +18,6 @@ angular
 			templateUrl: 'templates/components/options/symbols.template.html',
 			link: function(scope, element) {
 				scope.$on('symbol', function(e, _symbol) {
-
 					var tradeTypes = config.tradeTypes;
 					scope.tradeTypes = [];
 
