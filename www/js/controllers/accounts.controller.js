@@ -12,7 +12,6 @@ angular
 	.controller('AccountsController',
 		function($scope, $rootScope, $state, $ionicPopup, websocketService, accountService) {
 			$scope.navigateToOptionsPage = function() {
-				$rootScope.$broadcast('refresh:options');
-				$state.go('options');
+				$state.go('options', {}, {reload: true});
 			};
 	});
