@@ -23,9 +23,15 @@ angular
 				 */
 				var init = function() {
 					scope.accounts = accountService.getAll();
+					scope.selectedAccount = accountService.getDefault().token;
 				};
 
 				init();
+
+				scope.updateAccount = function(_selectedAccount) {
+					accountService.setDefault(_selectedAccount);
+					accountService.validate();
+				};
 
 				scope.navigateToManageAccounts = function() {
 					$state.go('accounts');
