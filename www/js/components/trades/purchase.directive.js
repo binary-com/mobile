@@ -11,7 +11,8 @@ angular
 	.directive('purchase',[
 		'websocketService',
 		'alertService',
-		function(websocketService, alertService) {
+		'$rootScope',
+		function(websocketService, alertService, $rootScope) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/purchase.template.html',
@@ -23,8 +24,8 @@ angular
 
 				scope.$on('purchase', function(e, _contractConfirmation) {
 					if (_contractConfirmation) {
-						scope.tradeMode = false;
-						scope.contract = {
+						scope.$parent.tradeMode = false;
+						scope.$parent.contract = {
 							longcode: _contractConfirmation.longcode,
 							payout: scope.$parent.proposalRecieved.payout,
 							cost: _contractConfirmation.buy_price,
