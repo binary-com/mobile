@@ -10,8 +10,10 @@ angular
 	.module('binary')
 	.directive('changeAccount',[
 		'accountService',
+		'websocketService',
 		'$state',
-		function(accountService, $state) {
+		'$rootScope',
+		function(accountService, websocketService, $state, $rootScope) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/change-account.template.html',
@@ -31,6 +33,7 @@ angular
 				scope.updateAccount = function(_selectedAccount) {
 					accountService.setDefault(_selectedAccount);
 					accountService.validate();
+					websocketService.sendRequestFor.symbols();
 				};
 
 				scope.navigateToManageAccounts = function() {
