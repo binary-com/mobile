@@ -130,6 +130,16 @@ angular
 			};
 
 			/**
+			 * Returns the default account
+			 * @return {Object}
+			 */
+			this.getDefault = function() {
+				var accountList = this.getAll();
+				var index = findIndex(accountList, 'is_default', true);
+				return accountList[index];
+			};
+
+			/**
 			 * Check if the token/account is unique
 			 * Only one token for each account is allowed
 			 * @param  {String}  _id : loginid
