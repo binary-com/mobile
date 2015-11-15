@@ -23,16 +23,19 @@ angular
 				})
 				.state('trade', {
 					url: '/trade',
+					cache: false,
 					templateUrl: 'templates/pages/trade.html',
 					controller: 'TradeController'
 				})
 				.state('options', {
 					url: '/options',
+					cache: false,
 					templateUrl: 'templates/pages/options.html',
 					controller: 'OptionsController'
 				})
 				.state('accounts', {
 					url: '/accounts',
+					cache: false,
 					templateUrl: 'templates/pages/accounts.html',
 					controller: 'AccountsController'
 				});
