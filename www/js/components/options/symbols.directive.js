@@ -10,27 +10,44 @@ angular
 	.module('binary')
 	.directive('symbolsOption',[
 		'marketService',
+		'alertService',
 		'config',
-		function(marketService, config) {
+		function(marketService, alertService, config) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/options/symbols.template.html',
 			link: function(scope, element) {
-				scope.$on('symbol', function(e, response) {
+				scope.$on('symbol', function(e, _symbol) {
 					var tradeTypes = config.tradeTypes;
 					scope.tradeTypes = [];
 
-					if (response) {
+					if (_symbol) {
 						tradeTypes.forEach(function(el, i) {
-							for (var key in response) {
-								if (response.hasOwnProperty(key)) {
+							for (var key in _symbol) {
+								if (_symbol.hasOwnProperty(key)) {
 									if (el.value === key) {
-										scope.tradeTypes.push(el);
+										var hasTicks = false;
+										for (var j = 0; j < _symbol[key].length; j++) {
+											var minDuration = _symbol[key][j].min_contract_duration;
+											if (minDuration.match(/^\d+$/)) {
+												hasTicks = true;
+											}
+										}
+										if (hasTicks) {
+											scope.tradeTypes.push(el);
+										}
+
 									}
 								}
 							}
 						});
 					}
+					if (scope.tradeTypes.length === 0) {
+						$('.options-save button').attr("disabled", true);
+						alertService.optionsError.noTick();
+						return;
+					}
+					$('.options-save button').attr("disabled", false);
 					scope.$parent.selected.tradeType = scope.tradeTypes[0].value;
 					scope.$apply();
 				});
@@ -39,14 +56,6 @@ angular
 					scope.$parent.selected.symbol = _selectedSymbol;
 					marketService.getSymbolDetails(scope.$parent.selected.symbol);
 				};
-
-				// scope.$parent.$watch('selected.market', function(value){
-				// 	console.log('selected.market.lah: ', value);
-				// 	if (!scope.$parent.selected.symbol) {
-				// 		scope.$parent.selected.symbol = scope.symbols[0].symbol;
-				// 	}
-				// });
-
 			}
 		};
 	}]);

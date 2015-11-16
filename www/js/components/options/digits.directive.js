@@ -20,9 +20,7 @@ angular
 
 				scope.updateDigit = function(_digit) {
 					scope.$parent.selected.digit = _digit;
-					//console.log('selected.digit: ', _digit);
 				};
-
 			}
 		};
 	}]);
