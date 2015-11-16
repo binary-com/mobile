@@ -1,7 +1,7 @@
 <div class="options-trade">
-	<h1>Select Trade Type</h1>
-	<div class="row">
-		<label class="item item-radio col" ng-repeat="t in tradeTypes">
+	<h1>{{'options.trade_type' | translate}}</h1>
+	<div>
+		<label class="item item-radio" ng-repeat="t in tradeTypes">
 			<input type="radio" name="tradeType" value="{{t.value}}"
 				ng-model="selected.tradeType"
 				ng-change="updateTradeType(selected.tradeType)" ng-checked="selected.tradeType">

@@ -15,7 +15,7 @@ angular
 		function(accountService, alertService, $state) {
 		return {
 			restrict: 'E',
-			templateUrl: 'templates/components/manage-accounts.template.html',
+			templateUrl: 'templates/components/accounts/manage-accounts.template.html',
 			link: function(scope, element) {
 
 				scope.accounts = accountService.getAll();

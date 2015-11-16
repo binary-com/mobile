@@ -71,6 +71,7 @@ angular
 							var markets = message.active_symbols;
 							var groupedMarkets = _.groupBy(markets, 'market');
 							sessionStorage.active_symbols = JSON.stringify(groupedMarkets);
+							$rootScope.$broadcast('symbols:updated');
 							break;
 						case 'payout_currencies':
 							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
@@ -84,14 +85,16 @@ angular
 							$rootScope.$broadcast('symbol', groupedSymbol);
 							break;
 						case 'buy':
-							//console.log('buy: ', message);
-							$rootScope.$broadcast('purchase', message.buy);
+							$rootScope.$broadcast('purchase', message.buy || false);
 							break;
 						case 'balance':
 							$rootScope.$broadcast('balance', message.balance);
 							break;
 						case 'tick':
 							$rootScope.$broadcast('tick', message.tick);
+							break;
+						case 'candles':
+							$rootScope.$broadcast('tickHistory', message.candles);
 							break;
 						default:
 							//console.log('another message type: ', message);
@@ -141,6 +144,12 @@ angular
 					};
 					sendMessage(data);
 				},
+				forgetProposal: function(_id) {
+					var data = {
+						forget: _id
+					};
+					sendMessage(data);
+				},
 				forgetProposals: function() {
 					var data = {
 						forget_all: 'proposal'
@@ -168,8 +177,17 @@ angular
 						balance: 1
 					};
 					sendMessage(data);
+				},
+				ticksHistory: function(_symbol, _start, _granularity, _count) {
+					var data = {
+						ticks_history: _symbol,
+						start: _start,
+						end: 'latest',
+						granularity: _granularity,
+						count: _count
+					};
+					sendMessage(data);
 				}
-
 			};
 
 	});
