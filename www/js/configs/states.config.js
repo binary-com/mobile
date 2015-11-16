@@ -13,27 +13,30 @@ angular
 			$stateProvider
 				.state('signin', {
 					url: '/sign-in',
-					templateUrl: 'templates/sign-in.html',
+					templateUrl: 'templates/pages/sign-in.html',
 					controller: 'SignInController'
 				})
 				.state('help', {
 					url: '/help',
-					templateUrl: 'templates/help.html',
+					templateUrl: 'templates/pages/help.html',
 					controller: 'HelpController'
 				})
 				.state('trade', {
 					url: '/trade',
-					templateUrl: 'templates/trade.html',
+					cache: false,
+					templateUrl: 'templates/pages/trade.html',
 					controller: 'TradeController'
 				})
 				.state('options', {
 					url: '/options',
-					templateUrl: 'templates/options.html',
+					cache: false,
+					templateUrl: 'templates/pages/options.html',
 					controller: 'OptionsController'
 				})
 				.state('accounts', {
 					url: '/accounts',
-					templateUrl: 'templates/accounts.html',
+					cache: false,
+					templateUrl: 'templates/pages/accounts.html',
 					controller: 'AccountsController'
 				});
 

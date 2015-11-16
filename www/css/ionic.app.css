@@ -7977,7 +7977,9 @@ body * {
   border-bottom: 1px solid #f2f2f2;
   padding: 10px 0; }
   .options .options-trade .item {
-    display: inline-block; }
+    display: inline-block;
+    width: 50%;
+    padding: 0 2px; }
   .options .options-trade .item-content {
     padding: 0;
     text-align: center; }
