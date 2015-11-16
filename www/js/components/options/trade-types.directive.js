@@ -16,9 +16,9 @@ angular
 			restrict: 'E',
 			templateUrl: 'templates/components/options/trade-types.template.html',
 			link: function(scope, element) {
+
 				scope.updateTradeType = function(_tradeType) {
 					scope.$parent.selected.tradeType = _tradeType;
-					//console.log('aha, ', _tradeType);
 
 					scope.$parent.displayDigits = false;
 					var tradeTypes = config.tradeTypes;

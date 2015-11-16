@@ -1,10 +1,9 @@
-.architect
+git .architect
 bootstrap.json
 build/
 ext/
 node_modules/
 bower_components/
-www/lib/
 platforms/ios/c.xcodeproj/
 platforms/ios/c/
 platforms/ios/www/css/ionic.app.css
