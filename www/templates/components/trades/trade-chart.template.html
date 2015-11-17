@@ -1,4 +1,10 @@
 <div class="contract-chart">
-	<p>TICK: <strong>{{tick.quote}}</strong></p>
-	<img src="img/chart.png" alt="Chart" height="200px" width="100%">
+	<ion-slide-box on-slide-changed="onChartChange($index)">
+		<ion-slide>
+			<div id="chart">There's no chart in here!</div>
+		</ion-slide>
+		<ion-slide>
+			<div id="chart">There's no chart in here!</div>
+		</ion-slide>
+	</ion-slide-box>
 </div>
