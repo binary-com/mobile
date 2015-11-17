@@ -7782,6 +7782,30 @@ body * {
     text-align: center;
     color: #e98024; }
 
+.home {
+  background-color: #f2f2f2; }
+  .home .branding {
+    width: 80%;
+    max-width: 600px;
+    margin: 40% auto; }
+    .home .branding .logo {
+      display: block;
+      margin: 0 auto;
+      width: 40%; }
+    .home .branding .slogan {
+      display: block;
+      margin: 5% auto 0;
+      width: 60%; }
+  .home .spinner svg {
+    margin-top: 300px;
+    display: block;
+    stroke: #2a3052; }
+  .home span {
+    display: block;
+    margin: -50px auto 0;
+    color: #2a3052;
+    text-align: center; }
+
 .sign-in {
   background-color: #2a3052; }
   .sign-in .branding {
