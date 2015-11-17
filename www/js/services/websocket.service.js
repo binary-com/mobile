@@ -184,7 +184,8 @@ angular
 						start: _start,
 						end: 'latest',
 						granularity: _granularity,
-						count: _count
+						count: _count,
+						subscribe: 1
 					};
 					sendMessage(data);
 				}
