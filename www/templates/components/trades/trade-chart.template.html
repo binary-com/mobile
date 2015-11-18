@@ -1,4 +1,8 @@
 <div class="contract-chart">
-	<p>TICK: <strong>{{tick.quote}}</strong></p>
-	<img src="img/chart.png" alt="Chart" height="200px" width="100%">
+	<ion-slide-box disable-scroll="false" delegate-handle="contract-chart-slide" show-pager="false" on-slide-changed="onChartChange($index)">
+		<ion-slide ng-repeat="slide in charts.slides">
+			<div id="{{slide.id}}"></div>
+			<p>Loaded data from: {{slide.time}}</p>
+		</ion-slide>
+	</ion-slide-box>
 </div>

@@ -15,7 +15,6 @@ angular
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/contract-summary.template.html',
 			link: function(scope, element) {
-
 			}
 		};
 	}]);
