@@ -10,11 +10,12 @@ angular
 	.module('binary')
 	.directive('changeAccount',[
 		'accountService',
+		'websocketService',
 		'$state',
-		function(accountService, $state) {
+		function(accountService, websocketService, $state) {
 		return {
 			restrict: 'E',
-			templateUrl: 'templates/components/change-account.template.html',
+			templateUrl: 'templates/components/accounts/change-account.template.html',
 			link: function(scope, element) {
 				/**
 				 * On load:
@@ -23,9 +24,16 @@ angular
 				 */
 				var init = function() {
 					scope.accounts = accountService.getAll();
+					scope.selectedAccount = accountService.getDefault().token;
 				};
 
 				init();
+
+				scope.updateAccount = function(_selectedAccount) {
+					accountService.setDefault(_selectedAccount);
+					accountService.validate();
+					websocketService.sendRequestFor.symbols();
+				};
 
 				scope.navigateToManageAccounts = function() {
 					$state.go('accounts');
