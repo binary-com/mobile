@@ -51,7 +51,7 @@ angular
 										quote: 'orange'
 									},
 									selection: {
-										enabled: true
+										enabled: false 
 									}
 								},
 								grid:{
@@ -80,7 +80,7 @@ angular
 									enabled: (chartID == '#realtimeChart')? false: true
 								},
 								interaction: {
-									enabled: (chartID == '#realtimeChart')? false: true
+									enabled: true
 								}
 							});
 					var removeExtraEntries = function removeExtraEntries(maxEntries){
