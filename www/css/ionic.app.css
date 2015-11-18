@@ -9580,9 +9580,7 @@ body * {
 
 .options .options-market {
   border-bottom: 1px solid #f2f2f2;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px 0; }
+  padding: 5px 0; }
   .options .options-market .item {
     display: inline-block; }
   .options .options-market .item-content {
@@ -9593,12 +9591,15 @@ body * {
     color: #fff; }
 
 .options .options-upderlying {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 10px 0; }
+  border-bottom: 1px solid #f2f2f2; }
 
 .options .options-trade {
   border-bottom: 1px solid #f2f2f2;
-  padding: 10px 0; }
+  padding: 5px 0; }
+  .options .options-trade .padding {
+    padding: 0 5px 5px 5px;
+    width: 100%;
+    margin-top: -5px; }
   .options .options-trade .item {
     display: inline-block;
     width: 50%;
@@ -9612,7 +9613,7 @@ body * {
 
 .options .options-ticks {
   border-bottom: 1px solid #f2f2f2;
-  padding: 10px 0; }
+  padding: 5px 0; }
   .options .options-ticks .item {
     display: inline-block;
     width: 16%; }
@@ -9625,7 +9626,7 @@ body * {
 
 .options .options-amount {
   border-bottom: 1px solid #f2f2f2;
-  padding: 10px 0; }
+  padding: 5px 0; }
   .options .options-amount .item {
     display: inline-block;
     width: 30%; }
@@ -9637,7 +9638,7 @@ body * {
     color: #fff; }
 
 .options label .input-label {
-  padding: 5px; }
+  padding: 0px; }
 
 .options label.item-input {
   border-width: 0;
