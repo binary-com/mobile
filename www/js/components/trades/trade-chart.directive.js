@@ -218,7 +218,7 @@ angular
 								scope.charts['historyChart' + (reversedIndex+1)].clearChart();
 							}
 							websocketService.sendRequestFor.forgetTicks();
-							websocketService.sendRequestFor.sendTicksHistory(
+							websocketService.sendRequestFor.ticksHistory(
 								{
 									"ticks_history": symbol,
 									"end": parseInt(new Date().getTime()/1000) - maxEntries * reversedIndex,
@@ -233,7 +233,7 @@ angular
 					};
 
 					websocketService.sendRequestFor.forgetTicks();
-					websocketService.sendRequestFor.sendTicksHistory(
+					websocketService.sendRequestFor.ticksHistory(
 						{
 							"ticks_history": symbol,
 							"end": "latest",
