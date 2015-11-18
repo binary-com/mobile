@@ -16,7 +16,7 @@ angular
 			templateUrl: 'templates/components/trades/trade-chart.template.html',
 			link: function(scope, element) {
 
-				var ChartGenerator = function ChartGenerator(){
+				var ChartGenerator = function ChartGenerator(chartID){
 					// add the feed data in this feed_list
 					var feed_list;
 					var init_feed_list = function init_feed_list(feed){
@@ -34,7 +34,7 @@ angular
 					}
 					// Generate empty chart to begin with
 					var chart = c3.generate({
-								bindto: '#chart',
+								bindto: chartID,
 								transition: {
 									duration: 0
 								},
@@ -145,8 +145,18 @@ angular
 							addOhlc(newFeed);
 						});
 					};
+					var clearChart = function clearChart(){
+						if (feed_list.quote) {
+							init_feed_list({msg_type: 'history'});
+							chart.unload('epoch');
+						} else {
+							init_feed_list({msg_type: 'candles'});
+							chart.unload('ohlc');
+						}
+					}
 					// API visible to the public
 					return {
+						clearChart: clearChart,
 						addTick: addTick,
 						addOhlc: addOhlc,
 						addHistory: addHistory,
@@ -154,19 +164,29 @@ angular
 					};
 				};
 
-				scope.chartGenerator = ChartGenerator();
-
+				scope.charts = {
+					realtimeChart: ChartGenerator('#realtimeChart'),
+				};
 				var init = function() {
 					var symbol = scope.$parent.proposalToSend.symbol;
-
+					var maxEntries = 30;
+					chartsLength = 5;
 					scope.onChartChange = function onChartChange(index){
+						reversedIndex = chartsLength - index;
+						var historyChartID = 'historyChart' + reversedIndex;
+						scope.charts[historyChartID] = ChartGenerator('#' + historyChartID);
+						if (reversedIndex > 1) {
+							scope.charts['historyChart' + (reversedIndex-1)].clearChart();
+						}
 						websocketService.sendRequestFor.forgetTicks();
 						websocketService.sendRequestFor.sendTicksHistory(
 							{
 								"ticks_history": symbol,
-								"end": parseInt(new Date().getTime()/1000) - 30,
-								"count": 30,
-								"subscribe": 1
+								"end": parseInt(new Date().getTime()/1000) - maxEntries * reversedIndex,
+								"count": maxEntries,
+								"passthrough": {
+									"historyChartID": historyChartID,
+								}
 							}
 						);
 						return index;
@@ -187,28 +207,33 @@ angular
 
 				scope.$on('tick', function(e, feed){
 					if (feed){
-						scope.chartGenerator.addTick(feed);
+						scope.charts.realtimeChart.addTick(feed);
 					}
 				});
 
 				scope.$on('history', function(e, feed){
 					if (feed){
-						scope.chartGenerator.addHistory(feed);
+						chartID = 'realtimeChart';
+						if (feed.echo_req.passthrough) {
+							chartID = feed.echo_req.passthrough.historyChartID;
+						} else {
+							scope.$parent.slideBoxDelicate.slide(5);
+						}
+						scope.charts[chartID].addHistory(feed);
 					}
 				});
 
 				scope.$on('candles', function(e, feed){
 					if (feed){
-						scope.chartGenerator.addCandles(feed);
+						scope.charts.realtimeChart.addCandles(feed);
 					}
 				});
 
 				scope.$on('ohlc', function(e, feed){
 					if (feed){
-						scope.chartGenerator.addOhlc(feed);
+						scope.charts.realtimeChart.addOhlc(feed);
 					}
 				});
-
 			}
 		};
 	}]);
