@@ -122,11 +122,12 @@
     }
     label {
         .input-label {
-            padding: 0;
+            padding: 5px;
         }
         &.item-input {
             border-width: 0;
             margin: 1px 0;
+            padding: 6px 0 5px 0px;
         }
         &.item-select {
             height: 25px;
