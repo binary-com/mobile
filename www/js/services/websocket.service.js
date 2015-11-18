@@ -184,7 +184,10 @@ angular
 					sendMessage(data);
 				},
 				ticksHistory: function(data) {
-					sendMessage(data);
+					// data is the whole JSON convertable object parameter for the ticks_history API call
+					if (data.ticks_history) {
+						sendMessage(data);
+					}
 				}
 			};
 
