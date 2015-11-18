@@ -183,7 +183,7 @@ angular
 					};
 					sendMessage(data);
 				},
-				sendTicksHistory: function(data) {
+				ticksHistory: function(data) {
 					sendMessage(data);
 				}
 			};
