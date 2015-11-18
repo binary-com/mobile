@@ -77,10 +77,10 @@ angular
 									}
 								},
 								zoom: {
-									enabled: true 
+									enabled: (chartID == '#realtimeChart')? false: true
 								},
 								interaction: {
-									enabled: false
+									enabled: (chartID == '#realtimeChart')? false: true
 								}
 							});
 					var removeExtraEntries = function removeExtraEntries(maxEntries){
@@ -183,17 +183,27 @@ angular
 				};
 				
 				var init = function() {
+					var symbol = scope.$parent.proposalToSend.symbol;
+					var maxEntries = 30,
+							minutes = 10,
+							oldest = minutes/(maxEntries/60) 
 					scope.charts = {
-						ids: ['realtimeChart']
+						slides: [
+							{
+								id: 'realtimeChart',
+								time: 'realtime'
+							}
+						]
 					};
-					for (var i=1; i<= 20; i++) {
-						scope.charts.ids = ['historyChart' + i].concat(scope.charts.ids);
+					for (var i=1; i<= oldest; i++) {
+						scope.charts.slides = [{
+							id: 'historyChart' + i,
+							time: '' + i*maxEntries/60 + ' minutes ago'
+						}].concat(scope.charts.slides);
 					}
 					scope.$parent.slideBoxDelicate.update();
-					var symbol = scope.$parent.proposalToSend.symbol;
-					var maxEntries = 30;
 					scope.onChartChange = function onChartChange(index){
-						var reversedIndex = (scope.charts.ids.length - 1) - index;
+						var reversedIndex = (scope.charts.slides.length - 1) - index;
 						if (reversedIndex === 0 && !scope.charts.hasOwnProperty('realtimeChart')){
 							scope.charts.realtimeChart = ChartGenerator('#realtimeChart');
 						} else {
@@ -247,7 +257,7 @@ angular
 						if (feed.echo_req.passthrough) {
 							chartID = feed.echo_req.passthrough.historyChartID;
 						} else {
-							scope.$parent.slideBoxDelicate.slide(scope.charts.ids.length - 1);
+							scope.$parent.slideBoxDelicate.slide(scope.charts.slides.length - 1);
 						}
 						scope.charts[chartID].addHistory(feed);
 					}
