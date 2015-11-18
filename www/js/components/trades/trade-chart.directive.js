@@ -38,6 +38,9 @@ angular
 								transition: {
 									duration: 0
 								},
+								size: {
+									height: 150
+								},
 								data: {
 									x: 'epoch',
 									columns: [
@@ -72,6 +75,12 @@ angular
 									y: {
 										show: false
 									}
+								},
+								zoom: {
+									enabled: true 
+								},
+								interaction: {
+									enabled: false
 								}
 							});
 					var removeExtraEntries = function removeExtraEntries(maxEntries){
@@ -148,7 +157,7 @@ angular
 					var clearChart = function clearChart(){
 						if (feed_list.quote) {
 							init_feed_list({msg_type: 'history'});
-							chart.unload('epoch');
+							chart.unload('quote');
 						} else {
 							init_feed_list({msg_type: 'candles'});
 							chart.unload('ohlc');
@@ -163,32 +172,53 @@ angular
 						addCandles: addCandles
 					};
 				};
-
-				scope.charts = {
-					realtimeChart: ChartGenerator('#realtimeChart'),
+				var modifyHistoryCharts = function ModifyHistoryCharts(){
+					var newChart = function newChart(){
+						
+					};
+					return {
+						newChart: newChart,
+						removeChart: removeChart
+					};
 				};
+				
 				var init = function() {
+					scope.charts = {
+						ids: ['realtimeChart']
+					};
+					for (var i=1; i<= 20; i++) {
+						scope.charts.ids = ['historyChart' + i].concat(scope.charts.ids);
+					}
+					scope.$parent.slideBoxDelicate.update();
 					var symbol = scope.$parent.proposalToSend.symbol;
 					var maxEntries = 30;
-					chartsLength = 5;
 					scope.onChartChange = function onChartChange(index){
-						reversedIndex = chartsLength - index;
-						var historyChartID = 'historyChart' + reversedIndex;
-						scope.charts[historyChartID] = ChartGenerator('#' + historyChartID);
-						if (reversedIndex > 1) {
-							scope.charts['historyChart' + (reversedIndex-1)].clearChart();
-						}
-						websocketService.sendRequestFor.forgetTicks();
-						websocketService.sendRequestFor.sendTicksHistory(
-							{
-								"ticks_history": symbol,
-								"end": parseInt(new Date().getTime()/1000) - maxEntries * reversedIndex,
-								"count": maxEntries,
-								"passthrough": {
-									"historyChartID": historyChartID,
-								}
+						var reversedIndex = (scope.charts.ids.length - 1) - index;
+						if (reversedIndex === 0 && !scope.charts.hasOwnProperty('realtimeChart')){
+							scope.charts.realtimeChart = ChartGenerator('#realtimeChart');
+						} else {
+							var historyChartID = 'historyChart' + (reversedIndex);
+							if (!scope.charts.hasOwnProperty(historyChartID)){
+								scope.charts[historyChartID] = ChartGenerator('#' + historyChartID);
 							}
-						);
+							if (reversedIndex > 1) {
+								scope.charts['historyChart' + (reversedIndex-1)].clearChart();
+							}
+							if (reversedIndex < 20 && scope.charts.hasOwnProperty('historyChart' + (reversedIndex+1))) {
+								scope.charts['historyChart' + (reversedIndex+1)].clearChart();
+							}
+							websocketService.sendRequestFor.forgetTicks();
+							websocketService.sendRequestFor.sendTicksHistory(
+								{
+									"ticks_history": symbol,
+									"end": parseInt(new Date().getTime()/1000) - maxEntries * reversedIndex,
+									"count": maxEntries,
+									"passthrough": {
+										"historyChartID": historyChartID,
+									}
+								}
+							);
+						}
 						return index;
 					};
 
@@ -217,7 +247,7 @@ angular
 						if (feed.echo_req.passthrough) {
 							chartID = feed.echo_req.passthrough.historyChartID;
 						} else {
-							scope.$parent.slideBoxDelicate.slide(5);
+							scope.$parent.slideBoxDelicate.slide(scope.charts.ids.length - 1);
 						}
 						scope.charts[chartID].addHistory(feed);
 					}
