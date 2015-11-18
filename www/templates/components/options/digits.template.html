@@ -1,11 +1,11 @@
 <div class="options-ticks">
-	<h1>{{'last_digit_prediction' | translate}}</h1>
-	<div class="row">
-		<label class="item item-radio col" ng-repeat="d in digits">
-			<input type="radio" name="digits" value="{{d}}"
-				ng-model="selected.digit"
-				ng-change="updateDigit(selected.digit)" ng-checked="selected.digit">
-			<div class="item-content">{{d}}</div>
-		</label>
-	</div>
+    <div class="row">
+        <h1>{{'options.last_digit_prediction' | translate}}</h1>
+    </div>
+    <div class="row">
+        <label class="item item-radio col" ng-repeat="d in digits">
+            <input type="radio" name="digits" value="{{d}}" ng-model="selected.digit" ng-change="updateDigit(selected.digit)" ng-checked="selected.digit">
+            <div class="item-content">{{d}}</div>
+        </label>
+    </div>
 </div>
