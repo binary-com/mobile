@@ -1,7 +1,8 @@
 <div class="contract-chart">
 	<ion-slide-box disable-scroll="false" delegate-handle="contract-chart-slide" show-pager="false" on-slide-changed="onChartChange($index)">
-		<ion-slide ng-repeat="item in charts.ids">
-			<div id="{{item}}">Loading the chart ({{item}})<div>
+		<ion-slide ng-repeat="slide in charts.slides">
+			<div id="{{slide.id}}"></div>
+			<p>Loaded data from: {{slide.time}}</p>
 		</ion-slide>
 	</ion-slide-box>
 </div>
