@@ -13,7 +13,6 @@ angular
 		function($rootScope) {
 			var dataStream = '';
 			var messageBuffer = [];
-
 			var init = function() {
 				var language = localStorage.language || 'en';
 
@@ -91,10 +90,16 @@ angular
 							$rootScope.$broadcast('balance', message.balance);
 							break;
 						case 'tick':
-							$rootScope.$broadcast('tick', message.tick);
+							$rootScope.$broadcast('tick', message);
+							break;
+						case 'history':
+							$rootScope.$broadcast('history', message);
 							break;
 						case 'candles':
-							$rootScope.$broadcast('tickHistory', message.candles);
+							$rootScope.$broadcast('candles', message);
+							break;
+						case 'ohlc':
+							$rootScope.$broadcast('ohlc', message);
 							break;
 						default:
 							//console.log('another message type: ', message);
@@ -178,16 +183,11 @@ angular
 					};
 					sendMessage(data);
 				},
-				ticksHistory: function(_symbol, _start, _granularity, _count) {
-					var data = {
-						ticks_history: _symbol,
-						start: _start,
-						end: 'latest',
-						granularity: _granularity,
-						count: _count,
-						subscribe: 1
-					};
-					sendMessage(data);
+				ticksHistory: function(data) {
+					// data is the whole JSON convertable object parameter for the ticks_history API call
+					if (data.ticks_history) {
+						sendMessage(data);
+					}
 				}
 			};
 
