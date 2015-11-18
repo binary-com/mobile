@@ -1,19 +1,19 @@
-<h1>{{'account.my_accounts' | translate}}</h1>
+<h1>{{'accounts.my_accounts' | translate}}</h1>
 <div class="remove-all-accounts">
 	<a href=""
 		ng-click="removeAllAccounts()">
-		{{'account.remove_all' | translate}}
+		{{'accounts.remove_all' | translate}}
 	</a>
 </div>
 <div class="account row" ng-repeat="account in accounts">
 	<div class="col-90">
 		<span class="id">
 			{{account.id}}
-			<span class="default" ng-show="account.is_default">({{'account.default' | translate}})</span>
+			<span class="default" ng-show="account.is_default">({{'accounts.default' | translate}})</span>
 			<a href="" class="set-default"
 				ng-click="setAccountAsDefault(account.token)"
 				ng-hide="account.is_default">
-				{{'account.set_as_default' | translate}}
+				{{'accounts.set_as_default' | translate}}
 			</a>
 		</span>
 		<span class="token">{{account.token}}</span>
@@ -32,6 +32,6 @@
 	<button class="button button-stable col-20"
 		ng-click="addAccount(token);token = null">
 		<i class="ion-android-add-circle"></i>
-		{{'account.add' | translate}}
+		{{'accounts.add' | translate}}
 	</button>
 </div>
