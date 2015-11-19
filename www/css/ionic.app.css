@@ -9398,7 +9398,7 @@ body * {
   .sign-in .branding {
     width: 80%;
     max-width: 600px;
-    margin: 20% auto; }
+    margin: 10% auto; }
     .sign-in .branding .logo {
       display: block;
       margin: 0 auto;
@@ -9420,16 +9420,15 @@ body * {
       color: #5e668f;
       text-align: center; }
       .sign-in .list label.item-input i.icon-small {
-        font-size: 36px; }
+        font-size: 28px; }
     .sign-in .list label.item-input input[type=text],
     .sign-in .list label.item-input input[type=password] {
       color: #fff;
       font-family: arial;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1;
-      line-height: 1.6;
-      margin-left: 10px; }
+      line-height: 1.6; }
     .sign-in .list label.item-input.error {
       border-bottom-color: #ff0000; }
       .sign-in .list label.item-input.error i {
@@ -9443,30 +9442,36 @@ body * {
       color: #5e668f;
       text-align: center; }
       .sign-in .list label.item-select i.icon-small {
-        font-size: 36px; }
+        font-size: 28px; }
     .sign-in .list label.item-select .input-label {
       background-color: #2a3052;
       color: #bfbfbf;
       font-family: arial;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1;
-      line-height: 1.6;
-      margin-left: 10px; }
+      line-height: 1.6; }
     .sign-in .list label.item-select select {
       background-color: #2a3052;
       color: #fff;
       font-size: 14px;
-      max-width: 40%;
       font-weight: 300;
       text-transform: uppercase; }
   .sign-in button.btn-signin {
     background-color: #e98024 !important;
-    width: 84%;
+    width: 80%;
     margin: 0 auto;
-    font-size: 20px; }
+    font-size: 18px; }
   .sign-in .help {
     color: #fff; }
+  .sign-in ::-webkit-input-placeholder {
+    color: #bfbfbf; }
+  .sign-in :-moz-placeholder {
+    color: #bfbfbf; }
+  .sign-in ::-moz-placeholder {
+    color: #bfbfbf; }
+  .sign-in :-ms-input-placeholder {
+    color: #bfbfbf; }
 
 .trade .contract-summary {
   padding: 60px 10px 10px 10px;
