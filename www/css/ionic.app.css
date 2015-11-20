@@ -9478,30 +9478,34 @@ body * {
     color: #f2f2f2; }
 
 .trade .contract-summary {
-  padding: 60px 10px 10px 10px;
+  padding: 50px 10px 5px 10px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   background-color: #f2f2f2; }
-  .trade .contract-summary span {
-    font-weight: bold; }
 
 .trade .contract-payout {
   background-color: #f2f2f2;
   border-top: 1px solid #c4c4c4;
   border-bottom: 1px solid #c4c4c4; }
   .trade .contract-payout .basis {
-    font-size: 20px;
-    text-align: center;
-    line-height: 48px; }
+    font-size: 18px;
+    text-align: left;
+    line-height: 36px;
+    padding-left: 10px; }
   .trade .contract-payout .amount input {
-    font-size: 24px;
-    width: 120px;
-    height: 48px;
+    font-size: 18px;
+    width: 100px;
+    height: 36px;
     border-radius: 5px;
     border: 1px solid #c4c4c4;
-    line-height: 34px;
+    line-height: 36px;
     text-align: center;
     padding-left: 18px; }
+  .trade .contract-payout .button-bar .button {
+    height: 35px;
+    min-height: 20px; }
+  .trade .contract-payout .button-bar .button:before {
+    line-height: 30px; }
   .trade .contract-payout > .col:nth-child(3) .button {
     float: right;
     margin: 0;
@@ -9524,12 +9528,15 @@ body * {
   .trade .contract-price > .col:nth-child(1) {
     font-size: 20px;
     text-align: left;
-    padding-left: 38px;
+    padding-left: 10px;
     line-height: 48px; }
+  .trade .contract-price .price-des {
+    font-size: 18px;
+    text-align: left; }
   .trade .contract-price .price {
-    font-size: 24px;
+    font-size: 18px;
     color: #e98024;
-    text-align: center;
+    text-align: left;
     line-height: 48px; }
 
 .trade .contract-purchase,
