@@ -9423,12 +9423,13 @@ body * {
         font-size: 28px; }
     .sign-in .list label.item-input input[type=text],
     .sign-in .list label.item-input input[type=password] {
-      color: #fff;
+      color: #f2f2f2;
       font-family: arial;
       font-weight: 400;
       font-size: 14px;
       line-height: 1;
-      line-height: 1.6; }
+      line-height: 1.6;
+      text-transform: uppercase; }
     .sign-in .list label.item-input.error {
       border-bottom-color: #ff0000; }
       .sign-in .list label.item-input.error i {
@@ -9445,7 +9446,7 @@ body * {
         font-size: 28px; }
     .sign-in .list label.item-select .input-label {
       background-color: #2a3052;
-      color: #bfbfbf;
+      color: #f2f2f2;
       font-family: arial;
       font-weight: 400;
       font-size: 14px;
@@ -9453,10 +9454,13 @@ body * {
       line-height: 1.6; }
     .sign-in .list label.item-select select {
       background-color: #2a3052;
-      color: #fff;
+      color: #f2f2f2;
       font-size: 14px;
       font-weight: 300;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      padding: 0;
+      right: initial;
+      direction: ltr; }
   .sign-in button.btn-signin {
     background-color: #e98024 !important;
     width: 80%;
@@ -9465,13 +9469,13 @@ body * {
   .sign-in .help {
     color: #fff; }
   .sign-in ::-webkit-input-placeholder {
-    color: #bfbfbf; }
+    color: #f2f2f2; }
   .sign-in :-moz-placeholder {
-    color: #bfbfbf; }
+    color: #f2f2f2; }
   .sign-in ::-moz-placeholder {
-    color: #bfbfbf; }
+    color: #f2f2f2; }
   .sign-in :-ms-input-placeholder {
-    color: #bfbfbf; }
+    color: #f2f2f2; }
 
 .trade .contract-summary {
   padding: 60px 10px 10px 10px;
