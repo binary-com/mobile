@@ -15,7 +15,7 @@ angular
 			restrict: 'E',
 			templateUrl: 'templates/components/options/payout-stake.template.html',
 			link: function(scope, element) {
-				scope.$parent.selected.basis = 'payout';
+				scope.$parent.selected.basis = marketService.getDefault.basis();
 				scope.updateBasis = function(_basis) {
 					scope.$parent.selected.basis = _basis;
 				};

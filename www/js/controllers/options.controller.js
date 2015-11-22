@@ -13,12 +13,6 @@ angular
 		function($scope, $rootScope, $state, config, proposalService, accountService) {
 			$scope.selected = {};
 
-			//$scope.$watch('selected', function(value){
-				//console.log('scope is changing: ', value);
-			//}, true);
-
-			// Navigations
-
 			$scope.navigateToManageAccounts = function() {
 				$state.go('accounts');
 			};
@@ -36,7 +30,9 @@ angular
 					currency: accountService.getDefault().currency,
 					passthrough: {
 						market: $scope.selected.market
-					}
+					},
+					digit: $scope.selected.digit,
+					barrier: $scope.selected.barrier
 				};
 
 				proposalService.update(proposal);
