@@ -69,7 +69,15 @@ angular
 						case 'active_symbols':
 							var markets = message.active_symbols;
 							var groupedMarkets = _.groupBy(markets, 'market');
-							sessionStorage.active_symbols = JSON.stringify(groupedMarkets);
+							var openMarkets = {};
+							for (var key in groupedMarkets) {
+								if (groupedMarkets.hasOwnProperty(key)) {
+									if (groupedMarkets[key][0].exchange_is_open == 1) {
+										openMarkets[key] = groupedMarkets[key];
+									}
+								}
+							}
+							sessionStorage.active_symbols = JSON.stringify(openMarkets);
 							$rootScope.$broadcast('symbols:updated');
 							break;
 						case 'payout_currencies':

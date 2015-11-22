@@ -18,37 +18,18 @@ angular
 			templateUrl: 'templates/components/options/symbols.template.html',
 			link: function(scope, element) {
 				scope.$on('symbol', function(e, _symbol) {
-					var tradeTypes = config.tradeTypes;
-					scope.tradeTypes = [];
-
 					if (_symbol) {
-						tradeTypes.forEach(function(el, i) {
-							for (var key in _symbol) {
-								if (_symbol.hasOwnProperty(key)) {
-									if (el.value === key) {
-										var hasTicks = false;
-										for (var j = 0; j < _symbol[key].length; j++) {
-											var minDuration = _symbol[key][j].min_contract_duration;
-											if (minDuration.match(/^\d+$/)) {
-												hasTicks = true;
-											}
-										}
-										if (hasTicks) {
-											scope.tradeTypes.push(el);
-										}
-
-									}
-								}
-							}
-						});
+						scope.tradeTypes = marketService.getTradeTypes(_symbol);
 					}
+
 					if (scope.tradeTypes.length === 0) {
 						$('.options-save button').attr("disabled", true);
 						alertService.optionsError.noTick();
 						return;
 					}
+
 					$('.options-save button').attr("disabled", false);
-					scope.$parent.selected.tradeType = scope.tradeTypes[0].value;
+					scope.$parent.selected.tradeType = marketService.getDefault.tradeType(scope.tradeTypes);
 					scope.$apply();
 				});
 
