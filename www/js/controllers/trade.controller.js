@@ -10,13 +10,12 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, $ionicSlideBoxDelegate, marketService, proposalService, websocketService, accountService) {
+		function($scope, $state, marketService, proposalService, websocketService, accountService) {
 
 			var init = function () {
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
 				$scope.tradeMode = true;
 				proposalService.send();
-				$scope.slideBoxDelicate = $ionicSlideBoxDelegate;
 			};
 
 			init();
