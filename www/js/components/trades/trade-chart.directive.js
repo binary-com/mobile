@@ -16,7 +16,7 @@ angular
 			templateUrl: 'templates/components/trades/trade-chart.template.html',
 			link: function(scope, element) {
 
-				var ChartGenerator = function ChartGenerator(chartID){
+				var ChartGenerator = function ChartGenerator(maxEntries, chartID){
 					// add the feed data in this feed_list
 					var feed_list;
 					var init_feed_list = function init_feed_list(feed){
@@ -83,7 +83,7 @@ angular
 									enabled: true
 								}
 							});
-					var removeExtraEntries = function removeExtraEntries(maxEntries){
+					var removeExtraEntries = function removeExtraEntries(){
 						if (feed_list.quote){
 							if (feed_list.quote.length > maxEntries){
 								feed_list.quote.shift();
@@ -98,7 +98,7 @@ angular
 						var tick = feed.tick;
 						feed_list.quote.push(tick.quote);
 						feed_list.epoch.push(tick.epoch);
-						removeExtraEntries(feed.echo_req.count);
+						removeExtraEntries();
 						// x = epoch, y = quote
 						chart.load({
 							columns: [
@@ -116,7 +116,7 @@ angular
 							feed_list.epoch.push(ohlc.epoch);
 							feed_list.ohlc.push(ohlc);
 						}
-						removeExtraEntries(feed.echo_req.count);
+						removeExtraEntries();
 						// unfortunately C3 does not support ohlc charts, this have to be implemented using D3
 						chart.load({
 							columns: [
@@ -205,11 +205,11 @@ angular
 					scope.onChartChange = function onChartChange(index){
 						var reversedIndex = (scope.charts.slides.length - 1) - index;
 						if (reversedIndex === 0 && !scope.charts.hasOwnProperty('realtimeChart')){
-							scope.charts.realtimeChart = ChartGenerator('#realtimeChart');
+							scope.charts.realtimeChart = ChartGenerator(maxEntries, '#realtimeChart');
 						} else {
 							var historyChartID = 'historyChart' + (reversedIndex);
 							if (!scope.charts.hasOwnProperty(historyChartID)){
-								scope.charts[historyChartID] = ChartGenerator('#' + historyChartID);
+								scope.charts[historyChartID] = ChartGenerator(maxEntries, '#' + historyChartID);
 							}
 							if (reversedIndex > 1) {
 								scope.charts['historyChart' + (reversedIndex-1)].clearChart();
