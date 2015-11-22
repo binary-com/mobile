@@ -32,6 +32,23 @@ angular
 				$scope.$apply();
 			});
 
+			$scope.$on('purchase', function(e, _contractConfirmation) {
+				if (_contractConfirmation) {
+					$scope.tradeMode = false;
+					$scope.contract = {
+						longcode: _contractConfirmation.longcode,
+						payout: $scope.proposalRecieved.payout,
+						cost: _contractConfirmation.buy_price,
+						profit: parseFloat($scope.proposalRecieved.payout) - parseFloat(_contractConfirmation.buy_price),
+						balance: _contractConfirmation.balance_after
+					};
+					$scope.$apply();
+				} else {
+					alertService.contractError.notAvailable();
+					$('.contract-purchase button').attr('disabled', false);
+				}
+			});
+
 			$scope.navigateToOptionsPage = function($event) {
 				$state.go('options');
 			};
@@ -39,6 +56,6 @@ angular
 			$scope.backToOptionPage = function() {
 				$('.contract-purchase button').attr('disabled', false);
 				$scope.tradeMode = true;
-				$state.go('options');
+				//$state.go('options');
 			};
 	});
