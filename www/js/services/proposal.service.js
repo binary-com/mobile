@@ -23,7 +23,7 @@ angular
 					duration_unit: 't',
 					passthrough: _data.passthrough
 				};
-				if (_data.digit >= 0) {
+				if (_data.digit && _data.digit >= 0) {
 					proposal.barrier = _data.digit;
 				}
 				if (_data.barrier >=0) {

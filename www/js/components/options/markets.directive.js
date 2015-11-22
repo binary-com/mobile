@@ -16,36 +16,25 @@ angular
 			restrict: 'E',
 			templateUrl: 'templates/components/options/markets.template.html',
 			link: function(scope, element) {
-
+				/**
+				 * Get all symbols for the selected market
+				 * @param  {String} _market Selected Market
+				 */
 				var updateSymbols = function(_market) {
 					scope.symbols = marketService.getAllSymbolsForAMarket(_market);
 					if (scope.symbols) {
-						scope.$parent.selected.symbol = scope.symbols[0].symbol;
-						marketService.getSymbolDetails(scope.selected.symbol);
+						scope.$parent.selected.symbol = marketService.getDefault.symbol(_market, scope.symbols);
+						marketService.getSymbolDetails(scope.$parent.selected.symbol);
 					}
 					if(!scope.$$phase) {
 						scope.$apply();
 					}
 				};
 
-				var getDefaultMarket = function() {
-					var proposal = proposalService.get();
-					if (proposal &&
-						proposal.passthrough &&
-						proposal.passthrough.market &&
-						scope.market[proposal.passthrough.market]) {
-
-						return proposal.passthrough.market;
-					} else {
-						return scope.market.forex ? 'forex' : 'random';
-					}
-				};
-
-
 				/**
 				 * init function - to run on the page load
 				 * Get forex and random markets
-				 *
+				 * Set the default/selected market
 				 */
 				var init = function() {
 					var markets = marketService.getActiveMarkets();
@@ -54,7 +43,7 @@ angular
 						random: markets.indexOf('random') !== -1 ? true : false
 					};
 
-					scope.$parent.selected.market = getDefaultMarket();
+					scope.$parent.selected.market = marketService.getDefault.market(scope.market);
 
 					updateSymbols(scope.$parent.selected.market);
 				};

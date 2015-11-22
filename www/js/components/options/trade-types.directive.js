@@ -16,6 +16,12 @@ angular
 			restrict: 'E',
 			templateUrl: 'templates/components/options/trade-types.template.html',
 			link: function(scope, element) {
+				scope.$parent.$watch('selected', function(value){
+					if (value.tradeType) {
+						scope.updateTradeType(value.tradeType);
+					}
+				}, true);
+
 
 				scope.updateTradeType = function(_tradeType) {
 					scope.$parent.selected.tradeType = _tradeType;
