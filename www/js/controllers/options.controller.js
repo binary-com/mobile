@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $rootScope, $state, config, proposalService) {
+		function($scope, $rootScope, $state, config, proposalService, accountService) {
 			$scope.selected = {};
 
 			//$scope.$watch('selected', function(value){
@@ -28,7 +28,18 @@ angular
 			};
 
 			$scope.saveChanges = function() {
-				proposalService.update($scope.selected);
+				var proposal = {
+					symbol: $scope.selected.symbol,
+					contract_type: $scope.selected.tradeType,
+					duration: $scope.selected.tick,
+					basis: $scope.selected.basis,
+					currency: accountService.getDefault().currency,
+					passthrough: {
+						market: $scope.selected.market
+					}
+				};
+
+				proposalService.update(proposal);
 				proposalService.send();
 
 				$state.go('trade', {}, { reload: true, inherit: false, notify: true });
