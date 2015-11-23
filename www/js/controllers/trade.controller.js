@@ -56,6 +56,7 @@ angular
 
 			$scope.backToOptionPage = function() {
 				$('.contract-purchase button').attr('disabled', false);
+				proposalService.send();
 				$scope.tradeMode = true;
 				//$state.go('options');
 			};
