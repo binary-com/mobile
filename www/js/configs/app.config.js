@@ -33,6 +33,29 @@ angular
 				value: 'DIGITDIFF',
 				markets: ['random'],
 				digits: true
+
+			},
+			{
+				name: 'Digit Even',
+				value: 'DIGITEVEN',
+				markets: ['random']
+			},
+			{
+				name: 'Digit Odd',
+				value: 'DIGITODD',
+				markets: ['random']
+			},
+			{
+				name: 'Digit Over',
+				value: 'DIGITOVER',
+				markets: ['random'],
+				digits: true
+			},
+			{
+				name: 'Digit Under',
+				value: 'DIGITUNDER',
+				markets: ['random'],
+				digits: true
 			}
 		],
 		'language': 'en'
