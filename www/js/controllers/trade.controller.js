@@ -10,8 +10,7 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, marketService, proposalService, websocketService, accountService) {
-
+		function($scope, $state, $ionicSlideBoxDelegate, marketService, proposalService, websocketService, accountService, alertService) {
 			var init = function () {
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
 				$scope.tradeMode = true;
@@ -32,7 +31,7 @@ angular
 			});
 
 			$scope.$on('purchase', function(e, _contractConfirmation) {
-				if (_contractConfirmation) {
+				if (_contractConfirmation.buy) {
 					$scope.tradeMode = false;
 					$scope.contract = {
 						longcode: _contractConfirmation.longcode,
@@ -42,6 +41,9 @@ angular
 						balance: _contractConfirmation.balance_after
 					};
 					$scope.$apply();
+				} else if (_contractConfirmation.error){
+					alertService.displayError(_contractConfirmation.error.message);
+					$('.contract-purchase button').attr('disabled', false);
 				} else {
 					alertService.contractError.notAvailable();
 					$('.contract-purchase button').attr('disabled', false);
