@@ -92,7 +92,7 @@ angular
 							$rootScope.$broadcast('symbol', groupedSymbol);
 							break;
 						case 'buy':
-							$rootScope.$broadcast('purchase', message.buy || false);
+							$rootScope.$broadcast('purchase', message);
 							break;
 						case 'balance':
 							$rootScope.$broadcast('balance', message.balance);
