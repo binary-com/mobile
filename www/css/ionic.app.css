@@ -7782,12 +7782,36 @@ body * {
     text-align: center;
     color: #e98024; }
 
+.home {
+  background-color: #f2f2f2; }
+  .home .branding {
+    width: 80%;
+    max-width: 600px;
+    margin: 40% auto; }
+    .home .branding .logo {
+      display: block;
+      margin: 0 auto;
+      width: 40%; }
+    .home .branding .slogan {
+      display: block;
+      margin: 5% auto 0;
+      width: 60%; }
+  .home .spinner svg {
+    margin-top: 300px;
+    display: block;
+    stroke: #2a3052; }
+  .home span {
+    display: block;
+    margin: -50px auto 0;
+    color: #2a3052;
+    text-align: center; }
+
 .sign-in {
   background-color: #2a3052; }
   .sign-in .branding {
     width: 80%;
     max-width: 600px;
-    margin: 20% auto; }
+    margin: 10% auto; }
     .sign-in .branding .logo {
       display: block;
       margin: 0 auto;
@@ -7809,15 +7833,15 @@ body * {
       color: #5e668f;
       text-align: center; }
       .sign-in .list label.item-input i.icon-small {
-        font-size: 36px; }
+        font-size: 28px; }
     .sign-in .list label.item-input input[type=text], .sign-in .list label.item-input input[type=password] {
-      color: #fff;
+      color: #f2f2f2;
       font-family: arial;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1;
       line-height: 1.6;
-      margin-left: 10px; }
+      text-transform: uppercase; }
     .sign-in .list label.item-input.error {
       border-bottom-color: #ff0000; }
       .sign-in .list label.item-input.error i {
@@ -7831,55 +7855,68 @@ body * {
       color: #5e668f;
       text-align: center; }
       .sign-in .list label.item-select i.icon-small {
-        font-size: 36px; }
+        font-size: 28px; }
     .sign-in .list label.item-select .input-label {
       background-color: #2a3052;
-      color: #bfbfbf;
+      color: #f2f2f2;
       font-family: arial;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1;
-      line-height: 1.6;
-      margin-left: 10px; }
+      line-height: 1.6; }
     .sign-in .list label.item-select select {
       background-color: #2a3052;
-      color: #fff;
+      color: #f2f2f2;
       font-size: 14px;
-      max-width: 40%;
       font-weight: 300;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      padding: 0;
+      right: initial;
+      direction: ltr; }
   .sign-in button.btn-signin {
     background-color: #e98024 !important;
-    width: 84%;
+    width: 80%;
     margin: 0 auto;
-    font-size: 20px; }
+    font-size: 18px; }
   .sign-in .help {
     color: #fff; }
+  .sign-in ::-webkit-input-placeholder {
+    color: #f2f2f2; }
+  .sign-in :-moz-placeholder {
+    color: #f2f2f2; }
+  .sign-in ::-moz-placeholder {
+    color: #f2f2f2; }
+  .sign-in :-ms-input-placeholder {
+    color: #f2f2f2; }
 
 .trade .contract-summary {
-  padding: 60px 10px 10px 10px;
+  padding: 50px 10px 5px 10px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   background-color: #f2f2f2; }
-  .trade .contract-summary span {
-    font-weight: bold; }
 .trade .contract-payout {
   background-color: #f2f2f2;
   border-top: 1px solid #c4c4c4;
   border-bottom: 1px solid #c4c4c4; }
   .trade .contract-payout .basis {
-    font-size: 20px;
-    text-align: center;
-    line-height: 48px; }
+    font-size: 18px;
+    text-align: left;
+    line-height: 36px;
+    padding-left: 10px; }
   .trade .contract-payout .amount input {
-    font-size: 24px;
-    width: 120px;
-    height: 48px;
+    font-size: 18px;
+    width: 100px;
+    height: 36px;
     border-radius: 5px;
     border: 1px solid #c4c4c4;
-    line-height: 34px;
+    line-height: 36px;
     text-align: center;
     padding-left: 18px; }
+  .trade .contract-payout .button-bar .button {
+    height: 35px;
+    min-height: 20px; }
+  .trade .contract-payout .button-bar .button:before {
+    line-height: 30px; }
   .trade .contract-payout > .col:nth-child(3) .button {
     float: right;
     margin: 0;
@@ -7901,12 +7938,15 @@ body * {
   .trade .contract-price > .col:nth-child(1) {
     font-size: 20px;
     text-align: left;
-    padding-left: 38px;
+    padding-left: 10px;
     line-height: 48px; }
+  .trade .contract-price .price-des {
+    font-size: 18px;
+    text-align: left; }
   .trade .contract-price .price {
-    font-size: 24px;
+    font-size: 18px;
     color: #e98024;
-    text-align: center;
+    text-align: left;
     line-height: 48px; }
 .trade .contract-purchase, .trade .contract-back {
   margin-top: 10%; }
@@ -7959,9 +7999,7 @@ body * {
       margin-top: 3px; }
 .options .options-market {
   border-bottom: 1px solid #f2f2f2;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px 0; }
+  padding: 5px 0; }
   .options .options-market .item {
     display: inline-block; }
   .options .options-market .item-content {
@@ -7970,12 +8008,18 @@ body * {
   .options .options-market .item-radio input:checked ~ .item-content {
     background: #2a3052;
     color: #fff; }
+  .options .options-market .item-radio input[disabled] + div {
+    background-color: #f2f2f2;
+    color: #c4c4c4; }
 .options .options-upderlying {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 10px 0; }
+  border-bottom: 1px solid #f2f2f2; }
 .options .options-trade {
   border-bottom: 1px solid #f2f2f2;
-  padding: 10px 0; }
+  padding: 5px 0; }
+  .options .options-trade .padding {
+    padding: 0 5px 5px 5px;
+    width: 100%;
+    margin-top: -5px; }
   .options .options-trade .item {
     display: inline-block;
     width: 50%;
@@ -7988,7 +8032,7 @@ body * {
     color: #fff; }
 .options .options-ticks {
   border-bottom: 1px solid #f2f2f2;
-  padding: 10px 0; }
+  padding: 5px 0; }
   .options .options-ticks .item {
     display: inline-block;
     width: 16%; }
@@ -8000,7 +8044,7 @@ body * {
     color: #fff; }
 .options .options-amount {
   border-bottom: 1px solid #f2f2f2;
-  padding: 10px 0; }
+  padding: 5px 0; }
   .options .options-amount .item {
     display: inline-block;
     width: 30%; }
@@ -8011,10 +8055,11 @@ body * {
     background: #2a3052;
     color: #fff; }
 .options label .input-label {
-  padding: 0; }
+  padding: 0px; }
 .options label.item-input {
   border-width: 0;
-  margin: 1px 0; }
+  margin: 1px 0;
+  padding: 6px 0 5px 0px; }
 .options label.item-select {
   height: 25px; }
 .options label.item-radio .item-content {
