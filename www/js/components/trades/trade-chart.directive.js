@@ -77,37 +77,13 @@ angular
 						var addOhlc = function addOhlc (ohlc){
 							// addCandles definition here
 						};
-						/*
-							getLastHistoryData(end<end of the time in epoch>, count){...}
-							returns the list of elements if could find `count' elements before `end' time
-							else returns null
-						*/			
-						var getLastHistoryData = function getLastHistoryData(end, count){
-							var historyDataStart = historyData[0].time,
-									lastHistoryData = [],
-									endingDataIndex = findElementByAttr(historyData, 'time', end, function compare(a, b){
-										return (a==b)?true:(a==b+1)?true:(b==a+1)?true:false;
-									});					
-
-							if ( end <= historyDataStart || endingDataIndex < count ) {
-								return null;
-							}
-							for (var j = endingDataIndex; j >= 0 && endingDataIndex - j < count ; j--) {
-								lastHistoryData.push(historyData[j]);
-							}
-							if (lastHistoryData.length == count){
-								return lastHistoryData.reverse();
-							}	else {
-								return null;
-							}
-						};
 
 						// Functions to retrieve history data
-						// Usage: getHistory(end<epoch>, count, callback<function>);
-						var getHistory = function getHistory(end, count, callback) {
-							var lastHistoryData = getLastHistoryData(end, count);
-							if ( lastHistoryData ) {
-								callback( lastHistoryData );
+						// Usage: getHistory(pageNumber, count, callback<function>);
+						var getHistory = function getHistory(pageNumber, count, callback) {
+							var start = historyData.length - (pageNumber + 1) * count;
+							if ( start >= 0 ) {
+								callback( historyData.slice( start, start+count) );
 							} else {
 								callback( [] );
 							}
@@ -152,9 +128,6 @@ angular
 						legend: {
 							show: false
 						},
-						point: {
-							show: false
-						},
 						axis: {
 							x: {
 								show: false
@@ -167,7 +140,6 @@ angular
 
 
 					var pageNumber = 0, 
-							ticksPerSecond = 2,
 							localHistory;
 				
 					// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
@@ -186,26 +158,11 @@ angular
 						});
 					};
 					
-					var PageController = function PageController(time, step){
-						var changePage = function changePage(pageNumber, now){
-							if (now) {
-								time = now;
-							}
-							localHistory.getHistory( time - pageNumber * step, pageTickCount, updateChartForHistory);
-						};
-						return {
-							changePage: changePage
-						};
-					};
-
-					var pageController;
 					// Usage: addTick(tick:<tick object>);
 					var addTick = function addTick(tick){
 						if (localHistory) {
 							localHistory.addTick(tick);
-							if (pageController) {
-								pageController.changePage(pageNumber, tick.epoch);
-							}
+							localHistory.getHistory(pageNumber, pageTickCount, updateChartForHistory);
 						}
 					};
 
@@ -214,8 +171,7 @@ angular
 						// initialize the localHistory
 						localHistory = LocalHistory(pageTickCount * pageCount);
 						localHistory.addHistory(history);
-						pageController = PageController(history.times[history.times.length-1], pageTickCount * ticksPerSecond);
-						pageController.changePage(0);
+						localHistory.getHistory(pageNumber, pageTickCount, updateChartForHistory);
 					};
 
 					// Usage: addCandles(candles:<candle object>);
@@ -237,26 +193,20 @@ angular
 					
 					var firstPage = function firstPage(){
 						pageNumber = 0;
-						if (pageController) {
-							pageController.changePage(pageNumber);
-						}
+						localHistory.getHistory(pageNumber, pageTickCount, updateChartForHistory);
 					};
 
 					var nextPage = function nextPage(){
 						if (pageNumber < pageCount - 1){
 							pageNumber++;
-							if (pageController) {
-								pageController.changePage(pageNumber);
-							}
+							localHistory.getHistory(pageNumber, pageTickCount, updateChartForHistory);
 						}
 					};
 
 					var previousPage = function previousPage(){
 						if (pageNumber > 0){
 							pageNumber--;
-							if (pageController) {
-								pageController.changePage(pageNumber);
-							}
+							localHistory.getHistory(pageNumber, pageTickCount, updateChartForHistory);
 						}
 					};
 
