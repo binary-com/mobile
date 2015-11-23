@@ -93,7 +93,6 @@ angular
 							break;
 						case 'buy':
 							$rootScope.$broadcast('purchase', message);
-							console.log('buy msg: ', message);
 							break;
 						case 'balance':
 							$rootScope.$broadcast('balance', message.balance);
@@ -111,7 +110,7 @@ angular
 							$rootScope.$broadcast('ohlc', message);
 							break;
 						default:
-							console.log('another message type: ', message);
+							//console.log('another message type: ', message);
 					}
 				}
 			};
