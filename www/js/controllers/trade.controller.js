@@ -48,6 +48,7 @@ angular
 					alertService.contractError.notAvailable();
 					$('.contract-purchase button').attr('disabled', false);
 				}
+				websocketService.sendRequestFor.balance();
 			});
 
 			$scope.navigateToOptionsPage = function($event) {
@@ -58,6 +59,6 @@ angular
 				$('.contract-purchase button').attr('disabled', false);
 				proposalService.send();
 				$scope.tradeMode = true;
-				//$state.go('options');
+				websocketService.sendRequestFor.balance();
 			};
 	});
