@@ -17,6 +17,13 @@ angular
 				});
 			};
 
+			this.displayError = function(_message) {
+				$translate(['alert.error'])
+					.then(function (translation) {
+						displayAlert(translation['alert.error'], _message);
+					});
+			};
+
 			this.accountError = {
 				tokenNotValid: function() {
 					$translate(['alert.error', 'alert.not_valid'])
