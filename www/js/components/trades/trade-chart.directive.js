@@ -16,228 +16,278 @@ angular
 			templateUrl: 'templates/components/trades/trade-chart.template.html',
 			link: function(scope, element) {
 
-				var ChartGenerator = function ChartGenerator(maxEntries, chartID){
-					// add the feed data in this feed_list
-					var feed_list;
-					var init_feed_list = function init_feed_list(feed){
-						if (feed.msg_type == 'history'){
-							feed_list = {
-								quote: [],
-								epoch: []
-							};
-						} else {
-							feed_list = {
-								ohlc: [],
-								epoch: []
-							};
-						}
-					}
-					// Generate empty chart to begin with
-					var chart = c3.generate({
-								bindto: chartID,
-								transition: {
-									duration: 0
-								},
-								size: {
-									height: 150
-								},
-								data: {
-									x: 'epoch',
-									columns: [
-										['epoch'],
-										['quote']
-									],
-									colors: {
-										quote: 'orange'
-									},
-									selection: {
-										enabled: false 
-									}
-								},
-								grid:{
-									x: {
-										show: true
-									},
-									y: {
-										show: true
-									}
-								},
-								legend: {
-									show: false
-								},
-								point: {
-									show: false
-								},
-								axis: {
-									x: {
-										show: false
-									},
-									y: {
-										show: false
-									}
-								},
-								zoom: {
-									enabled: (chartID == '#realtimeChart')? false: true
-								},
-								interaction: {
-									enabled: true
-								}
+				var ChartGenerator = function ChartGenerator(pageCount, pageTickCount){
+					/*
+						LocalHistory(capacity<history capacity in ticks>)
+					*/
+					var LocalHistory = function LocalHistory(capacity){
+						/* 
+							historyData is initialized with a call to get `capacity' number of past prices,
+							after the initialization this historyData only gets updates from ticks
+						*/
+						var historyData = []; 
+
+						// Usage: addTick(tick:<tick object>);
+						var addTick = function addTick(tick){
+							historyData.push({
+								time: tick.epoch,
+								price: tick.quote
 							});
-					var removeExtraEntries = function removeExtraEntries(){
-						if (feed_list.quote){
-							if (feed_list.quote.length > maxEntries){
-								feed_list.quote.shift();
-								feed_list.epoch.shift();
-							}
-						} else {
-							feed_list.ohlc.shift();
-							feed_list.epoch.shift();
-						}
-					};
-					var addTick = function addTick(feed){
-						var tick = feed.tick;
-						feed_list.quote.push(tick.quote);
-						feed_list.epoch.push(tick.epoch);
-						removeExtraEntries();
-						// x = epoch, y = quote
-						chart.load({
-							columns: [
-								['epoch'].concat(feed_list.epoch),
-								['quote'].concat(feed_list.quote)
-							]
-						});
-					};
-					var	addOhlc = function addHistory(feed){ 
-						var ohlc = feed.ohlc;
-						var last_ohlc = feed_list.epoch.length - 1;
-						if (feed.msg_type == 'ohlc' && ohlc.open_time == feed_list.epoch[last_ohlc]){
-							feed_list.ohlc[last_ohlc] = ohlc;
-						} else {
-							feed_list.epoch.push(ohlc.epoch);
-							feed_list.ohlc.push(ohlc);
-						}
-						removeExtraEntries();
-						// unfortunately C3 does not support ohlc charts, this have to be implemented using D3
-						chart.load({
-							columns: [
-								['epoch'].concat(feed_list.epoch),
-								['quote'].concat(feed_list.ohlc)
-							]
-						});
-					};
-					var	addHistory = function addHistory(feed){ 
-						init_feed_list(feed);
-						var history = feed.history,
-								times = history.times,
-								prices = history.prices;
-						times.forEach(function(time, index){
-							var newFeed = Object.create(feed);
-							newFeed.echo_req = {
-								count: feed.echo_req.count
-							}
-							newFeed.tick = {
-								epoch: time,
-								quote: prices[index]
-							};
-							addTick(newFeed);
-						});
-					};
-					var	addCandles = function addCandles(feed){ 
-						init_feed_list(feed);
-						var candles = feed.candles;
-						candles.forEach(function(candle){
-							var newFeed = Object.create(feed);
-							newFeed.echo_req = {
-								count: feed.echo_req.count
-							}
-							newFeed.tick = candle;
-							addOhlc(newFeed);
-						});
-					};
-					var clearChart = function clearChart(){
-						if (feed_list.quote) {
-							init_feed_list({msg_type: 'history'});
-							chart.unload('quote');
-						} else {
-							init_feed_list({msg_type: 'candles'});
-							chart.unload('ohlc');
-						}
-					}
-					// API visible to the public
-					return {
-						clearChart: clearChart,
-						addTick: addTick,
-						addOhlc: addOhlc,
-						addHistory: addHistory,
-						addCandles: addCandles
-					};
-				};
-				var modifyHistoryCharts = function ModifyHistoryCharts(){
-					var newChart = function newChart(){
+							historyData.shift();
+						};
+
+
+						// Usage: updateHistoryArray(historyArray, history:<history object>);
+						var updateHistoryArray = function updateHistoryArray(historyArray, history){
+							var times = history.times, 
+									prices = history.prices;
+							times.forEach(function(time, index){
+								historyArray.push({
+									time: time,
+									price: prices[index] 
+								});
+							});
+						};
+						// Usage: addHistory(history:<history object>);
+						var addHistory = function addHistory(history){
+							updateHistoryArray(historyData, history);
+						};
 						
-					};
-					return {
-						newChart: newChart,
-						removeChart: removeChart
-					};
-				};
-				
-				var init = function() {
-					var symbol = scope.$parent.proposalToSend.symbol;
-					var maxEntries = 30,
-							minutes = 10,
-							oldest = minutes/(maxEntries/60) 
-					scope.charts = {
-						slides: [
-							{
-								id: 'realtimeChart',
-								time: 'realtime'
-							}
-						]
-					};
-					for (var i=1; i<= oldest; i++) {
-						scope.charts.slides = [{
-							id: 'historyChart' + i,
-							time: '' + i*maxEntries/60 + ' minutes ago'
-						}].concat(scope.charts.slides);
-					}
-					scope.$parent.slideBoxDelicate.update();
-					scope.onChartChange = function onChartChange(index){
-						var reversedIndex = (scope.charts.slides.length - 1) - index;
-						if (reversedIndex === 0 && !scope.charts.hasOwnProperty('realtimeChart')){
-							scope.charts.realtimeChart = ChartGenerator(maxEntries, '#realtimeChart');
-						} else {
-							var historyChartID = 'historyChart' + (reversedIndex);
-							if (!scope.charts.hasOwnProperty(historyChartID)){
-								scope.charts[historyChartID] = ChartGenerator(maxEntries, '#' + historyChartID);
-							}
-							if (reversedIndex > 1) {
-								scope.charts['historyChart' + (reversedIndex-1)].clearChart();
-							}
-							if (reversedIndex < 20 && scope.charts.hasOwnProperty('historyChart' + (reversedIndex+1))) {
-								scope.charts['historyChart' + (reversedIndex+1)].clearChart();
-							}
-							websocketService.sendRequestFor.forgetTicks();
-							websocketService.sendRequestFor.ticksHistory(
-								{
-									"ticks_history": symbol,
-									"end": parseInt(new Date().getTime()/1000) - maxEntries * reversedIndex,
-									"count": maxEntries,
-									"passthrough": {
-										"historyChartID": historyChartID,
-									}
+						var findElementByAttr = function findElementByAttr(array, attr, expected, compare) {
+							if (!compare) {
+								compare = function compare(a, b){
+									return (a==b)?true:false;
 								}
-							);
-						}
-						return index;
+							}
+							var foundIndex = -1;
+							for (var i = 0; i < array.length; i++ ) {
+								if (array[i].hasOwnProperty(attr) && compare(array[i][attr], expected)) {
+									foundIndex = i;
+								}
+							}
+							return foundIndex;
+						};
+					
+						// Usage: addCandles(candles:<candle object>);
+						var addCandles = function addCandles(candles){
+							// addCandles definition here
+						};
+
+						// Usage: addOhlc(ohlc:<ohlc object>);
+						var addOhlc = function addOhlc (ohlc){
+							// addCandles definition here
+						};
+						/*
+							getLastHistoryData(end<end of the time in epoch>, count){...}
+							returns the list of elements if could find `count' elements before `end' time
+							else returns null
+						*/			
+						var getLastHistoryData = function getLastHistoryData(end, count){
+							var historyDataStart = historyData[0].time,
+									lastHistoryData = [],
+									endingDataIndex = findElementByAttr(historyData, 'time', end, function compare(a, b){
+										return (a==b)?true:(a==b+1)?true:(b==a+1)?true:false;
+									});					
+
+							if ( end <= historyDataStart || endingDataIndex < count ) {
+								return null;
+							}
+							for (var j = endingDataIndex; j >= 0 && endingDataIndex - j < count ; j--) {
+								lastHistoryData.push(historyData[j]);
+							}
+							if (lastHistoryData.length == count){
+								return lastHistoryData.reverse();
+							}	else {
+								return null;
+							}
+						};
+
+						// Functions to retrieve history data
+						// Usage: getHistory(end<epoch>, count, callback<function>);
+						var getHistory = function getHistory(end, count, callback) {
+							var lastHistoryData = getLastHistoryData(end, count);
+							if ( lastHistoryData ) {
+								callback( lastHistoryData );
+							} else {
+								callback( [] );
+							}
+						};
+
+						return {
+							getHistory: getHistory, 
+							addTick: addTick,
+							addHistory: addHistory,
+							addCandles: addCandles,
+							addOhlc: addOhlc
+						};
+
 					};
+
+					var chart = c3.generate({
+						bindto: '#chart',
+						transition: {
+							duration: 0
+						},
+						size: {
+							height: 150
+						},
+						data: {
+							x: 'time',
+							columns: [
+								['time'],
+								['price']
+							],
+							colors: {
+								price: 'orange'
+							}
+						},
+						grid:{
+							x: {
+								show: true
+							},
+							y: {
+								show: true
+							}
+						},
+						legend: {
+							show: false
+						},
+						point: {
+							show: false
+						},
+						axis: {
+							x: {
+								show: false
+							},
+							y: {
+								show: false
+							}
+						}
+					});
+
+
+					var pageNumber = 0, 
+							ticksPerSecond = 2,
+							localHistory;
+				
+					// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
+					var updateChartForHistory = function updateChartForHistory(ticks){
+						var times = []
+								prices = [];
+						ticks.forEach(function(tick){
+							times.push(tick.time);
+							prices.push(tick.price);
+						});
+						chart.load({
+							columns: [
+								['time'].concat(times),
+								['price'].concat(prices)
+							]
+						});
+					};
+					
+					var PageController = function PageController(time, step){
+						var changePage = function changePage(pageNumber, now){
+							if (now) {
+								time = now;
+							}
+							localHistory.getHistory( time - pageNumber * step, pageTickCount, updateChartForHistory);
+						};
+						return {
+							changePage: changePage
+						};
+					};
+
+					var pageController;
+					// Usage: addTick(tick:<tick object>);
+					var addTick = function addTick(tick){
+						if (localHistory) {
+							localHistory.addTick(tick);
+							if (pageController) {
+								pageController.changePage(pageNumber, tick.epoch);
+							}
+						}
+					};
+
+					// Usage: addHistory(history:<history object>);
+					var addHistory = function addHistory(history){
+						// initialize the localHistory
+						localHistory = LocalHistory(pageTickCount * pageCount);
+						localHistory.addHistory(history);
+						pageController = PageController(history.times[history.times.length-1], pageTickCount * ticksPerSecond);
+						pageController.changePage(0);
+					};
+
+					// Usage: addCandles(candles:<candle object>);
+					var addCandles = function addCandles(candles){
+						// addCandles definition here
+					};
+
+					// Usage: addOhlc(ohlc:<ohlc object>);
+					var addOhlc = function addOhlc (ohlc){
+						// addCandles definition here
+					};
+						
+					historyInterface = {
+						addTick: addTick,
+						addHistory: addHistory,
+						addCandles: addCandles,
+						addOhlc: addOhlc
+					};
+					
+					var firstPage = function firstPage(){
+						pageNumber = 0;
+						if (pageController) {
+							pageController.changePage(pageNumber);
+						}
+					};
+
+					var nextPage = function nextPage(){
+						if (pageNumber < pageCount - 1){
+							pageNumber++;
+							if (pageController) {
+								pageController.changePage(pageNumber);
+							}
+						}
+					};
+
+					var previousPage = function previousPage(){
+						if (pageNumber > 0){
+							pageNumber--;
+							if (pageController) {
+								pageController.changePage(pageNumber);
+							}
+						}
+					};
+
+					var getPage = function getPage(){
+						return pageNumber + 1;
+					}
+
+					return {
+						historyInterface: historyInterface,
+						getPage: getPage,
+						firstPage: firstPage,
+						nextPage: nextPage,
+						previousPage: previousPage
+					};
+					
+				};
+				var init = function() {
+					var symbol = scope.$parent.proposalToSend.symbol,
+							pageCount = 20, 
+							pageEntries = 30;
+					scope.chartGenerator = ChartGenerator(pageCount, pageEntries);
+					scope.$parent.chartSwipeLeft = scope.chartGenerator.previousPage;
+					scope.$parent.chartSwipeRight = scope.chartGenerator.nextPage;
+					scope.chartPage = scope.chartGenerator.getPage;
 
 					websocketService.sendRequestFor.forgetTicks();
 					websocketService.sendRequestFor.ticksHistory(
 						{
 							"ticks_history": symbol,
 							"end": "latest",
-							"count": 30,
+							"count": pageCount * pageEntries + 1,
 							"subscribe": 1
 						}
 					);
@@ -247,31 +297,25 @@ angular
 
 				scope.$on('tick', function(e, feed){
 					if (feed){
-						scope.charts.realtimeChart.addTick(feed);
+						scope.chartGenerator.historyInterface.addTick(feed.tick);
 					}
 				});
 
 				scope.$on('history', function(e, feed){
 					if (feed){
-						chartID = 'realtimeChart';
-						if (feed.echo_req.passthrough) {
-							chartID = feed.echo_req.passthrough.historyChartID;
-						} else {
-							scope.$parent.slideBoxDelicate.slide(scope.charts.slides.length - 1);
-						}
-						scope.charts[chartID].addHistory(feed);
+						scope.chartGenerator.historyInterface.addHistory(feed.history);
 					}
 				});
 
 				scope.$on('candles', function(e, feed){
 					if (feed){
-						scope.charts.realtimeChart.addCandles(feed);
+						scope.chartGenerator.historyInterface.addCandles(feed.candles);
 					}
 				});
 
 				scope.$on('ohlc', function(e, feed){
 					if (feed){
-						scope.charts.realtimeChart.addOhlc(feed);
+						scope.chartGenerator.historyInterface.addOhlc(feed.ohlc);
 					}
 				});
 			}
