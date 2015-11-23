@@ -34,9 +34,7 @@
     }
     .options-market {
     	border-bottom: 1px solid $lightgray;
-    	margin-top: 10px;
-    	margin-bottom: 10px;
-    	padding:10px 0;
+    	padding:5px 0;
         .item {
             display: inline-block;
         }
@@ -49,13 +47,16 @@
                 background: $darkblue;
                 color: $white;
             }
+            input[disabled] + div{
+            	background-color: $lightgray;
+            	color: $gray;
+            }
         }
     }
     .options-upderlying {
     	border-bottom: 1px solid $lightgray;
     	// margin-top: 10px;
     	// margin-bottom: 10px;
-    	padding:10px 0;
         .item {
             // display: inline-block;
         }
@@ -64,7 +65,12 @@
     	border-bottom: 1px solid $lightgray;
     	// margin-top: 10px;
     	//margin-bottom: 10px;
-    	padding:10px 0;
+    	padding:5px 0;
+        .padding{
+            padding:0 5px 5px 5px;
+            width:100%;
+            margin-top: -5px;
+        }
         .item {
             display: inline-block;
             width: 50%;
@@ -83,7 +89,7 @@
     }
     .options-ticks {
     	border-bottom: 1px solid $lightgray;
-    	padding:10px 0;
+    	padding:5px 0;
         .item {
             display: inline-block;
             width: 16%;
@@ -101,7 +107,7 @@
     }
     .options-amount {
     	border-bottom: 1px solid $lightgray;
-    	padding:10px 0;
+    	padding:5px 0;
         .item {
             display: inline-block;
             width: 30%;
@@ -122,11 +128,12 @@
     }
     label {
         .input-label {
-            padding: 0;
+            padding: 0px;
         }
         &.item-input {
             border-width: 0;
             margin: 1px 0;
+            padding: 6px 0 5px 0px;
         }
         &.item-select {
             height: 25px;

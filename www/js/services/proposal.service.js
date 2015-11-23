@@ -15,14 +15,15 @@ angular
 				var proposal = {
 					proposal: 1,
 					symbol: _data.symbol,
-					contract_type: _data.tradeType || _data.contract_type,
-					duration: _data.duration || _data.tick,
+					contract_type: _data.contract_type,
+					duration: _data.duration,
 					basis: _data.basis,
 					currency: _data.currency || 'USD',
 					amount: _data.amount || 5,
-					duration_unit: 't'
+					duration_unit: 't',
+					passthrough: _data.passthrough
 				};
-				if (_data.digit >= 0) {
+				if (_data.digit && _data.digit >= 0) {
 					proposal.barrier = _data.digit;
 				}
 				if (_data.barrier >=0) {

@@ -11,6 +11,11 @@ angular
 	.config(
 		function($stateProvider, $urlRouterProvider) {
 			$stateProvider
+				.state('home', {
+					url: '/home',
+					templateUrl: 'templates/pages/home.html',
+					controller: 'HomeController'
+				})
 				.state('signin', {
 					url: '/sign-in',
 					templateUrl: 'templates/pages/sign-in.html',
@@ -40,6 +45,6 @@ angular
 					controller: 'AccountsController'
 				});
 
-				$urlRouterProvider.otherwise('/sign-in');
+				$urlRouterProvider.otherwise('/home');
 		}
 	);
