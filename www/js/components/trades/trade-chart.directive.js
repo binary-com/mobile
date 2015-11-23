@@ -105,6 +105,9 @@ angular
 						transition: {
 							duration: 0
 						},
+						interaction: {
+							enabled: false
+						},
 						size: {
 							height: 150
 						},
