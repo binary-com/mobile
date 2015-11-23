@@ -16,7 +16,7 @@ angular
 			templateUrl: 'templates/components/options/digits.template.html',
 			link: function(scope, element) {
 				scope.digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-				scope.$parent.selected.digit = 0;
+				scope.$parent.selected.digit = marketService.getDefault.digit();
 
 				scope.updateDigit = function(_digit) {
 					scope.$parent.selected.digit = _digit;
