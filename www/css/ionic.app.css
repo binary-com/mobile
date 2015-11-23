@@ -9715,6 +9715,8 @@ body * {
         color: #ff0000; }
         .accounts-content .add-account label.error i {
           color: #ff0000; }
+        .accounts-content .add-account label.error .placeholder-icon {
+          color: #c4c4c4; }
     .accounts-content .add-account .item-input {
       padding: 0; }
     .accounts-content .add-account .add {
