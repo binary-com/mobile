@@ -34,11 +34,11 @@ angular
 				if (_contractConfirmation.buy) {
 					$scope.tradeMode = false;
 					$scope.contract = {
-						longcode: _contractConfirmation.longcode,
+						longcode: _contractConfirmation.buy.longcode,
 						payout: $scope.proposalRecieved.payout,
-						cost: _contractConfirmation.buy_price,
-						profit: parseFloat($scope.proposalRecieved.payout) - parseFloat(_contractConfirmation.buy_price),
-						balance: _contractConfirmation.balance_after
+						cost: _contractConfirmation.buy.buy_price,
+						profit: parseFloat($scope.proposalRecieved.payout) - parseFloat(_contractConfirmation.buy.buy_price),
+						balance: _contractConfirmation.buy.balance_after
 					};
 					$scope.$apply();
 				} else if (_contractConfirmation.error){
