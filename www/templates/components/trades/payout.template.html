@@ -1,20 +1,33 @@
 <div class="contract-payout row">
-	<div class="col col-33 basis" ng-show="basis == 'payout'">{{'trade.payout' | translate}}</div>
-	<div class="col col-33 basis" ng-show="basis == 'stake'">{{'trade.stake' | translate}}</div>
-	<div class="col col-33 amount">
-		<input type="number" min="1" max="100000"
-			ng-model="amount"
-			ng-change="updateAmount(amount, '{{amount}}')">
-	</div>
-	<div class="col col-33">
-		<div class="button-bar">
-			<a ng-click="subtractAmount()" class="button minus icon ion-android-remove"></a>
-			<a ng-click="addAmount()" class="button plus icon ion-android-add"></a>
-		</div>
-	</div>
+    <div class="col col-33 basis" ng-show="basis == 'payout'">{{'trade.payout' | translate}}</div>
+    <div class="col col-33 basis" ng-show="basis == 'stake'">{{'trade.stake' | translate}}</div>
+    <div class="col col-33 amount">
+        <input type="number" min="1" max="100000" ng-model="amount" ng-change="updateAmount(amount, '{{amount}}')">
+    </div>
+    <div class="col col-33">
+        <div class="button-bar">
+            <a ng-click="subtractAmount()" class="button minus icon ion-android-remove"></a>
+            <a ng-click="addAmount()" class="button plus icon ion-android-add"></a>
+        </div>
+    </div>
 </div>
 <div class="contract-price row">
+    <div class="col col-50">
+        <span class="price-des">{{basis == 'payout' ? ('trade.stake' | translate) : ('trade.payout' | translate) }}:</span>
+        <span class="price" ng-show="basis == 'payout'">{{account.currency}} {{proposal.ask_price || '0'}}</span>
+        <span class="price" ng-show="basis == 'stake'">{{account.currency}} {{proposal.payout || '0'}}</span>
+    </div>
+    <div class="col col-50">
+        <span class="price-des">{{'trade.net_profit' | translate}}:</span>
+        <span class="price">{{account.currency}} {{proposal.netProfit}} </span>
+    </div>
+</div>
+<!-- <div class="contract-price row">
 	<div class="col col-33">{{basis == 'payout' ? ('trade.stake' | translate) : ('trade.payout' | translate) }}</div>
 	<div class="col price" ng-show="basis == 'payout'">{{account.currency}} {{proposal.ask_price || '0'}}</div>
 	<div class="col price" ng-show="basis == 'stake'">{{account.currency}} {{proposal.payout || '0'}}</div>
 </div>
+<div class="contract-price row">
+	<div class="col col-33">{{'trade.net_profit' | translate}}</div>
+	<div class="col price">{{account.currency}} {{proposal.netProfit}} </div>
+</div> -->

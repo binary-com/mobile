@@ -21,7 +21,11 @@ angular
 				scope.amount = scope.$parent.proposalToSend.amount || 5;
 
 				scope.$parent.$watch('proposalRecieved', function(_proposal){
-					scope.proposal = _proposal;
+					if (_proposal) {
+						var netProfit = parseFloat(_proposal.payout) - parseFloat(_proposal.ask_price);
+						_proposal.netProfit =  (isNaN(netProfit) || netProfit < 0) ? '0' : netProfit.toFixed(2);
+						scope.proposal = _proposal;
+					}
 				});
 
 				var roundNumber = function(_newAmount, _oldAmount) {
