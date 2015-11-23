@@ -51,19 +51,20 @@
                 color: $red;
                 i {
                     color: $red;
-                }
-                .placeholder-icon{
-                	color:$gray;
+
                 }
             }
+            .placeholder-icon {
+                        color: $gray;
+                    }
         }
-        .item-input{
-        	padding:0;
+        .item-input {
+            padding: 0;
         }
         .add {
-                font-size: 24px;
-                color: $green;
-                line-height: 40px;
+            font-size: 24px;
+            color: $green;
+            line-height: 40px;
         }
     }
 }
