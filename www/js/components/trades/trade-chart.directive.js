@@ -145,7 +145,16 @@ angular
 
 					var dataIndex = 0, 
 							capacity = 600,
+							updateEnabled = true,
 							localHistory;
+					
+					var disableUpdate = function disableUpdate(){
+						updateEnabled = false;
+					};
+
+					var enableUpdate = function enableUpdate(){
+						updateEnabled = true;
+					};
 				
 					// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 					var updateChartForHistory = function updateChartForHistory(ticks){
@@ -167,7 +176,9 @@ angular
 					var addTick = function addTick(tick){
 						if (localHistory) {
 							localHistory.addTick(tick);
-							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+							if ( updateEnabled ) {
+								localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+							}
 						}
 					};
 
@@ -202,21 +213,23 @@ angular
 					};
 
 					var next = function next(){
-						if (dataIndex + pageTickCount < capacity - 1){
-							dataIndex++;
+						if (dataIndex + pageTickCount < capacity - 2){
+							dataIndex += 2;
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
 
 					var previous = function previous(){
-						if (dataIndex > 0){
-							dataIndex--;
+						if (dataIndex > 1){
+							dataIndex -= 2;
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
 
 					return {
 						historyInterface: historyInterface,
+						disableUpdate: disableUpdate,
+						enableUpdate: enableUpdate,
 						first: first,
 						next: next,
 						previous: previous
@@ -230,6 +243,8 @@ angular
 					scope.chartGenerator = ChartGenerator(capacity, pageEntries);
 					scope.$parent.chartDragLeft = scope.chartGenerator.previous;
 					scope.$parent.chartDragRight = scope.chartGenerator.next;
+					scope.$parent.chartTouch = scope.chartGenerator.disableUpdate;
+					scope.$parent.chartRelease = scope.chartGenerator.enableUpdate;
 
 					websocketService.sendRequestFor.forgetTicks();
 					websocketService.sendRequestFor.ticksHistory(
