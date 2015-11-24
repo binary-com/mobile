@@ -3,11 +3,12 @@
     padding-right: 5%;
     h1 {
         margin-top: 60px;
-        font-size: 24px;
+        font-size: 18px;
     }
     .remove-all-accounts {
         background-color: $lightgray;
-        padding:5px;
+        margin-top: 10px;
+        padding: 5px;
         font-size: 12px;
         a {
             color: $red;
@@ -60,12 +61,11 @@
                 color: $red;
                 i {
                     color: $red;
-
                 }
             }
             .placeholder-icon {
-                        color: $gray;
-                    }
+                color: $gray;
+            }
         }
         .item-input {
             padding: 0;

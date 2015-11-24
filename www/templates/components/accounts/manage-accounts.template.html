@@ -1,12 +1,6 @@
 
 <div class="row"><h1 class="col">{{'accounts.my_accounts' | translate}}</h1></div>
-<div class="row">
-<div class="col remove-all-accounts">
-    <a href="" ng-click="removeAllAccounts()">
-		{{'accounts.remove_all' | translate}}
-	</a>
-</div>
-</div>
+
 
 <div class="account row" ng-repeat="account in accounts">
     <div class="col col-90">
@@ -41,6 +35,14 @@
 <div class="col col-10">
     <a href="" ng-click="addAccount(token);token = null">
         <i class="add  ion-android-add-circle"></i>
+    </a>
+</div>
+
+</div>
+<div class="row">
+<div class="col remove-all-accounts">
+    <a href="" ng-click="removeAllAccounts()">
+        {{'accounts.remove_all' | translate}}
     </a>
 </div>
 </div>
