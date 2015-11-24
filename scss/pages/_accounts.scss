@@ -6,28 +6,35 @@
         font-size: 24px;
     }
     .remove-all-accounts {
+        background-color: $lightgray;
+        padding:5px;
+        font-size: 12px;
         a {
             color: $red;
         }
     }
     .account {
-        padding: 15px 0 10px;
-        border-bottom: 1px solid $lightgray;
+        padding: 10px 5px 10px;
+        border-bottom: 1px solid $gray;
         &> div {
             color: $darkblue;
             font-size: 16px;
             .id {
                 color: $darkblue;
+                font-size: 14px;
+                font-weight: 700;
                 // display: block;
             }
             .default {
                 color: $orange;
                 font-size: 12px;
+                font-weight: 500;
             }
             .token {
                 color: $gray;
                 font-size: 12px;
                 display: block;
+                font-weight: 500;
             }
         }
         a {
@@ -35,10 +42,12 @@
                 font-size: 24px;
                 color: $red;
                 line-height: 40px;
+                font-weight: 500;
             }
             &.set-default {
                 color: $blue;
                 font-size: 12px;
+                font-weight: 500;
                 //text-decoration: none;
             }
         }
