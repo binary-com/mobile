@@ -17,6 +17,11 @@ angular
 			link: function(scope, element) {
 
 				var ChartGenerator = function ChartGenerator(capacity, initialPageTickCount){
+					var dataIndex = 0, 
+							capacity = 600,
+							updateEnabled = true,
+							pageTickCount = initialPageTickCount,
+							localHistory;
 					/*
 						LocalHistory(capacity<history capacity in ticks>)
 					*/
@@ -81,7 +86,7 @@ angular
 						// Functions to retrieve history data
 						// Usage: getHistory(dataIndex, count, callback<function>);
 						var getHistory = function getHistory(dataIndex, count, callback) {
-							var end = capacity - 1 - dataIndex,
+							var end = capacity - dataIndex,
 									start = end - (count - 1);
 							if ( start >= 0 ) {
 								callback( historyData.slice( start, end) );
@@ -112,13 +117,24 @@ angular
 							height: 150
 						},
 						data: {
+							labels: {
+								format: function(v, id, i, j) {
+									if ((pageTickCount - i - 2)%parseInt(pageTickCount/10) == 0) {
+										return v;
+									}
+								}
+							},
 							x: 'time',
 							columns: [
 								['time'],
 								['price']
 							],
-							colors: {
-								price: 'orange'
+							color: function (color, d) {
+								if (d.index == pageTickCount - 2 && dataIndex == 0){
+									return 'green';
+								}	else {
+									return 'orange';
+								}
 							}
 						},
 						grid:{
@@ -134,7 +150,21 @@ angular
 						},
 						axis: {
 							x: {
-								show: false
+								padding: {
+									left: 1,
+									right: 1,
+								},
+								show: true,
+								tick: {
+									culling: {
+										max: parseInt(pageTickCount/3.5) 
+									},
+									format: function (x) { 
+										var date = new Date(x*1000), 
+												dateString = date.toLocaleTimeString();
+										return dateString.slice(0, dateString.length-3);
+									}
+								} 
 							},
 							y: {
 								show: false
@@ -143,11 +173,6 @@ angular
 					});
 
 
-					var dataIndex = 0, 
-							capacity = 600,
-							updateEnabled = true,
-							pageTickCount = initialPageTickCount,
-							localHistory;
 					
 					var disableUpdate = function disableUpdate(){
 						updateEnabled = false;
