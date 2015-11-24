@@ -130,7 +130,7 @@ angular
 								['price']
 							],
 							color: function (color, d) {
-								if (d.index == pageTickCount - 2){
+								if (d.index == pageTickCount - 2 && dataIndex == 0){
 									return 'green';
 								}	else {
 									return 'orange';
