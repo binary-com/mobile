@@ -1,3 +1,12 @@
 <div class="contract-chart">
-	<div on-drag-left="chartDragLeft()" on-drag-right="chartDragRight()" id="chart"></div>
+	<div id="chart"
+		on-drag-left="chartDragLeft()"
+		on-drag-right="chartDragRight()" 
+		on-touch="chartTouch()" 
+		on-release="chartRelease()"
+		hm-pinchin="chartPinchIn"
+		hm-pinchout="chartPinchOut"
+		hm-pinchstart="chartPinchStart"
+		hm-pinchend="chartPinchEnd">
+    </div>
 </div>
