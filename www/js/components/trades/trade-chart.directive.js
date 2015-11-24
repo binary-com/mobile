@@ -16,7 +16,7 @@ angular
 			templateUrl: 'templates/components/trades/trade-chart.template.html',
 			link: function(scope, element) {
 
-				var ChartGenerator = function ChartGenerator(pageCount, pageTickCount){
+				var ChartGenerator = function ChartGenerator(capacity, pageTickCount){
 					/*
 						LocalHistory(capacity<history capacity in ticks>)
 					*/
@@ -79,11 +79,12 @@ angular
 						};
 
 						// Functions to retrieve history data
-						// Usage: getHistory(pageNumber, count, callback<function>);
-						var getHistory = function getHistory(pageNumber, count, callback) {
-							var start = historyData.length - (pageNumber + 1) * count;
+						// Usage: getHistory(dataIndex, count, callback<function>);
+						var getHistory = function getHistory(dataIndex, count, callback) {
+							var end = capacity - 1 - dataIndex,
+									start = end - (count - 1);
 							if ( start >= 0 ) {
-								callback( historyData.slice( start, start+count) );
+								callback( historyData.slice( start, end) );
 							} else {
 								callback( [] );
 							}
@@ -103,6 +104,9 @@ angular
 						bindto: '#chart',
 						transition: {
 							duration: 0
+						},
+						interaction: {
+							enabled: false
 						},
 						size: {
 							height: 150
@@ -139,7 +143,8 @@ angular
 					});
 
 
-					var pageNumber = 0, 
+					var dataIndex = 0, 
+							capacity = 600,
 							localHistory;
 				
 					// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
@@ -162,16 +167,16 @@ angular
 					var addTick = function addTick(tick){
 						if (localHistory) {
 							localHistory.addTick(tick);
-							localHistory.getHistory(pageNumber, pageTickCount, updateChartForHistory);
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
 
 					// Usage: addHistory(history:<history object>);
 					var addHistory = function addHistory(history){
 						// initialize the localHistory
-						localHistory = LocalHistory(pageTickCount * pageCount);
+						localHistory = LocalHistory(capacity);
 						localHistory.addHistory(history);
-						localHistory.getHistory(pageNumber, pageTickCount, updateChartForHistory);
+						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 					};
 
 					// Usage: addCandles(candles:<candle object>);
@@ -191,53 +196,47 @@ angular
 						addOhlc: addOhlc
 					};
 					
-					var firstPage = function firstPage(){
-						pageNumber = 0;
-						localHistory.getHistory(pageNumber, pageTickCount, updateChartForHistory);
+					var first = function first(){
+						dataIndex = 0;
+						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 					};
 
-					var nextPage = function nextPage(){
-						if (pageNumber < pageCount - 1){
-							pageNumber++;
-							localHistory.getHistory(pageNumber, pageTickCount, updateChartForHistory);
+					var next = function next(){
+						if (dataIndex + pageTickCount < capacity - 1){
+							dataIndex++;
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
 
-					var previousPage = function previousPage(){
-						if (pageNumber > 0){
-							pageNumber--;
-							localHistory.getHistory(pageNumber, pageTickCount, updateChartForHistory);
+					var previous = function previous(){
+						if (dataIndex > 0){
+							dataIndex--;
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
-
-					var getPage = function getPage(){
-						return pageNumber + 1;
-					}
 
 					return {
 						historyInterface: historyInterface,
-						getPage: getPage,
-						firstPage: firstPage,
-						nextPage: nextPage,
-						previousPage: previousPage
+						first: first,
+						next: next,
+						previous: previous
 					};
 					
 				};
 				var init = function() {
 					var symbol = scope.$parent.proposalToSend.symbol,
-							pageCount = 20, 
+							capacity = 600, 
 							pageEntries = 30;
-					scope.chartGenerator = ChartGenerator(pageCount, pageEntries);
-					scope.$parent.chartSwipeLeft = scope.chartGenerator.previousPage;
-					scope.$parent.chartSwipeRight = scope.chartGenerator.nextPage;
-					scope.chartPage = scope.chartGenerator.getPage;
+					scope.chartGenerator = ChartGenerator(capacity, pageEntries);
+					scope.$parent.chartDragLeft = scope.chartGenerator.previous;
+					scope.$parent.chartDragRight = scope.chartGenerator.next;
 
 					websocketService.sendRequestFor.forgetTicks();
 					websocketService.sendRequestFor.ticksHistory(
 						{
 							"ticks_history": symbol,
 							"end": "latest",
-							"count": pageCount * pageEntries + 1,
+							"count": capacity + 1,
 							"subscribe": 1
 						}
 					);
