@@ -6,7 +6,7 @@
 		"paste_token": "Paste your token here"
 	},
 	"accounts": {
-		"my_accounts": "My Accounts",
+		"my_accounts": "Manage accounts",
 		"account": "Account",
 		"remove_all": "Remove All Accounts & Sign Out",
 		"default": "Default",

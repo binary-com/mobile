@@ -9682,9 +9682,10 @@ body * {
   padding-right: 5%; }
   .accounts-content h1 {
     margin-top: 60px;
-    font-size: 24px; }
+    font-size: 18px; }
   .accounts-content .remove-all-accounts {
     background-color: #f2f2f2;
+    margin-top: 10px;
     padding: 5px;
     font-size: 12px; }
     .accounts-content .remove-all-accounts a {
