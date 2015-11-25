@@ -16,7 +16,13 @@ angular
 			templateUrl: 'templates/components/trades/trade-chart.template.html',
 			link: function(scope, element) {
 
-				var ChartGenerator = function ChartGenerator(pageCount, pageTickCount){
+				var ChartGenerator = function ChartGenerator(capacity, initialPageTickCount){
+					var dataIndex = 0, 
+							capacity = 600,
+							updateEnabled = true,
+							dragEnabled = true,
+							pageTickCount = initialPageTickCount,
+							localHistory;
 					/*
 						LocalHistory(capacity<history capacity in ticks>)
 					*/
@@ -77,37 +83,14 @@ angular
 						var addOhlc = function addOhlc (ohlc){
 							// addCandles definition here
 						};
-						/*
-							getLastHistoryData(end<end of the time in epoch>, count){...}
-							returns the list of elements if could find `count' elements before `end' time
-							else returns null
-						*/			
-						var getLastHistoryData = function getLastHistoryData(end, count){
-							var historyDataStart = historyData[0].time,
-									lastHistoryData = [],
-									endingDataIndex = findElementByAttr(historyData, 'time', end, function compare(a, b){
-										return (a==b)?true:(a==b+1)?true:(b==a+1)?true:false;
-									});					
-
-							if ( end <= historyDataStart || endingDataIndex < count ) {
-								return null;
-							}
-							for (var j = endingDataIndex; j >= 0 && endingDataIndex - j < count ; j--) {
-								lastHistoryData.push(historyData[j]);
-							}
-							if (lastHistoryData.length == count){
-								return lastHistoryData.reverse();
-							}	else {
-								return null;
-							}
-						};
 
 						// Functions to retrieve history data
-						// Usage: getHistory(end<epoch>, count, callback<function>);
-						var getHistory = function getHistory(end, count, callback) {
-							var lastHistoryData = getLastHistoryData(end, count);
-							if ( lastHistoryData ) {
-								callback( lastHistoryData );
+						// Usage: getHistory(dataIndex, count, callback<function>);
+						var getHistory = function getHistory(dataIndex, count, callback) {
+							var end = capacity - dataIndex,
+									start = end - count;
+							if ( start >= 0 ) {
+								callback( historyData.slice( start, end ) );
 							} else {
 								callback( [] );
 							}
@@ -123,41 +106,64 @@ angular
 
 					};
 
+					var getTickTime = function getTickTime(tick) {
+						var date = new Date(tick*1000), 
+								dateString = date.toLocaleTimeString();
+						return dateString.slice(0, dateString.length-3);
+					}
+
 					var chart = c3.generate({
 						bindto: '#chart',
 						transition: {
 							duration: 0
 						},
+						interaction: {
+							enabled: false
+						},
 						size: {
 							height: 150
 						},
 						data: {
+							labels: {
+								format: function(v, id, i, j) {
+									if (pageTickCount == initialPageTickCount){
+										if (pageTickCount - 1 == i) {
+											return v;
+										}
+									} else if ((pageTickCount - i - 1)%Math.ceil(pageTickCount/5) == 0) {
+										return v;
+									}
+								}
+							},
 							x: 'time',
 							columns: [
 								['time'],
 								['price']
 							],
-							colors: {
-								price: 'orange'
-							}
-						},
-						grid:{
-							x: {
-								show: true
-							},
-							y: {
-								show: true
+							color: function (color, d) {
+								if (d.index == pageTickCount - 1 && dataIndex == 0){
+									return 'green';
+								}	else {
+									return 'orange';
+								}
 							}
 						},
 						legend: {
 							show: false
 						},
-						point: {
-							show: false
-						},
 						axis: {
 							x: {
-								show: false
+								padding: {
+									left: 1,
+									right: 1,
+								},
+								show: true,
+								tick: {
+									culling: {
+										max: 7
+									},
+									format: getTickTime
+								} 
 							},
 							y: {
 								show: false
@@ -166,17 +172,35 @@ angular
 					});
 
 
-					var pageNumber = 0, 
-							ticksPerSecond = 2,
-							localHistory;
+					
+					var dragStart = function dragStart(){
+						updateEnabled = false;
+					};
+
+					var dragEnd = function dragEnd(){
+						updateEnabled = true;
+					};
+
+					var zoomStart = function zoomStart(){
+						updateEnabled = false;
+						dragEnabled = false;
+					};
+
+					var zoomEnd = function zoomEnd(){
+						updateEnabled = true;
+						dragEnabled = true;
+					};
 				
 					// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 					var updateChartForHistory = function updateChartForHistory(ticks){
 						var times = []
-								prices = [];
+								prices = [],
+								gridsX = [],
+								gridsY = [];
 						ticks.forEach(function(tick){
-							times.push(tick.time);
-							prices.push(tick.price);
+							gridsX.push({value: parseInt(tick.time)});
+							times.push(parseInt(tick.time));
+							prices.push(parseFloat(tick.price));
 						});
 						chart.load({
 							columns: [
@@ -184,27 +208,22 @@ angular
 								['price'].concat(prices)
 							]
 						});
+						var firstPrice = Math.min.apply(Math, prices),
+								lastPrice = Math.max.apply(Math, prices),
+								priceStep = ((lastPrice - firstPrice)/(gridsX.length/2));
+						for (var i = firstPrice; i<lastPrice + priceStep/2 ; i+=priceStep){
+							gridsY.push({value: i});
+						}
+						chart.xgrids(gridsX);
+						chart.ygrids(gridsY);
 					};
 					
-					var PageController = function PageController(time, step){
-						var changePage = function changePage(pageNumber, now){
-							if (now) {
-								time = now;
-							}
-							localHistory.getHistory( time - pageNumber * step, pageTickCount, updateChartForHistory);
-						};
-						return {
-							changePage: changePage
-						};
-					};
-
-					var pageController;
 					// Usage: addTick(tick:<tick object>);
 					var addTick = function addTick(tick){
 						if (localHistory) {
 							localHistory.addTick(tick);
-							if (pageController) {
-								pageController.changePage(pageNumber, tick.epoch);
+							if ( updateEnabled ) {
+								localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 							}
 						}
 					};
@@ -212,10 +231,9 @@ angular
 					// Usage: addHistory(history:<history object>);
 					var addHistory = function addHistory(history){
 						// initialize the localHistory
-						localHistory = LocalHistory(pageTickCount * pageCount);
+						localHistory = LocalHistory(capacity);
 						localHistory.addHistory(history);
-						pageController = PageController(history.times[history.times.length-1], pageTickCount * ticksPerSecond);
-						pageController.changePage(0);
+						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 					};
 
 					// Usage: addCandles(candles:<candle object>);
@@ -235,59 +253,73 @@ angular
 						addOhlc: addOhlc
 					};
 					
-					var firstPage = function firstPage(){
-						pageNumber = 0;
-						if (pageController) {
-							pageController.changePage(pageNumber);
+					var zoomOut = function zoomOut(){
+						if ( pageTickCount < initialPageTickCount ){
+							pageTickCount++;						
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
 
-					var nextPage = function nextPage(){
-						if (pageNumber < pageCount - 1){
-							pageNumber++;
-							if (pageController) {
-								pageController.changePage(pageNumber);
-							}
+					var zoomIn = function zoomIn(){
+						if ( pageTickCount > 5 ){
+							pageTickCount--;						
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
 
-					var previousPage = function previousPage(){
-						if (pageNumber > 0){
-							pageNumber--;
-							if (pageController) {
-								pageController.changePage(pageNumber);
-							}
+					var first = function first(){
+						dataIndex = 0;
+						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+					};
+
+					var next = function next(){
+						if ( dragEnabled && dataIndex + pageTickCount < capacity - 2){
+							dataIndex += 2;
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
 
-					var getPage = function getPage(){
-						return pageNumber + 1;
-					}
+					var previous = function previous(){
+						if (dragEnabled && dataIndex > 1){
+							dataIndex -= 2;
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+						}
+					};
 
 					return {
 						historyInterface: historyInterface,
-						getPage: getPage,
-						firstPage: firstPage,
-						nextPage: nextPage,
-						previousPage: previousPage
+						dragStart: dragStart,
+						dragEnd: dragEnd,
+						zoomIn: zoomIn,
+						zoomOut: zoomOut,
+						zoomStart: zoomStart,
+						zoomEnd: zoomEnd,
+						first: first,
+						next: next,
+						previous: previous
 					};
 					
 				};
 				var init = function() {
 					var symbol = scope.$parent.proposalToSend.symbol,
-							pageCount = 20, 
-							pageEntries = 30;
-					scope.chartGenerator = ChartGenerator(pageCount, pageEntries);
-					scope.$parent.chartSwipeLeft = scope.chartGenerator.previousPage;
-					scope.$parent.chartSwipeRight = scope.chartGenerator.nextPage;
-					scope.chartPage = scope.chartGenerator.getPage;
+							capacity = 600, 
+							pageEntries = 15;
+					scope.chartGenerator = ChartGenerator(capacity, pageEntries);
+					scope.$parent.chartDragLeft = scope.chartGenerator.previous;
+					scope.$parent.chartDragRight = scope.chartGenerator.next;
+					scope.$parent.chartTouch = scope.chartGenerator.dragStart;
+					scope.$parent.chartRelease = scope.chartGenerator.dragEnd;
+					scope.$parent.chartPinchIn = scope.chartGenerator.zoomOut;
+					scope.$parent.chartPinchOut = scope.chartGenerator.zoomIn;
+					scope.$parent.chartPinchStart = scope.chartGenerator.zoomStart;
+					scope.$parent.chartPinchEnd = scope.chartGenerator.zoomEnd;
 
 					websocketService.sendRequestFor.forgetTicks();
 					websocketService.sendRequestFor.ticksHistory(
 						{
 							"ticks_history": symbol,
 							"end": "latest",
-							"count": pageCount * pageEntries + 1,
+							"count": capacity + 1,
 							"subscribe": 1
 						}
 					);

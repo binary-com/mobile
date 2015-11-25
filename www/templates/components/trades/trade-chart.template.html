@@ -1,4 +1,12 @@
 <div class="contract-chart">
-	<div on-swipe-left="chartSwipeLeft()" on-swipe-right="chartSwipeRight()" id="chart"></div>
-	<div>page: {{chartPage()}}</div>
+	<div id="chart"
+		on-drag-left="chartDragLeft()"
+		on-drag-right="chartDragRight()" 
+		on-touch="chartTouch()" 
+		on-release="chartRelease()"
+		hm-pinchin="chartPinchIn"
+		hm-pinchout="chartPinchOut"
+		hm-pinchstart="chartPinchStart"
+		hm-pinchend="chartPinchEnd">
+    </div>
 </div>
