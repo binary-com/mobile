@@ -12,7 +12,7 @@ angular
 		function($translateProvider) {
 			$translateProvider.preferredLanguage('en');
 			$translateProvider.useStaticFilesLoader({
-				prefix: '/i18n/',
+				prefix: 'i18n/',
 				suffix: '.json'
 			});
 		}
