@@ -43,6 +43,7 @@ angular
 				};
 				// Usage: addHistory(history:<history object>);
 				var addHistory = function addHistory(history){
+					historyData = [];
 					updateHistoryArray(historyData, history);
 				};
 				
@@ -99,9 +100,11 @@ angular
 				var dataIndex = 0, 
 						capacity = 600,
 						initialPageTickCount = 15,
-						updateEnabled = true,
-						dragEnabled = true,
-						pageTickCount = initialPageTickCount;
+						notDragging = true,
+						notZooming = true,
+						updateDisabled = false,
+						pageTickCount = initialPageTickCount,
+						contract;
 
 				var getTickTime = function getTickTime(tick) {
 					var date = new Date(tick*1000), 
@@ -138,6 +141,11 @@ angular
 							['price']
 						],
 						color: function (color, d) {
+							if (contract) {
+								if (d.x >= contract.entrySpot && d.x <= contract.exitSpot) {
+									return 'blue';
+								}
+							}
 							if (d.index == pageTickCount - 1 && dataIndex == 0){
 								return 'green';
 							}	else {
@@ -169,23 +177,22 @@ angular
 				});
 			
 				var dragStart = function dragStart(){
-					updateEnabled = false;
+					notDragging = false;
 				};
 
 				var dragEnd = function dragEnd(){
-					updateEnabled = true;
+					notDragging = true;
 				};
 
 				var zoomStart = function zoomStart(){
-					updateEnabled = false;
-					dragEnabled = false;
+					notDragging = false;
+					notZooming = false;
 				};
 
 				var zoomEnd = function zoomEnd(){
-					updateEnabled = true;
-					dragEnabled = true;
+					notDragging = true;
+					notZooming = true;
 				};
-			
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				var updateChartForHistory = function updateChartForHistory(ticks){
 					var times = []
@@ -193,10 +200,44 @@ angular
 							gridsX = [],
 							gridsY = [];
 					ticks.forEach(function(tick){
-						gridsX.push({value: parseInt(tick.time)});
+						if (contract) {
+							// set contract barrier
+							if (!contract.barrier && parseInt(tick.time) == contract.entrySpot) {
+								contract.barrier = parseFloat(tick.price);
+							}
+							if (parseInt(tick.time) == contract.entrySpot) { // add entry spot grid line
+								gridsX.push({value: parseInt(tick.time), text: 'Entry Spot'});
+							} else if (parseInt(tick.time) == contract.exitSpot)  { // add exit spot grid line
+								gridsX.push({value: parseInt(tick.time), text: 'Exit Spot'});
+							} else { // add other grid lines
+								gridsX.push({value: parseInt(tick.time)});
+							}
+						} else {
+							gridsX.push({value: parseInt(tick.time)});
+						}
 						times.push(parseInt(tick.time));
 						prices.push(parseFloat(tick.price));
 					});
+					lastDataIndex = times.length -1;
+					if (contract) {
+						var condition = (contract.type == 'CALL')? function condition(barrier, price) {return barrier > price;}: 
+								function condition(barrier, price) {return barrier < price;};
+						if (times[lastDataIndex] > contract.entrySpot) { // add win or lose regions
+							if (condition(contract.barrier, prices[lastDataIndex])) {
+								chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+								chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'loseRegion'}]);
+							} else {
+								chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+								chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'winRegion'}]);
+							}
+						}
+						if (times[lastDataIndex] == contract.exitSpot) { // stop updating on exit spot
+							updateDisabled = true;
+						}
+						if (contract.barrier) { // add the barrier grid line
+							gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
+						}
+					}
 					chart.load({
 						columns: [
 							['time'].concat(times),
@@ -215,9 +256,9 @@ angular
 				
 				// Usage: addTick(tick:<tick object>);
 				var addTick = function addTick(tick){
-					if (localHistory) {
+					if (localHistory && !updateDisabled) {
 						localHistory.addTick(tick);
-						if ( updateEnabled ) {
+						if ( notDragging ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					}
@@ -228,8 +269,8 @@ angular
 					// initialize the localHistory
 					if (!localHistory) {
 						localHistory = LocalHistory(capacity);
-						localHistory.addHistory(history);
 					}
+					localHistory.addHistory(history);
 					localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 				};
 
@@ -264,14 +305,14 @@ angular
 				};
 
 				var next = function next(){
-					if ( dragEnabled && dataIndex + pageTickCount < capacity - 2){
+					if ( notZooming && dataIndex + pageTickCount < capacity - 2){
 						dataIndex += 2;
 						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 					}
 				};
 
 				var previous = function previous(){
-					if (dragEnabled && dataIndex > 1){
+					if (notZooming && dataIndex > 1){
 						dataIndex -= 2;
 						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 					}
@@ -281,12 +322,18 @@ angular
 					return capacity;
 				};
 
+				var addContract = function addContract(_contract) {
+					contract = _contract;
+					pageTickCount = contract.exitSpot - contract.entrySpot + 1;
+				};
+				
 				var historyInterface = {
 					addTick: addTick,
 					addHistory: addHistory,
 					addCandles: addCandles,
 					addOhlc: addOhlc
 				};
+
 				return {
 					dragStart: dragStart,
 					dragEnd: dragEnd,
@@ -298,6 +345,7 @@ angular
 					next: next,
 					previous: previous,
 					getCapacity: getCapacity,
+					addContract: addContract,
 					historyInterface: historyInterface
 				};
 			};
