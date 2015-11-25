@@ -20,6 +20,7 @@ angular
 					var dataIndex = 0, 
 							capacity = 600,
 							updateEnabled = true,
+							dragEnabled = true,
 							pageTickCount = initialPageTickCount,
 							localHistory;
 					/*
@@ -87,9 +88,9 @@ angular
 						// Usage: getHistory(dataIndex, count, callback<function>);
 						var getHistory = function getHistory(dataIndex, count, callback) {
 							var end = capacity - dataIndex,
-									start = end - (count - 1);
+									start = end - count;
 							if ( start >= 0 ) {
-								callback( historyData.slice( start, end) );
+								callback( historyData.slice( start, end ) );
 							} else {
 								callback( [] );
 							}
@@ -105,6 +106,12 @@ angular
 
 					};
 
+					var getTickTime = function getTickTime(tick) {
+						var date = new Date(tick*1000), 
+								dateString = date.toLocaleTimeString();
+						return dateString.slice(0, dateString.length-3);
+					}
+
 					var chart = c3.generate({
 						bindto: '#chart',
 						transition: {
@@ -119,7 +126,11 @@ angular
 						data: {
 							labels: {
 								format: function(v, id, i, j) {
-									if ((pageTickCount - i - 2)%parseInt(pageTickCount/10) == 0) {
+									if (pageTickCount == initialPageTickCount){
+										if (pageTickCount - 1 == i) {
+											return v;
+										}
+									} else if ((pageTickCount - i - 1)%Math.ceil(pageTickCount/5) == 0) {
 										return v;
 									}
 								}
@@ -130,19 +141,11 @@ angular
 								['price']
 							],
 							color: function (color, d) {
-								if (d.index == pageTickCount - 2 && dataIndex == 0){
+								if (d.index == pageTickCount - 1 && dataIndex == 0){
 									return 'green';
 								}	else {
 									return 'orange';
 								}
-							}
-						},
-						grid:{
-							x: {
-								show: true
-							},
-							y: {
-								show: true
 							}
 						},
 						legend: {
@@ -157,13 +160,9 @@ angular
 								show: true,
 								tick: {
 									culling: {
-										max: parseInt(pageTickCount/3.5) 
+										max: 7
 									},
-									format: function (x) { 
-										var date = new Date(x*1000), 
-												dateString = date.toLocaleTimeString();
-										return dateString.slice(0, dateString.length-3);
-									}
+									format: getTickTime
 								} 
 							},
 							y: {
@@ -174,21 +173,34 @@ angular
 
 
 					
-					var disableUpdate = function disableUpdate(){
+					var dragStart = function dragStart(){
 						updateEnabled = false;
 					};
 
-					var enableUpdate = function enableUpdate(){
+					var dragEnd = function dragEnd(){
 						updateEnabled = true;
+					};
+
+					var zoomStart = function zoomStart(){
+						updateEnabled = false;
+						dragEnabled = false;
+					};
+
+					var zoomEnd = function zoomEnd(){
+						updateEnabled = true;
+						dragEnabled = true;
 					};
 				
 					// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 					var updateChartForHistory = function updateChartForHistory(ticks){
 						var times = []
-								prices = [];
+								prices = [],
+								gridsX = [],
+								gridsY = [];
 						ticks.forEach(function(tick){
-							times.push(tick.time);
-							prices.push(tick.price);
+							gridsX.push({value: parseInt(tick.time)});
+							times.push(parseInt(tick.time));
+							prices.push(parseFloat(tick.price));
 						});
 						chart.load({
 							columns: [
@@ -196,6 +208,14 @@ angular
 								['price'].concat(prices)
 							]
 						});
+						var firstPrice = Math.min.apply(Math, prices),
+								lastPrice = Math.max.apply(Math, prices),
+								priceStep = ((lastPrice - firstPrice)/(gridsX.length/2));
+						for (var i = firstPrice; i<lastPrice + priceStep/2 ; i+=priceStep){
+							gridsY.push({value: i});
+						}
+						chart.xgrids(gridsX);
+						chart.ygrids(gridsY);
 					};
 					
 					// Usage: addTick(tick:<tick object>);
@@ -233,15 +253,15 @@ angular
 						addOhlc: addOhlc
 					};
 					
-					var zoomIn = function zoomIn(){
+					var zoomOut = function zoomOut(){
 						if ( pageTickCount < initialPageTickCount ){
 							pageTickCount++;						
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
 
-					var zoomOut = function zoomOut(){
-						if ( pageTickCount > 10 ){
+					var zoomIn = function zoomIn(){
+						if ( pageTickCount > 5 ){
 							pageTickCount--;						
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
@@ -253,14 +273,14 @@ angular
 					};
 
 					var next = function next(){
-						if (dataIndex + pageTickCount < capacity - 2){
+						if ( dragEnabled && dataIndex + pageTickCount < capacity - 2){
 							dataIndex += 2;
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
 
 					var previous = function previous(){
-						if (dataIndex > 1){
+						if (dragEnabled && dataIndex > 1){
 							dataIndex -= 2;
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
@@ -268,10 +288,12 @@ angular
 
 					return {
 						historyInterface: historyInterface,
-						disableUpdate: disableUpdate,
-						enableUpdate: enableUpdate,
+						dragStart: dragStart,
+						dragEnd: dragEnd,
 						zoomIn: zoomIn,
 						zoomOut: zoomOut,
+						zoomStart: zoomStart,
+						zoomEnd: zoomEnd,
 						first: first,
 						next: next,
 						previous: previous
@@ -281,16 +303,16 @@ angular
 				var init = function() {
 					var symbol = scope.$parent.proposalToSend.symbol,
 							capacity = 600, 
-							pageEntries = 30;
+							pageEntries = 15;
 					scope.chartGenerator = ChartGenerator(capacity, pageEntries);
 					scope.$parent.chartDragLeft = scope.chartGenerator.previous;
 					scope.$parent.chartDragRight = scope.chartGenerator.next;
-					scope.$parent.chartTouch = scope.chartGenerator.disableUpdate;
-					scope.$parent.chartRelease = scope.chartGenerator.enableUpdate;
-					scope.$parent.chartPinchIn = scope.chartGenerator.zoomIn;
-					scope.$parent.chartPinchOut = scope.chartGenerator.zoomOut;
-					scope.$parent.chartPinchStart = scope.chartGenerator.disableUpdate;
-					scope.$parent.chartPinchEnd = scope.chartGenerator.enableUpdate;
+					scope.$parent.chartTouch = scope.chartGenerator.dragStart;
+					scope.$parent.chartRelease = scope.chartGenerator.dragEnd;
+					scope.$parent.chartPinchIn = scope.chartGenerator.zoomOut;
+					scope.$parent.chartPinchOut = scope.chartGenerator.zoomIn;
+					scope.$parent.chartPinchStart = scope.chartGenerator.zoomStart;
+					scope.$parent.chartPinchEnd = scope.chartGenerator.zoomEnd;
 
 					websocketService.sendRequestFor.forgetTicks();
 					websocketService.sendRequestFor.ticksHistory(
