@@ -18,7 +18,7 @@ angular
 
 				var init = function() {
 					var symbol = scope.$parent.proposalToSend.symbol;
-					scope.chart = chartService.makeChart('#chart1');
+					scope.chart = chartService.makeChart('#chartForTrade');
 					scope.$parent.chartDragLeft = scope.chart.previous;
 					scope.$parent.chartDragRight = scope.chart.next;
 					scope.$parent.chartTouch = scope.chart.dragStart;

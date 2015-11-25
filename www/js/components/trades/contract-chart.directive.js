@@ -17,7 +17,7 @@ angular
 			link: function(scope, element) {
 				var contractId = scope.$parent.contract.contract_id;
 				var init = function() {
-					scope.chart = chartService.makeChart('#chart2');
+					scope.chart = chartService.makeChart('#chartForContract');
 					scope.$parent.chartDragLeft = scope.chart.previous;
 					scope.$parent.chartDragRight = scope.chart.next;
 					scope.$parent.chartTouch = scope.chart.dragStart;
