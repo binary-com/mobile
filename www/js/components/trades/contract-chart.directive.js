@@ -35,7 +35,7 @@ angular
 						if (contract.contract_id == contractId){
 							scope.chart.addContract({
 								entrySpot: contract.date_start+1,
-								exitSpot: parseInt(scope.$parent.proposalToSend.duration) + contract.date_start + 1,
+								duration: parseInt(scope.$parent.proposalToSend.duration),
 								type: scope.$parent.proposalToSend.contract_type
 							});
 						}
