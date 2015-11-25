@@ -11,17 +11,22 @@ git clone git@github.com:[your git username]/mobile.git
 cd mobile
 git remote add upstream git@github.com:binary-com/mobile.git
 
-npm install -g bower gulp cordova ionic
+npm install -g bower gulp cordova ionic ios-sim
 npm install
 bower install
 ```
 
-## Running the App
+## Running the App - localhost
 ```shell
 // In project root
 git pull upstream master
 bower update
 ionic serve
+```
+
+## Running the App - iOS
+```shell
+ionic emulate ios
 ```
 
 ## Submitting the code
