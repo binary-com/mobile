@@ -142,7 +142,7 @@ angular
 						],
 						color: function (color, d) {
 							if (contract) {
-								if (d.x >= contract.entrySpot && d.x <= contract.exitSpot) {
+								if (d.x >= contract.entrySpot) {
 									return 'blue';
 								}
 							}
@@ -198,31 +198,35 @@ angular
 					var times = []
 							prices = [],
 							gridsX = [],
-							gridsY = [];
+							gridsY = [],
+							distanceFromEntrySpot = 0,
+							lastDataIndex = ticks.length -1;
 					ticks.forEach(function(tick){
-						if (contract) {
-							// set contract barrier
-							if (!contract.barrier && parseInt(tick.time) == contract.entrySpot) {
-								contract.barrier = parseFloat(tick.price);
-							}
-							if (parseInt(tick.time) == contract.entrySpot) { // add entry spot grid line
-								gridsX.push({value: parseInt(tick.time), text: 'Entry Spot'});
-							} else if (parseInt(tick.time) == contract.exitSpot)  { // add exit spot grid line
+						if (contract && parseInt(tick.time) >= contract.entrySpot) { // the entrySpot, here it is
+							if (distanceFromEntrySpot == 0) {
+								if (!contract.barrier) {
+									contract.barrier = parseFloat(tick.price);
+								}
+								gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
+								gridsX.push({value: contract.entrySpot, text: 'Entry Spot'});
+								distanceFromEntrySpot++;
+							} else if(distanceFromEntrySpot == contract.duration) { // this is exitSpot
 								gridsX.push({value: parseInt(tick.time), text: 'Exit Spot'});
-							} else { // add other grid lines
+								updateDisabled = true;
+							} else {
 								gridsX.push({value: parseInt(tick.time)});
+								distanceFromEntrySpot++;
 							}
-						} else {
+						} else { // add other grid lines
 							gridsX.push({value: parseInt(tick.time)});
 						}
 						times.push(parseInt(tick.time));
 						prices.push(parseFloat(tick.price));
 					});
-					lastDataIndex = times.length -1;
-					if (contract) {
+					if (contract) { // add win or lose regions
 						var condition = (contract.type == 'CALL')? function condition(barrier, price) {return barrier > price;}: 
 								function condition(barrier, price) {return barrier < price;};
-						if (times[lastDataIndex] > contract.entrySpot) { // add win or lose regions
+						if (times[lastDataIndex] > contract.entrySpot) { 
 							if (condition(contract.barrier, prices[lastDataIndex])) {
 								chart.regions.remove({classes: ['winRegion', 'loseRegion']});
 								chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'loseRegion'}]);
@@ -230,12 +234,6 @@ angular
 								chart.regions.remove({classes: ['winRegion', 'loseRegion']});
 								chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'winRegion'}]);
 							}
-						}
-						if (times[lastDataIndex] == contract.exitSpot) { // stop updating on exit spot
-							updateDisabled = true;
-						}
-						if (contract.barrier) { // add the barrier grid line
-							gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
 						}
 					}
 					chart.load({
@@ -324,7 +322,7 @@ angular
 
 				var addContract = function addContract(_contract) {
 					contract = _contract;
-					pageTickCount = contract.exitSpot - contract.entrySpot + 1;
+					pageTickCount = contract.duration + 1;
 				};
 				
 				var historyInterface = {
