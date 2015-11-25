@@ -20,6 +20,7 @@ angular
 					var dataIndex = 0, 
 							capacity = 600,
 							updateEnabled = true,
+							dragEnabled = true,
 							pageTickCount = initialPageTickCount,
 							localHistory;
 					/*
@@ -172,12 +173,22 @@ angular
 
 
 					
-					var disableUpdate = function disableUpdate(){
+					var dragStart = function dragStart(){
 						updateEnabled = false;
 					};
 
-					var enableUpdate = function enableUpdate(){
+					var dragEnd = function dragEnd(){
 						updateEnabled = true;
+					};
+
+					var zoomStart = function zoomStart(){
+						updateEnabled = false;
+						dragEnabled = false;
+					};
+
+					var zoomEnd = function zoomEnd(){
+						updateEnabled = true;
+						dragEnabled = true;
 					};
 				
 					// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
@@ -262,14 +273,14 @@ angular
 					};
 
 					var next = function next(){
-						if (dataIndex + pageTickCount < capacity - 2){
+						if ( dragEnabled && dataIndex + pageTickCount < capacity - 2){
 							dataIndex += 2;
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					};
 
 					var previous = function previous(){
-						if (dataIndex > 1){
+						if (dragEnabled && dataIndex > 1){
 							dataIndex -= 2;
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
@@ -277,10 +288,12 @@ angular
 
 					return {
 						historyInterface: historyInterface,
-						disableUpdate: disableUpdate,
-						enableUpdate: enableUpdate,
+						dragStart: dragStart,
+						dragEnd: dragEnd,
 						zoomIn: zoomIn,
 						zoomOut: zoomOut,
+						zoomStart: zoomStart,
+						zoomEnd: zoomEnd,
 						first: first,
 						next: next,
 						previous: previous
@@ -294,12 +307,12 @@ angular
 					scope.chartGenerator = ChartGenerator(capacity, pageEntries);
 					scope.$parent.chartDragLeft = scope.chartGenerator.previous;
 					scope.$parent.chartDragRight = scope.chartGenerator.next;
-					scope.$parent.chartTouch = scope.chartGenerator.disableUpdate;
-					scope.$parent.chartRelease = scope.chartGenerator.enableUpdate;
+					scope.$parent.chartTouch = scope.chartGenerator.dragStart;
+					scope.$parent.chartRelease = scope.chartGenerator.dragEnd;
 					scope.$parent.chartPinchIn = scope.chartGenerator.zoomOut;
 					scope.$parent.chartPinchOut = scope.chartGenerator.zoomIn;
-					scope.$parent.chartPinchStart = scope.chartGenerator.disableUpdate;
-					scope.$parent.chartPinchEnd = scope.chartGenerator.enableUpdate;
+					scope.$parent.chartPinchStart = scope.chartGenerator.zoomStart;
+					scope.$parent.chartPinchEnd = scope.chartGenerator.zoomEnd;
 
 					websocketService.sendRequestFor.forgetTicks();
 					websocketService.sendRequestFor.ticksHistory(
