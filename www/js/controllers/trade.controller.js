@@ -34,6 +34,7 @@ angular
 				if (_contractConfirmation.buy) {
 					$scope.tradeMode = false;
 					$scope.contract = {
+						contract_id: _contractConfirmation.buy.contract_id,
 						longcode: _contractConfirmation.buy.longcode,
 						payout: $scope.proposalRecieved.payout,
 						cost: _contractConfirmation.buy.buy_price,
@@ -49,6 +50,7 @@ angular
 					$('.contract-purchase button').attr('disabled', false);
 				}
 				websocketService.sendRequestFor.balance();
+				websocketService.sendRequestFor.portfolio();
 			});
 
 			$scope.navigateToOptionsPage = function($event) {
