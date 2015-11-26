@@ -142,7 +142,7 @@ angular
 						],
 						color: function (color, d) {
 							if (contract) {
-								if (d.x >= contract.entrySpot) {
+								if (d.x >= contract.entrySpot && (!contract.exitSpot || d.x <= contract.exitSpot)) {
 									return 'blue';
 								}
 							}
@@ -193,16 +193,18 @@ angular
 					notDragging = true;
 					notZooming = true;
 				};
+				var result;
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				var updateChartForHistory = function updateChartForHistory(ticks){
-					var times = []
+					var times = [],
 							prices = [],
 							gridsX = [],
 							gridsY = [],
 							distanceFromEntrySpot = 0,
 							lastDataIndex = ticks.length -1;
 					ticks.forEach(function(tick){
-						if (contract && parseInt(tick.time) >= contract.entrySpot) { // the entrySpot, here it is
+						var tickTime = parseInt(tick.time);
+						if (contract && tickTime >= contract.entrySpot && (!contract.exitSpot || tickTime <= contract.exitSpot)) { // the entrySpot, here it is
 							if (distanceFromEntrySpot == 0) {
 								if (!contract.barrier) {
 									contract.barrier = parseFloat(tick.price);
@@ -211,29 +213,42 @@ angular
 								gridsX.push({value: contract.entrySpot, text: 'Entry Spot'});
 								distanceFromEntrySpot++;
 							} else if(distanceFromEntrySpot == contract.duration) { // this is exitSpot
-								gridsX.push({value: parseInt(tick.time), text: 'Exit Spot'});
-								updateDisabled = true;
+								gridsX.push({value: tickTime, text: 'Exit Spot'});
+								if (!contract.exitSpot) {
+									contract.exitSpot = tickTime;
+								}
 							} else {
-								gridsX.push({value: parseInt(tick.time)});
-								distanceFromEntrySpot++;
+								if ( contract.exitSpot && tickTime == contract.exitSpot ) {
+									gridsX.push({value: tickTime, text: 'Exit Spot'});
+								} else {
+									gridsX.push({value: tickTime});
+									distanceFromEntrySpot++;
+								}
 							}
-						} else { // add other grid lines
-							gridsX.push({value: parseInt(tick.time)});
+						} else { // add grid lines after exit spot and before entry spot
+							gridsX.push({value: tickTime});
 						}
-						times.push(parseInt(tick.time));
+						times.push(tickTime);
 						prices.push(parseFloat(tick.price));
 					});
 					if (contract) { // add win or lose regions
 						var condition = (contract.type == 'CALL')? function condition(barrier, price) {return barrier > price;}: 
 								function condition(barrier, price) {return barrier < price;};
-						if (times[lastDataIndex] > contract.entrySpot) { 
-							if (condition(contract.barrier, prices[lastDataIndex])) {
-								chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-								chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'loseRegion'}]);
-							} else {
-								chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-								chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'winRegion'}]);
+						if (!contract.exitSpot) {
+							if (times[lastDataIndex] > contract.entrySpot) { 
+								if (condition(contract.barrier, prices[lastDataIndex])) {
+									result = 'lose';
+									chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+									chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'loseRegion'}]);
+								} else {
+									result = 'win';
+									chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+									chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'winRegion'}]);
+								}
 							}
+						} else {
+							chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+							chart.regions.add([{axis: 'x', start: contract.entrySpot, end: contract.exitSpot, class: result + 'Region'}]);
 						}
 					}
 					chart.load({
