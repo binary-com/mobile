@@ -9,317 +9,31 @@
 angular
 	.module('binary')
 	.directive('tradeChart',[
-		'websocketService',
-		function(websocketService) {
+		'websocketService', 'chartService', 
+		function(websocketService, chartService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/trade-chart.template.html',
 			link: function(scope, element) {
 
-				var ChartGenerator = function ChartGenerator(capacity, initialPageTickCount){
-					var dataIndex = 0, 
-							capacity = 600,
-							updateEnabled = true,
-							dragEnabled = true,
-							pageTickCount = initialPageTickCount,
-							localHistory;
-					/*
-						LocalHistory(capacity<history capacity in ticks>)
-					*/
-					var LocalHistory = function LocalHistory(capacity){
-						/* 
-							historyData is initialized with a call to get `capacity' number of past prices,
-							after the initialization this historyData only gets updates from ticks
-						*/
-						var historyData = []; 
-
-						// Usage: addTick(tick:<tick object>);
-						var addTick = function addTick(tick){
-							historyData.push({
-								time: tick.epoch,
-								price: tick.quote
-							});
-							historyData.shift();
-						};
-
-
-						// Usage: updateHistoryArray(historyArray, history:<history object>);
-						var updateHistoryArray = function updateHistoryArray(historyArray, history){
-							var times = history.times, 
-									prices = history.prices;
-							times.forEach(function(time, index){
-								historyArray.push({
-									time: time,
-									price: prices[index] 
-								});
-							});
-						};
-						// Usage: addHistory(history:<history object>);
-						var addHistory = function addHistory(history){
-							updateHistoryArray(historyData, history);
-						};
-						
-						var findElementByAttr = function findElementByAttr(array, attr, expected, compare) {
-							if (!compare) {
-								compare = function compare(a, b){
-									return (a==b)?true:false;
-								}
-							}
-							var foundIndex = -1;
-							for (var i = 0; i < array.length; i++ ) {
-								if (array[i].hasOwnProperty(attr) && compare(array[i][attr], expected)) {
-									foundIndex = i;
-								}
-							}
-							return foundIndex;
-						};
-					
-						// Usage: addCandles(candles:<candle object>);
-						var addCandles = function addCandles(candles){
-							// addCandles definition here
-						};
-
-						// Usage: addOhlc(ohlc:<ohlc object>);
-						var addOhlc = function addOhlc (ohlc){
-							// addCandles definition here
-						};
-
-						// Functions to retrieve history data
-						// Usage: getHistory(dataIndex, count, callback<function>);
-						var getHistory = function getHistory(dataIndex, count, callback) {
-							var end = capacity - dataIndex,
-									start = end - count;
-							if ( start >= 0 ) {
-								callback( historyData.slice( start, end ) );
-							} else {
-								callback( [] );
-							}
-						};
-
-						return {
-							getHistory: getHistory, 
-							addTick: addTick,
-							addHistory: addHistory,
-							addCandles: addCandles,
-							addOhlc: addOhlc
-						};
-
-					};
-
-					var getTickTime = function getTickTime(tick) {
-						var date = new Date(tick*1000), 
-								dateString = date.toLocaleTimeString();
-						return dateString.slice(0, dateString.length-3);
-					}
-
-					var chart = c3.generate({
-						bindto: '#chart',
-						transition: {
-							duration: 0
-						},
-						interaction: {
-							enabled: false
-						},
-						size: {
-							height: 150
-						},
-						data: {
-							labels: {
-								format: function(v, id, i, j) {
-									if (pageTickCount == initialPageTickCount){
-										if (pageTickCount - 1 == i) {
-											return v;
-										}
-									} else if ((pageTickCount - i - 1)%Math.ceil(pageTickCount/5) == 0) {
-										return v;
-									}
-								}
-							},
-							x: 'time',
-							columns: [
-								['time'],
-								['price']
-							],
-							color: function (color, d) {
-								if (d.index == pageTickCount - 1 && dataIndex == 0){
-									return 'green';
-								}	else {
-									return 'orange';
-								}
-							}
-						},
-						legend: {
-							show: false
-						},
-						axis: {
-							x: {
-								padding: {
-									left: 1,
-									right: 1,
-								},
-								show: true,
-								tick: {
-									culling: {
-										max: 7
-									},
-									format: getTickTime
-								} 
-							},
-							y: {
-								show: false
-							}
-						}
-					});
-
-
-					
-					var dragStart = function dragStart(){
-						updateEnabled = false;
-					};
-
-					var dragEnd = function dragEnd(){
-						updateEnabled = true;
-					};
-
-					var zoomStart = function zoomStart(){
-						updateEnabled = false;
-						dragEnabled = false;
-					};
-
-					var zoomEnd = function zoomEnd(){
-						updateEnabled = true;
-						dragEnabled = true;
-					};
-				
-					// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
-					var updateChartForHistory = function updateChartForHistory(ticks){
-						var times = []
-								prices = [],
-								gridsX = [],
-								gridsY = [];
-						ticks.forEach(function(tick){
-							gridsX.push({value: parseInt(tick.time)});
-							times.push(parseInt(tick.time));
-							prices.push(parseFloat(tick.price));
-						});
-						chart.load({
-							columns: [
-								['time'].concat(times),
-								['price'].concat(prices)
-							]
-						});
-						var firstPrice = Math.min.apply(Math, prices),
-								lastPrice = Math.max.apply(Math, prices),
-								priceStep = ((lastPrice - firstPrice)/(gridsX.length/2));
-						for (var i = firstPrice; i<lastPrice + priceStep/2 ; i+=priceStep){
-							gridsY.push({value: i});
-						}
-						chart.xgrids(gridsX);
-						chart.ygrids(gridsY);
-					};
-					
-					// Usage: addTick(tick:<tick object>);
-					var addTick = function addTick(tick){
-						if (localHistory) {
-							localHistory.addTick(tick);
-							if ( updateEnabled ) {
-								localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
-							}
-						}
-					};
-
-					// Usage: addHistory(history:<history object>);
-					var addHistory = function addHistory(history){
-						// initialize the localHistory
-						localHistory = LocalHistory(capacity);
-						localHistory.addHistory(history);
-						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
-					};
-
-					// Usage: addCandles(candles:<candle object>);
-					var addCandles = function addCandles(candles){
-						// addCandles definition here
-					};
-
-					// Usage: addOhlc(ohlc:<ohlc object>);
-					var addOhlc = function addOhlc (ohlc){
-						// addCandles definition here
-					};
-						
-					historyInterface = {
-						addTick: addTick,
-						addHistory: addHistory,
-						addCandles: addCandles,
-						addOhlc: addOhlc
-					};
-					
-					var zoomOut = function zoomOut(){
-						if ( pageTickCount < initialPageTickCount ){
-							pageTickCount++;						
-							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
-						}
-					};
-
-					var zoomIn = function zoomIn(){
-						if ( pageTickCount > 5 ){
-							pageTickCount--;						
-							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
-						}
-					};
-
-					var first = function first(){
-						dataIndex = 0;
-						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
-					};
-
-					var next = function next(){
-						if ( dragEnabled && dataIndex + pageTickCount < capacity - 2){
-							dataIndex += 2;
-							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
-						}
-					};
-
-					var previous = function previous(){
-						if (dragEnabled && dataIndex > 1){
-							dataIndex -= 2;
-							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
-						}
-					};
-
-					return {
-						historyInterface: historyInterface,
-						dragStart: dragStart,
-						dragEnd: dragEnd,
-						zoomIn: zoomIn,
-						zoomOut: zoomOut,
-						zoomStart: zoomStart,
-						zoomEnd: zoomEnd,
-						first: first,
-						next: next,
-						previous: previous
-					};
-					
-				};
 				var init = function() {
-					var symbol = scope.$parent.proposalToSend.symbol,
-							capacity = 600, 
-							pageEntries = 15;
-					scope.chartGenerator = ChartGenerator(capacity, pageEntries);
-					scope.$parent.chartDragLeft = scope.chartGenerator.previous;
-					scope.$parent.chartDragRight = scope.chartGenerator.next;
-					scope.$parent.chartTouch = scope.chartGenerator.dragStart;
-					scope.$parent.chartRelease = scope.chartGenerator.dragEnd;
-					scope.$parent.chartPinchIn = scope.chartGenerator.zoomOut;
-					scope.$parent.chartPinchOut = scope.chartGenerator.zoomIn;
-					scope.$parent.chartPinchStart = scope.chartGenerator.zoomStart;
-					scope.$parent.chartPinchEnd = scope.chartGenerator.zoomEnd;
+					var symbol = scope.$parent.proposalToSend.symbol;
+					scope.chart = chartService.makeChart('#chartForTrade');
+					scope.$parent.chartDragLeft = scope.chart.previous;
+					scope.$parent.chartDragRight = scope.chart.next;
+					scope.$parent.chartTouch = scope.chart.dragStart;
+					scope.$parent.chartRelease = scope.chart.dragEnd;
+					scope.$parent.chartPinchIn = scope.chart.zoomOut;
+					scope.$parent.chartPinchOut = scope.chart.zoomIn;
+					scope.$parent.chartPinchStart = scope.chart.zoomStart;
+					scope.$parent.chartPinchEnd = scope.chart.zoomEnd;
 
 					websocketService.sendRequestFor.forgetTicks();
 					websocketService.sendRequestFor.ticksHistory(
 						{
 							"ticks_history": symbol,
 							"end": "latest",
-							"count": capacity + 1,
+							"count": scope.chart.getCapacity() + 1,
 							"subscribe": 1
 						}
 					);
@@ -329,25 +43,25 @@ angular
 
 				scope.$on('tick', function(e, feed){
 					if (feed){
-						scope.chartGenerator.historyInterface.addTick(feed.tick);
+						scope.chart.historyInterface.addTick(feed.tick);
 					}
 				});
 
 				scope.$on('history', function(e, feed){
 					if (feed){
-						scope.chartGenerator.historyInterface.addHistory(feed.history);
+						scope.chart.historyInterface.addHistory(feed.history);
 					}
 				});
 
 				scope.$on('candles', function(e, feed){
 					if (feed){
-						scope.chartGenerator.historyInterface.addCandles(feed.candles);
+						scope.chart.historyInterface.addCandles(feed.candles);
 					}
 				});
 
 				scope.$on('ohlc', function(e, feed){
 					if (feed){
-						scope.chartGenerator.historyInterface.addOhlc(feed.ohlc);
+						scope.chart.historyInterface.addOhlc(feed.ohlc);
 					}
 				});
 			}
