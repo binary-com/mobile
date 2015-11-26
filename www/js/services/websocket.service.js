@@ -109,6 +109,9 @@ angular
 						case 'ohlc':
 							$rootScope.$broadcast('ohlc', message);
 							break;
+						case 'portfolio':
+							$rootScope.$broadcast('portfolio', message.portfolio);
+							break;
 						default:
 							//console.log('another message type: ', message);
 					}
@@ -188,6 +191,12 @@ angular
 				balance: function() {
 					var data = {
 						balance: 1
+					};
+					sendMessage(data);
+				},
+				portfolio: function() {
+					var data = {
+						portfolio: 1
 					};
 					sendMessage(data);
 				},
