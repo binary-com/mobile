@@ -208,6 +208,7 @@ angular
 							if (distanceFromEntrySpot == 0) {
 								if (!contract.barrier) {
 									contract.barrier = parseFloat(tick.price);
+									contract.entrySpot = tickTime;
 								}
 								gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
 								gridsX.push({value: contract.entrySpot, text: 'Entry Spot'});
@@ -218,12 +219,8 @@ angular
 									contract.exitSpot = tickTime;
 								}
 							} else {
-								if ( contract.exitSpot && tickTime == contract.exitSpot ) {
-									gridsX.push({value: tickTime, text: 'Exit Spot'});
-								} else {
-									gridsX.push({value: tickTime});
-									distanceFromEntrySpot++;
-								}
+								gridsX.push({value: tickTime});
+								distanceFromEntrySpot++;
 							}
 						} else { // add grid lines after exit spot and before entry spot
 							gridsX.push({value: tickTime});
