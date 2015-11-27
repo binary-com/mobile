@@ -36,7 +36,8 @@ angular
 							scope.chart.addContract({
 								entrySpot: contract.date_start+1,
 								duration: parseInt(scope.$parent.proposalToSend.duration),
-								type: scope.$parent.proposalToSend.contract_type
+								type: scope.$parent.proposalToSend.contract_type,
+								barrier: scope.$parent.proposalToSend.barrier
 							});
 						}
 					});
