@@ -106,10 +106,16 @@ angular
 						pageTickCount = initialPageTickCount,
 						contract;
 
+				var zeroPad = function zeroPad(num){
+					if (num < 10){
+						return '0' + num;
+					} else {
+						return num.toString();
+					}
+				};
 				var getTickTime = function getTickTime(tick) {
-					var date = new Date(tick*1000), 
-							dateString = date.toLocaleTimeString();
-					return dateString.slice(0, dateString.length-3);
+					var date = new Date(tick*1000); 
+					return date.getUTCHours() +  ':' + zeroPad(date.getUTCMinutes()) + ':' + zeroPad(date.getUTCSeconds());
 				}
 
 				var chart = c3.generate({
