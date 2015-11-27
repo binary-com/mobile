@@ -106,10 +106,16 @@ angular
 						pageTickCount = initialPageTickCount,
 						contract;
 
+				var zeroPad = function zeroPad(num){
+					if (num < 10){
+						return '0' + num;
+					} else {
+						return num.toString();
+					}
+				};
 				var getTickTime = function getTickTime(tick) {
-					var date = new Date(tick*1000), 
-							dateString = date.toLocaleTimeString();
-					return dateString.slice(0, dateString.length-3);
+					var date = new Date(tick*1000); 
+					return date.getUTCHours() +  ':' + zeroPad(date.getUTCMinutes()) + ':' + zeroPad(date.getUTCSeconds());
 				}
 
 				var chart = c3.generate({
@@ -131,7 +137,30 @@ angular
 										return v;
 									}
 								} else if ((pageTickCount - i - 1)%Math.ceil(pageTickCount/5) == 0) {
-									return v;
+									if (pageTickCount - 1 == i || pageTickCount <= 5) {
+										return v;
+									}
+									if (contract){
+										if (!contract.entrySpotIndex) {
+											return v;
+										}
+										if (contract.entrySpotIndex && Math.abs(contract.entrySpotIndex - i) > 1) {
+											return v;
+										}
+										if (contract.exitSpotIndex && Math.abs(contract.exitSpotIndex - i) > 1) {
+											return v;
+										}
+									} else {
+										return v;
+									}
+								}
+								if ( contract ) {
+									if ( contract.entrySpotIndex && contract.entrySpotIndex == i ) {
+										return v;
+									}
+									if ( contract.exitSpotIndex && contract.exitSpotIndex == i ) {
+										return v;
+									}
 								}
 							}
 						},
@@ -193,6 +222,17 @@ angular
 					notDragging = true;
 					notZooming = true;
 				};
+
+				var conditions = {
+					CALL: function condition(barrier, price) {return barrier < price;}, 
+					PUT: function condition(barrier, price) {return barrier > price;},
+					DIGITMATCH: function condition(barrier, price) {return barrier.toString().slice(-1) == price.toString().slice(-1);},
+					DIGITDIFF: function condition(barrier, price) {return barrier.toString().slice(-1) != price.toString().slice(-1);},
+					DIGITEVEN: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) % 2 == 0;},
+					DIGITODD: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) % 2 != 0;},
+					DIGITUNDER: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) < barrier;},
+					DIGITOVER: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) > barrier;},
+				};
 				var result;
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				var updateChartForHistory = function updateChartForHistory(ticks){
@@ -200,30 +240,30 @@ angular
 							prices = [],
 							gridsX = [],
 							gridsY = [],
-							distanceFromEntrySpot = 0,
-							lastDataIndex = ticks.length -1;
-					ticks.forEach(function(tick){
+							distanceFromEntrySpot = 0;
+					ticks.forEach(function(tick, index){
 						var tickTime = parseInt(tick.time);
 						if (contract && tickTime >= contract.entrySpot && (!contract.exitSpot || tickTime <= contract.exitSpot)) { // the entrySpot, here it is
 							if (distanceFromEntrySpot == 0) {
 								if (!contract.barrier) {
 									contract.barrier = parseFloat(tick.price);
 								}
+								if (!contract.entrySpotIndex) {
+									contract.entrySpot = tickTime;
+								}
+								contract.entrySpotIndex = index;
 								gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
 								gridsX.push({value: contract.entrySpot, text: 'Entry Spot'});
 								distanceFromEntrySpot++;
 							} else if(distanceFromEntrySpot == contract.duration) { // this is exitSpot
 								gridsX.push({value: tickTime, text: 'Exit Spot'});
+								contract.exitSpotIndex = index;
 								if (!contract.exitSpot) {
 									contract.exitSpot = tickTime;
 								}
 							} else {
-								if ( contract.exitSpot && tickTime == contract.exitSpot ) {
-									gridsX.push({value: tickTime, text: 'Exit Spot'});
-								} else {
-									gridsX.push({value: tickTime});
-									distanceFromEntrySpot++;
-								}
+								gridsX.push({value: tickTime});
+								distanceFromEntrySpot++;
 							}
 						} else { // add grid lines after exit spot and before entry spot
 							gridsX.push({value: tickTime});
@@ -232,18 +272,16 @@ angular
 						prices.push(parseFloat(tick.price));
 					});
 					if (contract) { // add win or lose regions
-						var condition = (contract.type == 'CALL')? function condition(barrier, price) {return barrier > price;}: 
-								function condition(barrier, price) {return barrier < price;};
-						if (!contract.exitSpot) {
-							if (times[lastDataIndex] > contract.entrySpot) { 
-								if (condition(contract.barrier, prices[lastDataIndex])) {
-									result = 'lose';
-									chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-									chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'loseRegion'}]);
-								} else {
+						if (!contract.exitSpot || times.slice(-1)[0] <= contract.exitSpot) {
+							if (times.slice(-1)[0] > contract.entrySpot) { 
+								if (conditions[contract.type](contract.barrier, prices.slice(-1)[0])) {
 									result = 'win';
 									chart.regions.remove({classes: ['winRegion', 'loseRegion']});
 									chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'winRegion'}]);
+								} else {
+									result = 'lose';
+									chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+									chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'loseRegion'}]);
 								}
 							}
 						} else {
