@@ -100,10 +100,14 @@ angular
 				var dataIndex = 0, 
 						capacity = 600,
 						initialPageTickCount = 15,
+						minimumPageTickCount = 5, // maximum zoom in
 						notDragging = true,
 						notZooming = true,
 						updateDisabled = false,
 						pageTickCount = initialPageTickCount,
+						entrySpotShowing = false,
+						exitSpotShowing = false,
+						dragSteps = 1,
 						contract;
 
 				var zeroPad = function zeroPad(num){
@@ -113,11 +117,164 @@ angular
 						return num.toString();
 					}
 				};
+
 				var getTickTime = function getTickTime(tick) {
 					var date = new Date(tick*1000); 
 					return date.getUTCHours() +  ':' + zeroPad(date.getUTCMinutes()) + ':' + zeroPad(date.getUTCSeconds());
-				}
+				};
 
+				var isDefined = function isDefined(obj) {
+					if ( typeof obj === 'undefined' ) {
+						return false;
+					} else {
+						return true;
+					}
+				};
+
+				var setObjValue = function setObjValue(obj, attr, value, condition) {
+					if ( isDefined( obj ) ) {
+						if ( isDefined( condition ) ) {
+							if ( condition ) {
+								obj[attr] = value;
+							}
+						} else if ( typeof obj[attr] === 'undefined' ) {
+							obj[attr] = value;
+						}
+					}
+				};
+
+				var showPriceIf = function showPriceIf(result, v, condition) {
+					setObjValue(result, 'v', v, condition);
+				};
+
+				var inversedIndex = function inversedIndex(i) {
+					return pageTickCount - 1 - i;
+				};
+
+				var lastElement = function lastElement(i){
+					if ( inversedIndex(i) == 0 ) {
+						return true;
+					} else {
+						return false;
+					}
+				};
+
+				var zoomedOut = function zoomedOut(){
+					if ( pageTickCount == initialPageTickCount ) {
+						return true;
+					} else {
+						return false;
+					}
+				};
+
+				var zoomedIn = function zoomedIn(){
+					if ( pageTickCount == minimumPageTickCount ) {
+						return true;
+					} else {
+						return false;
+					}
+				};
+				
+				var entrySpotReached = function entrySpotReached() {
+					if ( contract && isDefined( contract.entrySpotIndex ) ) {
+						return true;
+					} else {
+						return false;
+					}
+				};
+
+				var exitSpotReached = function exitSpotReached() {
+					if ( contract && isDefined( contract.exitSpotIndex ) ) {
+						return true;
+					} else {
+						return false;
+					}
+				};
+
+				var betweenSpots = function betweenSpots(time) {
+					if ( entrySpotReached() && time >= contract.entrySpot && ( !exitSpotReached() || time <= contract.exitSpot ) ) {
+						return true;
+					} else {
+						return false;
+					}
+				};
+
+				var nearSpots = function nearSpots(i) {
+					if ( entrySpotShowing && Math.abs( contract.entrySpotIndex - i ) == 1 ) {
+						return true;
+					}
+					if ( exitSpotShowing && Math.abs( contract.exitSpotIndex - i ) == 1 ) {
+						return true;
+					}
+					return false;
+				};
+				
+				var isSpot = function isSpot(i) {
+					if ( entrySpotShowing && contract.entrySpotIndex == i ) {
+						return true;
+					}
+					if ( exitSpotShowing && contract.exitSpotIndex == i ) {
+						return true;
+					}
+					return false;
+				};
+
+				var isEntrySpot = function isEntrySpot(time) {
+					if ( entrySpotReached() ) {
+						if ( time == contract.entrySpot ) {
+							return true;
+						} else {
+							return false;
+						}
+					} else {
+						if ( contract && time >= contract.startTime ) {
+							return true;
+						} else {
+							return false;
+						}
+					}
+				};
+
+				var isExitSpot = function isExitSpot(time, index) {
+					if ( exitSpotReached() ) {
+						if ( time == contract.exitSpot ) {
+							return true;
+						} else {
+							return false;
+						}
+					} else {
+						if ( entrySpotReached() && index == contract.entrySpotIndex + contract.duration ) {
+							return true;
+						} else {
+							return false;
+						}
+					}
+				};
+
+				var collisionOccured = function collisionOccured(i){
+					if ( zoomedIn() ){
+						return false;
+					}
+					var distance = Math.ceil(pageTickCount/minimumPageTickCount);
+					if ( inversedIndex(i) % distance == 0 ) { // distribute with distance
+						if ( nearSpots(i)	) {
+							return true;
+						} else {
+							return false;	
+						}
+					} else {
+						return true;
+					}
+				};
+	
+				var showingHistory = function showingHistory() {
+					if ( dataIndex == 0 ) {
+						return false;
+					} else {
+						return true;
+					}
+				}
+					
 				var chart = c3.generate({
 					bindto: chartID,
 					transition: {
@@ -132,36 +289,13 @@ angular
 					data: {
 						labels: {
 							format: function(v, id, i, j) {
-								if (pageTickCount == initialPageTickCount){
-									if (pageTickCount - 1 == i) {
-										return v;
-									}
-								} else if ((pageTickCount - i - 1)%Math.ceil(pageTickCount/5) == 0) {
-									if (pageTickCount - 1 == i || pageTickCount <= 5) {
-										return v;
-									}
-									if (contract){
-										if (!contract.entrySpotIndex) {
-											return v;
-										}
-										if (contract.entrySpotIndex && Math.abs(contract.entrySpotIndex - i) > 1) {
-											return v;
-										}
-										if (contract.exitSpotIndex && Math.abs(contract.exitSpotIndex - i) > 1) {
-											return v;
-										}
-									} else {
-										return v;
-									}
+								var result= {v: null};
+								showPriceIf(result, v, lastElement(i));
+								showPriceIf(result, v, isSpot(i));
+								if ( !zoomedOut() ){ 
+									showPriceIf(result, v, !collisionOccured(i));
 								}
-								if ( contract ) {
-									if ( contract.entrySpotIndex && contract.entrySpotIndex == i ) {
-										return v;
-									}
-									if ( contract.exitSpotIndex && contract.exitSpotIndex == i ) {
-										return v;
-									}
-								}
+								return result.v;
 							}
 						},
 						x: 'time',
@@ -170,12 +304,10 @@ angular
 							['price']
 						],
 						color: function (color, d) {
-							if (contract) {
-								if (d.x >= contract.entrySpot && (!contract.exitSpot || d.x <= contract.exitSpot)) {
-									return 'blue';
-								}
+							if ( betweenSpots( d.x ) ) {
+								return 'blue';
 							}
-							if (d.index == pageTickCount - 1 && dataIndex == 0){
+							if (lastElement(d.index) && !showingHistory()){
 								return 'green';
 							}	else {
 								return 'orange';
@@ -233,62 +365,84 @@ angular
 					DIGITUNDER: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) < barrier;},
 					DIGITOVER: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) > barrier;},
 				};
+
+				var showBarrier = function showBarrier() {
+					if ( contract.type.indexOf( 'DIGIT' ) < 0 ) {
+						return true;
+					}
+					return false;
+				};
 				var result;
+
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				var updateChartForHistory = function updateChartForHistory(ticks){
 					var times = [],
 							prices = [],
 							gridsX = [],
-							gridsY = [],
-							distanceFromEntrySpot = 0;
+							gridsY = [];
+					
+					entrySpotShowing = false;
+					exitSpotShowing = false;
 					ticks.forEach(function(tick, index){
 						var tickTime = parseInt(tick.time);
-						if (contract && tickTime >= contract.entrySpot && (!contract.exitSpot || tickTime <= contract.exitSpot)) { // the entrySpot, here it is
-							if (distanceFromEntrySpot == 0) {
-								if (!contract.barrier) {
-									contract.barrier = parseFloat(tick.price);
+						var tickPrice = parseFloat(tick.price);
+						// add entry and exit spots and their grid lines
+						if ( isEntrySpot(tickTime) || betweenSpots(tickTime) ) { 
+							if ( isEntrySpot( tickTime ) ) {
+								entrySpotShowing = true;
+								setObjValue(contract, 'barrier', tickPrice);
+								setObjValue(contract, 'entrySpot', tickTime, !entrySpotReached());
+								console.log(contract.barrier);
+								if ( showBarrier() ) { 
+									gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
 								}
-								if (!contract.entrySpotIndex) {
-									contract.entrySpot = tickTime;
-								}
-								contract.entrySpotIndex = index;
-								gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
 								gridsX.push({value: contract.entrySpot, text: 'Entry Spot'});
-								distanceFromEntrySpot++;
-							} else if(distanceFromEntrySpot == contract.duration) { // this is exitSpot
-								gridsX.push({value: tickTime, text: 'Exit Spot'});
-								contract.exitSpotIndex = index;
-								if (!contract.exitSpot) {
-									contract.exitSpot = tickTime;
+							} else if( isExitSpot(tickTime, index) ) { 
+								exitSpotShowing = true;
+								setObjValue(contract, 'exitSpot', tickTime, !exitSpotReached());
+								if ( entrySpotShowing ) {
+									gridsX.push({value: contract.exitSpot, text: 'Exit Spot'});
+								} else {
+									gridsX.push({value: tickTime});
 								}
 							} else {
 								gridsX.push({value: tickTime});
-								distanceFromEntrySpot++;
 							}
-						} else { // add grid lines after exit spot and before entry spot
+						} else { 
 							gridsX.push({value: tickTime});
 						}
+						setObjValue(contract, 'entrySpotIndex', index, isEntrySpot( tickTime ));
+						setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
 						times.push(tickTime);
-						prices.push(parseFloat(tick.price));
+						prices.push(tickPrice);
 					});
-					if (contract) { // add win or lose regions
-						if (!contract.exitSpot || times.slice(-1)[0] <= contract.exitSpot) {
-							if (times.slice(-1)[0] > contract.entrySpot) { 
-								if (conditions[contract.type](contract.barrier, prices.slice(-1)[0])) {
-									result = 'win';
-									chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-									chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'winRegion'}]);
-								} else {
-									result = 'lose';
-									chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-									chart.regions.add([{axis: 'x', start: contract.entrySpot, class: 'loseRegion'}]);
-								}
-							}
+
+					var addRegion = function addRegion(region, end) {
+						if ( isDefined(end) ) {
+							chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+							chart.regions.add([{axis: 'x', start: contract.entrySpot, end: contract.exitSpot, class: region + 'Region'}]);
 						} else {
 							chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-							chart.regions.add([{axis: 'x', start: contract.entrySpot, end: contract.exitSpot, class: result + 'Region'}]);
+							chart.regions.add([{axis: 'x', start: contract.entrySpot, class: region + 'Region'}]);
+						}
+					};
+
+					// add win/lose regions
+					var lastTime = times.slice(-1)[0],
+							lastPrice = prices.slice(-1)[0];
+					if ( entrySpotReached() ) { 
+						if ( betweenSpots(lastTime) ) {
+							if ( conditions[contract.type](contract.barrier, lastPrice) ) {
+								result = 'win';
+							} else {
+								result = 'lose';
+							}
+							addRegion(result);
+						} else {
+							addRegion(result, true);
 						}
 					}
+
 					chart.load({
 						columns: [
 							['time'].concat(times),
@@ -344,7 +498,7 @@ angular
 				};
 
 				var zoomIn = function zoomIn(){
-					if ( pageTickCount > 5 ){
+					if ( pageTickCount > minimumPageTickCount ){
 						pageTickCount--;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 					}
@@ -356,15 +510,15 @@ angular
 				};
 
 				var next = function next(){
-					if ( notZooming && dataIndex + pageTickCount < capacity - 2){
-						dataIndex += 2;
+					if ( notZooming && dataIndex + pageTickCount < capacity - dragSteps){
+						dataIndex += dragSteps;
 						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 					}
 				};
 
 				var previous = function previous(){
-					if (notZooming && dataIndex > 1){
-						dataIndex -= 2;
+					if (notZooming && dataIndex >= dragSteps ){
+						dataIndex -= dragSteps;
 						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 					}
 				};
@@ -374,8 +528,10 @@ angular
 				};
 
 				var addContract = function addContract(_contract) {
-					contract = _contract;
-					pageTickCount = contract.duration + 1;
+					if (_contract) {
+						contract = _contract;
+						pageTickCount = contract.duration + 1;
+					}
 				};
 				
 				var historyInterface = {
