@@ -366,12 +366,13 @@ angular
 					DIGITOVER: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) > barrier;},
 				};
 
-				var showBarrier = function showBarrier() {
-					if ( contract.type.indexOf( 'DIGIT' ) < 0 ) {
+				var digitTrade = function digitTrade() {
+					if ( contract.type.indexOf( 'DIGIT' ) == 0 ) {
 						return true;
 					}
 					return false;
 				};
+
 				var result;
 
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
@@ -392,8 +393,7 @@ angular
 								entrySpotShowing = true;
 								setObjValue(contract, 'barrier', tickPrice);
 								setObjValue(contract, 'entrySpot', tickTime, !entrySpotReached());
-								console.log(contract.barrier);
-								if ( showBarrier() ) { 
+								if ( digitTrade() ) { 
 									gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
 								}
 								gridsX.push({value: contract.entrySpot, text: 'Entry Spot'});
@@ -465,6 +465,8 @@ angular
 						localHistory.addTick(tick);
 						if ( dataIndex == 0 && notDragging ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+						} else {
+							next(false);
 						}
 					}
 				};
@@ -509,17 +511,25 @@ angular
 					localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 				};
 
-				var next = function next(){
+				var next = function next(update){
 					if ( notZooming && dataIndex + pageTickCount < capacity - dragSteps){
 						dataIndex += dragSteps;
-						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+						if ( !isDefined(update) ) {
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+						} else if (update) {
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+						}
 					}
 				};
 
-				var previous = function previous(){
+				var previous = function previous(update){
 					if (notZooming && dataIndex >= dragSteps ){
 						dataIndex -= dragSteps;
-						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+						if ( !isDefined(update) ) {
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+						} else if (update) {
+							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+						}
 					}
 				};
 
@@ -530,6 +540,9 @@ angular
 				var addContract = function addContract(_contract) {
 					if (_contract) {
 						contract = _contract;
+						if ( digitTrade() ) {
+							contract.duration -= 1;
+						}
 						pageTickCount = contract.duration + 1;
 					}
 				};
