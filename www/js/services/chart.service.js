@@ -309,7 +309,7 @@ angular
 				var addTick = function addTick(tick){
 					if (localHistory && !updateDisabled) {
 						localHistory.addTick(tick);
-						if ( notDragging ) {
+						if ( dataIndex == 0 && notDragging ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						}
 					}
