@@ -99,7 +99,7 @@ angular
 			var makeChart = function makeChart(chartID) {
 				var dataIndex = 0, 
 						capacity = 600,
-						initialPageTickCount = 15,
+						initialPageTickCount = 15, // maximum zoom out
 						minimumPageTickCount = 5, // maximum zoom in
 						notDragging = true,
 						notZooming = true,
@@ -107,7 +107,7 @@ angular
 						pageTickCount = initialPageTickCount,
 						entrySpotShowing = false,
 						exitSpotShowing = false,
-						dragSteps = 1,
+						dragSteps = 2,
 						contract;
 
 				var zeroPad = function zeroPad(num){
@@ -393,7 +393,7 @@ angular
 								entrySpotShowing = true;
 								setObjValue(contract, 'barrier', tickPrice);
 								setObjValue(contract, 'entrySpot', tickTime, !entrySpotReached());
-								if ( digitTrade() ) { 
+								if ( !digitTrade() ) { 
 									gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
 								}
 								gridsX.push({value: contract.entrySpot, text: 'Entry Spot'});
@@ -431,7 +431,7 @@ angular
 					var lastTime = times.slice(-1)[0],
 							lastPrice = prices.slice(-1)[0];
 					if ( entrySpotReached() ) { 
-						if ( betweenSpots(lastTime) ) {
+						if ( !exitSpotReached() && betweenSpots(lastTime) ) {
 							if ( conditions[contract.type](contract.barrier, lastPrice) ) {
 								result = 'win';
 							} else {
