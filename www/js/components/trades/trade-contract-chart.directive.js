@@ -1,5 +1,5 @@
 /**
- * @name tradeChart
+ * @name tradeContractChart
  * @author Massih Hazrati
  * @contributors []
  * @since 11/07/2015
@@ -8,17 +8,16 @@
 
 angular
 	.module('binary')
-	.directive('tradeChart',[
-		'websocketService', 'chartService', 
+	.directive('tradeContractChart',[
+		'websocketService', 'chartService',
 		function(websocketService, chartService) {
 		return {
 			restrict: 'E',
-			templateUrl: 'templates/components/trades/trade-chart.template.html',
+			templateUrl: 'templates/components/trades/trade-contract-chart.template.html',
 			link: function(scope, element) {
-
 				var init = function() {
 					var symbol = scope.$parent.proposalToSend.symbol;
-					scope.chart = chartService.makeChart('#chartForTrade');
+					scope.chart = chartService.makeChart('#tradeContractChart');
 					scope.$parent.chartDragLeft = scope.chart.previous;
 					scope.$parent.chartDragRight = scope.chart.next;
 					scope.$parent.chartTouch = scope.chart.dragStart;
@@ -27,7 +26,6 @@ angular
 					scope.$parent.chartPinchOut = scope.chart.zoomIn;
 					scope.$parent.chartPinchStart = scope.chart.zoomStart;
 					scope.$parent.chartPinchEnd = scope.chart.zoomEnd;
-
 					websocketService.sendRequestFor.forgetTicks();
 					websocketService.sendRequestFor.ticksHistory(
 						{
@@ -40,6 +38,20 @@ angular
 				};
 
 				init();
+
+				scope.$on('portfolio', function(e, portfolio){
+					var contractId = scope.$parent.contract.contract_id;
+					portfolio.contracts.forEach(function(contract){
+						if (contract.contract_id == contractId){
+							scope.chart.addContract({
+								startTime: contract.date_start+1,
+								duration: parseInt(scope.$parent.proposalToSend.duration),
+								type: scope.$parent.proposalToSend.contract_type,
+								barrier: scope.$parent.proposalToSend.barrier
+							});
+						}
+					});
+				});
 
 				scope.$on('tick', function(e, feed){
 					if (feed){
@@ -64,25 +76,7 @@ angular
 						scope.chart.historyInterface.addOhlc(feed.ohlc);
 					}
 				});
+
 			}
 		};
 	}]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
