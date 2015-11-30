@@ -9,8 +9,7 @@
 	</div>
 	<ion-content>
 		<long-code></long-code>
-		<trade-chart ng-if="tradeMode"></trade-chart>
-		<contract-chart ng-if="!tradeMode"></contract-chart>
+		<trade-contract-chart></trade-contract-chart>
 		<payout ng-if="tradeMode"></payout>
 		<contract-summary ng-if="!tradeMode"></contract-summary>
 		<purchase ng-if="tradeMode"></purchase>
