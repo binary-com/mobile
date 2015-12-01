@@ -22,7 +22,6 @@ angular
 					});
 					if ( count == debouncingSteps ) {
 						reset();
-						console.log('consensus:', first);
 						return first;
 					}
 				};
@@ -140,7 +139,7 @@ angular
 						entrySpotShowing = false,
 						exitSpotShowing = false,
 						dragSteps = 1,
-						debouncingSteps = 5,
+						debouncingSteps = 3,
 						contract,
 						debouncer = Debouncer(debouncingSteps);
 
@@ -591,7 +590,6 @@ angular
 						if ( digitTrade() ) {
 							contract.duration -= 1;
 						}
-						pageTickCount = contract.duration + 1;
 						dataIndex = 0;
 					}
 				};
