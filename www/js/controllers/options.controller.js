@@ -10,8 +10,11 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $rootScope, $state, config, proposalService, accountService) {
+		function($scope, $rootScope, $state, config, proposalService, accountService, websocketService) {
 			$scope.selected = {};
+
+			//
+			websocketService.sendRequestFor.symbols();
 
 			$scope.navigateToManageAccounts = function() {
 				$state.go('accounts');
