@@ -190,7 +190,8 @@ angular
 				},
 				balance: function() {
 					var data = {
-						balance: 1
+						balance: 1,
+						subscribe: 1
 					};
 					sendMessage(data);
 				},
