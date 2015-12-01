@@ -18,8 +18,8 @@ angular
 				var init = function() {
 					var symbol = scope.$parent.proposalToSend.symbol;
 					scope.chart = chartService.makeChart('#tradeContractChart');
-					scope.$parent.chartDragLeft = scope.chart.previous;
-					scope.$parent.chartDragRight = scope.chart.next;
+					scope.$parent.chartDragLeft = scope.chart.dragLeft;
+					scope.$parent.chartDragRight = scope.chart.dragRight;
 					scope.$parent.chartTouch = scope.chart.dragStart;
 					scope.$parent.chartRelease = scope.chart.dragEnd;
 					scope.$parent.chartPinchIn = scope.chart.zoomOut;
