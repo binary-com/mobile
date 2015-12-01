@@ -85,6 +85,11 @@ angular
 				basis: function() {
 					var proposal = proposalService.get();
 					return proposal.basis ? proposal.basis : 'payout';
+				},
+
+				amount: function() {
+					var proposal = proposalService.get();
+					return proposal.amount ? proposal.amount : 5;
 				}
 			};
 
@@ -101,7 +106,7 @@ angular
 								// Loop through all _symbols of a trade type
 								for (var j = 0; j < _symbol[key].length; j++) {
 									var minDuration = _symbol[key][j].min_contract_duration;
-									if (minDuration && minDuration.match(/^\d+$/)) {
+									if (minDuration && minDuration.toString().match(/^\d+$/)) {
 										hasTicks = true;
 									}
 								}
