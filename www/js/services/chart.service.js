@@ -10,6 +10,37 @@ angular
 	.module('binary')
 	.service('chartService',
 		function() {
+			var Debouncer = function Debouncer(debouncingSteps) {
+				var dragDirections = [];
+				var consensus = function consensus() {
+					var first = dragDirections[0],
+							count = 0;
+					dragDirections.forEach(function(direction){
+						if (direction == first) {
+							count++;
+						}
+					});
+					if ( count == debouncingSteps ) {
+						reset();
+						return first;
+					}
+				};
+				var reset = function reset() {
+					dragDirections = [];
+					for (var i = 0; i < debouncingSteps; i++) {
+						dragDirections.push(i);
+					}
+				};
+				var drag = function drag(direction) {
+					dragDirections.push(direction);
+					dragDirections.shift();
+					return consensus();
+				};
+				return {
+					drag: drag,
+					reset: reset
+				};
+			};
 			/*
 				LocalHistory(capacity<history capacity in ticks>)
 			*/
@@ -101,14 +132,18 @@ angular
 						capacity = 600,
 						initialPageTickCount = 15, // maximum zoom out
 						minimumPageTickCount = 5, // maximum zoom in
-						notDragging = true,
-						notZooming = true,
+						dragging = false,
+						zooming = false,
 						updateDisabled = false,
 						pageTickCount = initialPageTickCount,
 						entrySpotShowing = false,
 						exitSpotShowing = false,
-						dragSteps = 2,
-						contract;
+						dragSteps = 1,
+						debouncingSteps = 3,
+						contract,
+						debouncer = Debouncer(debouncingSteps);
+
+				debouncer.reset();
 
 				var zeroPad = function zeroPad(num){
 					if (num < 10){
@@ -338,21 +373,21 @@ angular
 				});
 			
 				var dragStart = function dragStart(){
-					notDragging = false;
+					debouncer.reset();
+					dragging = true;
 				};
 
 				var dragEnd = function dragEnd(){
-					notDragging = true;
+					debouncer.reset();
+					dragging = false;
 				};
 
 				var zoomStart = function zoomStart(){
-					notDragging = false;
-					notZooming = false;
+					zooming = true;
 				};
 
 				var zoomEnd = function zoomEnd(){
-					notDragging = true;
-					notZooming = true;
+					zooming = false;
 				};
 
 				var conditions = {
@@ -463,7 +498,7 @@ angular
 				var addTick = function addTick(tick){
 					if (localHistory && !updateDisabled) {
 						localHistory.addTick(tick);
-						if ( dataIndex == 0 && notDragging ) {
+						if ( dataIndex == 0 && !dragging && !zooming ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
 						} else {
 							next(false);
@@ -512,7 +547,7 @@ angular
 				};
 
 				var next = function next(update){
-					if ( notZooming && dataIndex + pageTickCount < capacity - dragSteps){
+					if ( dataIndex + pageTickCount < capacity - dragSteps){
 						dataIndex += dragSteps;
 						if ( !isDefined(update) ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
@@ -522,8 +557,20 @@ angular
 					}
 				};
 
+				var dragRight = function dragRight() {
+					if ( !zooming && debouncer.drag( 'right' ) ) {
+						next();
+					}
+				};
+
+				var dragLeft = function dragLeft() {
+					if ( !zooming && debouncer.drag( 'left' ) ) {
+						previous();
+					}
+				};
+
 				var previous = function previous(update){
-					if (notZooming && dataIndex >= dragSteps ){
+					if (dataIndex >= dragSteps ){
 						dataIndex -= dragSteps;
 						if ( !isDefined(update) ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
@@ -543,7 +590,7 @@ angular
 						if ( digitTrade() ) {
 							contract.duration -= 1;
 						}
-						pageTickCount = contract.duration + 1;
+						dataIndex = 0;
 					}
 				};
 				
@@ -562,8 +609,8 @@ angular
 					zoomStart: zoomStart,
 					zoomEnd: zoomEnd,
 					first: first,
-					next: next,
-					previous: previous,
+					dragRight: dragRight,
+					dragLeft: dragLeft,
 					getCapacity: getCapacity,
 					addContract: addContract,
 					historyInterface: historyInterface
