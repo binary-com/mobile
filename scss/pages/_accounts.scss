@@ -1,79 +1,81 @@
 .accounts-content {
-    padding-left: 5%;
-    padding-right: 5%;
-    h1 {
-        margin-top: 60px;
-        font-size: 18px;
-    }
-    .remove-all-accounts {
-        background-color: $lightgray;
-        margin-top: 10px;
-        padding: 5px;
-        font-size: 12px;
-        a {
-            color: $red;
-        }
-    }
-    .account {
-        padding: 10px 5px 10px;
-        border-bottom: 1px solid $gray;
-        &> div {
-            color: $darkblue;
-            font-size: 16px;
-            .id {
-                color: $darkblue;
-                font-size: 14px;
-                font-weight: 700;
-                // display: block;
-            }
-            .default {
-                color: $orange;
-                font-size: 12px;
-                font-weight: 500;
-            }
-            .token {
-                color: $gray;
-                font-size: 12px;
-                display: block;
-                font-weight: 500;
-            }
-        }
-        a {
-            &.remove {
-                font-size: 24px;
-                color: $red;
-                line-height: 40px;
-                font-weight: 500;
-            }
-            &.set-default {
-                color: $blue;
-                font-size: 12px;
-                font-weight: 500;
-                //text-decoration: none;
-            }
-        }
-    }
-    .add-account {
-        margin-top: 20px;
-        label {
-            float: left;
-            &.error {
-                color: $red;
-                i {
-                    color: $red;
-                }
-            }
-            .placeholder-icon {
-                color: $gray;
-            }
-        }
-        .item-input {
-            padding: 0;
-        }
-        .add {
-            font-size: 24px;
-            color: $green;
-            line-height: 40px;
-        }
-    }
+				display: block;
+				padding-left: 5%;
+				padding-right: 5%;
+				h1 {
+								font-size: 18px;
+				}
+				.remove-all-accounts {
+								background-color: $lightgray;
+								margin-top: 10px;
+								padding: 5px;
+								font-size: 12px;
+								a {
+												color: $red;
+								}
+				}
+				.account {
+								padding: 10px 5px;
+								border-bottom: 1px solid $gray;
+								&> div {
+												color: $darkblue;
+												font-size: 16px;
+												.id {
+																color: $darkblue;
+																font-size: 14px;
+																font-weight: 700;
+
+																// display: block;
+												}
+												.default {
+																color: $orange;
+																font-size: 12px;
+																font-weight: 500;
+												}
+												.token {
+																color: $gray;
+																font-size: 12px;
+																display: block;
+																font-weight: 500;
+												}
+								}
+								a {
+												&.remove {
+																font-size: 24px;
+																color: $red;
+																line-height: 40px;
+																font-weight: 500;
+												}
+												&.set-default {
+																color: $blue;
+																font-size: 12px;
+																font-weight: 500;
+
+																//text-decoration: none;
+												}
+								}
+				}
+				.add-account {
+								margin-top: 20px;
+								label {
+												float: left;
+												&.error {
+																color: $red;
+																i {
+																				color: $red;
+																}
+												}
+												.placeholder-icon {
+																color: $gray;
+												}
+								}
+								.item-input {
+												padding: 0;
+								}
+								.add {
+												font-size: 24px;
+												color: $green;
+												line-height: 40px;
+								}
+				}
 }
