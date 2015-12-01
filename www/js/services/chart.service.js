@@ -139,7 +139,7 @@ angular
 						entrySpotShowing = false,
 						exitSpotShowing = false,
 						dragSteps = 1,
-						debouncingSteps = 2,
+						debouncingSteps = 1,
 						contract,
 						debouncer = Debouncer(debouncingSteps);
 
