@@ -52,6 +52,7 @@ angular
 						}
 
 						languageService.set();
+						scope.token = '';
 
 						$state.go('options');
 					} else {
