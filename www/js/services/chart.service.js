@@ -182,12 +182,12 @@ angular
 					setObjValue(result, 'v', v, condition);
 				};
 
-				var inversedIndex = function inversedIndex(i) {
+				var reversedIndex = function reversedIndex(i) {
 					return pageTickCount - 1 - i;
 				};
 
 				var lastElement = function lastElement(i){
-					if ( inversedIndex(i) == 0 ) {
+					if ( reversedIndex(i) == 0 ) {
 						return true;
 					} else {
 						return false;
@@ -291,7 +291,7 @@ angular
 						return false;
 					}
 					var distance = Math.ceil(pageTickCount/minimumPageTickCount);
-					if ( inversedIndex(i) % distance == 0 ) { // distribute with distance
+					if ( reversedIndex(i) % distance == 0 ) { // distribute with distance
 						if ( nearSpots(i)	) {
 							return true;
 						} else {
@@ -331,6 +331,7 @@ angular
 				var chartOptions = {
 					animation: false, 
 					bezierCurve : false,
+					maintainAspectRatio: false,
 					datasetFill : false,
 					showTooltips: false,
 				};
