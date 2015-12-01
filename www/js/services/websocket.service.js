@@ -16,7 +16,7 @@ angular
 			var init = function() {
 				var language = localStorage.language || 'en';
 
-				dataStream = new WebSocket('wss://www.binary.com/websockets/v3?l=' + language);
+				dataStream = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=' + language);
 
 				dataStream.onopen = function() {
 					dataStream.send(JSON.stringify({ping: 1}));
@@ -190,7 +190,8 @@ angular
 				},
 				balance: function() {
 					var data = {
-						balance: 1
+						balance: 1,
+						subscribe: 1
 					};
 					sendMessage(data);
 				},

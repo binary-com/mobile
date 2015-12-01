@@ -10,15 +10,16 @@ angular
 	.module('binary')
 	.directive('payout',[
 		'websocketService',
+		'marketService',
 		'proposalService',
-		function(websocketService, proposalService) {
+		function(websocketService, marketService, proposalService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/payout.template.html',
 			link: function(scope, element) {
 
 				scope.basis = scope.$parent.proposalToSend.basis || 'payout';
-				scope.amount = scope.$parent.proposalToSend.amount || 5;
+				scope.amount = marketService.getDefault.amount() || 5;
 
 				scope.$parent.$watch('proposalRecieved', function(_proposal){
 					if (_proposal) {
