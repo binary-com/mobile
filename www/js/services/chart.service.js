@@ -309,29 +309,18 @@ angular
 						return true;
 					}
 				}
-				var createLabels = function(length, value) {
-					result = [];
-					for (var i=0; i<length; i++){
-						if (isDefined(value)) {
-							result.push(value);
-						} else {
-							result.push(i + 1);
-						}
-					}
-					return result;
-				};
 
 				var canvas = document.getElementById(chartID),
 					ctx = canvas.getContext('2d'),
 					startingData = {
-						labels: createLabels(pageTickCount),
+						labels: [],
 						datasets: [
 								{
 										fillColor: "rgba(151,187,205,0.2)",
 										strokeColor: "rgba(151,187,205,1)",
 										pointColor: "rgba(151,187,205,1)",
 										pointStrokeColor: "#fff",
-										data: createLabels(pageTickCount, 0)
+										data: []
 								}
 						]
 					},
@@ -384,9 +373,12 @@ angular
 
 				var result;
 				var addArrayToChart = function addToChart(labels, values) {
-					labels.forEach(function(label, index){
-						chart.addData([values[index]], label);
-						chart.removeData();
+					startingData.labels = labels;
+					startingData.datasets[0].data = values;
+					chart = new Chart(ctx).Line(startingData, {
+						animation: false, 
+						bezierCurve : false,
+						datasetFill : false,
 					});
 				};
 				var addDataToChart = function addDataToChart(label, value) {
@@ -432,7 +424,7 @@ angular
 						}
 						setObjValue(contract, 'entrySpotIndex', index, isEntrySpot( tickTime ));
 						setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
-						times.push(tickTime);
+						times.push(getTickTime(tickTime));
 						prices.push(tickPrice);
 					});
 
