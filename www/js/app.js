@@ -7,4 +7,4 @@
  * The main module of binary app
  */
 
-angular.module('binary', ['ionic', 'pascalprecht.translate', 'hmTouchEvents']);
+angular.module('binary', ['ionic', 'pascalprecht.translate', 'hmTouchEvents', 'ngIOS9UIWebViewPatch']);
