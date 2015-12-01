@@ -332,6 +332,7 @@ angular
 					animation: false, 
 					bezierCurve : false,
 					datasetFill : false,
+					showTooltips: false,
 				});
 
 			
