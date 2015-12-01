@@ -327,13 +327,15 @@ angular
 					latestLabel = startingData.labels.slice(-1)[0];
 
 					console.log('here',canvas);
-	
-				var chart = new Chart(ctx).Line(startingData, {
+
+				var chartOptions = {
 					animation: false, 
 					bezierCurve : false,
 					datasetFill : false,
 					showTooltips: false,
-				});
+				};
+
+				var chart = new Chart(ctx).Line(startingData, chartOptions);
 
 			
 				var dragStart = function dragStart(){
@@ -376,11 +378,7 @@ angular
 				var addArrayToChart = function addToChart(labels, values) {
 					startingData.labels = labels;
 					startingData.datasets[0].data = values;
-					chart = new Chart(ctx).Line(startingData, {
-						animation: false, 
-						bezierCurve : false,
-						datasetFill : false,
-					});
+					chart = new Chart(ctx).Line(startingData, chartOptions);
 				};
 				var addDataToChart = function addDataToChart(label, value) {
 					chart.addData(value, label);
