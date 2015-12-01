@@ -1,9 +1,10 @@
 .trade {
 	.contract-summary {
-		padding: 50px 10px 5px 10px;
+		padding: 5px 10px 5px 10px;
 		text-align: center;
 		font-size: 14px;
 		background-color:$lightgray;
+		position:relative;
 		span {
 			// font-weight: bold;
 		}
