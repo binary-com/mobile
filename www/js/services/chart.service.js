@@ -318,8 +318,8 @@ angular
 				var dataPoints = [];
 				var chart = new CanvasJS.Chart(chartID, {
 					axisY: {
-						minimum: 0
 					},
+					interactivityEnabled: false,
 					data: [{
 						type: "line",
 						xValueType: "dateTime",
