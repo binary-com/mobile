@@ -158,6 +158,11 @@ angular
 					return date.getUTCHours() +	':' + zeroPad(date.getUTCMinutes()) + ':' + zeroPad(date.getUTCSeconds());
 				};
 
+				var getTickUTC = function getTickUTC(tick) {
+					var date = new Date(tick); 
+					return date;
+				};
+
 				var isDefined = function isDefined(obj) {
 					if ( typeof obj === 'undefined' ) {
 						return false;
@@ -310,35 +315,20 @@ angular
 					}
 				}
 
-				var canvas = document.getElementById(chartID),
-					ctx = canvas.getContext('2d'),
-					startingData = {
-						labels: [],
-						datasets: [
-								{
-										fillColor: "rgba(151,187,205,0.2)",
-										strokeColor: "rgba(151,187,205,1)",
-										pointColor: "rgba(151,187,205,1)",
-										pointStrokeColor: "#fff",
-										data: []
-								}
-						]
+				var dataPoints = [];
+				var chart = new CanvasJS.Chart(chartID, {
+					axisY: {
+						minimum: 0
 					},
-					latestLabel = startingData.labels.slice(-1)[0];
+					data: [{
+						type: "line",
+						xValueType: "dateTime",
+						valueFormatString: "hh mm ss", 
+						dataPoints : dataPoints
+					}]
+				});
+				chart.render();
 
-					console.log('here',canvas);
-
-				var chartOptions = {
-					animation: false, 
-					bezierCurve : false,
-					maintainAspectRatio: false,
-					datasetFill : false,
-					showTooltips: false,
-				};
-
-				var chart = new Chart(ctx).Line(startingData, chartOptions);
-
-			
 				var dragStart = function dragStart(){
 					debouncer.reset();
 					dragging = true;
@@ -376,14 +366,16 @@ angular
 				};
 
 				var result;
-				var addArrayToChart = function addToChart(labels, values) {
-					startingData.labels = labels;
-					startingData.datasets[0].data = values;
-					chart = new Chart(ctx).Line(startingData, chartOptions);
-				};
-				var addDataToChart = function addDataToChart(label, value) {
-					chart.addData(value, label);
-					chart.removeData();
+				var addArrayToChart = function addArrayToChart(labels, values) {
+					chart.options.axisY.minimum = Math.min.apply(Math, values);
+					dataPoints.splice(0, dataPoints.length);
+					labels.forEach(function(label, index){
+						dataPoints.push({
+							x: getTickUTC(label)*1000, 
+							y: values[index]
+						});
+					});
+					chart.render();
 				};
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
@@ -424,7 +416,7 @@ angular
 						}
 						setObjValue(contract, 'entrySpotIndex', index, isEntrySpot( tickTime ));
 						setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
-						times.push(getTickTime(tickTime));
+						times.push(tickTime);
 						prices.push(tickPrice);
 					});
 
