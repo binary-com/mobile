@@ -284,6 +284,17 @@ angular
 					}
 				}
 
+				var getDotColor = function getDotColor(value, index) {
+					if ( betweenSpots( value ) ) {
+						return 'blue';
+					}
+					if (lastElement(index) && !showingHistory()){
+						return 'green';
+					} else {
+						return 'orange';
+					}
+				};
+
 				Chart.CustomScale = Chart.Scale.extend({
 					initialize: function () {
 						var longestText = function(ctx,font,arrayOfStrings){
@@ -683,6 +694,14 @@ angular
 					}
 					chartOptions.gridLines.push(gridLine);
 				}
+			
+				var setChartColor = function setChartColor(chart, labels) {
+					chart.datasets[0].points.forEach(function(point, index){
+						point.fillColor = getDotColor(labels[index], index);
+					});
+					chart.update();
+				};
+				
 				var result;
 				var addArrayToChart = function addArrayToChart(labels, values) {
 					var min = Math.min.apply(Math, values),
@@ -700,6 +719,7 @@ angular
 					chartData.datasets[0].data = values;
 					chart.destroy();
 					chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
+					setChartColor(chart, labels);
 				};
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
