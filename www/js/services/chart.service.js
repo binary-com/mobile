@@ -139,7 +139,7 @@ angular
 						entrySpotShowing = false,
 						exitSpotShowing = false,
 						dragSteps = 1,
-						debouncingSteps = 3,
+						debouncingSteps = 4,
 						contract,
 						debouncer = Debouncer(debouncingSteps);
 
@@ -155,7 +155,7 @@ angular
 
 				var getTickTime = function getTickTime(tick) {
 					var date = new Date(tick*1000); 
-					return date.getUTCHours() +  ':' + zeroPad(date.getUTCMinutes()) + ':' + zeroPad(date.getUTCSeconds());
+					return date.getUTCHours() +	':' + zeroPad(date.getUTCMinutes()) + ':' + zeroPad(date.getUTCSeconds());
 				};
 
 				var isDefined = function isDefined(obj) {
@@ -309,68 +309,33 @@ angular
 						return true;
 					}
 				}
-					
-				var chart = c3.generate({
-					bindto: chartID,
-					transition: {
-						duration: 0
-					},
-					interaction: {
-						enabled: false
-					},
-					size: {
-						height: 150
-					},
-					data: {
-						labels: {
-							format: function(v, id, i, j) {
-								var result= {v: null};
-								showPriceIf(result, v, lastElement(i));
-								showPriceIf(result, v, isSpot(i));
-								if ( !zoomedOut() ){ 
-									showPriceIf(result, v, !collisionOccured(i));
+
+				var canvas = document.getElementById(chartID),
+					ctx = canvas.getContext('2d'),
+					startingData = {
+						labels: [],
+						datasets: [
+								{
+										fillColor: "rgba(151,187,205,0.2)",
+										strokeColor: "rgba(151,187,205,1)",
+										pointColor: "rgba(151,187,205,1)",
+										pointStrokeColor: "#fff",
+										data: []
 								}
-								return result.v;
-							}
-						},
-						x: 'time',
-						columns: [
-							['time'],
-							['price']
-						],
-						color: function (color, d) {
-							if ( betweenSpots( d.x ) ) {
-								return 'blue';
-							}
-							if (lastElement(d.index) && !showingHistory()){
-								return 'green';
-							}	else {
-								return 'orange';
-							}
-						}
+						]
 					},
-					legend: {
-						show: false
-					},
-					axis: {
-						x: {
-							padding: {
-								left: 1,
-								right: 1,
-							},
-							show: true,
-							tick: {
-								culling: {
-									max: 7
-								},
-								format: getTickTime
-							} 
-						},
-						y: {
-							show: false
-						}
-					}
-				});
+					latestLabel = startingData.labels.slice(-1)[0];
+
+					console.log('here',canvas);
+	
+				var chartOptions = {
+					animation: false, 
+					bezierCurve : false,
+					datasetFill : false,
+					showTooltips: false,
+				};
+				var chart = new Chart(ctx).Line(startingData, chartOptions);
+
 			
 				var dragStart = function dragStart(){
 					debouncer.reset();
@@ -409,7 +374,16 @@ angular
 				};
 
 				var result;
-
+				var addArrayToChart = function addToChart(labels, values) {
+					startingData.labels = labels;
+					startingData.datasets[0].data = values;
+					chart = new Chart(ctx).Line(startingData, chartOptions);
+				};
+				var addDataToChart = function addDataToChart(label, value) {
+					chart.addData(value, label);
+					chart.removeData();
+				};
+				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				var updateChartForHistory = function updateChartForHistory(ticks){
 					var times = [],
@@ -448,17 +422,17 @@ angular
 						}
 						setObjValue(contract, 'entrySpotIndex', index, isEntrySpot( tickTime ));
 						setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
-						times.push(tickTime);
+						times.push(getTickTime(tickTime));
 						prices.push(tickPrice);
 					});
 
 					var addRegion = function addRegion(region, end) {
 						if ( isDefined(end) ) {
-							chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-							chart.regions.add([{axis: 'x', start: contract.entrySpot, end: contract.exitSpot, class: region + 'Region'}]);
+							//chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+							//chart.regions.add([{axis: 'x', start: contract.entrySpot, end: contract.exitSpot, class: region + 'Region'}]);
 						} else {
-							chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-							chart.regions.add([{axis: 'x', start: contract.entrySpot, class: region + 'Region'}]);
+							//chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+							//chart.regions.add([{axis: 'x', start: contract.entrySpot, class: region + 'Region'}]);
 						}
 					};
 
@@ -478,20 +452,15 @@ angular
 						}
 					}
 
-					chart.load({
-						columns: [
-							['time'].concat(times),
-							['price'].concat(prices)
-						]
-					});
+					addArrayToChart(times, prices);
 					var firstPrice = Math.min.apply(Math, prices),
 							lastPrice = Math.max.apply(Math, prices),
 							priceStep = ((lastPrice - firstPrice)/(gridsX.length/2));
 					for (var i = firstPrice; i<lastPrice + priceStep/2 ; i+=priceStep){
 						gridsY.push({value: i});
 					}
-					chart.xgrids(gridsX);
-					chart.ygrids(gridsY);
+					//chart.xgrids(gridsX);
+					//chart.ygrids(gridsY);
 				};
 				
 				// Usage: addTick(tick:<tick object>);
