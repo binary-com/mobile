@@ -665,9 +665,9 @@ angular
 						chartData.labels.push(getTickTime(label));
 					});
 					
-					chartOptions.scaleStartValue = min;
 					chartOptions.scaleSteps = pageTickCount/2;
-					chartOptions.scaleStepWidth = ((max - min)/chartOptions.scaleSteps).toFixed(maxFraction);
+					chartOptions.scaleStepWidth = ((max - min)/(chartOptions.scaleSteps-1)).toFixed(maxFraction);
+					chartOptions.scaleStartValue = min - chartOptions.scaleStepWidth/2;
 					chartData.datasets[0].data = values;
 					chart.destroy();
 					chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
