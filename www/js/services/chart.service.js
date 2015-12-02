@@ -480,6 +480,18 @@ angular
 
 					this.chart.ctx.fillRect(start, this.scale.startPoint, length, yHeight);
 				};
+
+
+				var drawLabel = function drawLabel(point, index){
+					var ctx = this.chart.ctx;
+					ctx.font = this.scale.font;
+					ctx.fillStyle = this.scale.textColor
+					ctx.textAlign = "center";
+					ctx.textBaseline = "bottom";
+
+					ctx.fillText(point.value, point.x, point.y - 10);
+				};
+	
 				Chart.types.Line.extend({
 					name: "LineChartSpots",
 					initialize: function (data) {
@@ -489,6 +501,12 @@ angular
 					draw: function () {
 						Chart.types.Line.prototype.draw.apply(this, arguments);
 						var parentChart = this;
+
+						this.datasets.forEach(function (dataset) {
+							dataset.points.forEach(function (point, index) {
+								drawLabel.call(parentChart, point, index);
+							});
+						});
 						
 						if ( isDefined(this.options.regions) ){
 							this.options.regions.forEach(function(region){
@@ -501,6 +519,8 @@ angular
 								drawGridLine.call(parentChart, gridLine);
 							});
 						}
+
+
 					},
 					buildScale: function (labels) {
 						var helpers = Chart.helpers;
