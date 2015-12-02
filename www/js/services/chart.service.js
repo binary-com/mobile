@@ -285,6 +285,49 @@ angular
 				}
 
 				Chart.CustomScale = Chart.Scale.extend({
+					initialize: function () {
+						var longestText = function(ctx,font,arrayOfStrings){
+							ctx.font = font;
+							var longest = 0;
+							Chart.helpers.each(arrayOfStrings,function(string){
+								var textWidth = ctx.measureText(string).width;
+								longest = (textWidth > longest) ? textWidth : longest;
+							});
+							return longest;
+						};
+
+						this.calculateXLabelRotation = function(){
+							//Get the width of each grid by calculating the difference
+							//between x offsets between 0 and 1.
+
+							this.ctx.font = this.font;
+
+							var firstWidth = this.ctx.measureText(this.xLabels[0]).width,
+								lastWidth = this.ctx.measureText(this.xLabels[this.xLabels.length - 1]).width,
+								firstRotated,
+								lastRotated;
+
+
+							this.xScalePaddingRight = lastWidth/2 + 3;
+							this.xScalePaddingLeft = (firstWidth/2 > this.yLabelWidth + 10) ? firstWidth/2 : this.yLabelWidth + 10;
+
+							this.xLabelRotation = 0;
+							if (this.display){
+								var originalLabelWidth = longestText(this.ctx,this.font,this.xLabels),
+									cosRotation,
+									firstRotatedWidth;
+								this.xLabelWidth = originalLabelWidth;
+								//Allow 3 pixels x2 padding either side for label readability
+								var xGridWidth = Math.floor(this.calculateX(1) - this.calculateX(0)) - 6;
+							}
+							else{
+								this.xLabelWidth = 0;
+								this.xScalePaddingRight = this.padding;
+								this.xScalePaddingLeft = this.padding;
+							}
+						};
+						Chart.Scale.prototype.initialize.apply(this, arguments);
+					},
 					draw: function () {
 						var helpers = Chart.helpers;
 						var each = helpers.each;
@@ -337,13 +380,14 @@ angular
 								//======================================================
 								//apply the filter to the index if it is a function
 								//======================================================
+								var filtered = false;
 								if (typeof this.labelsFilter === "function" && this.labelsFilter(index)) {
-									return;
+									filtered = true;
 								}
 								var xPos = this.calculateX(index) + aliasPixel(this.lineWidth),
 									// Check to see if line/bar here and decide where to place the line
-									linePos = this.calculateX(index - (this.offsetGridLines ? 0.5 : 0)) + aliasPixel(this.lineWidth),
-									isRotated = (this.xLabelRotation > 0);
+									linePos = this.calculateX(index - (this.offsetGridLines ? 0.5 : 0)) + aliasPixel(this.lineWidth);
+								
 
 								ctx.beginPath();
 
@@ -369,17 +413,22 @@ angular
 								// Small lines at the bottom of the base grid line
 								ctx.beginPath();
 								ctx.moveTo(linePos, this.endPoint);
-								ctx.lineTo(linePos, this.endPoint + 5);
+								if ( filtered ) {
+									ctx.lineTo(linePos, this.endPoint);
+								} else {
+									ctx.lineTo(linePos, this.endPoint + 10);
+								}
 								ctx.stroke();
 								ctx.closePath();
 
 								ctx.save();
-								ctx.translate(xPos, (isRotated) ? this.endPoint + 12 : this.endPoint + 8);
-								ctx.rotate(toRadians(this.xLabelRotation) * -1);
+								ctx.translate(xPos, this.endPoint + 8);
 
-								ctx.textAlign = (isRotated) ? "right" : "center";
-								ctx.textBaseline = (isRotated) ? "middle" : "top";
-								ctx.fillText(label, 0, 0);
+								ctx.textAlign = "center";
+								ctx.textBaseline = "top";
+								if ( !filtered ) {
+									ctx.fillText(label, 0, 0);
+								}
 								ctx.restore();
 
 							}, this);
@@ -416,9 +465,9 @@ angular
 				};
 				var drawRegion = function drawRegion(region){
 					var yHeight = this.scale.endPoint - this.scale.startPoint,
-							length,  
-							end,  
-							start,  
+							length,	
+							end,	
+							start,	
 							pointCount = this.datasets[0].points.length;
 					start = this.datasets[0].points[region.start].x;
 					if ( isDefined(region.end) ) {
@@ -541,6 +590,8 @@ angular
 					datasetFill : false,
 					showTooltips: false,
 					keepAspectRatio: false,
+					scaleOverride: true,
+					scaleFontSize: 10,
 				};
 
 				var chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
@@ -561,15 +612,33 @@ angular
 					zooming = false;
 				};
 
+				var fractionalLength = function fractionalLength(floatNumber) {
+					var stringNumber = floatNumber.toString(),
+							decimalLength = stringNumber.indexOf('.');
+					return stringNumber.length - decimalLength - 1;
+				};
+
+				var maxFractionalLength = function maxFractionalLength(floatNumbers) {
+					var max = 0;
+					floatNumbers.forEach(function(number){
+						max = (max < fractionalLength(number))? fractionalLength(number): max;
+					});
+					return max;
+				};
+				
+				var lastDigit = function lastDigit(num) {
+					return parseInt(num.toString().slice(-1));
+				};
+
 				var conditions = {
 					CALL: function condition(barrier, price) {return barrier < price;}, 
 					PUT: function condition(barrier, price) {return barrier > price;},
-					DIGITMATCH: function condition(barrier, price) {return barrier.toString().slice(-1) == price.toString().slice(-1);},
-					DIGITDIFF: function condition(barrier, price) {return barrier.toString().slice(-1) != price.toString().slice(-1);},
-					DIGITEVEN: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) % 2 == 0;},
-					DIGITODD: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) % 2 != 0;},
-					DIGITUNDER: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) < barrier;},
-					DIGITOVER: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) > barrier;},
+					DIGITMATCH: function condition(barrier, price) {return lastDigit(barrier) == lastDigit(price);},
+					DIGITDIFF: function condition(barrier, price) {return lastDigit(barrier) != lastDigit(price);},
+					DIGITEVEN: function condition(barrier, price) {return lastDigit(price) % 2 == 0;},
+					DIGITODD: function condition(barrier, price) {return lastDigit(price) % 2 != 0;},
+					DIGITUNDER: function condition(barrier, price) {return lastDigit(price) < barrier;},
+					DIGITOVER: function condition(barrier, price) {return lastDigit(price) > barrier;},
 				};
 
 				var digitTrade = function digitTrade() {
@@ -587,10 +656,18 @@ angular
 				}
 				var result;
 				var addArrayToChart = function addArrayToChart(labels, values) {
+					var min = Math.min.apply(Math, values),
+							max = Math.max.apply(Math, values),
+							maxFraction = maxFractionalLength(values);
+	
 					chartData.labels = [];
 					labels.forEach(function(label, index){
 						chartData.labels.push(getTickTime(label));
 					});
+					
+					chartOptions.scaleStartValue = min;
+					chartOptions.scaleSteps = pageTickCount/2;
+					chartOptions.scaleStepWidth = ((max - min)/chartOptions.scaleSteps).toFixed(maxFraction);
 					chartData.datasets[0].data = values;
 					chart.destroy();
 					chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
@@ -627,7 +704,7 @@ angular
 									orientation: 'vertical', 
 									index: index
 								});
-							} else if(  isExitSpot(tickTime, index) ) { 
+							} else if(	isExitSpot(tickTime, index) ) { 
 								exitSpotShowing = true;
 								setObjValue(contract, 'exitSpot', tickTime, !exitSpotReached());
 								if ( entrySpotShowing ) {
@@ -643,7 +720,7 @@ angular
 							setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
 						} 
 						times.push(tickTime);
-						prices.push(tickPrice);
+						prices.push(tick.price);
 					});
 
 					var addRegion = function addRegion(region, end) {
