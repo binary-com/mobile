@@ -9,7 +9,7 @@
 angular
 	.module('binary')
 	.service('alertService',
-		function($translate, $ionicPopup) {
+		function($translate, $ionicPopup, $rootScope) {
 			var displayAlert = function(_title, _message) {
 				var alertPopup = $ionicPopup.alert({
 					title: _title,
@@ -57,10 +57,26 @@ angular
 			this.optionsError = {
 				noTick: function() {
 					$translate(['alert.error', 'alert.no_tick'])
-					.then(function (translation) {
+					.then(function(translation) {
 						displayAlert(translation['alert.error'], translation['alert.no_tick']);
 					});
 				}
 			};
+
+			this.confirmAccountRemoval = function(_token) {
+				$translate(['alert.remove_token_title', 'alert.remove_token_content'])
+				.then(function(translation) {
+					var confirmPopup = $ionicPopup.confirm({
+						title: translation['alert.remove_token_title'],
+						template: translation['alert.remove_token_content']
+					});
+					confirmPopup.then(function(res) {
+						if(res) {
+							console.log('You are sure');
+							$rootScope.$broadcast('token:remove', _token);
+						}
+					});
+				});
+			}
 
 	});
