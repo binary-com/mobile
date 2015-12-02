@@ -1,12 +1,14 @@
 <div class="contract-chart">
-	<canvas style="width: 100%; height: 150px" id="tradeContractChart"
-		on-drag-left="chartDragLeft()"
-		on-drag-right="chartDragRight()" 
-		on-touch="chartTouch()" 
-		on-release="chartRelease()"
-		hm-pinchin="chartPinchIn"
-		hm-pinchout="chartPinchOut"
-		hm-pinchstart="chartPinchStart"
-		hm-pinchend="chartPinchEnd">
-    </canvas>
+	<div id="chartContainer">
+		<canvas id="tradeContractChart"
+			on-drag-left="chartDragLeft()"
+			on-drag-right="chartDragRight()" 
+			on-touch="chartTouch()" 
+			on-release="chartRelease()"
+			hm-pinchin="chartPinchIn"
+			hm-pinchout="chartPinchOut"
+			hm-pinchstart="chartPinchStart"
+			hm-pinchend="chartPinchEnd">
+			</canvas>
+	</div>
 </div>

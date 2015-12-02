@@ -284,31 +284,92 @@ angular
 					}
 				}
 
+				var drawGridLine = function drawGridLine(gridLine) {
+					var point = this.datasets[0].points[gridLine.index];
+					var scale = this.scale;
+
+					// draw line
+					this.chart.ctx.beginPath();
+					if ( gridLine.orientation == 'vertical' ) {
+						this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
+						this.chart.ctx.strokeStyle = gridLine.color;
+						this.chart.ctx.lineTo(point.x, scale.endPoint);
+						this.chart.ctx.stroke();
+					
+						this.chart.ctx.textAlign = 'center';
+						this.chart.ctx.fillText(gridLine.label, point.x, scale.startPoint + 12);
+					} else {
+						this.chart.ctx.moveTo(scale.startPoint, point.y);
+						this.chart.ctx.strokeStyle = gridLine.color;
+						this.chart.ctx.fillStyle = 'black';
+						this.chart.ctx.lineTo(this.chart.width, point.y);
+						this.chart.ctx.stroke();
+					
+						this.chart.ctx.textAlign = 'center';
+						var labelWidth = this.chart.ctx.measureText(gridLine.label).width;
+						this.chart.ctx.fillText(gridLine.label, this.chart.width - labelWidth, point.y + 12);
+					}
+				};
+				var drawRegion = function drawRegion(region){
+					var yHeight = this.scale.endPoint - this.scale.startPoint,
+							length,  
+							end,  
+							start,  
+							pointCount = this.datasets[0].points.length;
+					start = this.datasets[0].points[region.start].x;
+					if ( isDefined(region.end) ) {
+						end = this.datasets[0].points[region.end].x;
+					} else {
+						end = this.datasets[0].points[pointCount - 1].x;
+					}
+					length = end - start;
+					this.chart.ctx.fillStyle = region.color;
+
+					this.chart.ctx.fillRect(start, this.scale.startPoint, length, yHeight);
+				};
+				Chart.types.Line.extend({
+					name: "LineChartSpots",
+					draw: function () {
+						Chart.types.Line.prototype.draw.apply(this, arguments);
+						var parentChart = this;
+						
+						if ( isDefined(this.options.regions) ){
+							this.options.regions.forEach(function(region){
+								drawRegion.call(parentChart, region);
+							});
+						}
+
+						if (isDefined(this.options.gridLines)){
+							this.options.gridLines.forEach(function(gridLine){
+								drawGridLine.call(parentChart, gridLine);
+							});
+						}
+					}
+				});
+	
 				var canvas = document.getElementById(chartID),
 					ctx = canvas.getContext('2d'),
-					startingData = {
+					chartData = {
 						labels: [],
 						datasets: [
 								{
-										fillColor: "orange",
 										strokeColor: "orange",
 										pointColor: "orange",
 										pointStrokeColor: "#fff",
 										data: []
 								}
 						]
-					},
-					latestLabel = startingData.labels.slice(-1)[0];
+					};
 
-	
 				var chartOptions = {
-					animation: false, 
+					animation: false,
 					bezierCurve : false,
 					datasetFill : false,
 					showTooltips: false,
+					keepAspectRatio: false,
 				};
-				var chart = new Chart(ctx).Line(startingData, chartOptions);
 
+				var chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
 			
 				var dragStart = function dragStart(){
 					dragging = true;
@@ -344,29 +405,31 @@ angular
 					return false;
 				};
 
+				var addGridLine = function addGridLine(gridLine) {
+					if ( !isDefined(chartOptions.gridLines) ) {
+						chartOptions.gridLines = [];
+					}
+					chartOptions.gridLines.push(gridLine);
+				}
 				var result;
-				var addArrayToChart = function addToChart(labels, values) {
-					startingData.labels = [];
+				var addArrayToChart = function addArrayToChart(labels, values) {
+					chartData.labels = [];
 					labels.forEach(function(label, index){
-						if ( distribute(index) ) {
-							startingData.labels.push(label);
-						} else {
-							startingData.labels.push('');
-						}
+						chartData.labels.push(getTickTime(label));
 					});
-					startingData.datasets[0].data = values;
-					chart = new Chart(ctx).Line(startingData, chartOptions);
+					chartData.datasets[0].data = values;
+					chart.destroy();
+					chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
 				};
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				var updateChartForHistory = function updateChartForHistory(ticks){
 					var times = [],
-							prices = [],
-							gridsX = [],
-							gridsY = [];
+							prices = [];
 					
 					entrySpotShowing = false;
 					exitSpotShowing = false;
+					chartOptions.gridLines = [];
 					ticks.forEach(function(tick, index){
 						var tickTime = parseInt(tick.time);
 						var tickPrice = parseFloat(tick.price);
@@ -377,36 +440,51 @@ angular
 								setObjValue(contract, 'barrier', tickPrice);
 								setObjValue(contract, 'entrySpot', tickTime, !entrySpotReached());
 								if ( !digitTrade() ) { 
-									gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
+									addGridLine({
+										color: 'blue', 
+										label: 'barrier: '+ contract.barrier, 
+										orientation: 'horizontal', 
+										index: index
+									});
 								}
-								gridsX.push({value: contract.entrySpot, text: 'Entry Spot'});
-							} else if( isExitSpot(tickTime, index) ) { 
+								addGridLine({
+									color: 'red', 
+									label: 'Entry Spot', 
+									orientation: 'vertical', 
+									index: index
+								});
+							} else if(  isExitSpot(tickTime, index) ) { 
 								exitSpotShowing = true;
 								setObjValue(contract, 'exitSpot', tickTime, !exitSpotReached());
 								if ( entrySpotShowing ) {
-									gridsX.push({value: contract.exitSpot, text: 'Exit Spot'});
-								} else {
-									gridsX.push({value: tickTime});
+									addGridLine({
+										color: 'red', 
+										label: 'Exit Spot', 
+										orientation: 'vertical', 
+										index: index
+									});
 								}
-							} else {
-								gridsX.push({value: tickTime});
 							}
-						} else { 
-							gridsX.push({value: tickTime});
-						}
-						setObjValue(contract, 'entrySpotIndex', index, isEntrySpot( tickTime ));
-						setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
-						times.push(getTickTime(tickTime));
+							setObjValue(contract, 'entrySpotIndex', index, isEntrySpot( tickTime ));
+							setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
+						} 
+						times.push(tickTime);
 						prices.push(tickPrice);
 					});
 
 					var addRegion = function addRegion(region, end) {
+						var color = (region == 'win') ? 'rgba(0, 255, 0, 0.2)': 'rgba(255, 0, 0, 0.2)';
 						if ( isDefined(end) ) {
-							//chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-							//chart.regions.add([{axis: 'x', start: contract.entrySpot, end: contract.exitSpot, class: region + 'Region'}]);
+							chartOptions.regions = [{
+								color: color, 
+								start: contract.entrySpotIndex, 
+								end: contract.exitSpotIndex
+							}];
 						} else {
-							//chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-							//chart.regions.add([{axis: 'x', start: contract.entrySpot, class: region + 'Region'}]);
+							chartOptions.regions = [{
+								color: color, 
+								start: contract.entrySpotIndex, 
+							}];
 						}
 					};
 
@@ -427,14 +505,6 @@ angular
 					}
 
 					addArrayToChart(times, prices);
-					var firstPrice = Math.min.apply(Math, prices),
-							lastPrice = Math.max.apply(Math, prices),
-							priceStep = ((lastPrice - firstPrice)/(gridsX.length/2));
-					for (var i = firstPrice; i<lastPrice + priceStep/2 ; i+=priceStep){
-						gridsY.push({value: i});
-					}
-					//chart.xgrids(gridsX);
-					//chart.ygrids(gridsY);
 				};
 				
 				// Usage: addTick(tick:<tick object>);
