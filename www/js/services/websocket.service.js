@@ -26,6 +26,7 @@ angular
 				};
 				dataStream.onclose = function(e) {
 					console.log('socket is closed ', e);
+					init();
 				};
 				dataStream.onerror = function(e) {
 					console.log('error in socket ', e);
