@@ -139,7 +139,7 @@ angular
 						entrySpotShowing = false,
 						exitSpotShowing = false,
 						dragSteps = 1,
-						debouncingSteps = 3,
+						debouncingSteps = 4,
 						contract,
 						debouncer = Debouncer(debouncingSteps);
 
@@ -155,7 +155,12 @@ angular
 
 				var getTickTime = function getTickTime(tick) {
 					var date = new Date(tick*1000); 
-					return date.getUTCHours() +  ':' + zeroPad(date.getUTCMinutes()) + ':' + zeroPad(date.getUTCSeconds());
+					return date.getUTCHours() +	':' + zeroPad(date.getUTCMinutes()) + ':' + zeroPad(date.getUTCSeconds());
+				};
+
+				var getTickUTC = function getTickUTC(tick) {
+					var date = new Date(tick); 
+					return date;
 				};
 
 				var isDefined = function isDefined(obj) {
@@ -182,12 +187,12 @@ angular
 					setObjValue(result, 'v', v, condition);
 				};
 
-				var inversedIndex = function inversedIndex(i) {
+				var reversedIndex = function reversedIndex(i) {
 					return pageTickCount - 1 - i;
 				};
 
 				var lastElement = function lastElement(i){
-					if ( inversedIndex(i) == 0 ) {
+					if ( reversedIndex(i) == 0 ) {
 						return true;
 					} else {
 						return false;
@@ -291,7 +296,7 @@ angular
 						return false;
 					}
 					var distance = Math.ceil(pageTickCount/minimumPageTickCount);
-					if ( inversedIndex(i) % distance == 0 ) { // distribute with distance
+					if ( reversedIndex(i) % distance == 0 ) { // distribute with distance
 						if ( nearSpots(i)	) {
 							return true;
 						} else {
@@ -309,69 +314,21 @@ angular
 						return true;
 					}
 				}
-					
-				var chart = c3.generate({
-					bindto: chartID,
-					transition: {
-						duration: 0
+
+				var dataPoints = [];
+				var chart = new CanvasJS.Chart(chartID, {
+					axisY: {
 					},
-					interaction: {
-						enabled: false
-					},
-					size: {
-						height: 150
-					},
-					data: {
-						labels: {
-							format: function(v, id, i, j) {
-								var result= {v: null};
-								showPriceIf(result, v, lastElement(i));
-								showPriceIf(result, v, isSpot(i));
-								if ( !zoomedOut() ){ 
-									showPriceIf(result, v, !collisionOccured(i));
-								}
-								return result.v;
-							}
-						},
-						x: 'time',
-						columns: [
-							['time'],
-							['price']
-						],
-						color: function (color, d) {
-							if ( betweenSpots( d.x ) ) {
-								return 'blue';
-							}
-							if (lastElement(d.index) && !showingHistory()){
-								return 'green';
-							}	else {
-								return 'orange';
-							}
-						}
-					},
-					legend: {
-						show: false
-					},
-					axis: {
-						x: {
-							padding: {
-								left: 1,
-								right: 1,
-							},
-							show: true,
-							tick: {
-								culling: {
-									max: 7
-								},
-								format: getTickTime
-							} 
-						},
-						y: {
-							show: false
-						}
-					}
+					interactivityEnabled: false,
+					data: [{
+						type: "line",
+						xValueType: "dateTime",
+						valueFormatString: "hh mm ss", 
+						dataPoints : dataPoints
+					}]
 				});
-			
+				chart.render();
+
 				var dragStart = function dragStart(){
 					debouncer.reset();
 					dragging = true;
@@ -409,7 +366,18 @@ angular
 				};
 
 				var result;
-
+				var addArrayToChart = function addArrayToChart(labels, values) {
+					chart.options.axisY.minimum = Math.min.apply(Math, values);
+					dataPoints.splice(0, dataPoints.length);
+					labels.forEach(function(label, index){
+						dataPoints.push({
+							x: getTickUTC(label)*1000, 
+							y: values[index]
+						});
+					});
+					chart.render();
+				};
+				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				var updateChartForHistory = function updateChartForHistory(ticks){
 					var times = [],
@@ -454,11 +422,11 @@ angular
 
 					var addRegion = function addRegion(region, end) {
 						if ( isDefined(end) ) {
-							chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-							chart.regions.add([{axis: 'x', start: contract.entrySpot, end: contract.exitSpot, class: region + 'Region'}]);
+							//chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+							//chart.regions.add([{axis: 'x', start: contract.entrySpot, end: contract.exitSpot, class: region + 'Region'}]);
 						} else {
-							chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-							chart.regions.add([{axis: 'x', start: contract.entrySpot, class: region + 'Region'}]);
+							//chart.regions.remove({classes: ['winRegion', 'loseRegion']});
+							//chart.regions.add([{axis: 'x', start: contract.entrySpot, class: region + 'Region'}]);
 						}
 					};
 
@@ -478,20 +446,15 @@ angular
 						}
 					}
 
-					chart.load({
-						columns: [
-							['time'].concat(times),
-							['price'].concat(prices)
-						]
-					});
+					addArrayToChart(times, prices);
 					var firstPrice = Math.min.apply(Math, prices),
 							lastPrice = Math.max.apply(Math, prices),
 							priceStep = ((lastPrice - firstPrice)/(gridsX.length/2));
 					for (var i = firstPrice; i<lastPrice + priceStep/2 ; i+=priceStep){
 						gridsY.push({value: i});
 					}
-					chart.xgrids(gridsX);
-					chart.ygrids(gridsY);
+					//chart.xgrids(gridsX);
+					//chart.ygrids(gridsY);
 				};
 				
 				// Usage: addTick(tick:<tick object>);

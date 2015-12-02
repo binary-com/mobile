@@ -6,7 +6,6 @@
     "angular-translate": "2.8.1",
     "angular-translate-loader-static-files": "*",
     "jquery": "^2.1",
-    "c3": "~0.4.10",
     "lodash": "*",
     "hammerjs": "~2.0.4",
     "AngularHammer": "ryanmullins-angular-hammer#~2.1.10"
