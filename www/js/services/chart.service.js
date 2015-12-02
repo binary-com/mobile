@@ -10,37 +10,6 @@ angular
 	.module('binary')
 	.service('chartService',
 		function() {
-			var Debouncer = function Debouncer(debouncingSteps) {
-				var dragDirections = [];
-				var consensus = function consensus() {
-					var first = dragDirections[0],
-							count = 0;
-					dragDirections.forEach(function(direction){
-						if (direction == first) {
-							count++;
-						}
-					});
-					if ( count == debouncingSteps ) {
-						reset();
-						return first;
-					}
-				};
-				var reset = function reset() {
-					dragDirections = [];
-					for (var i = 0; i < debouncingSteps; i++) {
-						dragDirections.push(i);
-					}
-				};
-				var drag = function drag(direction) {
-					dragDirections.push(direction);
-					dragDirections.shift();
-					return consensus();
-				};
-				return {
-					drag: drag,
-					reset: reset
-				};
-			};
 			/*
 				LocalHistory(capacity<history capacity in ticks>)
 			*/
@@ -139,11 +108,8 @@ angular
 						entrySpotShowing = false,
 						exitSpotShowing = false,
 						dragSteps = 1,
-						debouncingSteps = 1,
-						contract,
-						debouncer = Debouncer(debouncingSteps);
+						contract;
 
-				debouncer.reset();
 
 				var zeroPad = function zeroPad(num){
 					if (num < 10){
@@ -182,12 +148,12 @@ angular
 					setObjValue(result, 'v', v, condition);
 				};
 
-				var inversedIndex = function inversedIndex(i) {
+				var reversedIndex = function reversedIndex(i) {
 					return pageTickCount - 1 - i;
 				};
 
 				var lastElement = function lastElement(i){
-					if ( inversedIndex(i) == 0 ) {
+					if ( reversedIndex(i) == 0 ) {
 						return true;
 					} else {
 						return false;
@@ -285,13 +251,21 @@ angular
 						}
 					}
 				};
-
+				
+				var distribute = function distribute(i) {
+					var distance = Math.ceil(pageTickCount/minimumPageTickCount);
+					if ( reversedIndex(i) % distance == 0 ) { 
+						return true;
+					} else {
+						return false;
+					}
+				};
+	
 				var collisionOccured = function collisionOccured(i){
 					if ( zoomedIn() ){
 						return false;
 					}
-					var distance = Math.ceil(pageTickCount/minimumPageTickCount);
-					if ( inversedIndex(i) % distance == 0 ) { // distribute with distance
+					if ( distribute(i) ) { 
 						if ( nearSpots(i)	) {
 							return true;
 						} else {
@@ -316,9 +290,9 @@ angular
 						labels: [],
 						datasets: [
 								{
-										fillColor: "rgba(151,187,205,0.2)",
-										strokeColor: "rgba(151,187,205,1)",
-										pointColor: "rgba(151,187,205,1)",
+										fillColor: "orange",
+										strokeColor: "orange",
+										pointColor: "orange",
 										pointStrokeColor: "#fff",
 										data: []
 								}
@@ -326,7 +300,6 @@ angular
 					},
 					latestLabel = startingData.labels.slice(-1)[0];
 
-					console.log('here',canvas);
 	
 				var chartOptions = {
 					animation: false, 
@@ -338,12 +311,10 @@ angular
 
 			
 				var dragStart = function dragStart(){
-					debouncer.reset();
 					dragging = true;
 				};
 
 				var dragEnd = function dragEnd(){
-					debouncer.reset();
 					dragging = false;
 				};
 
@@ -375,13 +346,16 @@ angular
 
 				var result;
 				var addArrayToChart = function addToChart(labels, values) {
-					startingData.labels = labels;
+					startingData.labels = [];
+					labels.forEach(function(label, index){
+						if ( distribute(index) ) {
+							startingData.labels.push(label);
+						} else {
+							startingData.labels.push('');
+						}
+					});
 					startingData.datasets[0].data = values;
 					chart = new Chart(ctx).Line(startingData, chartOptions);
-				};
-				var addDataToChart = function addDataToChart(label, value) {
-					chart.addData(value, label);
-					chart.removeData();
 				};
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
@@ -527,13 +501,13 @@ angular
 				};
 
 				var dragRight = function dragRight() {
-					if ( !zooming && debouncer.drag( 'right' ) ) {
+					if ( !zooming ) {
 						next();
 					}
 				};
 
 				var dragLeft = function dragLeft() {
-					if ( !zooming && debouncer.drag( 'left' ) ) {
+					if ( !zooming ) {
 						previous();
 					}
 				};
