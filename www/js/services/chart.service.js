@@ -483,13 +483,22 @@ angular
 
 
 				var drawLabel = function drawLabel(point, index){
-					var ctx = this.chart.ctx;
-					ctx.font = this.scale.font;
-					ctx.fillStyle = this.scale.textColor
-					ctx.textAlign = "center";
-					ctx.textBaseline = "bottom";
-
-					ctx.fillText(point.value, point.x, point.y - 10);
+					var result= {};
+					var v = point.value;
+					showPriceIf(result, v, lastElement(index));
+					showPriceIf(result, v, isSpot(index));
+					if ( !zoomedOut() ){
+						showPriceIf(result, v, !collisionOccured(index));
+					}
+					if ( isDefined(result.v) ) {
+						var ctx = this.chart.ctx;
+						ctx.font = this.scale.font;
+						ctx.fillStyle = this.scale.textColor
+						ctx.textAlign = "center";
+						ctx.textBaseline = "bottom";
+						
+						ctx.fillText(point.value, point.x, point.y - 10);
+					}
 				};
 	
 				Chart.types.Line.extend({
