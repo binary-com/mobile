@@ -41,6 +41,11 @@ angular
 					}
 				});
 
+				scope.$on('token:remove', function(e, response) {
+					accountService.remove(response);
+					scope.accounts = accountService.getAll();
+				});
+
 				scope.addAccount = function(_token) {
 					scope.showSpinner = false;
 					// Validate the token
@@ -53,8 +58,7 @@ angular
 				};
 
 				scope.removeAccount = function(_token) {
-					accountService.remove(_token);
-					scope.accounts = accountService.getAll();
+					alertService.confirmAccountRemoval(_token);
 				};
 
 				scope.setAccountAsDefault = function(_token) {
