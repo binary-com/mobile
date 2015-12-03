@@ -623,15 +623,13 @@ angular
 								}
 						]
 					};
-
 				var chartOptions = {
 					animation: false,
 					bezierCurve : false,
 					datasetFill : false,
 					showTooltips: false,
 					keepAspectRatio: false,
-					scaleOverride: true,
-					scaleFontSize: 10,
+					scaleLabel: function(valueContainer){return ''},
 				};
 
 				var chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
@@ -713,9 +711,6 @@ angular
 						chartData.labels.push(getTickTime(label));
 					});
 					
-					chartOptions.scaleSteps = pageTickCount/2;
-					chartOptions.scaleStepWidth = ((max - min)/(chartOptions.scaleSteps-1)).toFixed(maxFraction);
-					chartOptions.scaleStartValue = min - chartOptions.scaleStepWidth/2;
 					chartData.datasets[0].data = values;
 					chart.destroy();
 					chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
