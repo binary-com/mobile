@@ -366,9 +366,11 @@ angular
 						updateDisabled = false,
 						pageTickCount = initialPageTickCount,
 						dragSteps = 1,
-						contracts = [];
+						contracts = [],
+						debouncingSteps = 4,
+						debouncer = Debouncer(debouncingSteps);
 
-
+				debouncer.reset();
 
 				var showPriceIf = function showPriceIf(result, v, condition) {
 					utils.setObjValue(result, 'v', v, condition);
@@ -798,10 +800,12 @@ angular
 				};			
 
 				var dragStart = function dragStart(){
+					debouncer.reset();
 					dragging = true;
 				};
 
 				var dragEnd = function dragEnd(){
+					debouncer.reset();
 					dragging = false;
 				};
 
@@ -937,13 +941,13 @@ angular
 				};
 
 				var dragRight = function dragRight() {
-					if ( !zooming ) {
+					if ( !zooming && debouncer.drag( 'right' ) ) {
 						next();
 					}
 				};
 
 				var dragLeft = function dragLeft() {
-					if ( !zooming ) {
+					if ( !zooming && debouncer.drag( 'left' ) ) {
 						previous();
 					}
 				};
