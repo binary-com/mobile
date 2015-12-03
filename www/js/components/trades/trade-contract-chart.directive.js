@@ -41,16 +41,18 @@ angular
 
 				scope.$on('portfolio', function(e, portfolio){
 					var contractId = scope.$parent.contract.contract_id;
-					portfolio.contracts.forEach(function(contract){
-						if (contract.contract_id == contractId){
-							scope.chart.addContract({
-								startTime: contract.date_start+1,
-								duration: parseInt(scope.$parent.proposalToSend.duration),
-								type: scope.$parent.proposalToSend.contract_type,
-								barrier: scope.$parent.proposalToSend.barrier
-							});
-						}
-					});
+					if ( typeof contractId !== 'undefined' ) {
+						portfolio.contracts.forEach(function(contract){
+							if (contract.contract_id == contractId){
+								scope.chart.addContract({
+									startTime: contract.date_start+1,
+									duration: parseInt(scope.$parent.proposalToSend.duration),
+									type: scope.$parent.proposalToSend.contract_type,
+									barrier: scope.$parent.proposalToSend.barrier
+								});
+							}
+						});
+					}
 				});
 
 				scope.$on('tick', function(e, feed){
