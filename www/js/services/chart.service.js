@@ -58,14 +58,14 @@ angular
 							return parseInt(num.toString().slice(-1));
 						},
 						conditions : {
-							CALL: function condition(barrier, price) {return price > barrier;}, 
-							PUT: function condition(barrier, price) {return price < barrier;},
+							CALL: function condition(barrier, price) {return parseFloat(price) > parseFloat(barrier);}, 
+							PUT: function condition(barrier, price) {return parseFloat(price) < parseFloat(barrier);},
 							DIGITMATCH: function condition(barrier, price) {return utils.lastDigit(barrier) == utils.lastDigit(price);},
 							DIGITDIFF: function condition(barrier, price) {return utils.lastDigit(barrier) != utils.lastDigit(price);},
 							DIGITEVEN: function condition(barrier, price) {return utils.lastDigit(price) % 2 == 0;},
 							DIGITODD: function condition(barrier, price) {return utils.lastDigit(price) % 2 != 0;},
-							DIGITUNDER: function condition(barrier, price) {return utils.lastDigit(price) < barrier;},
-							DIGITOVER: function condition(barrier, price) {return utils.lastDigit(price) > barrier;},
+							DIGITUNDER: function condition(barrier, price) {return utils.lastDigit(price) < parseInt(barrier);},
+							DIGITOVER: function condition(barrier, price) {return utils.lastDigit(price) > parseInt(barrier);},
 						},
 						digitTrade : function digitTrade(contract) {
 							if ( contract.type.indexOf( 'DIGIT' ) == 0 ) {
@@ -264,7 +264,7 @@ angular
 					}
 				};
 				
-				var viewSpot = function viewSpot(index, tickTime, tickPrice) {
+				var viewSpot = function viewSpot(index, tickTime) {
 						if ( isEntrySpot( tickTime ) ) {
 							contract.entrySpotShowing = true;
 							if ( !utils.digitTrade(contract) ) { 
@@ -836,10 +836,6 @@ angular
 				};
 				
 				var addArrayToChart = function addArrayToChart(labels, values) {
-					var min = Math.min.apply(Math, values),
-							max = Math.max.apply(Math, values),
-							maxFraction = utils.maxFractionalLength(values);
-	
 					chartData.labels = [];
 					labels.forEach(function(label, index){
 						chartData.labels.push(utils.getTickTime(label));
@@ -861,9 +857,8 @@ angular
 					
 					ticks.forEach(function(tick, index){
 						var tickTime = parseInt(tick.time);
-						var tickPrice = parseFloat(tick.price);
 						contracts.forEach(function(contract){
-							contract.viewSpot(index, tickTime, tickPrice);
+							contract.viewSpot(index, tickTime);
 						});
 						times.push(tickTime);
 						prices.push(tick.price);
@@ -882,12 +877,12 @@ angular
 					
 					ticks.forEach(function(tick, index){
 						var tickTime = parseInt(tick.time);
-						var tickPrice = parseFloat(tick.price);
+						var tickPrice = tick.price;
 						contracts.forEach(function(contract){
 							contract.addSpot(index, tickTime, tickPrice);
 						});
 						lastTime = parseInt(tick.time);
-						lastPrice = parseFloat(tick.price);
+						lastPrice = tick.price;
 					});
 
 					contracts.forEach(function(contract){
