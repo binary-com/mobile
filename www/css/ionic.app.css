@@ -9162,7 +9162,8 @@ body * {
   background-color: #2a3052;
   bottom: 0;
   border-top-width: 0;
-  border-bottom-width: 1px; }
+  border-bottom-width: 1px;
+  height: auto; }
   .bar-footer .account {
     text-align: center;
     color: #e98024; }
@@ -9329,7 +9330,7 @@ body * {
     font-size: 16px;
     text-align: left;
     padding-left: 10px;
-    line-height: 48px; }
+    line-height: 36px; }
   .trade .contract-price .price-des {
     font-size: 16px;
     text-align: left; }
@@ -9337,12 +9338,12 @@ body * {
     font-size: 16px;
     color: #e98024;
     text-align: left;
-    line-height: 48px; }
+    line-height: 36px; }
 
 .trade .contract-purchase,
 .trade .contract-back {
-  margin-top: 10%;
-  margin-bottom: 10%; }
+  margin-top: 5%;
+  margin-bottom: 40%; }
   .trade .contract-purchase button,
   .trade .contract-back button {
     background-color: #e98024 !important;
@@ -9461,7 +9462,7 @@ body * {
     color: #fff; }
 
 .options .options-save {
-  margin-bottom: 10%; }
+  margin-bottom: 20%; }
 
 .options label .input-label {
   padding: 0px; }
