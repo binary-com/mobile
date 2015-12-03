@@ -74,7 +74,40 @@ angular
 							return false;
 						},
 
-					};
+	 				};
+
+			var Debouncer = function Debouncer(debouncingSteps) {
+				var dragDirections = [];
+				var consensus = function consensus() {
+					var first = dragDirections[0],
+							count = 0;
+					dragDirections.forEach(function(direction){
+						if (direction == first) {
+							count++;
+						}
+					});
+					if ( count == debouncingSteps ) {
+						reset();
+						return first;
+					}
+				};
+				var reset = function reset() {
+					dragDirections = [];
+					for (var i = 0; i < debouncingSteps; i++) {
+						dragDirections.push(i);
+					}
+				};
+				var drag = function drag(direction) {
+					dragDirections.push(direction);
+					dragDirections.shift();
+					return consensus();
+				};
+				return {
+					drag: drag,
+					reset: reset
+				};
+			};
+
 			/*
 				LocalHistory(capacity<history capacity in ticks>)
 			*/
