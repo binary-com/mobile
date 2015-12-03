@@ -22,5 +22,11 @@ body *{
 	background-color: $lightgray;
 }
 .scroll-content {
+	display: block;
 	position: relative;
+	height: 100%;
+	// top:initial;
+	// right:initial;
+	// bottom:initial;
+	// left:initial;
 }
