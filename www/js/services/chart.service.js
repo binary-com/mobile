@@ -267,7 +267,7 @@ angular
 				var viewSpot = function viewSpot(index, tickTime) {
 						if ( isEntrySpot( tickTime ) ) {
 							contract.entrySpotShowing = true;
-							if ( !utils.digitTrade(contract) ) { 
+							if ( !utils.digitTrade(contract) && !exitSpotReached() ) { 
 								chartDrawer.addGridLine({
 									color: 'blue', 
 									label: 'barrier: '+ contract.barrier, 
@@ -311,9 +311,11 @@ angular
 					var color = (contract.result == 'win') ? 'rgba(0, 255, 0, 0.2)': 'rgba(255, 0, 0, 0.2)';
 					if ( contract.entrySpotShowing ) {
 						if ( contract.exitSpotShowing ) {
-							contract.region.start = utils.getRelativeIndex(contract.entrySpotIndex);
-							contract.region.end = utils.getRelativeIndex(contract.exitSpotIndex);
-							contract.region.color = color;
+							if ( utils.isDefined(contract.region) ){
+								contract.region.start = utils.getRelativeIndex(contract.entrySpotIndex);
+								contract.region.end = utils.getRelativeIndex(contract.exitSpotIndex);
+								contract.region.color = color;
+							}
 						} else {
 							if ( !utils.isDefined(contract.region) ){
 								contract.region = {
@@ -784,7 +786,11 @@ angular
 				var chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
 				
 				var findRegion = function findRegion(region){
-					return chartOptions.regions.indexOf(region);
+					if ( utils.isDefined(chartOptions.regions) ) {
+						return chartOptions.regions.indexOf(region);
+					} else {
+						return -1;
+					}
 				};			
 
 				var addRegion = function addRegion(region){
