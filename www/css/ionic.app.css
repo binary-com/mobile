@@ -9141,7 +9141,9 @@ body * {
   background-color: #f2f2f2; }
 
 .scroll-content {
-  position: relative; }
+  display: block;
+  position: relative;
+  height: 100%; }
 
 .bar-header {
   background-color: #2a3052;
@@ -9457,6 +9459,9 @@ body * {
   .options .options-amount .item-radio input:checked ~ .item-content {
     background: #2a3052;
     color: #fff; }
+
+.options .options-save {
+  margin-bottom: 10%; }
 
 .options label .input-label {
   padding: 0px; }
