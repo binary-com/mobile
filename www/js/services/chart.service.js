@@ -426,7 +426,7 @@ angular
 					if ( distribute(i) ) { 
 						var nearAnySpots = false;
 						contracts.forEach(function(contract){
-							if ( contract.nearSpots(i)	) {
+							if ( contract.nearSpots(utils.getAbsoluteIndex(i))	) {
 								nearAnySpots = true;
 							}
 						});
@@ -485,7 +485,7 @@ angular
 					var v = point.value;
 					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!zoomedOut() && !collisionOccured(index)));
 					contracts.forEach(function(contract){
-						showPriceIf(result, v, contract.isSpot(index));
+						showPriceIf(result, v, contract.isSpot(utils.getAbsoluteIndex(index)));
 					});
 					if ( utils.isDefined(result.v) ) {
 						var ctx = this.chart.ctx;
@@ -887,7 +887,7 @@ angular
 							contract.addSpot(index, tickTime, tickPrice);
 						});
 						lastTime = parseInt(tick.time);
-						lastPrice = parseInt(tick.time);
+						lastPrice = parseFloat(tick.price);
 					});
 
 					contracts.forEach(function(contract){
