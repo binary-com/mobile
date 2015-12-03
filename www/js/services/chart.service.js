@@ -58,8 +58,8 @@ angular
 							return parseInt(num.toString().slice(-1));
 						},
 						conditions : {
-							CALL: function condition(barrier, price) {return barrier < price;}, 
-							PUT: function condition(barrier, price) {return barrier > price;},
+							CALL: function condition(barrier, price) {return price > barrier;}, 
+							PUT: function condition(barrier, price) {return price < barrier;},
 							DIGITMATCH: function condition(barrier, price) {return utils.lastDigit(barrier) == utils.lastDigit(price);},
 							DIGITDIFF: function condition(barrier, price) {return utils.lastDigit(barrier) != utils.lastDigit(price);},
 							DIGITEVEN: function condition(barrier, price) {return utils.lastDigit(price) % 2 == 0;},
