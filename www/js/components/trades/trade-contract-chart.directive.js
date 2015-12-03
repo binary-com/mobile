@@ -31,7 +31,7 @@ angular
 						{
 							"ticks_history": symbol,
 							"end": "latest",
-							"count": scope.chart.getCapacity() + 1,
+							"count": scope.chart.getCapacity(),
 							"subscribe": 1
 						}
 					);
