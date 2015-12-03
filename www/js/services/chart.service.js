@@ -349,6 +349,7 @@ angular
 				return {
 					isSpot: isSpot,
 					betweenSpots: betweenSpots,
+					nearSpots: nearSpots,
 					resetSpotShowing: resetSpotShowing,
 					addSpot: addSpot,
 					addRegions: addRegions,
@@ -367,7 +368,7 @@ angular
 						pageTickCount = initialPageTickCount,
 						dragSteps = 1,
 						contracts = [],
-						debouncingSteps = 4,
+						debouncingSteps = 3,
 						debouncer = Debouncer(debouncingSteps);
 
 				debouncer.reset();
@@ -418,11 +419,13 @@ angular
 						return false;
 					}
 					if ( distribute(i) ) { 
-						if ( nearSpots(i)	) {
-							return true;
-						} else {
-							return false;	
-						}
+						var nearAnySpots = false;
+						contracts.forEach(function(contract){
+							if ( contract.nearSpots(i)	) {
+								nearAnySpots = true;
+							}
+						});
+						return nearAnySpots;
 					} else {
 						return true;
 					}
@@ -475,8 +478,9 @@ angular
 				var drawLabel = function drawLabel(point, index){
 					var result= {};
 					var v = point.value;
+					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!zoomedOut() && !collisionOccured(index)));
 					contracts.forEach(function(contract){
-						showPriceIf(result, v, lastElement(index) || contract.isSpot(index) || (!zoomedOut() && !collisionOccured(index)));
+						showPriceIf(result, v, contract.isSpot(index));
 					});
 					if ( utils.isDefined(result.v) ) {
 						var ctx = this.chart.ctx;
@@ -498,6 +502,7 @@ angular
 					if ( gridLine.orientation == 'vertical' ) {
 						this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
 						this.chart.ctx.strokeStyle = gridLine.color;
+						this.chart.ctx.fillStyle = 'black';
 						this.chart.ctx.lineTo(point.x, scale.endPoint);
 						this.chart.ctx.stroke();
 					
