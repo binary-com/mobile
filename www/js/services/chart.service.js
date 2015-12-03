@@ -10,37 +10,6 @@ angular
 	.module('binary')
 	.service('chartService',
 		function() {
-			var Debouncer = function Debouncer(debouncingSteps) {
-				var dragDirections = [];
-				var consensus = function consensus() {
-					var first = dragDirections[0],
-							count = 0;
-					dragDirections.forEach(function(direction){
-						if (direction == first) {
-							count++;
-						}
-					});
-					if ( count == debouncingSteps ) {
-						reset();
-						return first;
-					}
-				};
-				var reset = function reset() {
-					dragDirections = [];
-					for (var i = 0; i < debouncingSteps; i++) {
-						dragDirections.push(i);
-					}
-				};
-				var drag = function drag(direction) {
-					dragDirections.push(direction);
-					dragDirections.shift();
-					return consensus();
-				};
-				return {
-					drag: drag,
-					reset: reset
-				};
-			};
 			/*
 				LocalHistory(capacity<history capacity in ticks>)
 			*/
@@ -139,11 +108,8 @@ angular
 						entrySpotShowing = false,
 						exitSpotShowing = false,
 						dragSteps = 1,
-						debouncingSteps = 3,
-						contract,
-						debouncer = Debouncer(debouncingSteps);
+						contract;
 
-				debouncer.reset();
 
 				var zeroPad = function zeroPad(num){
 					if (num < 10){
@@ -155,7 +121,7 @@ angular
 
 				var getTickTime = function getTickTime(tick) {
 					var date = new Date(tick*1000); 
-					return date.getUTCHours() +  ':' + zeroPad(date.getUTCMinutes()) + ':' + zeroPad(date.getUTCSeconds());
+					return date.getUTCHours() +	':' + zeroPad(date.getUTCMinutes()) + ':' + zeroPad(date.getUTCSeconds());
 				};
 
 				var isDefined = function isDefined(obj) {
@@ -182,12 +148,12 @@ angular
 					setObjValue(result, 'v', v, condition);
 				};
 
-				var inversedIndex = function inversedIndex(i) {
+				var reversedIndex = function reversedIndex(i) {
 					return pageTickCount - 1 - i;
 				};
 
 				var lastElement = function lastElement(i){
-					if ( inversedIndex(i) == 0 ) {
+					if ( reversedIndex(i) == 0 ) {
 						return true;
 					} else {
 						return false;
@@ -285,13 +251,21 @@ angular
 						}
 					}
 				};
-
+				
+				var distribute = function distribute(i) {
+					var distance = Math.ceil(pageTickCount/minimumPageTickCount);
+					if ( reversedIndex(i) % distance == 0 ) { 
+						return true;
+					} else {
+						return false;
+					}
+				};
+	
 				var collisionOccured = function collisionOccured(i){
 					if ( zoomedIn() ){
 						return false;
 					}
-					var distance = Math.ceil(pageTickCount/minimumPageTickCount);
-					if ( inversedIndex(i) % distance == 0 ) { // distribute with distance
+					if ( distribute(i) ) { 
 						if ( nearSpots(i)	) {
 							return true;
 						} else {
@@ -309,76 +283,364 @@ angular
 						return true;
 					}
 				}
-					
-				var chart = c3.generate({
-					bindto: chartID,
-					transition: {
-						duration: 0
+
+				var getDotColor = function getDotColor(value, index) {
+					if ( betweenSpots( value ) ) {
+						return 'blue';
+					}
+					if (lastElement(index) && !showingHistory()){
+						return 'green';
+					} else {
+						return 'orange';
+					}
+				};
+
+				Chart.CustomScale = Chart.Scale.extend({
+					initialize: function () {
+						var longestText = function(ctx,font,arrayOfStrings){
+							ctx.font = font;
+							var longest = 0;
+							Chart.helpers.each(arrayOfStrings,function(string){
+								var textWidth = ctx.measureText(string).width;
+								longest = (textWidth > longest) ? textWidth : longest;
+							});
+							return longest;
+						};
+
+						this.calculateXLabelRotation = function(){
+							//Get the width of each grid by calculating the difference
+							//between x offsets between 0 and 1.
+
+							this.ctx.font = this.font;
+
+							var firstWidth = this.ctx.measureText(this.xLabels[0]).width,
+								lastWidth = this.ctx.measureText(this.xLabels[this.xLabels.length - 1]).width,
+								firstRotated,
+								lastRotated;
+
+
+							this.xScalePaddingRight = lastWidth/2 + 3;
+							this.xScalePaddingLeft = (firstWidth/2 > this.yLabelWidth + 10) ? firstWidth/2 : this.yLabelWidth + 10;
+
+							this.xLabelRotation = 0;
+							if (this.display){
+								var originalLabelWidth = longestText(this.ctx,this.font,this.xLabels),
+									cosRotation,
+									firstRotatedWidth;
+								this.xLabelWidth = originalLabelWidth;
+								//Allow 3 pixels x2 padding either side for label readability
+								var xGridWidth = Math.floor(this.calculateX(1) - this.calculateX(0)) - 6;
+							}
+							else{
+								this.xLabelWidth = 0;
+								this.xScalePaddingRight = this.padding;
+								this.xScalePaddingLeft = this.padding;
+							}
+						};
+						Chart.Scale.prototype.initialize.apply(this, arguments);
 					},
-					interaction: {
-						enabled: false
-					},
-					size: {
-						height: 150
-					},
-					data: {
-						labels: {
-							format: function(v, id, i, j) {
-								var result= {v: null};
-								showPriceIf(result, v, lastElement(i));
-								showPriceIf(result, v, isSpot(i));
-								if ( !zoomedOut() ){ 
-									showPriceIf(result, v, !collisionOccured(i));
+					draw: function () {
+						var helpers = Chart.helpers;
+						var each = helpers.each;
+						var aliasPixel = helpers.aliasPixel;
+						var toRadians = helpers.radians;
+						var ctx = this.ctx,
+							yLabelGap = (this.endPoint - this.startPoint) / this.steps,
+							xStart = Math.round(this.xScalePaddingLeft);
+						if (this.display) {
+							ctx.fillStyle = this.textColor;
+							ctx.font = this.font;
+							each(this.yLabels, function (labelString, index) {
+								var yLabelCenter = this.endPoint - (yLabelGap * index),
+									linePositionY = Math.round(yLabelCenter);
+
+								ctx.textAlign = "right";
+								ctx.textBaseline = "middle";
+								if (this.showLabels) {
+									ctx.fillText(labelString, xStart - 10, yLabelCenter);
 								}
-								return result.v;
-							}
-						},
-						x: 'time',
-						columns: [
-							['time'],
-							['price']
-						],
-						color: function (color, d) {
-							if ( betweenSpots( d.x ) ) {
-								return 'blue';
-							}
-							if (lastElement(d.index) && !showingHistory()){
-								return 'green';
-							}	else {
-								return 'orange';
-							}
-						}
-					},
-					legend: {
-						show: false
-					},
-					axis: {
-						x: {
-							padding: {
-								left: 1,
-								right: 1,
-							},
-							show: true,
-							tick: {
-								culling: {
-									max: 7
-								},
-								format: getTickTime
-							} 
-						},
-						y: {
-							show: false
+								ctx.beginPath();
+								if (index > 0) {
+									// This is a grid line in the centre, so drop that
+									ctx.lineWidth = this.gridLineWidth;
+									ctx.strokeStyle = this.gridLineColor;
+								} else {
+									// This is the first line on the scale
+									ctx.lineWidth = this.lineWidth;
+									ctx.strokeStyle = this.lineColor;
+								}
+
+								linePositionY += helpers.aliasPixel(ctx.lineWidth);
+
+								ctx.moveTo(xStart, linePositionY);
+								ctx.lineTo(this.width, linePositionY);
+								ctx.stroke();
+								ctx.closePath();
+
+								ctx.lineWidth = this.lineWidth;
+								ctx.strokeStyle = this.lineColor;
+								ctx.beginPath();
+								ctx.moveTo(xStart - 5, linePositionY);
+								ctx.lineTo(xStart, linePositionY);
+								ctx.stroke();
+								ctx.closePath();
+
+							}, this);
+
+							each(this.xLabels, function (label, index) {
+								//======================================================
+								//apply the filter to the index if it is a function
+								//======================================================
+								var filtered = false;
+								if (typeof this.labelsFilter === "function" && this.labelsFilter(index)) {
+									filtered = true;
+								}
+								var xPos = this.calculateX(index) + aliasPixel(this.lineWidth),
+									// Check to see if line/bar here and decide where to place the line
+									linePos = this.calculateX(index - (this.offsetGridLines ? 0.5 : 0)) + aliasPixel(this.lineWidth);
+								
+
+								ctx.beginPath();
+
+								if (index > 0) {
+									// This is a grid line in the centre, so drop that
+									ctx.lineWidth = this.gridLineWidth;
+									ctx.strokeStyle = this.gridLineColor;
+								} else {
+									// This is the first line on the scale
+									ctx.lineWidth = this.lineWidth;
+									ctx.strokeStyle = this.lineColor;
+								}
+								ctx.moveTo(linePos, this.endPoint);
+								ctx.lineTo(linePos, this.startPoint - 3);
+								ctx.stroke();
+								ctx.closePath();
+
+
+								ctx.lineWidth = this.lineWidth;
+								ctx.strokeStyle = this.lineColor;
+
+
+								// Small lines at the bottom of the base grid line
+								ctx.beginPath();
+								ctx.moveTo(linePos, this.endPoint);
+								if ( filtered ) {
+									ctx.lineTo(linePos, this.endPoint);
+								} else {
+									ctx.lineTo(linePos, this.endPoint + 10);
+								}
+								ctx.stroke();
+								ctx.closePath();
+
+								ctx.save();
+								ctx.translate(xPos, this.endPoint + 8);
+
+								ctx.textAlign = "center";
+								ctx.textBaseline = "top";
+								if ( !filtered ) {
+									ctx.fillText(label, 0, 0);
+								}
+								ctx.restore();
+
+							}, this);
+
 						}
 					}
 				});
+
+				var drawGridLine = function drawGridLine(gridLine) {
+					var point = this.datasets[0].points[gridLine.index];
+					var scale = this.scale;
+
+					// draw line
+					this.chart.ctx.beginPath();
+					if ( gridLine.orientation == 'vertical' ) {
+						this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
+						this.chart.ctx.strokeStyle = gridLine.color;
+						this.chart.ctx.lineTo(point.x, scale.endPoint);
+						this.chart.ctx.stroke();
+					
+						this.chart.ctx.textAlign = 'center';
+						this.chart.ctx.fillText(gridLine.label, point.x, scale.startPoint + 12);
+					} else {
+						this.chart.ctx.moveTo(scale.startPoint, point.y);
+						this.chart.ctx.strokeStyle = gridLine.color;
+						this.chart.ctx.fillStyle = 'black';
+						this.chart.ctx.lineTo(this.chart.width, point.y);
+						this.chart.ctx.stroke();
+					
+						this.chart.ctx.textAlign = 'center';
+						var labelWidth = this.chart.ctx.measureText(gridLine.label).width;
+						this.chart.ctx.fillText(gridLine.label, this.chart.width - labelWidth, point.y + 12);
+					}
+				};
+				var drawRegion = function drawRegion(region){
+					var yHeight = this.scale.endPoint - this.scale.startPoint,
+							length,	
+							end,	
+							start,	
+							pointCount = this.datasets[0].points.length;
+					start = this.datasets[0].points[region.start].x;
+					if ( isDefined(region.end) ) {
+						end = this.datasets[0].points[region.end].x;
+					} else {
+						end = this.datasets[0].points[pointCount - 1].x;
+					}
+					length = end - start;
+					this.chart.ctx.fillStyle = region.color;
+
+					this.chart.ctx.fillRect(start, this.scale.startPoint, length, yHeight);
+				};
+
+
+				var drawLabel = function drawLabel(point, index){
+					var result= {};
+					var v = point.value;
+					showPriceIf(result, v, lastElement(index));
+					showPriceIf(result, v, isSpot(index));
+					if ( !zoomedOut() ){
+						showPriceIf(result, v, !collisionOccured(index));
+					}
+					if ( isDefined(result.v) ) {
+						var ctx = this.chart.ctx;
+						ctx.font = this.scale.font;
+						ctx.fillStyle = this.scale.textColor
+						ctx.textAlign = "center";
+						ctx.textBaseline = "bottom";
+						
+						ctx.fillText(point.value, point.x, point.y - 10);
+					}
+				};
+	
+				Chart.types.Line.extend({
+					name: "LineChartSpots",
+					initialize: function (data) {
+						this.options.labelsFilter = data.labelsFilter || null;
+						Chart.types.Line.prototype.initialize.apply(this, arguments);
+					},
+					draw: function () {
+						Chart.types.Line.prototype.draw.apply(this, arguments);
+						var parentChart = this;
+
+						this.datasets.forEach(function (dataset) {
+							dataset.points.forEach(function (point, index) {
+								drawLabel.call(parentChart, point, index);
+							});
+						});
+						
+						if ( isDefined(this.options.regions) ){
+							this.options.regions.forEach(function(region){
+								drawRegion.call(parentChart, region);
+							});
+						}
+
+						if (isDefined(this.options.gridLines)){
+							this.options.gridLines.forEach(function(gridLine){
+								drawGridLine.call(parentChart, gridLine);
+							});
+						}
+
+
+					},
+					buildScale: function (labels) {
+						var helpers = Chart.helpers;
+						var self = this;
+
+						var dataTotal = function () {
+							var values = [];
+							self.eachPoints(function (point) {
+								values.push(point.value);
+							});
+
+							return values;
+						};
+						var scaleOptions = {
+							templateString: this.options.scaleLabel,
+							height: this.chart.height,
+							width: this.chart.width,
+							ctx: this.chart.ctx,
+							textColor: this.options.scaleFontColor,
+							fontSize: this.options.scaleFontSize,
+							//======================================================
+							//pass this new options to the scale object
+							//======================================================
+							labelsFilter: this.options.labelsFilter,
+							fontStyle: this.options.scaleFontStyle,
+							fontFamily: this.options.scaleFontFamily,
+							valuesCount: labels.length,
+							beginAtZero: this.options.scaleBeginAtZero,
+							integersOnly: this.options.scaleIntegersOnly,
+							calculateYRange: function (currentHeight) {
+								var updatedRanges = helpers.calculateScaleRange(
+								dataTotal(),
+								currentHeight,
+								this.fontSize,
+								this.beginAtZero,
+								this.integersOnly);
+								helpers.extend(this, updatedRanges);
+							},
+							xLabels: labels,
+							font: helpers.fontString(this.options.scaleFontSize, this.options.scaleFontStyle, this.options.scaleFontFamily),
+							lineWidth: this.options.scaleLineWidth,
+							lineColor: this.options.scaleLineColor,
+							gridLineWidth: (this.options.scaleShowGridLines) ? this.options.scaleGridLineWidth : 0,
+							gridLineColor: (this.options.scaleShowGridLines) ? this.options.scaleGridLineColor : "rgba(0,0,0,0)",
+							padding: (this.options.showScale) ? 0 : this.options.pointDotRadius + this.options.pointDotStrokeWidth,
+							showLabels: this.options.scaleShowLabels,
+							display: this.options.showScale
+						};
+
+						if (this.options.scaleOverride) {
+							helpers.extend(scaleOptions, {
+								calculateYRange: helpers.noop,
+								steps: this.options.scaleSteps,
+								stepValue: this.options.scaleStepWidth,
+								min: this.options.scaleStartValue,
+								max: this.options.scaleStartValue + (this.options.scaleSteps * this.options.scaleStepWidth)
+							});
+						}
+
+						//======================================================
+						//Use the new Custom Scal that will make use of a labelsFilter function
+						//======================================================
+						this.scale = new Chart.CustomScale(scaleOptions);
+					}
+				});
+	
+				var canvas = document.getElementById(chartID),
+					ctx = canvas.getContext('2d'),
+					chartData = {
+						labels: [],
+						labelsFilter: function (index) {
+							return !distribute(index);
+						},
+						datasets: [
+								{
+										strokeColor: "orange",
+										pointColor: "orange",
+										pointStrokeColor: "#fff",
+										data: []
+								}
+						]
+					};
+
+				var chartOptions = {
+					animation: false,
+					bezierCurve : false,
+					datasetFill : false,
+					showTooltips: false,
+					keepAspectRatio: false,
+					scaleOverride: true,
+					scaleFontSize: 10,
+				};
+
+				var chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
 			
 				var dragStart = function dragStart(){
-					debouncer.reset();
 					dragging = true;
 				};
 
 				var dragEnd = function dragEnd(){
-					debouncer.reset();
 					dragging = false;
 				};
 
@@ -390,15 +652,33 @@ angular
 					zooming = false;
 				};
 
+				var fractionalLength = function fractionalLength(floatNumber) {
+					var stringNumber = floatNumber.toString(),
+							decimalLength = stringNumber.indexOf('.');
+					return stringNumber.length - decimalLength - 1;
+				};
+
+				var maxFractionalLength = function maxFractionalLength(floatNumbers) {
+					var max = 0;
+					floatNumbers.forEach(function(number){
+						max = (max < fractionalLength(number))? fractionalLength(number): max;
+					});
+					return max;
+				};
+				
+				var lastDigit = function lastDigit(num) {
+					return parseInt(num.toString().slice(-1));
+				};
+
 				var conditions = {
 					CALL: function condition(barrier, price) {return barrier < price;}, 
 					PUT: function condition(barrier, price) {return barrier > price;},
-					DIGITMATCH: function condition(barrier, price) {return barrier.toString().slice(-1) == price.toString().slice(-1);},
-					DIGITDIFF: function condition(barrier, price) {return barrier.toString().slice(-1) != price.toString().slice(-1);},
-					DIGITEVEN: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) % 2 == 0;},
-					DIGITODD: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) % 2 != 0;},
-					DIGITUNDER: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) < barrier;},
-					DIGITOVER: function condition(barrier, price) {return parseInt(price.toString().slice(-1)) > barrier;},
+					DIGITMATCH: function condition(barrier, price) {return lastDigit(barrier) == lastDigit(price);},
+					DIGITDIFF: function condition(barrier, price) {return lastDigit(barrier) != lastDigit(price);},
+					DIGITEVEN: function condition(barrier, price) {return lastDigit(price) % 2 == 0;},
+					DIGITODD: function condition(barrier, price) {return lastDigit(price) % 2 != 0;},
+					DIGITUNDER: function condition(barrier, price) {return lastDigit(price) < barrier;},
+					DIGITOVER: function condition(barrier, price) {return lastDigit(price) > barrier;},
 				};
 
 				var digitTrade = function digitTrade() {
@@ -408,17 +688,48 @@ angular
 					return false;
 				};
 
+				var addGridLine = function addGridLine(gridLine) {
+					if ( !isDefined(chartOptions.gridLines) ) {
+						chartOptions.gridLines = [];
+					}
+					chartOptions.gridLines.push(gridLine);
+				}
+			
+				var setChartColor = function setChartColor(chart, labels) {
+					chart.datasets[0].points.forEach(function(point, index){
+						point.fillColor = getDotColor(labels[index], index);
+					});
+					chart.update();
+				};
+				
 				var result;
-
+				var addArrayToChart = function addArrayToChart(labels, values) {
+					var min = Math.min.apply(Math, values),
+							max = Math.max.apply(Math, values),
+							maxFraction = maxFractionalLength(values);
+	
+					chartData.labels = [];
+					labels.forEach(function(label, index){
+						chartData.labels.push(getTickTime(label));
+					});
+					
+					chartOptions.scaleSteps = pageTickCount/2;
+					chartOptions.scaleStepWidth = ((max - min)/(chartOptions.scaleSteps-1)).toFixed(maxFraction);
+					chartOptions.scaleStartValue = min - chartOptions.scaleStepWidth/2;
+					chartData.datasets[0].data = values;
+					chart.destroy();
+					chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
+					setChartColor(chart, labels);
+				};
+				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
 				var updateChartForHistory = function updateChartForHistory(ticks){
 					var times = [],
-							prices = [],
-							gridsX = [],
-							gridsY = [];
+							prices = [];
 					
 					entrySpotShowing = false;
 					exitSpotShowing = false;
+					chartOptions.gridLines = [];
 					ticks.forEach(function(tick, index){
 						var tickTime = parseInt(tick.time);
 						var tickPrice = parseFloat(tick.price);
@@ -429,36 +740,51 @@ angular
 								setObjValue(contract, 'barrier', tickPrice);
 								setObjValue(contract, 'entrySpot', tickTime, !entrySpotReached());
 								if ( !digitTrade() ) { 
-									gridsY.push({value: contract.barrier, text: 'Barrier: ' + contract.barrier});
+									addGridLine({
+										color: 'blue', 
+										label: 'barrier: '+ contract.barrier, 
+										orientation: 'horizontal', 
+										index: index
+									});
 								}
-								gridsX.push({value: contract.entrySpot, text: 'Entry Spot'});
-							} else if( isExitSpot(tickTime, index) ) { 
+								addGridLine({
+									color: 'red', 
+									label: 'Entry Spot', 
+									orientation: 'vertical', 
+									index: index
+								});
+							} else if(	isExitSpot(tickTime, index) ) { 
 								exitSpotShowing = true;
 								setObjValue(contract, 'exitSpot', tickTime, !exitSpotReached());
 								if ( entrySpotShowing ) {
-									gridsX.push({value: contract.exitSpot, text: 'Exit Spot'});
-								} else {
-									gridsX.push({value: tickTime});
+									addGridLine({
+										color: 'red', 
+										label: 'Exit Spot', 
+										orientation: 'vertical', 
+										index: index
+									});
 								}
-							} else {
-								gridsX.push({value: tickTime});
 							}
-						} else { 
-							gridsX.push({value: tickTime});
-						}
-						setObjValue(contract, 'entrySpotIndex', index, isEntrySpot( tickTime ));
-						setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
+							setObjValue(contract, 'entrySpotIndex', index, isEntrySpot( tickTime ));
+							setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
+						} 
 						times.push(tickTime);
-						prices.push(tickPrice);
+						prices.push(tick.price);
 					});
 
 					var addRegion = function addRegion(region, end) {
+						var color = (region == 'win') ? 'rgba(0, 255, 0, 0.2)': 'rgba(255, 0, 0, 0.2)';
 						if ( isDefined(end) ) {
-							chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-							chart.regions.add([{axis: 'x', start: contract.entrySpot, end: contract.exitSpot, class: region + 'Region'}]);
+							chartOptions.regions = [{
+								color: color, 
+								start: contract.entrySpotIndex, 
+								end: contract.exitSpotIndex
+							}];
 						} else {
-							chart.regions.remove({classes: ['winRegion', 'loseRegion']});
-							chart.regions.add([{axis: 'x', start: contract.entrySpot, class: region + 'Region'}]);
+							chartOptions.regions = [{
+								color: color, 
+								start: contract.entrySpotIndex, 
+							}];
 						}
 					};
 
@@ -478,20 +804,7 @@ angular
 						}
 					}
 
-					chart.load({
-						columns: [
-							['time'].concat(times),
-							['price'].concat(prices)
-						]
-					});
-					var firstPrice = Math.min.apply(Math, prices),
-							lastPrice = Math.max.apply(Math, prices),
-							priceStep = ((lastPrice - firstPrice)/(gridsX.length/2));
-					for (var i = firstPrice; i<lastPrice + priceStep/2 ; i+=priceStep){
-						gridsY.push({value: i});
-					}
-					chart.xgrids(gridsX);
-					chart.ygrids(gridsY);
+					addArrayToChart(times, prices);
 				};
 				
 				// Usage: addTick(tick:<tick object>);
@@ -558,13 +871,13 @@ angular
 				};
 
 				var dragRight = function dragRight() {
-					if ( !zooming && debouncer.drag( 'right' ) ) {
+					if ( !zooming ) {
 						next();
 					}
 				};
 
 				var dragLeft = function dragLeft() {
-					if ( !zooming && debouncer.drag( 'left' ) ) {
+					if ( !zooming ) {
 						previous();
 					}
 				};
