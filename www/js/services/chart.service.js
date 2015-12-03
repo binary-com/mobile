@@ -58,14 +58,14 @@ angular
 							return parseInt(num.toString().slice(-1));
 						},
 						conditions : {
-							CALL: function condition(barrier, price) {return price > barrier;}, 
-							PUT: function condition(barrier, price) {return price < barrier;},
+							CALL: function condition(barrier, price) {return parseFloat(price) > parseFloat(barrier);}, 
+							PUT: function condition(barrier, price) {return parseFloat(price) < parseFloat(barrier);},
 							DIGITMATCH: function condition(barrier, price) {return utils.lastDigit(barrier) == utils.lastDigit(price);},
 							DIGITDIFF: function condition(barrier, price) {return utils.lastDigit(barrier) != utils.lastDigit(price);},
 							DIGITEVEN: function condition(barrier, price) {return utils.lastDigit(price) % 2 == 0;},
 							DIGITODD: function condition(barrier, price) {return utils.lastDigit(price) % 2 != 0;},
-							DIGITUNDER: function condition(barrier, price) {return utils.lastDigit(price) < barrier;},
-							DIGITOVER: function condition(barrier, price) {return utils.lastDigit(price) > barrier;},
+							DIGITUNDER: function condition(barrier, price) {return utils.lastDigit(price) < parseInt(barrier);},
+							DIGITOVER: function condition(barrier, price) {return utils.lastDigit(price) > parseInt(barrier);},
 						},
 						digitTrade : function digitTrade(contract) {
 							if ( contract.type.indexOf( 'DIGIT' ) == 0 ) {
@@ -73,7 +73,12 @@ angular
 							}
 							return false;
 						},
-
+						getRelativeIndex : function getRelativeIndex(absoluteIndex, dataIndex) {
+							return absoluteIndex - ( chartDrawer.getCapacity() - (chartDrawer.getPageTickCount() + chartDrawer.getDataIndex()) );
+						},
+						getAbsoluteIndex : function getAbsoluteIndex(relativeIndex, dataIndex) {
+							return relativeIndex + ( chartDrawer.getCapacity() - (chartDrawer.getPageTickCount() + chartDrawer.getDataIndex()) );
+						},
 	 				};
 
 			var Debouncer = function Debouncer(debouncingSteps) {
@@ -108,17 +113,9 @@ angular
 				};
 			};
 
-			/*
-				LocalHistory(capacity<history capacity in ticks>)
-			*/
 			var LocalHistory = function LocalHistory(capacity){
-				/* 
-					historyData is initialized with a call to get `capacity' number of past prices,
-					after the initialization this historyData only gets updates from ticks
-				*/
 				var historyData = []; 
 
-				// Usage: addTick(tick:<tick object>);
 				var addTick = function addTick(tick){
 					historyData.push({
 						time: tick.epoch,
@@ -128,7 +125,6 @@ angular
 				};
 
 
-				// Usage: updateHistoryArray(historyArray, history:<history object>);
 				var updateHistoryArray = function updateHistoryArray(historyArray, history){
 					var times = history.times, 
 							prices = history.prices;
@@ -139,7 +135,6 @@ angular
 						});
 					});
 				};
-				// Usage: addHistory(history:<history object>);
 				var addHistory = function addHistory(history){
 					historyData = [];
 					updateHistoryArray(historyData, history);
@@ -160,18 +155,12 @@ angular
 					return foundIndex;
 				};
 			
-				// Usage: addCandles(candles:<candle object>);
 				var addCandles = function addCandles(candles){
-					// addCandles definition here
 				};
 
-				// Usage: addOhlc(ohlc:<ohlc object>);
 				var addOhlc = function addOhlc (ohlc){
-					// addCandles definition here
 				};
 
-				// Functions to retrieve history data
-				// Usage: getHistory(dataIndex, count, callback<function>);
 				var getHistory = function getHistory(dataIndex, count, callback) {
 					var end = capacity - dataIndex,
 							start = end - count;
@@ -275,12 +264,9 @@ angular
 					}
 				};
 				
-				var addSpot = function addSpot(index, tickTime, tickPrice) {
-					if ( isEntrySpot(tickTime) || betweenSpots(tickTime) ) { 
+				var viewSpot = function viewSpot(index, tickTime) {
 						if ( isEntrySpot( tickTime ) ) {
 							contract.entrySpotShowing = true;
-							utils.setObjValue(contract, 'barrier', tickPrice);
-							utils.setObjValue(contract, 'entrySpot', tickTime, !entrySpotReached());
 							if ( !utils.digitTrade(contract) ) { 
 								chartDrawer.addGridLine({
 									color: 'blue', 
@@ -295,9 +281,8 @@ angular
 								orientation: 'vertical', 
 								index: index
 							});
-						} else if(	isExitSpot(tickTime, index) ) { 
+						} else if(isExitSpot(tickTime, utils.getAbsoluteIndex(index)) ) { 
 							contract.exitSpotShowing = true;
-							utils.setObjValue(contract, 'exitSpot', tickTime, !exitSpotReached());
 							if ( contract.entrySpotShowing ) {
 								chartDrawer.addGridLine({
 									color: 'red', 
@@ -307,41 +292,59 @@ angular
 								});
 							}
 						}
+				};
+
+				var addSpot = function addSpot(index, tickTime, tickPrice) {
+					if ( isEntrySpot(tickTime) || betweenSpots(tickTime) ) { 
+						if ( isEntrySpot( tickTime ) ) {
+							utils.setObjValue(contract, 'barrier', tickPrice);
+							utils.setObjValue(contract, 'entrySpot', tickTime, !entrySpotReached());
+						} else if(isExitSpot(tickTime, index) ) { 
+							utils.setObjValue(contract, 'exitSpot', tickTime, !exitSpotReached());
+						}
 						utils.setObjValue(contract, 'entrySpotIndex', index, isEntrySpot( tickTime ));
 						utils.setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
 					} 
 				}; 
 
-				var addRegion = function addRegion(end) {
+				var viewRegion = function viewRegion() {
 					var color = (contract.result == 'win') ? 'rgba(0, 255, 0, 0.2)': 'rgba(255, 0, 0, 0.2)';
-					if ( utils.isDefined(end) ) {
-						contract.region.start = contract.entrySpotIndex;
-						contract.region.end = contract.exitSpotIndex;
-					} else {
-						if ( !utils.isDefined(contract.region) ){
-							contract.region = {
-								color: color,
-								start: contract.entrySpotIndex,
-							};
-							chartDrawer.addRegion(contract.region);
-						} else {
-							contract.region.start = contract.entrySpotIndex;
+					if ( contract.entrySpotShowing ) {
+						if ( contract.exitSpotShowing ) {
+							contract.region.start = utils.getRelativeIndex(contract.entrySpotIndex);
+							contract.region.end = utils.getRelativeIndex(contract.exitSpotIndex);
 							contract.region.color = color;
+						} else {
+							if ( !utils.isDefined(contract.region) ){
+								contract.region = {
+									color: color,
+									start: utils.getRelativeIndex(contract.entrySpotIndex),
+								};
+							} else {
+								contract.region.start = utils.getRelativeIndex(contract.entrySpotIndex);
+								contract.region.color = color;
+							}
 						}
+						chartDrawer.addRegion(contract.region);
+					} else {
+						chartDrawer.removeRegion(contract.region);
+					}
+				};
+
+				var viewRegions = function viewRegions() {
+					if ( entrySpotReached() ) { 
+						viewRegion();
 					}
 				};
 
 				var addRegions = function addRegions(lastTime, lastPrice) {
 					if ( entrySpotReached() ) { 
-						if ( !exitSpotReached() && betweenSpots(lastTime) ) {
+						if ( betweenSpots(lastTime) ) {
 							if ( utils.conditions[contract.type](contract.barrier, lastPrice) ) {
 								contract.result = 'win';
 							} else {
 								contract.result = 'lose';
 							}
-							addRegion();
-						} else {
-							addRegion(true);
 						}
 					}
 				};
@@ -353,6 +356,8 @@ angular
 					resetSpotShowing: resetSpotShowing,
 					addSpot: addSpot,
 					addRegions: addRegions,
+					viewSpot: viewSpot,
+					viewRegions: viewRegions,
 				};
 
 			};
@@ -360,12 +365,12 @@ angular
 			var ChartDrawer = function ChartDrawer(chartID) {
 				var dataIndex = 0, 
 						capacity = 600,
-						initialPageTickCount = 15, // maximum zoom out
-						minimumPageTickCount = 5, // maximum zoom in
+						maximumZoomOut = 15, 
+						maximumZoomIn = 5, 
 						dragging = false,
 						zooming = false,
 						updateDisabled = false,
-						pageTickCount = initialPageTickCount,
+						pageTickCount = maximumZoomOut,
 						dragSteps = 1,
 						contracts = [],
 						debouncingSteps = 3,
@@ -390,7 +395,7 @@ angular
 				};
 
 				var zoomedOut = function zoomedOut(){
-					if ( pageTickCount == initialPageTickCount ) {
+					if ( pageTickCount == maximumZoomOut ) {
 						return true;
 					} else {
 						return false;
@@ -398,7 +403,7 @@ angular
 				};
 
 				var zoomedIn = function zoomedIn(){
-					if ( pageTickCount == minimumPageTickCount ) {
+					if ( pageTickCount == maximumZoomIn ) {
 						return true;
 					} else {
 						return false;
@@ -406,7 +411,7 @@ angular
 				};
 				
 				var distribute = function distribute(i) {
-					var distance = Math.ceil(pageTickCount/minimumPageTickCount);
+					var distance = Math.ceil(pageTickCount/maximumZoomIn);
 					if ( reversedIndex(i) % distance == 0 ) { 
 						return true;
 					} else {
@@ -421,7 +426,7 @@ angular
 					if ( distribute(i) ) { 
 						var nearAnySpots = false;
 						contracts.forEach(function(contract){
-							if ( contract.nearSpots(i)	) {
+							if ( contract.nearSpots(utils.getAbsoluteIndex(i))	) {
 								nearAnySpots = true;
 							}
 						});
@@ -446,7 +451,7 @@ angular
 							color = 'blue';
 						}
 					});
-					if ( utils.isDefined(color) ) { // above logic is of higher priority
+					if ( utils.isDefined(color) ) { 
 						return color;
 					}
 					if (lastElement(index) && !showingHistory()){
@@ -480,7 +485,7 @@ angular
 					var v = point.value;
 					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!zoomedOut() && !collisionOccured(index)));
 					contracts.forEach(function(contract){
-						showPriceIf(result, v, contract.isSpot(index));
+						showPriceIf(result, v, contract.isSpot(utils.getAbsoluteIndex(index)));
 					});
 					if ( utils.isDefined(result.v) ) {
 						var ctx = this.chart.ctx;
@@ -497,7 +502,6 @@ angular
 					var point = this.datasets[0].points[gridLine.index];
 					var scale = this.scale;
 
-					// draw line
 					this.chart.ctx.beginPath();
 					if ( gridLine.orientation == 'vertical' ) {
 						this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
@@ -535,8 +539,6 @@ angular
 						};
 
 						this.calculateXLabelRotation = function(){
-							//Get the width of each grid by calculating the difference
-							//between x offsets between 0 and 1.
 
 							this.ctx.font = this.font;
 
@@ -555,7 +557,6 @@ angular
 									cosRotation,
 									firstRotatedWidth;
 								this.xLabelWidth = originalLabelWidth;
-								//Allow 3 pixels x2 padding either side for label readability
 								var xGridWidth = Math.floor(this.calculateX(1) - this.calculateX(0)) - 6;
 							}
 							else{
@@ -588,11 +589,9 @@ angular
 								}
 								ctx.beginPath();
 								if (index > 0) {
-									// This is a grid line in the centre, so drop that
 									ctx.lineWidth = this.gridLineWidth;
 									ctx.strokeStyle = this.gridLineColor;
 								} else {
-									// This is the first line on the scale
 									ctx.lineWidth = this.lineWidth;
 									ctx.strokeStyle = this.lineColor;
 								}
@@ -615,26 +614,20 @@ angular
 							}, this);
 
 							each(this.xLabels, function (label, index) {
-								//======================================================
-								//apply the filter to the index if it is a function
-								//======================================================
 								var filtered = false;
 								if (typeof this.labelsFilter === "function" && this.labelsFilter(index)) {
 									filtered = true;
 								}
 								var xPos = this.calculateX(index) + aliasPixel(this.lineWidth),
-									// Check to see if line/bar here and decide where to place the line
 									linePos = this.calculateX(index - (this.offsetGridLines ? 0.5 : 0)) + aliasPixel(this.lineWidth);
 								
 
 								ctx.beginPath();
 
 								if (index > 0) {
-									// This is a grid line in the centre, so drop that
 									ctx.lineWidth = this.gridLineWidth;
 									ctx.strokeStyle = this.gridLineColor;
 								} else {
-									// This is the first line on the scale
 									ctx.lineWidth = this.lineWidth;
 									ctx.strokeStyle = this.lineColor;
 								}
@@ -648,7 +641,6 @@ angular
 								ctx.strokeStyle = this.lineColor;
 
 
-								// Small lines at the bottom of the base grid line
 								ctx.beginPath();
 								ctx.moveTo(linePos, this.endPoint);
 								if ( filtered ) {
@@ -724,9 +716,6 @@ angular
 							ctx: this.chart.ctx,
 							textColor: this.options.scaleFontColor,
 							fontSize: this.options.scaleFontSize,
-							//======================================================
-							//pass this new options to the scale object
-							//======================================================
 							labelsFilter: this.options.labelsFilter,
 							fontStyle: this.options.scaleFontStyle,
 							fontFamily: this.options.scaleFontFamily,
@@ -763,9 +752,6 @@ angular
 							});
 						}
 
-						//======================================================
-						//Use the new Custom Scal that will make use of a labelsFilter function
-						//======================================================
 						this.scale = new Chart.CustomScale(scaleOptions);
 					}
 				});
@@ -797,11 +783,24 @@ angular
 
 				var chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
 				
+				var findRegion = function findRegion(region){
+					return chartOptions.regions.indexOf(region);
+				};			
+
 				var addRegion = function addRegion(region){
 					if ( !utils.isDefined(chartOptions.regions) ) {
 						chartOptions.regions = [];
 					}
-					chartOptions.regions.push(region);
+					if ( findRegion(region) < 0 ) {
+						chartOptions.regions.push(region);
+					}
+				};			
+
+				var removeRegion = function removeRegion(region){
+					var regionIndex = findRegion(region);
+					if ( regionIndex >= 0) {
+						chartOptions.regions.splice(regionIndex, 1);
+					}
 				};			
 
 				var dragStart = function dragStart(){
@@ -837,10 +836,6 @@ angular
 				};
 				
 				var addArrayToChart = function addArrayToChart(labels, values) {
-					var min = Math.min.apply(Math, values),
-							max = Math.max.apply(Math, values),
-							maxFraction = utils.maxFractionalLength(values);
-	
 					chartData.labels = [];
 					labels.forEach(function(label, index){
 						chartData.labels.push(utils.getTickTime(label));
@@ -852,95 +847,103 @@ angular
 					setChartColor(chart, labels);
 				};
 
-				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
-				// Usage: updateChartForHistory(ticks:<result array of getHistory call from localHistory>);
-				var updateChartForHistory = function updateChartForHistory(ticks){
-					var times = [],
-							prices = [];
-					
+				var updateChart = function updateChart(ticks){
 					chartOptions.gridLines = [];
 					contracts.forEach(function(contract){
 						contract.resetSpotShowing();
 					});
+					var times = [],
+							prices = [];
+					
 					ticks.forEach(function(tick, index){
 						var tickTime = parseInt(tick.time);
-						var tickPrice = parseFloat(tick.price);
 						contracts.forEach(function(contract){
-							contract.addSpot(index, tickTime, tickPrice);
+							contract.viewSpot(index, tickTime);
 						});
 						times.push(tickTime);
 						prices.push(tick.price);
 					});
 
-
-					var lastTime = times.slice(-1)[0],
-							lastPrice = prices.slice(-1)[0];
 					contracts.forEach(function(contract){
-						contract.addRegions(lastTime, lastPrice);
+						contract.viewRegions();
 					});
 
 					addArrayToChart(times, prices);
 				};
+
+				var updateContracts = function updateContracts(ticks){
+					var lastTime,
+							lastPrices;
+					
+					ticks.forEach(function(tick, index){
+						var tickTime = parseInt(tick.time);
+						var tickPrice = tick.price;
+						contracts.forEach(function(contract){
+							contract.addSpot(index, tickTime, tickPrice);
+						});
+						lastTime = parseInt(tick.time);
+						lastPrice = tick.price;
+					});
+
+					contracts.forEach(function(contract){
+						contract.addRegions(lastTime, lastPrice);
+					});
+				};
 				
-				// Usage: addTick(tick:<tick object>);
 				var addTick = function addTick(tick){
 					if (localHistory && !updateDisabled) {
 						localHistory.addTick(tick);
+						localHistory.getHistory(0, capacity, updateContracts);
 						if ( dataIndex == 0 && !dragging && !zooming ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else {
 							next(false);
 						}
 					}
 				};
 
-				// Usage: addHistory(history:<history object>);
 				var addHistory = function addHistory(history){
-					// initialize the localHistory
 					if (!localHistory) {
 						localHistory = LocalHistory(capacity);
 					}
 					localHistory.addHistory(history);
-					localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+					localHistory.getHistory(0, capacity, updateContracts);
+					localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 				};
 
-				// Usage: addCandles(candles:<candle object>);
 				var addCandles = function addCandles(candles){
-					// addCandles definition here
 				};
 
-				// Usage: addOhlc(ohlc:<ohlc object>);
 				var addOhlc = function addOhlc (ohlc){
-					// addCandles definition here
 				};
 					
 				
 				var zoomOut = function zoomOut(){
-					if ( pageTickCount < initialPageTickCount ){
+					if ( pageTickCount < maximumZoomOut ){
 						pageTickCount++;						
-						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 					}
 				};
 
 				var zoomIn = function zoomIn(){
-					if ( pageTickCount > minimumPageTickCount ){
+					if ( pageTickCount > maximumZoomIn ){
 						pageTickCount--;						
-						localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 					}
 				};
 
 				var first = function first(){
 					dataIndex = 0;
-					localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+					localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 				};
 
 				var next = function next(update){
 					if ( dataIndex + pageTickCount < capacity - dragSteps){
 						dataIndex += dragSteps;
 						if ( !utils.isDefined(update) ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else if (update) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						}
 					}
 				};
@@ -961,15 +964,23 @@ angular
 					if (dataIndex >= dragSteps ){
 						dataIndex -= dragSteps;
 						if ( !utils.isDefined(update) ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else if (update) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChartForHistory);
+							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						}
 					}
 				};
 
 				var getCapacity = function getCapacity() {
 					return capacity;
+				};
+
+				var getPageTickCount = function getPageTickCount() {
+					return pageTickCount;
+				};
+
+				var getDataIndex = function getDataIndex() {
+					return dataIndex;
 				};
 
 				var addContract = function addContract(_contract) {
@@ -1000,10 +1011,13 @@ angular
 					dragRight: dragRight,
 					dragLeft: dragLeft,
 					getCapacity: getCapacity,
+					getPageTickCount: getPageTickCount,
+					getDataIndex: getDataIndex,
 					addContract: addContract,
 					historyInterface: historyInterface,
 					addGridLine: addGridLine,
 					addRegion: addRegion,
+					removeRegion: removeRegion,
 				};
 
 			};
