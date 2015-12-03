@@ -1,6 +1,4 @@
-.c3-region.loseRegion {
-  fill: red;
-}
-.c3-region.winRegion {
-  fill: green;
+#tradeContractChart {
+	width: 100% !important;
+	height: 200px !important;
 }
