@@ -8,10 +8,11 @@
 
 angular
 	.module('binary')
-	.service('chartService',
+	.factory('chartService',
 		function() {
 			var localHistory,
 					chartDrawer,
+					contracts = [],
 					utils = {
 						zeroPad : function zeroPad(num){
 							if (num < 10){
@@ -80,6 +81,8 @@ angular
 							return relativeIndex + ( chartDrawer.getCapacity() - (chartDrawer.getPageTickCount() + chartDrawer.getDataIndex()) );
 						},
 	 				};
+			
+
 
 			var Debouncer = function Debouncer(debouncingSteps) {
 				var dragDirections = [];
@@ -309,14 +312,15 @@ angular
 
 				var viewRegion = function viewRegion() {
 					var color = (contract.result == 'win') ? 'rgba(0, 255, 0, 0.2)': 'rgba(255, 0, 0, 0.2)';
-					if ( contract.entrySpotShowing ) {
 						if ( contract.exitSpotShowing ) {
 							if ( utils.isDefined(contract.region) ){
-								contract.region.start = utils.getRelativeIndex(contract.entrySpotIndex);
+								var start = utils.getRelativeIndex(contract.entrySpotIndex);
+								contract.region.start = (start < 0)? 0 : start;
 								contract.region.end = utils.getRelativeIndex(contract.exitSpotIndex);
 								contract.region.color = color;
 							}
-						} else {
+							chartDrawer.addRegion(contract.region);
+						} else if ( contract.entrySpotShowing ) {
 							if ( !utils.isDefined(contract.region) ){
 								contract.region = {
 									color: color,
@@ -326,11 +330,10 @@ angular
 								contract.region.start = utils.getRelativeIndex(contract.entrySpotIndex);
 								contract.region.color = color;
 							}
+							chartDrawer.addRegion(contract.region);
+						} else {
+							chartDrawer.removeRegion(contract.region);
 						}
-						chartDrawer.addRegion(contract.region);
-					} else {
-						chartDrawer.removeRegion(contract.region);
-					}
 				};
 
 				var viewRegions = function viewRegions() {
@@ -364,8 +367,11 @@ angular
 
 			};
 
-			var ChartDrawer = function ChartDrawer(chartID) {
+			var ChartDrawer = function ChartDrawer() {
 				var dataIndex = 0, 
+						canvas,
+						ctx,
+						chart,
 						capacity = 600,
 						maximumZoomOut = 15, 
 						maximumZoomIn = 5, 
@@ -374,7 +380,6 @@ angular
 						updateDisabled = false,
 						pageTickCount = maximumZoomOut,
 						dragSteps = 1,
-						contracts = [],
 						debouncingSteps = 3,
 						debouncer = Debouncer(debouncingSteps);
 
@@ -758,22 +763,27 @@ angular
 					}
 				});
 	
-				var canvas = document.getElementById(chartID),
-					ctx = canvas.getContext('2d'),
-					chartData = {
-						labels: [],
-						labelsFilter: function (index) {
-							return !distribute(index);
-						},
-						datasets: [
-								{
-										strokeColor: "orange",
-										pointColor: "orange",
-										pointStrokeColor: "#fff",
-										data: []
-								}
-						]
-					};
+				var drawChart = function drawChart(chartID){
+					canvas = document.getElementById(chartID);
+					if ( canvas !== null ) {
+						ctx = canvas.getContext('2d');
+					}
+				};
+
+				var chartData = {
+					labels: [],
+					labelsFilter: function (index) {
+						return !distribute(index);
+					},
+					datasets: [
+						{
+							strokeColor: "orange",
+							pointColor: "orange",
+							pointStrokeColor: "#fff",
+							data: []
+						}
+					]
+				};
 				var chartOptions = {
 					animation: false,
 					bezierCurve : false,
@@ -783,7 +793,9 @@ angular
 					scaleLabel: function(valueContainer){return ''},
 				};
 
-				var chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
+				if ( utils.isDefined(ctx) ) {
+					chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
+				}
 				
 				var findRegion = function findRegion(region){
 					if ( utils.isDefined(chartOptions.regions) ) {
@@ -848,9 +860,13 @@ angular
 					});
 					
 					chartData.datasets[0].data = values;
-					chart.destroy();
-					chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
-					setChartColor(chart, labels);
+					if ( utils.isDefined(ctx) ) {
+						if ( utils.isDefined(chart) ) {
+							chart.destroy();
+						}
+						chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
+						setChartColor(chart, labels);
+					}
 				};
 
 				var updateChart = function updateChart(ticks){
@@ -1024,26 +1040,29 @@ angular
 					addGridLine: addGridLine,
 					addRegion: addRegion,
 					removeRegion: removeRegion,
+					drawChart: drawChart,
 				};
 
 			};
-			var makeChart = function makeChart(chartID) {
-				chartDrawer = ChartDrawer(chartID);
 
-				return {
-					dragStart: chartDrawer.dragStart,
-					dragEnd: chartDrawer.dragEnd,
-					zoomIn: chartDrawer.zoomIn,
-					zoomOut: chartDrawer.zoomOut,
-					zoomStart: chartDrawer.zoomStart,
-					zoomEnd: chartDrawer.zoomEnd,
-					first: chartDrawer.first,
-					dragRight: chartDrawer.dragRight,
-					dragLeft: chartDrawer.dragLeft,
-					getCapacity: chartDrawer.getCapacity,
-					addContract: chartDrawer.addContract,
-					historyInterface: chartDrawer.historyInterface
-				};
+			var drawChart = function drawChart(chartID) {
+				chartDrawer.drawChart(chartID);
 			};
-			this.makeChart = makeChart;	
+			chartDrawer = ChartDrawer();
+
+			return {
+				drawChart: drawChart,
+				dragStart: chartDrawer.dragStart,
+				dragEnd: chartDrawer.dragEnd,
+				zoomIn: chartDrawer.zoomIn,
+				zoomOut: chartDrawer.zoomOut,
+				zoomStart: chartDrawer.zoomStart,
+				zoomEnd: chartDrawer.zoomEnd,
+				first: chartDrawer.first,
+				dragRight: chartDrawer.dragRight,
+				dragLeft: chartDrawer.dragLeft,
+				getCapacity: chartDrawer.getCapacity,
+				addContract: chartDrawer.addContract,
+				historyInterface: chartDrawer.historyInterface
+			};
 	});
