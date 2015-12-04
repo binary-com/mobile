@@ -312,14 +312,15 @@ angular
 
 				var viewRegion = function viewRegion() {
 					var color = (contract.result == 'win') ? 'rgba(0, 255, 0, 0.2)': 'rgba(255, 0, 0, 0.2)';
-					if ( contract.entrySpotShowing ) {
 						if ( contract.exitSpotShowing ) {
 							if ( utils.isDefined(contract.region) ){
-								contract.region.start = utils.getRelativeIndex(contract.entrySpotIndex);
+								var start = utils.getRelativeIndex(contract.entrySpotIndex);
+								contract.region.start = (start < 0)? 0 : start;
 								contract.region.end = utils.getRelativeIndex(contract.exitSpotIndex);
 								contract.region.color = color;
 							}
-						} else {
+							chartDrawer.addRegion(contract.region);
+						} else if ( contract.entrySpotShowing ) {
 							if ( !utils.isDefined(contract.region) ){
 								contract.region = {
 									color: color,
@@ -329,11 +330,10 @@ angular
 								contract.region.start = utils.getRelativeIndex(contract.entrySpotIndex);
 								contract.region.color = color;
 							}
+							chartDrawer.addRegion(contract.region);
+						} else {
+							chartDrawer.removeRegion(contract.region);
 						}
-						chartDrawer.addRegion(contract.region);
-					} else {
-						chartDrawer.removeRegion(contract.region);
-					}
 				};
 
 				var viewRegions = function viewRegions() {
