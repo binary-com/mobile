@@ -17,21 +17,21 @@ angular
 			link: function(scope, element) {
 				var init = function() {
 					var symbol = scope.$parent.proposalToSend.symbol;
-					scope.chart = chartService.makeChart('tradeContractChart');
-					scope.$parent.chartDragLeft = scope.chart.dragLeft;
-					scope.$parent.chartDragRight = scope.chart.dragRight;
-					scope.$parent.chartTouch = scope.chart.dragStart;
-					scope.$parent.chartRelease = scope.chart.dragEnd;
-					scope.$parent.chartPinchIn = scope.chart.zoomOut;
-					scope.$parent.chartPinchOut = scope.chart.zoomIn;
-					scope.$parent.chartPinchStart = scope.chart.zoomStart;
-					scope.$parent.chartPinchEnd = scope.chart.zoomEnd;
+					chartService.drawChart('tradeContractChart');
+					scope.$parent.chartDragLeft = chartService.dragLeft;
+					scope.$parent.chartDragRight = chartService.dragRight;
+					scope.$parent.chartTouch = chartService.dragStart;
+					scope.$parent.chartRelease = chartService.dragEnd;
+					scope.$parent.chartPinchIn = chartService.zoomOut;
+					scope.$parent.chartPinchOut = chartService.zoomIn;
+					scope.$parent.chartPinchStart = chartService.zoomStart;
+					scope.$parent.chartPinchEnd = chartService.zoomEnd;
 					websocketService.sendRequestFor.forgetTicks();
 					websocketService.sendRequestFor.ticksHistory(
 						{
 							"ticks_history": symbol,
 							"end": "latest",
-							"count": scope.chart.getCapacity(),
+							"count": chartService.getCapacity(),
 							"subscribe": 1
 						}
 					);
@@ -44,7 +44,7 @@ angular
 					if ( typeof contractId !== 'undefined' ) {
 						portfolio.contracts.forEach(function(contract){
 							if (contract.contract_id == contractId){
-								scope.chart.addContract({
+								chartService.addContract({
 									startTime: contract.date_start+1,
 									duration: parseInt(scope.$parent.proposalToSend.duration),
 									type: scope.$parent.proposalToSend.contract_type,
@@ -57,25 +57,25 @@ angular
 
 				scope.$on('tick', function(e, feed){
 					if (feed){
-						scope.chart.historyInterface.addTick(feed.tick);
+						chartService.historyInterface.addTick(feed.tick);
 					}
 				});
 
 				scope.$on('history', function(e, feed){
 					if (feed){
-						scope.chart.historyInterface.addHistory(feed.history);
+						chartService.historyInterface.addHistory(feed.history);
 					}
 				});
 
 				scope.$on('candles', function(e, feed){
 					if (feed){
-						scope.chart.historyInterface.addCandles(feed.candles);
+						chartService.historyInterface.addCandles(feed.candles);
 					}
 				});
 
 				scope.$on('ohlc', function(e, feed){
 					if (feed){
-						scope.chart.historyInterface.addOhlc(feed.ohlc);
+						chartService.historyInterface.addOhlc(feed.ohlc);
 					}
 				});
 
