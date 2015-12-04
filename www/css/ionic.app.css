@@ -9372,8 +9372,8 @@ body * {
 
 .options .options-content {
   display: block;
-  padding-left: 5%;
-  padding-right: 5%; }
+  padding-left: 3%;
+  padding-right: 3%; }
   .options .options-content .col {
     padding: 1px; }
 
@@ -9487,8 +9487,8 @@ body * {
 
 .accounts-content {
   display: block;
-  padding-left: 5%;
-  padding-right: 5%; }
+  padding-left: 3%;
+  padding-right: 3%; }
   .accounts-content h1 {
     font-size: 18px; }
   .accounts-content .remove-all-accounts {
@@ -9544,5 +9544,20 @@ body * {
       line-height: 40px; }
 
 .help-content {
-  padding-left: 5%;
-  padding-right: 5%; }
+  background-color: #2a3052;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 5%;
+  color: #fff;
+  font-size: 16px; }
+  .help-content h1 {
+    font-size: 28px;
+    color: #fff; }
+  .help-content button {
+    background-color: #e98024 !important;
+    width: 80%;
+    margin: 10% auto !important;
+    font-size: 18px; }
+  .help-content a {
+    color: #fff;
+    font-weight: 700; }
