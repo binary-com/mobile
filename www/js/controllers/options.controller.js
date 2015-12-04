@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $rootScope, $state, config, proposalService, accountService, websocketService) {
+		function($scope, $rootScope, $state, config, proposalService, accountService, websocketService, chartService) {
 			$scope.selected = {};
 
 			//
