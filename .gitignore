@@ -1,6 +1,8 @@
 git .architect
 bootstrap.json
-build/
+build/node_modules/
+build/dist/
+build/.publish/
 ext/
 node_modules/
 bower_components/
