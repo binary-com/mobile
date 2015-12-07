@@ -11,7 +11,8 @@
 		"remove_all": "Remove All Accounts & Sign Out",
 		"default": "Default",
 		"set_as_default": "Set as default",
-		"add": "Add"
+		"add": "Add",
+		"new_token":"Add a new token"
 	},
 	"alert" : {
 		"error": "Error!",
