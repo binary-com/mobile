@@ -10,72 +10,73 @@ var ngAnnotate = require('gulp-ng-annotate');
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 
+
 var files = {
   static: ['../www/i18n/**/*', '../www/templates/**/*', '../www/img/**/*', '../www/fonts/**/*'],
-  lib: ['../www/lib/**/*.min.js', '../www/lib/ionic/js/ionic.bundle.js'],
+  lib: ['../www/lib/**/*.min.js', '../www/lib/ionic/js/ionic.bundle.js', '../www/lib/ionic/fonts/*'],
   style: ['../www/css/style.css'],
   script: ['../www/js/**/*'],
   index: './index.html',
   scss: '../scss/ionic.app.scss',
-  dist: 'dist'
+  dist: './dist'
 };
 
 gulp.task('default', ['deploy']);
 
 gulp.task('clean', function(){
-		return del([files.dist]);
+    return del([files.dist]);
 });
 
-gulp.task('static', ['clean'], function(){
-  gulp.src(files.static, { base: '../www/' })
+gulp.task('static', function(){
+  return gulp.src(files.static, { base: '../www/' })
     .pipe(gulp.dest(files.dist));
 });
 
-gulp.task('lib', ['static'], function(){
-  gulp.src(files.lib, { base: '../www' })
+gulp.task('lib', function(){
+  return gulp.src(files.lib, { base: '../www' })
     .pipe(gulp.dest(files.dist));
 });
 
-gulp.task('index', ['lib'], function(){
-  gulp.src(files.index)
+gulp.task('index', function(){
+  return gulp.src(files.index)
     .pipe(gulp.dest(files.dist));
 });
 
-gulp.task('sass', ['index'], function(){
-  gulp.src(files.scss)
+gulp.task('sass', function(){
+  return gulp.src(files.scss)
     .pipe(sass({
       errLogToConsole: true
     }))
     .pipe(gulp.dest(files.dist + '/css/'))
-		.pipe(vinylPaths(del))
+    .pipe(vinylPaths(del))
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
-		.pipe(rename({suffix: '.min'}))
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(files.dist + '/css/'))
-		
+    
 });
 
-gulp.task('style', ['sass'], function(){
-  gulp.src(files.style)
+gulp.task('style', function(){
+  return gulp.src(files.style)
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
-		.pipe(rename({suffix: '.min'}))
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(files.dist + '/css'));
 });
 
-gulp.task('minify-js', ['style'], function(){
-  gulp.src(files.script)
-		.pipe(concat('binary.js'))
-		.pipe(ngAnnotate())
-		.pipe(rename({suffix: '.min'}))
-		.pipe(minify())
+gulp.task('js', function(){
+  return gulp.src(files.script)
+    .pipe(concat('binary.js'))
+    .pipe(ngAnnotate())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(minify())
     .pipe(gulp.dest(files.dist + '/js'));
 });
 
-gulp.task('deploy', ['minify-js'], function() {
-  gulp.src(files.dist + '/**/*')
+gulp.task('deploy', ['static', 'lib', 'index', 'sass', 'style', 'js'], function() {
+  return gulp.src([files.dist + '/**/*'])
     .pipe(file('CNAME', 'ticktrades.binary.com'))
     .pipe(ghPages());
 });
