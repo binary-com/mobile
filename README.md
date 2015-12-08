@@ -41,3 +41,13 @@ To update SCSS files, run the following command in another terminal
 gulp sass  // compiles scss files to css
 gulp watch // compiles scss files to css everytime a scss file gets changed
 ```
+
+## Deploy new web version
+
+We build with [Gulp](http://gulpjs.com/) and deploy to [GitHub Pages](https://pages.github.com/)
+
+```
+cd build
+npm install or npm update (may need sudo)
+gulp deploy
+```
