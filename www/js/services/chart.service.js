@@ -278,22 +278,8 @@ angular
 									index: index
 								});
 							}
-							chartDrawer.addGridLine({
-								color: 'red', 
-								label: 'Entry Spot', 
-								orientation: 'vertical', 
-								index: index
-							});
 						} else if(isExitSpot(tickTime, utils.getAbsoluteIndex(index)) ) { 
 							contract.exitSpotShowing = true;
-							if ( contract.entrySpotShowing ) {
-								chartDrawer.addGridLine({
-									color: 'red', 
-									label: 'Exit Spot', 
-									orientation: 'vertical', 
-									index: index
-								});
-							}
 						}
 				};
 
@@ -372,6 +358,7 @@ angular
 						canvas,
 						ctx,
 						chart,
+						drawer,
 						capacity = 600,
 						maximumZoomOut = 15, 
 						maximumZoomIn = 5, 
@@ -380,7 +367,7 @@ angular
 						updateDisabled = false,
 						pageTickCount = maximumZoomOut,
 						dragSteps = 1,
-						debouncingSteps = 3,
+						debouncingSteps = 4,
 						debouncer = Debouncer(debouncingSteps);
 
 				debouncer.reset();
@@ -663,13 +650,6 @@ angular
 					}
 				});
 	
-				var drawChart = function drawChart(chartID){
-					canvas = document.getElementById(chartID);
-					if ( canvas !== null ) {
-						ctx = canvas.getContext('2d');
-					}
-				};
-
 				var chartData = {
 					labels: [],
 					datasets: [
@@ -681,6 +661,7 @@ angular
 						}
 					]
 				};
+
 				var chartOptions = {
 					animation: false,
 					bezierCurve : false,
@@ -690,10 +671,15 @@ angular
 					scaleLabel: function(valueContainer){return ''},
 				};
 
-				if ( utils.isDefined(ctx) ) {
-					chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
-				}
-				
+				var drawChart = function drawChart(chartID){
+					canvas = document.getElementById(chartID);
+					if ( canvas !== null ) {
+						ctx = canvas.getContext('2d');
+						chart = new Chart(ctx);
+						drawer = chart.LineChartSpots(chartData, chartOptions);
+					}
+				};
+
 				var findRegion = function findRegion(region){
 					if ( utils.isDefined(chartOptions.regions) ) {
 						return chartOptions.regions.indexOf(region);
@@ -743,11 +729,11 @@ angular
 					chartOptions.gridLines.push(gridLine);
 				}
 			
-				var setChartColor = function setChartColor(chart, labels) {
-					chart.datasets[0].points.forEach(function(point, index){
+				var setChartColor = function setChartColor(drawer, labels) {
+					drawer.datasets[0].points.forEach(function(point, index){
 						point.fillColor = getDotColor(labels[index], index);
 					});
-					chart.update();
+					drawer.update();
 				};
 				
 				var addArrayToChart = function addArrayToChart(labels, values) {
@@ -761,12 +747,9 @@ angular
 					});
 					
 					chartData.datasets[0].data = values;
-					if ( utils.isDefined(ctx) ) {
-						if ( utils.isDefined(chart) ) {
-							chart.destroy();
-						}
-						chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
-						setChartColor(chart, labels);
+					if ( utils.isDefined(chart) ) {
+						drawer = chart.LineChartSpots(chartData, chartOptions);
+						setChartColor(drawer, labels);
 					}
 				};
 
