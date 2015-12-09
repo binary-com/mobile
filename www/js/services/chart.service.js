@@ -543,7 +543,6 @@ angular
 
 
 							this.xScalePaddingRight = lastWidth/2 + 3;
-							this.xScalePaddingLeft = (firstWidth/2 > this.yLabelWidth + 10) ? firstWidth/2 : this.yLabelWidth + 10;
 
 							this.xLabelRotation = 0;
 							if (this.display){
@@ -556,8 +555,8 @@ angular
 							else{
 								this.xLabelWidth = 0;
 								this.xScalePaddingRight = this.padding;
-								this.xScalePaddingLeft = this.padding;
 							}
+							this.xScalePaddingLeft = 0;
 						};
 						Chart.Scale.prototype.initialize.apply(this, arguments);
 					},
@@ -771,7 +770,7 @@ angular
 					datasetFill : false,
 					showTooltips: false,
 					keepAspectRatio: false,
-					scaleLabel: function(valueContainer){return ''},
+					scaleShowLabels: false,
 				};
 
 				var drawChart = function drawChart(chartID){
