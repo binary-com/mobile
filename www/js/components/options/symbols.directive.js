@@ -24,7 +24,7 @@ angular
 
 					if (scope.tradeTypes.length === 0) {
 						$('.options-save button').attr("disabled", true);
-						alertService.optionsError.noTick();
+						//alertService.optionsError.noTick();
 						return;
 					}
 
