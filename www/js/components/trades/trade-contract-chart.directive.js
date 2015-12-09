@@ -9,8 +9,8 @@
 angular
 	.module('binary')
 	.directive('tradeContractChart',[
-		'websocketService', 'chartService', '$window',
-		function(websocketService, chartService, $window) {
+		'websocketService', 'chartService',
+		function(websocketService, chartService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/trade-contract-chart.template.html',
@@ -18,17 +18,7 @@ angular
 				var init = function() {
 					var symbol = scope.$parent.proposalToSend.symbol;
 					var chartID = 'tradeContractChart';
-					var w = angular.element($window)[0];
 					chartService.drawChart(chartID);
-					scope.$watch(function () {
-						return {
-							'h': w.innerHeight,
-							'w': w.innerWidth
-						};
-					}, function (newValue, oldValue) {
-						chartService.drawChart(chartID);
-					}, true);
-
 					scope.$parent.chartDragLeft = chartService.dragLeft;
 					scope.$parent.chartDragRight = chartService.dragRight;
 					scope.$parent.chartTouch = chartService.dragStart;
