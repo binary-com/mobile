@@ -120,6 +120,25 @@ angular
 
 				return finalTradeTypes;
 			};
+
+
+			// this.getActiveTickSymbolsForMarket = function(_market) {
+			// 	var symbols = JSON.parse(sessionStorage.active_symbols);
+			// 	var activeSymbols = symbols[_market];
+
+			// 	var assets = JSON.parse(sessionStorage.asset_index);
+			// 	console.log('assets: ', assets);
+
+			// 	activeSymbols.forEach(function(as) {
+			// 		console.log('as: ', as.symbol);
+			// 		assets.forEach(function(ai) {
+			// 			console.log('ai: ', ai[1]);
+			// 			console.log('ai: ', ai[2]);
+			// 		});
+			// 	});
+
+			// 	console.log('-------------------------------');
+			// };
 	});
 
 

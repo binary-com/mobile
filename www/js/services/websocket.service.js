@@ -81,6 +81,9 @@ angular
 							sessionStorage.active_symbols = JSON.stringify(openMarkets);
 							$rootScope.$broadcast('symbols:updated');
 							break;
+						case 'asset_index':
+							sessionStorage.asset_index = JSON.stringify(message.asset_index);
+							break;
 						case 'payout_currencies':
 							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
 							break;
@@ -142,6 +145,12 @@ angular
 					setInterval(function(){
 						sendMessage(data);
 					}, 60 * 1000);
+				},
+				assetIndex: function() {
+					var data = {
+						asset_index: 1
+					};
+					sendMessage(data);
 				},
 				currencies: function() {
 					var data = {
