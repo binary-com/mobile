@@ -22,7 +22,7 @@ angular
 					chartService.drawChart(chartID);
 					scope.$watch(function () {
 						return {
-							'h': w.innerHeight, 
+							'h': w.innerHeight,
 							'w': w.innerWidth
 						};
 					}, function (newValue, oldValue) {
