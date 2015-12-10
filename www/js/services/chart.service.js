@@ -543,7 +543,6 @@ angular
 
 
 							this.xScalePaddingRight = lastWidth/2 + 3;
-							this.xScalePaddingLeft = (firstWidth/2 > this.yLabelWidth + 10) ? firstWidth/2 : this.yLabelWidth + 10;
 
 							this.xLabelRotation = 0;
 							if (this.display){
@@ -556,16 +555,115 @@ angular
 							else{
 								this.xLabelWidth = 0;
 								this.xScalePaddingRight = this.padding;
-								this.xScalePaddingLeft = this.padding;
 							}
+							this.xScalePaddingLeft = 0;
 						};
 						Chart.Scale.prototype.initialize.apply(this, arguments);
+					},
+					draw: function () {
+						var helpers = Chart.helpers;
+						var each = helpers.each;
+						var aliasPixel = helpers.aliasPixel;
+						var toRadians = helpers.radians;
+						var ctx = this.ctx,
+							yLabelGap = (this.endPoint - this.startPoint) / this.steps,
+							xStart = Math.round(this.xScalePaddingLeft);
+						if (this.display) {
+							ctx.fillStyle = this.textColor;
+							ctx.font = this.font;
+							each(this.yLabels, function (labelString, index) {
+								var yLabelCenter = this.endPoint - (yLabelGap * index),
+									linePositionY = Math.round(yLabelCenter);
+
+								ctx.textAlign = "right";
+								ctx.textBaseline = "middle";
+								if (this.showLabels) {
+									ctx.fillText(labelString, xStart - 10, yLabelCenter);
+								}
+								ctx.beginPath();
+								if (index > 0) {
+									ctx.lineWidth = this.gridLineWidth;
+									ctx.strokeStyle = this.gridLineColor;
+								} else {
+									ctx.lineWidth = this.lineWidth;
+									ctx.strokeStyle = this.lineColor;
+								}
+
+								linePositionY += helpers.aliasPixel(ctx.lineWidth);
+
+								ctx.moveTo(xStart, linePositionY);
+								ctx.lineTo(this.width, linePositionY);
+								ctx.stroke();
+								ctx.closePath();
+
+								ctx.lineWidth = this.lineWidth;
+								ctx.strokeStyle = this.lineColor;
+								ctx.beginPath();
+								ctx.moveTo(xStart - 5, linePositionY);
+								ctx.lineTo(xStart, linePositionY);
+								ctx.stroke();
+								ctx.closePath();
+
+							}, this);
+
+							each(this.xLabels, function (label, index) {
+								var filtered = false;
+								if (typeof this.labelsFilter === "function" && this.labelsFilter(index)) {
+									filtered = true;
+								}
+								var xPos = this.calculateX(index) + aliasPixel(this.lineWidth),
+									linePos = this.calculateX(index - (this.offsetGridLines ? 0.5 : 0)) + aliasPixel(this.lineWidth);
+								
+
+								ctx.beginPath();
+
+								if (index > 0) {
+									ctx.lineWidth = this.gridLineWidth;
+									ctx.strokeStyle = this.gridLineColor;
+								} else {
+									ctx.lineWidth = this.lineWidth;
+									ctx.strokeStyle = this.lineColor;
+								}
+								ctx.moveTo(linePos, this.endPoint);
+								ctx.lineTo(linePos, this.startPoint - 3);
+								ctx.stroke();
+								ctx.closePath();
+
+
+								ctx.lineWidth = this.lineWidth;
+								ctx.strokeStyle = this.lineColor;
+
+
+								ctx.beginPath();
+								ctx.moveTo(linePos, this.endPoint);
+								if ( filtered ) {
+									ctx.lineTo(linePos, this.endPoint);
+								} else {
+									ctx.lineTo(linePos, this.endPoint + 10);
+								}
+								ctx.stroke();
+								ctx.closePath();
+
+								ctx.save();
+								ctx.translate(xPos, this.endPoint + 8);
+
+								ctx.textAlign = "center";
+								ctx.textBaseline = "top";
+								if ( !filtered ) {
+									ctx.fillText(label, 0, 0);
+								}
+								ctx.restore();
+
+							}, this);
+
+						}
 					}
 				});
 
 				Chart.types.Line.extend({
 					name: "LineChartSpots",
 					initialize: function (data) {
+						this.options.labelsFilter = data.labelsFilter || null;
 						Chart.types.Line.prototype.initialize.apply(this, arguments);
 					},
 					draw: function () {
@@ -611,6 +709,7 @@ angular
 							ctx: this.chart.ctx,
 							textColor: this.options.scaleFontColor,
 							fontSize: this.options.scaleFontSize,
+							labelsFilter: this.options.labelsFilter,
 							fontStyle: this.options.scaleFontStyle,
 							fontFamily: this.options.scaleFontFamily,
 							valuesCount: labels.length,
@@ -652,6 +751,9 @@ angular
 	
 				var chartData = {
 					labels: [],
+					labelsFilter: function (index) {
+						return !distribute(index);
+					},
 					datasets: [
 						{
 							strokeColor: "orange",
@@ -668,7 +770,7 @@ angular
 					datasetFill : false,
 					showTooltips: false,
 					keepAspectRatio: false,
-					scaleLabel: function(valueContainer){return ''},
+					scaleShowLabels: false,
 				};
 
 				var drawChart = function drawChart(chartID){
@@ -739,11 +841,7 @@ angular
 				var addArrayToChart = function addArrayToChart(labels, values) {
 					chartData.labels = [];
 					labels.forEach(function(label, index){
-						if ( distribute(index) ) {
-							chartData.labels.push(utils.getTickTime(label));
-						} else {
-							chartData.labels.push('');
-						}
+						chartData.labels.push(utils.getTickTime(label));
 					});
 					
 					chartData.datasets[0].data = values;
