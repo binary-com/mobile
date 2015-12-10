@@ -15,6 +15,5 @@
   },
   "_source": "git://github.com/EightMedia/hammer.js.git",
   "_target": "~2.0.4",
-  "_originalSource": "hammerjs",
-  "_direct": true
+  "_originalSource": "hammerjs"
 }

@@ -33,6 +33,5 @@
   },
   "_source": "git://github.com/ryanmullins/angular-hammer.git",
   "_target": "~2.1.10",
-  "_originalSource": "ryanmullins-angular-hammer",
-  "_direct": true
+  "_originalSource": "ryanmullins-angular-hammer"
 }

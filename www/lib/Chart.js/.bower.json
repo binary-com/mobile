@@ -16,6 +16,5 @@
   },
   "_source": "git://github.com/nnnick/Chart.js.git",
   "_target": "~1.0.2",
-  "_originalSource": "Chart.js",
-  "_direct": true
+  "_originalSource": "Chart.js"
 }
