@@ -13,7 +13,6 @@ git remote add upstream git@github.com:binary-com/mobile.git
 
 npm install -g bower gulp cordova ionic ios-sim
 npm install
-bower install
 ```
 
 ## Running the App - localhost
