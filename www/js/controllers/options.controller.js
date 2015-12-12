@@ -43,6 +43,10 @@ angular
 
 				$state.go('trade', {}, { reload: true, inherit: false, notify: true });
 			};
+
+			$scope.$on('connection:reopened', function(e) {
+				accountService.validate();
+			});
 	});
 
 
