@@ -14,4 +14,8 @@ angular
 			$scope.navigateToOptionsPage = function() {
 				$state.go('options', {}, {reload: true});
 			};
+
+			$scope.$on('connection:reopened', function(e) {
+				accountService.validate();
+			});
 	});

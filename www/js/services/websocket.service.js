@@ -29,6 +29,7 @@ angular
 					console.log('socket is closed ', e);
 					init();
 					console.log('socket is reopened');
+					$rootScope.$broadcast('connection:reopened');
 				};
 				dataStream.onerror = function(e) {
 					console.log('error in socket ', e);
