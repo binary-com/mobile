@@ -19,6 +19,7 @@ angular
 				dataStream = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=' + language);
 
 				dataStream.onopen = function() {
+					console.log('socket is opened');
 					dataStream.send(JSON.stringify({ping: 1}));
 				};
 				dataStream.onmessage = function(message) {
@@ -27,6 +28,7 @@ angular
 				dataStream.onclose = function(e) {
 					console.log('socket is closed ', e);
 					init();
+					console.log('socket is reopened');
 				};
 				dataStream.onerror = function(e) {
 					console.log('error in socket ', e);
@@ -123,15 +125,11 @@ angular
 			};
 
 			this.init = function() {
-				// if (!dataStream || dataStream.readyState === 3) {
-				// 	init();
-				// }
-
-				setInterval(function hello() {
+				setInterval(function restart() {
 					if (!dataStream || dataStream.readyState === 3) {
 						init();
 					}
-					return hello;
+					return restart;
 				}(), 1000);
 			};
 
