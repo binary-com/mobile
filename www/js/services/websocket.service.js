@@ -123,9 +123,16 @@ angular
 			};
 
 			this.init = function() {
-				if (!dataStream || dataStream.readyState === 3) {
-					init();
-				}
+				// if (!dataStream || dataStream.readyState === 3) {
+				// 	init();
+				// }
+
+				setInterval(function hello() {
+					if (!dataStream || dataStream.readyState === 3) {
+						init();
+					}
+					return hello;
+				}(), 1000);
 			};
 
 			this.authenticate = function(_token) {
@@ -218,31 +225,4 @@ angular
 					}
 				}
 			};
-
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
