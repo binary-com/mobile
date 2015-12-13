@@ -10,10 +10,9 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $rootScope, $state, config, proposalService, accountService, websocketService, chartService) {
+		function($scope, $rootScope, $state, $window, config, proposalService, accountService, websocketService, chartService) {
 			$scope.selected = {};
 
-			//
 			websocketService.sendRequestFor.symbols();
 
 			$scope.navigateToManageAccounts = function() {
@@ -43,6 +42,13 @@ angular
 
 				$state.go('trade', {}, { reload: true, inherit: false, notify: true });
 			};
+
+			$scope.$on('connection:reopened', function(e) {
+				if (accountService.hasDefault()) {
+					accountService.validate();
+				}
+				$window.location.reload();
+			});
 	});
 
 

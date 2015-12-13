@@ -56,7 +56,7 @@ angular
 			 * if '_token' param is not passed, validates the default token
 			 * @param  {String} _token
 			 */
-			this.validate = function(_token) {
+			var validate = function(_token) {
 				if (_token) {
 					websocketService.authenticate(_token);
 				} else {
@@ -68,6 +68,22 @@ angular
 						websocketService.authenticate(token);
 					}
 				}
+			};
+
+			this.validate = function(_token) {
+				if (!_token) {
+					var accountList = this.getAll();
+					var defaultAccountIndex = findIndex(accountList, 'is_default', true);
+					// If default account exist
+					if (defaultAccountIndex > -1) {
+						_token = accountList[defaultAccountIndex].token;
+					}
+				}
+
+				validate(_token);
+				// setInterval(function() {
+				// 	validate(_token);
+				// }, 1000);
 			};
 
 			/**
