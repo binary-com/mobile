@@ -10,12 +10,15 @@
 angular
 	.module('binary')
 	.controller('AccountsController',
-		function($scope, $rootScope, $state, $ionicPopup, websocketService, accountService) {
+		function($scope, $rootScope, $state, $window, $ionicPopup, websocketService, accountService) {
 			$scope.navigateToOptionsPage = function() {
 				$state.go('options', {}, {reload: true});
 			};
 
 			$scope.$on('connection:reopened', function(e) {
-				accountService.validate();
+				if (accountService.hasDefault()) {
+					accountService.validate();
+				}
+				$window.location.reload();
 			});
 	});
