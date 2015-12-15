@@ -23,9 +23,24 @@ bower update
 ionic serve
 ```
 
-## Running the App - iOS
+## Running the App - iOS Emulator
 ```shell
 ionic emulate ios
+```
+
+## Runing The App - iOS Device
+```shell
+cordova run ios --device
+```
+
+## Runing the App - Android Emulator
+```shell
+ionic emulate android
+```
+
+## Running the App - Android Device
+```shell
+cordova run android --device
 ```
 
 ## Submitting the code
