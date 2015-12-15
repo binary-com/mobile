@@ -9145,6 +9145,12 @@ body * {
   position: relative;
   height: 100%; }
 
+@media screen and (max-width: 400px) {
+  .trade .contract-price .price {
+    display: inline-block; }
+  .options select {
+    padding-right: 0px; } }
+
 .bar-header {
   background-color: #2a3052;
   position: relative; }
@@ -9373,10 +9379,6 @@ body * {
         color: #4CBB17; }
     .trade .contract-details .row:last-child {
       border-bottom: 1px solid #c4c4c4; }
-
-@media screen and (max-width: 400px) {
-  .trade .contract-price .price {
-    display: inline-block; } }
 
 .options .options-content {
   display: block;
