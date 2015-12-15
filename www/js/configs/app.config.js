@@ -58,5 +58,14 @@ angular
 				digits: true
 			}
 		],
-		'language': 'en'
+		'language': 'en',
+		'assetIndexes': {
+		    symbol: 0,
+		    displayName: 1,
+		    contracts : 2,
+		        contractName: 0,
+		        contractDisplayName: 1,
+		        contractFrom: 2,
+		        contractTo  : 3
+		}
 });
