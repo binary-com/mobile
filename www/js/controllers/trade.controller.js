@@ -63,4 +63,17 @@ angular
 				$scope.tradeMode = true;
 				websocketService.sendRequestFor.balance();
 			};
+
+			$scope.$on('connection:reopened', function(e) {
+				if (accountService.hasDefault()) {
+					accountService.validate();
+
+					websocketService.sendRequestFor.symbols();
+
+					$scope.proposalToSend = JSON.parse(localStorage.proposal);
+					$scope.tradeMode = true;
+
+					proposalService.send();
+				}
+			});
 	});
