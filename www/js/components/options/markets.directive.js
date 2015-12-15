@@ -23,10 +23,15 @@ angular
 				var updateSymbols = function(_market) {
 					scope.symbols = marketService.getAllSymbolsForAMarket(_market);
 					//marketService.getActiveTickSymbolsForMarket(_market);
-					if (scope.symbols) {
+					if (scope.symbols.length > 0) {
 						scope.$parent.selected.symbol = marketService.getDefault.symbol(_market, scope.symbols);
 						marketService.getSymbolDetails(scope.$parent.selected.symbol);
 					}
+					else{ 
+						// If there is not any symbol that has tick support, a empty array broadcast for symbol
+						scope.$parent.$broadcast('symbol', []);
+					}
+
 					if(!scope.$$phase) {
 						scope.$apply();
 					}
@@ -45,14 +50,19 @@ angular
 					};
 
 					scope.$parent.selected.market = marketService.getDefault.market(scope.market);
-
 					updateSymbols(scope.$parent.selected.market);
+
+					
 				};
 
 				init();
 
 				scope.$on('symbols:updated', function(e, _symbol) {
 					init();
+				});
+
+				scope.$on('assetIndex:updated', function(e, _symbol){
+					updateSymbols(scope.$parent.selected.market);
 				});
 
 				scope.updateMarket = function(_market) {
