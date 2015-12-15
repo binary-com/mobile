@@ -19,6 +19,7 @@ angular
 				dataStream = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=' + language);
 
 				dataStream.onopen = function() {
+					console.log('socket is opened');
 					dataStream.send(JSON.stringify({ping: 1}));
 				};
 				dataStream.onmessage = function(message) {
@@ -27,6 +28,8 @@ angular
 				dataStream.onclose = function(e) {
 					console.log('socket is closed ', e);
 					init();
+					console.log('socket is reopened');
+					$rootScope.$broadcast('connection:reopened');
 				};
 				dataStream.onerror = function(e) {
 					console.log('error in socket ', e);
@@ -81,6 +84,10 @@ angular
 							sessionStorage.active_symbols = JSON.stringify(openMarkets);
 							$rootScope.$broadcast('symbols:updated');
 							break;
+						case 'asset_index':
+							sessionStorage.asset_index = JSON.stringify(message.asset_index);
+							$rootScope.$broadcast('assetIndex:updated');
+							break;
 						case 'payout_currencies':
 							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
 							break;
@@ -120,9 +127,12 @@ angular
 			};
 
 			this.init = function() {
-				if (!dataStream || dataStream.readyState === 3) {
-					init();
-				}
+				setInterval(function restart() {
+					if (!dataStream || dataStream.readyState === 3) {
+						init();
+					}
+					return restart;
+				}(), 1000);
 			};
 
 			this.authenticate = function(_token) {
@@ -137,6 +147,15 @@ angular
 				symbols: function() {
 					var data = {
 						active_symbols: "brief"
+					};
+					sendMessage(data);
+					setInterval(function(){
+						sendMessage(data);
+					}, 60 * 1000);
+				},
+				assetIndex: function() {
+					var data = {
+						asset_index: 1
 					};
 					sendMessage(data);
 					setInterval(function(){
@@ -209,31 +228,4 @@ angular
 					}
 				}
 			};
-
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
