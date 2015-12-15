@@ -18,8 +18,28 @@ angular
 			};
 
 			this.getAllSymbolsForAMarket = function(_market) {
-				var data = JSON.parse(sessionStorage.active_symbols);
-				return data[_market];
+				var activeSymbols = JSON.parse(sessionStorage.active_symbols)[_market];
+				var assetIndex = JSON.parse(sessionStorage.asset_index);
+				var indexes = config.assetIndexes;
+				var result = [];
+
+				activeSymbols.map(function(market){
+					for(i=0; i < assetIndex.length; i++){
+						if(market.symbol === assetIndex[i][indexes.symbol]){
+							var assetContracts = assetIndex[i][indexes.contracts];
+			                for(var c = 0; c < assetContracts.length; c++) {
+			                    if(assetContracts[c][indexes.contractFrom].indexOf('t') !== -1) {
+			                        result.push(market);
+			                        break;
+			                    }
+			                }
+			                break; // do not loop through remained assets, since the related asset_index has been found but is not supporting ticks
+	            		}
+			        }
+			        assetIndex.splice(i, 1); // to shorten the list for the next loop
+				});
+
+				return result;
 			};
 
 			this.getSymbolDetails = function(_symbol) {

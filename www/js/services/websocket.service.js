@@ -86,6 +86,7 @@ angular
 							break;
 						case 'asset_index':
 							sessionStorage.asset_index = JSON.stringify(message.asset_index);
+							$rootScope.$broadcast('assetIndex:updated');
 							break;
 						case 'payout_currencies':
 							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
@@ -157,6 +158,9 @@ angular
 						asset_index: 1
 					};
 					sendMessage(data);
+					setInterval(function(){
+						sendMessage(data);
+					}, 60 * 1000);
 				},
 				currencies: function() {
 					var data = {
