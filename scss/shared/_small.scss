@@ -2,10 +2,8 @@
 	.trade .contract-price .price {
 		display: inline-block;
 	}
-	.options {
-		select {
-			padding-right: 0px;
-			padding-left: 0px;
-		}
+	.options .item-select select {
+		padding-right: 0px;
+		padding-left: 0px;
 	}
 }
