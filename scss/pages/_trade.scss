@@ -1,4 +1,10 @@
 .trade {
+
+	#tradeContractChart {
+		width: 100% !important;
+		height: 200px !important;
+	}
+
 	.contract-summary {
 		padding: 5px 10px 5px 10px;
 		text-align: center;
@@ -129,5 +135,10 @@
 				border-bottom: 1px solid $gray;
 			}
 		}
+	}
+}
+@media screen and (max-width: 400px) {
+	.trade .contract-price .price {
+		display: inline-block;
 	}
 }

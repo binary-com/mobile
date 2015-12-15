@@ -9277,6 +9277,10 @@ body * {
   .sign-in :-ms-input-placeholder {
     color: #f2f2f2; }
 
+.trade #tradeContractChart {
+  width: 100% !important;
+  height: 200px !important; }
+
 .trade .contract-summary {
   padding: 5px 10px 5px 10px;
   text-align: center;
@@ -9369,6 +9373,10 @@ body * {
         color: #4CBB17; }
     .trade .contract-details .row:last-child {
       border-bottom: 1px solid #c4c4c4; }
+
+@media screen and (max-width: 400px) {
+  .trade .contract-price .price {
+    display: inline-block; } }
 
 .options .options-content {
   display: block;
