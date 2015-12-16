@@ -155,3 +155,15 @@
 .popover-backdrop.active {
     background-color: rgba(0, 0, 0, 0.5);
 }
+/*Fix for padding in Safari*/
+@media all and (-webkit-min-device-pixel-ratio:0) {
+	.options .options-trade .item {
+		padding-top: 2px;
+	}
+}
+/*Override above fix for Chrome*/
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+	.options .options-trade .item {
+		padding-top: 0px;
+	}
+}
