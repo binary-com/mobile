@@ -1,10 +1,10 @@
 <div class="contract-chart">
 	<div id="chartContainer">
 		<canvas id="tradeContractChart"
-			on-drag-left="chartDragLeft()"
-			on-drag-right="chartDragRight()" 
-			on-touch="chartTouch()" 
-			on-release="chartRelease()"
+			hm-panleft="chartDragLeft"
+			hm-panright="chartDragRight" 
+			hm-panstart="chartTouch" 
+			hm-panend="chartRelease"
 			hm-pinchin="chartPinchIn"
 			hm-pinchout="chartPinchOut"
 			hm-pinchstart="chartPinchStart"
