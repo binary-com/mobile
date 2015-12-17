@@ -84,31 +84,21 @@ angular
 			
 
 
-			var Debouncer = function Debouncer(debouncingSteps) {
-				var dragDirections = [];
-				var consensus = function consensus() {
-					var first = dragDirections[0],
-							count = 0;
-					dragDirections.forEach(function(direction){
-						if (direction == first) {
-							count++;
-						}
-					});
-					if ( count == debouncingSteps ) {
-						reset();
-						return first;
+			var Stepper = function Stepper(tickDistance) {
+				var currentPosition;
+				var reset = function reset(position) {
+					currentPosition = position;
+				};
+				var isStep = function isStep(position) {
+					if ( Math.abs(currentPosition - position) >= tickDistance ) {
+						reset(position);
+						return true;
+					} else {
+						return false;
 					}
 				};
-				var reset = function reset() {
-					dragDirections = [];
-					for (var i = 0; i < debouncingSteps; i++) {
-						dragDirections.push(i);
-					}
-				};
-				var drag = function drag(direction) {
-					dragDirections.push(direction);
-					dragDirections.shift();
-					return consensus();
+				var drag = function drag(position) {
+					return isStep(position);
 				};
 				return {
 					drag: drag,
@@ -367,10 +357,9 @@ angular
 						updateDisabled = false,
 						pageTickCount = maximumZoomOut,
 						dragSteps = 1,
-						debouncingSteps = 4,
-						debouncer = Debouncer(debouncingSteps);
+						tickDistance = 0, // this is calculated dynamically, setting it has no effect
+						stepper = Stepper(tickDistance);
 
-				debouncer.reset();
 
 				var showPriceIf = function showPriceIf(result, v, condition) {
 					utils.setObjValue(result, 'v', v, condition);
@@ -779,6 +768,8 @@ angular
 						ctx = canvas.getContext('2d');
 						chart = new Chart(ctx);
 						drawer = chart.LineChartSpots(chartData, chartOptions);
+						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
+						stepper = Stepper(tickDistance);
 					}
 				};
 
@@ -806,13 +797,12 @@ angular
 					}
 				};			
 
-				var dragStart = function dragStart(){
-					debouncer.reset();
+				var dragStart = function dragStart(e){
+					stepper.reset(e.center.x);
 					dragging = true;
 				};
 
-				var dragEnd = function dragEnd(){
-					debouncer.reset();
+				var dragEnd = function dragEnd(e){
 					dragging = false;
 				};
 
@@ -952,14 +942,14 @@ angular
 					}
 				};
 
-				var dragRight = function dragRight() {
-					if ( !zooming && debouncer.drag( 'right' ) ) {
+				var dragRight = function dragRight(e) {
+					if ( !zooming && stepper.drag( e.center.x ) ) {
 						next();
 					}
 				};
 
-				var dragLeft = function dragLeft() {
-					if ( !zooming && debouncer.drag( 'left' ) ) {
+				var dragLeft = function dragLeft(e) {
+					if ( !zooming && stepper.drag( e.center.x ) ) {
 						previous();
 					}
 				};
