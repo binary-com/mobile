@@ -9145,6 +9145,9 @@ body * {
   position: relative;
   height: 100%; }
 
+.scroll {
+  padding-bottom: 1px; }
+
 @media screen and (max-width: 400px) {
   .trade .contract-price .price {
     display: inline-block; }
@@ -9287,9 +9290,6 @@ body * {
 .trade #tradeContractChart {
   width: 100% !important;
   height: 200px !important; }
-
-.trade .scroll {
-  padding-bottom: 1px; }
 
 .trade .contract-summary {
   padding: 5px 10px 5px 10px;
