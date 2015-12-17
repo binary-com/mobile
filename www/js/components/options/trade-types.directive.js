@@ -11,7 +11,8 @@ angular
 	.directive('tradeTypesOption',[
 		'marketService',
 		'config',
-		function(marketService, config) {
+		'$ionicScrollDelegate',
+		function(marketService, config, $ionicScrollDelegate) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/options/trade-types.template.html',
@@ -35,6 +36,12 @@ angular
 					});
 				};
 
+				scope.$parent.$watch(function(){
+					var digitsVisible = angular.element(document).find('digits-option').hasClass('ng-hide');
+					return digitsVisible;
+				}, function(){
+					$ionicScrollDelegate.resize();
+				}, false);
 			}
 		};
 	}]);

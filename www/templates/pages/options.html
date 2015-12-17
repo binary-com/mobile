@@ -5,16 +5,18 @@
 			<img src="img/binary.svg" alt="Binary.com">
 		</h1>
 	</div>
-	<ion-content class="options-content">
-		<change-account></change-account>
-		<markets-option></markets-option>
-		<symbols-option></symbols-option>
-		<trade-types-option></trade-types-option>
-		<ticks-option></ticks-option>
-		<digits-option ng-if="displayDigits"></digits-option>
-		<payout-stake-option></payout-stake-option>
-		<div class="options-save row">
-			<button class="button button-block" ng-click="saveChanges()">{{'options.save' | translate }}</button>
-		</div>
-	</ion-content>
+	<ion-pane>
+		<ion-content class="options-content">
+			<change-account></change-account>
+			<markets-option></markets-option>
+			<symbols-option></symbols-option>
+			<trade-types-option></trade-types-option>
+			<ticks-option></ticks-option>
+			<digits-option ng-if="displayDigits"></digits-option>
+			<payout-stake-option></payout-stake-option>
+			<div class="options-save row">
+				<button class="button button-block" ng-click="saveChanges()">{{'options.save' | translate }}</button>
+			</div>
+		</ion-content>
+	</ion-pane>
 </ion-view>
