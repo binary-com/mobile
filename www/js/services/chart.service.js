@@ -86,23 +86,30 @@ angular
 
 			var Stepper = function Stepper() {
 				var tickDistance = 0;
-				var currentPosition = 0;
-				var setStartPosition = function setStartPosition (position){
-					currentPosition = position;
+				var startingPosition = 0;
+				var startingDataIndex = 0;
+				var started = false;
+				var setStartPosition = function setStartPosition (dataIndex, position){
+					startingPosition = position;
+					startingDataIndex = dataIndex;
+					started = true;
 				};
-				var stepCount = function stepCount(position) {
-					var count = Math.floor(Math.abs(currentPosition - position) / tickDistance);
-					if ( count > 0 ) {
-						currentPosition = position;
+				var stepCount = function stepCount(dataIndex, position) {
+					if ( !started ) {
+						return 0;
 					}
-					return count;
+					return ( startingDataIndex + Math.floor((position - startingPosition)/tickDistance) ) - dataIndex;
 				};
 				var setDistance = function setDistance(canvas, pageTickCount) {
 					if ( canvas !== null ) {
 						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
 					}
 				};
+				var stop = function stop() {
+					started = false;
+				};
 				return {
+					stop: stop,
 					setDistance: setDistance,
 					setStartPosition: setStartPosition,
 					stepCount: stepCount,
@@ -801,11 +808,12 @@ angular
 				};			
 
 				var dragStart = function dragStart(e){
-					stepper.setStartPosition(e.center.x);
+					stepper.setStartPosition(dataIndex, e.center.x);
 					dragging = true;
 				};
 
 				var dragEnd = function dragEnd(e){
+					stepper.stop();
 					dragging = false;
 				};
 
@@ -894,7 +902,7 @@ angular
 						if ( dataIndex == 0 && !dragging && !zooming ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else {
-							next(1, false);
+							dataIndex++;
 						}
 					}
 				};
@@ -936,43 +944,26 @@ angular
 					localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 				};
 
-				var next = function next(steps, update){
-					if ( steps < 1 ) {
+				var move = function move(steps){
+					if ( steps == 0 ) {
 						return;
 					}
-					if ( dataIndex + pageTickCount < capacity - steps ){
-						dataIndex += steps;
-						if ( !utils.isDefined(update) ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						} else if (update) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						}
+					var testDataIndex = dataIndex + steps;
+					if ( testDataIndex >=0 && testDataIndex < capacity - pageTickCount ){
+						dataIndex = testDataIndex;
+						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 					}
 				};
 
 				var dragRight = function dragRight(e) {
 					if ( !zooming ) {
-						next(stepper.stepCount( e.center.x ));
+						move(stepper.stepCount( dataIndex, e.center.x ));
 					}
 				};
 
 				var dragLeft = function dragLeft(e) {
 					if ( !zooming ) {
-						previous(stepper.stepCount( e.center.x ));
-					}
-				};
-
-				var previous = function previous(steps, update){
-					if ( steps < 1 ) {
-						return;
-					}
-					if (dataIndex >= steps){
-						dataIndex -= steps;
-						if ( !utils.isDefined(update) ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						} else if (update) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						}
+						move(stepper.stepCount( dataIndex, e.center.x ));
 					}
 				};
 
