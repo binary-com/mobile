@@ -352,10 +352,11 @@ angular
 						capacity = 600,
 						maximumZoomOut = 50, 
 						maximumZoomIn = 5, 
+						hideValuesThreshold = 15,
+						pageTickCount = 15,
 						dragging = false,
 						zooming = false,
 						updateDisabled = false,
-						pageTickCount = 15,
 						dragSteps = 1,
 						tickDistance = 0, // this is calculated dynamically, setting it has no effect
 						stepper = Stepper(tickDistance);
@@ -377,8 +378,8 @@ angular
 					}
 				};
 
-				var zoomedOut = function zoomedOut(){
-					if ( pageTickCount == maximumZoomOut ) {
+				var hideValues = function hideValues(){
+					if ( pageTickCount >= hideValuesThreshold ) {
 						return true;
 					} else {
 						return false;
@@ -466,7 +467,7 @@ angular
 				var drawLabel = function drawLabel(point, index){
 					var result= {};
 					var v = point.value;
-					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!zoomedOut() && !collisionOccured(index)));
+					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!hideValues() && !collisionOccured(index)));
 					contracts.forEach(function(contract){
 						showPriceIf(result, v, contract.isSpot(utils.getAbsoluteIndex(index)));
 					});
