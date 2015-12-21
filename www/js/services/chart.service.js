@@ -84,7 +84,8 @@ angular
 			
 
 
-			var Stepper = function Stepper(tickDistance) {
+			var Stepper = function Stepper() {
+				var tickDistance = 0;
 				var currentPosition;
 				var reset = function reset(position) {
 					currentPosition = position;
@@ -97,10 +98,16 @@ angular
 						return false;
 					}
 				};
+				var setDistance = function setDistance(canvas, pageTickCount) {
+					if ( canvas !== null ) {
+						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
+					}
+				};
 				var drag = function drag(position) {
 					return isStep(position);
 				};
 				return {
+					setDistance: setDistance,
 					drag: drag,
 					reset: reset
 				};
@@ -359,7 +366,7 @@ angular
 						updateDisabled = false,
 						dragSteps = 1,
 						tickDistance = 0, // this is calculated dynamically, setting it has no effect
-						stepper = Stepper(tickDistance);
+						stepper = Stepper();
 
 
 				var showPriceIf = function showPriceIf(result, v, condition) {
@@ -769,8 +776,8 @@ angular
 						ctx = canvas.getContext('2d');
 						chart = new Chart(ctx);
 						drawer = chart.LineChartSpots(chartData, chartOptions);
-						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
-						stepper = Stepper(tickDistance);
+						stepper = Stepper();
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
@@ -917,6 +924,7 @@ angular
 					if ( pageTickCount < maximumZoomOut ){
 						pageTickCount++;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
@@ -924,6 +932,7 @@ angular
 					if ( pageTickCount > maximumZoomIn ){
 						pageTickCount--;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
