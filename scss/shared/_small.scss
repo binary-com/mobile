@@ -3,7 +3,10 @@
 		display: inline-block;
 	}
 	.options .item-select select {
-		padding-right: 0px;
+		padding-right: 8px;
 		padding-left: 0px;
+	}
+	.options .item-select::after {
+		right: 0px;
 	}
 }

@@ -84,7 +84,8 @@ angular
 			
 
 
-			var Stepper = function Stepper(tickDistance) {
+			var Stepper = function Stepper() {
+				var tickDistance = 0;
 				var currentPosition;
 				var reset = function reset(position) {
 					currentPosition = position;
@@ -97,10 +98,16 @@ angular
 						return false;
 					}
 				};
+				var setDistance = function setDistance(canvas, pageTickCount) {
+					if ( canvas !== null ) {
+						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
+					}
+				};
 				var drag = function drag(position) {
 					return isStep(position);
 				};
 				return {
+					setDistance: setDistance,
 					drag: drag,
 					reset: reset
 				};
@@ -350,15 +357,16 @@ angular
 						chart,
 						drawer,
 						capacity = 600,
-						maximumZoomOut = 15, 
+						maximumZoomOut = 50, 
 						maximumZoomIn = 5, 
+						hideValuesThreshold = 15,
+						pageTickCount = 15,
 						dragging = false,
 						zooming = false,
 						updateDisabled = false,
-						pageTickCount = maximumZoomOut,
 						dragSteps = 1,
 						tickDistance = 0, // this is calculated dynamically, setting it has no effect
-						stepper = Stepper(tickDistance);
+						stepper = Stepper();
 
 
 				var showPriceIf = function showPriceIf(result, v, condition) {
@@ -377,8 +385,8 @@ angular
 					}
 				};
 
-				var zoomedOut = function zoomedOut(){
-					if ( pageTickCount == maximumZoomOut ) {
+				var hideValues = function hideValues(){
+					if ( pageTickCount >= hideValuesThreshold ) {
 						return true;
 					} else {
 						return false;
@@ -466,7 +474,7 @@ angular
 				var drawLabel = function drawLabel(point, index){
 					var result= {};
 					var v = point.value;
-					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!zoomedOut() && !collisionOccured(index)));
+					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!hideValues() && !collisionOccured(index)));
 					contracts.forEach(function(contract){
 						showPriceIf(result, v, contract.isSpot(utils.getAbsoluteIndex(index)));
 					});
@@ -768,8 +776,8 @@ angular
 						ctx = canvas.getContext('2d');
 						chart = new Chart(ctx);
 						drawer = chart.LineChartSpots(chartData, chartOptions);
-						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
-						stepper = Stepper(tickDistance);
+						stepper = Stepper();
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
@@ -916,6 +924,7 @@ angular
 					if ( pageTickCount < maximumZoomOut ){
 						pageTickCount++;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
@@ -923,6 +932,7 @@ angular
 					if ( pageTickCount > maximumZoomIn ){
 						pageTickCount--;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
