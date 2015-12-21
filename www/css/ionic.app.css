@@ -9152,8 +9152,10 @@ body * {
   .trade .contract-price .price {
     display: inline-block; }
   .options .item-select select {
-    padding-right: 0px;
-    padding-left: 0px; } }
+    padding-right: 8px;
+    padding-left: 0px; }
+  .options .item-select::after {
+    right: 0px; } }
 
 .bar-header {
   background-color: #2a3052;
