@@ -44,6 +44,11 @@ angular
 					}, 1000);
 				} else if (dataStream.readyState === 1) {
 					callback();
+				} else if (!(dataStream instanceof WebSocket)) {
+					init();
+					setTimeout(function() {
+						waitForConnection(callback);
+					}, 1000);
 				} else {
 					setTimeout(function() {
 						waitForConnection(callback);

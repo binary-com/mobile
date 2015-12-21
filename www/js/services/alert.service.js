@@ -11,10 +11,33 @@ angular
 	.service('alertService',
 		function($translate, $ionicPopup, $rootScope) {
 			var displayAlert = function(_title, _message) {
-				var alertPopup = $ionicPopup.alert({
-					title: _title,
-					template: _message
-				});
+				if(navigator.notification === undefined){
+					var alertPopup = $ionicPopup.alert({
+						title: _title,
+						template: _message
+					});
+				}
+				else{
+					navigator.notification.alert(_message, null, _title, 'OK');
+				}
+			};
+
+			var displayConfirmation = function(_title, _message, _buttons, _callback){
+				if(navigator.notification === undefined){
+					var confirmPopup = $ionicPopup.confirm({
+						title: _title,
+						template: _message
+					});
+					confirmPopup.then(_callback);
+				}
+				else{
+					navigator.notification.confirm(
+						_message,
+						_callback,
+						_title,
+						_buttons
+					);
+				}
 			};
 
 			this.displayError = function(_message) {
@@ -29,6 +52,7 @@ angular
 					$translate(['alert.error', 'alert.not_valid'])
 					.then(function (translation) {
 						displayAlert(translation['alert.error'], translation['alert.not_valid']);
+						//navigator.notification.alert(translation['alert.not_valid'], null, translation['alert.error'], 'OK');
 					});
 				},
 				tokenNotAuthenticated: function() {
@@ -66,16 +90,23 @@ angular
 			this.confirmAccountRemoval = function(_token) {
 				$translate(['alert.remove_token_title', 'alert.remove_token_content'])
 				.then(function(translation) {
-					var confirmPopup = $ionicPopup.confirm({
-						title: translation['alert.remove_token_title'],
-						template: translation['alert.remove_token_content']
-					});
-					confirmPopup.then(function(res) {
-						if(res) {
-							console.log('You are sure');
-							$rootScope.$broadcast('token:remove', _token);
+					displayConfirmation(translation['alert.remove_token_title'],
+						translation['alert.remove_token_content'],
+						['Yes', 'No'],
+						function(res) {
+							if(!(typeof(res) === "boolean")){
+								if(res == 1)
+									res == true;
+								else
+									res = false;
+							}
+
+							if(res) {
+								console.log('You are sure');
+								$rootScope.$broadcast('token:remove', _token);
+							}
 						}
-					});
+					);
 				});
 			}
 
