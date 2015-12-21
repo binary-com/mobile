@@ -28,7 +28,8 @@
     "com.ionic.keyboard"
   ],
   "cordovaPlatforms": [
-    "ios"
+    "ios",
+    "android"
   ],
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install"
