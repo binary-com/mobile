@@ -20,6 +20,9 @@ angular
 
 				dataStream.onopen = function() {
 					console.log('socket is opened');
+					if(typeof(analytics) !== undefined){
+						analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
+					}
 					dataStream.send(JSON.stringify({ping: 1}));
 				};
 				dataStream.onmessage = function(message) {
