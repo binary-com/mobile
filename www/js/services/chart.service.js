@@ -902,7 +902,7 @@ angular
 						if ( dataIndex == 0 && !dragging && !zooming ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else {
-							dataIndex++;
+							move(1, false);
 						}
 					}
 				};
@@ -944,14 +944,16 @@ angular
 					localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 				};
 
-				var move = function move(steps){
+				var move = function move(steps, update){
 					if ( steps == 0 ) {
 						return;
 					}
 					var testDataIndex = dataIndex + steps;
 					if ( testDataIndex >=0 && testDataIndex < capacity - pageTickCount ){
 						dataIndex = testDataIndex;
-						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						if ( !utils.isDefined(update) || update ) {
+							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						}
 					}
 				};
 
