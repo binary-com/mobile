@@ -355,7 +355,7 @@ angular
 						dragging = false,
 						zooming = false,
 						updateDisabled = false,
-						pageTickCount = maximumZoomOut,
+						pageTickCount = 15,
 						dragSteps = 1,
 						tickDistance = 0, // this is calculated dynamically, setting it has no effect
 						stepper = Stepper(tickDistance);
