@@ -86,30 +86,26 @@ angular
 
 			var Stepper = function Stepper() {
 				var tickDistance = 0;
-				var currentPosition;
-				var reset = function reset(position) {
+				var currentPosition = 0;
+				var setStartPosition = function setStartPosition (position){
 					currentPosition = position;
 				};
-				var isStep = function isStep(position) {
-					if ( Math.abs(currentPosition - position) >= tickDistance ) {
-						reset(position);
-						return true;
-					} else {
-						return false;
+				var stepCount = function stepCount(position) {
+					var count = Math.floor(Math.abs(currentPosition - position) / tickDistance);
+					if ( count > 0 ) {
+						currentPosition = position;
 					}
+					return count;
 				};
 				var setDistance = function setDistance(canvas, pageTickCount) {
 					if ( canvas !== null ) {
 						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
 					}
 				};
-				var drag = function drag(position) {
-					return isStep(position);
-				};
 				return {
 					setDistance: setDistance,
-					drag: drag,
-					reset: reset
+					setStartPosition: setStartPosition,
+					stepCount: stepCount,
 				};
 			};
 
@@ -364,7 +360,6 @@ angular
 						dragging = false,
 						zooming = false,
 						updateDisabled = false,
-						dragSteps = 1,
 						tickDistance = 0, // this is calculated dynamically, setting it has no effect
 						stepper = Stepper();
 
@@ -806,7 +801,7 @@ angular
 				};			
 
 				var dragStart = function dragStart(e){
-					stepper.reset(e.center.x);
+					stepper.setStartPosition(e.center.x);
 					dragging = true;
 				};
 
@@ -899,7 +894,7 @@ angular
 						if ( dataIndex == 0 && !dragging && !zooming ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else {
-							next(false);
+							next(1, false);
 						}
 					}
 				};
@@ -941,9 +936,12 @@ angular
 					localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 				};
 
-				var next = function next(update){
-					if ( dataIndex + pageTickCount < capacity - dragSteps){
-						dataIndex += dragSteps;
+				var next = function next(steps, update){
+					if ( steps < 1 ) {
+						return;
+					}
+					if ( dataIndex + pageTickCount < capacity - steps ){
+						dataIndex += steps;
 						if ( !utils.isDefined(update) ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else if (update) {
@@ -953,20 +951,23 @@ angular
 				};
 
 				var dragRight = function dragRight(e) {
-					if ( !zooming && stepper.drag( e.center.x ) ) {
-						next();
+					if ( !zooming ) {
+						next(stepper.stepCount( e.center.x ));
 					}
 				};
 
 				var dragLeft = function dragLeft(e) {
-					if ( !zooming && stepper.drag( e.center.x ) ) {
-						previous();
+					if ( !zooming ) {
+						previous(stepper.stepCount( e.center.x ));
 					}
 				};
 
-				var previous = function previous(update){
-					if (dataIndex >= dragSteps ){
-						dataIndex -= dragSteps;
+				var previous = function previous(steps, update){
+					if ( steps < 1 ) {
+						return;
+					}
+					if (dataIndex >= steps){
+						dataIndex -= steps;
 						if ( !utils.isDefined(update) ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else if (update) {
