@@ -350,7 +350,7 @@ angular
 						chart,
 						drawer,
 						capacity = 600,
-						maximumZoomOut = 15, 
+						maximumZoomOut = 50, 
 						maximumZoomIn = 5, 
 						dragging = false,
 						zooming = false,
