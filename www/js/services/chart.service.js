@@ -107,7 +107,7 @@ angular
 					return isStep(position);
 				};
 				return {
-					update: update,
+					setDistance: setDistance,
 					drag: drag,
 					reset: reset
 				};
