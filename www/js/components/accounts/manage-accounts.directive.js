@@ -44,6 +44,7 @@ angular
 				scope.$on('token:remove', function(e, response) {
 					accountService.remove(response);
 					scope.accounts = accountService.getAll();
+					scope.$apply();
 				});
 
 				scope.addAccount = function(_token) {
