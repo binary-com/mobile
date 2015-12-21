@@ -9146,7 +9146,7 @@ body * {
   height: 100%; }
 
 .scroll {
-  padding-bottom: 10px; }
+  padding-bottom: 1px; }
 
 @media screen and (max-width: 400px) {
   .trade .contract-price .price {
