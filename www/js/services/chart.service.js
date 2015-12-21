@@ -97,10 +97,14 @@ angular
 						return false;
 					}
 				};
+				var update = function update(distance) {
+					tickDistance = distance;
+				};
 				var drag = function drag(position) {
 					return isStep(position);
 				};
 				return {
+					update: update,
 					drag: drag,
 					reset: reset
 				};
@@ -917,6 +921,7 @@ angular
 					if ( pageTickCount < maximumZoomOut ){
 						pageTickCount++;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						stepper.update(Math.ceil(canvas.offsetWidth/pageTickCount));
 					}
 				};
 
@@ -924,6 +929,7 @@ angular
 					if ( pageTickCount > maximumZoomIn ){
 						pageTickCount--;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						stepper.update(Math.ceil(canvas.offsetWidth/pageTickCount));
 					}
 				};
 
