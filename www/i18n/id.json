@@ -22,7 +22,9 @@
 		"contract_error": "Kontrak tidak tersedia, silakan coba lagi.",
 		"no_tick": "Silakan pilih acuan lainnya, acuan yang Anda pilih tidak menyediakan tik.",
 		"remove_token_title": "Menghapus Token",
-		"remove_token_content": "Apakah Anda yakin ingin menghapus token ini?"
+		"remove_token_content": "Apakah Anda yakin ingin menghapus token ini?",
+		"remove_all_tokens_title": "Removing All Tokens",
+		"remove_all_tokens_content": "Are you sure you want to remove all tokens and sign out?"
 	},
 	"options" : {
 		"account": "Akun",
