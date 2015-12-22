@@ -51,5 +51,9 @@ angular
 				return false;
 			};
 
+			this.remove = function(){
+				localStorage.removeItem('proposal');
+			}
+
 
 	});

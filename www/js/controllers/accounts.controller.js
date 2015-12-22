@@ -11,6 +11,11 @@ angular
 	.module('binary')
 	.controller('AccountsController',
 		function($scope, $rootScope, $state, $window, $ionicPopup, websocketService, accountService) {
+
+			if(typeof(analytics) !== "undefined"){
+					analytics.trackView("Account Management");
+			}
+
 			$scope.navigateToOptionsPage = function() {
 				$state.go('options', {}, {reload: true});
 			};
