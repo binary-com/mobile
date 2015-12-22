@@ -13,6 +13,10 @@ angular
 		function($scope, $rootScope, $state, $window, config, proposalService, accountService, websocketService, chartService) {
 			$scope.selected = {};
 
+			if(typeof(analytics) !== "undefined"){
+					analytics.trackView("Options");
+			}
+
 			websocketService.sendRequestFor.symbols();
 			websocketService.sendRequestFor.assetIndex();
 

@@ -141,6 +141,13 @@ angular
 				return finalTradeTypes;
 			};
 
+			this.removeActiveSymbols = function(){
+				sessionStorage.active_symbols = null;
+			}
+
+			this.removeAssetIndex = function(){
+				sessionStorage.asset_index = null;
+			}
 
 			// this.getActiveTickSymbolsForMarket = function(_market) {
 			// 	var symbols = JSON.parse(sessionStorage.active_symbols);
