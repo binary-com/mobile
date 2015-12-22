@@ -108,6 +108,18 @@ angular
 						}
 					);
 				});
+			};
+
+			this.confirmRemoveAllAccount = function(_callback){
+				$translate(['alert.remove_all_tokens_title', 'alert.remove_all_tokens_content'])
+					.then(function(translation){
+						displayConfirmation(
+							translation['alert.remove_all_tokens_title'],
+							translation['alert.remove_all_tokens_content'],
+							['Yes', 'No'],
+							_callback
+						);
+					});
 			}
 
 	});
