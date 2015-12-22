@@ -28,9 +28,11 @@ angular
 					scope.$parent.selected.tradeType = _tradeType;
 
 					scope.$parent.displayDigits = false;
+					scope.$parent.hideDigit = '';
 					var tradeTypes = config.tradeTypes;
 					tradeTypes.forEach(function(el, i) {
 						if (el.value === _tradeType && el.digits === true) {
+							scope.$parent.hideDigit = (el.value === 'DIGITOVER') ? '9' : (el.value === 'DIGITUNDER') ? '0' : '';
 							scope.$parent.displayDigits = true;
 						}
 					});
