@@ -38,6 +38,7 @@ angular
 						accountService.validate();
 					}
 					websocketService.sendRequestFor.symbols();
+					websocketService.sendRequestFor.assetIndex();
 				};
 
 				init();
