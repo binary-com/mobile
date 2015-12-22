@@ -59,7 +59,12 @@
 		"balance": "Saldo"
 	},
 	"help" : {
-		"": "",
-		"": ""
+		"need_help": "Need Help?",
+		"generate_api": "To access a third party application, such as a mobile app, you are required to generate an API Token.",
+		"visit": "Please visit",
+		"page": "this page",
+		"copy_token": "and create a token. Then simply copy and paste it into the top box.",
+		"email_cs":"Have questions? Email customer support at ",
+		"back":"Back"
 	}
 }
