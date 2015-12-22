@@ -20,6 +20,9 @@ angular
 
 				dataStream.onopen = function() {
 					console.log('socket is opened');
+					if(typeof(analytics) !== "undefined"){
+						analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
+					}
 					dataStream.send(JSON.stringify({ping: 1}));
 				};
 				dataStream.onmessage = function(message) {
@@ -44,6 +47,11 @@ angular
 					}, 1000);
 				} else if (dataStream.readyState === 1) {
 					callback();
+				} else if (!(dataStream instanceof WebSocket)) {
+					init();
+					setTimeout(function() {
+						waitForConnection(callback);
+					}, 1000);
 				} else {
 					setTimeout(function() {
 						waitForConnection(callback);

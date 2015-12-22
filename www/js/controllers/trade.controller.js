@@ -12,6 +12,11 @@ angular
 	.controller('TradeController',
 		function($scope, $state, $ionicSlideBoxDelegate, marketService, proposalService, websocketService, accountService, alertService) {
 			var init = function () {
+
+				if(typeof(analytics) !== "undefined"){
+					analytics.trackView("Trade");
+				}
+
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
 				$scope.tradeMode = true;
 				proposalService.send();
@@ -69,6 +74,7 @@ angular
 					accountService.validate();
 
 					websocketService.sendRequestFor.symbols();
+					websocketService.sendRequestFor.assetIndex();
 
 					$scope.proposalToSend = JSON.parse(localStorage.proposal);
 					$scope.tradeMode = true;

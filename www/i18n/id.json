@@ -22,7 +22,9 @@
 		"contract_error": "Kontrak tidak tersedia, silakan coba lagi.",
 		"no_tick": "Silakan pilih acuan lainnya, acuan yang Anda pilih tidak menyediakan tik.",
 		"remove_token_title": "Menghapus Token",
-		"remove_token_content": "Apakah Anda yakin ingin menghapus token ini?"
+		"remove_token_content": "Apakah Anda yakin ingin menghapus token ini?",
+		"remove_all_tokens_title": "Hapus Semua Token",
+		"remove_all_tokens_content": "Apakah Anda yakin ingin menghapus token ini dan keluar?"
 	},
 	"options" : {
 		"account": "Akun",
@@ -59,7 +61,12 @@
 		"balance": "Saldo"
 	},
 	"help" : {
-		"": "",
-		"": ""
+		"need_help": "Perlu Bantuan?",
+		"generate_api": "Untuk mengakses aplikasi pihak ketiga, seperti aplikasi mobile, Anda perlu menghasilkan token API",
+		"visit": "Kunjungi",
+		"page": "halaman ini",
+		"copy_token": "dan hasilkan token. Kemudian copy dan paste kedalam kotak diatas.",
+		"email_cs":"Memiliki pertanyaan? Email customer support di.",
+		"back":"Kembali"
 	}
 }
