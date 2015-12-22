@@ -14,7 +14,7 @@ angular
 	.module('binary')
 	.run(function($ionicPlatform){
 		$ionicPlatform.ready(function() {
-            if(typeof analytics !== undefined) {
+            if(typeof analytics !== "undefined") {
                 analytics.startTrackerWithId("UA-40877026-7");
             } else {
                 console.log("Google Analytics Unavailable");
