@@ -84,35 +84,35 @@ angular
 			
 
 
-			var Debouncer = function Debouncer(debouncingSteps) {
-				var dragDirections = [];
-				var consensus = function consensus() {
-					var first = dragDirections[0],
-							count = 0;
-					dragDirections.forEach(function(direction){
-						if (direction == first) {
-							count++;
-						}
-					});
-					if ( count == debouncingSteps ) {
-						reset();
-						return first;
+			var Stepper = function Stepper() {
+				var tickDistance = 0;
+				var startingPosition = 0;
+				var startingDataIndex = 0;
+				var started = false;
+				var setStartPosition = function setStartPosition (dataIndex, position){
+					startingPosition = position;
+					startingDataIndex = dataIndex;
+					started = true;
+				};
+				var stepCount = function stepCount(dataIndex, position) {
+					if ( !started ) {
+						return 0;
+					}
+					return ( startingDataIndex + Math.floor((position - startingPosition)/tickDistance) ) - dataIndex;
+				};
+				var setDistance = function setDistance(canvas, pageTickCount) {
+					if ( canvas !== null ) {
+						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
 					}
 				};
-				var reset = function reset() {
-					dragDirections = [];
-					for (var i = 0; i < debouncingSteps; i++) {
-						dragDirections.push(i);
-					}
-				};
-				var drag = function drag(direction) {
-					dragDirections.push(direction);
-					dragDirections.shift();
-					return consensus();
+				var stop = function stop() {
+					started = false;
 				};
 				return {
-					drag: drag,
-					reset: reset
+					stop: stop,
+					setDistance: setDistance,
+					setStartPosition: setStartPosition,
+					stepCount: stepCount,
 				};
 			};
 
@@ -278,22 +278,8 @@ angular
 									index: index
 								});
 							}
-							chartDrawer.addGridLine({
-								color: 'red', 
-								label: 'Entry Spot', 
-								orientation: 'vertical', 
-								index: index
-							});
 						} else if(isExitSpot(tickTime, utils.getAbsoluteIndex(index)) ) { 
 							contract.exitSpotShowing = true;
-							if ( contract.entrySpotShowing ) {
-								chartDrawer.addGridLine({
-									color: 'red', 
-									label: 'Exit Spot', 
-									orientation: 'vertical', 
-									index: index
-								});
-							}
 						}
 				};
 
@@ -372,18 +358,18 @@ angular
 						canvas,
 						ctx,
 						chart,
+						drawer,
 						capacity = 600,
-						maximumZoomOut = 15, 
+						maximumZoomOut = 50, 
 						maximumZoomIn = 5, 
+						hideValuesThreshold = 15,
+						pageTickCount = 15,
 						dragging = false,
 						zooming = false,
 						updateDisabled = false,
-						pageTickCount = maximumZoomOut,
-						dragSteps = 1,
-						debouncingSteps = 3,
-						debouncer = Debouncer(debouncingSteps);
+						tickDistance = 0, // this is calculated dynamically, setting it has no effect
+						stepper = Stepper();
 
-				debouncer.reset();
 
 				var showPriceIf = function showPriceIf(result, v, condition) {
 					utils.setObjValue(result, 'v', v, condition);
@@ -401,8 +387,8 @@ angular
 					}
 				};
 
-				var zoomedOut = function zoomedOut(){
-					if ( pageTickCount == maximumZoomOut ) {
+				var hideValues = function hideValues(){
+					if ( pageTickCount >= hideValuesThreshold ) {
 						return true;
 					} else {
 						return false;
@@ -490,7 +476,7 @@ angular
 				var drawLabel = function drawLabel(point, index){
 					var result= {};
 					var v = point.value;
-					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!zoomedOut() && !collisionOccured(index)));
+					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!hideValues() && !collisionOccured(index)));
 					contracts.forEach(function(contract){
 						showPriceIf(result, v, contract.isSpot(utils.getAbsoluteIndex(index)));
 					});
@@ -556,7 +542,6 @@ angular
 
 
 							this.xScalePaddingRight = lastWidth/2 + 3;
-							this.xScalePaddingLeft = (firstWidth/2 > this.yLabelWidth + 10) ? firstWidth/2 : this.yLabelWidth + 10;
 
 							this.xLabelRotation = 0;
 							if (this.display){
@@ -569,16 +554,115 @@ angular
 							else{
 								this.xLabelWidth = 0;
 								this.xScalePaddingRight = this.padding;
-								this.xScalePaddingLeft = this.padding;
 							}
+							this.xScalePaddingLeft = 0;
 						};
 						Chart.Scale.prototype.initialize.apply(this, arguments);
+					},
+					draw: function () {
+						var helpers = Chart.helpers;
+						var each = helpers.each;
+						var aliasPixel = helpers.aliasPixel;
+						var toRadians = helpers.radians;
+						var ctx = this.ctx,
+							yLabelGap = (this.endPoint - this.startPoint) / this.steps,
+							xStart = Math.round(this.xScalePaddingLeft);
+						if (this.display) {
+							ctx.fillStyle = this.textColor;
+							ctx.font = this.font;
+							each(this.yLabels, function (labelString, index) {
+								var yLabelCenter = this.endPoint - (yLabelGap * index),
+									linePositionY = Math.round(yLabelCenter);
+
+								ctx.textAlign = "right";
+								ctx.textBaseline = "middle";
+								if (this.showLabels) {
+									ctx.fillText(labelString, xStart - 10, yLabelCenter);
+								}
+								ctx.beginPath();
+								if (index > 0) {
+									ctx.lineWidth = this.gridLineWidth;
+									ctx.strokeStyle = this.gridLineColor;
+								} else {
+									ctx.lineWidth = this.lineWidth;
+									ctx.strokeStyle = this.lineColor;
+								}
+
+								linePositionY += helpers.aliasPixel(ctx.lineWidth);
+
+								ctx.moveTo(xStart, linePositionY);
+								ctx.lineTo(this.width, linePositionY);
+								ctx.stroke();
+								ctx.closePath();
+
+								ctx.lineWidth = this.lineWidth;
+								ctx.strokeStyle = this.lineColor;
+								ctx.beginPath();
+								ctx.moveTo(xStart - 5, linePositionY);
+								ctx.lineTo(xStart, linePositionY);
+								ctx.stroke();
+								ctx.closePath();
+
+							}, this);
+
+							each(this.xLabels, function (label, index) {
+								var filtered = false;
+								if (typeof this.labelsFilter === "function" && this.labelsFilter(index)) {
+									filtered = true;
+								}
+								var xPos = this.calculateX(index) + aliasPixel(this.lineWidth),
+									linePos = this.calculateX(index - (this.offsetGridLines ? 0.5 : 0)) + aliasPixel(this.lineWidth);
+								
+
+								ctx.beginPath();
+
+								if (index > 0) {
+									ctx.lineWidth = this.gridLineWidth;
+									ctx.strokeStyle = this.gridLineColor;
+								} else {
+									ctx.lineWidth = this.lineWidth;
+									ctx.strokeStyle = this.lineColor;
+								}
+								ctx.moveTo(linePos, this.endPoint);
+								ctx.lineTo(linePos, this.startPoint - 3);
+								ctx.stroke();
+								ctx.closePath();
+
+
+								ctx.lineWidth = this.lineWidth;
+								ctx.strokeStyle = this.lineColor;
+
+
+								ctx.beginPath();
+								ctx.moveTo(linePos, this.endPoint);
+								if ( filtered ) {
+									ctx.lineTo(linePos, this.endPoint);
+								} else {
+									ctx.lineTo(linePos, this.endPoint + 10);
+								}
+								ctx.stroke();
+								ctx.closePath();
+
+								ctx.save();
+								ctx.translate(xPos, this.endPoint + 8);
+
+								ctx.textAlign = "center";
+								ctx.textBaseline = "top";
+								if ( !filtered ) {
+									ctx.fillText(label, 0, 0);
+								}
+								ctx.restore();
+
+							}, this);
+
+						}
 					}
 				});
 
 				Chart.types.Line.extend({
 					name: "LineChartSpots",
 					initialize: function (data) {
+						this.options.labelsFilter = data.labelsFilter || null;
 						Chart.types.Line.prototype.initialize.apply(this, arguments);
 					},
 					draw: function () {
@@ -624,6 +708,7 @@ angular
 							ctx: this.chart.ctx,
 							textColor: this.options.scaleFontColor,
 							fontSize: this.options.scaleFontSize,
+							labelsFilter: this.options.labelsFilter,
 							fontStyle: this.options.scaleFontStyle,
 							fontFamily: this.options.scaleFontFamily,
 							valuesCount: labels.length,
@@ -663,15 +748,11 @@ angular
 					}
 				});
 	
-				var drawChart = function drawChart(chartID){
-					canvas = document.getElementById(chartID);
-					if ( canvas !== null ) {
-						ctx = canvas.getContext('2d');
-					}
-				};
-
 				var chartData = {
 					labels: [],
+					labelsFilter: function (index) {
+						return !distribute(index);
+					},
 					datasets: [
 						{
 							strokeColor: "orange",
@@ -681,19 +762,27 @@ angular
 						}
 					]
 				};
+
 				var chartOptions = {
 					animation: false,
 					bezierCurve : false,
 					datasetFill : false,
 					showTooltips: false,
 					keepAspectRatio: false,
-					scaleLabel: function(valueContainer){return ''},
+					scaleShowLabels: false,
 				};
 
-				if ( utils.isDefined(ctx) ) {
-					chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
-				}
-				
+				var drawChart = function drawChart(chartID){
+					canvas = document.getElementById(chartID);
+					if ( canvas !== null ) {
+						ctx = canvas.getContext('2d');
+						chart = new Chart(ctx);
+						drawer = chart.LineChartSpots(chartData, chartOptions);
+						stepper = Stepper();
+						stepper.setDistance(canvas, pageTickCount);
+					}
+				};
+
 				var findRegion = function findRegion(region){
 					if ( utils.isDefined(chartOptions.regions) ) {
 						return chartOptions.regions.indexOf(region);
@@ -718,13 +807,13 @@ angular
 					}
 				};			
 
-				var dragStart = function dragStart(){
-					debouncer.reset();
+				var dragStart = function dragStart(e){
+					stepper.setStartPosition(dataIndex, e.center.x);
 					dragging = true;
 				};
 
-				var dragEnd = function dragEnd(){
-					debouncer.reset();
+				var dragEnd = function dragEnd(e){
+					stepper.stop();
 					dragging = false;
 				};
 
@@ -743,30 +832,23 @@ angular
 					chartOptions.gridLines.push(gridLine);
 				}
 			
-				var setChartColor = function setChartColor(chart, labels) {
-					chart.datasets[0].points.forEach(function(point, index){
+				var setChartColor = function setChartColor(drawer, labels) {
+					drawer.datasets[0].points.forEach(function(point, index){
 						point.fillColor = getDotColor(labels[index], index);
 					});
-					chart.update();
+					drawer.update();
 				};
 				
 				var addArrayToChart = function addArrayToChart(labels, values) {
 					chartData.labels = [];
 					labels.forEach(function(label, index){
-						if ( distribute(index) ) {
-							chartData.labels.push(utils.getTickTime(label));
-						} else {
-							chartData.labels.push('');
-						}
+						chartData.labels.push(utils.getTickTime(label));
 					});
 					
 					chartData.datasets[0].data = values;
-					if ( utils.isDefined(ctx) ) {
-						if ( utils.isDefined(chart) ) {
-							chart.destroy();
-						}
-						chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
-						setChartColor(chart, labels);
+					if ( utils.isDefined(chart) ) {
+						drawer = chart.LineChartSpots(chartData, chartOptions);
+						setChartColor(drawer, labels);
 					}
 				};
 
@@ -820,7 +902,7 @@ angular
 						if ( dataIndex == 0 && !dragging && !zooming ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else {
-							next(false);
+							move(1, false);
 						}
 					}
 				};
@@ -845,6 +927,7 @@ angular
 					if ( pageTickCount < maximumZoomOut ){
 						pageTickCount++;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
@@ -852,6 +935,7 @@ angular
 					if ( pageTickCount > maximumZoomIn ){
 						pageTickCount--;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
@@ -860,37 +944,28 @@ angular
 					localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 				};
 
-				var next = function next(update){
-					if ( dataIndex + pageTickCount < capacity - dragSteps){
-						dataIndex += dragSteps;
-						if ( !utils.isDefined(update) ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						} else if (update) {
+				var move = function move(steps, update){
+					if ( steps == 0 ) {
+						return;
+					}
+					var testDataIndex = dataIndex + steps;
+					if ( testDataIndex >=0 && testDataIndex < capacity - pageTickCount ){
+						dataIndex = testDataIndex;
+						if ( !utils.isDefined(update) || update ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						}
 					}
 				};
 
-				var dragRight = function dragRight() {
-					if ( !zooming && debouncer.drag( 'right' ) ) {
-						next();
+				var dragRight = function dragRight(e) {
+					if ( !zooming ) {
+						move(stepper.stepCount( dataIndex, e.center.x ));
 					}
 				};
 
-				var dragLeft = function dragLeft() {
-					if ( !zooming && debouncer.drag( 'left' ) ) {
-						previous();
-					}
-				};
-
-				var previous = function previous(update){
-					if (dataIndex >= dragSteps ){
-						dataIndex -= dragSteps;
-						if ( !utils.isDefined(update) ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						} else if (update) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						}
+				var dragLeft = function dragLeft(e) {
+					if ( !zooming ) {
+						move(stepper.stepCount( dataIndex, e.center.x ));
 					}
 				};
 

@@ -1,0 +1,12 @@
+@media screen and (max-width: 400px) {
+	.trade .contract-price .price {
+		display: inline-block;
+	}
+	.options .item-select select {
+		padding-right: 8px;
+		padding-left: 0px;
+	}
+	.options .item-select::after {
+		right: 0px;
+	}
+}

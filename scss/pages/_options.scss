@@ -27,7 +27,7 @@
         // margin-bottom: 20px;
     .manage-account{
         text-align: right;
-        font-size: 20px;
+        font-size: 24px;
         i:before{
             margin-top:3px;
         }
@@ -73,10 +73,10 @@
             margin-top: -5px;
         }
         .item {
-            display: inline-block;
+            display: inline-table;
             position: relative;
             width: 50%;
-            padding: 0 2px;
+            padding: 2px 2px 0px;
         }
         .item-content {
             padding: 0;

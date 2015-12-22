@@ -9145,6 +9145,18 @@ body * {
   position: relative;
   height: 100%; }
 
+.scroll {
+  padding-bottom: 1px; }
+
+@media screen and (max-width: 400px) {
+  .trade .contract-price .price {
+    display: inline-block; }
+  .options .item-select select {
+    padding-right: 8px;
+    padding-left: 0px; }
+  .options .item-select::after {
+    right: 0px; } }
+
 .bar-header {
   background-color: #2a3052;
   position: relative; }
@@ -9276,6 +9288,10 @@ body * {
     color: #f2f2f2; }
   .sign-in :-ms-input-placeholder {
     color: #f2f2f2; }
+
+.trade #tradeContractChart {
+  width: 100% !important;
+  height: 200px !important; }
 
 .trade .contract-summary {
   padding: 5px 10px 5px 10px;
@@ -9424,10 +9440,10 @@ body * {
     width: 100%;
     margin-top: -5px; }
   .options .options-trade .item {
-    display: inline-block;
+    display: inline-table;
     position: relative;
     width: 50%;
-    padding: 0 2px; }
+    padding: 2px 2px 0px; }
   .options .options-trade .item-content {
     padding: 0;
     text-align: center; }
