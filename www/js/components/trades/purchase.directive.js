@@ -22,7 +22,7 @@ angular
 					websocketService.sendRequestFor.purchase(scope.$parent.proposalRecieved.id, scope.$parent.proposalRecieved.ask_price);
 					
 					// Send statistic to Google Analytics
-					if(typeof(analytics) !== undefined){
+					if(typeof(analytics) !== "undefined"){
 						var proposal = JSON.parse(localStorage.proposal);
 						analytics.trackEvent(
 							scope.$parent.account.loginid,

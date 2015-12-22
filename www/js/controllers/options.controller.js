@@ -14,6 +14,7 @@ angular
 			$scope.selected = {};
 
 			websocketService.sendRequestFor.symbols();
+			websocketService.sendRequestFor.assetIndex();
 
 			$scope.navigateToManageAccounts = function() {
 				$state.go('accounts');

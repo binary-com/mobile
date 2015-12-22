@@ -33,6 +33,7 @@ angular
 					accountService.setDefault(_selectedAccount);
 					accountService.validate();
 					websocketService.sendRequestFor.symbols();
+					websocketService.sendRequestFor.assetIndex();
 				};
 
 				scope.navigateToManageAccounts = function() {
