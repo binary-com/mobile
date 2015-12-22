@@ -84,35 +84,35 @@ angular
 			
 
 
-			var Debouncer = function Debouncer(debouncingSteps) {
-				var dragDirections = [];
-				var consensus = function consensus() {
-					var first = dragDirections[0],
-							count = 0;
-					dragDirections.forEach(function(direction){
-						if (direction == first) {
-							count++;
-						}
-					});
-					if ( count == debouncingSteps ) {
-						reset();
-						return first;
+			var Stepper = function Stepper() {
+				var tickDistance = 0;
+				var startingPosition = 0;
+				var startingDataIndex = 0;
+				var started = false;
+				var setStartPosition = function setStartPosition (dataIndex, position){
+					startingPosition = position;
+					startingDataIndex = dataIndex;
+					started = true;
+				};
+				var stepCount = function stepCount(dataIndex, position) {
+					if ( !started ) {
+						return 0;
+					}
+					return ( startingDataIndex + Math.floor((position - startingPosition)/tickDistance) ) - dataIndex;
+				};
+				var setDistance = function setDistance(canvas, pageTickCount) {
+					if ( canvas !== null ) {
+						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
 					}
 				};
-				var reset = function reset() {
-					dragDirections = [];
-					for (var i = 0; i < debouncingSteps; i++) {
-						dragDirections.push(i);
-					}
-				};
-				var drag = function drag(direction) {
-					dragDirections.push(direction);
-					dragDirections.shift();
-					return consensus();
+				var stop = function stop() {
+					started = false;
 				};
 				return {
-					drag: drag,
-					reset: reset
+					stop: stop,
+					setDistance: setDistance,
+					setStartPosition: setStartPosition,
+					stepCount: stepCount,
 				};
 			};
 
@@ -360,17 +360,16 @@ angular
 						chart,
 						drawer,
 						capacity = 600,
-						maximumZoomOut = 15, 
+						maximumZoomOut = 50, 
 						maximumZoomIn = 5, 
+						hideValuesThreshold = 15,
+						pageTickCount = 15,
 						dragging = false,
 						zooming = false,
 						updateDisabled = false,
-						pageTickCount = maximumZoomOut,
-						dragSteps = 1,
-						debouncingSteps = 4,
-						debouncer = Debouncer(debouncingSteps);
+						tickDistance = 0, // this is calculated dynamically, setting it has no effect
+						stepper = Stepper();
 
-				debouncer.reset();
 
 				var showPriceIf = function showPriceIf(result, v, condition) {
 					utils.setObjValue(result, 'v', v, condition);
@@ -388,8 +387,8 @@ angular
 					}
 				};
 
-				var zoomedOut = function zoomedOut(){
-					if ( pageTickCount == maximumZoomOut ) {
+				var hideValues = function hideValues(){
+					if ( pageTickCount >= hideValuesThreshold ) {
 						return true;
 					} else {
 						return false;
@@ -477,7 +476,7 @@ angular
 				var drawLabel = function drawLabel(point, index){
 					var result= {};
 					var v = point.value;
-					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!zoomedOut() && !collisionOccured(index)));
+					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!hideValues() && !collisionOccured(index)));
 					contracts.forEach(function(contract){
 						showPriceIf(result, v, contract.isSpot(utils.getAbsoluteIndex(index)));
 					});
@@ -779,6 +778,8 @@ angular
 						ctx = canvas.getContext('2d');
 						chart = new Chart(ctx);
 						drawer = chart.LineChartSpots(chartData, chartOptions);
+						stepper = Stepper();
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
@@ -806,13 +807,13 @@ angular
 					}
 				};			
 
-				var dragStart = function dragStart(){
-					debouncer.reset();
+				var dragStart = function dragStart(e){
+					stepper.setStartPosition(dataIndex, e.center.x);
 					dragging = true;
 				};
 
-				var dragEnd = function dragEnd(){
-					debouncer.reset();
+				var dragEnd = function dragEnd(e){
+					stepper.stop();
 					dragging = false;
 				};
 
@@ -901,7 +902,7 @@ angular
 						if ( dataIndex == 0 && !dragging && !zooming ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else {
-							next(false);
+							move(1, false);
 						}
 					}
 				};
@@ -926,6 +927,7 @@ angular
 					if ( pageTickCount < maximumZoomOut ){
 						pageTickCount++;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
@@ -933,6 +935,7 @@ angular
 					if ( pageTickCount > maximumZoomIn ){
 						pageTickCount--;						
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
@@ -941,37 +944,28 @@ angular
 					localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 				};
 
-				var next = function next(update){
-					if ( dataIndex + pageTickCount < capacity - dragSteps){
-						dataIndex += dragSteps;
-						if ( !utils.isDefined(update) ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						} else if (update) {
+				var move = function move(steps, update){
+					if ( steps == 0 ) {
+						return;
+					}
+					var testDataIndex = dataIndex + steps;
+					if ( testDataIndex >=0 && testDataIndex < capacity - pageTickCount ){
+						dataIndex = testDataIndex;
+						if ( !utils.isDefined(update) || update ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						}
 					}
 				};
 
-				var dragRight = function dragRight() {
-					if ( !zooming && debouncer.drag( 'right' ) ) {
-						next();
+				var dragRight = function dragRight(e) {
+					if ( !zooming ) {
+						move(stepper.stepCount( dataIndex, e.center.x ));
 					}
 				};
 
-				var dragLeft = function dragLeft() {
-					if ( !zooming && debouncer.drag( 'left' ) ) {
-						previous();
-					}
-				};
-
-				var previous = function previous(update){
-					if (dataIndex >= dragSteps ){
-						dataIndex -= dragSteps;
-						if ( !utils.isDefined(update) ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						} else if (update) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						}
+				var dragLeft = function dragLeft(e) {
+					if ( !zooming ) {
+						move(stepper.stepCount( dataIndex, e.center.x ));
 					}
 				};
 
