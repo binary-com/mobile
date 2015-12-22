@@ -11,8 +11,9 @@ angular
 	.directive('manageAccounts',[
 		'accountService',
 		'alertService',
+		'cleanupService',
 		'$state',
-		function(accountService, alertService, $state) {
+		function(accountService, alertService, cleanupService, $state) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/manage-accounts.template.html',
@@ -81,6 +82,7 @@ angular
 
 							if(res){
 								accountService.removeAll();
+								cleanupService.run();
 								$state.go('signin');
 							}
 						}
