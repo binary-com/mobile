@@ -70,8 +70,22 @@ angular
 				};
 
 				scope.removeAllAccounts = function() {
-					accountService.removeAll();
-					$state.go('signin');
+					alertService.confirmRemoveAllAccount(
+						function(res){
+							if(typeof(res) !== "boolean"){
+								if(res == 1)
+									res = true;
+								else
+									res = false;
+							}
+
+							if(res){
+								accountService.removeAll();
+								$state.go('signin');
+							}
+						}
+					);
+					
 				};
 			}
 		};
