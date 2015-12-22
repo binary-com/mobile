@@ -69,6 +69,7 @@ angular
 					accountService.validate();
 
 					websocketService.sendRequestFor.symbols();
+					websocketService.sendRequestFor.assetIndex();
 
 					$scope.proposalToSend = JSON.parse(localStorage.proposal);
 					$scope.tradeMode = true;
