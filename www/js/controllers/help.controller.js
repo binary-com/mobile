@@ -12,6 +12,10 @@ angular
 	.controller('HelpController',
 		function($scope, $state) {
 
+			if(typeof(analytics) !== "undefined"){
+					analytics.trackView("Help");
+			}
+
 			$scope.backToSignInPage = function() {
 				$state.go('signin');
 			};
