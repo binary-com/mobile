@@ -23,7 +23,7 @@
 		"no_tick": "Please select another underlying, The underlying you've selected doesn't support ticks.",
 		"remove_token_title": "Removing a Token",
 		"remove_token_content": "Are you sure you want to remove this token?",
-		"remove_all_tokens_title": "Removing All Tokens",
+		"remove_all_tokens_title": "Removing All Tokens",		
 		"remove_all_tokens_content": "Are you sure you want to remove all tokens and sign out?"
 	},
 	"options" : {
@@ -61,7 +61,12 @@
 		"balance": "Balance"
 	},
 	"help" : {
-		"": "",
-		"": ""
+		"need_help": "Need Help?",
+		"generate_api": "To access a third party application, such as a mobile app, you are required to generate an API Token.",
+		"visit": "Please visit",
+		"page": "this page",
+		"copy_token": "and create a token. Then simply copy and paste it into the top box.",
+		"email_cs":"Have questions? Email customer support at ",
+		"back":"Back"
 	}
 }
