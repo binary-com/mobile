@@ -22,7 +22,9 @@
 		"contract_error": "Contract not available, please try again.",
 		"no_tick": "Please select another underlying, The underlying you've selected doesn't support ticks.",
 		"remove_token_title": "Removing a Token",
-		"remove_token_content": "Are you sure you want to remove this token?"
+		"remove_token_content": "Are you sure you want to remove this token?",
+		"remove_all_tokens_title": "Removing All Tokens",		
+		"remove_all_tokens_content": "Are you sure you want to remove all tokens and sign out?"
 	},
 	"options" : {
 		"account": "Account",
