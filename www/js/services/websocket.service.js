@@ -86,68 +86,10 @@ angular
 							var markets = message.active_symbols;
 							var groupedMarkets = _.groupBy(markets, 'market');
 							var openMarkets = {};
-							var regroup = function regroup(symbols){
-								var groups = {
-									index: ['R_100', 'R_25', 'R_50', 'R_75'],
-									BEARBULL: ['RDBEAR', 'RDBULL'],
-									MOONSUN: ['RDMOON', 'RDSUN'],
-									MARSVENUS: ['RDMARS', 'RDVENUS'],
-									YANGYIN: ['RDYANG', 'RDYIN'],
-								};
-
-								var result = [],
-										itemIndices = [];
-								Object.keys(groups).forEach(function(key){
-									var tmp = [],
-											first = -1;
-									symbols.forEach(function(item, index){
-										if ( item.symbol == groups[key][0] ) {
-											first = index;
-										}
-									});
-									if ( first < 0 ) {
-										return;
-									} else {
-										groups[key].forEach(function(item, index){
-											var itemIndex = -1;
-											symbols.forEach(function(item, i){
-												if ( item.symbol == groups[key][index] ) {
-													itemIndex = i;
-												}
-											});
-											if ( itemIndex >= 0 ) {
-												tmp.push(symbols[itemIndex]);
-												itemIndices.push(itemIndex);
-											}
-										});
-										tmp.sort();
-										result = result.concat(tmp);
-									}
-								});
-								symbols.forEach(function(symbol, index){
-									if ( itemIndices.indexOf(index) < 0 ) {
-										result.push(symbol);
-									}
-								});
-								return result;
-							};
-							var reorder = function reorder(symbols) {
-								symbols.sort(function(a, b){
-									if ( a.display_name > b.display_name) {
-										return 1;
-									} else if (a.display_name < b.display_name) {
-										return -1;
-									}
-									return 0;
-								});
-								symbols = regroup(symbols);
-								return symbols;
-							};
-
 							for (var key in groupedMarkets) {
 								if (groupedMarkets.hasOwnProperty(key)) {
 									if (groupedMarkets[key][0].exchange_is_open == 1) {
-										openMarkets[key] = reorder(groupedMarkets[key]);
+										openMarkets[key] = groupedMarkets[key];
 									}
 								}
 							}
