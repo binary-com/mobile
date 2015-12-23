@@ -8,8 +8,8 @@
 				.remove-all-accounts {
 								background-color: $lightgray;
 								margin-top: 10px;
-								padding: 5px;
-								font-size: 12px;
+								padding: 10px;
+								font-size: 14px;
 								a {
 												color: $red;
 								}
@@ -22,33 +22,35 @@
 												font-size: 16px;
 												.id {
 																color: $darkblue;
-																font-size: 14px;
+																font-size: 16px;
 																font-weight: 700;
-
 																// display: block;
 												}
 												.default {
 																color: $orange;
-																font-size: 12px;
+																font-size: 14px;
 																font-weight: 500;
 												}
 												.token {
 																color: $gray;
-																font-size: 12px;
+																font-size: 14px;
 																display: block;
 																font-weight: 500;
 												}
 								}
+								.ion-android-person{
+									font-size: 16px;
+								}
 								a {
 												&.remove {
-																font-size: 24px;
+																font-size: 28px;
 																color: $red;
 																line-height: 40px;
 																font-weight: 500;
 												}
 												&.set-default {
 																color: $blue;
-																font-size: 12px;
+																font-size: 14px;
 																font-weight: 500;
 
 																//text-decoration: none;
@@ -72,8 +74,11 @@
 								.item-input {
 												padding: 0;
 								}
+								.ion-android-lock{
+									font-size:16px;
+								}
 								.add {
-												font-size: 24px;
+												font-size: 28px;
 												color: $green;
 												line-height: 40px;
 								}
