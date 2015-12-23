@@ -39,6 +39,10 @@ angular
 				};
 			};
 
+			$rootScope.$on('language:updated', function(){
+				init();
+			})
+
 			var waitForConnection = function(callback) {
 				if (dataStream.readyState === 3) {
 					init();
