@@ -9405,12 +9405,12 @@ body * {
     margin: 0; }
 
 .options .options-account {
-  padding-top: 5px;
+  padding-top: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #f2f2f2; }
   .options .options-account .manage-account {
     text-align: right;
-    font-size: 20px; }
+    font-size: 28px; }
     .options .options-account .manage-account i:before {
       margin-top: 3px; }
 
@@ -9510,8 +9510,8 @@ body * {
   .accounts-content .remove-all-accounts {
     background-color: #f2f2f2;
     margin-top: 10px;
-    padding: 5px;
-    font-size: 12px; }
+    padding: 10px;
+    font-size: 14px; }
     .accounts-content .remove-all-accounts a {
       color: #ff0000; }
   .accounts-content .account {
@@ -9522,25 +9522,27 @@ body * {
       font-size: 16px; }
       .accounts-content .account > div .id {
         color: #2a3052;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 700; }
       .accounts-content .account > div .default {
         color: #e98024;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 500; }
       .accounts-content .account > div .token {
         color: #c4c4c4;
-        font-size: 12px;
+        font-size: 14px;
         display: block;
         font-weight: 500; }
+    .accounts-content .account .ion-android-person {
+      font-size: 16px; }
     .accounts-content .account a.remove {
-      font-size: 24px;
+      font-size: 28px;
       color: #ff0000;
       line-height: 40px;
       font-weight: 500; }
     .accounts-content .account a.set-default {
       color: #5e668f;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 500; }
   .accounts-content .add-account {
     margin-top: 20px; }
@@ -9554,8 +9556,10 @@ body * {
         color: #c4c4c4; }
     .accounts-content .add-account .item-input {
       padding: 0; }
+    .accounts-content .add-account .ion-android-lock {
+      font-size: 16px; }
     .accounts-content .add-account .add {
-      font-size: 24px;
+      font-size: 28px;
       color: #4CBB17;
       line-height: 40px; }
 
