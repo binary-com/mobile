@@ -11,11 +11,14 @@ angular
 	.directive('marketsOption',[
 		'marketService',
 		'proposalService',
-		function(marketService, proposalService) {
+		'alertService',
+		function(marketService, proposalService, alertService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/options/markets.template.html',
 			link: function(scope, element) {
+				scope.showSymbolWarning = true;
+
 				/**
 				 * Get all symbols for the selected market
 				 * @param  {String} _market Selected Market
@@ -30,6 +33,15 @@ angular
 					else{ 
 						// If there is not any symbol that has tick support, a empty array broadcast for symbol
 						scope.$parent.$broadcast('symbol', []);
+
+						if(scope.showSymbolWarning){
+							scope.showSymbolWarning = false;
+							alertService.displaySymbolWarning('options.no_underlying');
+							scope.$watch(function(){ return scope.$parent.selected.market;}, function(newVal, oldVal){ 
+								if(newVal !== oldVal)
+									scope.showSymbolWarning = true;
+							});
+						}
 					}
 
 					if(!scope.$$phase) {
@@ -50,7 +62,13 @@ angular
 					};
 
 					scope.$parent.selected.market = marketService.getDefault.market(scope.market);
+
+					
 					updateSymbols(scope.$parent.selected.market);
+
+					if(!scope.$$phase) {
+						scope.$apply();
+					}
 
 					
 				};
