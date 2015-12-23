@@ -15,13 +15,22 @@ module.exports = [
         "clobbers": [
             "analytics"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
+        "pluginId": "cordova-plugin-device",
+        "clobbers": [
+            "device"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "cordova-plugin-dialogs": "1.2.0",
-    "cordova-plugin-google-analytics": "0.8.1"
+    "cordova-plugin-google-analytics": "0.8.1",
+    "cordova-plugin-device": "1.1.0"
 }
 // BOTTOM OF METADATA
 });
