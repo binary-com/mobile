@@ -47,6 +47,13 @@ angular
 					});
 			};
 
+			this.displaySymbolWarning = function(_message, _callback){
+				$translate(['alert.warning', _message])
+					.then(function(translation){
+						displayAlert(translation['alert.warning'], translation[_message]);
+					});
+			}
+
 			this.accountError = {
 				tokenNotValid: function() {
 					$translate(['alert.error', 'alert.not_valid'])

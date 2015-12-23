@@ -16,6 +16,7 @@
 	},
 	"alert" : {
 		"error": "Error!",
+		"warning": "Warning",
 		"not_valid": "Please enter a valid token.",
 		"not_auth": "Sorry, we couldn't authenticate you.",
 		"not_unique": "You've already added this account.",
@@ -45,7 +46,8 @@
 		"select_amount": "Select Amount",
 		"payout": "Payout",
 		"stake": "Stake",
-		"save": "SAVE"
+		"save": "SAVE",
+		"no_underlying": "There is no underlying for this market. Please try another market."
 	},
 	"trade" : {
 		"payout": "Payout",
