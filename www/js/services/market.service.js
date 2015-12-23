@@ -74,7 +74,6 @@ angular
 			this.fixOrder = function() {
 				var symbols = JSON.parse(sessionStorage.active_symbols);
 				Object.keys(symbols).forEach(function(key){
-					console.log(key);
 					symbols[key] = reorder(symbols[key]);
 				});
 				sessionStorage.active_symbols = JSON.stringify(symbols);
