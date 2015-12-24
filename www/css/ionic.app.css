@@ -9148,11 +9148,15 @@ body * {
 .scroll {
   padding-bottom: 1px; }
 
+.error p {
+  color: red;
+  font-size: 8px; }
+
 @media screen and (max-width: 400px) {
   .trade .contract-price .price {
     display: inline-block; }
   .options .item-select select {
-    padding-right: 8px;
+    padding-right: 5%;
     padding-left: 0px; }
   .options .item-select::after {
     right: 0px; } }
@@ -9401,22 +9405,19 @@ body * {
     font-size: 16px;
     font-weight: bold;
     text-align: left;
-    padding: 4px 0 10px;
+    padding: 2px 0 5px;
     margin: 0; }
 
 .options .options-account {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   border-bottom: 1px solid #f2f2f2; }
   .options .options-account .manage-account {
     text-align: right;
     font-size: 28px; }
-    .options .options-account .manage-account i:before {
-      margin-top: 3px; }
 
 .options .options-market {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 5px 0; }
+  border-bottom: 1px solid #f2f2f2; }
   .options .options-market .item {
     display: inline-block; }
   .options .options-market .item-content {
@@ -9433,8 +9434,7 @@ body * {
   border-bottom: 1px solid #f2f2f2; }
 
 .options .options-trade {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 5px 0; }
+  border-bottom: 1px solid #f2f2f2; }
   .options .options-trade .padding {
     padding: 0 5px 5px 5px;
     width: 100%;
@@ -9452,8 +9452,7 @@ body * {
     color: #fff; }
 
 .options .options-ticks {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 5px 0; }
+  border-bottom: 1px solid #f2f2f2; }
   .options .options-ticks .item {
     display: inline-block;
     width: 16%; }
@@ -9465,8 +9464,7 @@ body * {
     color: #fff; }
 
 .options .options-amount {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 5px 0; }
+  border-bottom: 1px solid #f2f2f2; }
   .options .options-amount .item {
     display: inline-block;
     width: 30%; }
