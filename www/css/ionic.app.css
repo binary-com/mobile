@@ -9148,6 +9148,10 @@ body * {
 .scroll {
   padding-bottom: 1px; }
 
+.error p {
+  color: red;
+  font-size: 8px; }
+
 @media screen and (max-width: 400px) {
   .trade .contract-price .price {
     display: inline-block; }
