@@ -106,6 +106,7 @@ angular
 							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
 							break;
 						case 'proposal':
+							message.proposal.currency = message.echo_req.currency;
 							$rootScope.$broadcast('proposal', message.proposal);
 							break;
 						case 'contracts_for':
