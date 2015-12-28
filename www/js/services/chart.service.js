@@ -9,7 +9,7 @@
 angular
 	.module('binary')
 	.factory('chartService',
-		function() {
+		function($rootScope) {
 			var localHistory,
 					chartDrawer,
 					contracts = [],
@@ -333,8 +333,10 @@ angular
 						if ( betweenSpots(lastTime) ) {
 							if ( utils.conditions[contract.type](contract.barrier, lastPrice) ) {
 								contract.result = 'win';
+								$rootScope.$broadcast("contract:finished", contract);
 							} else {
 								contract.result = 'lose';
+								$rootScope.$broadcast("contract:finished", contract);
 							}
 						}
 					}

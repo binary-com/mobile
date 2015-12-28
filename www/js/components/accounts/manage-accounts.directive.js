@@ -27,8 +27,11 @@ angular
 					if (response) {
 						if (accountService.isUnique(response.loginid)) {
 							accountService.add(response);
+							accountService.setDefault(response.token);
 							scope.accounts = accountService.getAll();
-							scope.$apply();
+							if(!scope.$$phase){
+								scope.$apply();
+							}
 						} else {
 							if (scope.settingDefault) {
 								scope.settingDefault = false;
@@ -45,7 +48,9 @@ angular
 				scope.$on('token:remove', function(e, response) {
 					accountService.remove(response);
 					scope.accounts = accountService.getAll();
-					scope.$apply();
+					if(!scope.$$phase){
+						scope.$apply();
+					}
 				});
 
 				scope.addAccount = function(_token) {

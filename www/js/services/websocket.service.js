@@ -20,9 +20,11 @@ angular
 
 				dataStream.onopen = function() {
 					console.log('socket is opened');
-					if(typeof(analytics) !== "undefined"){
-						analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
-					}
+					
+					// if(typeof(analytics) !== "undefined"){
+					// 	analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
+					// }
+					
 					dataStream.send(JSON.stringify({ping: 1}));
 				};
 				dataStream.onmessage = function(message) {
@@ -104,6 +106,7 @@ angular
 							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
 							break;
 						case 'proposal':
+							message.proposal.currency = message.echo_req.currency;
 							$rootScope.$broadcast('proposal', message.proposal);
 							break;
 						case 'contracts_for':
