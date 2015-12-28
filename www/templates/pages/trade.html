@@ -16,7 +16,7 @@
 			<purchase ng-if="tradeMode"></purchase>
 
 			<div class="contract-back" ng-if="!tradeMode">
-				<button class="button button-block button-positive" ng-click="backToOptionPage()">
+				<button class="button button-block button-positive" ng-click="backToOptionPage()" ng-disabled="!contractFinished">
 					{{'trade.back' | translate }}
 				</button>
 			</div>
