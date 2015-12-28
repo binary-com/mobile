@@ -9161,6 +9161,15 @@ body * {
   .options .item-select::after {
     right: 0px; } }
 
+.bar.bar-positive {
+  border-color: none;
+  background-color: #2a3052;
+  background-image: none; }
+
+.bar-positive .button {
+  border-color: #2a3052;
+  background-color: #2a3052; }
+
 .bar-header {
   background-color: #2a3052;
   position: relative; }
@@ -9171,8 +9180,22 @@ body * {
     height: 80%;
     padding-top: 10px; }
 
-.bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before {
+.bar .button.button-clear .icon:before,
+.bar .button.button-clear.icon:before,
+.bar .button.button-clear.icon-left:before,
+.bar .button.button-clear.icon-right:before {
   font-size: 24px; }
+
+.has-header {
+  top: 0 !important; }
+
+.bar.bar-assertive.bar-footer {
+  background-image: none; }
+
+.bar.bar-assertive {
+  border-color: #2a3052;
+  background-color: #2a3052;
+  background-image: none; }
 
 .bar-footer {
   background-color: #2a3052;
@@ -9391,7 +9414,6 @@ body * {
       border-bottom: 1px solid #c4c4c4; }
 
 .options .options-content {
-  display: block;
   padding-left: 3%;
   padding-right: 3%; }
   .options .options-content .col {
