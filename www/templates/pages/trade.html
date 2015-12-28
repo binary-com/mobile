@@ -1,12 +1,10 @@
 <ion-view class="trade" ng-init="init()">
-	<div class="bar bar-header">
-		<button class="button icon ion-android-options"
-			ng-click="navigateToOptionsPage()"
-			ng-disabled="!tradeMode"></button>
+	<ion-header-bar class="bar bar-header bar-positive">
+		<button class="button icon ion-android-options" ng-click="navigateToOptionsPage()" ng-disabled="!tradeMode"></button>
 		<h1 class="title">
 			<img src="img/binary.svg" alt="Binary.com">
 		</h1>
-	</div>
+	</ion-header-bar>
 	<ion-content>
 		<form name="purchaseFrom" novalidate>
 			<long-code></long-code>
@@ -22,11 +20,12 @@
 			</div>
 		</form>
 	</ion-content>
-	<div class="bar bar-footer row">
+	<ion-footer-bar class="bar-assertive bar bar-footer row">
+		<!-- <div class="bar bar-footer row"> -->
 		<div class="col balance">
 			{{'trade.balance' | translate }}:
 			<strong>{{account.balance | currency:"$"}}</strong>
 		</div>
 		<div class="col account">{{account.loginid}}</div>
-	</div>
+	</ion-footer-bar>
 </ion-view>
