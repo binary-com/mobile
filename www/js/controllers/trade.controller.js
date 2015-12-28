@@ -19,6 +19,7 @@ angular
 
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
 				$scope.tradeMode = true;
+				$scope.contractFinished = false;
 				proposalService.send();
 			};
 
@@ -38,6 +39,7 @@ angular
 			$scope.$on('purchase', function(e, _contractConfirmation) {
 				if (_contractConfirmation.buy) {
 					$scope.tradeMode = false;
+					$scope.contractFinished = false;
 					$scope.contract = {
 						contract_id: _contractConfirmation.buy.contract_id,
 						longcode: _contractConfirmation.buy.longcode,
@@ -56,6 +58,27 @@ angular
 				}
 				websocketService.sendRequestFor.balance();
 				websocketService.sendRequestFor.portfolio();
+			});
+
+			$scope.$on('contract:finished', function (e, _contract){
+				if(_contract.exitSpot){
+					$scope.contractFinished = true;
+					if(_contract.result === "win"){
+						$scope.contract.buyPrice = $scope.contract.profit;
+						$scope.contract.profit = $scope.contract.cost;
+						$scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.profit;
+					}
+					else if(_contract.result === "lose"){
+						$scope.contract.buyPrice = $scope.contract.cost;
+						$scope.contract.loss = $scope.contract.cost * -1;
+						$scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.loss;
+					}
+					$scope.contract.result = _contract.result;
+
+					if(!$scope.$$phase){
+						$scope.$apply();
+					}
+				}
 			});
 
 			$scope.navigateToOptionsPage = function($event) {
