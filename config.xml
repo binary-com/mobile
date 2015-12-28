@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.c258272" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Binary.com</name>
+<widget id="com.binary.ticktrade" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Binary.com Tick Trade</name>
   <description>
-        Binary.com Mobile Application
+        Enjoy fast-paced binary options trading with the Binary.com Tick Trade App. Trade Forex and more in seconds with our mobile application.
     </description>
   <author email="morteza@binary.com" href="http://www.binary.com">
       Morteza Tavanarad

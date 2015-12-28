@@ -60,7 +60,13 @@
 		"potential_profit": "Potential Profit",
 		"account_balance": "Account Balance",
 		"back": "Back",
-		"balance": "Balance"
+		"balance": "Balance",
+		"buy_price": "Buy Price",
+		"final_price": "Final Price",
+		"profit": "Profit",
+		"loss": "Loss",
+		"win": "This contract won",
+		"lose": "This contract lost"
 	},
 	"help" : {
 		"need_help": "Need Help?",
