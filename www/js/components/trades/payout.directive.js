@@ -47,7 +47,7 @@ angular
 				};
 
 				scope.updateAmount = function(_newAmount, _oldAmount) {
-					scope.amount = roundNumber(_newAmount, _oldAmount);
+					// scope.amount = parseFloat(parseFloat(_newAmount).toFixed(2));//roundNumber(_newAmount, _oldAmount);
 					updateProposal();
 				};
 
