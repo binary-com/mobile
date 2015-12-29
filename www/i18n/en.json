@@ -47,7 +47,8 @@
 		"payout": "Payout",
 		"stake": "Stake",
 		"save": "SAVE",
-		"no_underlying": "There is no underlying for this market. Please try another market."
+		"no_underlying": "There is no underlying for this market. Please try another market.",
+		"lets_trade": "Let's trade!"
 	},
 	"trade" : {
 		"payout": "Payout",

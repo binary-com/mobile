@@ -20,6 +20,23 @@ angular
 			websocketService.sendRequestFor.symbols();
 			websocketService.sendRequestFor.assetIndex();
 
+			function init(){
+				var proposal = proposalService.get();
+				if(proposal){
+					$scope.selected = {
+						symbol: proposal.symbol,
+						tradeType: proposal.contract_type,
+						tick: proposal.duration,
+						basis: proposal.basis,
+						market: proposal.passthrough.market,
+						digit: proposal.digit,
+						barrier: proposal.barrier
+					};
+				}
+			}
+
+			init();
+
 			$scope.navigateToManageAccounts = function() {
 				$state.go('accounts');
 			};
@@ -45,7 +62,7 @@ angular
 				proposalService.update(proposal);
 				proposalService.send();
 
-				$state.go('trade', {}, { reload: true, inherit: false, notify: true });
+				//$state.go('trade', {}, { reload: true, inherit: false, notify: true });
 			};
 
 			$scope.$on('connection:reopened', function(e) {
@@ -54,6 +71,12 @@ angular
 				}
 				$window.location.reload();
 			});
+
+			$scope.$watch('selected', function(_newValue, _oldValue){
+				if(!angular.equals(_newValue, _oldValue)){
+					$scope.saveChanges();
+				}
+			}, true);
 	});
 
 
