@@ -2,7 +2,7 @@
     <div class="col col-33 basis" ng-show="basis == 'payout'">{{'trade.payout' | translate}}</div>
     <div class="col col-33 basis" ng-show="basis == 'stake'">{{'trade.stake' | translate}}</div>
     <div class="col col-33 amount">
-        <input type="number" name="amount" min="0.70" max="100000" ng-model="amount" ng-change="updateAmount(amount, '{{amount}}')" required>
+        <input type="number" string-to-number name="amount" min="0.70" max="100000" ng-model="amount" ng-change="updateAmount(amount, '{{amount}}')" required step="0.01">
         <div class="error">
             <p ng-show="purchaseFrom.amount.$error.required"> This field is required.</p>
             <p ng-show="purchaseFrom.amount.$error.min || purchaseFrom.amount.$error.max"> This field has to be between 0.70 and 100000.</p>
