@@ -127,7 +127,7 @@ angular
 
 						return proposal.passthrough.market;
 					}
-					return _market.forex ? 'forex' : 'random';
+					return _market.random ? 'random' : 'forex';
 				},
 				/**
 				 * Return the default/selected symbol
