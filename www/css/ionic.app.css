@@ -9321,7 +9321,7 @@ body * {
   height: 200px !important; }
 
 .trade .contract-summary {
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px;
   text-align: center;
   font-size: 14px;
   background-color: #f2f2f2;
@@ -9368,7 +9368,7 @@ body * {
 .trade .contract-price {
   background-color: #f2f2f2;
   border-bottom: 1px solid #c4c4c4;
-  margin-top: 0px; }
+  margin-top: 0; }
   .trade .contract-price > .col:nth-child(1) {
     font-size: 16px;
     text-align: left;
@@ -9396,6 +9396,10 @@ body * {
 
 .trade .contract-details {
   margin-top: 20px; }
+  .trade .contract-details .win {
+    color: #4CBB17 !important; }
+  .trade .contract-details .lose {
+    color: #ff0000 !important; }
   .trade .contract-details .row {
     padding: 0;
     margin-top: 0; }
