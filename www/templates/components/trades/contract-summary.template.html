@@ -15,7 +15,7 @@
 		<div class="col" ng-if="!contractFinished">{{'trade.potential_profit' | translate }}</div>
 		<div class="col" ng-if="contractFinished">{{ contract.result === "win" ? 'trade.profit' : 'trade.loss' | translate }}</div>
 		<div class="col" ng-if="!contractFinished">{{contract.profit | currency}}</div>
-		<div class="col" ng-if="contractFinished">{{contract.result === "win" ? contract.profit : contract.loss | customCurrency}}</div>
+		<div class="col {{contract.result}}" ng-if="contractFinished">{{contract.result === "win" ? contract.profit : contract.loss | customCurrency}}</div>
 	</div>
 	<!-- <div class="row">
 		<div class="col">{{'trade.account_balance' | translate }}</div>
