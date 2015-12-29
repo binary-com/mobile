@@ -9408,10 +9408,19 @@ body * {
         padding: 4px 10px 4px 0; }
       .trade .contract-details .row .col:last-child {
         text-align: center;
-        font-weight: bold;
-        color: #4CBB17; }
+        font-weight: bold; }
     .trade .contract-details .row:last-child {
       border-bottom: 1px solid #c4c4c4; }
+  .trade .contract-details .win .col {
+    color: #4CBB17 !important;
+    background-color: #fff !important;
+    font-size: 16px;
+    padding: 10px !important; }
+  .trade .contract-details .lose .col {
+    color: #ff0000 !important;
+    background-color: #fff !important;
+    font-size: 16px;
+    padding: 10px !important; }
 
 .options .options-content {
   padding-left: 3%;
