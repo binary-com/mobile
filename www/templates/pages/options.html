@@ -1,6 +1,6 @@
 <ion-view class="options">
 	<ion-header-bar align-title="center" class="bar bar-header bar-positive">
-		<a class="button icon-left ion-chevron-left button-clear" ng-click="navigateToTradePage()"></a>
+		<!-- <a class="button icon-left ion-chevron-left button-clear" ng-click="navigateToTradePage()" ></a> -->
 		<h1 class="title">
 			<img src="img/binary.svg" alt="Binary.com">
 		</h1>
@@ -14,7 +14,7 @@
 		<digits-option ng-if="displayDigits"></digits-option>
 		<payout-stake-option></payout-stake-option>
 		<div class="options-save row">
-			<button class="button button-block" ng-click="saveChanges()">{{'options.save' | translate }}</button>
+			<button class="button button-block" ng-click="navigateToTradePage()">{{'options.lets_trade' | translate }}</button>
 		</div>
 	</ion-content>
 </ion-view>
