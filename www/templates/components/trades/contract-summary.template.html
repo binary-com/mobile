@@ -21,6 +21,6 @@
 		<div class="col">{{'trade.account_balance' | translate }}</div>
 		<div class="col">{{contract.balance | currency}}</div>
 	</div> -->
-	<div class="{{contract.result}}" ng-if="contract.result !== undefined"> {{'trade.' + contract.result | translate}}</div>
+	<div class="{{contract.result}} row" ng-if="contract.result !== undefined"><div class="col"> {{'trade.' + contract.result | translate}}</div></div>
 
 </div>
