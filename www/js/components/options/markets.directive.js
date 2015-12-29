@@ -81,7 +81,8 @@ angular
 				});
 
 				scope.$on('assetIndex:updated', function(e, _symbol){
-					updateSymbols(scope.$parent.selected.market);
+					//updateSymbols(scope.$parent.selected.market);
+					init();
 				});
 
 				scope.updateMarket = function(_market) {
