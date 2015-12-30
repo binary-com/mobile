@@ -55,6 +55,7 @@ angular
 				 * Set the default/selected market
 				 */
 				var init = function() {
+					marketService.fixOrder();
 					var markets = marketService.getActiveMarkets();
 					scope.market = {
 						forex: markets.indexOf('forex') !== -1  ? true : false,
@@ -73,10 +74,9 @@ angular
 
 				};
 
-				init();
+				//init();
 
 				scope.$on('symbols:updated', function(e, _symbol) {
-					marketService.fixOrder();
 					init();
 				});
 
