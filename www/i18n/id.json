@@ -16,6 +16,7 @@
 	},
 	"alert" : {
 		"error": "Error!",
+		"warning": "Warning",
 		"not_valid": "Masukkan token yang benar.",
 		"not_auth": "Maaf, kami tidak bisa mengotentikasi Anda.",
 		"not_unique": "Anda sudah menambahkan akun ini.",
@@ -24,7 +25,8 @@
 		"remove_token_title": "Menghapus Token",
 		"remove_token_content": "Apakah Anda yakin ingin menghapus token ini?",
 		"remove_all_tokens_title": "Hapus Semua Token",
-		"remove_all_tokens_content": "Apakah Anda yakin ingin menghapus token ini dan keluar?"
+		"remove_all_tokens_content": "Apakah Anda yakin ingin menghapus token ini dan keluar?",
+		"no_underlying": "There is no underlying for this market. Please try another market."
 	},
 	"options" : {
 		"account": "Akun",
@@ -45,7 +47,8 @@
 		"select_amount": "Pilih Jumlah",
 		"payout": "Hasil",
 		"stake": "Modal",
-		"save": "SIMPAN"
+		"save": "SIMPAN",
+		"lets_trade": "Let's trade!"
 	},
 	"trade" : {
 		"payout": "Hasil",
@@ -58,7 +61,13 @@
 		"potential_profit": "Potensi Untung",
 		"account_balance": "Saldo Akun",
 		"back": "Kembali",
-		"balance": "Saldo"
+		"balance": "Saldo",
+		"buy_price": "Buy Price",
+		"final_price": "Final Price",
+		"profit": "Profit",
+		"loss": "Loss",
+		"win": "This contract won",
+		"lose": "This contract lost"
 	},
 	"help" : {
 		"need_help": "Perlu Bantuan?",
