@@ -29,8 +29,7 @@ angular
 						tick: proposal.duration,
 						basis: proposal.basis,
 						market: proposal.passthrough.market,
-						digit: proposal.digit,
-						barrier: proposal.barrier
+						digit: proposal.digit
 					};
 				}
 			}
