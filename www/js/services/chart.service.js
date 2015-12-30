@@ -89,9 +89,11 @@ angular
 				var startingPosition = 0;
 				var startingDataIndex = 0;
 				var started = false;
+				var deltaTime = 0;
 				var setStartPosition = function setStartPosition (dataIndex, position){
 					startingPosition = position;
 					startingDataIndex = dataIndex;
+					deltaTime = 0;
 					started = true;
 				};
 				var stepCount = function stepCount(dataIndex, position) {
@@ -105,10 +107,19 @@ angular
 						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
 					}
 				};
+				var isStep = function isStep(e, pageTickCount) {
+					if ( deltaTime + e.deltaTime > pageTickCount * 40 ) { // 40 is calculated by experience
+						deltaTime = 0;
+						return true;
+					}
+					deltaTime = deltaTime + e.deltaTime;
+					return false;
+				};
 				var stop = function stop() {
 					started = false;
 				};
 				return {
+					isStep: isStep,
 					stop: stop,
 					setDistance: setDistance,
 					setStartPosition: setStartPosition,
@@ -815,6 +826,9 @@ angular
 				};
 
 				var dragEnd = function dragEnd(e){
+					if ( !zooming ) {
+						move(stepper.stepCount( dataIndex, e.center.x ));
+					}
 					stepper.stop();
 					dragging = false;
 				};
@@ -849,6 +863,7 @@ angular
 					
 					chartData.datasets[0].data = values;
 					if ( utils.isDefined(chart) ) {
+						drawer.destroy();
 						drawer = chart.LineChartSpots(chartData, chartOptions);
 						setChartColor(drawer, labels);
 					}
@@ -926,24 +941,21 @@ angular
 					
 				
 				var zoomOut = function zoomOut(){
-					if ( pageTickCount < maximumZoomOut ){
-						pageTickCount++;						
+					var zoomed = parseInt(pageTickCount * 1.2);
+					if ( zoomed < maximumZoomOut ){
+						pageTickCount = zoomed;
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						stepper.setDistance(canvas, pageTickCount);
 					}
 				};
 
 				var zoomIn = function zoomIn(){
-					if ( pageTickCount > maximumZoomIn ){
-						pageTickCount--;						
+					var zoomed = parseInt(pageTickCount / 1.2);
+					if ( zoomed > maximumZoomIn ){
+						pageTickCount = zoomed;
 						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						stepper.setDistance(canvas, pageTickCount);
 					}
-				};
-
-				var first = function first(){
-					dataIndex = 0;
-					localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 				};
 
 				var move = function move(steps, update){
@@ -951,7 +963,12 @@ angular
 						return;
 					}
 					var testDataIndex = dataIndex + steps;
-					if ( testDataIndex >=0 && testDataIndex < capacity - pageTickCount ){
+					if ( testDataIndex < 0 ) {
+						testDataIndex = 0;
+					} else if(testDataIndex >= capacity - pageTickCount) {
+						testDataIndex = capacity - pageTickCount - 1;
+					}
+					if ( testDataIndex != dataIndex ){
 						dataIndex = testDataIndex;
 						if ( !utils.isDefined(update) || update ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
@@ -959,14 +976,8 @@ angular
 					}
 				};
 
-				var dragRight = function dragRight(e) {
-					if ( !zooming ) {
-						move(stepper.stepCount( dataIndex, e.center.x ));
-					}
-				};
-
-				var dragLeft = function dragLeft(e) {
-					if ( !zooming ) {
+				var drag = function drag(e) {
+					if ( !zooming && stepper.isStep(e, pageTickCount) ) {
 						move(stepper.stepCount( dataIndex, e.center.x ));
 					}
 				};
@@ -1007,9 +1018,8 @@ angular
 					zoomOut: zoomOut,
 					zoomStart: zoomStart,
 					zoomEnd: zoomEnd,
-					first: first,
-					dragRight: dragRight,
-					dragLeft: dragLeft,
+					dragRight: drag,
+					dragLeft: drag,
 					getCapacity: getCapacity,
 					getPageTickCount: getPageTickCount,
 					getDataIndex: getDataIndex,
@@ -1036,7 +1046,6 @@ angular
 				zoomOut: chartDrawer.zoomOut,
 				zoomStart: chartDrawer.zoomStart,
 				zoomEnd: chartDrawer.zoomEnd,
-				first: chartDrawer.first,
 				dragRight: chartDrawer.dragRight,
 				dragLeft: chartDrawer.dragLeft,
 				getCapacity: chartDrawer.getCapacity,
