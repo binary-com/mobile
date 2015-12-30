@@ -64,8 +64,8 @@ angular
 				if(_contract.exitSpot){
 					$scope.contractFinished = true;
 					if(_contract.result === "win"){
-						$scope.contract.buyPrice = $scope.contract.profit;
-						$scope.contract.profit = $scope.contract.cost;
+						$scope.contract.buyPrice = $scope.contract.cost;
+						$scope.contract.profit = $scope.contract.profit;
 						$scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.profit;
 					}
 					else if(_contract.result === "lose"){
