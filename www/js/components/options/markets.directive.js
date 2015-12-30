@@ -30,14 +30,14 @@ angular
 						scope.$parent.selected.symbol = marketService.getDefault.symbol(_market, scope.symbols);
 						marketService.getSymbolDetails(scope.$parent.selected.symbol);
 					}
-					else{ 
+					else{
 						// If there is not any symbol that has tick support, a empty array broadcast for symbol
 						scope.$parent.$broadcast('symbol', []);
 
 						if(scope.showSymbolWarning){
 							scope.showSymbolWarning = false;
-							alertService.displaySymbolWarning('options.no_underlying');
-							scope.$watch(function(){ return scope.$parent.selected.market;}, function(newVal, oldVal){ 
+							alertService.displaySymbolWarning('alert.no_underlying');
+							scope.$watch(function(){ return scope.$parent.selected.market;}, function(newVal, oldVal){
 								if(newVal !== oldVal)
 									scope.showSymbolWarning = true;
 							});
@@ -63,14 +63,14 @@ angular
 
 					scope.$parent.selected.market = marketService.getDefault.market(scope.market);
 
-					
+
 					updateSymbols(scope.$parent.selected.market);
 
 					if(!scope.$$phase) {
 						scope.$apply();
 					}
 
-					
+
 				};
 
 				init();
