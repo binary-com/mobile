@@ -371,7 +371,6 @@ angular
 						canvas,
 						ctx,
 						chart,
-						drawer,
 						capacity = 600,
 						maximumZoomOut = 50, 
 						maximumZoomIn = 5, 
@@ -789,8 +788,7 @@ angular
 					canvas = document.getElementById(chartID);
 					if ( canvas !== null ) {
 						ctx = canvas.getContext('2d');
-						chart = new Chart(ctx);
-						drawer = chart.LineChartSpots(chartData, chartOptions);
+						chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
 						stepper = Stepper();
 						stepper.setDistance(canvas, pageTickCount);
 					}
@@ -848,11 +846,11 @@ angular
 					chartOptions.gridLines.push(gridLine);
 				}
 			
-				var setChartColor = function setChartColor(drawer, labels) {
-					drawer.datasets[0].points.forEach(function(point, index){
+				var setChartColor = function setChartColor(chart, labels) {
+					chart.datasets[0].points.forEach(function(point, index){
 						point.fillColor = getDotColor(labels[index], index);
 					});
-					drawer.update();
+					chart.update();
 				};
 				
 				var addArrayToChart = function addArrayToChart(labels, values) {
@@ -863,9 +861,9 @@ angular
 					
 					chartData.datasets[0].data = values;
 					if ( utils.isDefined(chart) ) {
-						drawer.destroy();
-						drawer = chart.LineChartSpots(chartData, chartOptions);
-						setChartColor(drawer, labels);
+						chart.destroy();
+						chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
+						setChartColor(chart, labels);
 					}
 				};
 
