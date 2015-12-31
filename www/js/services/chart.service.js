@@ -89,7 +89,7 @@ angular
 				var startingPosition = 0;
 				var startingDataIndex = 0;
 				var started = false;
-				var deltaTime = 0;
+				var previousTime = 0;
 				var setStartPosition = function setStartPosition (dataIndex, position){
 					startingPosition = position;
 					startingDataIndex = dataIndex;
@@ -108,11 +108,10 @@ angular
 					}
 				};
 				var isStep = function isStep(e, pageTickCount) {
-					if ( deltaTime + e.deltaTime > pageTickCount * 40 ) { // 40 is calculated by experience
-						deltaTime = 0;
+					if ( e.timeStamp - previousTime > 100 ) {
+						previousTime = e.timeStamp;
 						return true;
 					}
-					deltaTime = deltaTime + e.deltaTime;
 					return false;
 				};
 				var stop = function stop() {
@@ -499,7 +498,11 @@ angular
 						ctx.textAlign = "center";
 						ctx.textBaseline = "bottom";
 						
-						ctx.fillText(point.value, point.x, point.y - 10);
+						var padding = 0;
+						if ( lastElement(index) ) {
+							padding = (ctx.measureText(point.value).width < 50) ? 0 : ctx.measureText(point.value).width - 50;
+						}
+						ctx.fillText(point.value, point.x - padding, point.y - 5);
 					}
 				};
 
@@ -678,9 +681,13 @@ angular
 						Chart.types.Line.prototype.initialize.apply(this, arguments);
 					},
 					draw: function () {
+						this.datasets.forEach(function (dataset) {
+							dataset.points.forEach(function (point, index) {
+								point.fillColor = getDotColor(chartData.epochLabels[index], index);
+							});
+						});
 						Chart.types.Line.prototype.draw.apply(this, arguments);
 						var parentChart = this;
-
 						this.datasets.forEach(function (dataset) {
 							dataset.points.forEach(function (point, index) {
 								drawLabel.call(parentChart, point, index);
@@ -698,8 +705,6 @@ angular
 								drawGridLine.call(parentChart, gridLine);
 							});
 						}
-
-
 					},
 					buildScale: function (labels) {
 						var helpers = Chart.helpers;
@@ -788,7 +793,6 @@ angular
 					canvas = document.getElementById(chartID);
 					if ( canvas !== null ) {
 						ctx = canvas.getContext('2d');
-						chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
 						stepper = Stepper();
 						stepper.setDistance(canvas, pageTickCount);
 					}
@@ -846,15 +850,9 @@ angular
 					chartOptions.gridLines.push(gridLine);
 				}
 			
-				var setChartColor = function setChartColor(chart, labels) {
-					chart.datasets[0].points.forEach(function(point, index){
-						point.fillColor = getDotColor(labels[index], index);
-					});
-					chart.update();
-				};
-				
 				var addArrayToChart = function addArrayToChart(labels, values) {
 					chartData.labels = [];
+					chartData.epochLabels = labels;
 					labels.forEach(function(label, index){
 						chartData.labels.push(utils.getTickTime(label));
 					});
@@ -865,7 +863,6 @@ angular
 					}
 					if ( utils.isDefined(ctx) ) {
 						chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
-						setChartColor(chart, labels);
 					}
 				};
 
