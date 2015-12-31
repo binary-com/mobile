@@ -23,6 +23,15 @@ module.exports = [
         "clobbers": [
             "analytics"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -31,7 +40,8 @@ module.exports.metadata =
     "cordova-plugin-device": "1.1.0",
     "cordova-plugin-dialogs": "1.2.0",
     "cordova-plugin-google-analytics": "0.8.1",
-    "cordova-plugin-whitelist": "1.2.0"
+    "cordova-plugin-whitelist": "1.2.0",
+    "cordova-plugin-inappbrowser": "1.1.1"
 }
 // BOTTOM OF METADATA
 });
