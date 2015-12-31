@@ -12,6 +12,73 @@ angular
 	.service('marketService',
 		function(websocketService, proposalService, config) {
 
+			var regroup = function regroup(symbols){
+				var groups = {
+					index: ['R_100', 'R_25', 'R_50', 'R_75'],
+					BEARBULL: ['RDBEAR', 'RDBULL'],
+					MOONSUN: ['RDMOON', 'RDSUN'],
+					MARSVENUS: ['RDMARS', 'RDVENUS'],
+					YANGYIN: ['RDYANG', 'RDYIN'],
+				};
+
+				var result = [],
+						itemIndices = [];
+				Object.keys(groups).forEach(function(key){
+					var tmp = [],
+							first = -1;
+					symbols.forEach(function(item, index){
+						if ( item.symbol == groups[key][0] ) {
+							first = index;
+						}
+					});
+					if ( first < 0 ) {
+						return;
+					} else {
+						groups[key].forEach(function(item, index){
+							var itemIndex = -1;
+							symbols.forEach(function(item, i){
+								if ( item.symbol == groups[key][index] ) {
+									itemIndex = i;
+								}
+							});
+							if ( itemIndex >= 0 ) {
+								tmp.push(symbols[itemIndex]);
+								itemIndices.push(itemIndex);
+							}
+						});
+						tmp.sort();
+						result = result.concat(tmp);
+					}
+				});
+				symbols.forEach(function(symbol, index){
+					if ( itemIndices.indexOf(index) < 0 ) {
+						result.push(symbol);
+					}
+				});
+				return result;
+			};
+
+			var reorder = function reorder(symbols) {
+				symbols.sort(function(a, b){
+					if ( a.display_name > b.display_name) {
+						return 1;
+					} else if (a.display_name < b.display_name) {
+						return -1;
+					}
+					return 0;
+				});
+				symbols = regroup(symbols);
+				return symbols;
+			};
+
+			this.fixOrder = function() {
+				var symbols = JSON.parse(sessionStorage.active_symbols);
+				Object.keys(symbols).forEach(function(key){
+					symbols[key] = reorder(symbols[key]);
+				});
+				sessionStorage.active_symbols = JSON.stringify(symbols);
+			};
+		
 			this.getActiveMarkets = function() {
 				var data = JSON.parse(sessionStorage.active_symbols);
 				return Object.keys(data);
@@ -60,7 +127,7 @@ angular
 
 						return proposal.passthrough.market;
 					}
-					return _market.forex ? 'forex' : 'random';
+					return _market.random ? 'random' : 'forex';
 				},
 				/**
 				 * Return the default/selected symbol
@@ -141,6 +208,13 @@ angular
 				return finalTradeTypes;
 			};
 
+			this.removeActiveSymbols = function(){
+				sessionStorage.active_symbols = null;
+			}
+
+			this.removeAssetIndex = function(){
+				sessionStorage.asset_index = null;
+			}
 
 			// this.getActiveTickSymbolsForMarket = function(_market) {
 			// 	var symbols = JSON.parse(sessionStorage.active_symbols);

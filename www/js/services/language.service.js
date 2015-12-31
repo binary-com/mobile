@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.service('languageService',
-		function($translate) {
+		function($rootScope, $translate, cleanupService) {
 
 			/**
 			 * Update default languge in local storage
@@ -19,6 +19,8 @@ angular
 			 */
 			this.update = function(_language) {
 				localStorage.language = _language;
+				$rootScope.$broadcast('language:updated');
+				cleanupService.run();
 			};
 
 			/**
@@ -27,7 +29,10 @@ angular
 			 */
 			this.set = function() {
 				var language = localStorage.language || 'en';
+				cleanupService.run();
+				$rootScope.$broadcast('language:updated');
 				$translate.use(language);
+
 			};
 
 			// TODO: remove
@@ -35,4 +40,9 @@ angular
 				var language = localStorage['language'];
 				return language ? language : 'en';
 			};
+
+			this.remove = function(){
+				localStorage.removeItem('language');
+				cleanupService.run();
+			}
 	});

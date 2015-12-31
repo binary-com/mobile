@@ -1,6 +1,5 @@
 .options {
     .options-content {
-        display: block;
         padding-left: 3%;
         padding-right: 3%;
         .col{
@@ -16,26 +15,26 @@
             font-size: 16px;
             font-weight: bold;
             text-align: left;
-            padding: 4px 0 10px;
+            padding: 2px 0 5px;
             margin: 0;
         }
     }
     .options-account {
-        padding-top: 5px;
-        padding-bottom:10px;
+        padding-top: 10px;
+        padding-bottom:5px;
         border-bottom: 1px solid $lightgray;
         // margin-bottom: 20px;
     .manage-account{
         text-align: right;
-        font-size: 24px;
+        font-size: 28px;
         i:before{
-            margin-top:3px;
+            // margin-top:3px;
         }
     }
     }
     .options-market {
     	border-bottom: 1px solid $lightgray;
-    	padding:5px 0;
+    	// padding:5px 0;
         .item {
             display: inline-block;
         }
@@ -66,7 +65,7 @@
     	border-bottom: 1px solid $lightgray;
     	// margin-top: 10px;
     	//margin-bottom: 10px;
-    	padding:5px 0;
+    	// padding:5px 0;
         .padding{
             padding:0 5px 5px 5px;
             width:100%;
@@ -91,7 +90,7 @@
     }
     .options-ticks {
     	border-bottom: 1px solid $lightgray;
-    	padding:5px 0;
+    	// padding:5px 0;
         .item {
             display: inline-block;
             width: 16%;
@@ -109,7 +108,7 @@
     }
     .options-amount {
     	border-bottom: 1px solid $lightgray;
-    	padding:5px 0;
+    	// padding:5px 0;
         .item {
             display: inline-block;
             width: 30%;
@@ -127,6 +126,9 @@
     }
     .options-save {
     margin-bottom: 20%;
+    }
+    button{
+      font-size:20px;
     }
     label {
         .input-label {

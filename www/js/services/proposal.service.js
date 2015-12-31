@@ -23,6 +23,10 @@ angular
 					duration_unit: 't',
 					passthrough: _data.passthrough
 				};
+				if(_data.contract_type === "PUT" || _data.contract_type === "CALL"){
+					delete _data.digit;
+					delete _data.barrier;
+				}
 				if (_data.digit && _data.digit >= 0) {
 					proposal.barrier = _data.digit;
 				}
@@ -50,6 +54,10 @@ angular
 				}
 				return false;
 			};
+
+			this.remove = function(){
+				localStorage.removeItem('proposal');
+			}
 
 
 	});

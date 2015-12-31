@@ -9,35 +9,10 @@
 
 angular
 	.module('binary')
-	.service('websocketService',
-		function($rootScope) {
+	.factory('websocketService',
+		function($rootScope, localStorageService) {
 			var dataStream = '';
 			var messageBuffer = [];
-			var init = function() {
-				var language = localStorage.language || 'en';
-
-				dataStream = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=' + language);
-
-				dataStream.onopen = function() {
-					console.log('socket is opened');
-					if(typeof(analytics) !== undefined){
-						analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
-					}
-					dataStream.send(JSON.stringify({ping: 1}));
-				};
-				dataStream.onmessage = function(message) {
-					receiveMessage(message);
-				};
-				dataStream.onclose = function(e) {
-					console.log('socket is closed ', e);
-					init();
-					console.log('socket is reopened');
-					$rootScope.$broadcast('connection:reopened');
-				};
-				dataStream.onerror = function(e) {
-					console.log('error in socket ', e);
-				};
-			};
 
 			var waitForConnection = function(callback) {
 				if (dataStream.readyState === 3) {
@@ -64,6 +39,47 @@ angular
 					dataStream.send(JSON.stringify(_data));
 				});
 			};
+
+			var init = function() {
+				var language = localStorage.language || 'en';
+
+				dataStream = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=' + language);
+
+				dataStream.onopen = function() {
+					console.log('socket is opened');
+					
+					// if(typeof(analytics) !== "undefined"){
+					// 	analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
+					// }
+					
+					dataStream.send(JSON.stringify({ping: 1}));
+				};
+				dataStream.onmessage = function(message) {
+					receiveMessage(message);
+				};
+				dataStream.onclose = function(e) {
+					console.log('socket is closed ', e);
+					init();
+					console.log('socket is reopened');
+					$rootScope.$broadcast('connection:reopened');
+				};
+				dataStream.onerror = function(e) {
+					console.log('error in socket ', e);
+				};
+
+				// CLEANME
+				var token = localStorageService.getDefaultToken();
+				if(token){
+					var data = {
+						authorize: token
+					};
+					sendMessage(data);
+				}
+			};
+
+			$rootScope.$on('language:updated', function(){
+				init();
+			})
 
 			var receiveMessage = function(_response) {
 				var message = JSON.parse(_response.data);
@@ -100,6 +116,7 @@ angular
 							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
 							break;
 						case 'proposal':
+							message.proposal.currency = message.echo_req.currency;
 							$rootScope.$broadcast('proposal', message.proposal);
 							break;
 						case 'contracts_for':
@@ -134,7 +151,9 @@ angular
 				}
 			};
 
-			this.init = function() {
+			var websocketService ={};
+
+			websocketService.init = function() {
 				setInterval(function restart() {
 					if (!dataStream || dataStream.readyState === 3) {
 						init();
@@ -143,7 +162,7 @@ angular
 				}(), 1000);
 			};
 
-			this.authenticate = function(_token) {
+			websocketService.authenticate = function(_token) {
 				//init();
 				var data = {
 					authorize: _token
@@ -151,7 +170,7 @@ angular
 				sendMessage(data);
 			};
 
-			this.sendRequestFor = {
+			websocketService.sendRequestFor = {
 				symbols: function() {
 					var data = {
 						active_symbols: "brief"
@@ -236,4 +255,6 @@ angular
 					}
 				}
 			};
+
+			return websocketService;
 	});

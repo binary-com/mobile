@@ -47,6 +47,13 @@ angular
 					});
 			};
 
+			this.displaySymbolWarning = function(_message, _callback){
+				$translate(['alert.warning', _message])
+					.then(function(translation){
+						displayAlert(translation['alert.warning'], translation[_message]);
+					});
+			}
+
 			this.accountError = {
 				tokenNotValid: function() {
 					$translate(['alert.error', 'alert.not_valid'])
@@ -108,6 +115,18 @@ angular
 						}
 					);
 				});
+			};
+
+			this.confirmRemoveAllAccount = function(_callback){
+				$translate(['alert.remove_all_tokens_title', 'alert.remove_all_tokens_content'])
+					.then(function(translation){
+						displayConfirmation(
+							translation['alert.remove_all_tokens_title'],
+							translation['alert.remove_all_tokens_content'],
+							['Yes', 'No'],
+							_callback
+						);
+					});
 			}
 
 	});

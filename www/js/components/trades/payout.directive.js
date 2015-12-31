@@ -40,14 +40,14 @@ angular
 				var updateProposal = function() {
 					var proposal = proposalService.get();
 					if (proposal) {
-						proposal.amount = scope.amount;
+						proposal.amount = parseFloat(scope.amount, 10);
 						proposalService.update(proposal);
 						proposalService.send(scope.proposal.id);
 					}
 				};
 
 				scope.updateAmount = function(_newAmount, _oldAmount) {
-					scope.amount = roundNumber(_newAmount, _oldAmount);
+					// scope.amount = parseFloat(parseFloat(_newAmount).toFixed(2));//roundNumber(_newAmount, _oldAmount);
 					updateProposal();
 				};
 
