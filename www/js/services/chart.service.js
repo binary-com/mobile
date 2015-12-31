@@ -108,7 +108,6 @@ angular
 					}
 				};
 				var isStep = function isStep(e, pageTickCount) {
-					console.log(e.timeStamp - previousTime);
 					if ( e.timeStamp - previousTime > 100 ) {
 						previousTime = e.timeStamp;
 						return true;
