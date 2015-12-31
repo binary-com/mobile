@@ -74,7 +74,8 @@ angular
 					scope.showSpinner = false;
 					if(_token && _token.length === 15) {
 						scope.showSpinner = true;
-						accountService.validate(_token);
+						//accountService.validate(_token);
+						websocketService.authenticate(_token);
 					} else {
 						alertService.accountError.tokenNotValid();
 					}
