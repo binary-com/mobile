@@ -862,6 +862,8 @@ angular
 					chartData.datasets[0].data = values;
 					if ( utils.isDefined(chart) ) {
 						chart.destroy();
+					}
+					if ( utils.isDefined(ctx) ) {
 						chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
 						setChartColor(chart, labels);
 					}
