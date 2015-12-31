@@ -55,20 +55,25 @@ angular
 				 * Set the default/selected market
 				 */
 				var init = function() {
-					marketService.fixOrder();
-					var markets = marketService.getActiveMarkets();
-					scope.market = {
-						forex: markets.indexOf('forex') !== -1  ? true : false,
-						random: markets.indexOf('random') !== -1 ? true : false
-					};
+					try{
+						marketService.fixOrder();
+						var markets = marketService.getActiveMarkets();
+						scope.market = {
+							forex: markets.indexOf('forex') !== -1  ? true : false,
+							random: markets.indexOf('random') !== -1 ? true : false
+						};
 
-					scope.$parent.selected.market = marketService.getDefault.market(scope.market);
+						scope.$parent.selected.market = marketService.getDefault.market(scope.market);
 
 
-					updateSymbols(scope.$parent.selected.market);
+						updateSymbols(scope.$parent.selected.market);
 
-					if(!scope.$$phase) {
-						scope.$apply();
+						if(!scope.$$phase) {
+							scope.$apply();
+						}
+					}
+					catch(error){
+						console.log(error);
 					}
 
 
