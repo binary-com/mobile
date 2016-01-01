@@ -9318,12 +9318,16 @@ body * {
 
 .trade #tradeContractChart {
   width: 100% !important;
-  height: 200px !important; }
+  max-height: 200px !important;
+  width: 100vw !important;
+  max-height: 35vh !important; }
 
 .trade .contract-summary {
   padding: 5px 10px;
+  padding: 1vh 2vw;
   text-align: center;
   font-size: 14px;
+  font-size: 4vw;
   background-color: #f2f2f2;
   position: relative; }
 
@@ -9333,28 +9337,41 @@ body * {
   border-bottom: 1px solid #c4c4c4; }
   .trade .contract-payout .basis {
     font-size: 16px;
+    font-size: 4vw;
     text-align: left;
     line-height: 36px;
-    padding-left: 10px; }
+    line-height: 6vh;
+    padding-left: 10px;
+    padding-left: 3vw; }
   .trade .contract-payout .amount input {
     font-size: 18px;
-    width: 100px;
+    font-size: 5vw;
+    max-width: 100px;
+    max-width: 25vw;
     height: 36px;
+    height: 6vh;
     border-radius: 5px;
     border: 1px solid #c4c4c4;
     line-height: 36px;
+    line-height: 6vh;
     text-align: center;
-    padding-left: 18px; }
+    padding-left: 18px;
+    padding-left: 5vw; }
   .trade .contract-payout .button-bar .button {
     height: 35px;
-    min-height: 20px; }
+    height: 6vh;
+    min-height: 20px;
+    min-height: 6vh; }
   .trade .contract-payout .button-bar .button:before {
-    line-height: 30px; }
+    line-height: 30px;
+    line-height: 6vh; }
   .trade .contract-payout > .col:nth-child(3) .button {
     float: right;
     margin: 0;
     min-width: 40px;
+    min-width: 10vw;
     min-height: 40px;
+    min-height: 8vh;
     border: none;
     color: #fff;
     border-radius: 0; }
@@ -9371,31 +9388,38 @@ body * {
   margin-top: 0; }
   .trade .contract-price > .col:nth-child(1) {
     font-size: 16px;
+    font-size: 4vw;
     text-align: left;
     padding-left: 10px;
-    line-height: 36px; }
+    line-height: 36px;
+    line-height: 6vh; }
   .trade .contract-price .price-des {
     font-size: 16px;
+    font-size: 4vw;
     text-align: left; }
   .trade .contract-price .price {
     font-size: 16px;
+    font-size: 4vw;
     color: #e98024;
     text-align: left;
-    line-height: 36px; }
+    line-height: 36px;
+    line-height: 6vh; }
 
 .trade .contract-purchase,
 .trade .contract-back {
-  margin-top: 5%;
-  margin-bottom: 40%; }
+  margin-top: 5%; }
   .trade .contract-purchase button,
   .trade .contract-back button {
     background-color: #e98024 !important;
     width: 84%;
+    width: 84vw;
     margin: 0 auto;
-    font-size: 20px; }
+    font-size: 20px;
+    font-size: 5vw; }
 
 .trade .contract-details {
-  margin-top: 20px; }
+  margin-top: 10px;
+  margin-top: 2vh; }
   .trade .contract-details .win {
     color: #4CBB17 !important; }
   .trade .contract-details .lose {
@@ -9419,12 +9443,16 @@ body * {
     color: #4CBB17 !important;
     background-color: #fff !important;
     font-size: 16px;
-    padding: 10px !important; }
+    font-size: 4vw;
+    padding: 10px !important;
+    padding: 2vh 2vw !important; }
   .trade .contract-details .lose .col {
     color: #ff0000 !important;
     background-color: #fff !important;
     font-size: 16px;
-    padding: 10px !important; }
+    font-size: 4vw;
+    padding: 10px !important;
+    padding: 2vh 2vw !important; }
 
 .options .options-content {
   padding-left: 3%;
