@@ -129,4 +129,16 @@ angular
 					});
 			}
 
+			this.confirmExit = function(_callback){
+				$translate(['app.exit_title', 'app.exit_confirmation'])
+					.then(function(translation){
+						displayConfirmation(
+							translation['app.exit_title'],
+							translation['app.exit_confirmation'],
+							['Yes', 'No'],
+							_callback
+						);
+					});
+			}
+
 	});
