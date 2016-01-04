@@ -47,6 +47,7 @@ angular
 
 				dataStream.onopen = function() {
 					console.log('socket is opened');
+					$rootScope.$broadcast('connection:ready');
 					
 					// if(typeof(analytics) !== "undefined"){
 					// 	analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
@@ -64,7 +65,10 @@ angular
 					$rootScope.$broadcast('connection:reopened');
 				};
 				dataStream.onerror = function(e) {
-					console.log('error in socket ', e);
+					//console.log('error in socket ', e);
+					if(e.target.readyState == 3){
+						$rootScope.$broadcast('connection:error');
+					}
 				};
 
 				// CLEANME

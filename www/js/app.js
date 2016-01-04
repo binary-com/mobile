@@ -30,7 +30,7 @@ angular
                             navigator.app.exitApp();
                     });
                 }
-                else if($state.current.name === "signin"){
+                else if($state.current.name === "signin" || $state.current.name === "home" ){
                     navigator.app.exitApp();
                 }
                 else{
