@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.factory('websocketService',
-		function($rootScope, localStorageService) {
+		function($rootScope, localStorageService, alertService) {
 			var dataStream = '';
 			var messageBuffer = [];
 
@@ -47,6 +47,7 @@ angular
 
 				dataStream.onopen = function() {
 					console.log('socket is opened');
+					$rootScope.$broadcast('connection:ready');
 					
 					// if(typeof(analytics) !== "undefined"){
 					// 	analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
@@ -64,7 +65,10 @@ angular
 					$rootScope.$broadcast('connection:reopened');
 				};
 				dataStream.onerror = function(e) {
-					console.log('error in socket ', e);
+					//console.log('error in socket ', e);
+					if(e.target.readyState == 3){
+						$rootScope.$broadcast('connection:error');
+					}
 				};
 
 				// CLEANME
@@ -83,70 +87,76 @@ angular
 
 			var receiveMessage = function(_response) {
 				var message = JSON.parse(_response.data);
+
 				if (message) {
-					var messageType = message.msg_type;
-					switch(messageType) {
-						case 'authorize':
-							if (message.authorize) {
-								message.authorize.token = message.echo_req.authorize;
-								$rootScope.$broadcast('authorize', message.authorize);
-							} else {
-								$rootScope.$broadcast('authorize', false);
-							}
-							break;
-						case 'active_symbols':
-							var markets = message.active_symbols;
-							var groupedMarkets = _.groupBy(markets, 'market');
-							var openMarkets = {};
-							for (var key in groupedMarkets) {
-								if (groupedMarkets.hasOwnProperty(key)) {
-									if (groupedMarkets[key][0].exchange_is_open == 1) {
-										openMarkets[key] = groupedMarkets[key];
+					if(message.error){
+						alertService.displayError(message.error.message);
+					}
+					else{
+						var messageType = message.msg_type;
+						switch(messageType) {
+							case 'authorize':
+								if (message.authorize) {
+									message.authorize.token = message.echo_req.authorize;
+									$rootScope.$broadcast('authorize', message.authorize);
+								} else {
+									$rootScope.$broadcast('authorize', false);
+								}
+								break;
+							case 'active_symbols':
+								var markets = message.active_symbols;
+								var groupedMarkets = _.groupBy(markets, 'market');
+								var openMarkets = {};
+								for (var key in groupedMarkets) {
+									if (groupedMarkets.hasOwnProperty(key)) {
+										if (groupedMarkets[key][0].exchange_is_open == 1) {
+											openMarkets[key] = groupedMarkets[key];
+										}
 									}
 								}
-							}
-							sessionStorage.active_symbols = JSON.stringify(openMarkets);
-							$rootScope.$broadcast('symbols:updated');
-							break;
-						case 'asset_index':
-							sessionStorage.asset_index = JSON.stringify(message.asset_index);
-							$rootScope.$broadcast('assetIndex:updated');
-							break;
-						case 'payout_currencies':
-							sessionStorage.currencies = JSON.stringify(message.payout_currencies);
-							break;
-						case 'proposal':
-							message.proposal.currency = message.echo_req.currency;
-							$rootScope.$broadcast('proposal', message.proposal);
-							break;
-						case 'contracts_for':
-							var symbol = message.echo_req.contracts_for;
-							var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_type');
-							$rootScope.$broadcast('symbol', groupedSymbol);
-							break;
-						case 'buy':
-							$rootScope.$broadcast('purchase', message);
-							break;
-						case 'balance':
-							$rootScope.$broadcast('balance', message.balance);
-							break;
-						case 'tick':
-							$rootScope.$broadcast('tick', message);
-							break;
-						case 'history':
-							$rootScope.$broadcast('history', message);
-							break;
-						case 'candles':
-							$rootScope.$broadcast('candles', message);
-							break;
-						case 'ohlc':
-							$rootScope.$broadcast('ohlc', message);
-							break;
-						case 'portfolio':
-							$rootScope.$broadcast('portfolio', message.portfolio);
-							break;
-						default:
-							//console.log('another message type: ', message);
+								sessionStorage.active_symbols = JSON.stringify(openMarkets);
+								$rootScope.$broadcast('symbols:updated');
+								break;
+							case 'asset_index':
+								sessionStorage.asset_index = JSON.stringify(message.asset_index);
+								$rootScope.$broadcast('assetIndex:updated');
+								break;
+							case 'payout_currencies':
+								sessionStorage.currencies = JSON.stringify(message.payout_currencies);
+								break;
+							case 'proposal':
+								message.proposal.currency = message.echo_req.currency;
+								$rootScope.$broadcast('proposal', message.proposal);
+								break;
+							case 'contracts_for':
+								var symbol = message.echo_req.contracts_for;
+								var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_type');
+								$rootScope.$broadcast('symbol', groupedSymbol);
+								break;
+							case 'buy':
+								$rootScope.$broadcast('purchase', message);
+								break;
+							case 'balance':
+								$rootScope.$broadcast('balance', message.balance);
+								break;
+							case 'tick':
+								$rootScope.$broadcast('tick', message);
+								break;
+							case 'history':
+								$rootScope.$broadcast('history', message);
+								break;
+							case 'candles':
+								$rootScope.$broadcast('candles', message);
+								break;
+							case 'ohlc':
+								$rootScope.$broadcast('ohlc', message);
+								break;
+							case 'portfolio':
+								$rootScope.$broadcast('portfolio', message.portfolio);
+								break;
+							default:
+								//console.log('another message type: ', message);
+						}
 					}
 				}
 			};

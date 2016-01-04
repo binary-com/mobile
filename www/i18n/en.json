@@ -83,6 +83,8 @@
 	},
 	"app" : {
 		"exit_title": "Exit",
-		"exit_confirmation": "Are you sure you want to exit?"
+		"exit_confirmation": "Are you sure you want to exit?",
+		"connection_error_title": "Connection Error",
+		"connection_error": "There is no Internet connection!"
 	}
 }
