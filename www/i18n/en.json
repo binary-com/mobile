@@ -28,8 +28,8 @@
 		"remove_all_tokens_content": "Are you sure you want to remove all tokens and sign out?",
 		"no_underlying": "There is no underlying for this market. Please try another market.",
 		"required_field": "This field is required.",
-		"field_between":"This field has to be between 0.70 and 100000.",
-		"must_number":"This field must be a number."
+		"field_between":"It must be between 0.70 and 100000.",
+		"must_number":"It must be a number."
 	},
 	"options" : {
 		"account": "Account",
@@ -80,5 +80,9 @@
 		"copy_token": "and create a token. Then simply copy and paste it into the top box.",
 		"email_cs":"Have questions? Email customer support at ",
 		"back":"Back"
+	},
+	"app" : {
+		"exit_title": "Exit",
+		"exit_confirmation": "Are you sure you want to exit?"
 	}
 }

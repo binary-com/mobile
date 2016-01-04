@@ -19,4 +19,9 @@ angular
 			$scope.backToSignInPage = function() {
 				$state.go('signin');
 			};
+
+			$scope.openExternal = function($event){
+				window.open($event.currentTarget.href, "_system");
+				return false;
+			}
 	});
