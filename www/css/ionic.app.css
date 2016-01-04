@@ -9513,6 +9513,9 @@ body * {
 .options .options-save {
   margin-bottom: 20%; }
 
+.options button {
+  font-size: 20px; }
+
 .options label .input-label {
   padding: 0px; }
 
