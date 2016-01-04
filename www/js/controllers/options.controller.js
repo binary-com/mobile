@@ -31,6 +31,10 @@ angular
 						market: proposal.passthrough.market,
 						digit: proposal.digit
 					};
+
+					if(proposal.barrier){
+						$scope.selected.barrier = proposal.barrier;
+					}
 				}
 			}
 
@@ -57,6 +61,11 @@ angular
 					digit: $scope.selected.digit,
 					barrier: $scope.selected.barrier
 				};
+
+				if(proposal.contract_type === "DIGITDIFF" || proposal.contract_type === "DIGITMATCH" ||
+					proposal.contract_type === "DIGITOVER" || proposal.contract_type === "DIGITUNDER"){
+					proposal.barrier = proposal.digit;
+				}
 
 				proposalService.update(proposal);
 				proposalService.send();
