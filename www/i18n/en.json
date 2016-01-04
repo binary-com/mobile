@@ -80,5 +80,9 @@
 		"copy_token": "and create a token. Then simply copy and paste it into the top box.",
 		"email_cs":"Have questions? Email customer support at ",
 		"back":"Back"
+	},
+	"app" : {
+		"exit_title": "Exit",
+		"exit_confirmation": "Are you sure you want to exit?"
 	}
 }
