@@ -500,7 +500,7 @@ angular
 						
 						var padding = 0;
 						if ( lastElement(index) ) {
-							padding = (ctx.measureText(point.value).width < 50) ? 0 : ctx.measureText(point.value).width - 50;
+							padding = (ctx.measureText(point.value).width < 45) ? 0 : ctx.measureText(point.value).width - 45;
 						}
 						ctx.fillText(point.value, point.x - padding, point.y - 5);
 					}
