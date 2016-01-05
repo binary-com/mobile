@@ -12,7 +12,8 @@
 		"default": "Default",
 		"set_as_default": "Set as default",
 		"add": "Add",
-		"new_token":"Add a new token"
+		"new_token":"Add a new token",
+		"delete": "delete"
 	},
 	"alert" : {
 		"error": "Error!",
