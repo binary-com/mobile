@@ -1,12 +1,16 @@
 .trade {
 				#tradeContractChart {
 								width: 100% !important;
-								height: 200px !important;
+								max-height: 200px !important;
+								width: 100vw !important;
+								max-height: 35vh !important;
 				}
 				.contract-summary {
 								padding: 5px 10px;
+								padding: 1vh 2vw;
 								text-align: center;
 								font-size: 14px;
+								font-size: 4vw;
 								background-color: $lightgray;
 								position: relative;
 								span {
@@ -23,29 +27,40 @@
 								border-bottom: 1px solid $gray;
 								.basis {
 												font-size: 16px;
+												font-size: 4vw;
 												text-align: left;
 												line-height: 36px;
+												line-height: 6vh;
 												padding-left: 10px;
+												padding-left: 3vw;
 								}
 								.amount {
 												input {
 																font-size: 18px;
-																width: 100px;
+																font-size: 5vw;
+																max-width: 100px;
+																max-width: 25vw;
 																height: 36px;
+																height: 6vh;
 																border-radius: 5px;
 																border: 1px solid $gray;
 																line-height: 36px;
+																line-height: 6vh;
 																text-align: center;
 																padding-left: 18px;
+																padding-left: 5vw;
 												}
 								}
 								.button-bar {
 												.button {
 																height: 35px;
+																height: 6vh;
 																min-height: 20px;
+																min-height: 6vh;
 												}
 												.button:before {
 																line-height: 30px;
+																line-height: 6vh;
 												}
 								}
 								> .col:nth-child(3) {
@@ -57,7 +72,9 @@
 
 																//margin-left: 10px;
 																min-width: 40px;
+																min-width: 10vw;
 																min-height: 40px;
+																min-height: 8vh;
 																border: none;
 																color: $white;
 																border-radius: 0;
@@ -78,34 +95,42 @@
 								margin-top: 0;
 								> .col:nth-child(1) {
 												font-size: 16px;
+												font-size: 4vw;
 												text-align: left;
 												padding-left: 10px;
 												line-height: 36px;
+												line-height: 6vh;
 								}
 								.price-des {
 												font-size: 16px;
+												font-size: 4vw;
 												text-align: left;
 								}
 								.price {
 												font-size: 16px;
+												font-size: 4vw;
 												color: $orange;
 												text-align: left;
 												line-height: 36px;
+												line-height: 6vh;
 								}
 				}
 				.contract-purchase,
 				.contract-back {
 								margin-top: 5%;
-								margin-bottom: 40%;
+								// margin-bottom: 40%;
 								button {
 												background-color: $orange !important;
 												width: 84%;
+												width: 84vw;
 												margin: 0 auto;
 												font-size: 20px;
+												font-size: 5vw;
 								}
 				}
 				.contract-details {
-								margin-top: 20px;
+								margin-top: 10px;
+								margin-top: 2vh;
 								.win {
 												color: $green !important;
 								}
@@ -139,13 +164,17 @@
 												color: $green !important;
 												background-color: $white !important;
 												font-size: 16px;
+												font-size: 4vw;
 												padding: 10px !important;
+												padding: 2vh 2vw !important;
 								}
 								.lose .col {
 												color: $red !important;
 												background-color: $white !important;
 												font-size: 16px;
+												font-size: 4vw;
 												padding: 10px !important;
+												padding: 2vh 2vw !important;
 								}
 				}
 }
