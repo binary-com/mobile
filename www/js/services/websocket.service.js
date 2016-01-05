@@ -90,7 +90,9 @@ angular
 
 				if (message) {
 					if(message.error){
-						alertService.displayError(message.error.message);
+						if(message.msg_type === "proposal" || message.msg_type === "buy"){
+							alertService.displayError(message.error.message);
+						}
 					}
 					else{
 						var messageType = message.msg_type;

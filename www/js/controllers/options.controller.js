@@ -77,7 +77,9 @@ angular
 				if (accountService.hasDefault()) {
 					accountService.validate();
 				}
-				$window.location.reload();
+
+				// below line commented to solve connection lost error.
+				// $window.location.reload();
 			});
 
 			$scope.$watch('selected', function(_newValue, _oldValue){
