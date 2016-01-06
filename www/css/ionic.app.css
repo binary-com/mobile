@@ -9538,11 +9538,12 @@ body * {
   background-color: rgba(0, 0, 0, 0.5); }
 
 .accounts-content {
-  display: block;
-  padding-left: 3%;
-  padding-right: 3%; }
-  .accounts-content h1 {
-    font-size: 18px; }
+  display: block; }
+  .accounts-content .bar {
+    background-color: #e98024;
+    margin-bottom: 4px !important; }
+    .accounts-content .bar h1 {
+      color: #fff; }
   .accounts-content .remove-all-accounts {
     background-color: #f2f2f2;
     margin-top: 10px;
@@ -9550,38 +9551,36 @@ body * {
     font-size: 14px; }
     .accounts-content .remove-all-accounts a {
       color: #ff0000; }
-  .accounts-content .account {
-    padding: 10px 5px;
-    border-bottom: 1px solid #c4c4c4; }
-    .accounts-content .account > div {
+  .accounts-content .account .list {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 4px !important; }
+    .accounts-content .account .list .item-content {
+      padding: 16px 0 16px 50px; }
+    .accounts-content .account .list i {
+      display: block;
+      float: left;
+      width: 40px;
+      font-size: 24px;
+      line-height: 40px; }
+      .accounts-content .account .list i.default {
+        color: #4CBB17; }
+      .accounts-content .account .list i.not-default {
+        color: #c4c4c4; }
+    .accounts-content .account .list div .id {
       color: #2a3052;
-      font-size: 16px; }
-      .accounts-content .account > div .id {
-        color: #2a3052;
-        font-size: 16px;
-        font-weight: 700; }
-      .accounts-content .account > div .default {
-        color: #e98024;
-        font-size: 14px;
-        font-weight: 500; }
-      .accounts-content .account > div .token {
-        color: #c4c4c4;
-        font-size: 14px;
-        display: block;
-        font-weight: 500; }
-    .accounts-content .account .ion-android-person {
-      font-size: 16px; }
-    .accounts-content .account a.remove {
-      font-size: 28px;
-      color: #ff0000;
-      line-height: 40px;
-      font-weight: 500; }
-    .accounts-content .account a.set-default {
-      color: #5e668f;
+      font-size: 16px;
+      font-weight: 700; }
+    .accounts-content .account .list div .token {
+      color: #c4c4c4;
       font-size: 14px;
+      display: block;
       font-weight: 500; }
+  .accounts-content .account .button-green {
+    background-color: #4CBB17; }
   .accounts-content .add-account {
-    margin-top: 20px; }
+    margin-top: 20px;
+    padding: 20px; }
     .accounts-content .add-account label {
       float: left; }
       .accounts-content .add-account label.error {
