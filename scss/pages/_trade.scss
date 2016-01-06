@@ -22,14 +22,14 @@
 								border-top: 1px solid $gray;
 								border-bottom: 1px solid $gray;
 								.basis {
-												font-size: 16px;
+												font-size: 4vw;
 												text-align: left;
 												line-height: 36px;
 												padding-left: 10px;
 								}
 								.amount {
 												input {
-																font-size: 18px;
+																font-size: 5vw;
 																width: 100px;
 																height: 36px;
 																border-radius: 5px;
@@ -83,11 +83,11 @@
 												line-height: 36px;
 								}
 								.price-des {
-												font-size: 16px;
+												font-size: 4vw;
 												text-align: left;
 								}
 								.price {
-												font-size: 16px;
+												font-size: 4vw;
 												color: $orange;
 												text-align: left;
 												line-height: 36px;

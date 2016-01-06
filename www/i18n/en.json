@@ -13,7 +13,7 @@
 		"set_as_default": "Set as default",
 		"add": "Add",
 		"new_token":"Add a new token",
-		"delete": "delete"
+		"delete": "Delete"
 	},
 	"alert" : {
 		"error": "Error!",
