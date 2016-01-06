@@ -248,6 +248,22 @@ angular
 					}
 					return false;
 				};
+				
+				var getEntrySpotPoint = function getEntrySpotPoint(points) {
+					var result;
+					if ( contract.entrySpotShowing ) {
+						result = points[contract.entrySpotIndex];
+					}
+					return result;	
+				};
+
+				var getExitSpotPoint = function getExitSpotPoint(points) {
+					var result;
+					if ( contract.exitSpotShowing) {
+						result = points[contract.exitSpotIndex];
+					}
+					return result;	
+				};
 
 				var isEntrySpot = function isEntrySpot(time) {
 					if ( entrySpotReached() ) {
@@ -365,6 +381,8 @@ angular
 					addRegions: addRegions,
 					viewSpot: viewSpot,
 					viewRegions: viewRegions,
+					getEntrySpotPoint: getEntrySpotPoint,
+					getExitSpotPoint: getExitSpotPoint,
 				};
 
 			};
@@ -511,19 +529,19 @@ angular
 
 				
 				var findSpots = function findSpots(points){
-					var entry, exit;
-					points.forEach(function(point, index){
-						contracts.forEach(function(contract){
-							if (contract.isSpot(utils.getAbsoluteIndex(index))) {
-								if ( utils.isDefined(entry) ) {
-									exit = point;
-								} else {
-									entry = point;
-								}
-							}
-						});
+					var entries = [], exits = [];
+					contracts.forEach(function(contract){
+						var entry, exit;
+						entry = contract.getEntrySpotPoint(points);
+						exit = contract.getExitSpotPoint(points);
+						if ( utils.isDefined(entry) ) {
+							entries.push(entry);
+						}
+						if ( utils.isDefined(exit) ) {
+							exits.push(exit);
+						}
 					});
-					return {entry: entry, exit: exit};
+					return {entries: entries, exits, exits};
 				};
 
 				var okToAdd = function okToAdd(shown, point) {
@@ -540,14 +558,15 @@ angular
 					var shown = [];
 					var spots = findSpots(points);
 					// This is our priority: 1. exit spot, 2. entry spot, 3. last value, 4. others
-					if ( utils.isDefined(spots.exit) ){
-						shown.push(spots.exit);
-						if ( utils.isDefined(spots.entry) && !overlapping2d(spots.entry, spots.exit) ) {
-							shown.push(spots.entry);
+
+					spots.exits.forEach(function(exit, index){
+						shown.push(exit);
+					});
+					spots.entries.forEach(function(entry, index){
+						if ( okToAdd(shown, entry) ) {
+							shown.push(entry);
 						}
-					} else if ( utils.isDefined(spots.entry) ) {
-						shown.push(spots.entry);
-					} 
+					});
 
 					var lastElement = points.slice(-1)[0];
 					if ( !showingHistory() && okToAdd(shown, lastElement) ) {
