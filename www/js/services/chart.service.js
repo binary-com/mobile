@@ -107,6 +107,9 @@ angular
 						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
 					}
 				};
+				var getDistance = function getDistance() {
+					return tickDistance;
+				};
 				var isStep = function isStep(e, pageTickCount) {
 					if ( e.timeStamp - previousTime > 100 ) {
 						previousTime = e.timeStamp;
@@ -121,6 +124,7 @@ angular
 					isStep: isStep,
 					stop: stop,
 					setDistance: setDistance,
+					getDistance: getDistance,
 					setStartPosition: setStartPosition,
 					stepCount: stepCount,
 				};
@@ -378,7 +382,6 @@ angular
 						dragging = false,
 						zooming = false,
 						updateDisabled = false,
-						tickDistance = 0, // this is calculated dynamically, setting it has no effect
 						stepper = Stepper();
 
 
@@ -484,23 +487,95 @@ angular
 					this.chart.ctx.fillRect(start, this.scale.startPoint, length, yHeight);
 				};
 
-				var drawLabel = function drawLabel(point, index){
-					var result= {};
-					var v = point.value;
-					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!hideValues() && !collisionOccured(index)));
-					contracts.forEach(function(contract){
-						showPriceIf(result, v, contract.isSpot(utils.getAbsoluteIndex(index)));
+				var getValueSize = function getValueSize(ctx, point){
+					return { 
+						width: ctx.measureText(point.value).width,
+						height: parseInt(ctx.font)
+					};
+				};
+
+				var overlapping = function overlapping(point1, point2) {
+					return (point1.s < point2.e && point1.e > point2.s)
+              || (point2.s < point1.e && point2.e > point1.s);
+				}; 
+
+				var overlapping2d = function overlapping2d(point1, point2) {
+					var point1Size = getValueSize(ctx, point1);
+					var point2Size = getValueSize(ctx, point2);
+					var overlappingY = overlapping({s: point1.y - 5, e: point1.y - 5 + point1Size.height}, 
+					{s: point2.y - 5, e: point2.y - 5 + point2Size.height});
+					var overlappingX = overlapping({s: point1.x, e: point1.x + point1Size.width}, 
+					{s: point2.x, e: point2.x + point2Size.width});
+					return overlappingX && overlappingY;
+				}; 
+
+				
+				var findSpots = function findSpots(points){
+					var entry, exit;
+					points.forEach(function(point, index){
+						contracts.forEach(function(contract){
+							if (contract.isSpot(utils.getAbsoluteIndex(index))) {
+								if ( utils.isDefined(entry) ) {
+									exit = point;
+								} else {
+									entry = point;
+								}
+							}
+						});
 					});
-					if ( utils.isDefined(result.v) ) {
-						var ctx = this.chart.ctx;
-						ctx.font = this.scale.font;
-						ctx.fillStyle = this.scale.textColor
+					return {entry: entry, exit: exit};
+				};
+
+				var okToAdd = function okToAdd(shown, point) {
+					var result = true;
+					shown.forEach(function(shownPoint, index){
+						if ( overlapping2d(shownPoint, point) ) {
+							result = false;
+						}
+					});				
+					return result;
+				};
+
+				var shownValues = function shownValues(points){
+					var shown = [];
+					var spots = findSpots(points);
+					// This is our priority: 1. exit spot, 2. entry spot, 3. last value, 4. others
+					if ( utils.isDefined(spots.exit) ){
+						shown.push(spots.exit);
+						if ( utils.isDefined(spots.entry) && !overlapping2d(spots.entry, spots.exit) ) {
+							shown.push(spots.entry);
+						}
+					} else if ( utils.isDefined(spots.entry) ) {
+						shown.push(spots.entry);
+					} 
+
+					var lastElement = points.slice(-1)[0];
+					if ( !showingHistory() && okToAdd(shown, lastElement) ) {
+						shown.push(lastElement);
+					}
+
+					if ( !hideValues() ) {
+						points.forEach(function(point, index){
+							if ( index != 0 && okToAdd(shown, point) ) {
+								shown.push(point);
+							}
+						});
+					}
+					return shown;
+				};
+
+				var drawLabel = function drawLabel(shownPoints, point, index){
+					var result= {};
+					var ctx = this.chart.ctx;
+					if ( shownPoints.indexOf(point) > -1 ) {
+						ctx.fillStyle = 'black';
 						ctx.textAlign = "center";
 						ctx.textBaseline = "bottom";
 						
 						var padding = 0;
+						var valueWidth = getValueSize(ctx, point).width;
 						if ( lastElement(index) ) {
-							padding = (ctx.measureText(point.value).width < 45) ? 0 : ctx.measureText(point.value).width - 45;
+							padding = ( valueWidth < 45) ? 0 : valueWidth - 45;
 						}
 						ctx.fillText(point.value, point.x - padding, point.y - 5);
 					}
@@ -529,7 +604,7 @@ angular
 					
 						this.chart.ctx.textAlign = 'center';
 						var labelWidth = this.chart.ctx.measureText(gridLine.label).width;
-						this.chart.ctx.fillText(gridLine.label, this.chart.width - labelWidth, point.y + 12);
+						this.chart.ctx.fillText(gridLine.label, labelWidth, point.y - 5);
 					}
 				};
 	
@@ -690,7 +765,7 @@ angular
 						var parentChart = this;
 						this.datasets.forEach(function (dataset) {
 							dataset.points.forEach(function (point, index) {
-								drawLabel.call(parentChart, point, index);
+								drawLabel.call(parentChart, shownValues.call(parentChart, dataset.points), point, index);
 							});
 						});
 						
