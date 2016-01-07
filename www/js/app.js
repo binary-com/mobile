@@ -12,7 +12,7 @@ angular.module('binary', ['ionic', 'pascalprecht.translate', 'hmTouchEvents', 'n
 
 angular
 	.module('binary')
-	.run(function($ionicPlatform, $state, alertService){
+	.run(function($rootScope, $ionicPlatform, $state, alertService, accountService){
 		$ionicPlatform.ready(function() {
             
             // Setup Google Analytics
@@ -37,5 +37,15 @@ angular
                     navigator.app.backHistory();
                 }
             }, 100);
+
+            // Redirecting to the login page if there is not any default token
+            $rootScope.$on('$stateChangeStart',
+                function(event, toState, toParams, fromState, fromParams){
+                    if(toState != "signin" && ! accountService.getDefault()){
+                        event.preventDefault();
+                        $state.go('signin');
+                    }
+                }
+            );
         });
 	});
