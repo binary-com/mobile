@@ -759,9 +759,9 @@ angular
 								ctx.beginPath();
 								ctx.moveTo(linePos, this.endPoint);
 								if ( filtered ) {
-									ctx.lineTo(linePos, this.endPoint + 5);
+									ctx.lineTo(linePos, this.endPoint);
 								} else {
-									ctx.lineTo(linePos, this.endPoint + 10);
+									ctx.lineTo(linePos, this.endPoint + 5);
 								}
 								ctx.stroke();
 								ctx.closePath();
