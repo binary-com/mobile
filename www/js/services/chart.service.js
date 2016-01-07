@@ -501,7 +501,7 @@ angular
 				};
 
 				var drawRegion = function drawRegion(region){
-					var yHeight = this.scale.endPoint - this.scale.startPoint,
+					var yHeight = this.scale.endPoint - this.scale.startPoint + 12,
 							length,	
 							end,	
 							start,	
@@ -515,7 +515,7 @@ angular
 					length = end - start;
 					this.chart.ctx.fillStyle = region.color;
 
-					this.chart.ctx.fillRect(start, this.scale.startPoint, length, yHeight);
+					this.chart.ctx.fillRect(start, this.scale.startPoint - 12, length, yHeight);
 				};
 
 				var getValueSize = function getValueSize(ctx, point){
@@ -747,7 +747,7 @@ angular
 									ctx.strokeStyle = this.lineColor;
 								}
 								ctx.moveTo(linePos, this.endPoint);
-								ctx.lineTo(linePos, this.startPoint);
+								ctx.lineTo(linePos, this.startPoint - 12);
 								ctx.stroke();
 								ctx.closePath();
 
