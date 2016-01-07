@@ -64,7 +64,15 @@ angular
 
 				if(proposal.contract_type === "DIGITDIFF" || proposal.contract_type === "DIGITMATCH" ||
 					proposal.contract_type === "DIGITOVER" || proposal.contract_type === "DIGITUNDER"){
-					proposal.barrier = proposal.digit;
+					if(proposal.digit == 0 && proposal.contract_type === "DIGITUNDER"){
+						proposal.barrier = 1;
+					}
+					else if(proposal.digit == 9 && proposal.contract_type === "DIGITOVER"){
+						proposal.barrier = 8;
+					}
+					else{
+						proposal.barrier = proposal.digit;
+					}
 				}
 
 				proposalService.update(proposal);
