@@ -533,8 +533,9 @@ angular
 				var overlapping2d = function overlapping2d(point1, point2) {
 					var point1Size = getValueSize(ctx, point1);
 					var point2Size = getValueSize(ctx, point2);
-					var overlappingY = overlapping({s: point1.y - 5, e: point1.y - 5 + point1Size.height}, 
-					{s: point2.y - 5, e: point2.y - 5 + point2Size.height});
+					var padding = 1;
+					var overlappingY = overlapping({s: point1.y - padding, e: point1.y - padding + point1Size.height}, 
+					{s: point2.y - padding, e: point2.y - padding + point2Size.height});
 					var overlappingX = overlapping({s: point1.x, e: point1.x + point1Size.width}, 
 					{s: point2.x, e: point2.x + point2Size.width});
 					return overlappingX && overlappingY;
@@ -609,7 +610,7 @@ angular
 						if ( lastElement(index) ) {
 							padding = ( valueWidth < 45) ? 0 : valueWidth - 45;
 						}
-						ctx.fillText(point.value, point.x - padding, point.y - 5);
+						ctx.fillText(point.value, point.x - padding, point.y - 1);
 					}
 				};
 
@@ -636,7 +637,7 @@ angular
 					
 						this.chart.ctx.textAlign = 'center';
 						var labelWidth = this.chart.ctx.measureText(gridLine.label).width;
-						this.chart.ctx.fillText(gridLine.label, parseInt(labelWidth/2) + 5, point.y - 5);
+						this.chart.ctx.fillText(gridLine.label, parseInt(labelWidth/2) + 5, point.y - 1);
 					}
 				};
 	
@@ -746,7 +747,7 @@ angular
 									ctx.strokeStyle = this.lineColor;
 								}
 								ctx.moveTo(linePos, this.endPoint);
-								ctx.lineTo(linePos, this.startPoint - 3);
+								ctx.lineTo(linePos, this.startPoint);
 								ctx.stroke();
 								ctx.closePath();
 
@@ -758,7 +759,7 @@ angular
 								ctx.beginPath();
 								ctx.moveTo(linePos, this.endPoint);
 								if ( filtered ) {
-									ctx.lineTo(linePos, this.endPoint);
+									ctx.lineTo(linePos, this.endPoint + 5);
 								} else {
 									ctx.lineTo(linePos, this.endPoint + 10);
 								}
