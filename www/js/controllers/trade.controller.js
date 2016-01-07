@@ -27,6 +27,7 @@ angular
 
 			$scope.$on('proposal', function(e, response) {
 				$scope.proposalRecieved = response;
+				$scope.proposalRecieved.currency = accountService.getDefault().currency;
 				$scope.$apply();
 			});
 
