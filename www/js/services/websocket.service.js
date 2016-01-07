@@ -93,6 +93,10 @@ angular
 						if(message.msg_type === "proposal" || message.msg_type === "buy"){
 							alertService.displayError(message.error.message);
 						}
+
+						if(message.msg_type === "buy"){
+							$rootScope.$broadcast("purchase", message);
+						}
 					}
 					else{
 						var messageType = message.msg_type;
@@ -127,7 +131,6 @@ angular
 								sessionStorage.currencies = JSON.stringify(message.payout_currencies);
 								break;
 							case 'proposal':
-								message.proposal.currency = message.echo_req.currency;
 								$rootScope.$broadcast('proposal', message.proposal);
 								break;
 							case 'contracts_for':
