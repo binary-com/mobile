@@ -64,7 +64,7 @@ angular
 
 				if(proposal.contract_type === "DIGITDIFF" || proposal.contract_type === "DIGITMATCH" ||
 					proposal.contract_type === "DIGITOVER" || proposal.contract_type === "DIGITUNDER"){
-					if(proposal.digit == 0 && proposal.contract_type === "DIGITUNDER"){
+					if((proposal.digit == 0 || !proposal.digit) && proposal.contract_type === "DIGITUNDER"){
 						proposal.barrier = 1;
 					}
 					else if(proposal.digit == 9 && proposal.contract_type === "DIGITOVER"){
