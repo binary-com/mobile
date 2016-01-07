@@ -107,6 +107,9 @@ angular
 						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
 					}
 				};
+				var getDistance = function getDistance() {
+					return tickDistance;
+				};
 				var isStep = function isStep(e, pageTickCount) {
 					if ( e.timeStamp - previousTime > 100 ) {
 						previousTime = e.timeStamp;
@@ -121,6 +124,7 @@ angular
 					isStep: isStep,
 					stop: stop,
 					setDistance: setDistance,
+					getDistance: getDistance,
 					setStartPosition: setStartPosition,
 					stepCount: stepCount,
 				};
@@ -244,6 +248,22 @@ angular
 					}
 					return false;
 				};
+				
+				var getEntrySpotPoint = function getEntrySpotPoint(points) {
+					var result;
+					if ( contract.entrySpotShowing ) {
+						result = points[utils.getRelativeIndex(contract.entrySpotIndex)];
+					}
+					return result;	
+				};
+
+				var getExitSpotPoint = function getExitSpotPoint(points) {
+					var result;
+					if ( contract.exitSpotShowing) {
+						result = points[utils.getRelativeIndex(contract.exitSpotIndex)];
+					}
+					return result;	
+				};
 
 				var isEntrySpot = function isEntrySpot(time) {
 					if ( entrySpotReached() ) {
@@ -361,6 +381,8 @@ angular
 					addRegions: addRegions,
 					viewSpot: viewSpot,
 					viewRegions: viewRegions,
+					getEntrySpotPoint: getEntrySpotPoint,
+					getExitSpotPoint: getExitSpotPoint,
 				};
 
 			};
@@ -378,7 +400,6 @@ angular
 						dragging = false,
 						zooming = false,
 						updateDisabled = false,
-						tickDistance = 0, // this is calculated dynamically, setting it has no effect
 						stepper = Stepper();
 
 
@@ -446,7 +467,20 @@ angular
 					} else {
 						return true;
 					}
-				}
+				};
+
+				var getValueColor = function getValueColor(index) {
+					var color = 'black';
+					if ( !showingHistory() && lastElement(index) ) {
+						color = 'green';
+					}
+					contracts.forEach(function(contract){
+						if ( contract.isSpot(utils.getAbsoluteIndex(index)) ) {
+							color = 'blue';
+						}
+					});
+					return color;
+				};
 
 				var getDotColor = function getDotColor(value, index) {
 					var color;
@@ -484,23 +518,96 @@ angular
 					this.chart.ctx.fillRect(start, this.scale.startPoint, length, yHeight);
 				};
 
-				var drawLabel = function drawLabel(point, index){
-					var result= {};
-					var v = point.value;
-					showPriceIf(result, v, (!showingHistory() && lastElement(index)) || (!hideValues() && !collisionOccured(index)));
+				var getValueSize = function getValueSize(ctx, point){
+					return { 
+						width: ctx.measureText(point.value).width,
+						height: parseInt(ctx.font)
+					};
+				};
+
+				var overlapping = function overlapping(point1, point2) {
+					return (point1.s < point2.e && point1.e > point2.s)
+              || (point2.s < point1.e && point2.e > point1.s);
+				}; 
+
+				var overlapping2d = function overlapping2d(point1, point2) {
+					var point1Size = getValueSize(ctx, point1);
+					var point2Size = getValueSize(ctx, point2);
+					var overlappingY = overlapping({s: point1.y - 5, e: point1.y - 5 + point1Size.height}, 
+					{s: point2.y - 5, e: point2.y - 5 + point2Size.height});
+					var overlappingX = overlapping({s: point1.x, e: point1.x + point1Size.width}, 
+					{s: point2.x, e: point2.x + point2Size.width});
+					return overlappingX && overlappingY;
+				}; 
+
+				
+				var findSpots = function findSpots(points){
+					var entries = [], exits = [];
 					contracts.forEach(function(contract){
-						showPriceIf(result, v, contract.isSpot(utils.getAbsoluteIndex(index)));
+						var entry, exit;
+						entry = contract.getEntrySpotPoint(points);
+						exit = contract.getExitSpotPoint(points);
+						if ( utils.isDefined(entry) ) {
+							entries.push(entry);
+						}
+						if ( utils.isDefined(exit) ) {
+							exits.push(exit);
+						}
 					});
-					if ( utils.isDefined(result.v) ) {
-						var ctx = this.chart.ctx;
-						ctx.font = this.scale.font;
-						ctx.fillStyle = this.scale.textColor
+					return {entries: entries, exits, exits};
+				};
+
+				var okToAdd = function okToAdd(shown, point) {
+					var result = true;
+					shown.forEach(function(shownPoint, index){
+						if ( overlapping2d(shownPoint, point) ) {
+							result = false;
+						}
+					});				
+					return result;
+				};
+
+				var shownValues = function shownValues(points){
+					var shown = [];
+					var spots = findSpots(points);
+					// This is our priority: 1. exit spot, 2. entry spot, 3. last value, 4. others
+
+					spots.exits.forEach(function(exit, index){
+						shown.push(exit);
+					});
+					spots.entries.forEach(function(entry, index){
+						if ( okToAdd(shown, entry) ) {
+							shown.push(entry);
+						}
+					});
+
+					var lastElement = points.slice(-1)[0];
+					if ( !showingHistory() && okToAdd(shown, lastElement) ) {
+						shown.push(lastElement);
+					}
+
+					if ( !hideValues() ) {
+						for ( var i = points.length - 1 ; i >= 0 ; i-- ) {
+							if ( okToAdd(shown, points[i]) ) {
+								shown.push(points[i]);
+							}
+						}
+					}
+					return shown;
+				};
+
+				var drawLabel = function drawLabel(shownPoints, point, index){
+					var result= {};
+					var ctx = this.chart.ctx;
+					if ( index != 0 && shownPoints.indexOf(point) > -1 ) {
+						ctx.fillStyle = getValueColor(index);
 						ctx.textAlign = "center";
 						ctx.textBaseline = "bottom";
 						
 						var padding = 0;
+						var valueWidth = getValueSize(ctx, point).width;
 						if ( lastElement(index) ) {
-							padding = (ctx.measureText(point.value).width < 45) ? 0 : ctx.measureText(point.value).width - 45;
+							padding = ( valueWidth < 45) ? 0 : valueWidth - 45;
 						}
 						ctx.fillText(point.value, point.x - padding, point.y - 5);
 					}
@@ -514,7 +621,7 @@ angular
 					if ( gridLine.orientation == 'vertical' ) {
 						this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
 						this.chart.ctx.strokeStyle = gridLine.color;
-						this.chart.ctx.fillStyle = 'black';
+						this.chart.ctx.fillStyle = gridLine.color;
 						this.chart.ctx.lineTo(point.x, scale.endPoint);
 						this.chart.ctx.stroke();
 					
@@ -523,13 +630,13 @@ angular
 					} else {
 						this.chart.ctx.moveTo(scale.startPoint, point.y);
 						this.chart.ctx.strokeStyle = gridLine.color;
-						this.chart.ctx.fillStyle = 'black';
+						this.chart.ctx.fillStyle = gridLine.color;
 						this.chart.ctx.lineTo(this.chart.width, point.y);
 						this.chart.ctx.stroke();
 					
 						this.chart.ctx.textAlign = 'center';
 						var labelWidth = this.chart.ctx.measureText(gridLine.label).width;
-						this.chart.ctx.fillText(gridLine.label, this.chart.width - labelWidth, point.y + 12);
+						this.chart.ctx.fillText(gridLine.label, parseInt(labelWidth/2) + 5, point.y - 5);
 					}
 				};
 	
@@ -690,7 +797,7 @@ angular
 						var parentChart = this;
 						this.datasets.forEach(function (dataset) {
 							dataset.points.forEach(function (point, index) {
-								drawLabel.call(parentChart, point, index);
+								drawLabel.call(parentChart, shownValues.call(parentChart, dataset.points), point, index);
 							});
 						});
 						
