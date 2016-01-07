@@ -74,26 +74,6 @@ angular
 					accountService.validate();
 					scope.accounts = accountService.getAll();
 				};
-
-				scope.removeAllAccounts = function() {
-					alertService.confirmRemoveAllAccount(
-						function(res){
-							if(typeof(res) !== "boolean"){
-								if(res == 1)
-									res = true;
-								else
-									res = false;
-							}
-
-							if(res){
-								accountService.removeAll();
-								cleanupService.run();
-								$state.go('signin');
-							}
-						}
-					);
-					
-				};
 			}
 		};
 	}]);
