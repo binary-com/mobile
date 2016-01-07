@@ -252,7 +252,7 @@ angular
 				var getEntrySpotPoint = function getEntrySpotPoint(points) {
 					var result;
 					if ( contract.entrySpotShowing ) {
-						result = points[contract.entrySpotIndex];
+						result = points[utils.getRelativeIndex(contract.entrySpotIndex)];
 					}
 					return result;	
 				};
@@ -260,7 +260,7 @@ angular
 				var getExitSpotPoint = function getExitSpotPoint(points) {
 					var result;
 					if ( contract.exitSpotShowing) {
-						result = points[contract.exitSpotIndex];
+						result = points[utils.getRelativeIndex(contract.exitSpotIndex)];
 					}
 					return result;	
 				};
@@ -467,7 +467,20 @@ angular
 					} else {
 						return true;
 					}
-				}
+				};
+
+				var getValueColor = function getValueColor(index) {
+					var color = 'black';
+					if ( !showingHistory() && lastElement(index) ) {
+						color = 'green';
+					}
+					contracts.forEach(function(contract){
+						if ( contract.isSpot(utils.getAbsoluteIndex(index)) ) {
+							color = 'blue';
+						}
+					});
+					return color;
+				};
 
 				var getDotColor = function getDotColor(value, index) {
 					var color;
@@ -574,11 +587,11 @@ angular
 					}
 
 					if ( !hideValues() ) {
-						points.forEach(function(point, index){
-							if ( index != 0 && okToAdd(shown, point) ) {
-								shown.push(point);
+						for ( var i = points.length - 1 ; i >= 0 ; i-- ) {
+							if ( okToAdd(shown, points[i]) ) {
+								shown.push(points[i]);
 							}
-						});
+						}
 					}
 					return shown;
 				};
@@ -586,8 +599,8 @@ angular
 				var drawLabel = function drawLabel(shownPoints, point, index){
 					var result= {};
 					var ctx = this.chart.ctx;
-					if ( shownPoints.indexOf(point) > -1 ) {
-						ctx.fillStyle = 'black';
+					if ( index != 0 && shownPoints.indexOf(point) > -1 ) {
+						ctx.fillStyle = getValueColor(index);
 						ctx.textAlign = "center";
 						ctx.textBaseline = "bottom";
 						
@@ -608,7 +621,7 @@ angular
 					if ( gridLine.orientation == 'vertical' ) {
 						this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
 						this.chart.ctx.strokeStyle = gridLine.color;
-						this.chart.ctx.fillStyle = 'black';
+						this.chart.ctx.fillStyle = gridLine.color;
 						this.chart.ctx.lineTo(point.x, scale.endPoint);
 						this.chart.ctx.stroke();
 					
@@ -617,13 +630,13 @@ angular
 					} else {
 						this.chart.ctx.moveTo(scale.startPoint, point.y);
 						this.chart.ctx.strokeStyle = gridLine.color;
-						this.chart.ctx.fillStyle = 'black';
+						this.chart.ctx.fillStyle = gridLine.color;
 						this.chart.ctx.lineTo(this.chart.width, point.y);
 						this.chart.ctx.stroke();
 					
 						this.chart.ctx.textAlign = 'center';
 						var labelWidth = this.chart.ctx.measureText(gridLine.label).width;
-						this.chart.ctx.fillText(gridLine.label, labelWidth, point.y - 5);
+						this.chart.ctx.fillText(gridLine.label, parseInt(labelWidth/2) + 5, point.y - 5);
 					}
 				};
 	
