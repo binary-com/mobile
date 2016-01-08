@@ -982,13 +982,17 @@ angular
 					var times = [],
 							prices = [];
 					
+					var previousTime = 0;
 					ticks.forEach(function(tick, index){
 						var tickTime = parseInt(tick.time);
-						contracts.forEach(function(contract){
-							contract.viewSpot(index, tickTime);
-						});
-						times.push(tickTime);
-						prices.push(tick.price);
+						if ( tickTime != previousTime ) {
+							previousTime = tickTime;
+							contracts.forEach(function(contract){
+								contract.viewSpot(index, tickTime);
+							});
+							times.push(tickTime);
+							prices.push(tick.price);
+						}
 					});
 
 					contracts.forEach(function(contract){
