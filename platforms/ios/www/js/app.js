@@ -41,7 +41,7 @@ angular
             // Redirecting to the login page if there is not any default token
             $rootScope.$on('$stateChangeStart',
                 function(event, toState, toParams, fromState, fromParams){
-                    if(toState != "signin" && ! accountService.getDefault()){
+                    if(toState.name != "signin" && toState != "help" && ! accountService.getDefault()){
                         event.preventDefault();
                         $state.go('signin');
                     }

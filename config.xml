@@ -75,4 +75,5 @@
     <plugin name="cordova-plugin-device" spec="~1.1.0" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.1.1" />
+    <engine name="ios" spec="~3.9.2" />
 </widget>
