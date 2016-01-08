@@ -57,6 +57,8 @@ angular
 				} else if (_contractConfirmation.error){
 					alertService.displayError(_contractConfirmation.error.message);
 					$('.contract-purchase button').attr('disabled', false);
+					
+					proposalService.send();
 				} else {
 					alertService.contractError.notAvailable();
 					$('.contract-purchase button').attr('disabled', false);
