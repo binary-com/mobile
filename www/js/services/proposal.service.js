@@ -13,6 +13,7 @@ angular
 
 			var createProposal = function(_data) {
 				var proposal = {
+					subscribe:1,
 					proposal: 1,
 					symbol: _data.symbol,
 					contract_type: _data.contract_type,

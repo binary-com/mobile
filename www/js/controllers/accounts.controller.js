@@ -10,14 +10,33 @@
 angular
 	.module('binary')
 	.controller('AccountsController',
-		function($scope, $rootScope, $state, $window, $ionicPopup, websocketService, accountService) {
+		function($scope, $rootScope, $state, $window, $ionicPopup, websocketService, accountService, alertService, proposalService) {
 
-			if(typeof(analytics) !== "undefined"){
-					analytics.trackView("Account Management");
+			if (typeof(analytics) !== "undefined") {
+				analytics.trackView("Account Management");
 			}
 
 			$scope.navigateToOptionsPage = function() {
 				$state.go('options', {}, {reload: true});
+			};
+
+			$scope.logout = function() {
+				alertService.confirmRemoveAllAccount(
+					function(res){
+						if(typeof(res) !== "boolean"){
+							if(res == 1)
+								res = true;
+							else
+								res = false;
+						}
+
+						if(res){
+							accountService.removeAll();
+							proposalService.remove();
+							$state.go('signin');
+						}
+					}
+				);
 			};
 
 			$scope.$on('connection:reopened', function(e) {

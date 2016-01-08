@@ -6,13 +6,14 @@
 		"paste_token": "Paste your token here"
 	},
 	"accounts": {
-		"my_accounts": "Manage accounts",
+		"my_accounts": "Manage Accounts",
 		"account": "Account",
 		"remove_all": "Remove All Accounts & Sign Out",
 		"default": "Default",
 		"set_as_default": "Set as default",
 		"add": "Add",
-		"new_token":"Add a new token"
+		"new_token":"Add a new token",
+		"delete": "Delete"
 	},
 	"alert" : {
 		"error": "Error!",
@@ -80,5 +81,11 @@
 		"copy_token": "and create a token. Then simply copy and paste it into the top box.",
 		"email_cs":"Have questions? Email customer support at ",
 		"back":"Back"
+	},
+	"app" : {
+		"exit_title": "Exit",
+		"exit_confirmation": "Are you sure you want to exit?",
+		"connection_error_title": "Connection Error",
+		"connection_error": "There is no Internet connection!"
 	}
 }

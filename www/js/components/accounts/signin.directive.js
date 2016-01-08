@@ -65,7 +65,8 @@ angular
 				 * SignIn button: event handler
 				 * @param  {String} _token 15char token
 				 */
-				scope.signIn = function(_token) {
+				scope.signIn = function() {
+					var _token = scope.token;
 					// Set the user's language
 					var language = $('.language option:selected').val();
 					languageService.update(language);

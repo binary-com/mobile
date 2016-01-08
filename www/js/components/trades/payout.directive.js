@@ -55,13 +55,13 @@ angular
 				// TODO: figure out how to handle it for payout
 				scope.addAmount = function() {
 					var amount = parseFloat(scope.amount);
-					scope.amount = (amount < 100000) ? amount + 1 : 100000;
+					scope.amount = (amount < 100000) ? Number(amount + 1).toFixed(2) : 100000;
 					updateProposal();
 				};
 
 				scope.subtractAmount = function() {
 					var amount = parseFloat(scope.amount);
-					scope.amount = (amount > 2) ? amount - 1 : 1;
+					scope.amount = (amount > 2) ? Number(amount - 1).toFixed(2) : 1;
 					updateProposal();
 				};
 			}
