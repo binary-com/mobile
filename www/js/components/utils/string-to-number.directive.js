@@ -1,3 +1,11 @@
+/**
+ * @name stringToNumber
+ * @author Morteza Tavanarad
+ * @contributors []
+ * @since 12/29/2015
+ * @copyright Binary Ltd
+ */
+
 
 angular
 	.module('binary')

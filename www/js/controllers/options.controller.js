@@ -31,6 +31,10 @@ angular
 						market: proposal.passthrough.market,
 						digit: proposal.digit
 					};
+
+					if(proposal.barrier){
+						$scope.selected.barrier = proposal.barrier;
+					}
 				}
 			}
 
@@ -58,6 +62,19 @@ angular
 					barrier: $scope.selected.barrier
 				};
 
+				if(proposal.contract_type === "DIGITDIFF" || proposal.contract_type === "DIGITMATCH" ||
+					proposal.contract_type === "DIGITOVER" || proposal.contract_type === "DIGITUNDER"){
+					if((proposal.digit == 0 || !proposal.digit) && proposal.contract_type === "DIGITUNDER"){
+						proposal.barrier = 1;
+					}
+					else if(proposal.digit == 9 && proposal.contract_type === "DIGITOVER"){
+						proposal.barrier = 8;
+					}
+					else{
+						proposal.barrier = proposal.digit;
+					}
+				}
+
 				proposalService.update(proposal);
 				proposalService.send();
 
@@ -68,7 +85,9 @@ angular
 				if (accountService.hasDefault()) {
 					accountService.validate();
 				}
-				$window.location.reload();
+
+				// below line commented to solve connection lost error.
+				// $window.location.reload();
 			});
 
 			$scope.$watch('selected', function(_newValue, _oldValue){
