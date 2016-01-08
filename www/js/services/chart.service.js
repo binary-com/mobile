@@ -555,7 +555,7 @@ angular
 							exits.push(exit);
 						}
 					});
-					return {entries: entries, exits, exits};
+					return {entries: entries, exits: exits};
 				};
 
 				var okToAdd = function okToAdd(shown, point) {
