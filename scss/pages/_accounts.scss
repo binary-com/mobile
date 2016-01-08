@@ -1,86 +1,89 @@
 .accounts-content {
-				display: block;
-				padding-left: 3%;
-				padding-right: 3%;
-				h1 {
-								font-size: 18px;
-				}
-				.remove-all-accounts {
-								background-color: $lightgray;
-								margin-top: 10px;
-								padding: 10px;
-								font-size: 14px;
-								a {
-												color: $red;
-								}
-				}
-				.account {
-								padding: 10px 5px;
-								border-bottom: 1px solid $gray;
-								&> div {
-												color: $darkblue;
-												font-size: 16px;
-												.id {
-																color: $darkblue;
-																font-size: 16px;
-																font-weight: 700;
-																// display: block;
-												}
-												.default {
-																color: $orange;
-																font-size: 14px;
-																font-weight: 500;
-												}
-												.token {
-																color: $gray;
-																font-size: 14px;
-																display: block;
-																font-weight: 500;
-												}
-								}
-								.ion-android-person{
-									font-size: 16px;
-								}
-								a {
-												&.remove {
-																font-size: 28px;
-																color: $red;
-																line-height: 40px;
-																font-weight: 500;
-												}
-												&.set-default {
-																color: $blue;
-																font-size: 14px;
-																font-weight: 500;
+	display: block;
+	.bar {
+		background-color: $orange;
+		margin-bottom: 4px !important;
+		h1 {
+			color: $white;
+		}
+	}
 
-																//text-decoration: none;
-												}
-								}
+	.remove-all-accounts {
+		background-color: $lightgray;
+		margin-top: 10px;
+		padding: 10px;
+		font-size: 14px;
+		a {
+			color: $red;
+		}
+	}
+	.account {
+		.list {
+			padding-top: 0 !important;
+			padding-bottom: 0 !important;
+			margin-bottom: 4px !important;
+			.item-content {
+				padding: 10px 0 10px 20px;
+
+			}
+			i {
+				display: block;
+				float: left;
+				width: 40px;
+				font-size: 24px;
+				line-height: 40px;
+
+				&.default {
+					color: $green;
 				}
-				.add-account {
-								margin-top: 20px;
-								label {
-												float: left;
-												&.error {
-																color: $red;
-																i {
-																				color: $red;
-																}
-												}
-												.placeholder-icon {
-																color: $gray;
-												}
-								}
-								.item-input {
-												padding: 0;
-								}
-								.ion-android-lock{
-									font-size:16px;
-								}
-								.add {
-												font-size: 28px;
-												color: $green;
-												line-height: 40px;
-								}
+				&.not-default {
+					color: $gray;
 				}
+			}
+			div {
+				.id {
+					color: $darkblue;
+					font-size: 16px;
+					font-weight: 700;
+				}
+				.token {
+					color: $gray;
+					font-size: 14px;
+					display: block;
+					font-weight: 500;
+				}
+			}
+		}
+
+		.button-green {
+			background-color: $green;
+		}
+	}
+	.add-account {
+		margin-top: 20px;
+		padding: 20px;
+		label {
+			float: left;
+			&.error {
+				color: $red;
+				i {
+					color: $red;
+				}
+			}
+			.placeholder-icon {
+				color: $gray;
+			}
+		}
+		.item-input {
+			padding: 0;
+		}
+		.ion-android-lock{
+			font-size:16px;
+		}
+		.add {
+			font-size: 28px;
+			color: $green;
+			line-height: 40px;
+		}
+	}
 }
