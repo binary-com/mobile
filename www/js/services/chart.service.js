@@ -63,13 +63,13 @@ angular
 							PUT: function condition(barrier, price) {return parseFloat(price) < parseFloat(barrier);},
 							DIGITMATCH: function condition(barrier, price) {return utils.lastDigit(barrier) == utils.lastDigit(price);},
 							DIGITDIFF: function condition(barrier, price) {return utils.lastDigit(barrier) != utils.lastDigit(price);},
-							DIGITEVEN: function condition(barrier, price) {return utils.lastDigit(price) % 2 == 0;},
-							DIGITODD: function condition(barrier, price) {return utils.lastDigit(price) % 2 != 0;},
+							DIGITEVEN: function condition(barrier, price) {return utils.lastDigit(price) % 2 === 0;},
+							DIGITODD: function condition(barrier, price) {return utils.lastDigit(price) % 2 !== 0;},
 							DIGITUNDER: function condition(barrier, price) {return utils.lastDigit(price) < parseInt(barrier);},
 							DIGITOVER: function condition(barrier, price) {return utils.lastDigit(price) > parseInt(barrier);},
 						},
 						digitTrade : function digitTrade(contract) {
-							if ( contract.type.indexOf( 'DIGIT' ) == 0 ) {
+							if ( contract.type.indexOf( 'DIGIT' ) === 0 ) {
 								return true;
 							}
 							return false;
@@ -85,11 +85,12 @@ angular
 
 
 			var Stepper = function Stepper() {
-				var tickDistance = 0;
-				var startingPosition = 0;
-				var startingDataIndex = 0;
-				var started = false;
-				var previousTime = 0;
+				var tickDistance = 0,
+					deltaTime,
+					startingPosition = 0,
+					startingDataIndex = 0,
+					started = false,
+					previousTime = 0;
 				var setStartPosition = function setStartPosition (dataIndex, position){
 					startingPosition = position;
 					startingDataIndex = dataIndex;
@@ -157,27 +158,6 @@ angular
 					updateHistoryArray(historyData, history);
 				};
 				
-				var findElementByAttr = function findElementByAttr(array, attr, expected, compare) {
-					if (!compare) {
-						compare = function compare(a, b){
-							return (a==b)?true:false;
-						}
-					}
-					var foundIndex = -1;
-					for (var i = 0; i < array.length; i++ ) {
-						if (array[i].hasOwnProperty(attr) && compare(array[i][attr], expected)) {
-							foundIndex = i;
-						}
-					}
-					return foundIndex;
-				};
-			
-				var addCandles = function addCandles(candles){
-				};
-
-				var addOhlc = function addOhlc (ohlc){
-				};
-
 				var getHistory = function getHistory(dataIndex, count, callback) {
 					var end = capacity - dataIndex,
 							start = end - count;
@@ -192,8 +172,6 @@ angular
 					getHistory: getHistory, 
 					addTick: addTick,
 					addHistory: addHistory,
-					addCandles: addCandles,
-					addOhlc: addOhlc
 				};
 
 			};
@@ -403,16 +381,12 @@ angular
 						stepper = Stepper();
 
 
-				var showPriceIf = function showPriceIf(result, v, condition) {
-					utils.setObjValue(result, 'v', v, condition);
-				};
-
 				var reversedIndex = function reversedIndex(i) {
 					return pageTickCount - 1 - i;
 				};
 
 				var lastElement = function lastElement(i){
-					if ( reversedIndex(i) == 0 ) {
+					if ( reversedIndex(i) === 0 ) {
 						return true;
 					} else {
 						return false;
@@ -427,42 +401,17 @@ angular
 					}
 				};
 
-				var zoomedIn = function zoomedIn(){
-					if ( pageTickCount == maximumZoomIn ) {
-						return true;
-					} else {
-						return false;
-					}
-				};
-				
 				var distribute = function distribute(i) {
 					var distance = Math.ceil(pageTickCount/maximumZoomIn);
-					if ( reversedIndex(i) % distance == 0 ) { 
+					if ( reversedIndex(i) % distance === 0 ) { 
 						return true;
 					} else {
 						return false;
-					}
-				};
-	
-				var collisionOccured = function collisionOccured(i){
-					if ( zoomedIn() ){
-						return false;
-					}
-					if ( distribute(i) ) { 
-						var nearAnySpots = false;
-						contracts.forEach(function(contract){
-							if ( contract.nearSpots(utils.getAbsoluteIndex(i))	) {
-								nearAnySpots = true;
-							}
-						});
-						return nearAnySpots;
-					} else {
-						return true;
 					}
 				};
 	
 				var showingHistory = function showingHistory() {
-					if ( dataIndex == 0 ) {
+					if ( dataIndex === 0 ) {
 						return false;
 					} else {
 						return true;
@@ -526,8 +475,7 @@ angular
 				};
 
 				var overlapping = function overlapping(point1, point2) {
-					return (point1.s < point2.e && point1.e > point2.s)
-              || (point2.s < point1.e && point2.e > point1.s);
+					return (point1.s < point2.e && point1.e > point2.s) || (point2.s < point1.e && point2.e > point1.s);
 				}; 
 
 				var overlapping2d = function overlapping2d(point1, point2) {
@@ -598,9 +546,8 @@ angular
 				};
 
 				var drawLabel = function drawLabel(shownPoints, point, index){
-					var result= {};
 					var ctx = this.chart.ctx;
-					if ( index != 0 && shownPoints.indexOf(point) > -1 ) {
+					if ( index !== 0 && shownPoints.indexOf(point) > -1 ) {
 						ctx.fillStyle = getValueColor(index);
 						ctx.textAlign = "center";
 						ctx.textBaseline = "bottom";
@@ -658,21 +605,15 @@ angular
 
 							this.ctx.font = this.font;
 
-							var firstWidth = this.ctx.measureText(this.xLabels[0]).width,
-								lastWidth = this.ctx.measureText(this.xLabels[this.xLabels.length - 1]).width,
-								firstRotated,
-								lastRotated;
+							var lastWidth = this.ctx.measureText(this.xLabels[this.xLabels.length - 1]).width;
 
 
 							this.xScalePaddingRight = lastWidth/2 + 3;
 
 							this.xLabelRotation = 0;
 							if (this.display){
-								var originalLabelWidth = longestText(this.ctx,this.font,this.xLabels),
-									cosRotation,
-									firstRotatedWidth;
+								var originalLabelWidth = longestText(this.ctx,this.font,this.xLabels);
 								this.xLabelWidth = originalLabelWidth;
-								var xGridWidth = Math.floor(this.calculateX(1) - this.calculateX(0)) - 6;
 							}
 							else{
 								this.xLabelWidth = 0;
@@ -686,7 +627,6 @@ angular
 						var helpers = Chart.helpers;
 						var each = helpers.each;
 						var aliasPixel = helpers.aliasPixel;
-						var toRadians = helpers.radians;
 						var ctx = this.ctx,
 							yLabelGap = (this.endPoint - this.startPoint) / this.steps,
 							xStart = Math.round(this.xScalePaddingLeft);
@@ -956,7 +896,7 @@ angular
 						chartOptions.gridLines = [];
 					}
 					chartOptions.gridLines.push(gridLine);
-				}
+				};
 			
 				var addArrayToChart = function addArrayToChart(labels, values) {
 					chartData.labels = [];
@@ -1004,7 +944,7 @@ angular
 
 				var updateContracts = function updateContracts(ticks){
 					var lastTime,
-							lastPrices;
+							lastPrice;
 					
 					ticks.forEach(function(tick, index){
 						var tickTime = parseInt(tick.time);
@@ -1025,7 +965,7 @@ angular
 					if (localHistory && !updateDisabled) {
 						localHistory.addTick(tick);
 						localHistory.getHistory(0, capacity, updateContracts);
-						if ( dataIndex == 0 && !dragging && !zooming ) {
+						if ( dataIndex === 0 && !dragging && !zooming ) {
 							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
 						} else {
 							move(1, false);
@@ -1068,7 +1008,7 @@ angular
 				};
 
 				var move = function move(steps, update){
-					if ( steps == 0 ) {
+					if ( steps === 0 ) {
 						return;
 					}
 					var testDataIndex = dataIndex + steps;
