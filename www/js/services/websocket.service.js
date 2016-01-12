@@ -221,6 +221,12 @@ angular
 					};
 					sendMessage(data);
 				},
+				forgetAll: function(_stream) {
+					var data = {
+						forget_all: _stream
+					};
+					sendMessage(data);
+				},
 				forgetProposal: function(_id) {
 					var data = {
 						forget: _id
