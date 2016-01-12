@@ -94,10 +94,10 @@ angular
 					return false;
 				},
 				getRelativeIndex: function getRelativeIndex(absoluteIndex, dataIndex) {
-					return absoluteIndex - (chartDrawer.getCapacity() - (chartDrawer.getPageTickCount() + chartDrawer.getDataIndex()));
+					return absoluteIndex - (chartDrawer.getCapacity() - (chartDrawer.getTickCount() + chartDrawer.getDataIndex()));
 				},
 				getAbsoluteIndex: function getAbsoluteIndex(relativeIndex, dataIndex) {
-					return relativeIndex + (chartDrawer.getCapacity() - (chartDrawer.getPageTickCount() + chartDrawer.getDataIndex()));
+					return relativeIndex + (chartDrawer.getCapacity() - (chartDrawer.getTickCount() + chartDrawer.getDataIndex()));
 				},
 			};
 
@@ -122,9 +122,9 @@ angular
 					return (startingDataIndex + Math.floor((position - startingPosition) / tickDistance)) - dataIndex;
 				};
 
-				var setDistance = function setDistance(canvas, pageTickCount) {
+				var setDistance = function setDistance(canvas, tickCount) {
 					if (canvas !== null) {
-						tickDistance = Math.ceil(canvas.offsetWidth / pageTickCount);
+						tickDistance = Math.ceil(canvas.offsetWidth / tickCount);
 					}
 				};
 
@@ -132,7 +132,7 @@ angular
 					return tickDistance;
 				};
 
-				var isStep = function isStep(e, pageTickCount) {
+				var isStep = function isStep(e, tickCount) {
 					if (e.timeStamp - previousTime > 100) {
 						previousTime = e.timeStamp;
 						return true;
@@ -390,14 +390,14 @@ angular
 					maxTickCount = 50,
 					minTickCount = 5,
 					hideLabelsThreshold = 15,
-					pageTickCount = 15,
+					tickCount = 15,
 					dragging = false,
 					zooming = false,
 					stepper = Stepper();
 
 
 				var reversedIndex = function reversedIndex(i) {
-					return pageTickCount - 1 - i;
+					return tickCount - 1 - i;
 				};
 
 				var isLastPoint = function isLastPoint(i) {
@@ -409,7 +409,7 @@ angular
 				};
 
 				var hideLabels = function hideLabels() {
-					if (pageTickCount >= hideLabelsThreshold) {
+					if (tickCount >= hideLabelsThreshold) {
 						return true;
 					} else {
 						return false;
@@ -417,7 +417,7 @@ angular
 				};
 
 				var distribute = function distribute(i) {
-					var distance = Math.ceil(pageTickCount / minTickCount);
+					var distance = Math.ceil(tickCount / minTickCount);
 					if (reversedIndex(i) % distance === 0) {
 						return true;
 					} else {
@@ -620,7 +620,7 @@ angular
 					}
 				};
 
-
+/* Override ChartJS Defaults */
 				Chart.CustomScale = Chart.Scale.extend({
 					initialize: function () {
 						var longestText = function (ctx, font, arrayOfStrings) {
@@ -762,17 +762,17 @@ angular
 						Chart.types.Line.prototype.initialize.apply(this, arguments);
 					},
 					draw: function () {
-						this.datasets.forEach(function (dataset) {
-							dataset.points.forEach(function (point, index) {
-								point.fillColor = getDotColor(chartData.epochLabels[index], index);
-							});
+						var dataset = this.datasets[0];
+
+						dataset.points.forEach(function (point, index) {
+							point.fillColor = getDotColor(chartData.epochLabels[index], index);
 						});
+
 						Chart.types.Line.prototype.draw.apply(this, arguments);
-						this.datasets.forEach(function (dataset) {
-							toShowLabels(dataset.points);
-							dataset.points.forEach(function (point, index) {
-								drawLabel(point, index);
-							});
+
+						toShowLabels(dataset.points);
+						dataset.points.forEach(function (point, index) {
+							drawLabel(point, index);
 						});
 
 						if (utils.isDefined(this.options.regions)) {
@@ -845,6 +845,9 @@ angular
 						this.scale = new Chart.CustomScale(scaleOptions);
 					}
 				});
+/* End of Override ChartJS Defaults */
+
+/* Define ChartJS Options */
 
 				var chartData = {
 					labels: [],
@@ -868,12 +871,14 @@ angular
 					scaleShowLabels: false,
 				};
 
+/* End of Define ChartJS Options */
+
 				var drawChart = function drawChart(chartID) {
 					canvas = document.getElementById(chartID);
 					if (canvas !== null) {
 						ctx = canvas.getContext('2d');
 						stepper = Stepper();
-						stepper.setDistance(canvas, pageTickCount);
+						stepper.setDistance(canvas, tickCount);
 					}
 				};
 
@@ -929,11 +934,11 @@ angular
 					chartOptions.gridLines.push(gridLine);
 				};
 
-				var updateChartPoints = function updateChartPoints(labels, values) {
+				var updateChartPoints = function updateChartPoints(times, values) {
 					chartData.labels = [];
-					chartData.epochLabels = labels;
-					labels.forEach(function (label, index) {
-						chartData.labels.push(utils.getTickTime(label));
+					chartData.epochLabels = times;
+					times.forEach(function (time, index) {
+						chartData.labels.push(utils.getTickTime(time));
 					});
 
 					chartData.datasets[0].data = values;
@@ -999,7 +1004,7 @@ angular
 						localHistory.addTick(tick);
 						localHistory.getHistory(0, capacity, updateContracts);
 						if (dataIndex === 0 && !dragging && !zooming) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+							localHistory.getHistory(dataIndex, tickCount, updateChart);
 						} else {
 							move(1, false);
 						}
@@ -1012,7 +1017,7 @@ angular
 					}
 					localHistory.addHistory(history);
 					localHistory.getHistory(0, capacity, updateContracts);
-					localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+					localHistory.getHistory(dataIndex, tickCount, updateChart);
 				};
 
 				var addCandles = function addCandles(candles) {};
@@ -1020,22 +1025,31 @@ angular
 				var addOhlc = function addOhlc(ohlc) {};
 
 
-				var zoomOut = function zoomOut() {
-					var zoomed = parseInt(pageTickCount * 1.2);
-					if (zoomed < maxTickCount) {
-						pageTickCount = zoomed;
-						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						stepper.setDistance(canvas, pageTickCount);
+				var zoom = function zoom(direction) {
+					var newTickCount;
+					var condition;
+					if ( direction === 'in' ) {
+						newTickCount = parseInt(tickCount / 1.2);
+						condition = newTickCount> minTickCount;
+					} else if ( direction === 'out' ) {
+						newTickCount = parseInt(tickCount * 1.2);
+						condition = newTickCount < maxTickCount;
+					} else {
+						return;
+					}
+					if ( condition ) {
+						tickCount = newTickCount;
+						localHistory.getHistory(dataIndex, tickCount, updateChart);
+						stepper.setDistance(canvas, tickCount);
 					}
 				};
 
+				var zoomOut = function zoomOut() {
+					zoom('out');
+				};
+
 				var zoomIn = function zoomIn() {
-					var zoomed = parseInt(pageTickCount / 1.2);
-					if (zoomed > minTickCount) {
-						pageTickCount = zoomed;
-						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						stepper.setDistance(canvas, pageTickCount);
-					}
+					zoom('in');
 				};
 
 				var move = function move(steps, update) {
@@ -1043,21 +1057,21 @@ angular
 						return;
 					}
 					var testDataIndex = dataIndex + steps;
-					if (testDataIndex < 0) {
+					if (testDataIndex < 0) { // overflow
 						testDataIndex = 0;
-					} else if (testDataIndex >= capacity - pageTickCount) {
-						testDataIndex = capacity - pageTickCount - 1;
+					} else if (testDataIndex >= capacity - tickCount) { // underflow
+						testDataIndex = capacity - tickCount - 1;
 					}
 					if (testDataIndex !== dataIndex) {
 						dataIndex = testDataIndex;
 						if (!utils.isDefined(update) || update) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+							localHistory.getHistory(dataIndex, tickCount, updateChart);
 						}
 					}
 				};
 
 				var drag = function drag(e) {
-					if (!zooming && stepper.isStep(e, pageTickCount)) {
+					if (!zooming && stepper.isStep(e, tickCount)) {
 						move(stepper.stepCount(dataIndex, e.center.x));
 					}
 				};
@@ -1066,8 +1080,8 @@ angular
 					return capacity;
 				};
 
-				var getPageTickCount = function getPageTickCount() {
-					return pageTickCount;
+				var getTickCount = function getTickCount() {
+					return tickCount;
 				};
 
 				var getDataIndex = function getDataIndex() {
@@ -1101,7 +1115,7 @@ angular
 					dragRight: drag,
 					dragLeft: drag,
 					getCapacity: getCapacity,
-					getPageTickCount: getPageTickCount,
+					getTickCount: getTickCount,
 					getDataIndex: getDataIndex,
 					addContract: addContract,
 					historyInterface: historyInterface,
