@@ -52,7 +52,8 @@ angular
 						payout: $scope.proposalRecieved.payout,
 						cost: _contractConfirmation.buy.buy_price,
 						profit: parseFloat($scope.proposalRecieved.payout) - parseFloat(_contractConfirmation.buy.buy_price),
-						balance: _contractConfirmation.buy.balance_after
+						balance: _contractConfirmation.buy.balance_after,
+						transaction_id: _contractConfirmation.buy.transaction_id
 					};
 					websocketService.sendRequestFor.portfolio();
 					$scope.$apply();
