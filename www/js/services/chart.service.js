@@ -464,21 +464,21 @@ angular
 					return color;
 				};
 
-				var drawRegion = function drawRegion(region) {
-					var height = chartJS.scale.endPoint - chartJS.scale.startPoint + 12, // + 12 to size up the region to the top
+				var drawRegion = function drawRegion(thisChart, region) {
+					var height = thisChart.scale.endPoint - thisChart.scale.startPoint + 12, // + 12 to size up the region to the top
 						length,
 						end,
 						start;
 
-					start = chartJS.datasets[0].points[region.start].x;
+					start = thisChart.datasets[0].points[region.start].x;
 					if (utils.isDefined(region.end)) {
-						end = chartJS.datasets[0].points[region.end].x;
+						end = thisChart.datasets[0].points[region.end].x;
 					} else {
-						end = chartJS.datasets[0].points.slice(-1)[0].x;
+						end = thisChart.datasets[0].points.slice(-1)[0].x;
 					}
 					length = end - start;
 					ctx.fillStyle = region.color;
-					ctx.fillRect(start, chartJS.scale.startPoint - 12, length, height); // begin the region from the top
+					ctx.fillRect(start, thisChart.scale.startPoint - 12, length, height); // begin the region from the top
 				};
 
 				var getLabelSize = function getLabelSize(ctx, point) {
@@ -592,9 +592,9 @@ angular
 					}
 				};
 
-				var drawGridLine = function drawGridLine(gridLine) {
-					var point = chartJS.datasets[0].points[gridLine.index];
-					var scale = chartJS.scale;
+				var drawGridLine = function drawGridLine(thisChart, gridLine) {
+					var point = thisChart.datasets[0].points[gridLine.index];
+					var scale = thisChart.scale;
 
 					ctx.beginPath();
 					if (gridLine.orientation === 'vertical') {
@@ -610,7 +610,7 @@ angular
 						ctx.moveTo(scale.startPoint, point.y);
 						ctx.strokeStyle = gridLine.color;
 						ctx.fillStyle = gridLine.color;
-						ctx.lineTo(chartJS.chart.width, point.y);
+						ctx.lineTo(thisChart.chart.width, point.y);
 						ctx.stroke();
 
 						ctx.textAlign = 'center';
@@ -763,13 +763,13 @@ angular
 					},
 					draw: function () {
 						var dataset = this.datasets[0];
+						var thisChart = this;
 
 						dataset.points.forEach(function (point, index) {
 							point.fillColor = getDotColor(chartData.epochLabels[index], index);
 						});
 
 						Chart.types.Line.prototype.draw.apply(this, arguments);
-
 						toShowLabels(dataset.points);
 						dataset.points.forEach(function (point, index) {
 							drawLabel(point, index);
@@ -777,13 +777,13 @@ angular
 
 						if (utils.isDefined(this.options.regions)) {
 							this.options.regions.forEach(function (region) {
-								drawRegion(region);
+								drawRegion(thisChart, region);
 							});
 						}
 
 						if (utils.isDefined(this.options.gridLines)) {
 							this.options.gridLines.forEach(function (gridLine) {
-								drawGridLine(gridLine);
+								drawGridLine(thisChart, gridLine);
 							});
 						}
 					},
