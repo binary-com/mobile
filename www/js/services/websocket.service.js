@@ -55,15 +55,18 @@ angular
 					
 					dataStream.send(JSON.stringify({ping: 1}));
 				};
+
 				dataStream.onmessage = function(message) {
 					receiveMessage(message);
 				};
+
 				dataStream.onclose = function(e) {
 					console.log('socket is closed ', e);
 					init();
 					console.log('socket is reopened');
 					$rootScope.$broadcast('connection:reopened');
 				};
+
 				dataStream.onerror = function(e) {
 					//console.log('error in socket ', e);
 					if(e.target.readyState == 3){
@@ -92,10 +95,6 @@ angular
 					if(message.error){
 						if(message.msg_type === "proposal" || message.msg_type === "buy"){
 							alertService.displayError(message.error.message);
-						}
-
-						if(message.msg_type === "buy"){
-							$rootScope.$broadcast("purchase", message);
 						}
 					}
 					else{
