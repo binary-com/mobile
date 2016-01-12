@@ -70,7 +70,8 @@
 		"profit": "Untung",
 		"loss": "Rugi",
 		"win": "Kontrak ini untung",
-		"lose": "Kontrak ini rugi"
+		"lose": "Kontrak ini rugi",
+		"transaction_id": "Transaction Reference"
 	},
 	"help" : {
 		"need_help": "Perlu Bantuan?",
