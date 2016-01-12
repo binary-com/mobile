@@ -620,7 +620,7 @@ angular
 					}
 				};
 
-/* Override ChartJS Defaults */
+				/* Override ChartJS Defaults */
 				Chart.CustomScale = Chart.Scale.extend({
 					initialize: function () {
 						var longestText = function (ctx, font, arrayOfStrings) {
@@ -845,9 +845,9 @@ angular
 						this.scale = new Chart.CustomScale(scaleOptions);
 					}
 				});
-/* End of Override ChartJS Defaults */
+				/* End of Override ChartJS Defaults */
 
-/* Define ChartJS Options */
+				/* Define ChartJS Options */
 
 				var chartData = {
 					labels: [],
@@ -871,7 +871,7 @@ angular
 					scaleShowLabels: false,
 				};
 
-/* End of Define ChartJS Options */
+				/* End of Define ChartJS Options */
 
 				var drawChart = function drawChart(chartID) {
 					canvas = document.getElementById(chartID);
@@ -1028,16 +1028,16 @@ angular
 				var zoom = function zoom(direction) {
 					var newTickCount;
 					var condition;
-					if ( direction === 'in' ) {
+					if (direction === 'in') {
 						newTickCount = parseInt(tickCount / 1.2);
-						condition = newTickCount> minTickCount;
-					} else if ( direction === 'out' ) {
+						condition = newTickCount > minTickCount;
+					} else if (direction === 'out') {
 						newTickCount = parseInt(tickCount * 1.2);
 						condition = newTickCount < maxTickCount;
 					} else {
 						return;
 					}
-					if ( condition ) {
+					if (condition) {
 						tickCount = newTickCount;
 						localHistory.getHistory(dataIndex, tickCount, updateChart);
 						stepper.setDistance(canvas, tickCount);
