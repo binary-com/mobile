@@ -31,7 +31,9 @@ angular
 				$scope.$apply();
 			});
 
+			websocketService.sendRequestFor.forgetAll('balance');
 			websocketService.sendRequestFor.balance();
+			
 			$scope.$on('balance', function(e, _balance) {
 				if(_balance === undefined){
 					websocketService.sendRequestFor.balance();
