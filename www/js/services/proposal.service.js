@@ -60,5 +60,8 @@ angular
 				localStorage.removeItem('proposal');
 			}
 
+			this.getCurrencies = function(){
+				websocketService.sendRequestFor.currencies();
+			}
 
 	});
