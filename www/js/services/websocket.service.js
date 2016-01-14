@@ -127,7 +127,8 @@ angular
 								$rootScope.$broadcast('assetIndex:updated');
 								break;
 							case 'payout_currencies':
-								sessionStorage.currencies = JSON.stringify(message.payout_currencies);
+								//sessionStorage.currencies = JSON.stringify(message.payout_currencies);
+								$rootScope.$broadcast('currencies', message.payout_currencies);
 								break;
 							case 'proposal':
 								$rootScope.$broadcast('proposal', message.proposal);

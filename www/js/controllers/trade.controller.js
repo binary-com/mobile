@@ -17,18 +17,28 @@ angular
 					analytics.trackView("Trade");
 				}
 
+				$scope.proposalRecieved = {};
+
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
 				$scope.tradeMode = true;
 				$scope.contractFinished = false;
 				proposalService.send();
+				proposalService.getCurrencies();
 			};
 
 			init();
 
 			$scope.$on('proposal', function(e, response) {
-				$scope.proposalRecieved = response;
-				$scope.proposalRecieved.currency = accountService.getDefault().currency;
+				angular.extend($scope.proposalRecieved, response);
+				//$scope.proposalRecieved.currency = accountService.getDefault().currency;
 				$scope.$apply();
+			});
+
+			$scope.$on('currencies', function(e, response){
+				if(response && response.length > 0){
+					$scope.proposalRecieved.currency = response[0];
+					$scope.$apply();
+				}
 			});
 
 			websocketService.sendRequestFor.forgetAll('balance');
