@@ -9336,15 +9336,43 @@ body * {
     text-align: left;
     line-height: 36px;
     padding-left: 10px; }
-  .trade .contract-payout .amount input {
-    font-size: 5vw;
-    width: 100px;
-    height: 36px;
-    border-radius: 5px;
-    border: 1px solid #c4c4c4;
-    line-height: 36px;
-    text-align: center;
-    padding-left: 18px; }
+  .trade .contract-payout .amount {
+    position: relative; }
+    .trade .contract-payout .amount input {
+      font-size: 5vw;
+      width: 100px;
+      height: 36px;
+      border-radius: 5px;
+      border: 1px solid #c4c4c4;
+      line-height: 36px;
+      text-align: center;
+      padding-left: 18px; }
+    .trade .contract-payout .amount .error {
+      position: absolute;
+      background-color: #ff0000;
+      border-radius: 5px;
+      top: -47px;
+      left: -50%;
+      padding: 0 10px;
+      text-align: center; }
+      .trade .contract-payout .amount .error p {
+        color: #fff;
+        width: 220px;
+        height: 30px;
+        line-height: 42px;
+        font-size: 13px;
+        font-weight: bold; }
+      .trade .contract-payout .amount .error:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -8px;
+        width: 0;
+        height: 0;
+        border-top: 8px solid #ff0000;
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent; }
   .trade .contract-payout .button-bar .button {
     height: 35px;
     min-height: 20px; }

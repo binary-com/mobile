@@ -64,6 +64,10 @@ angular
 					scope.amount = (amount > 2) ? Number(amount - 1).toFixed(2) : 1;
 					updateProposal();
 				};
+
+				scope.isObjectEmpty = function(_obj) {
+					return _.isEmpty(_obj);
+				}
 			}
 		};
 	}]);
