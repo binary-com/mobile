@@ -27,7 +27,7 @@ angular
 						_proposal.netProfit =  (isNaN(netProfit) || netProfit < 0) ? '0' : netProfit.toFixed(2);
 						scope.proposal = _proposal;
 					}
-				}, true);
+				});
 
 				var roundNumber = function(_newAmount, _oldAmount) {
 					var parsed = parseFloat(_newAmount, 10);
