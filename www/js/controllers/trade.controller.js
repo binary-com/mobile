@@ -17,7 +17,6 @@ angular
 					analytics.trackView("Trade");
 				}
 
-				$scope.proposalRecieved = {};
 
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
 				$scope.tradeMode = true;
@@ -29,15 +28,21 @@ angular
 			init();
 
 			$scope.$on('proposal', function(e, response) {
-				angular.extend($scope.proposalRecieved, response);
-				//$scope.proposalRecieved.currency = accountService.getDefault().currency;
+				$scope.proposalRecieved = response;
 				$scope.$apply();
 			});
 
 			$scope.$on('currencies', function(e, response){
 				if(response && response.length > 0){
-					$scope.proposalRecieved.currency = response[0];
+					$scope.currency = response[0];
 					$scope.$apply();
+
+					var proposal = proposalService.get();
+					if(proposal){
+						proposal.currency = response[0];
+						proposalService.update(proposal);
+						proposalService.send();
+					}
 				}
 			});
 
