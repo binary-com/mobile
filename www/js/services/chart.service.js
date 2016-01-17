@@ -476,6 +476,9 @@ angular
 					} else {
 						end = thisChart.datasets[0].points.slice(-1)[0].x;
 					}
+					if (end <= start) {
+						return;
+					}
 					length = end - start;
 					ctx.fillStyle = region.color;
 					ctx.fillRect(start, thisChart.scale.startPoint - 12, length, height); // begin the region from the top
