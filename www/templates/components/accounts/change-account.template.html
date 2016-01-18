@@ -1,9 +1,9 @@
-<div class="options-account row">
+<div ng-class="displayDigits ? 'showingDigits' : 'notShowingDigits'" class="options-account row">
 	<label class="item item-input item-select col col-90">
 		<div class="input-label">
-			<h1>{{'accounts.account' | translate}}</h1>
+			<h1 ng-class="smallHeader">{{'accounts.account' | translate}}</h1>
 		</div>
-		<select class="account-select" ng-change="updateAccount(selectedAccount)" ng-model="selectedAccount">
+		<select ng-class="displayDigits ? 'showingDigits' : 'notShowingDigits'" class="account-select" ng-change="updateAccount(selectedAccount)" ng-model="selectedAccount">
 			<option
 				ng-repeat="a in accounts"
 				value="{{a.token}}"
