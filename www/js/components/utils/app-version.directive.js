@@ -19,6 +19,8 @@ angular
 					if(cordova){
 						cordova.getAppVersion(function(version){
 							scope.appVersion = version;
+						}, function(err){
+							console.log(err);
 						});
 					}
 				});
