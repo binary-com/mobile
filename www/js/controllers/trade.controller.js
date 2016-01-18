@@ -27,6 +27,7 @@ angular
 
 			$scope.$on('proposal', function(e, response) {
 				$scope.proposalRecieved = response;
+				$scope.proposalRecieved.currency = accountService.getDefault().currency;
 				$scope.$apply();
 			});
 
@@ -51,16 +52,21 @@ angular
 						profit: parseFloat($scope.proposalRecieved.payout) - parseFloat(_contractConfirmation.buy.buy_price),
 						balance: _contractConfirmation.buy.balance_after
 					};
+					websocketService.sendRequestFor.portfolio();
 					$scope.$apply();
 				} else if (_contractConfirmation.error){
 					alertService.displayError(_contractConfirmation.error.message);
 					$('.contract-purchase button').attr('disabled', false);
+					
+					proposalService.send();
 				} else {
 					alertService.contractError.notAvailable();
 					$('.contract-purchase button').attr('disabled', false);
 				}
 				websocketService.sendRequestFor.balance();
-				websocketService.sendRequestFor.portfolio();
+
+				// it's moved to first if
+				// websocketService.sendRequestFor.portfolio();
 			});
 
 			$scope.$on('contract:finished', function (e, _contract){
