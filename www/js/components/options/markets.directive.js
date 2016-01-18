@@ -91,6 +91,9 @@ angular
 				});
 
 				scope.updateMarket = function(_market) {
+					// To disable "Let's trade" button until all data is loaded
+					scope.isDataLoaded = false;
+
 					scope.$parent.selected.market = _market;
 					updateSymbols(scope.$parent.selected.market);
 				};
