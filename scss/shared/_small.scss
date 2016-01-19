@@ -1,12 +1,117 @@
 @media screen and (max-width: 400px) {
+
 	.trade .contract-price .price {
 		display: inline-block;
 	}
-	.options .item-select select {
-		padding-right: 5%;
-		padding-left: 0px;
+
+	.options {
+
+		.item-select select {
+			padding-right: 5%;
+			padding-left: 0px;
+		}
+
+		.item-select::after {
+			right: 0px;
+		}
+
 	}
-	.options .item-select::after {
-		right: 0px;
+
+}
+
+
+@media screen and (max-height: 600px) {
+
+	.item-content.showingDigits, .item.showingDigits {
+		height: 5.5vh !important;
+		font-size: 3vh !important;
+	}
+
+	.item-content.notShowingDigits, .item.notShowingDigits {
+		height: 6vh !important;
+		font-size: 3vh !important;
+	}
+
+	.row.showingDigits {
+		padding-top: 1px !important;
+		padding-bottom: 0px !important;
+	}
+
+	.row.notShowingDigits {
+		padding-top: 4px !important;
+		padding-bottom: 0px !important;
+	}
+
+	.contract-details {
+		margin-top: 0px !important;
+		.row .col {
+			margin-top: 0px !important;
+			padding-top: 0px !important;
+			padding-bottom: 0px !important;
+		}
+	}
+
+	.balance {
+		font-size: 2.3vh !important;
+		strong{
+			font-size: 2.3vh !important;
+		}
+	}
+
+	.contract-back {
+		margin-top: 1px !important;
+	}
+
+	.contract-payout, .contract-price {
+		margin-top: 0px !important;
+		padding-top: 3px !important;
+		padding-bottom: 3px !important;
+
+		.col {
+			margin-top: 0px !important;
+			padding-top: 0px !important;
+			padding-bottom: 0px !important;
+			font-size: 3vh !important;
+
+			span {
+				font-size: 3vh !important;
+			}
+
+			input {
+				font-size: 4vh !important;
+			}
+
+		}
+
+	}
+
+}
+
+@media screen and (max-height: 520px) {
+
+	.row.showingDigits {
+		padding-top: 0px !important;
+	}
+
+	.row.notShowingDigits {
+		padding-top: 3px !important;
+	}
+
+	.smallHeader {
+		font-size: 3vh !important;
+	}
+
+	.button {
+		margin-top: 0px !important;
+		min-height: 5.5vh !important;
+	}
+
+	.balance {
+		font-size: 2.75vh !important;
+
+		strong {
+			font-size: 2.75vh !important;
+		}
+
 	}
 }

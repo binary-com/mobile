@@ -1,7 +1,7 @@
-<div class="options-upderlying row">
+<div ng-class="displayDigits ? 'showingDigits' : 'notShowingDigits'" class="options-upderlying row">
 	<label class="item item-input item-select col col-90">
-		<div class="input-label"><h1>{{'options.underlying' | translate}}</h1></div>
-		<select ng-change="updateSymbol(selected.symbol)" ng-model="selected.symbol">
+		<div class="input-label"><h1 ng-class="smallHeader">{{'options.underlying' | translate}}</h1></div>
+		<select ng-class="displayDigits ? 'showingDigits' : 'notShowingDigits'" ng-change="updateSymbol(selected.symbol)" ng-model="selected.symbol">
 			<option
 				ng-repeat="s in symbols"
 				value="{{s.symbol}}"
