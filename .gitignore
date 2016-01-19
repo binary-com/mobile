@@ -11,3 +11,4 @@ plugins/
 www/lib
 *.log
 .*.log
+*.sw*
