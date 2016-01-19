@@ -71,7 +71,8 @@
 		"profit": "Profit",
 		"loss": "Loss",
 		"win": "This contract won",
-		"lose": "This contract lost"
+		"lose": "This contract lost",
+		"transaction_id": "Transaction Reference"
 	},
 	"help" : {
 		"need_help": "Need Help?",

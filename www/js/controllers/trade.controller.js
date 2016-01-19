@@ -17,25 +17,42 @@ angular
 					analytics.trackView("Trade");
 				}
 
+
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
 				$scope.tradeMode = true;
 				$scope.contractFinished = false;
 				proposalService.send();
+				proposalService.getCurrencies();
 			};
 
 			init();
 
 			$scope.$on('proposal', function(e, response) {
 				$scope.proposalRecieved = response;
-				$scope.proposalRecieved.currency = accountService.getDefault().currency;
 				$scope.$apply();
 			});
 
-			websocketService.sendRequestFor.balance();
-			$scope.$on('balance', function(e, _balance) {
-				if(_balance === undefined){
-					websocketService.sendRequestFor.balance();
+			$scope.$on('currencies', function(e, response){
+				if(response && response.length > 0){
+					$scope.currency = response[0];
+					$scope.$apply();
+
+					var proposal = proposalService.get();
+					if(proposal){
+						proposal.currency = response[0];
+						proposalService.update(proposal);
+						proposalService.send();
+					}
 				}
+			});
+
+			websocketService.sendRequestFor.forgetAll('balance');
+			websocketService.sendRequestFor.balance();
+			
+			$scope.$on('balance', function(e, _balance) {
+//				if(_balance === undefined){
+//					websocketService.sendRequestFor.balance();
+//				}
 				$scope.account = _balance;
 				$scope.$apply();
 			});
@@ -50,7 +67,8 @@ angular
 						payout: $scope.proposalRecieved.payout,
 						cost: _contractConfirmation.buy.buy_price,
 						profit: parseFloat($scope.proposalRecieved.payout) - parseFloat(_contractConfirmation.buy.buy_price),
-						balance: _contractConfirmation.buy.balance_after
+						balance: _contractConfirmation.buy.balance_after,
+						transaction_id: _contractConfirmation.buy.transaction_id
 					};
 					websocketService.sendRequestFor.portfolio();
 					$scope.$apply();
