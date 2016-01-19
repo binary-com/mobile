@@ -9118,6 +9118,50 @@ button {
 .spinner svg {
   fill: red; }
 
+.logo-spinner {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 1000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 1000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 1000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: 50% 65%;
+  display: inline-block; }
+
+@-ms-keyframes spin {
+  from {
+    -ms-transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg); } }
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg); }
+  to {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
 body * {
   font-family: roboto, sans-serif !important; }
 
@@ -9336,15 +9380,42 @@ body * {
     text-align: left;
     line-height: 36px;
     padding-left: 10px; }
-  .trade .contract-payout .amount input {
-    font-size: 5vw;
-    width: 100px;
-    height: 36px;
-    border-radius: 5px;
-    border: 1px solid #c4c4c4;
-    line-height: 36px;
-    text-align: center;
-    padding-left: 18px; }
+  .trade .contract-payout .amount {
+    position: relative; }
+    .trade .contract-payout .amount input {
+      font-size: 5vw;
+      width: 100px;
+      height: 36px;
+      border-radius: 5px;
+      border: 1px solid #c4c4c4;
+      line-height: 36px;
+      text-align: center;
+      padding-left: 18px; }
+    .trade .contract-payout .amount .error {
+      position: absolute;
+      background-color: #ff0000;
+      border-radius: 5px;
+      top: -47px;
+      left: -50%;
+      padding: 0 10px;
+      text-align: center; }
+      .trade .contract-payout .amount .error p {
+        color: #fff;
+        width: 220px;
+        height: 30px;
+        font-size: 13px;
+        font-weight: bold; }
+      .trade .contract-payout .amount .error:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -8px;
+        width: 0;
+        height: 0;
+        border-top: 8px solid #ff0000;
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent; }
   .trade .contract-payout .button-bar .button {
     height: 35px;
     min-height: 20px; }
