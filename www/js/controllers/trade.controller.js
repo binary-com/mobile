@@ -50,9 +50,9 @@ angular
 			websocketService.sendRequestFor.balance();
 			
 			$scope.$on('balance', function(e, _balance) {
-				if(_balance === undefined){
-					websocketService.sendRequestFor.balance();
-				}
+//				if(_balance === undefined){
+//					websocketService.sendRequestFor.balance();
+//				}
 				$scope.account = _balance;
 				$scope.$apply();
 			});
