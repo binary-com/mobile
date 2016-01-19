@@ -9457,7 +9457,6 @@ body * {
         color: #fff;
         width: 220px;
         height: 30px;
-        line-height: 42px;
         font-size: 13px;
         font-weight: bold; }
       .trade .contract-payout .amount .error:after {

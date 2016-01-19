@@ -2,10 +2,9 @@
     <div class="col col-33 basis" ng-show="basis == 'payout'">{{'trade.payout' | translate}}</div>
     <div class="col col-33 basis" ng-show="basis == 'stake'">{{'trade.stake' | translate}}</div>
     <div class="col col-33 amount">
-        <input type="number" string-to-number name="amount" min="0.70" max="100000" ng-model="amount" ng-change="updateAmount(amount, '{{amount}}')" required step="0.01">
-        <div class="error" ng-show="!isObjectEmpty(purchaseFrom.amount.$error)">
-            <p ng-show="purchaseFrom.amount.$error.min || purchaseFrom.amount.$error.max">{{'alert.field_between' | translate}}</p>
-            <p ng-show="purchaseFrom.amount.$error.number">{{'alert.must_number' | translate}}</p>
+        <input type="number" string-to-number name="amount" ng-model="amount" ng-change="updateAmount(amount, '{{amount}}')" required step="0.01">
+        <div class="error" ng-show="proposalError">
+                <p> {{ proposalError.message }} </p>
         </div>
     </div>
     <div class="col col-33">

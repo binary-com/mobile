@@ -19,15 +19,37 @@ angular
 			link: function(scope, element) {
 
 				scope.basis = scope.$parent.proposalToSend.basis || 'payout';
-				scope.amount = marketService.getDefault.amount() || 5;
+				scope.amount = marketService.getDefault.amount();
+                scope.proposalError = null;
 
 				scope.$parent.$watch('proposalRecieved', function(_proposal){
 					if (_proposal) {
 						var netProfit = parseFloat(_proposal.payout) - parseFloat(_proposal.ask_price);
 						_proposal.netProfit =  (isNaN(netProfit) || netProfit < 0) ? '0' : netProfit.toFixed(2);
 						scope.proposal = _proposal;
+                        scope.proposalError = null;
+
+                        if(scope.$parent && scope.$parent.purchaseFrom){
+                            scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", true);
+                        }
+                        
+                        if(!scope.$$phase){
+                            scope.$apply();
+                        }
 					}
 				});
+
+                scope.$on('proposal:error', function(e, error){
+                    scope.proposalError = error;
+
+                    if(scope.$parent.purchaseFrom){
+                        scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", false);
+                    }
+                    
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
+                });
 
 				var roundNumber = function(_newAmount, _oldAmount) {
 					var parsed = parseFloat(_newAmount, 10);
@@ -42,7 +64,7 @@ angular
 					if (proposal) {
 						proposal.amount = parseFloat(scope.amount, 10);
 						proposalService.update(proposal);
-						proposalService.send(scope.proposal.id);
+						proposalService.send(scope.proposal && scope.proposal.id ? scope.proposal.id : null);
 					}
 				};
 
@@ -55,6 +77,11 @@ angular
 				// TODO: figure out how to handle it for payout
 				scope.addAmount = function() {
 					var amount = parseFloat(scope.amount);
+                    
+                    if(isNaN(amount)){
+                        amount = 0;
+                    }
+
 					scope.amount = (amount < 100000) ? Number(amount + 1).toFixed(2) : 100000;
 					updateProposal();
 				};
