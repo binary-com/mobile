@@ -19,7 +19,7 @@ angular
 			link: function(scope, element) {
 
 				scope.basis = scope.$parent.proposalToSend.basis || 'payout';
-				scope.amount = marketService.getDefault.amount() || 5;
+				scope.amount = marketService.getDefault.amount();
                 scope.proposalError = null;
 
 				scope.$parent.$watch('proposalRecieved', function(_proposal){
@@ -77,6 +77,11 @@ angular
 				// TODO: figure out how to handle it for payout
 				scope.addAmount = function() {
 					var amount = parseFloat(scope.amount);
+                    
+                    if(isNaN(amount)){
+                        amount = 0;
+                    }
+
 					scope.amount = (amount < 100000) ? Number(amount + 1).toFixed(2) : 100000;
 					updateProposal();
 				};
