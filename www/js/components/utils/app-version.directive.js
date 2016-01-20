@@ -9,20 +9,31 @@
 
 angular
 	.module('binary')
-	.directive('appVersion', function($ionicPlatform){
+	.directive('appVersion', function($ionicPlatform, appVersionService){
 		return{
-			scope: {},
+			scope: {
+                class: "@"
+            },
 			restrict: 'E',
 			templateUrl: 'templates/components/utils/app-version.template.html',
 			link: function(scope){
 				$ionicPlatform.ready(function(){
-					if(cordova){
+					if(window.cordova){
 						cordova.getAppVersion(function(version){
 							scope.appVersion = version;
 						}, function(err){
 							console.log(err);
 						});
 					}
+                    else{
+                        appVersionService.getAppVersion()
+                            .success(function(data){
+                                scope.appVersion = data.version;
+                            })
+                            .error(function(data){
+                                scope.appVersion = "0.0.0"
+                            });
+                    }
 				});
 			}
 		}

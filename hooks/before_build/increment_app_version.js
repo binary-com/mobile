@@ -66,6 +66,18 @@ fs.readFile('config.xml', 'utf8', function(err, data) {
       
       console.log('Build number successfully incremented');
     });
+
+    // change version number in config.json file
+    var webViewVersion = {};
+    webViewVersion.version = newVersion;
+    var json = JSON.stringify(webViewVersion);
+    
+    fs.writeFile('www/js/config.json', json, function(err){
+        if(err){
+            return console.log(err);
+        }
+        console.log('Config file successfully updated');
+    });
     
   });
 });
