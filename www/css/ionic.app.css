@@ -9426,6 +9426,7 @@ body * {
   position: relative; }
 
 .trade .contract-payout {
+  position: relative;
   background-color: #f2f2f2;
   border-top: 1px solid #c4c4c4;
   border-bottom: 1px solid #c4c4c4; }
@@ -9457,7 +9458,6 @@ body * {
         color: #fff;
         width: 220px;
         height: 30px;
-        line-height: 42px;
         font-size: 13px;
         font-weight: bold; }
       .trade .contract-payout .amount .error:after {
