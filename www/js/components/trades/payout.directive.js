@@ -18,6 +18,9 @@ angular
 			templateUrl: 'templates/components/trades/payout.template.html',
 			link: function(scope, element) {
 
+				var lastUpdateTime = 0,
+						lastUpdateProposalID = 0,
+						minimumUpdateDelay = 300;
 				scope.basis = scope.$parent.proposalToSend.basis || 'payout';
 				scope.amount = marketService.getDefault.amount();
                 scope.proposalError = null;
@@ -68,10 +71,19 @@ angular
 					}
 				};
 
+				var delayedUpdateProposal = function delayedUpdateProposal() {
+					if ( new Date().getTime() - lastUpdateTime < minimumUpdateDelay ) {
+						clearTimeout(lastUpdateProposalID);
+					}
+					lastUpdateProposalID = setTimeout(updateProposal, minimumUpdateDelay);
+					lastUpdateTime = new Date().getTime();
+				};
+
 				scope.updateAmount = function(_newAmount, _oldAmount) {
 					// scope.amount = parseFloat(parseFloat(_newAmount).toFixed(2));//roundNumber(_newAmount, _oldAmount);
-					updateProposal();
+					delayedUpdateProposal();
 				};
+				
 
 				// TODO: limit to the account balance for stake
 				// TODO: figure out how to handle it for payout
@@ -83,13 +95,13 @@ angular
                     }
 
 					scope.amount = (amount < 100000) ? Number(amount + 1).toFixed(2) : 100000;
-					updateProposal();
+					delayedUpdateProposal();
 				};
 
 				scope.subtractAmount = function() {
 					var amount = parseFloat(scope.amount);
 					scope.amount = (amount > 2) ? Number(amount - 1).toFixed(2) : 1;
-					updateProposal();
+					delayedUpdateProposal();
 				};
 
 				scope.isObjectEmpty = function(_obj) {
