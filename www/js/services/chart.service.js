@@ -9,117 +9,141 @@
 angular
 	.module('binary')
 	.factory('chartService',
-		function($rootScope) {
-			var localHistory,
-					chartDrawer,
-					contracts = [],
-					utils = {
-						zeroPad : function zeroPad(num){
-							if (num < 10){
-								return '0' + num;
-							} else {
-								return num.toString();
-							}
-						},
-						getTickTime : function getTickTime(tick) {
-							var date = new Date(tick*1000); 
-							return date.getUTCHours() +	':' + utils.zeroPad(date.getUTCMinutes()) + ':' + utils.zeroPad(date.getUTCSeconds());
-						},
-						isDefined : function isDefined(obj) {
-							if ( typeof obj === 'undefined' ) {
-								return false;
-							} else {
-								return true;
-							}
-						},
-						setObjValue : function setObjValue(obj, attr, value, condition) {
-							if ( utils.isDefined( obj ) ) {
-								if ( utils.isDefined( condition ) ) {
-									if ( condition ) {
-										obj[attr] = value;
-									}
-								} else if ( typeof obj[attr] === 'undefined' ) {
-									obj[attr] = value;
-								}
-							}
-						},
-						fractionalLength : function fractionalLength(floatNumber) {
-							var stringNumber = floatNumber.toString(),
-									decimalLength = stringNumber.indexOf('.');
-							return stringNumber.length - decimalLength - 1;
-						},
-						maxFractionalLength : function maxFractionalLength(floatNumbers) {
-							var max = 0;
-							floatNumbers.forEach(function(number){
-								max = (max < utils.fractionalLength(number))? utils.fractionalLength(number): max;
-							});
-							return max;
-						},
-						lastDigit : function lastDigit(num) {
-							return parseInt(num.toString().slice(-1));
-						},
-						conditions : {
-							CALL: function condition(barrier, price) {return parseFloat(price) > parseFloat(barrier);}, 
-							PUT: function condition(barrier, price) {return parseFloat(price) < parseFloat(barrier);},
-							DIGITMATCH: function condition(barrier, price) {return utils.lastDigit(barrier) == utils.lastDigit(price);},
-							DIGITDIFF: function condition(barrier, price) {return utils.lastDigit(barrier) != utils.lastDigit(price);},
-							DIGITEVEN: function condition(barrier, price) {return utils.lastDigit(price) % 2 == 0;},
-							DIGITODD: function condition(barrier, price) {return utils.lastDigit(price) % 2 != 0;},
-							DIGITUNDER: function condition(barrier, price) {return utils.lastDigit(price) < parseInt(barrier);},
-							DIGITOVER: function condition(barrier, price) {return utils.lastDigit(price) > parseInt(barrier);},
-						},
-						digitTrade : function digitTrade(contract) {
-							if ( contract.type.indexOf( 'DIGIT' ) == 0 ) {
-								return true;
-							}
-							return false;
-						},
-						getRelativeIndex : function getRelativeIndex(absoluteIndex, dataIndex) {
-							return absoluteIndex - ( chartDrawer.getCapacity() - (chartDrawer.getPageTickCount() + chartDrawer.getDataIndex()) );
-						},
-						getAbsoluteIndex : function getAbsoluteIndex(relativeIndex, dataIndex) {
-							return relativeIndex + ( chartDrawer.getCapacity() - (chartDrawer.getPageTickCount() + chartDrawer.getDataIndex()) );
-						},
-	 				};
-			
+		function ($rootScope) {
 
+			var localHistory,
+				chartDrawer,
+				contractCtrls = [];
+
+			var utils = {
+				zeroPad: function zeroPad(num) {
+					if (num < 10) {
+						return '0' + num;
+					} else {
+						return num.toString();
+					}
+				},
+				getTickTime: function getTickTime(tick) {
+					var date = new Date(tick * 1000);
+					return date.getUTCHours() + ':' + utils.zeroPad(date.getUTCMinutes()) + ':' + utils.zeroPad(date.getUTCSeconds());
+				},
+				isDefined: function isDefined(obj) {
+					if (typeof obj === 'undefined') {
+						return false;
+					} else {
+						return true;
+					}
+				},
+				setObjValue: function setObjValue(obj, attr, value, condition) {
+					if (utils.isDefined(obj)) {
+						if (utils.isDefined(condition)) {
+							if (condition) {
+								obj[attr] = value;
+							}
+						} else if (typeof obj[attr] === 'undefined') {
+							obj[attr] = value;
+						}
+					}
+				},
+				fractionalLength: function fractionalLength(floatNumber) {
+					var stringNumber = floatNumber.toString(),
+						decimalLength = stringNumber.indexOf('.');
+					return stringNumber.length - decimalLength - 1;
+				},
+				maxFractionalLength: function maxFractionalLength(floatNumbers) {
+					var max = 0;
+					floatNumbers.forEach(function (number) {
+						max = (max < utils.fractionalLength(number)) ? utils.fractionalLength(number) : max;
+					});
+					return max;
+				},
+				lastDigit: function lastDigit(num) {
+					return parseInt(num.toString()
+						.slice(-1)[0]);
+				},
+				conditions: {
+					CALL: function condition(barrier, price) {
+						return parseFloat(price) > parseFloat(barrier);
+					},
+					PUT: function condition(barrier, price) {
+						return parseFloat(price) < parseFloat(barrier);
+					},
+					DIGITMATCH: function condition(barrier, price) {
+						return utils.lastDigit(barrier) === utils.lastDigit(price);
+					},
+					DIGITDIFF: function condition(barrier, price) {
+						return utils.lastDigit(barrier) !== utils.lastDigit(price);
+					},
+					DIGITEVEN: function condition(barrier, price) {
+						return utils.lastDigit(price) % 2 === 0;
+					},
+					DIGITODD: function condition(barrier, price) {
+						return utils.lastDigit(price) % 2 !== 0;
+					},
+					DIGITUNDER: function condition(barrier, price) {
+						return utils.lastDigit(price) < parseInt(barrier);
+					},
+					DIGITOVER: function condition(barrier, price) {
+						return utils.lastDigit(price) > parseInt(barrier);
+					},
+				},
+				digitTrade: function digitTrade(contract) {
+					if (contract.type.indexOf('DIGIT') === 0) {
+						return true;
+					}
+					return false;
+				},
+				getRelativeIndex: function getRelativeIndex(absoluteIndex, dataIndex) {
+					return absoluteIndex - (chartDrawer.getCapacity() - (chartDrawer.getTickCount() + chartDrawer.getDataIndex()));
+				},
+				getAbsoluteIndex: function getAbsoluteIndex(relativeIndex, dataIndex) {
+					return relativeIndex + (chartDrawer.getCapacity() - (chartDrawer.getTickCount() + chartDrawer.getDataIndex()));
+				},
+			};
 
 			var Stepper = function Stepper() {
-				var tickDistance = 0;
-				var startingPosition = 0;
-				var startingDataIndex = 0;
-				var started = false;
-				var previousTime = 0;
-				var setStartPosition = function setStartPosition (dataIndex, position){
+
+				var tickDistance = 0,
+					startingPosition = 0,
+					startingDataIndex = 0,
+					started = false,
+					previousTime = 0;
+
+				var setStartPosition = function setStartPosition(dataIndex, position) {
 					startingPosition = position;
 					startingDataIndex = dataIndex;
-					deltaTime = 0;
 					started = true;
 				};
+
 				var stepCount = function stepCount(dataIndex, position) {
-					if ( !started ) {
+					if (!started) {
 						return 0;
 					}
-					return ( startingDataIndex + Math.floor((position - startingPosition)/tickDistance) ) - dataIndex;
+					return (startingDataIndex + Math.floor((position - startingPosition) / tickDistance)) - dataIndex;
 				};
-				var setDistance = function setDistance(canvas, pageTickCount) {
-					if ( canvas !== null ) {
-						tickDistance = Math.ceil(canvas.offsetWidth/pageTickCount);
+
+				var setDistance = function setDistance(canvas, tickCount) {
+					if (canvas !== null) {
+						tickDistance = Math.ceil(canvas.offsetWidth / tickCount);
 					}
 				};
+
 				var getDistance = function getDistance() {
 					return tickDistance;
 				};
-				var isStep = function isStep(e, pageTickCount) {
-					if ( e.timeStamp - previousTime > 100 ) {
+
+				var isStep = function isStep(e, tickCount) {
+					if (e.timeStamp - previousTime > 100) {
 						previousTime = e.timeStamp;
 						return true;
 					}
 					return false;
 				};
+
 				var stop = function stop() {
 					started = false;
 				};
+
 				return {
 					isStep: isStep,
 					stop: stop,
@@ -130,10 +154,11 @@ angular
 				};
 			};
 
-			var LocalHistory = function LocalHistory(capacity){
-				var historyData = []; 
+			var LocalHistory = function LocalHistory(capacity) {
 
-				var addTick = function addTick(tick){
+				var historyData = [];
+
+				var addTick = function addTick(tick) {
 					historyData.push({
 						time: tick.epoch,
 						price: tick.quote
@@ -142,138 +167,106 @@ angular
 				};
 
 
-				var updateHistoryArray = function updateHistoryArray(historyArray, history){
-					var times = history.times, 
-							prices = history.prices;
-					times.forEach(function(time, index){
+				var updateHistoryArray = function updateHistoryArray(historyArray, history) {
+					var times = history.times,
+						prices = history.prices;
+					times.forEach(function (time, index) {
 						historyArray.push({
 							time: time,
-							price: prices[index] 
+							price: prices[index]
 						});
 					});
 				};
-				var addHistory = function addHistory(history){
+
+				var addHistory = function addHistory(history) {
 					historyData = [];
 					updateHistoryArray(historyData, history);
-				};
-				
-				var findElementByAttr = function findElementByAttr(array, attr, expected, compare) {
-					if (!compare) {
-						compare = function compare(a, b){
-							return (a==b)?true:false;
-						}
-					}
-					var foundIndex = -1;
-					for (var i = 0; i < array.length; i++ ) {
-						if (array[i].hasOwnProperty(attr) && compare(array[i][attr], expected)) {
-							foundIndex = i;
-						}
-					}
-					return foundIndex;
-				};
-			
-				var addCandles = function addCandles(candles){
-				};
-
-				var addOhlc = function addOhlc (ohlc){
 				};
 
 				var getHistory = function getHistory(dataIndex, count, callback) {
 					var end = capacity - dataIndex,
-							start = end - count;
-					if ( start >= 0 ) {
-						callback( historyData.slice( start, end ) );
+						start = end - count;
+					if (start >= 0) {
+						callback(historyData.slice(start, end));
 					} else {
-						callback( [] );
+						callback([]);
 					}
 				};
 
 				return {
-					getHistory: getHistory, 
+					getHistory: getHistory,
 					addTick: addTick,
 					addHistory: addHistory,
-					addCandles: addCandles,
-					addOhlc: addOhlc
 				};
 
 			};
 
-			var Contract = function Contract(contract) {
+			var ContractCtrl = function ContractCtrl(contract) {
 
 				var resetSpotShowing = function resetSpotShowing() {
-					contract.entrySpotShowing = false;
-					contract.exitSpotShowing = false;
+					contract.showingEntrySpot = false;
+					contract.showingExitSpot = false;
 				};
 
-				var entrySpotReached = function entrySpotReached() {
-					if ( utils.isDefined( contract.entrySpotIndex ) ) {
+				var hasEntrySpot = function hasEntrySpot() {
+					if (utils.isDefined(contract.entrySpotIndex)) {
 						return true;
 					} else {
 						return false;
 					}
 				};
 
-				var exitSpotReached = function exitSpotReached() {
-					if ( utils.isDefined( contract.exitSpotIndex ) ) {
+				var hasExitSpot = function hasExitSpot() {
+					if (utils.isDefined(contract.exitSpotIndex)) {
 						return true;
 					} else {
 						return false;
 					}
 				};
 
-				var betweenSpots = function betweenSpots(time) {
-					if ( entrySpotReached() && time >= contract.entrySpot && ( !exitSpotReached() || time <= contract.exitSpot ) ) {
+				var betweenExistingSpots = function betweenExistingSpots(time) {
+					if (hasEntrySpot() && time >= contract.entrySpotTime && (!hasExitSpot() || time <= contract.exitSpot)) {
 						return true;
 					} else {
 						return false;
 					}
 				};
 
-				var nearSpots = function nearSpots(i) {
-					if ( contract.entrySpotShowing && Math.abs( contract.entrySpotIndex - i ) == 1 ) {
-						return true;
-					}
-					if ( contract.exitSpotShowing && Math.abs( contract.exitSpotIndex - i ) == 1 ) {
-						return true;
-					}
-					return false;
-				};
-				
 				var isSpot = function isSpot(i) {
-					if ( contract.entrySpotShowing && contract.entrySpotIndex == i ) {
+					if (contract.showingEntrySpot && contract.entrySpotIndex === utils.getAbsoluteIndex(i)) {
 						return true;
 					}
-					if ( contract.exitSpotShowing && contract.exitSpotIndex == i ) {
+					if (contract.showingExitSpot && contract.exitSpotIndex === utils.getAbsoluteIndex(i)) {
 						return true;
 					}
 					return false;
 				};
-				
+
 				var getEntrySpotPoint = function getEntrySpotPoint(points) {
 					var result;
-					if ( contract.entrySpotShowing ) {
+					if (contract.showingEntrySpot) {
 						result = points[utils.getRelativeIndex(contract.entrySpotIndex)];
 					}
-					return result;	
+					return result;
 				};
 
 				var getExitSpotPoint = function getExitSpotPoint(points) {
 					var result;
-					if ( contract.exitSpotShowing) {
+					if (contract.showingExitSpot) {
 						result = points[utils.getRelativeIndex(contract.exitSpotIndex)];
 					}
-					return result;	
+					return result;
 				};
 
 				var isEntrySpot = function isEntrySpot(time) {
-					if ( entrySpotReached() ) {
-						if ( time == contract.entrySpot ) {
+					if (hasEntrySpot()) {
+						if (time === contract.entrySpotTime) {
 							return true;
 						} else {
 							return false;
 						}
 					} else {
-						if ( time >= contract.startTime ) {
+						if (time >= contract.startTime) {
 							return true;
 						} else {
 							return false;
@@ -282,86 +275,88 @@ angular
 				};
 
 				var isExitSpot = function isExitSpot(time, index) {
-					if ( exitSpotReached() ) {
-						if ( time == contract.exitSpot ) {
+					if (hasExitSpot()) {
+						if (time === contract.exitSpot) {
 							return true;
 						} else {
 							return false;
 						}
 					} else {
-						if ( entrySpotReached() && index == contract.entrySpotIndex + contract.duration ) {
+						if (hasEntrySpot() && index === contract.entrySpotIndex + contract.duration) {
 							return true;
 						} else {
 							return false;
 						}
 					}
 				};
-				
-				var viewSpot = function viewSpot(index, tickTime) {
-						if ( isEntrySpot( tickTime ) ) {
-							contract.entrySpotShowing = true;
-							if ( !utils.digitTrade(contract) && !exitSpotReached() ) { 
-								chartDrawer.addGridLine({
-									color: 'blue', 
-									label: 'barrier: '+ contract.barrier, 
-									orientation: 'horizontal', 
-									index: index
-								});
-							}
-						} else if(isExitSpot(tickTime, utils.getAbsoluteIndex(index)) ) { 
-							contract.exitSpotShowing = true;
+
+				var viewSpots = function viewSpots(index, tickTime) {
+					if (isEntrySpot(tickTime)) {
+						contract.showingEntrySpot = true;
+						if (!utils.digitTrade(contract) && !hasExitSpot()) {
+							chartDrawer.addGridLine({
+								color: 'blue',
+								label: 'barrier: ' + contract.barrier,
+								orientation: 'horizontal',
+								index: index
+							});
 						}
+					} else if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
+						contract.showingExitSpot = true;
+					}
 				};
 
-				var addSpot = function addSpot(index, tickTime, tickPrice) {
-					if ( isEntrySpot(tickTime) || betweenSpots(tickTime) ) { 
-						if ( isEntrySpot( tickTime ) ) {
-							utils.setObjValue(contract, 'barrier', tickPrice);
-							utils.setObjValue(contract, 'entrySpot', tickTime, !entrySpotReached());
-						} else if(isExitSpot(tickTime, index) ) { 
-							utils.setObjValue(contract, 'exitSpot', tickTime, !exitSpotReached());
+				var addSpots = function addSpots(index, tickTime, tickPrice) {
+					if (isEntrySpot(tickTime) || betweenExistingSpots(tickTime)) {
+						if (isEntrySpot(tickTime)) {
+							utils.setObjValue(contract, 'barrier', tickPrice, !utils.digitTrade(contract));
+							utils.setObjValue(contract, 'entrySpotTime', tickTime, !hasEntrySpot());
+						} else if (isExitSpot(tickTime, index)) {
+							utils.setObjValue(contract, 'exitSpot', tickTime, !hasExitSpot());
 						}
-						utils.setObjValue(contract, 'entrySpotIndex', index, isEntrySpot( tickTime ));
-						utils.setObjValue(contract, 'exitSpotIndex', index, isExitSpot( tickTime, index ));
-					} 
-				}; 
+						utils.setObjValue(contract, 'entrySpotIndex', index, isEntrySpot(tickTime));
+						utils.setObjValue(contract, 'exitSpotIndex', index, isExitSpot(tickTime, index));
+					}
+				};
 
-				var viewRegion = function viewRegion() {
-					var color = (contract.result == 'win') ? 'rgba(0, 255, 0, 0.2)': 'rgba(255, 0, 0, 0.2)';
-						if ( contract.exitSpotShowing ) {
-							if ( utils.isDefined(contract.region) ){
-								var start = utils.getRelativeIndex(contract.entrySpotIndex);
-								contract.region.start = (start < 0)? 0 : start;
-								contract.region.end = utils.getRelativeIndex(contract.exitSpotIndex);
+				var viewRegions = function viewRegions() {
+					if (hasEntrySpot()) {
+						var color = (contract.result === 'win') ? 'rgba(0, 255, 0, 0.2)' : 'rgba(255, 0, 0, 0.2)';
+						if (contract.showingExitSpot) {
+							var start = utils.getRelativeIndex(contract.entrySpotIndex);
+							start = (start < 0) ? 0 : start;
+							if (!utils.isDefined(contract.region)) {
+								contract.region = {
+									color: color,
+									start: start,
+								};
+							} else {
 								contract.region.color = color;
+								contract.region.start = start;
 							}
+							contract.region.end = utils.getRelativeIndex(contract.exitSpotIndex);
 							chartDrawer.addRegion(contract.region);
-						} else if ( contract.entrySpotShowing ) {
-							if ( !utils.isDefined(contract.region) ){
+						} else if (contract.showingEntrySpot) {
+							if (!utils.isDefined(contract.region)) {
 								contract.region = {
 									color: color,
 									start: utils.getRelativeIndex(contract.entrySpotIndex),
 								};
 							} else {
-								contract.region.start = utils.getRelativeIndex(contract.entrySpotIndex);
 								contract.region.color = color;
+								contract.region.start = utils.getRelativeIndex(contract.entrySpotIndex);
 							}
 							chartDrawer.addRegion(contract.region);
 						} else {
 							chartDrawer.removeRegion(contract.region);
 						}
-				};
-
-				var viewRegions = function viewRegions() {
-					if ( entrySpotReached() ) { 
-						viewRegion();
 					}
 				};
 
 				var addRegions = function addRegions(lastTime, lastPrice) {
-					if ( entrySpotReached() ) { 
-						if ( betweenSpots(lastTime) ) {
-							if ( utils.conditions[contract.type](contract.barrier, lastPrice) ) {
+					if (hasEntrySpot()) {
+						if (betweenExistingSpots(lastTime)) {
+							if (utils.conditions[contract.type](contract.barrier, lastPrice)) {
 								contract.result = 'win';
 								$rootScope.$broadcast("contract:finished", contract);
 							} else {
@@ -374,12 +369,11 @@ angular
 
 				return {
 					isSpot: isSpot,
-					betweenSpots: betweenSpots,
-					nearSpots: nearSpots,
+					betweenExistingSpots: betweenExistingSpots,
 					resetSpotShowing: resetSpotShowing,
-					addSpot: addSpot,
+					addSpots: addSpots,
 					addRegions: addRegions,
-					viewSpot: viewSpot,
+					viewSpots: viewSpots,
 					viewRegions: viewRegions,
 					getEntrySpotPoint: getEntrySpotPoint,
 					getExitSpotPoint: getExitSpotPoint,
@@ -388,94 +382,64 @@ angular
 			};
 
 			var ChartDrawer = function ChartDrawer() {
-				var dataIndex = 0, 
-						canvas,
-						ctx,
-						chart,
-						capacity = 600,
-						maximumZoomOut = 50, 
-						maximumZoomIn = 5, 
-						hideValuesThreshold = 15,
-						pageTickCount = 15,
-						dragging = false,
-						zooming = false,
-						updateDisabled = false,
-						stepper = Stepper();
+				var dataIndex = 0,
+					canvas,
+					ctx,
+					chartJS,
+					capacity = 600,
+					maxTickCount = 50,
+					minTickCount = 5,
+					hideLabelsThreshold = 15,
+					tickCount = 15,
+					dragging = false,
+					zooming = false,
+					stepper = Stepper();
 
-
-				var showPriceIf = function showPriceIf(result, v, condition) {
-					utils.setObjValue(result, 'v', v, condition);
-				};
 
 				var reversedIndex = function reversedIndex(i) {
-					return pageTickCount - 1 - i;
+					return tickCount - 1 - i;
 				};
 
-				var lastElement = function lastElement(i){
-					if ( reversedIndex(i) == 0 ) {
+				var isLastPoint = function isLastPoint(i) {
+					if (reversedIndex(i) === 0) {
 						return true;
 					} else {
 						return false;
 					}
 				};
 
-				var hideValues = function hideValues(){
-					if ( pageTickCount >= hideValuesThreshold ) {
+				var hideLabels = function hideLabels() {
+					if (tickCount >= hideLabelsThreshold) {
 						return true;
 					} else {
 						return false;
 					}
 				};
 
-				var zoomedIn = function zoomedIn(){
-					if ( pageTickCount == maximumZoomIn ) {
-						return true;
-					} else {
-						return false;
-					}
-				};
-				
 				var distribute = function distribute(i) {
-					var distance = Math.ceil(pageTickCount/maximumZoomIn);
-					if ( reversedIndex(i) % distance == 0 ) { 
+					var distance = Math.ceil(tickCount / minTickCount);
+					if (reversedIndex(i) % distance === 0) {
 						return true;
 					} else {
 						return false;
 					}
 				};
-	
-				var collisionOccured = function collisionOccured(i){
-					if ( zoomedIn() ){
-						return false;
-					}
-					if ( distribute(i) ) { 
-						var nearAnySpots = false;
-						contracts.forEach(function(contract){
-							if ( contract.nearSpots(utils.getAbsoluteIndex(i))	) {
-								nearAnySpots = true;
-							}
-						});
-						return nearAnySpots;
-					} else {
-						return true;
-					}
-				};
-	
+
 				var showingHistory = function showingHistory() {
-					if ( dataIndex == 0 ) {
+					if (dataIndex === 0) {
 						return false;
 					} else {
 						return true;
 					}
 				};
 
-				var getValueColor = function getValueColor(index) {
+				var getLabelColor = function getLabelColor(index) {
 					var color = 'black';
-					if ( !showingHistory() && lastElement(index) ) {
+					if (!showingHistory() && isLastPoint(index)) {
 						color = 'green';
 					}
-					contracts.forEach(function(contract){
-						if ( contract.isSpot(utils.getAbsoluteIndex(index)) ) {
+					contractCtrls.forEach(function (contract) {
+						if (contract.isSpot(index)) {
 							color = 'blue';
 						}
 					});
@@ -484,15 +448,15 @@ angular
 
 				var getDotColor = function getDotColor(value, index) {
 					var color;
-					contracts.forEach(function(contract){
-						if ( contract.betweenSpots( value ) ) {
+					contractCtrls.forEach(function (contract) {
+						if (contract.betweenExistingSpots(value)) {
 							color = 'blue';
 						}
 					});
-					if ( utils.isDefined(color) ) { 
+					if (utils.isDefined(color)) {
 						return color;
 					}
-					if (lastElement(index) && !showingHistory()){
+					if (isLastPoint(index) && !showingHistory()) {
 						color = 'green';
 					} else {
 						color = 'orange';
@@ -500,181 +464,194 @@ angular
 					return color;
 				};
 
-				var drawRegion = function drawRegion(region){
-					var yHeight = this.scale.endPoint - this.scale.startPoint + 12,
-							length,	
-							end,	
-							start,	
-							pointCount = this.datasets[0].points.length;
-					start = this.datasets[0].points[region.start].x;
-					if ( utils.isDefined(region.end) ) {
-						end = this.datasets[0].points[region.end].x;
+				var drawRegion = function drawRegion(thisChart, region) {
+					var height = thisChart.scale.endPoint - thisChart.scale.startPoint + 12, // + 12 to size up the region to the top
+						length,
+						end,
+						start;
+
+					start = thisChart.datasets[0].points[region.start].x;
+					if (utils.isDefined(region.end)) {
+						end = thisChart.datasets[0].points[region.end].x;
 					} else {
-						end = this.datasets[0].points[pointCount - 1].x;
+						end = thisChart.datasets[0].points.slice(-1)[0].x;
+					}
+					if (end <= start) {
+						return;
 					}
 					length = end - start;
-					this.chart.ctx.fillStyle = region.color;
-
-					this.chart.ctx.fillRect(start, this.scale.startPoint - 12, length, yHeight);
+					ctx.fillStyle = region.color;
+					ctx.fillRect(start, thisChart.scale.startPoint - 12, length, height); // begin the region from the top
 				};
 
-				var getValueSize = function getValueSize(ctx, point){
-					return { 
-						width: ctx.measureText(point.value).width,
+				var getLabelSize = function getLabelSize(ctx, point) {
+					return {
+						width: ctx.measureText(point.value)
+							.width,
 						height: parseInt(ctx.font)
 					};
 				};
 
 				var overlapping = function overlapping(point1, point2) {
-					return (point1.s < point2.e && point1.e > point2.s)
-              || (point2.s < point1.e && point2.e > point1.s);
-				}; 
+					return (point1.s < point2.e && point1.e > point2.s) || (point2.s < point1.e && point2.e > point1.s);
+				};
 
 				var overlapping2d = function overlapping2d(point1, point2) {
-					var point1Size = getValueSize(ctx, point1);
-					var point2Size = getValueSize(ctx, point2);
-					var padding = 1;
-					var overlappingY = overlapping({s: point1.y - padding, e: point1.y - padding + point1Size.height}, 
-					{s: point2.y - padding, e: point2.y - padding + point2Size.height});
-					var overlappingX = overlapping({s: point1.x, e: point1.x + point1Size.width}, 
-					{s: point2.x, e: point2.x + point2Size.width});
+					var point1Size = getLabelSize(ctx, point1);
+					var point2Size = getLabelSize(ctx, point2);
+					var overlappingY = overlapping({
+						s: point1.y,
+						e: point1.y + point1Size.height
+					}, {
+						s: point2.y,
+						e: point2.y + point2Size.height
+					});
+					var overlappingX = overlapping({
+						s: point1.x,
+						e: point1.x + point1Size.width
+					}, {
+						s: point2.x,
+						e: point2.x + point2Size.width
+					});
 					return overlappingX && overlappingY;
-				}; 
+				};
 
-				
-				var findSpots = function findSpots(points){
-					var entries = [], exits = [];
-					contracts.forEach(function(contract){
+
+				var findSpots = function findSpots(points) {
+					var entries = [],
+						exits = [];
+					contractCtrls.forEach(function (contract) {
 						var entry, exit;
 						entry = contract.getEntrySpotPoint(points);
 						exit = contract.getExitSpotPoint(points);
-						if ( utils.isDefined(entry) ) {
+						if (utils.isDefined(entry)) {
 							entries.push(entry);
 						}
-						if ( utils.isDefined(exit) ) {
+						if (utils.isDefined(exit)) {
 							exits.push(exit);
 						}
 					});
-					return {entries: entries, exits: exits};
+					return {
+						entries: entries,
+						exits: exits
+					};
 				};
 
-				var okToAdd = function okToAdd(shown, point) {
+				var withoutConflict = function withoutConflict(toShow, point) {
 					var result = true;
-					shown.forEach(function(shownPoint, index){
-						if ( overlapping2d(shownPoint, point) ) {
+					toShow.forEach(function (toShowPoint, index) {
+						if (overlapping2d(toShowPoint, point)) {
 							result = false;
 						}
-					});				
+					});
 					return result;
 				};
 
-				var shownValues = function shownValues(points){
-					var shown = [];
+				var toShowLabels = function toShowLabels(points) {
+					var toShow = [];
 					var spots = findSpots(points);
-					// This is our priority: 1. exit spot, 2. entry spot, 3. last value, 4. others
+					// This is our priority: 1. exit spot, 2. entry spot, 3. last value, 4. others (right to left)
 
-					spots.exits.forEach(function(exit, index){
-						shown.push(exit);
+					spots.exits.forEach(function (exit, index) {
+						toShow.push(exit);
 					});
-					spots.entries.forEach(function(entry, index){
-						if ( okToAdd(shown, entry) ) {
-							shown.push(entry);
+
+					spots.entries.forEach(function (entry, index) {
+						if (withoutConflict(toShow, entry)) {
+							toShow.push(entry);
 						}
 					});
 
-					var lastElement = points.slice(-1)[0];
-					if ( !showingHistory() && okToAdd(shown, lastElement) ) {
-						shown.push(lastElement);
+					var lastPoint = points.slice(-1)[0];
+					if (!showingHistory() && withoutConflict(toShow, lastPoint)) {
+						toShow.push(lastPoint);
 					}
-
-					if ( !hideValues() ) {
-						for ( var i = points.length - 1 ; i >= 0 ; i-- ) {
-							if ( okToAdd(shown, points[i]) ) {
-								shown.push(points[i]);
+					// add other labels from right to left
+					if (!hideLabels()) {
+						for (var i = points.length - 1; i >= 0; i--) {
+							if (withoutConflict(toShow, points[i])) {
+								toShow.push(points[i]);
 							}
 						}
 					}
-					return shown;
+					toShow.forEach(function (toShowPoint, index) {
+						toShowPoint.shown = true;
+					});
 				};
 
-				var drawLabel = function drawLabel(shownPoints, point, index){
-					var result= {};
-					var ctx = this.chart.ctx;
-					if ( index != 0 && shownPoints.indexOf(point) > -1 ) {
-						ctx.fillStyle = getValueColor(index);
+				var drawLabel = function drawLabel(point, index) {
+					if (index !== 0 && utils.isDefined(point.shown) && point.shown) {
+						ctx.fillStyle = getLabelColor(index);
 						ctx.textAlign = "center";
 						ctx.textBaseline = "bottom";
-						
+
 						var padding = 0;
-						var valueWidth = getValueSize(ctx, point).width;
-						if ( lastElement(index) ) {
-							padding = ( valueWidth < 45) ? 0 : valueWidth - 45;
+						var valueWidth = getLabelSize(ctx, point)
+							.width;
+						if (isLastPoint(index)) {
+							padding = (valueWidth < 45) ? 0 : valueWidth - 45;
 						}
 						ctx.fillText(point.value, point.x - padding, point.y - 1);
 					}
 				};
 
-				var drawGridLine = function drawGridLine(gridLine) {
-					var point = this.datasets[0].points[gridLine.index];
-					var scale = this.scale;
+				var drawGridLine = function drawGridLine(thisChart, gridLine) {
+					var point = thisChart.datasets[0].points[gridLine.index];
+					var scale = thisChart.scale;
 
-					this.chart.ctx.beginPath();
-					if ( gridLine.orientation == 'vertical' ) {
-						this.chart.ctx.moveTo(point.x, scale.startPoint + 24);
-						this.chart.ctx.strokeStyle = gridLine.color;
-						this.chart.ctx.fillStyle = gridLine.color;
-						this.chart.ctx.lineTo(point.x, scale.endPoint);
-						this.chart.ctx.stroke();
-					
-						this.chart.ctx.textAlign = 'center';
-						this.chart.ctx.fillText(gridLine.label, point.x, scale.startPoint + 12);
-					} else {
-						this.chart.ctx.moveTo(scale.startPoint, point.y);
-						this.chart.ctx.strokeStyle = gridLine.color;
-						this.chart.ctx.fillStyle = gridLine.color;
-						this.chart.ctx.lineTo(this.chart.width, point.y);
-						this.chart.ctx.stroke();
-					
-						this.chart.ctx.textAlign = 'center';
-						var labelWidth = this.chart.ctx.measureText(gridLine.label).width;
-						this.chart.ctx.fillText(gridLine.label, parseInt(labelWidth/2) + 5, point.y - 1);
+					ctx.beginPath();
+					if (gridLine.orientation === 'vertical') {
+						ctx.moveTo(point.x, scale.startPoint + 24);
+						ctx.strokeStyle = gridLine.color;
+						ctx.fillStyle = gridLine.color;
+						ctx.lineTo(point.x, scale.endPoint);
+						ctx.stroke();
+
+						ctx.textAlign = 'center';
+						ctx.fillText(gridLine.label, point.x, scale.startPoint + 12);
+					} else if (gridLine.orientation === 'horizontal') {
+						ctx.moveTo(scale.startPoint, point.y);
+						ctx.strokeStyle = gridLine.color;
+						ctx.fillStyle = gridLine.color;
+						ctx.lineTo(thisChart.chart.width, point.y);
+						ctx.stroke();
+
+						ctx.textAlign = 'center';
+						var labelWidth = ctx.measureText(gridLine.label)
+							.width;
+						ctx.fillText(gridLine.label, parseInt(labelWidth / 2) + 5, point.y - 1);
 					}
 				};
-	
 
+				/* Override ChartJS Defaults */
 				Chart.CustomScale = Chart.Scale.extend({
 					initialize: function () {
-						var longestText = function(ctx,font,arrayOfStrings){
+						var longestText = function (ctx, font, arrayOfStrings) {
 							ctx.font = font;
 							var longest = 0;
-							Chart.helpers.each(arrayOfStrings,function(string){
-								var textWidth = ctx.measureText(string).width;
+							Chart.helpers.each(arrayOfStrings, function (string) {
+								var textWidth = ctx.measureText(string)
+									.width;
 								longest = (textWidth > longest) ? textWidth : longest;
 							});
 							return longest;
 						};
 
-						this.calculateXLabelRotation = function(){
+						this.calculateXLabelRotation = function () {
 
 							this.ctx.font = this.font;
 
-							var firstWidth = this.ctx.measureText(this.xLabels[0]).width,
-								lastWidth = this.ctx.measureText(this.xLabels[this.xLabels.length - 1]).width,
-								firstRotated,
-								lastRotated;
+							var lastWidth = this.ctx.measureText(this.xLabels[this.xLabels.length - 1])
+								.width;
 
 
-							this.xScalePaddingRight = lastWidth/2 + 3;
+							this.xScalePaddingRight = lastWidth / 2 + 3;
 
 							this.xLabelRotation = 0;
-							if (this.display){
-								var originalLabelWidth = longestText(this.ctx,this.font,this.xLabels),
-									cosRotation,
-									firstRotatedWidth;
+							if (this.display) {
+								var originalLabelWidth = longestText(this.ctx, this.font, this.xLabels);
 								this.xLabelWidth = originalLabelWidth;
-								var xGridWidth = Math.floor(this.calculateX(1) - this.calculateX(0)) - 6;
-							}
-							else{
+							} else {
 								this.xLabelWidth = 0;
 								this.xScalePaddingRight = this.padding;
 							}
@@ -686,7 +663,6 @@ angular
 						var helpers = Chart.helpers;
 						var each = helpers.each;
 						var aliasPixel = helpers.aliasPixel;
-						var toRadians = helpers.radians;
 						var ctx = this.ctx,
 							yLabelGap = (this.endPoint - this.startPoint) / this.steps,
 							xStart = Math.round(this.xScalePaddingLeft);
@@ -735,7 +711,7 @@ angular
 								}
 								var xPos = this.calculateX(index) + aliasPixel(this.lineWidth),
 									linePos = this.calculateX(index - (this.offsetGridLines ? 0.5 : 0)) + aliasPixel(this.lineWidth);
-								
+
 
 								ctx.beginPath();
 
@@ -758,7 +734,7 @@ angular
 
 								ctx.beginPath();
 								ctx.moveTo(linePos, this.endPoint);
-								if ( filtered ) {
+								if (filtered) {
 									ctx.lineTo(linePos, this.endPoint);
 								} else {
 									ctx.lineTo(linePos, this.endPoint + 5);
@@ -771,7 +747,7 @@ angular
 
 								ctx.textAlign = "center";
 								ctx.textBaseline = "top";
-								if ( !filtered ) {
+								if (!filtered) {
 									ctx.fillText(label, 0, 0);
 								}
 								ctx.restore();
@@ -789,28 +765,28 @@ angular
 						Chart.types.Line.prototype.initialize.apply(this, arguments);
 					},
 					draw: function () {
-						this.datasets.forEach(function (dataset) {
-							dataset.points.forEach(function (point, index) {
-								point.fillColor = getDotColor(chartData.epochLabels[index], index);
-							});
+						var dataset = this.datasets[0];
+						var thisChart = this;
+
+						dataset.points.forEach(function (point, index) {
+							point.fillColor = getDotColor(chartData.epochLabels[index], index);
 						});
+
 						Chart.types.Line.prototype.draw.apply(this, arguments);
-						var parentChart = this;
-						this.datasets.forEach(function (dataset) {
-							dataset.points.forEach(function (point, index) {
-								drawLabel.call(parentChart, shownValues.call(parentChart, dataset.points), point, index);
-							});
+						toShowLabels(dataset.points);
+						dataset.points.forEach(function (point, index) {
+							drawLabel(point, index);
 						});
-						
-						if ( utils.isDefined(this.options.regions) ){
-							this.options.regions.forEach(function(region){
-								drawRegion.call(parentChart, region);
+
+						if (utils.isDefined(this.options.regions)) {
+							this.options.regions.forEach(function (region) {
+								drawRegion(thisChart, region);
 							});
 						}
 
-						if (utils.isDefined(this.options.gridLines)){
-							this.options.gridLines.forEach(function(gridLine){
-								drawGridLine.call(parentChart, gridLine);
+						if (utils.isDefined(this.options.gridLines)) {
+							this.options.gridLines.forEach(function (gridLine) {
+								drawGridLine(thisChart, gridLine);
 							});
 						}
 					},
@@ -841,11 +817,11 @@ angular
 							integersOnly: this.options.scaleIntegersOnly,
 							calculateYRange: function (currentHeight) {
 								var updatedRanges = helpers.calculateScaleRange(
-								dataTotal(),
-								currentHeight,
-								this.fontSize,
-								this.beginAtZero,
-								this.integersOnly);
+									dataTotal(),
+									currentHeight,
+									this.fontSize,
+									this.beginAtZero,
+									this.integersOnly);
 								helpers.extend(this, updatedRanges);
 							},
 							xLabels: labels,
@@ -872,218 +848,234 @@ angular
 						this.scale = new Chart.CustomScale(scaleOptions);
 					}
 				});
-	
+				/* End of Override ChartJS Defaults */
+
+				/* Define ChartJS Options */
+
 				var chartData = {
 					labels: [],
 					labelsFilter: function (index) {
 						return !distribute(index);
 					},
-					datasets: [
-						{
-							strokeColor: "orange",
-							pointColor: "orange",
-							pointStrokeColor: "#fff",
-							data: []
-						}
-					]
+					datasets: [{
+						strokeColor: "orange",
+						pointColor: "orange",
+						pointStrokeColor: "#fff",
+						data: []
+					}]
 				};
 
 				var chartOptions = {
 					animation: false,
-					bezierCurve : false,
-					datasetFill : false,
+					bezierCurve: false,
+					datasetFill: false,
 					showTooltips: false,
 					keepAspectRatio: false,
 					scaleShowLabels: false,
 				};
 
-				var drawChart = function drawChart(chartID){
+				/* End of Define ChartJS Options */
+
+				var drawChart = function drawChart(chartID) {
 					canvas = document.getElementById(chartID);
-					if ( canvas !== null ) {
+					if (canvas !== null) {
 						ctx = canvas.getContext('2d');
 						stepper = Stepper();
-						stepper.setDistance(canvas, pageTickCount);
+						stepper.setDistance(canvas, tickCount);
 					}
 				};
 
-				var findRegion = function findRegion(region){
-					if ( utils.isDefined(chartOptions.regions) ) {
+				var findRegion = function findRegion(region) {
+					if (utils.isDefined(chartOptions.regions)) {
 						return chartOptions.regions.indexOf(region);
 					} else {
 						return -1;
 					}
-				};			
+				};
 
-				var addRegion = function addRegion(region){
-					if ( !utils.isDefined(chartOptions.regions) ) {
+				var addRegion = function addRegion(region) {
+					if (!utils.isDefined(chartOptions.regions)) {
 						chartOptions.regions = [];
 					}
-					if ( findRegion(region) < 0 ) {
+					if (findRegion(region) < 0) {
 						chartOptions.regions.push(region);
 					}
-				};			
+				};
 
-				var removeRegion = function removeRegion(region){
+				var removeRegion = function removeRegion(region) {
 					var regionIndex = findRegion(region);
-					if ( regionIndex >= 0) {
+					if (regionIndex >= 0) {
 						chartOptions.regions.splice(regionIndex, 1);
 					}
-				};			
+				};
 
-				var dragStart = function dragStart(e){
+				var dragStart = function dragStart(e) {
 					stepper.setStartPosition(dataIndex, e.center.x);
 					dragging = true;
 				};
 
-				var dragEnd = function dragEnd(e){
-					if ( !zooming ) {
-						move(stepper.stepCount( dataIndex, e.center.x ));
+				var dragEnd = function dragEnd(e) {
+					if (!zooming) {
+						move(stepper.stepCount(dataIndex, e.center.x));
 					}
 					stepper.stop();
 					dragging = false;
 				};
 
-				var zoomStart = function zoomStart(){
+				var zoomStart = function zoomStart() {
 					zooming = true;
 				};
 
-				var zoomEnd = function zoomEnd(){
+				var zoomEnd = function zoomEnd() {
 					zooming = false;
 				};
 
 				var addGridLine = function addGridLine(gridLine) {
-					if ( !utils.isDefined(chartOptions.gridLines) ) {
+					if (!utils.isDefined(chartOptions.gridLines)) {
 						chartOptions.gridLines = [];
 					}
 					chartOptions.gridLines.push(gridLine);
-				}
-			
-				var addArrayToChart = function addArrayToChart(labels, values) {
+				};
+
+				var updateChartPoints = function updateChartPoints(times, values) {
 					chartData.labels = [];
-					chartData.epochLabels = labels;
-					labels.forEach(function(label, index){
-						chartData.labels.push(utils.getTickTime(label));
+					chartData.epochLabels = times;
+					times.forEach(function (time, index) {
+						chartData.labels.push(utils.getTickTime(time));
 					});
-					
+
 					chartData.datasets[0].data = values;
-					if ( utils.isDefined(chart) ) {
-						chart.destroy();
+					if (utils.isDefined(chartJS)) {
+						chartJS.destroy();
 					}
-					if ( utils.isDefined(ctx) ) {
-						chart = new Chart(ctx).LineChartSpots(chartData, chartOptions);
+					if (utils.isDefined(ctx)) {
+						chartJS = new Chart(ctx)
+							.LineChartSpots(chartData, chartOptions);
 					}
 				};
 
-				var updateChart = function updateChart(ticks){
+				// depends on updateContracts call
+				var updateChart = function updateChart(ticks) {
 					chartOptions.gridLines = [];
-					contracts.forEach(function(contract){
+					contractCtrls.forEach(function (contract) {
 						contract.resetSpotShowing();
 					});
 					var times = [],
-							prices = [];
-					
-					ticks.forEach(function(tick, index){
+						prices = [];
+
+					var previousTime = 0;
+					ticks.forEach(function (tick, index) {
 						var tickTime = parseInt(tick.time);
-						contracts.forEach(function(contract){
-							contract.viewSpot(index, tickTime);
-						});
-						times.push(tickTime);
-						prices.push(tick.price);
+						if (tickTime !== previousTime) {
+							previousTime = tickTime;
+							contractCtrls.forEach(function (contract) {
+								contract.viewSpots(index, tickTime);
+							});
+							times.push(tickTime);
+							prices.push(tick.price);
+						}
 					});
 
-					contracts.forEach(function(contract){
+					contractCtrls.forEach(function (contract) {
 						contract.viewRegions();
 					});
 
-					addArrayToChart(times, prices);
+					updateChartPoints(times, prices);
 				};
 
-				var updateContracts = function updateContracts(ticks){
+				var updateContracts = function updateContracts(ticks) {
 					var lastTime,
-							lastPrices;
-					
-					ticks.forEach(function(tick, index){
+						lastPrice;
+
+					ticks.forEach(function (tick, index) {
 						var tickTime = parseInt(tick.time);
 						var tickPrice = tick.price;
-						contracts.forEach(function(contract){
-							contract.addSpot(index, tickTime, tickPrice);
+						contractCtrls.forEach(function (contract) {
+							contract.addSpots(index, tickTime, tickPrice);
 						});
 						lastTime = parseInt(tick.time);
 						lastPrice = tick.price;
 					});
 
-					contracts.forEach(function(contract){
+					contractCtrls.forEach(function (contract) {
 						contract.addRegions(lastTime, lastPrice);
 					});
 				};
-				
-				var addTick = function addTick(tick){
-					if (localHistory && !updateDisabled) {
+
+				var addTick = function addTick(tick) {
+					if (localHistory) {
 						localHistory.addTick(tick);
 						localHistory.getHistory(0, capacity, updateContracts);
-						if ( dataIndex == 0 && !dragging && !zooming ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						if (dataIndex === 0 && !dragging && !zooming) {
+							localHistory.getHistory(dataIndex, tickCount, updateChart);
 						} else {
 							move(1, false);
 						}
 					}
 				};
 
-				var addHistory = function addHistory(history){
+				var addHistory = function addHistory(history) {
 					if (!localHistory) {
 						localHistory = LocalHistory(capacity);
 					}
 					localHistory.addHistory(history);
 					localHistory.getHistory(0, capacity, updateContracts);
-					localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+					localHistory.getHistory(dataIndex, tickCount, updateChart);
 				};
 
-				var addCandles = function addCandles(candles){
-				};
+				var addCandles = function addCandles(candles) {};
 
-				var addOhlc = function addOhlc (ohlc){
-				};
-					
-				
-				var zoomOut = function zoomOut(){
-					var zoomed = parseInt(pageTickCount * 1.2);
-					if ( zoomed < maximumZoomOut ){
-						pageTickCount = zoomed;
-						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						stepper.setDistance(canvas, pageTickCount);
+				var addOhlc = function addOhlc(ohlc) {};
+
+
+				var zoom = function zoom(direction) {
+					var newTickCount;
+					var condition;
+					if (direction === 'in') {
+						newTickCount = parseInt(tickCount / 1.2);
+						condition = newTickCount > minTickCount;
+					} else if (direction === 'out') {
+						newTickCount = parseInt(tickCount * 1.2);
+						condition = newTickCount < maxTickCount;
+					} else {
+						return;
+					}
+					if (condition) {
+						tickCount = newTickCount;
+						localHistory.getHistory(dataIndex, tickCount, updateChart);
+						stepper.setDistance(canvas, tickCount);
 					}
 				};
 
-				var zoomIn = function zoomIn(){
-					var zoomed = parseInt(pageTickCount / 1.2);
-					if ( zoomed > maximumZoomIn ){
-						pageTickCount = zoomed;
-						localHistory.getHistory(dataIndex, pageTickCount, updateChart);
-						stepper.setDistance(canvas, pageTickCount);
-					}
+				var zoomOut = function zoomOut() {
+					zoom('out');
 				};
 
-				var move = function move(steps, update){
-					if ( steps == 0 ) {
+				var zoomIn = function zoomIn() {
+					zoom('in');
+				};
+
+				var move = function move(steps, update) {
+					if (steps === 0) {
 						return;
 					}
 					var testDataIndex = dataIndex + steps;
-					if ( testDataIndex < 0 ) {
+					if (testDataIndex < 0) { // overflow
 						testDataIndex = 0;
-					} else if(testDataIndex >= capacity - pageTickCount) {
-						testDataIndex = capacity - pageTickCount - 1;
+					} else if (testDataIndex >= capacity - tickCount) { // underflow
+						testDataIndex = capacity - tickCount - 1;
 					}
-					if ( testDataIndex != dataIndex ){
+					if (testDataIndex !== dataIndex) {
 						dataIndex = testDataIndex;
-						if ( !utils.isDefined(update) || update ) {
-							localHistory.getHistory(dataIndex, pageTickCount, updateChart);
+						if (!utils.isDefined(update) || update) {
+							localHistory.getHistory(dataIndex, tickCount, updateChart);
 						}
 					}
 				};
 
 				var drag = function drag(e) {
-					if ( !zooming && stepper.isStep(e, pageTickCount) ) {
-						move(stepper.stepCount( dataIndex, e.center.x ));
+					if (!zooming && stepper.isStep(e, tickCount)) {
+						move(stepper.stepCount(dataIndex, e.center.x));
 					}
 				};
 
@@ -1091,8 +1083,8 @@ angular
 					return capacity;
 				};
 
-				var getPageTickCount = function getPageTickCount() {
-					return pageTickCount;
+				var getTickCount = function getTickCount() {
+					return tickCount;
 				};
 
 				var getDataIndex = function getDataIndex() {
@@ -1101,10 +1093,10 @@ angular
 
 				var addContract = function addContract(_contract) {
 					if (_contract) {
-						if ( utils.digitTrade(_contract) ) {
+						if (utils.digitTrade(_contract)) {
 							_contract.duration -= 1;
 						}
-						contracts.push(Contract(_contract));
+						contractCtrls.push(ContractCtrl(_contract));
 						dataIndex = 0;
 					}
 				};
@@ -1126,7 +1118,7 @@ angular
 					dragRight: drag,
 					dragLeft: drag,
 					getCapacity: getCapacity,
-					getPageTickCount: getPageTickCount,
+					getTickCount: getTickCount,
 					getDataIndex: getDataIndex,
 					addContract: addContract,
 					historyInterface: historyInterface,
@@ -1157,4 +1149,4 @@ angular
 				addContract: chartDrawer.addContract,
 				historyInterface: chartDrawer.historyInterface
 			};
-	});
+		});

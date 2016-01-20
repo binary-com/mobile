@@ -20,7 +20,7 @@ angular
 					duration: _data.duration,
 					basis: _data.basis,
 					currency: _data.currency || 'USD',
-					amount: _data.amount || 5,
+					amount: (isNaN(_data.amount) || _data.amount == 0) ? 0 : _data.amount || 5,
 					duration_unit: 't',
 					passthrough: _data.passthrough
 				};
@@ -60,5 +60,8 @@ angular
 				localStorage.removeItem('proposal');
 			}
 
+			this.getCurrencies = function(){
+				websocketService.sendRequestFor.currencies();
+			}
 
 	});

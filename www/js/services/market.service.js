@@ -176,7 +176,10 @@ angular
 
 				amount: function() {
 					var proposal = proposalService.get();
-					return proposal.amount ? proposal.amount : 5;
+                    if(!isNaN(proposal.amount)){
+                        return proposal.amount;
+                    }
+					return 5;
 				}
 			};
 
@@ -193,7 +196,7 @@ angular
 								// Loop through all _symbols of a trade type
 								for (var j = 0; j < _symbol[key].length; j++) {
 									var minDuration = _symbol[key][j].min_contract_duration;
-									if (minDuration && minDuration.toString().match(/^\d+$/)) {
+									if (minDuration && minDuration.toString().match(/^\d+t$/)) {
 										hasTicks = true;
 									}
 								}
