@@ -12,6 +12,7 @@ angular
 	.controller('OptionsController',
 		function($scope, $rootScope, $state, $window, config, proposalService, accountService, websocketService, chartService) {
 			$scope.selected = {};
+			$scope.isDataLoaded = false;
 
 			if(typeof(analytics) !== "undefined"){
 					analytics.trackView("Options");

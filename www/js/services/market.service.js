@@ -176,7 +176,10 @@ angular
 
 				amount: function() {
 					var proposal = proposalService.get();
-					return proposal.amount ? proposal.amount : 5;
+                    if(!isNaN(proposal.amount)){
+                        return proposal.amount;
+                    }
+					return 5;
 				}
 			};
 
