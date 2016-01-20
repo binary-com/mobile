@@ -9426,6 +9426,7 @@ body * {
   position: relative; }
 
 .trade .contract-payout {
+  position: relative;
   background-color: #f2f2f2;
   border-top: 1px solid #c4c4c4;
   border-bottom: 1px solid #c4c4c4; }
