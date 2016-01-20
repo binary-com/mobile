@@ -20,7 +20,14 @@ angular
 
 				scope.basis = scope.$parent.proposalToSend.basis || 'payout';
 				scope.amount = marketService.getDefault.amount();
+
+                if(scope.amount == 0){
+                    scope.amount = 5;
+                    updateProposal();
+                }
                 scope.proposalError = null;
+
+                proposalService.send();
 
 				scope.$parent.$watch('proposalRecieved', function(_proposal){
 					if (_proposal) {
@@ -51,7 +58,7 @@ angular
                     }
                 });
 
-				var roundNumber = function(_newAmount, _oldAmount) {
+				function roundNumber(_newAmount, _oldAmount) {
 					var parsed = parseFloat(_newAmount, 10);
 					if (parsed !== parsed) {
 						return _oldAmount;
@@ -59,7 +66,7 @@ angular
 					return Math.round(parsed * 100) / 100;
 				};
 
-				var updateProposal = function() {
+				function updateProposal() {
 					var proposal = proposalService.get();
 					if (proposal) {
 						proposal.amount = parseFloat(scope.amount, 10);
