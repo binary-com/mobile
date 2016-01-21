@@ -113,12 +113,16 @@ angular
                                     }
                                 }
                             }
-                            sessionStorage.active_symbols = JSON.stringify(openMarkets);
-                            $rootScope.$broadcast('symbols:updated');
+                            if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
+                               sessionStorage.active_symbols = JSON.stringify(openMarkets);
+                               $rootScope.$broadcast('symbols:updated');
+                            }
                             break;
                         case 'asset_index':
-                            sessionStorage.asset_index = JSON.stringify(message.asset_index);
-                            $rootScope.$broadcast('assetIndex:updated');
+                            if ( !sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index) ) {
+                              sessionStorage.asset_index = JSON.stringify(message.asset_index);
+                              $rootScope.$broadcast('assetIndex:updated');
+                            }
                             break;
                         case 'payout_currencies':
                             //sessionStorage.currencies = JSON.stringify(message.payout_currencies);
