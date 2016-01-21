@@ -11,8 +11,9 @@ angular
 	.directive('changeAccount',[
 		'accountService',
 		'websocketService',
+		'delayService',
 		'$state',
-		function(accountService, websocketService, $state) {
+		function(accountService, websocketService, delayService, $state) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/change-account.template.html',
@@ -32,8 +33,10 @@ angular
 				scope.updateAccount = function(_selectedAccount) {
 					accountService.setDefault(_selectedAccount);
 					accountService.validate();
-					websocketService.sendRequestFor.symbols();
-					websocketService.sendRequestFor.assetIndex();
+					delayService.update('symbolsAndAssetIndexUpdate', function(){
+						websocketService.sendRequestFor.symbols();
+						websocketService.sendRequestFor.assetIndex();
+					}, 60*1000);
 				};
 
 				scope.navigateToManageAccounts = function() {

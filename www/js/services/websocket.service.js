@@ -196,22 +196,18 @@ angular
 
 			websocketService.sendRequestFor = {
 				symbols: function() {
+					console.log('symbols');
 					var data = {
 						active_symbols: "brief"
 					};
 					sendMessage(data);
-					setInterval(function(){
-						sendMessage(data);
-					}, 60 * 1000);
 				},
 				assetIndex: function() {
+					console.log('asset Index');
 					var data = {
 						asset_index: 1
 					};
 					sendMessage(data);
-					setInterval(function(){
-						sendMessage(data);
-					}, 60 * 1000);
 				},
 				currencies: function() {
 					var data = {

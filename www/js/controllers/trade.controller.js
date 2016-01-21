@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, $ionicSlideBoxDelegate, marketService, proposalService, websocketService, accountService, alertService) {
+		function($scope, $state, $ionicSlideBoxDelegate, marketService, proposalService, websocketService, accountService, alertService, delayService) {
 			var init = function () {
 
 				if(typeof(analytics) !== "undefined"){
@@ -123,8 +123,10 @@ angular
 				if (accountService.hasDefault()) {
 					accountService.validate();
 
-					websocketService.sendRequestFor.symbols();
-					websocketService.sendRequestFor.assetIndex();
+					delayService.update('symbolsAndAssetIndexUpdate', function(){
+						websocketService.sendRequestFor.symbols();
+						websocketService.sendRequestFor.assetIndex();
+					}, 60*1000);
 
 					$scope.proposalToSend = JSON.parse(localStorage.proposal);
 					$scope.tradeMode = true;

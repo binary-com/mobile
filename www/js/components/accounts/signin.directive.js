@@ -14,12 +14,14 @@ angular
 		'languageService',
 		'websocketService',
 		'alertService',
+		'delayService',
 		'$state',
 		'$ionicPopup',
 		function(accountService,
 				languageService,
 				websocketService,
 				alertService,
+				delayService,
 				$state,
 				$ionicPopup) {
 		return {
@@ -37,8 +39,10 @@ angular
 					if (accountService.hasDefault()) {
 						accountService.validate();
 					}
-					websocketService.sendRequestFor.symbols();
-					websocketService.sendRequestFor.assetIndex();
+					delayService.update('symbolsAndAssetIndexUpdate', function(){
+						websocketService.sendRequestFor.symbols();
+						websocketService.sendRequestFor.assetIndex();
+					}, 60*1000);
 				};
 
 				init();
