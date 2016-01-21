@@ -19,7 +19,7 @@ angular
 			templateUrl: 'templates/components/trades/payout.template.html',
 			link: function(scope, element) {
 
-				var minimumUpdateDelay = 300;
+				var minimumUpdateDelay = 1000;
 				scope.basis = scope.$parent.proposalToSend.basis || 'payout';
 				scope.amount = marketService.getDefault.amount();
                 scope.proposalError = null;

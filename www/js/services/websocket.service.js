@@ -196,14 +196,12 @@ angular
 
 			websocketService.sendRequestFor = {
 				symbols: function() {
-					console.log('symbols');
 					var data = {
 						active_symbols: "brief"
 					};
 					sendMessage(data);
 				},
 				assetIndex: function() {
-					console.log('asset Index');
 					var data = {
 						asset_index: 1
 					};
