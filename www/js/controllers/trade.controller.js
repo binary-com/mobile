@@ -21,7 +21,6 @@ angular
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
 				$scope.tradeMode = true;
 				$scope.contractFinished = false;
-				proposalService.send();
 				proposalService.getCurrencies();
 			};
 
