@@ -25,17 +25,19 @@ angular
 					delayedFunction.apply(this, args);
 				} else {
 					var delayedFunctionObject = this.functions[name];
-					if (delayedFunctionObject.lastUpdateIntervalID !== 0) {
-						if (new Date()
-							.getTime() - delayedFunctionObject.lastUpdateTime < delayedFunctionObject.minimumDelay) {
+					var elapsedTime = new Date().getTime() - delayedFunctionObject.lastUpdateTime;
+					if (elapsedTime < delayedFunctionObject.minimumDelay) {
+						if (delayedFunctionObject.lastUpdateIntervalID !== 0) {
 							clearTimeout(delayedFunctionObject.lastUpdateIntervalID);
 						}
-					}
-					delayedFunctionObject.lastUpdateIntervalID = setTimeout(function () {
+						delayedFunctionObject.lastUpdateIntervalID = setTimeout(function () {
+							delayedFunctionObject.delayedFunction.apply(this, delayedFunctionObject.args);
+						}, delayedFunctionObject.minimumDelay - elapsedTime);
+					} else {
+						delayedFunctionObject.lastUpdateIntervalID = 0;
+						delayedFunctionObject.lastUpdateTime = new Date().getTime();
 						delayedFunctionObject.delayedFunction.apply(this, delayedFunctionObject.args);
-					}, delayedFunctionObject.minimumDelay);
-					delayedFunctionObject.lastUpdateTime = new Date()
-						.getTime();
+					}
 				}
 			};
 		});
