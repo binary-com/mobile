@@ -10,7 +10,9 @@ angular
 	.module('binary')
 	.config(['$translateProvider',
 		function($translateProvider) {
-			$translateProvider.preferredLanguage('en');
+            var language = localStorage['language'];
+            language ? language : 'en';
+			$translateProvider.preferredLanguage(language);
 			$translateProvider.useStaticFilesLoader({
 				prefix: 'i18n/',
 				suffix: '.json'
