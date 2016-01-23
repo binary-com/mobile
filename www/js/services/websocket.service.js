@@ -78,7 +78,10 @@ angular
 				var token = localStorageService.getDefaultToken();
 				if(token){
 					var data = {
-						authorize: token
+						authorize: token,
+                        passthrough: {
+                            type: "reopen-connection"
+                        }
 					};
 					sendMessage(data);
 				}
@@ -97,7 +100,7 @@ angular
                         case 'authorize':
                             if (message.authorize) {
                                 message.authorize.token = message.echo_req.authorize;
-                                $rootScope.$broadcast('authorize', message.authorize);
+                                $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
                             } else {
                                 $rootScope.$broadcast('authorize', false);
                             }
@@ -182,11 +185,19 @@ angular
 				}(), 1000);
 			};
 
-			websocketService.authenticate = function(_token) {
-				//init();
-				var data = {
+			websocketService.authenticate = function(_token, extraParams) {
+				extraParams = null || extraParams;
+
+                var data = {
 					authorize: _token
 				};
+                
+                for(key in extraParams){
+                    if(extraParams.hasOwnProperty(key)){
+                        data[key] = extraParams[key];
+                    }
+                }
+
 				sendMessage(data);
 			};
 
