@@ -39,10 +39,4 @@ angular
 				);
 			};
 
-			$scope.$on('connection:reopened', function(e) {
-				if (accountService.hasDefault()) {
-					accountService.validate();
-				}
-				$window.location.reload();
-			});
 	});
