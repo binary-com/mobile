@@ -48,6 +48,15 @@ angular
 					}
 				});
 
+                scope.$on('buy:error', function(e, error){
+                    if(scope.$parent.purchaseFrom){
+                        scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", false);
+                    }
+                    
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
+                });
                 scope.$on('proposal:error', function(e, error){
                     scope.proposalError = error;
 
