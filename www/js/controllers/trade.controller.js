@@ -49,9 +49,6 @@ angular
 			websocketService.sendRequestFor.balance();
 			
 			$scope.$on('balance', function(e, _balance) {
-//				if(_balance === undefined){
-//					websocketService.sendRequestFor.balance();
-//				}
 				$scope.account = _balance;
 				$scope.$apply();
 			});
@@ -93,6 +90,7 @@ angular
 						$scope.contract.buyPrice = $scope.contract.cost;
 						$scope.contract.profit = $scope.contract.profit;
 						$scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.profit;
+                        websocketService.sendRequestFor.openContract();
 					}
 					else if(_contract.result === "lose"){
 						$scope.contract.buyPrice = $scope.contract.cost;
@@ -106,6 +104,12 @@ angular
 					}
 				}
 			});
+
+            $scope.$on('proposal:open-contract', function(e, contract){
+                if(contract.is_expired){
+                    websocketService.sendRequestFor.sellExpiredContract();
+                }
+            });
 
 			$scope.navigateToOptionsPage = function($event) {
 				$state.go('options');
