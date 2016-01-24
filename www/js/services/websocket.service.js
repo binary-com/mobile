@@ -48,12 +48,26 @@ angular
 				dataStream.onopen = function() {
 					console.log('socket is opened');
 					$rootScope.$broadcast('connection:ready');
+                    
+                    // CLEANME
+                    // Authorize the default token if it's exist
+                    var token = localStorageService.getDefaultToken();
+                    if(token){
+                        var data = {
+                            authorize: token,
+                            passthrough: {
+                                type: "reopen-connection"
+                            }
+                        };
+                        sendMessage(data);
+                    }
 					
 					// if(typeof(analytics) !== "undefined"){
 					// 	analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
 					// }
 					
-					dataStream.send(JSON.stringify({ping: 1}));
+					//dataStream.send(JSON.stringify({ping: 1}));
+                    sendMessage({ping: 1});
 				};
 
 				dataStream.onmessage = function(message) {
@@ -74,17 +88,6 @@ angular
 					}
 				};
 
-				// CLEANME
-				var token = localStorageService.getDefaultToken();
-				if(token){
-					var data = {
-						authorize: token,
-                        passthrough: {
-                            type: "reopen-connection"
-                        }
-					};
-					sendMessage(data);
-				}
 			};
 
 			$rootScope.$on('language:updated', function(){
