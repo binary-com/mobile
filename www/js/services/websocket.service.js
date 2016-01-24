@@ -168,6 +168,12 @@ angular
                         case 'portfolio':
                             $rootScope.$broadcast('portfolio', message.portfolio);
                             break;
+                        case 'sell_expired':
+                            $rootScope.$broadcast('sell:expired', message.sell_expired);
+                            break;
+                        case 'proposal_open_contract':
+                            $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
+                            break;
                         default:
                             //console.log('another message type: ', message);
                     }
@@ -290,7 +296,30 @@ angular
 					if (data.ticks_history) {
 						sendMessage(data);
 					}
-				}
+				},
+                openContract: function(contractId, extraParams){
+                    var data = {};
+                    data.proposal_open_contract = 1;
+                    
+                    if(contractId){
+                        data.contract_id = contractId;
+                    }
+
+                    for(key in extraParams){
+                        if(extraParams.hasOwnProperty(key)){
+                            data[key] = extraParams[key]
+                        }
+                    }
+
+                    sendMessage(data);
+                },
+                sellExpiredContract: function(){
+                    var data = {
+                        sell_expired: 1
+                    };
+
+                    sendMessage(data);
+                }
 			};
 
 			return websocketService;
