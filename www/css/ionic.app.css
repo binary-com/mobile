@@ -9181,7 +9181,8 @@ body * {
 .item-select select {
   max-width: 100%; }
 
-.item-complex .item-content, .item-radio .item-content {
+.item-complex .item-content,
+.item-radio .item-content {
   background-color: #f2f2f2; }
 
 .scroll-content {
@@ -9195,6 +9196,13 @@ body * {
 .error p {
   color: red;
   font-size: 8px; }
+
+.appVersion {
+  color: #f2f2f2;
+  opacity: 0.5;
+  font-size: 14px;
+  display: block;
+  margin: 0 auto; }
 
 @media screen and (max-width: 400px) {
   .trade .contract-price .price {
@@ -9233,10 +9241,10 @@ body * {
 .has-header {
   top: 0 !important; }
 
-.bar.bar-assertive.bar-footer {
+.bar.bar-positive.bar-footer {
   background-image: none; }
 
-.bar.bar-assertive {
+.bar.bar-positive {
   border-color: #2a3052;
   background-color: #2a3052;
   background-image: none; }
