@@ -11,6 +11,17 @@ angular
 	.module('binary')
 	.controller('TradeController',
 		function($scope, $state, $ionicSlideBoxDelegate, marketService, proposalService, websocketService, accountService, alertService) {
+
+			window.addEventListener('native.keyboardhide', function(e) {
+				$scope.hideFooter = false;
+				$scope.$apply();
+			});
+
+			window.addEventListener('native.keyboardshow', function(e) {
+				$scope.hideFooter = true;
+				$scope.$apply();
+			});
+
 			var init = function () {
 
 				if(typeof(analytics) !== "undefined"){
