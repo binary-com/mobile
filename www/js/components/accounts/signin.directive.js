@@ -39,10 +39,8 @@ angular
 					if (accountService.hasDefault()) {
 						accountService.validate();
 					}
-					delayService.update('symbolsAndAssetIndexUpdate', function(){
-						websocketService.sendRequestFor.symbols();
-						websocketService.sendRequestFor.assetIndex();
-					}, 60*1000);
+					websocketService.sendRequestFor.symbols();
+					websocketService.sendRequestFor.assetIndex();
 					scope.language = languageService.read();
 				};
 
