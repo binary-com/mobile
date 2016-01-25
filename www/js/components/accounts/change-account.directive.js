@@ -11,9 +11,8 @@ angular
 	.directive('changeAccount',[
 		'accountService',
 		'websocketService',
-		'delayService',
 		'$state',
-		function(accountService, websocketService, delayService, $state) {
+		function(accountService, websocketService, $state) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/change-account.template.html',
