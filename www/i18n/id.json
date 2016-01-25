@@ -3,7 +3,8 @@
 		"language": "Bahasa",
 		"add_account": "Tambah Akun",
 		"need_help": "Perlu Bantuan?",
-		"paste_token": "Paste token Anda disini"
+		"paste_token": "Paste token Anda disini",
+		"get_token": "TRANSLATE"
 	},
 	"accounts": {
 		"my_accounts": "Kelola akun",
@@ -12,7 +13,8 @@
 		"default": "Pilihan",
 		"set_as_default": "Set sebagai pilihan",
 		"add": "Tambah",
-		"new_token":"Tambah token baru"
+		"new_token":"Tambah token baru",
+		"delete": "TRANSLATE"
 	},
 	"alert" : {
 		"error": "Error!",
@@ -71,7 +73,7 @@
 		"loss": "Rugi",
 		"win": "Kontrak ini untung",
 		"lose": "Kontrak ini rugi",
-		"transaction_id": "Transaction Reference"
+		"transaction_id": "TRANSLATE"
 	},
 	"help" : {
 		"need_help": "Perlu Bantuan?",
@@ -81,5 +83,11 @@
 		"copy_token": "dan hasilkan token. Kemudian copy dan paste kedalam kotak diatas.",
 		"email_cs":"Memiliki pertanyaan? Email customer support di.",
 		"back":"Kembali"
+	},
+	"app" : {
+		"exit_title": "TRANSLATE",
+		"exit_confirmation": "TRANSLATE",
+		"connection_error_title": "TRANSLATE",
+		"connection_error": "TRANSLATE"
 	}
 }
