@@ -26,7 +26,7 @@ angular
 				scope.$on('authorize', function(e, response, reqId) {
 					// TODO: Add spinner
 					scope.showSpinner = false;
-					if(reqId == requestId){
+					if(reqId === requestId){
                         if (response) {
                             if (accountService.isUnique(response.loginid)) {
                                 accountService.add(response);
