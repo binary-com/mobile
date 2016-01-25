@@ -18,6 +18,8 @@ angular
 					analytics.trackView("Options");
 			}
 
+			websocketService.sendRequestFor.forgetAll('ticks');
+
 			delayService.update('symbolsAndAssetIndexUpdate', function(){
 				websocketService.sendRequestFor.symbols();
 				websocketService.sendRequestFor.assetIndex();
