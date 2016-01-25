@@ -3,7 +3,7 @@
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.1.0",
-    "angular-translate": "2.8.1",
+    "angular-translate": "*",
     "angular-translate-loader-static-files": "*",
     "jquery": "^2.1",
     "lodash": "4.0.0",
