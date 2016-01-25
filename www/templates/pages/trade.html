@@ -10,7 +10,7 @@
 		<form name="purchaseFrom" novalidate>
 			<long-code></long-code>
 			<trade-contract-chart></trade-contract-chart>
-			<payout ng-show="tradeMode"></payout>
+			<payout ng-if="tradeMode"></payout>
 			<contract-summary ng-if="!tradeMode"></contract-summary>
 			<purchase ng-if="tradeMode"></purchase>
 

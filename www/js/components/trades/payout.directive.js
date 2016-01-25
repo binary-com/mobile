@@ -31,6 +31,10 @@ angular
 
                 proposalService.send();
 
+                scope.$on('$destroy', function(){
+                    delayService.remove('updateProposal', updateProposal);
+                });
+
 				scope.$parent.$watch('proposalRecieved', function(_proposal){
 					if (_proposal) {
 						var netProfit = parseFloat(_proposal.payout) - parseFloat(_proposal.ask_price);
