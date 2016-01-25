@@ -119,12 +119,16 @@ angular
                                     }
                                 }
                             }
-                            sessionStorage.active_symbols = JSON.stringify(openMarkets);
-                            $rootScope.$broadcast('symbols:updated');
+                            if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
+                               sessionStorage.active_symbols = JSON.stringify(openMarkets);
+                               $rootScope.$broadcast('symbols:updated');
+                            }
                             break;
                         case 'asset_index':
-                            sessionStorage.asset_index = JSON.stringify(message.asset_index);
-                            $rootScope.$broadcast('assetIndex:updated');
+                            if ( !sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index) ) {
+                              sessionStorage.asset_index = JSON.stringify(message.asset_index);
+                              $rootScope.$broadcast('assetIndex:updated');
+                            }
                             break;
                         case 'payout_currencies':
                             //sessionStorage.currencies = JSON.stringify(message.payout_currencies);
@@ -145,6 +149,7 @@ angular
                             break;
                         case 'buy':
                             if(message.error){
+                                $rootScope.$broadcast('buy:error', message.error);
                                 alertService.displayError(message.error.message);
                             }
                             else{
@@ -216,18 +221,12 @@ angular
 						active_symbols: "brief"
 					};
 					sendMessage(data);
-					setInterval(function(){
-						sendMessage(data);
-					}, 60 * 1000);
 				},
 				assetIndex: function() {
 					var data = {
 						asset_index: 1
 					};
 					sendMessage(data);
-					setInterval(function(){
-						sendMessage(data);
-					}, 60 * 1000);
 				},
 				currencies: function() {
 					var data = {
