@@ -33,10 +33,8 @@ angular
 				scope.updateAccount = function(_selectedAccount) {
 					accountService.setDefault(_selectedAccount);
 					accountService.validate();
-					delayService.update('symbolsAndAssetIndexUpdate', function(){
-						websocketService.sendRequestFor.symbols();
-						websocketService.sendRequestFor.assetIndex();
-					}, 60*1000);
+					websocketService.sendRequestFor.symbols();
+					websocketService.sendRequestFor.assetIndex();
 				};
 
 				scope.navigateToManageAccounts = function() {
