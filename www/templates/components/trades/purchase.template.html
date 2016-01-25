@@ -1,5 +1,6 @@
 <div class="contract-purchase">
-	<button class="button button-block button-positive" ng-disabled="purchaseFrom.$invalid" ng-click="purchase()">
+	<input type="submit" ng-click="purchase()" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+	<button type="submit" class="button button-block button-positive" ng-disabled="purchaseFrom.$invalid" ng-click="purchase()">
 		{{'trade.buy' | translate }}
 	</button>
 </div>
