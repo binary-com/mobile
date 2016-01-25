@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, $ionicSlideBoxDelegate, marketService, proposalService, websocketService, accountService, alertService, delayService) {
+		function($scope, $state, $ionicSlideBoxDelegate, marketService, proposalService, websocketService, accountService, alertService) {
 			var init = function () {
 
 				if(typeof(analytics) !== "undefined"){

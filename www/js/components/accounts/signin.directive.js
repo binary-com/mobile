@@ -14,14 +14,12 @@ angular
 		'languageService',
 		'websocketService',
 		'alertService',
-		'delayService',
 		'$state',
 		'$ionicPopup',
 		function(accountService,
 				languageService,
 				websocketService,
 				alertService,
-				delayService,
 				$state,
 				$ionicPopup) {
 		return {
