@@ -39,7 +39,7 @@ angular
 					}
 					websocketService.sendRequestFor.symbols();
 					websocketService.sendRequestFor.assetIndex();
-                    scope.language = languageService.read();
+					scope.language = languageService.read();
 				};
 
 				init();

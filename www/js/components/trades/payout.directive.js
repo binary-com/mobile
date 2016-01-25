@@ -12,15 +12,14 @@ angular
 		'websocketService',
 		'marketService',
 		'proposalService',
-		function(websocketService, marketService, proposalService) {
+		'delayService',
+		function(websocketService, marketService, proposalService, delayService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/payout.template.html',
 			link: function(scope, element) {
 
-				var lastUpdateTime = 0,
-						lastUpdateProposalID = 0,
-						minimumUpdateDelay = 300;
+				var minimumUpdateDelay = 1000;
 				scope.basis = scope.$parent.proposalToSend.basis || 'payout';
 				scope.amount = marketService.getDefault.amount();
 
@@ -49,6 +48,15 @@ angular
 					}
 				});
 
+                scope.$on('buy:error', function(e, error){
+                    if(scope.$parent.purchaseFrom){
+                        scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", false);
+                    }
+                    
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
+                });
                 scope.$on('proposal:error', function(e, error){
                     scope.proposalError = error;
 
@@ -79,11 +87,7 @@ angular
 				};
 
 				var delayedUpdateProposal = function delayedUpdateProposal() {
-					if ( new Date().getTime() - lastUpdateTime < minimumUpdateDelay ) {
-						clearTimeout(lastUpdateProposalID);
-					}
-					lastUpdateProposalID = setTimeout(updateProposal, minimumUpdateDelay);
-					lastUpdateTime = new Date().getTime();
+					delayService.update('updateProposal', updateProposal, minimumUpdateDelay);
 				};
 
 				scope.updateAmount = function(_newAmount, _oldAmount) {
