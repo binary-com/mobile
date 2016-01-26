@@ -4,7 +4,7 @@
 		"add_account": "Tambah Akun",
 		"need_help": "Perlu Bantuan?",
 		"paste_token": "Paste token Anda disini",
-		"get_token": "TRANSLATE"
+		"get_token": "Cara mendapatkan Token?"
 	},
 	"accounts": {
 		"my_accounts": "Kelola akun",
@@ -14,7 +14,7 @@
 		"set_as_default": "Set sebagai pilihan",
 		"add": "Tambah",
 		"new_token":"Tambah token baru",
-		"delete": "TRANSLATE"
+		"delete": "Hapus"
 	},
 	"alert" : {
 		"error": "Error!",
@@ -73,7 +73,7 @@
 		"loss": "Rugi",
 		"win": "Kontrak ini untung",
 		"lose": "Kontrak ini rugi",
-		"transaction_id": "TRANSLATE"
+		"transaction_id": "Referensi Transaksi"
 	},
 	"help" : {
 		"need_help": "Perlu Bantuan?",
@@ -85,9 +85,9 @@
 		"back":"Kembali"
 	},
 	"app" : {
-		"exit_title": "TRANSLATE",
-		"exit_confirmation": "TRANSLATE",
-		"connection_error_title": "TRANSLATE",
-		"connection_error": "TRANSLATE"
+		"exit_title": "Exit",
+		"exit_confirmation": "Apa Anda yakin ingin keluar?",
+		"connection_error_title": "Koneksi error",
+		"connection_error": "Tidak ada koneksi internet!"
 	}
 }
