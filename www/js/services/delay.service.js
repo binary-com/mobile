@@ -40,4 +40,10 @@ angular
 					}
 				}
 			};
+            
+            this.remove = function(name, delayedFunction){
+                if(this.functions.hasOwnProperty(name) && delayedFunction !== 'undefined'){
+                    delete this.functions[name];
+                }
+            }
 		});
