@@ -252,7 +252,7 @@ angular
 					};
 					sendMessage(data);
 				},
-				forgetProposal: function(_id) {
+				forgetStream: function(_id) {
 					var data = {
 						forget: _id
 					};
