@@ -105,6 +105,9 @@ angular
                                 message.authorize.token = message.echo_req.authorize;
                                 $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
                             } else {
+                                if (message.hasOwnProperty('error') && message.error.code === 'InvalidToken') {
+                                  localStorageService.removeToken(message.echo_req.authorize);
+                                }
                                 $rootScope.$broadcast('authorize', false);
                             }
                             break;
