@@ -57,13 +57,15 @@ angular
 				});
 
 				scope.$on('tick', function(e, feed){
-					if (feed){
+					if (feed && feed.echo_req.ticks_history === scope.$parent.proposalToSend.symbol){
 						chartService.historyInterface.addTick(feed.tick);
+					} else {
+						websocketService.sendRequestFor.forgetStream(feed.tick.id);
 					}
 				});
 
 				scope.$on('history', function(e, feed){
-					if (feed){
+					if (feed && feed.echo_req.ticks_history === scope.$parent.proposalToSend.symbol){
 						chartService.historyInterface.addHistory(feed.history);
 					}
 				});
