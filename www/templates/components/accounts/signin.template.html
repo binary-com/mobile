@@ -15,7 +15,7 @@
 			<!-- <div class="input-label">
 				{{'signin.language' | translate }}
 			</div> -->
-			<select class="language" tabindex="2">
+			<select class="language" tabindex="2" ng-model="language" ng-change="changeLanguage()">
 				<option value="id">Bahasa Indonesia</option>
 				<!-- <option value="zh_tw">繁體中文</option>
 				<option value="de">Deutsch</option>

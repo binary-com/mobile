@@ -9103,6 +9103,85 @@ a.button {
 button {
   border: none !important; }
 
+body * {
+  font-family: roboto, sans-serif !important; }
+
+.button {
+  border-color: #b2b2b2;
+  background-color: #e98024;
+  color: #fff; }
+  .button :hover {
+    color: #fff !important; }
+
+.center {
+  text-align: center; }
+
+.item {
+  border-width: 0; }
+
+.item-select select {
+  max-width: 100%; }
+
+.item-complex .item-content,
+.item-radio .item-content {
+  background-color: #f2f2f2; }
+
+.scroll-content {
+  display: block;
+  position: relative;
+  height: 100%; }
+
+.scroll {
+  padding-bottom: 1px; }
+
+.error p {
+  color: red;
+  font-size: 8px; }
+
+.appVersion {
+  color: #f2f2f2;
+  opacity: 0.5;
+  font-size: 14px;
+  display: block;
+  margin: 0 auto; }
+
+@media screen and (max-width: 400px) {
+  .trade .contract-price .price {
+    display: inline-block; }
+  .options .item-select select {
+    padding-right: 5%;
+    padding-left: 0px; }
+  .options .item-select::after {
+    right: 0px; } }
+
+.bar.bar-positive {
+  border-color: none;
+  background-color: #2a3052;
+  background-image: none; }
+
+.bar-positive .button {
+  border-color: #2a3052;
+  background-color: #2a3052; }
+
+.bar-header {
+  background-color: #2a3052;
+  position: relative; }
+  .bar-header button {
+    background-color: #2a3052;
+    color: #fff; }
+  .bar-header h1 img {
+    height: 80%;
+    padding-top: 10px; }
+
+.bar .button.button-clear .icon:before,
+.bar .button.button-clear.icon:before,
+.bar .button.button-clear.icon-left:before,
+.bar .button.button-clear.icon-right:before {
+  font-size: 24px; }
+
+.has-header {
+  top: 0 !important; }
+
 .spinner {
   position: absolute;
   top: -60px;
@@ -9162,81 +9241,10 @@ button {
   to {
     transform: rotate(360deg); } }
 
-body * {
-  font-family: roboto, sans-serif !important; }
-
-.button {
-  border-color: #b2b2b2;
-  background-color: #e98024;
-  color: #fff; }
-  .button :hover {
-    color: #fff !important; }
-
-.center {
-  text-align: center; }
-
-.item {
-  border-width: 0; }
-
-.item-select select {
-  max-width: 100%; }
-
-.item-complex .item-content, .item-radio .item-content {
-  background-color: #f2f2f2; }
-
-.scroll-content {
-  display: block;
-  position: relative;
-  height: 100%; }
-
-.scroll {
-  padding-bottom: 1px; }
-
-.error p {
-  color: red;
-  font-size: 8px; }
-
-@media screen and (max-width: 400px) {
-  .trade .contract-price .price {
-    display: inline-block; }
-  .options .item-select select {
-    padding-right: 5%;
-    padding-left: 0px; }
-  .options .item-select::after {
-    right: 0px; } }
+.bar.bar-positive.bar-footer {
+  background-image: none; }
 
 .bar.bar-positive {
-  border-color: none;
-  background-color: #2a3052;
-  background-image: none; }
-
-.bar-positive .button {
-  border-color: #2a3052;
-  background-color: #2a3052; }
-
-.bar-header {
-  background-color: #2a3052;
-  position: relative; }
-  .bar-header button {
-    background-color: #2a3052;
-    color: #fff; }
-  .bar-header h1 img {
-    height: 80%;
-    padding-top: 10px; }
-
-.bar .button.button-clear .icon:before,
-.bar .button.button-clear.icon:before,
-.bar .button.button-clear.icon-left:before,
-.bar .button.button-clear.icon-right:before {
-  font-size: 24px; }
-
-.has-header {
-  top: 0 !important; }
-
-.bar.bar-assertive.bar-footer {
-  background-image: none; }
-
-.bar.bar-assertive {
   border-color: #2a3052;
   background-color: #2a3052;
   background-image: none; }
@@ -9512,7 +9520,8 @@ body * {
     font-weight: bold;
     text-align: left;
     padding: 2px 0 5px;
-    margin: 0; }
+    margin: 0;
+    width: 100%; }
 
 .options .options-account {
   padding-top: 10px;
@@ -9613,7 +9622,7 @@ body * {
   .accounts-content .bar {
     background-color: #e98024;
     margin-bottom: 4px !important; }
-    .accounts-content .bar h1 {
+    .accounts-content .bar h2 {
       color: #fff; }
   .accounts-content .remove-all-accounts {
     background-color: #f2f2f2;
