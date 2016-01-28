@@ -103,6 +103,7 @@ angular
                         case 'authorize':
                             if (message.authorize) {
                                 message.authorize.token = message.echo_req.authorize;
+                                window._trackJs.userId = message.authorize.loginid;
                                 $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
                             } else {
                                 if (message.hasOwnProperty('error') && message.error.code === 'InvalidToken') {
