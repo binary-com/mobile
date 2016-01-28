@@ -52,7 +52,7 @@ angular
 					}
 				});
 
-                scope.$on('buy:error', function(e, error){
+                scope.$on('purchase:error', function(e, error){
                     if(scope.$parent.purchaseFrom){
                         scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", false);
                     }
