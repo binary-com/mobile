@@ -94,6 +94,10 @@ angular
 				// websocketService.sendRequestFor.portfolio();
 			});
 
+            $scope.$on('purchase:error', function(e, _error){
+                $('.contract-purchase button').attr('disabled', false);
+            });
+
 			$scope.$on('contract:finished', function (e, _contract){
 				if(_contract.exitSpot){
 					$scope.contractFinished = true;
@@ -128,9 +132,9 @@ angular
 
 			$scope.backToOptionPage = function() {
 				$('.contract-purchase button').attr('disabled', false);
-				proposalService.send();
+				//proposalService.send();
 				$scope.tradeMode = true;
-				websocketService.sendRequestFor.balance();
+				//websocketService.sendRequestFor.balance();
 			};
 
 			$scope.$on('connection:reopened', function(e) {
