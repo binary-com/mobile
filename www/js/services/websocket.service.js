@@ -48,12 +48,26 @@ angular
 				dataStream.onopen = function() {
 					console.log('socket is opened');
 					$rootScope.$broadcast('connection:ready');
+                    
+                    // CLEANME
+                    // Authorize the default token if it's exist
+                    var token = localStorageService.getDefaultToken();
+                    if(token){
+                        var data = {
+                            authorize: token,
+                            passthrough: {
+                                type: "reopen-connection"
+                            }
+                        };
+                        sendMessage(data);
+                    }
 					
 					// if(typeof(analytics) !== "undefined"){
 					// 	analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
 					// }
 					
-					dataStream.send(JSON.stringify({ping: 1}));
+					//dataStream.send(JSON.stringify({ping: 1}));
+                    sendMessage({ping: 1});
 				};
 
 				dataStream.onmessage = function(message) {
@@ -74,14 +88,6 @@ angular
 					}
 				};
 
-				// CLEANME
-				var token = localStorageService.getDefaultToken();
-				if(token){
-					var data = {
-						authorize: token
-					};
-					sendMessage(data);
-				}
 			};
 
 			$rootScope.$on('language:updated', function(){
@@ -97,8 +103,12 @@ angular
                         case 'authorize':
                             if (message.authorize) {
                                 message.authorize.token = message.echo_req.authorize;
-                                $rootScope.$broadcast('authorize', message.authorize);
+                                window._trackJs.userId = message.authorize.loginid;
+                                $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
                             } else {
+                                if (message.hasOwnProperty('error') && message.error.code === 'InvalidToken') {
+                                  localStorageService.removeToken(message.echo_req.authorize);
+                                }
                                 $rootScope.$broadcast('authorize', false);
                             }
                             break;
@@ -113,12 +123,16 @@ angular
                                     }
                                 }
                             }
-                            sessionStorage.active_symbols = JSON.stringify(openMarkets);
-                            $rootScope.$broadcast('symbols:updated');
+                            if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
+                               sessionStorage.active_symbols = JSON.stringify(openMarkets);
+                               $rootScope.$broadcast('symbols:updated');
+                            }
                             break;
                         case 'asset_index':
-                            sessionStorage.asset_index = JSON.stringify(message.asset_index);
-                            $rootScope.$broadcast('assetIndex:updated');
+                            if ( !sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index) ) {
+                              sessionStorage.asset_index = JSON.stringify(message.asset_index);
+                              $rootScope.$broadcast('assetIndex:updated');
+                            }
                             break;
                         case 'payout_currencies':
                             //sessionStorage.currencies = JSON.stringify(message.payout_currencies);
@@ -139,6 +153,7 @@ angular
                             break;
                         case 'buy':
                             if(message.error){
+                                $rootScope.$broadcast('purchase:error', message.error);
                                 alertService.displayError(message.error.message);
                             }
                             else{
@@ -165,6 +180,12 @@ angular
                         case 'portfolio':
                             $rootScope.$broadcast('portfolio', message.portfolio);
                             break;
+                        case 'sell_expired':
+                            $rootScope.$broadcast('sell:expired', message.sell_expired);
+                            break;
+                        case 'proposal_open_contract':
+                            $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
+                            break;
                         default:
                             //console.log('another message type: ', message);
                     }
@@ -182,11 +203,19 @@ angular
 				}(), 1000);
 			};
 
-			websocketService.authenticate = function(_token) {
-				//init();
-				var data = {
+			websocketService.authenticate = function(_token, extraParams) {
+				extraParams = null || extraParams;
+
+                var data = {
 					authorize: _token
 				};
+                
+                for(key in extraParams){
+                    if(extraParams.hasOwnProperty(key)){
+                        data[key] = extraParams[key];
+                    }
+                }
+
 				sendMessage(data);
 			};
 
@@ -196,18 +225,12 @@ angular
 						active_symbols: "brief"
 					};
 					sendMessage(data);
-					setInterval(function(){
-						sendMessage(data);
-					}, 60 * 1000);
 				},
 				assetIndex: function() {
 					var data = {
 						asset_index: 1
 					};
 					sendMessage(data);
-					setInterval(function(){
-						sendMessage(data);
-					}, 60 * 1000);
 				},
 				currencies: function() {
 					var data = {
@@ -233,7 +256,7 @@ angular
 					};
 					sendMessage(data);
 				},
-				forgetProposal: function(_id) {
+				forgetStream: function(_id) {
 					var data = {
 						forget: _id
 					};
@@ -279,7 +302,30 @@ angular
 					if (data.ticks_history) {
 						sendMessage(data);
 					}
-				}
+				},
+                openContract: function(contractId, extraParams){
+                    var data = {};
+                    data.proposal_open_contract = 1;
+                    
+                    if(contractId){
+                        data.contract_id = contractId;
+                    }
+
+                    for(key in extraParams){
+                        if(extraParams.hasOwnProperty(key)){
+                            data[key] = extraParams[key]
+                        }
+                    }
+
+                    sendMessage(data);
+                },
+                sellExpiredContract: function(){
+                    var data = {
+                        sell_expired: 1
+                    };
+
+                    sendMessage(data);
+                }
 			};
 
 			return websocketService;

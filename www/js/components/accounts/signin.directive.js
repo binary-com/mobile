@@ -39,6 +39,7 @@ angular
 					}
 					websocketService.sendRequestFor.symbols();
 					websocketService.sendRequestFor.assetIndex();
+					scope.language = languageService.read();
 				};
 
 				init();
@@ -68,19 +69,21 @@ angular
 				scope.signIn = function() {
 					var _token = scope.token;
 					// Set the user's language
-					var language = $('.language option:selected').val();
-					languageService.update(language);
+					languageService.update(scope.language);
 
 					// Validate the token
 					scope.showSpinner = false;
 					if(_token && _token.length === 15) {
 						scope.showSpinner = true;
-						//accountService.validate(_token);
 						websocketService.authenticate(_token);
 					} else {
 						alertService.accountError.tokenNotValid();
 					}
 				};
+
+                scope.changeLanguage = function(){
+                    languageService.update(scope.language);
+                }
 			}
 		};
 	}]);
