@@ -152,7 +152,7 @@ angular
                             break;
                         case 'buy':
                             if(message.error){
-                                $rootScope.$broadcast('buy:error', message.error);
+                                $rootScope.$broadcast('purchase:error', message.error);
                                 alertService.displayError(message.error.message);
                             }
                             else{
