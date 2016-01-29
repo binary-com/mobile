@@ -32,7 +32,7 @@ angular
                 proposalService.send();
 
                 scope.$on('$destroy', function(){
-                    delayService.remove('updateProposal', updateProposal);
+                    delayService.remove('updateProposal');
                 });
 
 				scope.$parent.$watch('proposalRecieved', function(_proposal){
