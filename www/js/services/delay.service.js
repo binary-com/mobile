@@ -20,7 +20,6 @@ angular
 						cancelled = true;
 					},
 					run: function run(functionFactory, minimumDelay) {
-						console.log("run", minimumDelay);
 						var runFunc = function runFunc() {
 							functionFactory.timestamp = new Date()
 								.getTime();
@@ -32,12 +31,10 @@ angular
 							setTimeout(function () {
 								if (!cancelled) {
 
-									console.log('with delay:', id);
 									runFunc();
 								}
 							}, minimumDelay);
 						} else {
-							console.log('without delay:', id);
 							runFunc();
 						}
 					},
@@ -54,7 +51,6 @@ angular
 					var lastFunction = functions[name].func;
 					var now = new Date()
 						.getTime();
-					console.log(lastFunction.executed());
 					if (!lastFunction.executed()) {
 						lastFunction.cancel();
 					}
