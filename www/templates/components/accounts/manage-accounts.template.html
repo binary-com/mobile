@@ -1,17 +1,17 @@
 <div class="bar bar-header">
-    <h1 class="title">{{'accounts.my_accounts' | translate}}</h1>    
+    <h2 class="title">{{'accounts.my_accounts' | translate}}</h2>    
 </div>
 
 <ion-list class="account" show-delete="false" show-reorder="false" can-swipe="true">
     <ion-item ng-repeat="account in accounts" class="list">
-        
+
         <i class="icon not-default ion-android-lock" ng-hide="account.is_default"></i>
         <i class="icon default ion-android-unlock" ng-show="account.is_default"></i>
         <div>
             <span class="id">{{account.id}}</span>
             <span class="token">{{account.token}}</span>
         </div>
-        <ion-option-button class="button-green" 
+        <ion-option-button class="button-green"
             ng-hide="account.is_default"
             ng-click="setAccountAsDefault(account.token)">
             {{'accounts.set_as_default' | translate}}
@@ -20,8 +20,8 @@
             ng-hide="account.is_default"
             ng-click="removeAccount(account.token)">
             {{'accounts.delete' | translate}}
-        </ion-option-button> 
-        
+        </ion-option-button>
+
     </ion-item>
 </ion-list>
 

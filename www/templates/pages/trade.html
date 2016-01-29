@@ -21,11 +21,10 @@
 			</div>
 		</form>
 	</ion-content>
-	<ion-footer-bar class="bar-assertive bar bar-footer row">
+	<ion-footer-bar ng-hide="hideFooter" keyboard-attach class="bar-positive bar bar-footer row">
 		<!-- <div class="bar bar-footer row"> -->
 		<div class="col balance">
-			{{'trade.balance' | translate }}:
-			<strong>{{account.balance | currency:currency:2}}</strong>
+			{{account.balance | currency:currency:2}}
 		</div>
 		<div class="col account">{{account.loginid}}</div>
 	</ion-footer-bar>

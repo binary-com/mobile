@@ -79,7 +79,7 @@ angular
 
 				};
 
-				//init();
+				init();
 
 				scope.$on('symbols:updated', function(e, _symbol) {
 					init();
