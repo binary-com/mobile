@@ -72,6 +72,10 @@ angular
 			};
 
 			this.fixOrder = function() {
+                if(!sessionStorage.active_symbols){
+                    return;
+                }
+
 				var symbols = JSON.parse(sessionStorage.active_symbols);
 				Object.keys(symbols).forEach(function(key){
 					symbols[key] = reorder(symbols[key]);
@@ -80,11 +84,19 @@ angular
 			};
 		
 			this.getActiveMarkets = function() {
+                if(!sessionStorage.active_symbols){
+                    return [];
+                }
+
 				var data = JSON.parse(sessionStorage.active_symbols);
 				return Object.keys(data);
 			};
 
 			this.getAllSymbolsForAMarket = function(_market) {
+                if(!sessionStorage.active_symbols || !sessionStorage.asset_index){
+                    return [];
+                }
+
 				var activeSymbols = JSON.parse(sessionStorage.active_symbols)[_market];
 				var assetIndex = JSON.parse(sessionStorage.asset_index);
 				var indexes = config.assetIndexes;
@@ -219,39 +231,11 @@ angular
 				sessionStorage.asset_index = null;
 			}
 
-			// this.getActiveTickSymbolsForMarket = function(_market) {
-			// 	var symbols = JSON.parse(sessionStorage.active_symbols);
-			// 	var activeSymbols = symbols[_market];
+            this.hasActiveSymobols = function(){
+                return sessionStorage.active_symbols;
+            }
 
-			// 	var assets = JSON.parse(sessionStorage.asset_index);
-			// 	console.log('assets: ', assets);
-
-			// 	activeSymbols.forEach(function(as) {
-			// 		console.log('as: ', as.symbol);
-			// 		assets.forEach(function(ai) {
-			// 			console.log('ai: ', ai[1]);
-			// 			console.log('ai: ', ai[2]);
-			// 		});
-			// 	});
-
-			// 	console.log('-------------------------------');
-			// };
+            this.hasAssetIndex = function(){
+                return sessionStorage.asset_index;
+            }
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
