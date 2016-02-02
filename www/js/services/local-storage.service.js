@@ -32,12 +32,14 @@ angular
 			};
 
 			service.removeToken = function removeToken(token) {
-				var accounts = JSON.parse(localStorage.accounts);
-				var tokenIndex = findIndex(accounts, 'token', token); 
-				if (tokenIndex > -1) {
-					accounts.splice(tokenIndex);
-					localStorage.accounts = JSON.stringify(accounts);
-				}
+                if(localStorage.accounts){
+                    var accounts = JSON.parse(localStorage.accounts);
+                    var tokenIndex = findIndex(accounts, 'token', token); 
+                    if (tokenIndex > -1) {
+                        accounts.splice(tokenIndex);
+                        localStorage.accounts = JSON.stringify(accounts);
+                    }
+                }
 			};
 
 			service.getDefaultToken = function(){
