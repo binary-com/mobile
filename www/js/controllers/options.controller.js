@@ -81,9 +81,6 @@ angular
 				}
 
 				proposalService.update(proposal);
-				proposalService.send();
-
-				//$state.go('trade', {}, { reload: true, inherit: false, notify: true });
 			};
 
 			$scope.$on('connection:reopened', function(e) {

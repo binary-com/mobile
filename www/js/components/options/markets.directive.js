@@ -79,15 +79,19 @@ angular
 
 				};
 
-				init();
+				//init();
 
 				scope.$on('symbols:updated', function(e, _symbol) {
-					init();
+                    if(marketService.hasAssetIndex()){
+    					init();
+                    }
 				});
 
 				scope.$on('assetIndex:updated', function(e, _symbol){
 					//updateSymbols(scope.$parent.selected.market);
-					init();
+                    if(marketService.hasActiveSymobols()){
+    					init();
+                    }
 				});
 
 				scope.updateMarket = function(_market) {
