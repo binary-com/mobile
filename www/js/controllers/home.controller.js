@@ -19,8 +19,6 @@ angular
 				websocketService.init();
 				if (accountService.hasDefault()) {
 					accountService.validate();
-					websocketService.sendRequestFor.symbols();
-					websocketService.sendRequestFor.assetIndex();
 				} else {
 					$state.go('signin');
 				}

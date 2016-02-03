@@ -9103,65 +9103,6 @@ a.button {
 button {
   border: none !important; }
 
-.spinner {
-  position: absolute;
-  top: -60px;
-  left: 0;
-  right: 0; }
-  .spinner svg {
-    margin: 0 auto;
-    display: block;
-    width: 50px;
-    height: 50px;
-    stroke: #fff; }
-
-.spinner svg {
-  fill: red; }
-
-.logo-spinner {
-  -webkit-animation-name: spin;
-  -webkit-animation-duration: 1000ms;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-name: spin;
-  -moz-animation-duration: 1000ms;
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-timing-function: linear;
-  -ms-animation-name: spin;
-  -ms-animation-duration: 1000ms;
-  -ms-animation-iteration-count: infinite;
-  -ms-animation-timing-function: linear;
-  animation-name: spin;
-  animation-duration: 1000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  transform-origin: 50% 65%;
-  display: inline-block; }
-
-@-ms-keyframes spin {
-  from {
-    -ms-transform: rotate(0deg); }
-  to {
-    -ms-transform: rotate(360deg); } }
-
-@-moz-keyframes spin {
-  from {
-    -moz-transform: rotate(0deg); }
-  to {
-    -moz-transform: rotate(360deg); } }
-
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg); }
-  to {
-    -webkit-transform: rotate(360deg); } }
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }
-
 body * {
   font-family: roboto, sans-serif !important; }
 
@@ -9181,7 +9122,8 @@ body * {
 .item-select select {
   max-width: 100%; }
 
-.item-complex .item-content, .item-radio .item-content {
+.item-complex .item-content,
+.item-radio .item-content {
   background-color: #f2f2f2; }
 
 .scroll-content {
@@ -9195,6 +9137,13 @@ body * {
 .error p {
   color: red;
   font-size: 8px; }
+
+.appVersion {
+  color: #f2f2f2;
+  opacity: 0.5;
+  font-size: 14px;
+  display: block;
+  margin: 0 auto; }
 
 @media screen and (max-width: 400px) {
   .trade .contract-price .price {
@@ -9287,10 +9236,69 @@ body * {
 .has-header {
   top: 0 !important; }
 
-.bar.bar-assertive.bar-footer {
+.spinner {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0; }
+  .spinner svg {
+    margin: 0 auto;
+    display: block;
+    width: 50px;
+    height: 50px;
+    stroke: #fff; }
+
+.spinner svg {
+  fill: red; }
+
+.logo-spinner {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 1000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 1000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 1000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: 50% 65%;
+  display: inline-block; }
+
+@-ms-keyframes spin {
+  from {
+    -ms-transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg); } }
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg); }
+  to {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+.bar.bar-positive.bar-footer {
   background-image: none; }
 
-.bar.bar-assertive {
+.bar.bar-positive {
   border-color: #2a3052;
   background-color: #2a3052;
   background-image: none; }
@@ -9567,7 +9575,8 @@ body * {
     font-weight: bold;
     text-align: left;
     padding: 2px 0 5px;
-    margin: 0; }
+    margin: 0;
+    width: 100%; }
 
 .options .options-account {
   padding-top: 10px;
@@ -9668,7 +9677,7 @@ body * {
   .accounts-content .bar {
     background-color: #e98024;
     margin-bottom: 4px !important; }
-    .accounts-content .bar h1 {
+    .accounts-content .bar h2 {
       color: #fff; }
   .accounts-content .remove-all-accounts {
     background-color: #f2f2f2;
