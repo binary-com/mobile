@@ -11,39 +11,67 @@ angular
 	.module('binary')
 	.service('delayService',
 		function () {
-			this.functions = {};
-			this.update = function update(name, delayedFunction, minimumDelay, args) {
-				if (!this.functions.hasOwnProperty(name) && typeof delayedFunction !== 'undefined') {
-					this.functions[name] = {
-						minimumDelay: minimumDelay,
-						lastUpdateIntervalID: 0,
-						lastUpdateTime: new Date()
-							.getTime(),
-						delayedFunction: delayedFunction,
-						args: args,
-					};
-					delayedFunction.apply(this, args);
-				} else {
-					var delayedFunctionObject = this.functions[name];
-					var elapsedTime = new Date().getTime() - delayedFunctionObject.lastUpdateTime;
-					if (elapsedTime < delayedFunctionObject.minimumDelay) {
-						if (delayedFunctionObject.lastUpdateIntervalID !== 0) {
-							clearTimeout(delayedFunctionObject.lastUpdateIntervalID);
+			var functions = {};
+			var FunctionFactory = function FunctionFactory(delayedFunction, args, id) {
+				var cancelled = false,
+					timeoutEnded = false;
+				return {
+					cancel: function cancel() {
+						cancelled = true;
+					},
+					run: function run(functionFactory, minimumDelay) {
+						var runFunc = function runFunc() {
+							functionFactory.timestamp = new Date()
+								.getTime();
+							timeoutEnded = true;
+							delayedFunction.apply(this, args);
+						};
+
+						if (minimumDelay !== 0) {
+							setTimeout(function () {
+								if (!cancelled) {
+
+									runFunc();
+								}
+							}, minimumDelay);
+						} else {
+							runFunc();
 						}
-						delayedFunctionObject.lastUpdateIntervalID = setTimeout(function () {
-							delayedFunctionObject.delayedFunction.apply(this, delayedFunctionObject.args);
-						}, delayedFunctionObject.minimumDelay - elapsedTime);
-					} else {
-						delayedFunctionObject.lastUpdateIntervalID = 0;
-						delayedFunctionObject.lastUpdateTime = new Date().getTime();
-						delayedFunctionObject.delayedFunction.apply(this, delayedFunctionObject.args);
+					},
+					executed: function executed() {
+						return timeoutEnded;
+					},
+					getID: function getID() {
+						return id;
+					},
+				};
+			};
+			this.update = function update(name, delayedFunction, minimumDelay, args) {
+				if (functions.hasOwnProperty(name)) {
+					var lastFunction = functions[name].func;
+					var now = new Date()
+						.getTime();
+					if (!lastFunction.executed()) {
+						lastFunction.cancel();
 					}
+					if (now - functions[name].timestamp > minimumDelay) {
+						minimumDelay = 0;
+					}
+				} else {
+					functions[name] = {
+						func: FunctionFactory(delayedFunction, args, new Date()
+							.getTime()),
+						timestamp: 0
+					};
+				}
+				functions[name].func = FunctionFactory(delayedFunction, args, new Date()
+					.getTime());
+				functions[name].func.run(functions[name], minimumDelay);
+			};
+
+			this.remove = function (name) {
+				if (functions.hasOwnProperty(name)) {
+					delete functions[name];
 				}
 			};
-            
-            this.remove = function(name, delayedFunction){
-                if(this.functions.hasOwnProperty(name) && delayedFunction !== 'undefined'){
-                    delete this.functions[name];
-                }
-            }
 		});
