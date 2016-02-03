@@ -1,11 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.binary.ticktrade" version="0.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget 
+    id="com.binary.ticktrade"
+    version="0.1.4" 
+    xmlns="http://www.w3.org/ns/widgets" 
+    xmlns:cdv="http://cordova.apache.org/ns/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Tick Trade</name>
     <description>
         Enjoy fast-paced binary options trading with the Binary.com Tick Trade App. Trade Forex and more in seconds with our mobile application.
     </description>
-  <author email="morteza@binary.com" href="http://www.binary.com">&#xD;&#xD;
-      Morteza Tavanarad&#xD;&#xD;
+  <author email="morteza@binary.com" href="http://www.binary.com">
+      Morteza Tavanarad
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -69,6 +74,11 @@
     <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png"/>
     <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png"/>
     <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png"/>
+    <config-file target="AndroidManifest.xml" parent="/*">
+        <supports-screens
+            android:largestWidthLimitDp="320"
+            />
+    </config-file>
   </platform>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
   <plugin name="cordova-plugin-dialogs" spec="~1.2.0"/>
