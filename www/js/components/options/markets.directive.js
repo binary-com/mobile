@@ -55,43 +55,39 @@ angular
 				 * Set the default/selected market
 				 */
 				var init = function() {
-					try{
-						marketService.fixOrder();
-						var markets = marketService.getActiveMarkets();
-						scope.market = {
-							//forex: markets.indexOf('forex') !== -1  ? true : false,
-							random: markets.indexOf('random') !== -1 ? true : false
-						};
+					if( marketService.hasActiveSymobols() && marketService.hasAssetIndex() ){
+						try{
+							marketService.fixOrder();
+							var markets = marketService.getActiveMarkets();
+							scope.market = {
+								//forex: markets.indexOf('forex') !== -1  ? true : false,
+								random: markets.indexOf('random') !== -1 ? true : false
+							};
 
-						scope.$parent.selected.market = marketService.getDefault.market(scope.market);
+							scope.$parent.selected.market = marketService.getDefault.market(scope.market);
 
 
-						updateSymbols(scope.$parent.selected.market);
+							updateSymbols(scope.$parent.selected.market);
 
-						if(!scope.$$phase) {
-							scope.$apply();
+							if(!scope.$$phase) {
+								scope.$apply();
+							}
+						}
+						catch(error){
+							console.log(error);
 						}
 					}
-					catch(error){
-						console.log(error);
-					}
-
-
 				};
 
-				//init();
+				init();
 
 				scope.$on('symbols:updated', function(e, _symbol) {
-                    if(marketService.hasAssetIndex()){
     					init();
-                    }
 				});
 
 				scope.$on('assetIndex:updated', function(e, _symbol){
 					//updateSymbols(scope.$parent.selected.market);
-                    if(marketService.hasActiveSymobols()){
     					init();
-                    }
 				});
 
 				scope.updateMarket = function(_market) {
