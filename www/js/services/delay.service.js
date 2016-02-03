@@ -9,69 +9,58 @@
 
 angular
 	.module('binary')
-	.service('delayService',
+	.factory('delayService',
 		function () {
 			var functions = {};
-			var FunctionFactory = function FunctionFactory(delayedFunction, args, id) {
-				var cancelled = false,
-					timeoutEnded = false;
+			var runTimestamps = {};
+			var FunctionController = function FunctionController(delayedFunction, args, name) {
+				var timeoutId = 0;
 				return {
-					cancel: function cancel() {
-						cancelled = true;
-					},
-					run: function run(functionFactory, minimumDelay) {
+					run: function run(minimumDelay) {
 						var runFunc = function runFunc() {
-							functionFactory.timestamp = new Date()
+							runTimestamps[name] = new Date()
 								.getTime();
-							timeoutEnded = true;
 							delayedFunction.apply(this, args);
 						};
 
 						if (minimumDelay !== 0) {
-							setTimeout(function () {
-								if (!cancelled) {
-
-									runFunc();
-								}
+							timeoutId = setTimeout(function () {
+								runFunc();
 							}, minimumDelay);
 						} else {
 							runFunc();
 						}
 					},
-					executed: function executed() {
-						return timeoutEnded;
-					},
-					getID: function getID() {
-						return id;
+					cancel: function cancel() {
+						clearTimeout(timeoutId);
 					},
 				};
 			};
-			this.update = function update(name, delayedFunction, minimumDelay, args) {
-				if (functions.hasOwnProperty(name)) {
-					var lastFunction = functions[name].func;
+			return {
+				update: function update(name, delayedFunction, minimumDelay, args) {
 					var now = new Date()
 						.getTime();
-					if (!lastFunction.executed()) {
-						lastFunction.cancel();
-					}
-					if (now - functions[name].timestamp > minimumDelay) {
+					if (functions.hasOwnProperty(name)) {
+						var remainingTime = minimumDelay - (now - runTimestamps[name]);
+						if (remainingTime > 0) {
+							minimumDelay = remainingTime;
+						} else {
+							minimumDelay = 0;
+						}
+						functions[name].cancel();
+					} else {
 						minimumDelay = 0;
+						runTimestamps[name] = now;
 					}
-				} else {
-					functions[name] = {
-						func: FunctionFactory(delayedFunction, args, new Date()
-							.getTime()),
-						timestamp: 0
-					};
-				}
-				functions[name].func = FunctionFactory(delayedFunction, args, new Date()
-					.getTime());
-				functions[name].func.run(functions[name], minimumDelay);
-			};
-
-			this.remove = function (name) {
-				if (functions.hasOwnProperty(name)) {
-					delete functions[name];
-				}
+					functions[name] = FunctionController(delayedFunction, args, name);
+					functions[name].run(minimumDelay);
+				},
+				remove: function (name) {
+					if (functions.hasOwnProperty(name)) {
+						functions[name].cancel();
+						delete functions[name];
+						delete runTimestamps[name];
+					}
+				},
 			};
 		});
