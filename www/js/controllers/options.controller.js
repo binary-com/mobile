@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $rootScope, $state, $window, config, proposalService, accountService, websocketService, chartService) {
+		function($scope, $rootScope, $state, $window, config, proposalService, accountService, websocketService, chartService, delayService) {
 			$scope.selected = {};
 			$scope.isDataLoaded = false;
 
@@ -18,8 +18,12 @@ angular
 					analytics.trackView("Options");
 			}
 
-			websocketService.sendRequestFor.symbols();
-			websocketService.sendRequestFor.assetIndex();
+			websocketService.sendRequestFor.forgetAll('ticks');
+
+			delayService.update('symbolsAndAssetIndexUpdate', function(){
+				websocketService.sendRequestFor.symbols();
+				websocketService.sendRequestFor.assetIndex();
+			}, 60*1000);
 
 			function init(){
 				var proposal = proposalService.get();
@@ -77,9 +81,6 @@ angular
 				}
 
 				proposalService.update(proposal);
-				proposalService.send();
-
-				//$state.go('trade', {}, { reload: true, inherit: false, notify: true });
 			};
 
 			$scope.$on('connection:reopened', function(e) {

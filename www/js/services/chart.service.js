@@ -159,23 +159,41 @@ angular
 				var historyData = [];
 
 				var addTick = function addTick(tick) {
-					historyData.push({
-						time: tick.epoch,
-						price: tick.quote
-					});
-					historyData.shift();
+					if (parseInt(tick.epoch) > parseInt(historyData.slice(-1)[0].time)) {
+						historyData.push({
+							time: tick.epoch,
+							price: tick.quote
+						});
+						historyData.shift();
+					}
 				};
 
 
 				var updateHistoryArray = function updateHistoryArray(historyArray, history) {
 					var times = history.times,
 						prices = history.prices;
+					var compare = function compare(a, b) {
+						var timea = parseInt(a.time),
+							timeb = parseInt(b.time);
+						if (timea < timeb) {
+							return -1;
+						} else if (timea > timeb) {
+							return 1;
+						} else {
+							return 0;
+						}
+					};
+					var seenTimes = [];
 					times.forEach(function (time, index) {
-						historyArray.push({
-							time: time,
-							price: prices[index]
-						});
+						if (seenTimes.indexOf(time) < 0) {
+							seenTimes.push(time);
+							historyArray.push({
+								time: time,
+								price: prices[index]
+							});
+						}
 					});
+					times.sort(compare);
 				};
 
 				var addHistory = function addHistory(history) {
@@ -963,17 +981,13 @@ angular
 					var times = [],
 						prices = [];
 
-					var previousTime = 0;
 					ticks.forEach(function (tick, index) {
 						var tickTime = parseInt(tick.time);
-						if (tickTime !== previousTime) {
-							previousTime = tickTime;
-							contractCtrls.forEach(function (contract) {
-								contract.viewSpots(index, tickTime);
-							});
-							times.push(tickTime);
-							prices.push(tick.price);
-						}
+						contractCtrls.forEach(function (contract) {
+							contract.viewSpots(index, tickTime);
+						});
+						times.push(tickTime);
+						prices.push(tick.price);
 					});
 
 					contractCtrls.forEach(function (contract) {

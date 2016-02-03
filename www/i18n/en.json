@@ -3,7 +3,8 @@
 		"language": "Language",
 		"add_account": "Add Account",
 		"need_help": "Need Help?",
-		"paste_token": "Paste your token here"
+		"paste_token": "Paste your token here",
+		"get_token": "How to get a Token?"
 	},
 	"accounts": {
 		"my_accounts": "Manage Accounts",
@@ -87,6 +88,6 @@
 		"exit_title": "Exit",
 		"exit_confirmation": "Are you sure you want to exit?",
 		"connection_error_title": "Connection Error",
-		"connection_error": "There is no Internet connection!"
+		"connection_error": "There is no internet connection!"
 	}
 }
