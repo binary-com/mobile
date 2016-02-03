@@ -30,10 +30,14 @@
 
 	<!-- BEGIN TRACKJS -->
 	<script type="text/javascript">
+		console.log('CODE UPDATE CHECK');
 		window._trackJs = {
 		    token: "346262e7ffef497d85874322fff3bbf8",
 		    application: "tick-trade-app",
-		    onError: function(payload){ return !(window.location.hostname === "localhost");}
+		    onError: function(payload){ 
+                payload.customer.userId = window._trackJs.userId;
+                return !(window.location.hostname === "localhost");
+            }
 		    // other configuration
 		}
 	</script>
