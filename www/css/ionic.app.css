@@ -9129,7 +9129,9 @@ body * {
 .scroll-content {
   display: block;
   position: relative;
-  height: 100%; }
+  height: 100%;
+  max-width: 700px;
+  margin: 0 auto; }
 
 .scroll {
   padding-bottom: 1px; }
@@ -9421,6 +9423,52 @@ body * {
     color: #f2f2f2; }
   .sign-in :-ms-input-placeholder {
     color: #f2f2f2; }
+
+@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .sign-in {
+    height: 100vh; }
+    .sign-in .branding {
+      width: 80%;
+      margin: 10vw auto; }
+      .sign-in .branding .logo {
+        width: 40%; }
+      .sign-in .branding .slogan {
+        margin: 5% auto 0;
+        width: 60%; }
+    .sign-in .list label.item-input {
+      width: 80%;
+      margin: 0 auto;
+      height: 7vh;
+      margin-bottom: 4vh; }
+      .sign-in .list label.item-input i {
+        width: 10vw; }
+        .sign-in .list label.item-input i.icon-small {
+          font-size: 8vw; }
+      .sign-in .list label.item-input input[type=text],
+      .sign-in .list label.item-input input[type=password] {
+        font-weight: 400;
+        font-size: 4vw; }
+    .sign-in .list label.item-select i {
+      font-size: 40px;
+      width: 40px; }
+      .sign-in .list label.item-select i.icon-small {
+        font-size: 8vw; }
+    .sign-in .list label.item-select .input-label {
+      font-weight: 400;
+      font-size: 4vw;
+      line-height: 1;
+      line-height: 1.6; }
+    .sign-in .list label.item-select select {
+      font-size: 4vw;
+      font-weight: 300;
+      text-transform: uppercase;
+      padding: 0;
+      right: initial;
+      direction: ltr; }
+    .sign-in button.btn-signin {
+      width: 80%;
+      margin: 0 auto;
+      font-size: 5vw; } }
 
 .trade #tradeContractChart {
   width: 100% !important;

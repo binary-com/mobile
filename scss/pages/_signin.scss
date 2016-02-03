@@ -103,3 +103,69 @@
         color: $lightgray;
     }
 }
+@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+				.sign-in {
+								height: 100vh;
+								.branding {
+												width: 80%;
+												// max-width: 600px;
+												margin: 10vw auto;
+												.logo {
+																width: 40%;
+												}
+												.slogan {
+																margin: 5% auto 0;
+																width: 60%;
+												}
+								}
+								.list {
+												label.item-input {
+																width: 80%;
+																margin: 0 auto;
+																height: 7vh;
+																margin-bottom: 4vh;
+																i {
+																				width: 10vw;
+																				&.icon-small {
+																								font-size: 8vw;
+																				}
+																}
+																input[type=text],
+																input[type=password] {
+																				font-weight: 400;
+																				font-size: 4vw;
+																}
+												}
+												label.item-select {
+																i {
+																				font-size: 40px;
+																				width: 40px;
+																				&.icon-small {
+																								font-size: 8vw;
+																				}
+																}
+																.input-label {
+																				font-weight: 400;
+																				font-size: 4vw;
+																				line-height: 1;
+																				line-height: 1.6;
+
+																				// margin-left: 10px;
+																}
+																select {
+																				font-size: 4vw;
+																				font-weight: 300;
+																				text-transform: uppercase;
+																				padding: 0;
+																				right: initial;
+																				direction: ltr;
+																}
+												}
+								}
+								button.btn-signin {
+												width: 80%;
+												margin: 0 auto;
+												font-size: 5vw;
+								}
+				}
+}
