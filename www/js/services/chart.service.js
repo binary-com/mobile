@@ -220,6 +220,14 @@ angular
 			};
 
 			var ContractCtrl = function ContractCtrl(contract) {
+				
+				var isFinished = function isFinished(){
+					return utils.isDefined(contract.exitSpot);
+				};
+
+				var getContract = function getContract(){
+					return contract;
+				};
 
 				var resetSpotShowing = function resetSpotShowing() {
 					contract.showingEntrySpot = false;
@@ -376,16 +384,28 @@ angular
 						if (betweenExistingSpots(lastTime)) {
 							if (utils.conditions[contract.type](contract.barrier, lastPrice)) {
 								contract.result = 'win';
-								$rootScope.$broadcast("contract:finished", contract);
 							} else {
 								contract.result = 'lose';
-								$rootScope.$broadcast("contract:finished", contract);
+							}
+							if ( isFinished() ) {
+								var broadcastable = true;
+								contractCtrls.forEach(function(contractctrl, index){
+									var oldContract = contractctrl.getContract();
+									if ( contract !== oldContract && !contractctrl.isFinished() ) {
+										broadcastable = false;
+									}
+								});
+								if ( broadcastable ) {
+									$rootScope.$broadcast("contract:finished", contract);
+								}
 							}
 						}
 					}
 				};
 
 				return {
+					isFinished: isFinished,
+					getContract: getContract,
 					isSpot: isSpot,
 					betweenExistingSpots: betweenExistingSpots,
 					resetSpotShowing: resetSpotShowing,
