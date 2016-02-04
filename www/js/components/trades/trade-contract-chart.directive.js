@@ -40,6 +40,10 @@ angular
 
 				init();
 
+				scope.$on('$destroy', function(e, value){
+					chartService.destroy();
+				});
+
 				scope.$on('portfolio', function(e, portfolio){
 					var contractId = scope.$parent.contract.contract_id;
 					if ( typeof contractId !== 'undefined' ) {
