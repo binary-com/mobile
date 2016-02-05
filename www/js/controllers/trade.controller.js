@@ -96,6 +96,7 @@ angular
 
             $scope.$on('purchase:error', function(e, _error){
                 $('.contract-purchase button').attr('disabled', false);
+                proposalService.send();
             });
 
 			$scope.$on('contract:finished', function (e, _contract){
@@ -114,6 +115,8 @@ angular
 					}
 					$scope.contract.result = _contract.result;
 
+					proposalService.send();
+
 					if(!$scope.$$phase){
 						$scope.$apply();
 					}
@@ -130,12 +133,9 @@ angular
 				$state.go('options');
 			};
 
-			$scope.backToOptionPage = function() {
-				$('.contract-purchase button').attr('disabled', false);
-				//proposalService.send();
-				$scope.tradeMode = true;
-				//websocketService.sendRequestFor.balance();
-			};
+            $scope.setTradeMode = function(mode){
+                $scope.tradeMode = mode;
+            }
 
 			$scope.$on('connection:ready', function(e) {
 				if (accountService.hasDefault()) {

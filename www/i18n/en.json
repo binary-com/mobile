@@ -73,7 +73,8 @@
 		"loss": "Loss",
 		"win": "This contract won",
 		"lose": "This contract lost",
-		"transaction_id": "Transaction Reference"
+		"transaction_id": "Transaction Reference",
+        "buy_again": "Buy Again"
 	},
 	"help" : {
 		"need_help": "Need Help?",
