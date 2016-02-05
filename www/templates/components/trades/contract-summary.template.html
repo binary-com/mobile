@@ -26,5 +26,17 @@
 		<div class="col">{{contract.balance | currency}}</div>
 	</div> -->
 	<div class="{{contract.result}} row" ng-if="contract.result !== undefined"><div class="col"> {{'trade.' + contract.result | translate}}</div></div>
+</div>
 
+<div class="row">
+    <div class="col">
+        <div class="contract-back" >
+            <button class="button button-block button-positive" ng-click="backToOptionPage()" ng-disabled="!contractFinished">
+                {{'trade.back' | translate }}
+            </button>
+        </div>
+    </div>
+    <div class="col" >
+        <purchase ng-disabled="!contractFinished" title="trade.buy_again"></purchase>
+    </div>
 </div>
