@@ -268,7 +268,13 @@ angular
 			};
 
 			var ContractCtrl = function ContractCtrl(contract) {
+
+				var broadcastable = true;
 				
+				var setNotBroadcastable = function setNotBroadcastable(){
+					return broadcastable = false;
+				};
+
 				var isFinished = function isFinished(){
 					return utils.isDefined(contract.exitSpot);
 				};
@@ -435,12 +441,11 @@ angular
 							} else {
 								contract.result = 'lose';
 							}
-							if ( isFinished() ) {
-								var broadcastable = true;
+							if ( isFinished() && broadcastable ) {
 								contractCtrls.forEach(function(contractctrl, index){
 									var oldContract = contractctrl.getContract();
 									if ( contract !== oldContract && !contractctrl.isFinished() ) {
-										broadcastable = false;
+										setNotBroadcastable();
 									}
 								});
 								if ( broadcastable ) {
@@ -452,6 +457,7 @@ angular
 				};
 
 				return {
+					setNotBroadcastable: setNotBroadcastable,
 					isFinished: isFinished,
 					getContract: getContract,
 					isSpot: isSpot,
@@ -1187,7 +1193,9 @@ angular
 
 			var destroy = function destroy() {
 				chartDrawer.destroy();
-				contractCtrls = [];
+				contractCtrls.forEach(function(contractctrl, index){
+					contractctrl.setNotBroadcastable();
+				});
 				localHistory = null; 
 			};
 
