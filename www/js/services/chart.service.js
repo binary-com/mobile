@@ -32,14 +32,12 @@ angular
 			var chartGlobals;
 			var setChartGlobals = function setChartGlobals() {
 				chartGlobals = {
+					chartJS: null,
 					capacity: 600,
 					maxTickCount: 50,
 					hideLabelsThreshold: 15,
 					tickCount: 15,
 					minTickCount: 5,
-					chartJS: null,
-					chartJS: null,
-					chartObj: null,
 					chartData: {
 						labels: [],
 						labelsFilter: function (index) {
@@ -936,7 +934,6 @@ angular
 					canvas = document.getElementById(chartID);
 					if (canvas !== null) {
 						ctx = canvas.getContext('2d');
-						chartGlobals.chartObj = new Chart(ctx);
 						stepper = Stepper();
 						stepper.setDistance(canvas, chartGlobals.tickCount);
 					}
@@ -1005,8 +1002,9 @@ angular
 					if (utils.isDefined(chartGlobals.chartJS)) {
 						chartGlobals.chartJS.destroy();
 					}
-					if (utils.isDefined(chartGlobals.chartObj)) {
-						chartGlobals.chartJS = chartGlobals.chartObj.LineChartSpots(chartGlobals.chartData, chartGlobals.chartOptions);
+					if (utils.isDefined(ctx)) {
+						var chartObj = new Chart(ctx);
+						chartGlobals.chartJS = chartObj.LineChartSpots(chartGlobals.chartData, chartGlobals.chartOptions);
 					}
 				};
 
