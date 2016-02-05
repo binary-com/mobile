@@ -12,7 +12,8 @@ angular
 		'websocketService',
 		'alertService',
 		'$rootScope',
-		function(websocketService, alertService, $rootScope) {
+        'appStateService',
+		function(websocketService, alertService, $rootScope, appStateService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/purchase.template.html',
@@ -22,6 +23,7 @@ angular
 
 				scope.purchase = function() {
 					$('.contract-purchase button').attr('disabled', true);
+                    appStateService.purchaseMode = true;
 					websocketService.sendRequestFor.purchase(scope.$parent.proposalRecieved.id, scope.$parent.proposalRecieved.ask_price);
 					
 					// Send statistic to Google Analytics
