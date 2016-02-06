@@ -12,7 +12,7 @@ angular.module('binary', ['ionic', 'pascalprecht.translate', 'hmTouchEvents', 'n
 
 angular
 .module('binary')
-.run(function($rootScope, $ionicPlatform, $state, alertService, accountService){
+.run(function($rootScope, $ionicPlatform, $state, alertService, accountService, appStateService){
     $ionicPlatform.ready(function() {
 
         // Setup Google Analytics
@@ -32,6 +32,15 @@ angular
             }
             else if($state.current.name === "signin" || $state.current.name === "home" ){
                 navigator.app.exitApp();
+            }
+            else if($state.current.name === "trade" && appStateService.purchaseMode){
+                return;
+            }
+            else if($state.current.name === "trade" && !appStateService.purchaseMode && !appStateService.tradeMode){
+                appStateService.tradeMode = true;
+                if(!$rootScope.$$phase){
+                    $rootScope.$apply();
+                }
             }
             else{
                 navigator.app.backHistory();

@@ -10,7 +10,9 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, $ionicSlideBoxDelegate, marketService, proposalService, websocketService, accountService, alertService) {
+		function($scope, $state, $ionicSlideBoxDelegate, marketService,
+            proposalService, websocketService, accountService, alertService,
+            appStateService) {
 
 			window.addEventListener('native.keyboardhide', function(e) {
 				$scope.hideFooter = false;
@@ -22,6 +24,15 @@ angular
 				$scope.$apply();
 			});
 
+            $scope.setTradeMode = function(mode){
+                //$scope.tradeMode = mode;
+                appStateService.tradeMode = mode;
+            }
+
+            $scope.getTradeMode = function(){
+                return appStateService.tradeMode;
+            }
+
 			var init = function () {
 
 				if(typeof(analytics) !== "undefined"){
@@ -30,7 +41,7 @@ angular
 
 
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
-				$scope.tradeMode = true;
+				$scope.setTradeMode(true);
 				$scope.contractFinished = false;
 				proposalService.getCurrencies();
 			};
@@ -66,7 +77,7 @@ angular
 
 			$scope.$on('purchase', function(e, _contractConfirmation) {
 				if (_contractConfirmation.buy) {
-					$scope.tradeMode = false;
+					$scope.setTradeMode(false);
 					$scope.contractFinished = false;
 					$scope.contract = {
 						contract_id: _contractConfirmation.buy.contract_id,
@@ -88,6 +99,7 @@ angular
 					alertService.contractError.notAvailable();
 					$('.contract-purchase button').attr('disabled', false);
 				}
+                appStateService.purchaseMode = true;
 				websocketService.sendRequestFor.balance();
 
 				// it's moved to first if
@@ -96,6 +108,7 @@ angular
 
             $scope.$on('purchase:error', function(e, _error){
                 $('.contract-purchase button').attr('disabled', false);
+                appStateService.purchaseMode = false;
                 proposalService.send();
             });
 
@@ -114,6 +127,7 @@ angular
 						$scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.loss;
 					}
 					$scope.contract.result = _contract.result;
+					appStateService.purchaseMode = false;
 
 					proposalService.send();
 
@@ -132,10 +146,6 @@ angular
 			$scope.navigateToOptionsPage = function($event) {
 				$state.go('options');
 			};
-
-            $scope.setTradeMode = function(mode){
-                $scope.tradeMode = mode;
-            }
 
 			$scope.$on('connection:ready', function(e) {
 				if (accountService.hasDefault()) {
