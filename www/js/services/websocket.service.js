@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.factory('websocketService',
-		function($rootScope, localStorageService, alertService) {
+		function($rootScope, localStorageService, alertService, appStateService) {
 			var dataStream = '';
 			var messageBuffer = [];
 
@@ -46,8 +46,8 @@ angular
 				dataStream = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=' + language);
 
 				dataStream.onopen = function() {
-					console.log('socket is opened');
-					$rootScope.$broadcast('connection:ready');
+                    
+                    sendMessage({ping: 1});
                     
                     // CLEANME
                     // Authorize the default token if it's exist
@@ -60,14 +60,17 @@ angular
                             }
                         };
                         sendMessage(data);
+
                     }
+                    
+                    console.log('socket is opened');
+                    $rootScope.$broadcast('connection:ready');
 					
 					// if(typeof(analytics) !== "undefined"){
 					// 	analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
 					// }
 					
 					//dataStream.send(JSON.stringify({ping: 1}));
-                    sendMessage({ping: 1});
 				};
 
 				dataStream.onmessage = function(message) {
@@ -78,6 +81,7 @@ angular
 					console.log('socket is closed ', e);
 					init();
 					console.log('socket is reopened');
+                    appStateService.isLoggedin = false;
 					$rootScope.$broadcast('connection:reopened');
 				};
 
@@ -86,6 +90,7 @@ angular
 					if(e.target.readyState == 3){
 						$rootScope.$broadcast('connection:error');
 					}
+                    appStateService.isLoggedin = false;
 				};
 
 			};
@@ -104,12 +109,14 @@ angular
                             if (message.authorize) {
                                 message.authorize.token = message.echo_req.authorize;
                                 window._trackJs.userId = message.authorize.loginid;
+                                appStateService.isLoggedin = true;
                                 $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
                             } else {
                                 if (message.hasOwnProperty('error') && message.error.code === 'InvalidToken') {
                                   localStorageService.removeToken(message.echo_req.authorize);
                                 }
                                 $rootScope.$broadcast('authorize', false);
+                                appStateService.isLoggedin = false;
                             }
                             break;
                         case 'active_symbols':
@@ -179,6 +186,9 @@ angular
                             break;
                         case 'portfolio':
                             $rootScope.$broadcast('portfolio', message.portfolio);
+                            break;
+                        case 'profit_table':
+                            $rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
                             break;
                         case 'sell_expired':
                             $rootScope.$broadcast('sell:expired', message.sell_expired);
@@ -295,6 +305,19 @@ angular
 					var data = {
 						portfolio: 1
 					};
+					sendMessage(data);
+				},
+				profitTable: function(params) {
+					var data = {
+						profit_table: 1
+					};
+                    
+                    for(key in params){
+                        if(params.hasOwnProperty(key)){
+                            data[key] = params[key]
+                        }
+                    }
+
 					sendMessage(data);
 				},
 				ticksHistory: function(data) {

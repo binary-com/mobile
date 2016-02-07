@@ -41,10 +41,10 @@ angular
                 scope.getNgDisabled = function(){
                     if(scope.attrs['ngDisabled']){
                         if(scope.attrs['ngDisabled'][0] != '!'){
-                            return scope[scope.attrs['ngDisabled']];
+                            return eval('scope.' + scope.attrs['ngDisabled']);
                         }
                         else{
-                            return !scope[scope.attrs['ngDisabled'].slice(1, scope.attrs['ngDisabled'].length)];
+                            return eval('!scope.' + scope.attrs['ngDisabled'].slice(1, scope.attrs['ngDisabled'].length));
                         }
                     }
                     return false;

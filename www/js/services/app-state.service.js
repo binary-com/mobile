@@ -14,6 +14,7 @@ angular
                 var factory = {};
                 factory.tradeMode = true;
                 factory.purchaseMode = false;
+                factory.isLoggedin=false;
 
                 return factory;
             });
