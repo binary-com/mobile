@@ -28,12 +28,12 @@ ionic serve
 ionic emulate ios
 ```
 
-## Runing The App - iOS Device
+## Running The App - iOS Device
 ```shell
 cordova run ios --device
 ```
 
-## Runing the App - Android Emulator
+## Running the App - Android Emulator
 ```shell
 ionic emulate android
 ```

@@ -40,6 +40,10 @@ angular
 
 				init();
 
+				scope.$on('$destroy', function(e, value){
+					chartService.destroy();
+				});
+
 				scope.$on('portfolio', function(e, portfolio){
 					var contractId = scope.$parent.contract.contract_id;
 					if ( typeof contractId !== 'undefined' ) {
@@ -81,6 +85,10 @@ angular
 						chartService.historyInterface.addOhlc(feed.ohlc);
 					}
 				});
+
+                scope.$on('connection:ready', function(e){
+                    init();
+                });
 
 			}
 		};

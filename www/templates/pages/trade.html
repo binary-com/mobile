@@ -1,6 +1,6 @@
 <ion-view class="trade" ng-init="init()">
 	<ion-header-bar align-title="center" class="bar bar-header bar-positive">
-		<button class="button icon ion-android-options" ng-click="navigateToOptionsPage()" ng-show="tradeMode"></button>
+		<button class="button icon ion-android-options" ng-click="navigateToOptionsPage()" ng-show="getTradeMode()"></button>
 		<h1 class="title">
 			<img src="img/logo.svg" alt="Binary.com logo">
 			<img src="img/binary.svg" alt="Binary.com">
@@ -10,15 +10,10 @@
 		<form name="purchaseFrom" novalidate>
 			<long-code></long-code>
 			<trade-contract-chart></trade-contract-chart>
-			<payout ng-if="tradeMode"></payout>
-			<contract-summary ng-if="!tradeMode"></contract-summary>
-			<purchase ng-if="tradeMode"></purchase>
+			<payout ng-if="getTradeMode()"></payout>
+			<contract-summary ng-if="!getTradeMode()"></contract-summary>
+			<purchase ng-if="getTradeMode()"></purchase>
 
-			<div class="contract-back" ng-if="!tradeMode">
-				<button class="button button-block button-positive" ng-click="backToOptionPage()" ng-disabled="!contractFinished">
-					{{'trade.back' | translate }}
-				</button>
-			</div>
 		</form>
 	</ion-content>
 	<ion-footer-bar ng-hide="hideFooter" keyboard-attach class="bar-positive bar bar-footer row">
