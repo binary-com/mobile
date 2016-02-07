@@ -86,6 +86,10 @@ angular
 					}
 				});
 
+                scope.$on('connection:ready', function(e){
+                    init();
+                });
+
 			}
 		};
 	}]);
