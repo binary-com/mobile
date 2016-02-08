@@ -15,8 +15,19 @@ angular
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/trade-contract-chart.template.html',
 			link: function(scope, element) {
-				var init = function() {
+				var sendRequestForTicksHistory = function sendRequestForTicksHistory(){
 					var symbol = scope.$parent.proposalToSend.symbol;
+					websocketService.sendRequestFor.forgetTicks();
+					websocketService.sendRequestFor.ticksHistory(
+						{
+							"ticks_history": symbol,
+							"end": "latest",
+							"count": chartService.getCapacity(),
+							"subscribe": 1
+						}
+					);
+				};
+				var init = function() {
 					var chartID = 'tradeContractChart';
 					chartService.drawChart(chartID);
 					scope.$parent.chartDragLeft = chartService.dragLeft;
@@ -27,15 +38,7 @@ angular
 					scope.$parent.chartPinchOut = chartService.zoomIn;
 					scope.$parent.chartPinchStart = chartService.zoomStart;
 					scope.$parent.chartPinchEnd = chartService.zoomEnd;
-					websocketService.sendRequestFor.forgetTicks();
-					websocketService.sendRequestFor.ticksHistory(
-						{
-							"ticks_history": symbol,
-							"end": "latest",
-							"count": chartService.getCapacity(),
-							"subscribe": 1
-						}
-					);
+					sendRequestForTicksHistory();
 				};
 
 				init();
@@ -87,7 +90,7 @@ angular
 				});
 
                 scope.$on('connection:ready', function(e){
-                    init();
+					sendRequestForTicksHistory();
                 });
 
 			}
