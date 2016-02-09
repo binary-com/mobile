@@ -106,6 +106,9 @@
                 color: $white;
             }
         }
+        .disabled {
+            opacity: 0.7;
+        }
     }
     .options-amount {
     	border-bottom: 1px solid $lightgray;
