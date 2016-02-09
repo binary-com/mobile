@@ -15,6 +15,7 @@ angular
                 factory.tradeMode = true;
                 factory.purchaseMode = false;
                 factory.isLoggedin=false;
+                factory.waitForProposal = false;
 
                 return factory;
             });

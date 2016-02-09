@@ -14,6 +14,8 @@ angular
             proposalService, websocketService, accountService, alertService,
             appStateService) {
 
+            appStateService.waitForProposal = false;
+
 			window.addEventListener('native.keyboardhide', function(e) {
 				$scope.hideFooter = false;
 				$scope.$apply();
@@ -50,6 +52,7 @@ angular
 
 			$scope.$on('proposal', function(e, response) {
 				$scope.proposalRecieved = response;
+                appStateService.waitForProposal = false;
 				$scope.$apply();
 			});
 
@@ -195,6 +198,10 @@ angular
             $scope.isContractFinished = function(){
                 return !appStateService.purchaseMode;
             };
+
+            $scope.getWaitForProposal = function(){
+                return appStateService.waitForProposal;
+            }
            
             function sendProfitTableRequest(params){
                 // Wait untile the login progress is finished
