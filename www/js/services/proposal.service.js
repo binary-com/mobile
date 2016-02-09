@@ -9,7 +9,7 @@
 angular
 	.module('binary')
 	.service('proposalService',
-		function(websocketService) {
+		function(websocketService, appStateService) {
 
 			var createProposal = function(_data) {
 				var proposal = {
@@ -47,6 +47,7 @@ angular
 			this.send = function(_oldId) {
 				websocketService.sendRequestFor.forgetProposals();
 				websocketService.sendRequestFor.proposal(JSON.parse(localStorage.proposal));
+                appStateService.waitForProposal = true;
 			};
 
 			this.get = function() {
