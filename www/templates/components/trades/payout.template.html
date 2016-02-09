@@ -9,8 +9,8 @@
     </div>
     <div class="col col-33">
         <div class="button-bar">
-            <a ng-click="subtractAmount()" class="button minus icon ion-android-remove"></a>
-            <a ng-click="addAmount()" class="button plus icon ion-android-add"></a>
+            <a on-long-press="subtractAmount()" on-touch-end="delayedUpdateProposal()"  class="button minus icon ion-android-remove" repetitive="true"></a>
+            <a on-long-press="addAmount()" on-touch-end="delayedUpdateProposal()"  class="button plus icon ion-android-add" repetitive="true"></a>
         </div>
     </div>
 </div>
