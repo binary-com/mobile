@@ -76,6 +76,7 @@
 	<script src="js/services/local-storage.service.js"></script>
 	<script src="js/services/delay.service.js"></script>
 	<script src="js/services/app-version.service.js"></script>
+	<script src="js/services/app-state.service.js"></script>
 
 	<script src="js/controllers/home.controller.js"></script>
 	<script src="js/controllers/signIn.controller.js"></script>
@@ -106,12 +107,14 @@
 	<script src="js/components/utils/app-version.directive.js"></script>
 	<script src="js/components/utils/logo-spinner.directive.js"></script>
 
-	<script src="js/filters/custom-currency.filter.js"></script>
+	<script src="js/components/codepush/app-update.directive.js"></script>
 
+	<script src="js/filters/custom-currency.filter.js"></script>
 </head>
 
 <body ng-app="binary">
 	<connection-status></connection-status>
+    <app-update></app-update>
 	<ion-nav-view></ion-nav-view>
 </body>
 

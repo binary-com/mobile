@@ -10,7 +10,9 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, $ionicSlideBoxDelegate, marketService, proposalService, websocketService, accountService, alertService) {
+		function($scope, $state, $ionicSlideBoxDelegate, marketService,
+            proposalService, websocketService, accountService, alertService,
+            appStateService) {
 
 			window.addEventListener('native.keyboardhide', function(e) {
 				$scope.hideFooter = false;
@@ -22,6 +24,15 @@ angular
 				$scope.$apply();
 			});
 
+            $scope.setTradeMode = function(mode){
+                //$scope.tradeMode = mode;
+                appStateService.tradeMode = mode;
+            }
+
+            $scope.getTradeMode = function(){
+                return appStateService.tradeMode;
+            }
+
 			var init = function () {
 
 				if(typeof(analytics) !== "undefined"){
@@ -30,8 +41,8 @@ angular
 
 
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
-				$scope.tradeMode = true;
-				$scope.contractFinished = false;
+				$scope.setTradeMode(true);
+                appStateService.purchaseMode = false;
 				proposalService.getCurrencies();
 			};
 
@@ -66,8 +77,8 @@ angular
 
 			$scope.$on('purchase', function(e, _contractConfirmation) {
 				if (_contractConfirmation.buy) {
-					$scope.tradeMode = false;
-					$scope.contractFinished = false;
+					$scope.setTradeMode(false);
+                    appStateService.purchaseMode = true;
 					$scope.contract = {
 						contract_id: _contractConfirmation.buy.contract_id,
 						longcode: _contractConfirmation.buy.longcode,
@@ -96,11 +107,12 @@ angular
 
             $scope.$on('purchase:error', function(e, _error){
                 $('.contract-purchase button').attr('disabled', false);
+                appStateService.purchaseMode = false;
+                proposalService.send();
             });
 
 			$scope.$on('contract:finished', function (e, _contract){
 				if(_contract.exitSpot){
-					$scope.contractFinished = true;
 					if(_contract.result === "win"){
 						$scope.contract.buyPrice = $scope.contract.cost;
 						$scope.contract.profit = $scope.contract.profit;
@@ -113,6 +125,11 @@ angular
 						$scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.loss;
 					}
 					$scope.contract.result = _contract.result;
+					
+                    // Unlock view to navigate
+                    appStateService.purchaseMode = false;
+
+					proposalService.send();
 
 					if(!$scope.$$phase){
 						$scope.$apply();
@@ -130,13 +147,6 @@ angular
 				$state.go('options');
 			};
 
-			$scope.backToOptionPage = function() {
-				$('.contract-purchase button').attr('disabled', false);
-				//proposalService.send();
-				$scope.tradeMode = true;
-				//websocketService.sendRequestFor.balance();
-			};
-
 			$scope.$on('connection:ready', function(e) {
 				if (accountService.hasDefault()) {
 					accountService.validate();
@@ -148,6 +158,58 @@ angular
 					
 
 					proposalService.send();
+
+                    if(appStateService.purchaseMode){
+
+                        sendProfitTableRequest();
+                    }
 				}
 			});
+
+            $scope.$on('profit_table:update', function(e, _profitTable, _passthrough){
+
+                if(_passthrough.hasOwnProperty('isConnectionReopen')
+                        && _passthrough.isConnectionReopen){
+                    
+                    if(_profitTable.count > 0){
+                        // Check that contract is finished or not after connection reopenning
+                        if(appStateService.purchaseMode){
+                            // find the current contract in the portfolio-table list
+                            var transaction = _.find(_profitTable.transactions, ['transaction_id', $scope.contract.transaction_id]);
+                            if(transaction){
+                                var finishedContract ={};
+                                finishedContract.exitSpot = true;
+                                finishedContract.result = transaction.sell_price > 0 ? "win" : "lose";
+                                $scope.$broadcast('contract:finished', finishedContract);
+                            }
+                        }
+                    }
+                    else{
+                        // because there is not any items in profitTable, the user is navigating to trade mode view
+                        appStateService.purchaseMode = false;
+                        appStateService.tradeMode = true;
+                    }
+                }
+            });
+
+            $scope.isContractFinished = function(){
+                return !appStateService.purchaseMode;
+            };
+           
+            function sendProfitTableRequest(params){
+                // Wait untile the login progress is finished
+                if(!appStateService.isLoggedin){
+                    setTimeout(sendProfitTableRequest, 500);
+                }
+                else{
+                    var conditions = {};
+                    // Format date to 'YYYY-MM-DD'
+                    conditions.date_from =  new Date().toISOString().slice(0, 10);
+                    conditions.date_to = conditions.date_from;
+                    conditions.limit = 10;
+                    conditions.passthrough = { isConnectionReopen: true };
+                    
+                    websocketService.sendRequestFor.profitTable(conditions);
+                }
+            }
 	});
