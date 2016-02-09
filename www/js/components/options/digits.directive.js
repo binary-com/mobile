@@ -14,7 +14,8 @@ angular
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/options/digits.template.html',
-			link: function(scope, element) {
+			link: function(scope, element, attrs) {
+                scope.attrs = attrs;
 				var hideDigit = function hideDigit(hideDigit) {
 					var digitIndex = scope.digits.indexOf(hideDigit);
 					if ( digitIndex < 0 ) {
@@ -43,6 +44,13 @@ angular
 				scope.updateDigit = function(_digit) {
 					scope.$parent.selected.digit = _digit;
 				};
+
+                scope.getNgDisabled = function(){
+                    if(scope.attrs.ngDisabled){
+                        return scope.$eval(scope.attrs.ngDisabled);
+                    }
+                    return false;
+                }
 			}
 		};
 	}]);
