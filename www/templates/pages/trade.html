@@ -2,7 +2,8 @@
 	<ion-header-bar align-title="center" class="bar bar-header bar-positive">
 		<button class="button icon ion-android-options" ng-click="navigateToOptionsPage()" ng-show="getTradeMode()"></button>
 		<h1 class="title">
-			<img src="img/logo.svg" alt="Binary.com logo">
+            <!-- <img src="img/logo.svg" alt="Binary.com logo"> -->
+            <logo-spinner start="getWaitForProposal()"></logo-spinner>
 			<img src="img/binary.svg" alt="Binary.com">
 		</h1>
 	</ion-header-bar>
@@ -12,7 +13,7 @@
 			<trade-contract-chart></trade-contract-chart>
 			<payout ng-if="getTradeMode()"></payout>
 			<contract-summary ng-if="!getTradeMode()"></contract-summary>
-			<purchase ng-if="getTradeMode()"></purchase>
+			<purchase ng-if="getTradeMode()" ng-disabled="getWaitForProposal()"></purchase>
 
 		</form>
 	</ion-content>
