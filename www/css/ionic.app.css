@@ -9253,6 +9253,24 @@ body * {
 .spinner svg {
   fill: red; }
 
+.update .spinner {
+  top: 0px !important;
+  left: 0;
+  right: 0;
+  position: inherit !important; }
+  .update .spinner svg {
+    margin: -10px 0;
+    display: block;
+    width: 28px !important;
+    height: 28px !important;
+    storke: #fff; }
+
+.update progress {
+  margin: 0 1px 0 1px !important; }
+
+.update .icon {
+  font-size: 28px !important; }
+
 .logo-spinner {
   -webkit-animation-name: spin;
   -webkit-animation-duration: 1000ms;
