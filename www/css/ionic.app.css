@@ -9424,7 +9424,8 @@ body * {
       top: -47px;
       left: -50%;
       padding: 0 10px;
-      text-align: center; }
+      text-align: center;
+      z-index: 3; }
       .trade .contract-payout .amount .error p {
         color: #fff;
         width: 220px;
@@ -9522,6 +9523,13 @@ body * {
     background-color: #fff !important;
     font-size: 16px;
     padding: 10px !important; }
+
+.trade .contract-type {
+  background: #f2f2f2; }
+  .trade .contract-type .item {
+    background: #f2f2f2; }
+  .trade .contract-type .item-select select {
+    background: #f2f2f2; }
 
 .options .options-content {
   padding-left: 3%;

@@ -47,6 +47,7 @@
 				left: -50%;
 				padding: 0 10px;
 				text-align: center;
+                z-index: 3;
 
 				p {
 					color: $white;
@@ -177,4 +178,14 @@
 									padding: 10px !important;
 					}
 	}
+    .contract-type{
+        background: $lightgray;
+        
+        .item{
+            background: $lightgray;
+        }
+        .item-select select{
+            background: $lightgray;
+        }
+    }
 }
