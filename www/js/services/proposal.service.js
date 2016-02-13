@@ -31,7 +31,7 @@ angular
 				if (_data.digit && _data.digit >= 0) {
 					proposal.barrier = _data.digit;
 				}
-				if (_data.barrier >=0) {
+                else if (_data.barrier >=0) {
 					proposal.barrier = _data.barrier;
 				}
 
