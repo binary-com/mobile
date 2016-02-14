@@ -4,91 +4,99 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-03 11:06+0800\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2016-02-14 18:56+0000\n"
+"Last-Translator: therealmarco <mr.castill2-2@hotmail.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"X-Generator: Translate Toolkit 1.10.0\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
-msgstr ""
+msgstr "Une question ? Mél du service client à "
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
 msgstr ""
+"et créer un jeton. Ensuite, il suffit de le copier/coller dans la case du "
+"haut."
 
 #: .help.visit
+#, fuzzy
 msgid "Please visit"
-msgstr ""
+msgstr "Veuillez visiter"
 
 #: .help.back
 msgctxt ".help.back"
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #: .help.need_help
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Besoin d'aide ?"
 
 #: .help.generate_api
+#, fuzzy
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
 msgstr ""
+"Pour accéder à une application tierce, comme une application mobile, vous "
+"êtes besoin de générer un token pour l'API."
 
 #: .help.page
 msgid "this page"
-msgstr ""
+msgstr "Cette page"
 
 #: .app.exit_title
 msgid "Exit"
-msgstr ""
+msgstr "Quitter"
 
 #: .app.connection_error_title
 msgid "Connection Error"
-msgstr ""
+msgstr "Erreur de connexion"
 
 #: .app.connection_error
 msgid "There is no internet connection!"
-msgstr ""
+msgstr "Il n'y a pas de connexion internet !"
 
 #: .app.exit_confirmation
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir quitter ?"
 
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Paiement"
 
 #: .trade.net_profit
 msgid "Net Profit"
-msgstr ""
+msgstr "Bénéfice Net"
 
 #: .trade.buy
 msgid "BUY"
-msgstr ""
+msgstr "ACHETER"
 
 #: .trade.loss
 msgid "Loss"
-msgstr ""
+msgstr "Perte"
 
 #: .trade.total_cost
 msgid "Total Cost"
-msgstr ""
+msgstr "Coût Total"
 
 #: .trade.win
 msgid "This contract won"
-msgstr ""
+msgstr "Ce contrat gagne"
 
 #: .trade.price
 msgid "Price"
-msgstr ""
+msgstr "Prix"
 
 #: .trade.stake
 msgctxt ".trade.stake"
