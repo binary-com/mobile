@@ -51,6 +51,11 @@ angular
                         }
 
                         scope.$parent.displayDigits = true;
+                        
+                        // Set the digit and barrier for the first time that the digits are enabled
+                        if(!scope.$parent.selected.barrier && !scope.$parent.selected.digit){
+                            scope.$parent.selected.digit = 0;
+                        }
                     }
 				};
 
