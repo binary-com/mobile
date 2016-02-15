@@ -215,6 +215,7 @@ angular
 
 			websocketService.authenticate = function(_token, extraParams) {
 				extraParams = null || extraParams;
+                appStateService.isLoggedin = false;
 
                 var data = {
 					authorize: _token

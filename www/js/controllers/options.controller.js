@@ -10,9 +10,13 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $rootScope, $state, $window, config, proposalService, accountService, websocketService, chartService, delayService) {
+		function($scope, $rootScope, $state, $window, config, proposalService,
+            accountService, websocketService, chartService, delayService,
+            appStateService) {
+
 			$scope.selected = {};
 			$scope.isDataLoaded = false;
+            $scope.letsTrade = false;
 
 			if(typeof(analytics) !== "undefined"){
 					analytics.trackView("Options");
@@ -20,9 +24,18 @@ angular
 
 			websocketService.sendRequestFor.forgetAll('ticks');
 
+            function updateSymbols(){
+                if(!appStateService.isLoggedin){
+                    setTimeout(updateSymbols, 500);
+                }
+                else{
+                    websocketService.sendRequestFor.symbols();
+                    websocketService.sendRequestFor.assetIndex();
+                }
+            }
+
 			delayService.update('symbolsAndAssetIndexUpdate', function(){
-				websocketService.sendRequestFor.symbols();
-				websocketService.sendRequestFor.assetIndex();
+                updateSymbols();
 			}, 60*1000);
 
 			function init(){
@@ -77,9 +90,9 @@ angular
 			};
 
 			$scope.$on('connection:reopened', function(e) {
-				if (accountService.hasDefault()) {
-					accountService.validate();
-				}
+//				if (accountService.hasDefault()) {
+//					accountService.validate();
+//				}
 
 			});
 
@@ -88,29 +101,9 @@ angular
 					$scope.saveChanges();
 				}
 			}, true);
+
+            $scope.setDataLoaded = function(stopSpinner, enableLetsTrade){
+                $scope.isDataLoaded = stopSpinner;
+                $scope.letsTrade = _.isNil(enableLetsTrade) ? stopSpinner : enableLetsTrade;
+            };
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
