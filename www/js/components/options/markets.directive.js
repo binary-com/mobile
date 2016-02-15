@@ -32,7 +32,7 @@ angular
 					}
 					else{
 						// If there is not any symbol that has tick support, a empty array broadcast for symbol
-						scope.$parent.$broadcast('symbol', []);
+						scope.$broadcast('symbol', []);
 
 						if(scope.showSymbolWarning){
 							scope.showSymbolWarning = false;
@@ -60,7 +60,7 @@ angular
 							marketService.fixOrder();
 							var markets = marketService.getActiveMarkets();
 							scope.market = {
-								//forex: markets.indexOf('forex') !== -1  ? true : false,
+								forex: markets.indexOf('forex') !== -1  ? true : false,
 								random: markets.indexOf('random') !== -1 ? true : false
 							};
 
@@ -92,7 +92,7 @@ angular
 
 				scope.updateMarket = function(_market) {
 					// To disable "Let's trade" button until all data is loaded
-					scope.isDataLoaded = false;
+					scope.setDataLoaded(false);
 
 					scope.$parent.selected.market = _market;
 					updateSymbols(scope.$parent.selected.market);
