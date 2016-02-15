@@ -9197,6 +9197,24 @@ body * {
 .spinner svg {
   fill: red; }
 
+.update .spinner {
+  top: 0px !important;
+  left: 0;
+  right: 0;
+  position: inherit !important; }
+  .update .spinner svg {
+    margin: -10px 0;
+    display: block;
+    width: 28px !important;
+    height: 28px !important;
+    storke: #fff; }
+
+.update progress {
+  margin: 0 1px 0 1px !important; }
+
+.update .icon {
+  font-size: 28px !important; }
+
 .logo-spinner {
   -webkit-animation-name: spin;
   -webkit-animation-duration: 1000ms;
@@ -9406,7 +9424,8 @@ body * {
       top: -47px;
       left: -50%;
       padding: 0 10px;
-      text-align: center; }
+      text-align: center;
+      z-index: 3; }
       .trade .contract-payout .amount .error p {
         color: #fff;
         width: 220px;
@@ -9505,6 +9524,13 @@ body * {
     font-size: 16px;
     padding: 10px !important; }
 
+.trade .contract-type {
+  background: #f2f2f2; }
+  .trade .contract-type .item {
+    background: #f2f2f2; }
+  .trade .contract-type .item-select select {
+    background: #f2f2f2; }
+
 .options .options-content {
   padding-left: 3%;
   padding-right: 3%; }
@@ -9577,6 +9603,8 @@ body * {
   .options .options-ticks .item-radio input:checked ~ .item-content {
     background: #2a3052;
     color: #fff; }
+  .options .options-ticks .disabled {
+    opacity: 0.7; }
 
 .options .options-amount {
   border-bottom: 1px solid #f2f2f2; }
