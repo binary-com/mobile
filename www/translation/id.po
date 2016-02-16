@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-03 11:06+0800\n"
-"PO-Revision-Date: 2016-02-16 07:51+0000\n"
+"PO-Revision-Date: 2016-02-16 07:57+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
@@ -47,28 +47,28 @@ msgstr ""
 
 #: .help.page
 msgid "this page"
-msgstr ""
+msgstr "halaman ini"
 
 #: .app.exit_title
 msgid "Exit"
-msgstr ""
+msgstr "Keluar"
 
 #: .app.connection_error_title
 msgid "Connection Error"
-msgstr ""
+msgstr "Koneksi Error"
 
 #: .app.connection_error
 msgid "There is no internet connection!"
-msgstr ""
+msgstr "Tidak ada koneksi internet!"
 
 #: .app.exit_confirmation
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "Apa Anda yakin ingin keluar?"
 
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Hasil"
 
 #: .trade.net_profit
 msgid "Net Profit"
