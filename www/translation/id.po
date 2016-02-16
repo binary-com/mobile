@@ -30,12 +30,12 @@ msgstr "Silahkan kunjungi"
 #: .help.back
 msgctxt ".help.back"
 msgid "Back"
-msgstr ""
+msgstr "Kembali"
 
 #: .help.need_help
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Perlu Bantuan?"
 
 #: .help.generate_api
 msgid ""
