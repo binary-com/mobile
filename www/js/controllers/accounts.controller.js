@@ -10,7 +10,9 @@
 angular
 	.module('binary')
 	.controller('AccountsController',
-		function($scope, $rootScope, $state, $window, $ionicPopup, websocketService, accountService, alertService, proposalService) {
+		function($scope, $rootScope, $state, $window, $ionicPopup,
+            websocketService, accountService, alertService,
+            proposalService, appStateService, marketService) {
 
 			if (typeof(analytics) !== "undefined") {
 				analytics.trackView("Account Management");
@@ -33,6 +35,9 @@ angular
 						if(res){
 							accountService.removeAll();
 							proposalService.remove();
+                            marketService.removeActiveSymbols();
+                            marketService.removeAssetIndex();
+                            appStateService.isLoggedin = false;
 							$state.go('signin');
 						}
 					}
