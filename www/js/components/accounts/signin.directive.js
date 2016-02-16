@@ -34,11 +34,11 @@ angular
 				 */
 				var init = function() {
 					websocketService.init();
-					if (accountService.hasDefault()) {
-						accountService.validate();
-					}
-					websocketService.sendRequestFor.symbols();
-					websocketService.sendRequestFor.assetIndex();
+//					if (accountService.hasDefault()) {
+//						accountService.validate();
+//					}
+					//websocketService.sendRequestFor.symbols();
+					//websocketService.sendRequestFor.assetIndex();
 					scope.language = languageService.read();
 				};
 
