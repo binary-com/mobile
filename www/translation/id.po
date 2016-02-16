@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-03 11:06+0800\n"
-"PO-Revision-Date: 2016-02-16 07:57+0000\n"
+"PO-Revision-Date: 2016-02-16 09:18+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
@@ -72,269 +72,271 @@ msgstr "Hasil"
 
 #: .trade.net_profit
 msgid "Net Profit"
-msgstr ""
+msgstr "Laba Bersih"
 
 #: .trade.buy
 msgid "BUY"
-msgstr ""
+msgstr "BELI"
 
 #: .trade.loss
 msgid "Loss"
-msgstr ""
+msgstr "Rugi"
 
 #: .trade.total_cost
 msgid "Total Cost"
-msgstr ""
+msgstr "Total Biaya"
 
 #: .trade.win
 msgid "This contract won"
-msgstr ""
+msgstr "Kontrak ini untung"
 
 #: .trade.price
 msgid "Price"
-msgstr ""
+msgstr "Harga"
 
 #: .trade.stake
 msgctxt ".trade.stake"
 msgid "Stake"
-msgstr ""
+msgstr "Modal"
 
 #: .trade.back
 msgctxt ".trade.back"
 msgid "Back"
-msgstr ""
+msgstr "Kembali"
 
 #: .trade.account_balance
 msgid "Account Balance"
-msgstr ""
+msgstr "Saldo Akun"
 
 #: .trade.buy_price
 msgid "Buy Price"
-msgstr ""
+msgstr "Harga Beli"
 
 #: .trade.lose
 msgid "This contract lost"
-msgstr ""
+msgstr "Kontrak ini rugi"
 
 #: .trade.profit
 msgid "Profit"
-msgstr ""
+msgstr "Untung"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
-msgstr ""
+msgstr "Potensi Untung"
 
 #: .trade.final_price
 msgid "Final Price"
-msgstr ""
+msgstr "Harga Akhir"
 
 #: .trade.potential_payout
 msgid "Potential Payout"
-msgstr ""
+msgstr "Potensi Hasil"
 
 #: .trade.balance
 msgid "Balance"
-msgstr ""
+msgstr "Saldo"
 
 #: .trade.transaction_id
 msgid "Transaction Reference"
-msgstr ""
+msgstr "Referensi Transaksi"
 
 #: .signin.paste_token
 msgid "Paste your token here"
-msgstr ""
+msgstr "Paste token Anda disini"
 
 #: .signin.get_token
 msgid "How to get a Token?"
-msgstr ""
+msgstr "Cara mendapat Token?"
 
 #: .signin.add_account
 msgid "Add Account"
-msgstr ""
+msgstr "Tambah Akun"
 
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Perlu Bantuan?"
 
 #: .signin.language
 msgid "Language"
-msgstr ""
+msgstr "Bahasa"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
-msgstr ""
+msgstr "Mengelola Akun"
 
 #: .accounts.default
 msgid "Default"
-msgstr ""
+msgstr "Setelan"
 
 #: .accounts.account
 msgctxt ".accounts.account"
 msgid "Account"
-msgstr ""
+msgstr "Akun"
 
 #: .accounts.add
 msgid "Add"
-msgstr ""
+msgstr "Tambah"
 
 #: .accounts.remove_all
 msgid "Remove All Accounts & Sign Out"
-msgstr ""
+msgstr "Hapus Semua Akun & Keluar"
 
 #: .accounts.new_token
 msgid "Add a new token"
-msgstr ""
+msgstr "Tambahkan token baru"
 
 #: .accounts.delete
 msgid "Delete"
-msgstr ""
+msgstr "Hapus"
 
 #: .accounts.set_as_default
 msgid "Set as default"
-msgstr ""
+msgstr "Pasang sebagai setelan"
 
 #: .alert.remove_token_content
 msgid "Are you sure you want to remove this token?"
-msgstr ""
+msgstr "Apakah Anda yakin ingin menghapus token ini?"
 
 #: .alert.remove_all_tokens_title
 msgid "Removing All Tokens"
-msgstr ""
+msgstr "Hapus Semua Token"
 
 #: .alert.must_number
 msgid "It must be a number."
-msgstr ""
+msgstr "Harus berupa angka."
 
 #: .alert.remove_token_title
 msgid "Removing a Token"
-msgstr ""
+msgstr "Menghapus Token"
 
 #: .alert.no_tick
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
 msgstr ""
+"Pilih pasar dasar lain, Pasar dasar yang Anda pilih tidak menyediakan "
+"pilihan tick."
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
-msgstr ""
+msgstr "Harus antara 0.70 dan 100000."
 
 #: .alert.not_unique
 msgid "You've already added this account."
-msgstr ""
+msgstr "Anda telah menambahkan akun ini."
 
 #: .alert.warning
 msgid "Warning"
-msgstr ""
+msgstr "Peringatan"
 
 #: .alert.error
 msgid "Error!"
-msgstr ""
+msgstr "Error!"
 
 #: .alert.not_auth
 msgid "Sorry, we couldn't authenticate you."
-msgstr ""
+msgstr "Maaf, kami tidak dapat mengotentikasi Anda."
 
 #: .alert.no_underlying
 msgid "There is no underlying for this market. Please try another market."
-msgstr ""
+msgstr "Tidak tersedia dasar untuk pasar ini. Silahkan coba pasar lain."
 
 #: .alert.contract_error
 msgid "Contract not available, please try again."
-msgstr ""
+msgstr "Kontrak tidak tersedia, silahkan coba lagi."
 
 #: .alert.required_field
 msgid "This field is required."
-msgstr ""
+msgstr "Bagian ini diperlukan."
 
 #: .alert.not_valid
 msgid "Please enter a valid token."
-msgstr ""
+msgstr "Masukkan token yang berlaku."
 
 #: .alert.remove_all_tokens_content
 msgid "Are you sure you want to remove all tokens and sign out?"
-msgstr ""
+msgstr "Apakah Anda yakin ingin menghapus semua token dan keluar?"
 
 #: .options.even
 msgid "Even"
-msgstr ""
+msgstr "Even"
 
 #: .options.down
 msgid "Down"
-msgstr ""
+msgstr "Down"
 
 #: .options.account
 msgctxt ".options.account"
 msgid "Account"
-msgstr ""
+msgstr "Akun"
 
 #: .options.forex
 msgid "Forex"
-msgstr ""
+msgstr "Forex"
 
 #: .options.lets_trade
 msgid "Let's trade!"
-msgstr ""
+msgstr "Ayo trade!"
 
 #: .options.digit_match
 msgid "Digit Match"
-msgstr ""
+msgstr "Digit Match"
 
 #: .options.random
 msgid "Random"
-msgstr ""
+msgstr "Random"
 
 #: .options.up
 msgid "Up"
-msgstr ""
+msgstr "Up"
 
 #: .options.select_amount
 msgid "Select Amount"
-msgstr ""
+msgstr "Pilih Jumlah"
 
 #: .options.number_of_ticks
 msgid "Number of Ticks"
-msgstr ""
+msgstr "Jumlah Tick"
 
 #: .options.underlying
 msgid "Underlying"
-msgstr ""
+msgstr "Dasar"
 
 #: .options.digit_differs
 msgid "Digit Differs"
-msgstr ""
+msgstr "Digit Differs"
 
 #: .options.trade_type
 msgid "Trade Types"
-msgstr ""
+msgstr "Jenis Kontrak"
 
 #: .options.save
 msgid "SAVE"
-msgstr ""
+msgstr "SIMPAN"
 
 #: .options.select_market
 msgid "Markets"
-msgstr ""
+msgstr "Pasar"
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
-msgstr ""
+msgstr "Modal"
 
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
-msgstr ""
+msgstr "Analisa Digit Terakhir"
 
 #: .options.odd
 msgid "Odd"
-msgstr ""
+msgstr "Odd"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Hasil"
 
 #: .options.payout_type
 msgid "Payout Type"
-msgstr ""
+msgstr "Jenis Hasil"
