@@ -60,7 +60,7 @@ angular
 							marketService.fixOrder();
 							var markets = marketService.getActiveMarkets();
 							scope.market = {
-								forex: markets.indexOf('forex') !== -1  ? true : false,
+								//forex: markets.indexOf('forex') !== -1  ? true : false,
 								random: markets.indexOf('random') !== -1 ? true : false
 							};
 
