@@ -14,7 +14,11 @@ angular
 		'cleanupService',
 		'$state',
         'languageService',
-		function(accountService, alertService, cleanupService, $state, languageService) {
+        'marketService',
+        'proposalService',
+        'appStateService',
+		function(accountService, alertService, cleanupService, 
+            $state, languageService, marketService, proposalService, appStateService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/manage-accounts.template.html',
@@ -79,6 +83,12 @@ angular
 				scope.setAccountAsDefault = function(_token) {
                     requestId = new Date().getTime();
 					scope.settingDefault = true;
+                    
+                    proposalService.remove();
+                    marketService.removeActiveSymbols();
+                    marketService.removeAssetIndex();
+                    appStateService.isLoggedin = false;
+
 					accountService.setDefault(_token);
 					accountService.validate(null, {req_id: requestId});
 					scope.accounts = accountService.getAll();
