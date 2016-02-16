@@ -154,8 +154,8 @@ angular
 				if (accountService.hasDefault()) {
 					accountService.validate();
 
-					websocketService.sendRequestFor.symbols();
-					websocketService.sendRequestFor.assetIndex();
+//					websocketService.sendRequestFor.symbols();
+//					websocketService.sendRequestFor.assetIndex();
 
 					$scope.proposalToSend = JSON.parse(localStorage.proposal);
 					
