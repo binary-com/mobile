@@ -93,7 +93,7 @@ angular
 			};
 
 			this.getAllSymbolsForAMarket = function(_market) {
-                if(!sessionStorage.active_symbols || !sessionStorage.asset_index){
+                if(!_market || !sessionStorage.active_symbols || !sessionStorage.asset_index){
                     return [];
                 }
 
@@ -139,7 +139,9 @@ angular
 
 						return proposal.passthrough.market;
 					}
-					return _market.random ? 'random' : 'forex';
+                    
+					//return _market.random ? 'random' : 'forex';
+                    return _.findKey(_market, function(o){return o});
 				},
 				/**
 				 * Return the default/selected symbol
@@ -159,6 +161,10 @@ angular
 				},
 
 				tradeType: function(_tradeTypes) {
+                    if(_.isEmpty(_tradeTypes)){
+                        return null;
+                    }
+
 					var proposal = proposalService.get();
 					var contractType = proposal.contract_type;
 					var selectedTradeType = _tradeTypes[0].value;
