@@ -16,6 +16,8 @@ angular
 			templateUrl: 'templates/components/trades/contract-summary.template.html',
 			link: function(scope, element) {
 
+				scope.basis = scope.$parent.proposalToSend.basis || 'payout';
+
                 scope.backToOptionPage = function() {
                     $('.contract-purchase button').attr('disabled', false);
                     scope.setTradeMode(true);

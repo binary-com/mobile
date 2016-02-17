@@ -40,12 +40,14 @@ angular
 
                 scope.getNgDisabled = function(){
                     if(scope.attrs['ngDisabled']){
-                        if(scope.attrs['ngDisabled'][0] != '!'){
-                            return eval('scope.' + scope.attrs['ngDisabled']);
-                        }
-                        else{
-                            return eval('!scope.' + scope.attrs['ngDisabled'].slice(1, scope.attrs['ngDisabled'].length));
-                        }
+//                        if(scope.attrs['ngDisabled'][0] != '!'){
+//                            return eval('scope.' + scope.attrs['ngDisabled']);
+//                        }
+//                        else{
+//                            return eval('!scope.' + scope.attrs['ngDisabled'].slice(1, scope.attrs['ngDisabled'].length));
+//                        }
+//
+                        return scope.$eval(scope.attrs['ngDisabled']);
                     }
                     return false;
                 };
