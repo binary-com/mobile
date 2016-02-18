@@ -4,14 +4,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-03 11:06+0800\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2016-02-18 16:22+0000\n"
+"Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi\n"
-"X-Generator: Translate Toolkit 1.10.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -20,46 +22,49 @@ msgstr ""
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
 msgstr ""
+"và tạo một mã token. Sau đó chỉ cần sao chép và dán nó vào mục trên đầu."
 
 #: .help.visit
 msgid "Please visit"
-msgstr ""
+msgstr "Vui lòng truy cập"
 
 #: .help.back
 msgctxt ".help.back"
 msgid "Back"
-msgstr ""
+msgstr "Trở lại"
 
 #: .help.need_help
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Cần trợ giúp?"
 
 #: .help.generate_api
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
 msgstr ""
+"Để truy cập vào một ứng dụng thứ ba, chẳng hạn như một ứng dụng điện thoại "
+"di động, bạn cần phải tạo ra một mã token API."
 
 #: .help.page
 msgid "this page"
-msgstr ""
+msgstr "trang này"
 
 #: .app.exit_title
 msgid "Exit"
-msgstr ""
+msgstr "Thoát"
 
 #: .app.connection_error_title
 msgid "Connection Error"
-msgstr ""
+msgstr "Lỗi kết nối"
 
 #: .app.connection_error
 msgid "There is no internet connection!"
-msgstr ""
+msgstr "Không có không kết nối internet!"
 
 #: .app.exit_confirmation
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "Bạn có chắc chắn muốn thoát?"
 
 #: .trade.payout
 msgctxt ".trade.payout"
@@ -72,7 +77,7 @@ msgstr ""
 
 #: .trade.buy
 msgid "BUY"
-msgstr ""
+msgstr "MUA"
 
 #: .trade.loss
 msgid "Loss"
@@ -80,29 +85,29 @@ msgstr ""
 
 #: .trade.total_cost
 msgid "Total Cost"
-msgstr ""
+msgstr "Tổng chi phí"
 
 #: .trade.win
 msgid "This contract won"
-msgstr ""
+msgstr "Hợp đồng này đã thắng"
 
 #: .trade.price
 msgid "Price"
-msgstr ""
+msgstr "Giá"
 
 #: .trade.stake
 msgctxt ".trade.stake"
 msgid "Stake"
-msgstr ""
+msgstr "Cổ phần"
 
 #: .trade.back
 msgctxt ".trade.back"
 msgid "Back"
-msgstr ""
+msgstr "Trở lại"
 
 #: .trade.account_balance
 msgid "Account Balance"
-msgstr ""
+msgstr "Số dư tài khoản"
 
 #: .trade.buy_price
 msgid "Buy Price"
@@ -110,19 +115,19 @@ msgstr ""
 
 #: .trade.lose
 msgid "This contract lost"
-msgstr ""
+msgstr "Hợp đồng này đã thất bại"
 
 #: .trade.profit
 msgid "Profit"
-msgstr ""
+msgstr "Lợi nhuận"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
-msgstr ""
+msgstr "Lợi Nhuận Tiềm Năng"
 
 #: .trade.final_price
 msgid "Final Price"
-msgstr ""
+msgstr "Giá Cuối Cùng"
 
 #: .trade.potential_payout
 msgid "Potential Payout"
