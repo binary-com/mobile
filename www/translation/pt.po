@@ -4,175 +4,179 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-03 11:06+0800\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2016-02-18 02:23+0000\n"
+"Last-Translator: Alcino Jorge <alcino@binary.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
-"X-Generator: Translate Toolkit 1.10.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
-msgstr ""
+msgstr "Tem perguntas? Envie um e-mail para o suporte em "
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
-msgstr ""
+msgstr "e crie um token. Depois basta copiar e colá-lo na caixa superior."
 
 #: .help.visit
 msgid "Please visit"
-msgstr ""
+msgstr "Visite"
 
 #: .help.back
 msgctxt ".help.back"
 msgid "Back"
-msgstr ""
+msgstr "Voltar"
 
 #: .help.need_help
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Precisa de ajuda?"
 
 #: .help.generate_api
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
 msgstr ""
+"Para acessar um aplicativo de terceiros, tal como um aplicativo móvel, é "
+"necessário gerar um token de API."
 
 #: .help.page
 msgid "this page"
-msgstr ""
+msgstr "esta página"
 
 #: .app.exit_title
 msgid "Exit"
-msgstr ""
+msgstr "Sair"
 
 #: .app.connection_error_title
 msgid "Connection Error"
-msgstr ""
+msgstr "Erro de conexão"
 
 #: .app.connection_error
 msgid "There is no internet connection!"
-msgstr ""
+msgstr "Não há conexão com a internet!"
 
 #: .app.exit_confirmation
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "Tem certeza que deseja sair?"
 
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Pagamento"
 
 #: .trade.net_profit
 msgid "Net Profit"
-msgstr ""
+msgstr "Lucro líquido"
 
 #: .trade.buy
 msgid "BUY"
-msgstr ""
+msgstr "COMPRAR"
 
 #: .trade.loss
 msgid "Loss"
-msgstr ""
+msgstr "PERDA"
 
 #: .trade.total_cost
 msgid "Total Cost"
-msgstr ""
+msgstr "Custo total"
 
 #: .trade.win
 msgid "This contract won"
-msgstr ""
+msgstr "Este contrato ganhou"
 
 #: .trade.price
 msgid "Price"
-msgstr ""
+msgstr "Preço"
 
 #: .trade.stake
 msgctxt ".trade.stake"
 msgid "Stake"
-msgstr ""
+msgstr "Aposta"
 
 #: .trade.back
 msgctxt ".trade.back"
 msgid "Back"
-msgstr ""
+msgstr "Voltar"
 
 #: .trade.account_balance
 msgid "Account Balance"
-msgstr ""
+msgstr "Saldo da conta"
 
 #: .trade.buy_price
 msgid "Buy Price"
-msgstr ""
+msgstr "Preço de compra"
 
 #: .trade.lose
 msgid "This contract lost"
-msgstr ""
+msgstr "Este contrato perdeu"
 
 #: .trade.profit
 msgid "Profit"
-msgstr ""
+msgstr "Lucro"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
-msgstr ""
+msgstr "Lucro potencial"
 
 #: .trade.final_price
 msgid "Final Price"
-msgstr ""
+msgstr "Preço final"
 
 #: .trade.potential_payout
 msgid "Potential Payout"
-msgstr ""
+msgstr "Pagamento potencial"
 
 #: .trade.balance
 msgid "Balance"
-msgstr ""
+msgstr "Saldo"
 
 #: .trade.transaction_id
 msgid "Transaction Reference"
-msgstr ""
+msgstr "Referência de transação"
 
 #: .signin.paste_token
 msgid "Paste your token here"
-msgstr ""
+msgstr "Cole o seu token aqui"
 
 #: .signin.get_token
 msgid "How to get a Token?"
-msgstr ""
+msgstr "Como recebo um token?"
 
 #: .signin.add_account
 msgid "Add Account"
-msgstr ""
+msgstr "Adicionar conta"
 
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Precisa de ajuda?"
 
 #: .signin.language
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
-msgstr ""
+msgstr "Gerenciar contas"
 
 #: .accounts.default
 msgid "Default"
-msgstr ""
+msgstr "Padrão"
 
 #: .accounts.account
 msgctxt ".accounts.account"
 msgid "Account"
-msgstr ""
+msgstr "Conta"
 
 #: .accounts.add
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #: .accounts.remove_all
 msgid "Remove All Accounts & Sign Out"
