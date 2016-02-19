@@ -4,333 +4,335 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-03 11:06+0800\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2016-02-19 08:31+0000\n"
+"Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
+"tick-trade/app/zh_TW/>\n"
+"Language: zh_tw\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_tw\n"
-"X-Generator: Translate Toolkit 1.10.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
-msgstr ""
+msgstr "有問題？請發電子郵件給客戶支持部。地址是 "
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
-msgstr ""
+msgstr "並新增權杖。然後複製貼到頂部方塊。"
 
 #: .help.visit
 msgid "Please visit"
-msgstr ""
+msgstr "請訪問"
 
 #: .help.back
 msgctxt ".help.back"
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 #: .help.need_help
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "需要幫忙？"
 
 #: .help.generate_api
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
-msgstr ""
+msgstr "要存取第三方應用程式，如手機應用，您必須產生API權杖。"
 
 #: .help.page
 msgid "this page"
-msgstr ""
+msgstr "此頁面"
 
 #: .app.exit_title
 msgid "Exit"
-msgstr ""
+msgstr "結束"
 
 #: .app.connection_error_title
 msgid "Connection Error"
-msgstr ""
+msgstr "連接錯誤"
 
 #: .app.connection_error
 msgid "There is no internet connection!"
-msgstr ""
+msgstr "沒有網際網路連接服務！"
 
 #: .app.exit_confirmation
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "確認結束?"
 
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr ""
+msgstr "賠付額"
 
 #: .trade.net_profit
 msgid "Net Profit"
-msgstr ""
+msgstr "淨利"
 
 #: .trade.buy
 msgid "BUY"
-msgstr ""
+msgstr "購入"
 
 #: .trade.loss
 msgid "Loss"
-msgstr ""
+msgstr "虧損"
 
 #: .trade.total_cost
 msgid "Total Cost"
-msgstr ""
+msgstr "成本總計"
 
 #: .trade.win
 msgid "This contract won"
-msgstr ""
+msgstr "此合約獲利"
 
 #: .trade.price
 msgid "Price"
-msgstr ""
+msgstr "價格"
 
 #: .trade.stake
 msgctxt ".trade.stake"
 msgid "Stake"
-msgstr ""
+msgstr "投注金額"
 
 #: .trade.back
 msgctxt ".trade.back"
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 #: .trade.account_balance
 msgid "Account Balance"
-msgstr ""
+msgstr "帳戶餘額"
 
 #: .trade.buy_price
 msgid "Buy Price"
-msgstr ""
+msgstr "購入價格"
 
 #: .trade.lose
 msgid "This contract lost"
-msgstr ""
+msgstr "此合約虧損"
 
 #: .trade.profit
 msgid "Profit"
-msgstr ""
+msgstr "盈利"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
-msgstr ""
+msgstr "潛在利潤"
 
 #: .trade.final_price
 msgid "Final Price"
-msgstr ""
+msgstr "最終價格"
 
 #: .trade.potential_payout
 msgid "Potential Payout"
-msgstr ""
+msgstr "潛在賠付額"
 
 #: .trade.balance
 msgid "Balance"
-msgstr ""
+msgstr "餘額"
 
 #: .trade.transaction_id
 msgid "Transaction Reference"
-msgstr ""
+msgstr "交易參考號"
 
 #: .signin.paste_token
 msgid "Paste your token here"
-msgstr ""
+msgstr "在此貼上權杖"
 
 #: .signin.get_token
 msgid "How to get a Token?"
-msgstr ""
+msgstr "如何獲取權杖?"
 
 #: .signin.add_account
 msgid "Add Account"
-msgstr ""
+msgstr "新增帳戶"
 
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "需要幫忙?"
 
 #: .signin.language
 msgid "Language"
-msgstr ""
+msgstr "語言"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
-msgstr ""
+msgstr "帳戶管理"
 
 #: .accounts.default
 msgid "Default"
-msgstr ""
+msgstr "預設值"
 
 #: .accounts.account
 msgctxt ".accounts.account"
 msgid "Account"
-msgstr ""
+msgstr "帳戶"
 
 #: .accounts.add
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: .accounts.remove_all
 msgid "Remove All Accounts & Sign Out"
-msgstr ""
+msgstr "刪除所有帳戶並登出"
 
 #: .accounts.new_token
 msgid "Add a new token"
-msgstr ""
+msgstr "新增權杖"
 
 #: .accounts.delete
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 #: .accounts.set_as_default
 msgid "Set as default"
-msgstr ""
+msgstr "設定為預設值"
 
 #: .alert.remove_token_content
 msgid "Are you sure you want to remove this token?"
-msgstr ""
+msgstr "確認刪除此權杖?"
 
 #: .alert.remove_all_tokens_title
 msgid "Removing All Tokens"
-msgstr ""
+msgstr "正在刪除所有權杖"
 
 #: .alert.must_number
 msgid "It must be a number."
-msgstr ""
+msgstr "須為數字。"
 
 #: .alert.remove_token_title
 msgid "Removing a Token"
-msgstr ""
+msgstr "正在刪除權杖"
 
 #: .alert.no_tick
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
-msgstr ""
+msgstr "請選取另一個標的資產。所選標的資產並不支持跳動點。"
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
-msgstr ""
+msgstr "必須在 0.70 和 100000 之間。"
 
 #: .alert.not_unique
 msgid "You've already added this account."
-msgstr ""
+msgstr "您已新增此帳戶。"
 
 #: .alert.warning
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: .alert.error
 msgid "Error!"
-msgstr ""
+msgstr "錯誤!"
 
 #: .alert.not_auth
 msgid "Sorry, we couldn't authenticate you."
-msgstr ""
+msgstr "對不起，我們無法驗證您的身份。"
 
 #: .alert.no_underlying
 msgid "There is no underlying for this market. Please try another market."
-msgstr ""
+msgstr "此市場沒有基礎交易。請試其他市場。"
 
 #: .alert.contract_error
 msgid "Contract not available, please try again."
-msgstr ""
+msgstr "合約不可使用，請重試。"
 
 #: .alert.required_field
 msgid "This field is required."
-msgstr ""
+msgstr "此為必填欄位。"
 
 #: .alert.not_valid
 msgid "Please enter a valid token."
-msgstr ""
+msgstr "請輸入有效權杖。"
 
 #: .alert.remove_all_tokens_content
 msgid "Are you sure you want to remove all tokens and sign out?"
-msgstr ""
+msgstr "確認要刪除所有權杖並登出?"
 
 #: .options.even
 msgid "Even"
-msgstr ""
+msgstr "偶數"
 
 #: .options.down
 msgid "Down"
-msgstr ""
+msgstr "下跌"
 
 #: .options.account
 msgctxt ".options.account"
 msgid "Account"
-msgstr ""
+msgstr "帳戶"
 
 #: .options.forex
 msgid "Forex"
-msgstr ""
+msgstr "外匯"
 
 #: .options.lets_trade
 msgid "Let's trade!"
-msgstr ""
+msgstr "開始交易吧!"
 
 #: .options.digit_match
 msgid "Digit Match"
-msgstr ""
+msgstr "數字符合"
 
 #: .options.random
 msgid "Random"
-msgstr ""
+msgstr "隨機"
 
 #: .options.up
 msgid "Up"
-msgstr ""
+msgstr "上漲"
 
 #: .options.select_amount
 msgid "Select Amount"
-msgstr ""
+msgstr "選取金額"
 
 #: .options.number_of_ticks
 msgid "Number of Ticks"
-msgstr ""
+msgstr "跳動點數"
 
 #: .options.underlying
 msgid "Underlying"
-msgstr ""
+msgstr "標的資產"
 
 #: .options.digit_differs
 msgid "Digit Differs"
-msgstr ""
+msgstr "數字差異"
 
 #: .options.trade_type
 msgid "Trade Types"
-msgstr ""
+msgstr "交易類型"
 
 #: .options.save
 msgid "SAVE"
-msgstr ""
+msgstr "儲存"
 
 #: .options.select_market
 msgid "Markets"
-msgstr ""
+msgstr "市場"
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
-msgstr ""
+msgstr "投注額"
 
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
-msgstr ""
+msgstr "最後數字的預測"
 
 #: .options.odd
 msgid "Odd"
-msgstr ""
+msgstr "奇數"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
-msgstr ""
+msgstr "賠付額"
 
 #: .options.payout_type
 msgid "Payout Type"
-msgstr ""
+msgstr "賠付類型"
