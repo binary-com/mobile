@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-03 11:06+0800\n"
-"PO-Revision-Date: 2016-02-18 16:22+0000\n"
+"PO-Revision-Date: 2016-02-21 18:14+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/vi/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
-msgstr ""
+msgstr "Bạn thắc mắc điều gì? Hãy gửi email cho đội ngũ hỗ trợ khách hàng tại "
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
@@ -69,11 +69,11 @@ msgstr "Bạn có chắc chắn muốn thoát?"
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Thanh toán"
 
 #: .trade.net_profit
 msgid "Net Profit"
-msgstr ""
+msgstr "Lợi nhuận ròng"
 
 #: .trade.buy
 msgid "BUY"
@@ -81,7 +81,7 @@ msgstr "MUA"
 
 #: .trade.loss
 msgid "Loss"
-msgstr ""
+msgstr "Thua lỗ"
 
 #: .trade.total_cost
 msgid "Total Cost"
@@ -111,7 +111,7 @@ msgstr "Số dư tài khoản"
 
 #: .trade.buy_price
 msgid "Buy Price"
-msgstr ""
+msgstr "Giá mua"
 
 #: .trade.lose
 msgid "This contract lost"
@@ -131,211 +131,215 @@ msgstr "Giá Cuối Cùng"
 
 #: .trade.potential_payout
 msgid "Potential Payout"
-msgstr ""
+msgstr "Khả năng thanh toán"
 
 #: .trade.balance
 msgid "Balance"
-msgstr ""
+msgstr "Cân bằng"
 
 #: .trade.transaction_id
 msgid "Transaction Reference"
-msgstr ""
+msgstr "Tham chiếu giao dịch"
 
 #: .signin.paste_token
 msgid "Paste your token here"
-msgstr ""
+msgstr "Dán mã token của bạn ở đây"
 
 #: .signin.get_token
 msgid "How to get a Token?"
-msgstr ""
+msgstr "Làm thế nào để nhận mã Token?"
 
 #: .signin.add_account
 msgid "Add Account"
-msgstr ""
+msgstr "Thêm tài khoản"
 
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Cần trợ giúp?"
 
 #: .signin.language
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
-msgstr ""
+msgstr "Quản lý tài khoản"
 
 #: .accounts.default
 msgid "Default"
-msgstr ""
+msgstr "Mặc định"
 
 #: .accounts.account
 msgctxt ".accounts.account"
 msgid "Account"
-msgstr ""
+msgstr "Tài Khoản"
 
 #: .accounts.add
 msgid "Add"
-msgstr ""
+msgstr "Thêm"
 
 #: .accounts.remove_all
 msgid "Remove All Accounts & Sign Out"
-msgstr ""
+msgstr "Xóa tất cả các tài khoản & Đăng xuất"
 
 #: .accounts.new_token
 msgid "Add a new token"
-msgstr ""
+msgstr "Thêm một mã token mới"
 
 #: .accounts.delete
 msgid "Delete"
-msgstr ""
+msgstr "Xóa"
 
 #: .accounts.set_as_default
 msgid "Set as default"
-msgstr ""
+msgstr "Đặt làm mặc định"
 
 #: .alert.remove_token_content
 msgid "Are you sure you want to remove this token?"
-msgstr ""
+msgstr "Bạn có chắc muốn xóa mã token này?"
 
 #: .alert.remove_all_tokens_title
 msgid "Removing All Tokens"
-msgstr ""
+msgstr "Loại bỏ tất cả Token"
 
 #: .alert.must_number
 msgid "It must be a number."
-msgstr ""
+msgstr "Nó phải là một số."
 
 #: .alert.remove_token_title
 msgid "Removing a Token"
-msgstr ""
+msgstr "Xóa bỏ một mã Token"
 
 #: .alert.no_tick
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
 msgstr ""
+"Vui lòng lựa chọn một thị trường cơ bản khác, Thị trường cơ bản mà bạn chọn "
+"không hỗ trợ khoảng thời gian là giây."
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
-msgstr ""
+msgstr "Nó phải nằm giữa 0.70 và 100000."
 
 #: .alert.not_unique
 msgid "You've already added this account."
-msgstr ""
+msgstr "Bạn đã thêm tài khoản này."
 
 #: .alert.warning
 msgid "Warning"
-msgstr ""
+msgstr "Cảnh báo"
 
 #: .alert.error
 msgid "Error!"
-msgstr ""
+msgstr "Lỗi!"
 
 #: .alert.not_auth
 msgid "Sorry, we couldn't authenticate you."
-msgstr ""
+msgstr "Xin lỗi, chúng tôi không thể xác thực bạn."
 
 #: .alert.no_underlying
 msgid "There is no underlying for this market. Please try another market."
 msgstr ""
+"Không có công cụ tài chính cho thị trường này. Vui lòng thử lại với thị "
+"trường khác."
 
 #: .alert.contract_error
 msgid "Contract not available, please try again."
-msgstr ""
+msgstr "Hợp đồng không khả dụng, vui lòng thử lại."
 
 #: .alert.required_field
 msgid "This field is required."
-msgstr ""
+msgstr "Lĩnh vực này là cần thiết."
 
 #: .alert.not_valid
 msgid "Please enter a valid token."
-msgstr ""
+msgstr "Vui lòng nhập một mã token hợp lệ."
 
 #: .alert.remove_all_tokens_content
 msgid "Are you sure you want to remove all tokens and sign out?"
-msgstr ""
+msgstr "Bạn có chắc muốn gỡ bỏ tất cả mã token và đăng xuất?"
 
 #: .options.even
 msgid "Even"
-msgstr ""
+msgstr "Chẵn"
 
 #: .options.down
 msgid "Down"
-msgstr ""
+msgstr "Xuống"
 
 #: .options.account
 msgctxt ".options.account"
 msgid "Account"
-msgstr ""
+msgstr "Tài khoản"
 
 #: .options.forex
 msgid "Forex"
-msgstr ""
+msgstr "Ngoại hối"
 
 #: .options.lets_trade
 msgid "Let's trade!"
-msgstr ""
+msgstr "Giao dịch thôi!"
 
 #: .options.digit_match
 msgid "Digit Match"
-msgstr ""
+msgstr "Chữ số khớp"
 
 #: .options.random
 msgid "Random"
-msgstr ""
+msgstr "Ngẫu nhiên"
 
 #: .options.up
 msgid "Up"
-msgstr ""
+msgstr "Lên"
 
 #: .options.select_amount
 msgid "Select Amount"
-msgstr ""
+msgstr "Chọn số tiền"
 
 #: .options.number_of_ticks
 msgid "Number of Ticks"
-msgstr ""
+msgstr "Số giây"
 
 #: .options.underlying
 msgid "Underlying"
-msgstr ""
+msgstr "Tài sản cơ bản"
 
 #: .options.digit_differs
 msgid "Digit Differs"
-msgstr ""
+msgstr "Chữ số khác nhau"
 
 #: .options.trade_type
 msgid "Trade Types"
-msgstr ""
+msgstr "Kiểu Giao dịch"
 
 #: .options.save
 msgid "SAVE"
-msgstr ""
+msgstr "LƯU"
 
 #: .options.select_market
 msgid "Markets"
-msgstr ""
+msgstr "Thị trường"
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
-msgstr ""
+msgstr "Cổ phần"
 
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
-msgstr ""
+msgstr "Dự đoán Chữ số cuối cùng"
 
 #: .options.odd
 msgid "Odd"
-msgstr ""
+msgstr "Lẻ"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Thanh toán"
 
 #: .options.payout_type
 msgid "Payout Type"
-msgstr ""
+msgstr "Loại Thanh toán"
