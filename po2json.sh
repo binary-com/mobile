@@ -30,7 +30,7 @@ if [ "$current_branch" != "translation" ] ;then
 	stashed=1
 	git checkout translation
 fi
-tmp_file="/tmp/json-"`date +'%h%m%d%H%M%S'`
+tmp_file="/tmp/po2json-"`date +'%h%m%d%H%M%S'`
 mkdir "$tmp_file"
 cp -r www/translation "$tmp_file"
 if [ "$mode" == "EXCLUSIVE" ]; then
