@@ -35,7 +35,7 @@ json2po -t "$tmp_file/lang" "$tmp_file/old_po" "$tmp_file/new_po"
 pushd www/translation&&
 	for i in `ls !(en.json)`; do msgmerge -U $i "$tmp_file/new_po/$i"; done&&
 popd
-git add www/translation/*.json
+git add www/translation/*.po
 git commit -m "Updated translation files with the recent changes - `date +'%y%m%d'`"
 
 shopt -u extglob
