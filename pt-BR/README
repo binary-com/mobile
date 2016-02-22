@@ -1,0 +1,56 @@
+[English]
+Brazilian Portugese Translation
+
+The translation is managed with Weblate:
+http://debian.weblate.org/projects/debian-handbook/
+
+If you want to participate, join the debian-l10n-portuguese mailing list
+(portuguese):
+* http://lists.debian.org/debian-l10n-portuguese/
+and contact us to have your name added to the translators list.
+
+You should also join the debian-handbook-translators mailing list
+(english only):
+* http://lists.alioth.debian.org/mailman/listinfo/debian-handbook-translators
+
+If you have any questions, ask them first in the debian-l10n-portuguese
+mailing list. If your question is not answered, then you should ask in the
+debian-handbook-translators mailing list.
+
+Translation coordinator: Claudio Ferreira Filho <filhocf@gmail.com>
+
+Translators:
+ Antonio Terceiro <terceiro@debian.org>
+ Denis Doria <denisdoria@gmail.com>
+ Éverton Arruda <root@earruda.eti.br>
+ Ezequiel Santos <zeckg@hotmail.com>
+ Iran Alboquerque <irandealbuquerque@gmail.com>
+ Francisco Aparecido da Silva <francisco@silva.eti.br>
+ Fred Maranhão <fred.maranhao@gmail.com>
+ Krisley Bernado <krisley.bernardo@outlook.com>
+ Maurício Tatsuya <mauriciotf2@gmail.com>
+ Rafael de Almeida Matias <rafaelitpro@gmail.com>
+ Rodrigo Borges de Azevedo <ro@roazevedo.com>
+ Rodrigo Salvador <drivador-weblate@yahoo.com.br>
+ Willer Gomes Junior <willer@ogomes.com>
+
+---------------------------------
+
+[Português do Brasil]
+Tradução para Português do Brasil
+
+A tradução é gerenciada com Weblate:
+http://debian.weblate.org/projects/debian-handbook/
+
+Se você deseja participar, cadastre-se na lista de discussões
+debian-l10n-portuguese (português):
+* http://lists.debian.org/debian-l10n-portuguese/
+e contate-nos para ter seu nome adicionado à lista de tradutores.
+
+Você deve, também, cadastrar-se na lista de discussões
+debian-handbook-translators (somente inglês):
+* http://lists.alioth.debian.org/mailman/listinfo/debian-handbook-translators
+
+Se você tem qualquer dúvida, pergunte primeiro pela lista de discussões
+debian-l10n-portuguese. Caso sua dúvida não seja sanada, então você deve
+perguntar na lista de discussões debian-handbook-translators.

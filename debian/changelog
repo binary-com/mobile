@@ -1,0 +1,108 @@
+debian-handbook (7.20140205) UNRELEASED; urgency=medium
+
+  * Fix typo OPSF -> OSPF and Traditionnally -> Traditionally.
+    Closes: #737255, #737884 Thanks to Anders Jonsson for the patches.
+  * Fix typo possibbility -> possibility. Closes: #754481
+    Thanks to Julian Weber for the patch.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Wed, 05 Feb 2014 21:49:57 +0100
+
+debian-handbook (7.20140126) unstable; urgency=medium
+
+  * Fix typo publicicy -> publicity. Closes: #734883
+  * Other misc typo and markup fixes.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Sun, 26 Jan 2014 21:29:20 +0100
+
+debian-handbook (7.20131230) unstable; urgency=low
+
+  [ Philipp Kern ]
+  * Restructure the section about IPv6 and document IPv6 privacy extensions.
+  * Update OS -> Debian architectures mapping in chapter 3.
+
+  [ Raphaël Hertzog ]
+  * In chapter 15, replace reference to APT chapter with an xref.
+    Closes: #681720 Thanks to Daniele Forsi for the patch.
+  * Document multi-arch support. Closes: #675458
+  * Chapter 6 (APT):
+    - use codenames instead of suites and explain why we made that choice.
+      Closes: #672488
+    - document sources.list for users of testing/unstable. Closes: #675521
+    - document approx/apt-cacher as proxy cache for APT repositories
+    - document unattended-upgrades as a way to auto-install some updates
+  * Chapter 8 (basic configuration):
+    - update information about locate/updatedb. Closes: #675943
+    - document the Windows registry key to get it to consider the
+      clock as UTC. Closes: #686634
+    - update section about custom kernel to no longer mention
+      kernel-package but “make deb-pkg”
+    - indicate how to create “System connections” with Network Manager
+  * Chapter 9 (Unix services):
+    - de-emphasize telnet, rsh and other obsolete protocols. Closes: #681412
+    - drop section about APM
+    - drop section about PCMCIA
+  * Chapter 11 (Network services):
+    - update LDAP configuration method to rely on cn=config integrated
+      configuration method. Closes: #672511
+    - smbmount is replaced by mount -t cifs. Closes: #696893
+    - CIFS is not the successor of SMB but rather a synonym.
+      Closes: #700168 Thanks to Reinier Olislagers for the patch.
+
+  [ Roland Mas ]
+  * Chapter 3: rephrase paragraph about AppleTalk and Netatalk (closes:
+    #681399).
+  * Chapter 4: update location of Synaptic in Gnome menus (closes:
+    #718470).
+  * Chapter 13: mention LXDE in the "XFCE and others" section (closes:
+    #696892).
+  * Chapter 13: KOffice is now Calligra Suite (closes: #696894).
+  * Chapter 13: Document current workings of the gdm3 configuration
+    (closes: #699926).
+  * Chapter 13: Document proper way of running Wine (closes: #674980).
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Mon, 30 Dec 2013 10:36:25 +0100
+
+debian-handbook (6.0+20121031) unstable; urgency=low
+
+  * Minor corrections:
+    - missing spaces in chapter 5. Closes: #672931, #672930
+    - duplicate words in chapter 4. Closes: #672925
+    - "a" instead of "an" in chapter 8. Closes: #673037
+    - misplaced word in a sentence in chapter 8. Closes: #673039
+    - SSH is Secure Shell, not Secured Shell. Closes: #673078
+    - miscellaneous typos. Closes: #673092, #673553
+    Thank you to Steve Gauthier for spotting these mistakes.
+    - more typo fixes by Christopher Wellons. Closes: #673604, #673728
+    - harmonize to american spelling. Closes: #673729
+    - replace GAIM by AIM. Closes: #673731
+    - kwm is now kwin. Closes: #673733
+    Thank you to Christopher Wellons for all this.
+    - typos spotted by Raúl Benencia. Closes: #675508
+    - duplicate words spotted by Richard Nienaber. Closes: #692223
+  * Replace "lead" by "led" where appropriate. Closes: #672976
+    Thanks to Jim Hill <gjthill@gmail.com> for the patch.
+  * Misc improvements suggested by "Francesco Poli (wintermute)"
+    <invernomuto@paranoici.org>. Closes: #673463, #673650, #674607
+    Closes: #675523, #676693, #676913, #678582, #679768, #680651
+    Closes: #682786, #683156, #684562, #684983, #685285
+    - /etc/debian_version no longer says "testing/unstable"
+      but "<codename>/sid" during development
+    - use correct URL for LARTC HOWTO
+    - use "new member process" instead of "new maintainer process"
+  * Fix name of package providing Kopete. Closes: #672462
+    Thank you to Tim Edwards for spotting this mistake.
+  * Some consistency fixes by Daniele Forsi <dforsi@gmail.com>.
+    Closes: #674757, #675166
+  * List amd64 as possible architecture for computers running
+    MacOS. Thanks to Shawn Landden <shawnlandden@gmail.com>
+    for the patch. Closes: #676821
+  * Improve description to mention that the book is stored
+    in /usr/share/doc/debian-handbook/. Closes: #683507
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Wed, 31 Oct 2012 15:32:34 +0100
+
+debian-handbook (6.0+20120509) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Wed, 09 May 2012 20:50:04 +0200

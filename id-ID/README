@@ -1,0 +1,126 @@
+[English]
+Indonesian Translation
+
+The translation is managed git
+
+If you want to participate, join the debian-l10n-indonesian mailing list
+(indonesian):
+* http://lists.debian.org/debian-l10n-indonesian/ 
+and contact us to have your name added to the translators list.
+
+You should also join the debian-handbook-translators mailing list
+(english only):
+* http://lists.alioth.debian.org/mailman/listinfo/debian-handbook-translators
+
+If you have any questions, ask them first in the debian-l10n-indonesian
+mailing list. If your question is not answered, then you should ask in the
+debian-handbook-translators mailing list.
+
+Translation coordinator: Zaki Akhmad <za@python.or.id>
+
+Translators:
+ Samsul Ma'arif <mail@samsul.web.id> 
+ Zaki Akhmad <za@python.or.id> 
+
+The first target of the translation is to finish translate Chapter 1. 
+
+On March 1st, 2013, I released the Debian Handbook with translated Chapter 1.
+This is a testing release. You may get the book here: 
+
+* PDF: http://za.cindai.web.id/debian/debian-handbook/id/20130301/debian-handbook.pdf
+* epub: http://za.cindai.web.id/debian/debian-handbook/id/20130301/debian-handbook.epub
+
+You can read my preface for this release here: 
+* http://blogs.itb.ac.id/zakiakhmad/2013/03/01/rilis-debian-handbook-bahasa-indonesia-bab-1/
+
+Following are terms which is intentionally not translated: 
+
+* DFSG
+* Debian Maintainer
+* Debian Policy
+* autobuilders
+* bug
+* compile
+* copyleft
+* copyright
+* debian maintainer
+* driver
+* firmware
+* install
+* main (dalam konteks nama kategori atau bagian paket debian)
+* non-free
+* patch
+* proprietary
+* script
+* severity
+* stable
+* testing
+* unstable
+* upstream
+* wishlist (severity level)
+* working copy (dalam konteks CVS)
+
+---------------------------------
+
+[Bahasa Indonesia]
+Penerjemahan ke Bahasa Indonesia
+
+Penerjemahan ini menggunakan git
+
+Jika Anda ingin berpartisipasi, silakan gabung di milis debian-l10n-indonesian:
+* http://lists.debian.org/debian-l10n-indonesian/
+dan kontak kami jika Anda ingin nama Anda ditambahkan pada daftar penerjemah.
+
+Anda juga sebaiknya gabung di milis penerjemah buku pegangan Debian
+(hanya Bahasa Inggris):
+* http://lists.alioth.debian.org/mailman/listinfo/debian-handbook-translators
+
+Jika Anda memiliki pertanyaan, silakan tanya lebih dulu pada milis
+debian-l10n-indonesian. Jika pertanyaan Anda belum terjawab, silakan Anda
+bertanya pada milis penerjemah buku pegangan Debian
+
+Koordinator penerjemah: Zaki Akhmad <za@python.or.id>
+
+Penerjemah: 
+ Samsul Ma'arif <mail@samsul.web.id>
+ Zaki Akhmad <za@python.or.id>
+
+Target pertama penerjemahan ini adalah menerjemahkan Bab 1 dengan baik dengan
+memperhatikan konteks penerjemahan.
+
+Pada tanggal 1 Maret 2013, saya putuskan untuk merilis Debian Handbook dengan
+Bab 1 yang sudah rapi diterjemahkan. Rilis ini saya sebut rilis testing. Rilis
+ini dapat diunduh di: 
+
+* PDF: http://za.cindai.web.id/debian/debian-handbook/id/20130301/debian-handbook.pdf
+* epub: http://za.cindai.web.id/debian/debian-handbook/id/20130301/debian-handbook.epub
+
+Untuk kata pengantar saya pada rilis ini dapat dibaca di: 
+* http://blogs.itb.ac.id/zakiakhmad/2013/03/01/rilis-debian-handbook-bahasa-indonesia-bab-1/
+
+Berikut beberapa istilah yang sengaja tidak diterjemahkan: 
+
+* DFSG
+* Debian Maintainer
+* Debian Policy
+* autobuilders
+* bug
+* compile
+* copyleft
+* copyright
+* debian maintainer
+* driver
+* firmware
+* install
+* main (dalam konteks nama kategori atau bagian paket debian)
+* non-free
+* patch
+* proprietary
+* script
+* severity
+* stable
+* testing
+* unstable
+* upstream
+* wishlist (severity level)
+* working copy (dalam konteks CVS)
