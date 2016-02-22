@@ -1,13 +1,13 @@
-#. extracted from i18n/en.json
+#. extracted from /tmp/json2po-Feb0222121951/lang/fr.json, /tmp/json2po-Feb0222121951/old_po/fr.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-03 11:06+0800\n"
+"POT-Creation-Date: 2016-02-22 12:19+0430\n"
 "PO-Revision-Date: 2016-02-17 21:18+0000\n"
 "Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,6 +78,30 @@ msgstr "Il n'y a pas de connexion internet !"
 msgid "Are you sure you want to exit?"
 msgstr "Êtes-vous sûr de vouloir quitter ?"
 
+#: .update.downloading
+msgid "Downloading ..."
+msgstr ""
+
+#: .update.installing
+msgid "Installing update"
+msgstr ""
+
+#: .update.installed
+msgid "The update was installed successfully."
+msgstr ""
+
+#: .update.up_to_date
+msgid "The application is up to date."
+msgstr ""
+
+#: .update.check_for_update
+msgid "Checking for update."
+msgstr ""
+
+#: .update.error
+msgid "An error occured while checking for updates"
+msgstr ""
+
 #: .trade.payout
 #, fuzzy
 msgctxt ".trade.payout"
@@ -93,6 +117,10 @@ msgstr "Bénéfice Net"
 #, fuzzy
 msgid "BUY"
 msgstr "ACHETER"
+
+#: .trade.buy_again
+msgid "Buy Again"
+msgstr ""
 
 #: .trade.loss
 #, fuzzy
