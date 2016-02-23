@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-02-18 15:19+0000\n"
+"PO-Revision-Date: 2016-02-23 23:04+0000\n"
 "Last-Translator: olga borg <olga@binary.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/es/>\n"
@@ -18,50 +18,55 @@ msgstr ""
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
 msgstr ""
+"¿Tiene preguntas? Contacte el servicio de atención al cliente por correo "
+"electrónico "
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
 msgstr ""
+"y cree un token. Después, simplemente copie y pegue en el cuadro superior."
 
 #: .help.visit
 msgid "Please visit"
-msgstr ""
+msgstr "Por favor visite"
 
 #: .help.back
 msgctxt ".help.back"
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 #: .help.need_help
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "¿Necesita ayuda?"
 
 #: .help.generate_api
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
 msgstr ""
+"Para acceder a una aplicación de terceros, como por ejemplo una aplicación "
+"móvil, se le requiere que genere una API de emergencia."
 
 #: .help.page
 msgid "this page"
-msgstr ""
+msgstr "esta página"
 
 #: .app.exit_title
 msgid "Exit"
-msgstr ""
+msgstr "Salir"
 
 #: .app.connection_error_title
 msgid "Connection Error"
-msgstr ""
+msgstr "Error de conexión"
 
 #: .app.connection_error
 msgid "There is no internet connection!"
-msgstr ""
+msgstr "¡No hay conexión a Internet!"
 
 #: .app.exit_confirmation
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "¿Está seguro que quiere salir?"
 
 #: .update.downloading
 msgid "Downloading ..."
