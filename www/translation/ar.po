@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-03 11:06+0800\n"
-"PO-Revision-Date: 2016-02-22 23:10+0000\n"
-"Last-Translator: Ehab Gubil <egubil@gmail.com>\n"
+"PO-Revision-Date: 2016-02-23 01:50+0000\n"
+"Last-Translator: Rudy Karam <rudykaram6@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/ar/>\n"
 "Language: ar\n"
@@ -51,7 +51,7 @@ msgstr "هذه الصفحة"
 
 #: .app.exit_title
 msgid "Exit"
-msgstr ""
+msgstr "خروج"
 
 #: .app.connection_error_title
 msgid "Connection Error"
