@@ -1,4 +1,4 @@
-#. extracted from i18n/en.json
+#. extracted from /tmp/json2po-Feb0222121951/lang/en.json, /tmp/json2po-Feb0222121951/old_po/en.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -71,6 +71,30 @@ msgstr "Keine Internetverbindung!"
 msgid "Are you sure you want to exit?"
 msgstr "Sind Sie sicher, dass Sie beenden möchten?"
 
+#: .update.downloading
+msgid "Downloading ..."
+msgstr ""
+
+#: .update.installing
+msgid "Installing update"
+msgstr ""
+
+#: .update.installed
+msgid "The update was installed successfully."
+msgstr ""
+
+#: .update.up_to_date
+msgid "The application is up to date."
+msgstr ""
+
+#: .update.check_for_update
+msgid "Checking for update."
+msgstr ""
+
+#: .update.error
+msgid "An error occured while checking for updates"
+msgstr ""
+
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
@@ -83,6 +107,10 @@ msgstr "Nettogewinn"
 #: .trade.buy
 msgid "BUY"
 msgstr "KAUFEN"
+
+#: .trade.buy_again
+msgid "Buy Again"
+msgstr ""
 
 #: .trade.loss
 msgid "Loss"

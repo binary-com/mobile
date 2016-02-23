@@ -1,16 +1,16 @@
-#. extracted from i18n/en.json
+#. extracted from /tmp/json2po-Feb0222121951/lang/ru.json, /tmp/json2po-Feb0222121951/old_po/ru.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-03 11:06+0800\n"
+"POT-Creation-Date: 2016-02-22 12:19+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 "X-Generator: Translate Toolkit 1.10.0\n"
 
 #: .help.email_cs
@@ -61,6 +61,30 @@ msgstr ""
 msgid "Are you sure you want to exit?"
 msgstr ""
 
+#: .update.downloading
+msgid "Downloading ..."
+msgstr ""
+
+#: .update.installing
+msgid "Installing update"
+msgstr ""
+
+#: .update.installed
+msgid "The update was installed successfully."
+msgstr ""
+
+#: .update.up_to_date
+msgid "The application is up to date."
+msgstr ""
+
+#: .update.check_for_update
+msgid "Checking for update."
+msgstr ""
+
+#: .update.error
+msgid "An error occured while checking for updates"
+msgstr ""
+
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
@@ -72,6 +96,10 @@ msgstr ""
 
 #: .trade.buy
 msgid "BUY"
+msgstr ""
+
+#: .trade.buy_again
+msgid "Buy Again"
 msgstr ""
 
 #: .trade.loss
