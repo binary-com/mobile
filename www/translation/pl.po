@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-02-19 18:57+0000\n"
+"PO-Revision-Date: 2016-02-23 11:23+0000\n"
 "Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-trade/"
-"app/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +50,7 @@ msgstr ""
 
 #: .help.page
 msgid "this page"
-msgstr ""
+msgstr "tę stronę"
 
 #: .app.exit_title
 msgid "Exit"
@@ -70,27 +70,27 @@ msgstr "Czy na pewno chcesz wyjść?"
 
 #: .update.downloading
 msgid "Downloading ..."
-msgstr ""
+msgstr "Pobieranie ..."
 
 #: .update.installing
 msgid "Installing update"
-msgstr ""
+msgstr "Instalowanie aktualizacji"
 
 #: .update.installed
 msgid "The update was installed successfully."
-msgstr ""
+msgstr "Aktualizacje zostały zainstalowane."
 
 #: .update.up_to_date
 msgid "The application is up to date."
-msgstr ""
+msgstr "Korzystasz z aktualnej wersji aplikacji."
 
 #: .update.check_for_update
 msgid "Checking for update."
-msgstr ""
+msgstr "Sprawdzanie dostępności aktualizacji."
 
 #: .update.error
 msgid "An error occured while checking for updates"
-msgstr ""
+msgstr "Podczas sprawdzania dostępności aktualizacji wystąpił błąd"
 
 #: .trade.payout
 msgctxt ".trade.payout"
@@ -107,7 +107,7 @@ msgstr "KUP"
 
 #: .trade.buy_again
 msgid "Buy Again"
-msgstr ""
+msgstr "Kup ponownie"
 
 #: .trade.loss
 msgid "Loss"
@@ -223,7 +223,7 @@ msgstr "Usuń"
 
 #: .accounts.set_as_default
 msgid "Set as default"
-msgstr ""
+msgstr "Ustaw jako domyślne"
 
 #: .alert.remove_token_content
 msgid "Are you sure you want to remove this token?"
