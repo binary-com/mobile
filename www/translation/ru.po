@@ -4,298 +4,305 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2016-02-23 21:20+0000\n"
+"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 1.10.0\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.5-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
-msgstr ""
+msgstr "У Вас возникли вопросы? Отправьте email службе поддержки\n"
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
-msgstr ""
+msgstr "и создайте токен. Затем просто скопируйте и вставьте его в поле сверху."
 
 #: .help.visit
 msgid "Please visit"
-msgstr ""
+msgstr "Пожалуйста, посетите"
 
 #: .help.back
 msgctxt ".help.back"
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: .help.need_help
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Нужна помощь?"
 
 #: .help.generate_api
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
 msgstr ""
+"Чтобы получить доступ к приложению третьей стороны (например, мобильному "
+"приложению), необходимо создать токен API."
 
 #: .help.page
 msgid "this page"
-msgstr ""
+msgstr "эту страницу"
 
 #: .app.exit_title
 msgid "Exit"
-msgstr ""
+msgstr "Выход"
 
 #: .app.connection_error_title
 msgid "Connection Error"
-msgstr ""
+msgstr "Ошибка при подключении"
 
 #: .app.connection_error
 msgid "There is no internet connection!"
-msgstr ""
+msgstr "Нет интернет-соединения!"
 
 #: .app.exit_confirmation
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "Вы уверены, что хотите выйти?"
 
 #: .update.downloading
 msgid "Downloading ..."
-msgstr ""
+msgstr "Загрузка..."
 
 #: .update.installing
 msgid "Installing update"
-msgstr ""
+msgstr "Установка обновления"
 
 #: .update.installed
 msgid "The update was installed successfully."
-msgstr ""
+msgstr "Обновление успешно установлено."
 
 #: .update.up_to_date
 msgid "The application is up to date."
-msgstr ""
+msgstr "Приложение соответствует последней версии."
 
 #: .update.check_for_update
 msgid "Checking for update."
-msgstr ""
+msgstr "Проверка обновлений."
 
 #: .update.error
 msgid "An error occured while checking for updates"
-msgstr ""
+msgstr "Произошла ошибка при проверке обновлений"
 
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Выплата"
 
 #: .trade.net_profit
 msgid "Net Profit"
-msgstr ""
+msgstr "Чистая прибыль"
 
 #: .trade.buy
 msgid "BUY"
-msgstr ""
+msgstr "КУПИТЬ"
 
 #: .trade.buy_again
 msgid "Buy Again"
-msgstr ""
+msgstr "Купить снова"
 
 #: .trade.loss
 msgid "Loss"
-msgstr ""
+msgstr "Убыток"
 
 #: .trade.total_cost
 msgid "Total Cost"
-msgstr ""
+msgstr "Общая стоимость"
 
 #: .trade.win
 msgid "This contract won"
-msgstr ""
+msgstr "Контракт выиграл"
 
 #: .trade.price
 msgid "Price"
-msgstr ""
+msgstr "Цена"
 
 #: .trade.stake
 msgctxt ".trade.stake"
 msgid "Stake"
-msgstr ""
+msgstr "Ставка"
 
 #: .trade.back
 msgctxt ".trade.back"
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: .trade.account_balance
 msgid "Account Balance"
-msgstr ""
+msgstr "Баланс счета"
 
 #: .trade.buy_price
 msgid "Buy Price"
-msgstr ""
+msgstr "Покупка"
 
 #: .trade.lose
 msgid "This contract lost"
-msgstr ""
+msgstr "Контракт проиграл"
 
 #: .trade.profit
 msgid "Profit"
-msgstr ""
+msgstr "Прибыль"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
-msgstr ""
+msgstr "Потенциальная прибыль"
 
 #: .trade.final_price
 msgid "Final Price"
-msgstr ""
+msgstr "Цена продажи"
 
 #: .trade.potential_payout
 msgid "Potential Payout"
-msgstr ""
+msgstr "Потенциальная выплата"
 
 #: .trade.balance
 msgid "Balance"
-msgstr ""
+msgstr "Баланс"
 
 #: .trade.transaction_id
 msgid "Transaction Reference"
-msgstr ""
+msgstr "Ссылка на сделку"
 
 #: .signin.paste_token
 msgid "Paste your token here"
-msgstr ""
+msgstr "Введите токен здесь"
 
 #: .signin.get_token
 msgid "How to get a Token?"
-msgstr ""
+msgstr "Как получить токен?"
 
 #: .signin.add_account
 msgid "Add Account"
-msgstr ""
+msgstr "Добавить счёт"
 
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Нужна помощь?"
 
 #: .signin.language
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
-msgstr ""
+msgstr "Управление счетами"
 
 #: .accounts.default
 msgid "Default"
-msgstr ""
+msgstr "По умолчанию"
 
 #: .accounts.account
 msgctxt ".accounts.account"
 msgid "Account"
-msgstr ""
+msgstr "Счёт"
 
 #: .accounts.add
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: .accounts.remove_all
 msgid "Remove All Accounts & Sign Out"
-msgstr ""
+msgstr "Удалить все счета и выйти "
 
 #: .accounts.new_token
 msgid "Add a new token"
-msgstr ""
+msgstr "Добавить новый токен"
 
 #: .accounts.delete
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: .accounts.set_as_default
 msgid "Set as default"
-msgstr ""
+msgstr "Настроить по умолчанию"
 
 #: .alert.remove_token_content
 msgid "Are you sure you want to remove this token?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить этот токен?"
 
 #: .alert.remove_all_tokens_title
 msgid "Removing All Tokens"
-msgstr ""
+msgstr "Удаление всех токенов"
 
 #: .alert.must_number
 msgid "It must be a number."
-msgstr ""
+msgstr "Здесь должны быть цифры."
 
 #: .alert.remove_token_title
 msgid "Removing a Token"
-msgstr ""
+msgstr "Удаление токена"
 
 #: .alert.no_tick
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
 msgstr ""
+"Пожалуйста, выберите другой базовый актив. Выбранный актив не поддерживает "
+"тики."
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
-msgstr ""
+msgstr "Число должно быть от 0.70 до 100000."
 
 #: .alert.not_unique
 msgid "You've already added this account."
-msgstr ""
+msgstr "Вы уже добавили этот счёт."
 
 #: .alert.warning
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: .alert.error
 msgid "Error!"
-msgstr ""
+msgstr "Ошибка!"
 
 #: .alert.not_auth
 msgid "Sorry, we couldn't authenticate you."
-msgstr ""
+msgstr "Извините, мы не смогли Вас идентифицировать."
 
 #: .alert.no_underlying
 msgid "There is no underlying for this market. Please try another market."
-msgstr ""
+msgstr "На данном рынке нет активов. Пожалуйста, выберите другой рынок."
 
 #: .alert.contract_error
 msgid "Contract not available, please try again."
-msgstr ""
+msgstr "Контракт не доступен. Пожалуйста, попробуйте ещё раз."
 
 #: .alert.required_field
 msgid "This field is required."
-msgstr ""
+msgstr "Данное поле является обязательным."
 
 #: .alert.not_valid
 msgid "Please enter a valid token."
-msgstr ""
+msgstr "Пожалуйста, введите действующий токен."
 
 #: .alert.remove_all_tokens_content
 msgid "Are you sure you want to remove all tokens and sign out?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить все токены и выйти? "
 
 #: .options.even
 msgid "Even"
-msgstr ""
+msgstr "Чётное число"
 
 #: .options.down
 msgid "Down"
-msgstr ""
+msgstr "Вниз"
 
 #: .options.account
 msgctxt ".options.account"
 msgid "Account"
-msgstr ""
+msgstr "Счёт"
 
 #: .options.forex
 msgid "Forex"
-msgstr ""
+msgstr "Forex"
 
 #: .options.lets_trade
 msgid "Let's trade!"
@@ -303,62 +310,62 @@ msgstr ""
 
 #: .options.digit_match
 msgid "Digit Match"
-msgstr ""
+msgstr "Совпадение цифр"
 
 #: .options.random
 msgid "Random"
-msgstr ""
+msgstr "Random"
 
 #: .options.up
 msgid "Up"
-msgstr ""
+msgstr "Вверх"
 
 #: .options.select_amount
 msgid "Select Amount"
-msgstr ""
+msgstr "Выбрать сумму"
 
 #: .options.number_of_ticks
 msgid "Number of Ticks"
-msgstr ""
+msgstr "Кол-во тиков"
 
 #: .options.underlying
 msgid "Underlying"
-msgstr ""
+msgstr "Рынок"
 
 #: .options.digit_differs
 msgid "Digit Differs"
-msgstr ""
+msgstr "Несовпадение цифр"
 
 #: .options.trade_type
 msgid "Trade Types"
-msgstr ""
+msgstr "Типы сделок"
 
 #: .options.save
 msgid "SAVE"
-msgstr ""
+msgstr "СОХРАНИТЬ"
 
 #: .options.select_market
 msgid "Markets"
-msgstr ""
+msgstr "Рынки"
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
-msgstr ""
+msgstr "Ставка"
 
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
-msgstr ""
+msgstr "Прогноз последней десятичной"
 
 #: .options.odd
 msgid "Odd"
-msgstr ""
+msgstr "Нечётное число"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Выплата"
 
 #: .options.payout_type
 msgid "Payout Type"
-msgstr ""
+msgstr "Тип выплаты"
