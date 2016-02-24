@@ -3,11 +3,13 @@
 #set -x
 shopt -s extglob
 completed_langs="$1"
+all_languages=false
 dst="$2"
-if [ -z "$completed_langs" ] ;then
-	echo "Error: completed languages cannot be empty"
-	echo "Usage Example: ./po2json.sh id,cn"
-	exit 1
+if [ -z "$completed_langs" -a ! -e "$completed_langs" ] ;then
+	all_languages=true
+elif [ -e "$completed_langs" ] ;then
+	all_languages=true
+	dst="$completed_langs"
 else
 	echo "$completed_langs"| grep -q , && completed_langs="{$completed_langs}"
 fi
@@ -19,7 +21,7 @@ fi
 function make_new_templates(){
 	cp -r www/i18n "$tmp_file"
 	pushd "$tmp_file/i18n"&&
-		for i in `ls !(en.json)`; do cp en.json $i; done &&
+		for i in `ls !(en).json`; do cp en.json $i; done &&
 	popd
 }
 destination_branch="dev"
@@ -42,11 +44,14 @@ if [ "$mode" == "INCLUSIVE" ]; then
 fi
 po2json -t "$tmp_file/i18n" "$tmp_file/translation" "$tmp_file"
 if [ "$mode" == "INCLUSIVE" ]; then
-	eval "cp $tmp_file/$completed_langs.json www/i18n"
-	eval "git add www/i18n/$completed_langs.json"
+	test $all_languages == false && eval "cp $tmp_file/$completed_langs.json www/i18n"
+	test $all_languages == true && cp "$tmp_file/"!(en).json www/i18n
+	test $all_languages == false && eval "git add www/i18n/$completed_langs.json"
+	test $all_languages == true && git add www/i18n/!(en).json
 	git commit -m "Converted translation files to json - `date +'%y%m%d'`"
 else
-	eval "cp $tmp_file/$completed_langs.json $dst"
+	test $all_languages == false && eval "cp $tmp_file/$completed_langs.json $dst"
+	test $all_languages == true && cp "$tmp_file/"!(en).json "$dst"
 fi
 git checkout "$current_branch"
 if [ $stashed -eq 1 ]; then 
