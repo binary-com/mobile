@@ -21,7 +21,7 @@ fi
 function make_new_templates(){
 	cp -r www/i18n "$tmp_file"
 	pushd "$tmp_file/i18n"&&
-		for i in `ls !(en.json)`; do cp en.json $i; done &&
+		for i in `shopt -s extglob && ls !(en).json`; do cp en.json $i; done &&
 	popd
 }
 destination_branch="dev"
