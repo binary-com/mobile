@@ -5,8 +5,11 @@ shopt -s extglob
 completed_langs="$1"
 all_languages=false
 dst="$2"
-if [ -z "$completed_langs" ] ;then
+if [ -z "$completed_langs" -a ! -e "$completed_langs" ] ;then
 	all_languages=true
+elif [ -e "$completed_langs" ] ;then
+	all_languages=true
+	dst="$completed_langs"
 else
 	echo "$completed_langs"| grep -q , && completed_langs="{$completed_langs}"
 fi

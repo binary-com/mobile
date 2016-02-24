@@ -22,7 +22,7 @@ fi
 
 cp -r www/i18n "$tmp_file/lang"
 pushd "$tmp_file/lang"&&
-	for i in `ls !(en.json)`;do cp en.json $i;done&&
+	for i in `ls !(en).json`;do cp en.json $i;done&&
 popd
 
 git checkout "$current_branch"
@@ -33,7 +33,7 @@ fi
 ./po2json.sh "$included_languages" "$tmp_file/old_po"
 json2po -t "$tmp_file/lang" "$tmp_file/old_po" "$tmp_file/new_po"
 pushd www/translation&&
-	for i in `ls !(en.json)`; do msgmerge -U $i "$tmp_file/new_po/$i"; done&&
+	for i in `ls !(en).json`; do msgmerge -U $i "$tmp_file/new_po/$i"; done&&
 popd
 git add www/translation/*.po
 rm www/translation/*.po~
