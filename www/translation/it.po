@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-02-24 16:36+0000\n"
-"Last-Translator: Annalisa <ligiu@me.com>\n"
+"PO-Revision-Date: 2016-02-25 00:36+0000\n"
+"Last-Translator: Mauro Piccillo <mauro.piccillo@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/it/>\n"
 "Language: it\n"
@@ -44,6 +44,8 @@ msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
 msgstr ""
+"Per accedere all'applicazione di una terza parte, come un'app per telefoni, "
+"dovrai generare un Token API."
 
 #: .help.page
 msgid "this page"
@@ -232,7 +234,7 @@ msgstr "Rimozione di tutti i token"
 
 #: .alert.must_number
 msgid "It must be a number."
-msgstr "Deve essere un numero"
+msgstr "Deve essere un numero."
 
 #: .alert.remove_token_title
 msgid "Removing a Token"
