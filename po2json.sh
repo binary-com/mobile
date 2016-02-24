@@ -1,6 +1,6 @@
 #!/bin/bash
 # install translation toolkit first: http://translate-toolkit.readthedocs.org/en/latest/index.html
-set -x
+#set -x
 shopt -s extglob
 completed_langs="$1"
 all_languages=false
@@ -58,4 +58,4 @@ if [ $stashed -eq 1 ]; then
 	git stash pop
 fi
 shopt -u extglob
-set +x
+#set +x
