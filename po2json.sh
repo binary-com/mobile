@@ -1,6 +1,6 @@
 #!/bin/bash
 # install translation toolkit first: http://translate-toolkit.readthedocs.org/en/latest/index.html
-#set -x
+set -x
 shopt -s extglob
 completed_langs="$1"
 all_languages=false
@@ -41,18 +41,18 @@ if [ "$mode" == "INCLUSIVE" ]; then
 fi
 po2json -t "$tmp_file/i18n" "$tmp_file/translation" "$tmp_file"
 if [ "$mode" == "INCLUSIVE" ]; then
-	test all_languages == false && eval "cp $tmp_file/$completed_langs.json www/i18n"
-	test all_languages == true && cp "$tmp_file/"!(en).json www/i18n
-	test all_languages == false && eval "git add www/i18n/$completed_langs.json"
-	test all_languages == true && git add www/i18n/!(en).json
+	test $all_languages == false && eval "cp $tmp_file/$completed_langs.json www/i18n"
+	test $all_languages == true && cp "$tmp_file/"!(en).json www/i18n
+	test $all_languages == false && eval "git add www/i18n/$completed_langs.json"
+	test $all_languages == true && git add www/i18n/!(en).json
 	git commit -m "Converted translation files to json - `date +'%y%m%d'`"
 else
-	test all_languages == false && eval "cp $tmp_file/$completed_langs.json $dst"
-	test all_languages == true && cp "$tmp_file/"!(en).json "$dst"
+	test $all_languages == false && eval "cp $tmp_file/$completed_langs.json $dst"
+	test $all_languages == true && cp "$tmp_file/"!(en).json "$dst"
 fi
 git checkout "$current_branch"
 if [ $stashed -eq 1 ]; then 
 	git stash pop
 fi
 shopt -u extglob
-#set +x
+set +x
