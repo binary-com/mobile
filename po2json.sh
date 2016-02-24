@@ -38,8 +38,8 @@ cp -r www/translation "$tmp_file"
 if [ "$mode" == "EXCLUSIVE" ]; then
 	make_new_templates
 fi
-git checkout "$destination_branch" 
 if [ "$mode" == "INCLUSIVE" ]; then
+	git checkout "$destination_branch" 
 	make_new_templates
 fi
 po2json -t "$tmp_file/i18n" "$tmp_file/translation" "$tmp_file"
