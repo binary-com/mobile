@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-02-25 00:36+0000\n"
-"Last-Translator: Mauro Piccillo <mauro.piccillo@gmail.com>\n"
+"PO-Revision-Date: 2016-02-25 16:31+0000\n"
+"Last-Translator: Annalisa <ligiu@me.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/it/>\n"
 "Language: it\n"
@@ -69,27 +69,27 @@ msgstr "Sei sicuro di voler uscire?"
 
 #: .update.downloading
 msgid "Downloading ..."
-msgstr ""
+msgstr "Download in corso..."
 
 #: .update.installing
 msgid "Installing update"
-msgstr ""
+msgstr "Installazione dell'aggiornamento"
 
 #: .update.installed
 msgid "The update was installed successfully."
-msgstr ""
+msgstr "L'aggiornamento è stato installato con successo."
 
 #: .update.up_to_date
 msgid "The application is up to date."
-msgstr ""
+msgstr "L'applicazione è aggiornata."
 
 #: .update.check_for_update
 msgid "Checking for update."
-msgstr ""
+msgstr "Verifica dell'aggiornamento."
 
 #: .update.error
 msgid "An error occured while checking for updates"
-msgstr ""
+msgstr "Si è verificato un errore durante la verifica degli aggiornamenti"
 
 #: .trade.payout
 msgctxt ".trade.payout"
@@ -106,7 +106,7 @@ msgstr "ACQUISTA"
 
 #: .trade.buy_again
 msgid "Buy Again"
-msgstr ""
+msgstr "Acquista di nuovo"
 
 #: .trade.loss
 msgid "Loss"
@@ -291,7 +291,7 @@ msgstr "Sei sicuro di voler rimuovere tutti i token e uscire?"
 
 #: .options.even
 msgid "Even"
-msgstr ""
+msgstr "Pari"
 
 #: .options.down
 msgid "Down"
@@ -312,7 +312,7 @@ msgstr "Facciamo trading!"
 
 #: .options.digit_match
 msgid "Digit Match"
-msgstr ""
+msgstr "La cifra combacia"
 
 #: .options.random
 msgid "Random"
@@ -336,7 +336,7 @@ msgstr "Asset sottostante"
 
 #: .options.digit_differs
 msgid "Digit Differs"
-msgstr ""
+msgstr "La cifra differisce"
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -361,7 +361,7 @@ msgstr "Previsione dell'ultima cifra"
 
 #: .options.odd
 msgid "Odd"
-msgstr ""
+msgstr "Dispari"
 
 #: .options.payout
 msgctxt ".options.payout"
