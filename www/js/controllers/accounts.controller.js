@@ -12,7 +12,8 @@ angular
 	.controller('AccountsController',
 		function($scope, $rootScope, $state, $window, $ionicPopup,
             websocketService, accountService, alertService,
-            proposalService, appStateService, marketService) {
+            proposalService, appStateService, marketService,
+            localStorageService) {
 
 			if (typeof(analytics) !== "undefined") {
 				analytics.trackView("Account Management");
@@ -37,6 +38,7 @@ angular
 							proposalService.remove();
                             marketService.removeActiveSymbols();
                             marketService.removeAssetIndex();
+                            localStorageService.removeWSUrl();
                             appStateService.isLoggedin = false;
 							$state.go('signin');
 						}

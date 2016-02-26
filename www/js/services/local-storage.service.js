@@ -53,5 +53,21 @@ angular
 				return null;
 			};
 
+            service.getWSUrl = function(){
+                var regex = /^(ws|wss):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/;
+                if(localStorage.wsurl && regex.exec(localStorage.wsurl) != null){
+                    return localStorage.wsurl;
+                }
+                return null;
+            }
+
+            service.setWSUrl = function(_wsUrl){
+                localStorage.wsurl = _wsUrl;
+            }
+
+            service.removeWSUrl = function(){
+                delete localStorage.wsurl;
+            }
+
 			return service;
 		});
