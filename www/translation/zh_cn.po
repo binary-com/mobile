@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-02-19 08:31+0000\n"
+"PO-Revision-Date: 2016-02-26 09:45+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
 "tick-trade/app/zh_CN/>\n"
@@ -65,27 +65,27 @@ msgstr "确认退出？"
 
 #: .update.downloading
 msgid "Downloading ..."
-msgstr ""
+msgstr "下载中"
 
 #: .update.installing
 msgid "Installing update"
-msgstr ""
+msgstr "更新安装中"
 
 #: .update.installed
 msgid "The update was installed successfully."
-msgstr ""
+msgstr "更新已成功安装。"
 
 #: .update.up_to_date
 msgid "The application is up to date."
-msgstr ""
+msgstr "应用已更新。"
 
 #: .update.check_for_update
 msgid "Checking for update."
-msgstr ""
+msgstr "检查更新中。"
 
 #: .update.error
 msgid "An error occured while checking for updates"
-msgstr ""
+msgstr "检查更新时发生错误"
 
 #: .trade.payout
 msgctxt ".trade.payout"
@@ -102,7 +102,7 @@ msgstr "购入"
 
 #: .trade.buy_again
 msgid "Buy Again"
-msgstr ""
+msgstr "重购"
 
 #: .trade.loss
 msgid "Loss"
