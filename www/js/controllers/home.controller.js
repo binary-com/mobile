@@ -9,8 +9,14 @@
 angular
 	.module('binary')
 	.controller('HomeController',
-		function($scope, $state, websocketService, accountService) {
+		function($scope, $state, websocketService, accountService, localStorageService) {
 			var init = function() {
+                $scope.hasWSUrl = true;
+
+                if(!localStorageService.getWSUrl()){
+                    $scope.hasWSUrl = false;
+                    return;
+                }
 
 				if(typeof(analytics) !== "undefined"){
 					analytics.trackView("Home");
@@ -23,6 +29,11 @@ angular
 					$state.go('signin');
 				}
 			};
+
+            $scope.save = function(_wsUrl){
+                localStorageService.setWSUrl(_wsUrl);
+                init();
+            }
 
 			init();
 

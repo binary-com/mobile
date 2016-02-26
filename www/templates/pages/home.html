@@ -1,11 +1,22 @@
 <ion-view class="home">
 	<ion-content>
-		<div class="branding">
+		<div class="branding" ng-if="hasWSUrl">
 			<img src="img/logo.svg"   class="logo" alt="Binary Logo">
 			<img src="img/binary2.svg" class="slogan" alt="Binary.com">
 		</div>
 
-		<ion-spinner class="spinner-energized"></ion-spinner>
+		<ion-spinner class="spinner-energized" ng-if="hasWSUrl"></ion-spinner>
 		<!-- <span>Loading...</span> -->
+        <form name="wsForm" novalidate ng-if="!hasWSUrl">
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"> Enter WebSocket URL </span>
+                    <input type="text" placeholder= "e.g. wss://ws.binaryws.com/websockets/v3" 
+                        ng-model="wsUrl" required 
+                        ng-pattern="/^(ws|wss):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/"/>
+                </label>
+            </div>
+            <button type="button" class="button" style="margin-left:40%;" ng-click="save(wsUrl)" ng-disabled="wsForm.$invalid">Submit</button>
+        </form>
 	</ion-content>
 </ion-view>

@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.factory('websocketService',
-		function($rootScope, localStorageService, alertService, appStateService) {
+		function($rootScope, localStorageService, alertService, appStateService, $state) {
 			var dataStream = '';
 			var messageBuffer = [];
 
@@ -45,7 +45,16 @@ angular
 
                 appStateService.isLoggedin = false;
 
-				dataStream = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=' + language);
+                var wsUrl = localStorageService.getWSUrl();
+
+                if(!wsUrl){
+                    $state.go('home');
+                    return;
+                }
+
+                wsUrl = wsUrl.replace(/\?l=\w{2}/g, "");
+
+				dataStream = new WebSocket(wsUrl +'?l=' + language);
 
 				dataStream.onopen = function() {
                     

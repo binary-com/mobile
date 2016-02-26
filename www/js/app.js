@@ -12,7 +12,7 @@ angular.module('binary', ['ionic', 'pascalprecht.translate', 'hmTouchEvents', 'n
 
 angular
 .module('binary')
-.run(function($rootScope, $ionicPlatform, $state, alertService, accountService, appStateService){
+.run(function($rootScope, $ionicPlatform, $state, alertService, accountService, appStateService, localStorageService){
     $ionicPlatform.ready(function() {
 
         // Setup Google Analytics
@@ -50,7 +50,7 @@ angular
         // Redirecting to the login page if there is not any default token
         $rootScope.$on('$stateChangeStart',
                 function(event, toState, toParams, fromState, fromParams){
-                    if(toState.name != "signin" && toState.name != "help" && ! accountService.getDefault()){
+                    if(toState.name != "signin" && toState.name != "help" && ! accountService.getDefault() && localStorageService.getWSUrl()){
                         event.preventDefault();
                         $state.go('signin');
                     }
