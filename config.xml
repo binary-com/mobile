@@ -74,11 +74,6 @@
     <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png"/>
     <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png"/>
     <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png"/>
-    <config-file target="AndroidManifest.xml" parent="/*">
-        <supports-screens
-            android:largestWidthLimitDp="320"
-            />
-    </config-file>
   </platform>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
   <plugin name="cordova-plugin-dialogs" spec="~1.2.0"/>
