@@ -16,7 +16,7 @@
     <div class="col col-33 basis" ng-show="basis == 'payout'">{{'trade.payout' | translate}}</div>
     <div class="col col-33 basis" ng-show="basis == 'stake'">{{'trade.stake' | translate}}</div>
     <div class="col col-33 amount">
-        <input type="number" string-to-number name="amount" ng-model="amount" ng-change="updateAmount(amount, '{{amount}}')" required step="0.01">
+        <input type="text" string-to-number name="amount" ng-model="amount" ng-change="updateAmount(amount, '{{amount}}')" required step="0.01">
         <div class="error" ng-show="proposalError">
                 <p> {{ proposalError.message }} </p>
         </div>
