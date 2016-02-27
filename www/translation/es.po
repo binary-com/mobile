@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-02-27 09:15+0000\n"
-"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
+"PO-Revision-Date: 2016-02-27 16:27+0000\n"
+"Last-Translator: olga borg <olga@binary.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/es/>\n"
 "Language: es\n"
@@ -101,15 +101,15 @@ msgstr ""
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Pago"
 
 #: .trade.net_profit
 msgid "Net Profit"
-msgstr ""
+msgstr "Beneficio neto"
 
 #: .trade.buy
 msgid "BUY"
-msgstr ""
+msgstr "COMPRAR"
 
 #: .trade.buy_again
 msgid "Buy Again"
@@ -117,7 +117,7 @@ msgstr ""
 
 #: .trade.loss
 msgid "Loss"
-msgstr ""
+msgstr "Pérdidas"
 
 #: .trade.total_cost
 msgid "Total Cost"
@@ -125,253 +125,255 @@ msgstr "Cose Total"
 
 #: .trade.win
 msgid "This contract won"
-msgstr ""
+msgstr "Este contrato ganó"
 
 #: .trade.price
 msgid "Price"
-msgstr ""
+msgstr "Precio"
 
 #: .trade.stake
 msgctxt ".trade.stake"
 msgid "Stake"
-msgstr ""
+msgstr "Apuesta"
 
 #: .trade.back
 msgctxt ".trade.back"
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 #: .trade.account_balance
 msgid "Account Balance"
-msgstr ""
+msgstr "Saldo de la cuenta"
 
 #: .trade.buy_price
 msgid "Buy Price"
-msgstr ""
+msgstr "Precio de Compra"
 
 #: .trade.lose
 msgid "This contract lost"
-msgstr ""
+msgstr "Este contrato perdió"
 
 #: .trade.profit
 msgid "Profit"
-msgstr ""
+msgstr "Beneficios"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
-msgstr ""
+msgstr "Posibles Beneficios "
 
 #: .trade.final_price
 msgid "Final Price"
-msgstr ""
+msgstr "Precio Final"
 
 #: .trade.potential_payout
 msgid "Potential Payout"
-msgstr ""
+msgstr "Pago Potencial"
 
 #: .trade.balance
 msgid "Balance"
-msgstr ""
+msgstr "Saldo"
 
 #: .trade.transaction_id
 msgid "Transaction Reference"
-msgstr ""
+msgstr "Referencia de la Transacción"
 
 #: .signin.paste_token
 msgid "Paste your token here"
-msgstr ""
+msgstr "Pegue su token aquí"
 
 #: .signin.get_token
 msgid "How to get a Token?"
-msgstr ""
+msgstr "¿Cómo obtener un token?"
 
 #: .signin.add_account
 msgid "Add Account"
-msgstr ""
+msgstr "Añadir Cuenta"
 
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "¿Necesita Ayuda?"
 
 #: .signin.language
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
-msgstr ""
+msgstr "Gestionar Cuentas"
 
 #: .accounts.default
 msgid "Default"
-msgstr ""
+msgstr "Defecto"
 
 #: .accounts.account
 msgctxt ".accounts.account"
 msgid "Account"
-msgstr ""
+msgstr "Cuenta"
 
 #: .accounts.add
 msgid "Add"
-msgstr ""
+msgstr "Añadir"
 
 #: .accounts.remove_all
 msgid "Remove All Accounts & Sign Out"
-msgstr ""
+msgstr "Suprimir Todas las Cuentas y Salir"
 
 #: .accounts.new_token
 msgid "Add a new token"
-msgstr ""
+msgstr "Añadir un token nuevo"
 
 #: .accounts.delete
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: .accounts.set_as_default
 msgid "Set as default"
-msgstr ""
+msgstr "Establecer por defecto"
 
 #: .alert.remove_token_content
 msgid "Are you sure you want to remove this token?"
-msgstr ""
+msgstr "¿Está seguro de que quiere eliminar este token?"
 
 #: .alert.remove_all_tokens_title
 msgid "Removing All Tokens"
-msgstr ""
+msgstr "Suprimiendo Todos los Tokens"
 
 #: .alert.must_number
 msgid "It must be a number."
-msgstr ""
+msgstr "Debe ser un número."
 
 #: .alert.remove_token_title
 msgid "Removing a Token"
-msgstr ""
+msgstr "Suprimiendo un Token"
 
 #: .alert.no_tick
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
 msgstr ""
+"Por favor seleccione otro activo. El activo que ha seleccionado no se ofrece "
+"para los contratos de intervalos."
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
-msgstr ""
+msgstr "Debe ser entre 0.70 y 100000."
 
 #: .alert.not_unique
 msgid "You've already added this account."
-msgstr ""
+msgstr "Ya ha añadido esta cuenta."
 
 #: .alert.warning
 msgid "Warning"
-msgstr ""
+msgstr "Aviso"
 
 #: .alert.error
 msgid "Error!"
-msgstr ""
+msgstr "¡Error!"
 
 #: .alert.not_auth
 msgid "Sorry, we couldn't authenticate you."
-msgstr ""
+msgstr "Lo sentimos, no le hemos podido autenticar."
 
 #: .alert.no_underlying
 msgid "There is no underlying for this market. Please try another market."
-msgstr ""
+msgstr "No hay activos para este mercado. Por favor, intente otro mercado."
 
 #: .alert.contract_error
 msgid "Contract not available, please try again."
-msgstr ""
+msgstr "El contrato no está disponible, por favor intente de nuevo."
 
 #: .alert.required_field
 msgid "This field is required."
-msgstr ""
+msgstr "El campo es obligatorio."
 
 #: .alert.not_valid
 msgid "Please enter a valid token."
-msgstr ""
+msgstr "Por favor, introduzca un token válido."
 
 #: .alert.remove_all_tokens_content
 msgid "Are you sure you want to remove all tokens and sign out?"
-msgstr ""
+msgstr "¿Está seguro de que desea eliminar todos los tokens y cerrar la sesión?"
 
 #: .options.even
 msgid "Even"
-msgstr ""
+msgstr "Par"
 
 #: .options.down
 msgid "Down"
-msgstr ""
+msgstr "Abajo"
 
 #: .options.account
 msgctxt ".options.account"
 msgid "Account"
-msgstr ""
+msgstr "Cuenta"
 
 #: .options.forex
 msgid "Forex"
-msgstr ""
+msgstr "Forex"
 
 #: .options.lets_trade
 msgid "Let's trade!"
-msgstr ""
+msgstr "¡Vamos a comerciar!"
 
 #: .options.digit_match
 msgid "Digit Match"
-msgstr ""
+msgstr "Dígitos Iguales"
 
 #: .options.random
 msgid "Random"
-msgstr ""
+msgstr "Random"
 
 #: .options.up
 msgid "Up"
-msgstr ""
+msgstr "Arriba"
 
 #: .options.select_amount
 msgid "Select Amount"
-msgstr ""
+msgstr "Seleccione el monto"
 
 #: .options.number_of_ticks
 msgid "Number of Ticks"
-msgstr ""
+msgstr "Número de Intervalos"
 
 #: .options.underlying
 msgid "Underlying"
-msgstr ""
+msgstr "Activo subyacente"
 
 #: .options.digit_differs
 msgid "Digit Differs"
-msgstr ""
+msgstr "Dígitos Diferentes"
 
 #: .options.trade_type
 msgid "Trade Types"
-msgstr ""
+msgstr "Tipos de Contratos"
 
 #: .options.save
 msgid "SAVE"
-msgstr ""
+msgstr "GUARDAR"
 
 #: .options.select_market
 msgid "Markets"
-msgstr ""
+msgstr "Mercados"
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
-msgstr ""
+msgstr "Apuesta"
 
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
-msgstr ""
+msgstr "Predicción del Último Dígito"
 
 #: .options.odd
 msgid "Odd"
-msgstr ""
+msgstr "Impar"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Pago"
 
 #: .options.payout_type
 msgid "Payout Type"
-msgstr ""
+msgstr "Tipo de Pago"
