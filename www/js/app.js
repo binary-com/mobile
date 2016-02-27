@@ -11,13 +11,51 @@ angular.module('binary', ['ionic', 'pascalprecht.translate', 'hmTouchEvents', 'n
 
 
 angular
-	.module('binary')
-	.run(function($ionicPlatform){
-		$ionicPlatform.ready(function() {
-            if(typeof analytics !== undefined) {
-                analytics.startTrackerWithId("UA-40877026-7");
-            } else {
-                console.log("Google Analytics Unavailable");
+.module('binary')
+.run(function($rootScope, $ionicPlatform, $state, alertService, accountService, appStateService){
+    $ionicPlatform.ready(function() {
+
+        // Setup Google Analytics
+        if(typeof analytics !== "undefined") {
+            analytics.startTrackerWithId("UA-40877026-7");
+        } else {
+            console.log("Google Analytics Unavailable");
+        }
+
+        // Handle the android's hardware button
+        $ionicPlatform.registerBackButtonAction(function(){
+            if($state.current.name === "options"){
+                alertService.confirmExit(function(res){
+                    if(res == 1)
+                        navigator.app.exitApp();
+                });
             }
-        });
-	});
+            else if($state.current.name === "signin" || $state.current.name === "home" ){
+                navigator.app.exitApp();
+            }
+            else if($state.current.name === "trade" && appStateService.purchaseMode){
+                return;
+            }
+            else if($state.current.name === "trade" && !appStateService.purchaseMode && !appStateService.tradeMode){
+                appStateService.tradeMode = true;
+                if(!$rootScope.$$phase){
+                    $rootScope.$apply();
+                }
+            }
+            else{
+                navigator.app.backHistory();
+            }
+        }, 100);
+
+        // Redirecting to the login page if there is not any default token
+        $rootScope.$on('$stateChangeStart',
+                function(event, toState, toParams, fromState, fromParams){
+                    if(toState.name != "signin" && toState.name != "help" && ! accountService.getDefault()){
+                        event.preventDefault();
+                        $state.go('signin');
+                    }
+                }
+                );
+
+    });
+});

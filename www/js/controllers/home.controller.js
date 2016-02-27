@@ -11,11 +11,14 @@ angular
 	.controller('HomeController',
 		function($scope, $state, websocketService, accountService) {
 			var init = function() {
+
+				if(typeof(analytics) !== "undefined"){
+					analytics.trackView("Home");
+				}
+
 				websocketService.init();
 				if (accountService.hasDefault()) {
 					accountService.validate();
-					websocketService.sendRequestFor.symbols();
-					websocketService.sendRequestFor.assetIndex();
 				} else {
 					$state.go('signin');
 				}

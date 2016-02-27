@@ -4,9 +4,14 @@
 
 		<div class="row responsive-sm">
 			<div class="col center">
-				<a href="#" class="help" ng-click="goToHelpPage()">
-					{{'signin.need_help' | translate }}
+				<a href="#" class="help" ui-sref="help">
+					{{'signin.get_token' | translate }}
 				</a>
+			</div>
+		</div>
+		<div class="row responsive-sm">
+			<div class="col center">
+		        <app-version class="appVersion"></app-version>
 			</div>
 		</div>
 	</ion-content>

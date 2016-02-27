@@ -12,7 +12,8 @@ angular
 		'accountService',
 		'websocketService',
 		'$state',
-		function(accountService, websocketService, $state) {
+        'appStateService',
+		function(accountService, websocketService, $state, appStateService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/change-account.template.html',
@@ -27,12 +28,24 @@ angular
 					scope.selectedAccount = accountService.getDefault().token;
 				};
 
+                var updateSymbols = function(){
+                    // Wait untile the login progress is finished
+                    if(!appStateService.isLoggedin){
+                        setTimeout(updateSymbols, 500);
+                    }
+                    else{
+                        websocketService.sendRequestFor.symbols();
+                        websocketService.sendRequestFor.assetIndex();
+                    }
+                };
+
 				init();
 
 				scope.updateAccount = function(_selectedAccount) {
+                    scope.setDataLoaded(false);
 					accountService.setDefault(_selectedAccount);
 					accountService.validate();
-					websocketService.sendRequestFor.symbols();
+                    updateSymbols();
 				};
 
 				scope.navigateToManageAccounts = function() {
@@ -43,22 +56,3 @@ angular
 			}
 		};
 	}]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

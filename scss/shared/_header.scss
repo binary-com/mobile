@@ -1,19 +1,118 @@
+.bar.bar-positive {
+				border-color: none;
+				background-color: $darkblue;
+				background-image: none;
+}
+.bar-positive .button {
+				border-color: $darkblue;
+				background-color: $darkblue;
+}
 .bar-header {
-		background-color: $darkblue;
-		position:relative;
-		button {
-			background-color: $darkblue;
-			color: $white;
-		}
+				background-color: $darkblue;
+				position: relative;
+				button {
+								background-color: $darkblue;
+								color: $white;
+				}
+				h1 {
 
-		h1 {
-			img {
-				height: 80%;
-				padding-top: 10px;
-			}
-		}
+								img {
+												height: 80%;
+												padding-top: 10px;
+								}
+				}
+}
+.bar .button.button-clear .icon:before,
+.bar .button.button-clear.icon:before,
+.bar .button.button-clear.icon-left:before,
+.bar .button.button-clear.icon-right:before {
+				font-size: 24px;
+}
+.has-header {
+				top: 0 !important;
+}
+//spinner
+.spinner {
+	position: absolute;
+	top: -60px;
+	left: 0;
+	right: 0;
 
+	svg {
+		margin: 0 auto;
+		display: block;
+		width: 50px;
+		height: 50px;
+		stroke: $white;
 	}
-.bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before{
-			font-size: 24px;
-		}
+}
+
+.spinner svg {
+
+  fill: red;
+}
+
+.update .spinner{
+    top: 0px !important;
+    left: 0;
+    right: 0;
+    position: inherit !important;
+    
+    svg {
+        margin: -10px 0;
+        display: block;
+        width: 28px !important;
+        height: 28px !important;
+        storke: $white;
+    }
+}
+
+.update progress{
+    margin: 0 1px 0 1px !important;
+}
+
+.update .icon{
+    font-size: 28px !important;
+}
+
+.logo-spinner {
+	-webkit-animation-name: spin;
+	-webkit-animation-duration: 1000ms;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: spin;
+	-moz-animation-duration: 1000ms;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-timing-function: linear;
+	-ms-animation-name: spin;
+	-ms-animation-duration: 1000ms;
+	-ms-animation-iteration-count: infinite;
+	-ms-animation-timing-function: linear;
+
+	animation-name: spin;
+	animation-duration: 1000ms;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	transform-origin: 50% 65%;
+	display: inline-block;
+}
+@-ms-keyframes spin {
+	from { -ms-transform: rotate(0deg); }
+	to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+	from { -moz-transform: rotate(0deg); }
+	to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+	from {
+		transform:rotate(0deg);
+	}
+	to {
+		transform:rotate(360deg);
+	}
+}

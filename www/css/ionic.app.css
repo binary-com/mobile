@@ -9103,21 +9103,6 @@ a.button {
 button {
   border: none !important; }
 
-.spinner {
-  position: absolute;
-  top: -60px;
-  left: 0;
-  right: 0; }
-  .spinner svg {
-    margin: 0 auto;
-    display: block;
-    width: 50px;
-    height: 50px;
-    stroke: #fff; }
-
-.spinner svg {
-  fill: red; }
-
 body * {
   font-family: roboto, sans-serif !important; }
 
@@ -9137,7 +9122,8 @@ body * {
 .item-select select {
   max-width: 100%; }
 
-.item-complex .item-content, .item-radio .item-content {
+.item-complex .item-content,
+.item-radio .item-content {
   background-color: #f2f2f2; }
 
 .scroll-content {
@@ -9148,14 +9134,34 @@ body * {
 .scroll {
   padding-bottom: 1px; }
 
+.error p {
+  color: red;
+  font-size: 8px; }
+
+.appVersion {
+  color: #f2f2f2;
+  opacity: 0.5;
+  font-size: 14px;
+  display: block;
+  margin: 0 auto; }
+
 @media screen and (max-width: 400px) {
   .trade .contract-price .price {
     display: inline-block; }
   .options .item-select select {
-    padding-right: 8px;
+    padding-right: 5%;
     padding-left: 0px; }
   .options .item-select::after {
     right: 0px; } }
+
+.bar.bar-positive {
+  border-color: none;
+  background-color: #2a3052;
+  background-image: none; }
+
+.bar-positive .button {
+  border-color: #2a3052;
+  background-color: #2a3052; }
 
 .bar-header {
   background-color: #2a3052;
@@ -9167,8 +9173,99 @@ body * {
     height: 80%;
     padding-top: 10px; }
 
-.bar .button.button-clear .icon:before, .bar .button.button-clear.icon:before, .bar .button.button-clear.icon-left:before, .bar .button.button-clear.icon-right:before {
+.bar .button.button-clear .icon:before,
+.bar .button.button-clear.icon:before,
+.bar .button.button-clear.icon-left:before,
+.bar .button.button-clear.icon-right:before {
   font-size: 24px; }
+
+.has-header {
+  top: 0 !important; }
+
+.spinner {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0; }
+  .spinner svg {
+    margin: 0 auto;
+    display: block;
+    width: 50px;
+    height: 50px;
+    stroke: #fff; }
+
+.spinner svg {
+  fill: red; }
+
+.update .spinner {
+  top: 0px !important;
+  left: 0;
+  right: 0;
+  position: inherit !important; }
+  .update .spinner svg {
+    margin: -10px 0;
+    display: block;
+    width: 28px !important;
+    height: 28px !important;
+    storke: #fff; }
+
+.update progress {
+  margin: 0 1px 0 1px !important; }
+
+.update .icon {
+  font-size: 28px !important; }
+
+.logo-spinner {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 1000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 1000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 1000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: 50% 65%;
+  display: inline-block; }
+
+@-ms-keyframes spin {
+  from {
+    -ms-transform: rotate(0deg); }
+  to {
+    -ms-transform: rotate(360deg); } }
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg); }
+  to {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+.bar.bar-positive.bar-footer {
+  background-image: none; }
+
+.bar.bar-positive {
+  border-color: #2a3052;
+  background-color: #2a3052;
+  background-image: none; }
 
 .bar-footer {
   background-color: #2a3052;
@@ -9294,7 +9391,7 @@ body * {
   height: 200px !important; }
 
 .trade .contract-summary {
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px;
   text-align: center;
   font-size: 14px;
   background-color: #f2f2f2;
@@ -9305,19 +9402,47 @@ body * {
   border-top: 1px solid #c4c4c4;
   border-bottom: 1px solid #c4c4c4; }
   .trade .contract-payout .basis {
-    font-size: 16px;
+    font-size: 4vw;
     text-align: left;
     line-height: 36px;
     padding-left: 10px; }
-  .trade .contract-payout .amount input {
-    font-size: 18px;
-    width: 100px;
-    height: 36px;
-    border-radius: 5px;
-    border: 1px solid #c4c4c4;
-    line-height: 36px;
-    text-align: center;
-    padding-left: 18px; }
+  .trade .contract-payout .amount {
+    position: relative; }
+    .trade .contract-payout .amount input {
+      font-size: 5vw;
+      width: 100px;
+      height: 36px;
+      border-radius: 5px;
+      border: 1px solid #c4c4c4;
+      line-height: 36px;
+      text-align: center;
+      padding-left: 18px; }
+    .trade .contract-payout .amount .error {
+      position: absolute;
+      background-color: #ff0000;
+      border-radius: 5px;
+      top: -47px;
+      left: -50%;
+      padding: 0 10px;
+      text-align: center;
+      z-index: 3; }
+      .trade .contract-payout .amount .error p {
+        color: #fff;
+        width: 220px;
+        height: 30px;
+        font-size: 13px;
+        font-weight: bold; }
+      .trade .contract-payout .amount .error:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -8px;
+        width: 0;
+        height: 0;
+        border-top: 8px solid #ff0000;
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent; }
   .trade .contract-payout .button-bar .button {
     height: 35px;
     min-height: 20px; }
@@ -9341,25 +9466,25 @@ body * {
 .trade .contract-price {
   background-color: #f2f2f2;
   border-bottom: 1px solid #c4c4c4;
-  margin-top: 0px; }
+  margin-top: 0; }
   .trade .contract-price > .col:nth-child(1) {
     font-size: 16px;
     text-align: left;
     padding-left: 10px;
     line-height: 36px; }
   .trade .contract-price .price-des {
-    font-size: 16px;
+    font-size: 4vw;
     text-align: left; }
   .trade .contract-price .price {
-    font-size: 16px;
+    font-size: 4vw;
     color: #e98024;
     text-align: left;
     line-height: 36px; }
 
 .trade .contract-purchase,
 .trade .contract-back {
-  margin-top: 5%;
-  margin-bottom: 40%; }
+  margin-top: 3%;
+  margin-bottom: 3%; }
   .trade .contract-purchase button,
   .trade .contract-back button {
     background-color: #e98024 !important;
@@ -9368,7 +9493,11 @@ body * {
     font-size: 20px; }
 
 .trade .contract-details {
-  margin-top: 20px; }
+  margin-top: 1%; }
+  .trade .contract-details .win {
+    color: #4CBB17 !important; }
+  .trade .contract-details .lose {
+    color: #ff0000 !important; }
   .trade .contract-details .row {
     padding: 0;
     margin-top: 0; }
@@ -9381,13 +9510,47 @@ body * {
         padding: 4px 10px 4px 0; }
       .trade .contract-details .row .col:last-child {
         text-align: center;
-        font-weight: bold;
-        color: #4CBB17; }
+        font-weight: bold; }
     .trade .contract-details .row:last-child {
       border-bottom: 1px solid #c4c4c4; }
+  .trade .contract-details .win .col {
+    color: #4CBB17 !important;
+    background-color: #fff !important;
+    font-size: 16px;
+    padding: 10px !important; }
+  .trade .contract-details .lose .col {
+    color: #ff0000 !important;
+    background-color: #fff !important;
+    font-size: 16px;
+    padding: 10px !important; }
+
+.trade .buy-again {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #c4c4c4;
+  padding-top: 0;
+  padding-bottom: 0; }
+  .trade .buy-again .price-des {
+    font-size: 3vw;
+    font-weight: bold; }
+  .trade .buy-again .price {
+    color: #e98024;
+    font-size: 4vw; }
+  .trade .buy-again button {
+    background-color: #e98024 !important;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 28px;
+    min-height: 24px; }
+
+.trade .contract-type {
+  background: #f2f2f2; }
+  .trade .contract-type .item {
+    background: #f2f2f2; }
+  .trade .contract-type .item-select select {
+    background: #f2f2f2; }
 
 .options .options-content {
-  display: block;
   padding-left: 3%;
   padding-right: 3%; }
   .options .options-content .col {
@@ -9401,22 +9564,20 @@ body * {
     font-size: 16px;
     font-weight: bold;
     text-align: left;
-    padding: 4px 0 10px;
-    margin: 0; }
+    padding: 2px 0 5px;
+    margin: 0;
+    width: 100%; }
 
 .options .options-account {
-  padding-top: 5px;
-  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 5px;
   border-bottom: 1px solid #f2f2f2; }
   .options .options-account .manage-account {
     text-align: right;
-    font-size: 20px; }
-    .options .options-account .manage-account i:before {
-      margin-top: 3px; }
+    font-size: 28px; }
 
 .options .options-market {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 5px 0; }
+  border-bottom: 1px solid #f2f2f2; }
   .options .options-market .item {
     display: inline-block; }
   .options .options-market .item-content {
@@ -9433,8 +9594,7 @@ body * {
   border-bottom: 1px solid #f2f2f2; }
 
 .options .options-trade {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 5px 0; }
+  border-bottom: 1px solid #f2f2f2; }
   .options .options-trade .padding {
     padding: 0 5px 5px 5px;
     width: 100%;
@@ -9452,8 +9612,7 @@ body * {
     color: #fff; }
 
 .options .options-ticks {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 5px 0; }
+  border-bottom: 1px solid #f2f2f2; }
   .options .options-ticks .item {
     display: inline-block;
     width: 16%; }
@@ -9463,10 +9622,11 @@ body * {
   .options .options-ticks .item-radio input:checked ~ .item-content {
     background: #2a3052;
     color: #fff; }
+  .options .options-ticks .disabled {
+    opacity: 0.7; }
 
 .options .options-amount {
-  border-bottom: 1px solid #f2f2f2;
-  padding: 5px 0; }
+  border-bottom: 1px solid #f2f2f2; }
   .options .options-amount .item {
     display: inline-block;
     width: 30%; }
@@ -9479,6 +9639,9 @@ body * {
 
 .options .options-save {
   margin-bottom: 20%; }
+
+.options button {
+  font-size: 20px; }
 
 .options label .input-label {
   padding: 0px; }
@@ -9502,48 +9665,49 @@ body * {
   background-color: rgba(0, 0, 0, 0.5); }
 
 .accounts-content {
-  display: block;
-  padding-left: 3%;
-  padding-right: 3%; }
-  .accounts-content h1 {
-    font-size: 18px; }
+  display: block; }
+  .accounts-content .bar {
+    background-color: #e98024;
+    margin-bottom: 4px !important; }
+    .accounts-content .bar h2 {
+      color: #fff; }
   .accounts-content .remove-all-accounts {
     background-color: #f2f2f2;
     margin-top: 10px;
-    padding: 5px;
-    font-size: 12px; }
+    padding: 10px;
+    font-size: 14px; }
     .accounts-content .remove-all-accounts a {
       color: #ff0000; }
-  .accounts-content .account {
-    padding: 10px 5px;
-    border-bottom: 1px solid #c4c4c4; }
-    .accounts-content .account > div {
-      color: #2a3052;
-      font-size: 16px; }
-      .accounts-content .account > div .id {
-        color: #2a3052;
-        font-size: 14px;
-        font-weight: 700; }
-      .accounts-content .account > div .default {
-        color: #e98024;
-        font-size: 12px;
-        font-weight: 500; }
-      .accounts-content .account > div .token {
-        color: #c4c4c4;
-        font-size: 12px;
-        display: block;
-        font-weight: 500; }
-    .accounts-content .account a.remove {
+  .accounts-content .account .list {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 4px !important; }
+    .accounts-content .account .list .item-content {
+      padding: 10px 0 10px 20px; }
+    .accounts-content .account .list i {
+      display: block;
+      float: left;
+      width: 40px;
       font-size: 24px;
-      color: #ff0000;
-      line-height: 40px;
+      line-height: 40px; }
+      .accounts-content .account .list i.default {
+        color: #4CBB17; }
+      .accounts-content .account .list i.not-default {
+        color: #c4c4c4; }
+    .accounts-content .account .list div .id {
+      color: #2a3052;
+      font-size: 16px;
+      font-weight: 700; }
+    .accounts-content .account .list div .token {
+      color: #c4c4c4;
+      font-size: 14px;
+      display: block;
       font-weight: 500; }
-    .accounts-content .account a.set-default {
-      color: #5e668f;
-      font-size: 12px;
-      font-weight: 500; }
+  .accounts-content .account .button-green {
+    background-color: #4CBB17; }
   .accounts-content .add-account {
-    margin-top: 20px; }
+    margin-top: 20px;
+    padding: 20px; }
     .accounts-content .add-account label {
       float: left; }
       .accounts-content .add-account label.error {
@@ -9554,8 +9718,10 @@ body * {
         color: #c4c4c4; }
     .accounts-content .add-account .item-input {
       padding: 0; }
+    .accounts-content .add-account .ion-android-lock {
+      font-size: 16px; }
     .accounts-content .add-account .add {
-      font-size: 24px;
+      font-size: 28px;
       color: #4CBB17;
       line-height: 40px; }
 

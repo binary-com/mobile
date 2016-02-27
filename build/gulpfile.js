@@ -15,7 +15,7 @@ var files = {
   static: ['../www/i18n/**/*', '../www/templates/**/*', '../www/img/**/*', '../www/fonts/**/*'],
   lib: ['../www/lib/**/*.min.js', '../www/lib/ionic/js/ionic.bundle.js', '../www/lib/ionic/fonts/*'],
   style: ['../www/css/style.css'],
-  script: ['../www/js/**/*'],
+  script: ['../www/js/**/*.js'],
   index: './index.html',
   scss: '../scss/ionic.app.scss',
   dist: './dist'

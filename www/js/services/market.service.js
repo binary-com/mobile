@@ -12,12 +12,91 @@ angular
 	.service('marketService',
 		function(websocketService, proposalService, config) {
 
+			var regroup = function regroup(symbols){
+				var groups = {
+					index: ['R_100', 'R_25', 'R_50', 'R_75'],
+					BEARBULL: ['RDBEAR', 'RDBULL'],
+					MOONSUN: ['RDMOON', 'RDSUN'],
+					MARSVENUS: ['RDMARS', 'RDVENUS'],
+					YANGYIN: ['RDYANG', 'RDYIN'],
+				};
+
+				var result = [],
+						itemIndices = [];
+				Object.keys(groups).forEach(function(key){
+					var tmp = [],
+							first = -1;
+					symbols.forEach(function(item, index){
+						if ( item.symbol == groups[key][0] ) {
+							first = index;
+						}
+					});
+					if ( first < 0 ) {
+						return;
+					} else {
+						groups[key].forEach(function(item, index){
+							var itemIndex = -1;
+							symbols.forEach(function(item, i){
+								if ( item.symbol == groups[key][index] ) {
+									itemIndex = i;
+								}
+							});
+							if ( itemIndex >= 0 ) {
+								tmp.push(symbols[itemIndex]);
+								itemIndices.push(itemIndex);
+							}
+						});
+						tmp.sort();
+						result = result.concat(tmp);
+					}
+				});
+				symbols.forEach(function(symbol, index){
+					if ( itemIndices.indexOf(index) < 0 ) {
+						result.push(symbol);
+					}
+				});
+				return result;
+			};
+
+			var reorder = function reorder(symbols) {
+				symbols.sort(function(a, b){
+					if ( a.display_name > b.display_name) {
+						return 1;
+					} else if (a.display_name < b.display_name) {
+						return -1;
+					}
+					return 0;
+				});
+				symbols = regroup(symbols);
+				return symbols;
+			};
+
+			this.fixOrder = function() {
+                if(!sessionStorage.active_symbols){
+                    return;
+                }
+
+				var symbols = JSON.parse(sessionStorage.active_symbols);
+				Object.keys(symbols).forEach(function(key){
+					symbols[key] = reorder(symbols[key]);
+				});
+				sessionStorage.active_symbols = JSON.stringify(symbols);
+			};
+		
 			this.getActiveMarkets = function() {
+                if(!sessionStorage.active_symbols){
+                    return [];
+                }
+
 				var data = JSON.parse(sessionStorage.active_symbols);
 				return Object.keys(data);
 			};
 
 			this.getAllSymbolsForAMarket = function(_market) {
+                if(!_market || !sessionStorage.active_symbols || !sessionStorage.asset_index){
+                    return [];
+                }
+
 				var activeSymbols = JSON.parse(sessionStorage.active_symbols)[_market];
 				var assetIndex = JSON.parse(sessionStorage.asset_index);
 				var indexes = config.assetIndexes;
@@ -60,7 +139,9 @@ angular
 
 						return proposal.passthrough.market;
 					}
-					return _market.forex ? 'forex' : 'random';
+                    
+					//return _market.random ? 'random' : 'forex';
+                    return _.findKey(_market, function(o){return o});
 				},
 				/**
 				 * Return the default/selected symbol
@@ -80,6 +161,10 @@ angular
 				},
 
 				tradeType: function(_tradeTypes) {
+                    if(_.isEmpty(_tradeTypes)){
+                        return null;
+                    }
+
 					var proposal = proposalService.get();
 					var contractType = proposal.contract_type;
 					var selectedTradeType = _tradeTypes[0].value;
@@ -109,7 +194,10 @@ angular
 
 				amount: function() {
 					var proposal = proposalService.get();
-					return proposal.amount ? proposal.amount : 5;
+                    if(!isNaN(proposal.amount)){
+                        return proposal.amount;
+                    }
+					return 5;
 				}
 			};
 
@@ -126,7 +214,7 @@ angular
 								// Loop through all _symbols of a trade type
 								for (var j = 0; j < _symbol[key].length; j++) {
 									var minDuration = _symbol[key][j].min_contract_duration;
-									if (minDuration && minDuration.toString().match(/^\d+$/)) {
+									if (minDuration && minDuration.toString().match(/^\d+t$/)) {
 										hasTicks = true;
 									}
 								}
@@ -141,40 +229,19 @@ angular
 				return finalTradeTypes;
 			};
 
+			this.removeActiveSymbols = function(){
+				sessionStorage.active_symbols = null;
+			}
 
-			// this.getActiveTickSymbolsForMarket = function(_market) {
-			// 	var symbols = JSON.parse(sessionStorage.active_symbols);
-			// 	var activeSymbols = symbols[_market];
+			this.removeAssetIndex = function(){
+				sessionStorage.asset_index = null;
+			}
 
-			// 	var assets = JSON.parse(sessionStorage.asset_index);
-			// 	console.log('assets: ', assets);
+            this.hasActiveSymobols = function(){
+                return sessionStorage.active_symbols;
+            }
 
-			// 	activeSymbols.forEach(function(as) {
-			// 		console.log('as: ', as.symbol);
-			// 		assets.forEach(function(ai) {
-			// 			console.log('ai: ', ai[1]);
-			// 			console.log('ai: ', ai[2]);
-			// 		});
-			// 	});
-
-			// 	console.log('-------------------------------');
-			// };
+            this.hasAssetIndex = function(){
+                return sessionStorage.asset_index;
+            }
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -12,24 +12,69 @@ angular
 		'websocketService',
 		'marketService',
 		'proposalService',
-		function(websocketService, marketService, proposalService) {
+		'delayService',
+        'appStateService',
+		function(websocketService, marketService, proposalService, delayService, appStateService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/payout.template.html',
 			link: function(scope, element) {
 
+				var minimumUpdateDelay = 1000;
 				scope.basis = scope.$parent.proposalToSend.basis || 'payout';
-				scope.amount = marketService.getDefault.amount() || 5;
+				scope.amount = marketService.getDefault.amount();
+
+                if(scope.amount == 0){
+                    scope.amount = 5;
+                    updateProposal();
+                }
+                scope.proposalError = null;
+
+                proposalService.send();
+
+                scope.$on('$destroy', function(){
+                    delayService.remove('updateProposal');
+                });
 
 				scope.$parent.$watch('proposalRecieved', function(_proposal){
 					if (_proposal) {
 						var netProfit = parseFloat(_proposal.payout) - parseFloat(_proposal.ask_price);
 						_proposal.netProfit =  (isNaN(netProfit) || netProfit < 0) ? '0' : netProfit.toFixed(2);
 						scope.proposal = _proposal;
+                        scope.proposalError = null;
+
+                        if(scope.$parent && scope.$parent.purchaseFrom){
+                            scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", true);
+                        }
+                        
+                        if(!scope.$$phase){
+                            scope.$apply();
+                        }
 					}
 				});
 
-				var roundNumber = function(_newAmount, _oldAmount) {
+                scope.$on('purchase:error', function(e, error){
+                    if(scope.$parent.purchaseFrom){
+                        scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", false);
+                    }
+                    
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
+                });
+                scope.$on('proposal:error', function(e, error){
+                    scope.proposalError = error;
+
+                    if(scope.$parent.purchaseFrom){
+                        scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", false);
+                    }
+                    
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
+                });
+
+				function roundNumber(_newAmount, _oldAmount) {
 					var parsed = parseFloat(_newAmount, 10);
 					if (parsed !== parsed) {
 						return _oldAmount;
@@ -37,33 +82,52 @@ angular
 					return Math.round(parsed * 100) / 100;
 				};
 
-				var updateProposal = function() {
+				function updateProposal() {
 					var proposal = proposalService.get();
 					if (proposal) {
-						proposal.amount = scope.amount;
+						proposal.amount = parseFloat(scope.amount, 10);
 						proposalService.update(proposal);
-						proposalService.send(scope.proposal.id);
+						proposalService.send(scope.proposal && scope.proposal.id ? scope.proposal.id : null);
+
 					}
 				};
 
-				scope.updateAmount = function(_newAmount, _oldAmount) {
-					scope.amount = roundNumber(_newAmount, _oldAmount);
-					updateProposal();
+				scope.delayedUpdateProposal = function delayedUpdateProposal() {
+                    appStateService.waitForProposal = true;
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
+					delayService.update('updateProposal', updateProposal, minimumUpdateDelay);
 				};
+
+				scope.updateAmount = function(_newAmount, _oldAmount) {
+					// scope.amount = parseFloat(parseFloat(_newAmount).toFixed(2));//roundNumber(_newAmount, _oldAmount);
+					scope.delayedUpdateProposal();
+				};
+				
 
 				// TODO: limit to the account balance for stake
 				// TODO: figure out how to handle it for payout
 				scope.addAmount = function() {
 					var amount = parseFloat(scope.amount);
-					scope.amount = (amount < 100000) ? amount + 1 : 100000;
-					updateProposal();
+                    
+                    if(isNaN(amount)){
+                        amount = 0;
+                    }
+
+					scope.amount = (amount < 100000) ? Number(amount + 1).toFixed(2) : 100000;
+					//delayedUpdateProposal();
 				};
 
 				scope.subtractAmount = function() {
 					var amount = parseFloat(scope.amount);
-					scope.amount = (amount > 2) ? amount - 1 : 1;
-					updateProposal();
+					scope.amount = (amount > 2) ? Number(amount - 1).toFixed(2) : 1;
+					//delayedUpdateProposal();
 				};
+
+				scope.isObjectEmpty = function(_obj) {
+					return _.isEmpty(_obj);
+				}
 			}
 		};
 	}]);

@@ -1,35 +1,48 @@
-body *{
-	font-family: roboto, sans-serif !important;
+body * {
+				font-family: roboto, sans-serif !important;
 }
-.button{
-	border-color: #b2b2b2;
-    background-color: $orange;
-    color: $white;
-    :hover{
-    	color:$white !important;
-    }
+.button {
+				border-color: #b2b2b2;
+				background-color: $orange;
+				color: $white;
+				 :hover {
+								color: $white !important;
+				}
 }
-.center{
-	text-align: center;
+.center {
+				text-align: center;
 }
-.item{
-	border-width:0;
+.item {
+				border-width: 0;
 }
-.item-select select{
-	max-width: 100%;
+.item-select select {
+				max-width: 100%;
 }
-.item-complex .item-content, .item-radio .item-content{
-	background-color: $lightgray;
+.item-complex .item-content,
+.item-radio .item-content {
+				background-color: $lightgray;
 }
 .scroll-content {
-	display: block;
-	position: relative;
-	height: 100%;
-	// top:initial;
-	// right:initial;
-	// bottom:initial;
-	// left:initial;
+				display: block;
+				position: relative;
+				height: 100%;
+
+				// top:initial;
+				// right:initial;
+				// bottom:initial;
+				// left:initial;
 }
 .scroll {
-	padding-bottom: 1px;
+				padding-bottom: 1px;
+}
+.error p {
+				color: red;
+				font-size: 8px;
+}
+.appVersion {
+				color: $lightgray;
+				opacity: 0.5;
+				font-size: 14px;
+				display: block;
+				margin: 0 auto;
 }
