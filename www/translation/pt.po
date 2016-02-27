@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-02-24 05:02+0000\n"
-"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
+"PO-Revision-Date: 2016-02-27 02:33+0000\n"
+"Last-Translator: Gabriela Balieiro Moreira <eusouagabi@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/pt/>\n"
 "Language: pt\n"
@@ -66,32 +66,26 @@ msgid "Are you sure you want to exit?"
 msgstr "Tem certeza que deseja sair?"
 
 #: .update.downloading
-#, fuzzy
 msgid "Downloading ..."
 msgstr "Baixando ..."
 
 #: .update.installing
-#, fuzzy
 msgid "Installing update"
 msgstr "Instalando atualização"
 
 #: .update.installed
-#, fuzzy
 msgid "The update was installed successfully."
 msgstr "A atualização foi instalada com sucesso."
 
 #: .update.up_to_date
-#, fuzzy
 msgid "The application is up to date."
 msgstr "O aplicativo está atualizado."
 
 #: .update.check_for_update
-#, fuzzy
 msgid "Checking for update."
 msgstr "Procurando atualização."
 
 #: .update.error
-#, fuzzy
 msgid "An error occured while checking for updates"
 msgstr "Ocorreu um erro ao procurar atualizações"
 
@@ -109,7 +103,6 @@ msgid "BUY"
 msgstr "COMPRAR"
 
 #: .trade.buy_again
-#, fuzzy
 msgid "Buy Again"
 msgstr "Comprar novamente"
 
@@ -246,7 +239,6 @@ msgid "Removing a Token"
 msgstr "Removendo um token"
 
 #: .alert.no_tick
-#, fuzzy
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
@@ -275,7 +267,6 @@ msgid "Sorry, we couldn't authenticate you."
 msgstr "Lamentamos, não foi possível autenticá-lo."
 
 #: .alert.no_underlying
-#, fuzzy
 msgid "There is no underlying for this market. Please try another market."
 msgstr "Não existe nenhum ativo subjacente. Experimente outro mercado."
 
@@ -337,7 +328,6 @@ msgid "Number of Ticks"
 msgstr "Número de tique-taques"
 
 #: .options.underlying
-#, fuzzy
 msgid "Underlying"
 msgstr "Ativo subjacente"
 
