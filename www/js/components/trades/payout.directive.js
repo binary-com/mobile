@@ -100,8 +100,7 @@ angular
 					delayService.update('updateProposal', updateProposal, minimumUpdateDelay);
 				};
 
-				scope.updateAmount = function(_newAmount, _oldAmount) {
-					// scope.amount = parseFloat(parseFloat(_newAmount).toFixed(2));//roundNumber(_newAmount, _oldAmount);
+				scope.updateAmount = function(_form) {
 					scope.delayedUpdateProposal();
 				};
 				
@@ -116,13 +115,11 @@ angular
                     }
 
 					scope.amount = (amount < 100000) ? Number(amount + 1).toFixed(2) : 100000;
-					//delayedUpdateProposal();
 				};
 
 				scope.subtractAmount = function() {
 					var amount = parseFloat(scope.amount);
 					scope.amount = (amount > 2) ? Number(amount - 1).toFixed(2) : 1;
-					//delayedUpdateProposal();
 				};
 
 				scope.isObjectEmpty = function(_obj) {
