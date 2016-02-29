@@ -1,5 +1,5 @@
 /**
- * @name chartService 
+ * @name chartService
  * @author Amin Marashi
  * @contributors []
  * @since 11/25/2015
@@ -44,8 +44,8 @@ angular
 							return !distribute(index);
 						},
 						datasets: [{
-							strokeColor: "orange",
-							pointColor: "orange",
+							strokeColor: "#e98024",
+							pointColor: "#e98024",
 							pointStrokeColor: "#fff",
 							data: []
 						}]
@@ -270,7 +270,7 @@ angular
 			var ContractCtrl = function ContractCtrl(contract) {
 
 				var broadcastable = true;
-				
+
 				var setNotBroadcastable = function setNotBroadcastable(){
 					return broadcastable = false;
 				};
@@ -532,7 +532,7 @@ angular
 					if (isLastPoint(index) && !showingHistory()) {
 						color = 'green';
 					} else {
-						color = 'orange';
+						color = '#e98024';
 					}
 					return color;
 				};
@@ -1196,7 +1196,7 @@ angular
 				contractCtrls.forEach(function(contractctrl, index){
 					contractctrl.setNotBroadcastable();
 				});
-				localHistory = null; 
+				localHistory = null;
 			};
 
 			chartDrawer = ChartDrawer();
