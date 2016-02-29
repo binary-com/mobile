@@ -18,6 +18,12 @@
     "xml2js": "^0.4.16"
   },
   "devDependencies": {
+    "del": "^2.2.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-html-replace": "^1.5.5",
+    "gulp-minify": "0.0.5",
+    "gulp-ngmin": "^0.3.0",
     "gulp-util": "^2.2.14",
     "shelljs": "^0.3.0"
   },
