@@ -6,18 +6,31 @@
 				.contract-summary {
 								padding: 5px 10px;
 								text-align: center;
-								font-size: 14px;
+								font-size: 4vw;
 								background-color: $lightgray;
 								position: relative;
 								span {
 												// font-weight: bold;
 								}
 				}
-				.contract-chart {}
 				.contract-payout {
-								background-color: $lightgray;
-								border-top: 1px solid $gray;
 								border-bottom: 1px solid $gray;
+								padding: 0 !important;
+								.col:nth-child(3) {
+												margin: 15px 0 0 !important;
+								}
+								.price {
+												font-size: 4vw;
+												color: $orange;
+												text-align: center;
+												line-height: 12px;
+								}
+								.price-des {
+												font-size: 4vw;
+												text-align: center;
+												color: $darkgray;
+												padding-bottom: 0;
+								}
 								.basis {
 												font-size: 4vw;
 												text-align: left;
@@ -26,15 +39,19 @@
 								}
 								.amount {
 												position: relative;
-												input {
-																font-size: 5vw;
-																width: 100px;
-																height: 36px;
-																border-radius: 5px;
-																border: 1px solid $gray;
-																line-height: 36px;
-																text-align: center;
-																padding-left: 18px;
+												.price {
+																padding-top: 0;
+																padding-bottom: 0;
+																input {
+																				font-size: 4vw;
+																				max-width: 80px;
+																				height: auto;
+																				border-bottom: 1px solid $lightgray;
+																				line-height: 12px;
+																				text-align: center;
+																				color: $orange;
+																				padding-top: 0;
+																}
 												}
 												.error {
 																position: absolute;
@@ -69,7 +86,6 @@
 								}
 								.button-bar {
 												.button {
-																height: 35px;
 																min-height: 20px;
 												}
 												.button:before {
@@ -78,44 +94,46 @@
 								}
 								> .col:nth-child(3) {
 												.button {
-																float: right;
+																// float: right;
 																margin: 0;
 																//margin-left: 10px;
-																min-width: 40px;
-																min-height: 40px;
+																min-width: 20px;
+																min-height: 20px;
 																border: none;
-																color: $white;
+																color: $black;
 																border-radius: 0;
+																border: 1px solid $gray;
+																vertical-align: middle;
+																line-height: 21px;
 																&.plus {
-																				background-color: $darkblue;
-																				border-radius: 0 5px 5px 0;
+																				background-color: $lightgray;
 																}
 																&.minus {
-																				background-color: $gray;
-																				border-radius: 5px 0 0 5px;
+																				background-color: $lightgray;
 																}
 												}
 								}
 				}
-				.contract-price {
+				.net-profit {
 								background-color: $lightgray;
 								border-bottom: 1px solid $gray;
+								border-top: 1px solid $gray;
 								margin-top: 0;
-								> .col:nth-child(1) {
-												font-size: 16px;
-												text-align: left;
-												padding-left: 10px;
-												line-height: 36px;
+								padding: 0;
+								.col:nth-child(1) {
+												text-align: center;
+												line-height: 12px;
+												color: $darkgray;
 								}
 								.price-des {
-												font-size: 4vw;
-												text-align: left;
+												font-size: 3vw;
+												text-align: center;
 								}
 								.price {
-												font-size: 4vw;
-												color: $orange;
+												font-size: 3vw;
+												color: $darkgray;
 												text-align: left;
-												line-height: 36px;
+												line-height: 12px;
 								}
 				}
 				.contract-purchase,
@@ -143,14 +161,15 @@
 												.col {
 																border-top: 1px solid $gray;
 																&:first-child {
-																				background-color: $lightgray;
+																				// background-color: $lightgray;
 																				text-align: right;
 																				border-right: 1px solid $gray;
 																				padding: 4px 10px 4px 0;
+																				color:$darkgray
 																}
 																&:last-child {
 																				text-align: center;
-																				font-weight: bold;
+																				// font-weight: bold;
 																				// color: $green;
 																}
 												}
@@ -161,24 +180,24 @@
 								.win .col {
 												color: $green !important;
 												background-color: $white !important;
-												font-size: 16px;
-												padding: 10px !important;
+												font-size: 4vw;
+												padding: 5px !important;
 								}
 								.lose .col {
 												color: $red !important;
 												background-color: $white !important;
-												font-size: 16px;
-												padding: 10px !important;
+												font-size: 4vw;
+												padding: 5px !important;
 								}
 				}
 				.buy-again {
-								background-color: $lightgray;
+								background-color: $white;
 								border-bottom: 1px solid $gray;
 								padding-top: 0;
 								padding-bottom: 0;
 								.price-des {
-												font-size: 3vw;
-												font-weight: bold;
+												font-size: 4vw;
+												color:$darkgray;
 								}
 								.price {
 												color: $orange;
@@ -195,11 +214,24 @@
 				}
 				.contract-type {
 								background: $lightgray;
+								border-bottom: #c4c4c4 1px solid !important;
 								.item {
 												background: $lightgray;
 								}
+								.item:nth-child(odd) {
+												border-right: #c4c4c4 3px solid !important;
+								}
 								.item-select select {
 												background: $lightgray;
+								}
+								.item-content {
+												text-align: center;
+												padding: 0;
+												            font-size: 4vw;
+								}
+								.item-radio input:checked ~ .item-content {
+												background: transparent !important;
+												color: #e98024;
 								}
 				}
 }
