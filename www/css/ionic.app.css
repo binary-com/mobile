@@ -9145,6 +9145,13 @@ body * {
   display: block;
   margin: 0 auto; }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */ }
+
 @media screen and (max-width: 400px) {
   .trade .contract-price .price {
     display: inline-block; }
@@ -9272,7 +9279,8 @@ body * {
   bottom: 0;
   border-top-width: 0;
   border-bottom-width: 1px;
-  height: auto; }
+  height: auto;
+  font-size: 4vw; }
   .bar-footer .account {
     text-align: center;
     color: #e98024; }
@@ -9393,14 +9401,25 @@ body * {
 .trade .contract-summary {
   padding: 5px 10px;
   text-align: center;
-  font-size: 14px;
+  font-size: 4vw;
   background-color: #f2f2f2;
   position: relative; }
 
 .trade .contract-payout {
-  background-color: #f2f2f2;
-  border-top: 1px solid #c4c4c4;
-  border-bottom: 1px solid #c4c4c4; }
+  border-bottom: 1px solid #c4c4c4;
+  padding: 0 !important; }
+  .trade .contract-payout .col:nth-child(3) {
+    margin: 15px 0 0 !important; }
+  .trade .contract-payout .price {
+    font-size: 4vw;
+    color: #e98024;
+    text-align: center;
+    line-height: 12px; }
+  .trade .contract-payout .price-des {
+    font-size: 4vw;
+    text-align: center;
+    color: #818183;
+    padding-bottom: 0; }
   .trade .contract-payout .basis {
     font-size: 4vw;
     text-align: left;
@@ -9408,15 +9427,18 @@ body * {
     padding-left: 10px; }
   .trade .contract-payout .amount {
     position: relative; }
-    .trade .contract-payout .amount input {
-      font-size: 5vw;
-      width: 100px;
-      height: 36px;
-      border-radius: 5px;
-      border: 1px solid #c4c4c4;
-      line-height: 36px;
-      text-align: center;
-      padding-left: 18px; }
+    .trade .contract-payout .amount .price {
+      padding-top: 0;
+      padding-bottom: 0; }
+      .trade .contract-payout .amount .price input {
+        font-size: 4vw;
+        max-width: 80px;
+        height: auto;
+        border-bottom: 1px solid #f2f2f2;
+        line-height: 12px;
+        text-align: center;
+        color: #e98024;
+        padding-top: 0; }
     .trade .contract-payout .amount .error {
       position: absolute;
       background-color: #ff0000;
@@ -9444,42 +9466,42 @@ body * {
         border-right: 8px solid transparent;
         border-left: 8px solid transparent; }
   .trade .contract-payout .button-bar .button {
-    height: 35px;
     min-height: 20px; }
   .trade .contract-payout .button-bar .button:before {
     line-height: 30px; }
   .trade .contract-payout > .col:nth-child(3) .button {
-    float: right;
     margin: 0;
-    min-width: 40px;
-    min-height: 40px;
+    min-width: 20px;
+    min-height: 20px;
     border: none;
-    color: #fff;
-    border-radius: 0; }
+    color: #000;
+    border-radius: 0;
+    border: 1px solid #c4c4c4;
+    vertical-align: middle;
+    line-height: 21px; }
     .trade .contract-payout > .col:nth-child(3) .button.plus {
-      background-color: #2a3052;
-      border-radius: 0 5px 5px 0; }
+      background-color: #f2f2f2; }
     .trade .contract-payout > .col:nth-child(3) .button.minus {
-      background-color: #c4c4c4;
-      border-radius: 5px 0 0 5px; }
+      background-color: #f2f2f2; }
 
-.trade .contract-price {
+.trade .net-profit {
   background-color: #f2f2f2;
   border-bottom: 1px solid #c4c4c4;
-  margin-top: 0; }
-  .trade .contract-price > .col:nth-child(1) {
-    font-size: 16px;
+  border-top: 1px solid #c4c4c4;
+  margin-top: 0;
+  padding: 0; }
+  .trade .net-profit .col:nth-child(1) {
+    text-align: center;
+    line-height: 12px;
+    color: #818183; }
+  .trade .net-profit .price-des {
+    font-size: 3vw;
+    text-align: center; }
+  .trade .net-profit .price {
+    font-size: 3vw;
+    color: #818183;
     text-align: left;
-    padding-left: 10px;
-    line-height: 36px; }
-  .trade .contract-price .price-des {
-    font-size: 4vw;
-    text-align: left; }
-  .trade .contract-price .price {
-    font-size: 4vw;
-    color: #e98024;
-    text-align: left;
-    line-height: 36px; }
+    line-height: 12px; }
 
 .trade .contract-purchase,
 .trade .contract-back {
@@ -9504,34 +9526,33 @@ body * {
     .trade .contract-details .row .col {
       border-top: 1px solid #c4c4c4; }
       .trade .contract-details .row .col:first-child {
-        background-color: #f2f2f2;
         text-align: right;
         border-right: 1px solid #c4c4c4;
-        padding: 4px 10px 4px 0; }
+        padding: 4px 10px 4px 0;
+        color: #818183; }
       .trade .contract-details .row .col:last-child {
-        text-align: center;
-        font-weight: bold; }
+        text-align: center; }
     .trade .contract-details .row:last-child {
       border-bottom: 1px solid #c4c4c4; }
   .trade .contract-details .win .col {
     color: #4CBB17 !important;
     background-color: #fff !important;
-    font-size: 16px;
-    padding: 10px !important; }
+    font-size: 4vw;
+    padding: 5px !important; }
   .trade .contract-details .lose .col {
     color: #ff0000 !important;
     background-color: #fff !important;
-    font-size: 16px;
-    padding: 10px !important; }
+    font-size: 4vw;
+    padding: 5px !important; }
 
 .trade .buy-again {
-  background-color: #f2f2f2;
+  background-color: #fff;
   border-bottom: 1px solid #c4c4c4;
   padding-top: 0;
   padding-bottom: 0; }
   .trade .buy-again .price-des {
-    font-size: 3vw;
-    font-weight: bold; }
+    font-size: 4vw;
+    color: #818183; }
   .trade .buy-again .price {
     color: #e98024;
     font-size: 4vw; }
@@ -9544,11 +9565,21 @@ body * {
     min-height: 24px; }
 
 .trade .contract-type {
-  background: #f2f2f2; }
+  background: #f2f2f2;
+  border-bottom: #c4c4c4 1px solid !important; }
   .trade .contract-type .item {
     background: #f2f2f2; }
+  .trade .contract-type .item:nth-child(odd) {
+    border-right: #c4c4c4 3px solid !important; }
   .trade .contract-type .item-select select {
     background: #f2f2f2; }
+  .trade .contract-type .item-content {
+    text-align: center;
+    padding: 0;
+    font-size: 4vw; }
+  .trade .contract-type .item-radio input:checked ~ .item-content {
+    background: transparent !important;
+    color: #e98024; }
 
 .options .options-content {
   padding-left: 3%;
@@ -9561,7 +9592,7 @@ body * {
   .options [class*="options"] h1 {
     color: #2a3052;
     border-radius: 0 !important;
-    font-size: 16px;
+    font-size: 4vw;
     font-weight: bold;
     text-align: left;
     padding: 2px 0 5px;
@@ -9582,7 +9613,8 @@ body * {
     display: inline-block; }
   .options .options-market .item-content {
     padding: 0;
-    text-align: center; }
+    text-align: center;
+    font-size: 4vw; }
   .options .options-market .item-radio input:checked ~ .item-content {
     background: #2a3052;
     color: #fff; }
@@ -9596,17 +9628,18 @@ body * {
 .options .options-trade {
   border-bottom: 1px solid #f2f2f2; }
   .options .options-trade .padding {
-    padding: 0 5px 5px 5px;
+    padding: 0 5px 5px;
     width: 100%;
     margin-top: -5px; }
   .options .options-trade .item {
     display: inline-table;
     position: relative;
     width: 50%;
-    padding: 2px 2px 0px; }
+    padding: 2px 2px 0; }
   .options .options-trade .item-content {
     padding: 0;
-    text-align: center; }
+    text-align: center;
+    font-size: 4vw; }
   .options .options-trade .item-radio input:checked ~ .item-content {
     background: #2a3052;
     color: #fff; }
@@ -9618,7 +9651,8 @@ body * {
     width: 16%; }
   .options .options-ticks .item-content {
     padding: 0;
-    text-align: center; }
+    text-align: center;
+    font-size: 4vw; }
   .options .options-ticks .item-radio input:checked ~ .item-content {
     background: #2a3052;
     color: #fff; }
@@ -9632,7 +9666,8 @@ body * {
     width: 30%; }
   .options .options-amount .item-content {
     padding: 0;
-    text-align: center; }
+    text-align: center;
+    font-size: 4vw; }
   .options .options-amount .item-radio input:checked ~ .item-content {
     background: #2a3052;
     color: #fff; }
@@ -9644,12 +9679,12 @@ body * {
   font-size: 20px; }
 
 .options label .input-label {
-  padding: 0px; }
+  padding: 0; }
 
 .options label.item-input {
   border-width: 0;
   margin: 1px 0;
-  padding: 6px 0 5px 0px; }
+  padding: 6px 0 5px; }
 
 .options label.item-select {
   height: 25px; }

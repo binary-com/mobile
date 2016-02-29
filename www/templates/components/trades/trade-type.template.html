@@ -1,5 +1,5 @@
 <div class="contract-type row">
-	<label class="item item-input item-select col col-90">
+<!--	<label class="item item-input item-select col col-90">
 		<div class="input-label">{{'options.trade_type' | translate}}</div>
 		<select ng-change="changeTradeType()" ng-model="proposal.contract_type">
 			<option
@@ -11,4 +11,11 @@
 			</option>
 		</select>
 	</label>
+-->
+    <label class="item item-radio col" ng-repeat="t in tradeTypes">
+        <input type="radio" name="market" value="{{t.value}}"
+            ng-model="proposal.contract_type"
+            ng-change="changeTradeType()"/>
+        <div class="item-content"> {{t.name}} </div>
+    </label>
 </div>
