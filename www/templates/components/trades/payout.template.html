@@ -1,4 +1,4 @@
-<div class="contract-price row">
+<div class="net-profit row">
     <div class="col">
         <span class="price-des">{{'trade.net_profit' | translate}}:</span>
         <span class="price" ng-if="!getWaitForProposal()">{{proposal.netProfit  | currency:currency:2}} </span>
@@ -47,8 +47,8 @@
         </div>
         <div class="row">
             <div class="col price">
-                <input type="number" string-to-number name="amount" 
-                    ng-model="amount" ng-change="updateAmount(amount, '{{amount}}')" 
+                <input type="number" string-to-number name="amount"
+                    ng-model="amount" ng-change="updateAmount(amount, '{{amount}}')"
                     required step="0.01"/>
                 <div class="error" ng-show="proposalError">
                         <p> {{ proposalError.message }} </p>

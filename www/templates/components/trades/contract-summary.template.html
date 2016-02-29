@@ -1,4 +1,5 @@
 <div class="contract-details">
+	<div class="{{contract.result}} row" ng-if="contract.result !== undefined"><div class="col"> {{'trade.' + contract.result | translate}}</div></div>
 	<div class="row">
 		<div class="col">{{ 'trade.transaction_id' | translate }}</div>
 		<div class="col">{{ contract.transaction_id }}</div>
@@ -25,7 +26,6 @@
 		<div class="col">{{'trade.account_balance' | translate }}</div>
 		<div class="col">{{contract.balance | currency}}</div>
 	</div> -->
-	<div class="{{contract.result}} row" ng-if="contract.result !== undefined"><div class="col"> {{'trade.' + contract.result | translate}}</div></div>
 </div>
 
 <div class="buy-again row">
