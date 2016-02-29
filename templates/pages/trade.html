@@ -1,0 +1,27 @@
+<ion-view class="trade" ng-init="init()">
+	<ion-header-bar align-title="center" class="bar bar-header bar-positive">
+		<button class="button icon ion-android-options" ng-click="navigateToOptionsPage()" ng-show="getTradeMode()"></button>
+		<h1 class="title">
+            <!-- <img src="img/logo.svg" alt="Binary.com logo"> -->
+            <logo-spinner start="getWaitForProposal()"></logo-spinner>
+			<img src="img/binary.svg" alt="Binary.com">
+		</h1>
+	</ion-header-bar>
+	<ion-content>
+		<form name="purchaseForm" novalidate>
+			<long-code></long-code>
+			<trade-contract-chart></trade-contract-chart>
+			<payout ng-if="getTradeMode()"></payout>
+			<contract-summary ng-if="!getTradeMode()"></contract-summary>
+			<purchase ng-if="getTradeMode()" ng-disabled="getWaitForProposal()"></purchase>
+
+		</form>
+	</ion-content>
+	<ion-footer-bar ng-hide="hideFooter" keyboard-attach class="bar-positive bar bar-footer row">
+		<!-- <div class="bar bar-footer row"> -->
+		<div class="col balance">
+			{{account.balance | currency:currency:2}}
+		</div>
+		<div class="col account">{{account.loginid}}</div>
+	</ion-footer-bar>
+</ion-view>

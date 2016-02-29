@@ -1,0 +1,16 @@
+<ion-view class="accounts">
+	<ion-header-bar align-title="center" class="bar bar-header bar-positive">
+		<a class="button icon-left ion-chevron-left button-clear" ng-click="navigateToOptionsPage()"></a>
+		<h1 class="title">
+			<img src="img/logo.svg" alt="Binary.com logo">
+			<img src="img/binary.svg" alt="Binary.com">
+		</h1>
+		<a class="button icon-right ion-log-out button-clear" ng-click="logout()"></a>
+	</ion-header-bar>
+	<ion-content class="accounts-content">
+		<manage-accounts></manage-accounts>
+	</ion-content>
+	<ion-footer-bar class="bar-positive bar bar-footer row">
+		<app-version class="appVersion"></app-version>
+	</ion-footer-bar>
+</ion-view>

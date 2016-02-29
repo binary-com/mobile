@@ -1,0 +1,11 @@
+<div class="options-ticks">
+    <div class="row {{getNgDisabled() ? 'disabled' : ''}}"">
+        <h1>{{'options.last_digit_prediction' | translate}}</h1>
+    </div>
+    <div class="row">
+        <label class="item item-radio col" ng-repeat="d in digits">
+            <input type="radio" name="digits" value="{{d}}" ng-model="selected.digit" ng-change="updateDigit(selected.digit)" ng-checked="selected.digit" ng-disabled="getNgDisabled()">
+            <div class="item-content {{getNgDisabled() ? 'disabled' : ''}}">{{d}}</div>
+        </label>
+    </div>
+</div>

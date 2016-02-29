@@ -1,0 +1,64 @@
+{
+	"signin" : {
+		"language": "Language",
+		"add_account": "Add Account",
+		"need_help": "Need Help?",
+		"paste_token": "Paste your token here"
+	},
+	"accounts": {
+		"my_accounts": "My Accounts",
+		"account": "Account",
+		"remove_all": "Remove All Accounts & Sign Out",
+		"default": "Default",
+		"set_as_default": "Set as default",
+		"add": "Add"
+	},
+	"alert" : {
+		"error": "Error!",
+		"not_valid": "Please enter a valid token",
+		"not_auth": "Sorry, we couldn't authenticate you",
+		"not_unique": "You've already added this account",
+		"contract_error": "Contract not available, please try again"
+	},
+	"options" : {
+		"account": "Account",
+		"select_market": "Markets",
+		"forex": "Forex",
+		"random": "Random",
+		"underlying": "Underlying",
+		"trade_type": "Trade Types",
+		"up": "Up",
+		"down": "Down",
+		"last_digit_prediction": "Last Digit Prediction",
+		"digit_match": "Digit Match",
+		"digit_differs": "Digit Differs",
+		"number_of_ticks": "Number of Ticks",
+		"payout_type": "Payout Type",
+		"five": "5",
+		"six": "6",
+		"seven": "7",
+		"eight": "8",
+		"nine": "9",
+		"ten": "10",
+		"select_amount": "Select Amount",
+		"payout": "Payout",
+		"stake": "Stake",
+		"save": "SAVE"
+	},
+	"trade" : {
+		"payout": "Payout",
+		"stake": "Stake",
+		"price": "Price",
+		"buy": "BUY",
+		"potential_payout": "Potential Payout",
+		"total_cost": "Total Cost",
+		"potential_profit": "Potential Profit",
+		"account_balance": "Account Balance",
+		"back": "Back",
+		"balance": "Balance"
+	},
+	"help" : {
+		"": "",
+		"": ""
+	}
+}

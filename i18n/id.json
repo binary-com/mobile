@@ -1,0 +1,102 @@
+{
+    "accounts": {
+        "account": "Akun", 
+        "add": "Tambah", 
+        "default": "Setelan", 
+        "delete": "Hapus", 
+        "my_accounts": "Mengelola Akun", 
+        "new_token": "Tambahkan token baru", 
+        "remove_all": "Hapus Semua Akun & Keluar", 
+        "set_as_default": "Pasang sebagai setelan"
+    }, 
+    "alert": {
+        "contract_error": "Kontrak tidak tersedia, silahkan coba lagi.", 
+        "error": "Error!", 
+        "field_between": "Harus antara 0.70 dan 100000.", 
+        "must_number": "Harus berupa angka.", 
+        "no_tick": "Pilih pasar dasar lain, Pasar dasar yang Anda pilih tidak menyediakan pilihan tick.", 
+        "no_underlying": "Tidak tersedia dasar untuk pasar ini. Silahkan coba pasar lain.", 
+        "not_auth": "Maaf, kami tidak dapat mengotentikasi Anda.", 
+        "not_unique": "Anda telah menambahkan akun ini.", 
+        "not_valid": "Masukkan token yang berlaku.", 
+        "remove_all_tokens_content": "Apakah Anda yakin ingin menghapus semua token dan keluar?", 
+        "remove_all_tokens_title": "Hapus Semua Token", 
+        "remove_token_content": "Apakah Anda yakin ingin menghapus token ini?", 
+        "remove_token_title": "Menghapus Token", 
+        "required_field": "Bagian ini diperlukan.", 
+        "warning": "Peringatan"
+    }, 
+    "app": {
+        "connection_error": "Tidak ada koneksi internet!", 
+        "connection_error_title": "Koneksi Error", 
+        "exit_confirmation": "Apa Anda yakin ingin keluar?", 
+        "exit_title": "Keluar"
+    }, 
+    "help": {
+        "back": "Kembali", 
+        "copy_token": "dan buat token. Kemudian copy dan pastekan pada kotak diatas.", 
+        "email_cs": "Ada pertanyaan? Email customer support di ", 
+        "generate_api": "Untuk mengakses aplikasi pihak ketiga, seperti mobile app, Anda diperlukan untuk membuat Token API.", 
+        "need_help": "Perlu Bantuan?", 
+        "page": "halaman ini", 
+        "visit": "Silahkan kunjungi"
+    }, 
+    "options": {
+        "account": "Akun", 
+        "digit_differs": "Digit Differs", 
+        "digit_match": "Digit Match", 
+        "down": "Down", 
+        "even": "Even", 
+        "forex": "Forex", 
+        "last_digit_prediction": "Analisa Digit Terakhir", 
+        "lets_trade": "Ayo trade!", 
+        "number_of_ticks": "Jumlah Tick", 
+        "odd": "Odd", 
+        "payout": "Hasil", 
+        "payout_type": "Jenis Hasil", 
+        "random": "Random", 
+        "save": "SIMPAN", 
+        "select_amount": "Pilih Jumlah", 
+        "select_market": "Pasar", 
+        "stake": "Modal", 
+        "trade_type": "Jenis Kontrak", 
+        "underlying": "Dasar", 
+        "up": "Up"
+    }, 
+    "signin": {
+        "add_account": "Tambah Akun", 
+        "get_token": "Cara mendapat Token?", 
+        "language": "Bahasa", 
+        "need_help": "Perlu Bantuan?", 
+        "paste_token": "Paste token Anda disini"
+    }, 
+    "trade": {
+        "account_balance": "Saldo Akun", 
+        "back": "Kembali", 
+        "balance": "Saldo", 
+        "buy": "BELI", 
+        "buy_again": "Buy Again", 
+        "buy_price": "Harga Beli", 
+        "final_price": "Harga Akhir", 
+        "lose": "Kontrak ini rugi", 
+        "loss": "Rugi", 
+        "net_profit": "Laba Bersih", 
+        "payout": "Hasil", 
+        "potential_payout": "Potensi Hasil", 
+        "potential_profit": "Potensi Untung", 
+        "price": "Harga", 
+        "profit": "Untung", 
+        "stake": "Modal", 
+        "total_cost": "Total Biaya", 
+        "transaction_id": "Referensi Transaksi", 
+        "win": "Kontrak ini untung"
+    }, 
+    "update": {
+        "check_for_update": "Checking for update.", 
+        "downloading": "Downloading ...", 
+        "error": "An error occured while checking for updates", 
+        "installed": "The update was installed successfully.", 
+        "installing": "Installing update", 
+        "up_to_date": "The application is up to date."
+    }
+}

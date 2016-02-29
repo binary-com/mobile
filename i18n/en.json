@@ -1,0 +1,102 @@
+{
+	"signin" : {
+		"language": "Language",
+		"add_account": "Add Account",
+		"need_help": "Need Help?",
+		"paste_token": "Paste your token here",
+		"get_token": "How to get a Token?"
+	},
+	"accounts": {
+		"my_accounts": "Manage Accounts",
+		"account": "Account",
+		"remove_all": "Remove All Accounts & Sign Out",
+		"default": "Default",
+		"set_as_default": "Set as default",
+		"add": "Add",
+		"new_token":"Add a new token",
+		"delete": "Delete"
+	},
+	"alert" : {
+		"error": "Error!",
+		"warning": "Warning",
+		"not_valid": "Please enter a valid token.",
+		"not_auth": "Sorry, we couldn't authenticate you.",
+		"not_unique": "You've already added this account.",
+		"contract_error": "Contract not available, please try again.",
+		"no_tick": "Please select another underlying, The underlying you've selected doesn't support ticks.",
+		"remove_token_title": "Removing a Token",
+		"remove_token_content": "Are you sure you want to remove this token?",
+		"remove_all_tokens_title": "Removing All Tokens",
+		"remove_all_tokens_content": "Are you sure you want to remove all tokens and sign out?",
+		"no_underlying": "There is no underlying for this market. Please try another market.",
+		"required_field": "This field is required.",
+		"field_between":"It must be between 0.70 and 100000.",
+		"must_number":"It must be a number."
+	},
+	"options" : {
+		"account": "Account",
+		"select_market": "Markets",
+		"forex": "Forex",
+		"random": "Random",
+		"underlying": "Underlying",
+		"trade_type": "Trade Types",
+		"up": "Up",
+		"down": "Down",
+		"last_digit_prediction": "Last Digit Prediction",
+		"even": "Even",
+		"odd": "Odd",
+		"digit_match": "Digit Match",
+		"digit_differs": "Digit Differs",
+		"number_of_ticks": "Number of Ticks",
+		"payout_type": "Payout Type",
+		"select_amount": "Select Amount",
+		"payout": "Payout",
+		"stake": "Stake",
+		"save": "SAVE",
+		"lets_trade": "Let's trade!"
+	},
+	"trade" : {
+		"payout": "Payout",
+		"stake": "Stake",
+		"price": "Price",
+		"buy": "BUY",
+		"net_profit": "Net Profit",
+		"potential_payout": "Potential Payout",
+		"total_cost": "Total Cost",
+		"potential_profit": "Potential Profit",
+		"account_balance": "Account Balance",
+		"back": "Back",
+		"balance": "Balance",
+		"buy_price": "Buy Price",
+		"final_price": "Final Price",
+		"profit": "Profit",
+		"loss": "Loss",
+		"win": "This contract won",
+		"lose": "This contract lost",
+		"transaction_id": "Transaction Reference",
+        "buy_again": "Buy Again"
+	},
+	"help" : {
+		"need_help": "Need Help?",
+		"generate_api": "To access a third party application, such as a mobile app, you are required to generate an API Token.",
+		"visit": "Please visit",
+		"page": "this page",
+		"copy_token": "and create a token. Then simply copy and paste it into the top box.",
+		"email_cs":"Have questions? Email customer support at ",
+		"back":"Back"
+	},
+	"app" : {
+		"exit_title": "Exit",
+		"exit_confirmation": "Are you sure you want to exit?",
+		"connection_error_title": "Connection Error",
+		"connection_error": "There is no internet connection!"
+	},
+    "update": {
+        "installed": "The update was installed successfully.",
+        "up_to_date": "The application is up to date.",
+        "error": "An error occured while checking for updates",
+        "check_for_update": "Checking for update.",
+        "downloading": "Downloading ...",
+        "installing": "Installing update"
+    }
+}

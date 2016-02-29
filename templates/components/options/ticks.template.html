@@ -1,0 +1,11 @@
+<div class="options-ticks">
+    <div class="row">
+        <h1>{{'options.number_of_ticks' | translate}}</h1>
+    </div>
+    <div class="row">
+        <label class="item item-radio col" ng-repeat="t in ticks">
+            <input type="radio" name="ticks" value="{{t}}" ng-model="selected.tick" ng-change="updateTick(selected.tick)" ng-checked="selected.tick">
+            <div class="item-content">{{t}}</div>
+        </label>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="bar bar-header">
+    <h2 class="title">{{'accounts.my_accounts' | translate}}</h2>    
+</div>
+
+<ion-list class="account" show-delete="false" show-reorder="false" can-swipe="true">
+    <ion-item ng-repeat="account in accounts" class="list">
+
+        <i class="icon not-default ion-android-lock" ng-hide="account.is_default"></i>
+        <i class="icon default ion-android-unlock" ng-show="account.is_default"></i>
+        <div>
+            <span class="id">{{account.id}}</span>
+            <span class="token">{{account.token}}</span>
+        </div>
+        <ion-option-button class="button-green"
+            ng-hide="account.is_default"
+            ng-click="setAccountAsDefault(account.token)">
+            {{'accounts.set_as_default' | translate}}
+        </ion-option-button>
+        <ion-option-button class="button-assertive"
+            ng-hide="account.is_default"
+            ng-click="removeAccount(account.token)">
+            {{'accounts.delete' | translate}}
+        </ion-option-button>
+
+    </ion-item>
+</ion-list>
+
+<div class="add-account row">
+    <div class="col col-90">
+        <label class="item-input " ng-class="{'error': tokenError}">
+            <i class="icon ion-android-lock placeholder-icon icon-small"></i>
+            <input type="text" placeholder="{{'accounts.new_token' | translate}}" ng-model="token" ngRequired>
+        </label>
+    </div>
+    <div class="col col-10">
+        <a href="" ng-click="addAccount(token);token = null">
+            <i class="add  ion-android-add-circle"></i>
+        </a>
+    </div>
+</div>
