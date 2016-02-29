@@ -1,0 +1,20 @@
+<div class="bar bar-header bar-calm" ng-if="isShown">
+    <div class="update row">
+        <div class="col-15">
+            <ion-spinner icon="lines" class="spinner" ng-if="!isDownloading && showSpinner"></ion-spinner>
+            <strong ng-if="isDownloading"> {{ message | translate }} </strong>
+        </div>
+        <div class="col col-70">
+            <div class="h1 title" ng-if="!isDownloading">
+                {{ message | translate }}
+            </div>
+            <div ng-if="isDownloading">
+                <progress max="100" value="{{progress}}"></progress>
+            </div>
+        </div>
+        <div class="col-15">
+            <a class="button button-icon icon ion-close-circled" ng-click="hide()">
+            </a>
+        </div>
+    </div>
+</div>

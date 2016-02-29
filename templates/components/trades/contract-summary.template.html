@@ -1,0 +1,56 @@
+<div class="contract-details">
+	<div class="row">
+		<div class="col">{{ 'trade.transaction_id' | translate }}</div>
+		<div class="col">{{ contract.transaction_id }}</div>
+	</div>
+	<div class="row">
+		<div class="col" ng-if="!isContractFinished()">{{'trade.potential_payout' | translate }}</div>
+		<div class="col" ng-if="isContractFinished()">{{'trade.buy_price' | translate }}</div>
+		<div class="col" ng-if="!isContractFinished()">{{contract.payout | currency}}</div>
+		<div class="col" ng-if="isContractFinished()">{{contract.buyPrice | currency}}</div>
+	</div>
+	<div class="row">
+		<div class="col" ng-if="!isContractFinished()">{{'trade.total_cost' | translate }}</div>
+		<div class="col" ng-if="isContractFinished()">{{'trade.final_price' | translate }}</div>
+		<div class="col" ng-if="!isContractFinished()">{{contract.cost | currency}}</div>
+		<div class="col" ng-if="isContractFinished()">{{contract.finalPrice | currency}}</div>
+	</div>
+	<div class="row">
+		<div class="col" ng-if="!isContractFinished()">{{'trade.potential_profit' | translate }}</div>
+		<div class="col" ng-if="isContractFinished()">{{ contract.result === "win" ? 'trade.profit' : 'trade.loss' | translate }}</div>
+		<div class="col" ng-if="!isContractFinished()">{{contract.profit | currency}}</div>
+		<div class="col {{contract.result}}" ng-if="isContractFinished()">{{contract.result === "win" ? contract.profit : contract.loss | customCurrency}}</div>
+	</div>
+	<!-- <div class="row">
+		<div class="col">{{'trade.account_balance' | translate }}</div>
+		<div class="col">{{contract.balance | currency}}</div>
+	</div> -->
+	<div class="{{contract.result}} row" ng-if="contract.result !== undefined"><div class="col"> {{'trade.' + contract.result | translate}}</div></div>
+</div>
+
+<div class="buy-again row">
+    <div class="col col-33">
+        <span class="price-des">{{basis == 'payout' ? ('trade.stake' | translate) : ('trade.payout' | translate) }}:</span><br>
+        <span class="price" ng-show="basis == 'payout'" ng-if="!getWaitForProposal()">{{(proposalRecieved.ask_price || '0') | currency:currency:2}}</span>
+        <span class="price" ng-show="basis == 'stake'" ng-if="!getWaitForProposal()">{{(proposalRecieved.payout || '0') | currency:currency:2}}</span>
+        <span class="price" ng-if="getWaitForProposal()"> -- </span>
+    </div>
+    <div class="col col-33">
+        <span class="price-des">{{'trade.net_profit' | translate}}:</span><br>
+        <span class="price" ng-if="!getWaitForProposal()">{{proposalRecieved.netProfit  | currency:currency:2}} </span>
+        <span class="price" ng-if="getWaitForProposal()"> -- </span>
+    </div>
+    <div class="col col-33" >
+        <purchase ng-disabled="!isContractFinished() || getWaitForProposal()" title="trade.buy_again"></purchase>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="contract-back" >
+            <button class="button button-block button-positive" ng-click="backToOptionPage()" ng-disabled="!isContractFinished()">
+                {{'trade.back' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="options-market">
+    <div class="row">
+        <h1>{{'options.select_market' | translate}}</h1>
+    </div>
+    <div class="row">
+        <label class="item item-radio col">
+            <input type="radio" name="market" value="forex"
+            	ng-model="selected.market"
+            	ng-change="updateMarket(selected.market)"
+            	ng-disabled="!market.forex">
+            <div class="item-content">{{'options.forex' | translate}}</div>
+        </label>
+        <label class="item item-radio col">
+            <input type="radio" name="market" value="random"
+            	ng-model="selected.market"
+            	ng-change="updateMarket(selected.market)"
+            	ng-disabled="!market.random">
+            <div class="item-content">{{'options.random' | translate}}</div>
+        </label>
+    </div>
+</div>

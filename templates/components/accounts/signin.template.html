@@ -1,0 +1,39 @@
+<div class="branding">
+	<img src="img/logo.svg"   class="logo" alt="Binary Logo">
+	<img src="img/binary.svg" class="slogan" alt="Binary.com">
+</div>
+<form ng-submit="signIn()" role="form" name="signin">
+	<div class="list">
+		<ion-spinner ng-show="showSpinner"></ion-spinner>
+		<label class="item-input" ng-class="{'error': tokenError}">
+			<i class="icon ion-android-lock placeholder-icon icon-small"></i>
+			<input type="text" placeholder="{{'signin.paste_token' | translate }}"
+		ng-model="token" tabindex="1" ngRequired>
+		</label>
+		<label class="item item-input item-select">
+			<i class="icon ion-ios-world placeholder-icon icon-small"></i>
+			<!-- <div class="input-label">
+				{{'signin.language' | translate }}
+			</div> -->
+			<select class="language" tabindex="2" ng-model="language" ng-change="changeLanguage()">
+				<option value="id">Bahasa Indonesia</option>
+				<!-- <option value="zh_tw">繁體中文</option>
+				<option value="de">Deutsch</option>
+				<option value="zh_cn">简体中文</option>
+				<option value="vi">Vietnamese</option>
+				<option value="ar">Arabic</option>
+				<option value="pl">Polish</option>
+				<option value="ru">Русский</option>
+				<option value="pt">Português</option>
+				<option value="es">Español</option>
+				<option value="fr">Français</option> -->
+				<option value="en" selected="selected">English</option>
+			</select>
+		</label>
+	</div>
+	<div class="padding">
+		<button class="button button-block button-positive btn-signin" type="submit">
+			{{'signin.add_account' | translate }}
+		</button>
+	</div>
+</form>
