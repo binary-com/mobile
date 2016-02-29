@@ -6,6 +6,11 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var minify = require('gulp-minify');
+var ngmin = require('gulp-ngmin');
+var del = require('del');
+var htmlreplace = require('gulp-html-replace');
+var ghPagesDeploy = require('gulp-gh-pages');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -49,4 +54,36 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+gulp.task('compress', function(done){
+   gulp.src('www/js/**/*.js')
+       .pipe(ngmin())
+       .pipe(concat('binary-ticktrade.js'))
+       .pipe(minify())
+       .pipe(gulp.dest('dist/js'));
+    
+   return done();
+});
+
+gulp.task('clean', function(done){
+    del.sync('dist/**');
+    return done();
+});
+
+gulp.task('modify-index', ['compress'], function(){
+    // replacing js files with min one
+    return gulp.src('www/index.html')
+       .pipe(htmlreplace({js: 'js/binary-ticktrade-min.js'}))
+       .pipe(gulp.dest('dist/'))
+});
+
+gulp.task('build', ['git-check','clean', 'compress', 'modify-index'], function(){
+    return gulp.src(['www/**/*', '!www/js{,/**}', '!www/index.html'])
+       .pipe(gulp.dest('dist/'))
+});
+
+gulp.task('deploy', ['build'], function(){
+    return gulp.src('dist/**/*')
+        .pipe(ghPagesDeploy());
 });
