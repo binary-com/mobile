@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-02-17 21:18+0000\n"
+"PO-Revision-Date: 2016-03-01 09:30+0000\n"
 "Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/binary-tick-trade/"
-"app/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,67 +16,52 @@ msgstr ""
 "X-Generator: Weblate 2.5-dev\n"
 
 #: .help.email_cs
-#, fuzzy
 msgid "Have questions? Email customer support at "
-msgstr "Une question ? Mél du service client à "
+msgstr ""
 
 #: .help.copy_token
-#, fuzzy
 msgid "and create a token. Then simply copy and paste it into the top box."
 msgstr ""
-"et créer un jeton. Ensuite, il suffit de le copier/coller dans la case du "
-"haut."
 
 #: .help.visit
-#, fuzzy
 msgid "Please visit"
-msgstr "Veuillez visiter"
+msgstr ""
 
 #: .help.back
-#, fuzzy
 msgctxt ".help.back"
 msgid "Back"
-msgstr "Retour"
+msgstr ""
 
 #: .help.need_help
-#, fuzzy
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr "Besoin d'aide ?"
+msgstr ""
 
 #: .help.generate_api
-#, fuzzy
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
 msgstr ""
-"Pour accéder à une application tierce, comme une application mobile, vous "
-"êtes besoin de générer un token pour l'API."
 
 #: .help.page
-#, fuzzy
 msgid "this page"
-msgstr "Cette page"
+msgstr ""
 
 #: .app.exit_title
-#, fuzzy
 msgid "Exit"
-msgstr "Quitter"
+msgstr ""
 
 #: .app.connection_error_title
-#, fuzzy
 msgid "Connection Error"
-msgstr "Erreur de connexion"
+msgstr ""
 
 #: .app.connection_error
-#, fuzzy
 msgid "There is no internet connection!"
-msgstr "Il n'y a pas de connexion internet !"
+msgstr ""
 
 #: .app.exit_confirmation
-#, fuzzy
 msgid "Are you sure you want to exit?"
-msgstr "Êtes-vous sûr de vouloir quitter ?"
+msgstr ""
 
 #: .update.downloading
 msgid "Downloading ..."
@@ -103,44 +88,37 @@ msgid "An error occured while checking for updates"
 msgstr ""
 
 #: .trade.payout
-#, fuzzy
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr "Paiement"
+msgstr ""
 
 #: .trade.net_profit
-#, fuzzy
 msgid "Net Profit"
-msgstr "Bénéfice Net"
+msgstr ""
 
 #: .trade.buy
-#, fuzzy
 msgid "BUY"
-msgstr "ACHETER"
+msgstr ""
 
 #: .trade.buy_again
 msgid "Buy Again"
 msgstr ""
 
 #: .trade.loss
-#, fuzzy
 msgid "Loss"
-msgstr "Perte"
+msgstr ""
 
 #: .trade.total_cost
-#, fuzzy
 msgid "Total Cost"
-msgstr "Coût Total"
+msgstr ""
 
 #: .trade.win
-#, fuzzy
 msgid "This contract won"
-msgstr "Ce contrat gagne"
+msgstr ""
 
 #: .trade.price
-#, fuzzy
 msgid "Price"
-msgstr "Prix"
+msgstr ""
 
 #: .trade.stake
 msgctxt ".trade.stake"
