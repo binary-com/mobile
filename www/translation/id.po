@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-02-16 09:18+0000\n"
+"PO-Revision-Date: 2016-03-01 09:18+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
@@ -67,27 +67,27 @@ msgstr "Apa Anda yakin ingin keluar?"
 
 #: .update.downloading
 msgid "Downloading ..."
-msgstr ""
+msgstr "Downloading ..."
 
 #: .update.installing
 msgid "Installing update"
-msgstr ""
+msgstr "Menginstal pembaruan"
 
 #: .update.installed
 msgid "The update was installed successfully."
-msgstr ""
+msgstr "Pembaruan berhasil diinstal."
 
 #: .update.up_to_date
 msgid "The application is up to date."
-msgstr ""
+msgstr "Aplikasi ini sudah diperbarui."
 
 #: .update.check_for_update
 msgid "Checking for update."
-msgstr ""
+msgstr "Memeriksa pembaruan."
 
 #: .update.error
 msgid "An error occured while checking for updates"
-msgstr ""
+msgstr "Terjadi error saat mengecek pembaruan"
 
 #: .trade.payout
 msgctxt ".trade.payout"
@@ -104,7 +104,7 @@ msgstr "BELI"
 
 #: .trade.buy_again
 msgid "Buy Again"
-msgstr ""
+msgstr "Beli Lagi"
 
 #: .trade.loss
 msgid "Loss"
