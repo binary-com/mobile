@@ -57,6 +57,8 @@ angular
 						showTooltips: false,
 						keepAspectRatio: false,
 						scaleShowLabels: false,
+						pointDotRadius: 3, //original 4
+						datasetStrokeWidth: 1, //original 2
 					}
 				};
 			};
