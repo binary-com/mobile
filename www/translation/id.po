@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-03-01 09:18+0000\n"
-"Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
+"PO-Revision-Date: 2016-03-01 10:08+0000\n"
+"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
 "Language: id\n"
@@ -16,28 +16,34 @@ msgstr ""
 "X-Generator: Weblate 2.5-dev\n"
 
 #: .help.email_cs
+#, fuzzy
 msgid "Have questions? Email customer support at "
 msgstr "Ada pertanyaan? Email customer support di "
 
 #: .help.copy_token
+#, fuzzy
 msgid "and create a token. Then simply copy and paste it into the top box."
 msgstr "dan buat token. Kemudian copy dan pastekan pada kotak diatas."
 
 #: .help.visit
+#, fuzzy
 msgid "Please visit"
 msgstr "Silahkan kunjungi"
 
 #: .help.back
+#, fuzzy
 msgctxt ".help.back"
 msgid "Back"
 msgstr "Kembali"
 
 #: .help.need_help
+#, fuzzy
 msgctxt ".help.need_help"
 msgid "Need Help?"
 msgstr "Perlu Bantuan?"
 
 #: .help.generate_api
+#, fuzzy
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
@@ -46,22 +52,27 @@ msgstr ""
 "untuk membuat Token API."
 
 #: .help.page
+#, fuzzy
 msgid "this page"
 msgstr "halaman ini"
 
 #: .app.exit_title
+#, fuzzy
 msgid "Exit"
 msgstr "Keluar"
 
 #: .app.connection_error_title
+#, fuzzy
 msgid "Connection Error"
 msgstr "Koneksi Error"
 
 #: .app.connection_error
+#, fuzzy
 msgid "There is no internet connection!"
 msgstr "Tidak ada koneksi internet!"
 
 #: .app.exit_confirmation
+#, fuzzy
 msgid "Are you sure you want to exit?"
 msgstr "Apa Anda yakin ingin keluar?"
 
@@ -90,15 +101,18 @@ msgid "An error occured while checking for updates"
 msgstr "Terjadi error saat mengecek pembaruan"
 
 #: .trade.payout
+#, fuzzy
 msgctxt ".trade.payout"
 msgid "Payout"
 msgstr "Hasil"
 
 #: .trade.net_profit
+#, fuzzy
 msgid "Net Profit"
 msgstr "Laba Bersih"
 
 #: .trade.buy
+#, fuzzy
 msgid "BUY"
 msgstr "BELI"
 
@@ -107,138 +121,171 @@ msgid "Buy Again"
 msgstr "Beli Lagi"
 
 #: .trade.loss
+#, fuzzy
 msgid "Loss"
 msgstr "Rugi"
 
 #: .trade.total_cost
+#, fuzzy
 msgid "Total Cost"
 msgstr "Total Biaya"
 
 #: .trade.win
+#, fuzzy
 msgid "This contract won"
 msgstr "Kontrak ini untung"
 
 #: .trade.price
+#, fuzzy
 msgid "Price"
 msgstr "Harga"
 
 #: .trade.stake
+#, fuzzy
 msgctxt ".trade.stake"
 msgid "Stake"
 msgstr "Modal"
 
 #: .trade.back
+#, fuzzy
 msgctxt ".trade.back"
 msgid "Back"
 msgstr "Kembali"
 
 #: .trade.account_balance
+#, fuzzy
 msgid "Account Balance"
 msgstr "Saldo Akun"
 
 #: .trade.buy_price
+#, fuzzy
 msgid "Buy Price"
 msgstr "Harga Beli"
 
 #: .trade.lose
+#, fuzzy
 msgid "This contract lost"
 msgstr "Kontrak ini rugi"
 
 #: .trade.profit
+#, fuzzy
 msgid "Profit"
 msgstr "Untung"
 
 #: .trade.potential_profit
+#, fuzzy
 msgid "Potential Profit"
 msgstr "Potensi Untung"
 
 #: .trade.final_price
+#, fuzzy
 msgid "Final Price"
 msgstr "Harga Akhir"
 
 #: .trade.potential_payout
+#, fuzzy
 msgid "Potential Payout"
 msgstr "Potensi Hasil"
 
 #: .trade.balance
+#, fuzzy
 msgid "Balance"
 msgstr "Saldo"
 
 #: .trade.transaction_id
+#, fuzzy
 msgid "Transaction Reference"
 msgstr "Referensi Transaksi"
 
 #: .signin.paste_token
+#, fuzzy
 msgid "Paste your token here"
 msgstr "Paste token Anda disini"
 
 #: .signin.get_token
+#, fuzzy
 msgid "How to get a Token?"
 msgstr "Cara mendapat Token?"
 
 #: .signin.add_account
+#, fuzzy
 msgid "Add Account"
 msgstr "Tambah Akun"
 
 #: .signin.need_help
+#, fuzzy
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "Perlu Bantuan?"
 
 #: .signin.language
+#, fuzzy
 msgid "Language"
 msgstr "Bahasa"
 
 #: .accounts.my_accounts
+#, fuzzy
 msgid "Manage Accounts"
 msgstr "Mengelola Akun"
 
 #: .accounts.default
+#, fuzzy
 msgid "Default"
 msgstr "Setelan"
 
 #: .accounts.account
+#, fuzzy
 msgctxt ".accounts.account"
 msgid "Account"
 msgstr "Akun"
 
 #: .accounts.add
+#, fuzzy
 msgid "Add"
 msgstr "Tambah"
 
 #: .accounts.remove_all
+#, fuzzy
 msgid "Remove All Accounts & Sign Out"
 msgstr "Hapus Semua Akun & Keluar"
 
 #: .accounts.new_token
+#, fuzzy
 msgid "Add a new token"
 msgstr "Tambahkan token baru"
 
 #: .accounts.delete
+#, fuzzy
 msgid "Delete"
 msgstr "Hapus"
 
 #: .accounts.set_as_default
+#, fuzzy
 msgid "Set as default"
 msgstr "Pasang sebagai setelan"
 
 #: .alert.remove_token_content
+#, fuzzy
 msgid "Are you sure you want to remove this token?"
 msgstr "Apakah Anda yakin ingin menghapus token ini?"
 
 #: .alert.remove_all_tokens_title
+#, fuzzy
 msgid "Removing All Tokens"
 msgstr "Hapus Semua Token"
 
 #: .alert.must_number
+#, fuzzy
 msgid "It must be a number."
 msgstr "Harus berupa angka."
 
 #: .alert.remove_token_title
+#, fuzzy
 msgid "Removing a Token"
 msgstr "Menghapus Token"
 
 #: .alert.no_tick
+#, fuzzy
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
@@ -247,124 +294,154 @@ msgstr ""
 "pilihan tick."
 
 #: .alert.field_between
+#, fuzzy
 msgid "It must be between 0.70 and 100000."
 msgstr "Harus antara 0.70 dan 100000."
 
 #: .alert.not_unique
+#, fuzzy
 msgid "You've already added this account."
 msgstr "Anda telah menambahkan akun ini."
 
 #: .alert.warning
+#, fuzzy
 msgid "Warning"
 msgstr "Peringatan"
 
 #: .alert.error
+#, fuzzy
 msgid "Error!"
 msgstr "Error!"
 
 #: .alert.not_auth
+#, fuzzy
 msgid "Sorry, we couldn't authenticate you."
 msgstr "Maaf, kami tidak dapat mengotentikasi Anda."
 
 #: .alert.no_underlying
+#, fuzzy
 msgid "There is no underlying for this market. Please try another market."
 msgstr "Tidak tersedia dasar untuk pasar ini. Silahkan coba pasar lain."
 
 #: .alert.contract_error
+#, fuzzy
 msgid "Contract not available, please try again."
 msgstr "Kontrak tidak tersedia, silahkan coba lagi."
 
 #: .alert.required_field
+#, fuzzy
 msgid "This field is required."
 msgstr "Bagian ini diperlukan."
 
 #: .alert.not_valid
+#, fuzzy
 msgid "Please enter a valid token."
 msgstr "Masukkan token yang berlaku."
 
 #: .alert.remove_all_tokens_content
+#, fuzzy
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "Apakah Anda yakin ingin menghapus semua token dan keluar?"
 
 #: .options.even
+#, fuzzy
 msgid "Even"
 msgstr "Even"
 
 #: .options.down
+#, fuzzy
 msgid "Down"
 msgstr "Down"
 
 #: .options.account
+#, fuzzy
 msgctxt ".options.account"
 msgid "Account"
 msgstr "Akun"
 
 #: .options.forex
+#, fuzzy
 msgid "Forex"
 msgstr "Forex"
 
 #: .options.lets_trade
+#, fuzzy
 msgid "Let's trade!"
 msgstr "Ayo trade!"
 
 #: .options.digit_match
+#, fuzzy
 msgid "Digit Match"
 msgstr "Digit Match"
 
 #: .options.random
+#, fuzzy
 msgid "Random"
 msgstr "Random"
 
 #: .options.up
+#, fuzzy
 msgid "Up"
 msgstr "Up"
 
 #: .options.select_amount
+#, fuzzy
 msgid "Select Amount"
 msgstr "Pilih Jumlah"
 
 #: .options.number_of_ticks
+#, fuzzy
 msgid "Number of Ticks"
 msgstr "Jumlah Tick"
 
 #: .options.underlying
+#, fuzzy
 msgid "Underlying"
 msgstr "Dasar"
 
 #: .options.digit_differs
+#, fuzzy
 msgid "Digit Differs"
 msgstr "Digit Differs"
 
 #: .options.trade_type
+#, fuzzy
 msgid "Trade Types"
 msgstr "Jenis Kontrak"
 
 #: .options.save
+#, fuzzy
 msgid "SAVE"
 msgstr "SIMPAN"
 
 #: .options.select_market
+#, fuzzy
 msgid "Markets"
 msgstr "Pasar"
 
 #: .options.stake
+#, fuzzy
 msgctxt ".options.stake"
 msgid "Stake"
 msgstr "Modal"
 
 #: .options.last_digit_prediction
+#, fuzzy
 msgid "Last Digit Prediction"
 msgstr "Analisa Digit Terakhir"
 
 #: .options.odd
+#, fuzzy
 msgid "Odd"
 msgstr "Odd"
 
 #: .options.payout
+#, fuzzy
 msgctxt ".options.payout"
 msgid "Payout"
 msgstr "Hasil"
 
 #: .options.payout_type
+#, fuzzy
 msgid "Payout Type"
 msgstr "Jenis Hasil"
