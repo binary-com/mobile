@@ -16,6 +16,7 @@ angular
                 factory.purchaseMode = false;
                 factory.isLoggedin=false;
                 factory.waitForProposal = false;
+                factory.scopes = [];
 
                 return factory;
             });
