@@ -1,64 +1,102 @@
 {
-	"signin" : {
-		"language": "Language",
-		"add_account": "Add Account",
-		"need_help": "Need Help?",
-		"paste_token": "Paste your token here"
-	},
-	"accounts": {
-		"my_accounts": "My Accounts",
-		"account": "Account",
-		"remove_all": "Remove All Accounts & Sign Out",
-		"default": "Default",
-		"set_as_default": "Set as default",
-		"add": "Add"
-	},
-	"alert" : {
-		"error": "Error!",
-		"not_valid": "Please enter a valid token",
-		"not_auth": "Sorry, we couldn't authenticate you",
-		"not_unique": "You've already added this account",
-		"contract_error": "Contract not available, please try again"
-	},
-	"options" : {
-		"account": "Account",
-		"select_market": "Markets",
-		"forex": "Forex",
-		"random": "Random",
-		"underlying": "Underlying",
-		"trade_type": "Trade Types",
-		"up": "Up",
-		"down": "Down",
-		"last_digit_prediction": "Last Digit Prediction",
-		"digit_match": "Digit Match",
-		"digit_differs": "Digit Differs",
-		"number_of_ticks": "Number of Ticks",
-		"payout_type": "Payout Type",
-		"five": "5",
-		"six": "6",
-		"seven": "7",
-		"eight": "8",
-		"nine": "9",
-		"ten": "10",
-		"select_amount": "Select Amount",
-		"payout": "Payout",
-		"stake": "Stake",
-		"save": "SAVE"
-	},
-	"trade" : {
-		"payout": "Payout",
-		"stake": "Stake",
-		"price": "Price",
-		"buy": "BUY",
-		"potential_payout": "Potential Payout",
-		"total_cost": "Total Cost",
-		"potential_profit": "Potential Profit",
-		"account_balance": "Account Balance",
-		"back": "Back",
-		"balance": "Balance"
-	},
-	"help" : {
-		"": "",
-		"": ""
-	}
+    "accounts": {
+        "account": "", 
+        "add": "", 
+        "default": "", 
+        "delete": "", 
+        "my_accounts": "", 
+        "new_token": "", 
+        "remove_all": "", 
+        "set_as_default": ""
+    }, 
+    "alert": {
+        "contract_error": "", 
+        "error": "", 
+        "field_between": "", 
+        "must_number": "", 
+        "no_tick": "", 
+        "no_underlying": "", 
+        "not_auth": "", 
+        "not_unique": "", 
+        "not_valid": "", 
+        "remove_all_tokens_content": "", 
+        "remove_all_tokens_title": "", 
+        "remove_token_content": "", 
+        "remove_token_title": "", 
+        "required_field": "", 
+        "warning": ""
+    }, 
+    "app": {
+        "connection_error": "There is no internet connection!", 
+        "connection_error_title": "Connection Error", 
+        "exit_confirmation": "Are you sure you want to exit?", 
+        "exit_title": "Exit"
+    }, 
+    "help": {
+        "back": "Back", 
+        "copy_token": "and create a token. Then simply copy and paste it into the top box.", 
+        "email_cs": "Have questions? Email customer support at ", 
+        "generate_api": "To access a third party application, such as a mobile app, you are required to generate an API Token.", 
+        "need_help": "Need Help?", 
+        "page": "this page", 
+        "visit": "Please visit"
+    }, 
+    "options": {
+        "account": "", 
+        "digit_differs": "", 
+        "digit_match": "", 
+        "down": "", 
+        "even": "", 
+        "forex": "", 
+        "last_digit_prediction": "", 
+        "lets_trade": "", 
+        "number_of_ticks": "", 
+        "odd": "", 
+        "payout": "", 
+        "payout_type": "", 
+        "random": "", 
+        "save": "", 
+        "select_amount": "", 
+        "select_market": "", 
+        "stake": "", 
+        "trade_type": "", 
+        "underlying": "", 
+        "up": ""
+    }, 
+    "signin": {
+        "add_account": "", 
+        "get_token": "", 
+        "language": "", 
+        "need_help": "", 
+        "paste_token": ""
+    }, 
+    "trade": {
+        "account_balance": "", 
+        "back": "", 
+        "balance": "", 
+        "buy": "BUY", 
+        "buy_again": "", 
+        "buy_price": "", 
+        "final_price": "", 
+        "lose": "", 
+        "loss": "Loss", 
+        "net_profit": "Net Profit", 
+        "payout": "Payout", 
+        "potential_payout": "", 
+        "potential_profit": "", 
+        "price": "Price", 
+        "profit": "", 
+        "stake": "", 
+        "total_cost": "Total Cost", 
+        "transaction_id": "", 
+        "win": "This contract won"
+    }, 
+    "update": {
+        "check_for_update": "", 
+        "downloading": "", 
+        "error": "", 
+        "installed": "", 
+        "installing": "", 
+        "up_to_date": ""
+    }
 }
