@@ -75,7 +75,7 @@
         "back": "Trở lại", 
         "balance": "Cân bằng", 
         "buy": "MUA", 
-        "buy_again": "Buy Again", 
+        "buy_again": "Mua lại", 
         "buy_price": "Giá mua", 
         "final_price": "Giá Cuối Cùng", 
         "lose": "Hợp đồng này đã thất bại", 
@@ -92,11 +92,11 @@
         "win": "Hợp đồng này đã thắng"
     }, 
     "update": {
-        "check_for_update": "Checking for update.", 
-        "downloading": "Downloading ...", 
-        "error": "An error occured while checking for updates", 
-        "installed": "The update was installed successfully.", 
-        "installing": "Installing update", 
-        "up_to_date": "The application is up to date."
+        "check_for_update": "Kiểm tra phiên bản mới.", 
+        "downloading": "Đang tải xuống...", 
+        "error": "Đã có lỗi xảy ra trong quá trình kiểm tra cập nhật", 
+        "installed": "Bản cập nhật đã được cài đặt thành công.", 
+        "installing": "Đang cài đặt cập nhật", 
+        "up_to_date": "Ứng dụng được cập nhật."
     }
 }
