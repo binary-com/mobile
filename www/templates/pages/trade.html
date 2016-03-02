@@ -13,8 +13,11 @@
 			<trade-contract-chart></trade-contract-chart>
 			<payout ng-if="getTradeMode()"></payout>
 			<contract-summary ng-if="!getTradeMode()"></contract-summary>
-			<purchase ng-if="getTradeMode()" ng-disabled="getWaitForProposal()"></purchase>
-
+			<div class="row center">
+				<div class="col col-75">
+					<purchase ng-if="getTradeMode()" ng-disabled="getWaitForProposal()"></purchase>
+				</div>
+			</div>
 		</form>
 	</ion-content>
 	<ion-footer-bar ng-hide="hideFooter" keyboard-attach class="bar-positive bar bar-footer row">
