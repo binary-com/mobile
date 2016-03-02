@@ -38,6 +38,7 @@ angular
                             marketService.removeActiveSymbols();
                             marketService.removeAssetIndex();
                             appStateService.isLoggedin = false;
+                            $scope.$parent.$broadcast('logout');
 							$state.go('signin');
 						}
 					}

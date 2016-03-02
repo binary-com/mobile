@@ -112,6 +112,7 @@ angular
                                 message.authorize.token = message.echo_req.authorize;
                                 window._trackJs.userId = message.authorize.loginid;
                                 appStateService.isLoggedin = true;
+                                appStateService.scopes = message.authorize.scopes;
                                 $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
                             } else {
                                 if (message.hasOwnProperty('error') && message.error.code === 'InvalidToken') {
