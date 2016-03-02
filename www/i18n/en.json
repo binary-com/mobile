@@ -14,7 +14,8 @@
 		"set_as_default": "Set as default",
 		"add": "Add",
 		"new_token":"Add a new token",
-		"delete": "Delete"
+		"delete": "Delete",
+        "not_allowed_to_trade": "Your don't have permission to trade!"
 	},
 	"alert" : {
 		"error": "Error!",

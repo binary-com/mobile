@@ -15,7 +15,7 @@
 			<contract-summary ng-if="!getTradeMode()"></contract-summary>
 			<div class="row center">
 				<div class="col col-75">
-					<purchase ng-if="getTradeMode()" ng-disabled="getWaitForProposal()"></purchase>
+					<purchase ng-if="getTradeMode()" ng-disabled="getWaitForProposal() || !hasTradePermission()"></purchase>
 				</div>
 			</div>
 		</form>
