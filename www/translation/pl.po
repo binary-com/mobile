@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-03-02 20:53+0000\n"
-"Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
+"PO-Revision-Date: 2016-03-02 20:54+0000\n"
+"Last-Translator: Anna Płochocka <plochocka.anna@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/pl/>\n"
 "Language: pl\n"
@@ -279,7 +279,7 @@ msgstr "Kontrakt jest niedostępny, proszę spróbować ponownie."
 
 #: .alert.required_field
 msgid "This field is required."
-msgstr "To pole jest wymagane."
+msgstr "To pole jest obowiązkowe."
 
 #: .alert.not_valid
 msgid "Please enter a valid token."
@@ -340,7 +340,7 @@ msgstr "Cyfry nie zgadzają się"
 
 #: .options.trade_type
 msgid "Trade Types"
-msgstr "Typy zakładów"
+msgstr "Rodzaje zakładów"
 
 #: .options.save
 msgid "SAVE"
@@ -370,4 +370,4 @@ msgstr "Wypłata"
 
 #: .options.payout_type
 msgid "Payout Type"
-msgstr "Typ wypłaty"
+msgstr "Rodzaj wypłaty"
