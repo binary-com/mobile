@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
 "PO-Revision-Date: 2016-03-02 20:53+0000\n"
-"Last-Translator: Anna Płochocka <plochocka.anna@gmail.com>\n"
+"Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/pl/>\n"
 "Language: pl\n"
@@ -251,7 +251,7 @@ msgstr ""
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
-msgstr "Liczba musi się mieścić w przedziale od 0,70 do 100000."
+msgstr "Liczba musi się mieścić w przedziale od 0,70 do 100 000."
 
 #: .alert.not_unique
 msgid "You've already added this account."
