@@ -115,7 +115,7 @@ msgstr "Pérdida"
 
 #: .trade.total_cost
 msgid "Total Cost"
-msgstr "Cose Total"
+msgstr "Coste Total"
 
 #: .trade.win
 msgid "This contract won"
