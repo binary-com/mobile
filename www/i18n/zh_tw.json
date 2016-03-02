@@ -75,7 +75,7 @@
         "back": "返回", 
         "balance": "餘額", 
         "buy": "購入", 
-        "buy_again": "Buy Again", 
+        "buy_again": "重購", 
         "buy_price": "購入價格", 
         "final_price": "最終價格", 
         "lose": "此合約虧損", 
@@ -92,11 +92,11 @@
         "win": "此合約獲利"
     }, 
     "update": {
-        "check_for_update": "Checking for update.", 
-        "downloading": "Downloading ...", 
-        "error": "An error occured while checking for updates", 
-        "installed": "The update was installed successfully.", 
-        "installing": "Installing update", 
-        "up_to_date": "The application is up to date."
+        "check_for_update": "檢查更新中。", 
+        "downloading": "下載中", 
+        "error": "檢查更新時發現錯誤", 
+        "installed": "更新已成功安裝。", 
+        "installing": "更新安裝中", 
+        "up_to_date": "應用已更新。"
     }
 }

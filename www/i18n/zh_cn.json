@@ -75,7 +75,7 @@
         "back": "返回", 
         "balance": "余额", 
         "buy": "购入", 
-        "buy_again": "Buy Again", 
+        "buy_again": "重购", 
         "buy_price": "购入价格", 
         "final_price": "最终价格", 
         "lose": "此合约亏损", 
@@ -92,11 +92,11 @@
         "win": "此合约获利"
     }, 
     "update": {
-        "check_for_update": "Checking for update.", 
-        "downloading": "Downloading ...", 
-        "error": "An error occured while checking for updates", 
-        "installed": "The update was installed successfully.", 
-        "installing": "Installing update", 
-        "up_to_date": "The application is up to date."
+        "check_for_update": "检查更新中。", 
+        "downloading": "下载中", 
+        "error": "检查更新时发生错误", 
+        "installed": "更新已成功安装。", 
+        "installing": "更新安装中", 
+        "up_to_date": "应用已更新。"
     }
 }
