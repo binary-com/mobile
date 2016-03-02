@@ -1,64 +1,102 @@
 {
-	"signin" : {
-		"language": "Language",
-		"add_account": "Add Account",
-		"need_help": "Need Help?",
-		"paste_token": "Paste your token here"
-	},
-	"accounts": {
-		"my_accounts": "My Accounts",
-		"account": "Account",
-		"remove_all": "Remove All Accounts & Sign Out",
-		"default": "Default",
-		"set_as_default": "Set as default",
-		"add": "Add"
-	},
-	"alert" : {
-		"error": "Error!",
-		"not_valid": "Please enter a valid token",
-		"not_auth": "Sorry, we couldn't authenticate you",
-		"not_unique": "You've already added this account",
-		"contract_error": "Contract not available, please try again"
-	},
-	"options" : {
-		"account": "Account",
-		"select_market": "Markets",
-		"forex": "Forex",
-		"random": "Random",
-		"underlying": "Underlying",
-		"trade_type": "Trade Types",
-		"up": "Up",
-		"down": "Down",
-		"last_digit_prediction": "Last Digit Prediction",
-		"digit_match": "Digit Match",
-		"digit_differs": "Digit Differs",
-		"number_of_ticks": "Number of Ticks",
-		"payout_type": "Payout Type",
-		"five": "5",
-		"six": "6",
-		"seven": "7",
-		"eight": "8",
-		"nine": "9",
-		"ten": "10",
-		"select_amount": "Select Amount",
-		"payout": "Payout",
-		"stake": "Stake",
-		"save": "SAVE"
-	},
-	"trade" : {
-		"payout": "Payout",
-		"stake": "Stake",
-		"price": "Price",
-		"buy": "BUY",
-		"potential_payout": "Potential Payout",
-		"total_cost": "Total Cost",
-		"potential_profit": "Potential Profit",
-		"account_balance": "Account Balance",
-		"back": "Back",
-		"balance": "Balance"
-	},
-	"help" : {
-		"": "",
-		"": ""
-	}
+    "accounts": {
+        "account": "Konto", 
+        "add": "Zufügen", 
+        "default": "Vorgabe", 
+        "delete": "Löschen", 
+        "my_accounts": "Konten verwalten", 
+        "new_token": "Einen neuen Token hinzufügen", 
+        "remove_all": "Alle Konten entfernen & Abmelden", 
+        "set_as_default": "Als Vorgabe einstellen"
+    }, 
+    "alert": {
+        "contract_error": "Kontrakt nicht vorhanden, bitte versuchen Sie es erneut.", 
+        "error": "Fehler!", 
+        "field_between": "Es muss zwischen 0,70 und 100000 sein.", 
+        "must_number": "Es muss eine Zahl sein.", 
+        "no_tick": "Bitte wählen Sie eine andere Anlage. Die von Ihnen gewählte Anlage untersützt keine Ticks.", 
+        "no_underlying": "Dies ist keine Anlage für diesen Markt. Versuchen Sie bitte einen anderen Markt.", 
+        "not_auth": "Leider können wir Sie nicht authentifizieren.", 
+        "not_unique": "Sie haben dieses Konto schon hinzugefügt.", 
+        "not_valid": "Bitte geben Sie einen gültigen Token ein.", 
+        "remove_all_tokens_content": "Sind Sie sicher, dass Sie alle Token entfernen und sich abmelden möchten?", 
+        "remove_all_tokens_title": "Entferne alle Token", 
+        "remove_token_content": "Sind Sie sicher, dass Sie diesen Token entfernen möchten?", 
+        "remove_token_title": "Einen Token entfernen", 
+        "required_field": "Dieses Feld ist erforderlich.", 
+        "warning": "Achtung"
+    }, 
+    "app": {
+        "connection_error": "Keine Internetverbindung vorhanden!", 
+        "connection_error_title": "Verbindungsfehler", 
+        "exit_confirmation": "Sind Sie sicher, dass Sie beenden möchten?", 
+        "exit_title": "Beenden"
+    }, 
+    "help": {
+        "back": "Zurück", 
+        "copy_token": "und generieren Sie einen Token. Kopieren und verschieben Sie ihn einfach in das obere Feld.", 
+        "email_cs": "Haben Sie Fragen? Mailen Sie sie dem Kundendienst über ", 
+        "generate_api": "Sie müssen einen API Token generieren, um eine Drittanwendug, wie eine Mobile App, aufrufen zu können.", 
+        "need_help": "Brauchen Sie Hilfe?", 
+        "page": "diese Seite", 
+        "visit": "Bitte besuchen Sie"
+    }, 
+    "options": {
+        "account": "Konto", 
+        "digit_differs": "Kommastelle weicht ab", 
+        "digit_match": "Kommastellenübereinstimmung", 
+        "down": "Runter", 
+        "even": "Gleich", 
+        "forex": "Devisen", 
+        "last_digit_prediction": "Voraussage der letzten Kommastelle", 
+        "lets_trade": "Traden Sie!", 
+        "number_of_ticks": "Anzahl der Ticks", 
+        "odd": "Chance", 
+        "payout": "Auszahlung", 
+        "payout_type": "Auszahlungsart", 
+        "random": "Random", 
+        "save": "SPEICHERN", 
+        "select_amount": "Betrag auswählen", 
+        "select_market": "Märkte", 
+        "stake": "Einsatz", 
+        "trade_type": "Handelsarten", 
+        "underlying": "Anlage", 
+        "up": "Hoch"
+    }, 
+    "signin": {
+        "add_account": "Konto hinzufügen", 
+        "get_token": "Wie erhält man einen Token?", 
+        "language": "Sprache", 
+        "need_help": "Benötigen Sie Unterstützung?", 
+        "paste_token": "Fügen Sie Ihren Token hier ein"
+    }, 
+    "trade": {
+        "account_balance": "Kontostand", 
+        "back": "Zurück", 
+        "balance": "Guthaben", 
+        "buy": "KAUFEN", 
+        "buy_again": "Nochmal kaufen", 
+        "buy_price": "Kaufkurs", 
+        "final_price": "Endkurs", 
+        "lose": "Dieser Kontrakt hat verloren", 
+        "loss": "Verlust", 
+        "net_profit": "Nettogewinn", 
+        "payout": "Auszahlung", 
+        "potential_payout": "Mögliche Auszahlung", 
+        "potential_profit": "Möglicher Gewinn", 
+        "price": "Kurs", 
+        "profit": "Gewinn", 
+        "stake": "Einsatz", 
+        "total_cost": "Gesamtkosten", 
+        "transaction_id": "Transaktionsreferenz", 
+        "win": "Dieser Kontrakt hat gewonnen"
+    }, 
+    "update": {
+        "check_for_update": "Suche nach Updates.", 
+        "downloading": "Lade herunter ...", 
+        "error": "Während der Suche nach Updates ist ein Fehler aufgetreten", 
+        "installed": "Das Update wurde erfolgreich installiert.", 
+        "installing": "Installiere Update", 
+        "up_to_date": "Die Anwendung ist jetzt aktuell."
+    }
 }

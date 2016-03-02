@@ -75,7 +75,7 @@
         "back": "Kembali", 
         "balance": "Saldo", 
         "buy": "BELI", 
-        "buy_again": "Buy Again", 
+        "buy_again": "Beli Lagi", 
         "buy_price": "Harga Beli", 
         "final_price": "Harga Akhir", 
         "lose": "Kontrak ini rugi", 
@@ -92,11 +92,11 @@
         "win": "Kontrak ini untung"
     }, 
     "update": {
-        "check_for_update": "Checking for update.", 
+        "check_for_update": "Memeriksa pembaruan.", 
         "downloading": "Downloading ...", 
-        "error": "An error occured while checking for updates", 
-        "installed": "The update was installed successfully.", 
-        "installing": "Installing update", 
-        "up_to_date": "The application is up to date."
+        "error": "Terjadi error saat mengecek pembaruan", 
+        "installed": "Pembaruan berhasil diinstal.", 
+        "installing": "Menginstal pembaruan", 
+        "up_to_date": "Aplikasi ini sudah diperbarui."
     }
 }

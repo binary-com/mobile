@@ -1,64 +1,102 @@
 {
-	"signin" : {
-		"language": "Language",
-		"add_account": "Add Account",
-		"need_help": "Need Help?",
-		"paste_token": "Paste your token here"
-	},
-	"accounts": {
-		"my_accounts": "My Accounts",
-		"account": "Account",
-		"remove_all": "Remove All Accounts & Sign Out",
-		"default": "Default",
-		"set_as_default": "Set as default",
-		"add": "Add"
-	},
-	"alert" : {
-		"error": "Error!",
-		"not_valid": "Please enter a valid token",
-		"not_auth": "Sorry, we couldn't authenticate you",
-		"not_unique": "You've already added this account",
-		"contract_error": "Contract not available, please try again"
-	},
-	"options" : {
-		"account": "Account",
-		"select_market": "Markets",
-		"forex": "Forex",
-		"random": "Random",
-		"underlying": "Underlying",
-		"trade_type": "Trade Types",
-		"up": "Up",
-		"down": "Down",
-		"last_digit_prediction": "Last Digit Prediction",
-		"digit_match": "Digit Match",
-		"digit_differs": "Digit Differs",
-		"number_of_ticks": "Number of Ticks",
-		"payout_type": "Payout Type",
-		"five": "5",
-		"six": "6",
-		"seven": "7",
-		"eight": "8",
-		"nine": "9",
-		"ten": "10",
-		"select_amount": "Select Amount",
-		"payout": "Payout",
-		"stake": "Stake",
-		"save": "SAVE"
-	},
-	"trade" : {
-		"payout": "Payout",
-		"stake": "Stake",
-		"price": "Price",
-		"buy": "BUY",
-		"potential_payout": "Potential Payout",
-		"total_cost": "Total Cost",
-		"potential_profit": "Potential Profit",
-		"account_balance": "Account Balance",
-		"back": "Back",
-		"balance": "Balance"
-	},
-	"help" : {
-		"": "",
-		"": ""
-	}
+    "accounts": {
+        "account": "حساب", 
+        "add": "إضافة", 
+        "default": "افتراضي", 
+        "delete": "حذف", 
+        "my_accounts": "إدارة الحسابات", 
+        "new_token": "إضافة رمز مميز جديد", 
+        "remove_all": "إزالة كافة حسابات وتسجيل الخروج", 
+        "set_as_default": "تعيين كافتراضي"
+    }, 
+    "alert": {
+        "contract_error": "العقد غير متوفر، الرجاء المحاولة مرة أخرى.", 
+        "error": "خطأ!", 
+        "field_between": "يجب أن يكون بين 0.70 و 100000.", 
+        "must_number": "يجب أن يكون عددا.", 
+        "no_tick": "الرجاء تحديد أصل آخر، الأصل الذي قمت بتحديده لا يدعم تداول الحركات.", 
+        "no_underlying": "لا توجد أصول لهذا السوق. الرجاء محاولة سوق آخر.", 
+        "not_auth": "عفواً، لا يمكننا توثيقك.", 
+        "not_unique": "لقد قمت بإضافة هذا الحساب مسبقاً.", 
+        "not_valid": "الرجاء إدخال رمز صالح.", 
+        "remove_all_tokens_content": "هل أنت متأكد من أنك تريد إزالة كافة الرموز المميزة وتسجيل الخروج؟", 
+        "remove_all_tokens_title": "إزالة كافة الرموز المميزة", 
+        "remove_token_content": "هل أنت متأكد من أنك تريد إزالة هذا الرمز المميز؟", 
+        "remove_token_title": "إزالة الرمز المميز", 
+        "required_field": "هذا الحقل مطلوب.", 
+        "warning": "تحذير"
+    }, 
+    "app": {
+        "connection_error": "لا يوجد اتصال بالإنترنت!", 
+        "connection_error_title": "خطأ في الاتصال", 
+        "exit_confirmation": "هل أنت متأكد من أنك تريد الخروج؟", 
+        "exit_title": "خروج"
+    }, 
+    "help": {
+        "back": "الخلف", 
+        "copy_token": "وأنشئ رمزا مميزا. ثم قم ببساطة بالنسخ واللصق في المربع العلوي.", 
+        "email_cs": "هل لديك أسئلة؟ أرسل بريدا إلكترونيا لدعم العملاء على ", 
+        "generate_api": "للوصول إلى تطبيق طرف ثالث، مثل تطبيق المحمول، ستتم مطالبتك بإنشاء رمز API.", 
+        "need_help": "بحاجة إلى مساعدة؟", 
+        "page": "هذه الصفحة", 
+        "visit": "الرجاء زيارة"
+    }, 
+    "options": {
+        "account": "حساب", 
+        "digit_differs": "اختلاف الأرقام", 
+        "digit_match": "مطابقة الأرقام", 
+        "down": "أسفل", 
+        "even": "حتى", 
+        "forex": "العملات الأجنبية", 
+        "last_digit_prediction": "توقع آخر رقم", 
+        "lets_trade": "لنتداول!", 
+        "number_of_ticks": "عدد الحركات", 
+        "odd": "فردي", 
+        "payout": "العائد", 
+        "payout_type": "نوع العائد", 
+        "random": "عشوائي", 
+        "save": "حفظ", 
+        "select_amount": "حدد المبلغ", 
+        "select_market": "الأسواق", 
+        "stake": "الحصة", 
+        "trade_type": "أنواع التداول", 
+        "underlying": "الأصول", 
+        "up": "أعلى"
+    }, 
+    "signin": {
+        "add_account": "إضافة حساب", 
+        "get_token": "كيفية الحصول على رمز مميز؟", 
+        "language": "اللغة", 
+        "need_help": "بحاجة إلى مساعدة؟", 
+        "paste_token": "قم بلصق الرمز المميز الخاص بك هنا"
+    }, 
+    "trade": {
+        "account_balance": "رصيد الحساب", 
+        "back": "الخلف", 
+        "balance": "الرصيد", 
+        "buy": "شراء", 
+        "buy_again": "", 
+        "buy_price": "سعر الشراء", 
+        "final_price": "السعر النهائي", 
+        "lose": "لقد خسر هذا العقد", 
+        "loss": "خسارة", 
+        "net_profit": "صافي الربح", 
+        "payout": "العوائد", 
+        "potential_payout": "العوائد المحتملة", 
+        "potential_profit": "الأرباح المحتملة", 
+        "price": "السعر", 
+        "profit": "الربح", 
+        "stake": "الحصة", 
+        "total_cost": "التكلفة الإجمالية", 
+        "transaction_id": "مرجع العمليات", 
+        "win": "لقد ربح هذا العقد"
+    }, 
+    "update": {
+        "check_for_update": "", 
+        "downloading": "", 
+        "error": "", 
+        "installed": "", 
+        "installing": "", 
+        "up_to_date": ""
+    }
 }

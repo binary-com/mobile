@@ -1,64 +1,102 @@
 {
-	"signin" : {
-		"language": "Language",
-		"add_account": "Add Account",
-		"need_help": "Need Help?",
-		"paste_token": "Paste your token here"
-	},
-	"accounts": {
-		"my_accounts": "My Accounts",
-		"account": "Account",
-		"remove_all": "Remove All Accounts & Sign Out",
-		"default": "Default",
-		"set_as_default": "Set as default",
-		"add": "Add"
-	},
-	"alert" : {
-		"error": "Error!",
-		"not_valid": "Please enter a valid token",
-		"not_auth": "Sorry, we couldn't authenticate you",
-		"not_unique": "You've already added this account",
-		"contract_error": "Contract not available, please try again"
-	},
-	"options" : {
-		"account": "Account",
-		"select_market": "Markets",
-		"forex": "Forex",
-		"random": "Random",
-		"underlying": "Underlying",
-		"trade_type": "Trade Types",
-		"up": "Up",
-		"down": "Down",
-		"last_digit_prediction": "Last Digit Prediction",
-		"digit_match": "Digit Match",
-		"digit_differs": "Digit Differs",
-		"number_of_ticks": "Number of Ticks",
-		"payout_type": "Payout Type",
-		"five": "5",
-		"six": "6",
-		"seven": "7",
-		"eight": "8",
-		"nine": "9",
-		"ten": "10",
-		"select_amount": "Select Amount",
-		"payout": "Payout",
-		"stake": "Stake",
-		"save": "SAVE"
-	},
-	"trade" : {
-		"payout": "Payout",
-		"stake": "Stake",
-		"price": "Price",
-		"buy": "BUY",
-		"potential_payout": "Potential Payout",
-		"total_cost": "Total Cost",
-		"potential_profit": "Potential Profit",
-		"account_balance": "Account Balance",
-		"back": "Back",
-		"balance": "Balance"
-	},
-	"help" : {
-		"": "",
-		"": ""
-	}
+    "accounts": {
+        "account": "Счёт", 
+        "add": "Добавить", 
+        "default": "По умолчанию", 
+        "delete": "Удалить", 
+        "my_accounts": "Управление счетами", 
+        "new_token": "Добавить новый токен", 
+        "remove_all": "Удалить все счета и выйти", 
+        "set_as_default": "Настроить по умолчанию"
+    }, 
+    "alert": {
+        "contract_error": "Контракт не доступен. Пожалуйста, попробуйте ещё раз.", 
+        "error": "Ошибка!", 
+        "field_between": "Число должно быть от 0.70 до 100000.", 
+        "must_number": "Здесь должны быть цифры.", 
+        "no_tick": "Пожалуйста, выберите другой базовый актив. Выбранный актив не поддерживает тики.", 
+        "no_underlying": "На данном рынке нет активов. Пожалуйста, выберите другой рынок.", 
+        "not_auth": "Извините, мы не смогли Вас идентифицировать.", 
+        "not_unique": "Вы уже добавили этот счёт.", 
+        "not_valid": "Пожалуйста, введите действующий токен.", 
+        "remove_all_tokens_content": "Вы уверены, что хотите удалить все токены и выйти?", 
+        "remove_all_tokens_title": "Удаление всех токенов", 
+        "remove_token_content": "Вы уверены, что хотите удалить этот токен?", 
+        "remove_token_title": "Удаление токена", 
+        "required_field": "Данное поле является обязательным.", 
+        "warning": "Предупреждение"
+    }, 
+    "app": {
+        "connection_error": "Нет интернет-соединения!", 
+        "connection_error_title": "Ошибка при подключении", 
+        "exit_confirmation": "Вы уверены, что хотите выйти?", 
+        "exit_title": "Выход"
+    }, 
+    "help": {
+        "back": "Назад", 
+        "copy_token": "и создайте токен. Затем просто скопируйте и вставьте его в поле сверху.", 
+        "email_cs": "У Вас возникли вопросы? Отправьте email службе поддержки ", 
+        "generate_api": "Чтобы получить доступ к приложению третьей стороны (например, мобильному приложению), необходимо создать токен API.", 
+        "need_help": "Нужна помощь?", 
+        "page": "эту страницу", 
+        "visit": "Пожалуйста, посетите"
+    }, 
+    "options": {
+        "account": "Счёт", 
+        "digit_differs": "Несовпадение цифр", 
+        "digit_match": "Совпадение цифр", 
+        "down": "Вниз", 
+        "even": "Чётное число", 
+        "forex": "Forex", 
+        "last_digit_prediction": "Прогноз последней десятичной", 
+        "lets_trade": "Начните торговлю!", 
+        "number_of_ticks": "Кол-во тиков", 
+        "odd": "Нечётное число", 
+        "payout": "Выплата", 
+        "payout_type": "Тип выплаты", 
+        "random": "Random", 
+        "save": "СОХРАНИТЬ", 
+        "select_amount": "Выбрать сумму", 
+        "select_market": "Рынки", 
+        "stake": "Ставка", 
+        "trade_type": "Типы сделок", 
+        "underlying": "Рынок", 
+        "up": "Вверх"
+    }, 
+    "signin": {
+        "add_account": "Добавить счёт", 
+        "get_token": "Как получить токен?", 
+        "language": "Язык", 
+        "need_help": "Нужна помощь?", 
+        "paste_token": "Введите токен здесь"
+    }, 
+    "trade": {
+        "account_balance": "Баланс счета", 
+        "back": "Назад", 
+        "balance": "Баланс", 
+        "buy": "КУПИТЬ", 
+        "buy_again": "Купить снова", 
+        "buy_price": "Покупка", 
+        "final_price": "Цена продажи", 
+        "lose": "Контракт проиграл", 
+        "loss": "Убыток", 
+        "net_profit": "Чистая прибыль", 
+        "payout": "Выплата", 
+        "potential_payout": "Потенциальная выплата", 
+        "potential_profit": "Потенциальная прибыль", 
+        "price": "Цена", 
+        "profit": "Прибыль", 
+        "stake": "Ставка", 
+        "total_cost": "Общая стоимость", 
+        "transaction_id": "Ссылка на сделку", 
+        "win": "Контракт выиграл"
+    }, 
+    "update": {
+        "check_for_update": "Проверка обновлений.", 
+        "downloading": "Загрузка...", 
+        "error": "Произошла ошибка при проверке обновлений", 
+        "installed": "Обновление успешно установлено.", 
+        "installing": "Установка обновления", 
+        "up_to_date": "Приложение соответствует последней версии."
+    }
 }
