@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-03-02 18:30+0000\n"
-"Last-Translator: olga borg <olga@binary.com>\n"
+"PO-Revision-Date: 2016-03-02 18:31+0000\n"
+"Last-Translator: cameliagf <cameliagf@yahoo.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/es/>\n"
 "Language: es\n"
@@ -90,7 +90,7 @@ msgstr "Comprobando las actualizaciones."
 
 #: .update.error
 msgid "An error occured while checking for updates"
-msgstr "Ha ocurrido un error durante la comprobación de las actualizaciones."
+msgstr "Ha ocurrido un error durante la comprobación de las actualizaciones"
 
 #: .trade.payout
 msgctxt ".trade.payout"
