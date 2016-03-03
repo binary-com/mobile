@@ -9127,11 +9127,6 @@ body * {
 .item-radio .item-content {
   background-color: #f2f2f2; }
 
-.scroll-content {
-  display: block;
-  position: relative;
-  height: 100%; }
-
 .scroll {
   padding-bottom: 1px; }
 
@@ -9152,6 +9147,12 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
   /* <-- Apparently some margin are still there even though it's hidden */ }
+
+@media only screen and (min-device-width: 768px) {
+  .trade, .accounts, .options, .sign-in, .help, .home {
+    width: 100%;
+    max-width: 500px;
+    margin: auto; } }
 
 @media screen and (max-width: 400px) {
   .trade .contract-price .price {
@@ -9186,9 +9187,6 @@ input::-webkit-inner-spin-button {
 .bar .button.button-clear.icon-left:before,
 .bar .button.button-clear.icon-right:before {
   font-size: 24px; }
-
-.has-header {
-  top: 0 !important; }
 
 .spinner {
   position: absolute;
@@ -9782,12 +9780,6 @@ input::-webkit-inner-spin-button {
       background: transparent !important;
       color: #e98024; } }
 
-@media only screen and (min-device-width: 480px) {
-  .trade {
-    width: 100%;
-    max-width: 500px;
-    margin: auto; } }
-
 .options .options-content {
   padding-left: 3%;
   padding-right: 3%; }
@@ -10010,12 +10002,6 @@ input::-webkit-inner-spin-button {
   .popover-backdrop.active {
     background-color: rgba(0, 0, 0, 0.5); } }
 
-@media only screen and (min-device-width: 480px) {
-  .options {
-    width: 100%;
-    max-width: 500px;
-    margin: auto; } }
-
 .accounts-content {
   display: block; }
   .accounts-content .bar {
@@ -10077,12 +10063,6 @@ input::-webkit-inner-spin-button {
       color: #4CBB17;
       line-height: 40px; }
 
-@media only screen and (min-device-width: 480px) {
-  .accounts {
-    width: 100%;
-    max-width: 500px;
-    margin: auto; } }
-
 .help-content {
   background-color: #2a3052;
   padding-left: 3%;
@@ -10101,3 +10081,23 @@ input::-webkit-inner-spin-button {
   .help-content a {
     color: #fff;
     font-weight: 700; }
+
+@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .help-content {
+    background-color: #2a3052;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 5%;
+    color: #fff;
+    font-size: 4vw; }
+    .help-content h1 {
+      font-size: 8vw;
+      color: #fff; }
+    .help-content button {
+      background-color: #e98024 !important;
+      width: 80%;
+      margin: 10% auto !important;
+      font-size: 5vwpx; }
+    .help-content a {
+      color: #fff;
+      font-weight: 700; } }
