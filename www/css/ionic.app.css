@@ -9552,13 +9552,13 @@ input::-webkit-inner-spin-button {
       padding-bottom: 0; }
       .trade .contract-payout .amount .price input {
         font-size: 14px;
-        max-width: 80px;
         height: auto;
         border-bottom: 1px solid #f2f2f2;
         line-height: 12px;
         text-align: center;
         color: #e98024;
-        padding-top: 0; }
+        padding-top: 0;
+        width: 100%; }
     .trade .contract-payout .amount .error {
       position: absolute;
       background-color: #ff0000;
@@ -9733,13 +9733,13 @@ input::-webkit-inner-spin-button {
         padding-bottom: 0; }
         .trade .contract-payout .amount .price input {
           font-size: 4vw;
-          max-width: 80px;
           height: auto;
           border-bottom: 1px solid #f2f2f2;
           line-height: 12px;
           text-align: center;
           color: #e98024;
-          padding-top: 0; }
+          padding-top: 0;
+          width: 100%; }
       .trade .contract-payout .amount .error {
         position: absolute;
         background-color: #ff0000;
@@ -9766,8 +9766,6 @@ input::-webkit-inner-spin-button {
           border-top: 8px solid #ff0000;
           border-right: 8px solid transparent;
           border-left: 8px solid transparent; }
-    .trade .contract-payout .button-bar a:nth-child(1) {
-      border-right: none; }
     .trade .contract-payout .button-bar .button {
       min-height: 20px; }
     .trade .contract-payout .button-bar .button:before {
@@ -9785,7 +9783,8 @@ input::-webkit-inner-spin-button {
       .trade .contract-payout > .col:nth-child(3) .button.plus {
         background-color: #f2f2f2; }
       .trade .contract-payout > .col:nth-child(3) .button.minus {
-        background-color: #f2f2f2; }
+        background-color: #f2f2f2;
+        border-right: 0; }
   .trade .net-profit {
     background-color: #f2f2f2;
     border-bottom: 1px solid #c4c4c4;

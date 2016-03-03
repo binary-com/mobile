@@ -41,13 +41,13 @@
 																padding-bottom: 0;
 																input {
 																				font-size: 14px;
-																				max-width: 80px;
 																				height: auto;
 																				border-bottom: 1px solid $lightgray;
 																				line-height: 12px;
 																				text-align: center;
 																				color: $orange;
 																				padding-top: 0;
+																				width: 100%;
 																}
 												}
 												.error {
@@ -269,13 +269,13 @@
 																padding-bottom: 0;
 																input {
 																				font-size: 4vw;
-																				max-width: 80px;
 																				height: auto;
 																				border-bottom: 1px solid $lightgray;
 																				line-height: 12px;
 																				text-align: center;
 																				color: $orange;
 																				padding-top: 0;
+																				width:100%
 																}
 												}
 												.error {
@@ -309,9 +309,6 @@
 												}
 								}
 								.button-bar {
-									a:nth-child(1){
-										border-right: none;
-									}
 												.button {
 																min-height: 20px;
 												}
@@ -335,6 +332,7 @@
 																}
 																&.minus {
 																				background-color: $lightgray;
+																				border-right: 0;
 																}
 												}
 								}
