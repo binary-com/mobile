@@ -9332,11 +9332,34 @@ input::-webkit-inner-spin-button {
     color: #2a3052;
     text-align: center; }
 
+@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .home {
+    background-color: #f2f2f2; }
+    .home .branding {
+      width: 80%;
+      max-width: 600px;
+      margin: 40% auto; }
+      .home .branding .logo {
+        display: block;
+        margin: 0 auto;
+        width: 40%; }
+      .home .branding .slogan {
+        display: block;
+        margin: 5% auto 0;
+        width: 60%; }
+    .home .spinner svg {
+      margin-top: 300px;
+      display: block;
+      stroke: #2a3052; }
+    .home span {
+      display: block;
+      margin: -50px auto 0;
+      color: #2a3052;
+      text-align: center; } }
+
 .sign-in {
   background-color: #2a3052; }
   .sign-in .branding {
-    width: 80%;
-    max-width: 600px;
     margin: 10% auto; }
     .sign-in .branding .logo {
       display: block;
@@ -9400,8 +9423,6 @@ input::-webkit-inner-spin-button {
       direction: ltr; }
   .sign-in button.btn-signin {
     background-color: #e98024 !important;
-    width: 80%;
-    margin: 0 auto;
     font-size: 18px; }
   .sign-in .help {
     color: #fff; }
@@ -9413,6 +9434,85 @@ input::-webkit-inner-spin-button {
     color: #f2f2f2; }
   .sign-in :-ms-input-placeholder {
     color: #f2f2f2; }
+
+@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .sign-in {
+    background-color: #2a3052; }
+    .sign-in .branding {
+      margin: 10% auto; }
+      .sign-in .branding .logo {
+        display: block;
+        margin: 0 auto;
+        width: 40%; }
+      .sign-in .branding .slogan {
+        display: block;
+        margin: 5% auto 0;
+        width: 60%; }
+    .sign-in .list label.item-input {
+      border-bottom: 1px solid #5e668f;
+      width: 80%;
+      margin: 0 auto;
+      height: 44px;
+      padding-left: 4px !important;
+      margin-bottom: 26px; }
+      .sign-in .list label.item-input i {
+        font-size: 40px;
+        width: 40px;
+        color: #5e668f;
+        text-align: center; }
+        .sign-in .list label.item-input i.icon-small {
+          font-size: 28px; }
+      .sign-in .list label.item-input input[type=text],
+      .sign-in .list label.item-input input[type=password] {
+        color: #f2f2f2;
+        font-family: arial;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.6; }
+      .sign-in .list label.item-input.error {
+        border-bottom-color: #ff0000; }
+        .sign-in .list label.item-input.error i {
+          color: #ff0000; }
+    .sign-in .list label.item-select {
+      background-color: #2a3052;
+      border-width: 0 0 1px 0; }
+      .sign-in .list label.item-select i {
+        font-size: 40px;
+        width: 40px;
+        color: #5e668f;
+        text-align: center; }
+        .sign-in .list label.item-select i.icon-small {
+          font-size: 28px; }
+      .sign-in .list label.item-select .input-label {
+        background-color: #2a3052;
+        color: #f2f2f2;
+        font-family: arial;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1;
+        line-height: 1.6; }
+      .sign-in .list label.item-select select {
+        background-color: #2a3052;
+        color: #f2f2f2;
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: uppercase;
+        padding: 0;
+        right: initial;
+        direction: ltr; }
+    .sign-in button.btn-signin {
+      background-color: #e98024 !important;
+      font-size: 5vw; }
+    .sign-in .help {
+      color: #fff; }
+    .sign-in ::-webkit-input-placeholder {
+      color: #f2f2f2; }
+    .sign-in :-moz-placeholder {
+      color: #f2f2f2; }
+    .sign-in ::-moz-placeholder {
+      color: #f2f2f2; }
+    .sign-in :-ms-input-placeholder {
+      color: #f2f2f2; } }
 
 .trade #tradeContractChart {
   width: 100% !important;
@@ -9523,14 +9623,10 @@ input::-webkit-inner-spin-button {
     text-align: left;
     line-height: 12px; }
 
-.trade .contract-purchase,
-.trade .contract-back {
-  margin-top: 3%;
-  margin-bottom: 3%; }
-  .trade .contract-purchase button,
-  .trade .contract-back button {
-    background-color: #e98024 !important;
-    font-size: 20px; }
+.trade .contract-purchase button,
+.trade .contract-back button {
+  background-color: #e98024 !important;
+  font-size: 20px; }
 
 .trade .contract-details {
   margin-top: 1%; }
@@ -9670,6 +9766,8 @@ input::-webkit-inner-spin-button {
           border-top: 8px solid #ff0000;
           border-right: 8px solid transparent;
           border-left: 8px solid transparent; }
+    .trade .contract-payout .button-bar a:nth-child(1) {
+      border-right: none; }
     .trade .contract-payout .button-bar .button {
       min-height: 20px; }
     .trade .contract-payout .button-bar .button:before {
@@ -9706,14 +9804,10 @@ input::-webkit-inner-spin-button {
       color: #818183;
       text-align: left;
       line-height: 12px; }
-  .trade .contract-purchase,
-  .trade .contract-back {
-    margin-top: 3%;
-    margin-bottom: 3%; }
-    .trade .contract-purchase button,
-    .trade .contract-back button {
-      background-color: #e98024 !important;
-      font-size: 20px; }
+  .trade .contract-purchase button,
+  .trade .contract-back button {
+    background-color: #e98024 !important;
+    font-size: 5vw; }
   .trade .contract-details {
     margin-top: 1%; }
     .trade .contract-details .win {
@@ -9856,7 +9950,7 @@ input::-webkit-inner-spin-button {
     background: #2a3052;
     color: #fff; }
   .options .options-ticks .disabled {
-    opacity: 0.7; }
+    opacity: 0.4; }
 
 .options .options-amount {
   border-bottom: 1px solid #f2f2f2; }
@@ -9969,7 +10063,7 @@ input::-webkit-inner-spin-button {
       background: #2a3052;
       color: #fff; }
     .options .options-ticks .disabled {
-      opacity: 0.7; }
+      opacity: 0.4; }
   .options .options-amount {
     border-bottom: 1px solid #f2f2f2; }
     .options .options-amount .item {
@@ -9985,7 +10079,7 @@ input::-webkit-inner-spin-button {
   .options .options-save {
     margin-bottom: 20%; }
   .options button {
-    font-size: 20px; }
+    font-size: 5vw; }
   .options label .input-label {
     padding: 0; }
   .options label.item-input {
@@ -10063,6 +10157,68 @@ input::-webkit-inner-spin-button {
       color: #4CBB17;
       line-height: 40px; }
 
+@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .accounts-content {
+    display: block; }
+    .accounts-content .bar {
+      background-color: #e98024;
+      margin-bottom: 4px !important; }
+      .accounts-content .bar h2 {
+        color: #fff; }
+    .accounts-content .remove-all-accounts {
+      background-color: #f2f2f2;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 14px; }
+      .accounts-content .remove-all-accounts a {
+        color: #ff0000; }
+    .accounts-content .account .list {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      margin-bottom: 4px !important; }
+      .accounts-content .account .list .item-content {
+        padding: 10px 0 10px 20px; }
+      .accounts-content .account .list i {
+        display: block;
+        float: left;
+        width: 40px;
+        font-size: 24px;
+        line-height: 40px; }
+        .accounts-content .account .list i.default {
+          color: #4CBB17; }
+        .accounts-content .account .list i.not-default {
+          color: #c4c4c4; }
+      .accounts-content .account .list div .id {
+        color: #2a3052;
+        font-size: 16px;
+        font-weight: 700; }
+      .accounts-content .account .list div .token {
+        color: #c4c4c4;
+        font-size: 14px;
+        display: block;
+        font-weight: 500; }
+    .accounts-content .account .button-green {
+      background-color: #4CBB17; }
+    .accounts-content .add-account {
+      margin-top: 20px;
+      padding: 20px; }
+      .accounts-content .add-account label {
+        float: left; }
+        .accounts-content .add-account label.error {
+          color: #ff0000; }
+          .accounts-content .add-account label.error i {
+            color: #ff0000; }
+        .accounts-content .add-account label .placeholder-icon {
+          color: #c4c4c4; }
+      .accounts-content .add-account .item-input {
+        padding: 0; }
+      .accounts-content .add-account .ion-android-lock {
+        font-size: 16px; }
+      .accounts-content .add-account .add {
+        font-size: 28px;
+        color: #4CBB17;
+        line-height: 40px; } }
+
 .help-content {
   background-color: #2a3052;
   padding-left: 3%;
@@ -10075,8 +10231,6 @@ input::-webkit-inner-spin-button {
     color: #fff; }
   .help-content button {
     background-color: #e98024 !important;
-    width: 80%;
-    margin: 10% auto !important;
     font-size: 18px; }
   .help-content a {
     color: #fff;
@@ -10095,9 +10249,7 @@ input::-webkit-inner-spin-button {
       color: #fff; }
     .help-content button {
       background-color: #e98024 !important;
-      width: 80%;
-      margin: 10% auto !important;
-      font-size: 5vwpx; }
+      font-size: 5vw; }
     .help-content a {
       color: #fff;
       font-weight: 700; } }
