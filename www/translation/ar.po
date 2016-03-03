@@ -1,13 +1,13 @@
-#. extracted from /tmp/json2po-Feb0222121951/lang/ar.json, /tmp/json2po-Feb0222121951/old_po/ar.json
+#. extracted from /tmp/json2po-Mar0303150026/lang/ar.json, /tmp/json2po-Mar0303150026/old_po/ar.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-03 11:06+0800\n"
+"POT-Creation-Date: 2016-03-03 15:00+0430\n"
 "PO-Revision-Date: 2016-02-23 01:50+0000\n"
 "Last-Translator: Rudy Karam <rudykaram6@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/ar/>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -202,6 +202,10 @@ msgctxt ".accounts.account"
 msgid "Account"
 msgstr "حساب"
 
+#: .accounts.not_allowed_to_trade
+msgid "Your don't have permission to trade!"
+msgstr ""
+
 #: .accounts.add
 msgid "Add"
 msgstr "إضافة"
@@ -284,85 +288,94 @@ msgstr "الرجاء إدخال رمز صالح."
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "هل أنت متأكد من أنك تريد إزالة كافة الرموز المميزة وتسجيل الخروج؟"
 
-#: .options.even
-msgid "Even"
-msgstr "حتى"
-
-#: .options.down
-msgid "Down"
-msgstr "أسفل"
-
-#: .options.account
-msgctxt ".options.account"
-msgid "Account"
-msgstr "حساب"
-
-#: .options.forex
-msgid "Forex"
-msgstr "العملات الأجنبية"
-
-#: .options.lets_trade
-msgid "Let's trade!"
-msgstr "لنتداول!"
-
-#: .options.digit_match
-msgid "Digit Match"
-msgstr "مطابقة الأرقام"
+#: .options.digit_odd
+msgid "Odd"
+msgstr "فردي"
 
 #: .options.random
 msgid "Random"
 msgstr "عشوائي"
 
-#: .options.up
-msgid "Up"
-msgstr "أعلى"
-
 #: .options.select_amount
 msgid "Select Amount"
 msgstr "حدد المبلغ"
 
-#: .options.number_of_ticks
-msgid "Number of Ticks"
-msgstr "عدد الحركات"
+#: .options.down
+msgid "Down"
+msgstr "أسفل"
 
 #: .options.underlying
 msgid "Underlying"
 msgstr "الأصول"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "اختلاف الأرقام"
-
-#: .options.trade_type
-msgid "Trade Types"
-msgstr "أنواع التداول"
-
-#: .options.save
-msgid "SAVE"
-msgstr "حفظ"
-
 #: .options.select_market
 msgid "Markets"
 msgstr "الأسواق"
+
+#: .options.payout_type
+msgid "Payout Type"
+msgstr "نوع العائد"
+
+#: .options.forex
+msgid "Forex"
+msgstr "العملات الأجنبية"
+
+#: .options.digit_over
+msgid "Over"
+msgstr ""
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
 msgstr "الحصة"
 
+#: .options.save
+msgid "SAVE"
+msgstr "حفظ"
+
+#: .options.trade_type
+msgid "Trade Types"
+msgstr "أنواع التداول"
+
+#: .options.digit_match
+msgid "Digit Match"
+msgstr "مطابقة الأرقام"
+
+#: .options.number_of_ticks
+msgid "Number of Ticks"
+msgstr "عدد الحركات"
+
+#: .options.lets_trade
+msgid "Let's trade!"
+msgstr "لنتداول!"
+
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "توقع آخر رقم"
-
-#: .options.odd
-msgid "Odd"
-msgstr "فردي"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
 msgstr "العائد"
 
-#: .options.payout_type
-msgid "Payout Type"
-msgstr "نوع العائد"
+#: .options.digit_differs
+msgid "Digit Differs"
+msgstr "اختلاف الأرقام"
+
+#: .options.account
+msgctxt ".options.account"
+msgid "Account"
+msgstr "حساب"
+
+#: .options.digit_under
+#, fuzzy
+msgid "Under"
+msgstr "الأصول"
+
+#: .options.up
+msgid "Up"
+msgstr "أعلى"
+
+#: .options.digit_even
+msgid "Even"
+msgstr "حتى"

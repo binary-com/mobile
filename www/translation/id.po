@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Feb0222121951/lang/id.json, /tmp/json2po-Feb0222121951/old_po/id.json
+#. extracted from /tmp/json2po-Mar0303150026/lang/id.json, /tmp/json2po-Mar0303150026/old_po/id.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 12:19+0430\n"
+"POT-Creation-Date: 2016-03-03 15:00+0430\n"
 "PO-Revision-Date: 2016-03-01 11:45+0000\n"
 "Last-Translator: Khalik Pratama <khalik@binary.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
@@ -202,6 +202,10 @@ msgctxt ".accounts.account"
 msgid "Account"
 msgstr "Akun"
 
+#: .accounts.not_allowed_to_trade
+msgid "Your don't have permission to trade!"
+msgstr ""
+
 #: .accounts.add
 msgid "Add"
 msgstr "Tambah"
@@ -286,85 +290,94 @@ msgstr "Masukkan token yang berlaku."
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "Apakah Anda yakin ingin menghapus semua token dan keluar?"
 
-#: .options.even
-msgid "Even"
-msgstr "Even"
-
-#: .options.down
-msgid "Down"
-msgstr "Down"
-
-#: .options.account
-msgctxt ".options.account"
-msgid "Account"
-msgstr "Akun"
-
-#: .options.forex
-msgid "Forex"
-msgstr "Forex"
-
-#: .options.lets_trade
-msgid "Let's trade!"
-msgstr "Ayo trade!"
-
-#: .options.digit_match
-msgid "Digit Match"
-msgstr "Digit Match"
+#: .options.digit_odd
+msgid "Odd"
+msgstr "Odd"
 
 #: .options.random
 msgid "Random"
 msgstr "Random"
 
-#: .options.up
-msgid "Up"
-msgstr "Up"
-
 #: .options.select_amount
 msgid "Select Amount"
 msgstr "Pilih Jumlah"
 
-#: .options.number_of_ticks
-msgid "Number of Ticks"
-msgstr "Jumlah Tick"
+#: .options.down
+msgid "Down"
+msgstr "Down"
 
 #: .options.underlying
 msgid "Underlying"
 msgstr "Dasar"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "Digit Differs"
-
-#: .options.trade_type
-msgid "Trade Types"
-msgstr "Jenis Kontrak"
-
-#: .options.save
-msgid "SAVE"
-msgstr "SIMPAN"
-
 #: .options.select_market
 msgid "Markets"
 msgstr "Pasar"
+
+#: .options.payout_type
+msgid "Payout Type"
+msgstr "Jenis Hasil"
+
+#: .options.forex
+msgid "Forex"
+msgstr "Forex"
+
+#: .options.digit_over
+msgid "Over"
+msgstr ""
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
 msgstr "Modal"
 
+#: .options.save
+msgid "SAVE"
+msgstr "SIMPAN"
+
+#: .options.trade_type
+msgid "Trade Types"
+msgstr "Jenis Kontrak"
+
+#: .options.digit_match
+msgid "Digit Match"
+msgstr "Digit Match"
+
+#: .options.number_of_ticks
+msgid "Number of Ticks"
+msgstr "Jumlah Tick"
+
+#: .options.lets_trade
+msgid "Let's trade!"
+msgstr "Ayo trade!"
+
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "Analisa Digit Terakhir"
-
-#: .options.odd
-msgid "Odd"
-msgstr "Odd"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
 msgstr "Hasil"
 
-#: .options.payout_type
-msgid "Payout Type"
-msgstr "Jenis Hasil"
+#: .options.digit_differs
+msgid "Digit Differs"
+msgstr "Digit Differs"
+
+#: .options.account
+msgctxt ".options.account"
+msgid "Account"
+msgstr "Akun"
+
+#: .options.digit_under
+#, fuzzy
+msgid "Under"
+msgstr "Dasar"
+
+#: .options.up
+msgid "Up"
+msgstr "Up"
+
+#: .options.digit_even
+msgid "Even"
+msgstr "Even"

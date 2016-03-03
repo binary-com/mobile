@@ -14,7 +14,8 @@
 		"set_as_default": "Set as default",
 		"add": "Add",
 		"new_token":"Add a new token",
-		"delete": "Delete"
+		"delete": "Delete",
+        "not_allowed_to_trade": "Your don't have permission to trade!"
 	},
 	"alert" : {
 		"error": "Error!",
@@ -43,10 +44,12 @@
 		"up": "Up",
 		"down": "Down",
 		"last_digit_prediction": "Last Digit Prediction",
-		"even": "Even",
-		"odd": "Odd",
+		"digit_even": "Even",
+		"digit_odd": "Odd",
 		"digit_match": "Digit Match",
 		"digit_differs": "Digit Differs",
+        "digit_over": "Over",
+        "digit_under": "Under",
 		"number_of_ticks": "Number of Ticks",
 		"payout_type": "Payout Type",
 		"select_amount": "Select Amount",
@@ -73,7 +76,8 @@
 		"loss": "Loss",
 		"win": "This contract won",
 		"lose": "This contract lost",
-		"transaction_id": "Transaction Reference"
+		"transaction_id": "Transaction Reference",
+        "buy_again": "Buy Again"
 	},
 	"help" : {
 		"need_help": "Need Help?",
@@ -89,5 +93,13 @@
 		"exit_confirmation": "Are you sure you want to exit?",
 		"connection_error_title": "Connection Error",
 		"connection_error": "There is no internet connection!"
-	}
+	},
+    "update": {
+        "installed": "The update was installed successfully.",
+        "up_to_date": "The application is up to date.",
+        "error": "An error occured while checking for updates",
+        "check_for_update": "Checking for update.",
+        "downloading": "Downloading ...",
+        "installing": "Installing update"
+    }
 }

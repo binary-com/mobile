@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Feb0222121951/lang/ru.json, /tmp/json2po-Feb0222121951/old_po/ru.json
+#. extracted from /tmp/json2po-Mar0303150026/lang/ru.json, /tmp/json2po-Mar0303150026/old_po/ru.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 12:19+0430\n"
+"POT-Creation-Date: 2016-03-03 15:00+0430\n"
 "PO-Revision-Date: 2016-02-24 05:08+0000\n"
 "Last-Translator: olga borg <olga@binary.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-tick-"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
 #: .help.email_cs
@@ -22,7 +22,8 @@ msgstr "У Вас возникли вопросы? Отправьте email сл
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
-msgstr "и создайте токен. Затем просто скопируйте и вставьте его в поле сверху."
+msgstr ""
+"и создайте токен. Затем просто скопируйте и вставьте его в поле сверху."
 
 #: .help.visit
 msgid "Please visit"
@@ -203,6 +204,10 @@ msgctxt ".accounts.account"
 msgid "Account"
 msgstr "Счёт"
 
+#: .accounts.not_allowed_to_trade
+msgid "Your don't have permission to trade!"
+msgstr ""
+
 #: .accounts.add
 msgid "Add"
 msgstr "Добавить"
@@ -287,85 +292,94 @@ msgstr "Пожалуйста, введите действующий токен."
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "Вы уверены, что хотите удалить все токены и выйти?"
 
-#: .options.even
-msgid "Even"
-msgstr "Чётное число"
-
-#: .options.down
-msgid "Down"
-msgstr "Вниз"
-
-#: .options.account
-msgctxt ".options.account"
-msgid "Account"
-msgstr "Счёт"
-
-#: .options.forex
-msgid "Forex"
-msgstr "Forex"
-
-#: .options.lets_trade
-msgid "Let's trade!"
-msgstr "Начните торговлю!"
-
-#: .options.digit_match
-msgid "Digit Match"
-msgstr "Совпадение цифр"
+#: .options.digit_odd
+msgid "Odd"
+msgstr "Нечётное число"
 
 #: .options.random
 msgid "Random"
 msgstr "Random"
 
-#: .options.up
-msgid "Up"
-msgstr "Вверх"
-
 #: .options.select_amount
 msgid "Select Amount"
 msgstr "Выбрать сумму"
 
-#: .options.number_of_ticks
-msgid "Number of Ticks"
-msgstr "Кол-во тиков"
+#: .options.down
+msgid "Down"
+msgstr "Вниз"
 
 #: .options.underlying
 msgid "Underlying"
 msgstr "Рынок"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "Несовпадение цифр"
-
-#: .options.trade_type
-msgid "Trade Types"
-msgstr "Типы сделок"
-
-#: .options.save
-msgid "SAVE"
-msgstr "СОХРАНИТЬ"
-
 #: .options.select_market
 msgid "Markets"
 msgstr "Рынки"
+
+#: .options.payout_type
+msgid "Payout Type"
+msgstr "Тип выплаты"
+
+#: .options.forex
+msgid "Forex"
+msgstr "Forex"
+
+#: .options.digit_over
+msgid "Over"
+msgstr ""
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
 msgstr "Ставка"
 
+#: .options.save
+msgid "SAVE"
+msgstr "СОХРАНИТЬ"
+
+#: .options.trade_type
+msgid "Trade Types"
+msgstr "Типы сделок"
+
+#: .options.digit_match
+msgid "Digit Match"
+msgstr "Совпадение цифр"
+
+#: .options.number_of_ticks
+msgid "Number of Ticks"
+msgstr "Кол-во тиков"
+
+#: .options.lets_trade
+msgid "Let's trade!"
+msgstr "Начните торговлю!"
+
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "Прогноз последней десятичной"
-
-#: .options.odd
-msgid "Odd"
-msgstr "Нечётное число"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
 msgstr "Выплата"
 
-#: .options.payout_type
-msgid "Payout Type"
-msgstr "Тип выплаты"
+#: .options.digit_differs
+msgid "Digit Differs"
+msgstr "Несовпадение цифр"
+
+#: .options.account
+msgctxt ".options.account"
+msgid "Account"
+msgstr "Счёт"
+
+#: .options.digit_under
+#, fuzzy
+msgid "Under"
+msgstr "Рынок"
+
+#: .options.up
+msgid "Up"
+msgstr "Вверх"
+
+#: .options.digit_even
+msgid "Even"
+msgstr "Чётное число"
