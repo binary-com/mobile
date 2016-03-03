@@ -1,5 +1,5 @@
 <div class="branding">
-	<img src="img/logo.svg"   class="logo" alt="Binary Logo">
+	<img src="img/logo.svg" class="logo" alt="Binary Logo">
 	<img src="img/binary.svg" class="slogan" alt="Binary.com">
 </div>
 <form ng-submit="signIn()" role="form" name="signin">
@@ -7,8 +7,7 @@
 		<ion-spinner ng-show="showSpinner"></ion-spinner>
 		<label class="item-input" ng-class="{'error': tokenError}">
 			<i class="icon ion-android-lock placeholder-icon icon-small"></i>
-			<input type="text" placeholder="{{'signin.paste_token' | translate }}"
-		ng-model="token" tabindex="1" ngRequired>
+			<input type="text" placeholder="{{'signin.paste_token' | translate }}" ng-model="token" tabindex="1" ngRequired>
 		</label>
 		<label class="item item-input item-select">
 			<i class="icon ion-ios-world placeholder-icon icon-small"></i>
@@ -31,9 +30,11 @@
 			</select>
 		</label>
 	</div>
-	<div class="padding">
-		<button class="button button-block button-positive btn-signin" type="submit">
-			{{'signin.add_account' | translate }}
-		</button>
+	<div class="row center">
+		<div class="col col-75">
+			<button class="button button-block button-positive btn-signin" type="submit">
+				{{'signin.add_account' | translate }}
+			</button>
+		</div>
 	</div>
 </form>
