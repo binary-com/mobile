@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-03 11:06+0800\n"
-"PO-Revision-Date: 2016-02-23 01:50+0000\n"
+"PO-Revision-Date: 2016-03-03 10:54+0000\n"
 "Last-Translator: Rudy Karam <rudykaram6@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/ar/>\n"
@@ -67,27 +67,27 @@ msgstr "هل أنت متأكد من أنك تريد الخروج؟"
 
 #: .update.downloading
 msgid "Downloading ..."
-msgstr ""
+msgstr "تحميل..."
 
 #: .update.installing
 msgid "Installing update"
-msgstr ""
+msgstr "تثبيت التحديث"
 
 #: .update.installed
 msgid "The update was installed successfully."
-msgstr ""
+msgstr "تم تثبيت التحديث بنجاح."
 
 #: .update.up_to_date
 msgid "The application is up to date."
-msgstr ""
+msgstr "التطبيق اخر احداث."
 
 #: .update.check_for_update
 msgid "Checking for update."
-msgstr ""
+msgstr "التحقق من وجود تحديث."
 
 #: .update.error
 msgid "An error occured while checking for updates"
-msgstr ""
+msgstr "حدث خطأ أثناء التحقق من وجود تحديثات"
 
 #: .trade.payout
 msgctxt ".trade.payout"
@@ -104,7 +104,7 @@ msgstr "شراء"
 
 #: .trade.buy_again
 msgid "Buy Again"
-msgstr ""
+msgstr "شراء مرة أخرى"
 
 #: .trade.loss
 msgid "Loss"
