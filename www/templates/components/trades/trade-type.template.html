@@ -3,6 +3,6 @@
         <input type="radio" name="market" value="{{t.value}}"
             ng-model="proposal.contract_type"
             ng-change="changeTradeType()"/>
-        <div class="item-content"> {{"options." + t.name.toLowerCase() | translate}} </div>
+        <div class="item-content"> {{"options." + t.name.toLowerCase().replace(' ', '_') | translate}} </div>
     </label>
 </div>
