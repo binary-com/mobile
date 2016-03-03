@@ -309,6 +309,9 @@
 												}
 								}
 								.button-bar {
+									a:nth-child(1){
+										border-right: none;
+									}
 												.button {
 																min-height: 20px;
 												}

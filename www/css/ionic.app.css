@@ -9766,6 +9766,8 @@ input::-webkit-inner-spin-button {
           border-top: 8px solid #ff0000;
           border-right: 8px solid transparent;
           border-left: 8px solid transparent; }
+    .trade .contract-payout .button-bar a:nth-child(1) {
+      border-right: none; }
     .trade .contract-payout .button-bar .button {
       min-height: 20px; }
     .trade .contract-payout .button-bar .button:before {
@@ -9948,7 +9950,7 @@ input::-webkit-inner-spin-button {
     background: #2a3052;
     color: #fff; }
   .options .options-ticks .disabled {
-    opacity: 0.7; }
+    opacity: 0.4; }
 
 .options .options-amount {
   border-bottom: 1px solid #f2f2f2; }
@@ -10061,7 +10063,7 @@ input::-webkit-inner-spin-button {
       background: #2a3052;
       color: #fff; }
     .options .options-ticks .disabled {
-      opacity: 0.7; }
+      opacity: 0.4; }
   .options .options-amount {
     border-bottom: 1px solid #f2f2f2; }
     .options .options-amount .item {
