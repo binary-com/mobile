@@ -9151,7 +9151,7 @@ input::-webkit-inner-spin-button {
 @media only screen and (min-device-width: 768px) {
   .trade, .accounts, .options, .sign-in, .help, .home {
     width: 100%;
-    max-width: 500px;
+    max-width: 768px;
     margin: auto; } }
 
 @media screen and (max-width: 400px) {
