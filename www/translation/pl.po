@@ -283,7 +283,7 @@ msgstr "Kontrakt jest niedostępny, proszę spróbować ponownie."
 
 #: .alert.required_field
 msgid "This field is required."
-msgstr "To pole jest wymagane."
+msgstr "To pole jest obowiązkowe."
 
 #: .alert.not_valid
 msgid "Please enter a valid token."

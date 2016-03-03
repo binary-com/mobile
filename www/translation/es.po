@@ -90,7 +90,7 @@ msgstr "Comprobando las actualizaciones."
 
 #: .update.error
 msgid "An error occured while checking for updates"
-msgstr "Ha ocurrido un error durante la comprobación de las actualizaciones."
+msgstr "Ha ocurrido un error durante la comprobación de las actualizaciones"
 
 #: .trade.payout
 msgctxt ".trade.payout"

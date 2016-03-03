@@ -163,7 +163,7 @@ msgstr "Khả năng thanh toán"
 
 #: .trade.balance
 msgid "Balance"
-msgstr "Cân bằng"
+msgstr "Số dư"
 
 #: .trade.transaction_id
 msgid "Transaction Reference"

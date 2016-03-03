@@ -17,7 +17,7 @@ msgstr ""
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
-msgstr "有问题？请发电子邮件给客户支持部，地址是 "
+msgstr "有问题？请发电子邮件至客服部门，地址是 "
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
@@ -35,7 +35,7 @@ msgstr "返回"
 #: .help.need_help
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr "需要帮忙？"
+msgstr "需要帮助？"
 
 #: .help.generate_api
 msgid ""
@@ -57,7 +57,7 @@ msgstr "连接错误"
 
 #: .app.connection_error
 msgid "There is no internet connection!"
-msgstr "无互联网连接服务！"
+msgstr "无网络连接！"
 
 #: .app.exit_confirmation
 msgid "Are you sure you want to exit?"
@@ -144,7 +144,7 @@ msgstr "此合约亏损"
 
 #: .trade.profit
 msgid "Profit"
-msgstr "盈利"
+msgstr "利润"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
@@ -181,7 +181,7 @@ msgstr "添加账户"
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
-msgstr "需要帮忙？"
+msgstr "需要帮助？"
 
 #: .signin.language
 msgid "Language"
@@ -210,7 +210,7 @@ msgstr "添加"
 
 #: .accounts.remove_all
 msgid "Remove All Accounts & Sign Out"
-msgstr "删除所有账户并登出"
+msgstr "删除所有账户并退出"
 
 #: .accounts.new_token
 msgid "Add a new token"
@@ -244,7 +244,7 @@ msgstr "正在删除令牌"
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
-msgstr "请选择另一个标的资产。所选取标的资产并不支持跳动点。"
+msgstr "请选择另一个标的资产。目前所选的标的资产不支持跳动点。"
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
@@ -272,7 +272,7 @@ msgstr "此市场没有基础交易。请试其他市场。"
 
 #: .alert.contract_error
 msgid "Contract not available, please try again."
-msgstr "合约不可使用，请重试。"
+msgstr "合约不可用，请重试。"
 
 #: .alert.required_field
 msgid "This field is required."
@@ -284,7 +284,7 @@ msgstr "请输入有效令牌。"
 
 #: .alert.remove_all_tokens_content
 msgid "Are you sure you want to remove all tokens and sign out?"
-msgstr "确认要删除所有令牌并登出？"
+msgstr "确认要删除所有令牌并退出？"
 
 #: .options.digit_odd
 msgid "Odd"

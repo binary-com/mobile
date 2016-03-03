@@ -35,13 +35,13 @@ msgstr "返回"
 #: .help.need_help
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr "需要幫忙？"
+msgstr "需要幫助？"
 
 #: .help.generate_api
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
-msgstr "要存取第三方應用程式，如手機應用，您必須產生API權杖。"
+msgstr "要存取第三方應用程式，如手機應用，您必須生成API權杖。"
 
 #: .help.page
 msgid "this page"
@@ -49,7 +49,7 @@ msgstr "此頁面"
 
 #: .app.exit_title
 msgid "Exit"
-msgstr "結束"
+msgstr "退出"
 
 #: .app.connection_error_title
 msgid "Connection Error"
@@ -61,7 +61,7 @@ msgstr "沒有網際網路連接服務！"
 
 #: .app.exit_confirmation
 msgid "Are you sure you want to exit?"
-msgstr "確認結束?"
+msgstr "確認退出?"
 
 #: .update.downloading
 msgid "Downloading ..."
@@ -144,7 +144,7 @@ msgstr "此合約虧損"
 
 #: .trade.profit
 msgid "Profit"
-msgstr "盈利"
+msgstr "利潤"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
@@ -168,7 +168,7 @@ msgstr "交易參考號"
 
 #: .signin.paste_token
 msgid "Paste your token here"
-msgstr "在此貼上權杖"
+msgstr "在此粘貼權杖"
 
 #: .signin.get_token
 msgid "How to get a Token?"
@@ -181,7 +181,7 @@ msgstr "新增帳戶"
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
-msgstr "需要幫忙?"
+msgstr "需要幫助?"
 
 #: .signin.language
 msgid "Language"
@@ -244,7 +244,7 @@ msgstr "正在刪除權杖"
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
-msgstr "請選取另一個標的資產。所選標的資產並不支持跳動點。"
+msgstr "請選取另一個標的資產。目前所選的標的資產並不支持跳動點。"
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
@@ -252,7 +252,7 @@ msgstr "必須在 0.70 和 100000 之間。"
 
 #: .alert.not_unique
 msgid "You've already added this account."
-msgstr "您已新增此帳戶。"
+msgstr "您已添加此帳戶。"
 
 #: .alert.warning
 msgid "Warning"
