@@ -1,13 +1,13 @@
-#. extracted from /tmp/json2po-Feb0222121951/lang/pl.json, /tmp/json2po-Feb0222121951/old_po/pl.json
+#. extracted from /tmp/json2po-Mar0303150026/lang/pl.json, /tmp/json2po-Mar0303150026/old_po/pl.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-03-02 20:54+0000\n"
-"Last-Translator: Anna Płochocka <plochocka.anna@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/pl/>\n"
+"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"PO-Revision-Date: 2016-03-02 20:53+0000\n"
+"Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -205,6 +205,10 @@ msgctxt ".accounts.account"
 msgid "Account"
 msgstr "Konto"
 
+#: .accounts.not_allowed_to_trade
+msgid "Your don't have permission to trade!"
+msgstr ""
+
 #: .accounts.add
 msgid "Add"
 msgstr "Dodaj"
@@ -289,85 +293,94 @@ msgstr "Proszę podać poprawny token."
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "Czy na pewno chcesz usunąć wszystkie tokeny i wylogować się?"
 
-#: .options.even
-msgid "Even"
-msgstr "Parzysta"
-
-#: .options.down
-msgid "Down"
-msgstr "Niżej"
-
-#: .options.account
-msgctxt ".options.account"
-msgid "Account"
-msgstr "Konto"
-
-#: .options.forex
-msgid "Forex"
-msgstr "Forex"
-
-#: .options.lets_trade
-msgid "Let's trade!"
-msgstr "Zagrajmy!"
-
-#: .options.digit_match
-msgid "Digit Match"
-msgstr "Cyfry zgadzają się"
+#: .options.digit_odd
+msgid "Odd"
+msgstr "Nieparzysta"
 
 #: .options.random
 msgid "Random"
 msgstr "Losowe"
 
-#: .options.up
-msgid "Up"
-msgstr "Wyżej"
-
 #: .options.select_amount
 msgid "Select Amount"
 msgstr "Wybierz kwotę"
 
-#: .options.number_of_ticks
-msgid "Number of Ticks"
-msgstr "Liczba najmniejszych zmian ceny"
+#: .options.down
+msgid "Down"
+msgstr "Niżej"
 
 #: .options.underlying
 msgid "Underlying"
 msgstr "Rynek bazowy"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "Cyfry nie zgadzają się"
-
-#: .options.trade_type
-msgid "Trade Types"
-msgstr "Rodzaje zakładów"
-
-#: .options.save
-msgid "SAVE"
-msgstr "ZAPISZ"
-
 #: .options.select_market
 msgid "Markets"
 msgstr "Rynki"
+
+#: .options.payout_type
+msgid "Payout Type"
+msgstr "Typ wypłaty"
+
+#: .options.forex
+msgid "Forex"
+msgstr "Forex"
+
+#: .options.digit_over
+msgid "Over"
+msgstr ""
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
 msgstr "Stawka"
 
+#: .options.save
+msgid "SAVE"
+msgstr "ZAPISZ"
+
+#: .options.trade_type
+msgid "Trade Types"
+msgstr "Typy zakładów"
+
+#: .options.digit_match
+msgid "Digit Match"
+msgstr "Cyfry zgadzają się"
+
+#: .options.number_of_ticks
+msgid "Number of Ticks"
+msgstr "Liczba najmniejszych zmian ceny"
+
+#: .options.lets_trade
+msgid "Let's trade!"
+msgstr "Zagrajmy!"
+
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "Szacowanie ostatniej cyfry"
-
-#: .options.odd
-msgid "Odd"
-msgstr "Nieparzysta"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
 msgstr "Wypłata"
 
-#: .options.payout_type
-msgid "Payout Type"
-msgstr "Rodzaj wypłaty"
+#: .options.digit_differs
+msgid "Digit Differs"
+msgstr "Cyfry nie zgadzają się"
+
+#: .options.account
+msgctxt ".options.account"
+msgid "Account"
+msgstr "Konto"
+
+#: .options.digit_under
+#, fuzzy
+msgid "Under"
+msgstr "Rynek bazowy"
+
+#: .options.up
+msgid "Up"
+msgstr "Wyżej"
+
+#: .options.digit_even
+msgid "Even"
+msgstr "Parzysta"

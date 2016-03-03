@@ -1,11 +1,11 @@
-#. extracted from /tmp/json2po-Feb0222121951/lang/vi.json, /tmp/json2po-Feb0222121951/old_po/vi.json
+#. extracted from /tmp/json2po-Mar0303150026/lang/vi.json, /tmp/json2po-Mar0303150026/old_po/vi.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-03-02 15:35+0000\n"
-"Last-Translator: Nguyen Thi My Linh <linh.nguyen@netlink.vn>\n"
+"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"PO-Revision-Date: 2016-03-02 15:29+0000\n"
+"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/vi/>\n"
 "Language: vi\n"
@@ -203,6 +203,10 @@ msgctxt ".accounts.account"
 msgid "Account"
 msgstr "Tài Khoản"
 
+#: .accounts.not_allowed_to_trade
+msgid "Your don't have permission to trade!"
+msgstr ""
+
 #: .accounts.add
 msgid "Add"
 msgstr "Thêm"
@@ -289,85 +293,94 @@ msgstr "Vui lòng nhập một mã token hợp lệ."
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "Bạn có chắc muốn gỡ bỏ tất cả mã token và đăng xuất?"
 
-#: .options.even
-msgid "Even"
-msgstr "Chẵn"
-
-#: .options.down
-msgid "Down"
-msgstr "Xuống"
-
-#: .options.account
-msgctxt ".options.account"
-msgid "Account"
-msgstr "Tài khoản"
-
-#: .options.forex
-msgid "Forex"
-msgstr "Ngoại hối"
-
-#: .options.lets_trade
-msgid "Let's trade!"
-msgstr "Giao dịch thôi!"
-
-#: .options.digit_match
-msgid "Digit Match"
-msgstr "Chữ số khớp"
+#: .options.digit_odd
+msgid "Odd"
+msgstr "Lẻ"
 
 #: .options.random
 msgid "Random"
 msgstr "Ngẫu nhiên"
 
-#: .options.up
-msgid "Up"
-msgstr "Lên"
-
 #: .options.select_amount
 msgid "Select Amount"
 msgstr "Chọn số tiền"
 
-#: .options.number_of_ticks
-msgid "Number of Ticks"
-msgstr "Số giây"
+#: .options.down
+msgid "Down"
+msgstr "Xuống"
 
 #: .options.underlying
 msgid "Underlying"
 msgstr "Tài sản cơ bản"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "Chữ số khác nhau"
-
-#: .options.trade_type
-msgid "Trade Types"
-msgstr "Kiểu Giao dịch"
-
-#: .options.save
-msgid "SAVE"
-msgstr "LƯU"
-
 #: .options.select_market
 msgid "Markets"
 msgstr "Thị trường"
+
+#: .options.payout_type
+msgid "Payout Type"
+msgstr "Loại Thanh toán"
+
+#: .options.forex
+msgid "Forex"
+msgstr "Ngoại hối"
+
+#: .options.digit_over
+msgid "Over"
+msgstr ""
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
 msgstr "Cổ phần"
 
+#: .options.save
+msgid "SAVE"
+msgstr "LƯU"
+
+#: .options.trade_type
+msgid "Trade Types"
+msgstr "Kiểu Giao dịch"
+
+#: .options.digit_match
+msgid "Digit Match"
+msgstr "Chữ số khớp"
+
+#: .options.number_of_ticks
+msgid "Number of Ticks"
+msgstr "Số giây"
+
+#: .options.lets_trade
+msgid "Let's trade!"
+msgstr "Giao dịch thôi!"
+
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "Dự đoán Chữ số cuối cùng"
-
-#: .options.odd
-msgid "Odd"
-msgstr "Lẻ"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
 msgstr "Thanh toán"
 
-#: .options.payout_type
-msgid "Payout Type"
-msgstr "Loại Thanh toán"
+#: .options.digit_differs
+msgid "Digit Differs"
+msgstr "Chữ số khác nhau"
+
+#: .options.account
+msgctxt ".options.account"
+msgid "Account"
+msgstr "Tài khoản"
+
+#: .options.digit_under
+#, fuzzy
+msgid "Under"
+msgstr "Tài sản cơ bản"
+
+#: .options.up
+msgid "Up"
+msgstr "Lên"
+
+#: .options.digit_even
+msgid "Even"
+msgstr "Chẵn"

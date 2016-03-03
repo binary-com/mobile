@@ -1,11 +1,11 @@
-#. extracted from /tmp/json2po-Feb0222121951/lang/zh_tw.json, /tmp/json2po-Feb0222121951/old_po/zh_tw.json
+#. extracted from /tmp/json2po-Mar0303150026/lang/zh_tw.json, /tmp/json2po-Mar0303150026/old_po/zh_tw.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 12:19+0430\n"
-"PO-Revision-Date: 2016-03-03 13:23+0000\n"
-"Last-Translator: Xiaojing <cai.cxj@gmail.com>\n"
+"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"PO-Revision-Date: 2016-02-26 09:45+0000\n"
+"Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
 "tick-trade/app/zh_TW/>\n"
 "Language: zh_tw\n"
@@ -200,6 +200,10 @@ msgctxt ".accounts.account"
 msgid "Account"
 msgstr "帳戶"
 
+#: .accounts.not_allowed_to_trade
+msgid "Your don't have permission to trade!"
+msgstr ""
+
 #: .accounts.add
 msgid "Add"
 msgstr "新增"
@@ -282,85 +286,94 @@ msgstr "請輸入有效權杖。"
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "確認要刪除所有權杖並登出?"
 
-#: .options.even
-msgid "Even"
-msgstr "偶數"
-
-#: .options.down
-msgid "Down"
-msgstr "下跌"
-
-#: .options.account
-msgctxt ".options.account"
-msgid "Account"
-msgstr "帳戶"
-
-#: .options.forex
-msgid "Forex"
-msgstr "外匯"
-
-#: .options.lets_trade
-msgid "Let's trade!"
-msgstr "開始交易吧!"
-
-#: .options.digit_match
-msgid "Digit Match"
-msgstr "數字匹配"
+#: .options.digit_odd
+msgid "Odd"
+msgstr "奇數"
 
 #: .options.random
 msgid "Random"
 msgstr "隨機"
 
-#: .options.up
-msgid "Up"
-msgstr "上漲"
-
 #: .options.select_amount
 msgid "Select Amount"
 msgstr "選取金額"
 
-#: .options.number_of_ticks
-msgid "Number of Ticks"
-msgstr "跳動點數"
+#: .options.down
+msgid "Down"
+msgstr "下跌"
 
 #: .options.underlying
 msgid "Underlying"
 msgstr "標的資產"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "數字差異"
-
-#: .options.trade_type
-msgid "Trade Types"
-msgstr "交易類型"
-
-#: .options.save
-msgid "SAVE"
-msgstr "儲存"
-
 #: .options.select_market
 msgid "Markets"
 msgstr "市場"
+
+#: .options.payout_type
+msgid "Payout Type"
+msgstr "賠付類型"
+
+#: .options.forex
+msgid "Forex"
+msgstr "外匯"
+
+#: .options.digit_over
+msgid "Over"
+msgstr ""
 
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
 msgstr "投注額"
 
+#: .options.save
+msgid "SAVE"
+msgstr "儲存"
+
+#: .options.trade_type
+msgid "Trade Types"
+msgstr "交易類型"
+
+#: .options.digit_match
+msgid "Digit Match"
+msgstr "數字符合"
+
+#: .options.number_of_ticks
+msgid "Number of Ticks"
+msgstr "跳動點數"
+
+#: .options.lets_trade
+msgid "Let's trade!"
+msgstr "開始交易吧!"
+
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "最後數字的預測"
-
-#: .options.odd
-msgid "Odd"
-msgstr "奇數"
 
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
 msgstr "賠付額"
 
-#: .options.payout_type
-msgid "Payout Type"
-msgstr "賠付類型"
+#: .options.digit_differs
+msgid "Digit Differs"
+msgstr "數字差異"
+
+#: .options.account
+msgctxt ".options.account"
+msgid "Account"
+msgstr "帳戶"
+
+#: .options.digit_under
+#, fuzzy
+msgid "Under"
+msgstr "標的資產"
+
+#: .options.up
+msgid "Up"
+msgstr "上漲"
+
+#: .options.digit_even
+msgid "Even"
+msgstr "偶數"
