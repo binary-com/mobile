@@ -9599,7 +9599,7 @@ input::-webkit-inner-spin-button {
   .trade .net-profit .error {
     background-color: #ff0000; }
     .trade .net-profit .error p {
-      margin: 0 !important;
+      margin: 5px !important;
       font-size: 14px;
       color: #fff; }
 
@@ -9760,8 +9760,8 @@ input::-webkit-inner-spin-button {
     .trade .net-profit .error {
       background-color: #ff0000; }
       .trade .net-profit .error p {
-        margin: 0 !important;
-        font-size: 3vw;
+        margin: 5px !important;
+        font-size: 4vw;
         color: #fff; }
   .trade .contract-purchase button,
   .trade .contract-back button {
