@@ -9423,8 +9423,6 @@ input::-webkit-inner-spin-button {
       direction: ltr; }
   .sign-in button.btn-signin {
     background-color: #e98024 !important;
-    width: 80%;
-    margin: 0 auto;
     font-size: 18px; }
   .sign-in .help {
     color: #fff; }
@@ -9504,9 +9502,7 @@ input::-webkit-inner-spin-button {
         direction: ltr; }
     .sign-in button.btn-signin {
       background-color: #e98024 !important;
-      width: 80%;
-      margin: 0 auto;
-      font-size: 18px; }
+      font-size: 5vw; }
     .sign-in .help {
       color: #fff; }
     .sign-in ::-webkit-input-placeholder {
@@ -9627,14 +9623,10 @@ input::-webkit-inner-spin-button {
     text-align: left;
     line-height: 12px; }
 
-.trade .contract-purchase,
-.trade .contract-back {
-  margin-top: 3%;
-  margin-bottom: 3%; }
-  .trade .contract-purchase button,
-  .trade .contract-back button {
-    background-color: #e98024 !important;
-    font-size: 20px; }
+.trade .contract-purchase button,
+.trade .contract-back button {
+  background-color: #e98024 !important;
+  font-size: 20px; }
 
 .trade .contract-details {
   margin-top: 1%; }
@@ -9810,14 +9802,10 @@ input::-webkit-inner-spin-button {
       color: #818183;
       text-align: left;
       line-height: 12px; }
-  .trade .contract-purchase,
-  .trade .contract-back {
-    margin-top: 3%;
-    margin-bottom: 3%; }
-    .trade .contract-purchase button,
-    .trade .contract-back button {
-      background-color: #e98024 !important;
-      font-size: 20px; }
+  .trade .contract-purchase button,
+  .trade .contract-back button {
+    background-color: #e98024 !important;
+    font-size: 5vw; }
   .trade .contract-details {
     margin-top: 1%; }
     .trade .contract-details .win {
@@ -10089,7 +10077,7 @@ input::-webkit-inner-spin-button {
   .options .options-save {
     margin-bottom: 20%; }
   .options button {
-    font-size: 20px; }
+    font-size: 5vw; }
   .options label .input-label {
     padding: 0; }
   .options label.item-input {
@@ -10241,8 +10229,6 @@ input::-webkit-inner-spin-button {
     color: #fff; }
   .help-content button {
     background-color: #e98024 !important;
-    width: 80%;
-    margin: 10% auto !important;
     font-size: 18px; }
   .help-content a {
     color: #fff;
@@ -10261,9 +10247,7 @@ input::-webkit-inner-spin-button {
       color: #fff; }
     .help-content button {
       background-color: #e98024 !important;
-      width: 80%;
-      margin: 10% auto !important;
-      font-size: 5vwpx; }
+      font-size: 5vw; }
     .help-content a {
       color: #fff;
       font-weight: 700; } }
