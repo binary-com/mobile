@@ -53,3 +53,10 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+@media only screen and (min-device-width: 768px) {
+	.trade, .accounts, .options, .sign-in, .help, .home{
+		width: 100%;
+    max-width: 500px;
+    margin: auto;
+	}
+}
