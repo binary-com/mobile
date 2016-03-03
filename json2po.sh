@@ -25,19 +25,23 @@ pushd "$tmp_file/lang"&&
 	for i in `ls !(en).json`;do cp en.json $i;done&&
 popd
 
-git checkout "$current_branch"
-if [ $stashed -eq 1 ]; then 
-	git stash pop
-fi
+git checkout translation
 
 ./po2json.sh "$tmp_file/old_po"
 json2po -t "$tmp_file/lang" "$tmp_file/old_po" "$tmp_file/new_po"
 pushd www/translation&&
 	for i in `ls !(en).po`; do msgmerge -U $i "$tmp_file/new_po/$i"; done&&
 popd
+cp "$tmp_file/lang"/* www/i18n
+git add www/i18n/*.json
 git add www/translation/*.po
 rm www/translation/*.po~
 git commit -m "Updated translation files with the recent changes - `date +'%y%m%d'`"
+
+git checkout "$current_branch"
+if [ $stashed -eq 1 ]; then 
+	git stash pop
+fi
 
 shopt -u extglob
 #set +x
