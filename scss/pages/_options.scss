@@ -57,17 +57,9 @@
 				}
 				.options-upderlying {
 								border-bottom: 1px solid $lightgray;
-								// margin-top: 10px;
-								// margin-bottom: 10px;
-								.item {
-												// display: inline-block;
-								}
 				}
 				.options-trade {
 								border-bottom: 1px solid $lightgray;
-								// margin-top: 10px;
-								//margin-bottom: 10px;
-								// padding:5px 0;
 								.padding {
 												padding: 0 5px 5px;
 												width: 100%;
@@ -93,7 +85,6 @@
 				}
 				.options-ticks {
 								border-bottom: 1px solid $lightgray;
-								// padding:5px 0;
 								.item {
 												display: inline-block;
 												width: 16%;
@@ -110,7 +101,7 @@
 												}
 								}
 								.disabled {
-												opacity: 0.7;
+												opacity: 0.4;
 								}
 				}
 				.options-amount {
@@ -176,7 +167,6 @@
 				[class*="options"] {
 								border-radius: 0 !important;
 								h1 {
-												// background-color: $darkblue;
 												color: $darkblue;
 												border-radius: 0 !important;
 												font-size: 4vw;
@@ -191,13 +181,9 @@
 								padding-top: 10px;
 								padding-bottom: 5px;
 								border-bottom: 1px solid $lightgray;
-								// margin-bottom: 20px;
 								.manage-account {
 												text-align: right;
 												font-size: 28px;
-												i:before {
-																// margin-top:3px;
-												}
 								}
 				}
 				.options-market {
@@ -224,17 +210,9 @@
 				}
 				.options-upderlying {
 								border-bottom: 1px solid $lightgray;
-								// margin-top: 10px;
-								// margin-bottom: 10px;
-								.item {
-												// display: inline-block;
-								}
 				}
 				.options-trade {
 								border-bottom: 1px solid $lightgray;
-								// margin-top: 10px;
-								//margin-bottom: 10px;
-								// padding:5px 0;
 								.padding {
 												padding: 0 5px 5px;
 												width: 100%;
@@ -260,7 +238,6 @@
 				}
 				.options-ticks {
 								border-bottom: 1px solid $lightgray;
-								// padding:5px 0;
 								.item {
 												display: inline-block;
 												width: 16%;
@@ -277,12 +254,11 @@
 												}
 								}
 								.disabled {
-												opacity: 0.7;
+												opacity: 0.4;
 								}
 				}
 				.options-amount {
 								border-bottom: 1px solid $lightgray;
-								// padding:5px 0;
 								.item {
 												display: inline-block;
 												width: 30%;
@@ -303,7 +279,7 @@
 								margin-bottom: 20%;
 				}
 				button {
-								font-size: 20px;
+								font-size: 5vw;
 				}
 				label {
 								.input-label {
