@@ -1,8 +1,11 @@
 <div class="net-profit row">
-    <div class="col">
+    <div class="col" ng-if="!proposalError">
         <span class="price-des">{{'trade.net_profit' | translate}}:</span>
         <span class="price" ng-if="!getWaitForProposal()">{{proposal.netProfit  | currency:currency:2}} </span>
         <span class="price" ng-if="getWaitForProposal()"> -- </span>
+    </div>
+    <div class="col error" ng-if="proposalError">
+            <p> {{ proposalError.message }} </p>
     </div>
 </div>
 <div class="contract-payout row">
@@ -27,9 +30,6 @@
                 <input type="number" string-to-number name="amount"
                     ng-model="amount" ng-change="updateAmount(amount, '{{amount}}')"
                     required step="0.01"/>
-                <div class="error" ng-show="proposalError">
-                        <p> {{ proposalError.message }} </p>
-                </div>
             </div>
         </div>
     </div>
