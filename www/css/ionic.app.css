@@ -9559,32 +9559,6 @@ input::-webkit-inner-spin-button {
         color: #e98024;
         padding-top: 0;
         width: 100%; }
-    .trade .contract-payout .amount .error {
-      position: absolute;
-      background-color: #ff0000;
-      border-radius: 5px;
-      top: -47px;
-      left: -50%;
-      padding: 0 10px;
-      text-align: center;
-      z-index: 3; }
-      .trade .contract-payout .amount .error p {
-        color: #fff;
-        width: 220px;
-        height: 30px;
-        font-size: 13px;
-        font-weight: bold; }
-      .trade .contract-payout .amount .error:after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -8px;
-        width: 0;
-        height: 0;
-        border-top: 8px solid #ff0000;
-        border-right: 8px solid transparent;
-        border-left: 8px solid transparent; }
   .trade .contract-payout .button-bar .button {
     min-height: 20px; }
   .trade .contract-payout .button-bar .button:before {
@@ -9622,6 +9596,12 @@ input::-webkit-inner-spin-button {
     color: #818183;
     text-align: left;
     line-height: 12px; }
+  .trade .net-profit .error {
+    background-color: #ff0000; }
+    .trade .net-profit .error p {
+      margin: 0 !important;
+      font-size: 14px;
+      color: #fff; }
 
 .trade .contract-purchase button,
 .trade .contract-back button {
@@ -9740,32 +9720,6 @@ input::-webkit-inner-spin-button {
           color: #e98024;
           padding-top: 0;
           width: 100%; }
-      .trade .contract-payout .amount .error {
-        position: absolute;
-        background-color: #ff0000;
-        border-radius: 5px;
-        top: -47px;
-        left: -50%;
-        padding: 0 10px;
-        text-align: center;
-        z-index: 3; }
-        .trade .contract-payout .amount .error p {
-          color: #fff;
-          width: 220px;
-          height: 30px;
-          font-size: 13px;
-          font-weight: bold; }
-        .trade .contract-payout .amount .error:after {
-          content: '';
-          position: absolute;
-          top: 100%;
-          left: 50%;
-          margin-left: -8px;
-          width: 0;
-          height: 0;
-          border-top: 8px solid #ff0000;
-          border-right: 8px solid transparent;
-          border-left: 8px solid transparent; }
     .trade .contract-payout .button-bar .button {
       min-height: 20px; }
     .trade .contract-payout .button-bar .button:before {
@@ -9803,6 +9757,12 @@ input::-webkit-inner-spin-button {
       color: #818183;
       text-align: left;
       line-height: 12px; }
+    .trade .net-profit .error {
+      background-color: #ff0000; }
+      .trade .net-profit .error p {
+        margin: 0 !important;
+        font-size: 3vw;
+        color: #fff; }
   .trade .contract-purchase button,
   .trade .contract-back button {
     background-color: #e98024 !important;
