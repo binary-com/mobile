@@ -9265,7 +9265,7 @@ input::-webkit-inner-spin-button {
   to {
     transform: rotate(360deg); } }
 
-@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (max-device-width: 480px) {
   .bar.bar-positive.bar-footer {
     background-image: none; }
   .bar.bar-positive {
@@ -9307,7 +9307,7 @@ input::-webkit-inner-spin-button {
       text-align: center;
       color: #e98024; } }
 
-@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (max-device-width: 480px) {
   .home {
     background-color: #f2f2f2; }
     .home .branding {
@@ -9357,7 +9357,7 @@ input::-webkit-inner-spin-button {
       color: #2a3052;
       text-align: center; } }
 
-@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 1) and (orientation: portrait) {
+@media only screen and (max-device-width: 480px) {
   .sign-in {
     background-color: #2a3052; }
     .sign-in .branding {
@@ -9515,7 +9515,7 @@ input::-webkit-inner-spin-button {
     .sign-in :-ms-input-placeholder {
       color: #f2f2f2; } }
 
-@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (max-device-width: 480px) {
   .trade #tradeContractChart {
     width: 100% !important;
     height: 200px !important; }
@@ -9828,7 +9828,7 @@ input::-webkit-inner-spin-button {
       background: transparent !important;
       color: #e98024; } }
 
-@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (max-device-width: 480px) {
   .options .options-content {
     padding-left: 3%;
     padding-right: 3%; }
@@ -10036,7 +10036,7 @@ input::-webkit-inner-spin-button {
   .popover-backdrop.active {
     background-color: rgba(0, 0, 0, 0.5); } }
 
-@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (max-device-width: 480px) {
   .accounts-content {
     display: block; }
     .accounts-content .bar {
@@ -10160,7 +10160,7 @@ input::-webkit-inner-spin-button {
         color: #4CBB17;
         line-height: 40px; } }
 
-@media only screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen and (max-device-width: 480px) {
   .help-content {
     background-color: #2a3052;
     padding-left: 3%;
