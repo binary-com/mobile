@@ -15,7 +15,7 @@
 		"add": "Add",
 		"new_token":"Add a new token",
 		"delete": "Delete",
-        "not_allowed_to_trade": "Your don't have permission to trade!"
+    "not_allowed_to_trade": "You don't have permission to trade!"
 	},
 	"alert" : {
 		"error": "Error!",
