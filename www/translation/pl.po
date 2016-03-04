@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-03-04 11:35+0000\n"
+"PO-Revision-Date: 2016-03-04 11:53+0000\n"
 "Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/pl/>\n"
@@ -327,7 +327,7 @@ msgstr "Forex"
 
 #: .options.digit_over
 msgid "Over"
-msgstr "Ponad"
+msgstr "Większa"
 
 #: .options.stake
 msgctxt ".options.stake"
@@ -374,7 +374,7 @@ msgstr "Konto"
 
 #: .options.digit_under
 msgid "Under"
-msgstr "Poniżej"
+msgstr "Mniejsza"
 
 #: .options.up
 msgid "Up"
