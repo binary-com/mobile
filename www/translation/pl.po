@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-03-02 20:53+0000\n"
+"PO-Revision-Date: 2016-03-04 11:35+0000\n"
 "Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-trade/"
-"app/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -207,7 +207,7 @@ msgstr "Konto"
 
 #: .accounts.not_allowed_to_trade
 msgid "Your don't have permission to trade!"
-msgstr ""
+msgstr "Nie masz pozwolenia na handlowanie!"
 
 #: .accounts.add
 msgid "Add"
@@ -327,7 +327,7 @@ msgstr "Forex"
 
 #: .options.digit_over
 msgid "Over"
-msgstr ""
+msgstr "Ponad"
 
 #: .options.stake
 msgctxt ".options.stake"
@@ -373,9 +373,8 @@ msgid "Account"
 msgstr "Konto"
 
 #: .options.digit_under
-#, fuzzy
 msgid "Under"
-msgstr "Rynek bazowy"
+msgstr "Poniżej"
 
 #: .options.up
 msgid "Up"
