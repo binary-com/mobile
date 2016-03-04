@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-02-26 09:45+0000\n"
+"PO-Revision-Date: 2016-03-04 14:31+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
 "tick-trade/app/zh_TW/>\n"
@@ -202,7 +202,7 @@ msgstr "帳戶"
 
 #: .accounts.not_allowed_to_trade
 msgid "Your don't have permission to trade!"
-msgstr ""
+msgstr "您沒有權限進行交易!"
 
 #: .accounts.add
 msgid "Add"
@@ -320,7 +320,7 @@ msgstr "外匯"
 
 #: .options.digit_over
 msgid "Over"
-msgstr ""
+msgstr "超出"
 
 #: .options.stake
 msgctxt ".options.stake"
@@ -366,9 +366,8 @@ msgid "Account"
 msgstr "帳戶"
 
 #: .options.digit_under
-#, fuzzy
 msgid "Under"
-msgstr "標的資產"
+msgstr "低於"
 
 #: .options.up
 msgid "Up"
