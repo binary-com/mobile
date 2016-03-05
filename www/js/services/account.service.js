@@ -9,7 +9,7 @@
 angular
 	.module('binary')
 	.service('accountService',
-		function(websocketService, appStateService) {
+		function(websocketService, appStateService, delayService) {
 			/**
 			 * find a {key,value} in an array of objects and return its index
 			 * returns -1 if not found
@@ -57,7 +57,10 @@ angular
 			 * @param  {String} _token
 			 */
 			var validate = function(_token, extraParams) {
-				if (_token) {
+                //Remove the last delay queue of 'symbolsAndAssetIndexUpdate'
+                delayService.remove('symbolsAndAssetIndexUpdate');
+				
+                if (_token) {
 					websocketService.authenticate(_token, extraParams);
 				} else {
 					var accountList = this.getAll();
