@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-03-02 15:29+0000\n"
-"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
+"PO-Revision-Date: 2016-03-05 09:45+0000\n"
+"Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/vi/>\n"
 "Language: vi\n"
@@ -205,7 +205,7 @@ msgstr "Tài Khoản"
 
 #: .accounts.not_allowed_to_trade
 msgid "Your don't have permission to trade!"
-msgstr ""
+msgstr "Bạn không có quyền giao dịch!"
 
 #: .accounts.add
 msgid "Add"
@@ -327,7 +327,7 @@ msgstr "Ngoại hối"
 
 #: .options.digit_over
 msgid "Over"
-msgstr ""
+msgstr "Lớn hơn"
 
 #: .options.stake
 msgctxt ".options.stake"
@@ -373,9 +373,8 @@ msgid "Account"
 msgstr "Tài khoản"
 
 #: .options.digit_under
-#, fuzzy
 msgid "Under"
-msgstr "Tài sản cơ bản"
+msgstr "Thấp hơn"
 
 #: .options.up
 msgid "Up"
