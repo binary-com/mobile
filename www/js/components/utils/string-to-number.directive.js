@@ -19,6 +19,20 @@ angular
 	      ngModel.$formatters.push(function(value) {
 	        return parseFloat(value, 10);
 	      });
+
+          scope.$watch(
+                  function(){
+                      return ngModel.$viewValue;
+                  },
+                  function(_value){
+                      var value = _value.split('.');
+                      if(value.length > 1){
+                          if(value[1].length > 2){
+                              ngModel.$viewValue = value[0] + "." + value[1].slice(0,2);
+                              ngModel.$render();
+                          }
+                      }
+                  });
 	    }
 	  };
 	});
