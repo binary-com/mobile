@@ -22,6 +22,11 @@ angular
 				$state.go('options', {}, {reload: true});
 			};
 
+            if(appStateService.invalidTokenRemoved){
+                accountService.validate();
+                appStateService.invalidTokenRemoved = false;
+            }
+
 			$scope.logout = function() {
 				alertService.confirmRemoveAllAccount(
 					function(res){
