@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.factory('websocketService',
-		function($rootScope, localStorageService, alertService, appStateService) {
+		function($rootScope, localStorageService, alertService, appStateService, $state) {
 			var dataStream = '';
 			var messageBuffer = [];
 
@@ -105,6 +105,12 @@ angular
 				var message = JSON.parse(_response.data);
 
 				if (message) {
+                    if(message.error){
+                        if(message.error.code === 'InvalidToken'){
+                            localStorageService.manageInvalidToken();
+                        }
+                    }
+
                     var messageType = message.msg_type;
                     switch(messageType) {
                         case 'authorize':

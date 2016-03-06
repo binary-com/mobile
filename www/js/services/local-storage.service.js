@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.factory('localStorageService',
-		function(){
+		function($state, appStateService){
 			var service = {};
 
 			/**
@@ -52,6 +52,29 @@ angular
 				}
 				return null;
 			};
+
+            service.manageInvalidToken = function(){
+                var defaultToken = service.getDefaultToken();
+                if(defaultToken){
+                    service.removeToken(defaultToken);
+                }
+
+                if(localStorage.hasOwnProperty('accounts')){
+                    accounts = JSON.parse(localStorage.accounts);
+                    if(accounts.length){
+                        accounts[0].is_default = true;
+                        localStorage.accounts = JSON.stringify(accounts);
+                        appStateService.invalidTokenRemoved = true;
+                        $state.go('accounts');
+                    }
+                    else{
+                        $state.go('signin');
+                    }
+                }
+                else{
+                    $state.go('signin');
+                }
+            };
 
 			return service;
 		});
