@@ -1,180 +1,414 @@
-.trade {
-	#tradeContractChart {
-					width: 100% !important;
-					height: 200px !important;
-	}
-	.contract-summary {
-					padding: 5px 10px;
-					text-align: center;
-					font-size: 14px;
-					background-color: $lightgray;
-					position: relative;
-					span {
-
-									// font-weight: bold;
-					}
-	}
-	.contract-chart {
-
-	}
-	.contract-payout {
-		background-color: $lightgray;
-		border-top: 1px solid $gray;
-		border-bottom: 1px solid $gray;
-		.basis {
-			font-size: 4vw;
-			text-align: left;
-			line-height: 36px;
-			padding-left: 10px;
-		}
-		.amount {
-			position: relative;
-			input {
-				font-size: 5vw;
-				width: 100px;
-				height: 36px;
-				border-radius: 5px;
-				border: 1px solid $gray;
-				line-height: 36px;
-				text-align: center;
-				padding-left: 18px;
-			}
-			.error {
-				position: absolute;
-				background-color: $red;
-				border-radius: 5px;
-				top: -47px;
-				left: -50%;
-				padding: 0 10px;
-				text-align: center;
-
-				p {
-					color: $white;
-					width: 220px;
-					height: 30px;
-					//line-height: 42px;
-					font-size: 13px;
-					font-weight: bold;
+@media only screen and (max-device-width: 480px) {
+				.trade {
+								#tradeContractChart {
+												width: 100% !important;
+												height: 200px !important;
+								}
+								.contract-summary {
+												padding: 5px 10px;
+												text-align: center;
+												font-size: 4vw;
+												background-color: $lightgray;
+												position: relative;
+												span {}
+								}
+								.contract-payout {
+												border-bottom: 1px solid $gray;
+												padding: 0 !important;
+												.col:nth-child(3) {
+																margin: 15px 0 0 !important;
+												}
+												.price {
+																font-size: 4vw;
+																color: $orange;
+																text-align: center;
+																line-height: 12px;
+												}
+												.price-des {
+																font-size: 4vw;
+																text-align: center;
+																color: $darkgray;
+																padding-bottom: 0;
+												}
+												.basis {
+																font-size: 4vw;
+																text-align: left;
+																line-height: 36px;
+																padding-left: 10px;
+												}
+												.amount {
+																position: relative;
+																.price {
+																				padding-top: 0;
+																				padding-bottom: 0;
+																				input {
+																								font-size: 4vw;
+																								height: auto;
+																								border-bottom: 1px solid $lightgray;
+																								line-height: 12px;
+																								text-align: center;
+																								color: $orange;
+																								padding-top: 0;
+																								width: 100%;
+																				}
+																}
+												}
+												.button-bar {
+																.button {
+																				min-height: 20px;
+																}
+																.button:before {
+																				line-height: 30px;
+																}
+												}
+												> .col:nth-child(3) {
+																.button {
+																				margin: 0;
+																				min-width: 20px;
+																				min-height: 20px;
+																				border: none;
+																				color: $black;
+																				border-radius: 0;
+																				border: 1px solid $gray;
+																				vertical-align: middle;
+																				line-height: 21px;
+																				&.plus {
+																								background-color: $lightgray;
+																				}
+																				&.minus {
+																								background-color: $lightgray;
+																								border-right: 0;
+																				}
+																}
+												}
+								}
+								.net-profit {
+												background-color: $lightgray;
+												border-bottom: 1px solid $gray;
+												border-top: 1px solid $gray;
+												margin-top: 0;
+												padding: 0;
+												.col:nth-child(1) {
+																text-align: center;
+																line-height: 12px;
+																color: $darkgray;
+												}
+												.price-des {
+																font-size: 3vw;
+																text-align: center;
+												}
+												.price {
+																font-size: 3vw;
+																color: $darkgray;
+																text-align: left;
+																line-height: 12px;
+												}
+												.error {
+																background-color: $red;
+																p {
+																				margin: 5px !important;
+																				font-size: 4vw;
+																				color: $white;
+																}
+												}
+								}
+								.contract-purchase,
+								.contract-back {
+												button {
+																background-color: $orange !important;
+																font-size: 5vw;
+												}
+								}
+								.contract-details {
+												margin-top: 1%;
+												.win {
+																color: $green !important;
+												}
+												.lose {
+																color: $red !important;
+												}
+												.row {
+																padding: 0;
+																margin-top: 0;
+																.col {
+																				border-top: 1px solid $gray;
+																				&:first-child {
+																								text-align: right;
+																								border-right: 1px solid $gray;
+																								padding: 4px 10px 4px 0;
+																								color: $darkgray;
+																				}
+																				&:last-child {
+																								text-align: center;
+																				}
+																}
+																&:last-child {
+																				border-bottom: 1px solid $gray;
+																}
+												}
+												.win .col {
+																color: $green !important;
+																background-color: $white !important;
+																font-size: 4vw;
+																padding: 5px !important;
+												}
+												.lose .col {
+																color: $red !important;
+																background-color: $white !important;
+																font-size: 4vw;
+																padding: 5px !important;
+												}
+								}
+								.buy-again {
+												background-color: $white;
+												border-bottom: 1px solid $gray;
+												padding-top: 0;
+												padding-bottom: 0;
+												align-items: center;
+												.price-des {
+																font-size: 4vw;
+																color: $darkgray;
+												}
+												.price {
+																color: $orange;
+																font-size: 4vw;
+												}
+												button {
+																background-color: $orange !important;
+																width: 100%;
+																margin: 0 auto;
+																font-size: 14px;
+																line-height: 28px;
+																min-height: 24px;
+												}
+								}
+								.contract-type {
+												background: $lightgray;
+												border-bottom: #c4c4c4 1px solid !important;
+												.item {
+																background: $lightgray;
+												}
+												.item:nth-child(odd) {
+																border-right: #c4c4c4 3px solid !important;
+												}
+												.item-select select {
+																background: $lightgray;
+												}
+												.item-content {
+																text-align: center;
+																padding: 0;
+																font-size: 4vw;
+												}
+												.item-radio input:checked ~ .item-content {
+																background: transparent !important;
+																color: #e98024;
+												}
+								}
 				}
-
-				&:after {
-					content: '';
-					position: absolute;
-					top: 100%;
-					left: 50%;
-					margin-left: -8px;
-					width: 0; height: 0;
-					border-top: 8px solid $red;
-					border-right: 8px solid transparent;
-					border-left: 8px solid transparent;
+}
+@media only screen and (min-device-width: 480px) {
+				.trade {
+								#tradeContractChart {
+												width: 100% !important;
+												height: 200px !important;
+								}
+								.contract-summary {
+												padding: 5px 10px;
+												text-align: center;
+												font-size: 14px;
+												background-color: $lightgray;
+												position: relative;
+								}
+								.contract-payout {
+												border-bottom: 1px solid $gray;
+												padding: 0 !important;
+												.col:nth-child(3) {
+																margin: 15px 0 0 !important;
+												}
+												.price {
+																font-size: 14px;
+																color: $orange;
+																text-align: center;
+																line-height: 12px;
+												}
+												.price-des {
+																font-size: 14px;
+																text-align: center;
+																color: $darkgray;
+																padding-bottom: 0;
+												}
+												.basis {
+																font-size: 14px;
+																text-align: left;
+																line-height: 36px;
+																padding-left: 10px;
+												}
+												.amount {
+																position: relative;
+																.price {
+																				padding-top: 0;
+																				padding-bottom: 0;
+																				input {
+																								font-size: 14px;
+																								height: auto;
+																								border-bottom: 1px solid $lightgray;
+																								line-height: 12px;
+																								text-align: center;
+																								color: $orange;
+																								padding-top: 0;
+																								width: 100%;
+																				}
+																}
+												}
+												.button-bar {
+																.button {
+																				min-height: 20px;
+																}
+																.button:before {
+																				line-height: 30px;
+																}
+												}
+												> .col:nth-child(3) {
+																.button {
+																				margin: 0;
+																				min-width: 20px;
+																				min-height: 20px;
+																				border: none;
+																				color: $black;
+																				border-radius: 0;
+																				border: 1px solid $gray;
+																				vertical-align: middle;
+																				line-height: 21px;
+																				&.plus {
+																								background-color: $lightgray;
+																				}
+																				&.minus {
+																								background-color: $lightgray;
+																				}
+																}
+												}
+								}
+								.net-profit {
+												background-color: $lightgray;
+												border-bottom: 1px solid $gray;
+												border-top: 1px solid $gray;
+												margin-top: 0;
+												padding: 0;
+												.col:nth-child(1) {
+																text-align: center;
+																line-height: 12px;
+																color: $darkgray;
+												}
+												.price-des {
+																font-size: 12px;
+																text-align: center;
+												}
+												.price {
+																font-size: 12px;
+																color: $darkgray;
+																text-align: left;
+																line-height: 12px;
+												}
+												.error {
+																background-color: $red;
+																p {
+																				margin: 5px !important;
+																				font-size: 14px;
+																				color: $white;
+																}
+												}
+								}
+								.contract-purchase,
+								.contract-back {
+												button {
+																background-color: $orange !important;
+																font-size: 20px;
+												}
+								}
+								.contract-details {
+												margin-top: 1%;
+												.win {
+																color: $green !important;
+												}
+												.lose {
+																color: $red !important;
+												}
+												.row {
+																padding: 0;
+																margin-top: 0;
+																.col {
+																				border-top: 1px solid $gray;
+																				&:first-child {
+																								text-align: right;
+																								border-right: 1px solid $gray;
+																								padding: 4px 10px 4px 0;
+																								color: $darkgray;
+																				}
+																				&:last-child {
+																								text-align: center;
+																				}
+																}
+																&:last-child {
+																				border-bottom: 1px solid $gray;
+																}
+												}
+												.win .col {
+																color: $green !important;
+																background-color: $white !important;
+																font-size: 14px;
+																padding: 5px !important;
+												}
+												.lose .col {
+																color: $red !important;
+																background-color: $white !important;
+																font-size: 14px;
+																padding: 5px !important;
+												}
+								}
+								.buy-again {
+												background-color: $white;
+												border-bottom: 1px solid $gray;
+												padding-top: 0;
+												padding-bottom: 0;
+												align-items: center;
+												.price-des {
+																font-size: 14px;
+																color: $darkgray;
+												}
+												.price {
+																color: $orange;
+																font-size: 14px;
+												}
+												button {
+																background-color: $orange !important;
+																width: 100%;
+																margin: 0 auto;
+																font-size: 14px;
+																line-height: 28px;
+																min-height: 24px;
+												}
+								}
+								.contract-type {
+												background: $lightgray;
+												border-bottom: #c4c4c4 1px solid !important;
+												.item {
+																background: $lightgray;
+												}
+												.item:nth-child(odd) {
+																border-right: #c4c4c4 3px solid !important;
+												}
+												.item-select select {
+																background: $lightgray;
+												}
+												.item-content {
+																text-align: center;
+																padding: 0;
+																font-size: 14px;
+												}
+												.item-radio input:checked ~ .item-content {
+																background: transparent !important;
+																color: #e98024;
+												}
+								}
 				}
-			}
-		}
-		.button-bar {
-			.button {
-				height: 35px;
-				min-height: 20px;
-			}
-			.button:before {
-				line-height: 30px;
-			}
-		}
-		> .col:nth-child(3) {
-			.button {
-				float: right;
-				margin: 0;
-
-				//margin-left: 10px;
-				min-width: 40px;
-				min-height: 40px;
-				border: none;
-				color: $white;
-				border-radius: 0;
-				&.plus {
-					background-color: $darkblue;
-					border-radius: 0 5px 5px 0;
-				}
-				&.minus {
-					background-color: $gray;
-					border-radius: 5px 0 0 5px;
-				}
-			}
-		}
-	}
-	.contract-price {
-					background-color: $lightgray;
-					border-bottom: 1px solid $gray;
-					margin-top: 0;
-					> .col:nth-child(1) {
-									font-size: 16px;
-									text-align: left;
-									padding-left: 10px;
-									line-height: 36px;
-					}
-					.price-des {
-									font-size: 4vw;
-									text-align: left;
-					}
-					.price {
-									font-size: 4vw;
-									color: $orange;
-									text-align: left;
-									line-height: 36px;
-					}
-	}
-	.contract-purchase,
-	.contract-back {
-					margin-top: 5%;
-					margin-bottom: 40%;
-					button {
-									background-color: $orange !important;
-									width: 84%;
-									margin: 0 auto;
-									font-size: 20px;
-					}
-	}
-	.contract-details {
-					margin-top: 20px;
-					.win {
-									color: $green !important;
-					}
-					.lose {
-									color: $red !important;
-					}
-					.row {
-									padding: 0;
-									margin-top: 0;
-									.col {
-													border-top: 1px solid $gray;
-													&:first-child {
-																	background-color: $lightgray;
-																	text-align: right;
-																	border-right: 1px solid $gray;
-																	padding: 4px 10px 4px 0;
-													}
-													&:last-child {
-																	text-align: center;
-																	font-weight: bold;
-
-																	// color: $green;
-													}
-									}
-									&:last-child {
-													border-bottom: 1px solid $gray;
-									}
-					}
-
-					.win .col {
-									color: $green !important;
-									background-color: $white !important;
-									font-size: 16px;
-									padding: 10px !important;
-					}
-					.lose .col {
-									color: $red !important;
-									background-color: $white !important;
-									font-size: 16px;
-									padding: 10px !important;
-					}
-	}
 }

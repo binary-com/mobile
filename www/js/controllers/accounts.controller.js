@@ -10,7 +10,9 @@
 angular
 	.module('binary')
 	.controller('AccountsController',
-		function($scope, $rootScope, $state, $window, $ionicPopup, websocketService, accountService, alertService, proposalService) {
+		function($scope, $rootScope, $state, $window, $ionicPopup,
+            websocketService, accountService, alertService,
+            proposalService, appStateService, marketService) {
 
 			if (typeof(analytics) !== "undefined") {
 				analytics.trackView("Account Management");
@@ -19,6 +21,11 @@ angular
 			$scope.navigateToOptionsPage = function() {
 				$state.go('options', {}, {reload: true});
 			};
+
+            if(appStateService.invalidTokenRemoved){
+                accountService.validate();
+                appStateService.invalidTokenRemoved = false;
+            }
 
 			$scope.logout = function() {
 				alertService.confirmRemoveAllAccount(
@@ -33,6 +40,10 @@ angular
 						if(res){
 							accountService.removeAll();
 							proposalService.remove();
+                            marketService.removeActiveSymbols();
+                            marketService.removeAssetIndex();
+                            appStateService.isLoggedin = false;
+                            $scope.$parent.$broadcast('logout');
 							$state.go('signin');
 						}
 					}

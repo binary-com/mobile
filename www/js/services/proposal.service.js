@@ -9,7 +9,7 @@
 angular
 	.module('binary')
 	.service('proposalService',
-		function(websocketService) {
+		function(websocketService, appStateService) {
 
 			var createProposal = function(_data) {
 				var proposal = {
@@ -24,14 +24,14 @@ angular
 					duration_unit: 't',
 					passthrough: _data.passthrough
 				};
-				if(_data.contract_type === "PUT" || _data.contract_type === "CALL"){
+				if(['PUT', 'CALL', 'DIGITEVEN', 'DIGITODD'].indexOf(_data.contract_type) > -1){
 					delete _data.digit;
 					delete _data.barrier;
 				}
-				if (_data.digit && _data.digit >= 0) {
+                else if (_data.digit >= 0) {
 					proposal.barrier = _data.digit;
 				}
-				if (_data.barrier >=0) {
+                else if (_data.barrier >=0) {
 					proposal.barrier = _data.barrier;
 				}
 
@@ -47,6 +47,7 @@ angular
 			this.send = function(_oldId) {
 				websocketService.sendRequestFor.forgetProposals();
 				websocketService.sendRequestFor.proposal(JSON.parse(localStorage.proposal));
+                appStateService.waitForProposal = true;
 			};
 
 			this.get = function() {

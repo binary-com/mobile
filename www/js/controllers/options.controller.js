@@ -10,9 +10,13 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $rootScope, $state, $window, config, proposalService, accountService, websocketService, chartService, delayService) {
+		function($scope, $rootScope, $state, $window, config, proposalService,
+            accountService, websocketService, chartService, delayService,
+            appStateService) {
+
 			$scope.selected = {};
 			$scope.isDataLoaded = false;
+            $scope.letsTrade = false;
 
 			if(typeof(analytics) !== "undefined"){
 					analytics.trackView("Options");
@@ -20,9 +24,18 @@ angular
 
 			websocketService.sendRequestFor.forgetAll('ticks');
 
+            function updateSymbols(){
+                if(!appStateService.isLoggedin){
+                    setTimeout(updateSymbols, 500);
+                }
+                else{
+                    websocketService.sendRequestFor.symbols();
+                    websocketService.sendRequestFor.assetIndex();
+                }
+            }
+
 			delayService.update('symbolsAndAssetIndexUpdate', function(){
-				websocketService.sendRequestFor.symbols();
-				websocketService.sendRequestFor.assetIndex();
+                updateSymbols();
 			}, 60*1000);
 
 			function init(){
@@ -36,6 +49,12 @@ angular
 						market: proposal.passthrough.market,
 						digit: proposal.digit
 					};
+
+                    // set selected category
+                    var tradeType = _.find(config.tradeTypes, ['value', proposal.contract_type]);
+                    if(tradeType){
+                        $scope.selected.tradeCategory = tradeType.category;
+                    }
 
 					if(proposal.barrier){
 						$scope.selected.barrier = proposal.barrier;
@@ -67,32 +86,14 @@ angular
 					barrier: $scope.selected.barrier
 				};
 
-				if(proposal.contract_type === "DIGITDIFF" || proposal.contract_type === "DIGITMATCH" ||
-					proposal.contract_type === "DIGITOVER" || proposal.contract_type === "DIGITUNDER"){
-					if((proposal.digit == 0 || !proposal.digit) && proposal.contract_type === "DIGITUNDER"){
-						proposal.barrier = 1;
-					}
-					else if(proposal.digit == 9 && proposal.contract_type === "DIGITOVER"){
-						proposal.barrier = 8;
-					}
-					else{
-						proposal.barrier = proposal.digit;
-					}
-				}
-
 				proposalService.update(proposal);
-				proposalService.send();
-
-				//$state.go('trade', {}, { reload: true, inherit: false, notify: true });
 			};
 
 			$scope.$on('connection:reopened', function(e) {
-				if (accountService.hasDefault()) {
-					accountService.validate();
-				}
+//				if (accountService.hasDefault()) {
+//					accountService.validate();
+//				}
 
-				// below line commented to solve connection lost error.
-				// $window.location.reload();
 			});
 
 			$scope.$watch('selected', function(_newValue, _oldValue){
@@ -100,29 +101,9 @@ angular
 					$scope.saveChanges();
 				}
 			}, true);
+
+            $scope.setDataLoaded = function(stopSpinner, enableLetsTrade){
+                $scope.isDataLoaded = stopSpinner;
+                $scope.letsTrade = _.isNil(enableLetsTrade) ? stopSpinner : enableLetsTrade;
+            };
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

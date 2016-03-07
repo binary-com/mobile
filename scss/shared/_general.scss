@@ -11,6 +11,7 @@ body * {
 }
 .center {
 				text-align: center;
+				justify-content:center;
 }
 .item {
 				border-width: 0;
@@ -21,16 +22,6 @@ body * {
 .item-complex .item-content,
 .item-radio .item-content {
 				background-color: $lightgray;
-}
-.scroll-content {
-				display: block;
-				position: relative;
-				height: 100%;
-
-				// top:initial;
-				// right:initial;
-				// bottom:initial;
-				// left:initial;
 }
 .scroll {
 				padding-bottom: 1px;
@@ -45,4 +36,17 @@ body * {
 				font-size: 14px;
 				display: block;
 				margin: 0 auto;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+@media only screen and (min-device-width: 768px) {
+	.trade, .accounts, .options, .sign-in, .help, .home{
+		width: 100%;
+    max-width: 768px;
+    margin: auto;
+	}
 }

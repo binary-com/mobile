@@ -9,7 +9,7 @@
 angular
 	.module('binary')
 	.service('accountService',
-		function(websocketService) {
+		function(websocketService, appStateService, delayService) {
 			/**
 			 * find a {key,value} in an array of objects and return its index
 			 * returns -1 if not found
@@ -57,7 +57,10 @@ angular
 			 * @param  {String} _token
 			 */
 			var validate = function(_token, extraParams) {
-				if (_token) {
+                //Remove the last delay queue of 'symbolsAndAssetIndexUpdate'
+                delayService.remove('symbolsAndAssetIndexUpdate');
+				
+                if (_token) {
 					websocketService.authenticate(_token, extraParams);
 				} else {
 					var accountList = this.getAll();
@@ -166,4 +169,20 @@ angular
 				var index = findIndex(accountList, 'id', _id);
 				return (index > -1) ? false : true;
 			};
+
+            this.checkScope = function(_scope){
+                var scopes = _.concat([], _scope);
+                var result = false;
+
+                if(appStateService.isLoggedin && !_.isEmpty(appStateService.scopes)){
+                    result = true;
+                    for(var s in scopes){
+                        if(appStateService.scopes.indexOf(scopes[s].toLowerCase()) < 0){
+                            result = false;
+                            break;
+                        }
+                    }
+                }
+                return result;
+            }
 	});

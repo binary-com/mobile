@@ -10,10 +10,13 @@
 angular
 	.module('binary')
 	.controller('SignInController',
-		function($scope, $state) {
+		function($scope, $state, appStateService) {
 			if(typeof(analytics) !== "undefined"){
 					analytics.trackView("Singin");
 			}
+
+            appStateService.invalidTokenRemoved = false;
+
 			$scope.navigateToHelpPage = function() {
 				$state.go('help');
 			};
