@@ -1,0 +1,8 @@
+<div class="contract-type row">
+    <label class="item item-radio col" ng-repeat="t in tradeTypes">
+        <input type="radio" name="market" value="{{t.value}}"
+            ng-model="proposal.contract_type"
+            ng-change="changeTradeType()"/>
+        <div class="item-content"> {{"options." + t.name.toLowerCase().replace(' ', '_') | translate}} </div>
+    </label>
+</div>

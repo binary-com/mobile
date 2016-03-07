@@ -10,12 +10,14 @@
 		<change-account></change-account>
 		<markets-option></markets-option>
 		<symbols-option></symbols-option>
-		<trade-types-option></trade-types-option>
+		<trade-category></trade-category>
 		<ticks-option></ticks-option>
-		<digits-option ng-if="displayDigits"></digits-option>
+		<digits-option ng-disabled="!displayDigits"></digits-option>
 		<payout-stake-option></payout-stake-option>
-		<div class="options-save row">
-			<button class="button button-block" ng-click="navigateToTradePage()" ng-disabled="!isDataLoaded" disabled="true">{{'options.lets_trade' | translate }}</button>
+		<div class="options-save row center">
+			<div class="col col-75">
+				<button class="button button-block" ng-click="navigateToTradePage()" ng-disabled="!letsTrade" disabled="true">{{'options.lets_trade' | translate }}</button>
+			</div>
 		</div>
 	</ion-content>
 </ion-view>

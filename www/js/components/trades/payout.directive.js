@@ -13,7 +13,8 @@ angular
 		'marketService',
 		'proposalService',
 		'delayService',
-		function(websocketService, marketService, proposalService, delayService) {
+        'appStateService',
+		function(websocketService, marketService, proposalService, delayService, appStateService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/payout.template.html',
@@ -32,7 +33,7 @@ angular
                 proposalService.send();
 
                 scope.$on('$destroy', function(){
-                    delayService.remove('updateProposal', updateProposal);
+                    delayService.remove('updateProposal');
                 });
 
 				scope.$parent.$watch('proposalRecieved', function(_proposal){
@@ -87,16 +88,20 @@ angular
 						proposal.amount = parseFloat(scope.amount, 10);
 						proposalService.update(proposal);
 						proposalService.send(scope.proposal && scope.proposal.id ? scope.proposal.id : null);
+
 					}
 				};
 
-				var delayedUpdateProposal = function delayedUpdateProposal() {
+				scope.delayedUpdateProposal = function delayedUpdateProposal() {
+                    appStateService.waitForProposal = true;
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
 					delayService.update('updateProposal', updateProposal, minimumUpdateDelay);
 				};
 
-				scope.updateAmount = function(_newAmount, _oldAmount) {
-					// scope.amount = parseFloat(parseFloat(_newAmount).toFixed(2));//roundNumber(_newAmount, _oldAmount);
-					delayedUpdateProposal();
+				scope.updateAmount = function(_form) {
+					scope.delayedUpdateProposal();
 				};
 				
 
@@ -110,13 +115,11 @@ angular
                     }
 
 					scope.amount = (amount < 100000) ? Number(amount + 1).toFixed(2) : 100000;
-					delayedUpdateProposal();
 				};
 
 				scope.subtractAmount = function() {
 					var amount = parseFloat(scope.amount);
 					scope.amount = (amount > 2) ? Number(amount - 1).toFixed(2) : 1;
-					delayedUpdateProposal();
 				};
 
 				scope.isObjectEmpty = function(_obj) {

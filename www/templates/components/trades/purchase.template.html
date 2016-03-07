@@ -1,5 +1,5 @@
 <div class="contract-purchase">
-	<button type="submit" class="button button-block button-positive" ng-disabled="purchaseFrom.$invalid" ng-click="purchase()">
-		{{'trade.buy' | translate }}
+	<button type="submit" class="button button-block button-positive {{attrs['class']}}" ng-disabled="purchaseForm.$invalid || getNgDisabled()" ng-click="purchase()">
+		{{title | translate }}
 	</button>
 </div>
