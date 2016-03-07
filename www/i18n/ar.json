@@ -6,6 +6,7 @@
         "delete": "حذف", 
         "my_accounts": "إدارة الحسابات", 
         "new_token": "إضافة رمز مميز جديد", 
+        "not_allowed_to_trade": "ليس لديك الاذن للتجارة!", 
         "remove_all": "إزالة كافة حسابات وتسجيل الخروج", 
         "set_as_default": "تعيين كافتراضي"
     }, 
@@ -44,14 +45,16 @@
     "options": {
         "account": "حساب", 
         "digit_differs": "اختلاف الأرقام", 
-        "digit_match": "مطابقة الأرقام", 
-        "down": "أسفل", 
         "digit_even": "حتى", 
+        "digit_match": "مطابقة الأرقام", 
+        "digit_odd": "فردي", 
+        "digit_over": "فوق", 
+        "digit_under": "تحت", 
+        "down": "أسفل", 
         "forex": "العملات الأجنبية", 
         "last_digit_prediction": "توقع آخر رقم", 
         "lets_trade": "لنتداول!", 
         "number_of_ticks": "عدد الحركات", 
-        "digit_odd": "فردي", 
         "payout": "العائد", 
         "payout_type": "نوع العائد", 
         "random": "عشوائي", 
@@ -75,7 +78,7 @@
         "back": "الخلف", 
         "balance": "الرصيد", 
         "buy": "شراء", 
-        "buy_again": "", 
+        "buy_again": "شراء مرة أخرى", 
         "buy_price": "سعر الشراء", 
         "final_price": "السعر النهائي", 
         "lose": "لقد خسر هذا العقد", 
@@ -92,11 +95,11 @@
         "win": "لقد ربح هذا العقد"
     }, 
     "update": {
-        "check_for_update": "", 
-        "downloading": "", 
-        "error": "", 
-        "installed": "", 
-        "installing": "", 
-        "up_to_date": ""
+        "check_for_update": "التحقق من وجود تحديث.", 
+        "downloading": "تحميل...", 
+        "error": "حدث خطأ أثناء التحقق من وجود تحديثات", 
+        "installed": "تم تثبيت التحديث بنجاح.", 
+        "installing": "تثبيت التحديث", 
+        "up_to_date": "التطبيق اخر احداث."
     }
 }
