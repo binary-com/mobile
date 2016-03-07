@@ -13,7 +13,7 @@ angular
                 value: "UP/DOWN"
             },
             {
-                name: "Digit Match/Differs",
+                name: "Digit Matches/Differs",
                 value: "MATCH/DIFF",
                 digits: true
             },
