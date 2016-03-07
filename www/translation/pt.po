@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-03-06 07:32+0000\n"
-"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
+"PO-Revision-Date: 2016-03-07 16:23+0000\n"
+"Last-Translator: Alcino Jorge <alcino@binary.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/pt/>\n"
 "Language: pt\n"
@@ -203,7 +203,6 @@ msgid "Account"
 msgstr "Conta"
 
 #: .accounts.not_allowed_to_trade
-#, fuzzy
 msgid "Your don't have permission to trade!"
 msgstr "Você não tem autorização para negociar!"
 
@@ -325,7 +324,7 @@ msgstr "Forex"
 
 #: .options.digit_over
 msgid "Over"
-msgstr ""
+msgstr "Superior"
 
 #: .options.stake
 msgctxt ".options.stake"
@@ -371,9 +370,8 @@ msgid "Account"
 msgstr "Conta"
 
 #: .options.digit_under
-#, fuzzy
 msgid "Under"
-msgstr "Ativo subjacente"
+msgstr "Inferior"
 
 #: .options.up
 msgid "Up"
