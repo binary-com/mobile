@@ -12,3 +12,5 @@ www/lib
 *.log
 .*.log
 *.sw*
+dist/
+.publish/

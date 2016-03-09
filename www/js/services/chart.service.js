@@ -1,5 +1,5 @@
 /**
- * @name chartService 
+ * @name chartService
  * @author Amin Marashi
  * @contributors []
  * @since 11/25/2015
@@ -44,8 +44,8 @@ angular
 							return !distribute(index);
 						},
 						datasets: [{
-							strokeColor: "orange",
-							pointColor: "orange",
+							strokeColor: "#e98024",
+							pointColor: "#e98024",
 							pointStrokeColor: "#fff",
 							data: []
 						}]
@@ -57,6 +57,8 @@ angular
 						showTooltips: false,
 						keepAspectRatio: false,
 						scaleShowLabels: false,
+						pointDotRadius: 3, //original 4
+						datasetStrokeWidth: 2, //original 2
 					}
 				};
 			};
@@ -270,7 +272,7 @@ angular
 			var ContractCtrl = function ContractCtrl(contract) {
 
 				var broadcastable = true;
-				
+
 				var setNotBroadcastable = function setNotBroadcastable(){
 					return broadcastable = false;
 				};
@@ -375,7 +377,7 @@ angular
 						contract.showingEntrySpot = true;
 						if (!utils.digitTrade(contract) && !hasExitSpot()) {
 							chartDrawer.addGridLine({
-								color: 'blue',
+								color: '#818183',
 								label: 'barrier: ' + contract.barrier,
 								orientation: 'horizontal',
 								index: index
@@ -401,7 +403,7 @@ angular
 
 				var viewRegions = function viewRegions() {
 					if (hasEntrySpot()) {
-						var color = (contract.result === 'win') ? 'rgba(0, 255, 0, 0.2)' : 'rgba(255, 0, 0, 0.2)';
+						var color = (contract.result === 'win') ? 'rgba(0, 255, 0, 0.1)' : 'rgba(255, 0, 0, 0.1)';
 						if (contract.showingExitSpot) {
 							var start = utils.getRelativeIndex(contract.entrySpotIndex);
 							start = (start < 0) ? 0 : start;
@@ -513,7 +515,7 @@ angular
 					}
 					contractCtrls.forEach(function (contract) {
 						if (contract.isSpot(index)) {
-							color = 'blue';
+							color = '#818183';
 						}
 					});
 					return color;
@@ -523,7 +525,7 @@ angular
 					var color;
 					contractCtrls.forEach(function (contract) {
 						if (contract.betweenExistingSpots(value)) {
-							color = 'blue';
+							color = '#e98024';
 						}
 					});
 					if (utils.isDefined(color)) {
@@ -532,7 +534,7 @@ angular
 					if (isLastPoint(index) && !showingHistory()) {
 						color = 'green';
 					} else {
-						color = 'orange';
+						color = '#e98024';
 					}
 					return color;
 				};
@@ -1196,7 +1198,7 @@ angular
 				contractCtrls.forEach(function(contractctrl, index){
 					contractctrl.setNotBroadcastable();
 				});
-				localHistory = null; 
+				localHistory = null;
 			};
 
 			chartDrawer = ChartDrawer();

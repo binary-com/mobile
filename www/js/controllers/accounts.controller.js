@@ -23,6 +23,11 @@ angular
 				$state.go('options', {}, {reload: true});
 			};
 
+            if(appStateService.invalidTokenRemoved){
+                accountService.validate();
+                appStateService.invalidTokenRemoved = false;
+            }
+
 			$scope.logout = function() {
 				alertService.confirmRemoveAllAccount(
 					function(res){
@@ -40,6 +45,7 @@ angular
                             marketService.removeAssetIndex();
                             localStorageService.removeWSUrl();
                             appStateService.isLoggedin = false;
+                            $scope.$parent.$broadcast('logout');
 							$state.go('signin');
 						}
 					}

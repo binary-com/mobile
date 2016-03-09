@@ -34,13 +34,13 @@
                         if(window.codePush){
                             codePush.sync(
                                     function (syncStatus) {
-                                        scope.isShown = true;
+                                        scope.isShown = false;
                                         scope.showSpinner = false;
                                         scope.isDownloading = false;
                                         switch (syncStatus) {
                                             // Result (final) statuses
                                             case SyncStatus.UPDATE_INSTALLED:
-                                                //alertService.displayAlert("Update","The update was installed successfully.");
+                                                scope.isShown = true;
                                                 scope.isDownloading = false;
                                                 scope.message = "update.installed";
                                                 setTimeout(scope.hide, 5000);
@@ -70,14 +70,18 @@
                                                 //console.log("Alerting user.");
                                                 break;
                                             case SyncStatus.DOWNLOADING_PACKAGE:
+                                                scope.isShown = true;
                                                 //console.log("Downloading package.");
                                                 scope.isDownloading = true;
                                                 scope.message = "update.downloading";
+                                                setTimeout(scope.hide, 5000);
                                                 break;
                                             case SyncStatus.INSTALLING_UPDATE:
+                                                scope.isShown = true;
                                                 //console.log("Installing update");
                                                 scope.message = "installing";
                                                 scope.showSpinner = true;
+                                                setTimeout(scope.hide, 5000);
                                                 break;
                                         }
 

@@ -219,4 +219,8 @@ angular
                     websocketService.sendRequestFor.profitTable(conditions);
                 }
             }
+
+            $scope.hasTradePermission = function(){
+                return accountService.checkScope(['READ', 'TRADE']);
+            }
 	});

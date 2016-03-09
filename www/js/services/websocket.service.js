@@ -114,6 +114,12 @@ angular
 				var message = JSON.parse(_response.data);
 
 				if (message) {
+                    if(message.error){
+                        if(message.error.code === 'InvalidToken'){
+                            localStorageService.manageInvalidToken();
+                        }
+                    }
+
                     var messageType = message.msg_type;
                     switch(messageType) {
                         case 'authorize':
@@ -121,6 +127,7 @@ angular
                                 message.authorize.token = message.echo_req.authorize;
                                 window._trackJs.userId = message.authorize.loginid;
                                 appStateService.isLoggedin = true;
+                                appStateService.scopes = message.authorize.scopes;
                                 $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
                             } else {
                                 if (message.hasOwnProperty('error') && message.error.code === 'InvalidToken') {
