@@ -9114,7 +9114,8 @@ body * {
     color: #fff !important; }
 
 .center {
-  text-align: center; }
+  text-align: center;
+  justify-content: center; }
 
 .item {
   border-width: 0; }
@@ -9125,11 +9126,6 @@ body * {
 .item-complex .item-content,
 .item-radio .item-content {
   background-color: #f2f2f2; }
-
-.scroll-content {
-  display: block;
-  position: relative;
-  height: 100%; }
 
 .scroll {
   padding-bottom: 1px; }
@@ -9144,6 +9140,19 @@ body * {
   font-size: 14px;
   display: block;
   margin: 0 auto; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */ }
+
+@media only screen and (min-device-width: 768px) {
+  .trade, .accounts, .options, .sign-in, .help, .home {
+    width: 100%;
+    max-width: 768px;
+    margin: auto; } }
 
 @media screen and (max-width: 400px) {
   .trade .contract-price .price {
@@ -9178,9 +9187,6 @@ body * {
 .bar .button.button-clear.icon-left:before,
 .bar .button.button-clear.icon-right:before {
   font-size: 24px; }
-
-.has-header {
-  top: 0 !important; }
 
 .spinner {
   position: absolute;
@@ -9259,487 +9265,933 @@ body * {
   to {
     transform: rotate(360deg); } }
 
-.bar.bar-positive.bar-footer {
-  background-image: none; }
-
-.bar.bar-positive {
-  border-color: #2a3052;
-  background-color: #2a3052;
-  background-image: none; }
-
-.bar-footer {
-  background-color: #2a3052;
-  bottom: 0;
-  border-top-width: 0;
-  border-bottom-width: 1px;
-  height: auto; }
-  .bar-footer .account {
-    text-align: center;
-    color: #e98024; }
-  .bar-footer .balance {
-    text-align: center;
-    color: #e98024; }
-
-.home {
-  background-color: #f2f2f2; }
-  .home .branding {
-    width: 80%;
-    max-width: 600px;
-    margin: 40% auto; }
-    .home .branding .logo {
-      display: block;
-      margin: 0 auto;
-      width: 40%; }
-    .home .branding .slogan {
-      display: block;
-      margin: 5% auto 0;
-      width: 60%; }
-  .home .spinner svg {
-    margin-top: 300px;
-    display: block;
-    stroke: #2a3052; }
-  .home span {
-    display: block;
-    /*margin: -50px auto 0;*/
-    color: #2a3052;
-    text-align: center; }
-
-.sign-in {
-  background-color: #2a3052; }
-  .sign-in .branding {
-    width: 80%;
-    max-width: 600px;
-    margin: 10% auto; }
-    .sign-in .branding .logo {
-      display: block;
-      margin: 0 auto;
-      width: 40%; }
-    .sign-in .branding .slogan {
-      display: block;
-      margin: 5% auto 0;
-      width: 60%; }
-  .sign-in .list label.item-input {
-    border-bottom: 1px solid #5e668f;
-    width: 80%;
-    margin: 0 auto;
-    height: 44px;
-    padding-left: 4px !important;
-    margin-bottom: 26px; }
-    .sign-in .list label.item-input i {
-      font-size: 40px;
-      width: 40px;
-      color: #5e668f;
-      text-align: center; }
-      .sign-in .list label.item-input i.icon-small {
-        font-size: 28px; }
-    .sign-in .list label.item-input input[type=text],
-    .sign-in .list label.item-input input[type=password] {
-      color: #f2f2f2;
-      font-family: arial;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 1.6; }
-    .sign-in .list label.item-input.error {
-      border-bottom-color: #ff0000; }
-      .sign-in .list label.item-input.error i {
-        color: #ff0000; }
-  .sign-in .list label.item-select {
+@media only screen and (max-device-width: 480px) {
+  .bar.bar-positive.bar-footer {
+    background-image: none; }
+  .bar.bar-positive {
+    border-color: #2a3052;
     background-color: #2a3052;
-    border-width: 0 0 1px 0; }
-    .sign-in .list label.item-select i {
-      font-size: 40px;
-      width: 40px;
-      color: #5e668f;
-      text-align: center; }
-      .sign-in .list label.item-select i.icon-small {
-        font-size: 28px; }
-    .sign-in .list label.item-select .input-label {
+    background-image: none; }
+  .bar-footer {
+    background-color: #2a3052;
+    bottom: 0;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    height: auto;
+    font-size: 4vw; }
+    .bar-footer .account {
+      text-align: center;
+      color: #e98024; }
+    .bar-footer .balance {
+      text-align: center;
+      color: #e98024; } }
+
+@media only screen and (min-device-width: 480px) {
+  .bar.bar-positive.bar-footer {
+    background-image: none; }
+  .bar.bar-positive {
+    border-color: #2a3052;
+    background-color: #2a3052;
+    background-image: none; }
+  .bar-footer {
+    background-color: #2a3052;
+    bottom: 0;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    height: auto;
+    font-size: 14px; }
+    .bar-footer .account {
+      text-align: center;
+      color: #e98024; }
+    .bar-footer .balance {
+      text-align: center;
+      color: #e98024; } }
+
+@media only screen and (max-device-width: 480px) {
+  .home {
+    background-color: #f2f2f2; }
+    .home .branding {
+      width: 80%;
+      max-width: 600px;
+      margin: 40% auto; }
+      .home .branding .logo {
+        display: block;
+        margin: 0 auto;
+        width: 40%; }
+      .home .branding .slogan {
+        display: block;
+        margin: 5% auto 0;
+        width: 60%; }
+    .home .spinner svg {
+      margin-top: 300px;
+      display: block;
+      stroke: #2a3052; }
+    .home span {
+      display: block;
+      margin: -50px auto 0;
+      color: #2a3052;
+      text-align: center; } }
+
+@media only screen and (min-device-width: 480px) {
+  .home {
+    background-color: #f2f2f2; }
+    .home .branding {
+      width: 80%;
+      max-width: 600px;
+      margin: 40% auto; }
+      .home .branding .logo {
+        display: block;
+        margin: 0 auto;
+        width: 40%; }
+      .home .branding .slogan {
+        display: block;
+        margin: 5% auto 0;
+        width: 60%; }
+    .home .spinner svg {
+      margin-top: 300px;
+      display: block;
+      stroke: #2a3052; }
+    .home span {
+      display: block;
+      margin: -50px auto 0;
+      color: #2a3052;
+      text-align: center; } }
+
+@media only screen and (max-device-width: 480px) {
+  .sign-in {
+    background-color: #2a3052; }
+    .sign-in .branding {
+      margin: 10% auto; }
+      .sign-in .branding .logo {
+        display: block;
+        margin: 0 auto;
+        width: 40%; }
+      .sign-in .branding .slogan {
+        display: block;
+        margin: 5% auto 0;
+        width: 60%; }
+    .sign-in .list label.item-input {
+      border-bottom: 1px solid #5e668f;
+      width: 80%;
+      margin: 0 auto;
+      height: 44px;
+      padding-left: 4px !important;
+      margin-bottom: 26px; }
+      .sign-in .list label.item-input i {
+        font-size: 40px;
+        width: 40px;
+        color: #5e668f;
+        text-align: center; }
+        .sign-in .list label.item-input i.icon-small {
+          font-size: 28px; }
+      .sign-in .list label.item-input input[type=text],
+      .sign-in .list label.item-input input[type=password] {
+        color: #f2f2f2;
+        font-family: arial;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.6; }
+      .sign-in .list label.item-input.error {
+        border-bottom-color: #ff0000; }
+        .sign-in .list label.item-input.error i {
+          color: #ff0000; }
+    .sign-in .list label.item-select {
       background-color: #2a3052;
-      color: #f2f2f2;
-      font-family: arial;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 1;
-      line-height: 1.6; }
-    .sign-in .list label.item-select select {
+      border-width: 0 0 1px 0; }
+      .sign-in .list label.item-select i {
+        font-size: 40px;
+        width: 40px;
+        color: #5e668f;
+        text-align: center; }
+        .sign-in .list label.item-select i.icon-small {
+          font-size: 28px; }
+      .sign-in .list label.item-select .input-label {
+        background-color: #2a3052;
+        color: #f2f2f2;
+        font-family: arial;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1;
+        line-height: 1.6; }
+      .sign-in .list label.item-select select {
+        background-color: #2a3052;
+        color: #f2f2f2;
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: uppercase;
+        padding: 0;
+        right: initial;
+        direction: ltr; }
+    .sign-in button.btn-signin {
+      background-color: #e98024 !important;
+      font-size: 5vw; }
+    .sign-in .help {
+      color: #fff; }
+    .sign-in ::-webkit-input-placeholder {
+      color: #f2f2f2; }
+    .sign-in :-moz-placeholder {
+      color: #f2f2f2; }
+    .sign-in ::-moz-placeholder {
+      color: #f2f2f2; }
+    .sign-in :-ms-input-placeholder {
+      color: #f2f2f2; } }
+
+@media only screen and (min-device-width: 480px) {
+  .sign-in {
+    background-color: #2a3052; }
+    .sign-in .branding {
+      margin: 10% auto; }
+      .sign-in .branding .logo {
+        display: block;
+        margin: 0 auto;
+        width: 40%; }
+      .sign-in .branding .slogan {
+        display: block;
+        margin: 5% auto 0;
+        width: 60%; }
+    .sign-in .list label.item-input {
+      border-bottom: 1px solid #5e668f;
+      width: 80%;
+      margin: 0 auto;
+      height: 44px;
+      padding-left: 4px !important;
+      margin-bottom: 26px; }
+      .sign-in .list label.item-input i {
+        font-size: 40px;
+        width: 40px;
+        color: #5e668f;
+        text-align: center; }
+        .sign-in .list label.item-input i.icon-small {
+          font-size: 28px; }
+      .sign-in .list label.item-input input[type=text],
+      .sign-in .list label.item-input input[type=password] {
+        color: #f2f2f2;
+        font-family: arial;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.6; }
+      .sign-in .list label.item-input.error {
+        border-bottom-color: #ff0000; }
+        .sign-in .list label.item-input.error i {
+          color: #ff0000; }
+    .sign-in .list label.item-select {
       background-color: #2a3052;
-      color: #f2f2f2;
-      font-size: 14px;
-      font-weight: 300;
-      text-transform: uppercase;
-      padding: 0;
-      right: initial;
-      direction: ltr; }
-  .sign-in button.btn-signin {
-    background-color: #e98024 !important;
-    width: 80%;
-    margin: 0 auto;
-    font-size: 18px; }
-  .sign-in .help {
-    color: #fff; }
-  .sign-in ::-webkit-input-placeholder {
-    color: #f2f2f2; }
-  .sign-in :-moz-placeholder {
-    color: #f2f2f2; }
-  .sign-in ::-moz-placeholder {
-    color: #f2f2f2; }
-  .sign-in :-ms-input-placeholder {
-    color: #f2f2f2; }
+      border-width: 0 0 1px 0; }
+      .sign-in .list label.item-select i {
+        font-size: 40px;
+        width: 40px;
+        color: #5e668f;
+        text-align: center; }
+        .sign-in .list label.item-select i.icon-small {
+          font-size: 28px; }
+      .sign-in .list label.item-select .input-label {
+        background-color: #2a3052;
+        color: #f2f2f2;
+        font-family: arial;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1;
+        line-height: 1.6; }
+      .sign-in .list label.item-select select {
+        background-color: #2a3052;
+        color: #f2f2f2;
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: uppercase;
+        padding: 0;
+        right: initial;
+        direction: ltr; }
+    .sign-in button.btn-signin {
+      background-color: #e98024 !important;
+      font-size: 18px; }
+    .sign-in .help {
+      color: #fff; }
+    .sign-in ::-webkit-input-placeholder {
+      color: #f2f2f2; }
+    .sign-in :-moz-placeholder {
+      color: #f2f2f2; }
+    .sign-in ::-moz-placeholder {
+      color: #f2f2f2; }
+    .sign-in :-ms-input-placeholder {
+      color: #f2f2f2; } }
 
-.trade #tradeContractChart {
-  width: 100% !important;
-  height: 200px !important; }
-
-.trade .contract-summary {
-  padding: 5px 10px;
-  text-align: center;
-  font-size: 14px;
-  background-color: #f2f2f2;
-  position: relative; }
-
-.trade .contract-payout {
-  background-color: #f2f2f2;
-  border-top: 1px solid #c4c4c4;
-  border-bottom: 1px solid #c4c4c4; }
-  .trade .contract-payout .basis {
+@media only screen and (max-device-width: 480px) {
+  .trade #tradeContractChart {
+    width: 100% !important;
+    height: 200px !important; }
+  .trade .contract-summary {
+    padding: 5px 10px;
+    text-align: center;
     font-size: 4vw;
-    text-align: left;
-    line-height: 36px;
-    padding-left: 10px; }
-  .trade .contract-payout .amount {
+    background-color: #f2f2f2;
     position: relative; }
-    .trade .contract-payout .amount input {
-      font-size: 5vw;
-      width: 100px;
-      height: 36px;
-      border-radius: 5px;
-      border: 1px solid #c4c4c4;
+  .trade .contract-payout {
+    border-bottom: 1px solid #c4c4c4;
+    padding: 0 !important; }
+    .trade .contract-payout .col:nth-child(3) {
+      margin: 15px 0 0 !important; }
+    .trade .contract-payout .price {
+      font-size: 4vw;
+      color: #e98024;
+      text-align: center;
+      line-height: 12px; }
+    .trade .contract-payout .price-des {
+      font-size: 4vw;
+      text-align: center;
+      color: #818183;
+      padding-bottom: 0; }
+    .trade .contract-payout .basis {
+      font-size: 4vw;
+      text-align: left;
       line-height: 36px;
+      padding-left: 10px; }
+    .trade .contract-payout .amount {
+      position: relative; }
+      .trade .contract-payout .amount .price {
+        padding-top: 0;
+        padding-bottom: 0; }
+        .trade .contract-payout .amount .price input {
+          font-size: 4vw;
+          height: auto;
+          border-bottom: 1px solid #f2f2f2;
+          line-height: 12px;
+          text-align: center;
+          color: #e98024;
+          padding-top: 0;
+          width: 100%; }
+    .trade .contract-payout .button-bar .button {
+      min-height: 20px; }
+    .trade .contract-payout .button-bar .button:before {
+      line-height: 30px; }
+    .trade .contract-payout > .col:nth-child(3) .button {
+      margin: 0;
+      min-width: 20px;
+      min-height: 20px;
+      border: none;
+      color: #000;
+      border-radius: 0;
+      border: 1px solid #c4c4c4;
+      vertical-align: middle;
+      line-height: 21px; }
+      .trade .contract-payout > .col:nth-child(3) .button.plus {
+        background-color: #f2f2f2; }
+      .trade .contract-payout > .col:nth-child(3) .button.minus {
+        background-color: #f2f2f2;
+        border-right: 0; }
+  .trade .net-profit {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #c4c4c4;
+    border-top: 1px solid #c4c4c4;
+    margin-top: 0;
+    padding: 0; }
+    .trade .net-profit .col:nth-child(1) {
       text-align: center;
-      padding-left: 18px; }
-    .trade .contract-payout .amount .error {
-      position: absolute;
-      background-color: #ff0000;
-      border-radius: 5px;
-      top: -47px;
-      left: -50%;
-      padding: 0 10px;
-      text-align: center;
-      z-index: 3; }
-      .trade .contract-payout .amount .error p {
-        color: #fff;
-        width: 220px;
-        height: 30px;
-        font-size: 13px;
-        font-weight: bold; }
-      .trade .contract-payout .amount .error:after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -8px;
-        width: 0;
-        height: 0;
-        border-top: 8px solid #ff0000;
-        border-right: 8px solid transparent;
-        border-left: 8px solid transparent; }
-  .trade .contract-payout .button-bar .button {
-    height: 35px;
-    min-height: 20px; }
-  .trade .contract-payout .button-bar .button:before {
-    line-height: 30px; }
-  .trade .contract-payout > .col:nth-child(3) .button {
-    float: right;
-    margin: 0;
-    min-width: 40px;
-    min-height: 40px;
-    border: none;
-    color: #fff;
-    border-radius: 0; }
-    .trade .contract-payout > .col:nth-child(3) .button.plus {
-      background-color: #2a3052;
-      border-radius: 0 5px 5px 0; }
-    .trade .contract-payout > .col:nth-child(3) .button.minus {
-      background-color: #c4c4c4;
-      border-radius: 5px 0 0 5px; }
-
-.trade .contract-price {
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #c4c4c4;
-  margin-top: 0; }
-  .trade .contract-price > .col:nth-child(1) {
-    font-size: 16px;
-    text-align: left;
-    padding-left: 10px;
-    line-height: 36px; }
-  .trade .contract-price .price-des {
-    font-size: 4vw;
-    text-align: left; }
-  .trade .contract-price .price {
-    font-size: 4vw;
-    color: #e98024;
-    text-align: left;
-    line-height: 36px; }
-
-.trade .contract-purchase,
-.trade .contract-back {
-  margin-top: 3%;
-  margin-bottom: 3%; }
+      line-height: 12px;
+      color: #818183; }
+    .trade .net-profit .price-des {
+      font-size: 3vw;
+      text-align: center; }
+    .trade .net-profit .price {
+      font-size: 3vw;
+      color: #818183;
+      text-align: left;
+      line-height: 12px; }
+    .trade .net-profit .error {
+      background-color: #ff0000; }
+      .trade .net-profit .error p {
+        margin: 5px !important;
+        font-size: 4vw;
+        color: #fff; }
   .trade .contract-purchase button,
   .trade .contract-back button {
     background-color: #e98024 !important;
-    width: 84%;
-    margin: 0 auto;
-    font-size: 20px; }
-
-.trade .contract-details {
-  margin-top: 1%; }
-  .trade .contract-details .win {
-    color: #4CBB17 !important; }
-  .trade .contract-details .lose {
-    color: #ff0000 !important; }
-  .trade .contract-details .row {
-    padding: 0;
-    margin-top: 0; }
-    .trade .contract-details .row .col {
-      border-top: 1px solid #c4c4c4; }
-      .trade .contract-details .row .col:first-child {
-        background-color: #f2f2f2;
-        text-align: right;
-        border-right: 1px solid #c4c4c4;
-        padding: 4px 10px 4px 0; }
-      .trade .contract-details .row .col:last-child {
-        text-align: center;
-        font-weight: bold; }
-    .trade .contract-details .row:last-child {
-      border-bottom: 1px solid #c4c4c4; }
-  .trade .contract-details .win .col {
-    color: #4CBB17 !important;
-    background-color: #fff !important;
-    font-size: 16px;
-    padding: 10px !important; }
-  .trade .contract-details .lose .col {
-    color: #ff0000 !important;
-    background-color: #fff !important;
-    font-size: 16px;
-    padding: 10px !important; }
-
-.trade .buy-again {
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #c4c4c4;
-  padding-top: 0;
-  padding-bottom: 0; }
-  .trade .buy-again .price-des {
-    font-size: 3vw;
-    font-weight: bold; }
-  .trade .buy-again .price {
-    color: #e98024;
-    font-size: 4vw; }
-  .trade .buy-again button {
-    background-color: #e98024 !important;
-    width: 100%;
-    margin: 0 auto;
-    font-size: 14px;
-    line-height: 28px;
-    min-height: 24px; }
-
-.trade .contract-type {
-  background: #f2f2f2; }
-  .trade .contract-type .item {
-    background: #f2f2f2; }
-  .trade .contract-type .item-select select {
-    background: #f2f2f2; }
-
-.options .options-content {
-  padding-left: 3%;
-  padding-right: 3%; }
-  .options .options-content .col {
-    padding: 1px; }
-
-.options [class*="options"] {
-  border-radius: 0 !important; }
-  .options [class*="options"] h1 {
-    color: #2a3052;
-    border-radius: 0 !important;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    padding: 2px 0 5px;
-    margin: 0;
-    width: 100%; }
-
-.options .options-account {
-  padding-top: 10px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #f2f2f2; }
-  .options .options-account .manage-account {
-    text-align: right;
-    font-size: 28px; }
-
-.options .options-market {
-  border-bottom: 1px solid #f2f2f2; }
-  .options .options-market .item {
-    display: inline-block; }
-  .options .options-market .item-content {
-    padding: 0;
-    text-align: center; }
-  .options .options-market .item-radio input:checked ~ .item-content {
-    background: #2a3052;
-    color: #fff; }
-  .options .options-market .item-radio input[disabled] + div {
-    background-color: #f2f2f2;
-    color: #c4c4c4; }
-
-.options .options-upderlying {
-  border-bottom: 1px solid #f2f2f2; }
-
-.options .options-trade {
-  border-bottom: 1px solid #f2f2f2; }
-  .options .options-trade .padding {
-    padding: 0 5px 5px 5px;
-    width: 100%;
-    margin-top: -5px; }
-  .options .options-trade .item {
-    display: inline-table;
-    position: relative;
-    width: 50%;
-    padding: 2px 2px 0px; }
-  .options .options-trade .item-content {
-    padding: 0;
-    text-align: center; }
-  .options .options-trade .item-radio input:checked ~ .item-content {
-    background: #2a3052;
-    color: #fff; }
-
-.options .options-ticks {
-  border-bottom: 1px solid #f2f2f2; }
-  .options .options-ticks .item {
-    display: inline-block;
-    width: 16%; }
-  .options .options-ticks .item-content {
-    padding: 0;
-    text-align: center; }
-  .options .options-ticks .item-radio input:checked ~ .item-content {
-    background: #2a3052;
-    color: #fff; }
-  .options .options-ticks .disabled {
-    opacity: 0.7; }
-
-.options .options-amount {
-  border-bottom: 1px solid #f2f2f2; }
-  .options .options-amount .item {
-    display: inline-block;
-    width: 30%; }
-  .options .options-amount .item-content {
-    padding: 0;
-    text-align: center; }
-  .options .options-amount .item-radio input:checked ~ .item-content {
-    background: #2a3052;
-    color: #fff; }
-
-.options .options-save {
-  margin-bottom: 20%; }
-
-.options button {
-  font-size: 20px; }
-
-.options label .input-label {
-  padding: 0px; }
-
-.options label.item-input {
-  border-width: 0;
-  margin: 1px 0;
-  padding: 6px 0 5px 0px; }
-
-.options label.item-select {
-  height: 25px; }
-
-.options label.item-radio .item-content {
-  padding-top: 4px;
-  padding-bottom: 4px; }
-
-.options label.item-radio .radio-icon {
-  padding: 0 14px 0 0; }
-
-.popover-backdrop.active {
-  background-color: rgba(0, 0, 0, 0.5); }
-
-.accounts-content {
-  display: block; }
-  .accounts-content .bar {
-    background-color: #e98024;
-    margin-bottom: 4px !important; }
-    .accounts-content .bar h2 {
-      color: #fff; }
-  .accounts-content .remove-all-accounts {
-    background-color: #f2f2f2;
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 14px; }
-    .accounts-content .remove-all-accounts a {
-      color: #ff0000; }
-  .accounts-content .account .list {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    margin-bottom: 4px !important; }
-    .accounts-content .account .list .item-content {
-      padding: 10px 0 10px 20px; }
-    .accounts-content .account .list i {
-      display: block;
-      float: left;
-      width: 40px;
-      font-size: 24px;
-      line-height: 40px; }
-      .accounts-content .account .list i.default {
-        color: #4CBB17; }
-      .accounts-content .account .list i.not-default {
-        color: #c4c4c4; }
-    .accounts-content .account .list div .id {
-      color: #2a3052;
-      font-size: 16px;
-      font-weight: 700; }
-    .accounts-content .account .list div .token {
-      color: #c4c4c4;
+    font-size: 5vw; }
+  .trade .contract-details {
+    margin-top: 1%; }
+    .trade .contract-details .win {
+      color: #4CBB17 !important; }
+    .trade .contract-details .lose {
+      color: #ff0000 !important; }
+    .trade .contract-details .row {
+      padding: 0;
+      margin-top: 0; }
+      .trade .contract-details .row .col {
+        border-top: 1px solid #c4c4c4; }
+        .trade .contract-details .row .col:first-child {
+          text-align: right;
+          border-right: 1px solid #c4c4c4;
+          padding: 4px 10px 4px 0;
+          color: #818183; }
+        .trade .contract-details .row .col:last-child {
+          text-align: center; }
+      .trade .contract-details .row:last-child {
+        border-bottom: 1px solid #c4c4c4; }
+    .trade .contract-details .win .col {
+      color: #4CBB17 !important;
+      background-color: #fff !important;
+      font-size: 4vw;
+      padding: 5px !important; }
+    .trade .contract-details .lose .col {
+      color: #ff0000 !important;
+      background-color: #fff !important;
+      font-size: 4vw;
+      padding: 5px !important; }
+  .trade .buy-again {
+    background-color: #fff;
+    border-bottom: 1px solid #c4c4c4;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: center; }
+    .trade .buy-again .price-des {
+      font-size: 4vw;
+      color: #818183; }
+    .trade .buy-again .price {
+      color: #e98024;
+      font-size: 4vw; }
+    .trade .buy-again button {
+      background-color: #e98024 !important;
+      width: 100%;
+      margin: 0 auto;
       font-size: 14px;
-      display: block;
-      font-weight: 500; }
-  .accounts-content .account .button-green {
-    background-color: #4CBB17; }
-  .accounts-content .add-account {
-    margin-top: 20px;
-    padding: 20px; }
-    .accounts-content .add-account label {
-      float: left; }
-      .accounts-content .add-account label.error {
-        color: #ff0000; }
-        .accounts-content .add-account label.error i {
-          color: #ff0000; }
-      .accounts-content .add-account label .placeholder-icon {
-        color: #c4c4c4; }
-    .accounts-content .add-account .item-input {
-      padding: 0; }
-    .accounts-content .add-account .ion-android-lock {
-      font-size: 16px; }
-    .accounts-content .add-account .add {
-      font-size: 28px;
-      color: #4CBB17;
-      line-height: 40px; }
+      line-height: 28px;
+      min-height: 24px; }
+  .trade .contract-type {
+    background: #f2f2f2;
+    border-bottom: #c4c4c4 1px solid !important; }
+    .trade .contract-type .item {
+      background: #f2f2f2; }
+    .trade .contract-type .item:nth-child(odd) {
+      border-right: #c4c4c4 3px solid !important; }
+    .trade .contract-type .item-select select {
+      background: #f2f2f2; }
+    .trade .contract-type .item-content {
+      text-align: center;
+      padding: 0;
+      font-size: 4vw; }
+    .trade .contract-type .item-radio input:checked ~ .item-content {
+      background: transparent !important;
+      color: #e98024; } }
 
-.help-content {
-  background-color: #2a3052;
-  padding-left: 3%;
-  padding-right: 3%;
-  padding-top: 5%;
-  color: #fff;
-  font-size: 16px; }
-  .help-content h1 {
-    font-size: 28px;
-    color: #fff; }
-  .help-content button {
+@media only screen and (min-device-width: 480px) {
+  .trade #tradeContractChart {
+    width: 100% !important;
+    height: 200px !important; }
+  .trade .contract-summary {
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #f2f2f2;
+    position: relative; }
+  .trade .contract-payout {
+    border-bottom: 1px solid #c4c4c4;
+    padding: 0 !important; }
+    .trade .contract-payout .col:nth-child(3) {
+      margin: 15px 0 0 !important; }
+    .trade .contract-payout .price {
+      font-size: 14px;
+      color: #e98024;
+      text-align: center;
+      line-height: 12px; }
+    .trade .contract-payout .price-des {
+      font-size: 14px;
+      text-align: center;
+      color: #818183;
+      padding-bottom: 0; }
+    .trade .contract-payout .basis {
+      font-size: 14px;
+      text-align: left;
+      line-height: 36px;
+      padding-left: 10px; }
+    .trade .contract-payout .amount {
+      position: relative; }
+      .trade .contract-payout .amount .price {
+        padding-top: 0;
+        padding-bottom: 0; }
+        .trade .contract-payout .amount .price input {
+          font-size: 14px;
+          height: auto;
+          border-bottom: 1px solid #f2f2f2;
+          line-height: 12px;
+          text-align: center;
+          color: #e98024;
+          padding-top: 0;
+          width: 100%; }
+    .trade .contract-payout .button-bar .button {
+      min-height: 20px; }
+    .trade .contract-payout .button-bar .button:before {
+      line-height: 30px; }
+    .trade .contract-payout > .col:nth-child(3) .button {
+      margin: 0;
+      min-width: 20px;
+      min-height: 20px;
+      border: none;
+      color: #000;
+      border-radius: 0;
+      border: 1px solid #c4c4c4;
+      vertical-align: middle;
+      line-height: 21px; }
+      .trade .contract-payout > .col:nth-child(3) .button.plus {
+        background-color: #f2f2f2; }
+      .trade .contract-payout > .col:nth-child(3) .button.minus {
+        background-color: #f2f2f2; }
+  .trade .net-profit {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #c4c4c4;
+    border-top: 1px solid #c4c4c4;
+    margin-top: 0;
+    padding: 0; }
+    .trade .net-profit .col:nth-child(1) {
+      text-align: center;
+      line-height: 12px;
+      color: #818183; }
+    .trade .net-profit .price-des {
+      font-size: 12px;
+      text-align: center; }
+    .trade .net-profit .price {
+      font-size: 12px;
+      color: #818183;
+      text-align: left;
+      line-height: 12px; }
+    .trade .net-profit .error {
+      background-color: #ff0000; }
+      .trade .net-profit .error p {
+        margin: 5px !important;
+        font-size: 14px;
+        color: #fff; }
+  .trade .contract-purchase button,
+  .trade .contract-back button {
     background-color: #e98024 !important;
-    width: 80%;
-    margin: 10% auto !important;
-    font-size: 18px; }
-  .help-content a {
+    font-size: 20px; }
+  .trade .contract-details {
+    margin-top: 1%; }
+    .trade .contract-details .win {
+      color: #4CBB17 !important; }
+    .trade .contract-details .lose {
+      color: #ff0000 !important; }
+    .trade .contract-details .row {
+      padding: 0;
+      margin-top: 0; }
+      .trade .contract-details .row .col {
+        border-top: 1px solid #c4c4c4; }
+        .trade .contract-details .row .col:first-child {
+          text-align: right;
+          border-right: 1px solid #c4c4c4;
+          padding: 4px 10px 4px 0;
+          color: #818183; }
+        .trade .contract-details .row .col:last-child {
+          text-align: center; }
+      .trade .contract-details .row:last-child {
+        border-bottom: 1px solid #c4c4c4; }
+    .trade .contract-details .win .col {
+      color: #4CBB17 !important;
+      background-color: #fff !important;
+      font-size: 14px;
+      padding: 5px !important; }
+    .trade .contract-details .lose .col {
+      color: #ff0000 !important;
+      background-color: #fff !important;
+      font-size: 14px;
+      padding: 5px !important; }
+  .trade .buy-again {
+    background-color: #fff;
+    border-bottom: 1px solid #c4c4c4;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: center; }
+    .trade .buy-again .price-des {
+      font-size: 14px;
+      color: #818183; }
+    .trade .buy-again .price {
+      color: #e98024;
+      font-size: 14px; }
+    .trade .buy-again button {
+      background-color: #e98024 !important;
+      width: 100%;
+      margin: 0 auto;
+      font-size: 14px;
+      line-height: 28px;
+      min-height: 24px; }
+  .trade .contract-type {
+    background: #f2f2f2;
+    border-bottom: #c4c4c4 1px solid !important; }
+    .trade .contract-type .item {
+      background: #f2f2f2; }
+    .trade .contract-type .item:nth-child(odd) {
+      border-right: #c4c4c4 3px solid !important; }
+    .trade .contract-type .item-select select {
+      background: #f2f2f2; }
+    .trade .contract-type .item-content {
+      text-align: center;
+      padding: 0;
+      font-size: 14px; }
+    .trade .contract-type .item-radio input:checked ~ .item-content {
+      background: transparent !important;
+      color: #e98024; } }
+
+@media only screen and (max-device-width: 480px) {
+  .options .options-content {
+    padding-left: 3%;
+    padding-right: 3%; }
+    .options .options-content .col {
+      padding: 1px; }
+  .options [class*="options"] {
+    border-radius: 0 !important; }
+    .options [class*="options"] h1 {
+      color: #2a3052;
+      border-radius: 0 !important;
+      font-size: 4vw;
+      font-weight: bold;
+      text-align: left;
+      padding: 2px 0 5px;
+      margin: 0;
+      width: 100%; }
+  .options .options-account {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f2f2f2; }
+    .options .options-account .manage-account {
+      text-align: right;
+      font-size: 28px; }
+  .options .options-market {
+    border-bottom: 1px solid #f2f2f2; }
+    .options .options-market .item {
+      display: inline-block; }
+    .options .options-market .item-content {
+      padding: 0;
+      text-align: center;
+      font-size: 4vw; }
+    .options .options-market .item-radio input:checked ~ .item-content {
+      background: #2a3052;
+      color: #fff; }
+    .options .options-market .item-radio input[disabled] + div {
+      background-color: #f2f2f2;
+      color: #c4c4c4; }
+  .options .options-upderlying {
+    border-bottom: 1px solid #f2f2f2; }
+  .options .options-trade {
+    border-bottom: 1px solid #f2f2f2; }
+    .options .options-trade .padding {
+      padding: 0 5px 5px;
+      width: 100%;
+      margin-top: -5px; }
+    .options .options-trade .item {
+      display: inline-table;
+      position: relative;
+      width: 50%;
+      padding: 2px 2px 0; }
+    .options .options-trade .item-content {
+      padding: 0;
+      text-align: center;
+      font-size: 4vw; }
+    .options .options-trade .item-radio input:checked ~ .item-content {
+      background: #2a3052;
+      color: #fff; }
+  .options .options-ticks {
+    border-bottom: 1px solid #f2f2f2; }
+    .options .options-ticks .item {
+      display: inline-block;
+      width: 16%; }
+    .options .options-ticks .item-content {
+      padding: 0;
+      text-align: center;
+      font-size: 4vw; }
+    .options .options-ticks .item-radio input:checked ~ .item-content {
+      background: #2a3052;
+      color: #fff; }
+    .options .options-ticks .disabled {
+      opacity: 0.4; }
+  .options .options-amount {
+    border-bottom: 1px solid #f2f2f2; }
+    .options .options-amount .item {
+      display: inline-block;
+      width: 30%; }
+    .options .options-amount .item-content {
+      padding: 0;
+      text-align: center;
+      font-size: 4vw; }
+    .options .options-amount .item-radio input:checked ~ .item-content {
+      background: #2a3052;
+      color: #fff; }
+  .options .options-save {
+    margin-bottom: 20%; }
+  .options button {
+    font-size: 5vw; }
+  .options label .input-label {
+    padding: 0; }
+  .options label.item-input {
+    border-width: 0;
+    margin: 1px 0;
+    padding: 6px 0 5px; }
+  .options label.item-select {
+    height: 25px; }
+  .options label.item-radio .item-content {
+    padding-top: 4px;
+    padding-bottom: 4px; }
+  .options label.item-radio .radio-icon {
+    padding: 0 14px 0 0; }
+  .popover-backdrop.active {
+    background-color: rgba(0, 0, 0, 0.5); } }
+
+@media only screen and (min-device-width: 480px) {
+  .options .options-content {
+    padding-left: 3%;
+    padding-right: 3%; }
+    .options .options-content .col {
+      padding: 1px; }
+  .options [class*="options"] {
+    border-radius: 0 !important; }
+    .options [class*="options"] h1 {
+      color: #2a3052;
+      border-radius: 0 !important;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: left;
+      padding: 2px 0 5px;
+      margin: 0;
+      width: 100%; }
+  .options .options-account {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f2f2f2; }
+    .options .options-account .manage-account {
+      text-align: right;
+      font-size: 28px; }
+  .options .options-market {
+    border-bottom: 1px solid #f2f2f2; }
+    .options .options-market .item {
+      display: inline-block; }
+    .options .options-market .item-content {
+      padding: 0;
+      text-align: center;
+      font-size: 14px; }
+    .options .options-market .item-radio input:checked ~ .item-content {
+      background: #2a3052;
+      color: #fff; }
+    .options .options-market .item-radio input[disabled] + div {
+      background-color: #f2f2f2;
+      color: #c4c4c4; }
+  .options .options-upderlying {
+    border-bottom: 1px solid #f2f2f2; }
+  .options .options-trade {
+    border-bottom: 1px solid #f2f2f2; }
+    .options .options-trade .padding {
+      padding: 0 5px 5px;
+      width: 100%;
+      margin-top: -5px; }
+    .options .options-trade .item {
+      display: inline-table;
+      position: relative;
+      width: 50%;
+      padding: 2px 2px 0; }
+    .options .options-trade .item-content {
+      padding: 0;
+      text-align: center;
+      font-size: 14px; }
+    .options .options-trade .item-radio input:checked ~ .item-content {
+      background: #2a3052;
+      color: #fff; }
+  .options .options-ticks {
+    border-bottom: 1px solid #f2f2f2; }
+    .options .options-ticks .item {
+      display: inline-block;
+      width: 16%; }
+    .options .options-ticks .item-content {
+      padding: 0;
+      text-align: center;
+      font-size: 14px; }
+    .options .options-ticks .item-radio input:checked ~ .item-content {
+      background: #2a3052;
+      color: #fff; }
+    .options .options-ticks .disabled {
+      opacity: 0.4; }
+  .options .options-amount {
+    border-bottom: 1px solid #f2f2f2; }
+    .options .options-amount .item {
+      display: inline-block;
+      width: 30%; }
+    .options .options-amount .item-content {
+      padding: 0;
+      text-align: center;
+      font-size: 14px; }
+    .options .options-amount .item-radio input:checked ~ .item-content {
+      background: #2a3052;
+      color: #fff; }
+  .options .options-save {
+    margin-bottom: 20%; }
+  .options button {
+    font-size: 20px; }
+  .options label .input-label {
+    padding: 0; }
+  .options label.item-input {
+    border-width: 0;
+    margin: 1px 0;
+    padding: 6px 0 5px; }
+  .options label.item-select {
+    height: 25px; }
+  .options label.item-radio .item-content {
+    padding-top: 4px;
+    padding-bottom: 4px; }
+  .options label.item-radio .radio-icon {
+    padding: 0 14px 0 0; }
+  .popover-backdrop.active {
+    background-color: rgba(0, 0, 0, 0.5); } }
+
+@media only screen and (max-device-width: 480px) {
+  .accounts-content {
+    display: block; }
+    .accounts-content .bar {
+      background-color: #e98024;
+      margin-bottom: 4px !important; }
+      .accounts-content .bar h2 {
+        color: #fff; }
+    .accounts-content .remove-all-accounts {
+      background-color: #f2f2f2;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 14px; }
+      .accounts-content .remove-all-accounts a {
+        color: #ff0000; }
+    .accounts-content .account .list {
+      padding-top: 0 !important;
+      padding-bottom: 0;
+      margin-bottom: 4px !important; }
+      .accounts-content .account .list .item-content {
+        padding: 10px 0 10px 20px; }
+      .accounts-content .account .list i {
+        display: block;
+        float: left;
+        width: 40px;
+        font-size: 24px;
+        line-height: 40px; }
+        .accounts-content .account .list i.default {
+          color: #4CBB17; }
+        .accounts-content .account .list i.not-default {
+          color: #c4c4c4; }
+      .accounts-content .account .list div .id {
+        color: #2a3052;
+        font-size: 16px;
+        font-weight: 700; }
+      .accounts-content .account .list div .token {
+        color: #c4c4c4;
+        font-size: 14px;
+        display: block;
+        font-weight: 500; }
+    .accounts-content .account .button-green {
+      background-color: #4CBB17; }
+    .accounts-content .add-account {
+      margin-top: 20px;
+      padding: 20px; }
+      .accounts-content .add-account label {
+        float: left; }
+        .accounts-content .add-account label.error {
+          color: #ff0000; }
+          .accounts-content .add-account label.error i {
+            color: #ff0000; }
+        .accounts-content .add-account label .placeholder-icon {
+          color: #c4c4c4; }
+      .accounts-content .add-account .item-input {
+        padding: 0; }
+      .accounts-content .add-account .ion-android-lock {
+        font-size: 16px; }
+      .accounts-content .add-account .add {
+        font-size: 28px;
+        color: #4CBB17;
+        line-height: 40px; } }
+
+@media only screen and (min-device-width: 480px) {
+  .accounts-content {
+    display: block; }
+    .accounts-content .bar {
+      background-color: #e98024;
+      margin-bottom: 4px !important; }
+      .accounts-content .bar h2 {
+        color: #fff; }
+    .accounts-content .remove-all-accounts {
+      background-color: #f2f2f2;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 14px; }
+      .accounts-content .remove-all-accounts a {
+        color: #ff0000; }
+    .accounts-content .account .list {
+      padding-top: 0 !important;
+      padding-bottom: 0;
+      margin-bottom: 4px !important; }
+      .accounts-content .account .list .item-content {
+        padding: 10px 0 10px 20px; }
+      .accounts-content .account .list i {
+        display: block;
+        float: left;
+        width: 40px;
+        font-size: 24px;
+        line-height: 40px; }
+        .accounts-content .account .list i.default {
+          color: #4CBB17; }
+        .accounts-content .account .list i.not-default {
+          color: #c4c4c4; }
+      .accounts-content .account .list div .id {
+        color: #2a3052;
+        font-size: 16px;
+        font-weight: 700; }
+      .accounts-content .account .list div .token {
+        color: #c4c4c4;
+        font-size: 14px;
+        display: block;
+        font-weight: 500; }
+    .accounts-content .account .button-green {
+      background-color: #4CBB17; }
+    .accounts-content .add-account {
+      margin-top: 20px;
+      padding: 20px; }
+      .accounts-content .add-account label {
+        float: left; }
+        .accounts-content .add-account label.error {
+          color: #ff0000; }
+          .accounts-content .add-account label.error i {
+            color: #ff0000; }
+        .accounts-content .add-account label .placeholder-icon {
+          color: #c4c4c4; }
+      .accounts-content .add-account .item-input {
+        padding: 0; }
+      .accounts-content .add-account .ion-android-lock {
+        font-size: 16px; }
+      .accounts-content .add-account .add {
+        font-size: 28px;
+        color: #4CBB17;
+        line-height: 40px; } }
+
+@media only screen and (max-device-width: 480px) {
+  .help-content {
+    background-color: #2a3052;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 5%;
     color: #fff;
-    font-weight: 700; }
+    font-size: 4vw; }
+    .help-content h1 {
+      font-size: 8vw;
+      color: #fff; }
+    .help-content button {
+      background-color: #e98024 !important;
+      font-size: 5vw; }
+    .help-content a {
+      color: #fff;
+      font-weight: 700; } }
+
+@media only screen and (min-device-width: 480px) {
+  .help-content {
+    background-color: #2a3052;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 5%;
+    color: #fff;
+    font-size: 16px; }
+    .help-content h1 {
+      font-size: 28px;
+      color: #fff; }
+    .help-content button {
+      background-color: #e98024 !important;
+      font-size: 18px; }
+    .help-content a {
+      color: #fff;
+      font-weight: 700; } }

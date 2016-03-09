@@ -14,7 +14,8 @@
 		"set_as_default": "Set as default",
 		"add": "Add",
 		"new_token":"Add a new token",
-		"delete": "Delete"
+		"delete": "Delete",
+    "not_allowed_to_trade": "You don't have permission to trade!"
 	},
 	"alert" : {
 		"error": "Error!",
@@ -43,10 +44,12 @@
 		"up": "Up",
 		"down": "Down",
 		"last_digit_prediction": "Last Digit Prediction",
-		"even": "Even",
-		"odd": "Odd",
-		"digit_match": "Digit Match",
-		"digit_differs": "Digit Differs",
+		"digit_even": "Even",
+		"digit_odd": "Odd",
+		"digit_match": "Matches",
+		"digit_differs": "Differs",
+        "digit_over": "Over",
+        "digit_under": "Under",
 		"number_of_ticks": "Number of Ticks",
 		"payout_type": "Payout Type",
 		"select_amount": "Select Amount",

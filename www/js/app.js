@@ -47,6 +47,13 @@ angular
             }
         }, 100);
 
+        var handleUnloggedinUser = function(){
+            if(!accountService.getDefault()){
+                $state.go('signin');
+            }
+        }
+
+        handleUnloggedinUser();
         // Redirecting to the login page if there is not any default token
         $rootScope.$on('$stateChangeStart',
                 function(event, toState, toParams, fromState, fromParams){

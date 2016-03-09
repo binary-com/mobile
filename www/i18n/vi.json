@@ -6,6 +6,7 @@
         "delete": "Xóa", 
         "my_accounts": "Quản lý tài khoản", 
         "new_token": "Thêm một mã token mới", 
+        "not_allowed_to_trade": "Bạn không có quyền giao dịch!", 
         "remove_all": "Xóa tất cả các tài khoản & Đăng xuất", 
         "set_as_default": "Đặt làm mặc định"
     }, 
@@ -44,14 +45,16 @@
     "options": {
         "account": "Tài khoản", 
         "digit_differs": "Chữ số khác nhau", 
+        "digit_even": "Chẵn", 
         "digit_match": "Chữ số khớp", 
+        "digit_odd": "Lẻ", 
+        "digit_over": "Lớn hơn", 
+        "digit_under": "Thấp hơn", 
         "down": "Xuống", 
-        "even": "Chẵn", 
         "forex": "Ngoại hối", 
         "last_digit_prediction": "Dự đoán Chữ số cuối cùng", 
         "lets_trade": "Giao dịch thôi!", 
         "number_of_ticks": "Số giây", 
-        "odd": "Lẻ", 
         "payout": "Thanh toán", 
         "payout_type": "Loại Thanh toán", 
         "random": "Ngẫu nhiên", 
@@ -73,9 +76,9 @@
     "trade": {
         "account_balance": "Số dư tài khoản", 
         "back": "Trở lại", 
-        "balance": "Cân bằng", 
+        "balance": "Số dư", 
         "buy": "MUA", 
-        "buy_again": "Buy Again", 
+        "buy_again": "Mua lại", 
         "buy_price": "Giá mua", 
         "final_price": "Giá Cuối Cùng", 
         "lose": "Hợp đồng này đã thất bại", 
@@ -92,11 +95,11 @@
         "win": "Hợp đồng này đã thắng"
     }, 
     "update": {
-        "check_for_update": "Checking for update.", 
-        "downloading": "Downloading ...", 
-        "error": "An error occured while checking for updates", 
-        "installed": "The update was installed successfully.", 
-        "installing": "Installing update", 
-        "up_to_date": "The application is up to date."
+        "check_for_update": "Kiểm tra phiên bản mới.", 
+        "downloading": "Đang tải xuống...", 
+        "error": "Đã có lỗi xảy ra trong quá trình kiểm tra cập nhật", 
+        "installed": "Bản cập nhật đã được cài đặt thành công.", 
+        "installing": "Đang cài đặt cập nhật", 
+        "up_to_date": "Ứng dụng được cập nhật."
     }
 }

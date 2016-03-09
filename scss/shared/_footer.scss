@@ -1,23 +1,52 @@
-.bar.bar-positive.bar-footer {
-				background-image: none;
-}
-.bar.bar-positive {
-				border-color: $darkblue;
-				background-color: $darkblue;
-				background-image: none;
-}
-.bar-footer {
-				background-color: $darkblue;
-				bottom: 0;
-				border-top-width: 0;
-				border-bottom-width: 1px;
-				height: auto;
-				.account {
-								text-align: center;
-								color: $orange;
+@media only screen and (max-device-width: 480px) {
+				.bar.bar-positive.bar-footer {
+								background-image: none;
 				}
-				.balance {
-								text-align: center;
-								color: $orange;
+				.bar.bar-positive {
+								border-color: $darkblue;
+								background-color: $darkblue;
+								background-image: none;
+				}
+				.bar-footer {
+								background-color: $darkblue;
+								bottom: 0;
+								border-top-width: 0;
+								border-bottom-width: 1px;
+								height: auto;
+								font-size: 4vw;
+								.account {
+												text-align: center;
+												color: $orange;
+								}
+								.balance {
+												text-align: center;
+												color: $orange;
+								}
+				}
+}
+@media only screen and (min-device-width: 480px) {
+				.bar.bar-positive.bar-footer {
+								background-image: none;
+				}
+				.bar.bar-positive {
+								border-color: $darkblue;
+								background-color: $darkblue;
+								background-image: none;
+				}
+				.bar-footer {
+								background-color: $darkblue;
+								bottom: 0;
+								border-top-width: 0;
+								border-bottom-width: 1px;
+								height: auto;
+								font-size: 14px;
+								.account {
+												text-align: center;
+												color: $orange;
+								}
+								.balance {
+												text-align: center;
+												color: $orange;
+								}
 				}
 }
