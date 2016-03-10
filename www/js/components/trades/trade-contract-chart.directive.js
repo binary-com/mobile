@@ -53,7 +53,7 @@ angular
 									chartService.addContract({
 										startTime: contract.date_start + 1,
 										duration: parseInt(scope.$parent.proposalToSend.duration),
-										type: scope.$parent.proposalToSend.contract_type,
+										type: contract.contract_type,
 										barrier: scope.$parent.proposalToSend.barrier
 									});
 								}
