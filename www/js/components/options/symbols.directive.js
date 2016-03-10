@@ -16,7 +16,7 @@ angular
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/options/symbols.template.html',
-			link: function(scope, element) {
+			link: function(scope, element, attrs) {
                 scope.tradeTypes = config.tradeTypes;
 
 				scope.$on('symbol', function(e, _symbol) {
@@ -45,6 +45,13 @@ angular
 					scope.$parent.selected.symbol = _selectedSymbol;
 					marketService.getSymbolDetails(scope.$parent.selected.symbol);
 				};
+                
+                scope.getNgDisabled = function(){
+                    if(attrs['ngDisabled']){
+                        return scope.$eval(attrs['ngDisabled']);
+                    }
+                    return false;
+                };
 			}
 		};
 	}]);
