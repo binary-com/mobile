@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="binary">
 
 <head>
 	<meta charset="utf-8">
@@ -96,6 +96,7 @@
 	<script src="js/services/app-version.service.js"></script>
 	<script src="js/services/app-state.service.js"></script>
 
+	<script src="js/controllers/body.controller.js"></script>
 	<script src="js/controllers/home.controller.js"></script>
 	<script src="js/controllers/signIn.controller.js"></script>
 	<script src="js/controllers/help.controller.js"></script>
@@ -134,7 +135,7 @@
     <!-- endbuild -->
 </head>
 
-<body ng-app="binary">
+<body ng-controller="BodyController" id="{{getLanguage()}}">
 	<connection-status></connection-status>
     <app-update></app-update>
     <scope-message></scope-message>
