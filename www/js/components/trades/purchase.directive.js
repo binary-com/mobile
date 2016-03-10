@@ -25,10 +25,11 @@ angular
 					$('.contract-purchase button').attr('disabled', true);
                     appStateService.purchaseMode = true;
 					websocketService.sendRequestFor.purchase(scope.$parent.proposalRecieved.id, scope.$parent.proposalRecieved.ask_price);
-					
+				
+					var proposal = JSON.parse(localStorage.proposal);
+                    
 					// Send statistic to Google Analytics
 					if(typeof(analytics) !== 'undefined'){
-						var proposal = JSON.parse(localStorage.proposal);
 						analytics.trackEvent(
 							scope.$parent.account.loginid,
 							proposal.symbol,
@@ -36,6 +37,15 @@ angular
 							scope.$parent.proposalRecieved.payout
 						);
 					}
+                    else{
+                        // Send statistic to Amplitude
+                        amplitude.logEvent("user id: " + scope.$parent.account.loginid + "\r\n" +
+                                "Symbol: " + proposal.symbol + "\r\n" +
+                                "TradeType: " + proposal.contract_type + "\r\n" +
+                                "Payout: " + scope.$parent.proposalRecieved.payout + "\r\n" +
+                                "AskPrice: " + scope.$parent.proposalRecieved.ask_price
+                                );
+                    }
 				};
 
                 scope.getNgDisabled = function(){
