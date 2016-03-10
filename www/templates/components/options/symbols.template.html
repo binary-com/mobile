@@ -1,7 +1,9 @@
 <div class="options-upderlying row">
 	<label class="item item-input item-select col col-90">
 		<div class="input-label"><h1>{{'options.underlying' | translate}}</h1></div>
-		<select ng-change="updateSymbol(selected.symbol)" ng-model="selected.symbol">
+		<select ng-change="updateSymbol(selected.symbol)" 
+                ng-model="selected.symbol"
+                ng-disabled="getNgDisabled()">
 			<option
 				ng-repeat="s in symbols"
 				value="{{s.symbol}}"

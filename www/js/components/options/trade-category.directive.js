@@ -16,7 +16,7 @@ angular
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/options/trade-category.template.html',
-			link: function(scope, element) {
+			link: function(scope, element, attrs) {
                 scope.tradeCategories = config.tradeCategories;
                 
                 scope.$parent.$watch('scope.tradeTypes', function(_newValue, _oldValue){
@@ -58,6 +58,13 @@ angular
                         }
                     }
 				};
+                
+                scope.getNgDisabled = function(){
+                    if(attrs['ngDisabled']){
+                        return scope.$eval(attrs['ngDisabled']);
+                    }
+                    return false;
+                };
 
 				scope.$parent.$watch(function(){
 					var digitsVisible = angular.element(document).find('digits-option').hasClass('ng-hide');
