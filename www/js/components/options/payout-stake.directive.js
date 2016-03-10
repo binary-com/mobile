@@ -14,11 +14,18 @@ angular
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/options/payout-stake.template.html',
-			link: function(scope, element) {
+			link: function(scope, element, attrs) {
 				scope.$parent.selected.basis = marketService.getDefault.basis();
 				scope.updateBasis = function(_basis) {
 					scope.$parent.selected.basis = _basis;
 				};
+                
+                scope.getNgDisabled = function(){
+                    if(attrs['ngDisabled']){
+                        return scope.$eval(attrs['ngDisabled']);
+                    }
+                    return false;
+                };
 			}
 		};
 	}]);

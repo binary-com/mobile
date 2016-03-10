@@ -14,13 +14,20 @@ angular
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/options/ticks.template.html',
-			link: function(scope, element) {
+			link: function(scope, element, attrs) {
 				scope.ticks = [5, 6, 7, 8, 9, 10];
 				scope.$parent.selected.tick = marketService.getDefault.tick();
 
 				scope.updateTick = function(_tick) {
 					scope.$parent.selected.tick = _tick;
 				};
+                
+                scope.getNgDisabled = function(){
+                    if(attrs['ngDisabled']){
+                        return scope.$eval(attrs['ngDisabled']);
+                    }
+                    return false;
+                };
 			}
 		};
 	}]);
