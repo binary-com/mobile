@@ -4,42 +4,48 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-03-01 09:52+0000\n"
+"PO-Revision-Date: 2016-03-11 06:42+0000\n"
 "Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/binary-tick-trade/"
-"app/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.5\n"
 
 #: .help.email_cs
+#, fuzzy
 msgid "Have questions? Email customer support at "
 msgstr "Haben Sie Fragen? Mailen Sie sie dem Kundendienst über "
 
 #: .help.copy_token
+#, fuzzy
 msgid "and create a token. Then simply copy and paste it into the top box."
 msgstr ""
 "und generieren Sie einen Token. Kopieren und verschieben Sie ihn einfach in "
 "das obere Feld."
 
 #: .help.visit
+#, fuzzy
 msgid "Please visit"
 msgstr "Bitte besuchen Sie"
 
 #: .help.back
+#, fuzzy
 msgctxt ".help.back"
 msgid "Back"
 msgstr "Zurück"
 
 #: .help.need_help
+#, fuzzy
 msgctxt ".help.need_help"
 msgid "Need Help?"
 msgstr "Brauchen Sie Hilfe?"
 
 #: .help.generate_api
+#, fuzzy
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
@@ -48,158 +54,196 @@ msgstr ""
 "Mobile App, aufrufen zu können."
 
 #: .help.page
+#, fuzzy
 msgid "this page"
 msgstr "diese Seite"
 
 #: .app.exit_title
+#, fuzzy
 msgid "Exit"
 msgstr "Beenden"
 
 #: .app.connection_error_title
+#, fuzzy
 msgid "Connection Error"
 msgstr "Verbindungsfehler"
 
 #: .app.connection_error
+#, fuzzy
 msgid "There is no internet connection!"
 msgstr "Keine Internetverbindung vorhanden!"
 
 #: .app.exit_confirmation
+#, fuzzy
 msgid "Are you sure you want to exit?"
 msgstr "Sind Sie sicher, dass Sie beenden möchten?"
 
 #: .update.downloading
+#, fuzzy
 msgid "Downloading ..."
 msgstr "Lade herunter ..."
 
 #: .update.installing
+#, fuzzy
 msgid "Installing update"
 msgstr "Installiere Update"
 
 #: .update.installed
+#, fuzzy
 msgid "The update was installed successfully."
 msgstr "Das Update wurde erfolgreich installiert."
 
 #: .update.up_to_date
+#, fuzzy
 msgid "The application is up to date."
 msgstr "Die Anwendung ist jetzt aktuell."
 
 #: .update.check_for_update
+#, fuzzy
 msgid "Checking for update."
 msgstr "Suche nach Updates."
 
 #: .update.error
+#, fuzzy
 msgid "An error occured while checking for updates"
 msgstr "Während der Suche nach Updates ist ein Fehler aufgetreten"
 
 #: .trade.payout
+#, fuzzy
 msgctxt ".trade.payout"
 msgid "Payout"
 msgstr "Auszahlung"
 
 #: .trade.net_profit
+#, fuzzy
 msgid "Net Profit"
 msgstr "Nettogewinn"
 
 #: .trade.buy
+#, fuzzy
 msgid "BUY"
 msgstr "KAUFEN"
 
 #: .trade.buy_again
+#, fuzzy
 msgid "Buy Again"
 msgstr "Nochmal kaufen"
 
 #: .trade.loss
+#, fuzzy
 msgid "Loss"
 msgstr "Verlust"
 
 #: .trade.total_cost
+#, fuzzy
 msgid "Total Cost"
 msgstr "Gesamtkosten"
 
 #: .trade.win
+#, fuzzy
 msgid "This contract won"
 msgstr "Dieser Kontrakt hat gewonnen"
 
 #: .trade.price
+#, fuzzy
 msgid "Price"
 msgstr "Kurs"
 
 #: .trade.stake
+#, fuzzy
 msgctxt ".trade.stake"
 msgid "Stake"
 msgstr "Einsatz"
 
 #: .trade.back
+#, fuzzy
 msgctxt ".trade.back"
 msgid "Back"
 msgstr "Zurück"
 
 #: .trade.account_balance
+#, fuzzy
 msgid "Account Balance"
 msgstr "Kontostand"
 
 #: .trade.buy_price
+#, fuzzy
 msgid "Buy Price"
 msgstr "Kaufkurs"
 
 #: .trade.lose
+#, fuzzy
 msgid "This contract lost"
 msgstr "Dieser Kontrakt hat verloren"
 
 #: .trade.profit
+#, fuzzy
 msgid "Profit"
 msgstr "Gewinn"
 
 #: .trade.potential_profit
+#, fuzzy
 msgid "Potential Profit"
 msgstr "Möglicher Gewinn"
 
 #: .trade.final_price
+#, fuzzy
 msgid "Final Price"
 msgstr "Endkurs"
 
 #: .trade.potential_payout
+#, fuzzy
 msgid "Potential Payout"
 msgstr "Mögliche Auszahlung"
 
 #: .trade.balance
+#, fuzzy
 msgid "Balance"
 msgstr "Guthaben"
 
 #: .trade.transaction_id
+#, fuzzy
 msgid "Transaction Reference"
 msgstr "Transaktionsreferenz"
 
 #: .signin.paste_token
+#, fuzzy
 msgid "Paste your token here"
 msgstr "Fügen Sie Ihren Token hier ein"
 
 #: .signin.get_token
+#, fuzzy
 msgid "How to get a Token?"
 msgstr "Wie erhält man einen Token?"
 
 #: .signin.add_account
+#, fuzzy
 msgid "Add Account"
 msgstr "Konto hinzufügen"
 
 #: .signin.need_help
+#, fuzzy
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "Benötigen Sie Unterstützung?"
 
 #: .signin.language
+#, fuzzy
 msgid "Language"
 msgstr "Sprache"
 
 #: .accounts.my_accounts
+#, fuzzy
 msgid "Manage Accounts"
 msgstr "Konten verwalten"
 
 #: .accounts.default
+#, fuzzy
 msgid "Default"
 msgstr "Vorgabe"
 
 #: .accounts.account
+#, fuzzy
 msgctxt ".accounts.account"
 msgid "Account"
 msgstr "Konto"
@@ -209,42 +253,52 @@ msgid "Your don't have permission to trade!"
 msgstr ""
 
 #: .accounts.add
+#, fuzzy
 msgid "Add"
 msgstr "Zufügen"
 
 #: .accounts.remove_all
+#, fuzzy
 msgid "Remove All Accounts & Sign Out"
 msgstr "Alle Konten entfernen & Abmelden"
 
 #: .accounts.new_token
+#, fuzzy
 msgid "Add a new token"
 msgstr "Einen neuen Token hinzufügen"
 
 #: .accounts.delete
+#, fuzzy
 msgid "Delete"
 msgstr "Löschen"
 
 #: .accounts.set_as_default
+#, fuzzy
 msgid "Set as default"
 msgstr "Als Vorgabe einstellen"
 
 #: .alert.remove_token_content
+#, fuzzy
 msgid "Are you sure you want to remove this token?"
 msgstr "Sind Sie sicher, dass Sie diesen Token entfernen möchten?"
 
 #: .alert.remove_all_tokens_title
+#, fuzzy
 msgid "Removing All Tokens"
 msgstr "Entferne alle Token"
 
 #: .alert.must_number
+#, fuzzy
 msgid "It must be a number."
 msgstr "Es muss eine Zahl sein."
 
 #: .alert.remove_token_title
+#, fuzzy
 msgid "Removing a Token"
 msgstr "Einen Token entfernen"
 
 #: .alert.no_tick
+#, fuzzy
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
@@ -253,77 +307,95 @@ msgstr ""
 "untersützt keine Ticks."
 
 #: .alert.field_between
+#, fuzzy
 msgid "It must be between 0.70 and 100000."
 msgstr "Es muss zwischen 0,70 und 100000 sein."
 
 #: .alert.not_unique
+#, fuzzy
 msgid "You've already added this account."
 msgstr "Sie haben dieses Konto schon hinzugefügt."
 
 #: .alert.warning
+#, fuzzy
 msgid "Warning"
 msgstr "Achtung"
 
 #: .alert.error
+#, fuzzy
 msgid "Error!"
 msgstr "Fehler!"
 
 #: .alert.not_auth
+#, fuzzy
 msgid "Sorry, we couldn't authenticate you."
 msgstr "Leider können wir Sie nicht authentifizieren."
 
 #: .alert.no_underlying
+#, fuzzy
 msgid "There is no underlying for this market. Please try another market."
 msgstr ""
 "Dies ist keine Anlage für diesen Markt. Versuchen Sie bitte einen anderen "
 "Markt."
 
 #: .alert.contract_error
+#, fuzzy
 msgid "Contract not available, please try again."
 msgstr "Kontrakt nicht vorhanden, bitte versuchen Sie es erneut."
 
 #: .alert.required_field
+#, fuzzy
 msgid "This field is required."
 msgstr "Dieses Feld ist erforderlich."
 
 #: .alert.not_valid
+#, fuzzy
 msgid "Please enter a valid token."
 msgstr "Bitte geben Sie einen gültigen Token ein."
 
 #: .alert.remove_all_tokens_content
+#, fuzzy
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr ""
 "Sind Sie sicher, dass Sie alle Token entfernen und sich abmelden möchten?"
 
 #: .options.digit_odd
+#, fuzzy
 msgid "Odd"
 msgstr "Chance"
 
 #: .options.random
+#, fuzzy
 msgid "Random"
 msgstr "Random"
 
 #: .options.select_amount
+#, fuzzy
 msgid "Select Amount"
 msgstr "Betrag auswählen"
 
 #: .options.down
+#, fuzzy
 msgid "Down"
 msgstr "Runter"
 
 #: .options.underlying
+#, fuzzy
 msgid "Underlying"
 msgstr "Anlage"
 
 #: .options.select_market
+#, fuzzy
 msgid "Markets"
 msgstr "Märkte"
 
 #: .options.payout_type
+#, fuzzy
 msgid "Payout Type"
 msgstr "Auszahlungsart"
 
 #: .options.forex
+#, fuzzy
 msgid "Forex"
 msgstr "Devisen"
 
@@ -332,44 +404,54 @@ msgid "Over"
 msgstr ""
 
 #: .options.stake
+#, fuzzy
 msgctxt ".options.stake"
 msgid "Stake"
 msgstr "Einsatz"
 
 #: .options.save
+#, fuzzy
 msgid "SAVE"
 msgstr "SPEICHERN"
 
 #: .options.trade_type
+#, fuzzy
 msgid "Trade Types"
 msgstr "Handelsarten"
 
 #: .options.digit_match
+#, fuzzy
 msgid "Digit Match"
 msgstr "Kommastellenübereinstimmung"
 
 #: .options.number_of_ticks
+#, fuzzy
 msgid "Number of Ticks"
 msgstr "Anzahl der Ticks"
 
 #: .options.lets_trade
+#, fuzzy
 msgid "Let's trade!"
 msgstr "Traden Sie!"
 
 #: .options.last_digit_prediction
+#, fuzzy
 msgid "Last Digit Prediction"
 msgstr "Voraussage der letzten Kommastelle"
 
 #: .options.payout
+#, fuzzy
 msgctxt ".options.payout"
 msgid "Payout"
 msgstr "Auszahlung"
 
 #: .options.digit_differs
+#, fuzzy
 msgid "Digit Differs"
 msgstr "Kommastelle weicht ab"
 
 #: .options.account
+#, fuzzy
 msgctxt ".options.account"
 msgid "Account"
 msgstr "Konto"
@@ -380,9 +462,11 @@ msgid "Under"
 msgstr "Anlage"
 
 #: .options.up
+#, fuzzy
 msgid "Up"
 msgstr "Hoch"
 
 #: .options.digit_even
+#, fuzzy
 msgid "Even"
 msgstr "Gleich"
