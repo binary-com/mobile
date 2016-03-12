@@ -64,13 +64,24 @@ angular
 					}
 				});
 
+                var cleanLocalData = function(){
+                        // Clearing local data
+                        proposalService.remove();
+                        marketService.removeActiveSymbols();
+                        marketService.removeAssetIndex();
+                        appStateService.isLoggedin = false;
+                };
+
 				scope.addAccount = function(_token) {
                     requestId = new Date().getTime();
 					scope.showSpinner = false;
 					// Validate the token
 					if (_token && _token.length === 15) {
 						scope.showSpinner = true;
-						accountService.validate(_token, {req_id: requestId});
+                        
+                        cleanLocalData(); 
+                        
+                        accountService.validate(_token, {req_id: requestId});
 					} else {
 						alertService.accountError.tokenNotValid();
 					}
@@ -83,11 +94,8 @@ angular
 				scope.setAccountAsDefault = function(_token) {
                     requestId = new Date().getTime();
 					scope.settingDefault = true;
-                    
-                    proposalService.remove();
-                    marketService.removeActiveSymbols();
-                    marketService.removeAssetIndex();
-                    appStateService.isLoggedin = false;
+
+                    cleanLocalData();                    
 
 					accountService.setDefault(_token);
 					accountService.validate(null, {req_id: requestId});
