@@ -9127,6 +9127,9 @@ body * {
 .item-radio .item-content {
   background-color: #f2f2f2; }
 
+.item-radio > input[disabled="disabled"] + div.item-content {
+  opacity: 0.4; }
+
 .scroll {
   padding-bottom: 1px; }
 
@@ -9864,8 +9867,10 @@ input::-webkit-inner-spin-button {
       background: #2a3052;
       color: #fff; }
     .options .options-market .item-radio input[disabled] + div {
-      background-color: #f2f2f2;
-      color: #c4c4c4; }
+      /*
+																				background-color: $lightgray;
+																				color: $gray;
+                                                                    */ }
   .options .options-upderlying {
     border-bottom: 1px solid #f2f2f2; }
   .options .options-trade {
@@ -9968,8 +9973,10 @@ input::-webkit-inner-spin-button {
       background: #2a3052;
       color: #fff; }
     .options .options-market .item-radio input[disabled] + div {
-      background-color: #f2f2f2;
-      color: #c4c4c4; }
+      /*
+																				background-color: $lightgray;
+																				color: $gray;
+                                                                    */ }
   .options .options-upderlying {
     border-bottom: 1px solid #f2f2f2; }
   .options .options-trade {

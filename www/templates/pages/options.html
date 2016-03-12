@@ -8,15 +8,15 @@
 	</ion-header-bar>
 	<ion-content class="options-content">
 		<change-account></change-account>
-		<markets-option></markets-option>
-		<symbols-option></symbols-option>
-		<trade-category></trade-category>
-		<ticks-option></ticks-option>
-		<digits-option ng-disabled="!displayDigits"></digits-option>
-		<payout-stake-option></payout-stake-option>
+		<markets-option ng-disabled="!letsTrade"></markets-option>
+		<symbols-option ng-disabled="!letsTrade"></symbols-option>
+		<trade-category ng-disabled="!letsTrade"></trade-category>
+		<ticks-option ng-disabled="!letsTrade"></ticks-option>
+		<digits-option ng-disabled="!displayDigits && !letsTrade"></digits-option>
+		<payout-stake-option ng-disabled="!letsTrade"></payout-stake-option>
 		<div class="options-save row center">
 			<div class="col col-75">
-				<button class="button button-block" ng-click="navigateToTradePage()" ng-disabled="!letsTrade" disabled="true">{{'options.lets_trade' | translate }}</button>
+				<button class="button button-block" ng-click="navigateToTradePage()" ng-disabled="!letsTrade || !hasTradePermission()" disabled="true">{{'options.lets_trade' | translate }}</button>
 			</div>
 		</div>
 	</ion-content>

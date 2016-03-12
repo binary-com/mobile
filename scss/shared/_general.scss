@@ -23,6 +23,11 @@ body * {
 .item-radio .item-content {
 				background-color: $lightgray;
 }
+
+.item-radio > input[disabled="disabled"] + div.item-content{
+    opacity: 0.4;
+}
+
 .scroll {
 				padding-bottom: 1px;
 }

@@ -16,7 +16,7 @@ angular
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/options/markets.template.html',
-			link: function(scope, element) {
+			link: function(scope, element, attrs) {
 				scope.showSymbolWarning = true;
 
 				/**
@@ -97,6 +97,13 @@ angular
 					scope.$parent.selected.market = _market;
 					updateSymbols(scope.$parent.selected.market);
 				};
+                
+                scope.getNgDisabled = function(){
+                    if(attrs['ngDisabled']){
+                        return scope.$eval(attrs['ngDisabled']);
+                    }
+                    return false;
+                };
 			}
 		};
 	}]);

@@ -10,7 +10,10 @@
 angular
 	.module('binary')
 	.controller('HelpController',
-		function($scope, $state) {
+		function($scope, $state, languageService) {
+
+            var language = languageService.read();
+            $scope.tokenUrl = "https://www.binary.com/user/api_tokenws?l=" + language.toUpperCase();
 
 			if(typeof(analytics) !== "undefined"){
 					analytics.trackView("Help");
