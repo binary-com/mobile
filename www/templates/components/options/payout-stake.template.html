@@ -4,11 +4,15 @@
     </div>
     <div class="row">
         <label class="item item-radio col">
-            <input type="radio" name="amount" value="payout" ng-model="selected.basis" ng-change="updateBasis(selected.basis)">
+            <input type="radio" name="amount" value="payout" ng-model="selected.basis" 
+                                                             ng-change="updateBasis(selected.basis)"
+                                                             ng-disabled="getNgDisabled()">
             <div class="item-content">{{'options.payout' | translate}}</div>
         </label>
         <label class="item item-radio col">
-            <input type="radio" name="amount" value="stake" ng-model="selected.basis" ng-change="updateBasis(selected.basis)">
+            <input type="radio" name="amount" value="stake" ng-model="selected.basis" 
+                                                            ng-change="updateBasis(selected.basis)"
+                                                            ng-disabled="getNgDisabled()">
             <div class="item-content">{{'options.stake' | translate}}</div>
         </label>
     </div>

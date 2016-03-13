@@ -6,7 +6,9 @@
         <label class="item item-radio" ng-repeat="t in tradeCategories">
             <input type="radio" name="tradeType" value="{{t.value}}"
                                                  ng-model="selected.tradeCategory"
-                                                 ng-change="updateTradeType(selected.tradeCategory)" ng-checked="selected.tradeCategory">
+                                                 ng-change="updateTradeType(selected.tradeCategory)" 
+                                                 ng-checked="selected.tradeCategory"
+                                                 ng-disabled="getNgDisabled()">
             <div class="item-content">{{t.name}}</div>
         </label>
     </div>
