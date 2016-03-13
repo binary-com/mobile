@@ -106,4 +106,8 @@ angular
                 $scope.isDataLoaded = stopSpinner;
                 $scope.letsTrade = _.isNil(enableLetsTrade) ? stopSpinner : enableLetsTrade;
             };
+            
+            $scope.hasTradePermission = function(){
+                return accountService.checkScope(['READ', 'TRADE']);
+            }
 	});
