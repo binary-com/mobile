@@ -4,7 +4,8 @@
 		"add_account": "Add Account",
 		"need_help": "Need Help?",
 		"paste_token": "Paste your token here",
-		"get_token": "How to get a Token?"
+		"get_token": "How to get a Token?",
+        "signin_with_binary_com": "Sing in with Binary.com"
 	},
 	"accounts": {
 		"my_accounts": "Manage Accounts",
