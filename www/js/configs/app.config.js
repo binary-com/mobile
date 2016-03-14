@@ -7,6 +7,7 @@
 angular
 	.module('binary')
 	.constant('config', {
+        'app_id': "id-AfF67v3RMMgutC9EfBeT34mUWpsRo",
         'tradeCategories': [
             {
                 name: "Up/Down",
