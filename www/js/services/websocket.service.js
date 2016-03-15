@@ -119,6 +119,7 @@ angular
                                 window._trackJs.userId = message.authorize.loginid;
                                 appStateService.isLoggedin = true;
                                 appStateService.scopes = message.authorize.scopes;
+                                amplitude.setUserId(message.authorize.loginid);
                                 $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
                             } else {
                                 if (message.hasOwnProperty('error') && message.error.code === 'InvalidToken') {
