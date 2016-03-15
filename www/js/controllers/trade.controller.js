@@ -132,7 +132,33 @@ angular
                     // Unlock view to navigate
                     appStateService.purchaseMode = false;
 
-					proposalService.send();
+					var proposal = JSON.parse(localStorage.proposal);
+                    
+					// Send statistic to Google Analytics
+					if(typeof(analytics) !== 'undefined'){
+						analytics.trackEvent(
+							$scope.account.loginid,
+							proposal.symbol,
+							proposal.contract_type,
+							$scope.proposalRecieved.payout,
+                            _contract.result === "lose" ? "Lost": "Won"
+						);
+					}
+                    else{
+                        var ampEventProperties = {
+                                Symbol: proposal.symbol,
+                                TradeType: proposal.contract_type,
+                                Stake: proposal.basis === "payout" ? $scope.proposalRecieved.ask_price : proposal.ammount,
+                                Market: proposal.passthrough.market,
+                                Duration: proposal.duration,
+                                DurationUnit: proposal.duration_unit,
+                                result: _contract.result === "lose" ? "Lost": "Won"
+                        }
+                        // Send statistic to Amplitude
+                        amplitude.logEvent("Purchase", ampEventProperties);
+                    }
+					
+                    proposalService.send();
 
 					if(!$scope.$$phase){
 						$scope.$apply();
@@ -154,11 +180,7 @@ angular
 				if (accountService.hasDefault()) {
 					accountService.validate();
 
-//					websocketService.sendRequestFor.symbols();
-//					websocketService.sendRequestFor.assetIndex();
-
 					$scope.proposalToSend = JSON.parse(localStorage.proposal);
-					
 
 					proposalService.send();
 
