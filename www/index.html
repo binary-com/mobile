@@ -59,7 +59,18 @@
     </script>
     <!-- END AMPLITUDE -->
 
-	<!-- ionic/angularjs js -->
+    <!-- Modify redirect url -->
+    <script>
+        var url = window.location.hash;
+
+        if(/#\/redirect\%23/.exec(url)){
+            url = url.replace("%23", "?");
+            window.location.href = url;
+        }
+    </script>
+    <!-- END Modify -->
+	
+    <!-- ionic/angularjs js -->
 	<script src="lib/ionic/js/ionic.bundle.js"></script>
 	<!-- cordova script (this will be a 404 during development) -->
 	<script src="cordova.js"></script>
@@ -103,6 +114,7 @@
 	<script src="js/controllers/trade.controller.js"></script>
 	<script src="js/controllers/options.controller.js"></script>
 	<script src="js/controllers/accounts.controller.js"></script>
+	<script src="js/controllers/oauth-redirect.controller.js"></script>
 
 	<script src="js/components/accounts/signin.directive.js"></script>
 	<script src="js/components/accounts/change-account.directive.js"></script>
