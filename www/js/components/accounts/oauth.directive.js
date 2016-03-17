@@ -28,8 +28,14 @@ angular
 					}
                 }
                
+                window.onmessage = function(_message){
+                    console.log(_message);
+                    authenticate(_message.data.token);
+                }
+
                 scope.signin = function(){
                     var authWindow = window.open("https://www.binary.com/oauth2/authorize?app_id=" + config.app_id,
+                            //window.open("http://localhost:8100/#/redirect?token=123123",
                             "_blank",
                             "location=no,toolbar=no");
 
