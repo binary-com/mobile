@@ -150,6 +150,8 @@ angular
                                 TradeType: proposal.contract_type,
                                 Stake: proposal.basis === "payout" ? $scope.proposalRecieved.ask_price : proposal.ammount,
                                 Market: proposal.passthrough.market,
+                                Duration: proposal.duration,
+                                DurationUnit: proposal.duration_unit,
                                 result: _contract.result === "lose" ? "Lost": "Won"
                         }
                         // Send statistic to Amplitude
