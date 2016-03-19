@@ -4,171 +4,175 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-03-01 09:30+0000\n"
-"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/binary-tick-trade/"
-"app/fr/>\n"
+"PO-Revision-Date: 2016-03-19 20:21+0000\n"
+"Last-Translator: Eugénie Berchon <eugenie.berchon@hotmail.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
-msgstr ""
+msgstr "Des questions ? Veuillez contacter le service clientèle à l'adresse "
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
 msgstr ""
+"et créez un jeton d'authentification. Il vous suffit ensuite de le copier-"
+"coller dans le champ situé en haut de page."
 
 #: .help.visit
 msgid "Please visit"
-msgstr ""
+msgstr "Veuillez consulter la page"
 
 #: .help.back
 msgctxt ".help.back"
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #: .help.need_help
 msgctxt ".help.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Besoin d'aide ?"
 
 #: .help.generate_api
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
 msgstr ""
+"Pour accéder à une application tierce, notamment à une application mobile, "
+"vous devez générer un jeton d'authentification API."
 
 #: .help.page
 msgid "this page"
-msgstr ""
+msgstr "cette page"
 
 #: .app.exit_title
 msgid "Exit"
-msgstr ""
+msgstr "Quitter"
 
 #: .app.connection_error_title
 msgid "Connection Error"
-msgstr ""
+msgstr "Erreur de connexion"
 
 #: .app.connection_error
 msgid "There is no internet connection!"
-msgstr ""
+msgstr "Aucune connexion Internet !"
 
 #: .app.exit_confirmation
 msgid "Are you sure you want to exit?"
-msgstr ""
+msgstr "Voulez-vous vraiment quitter cette page ?"
 
 #: .update.downloading
 msgid "Downloading ..."
-msgstr ""
+msgstr "Téléchargement..."
 
 #: .update.installing
 msgid "Installing update"
-msgstr ""
+msgstr "Installation de la mise à jour en cours"
 
 #: .update.installed
 msgid "The update was installed successfully."
-msgstr ""
+msgstr "La mise à jour a bien été installée"
 
 #: .update.up_to_date
 msgid "The application is up to date."
-msgstr ""
+msgstr "L'application est à jour."
 
 #: .update.check_for_update
 msgid "Checking for update."
-msgstr ""
+msgstr "Recherche de mises à jour."
 
 #: .update.error
 msgid "An error occured while checking for updates"
-msgstr ""
+msgstr "Une erreur est survenue lors de la recherche de mises à jour."
 
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr ""
+msgstr "Paiement"
 
 #: .trade.net_profit
 msgid "Net Profit"
-msgstr ""
+msgstr "Bénéfice net"
 
 #: .trade.buy
 msgid "BUY"
-msgstr ""
+msgstr "ACHAT"
 
 #: .trade.buy_again
 msgid "Buy Again"
-msgstr ""
+msgstr "Acheter à nouveau"
 
 #: .trade.loss
 msgid "Loss"
-msgstr ""
+msgstr "Perte"
 
 #: .trade.total_cost
 msgid "Total Cost"
-msgstr ""
+msgstr "Coût total"
 
 #: .trade.win
 msgid "This contract won"
-msgstr ""
+msgstr "Ce contrat termine dans la monnaie"
 
 #: .trade.price
 msgid "Price"
-msgstr ""
+msgstr "Prix"
 
 #: .trade.stake
 msgctxt ".trade.stake"
 msgid "Stake"
-msgstr ""
+msgstr "Investissement"
 
 #: .trade.back
 msgctxt ".trade.back"
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #: .trade.account_balance
 msgid "Account Balance"
-msgstr ""
+msgstr "Solde du compte"
 
 #: .trade.buy_price
 msgid "Buy Price"
-msgstr ""
+msgstr "Prix d'achat"
 
 #: .trade.lose
 msgid "This contract lost"
-msgstr ""
+msgstr "Ce contrat termine hors la monnaie"
 
 #: .trade.profit
 msgid "Profit"
-msgstr ""
+msgstr "Bénéfice"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
-msgstr ""
+msgstr "Bénéfice potentiel"
 
 #: .trade.final_price
 msgid "Final Price"
-msgstr ""
+msgstr "Prix final"
 
 #: .trade.potential_payout
 msgid "Potential Payout"
-msgstr ""
+msgstr "Paiement potentiel"
 
 #: .trade.balance
 msgid "Balance"
-msgstr ""
+msgstr "Solde"
 
 #: .trade.transaction_id
 msgid "Transaction Reference"
-msgstr ""
+msgstr "Référence de transaction"
 
 #: .signin.paste_token
 msgid "Paste your token here"
-msgstr ""
+msgstr "Veuillez coller votre jeton d'authentification ici"
 
 #: .signin.get_token
 msgid "How to get a Token?"
