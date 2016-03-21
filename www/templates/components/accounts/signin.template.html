@@ -1,10 +1,11 @@
+<a class="button icon-left ion-chevron-left button-clear" ng-click="changeSigninView()" ng-show="showTokenForm"></a>
 <div class="row center">
 	<div class="col col-75 branding">
 		<img src="img/logo.svg" class="logo" alt="Binary Logo">
 		<img src="img/binary.svg" class="slogan" alt="Binary.com">
 	</div>
 </div>
-<form ng-submit="signIn()" role="form" name="signin">
+<form ng-submit="signIn()" role="form" name="signin" ng-show="showTokenForm">
 	<div class="list">
 		<ion-spinner ng-show="showSpinner"></ion-spinner>
 		<label class="item-input" ng-class="{'error': tokenError}">
@@ -40,3 +41,19 @@
 		</div>
 	</div>
 </form>
+
+<div class="row responsive-sm" ng-show="showTokenForm">
+    <div class="col center">
+        <a href="#" class="help" ui-sref="help">
+            {{'signin.get_token' | translate }}
+        </a>
+    </div>
+</div>
+        
+<oauth ng-show="!showTokenForm"></oauth>
+
+<div class="row center" ng-show="!showTokenForm">
+    <div class="col col-75">
+        <a href="" class="token-link" ng-click="changeSigninView()">{{ 'signin.use_token' | translate }}</a>
+    </div>
+</div>
