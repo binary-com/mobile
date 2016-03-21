@@ -9430,6 +9430,8 @@ input::-webkit-inner-spin-button {
       font-size: 5vw; }
     .sign-in .help {
       color: #fff; }
+    .sign-in .token-link {
+      color: #fff; }
     .sign-in ::-webkit-input-placeholder {
       color: #f2f2f2; }
     .sign-in :-moz-placeholder {
@@ -9508,6 +9510,8 @@ input::-webkit-inner-spin-button {
       background-color: #e98024 !important;
       font-size: 18px; }
     .sign-in .help {
+      color: #fff; }
+    .sign-in .token-link {
       color: #fff; }
     .sign-in ::-webkit-input-placeholder {
       color: #f2f2f2; }
