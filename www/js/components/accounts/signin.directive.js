@@ -16,16 +16,20 @@ angular
 		'alertService',
 		'$state',
 		'$ionicPopup',
+        '$compile',
 		function(accountService,
 				languageService,
 				websocketService,
 				alertService,
 				$state,
-				$ionicPopup) {
+				$ionicPopup,
+                $compile) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/signin.template.html',
 			link: function(scope, element) {
+
+                scope.showTokenForm = false;
 
 				/**
 				 * On load:
@@ -34,11 +38,6 @@ angular
 				 */
 				var init = function() {
 					websocketService.init();
-//					if (accountService.hasDefault()) {
-//						accountService.validate();
-//					}
-					//websocketService.sendRequestFor.symbols();
-					//websocketService.sendRequestFor.assetIndex();
 					scope.language = languageService.read();
 				};
 
@@ -84,25 +83,14 @@ angular
                 scope.changeLanguage = function(){
                     languageService.update(scope.language);
                 }
+
+                scope.changeSigninView = function(){
+                    scope.showTokenForm = !scope.showTokenForm;
+                    
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
+                }
 			}
 		};
 	}]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
