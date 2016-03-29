@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-03-19 20:21+0000\n"
+"PO-Revision-Date: 2016-03-29 17:37+0000\n"
 "Last-Translator: Eugénie Berchon <eugenie.berchon@hotmail.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/fr/>\n"
@@ -176,87 +176,89 @@ msgstr "Veuillez coller votre jeton d'authentification ici"
 
 #: .signin.get_token
 msgid "How to get a Token?"
-msgstr ""
+msgstr "Comment obtenir un jeton d'authentification ?"
 
 #: .signin.add_account
 msgid "Add Account"
-msgstr ""
+msgstr "Ajouter un compte"
 
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
-msgstr ""
+msgstr "Besoin d'aide ?"
 
 #: .signin.language
 msgid "Language"
-msgstr ""
+msgstr "Langue"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
-msgstr ""
+msgstr "Gérer les comptes"
 
 #: .accounts.default
 msgid "Default"
-msgstr ""
+msgstr "Par défaut"
 
 #: .accounts.account
 msgctxt ".accounts.account"
 msgid "Account"
-msgstr ""
+msgstr "Compte"
 
 #: .accounts.not_allowed_to_trade
 msgid "Your don't have permission to trade!"
-msgstr ""
+msgstr "Vous n'êtes pas autorisé à effectuer des opérations de trading !"
 
 #: .accounts.add
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: .accounts.remove_all
 msgid "Remove All Accounts & Sign Out"
-msgstr ""
+msgstr "Supprimer tous les comptes et se déconnecter"
 
 #: .accounts.new_token
 msgid "Add a new token"
-msgstr ""
+msgstr "Ajouter un nouveau jeton d'authentification"
 
 #: .accounts.delete
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: .accounts.set_as_default
 msgid "Set as default"
-msgstr ""
+msgstr "Configurer par défaut"
 
 #: .alert.remove_token_content
 msgid "Are you sure you want to remove this token?"
-msgstr ""
+msgstr "Voulez-vous vraiment supprimer ce jeton d'authentification ?"
 
 #: .alert.remove_all_tokens_title
 msgid "Removing All Tokens"
-msgstr ""
+msgstr "Suppression de tous les jetons d'authentification"
 
 #: .alert.must_number
 msgid "It must be a number."
-msgstr ""
+msgstr "La saisie doit être un nombre."
 
 #: .alert.remove_token_title
 msgid "Removing a Token"
-msgstr ""
+msgstr "Suppression d'un jeton d'authentification"
 
 #: .alert.no_tick
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
 msgstr ""
+"Veuillez sélectionner un autre actif sous-jacent. L'actif sous-jacent "
+"sélectionné n'est pas compatible avec les « ticks »."
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
-msgstr ""
+msgstr "La saisie doit se situer entre 0,70 et 100000."
 
 #: .alert.not_unique
 msgid "You've already added this account."
-msgstr ""
+msgstr "Vous avez déjà ajouté ce compte."
 
 #: .alert.warning
 msgid "Warning"
