@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-03-29 17:37+0000\n"
+"PO-Revision-Date: 2016-04-03 14:54+0000\n"
 "Last-Translator: Eugénie Berchon <eugenie.berchon@hotmail.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/fr/>\n"
@@ -262,35 +262,39 @@ msgstr "Vous avez déjà ajouté ce compte."
 
 #: .alert.warning
 msgid "Warning"
-msgstr ""
+msgstr "Avertissement"
 
 #: .alert.error
 msgid "Error!"
-msgstr ""
+msgstr "Erreur !"
 
 #: .alert.not_auth
 msgid "Sorry, we couldn't authenticate you."
-msgstr ""
+msgstr "Désolé, nous n'avons pas pu vous authentifier."
 
 #: .alert.no_underlying
 msgid "There is no underlying for this market. Please try another market."
 msgstr ""
+"Il n'y a pas d'actif sous-jacent pour ce marché. Veuillez sélectionner un "
+"autre marché."
 
 #: .alert.contract_error
 msgid "Contract not available, please try again."
-msgstr ""
+msgstr "Contrat indisponible, veuillez réessayer."
 
 #: .alert.required_field
 msgid "This field is required."
-msgstr ""
+msgstr "Ce champ est requis."
 
 #: .alert.not_valid
 msgid "Please enter a valid token."
-msgstr ""
+msgstr "Veuillez saisir un jeton d'authentification valide."
 
 #: .alert.remove_all_tokens_content
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr ""
+"Voulez-vous vraiment supprimer tous les jetons d'authentification et vous "
+"déconnecter ?"
 
 #: .options.digit_odd
 msgid "Odd"
