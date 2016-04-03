@@ -15,13 +15,13 @@ angular
             scope: {},
             templateUrl: "templates/components/accounts/oauth.template.html",
             link: function(scope, element, attrs){
+                var accounts = [];
 
                 var authenticate = function(_token){
 					// Validate the token
 					scope.showSpinner = false;
 					if(_token && _token.length == 32) {
 						scope.showSpinner = true;
-                        console.log(_token);
 						websocketService.authenticate(_token);
 					} else {
 						alertService.accountError.tokenNotValid();
@@ -29,9 +29,24 @@ angular
                 }
                
                 window.onmessage = function(_message){
-                    console.log(_message);
-                    authenticate(_message.data.token);
+                    if(_message.data && _message.data.url){
+                        accounts = getAccountsFromUrl(_message.data.url);
+                        authenticate(accounts[0].token);
+                    }
                 }
+
+                scope.$on('authorize', function(e, response){
+                   if(response){
+                       for(a in accounts){
+                           if (a == 0){
+                               continue;
+                           }
+
+                           accounts[a].email = response.email;
+                           localStorage.accounts.push(accounts[a]);
+                       }
+                   }
+                });
 
                 scope.signin = function(){
                     var authWindow = window.open("https://www.binary.com/oauth2/authorize?app_id=" + config.app_id,
@@ -42,15 +57,32 @@ angular
                     $(authWindow).on('loadstart',
                             function(e){
                                 var url = e.originalEvent.url;
-                                var token = /token=(.+)&/.exec(url);
-                                var expiration = /expires_in=(.+)$/.exec(url);
-                                
-                                if(token){
+                                accounts = getAccountsFromUrl(url);
+                                if(accounts && accounts.length){
                                     authWindow.close();
 
-                                    authenticate(token[1]);
+                                    authenticate(accounts[0].token);
                                 }
                             });
+                }
+
+
+                function getAccountsFromUrl(_url){
+                    var regex = /acct\d+=(\w+)&token\d+=(\w{2}-\w{29})/g;
+                    var result = null;
+                    var accounts = [];
+
+                    while(result=regex.exec(_url)){
+                        accounts.push({
+                            id: result[1],
+                            token: result[2],
+                            email: "",
+                            is_default: false
+                        });
+                    }
+
+                    return accounts;
+                    
                 }
 
             }
