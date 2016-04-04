@@ -12,8 +12,7 @@ angular
     .controller('OAuthRedirect',
             function($scope, $location, $state){
                 var response = {};
-                response.token = $location.search().token;
-                response.expiresIn = $location.search().expires_in;
+                response.url = window.location.href;
 
                 $scope.close = function(){
                     window.opener.postMessage(response, '*');

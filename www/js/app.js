@@ -48,7 +48,7 @@ angular
         }, 100);
 
         var handleUnloggedinUser = function(){
-            var isRedirect = /#\/redirect\?token\=/.exec(window.location.hash);
+            var isRedirect = /#\/redirect\?/.exec(window.location.hash);
             if(!accountService.getDefault() && !isRedirect){
                 $state.go('signin');
             }
