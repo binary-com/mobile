@@ -1,4 +1,9 @@
-<a class="button icon-left ion-chevron-left button-clear" ng-click="changeSigninView()" ng-show="showTokenForm"></a>
+<ion-header-bar align-title="center" class="bar bar-header bar-positive">
+    <button class="button  icon-left ion-chevron-left button-clear" 
+            ng-click="changeSigninView()" ng-show="showTokenForm"></button>
+    <h1 class="title">
+    </h1>
+</ion-header-bar>
 <div class="row center">
 	<div class="col col-75 branding">
 		<img src="img/logo.svg" class="logo" alt="Binary Logo">
@@ -12,26 +17,6 @@
 			<i class="icon ion-android-lock placeholder-icon icon-small"></i>
 			<input type="text" placeholder="{{'signin.paste_token' | translate }}" ng-model="token" tabindex="1" ngRequired>
 		</label>
-		<label class="item item-input item-select">
-			<i class="icon ion-ios-world placeholder-icon icon-small"></i>
-			<!-- <div class="input-label">
-				{{'signin.language' | translate }}
-			</div> -->
-			<select class="language" tabindex="2" ng-model="language" ng-change="changeLanguage()">
-				<option value="id">Bahasa Indonesia</option>
-				<!-- <option value="zh_tw">繁體中文</option>
-				<option value="de">Deutsch</option>
-				<option value="zh_cn">简体中文</option>
-				<option value="vi">Vietnamese</option>
-				<option value="ar">Arabic</option>
-				<option value="pl">Polish</option>
-				<option value="ru">Русский</option>
-				<option value="pt">Português</option>
-				<option value="es">Español</option>
-				<option value="fr">Français</option> -->
-				<option value="en" selected="selected">English</option>
-			</select>
-		</label>
 	</div>
 	<div class="row center">
 		<div class="col col-75">
@@ -41,7 +26,6 @@
 		</div>
 	</div>
 </form>
-
 <div class="row responsive-sm" ng-show="showTokenForm">
     <div class="col center">
         <a href="#" class="help" ui-sref="help">
@@ -50,10 +34,24 @@
     </div>
 </div>
         
-<oauth ng-show="!showTokenForm"></oauth>
+<oauth ng-show="!showTokenForm && showSignin"></oauth>
 
-<div class="row center" ng-show="!showTokenForm">
+<div class="row center" ng-show="!showTokenForm && showSignin">
     <div class="col col-75">
         <a href="" class="token-link" ng-click="changeSigninView()">{{ 'signin.use_token' | translate }}</a>
+    </div>
+</div>
+
+<div class="list">
+    <language-list ng-show="!showSignin"></language-list>
+</div>
+
+<div class="row center" ng-show="!showSignin">
+    <div class="col col-75">
+        <button class="button button-block button-possitive btn-signin" 
+                type="button" 
+                ng-click="showSigninView()">
+                {{ 'signin.next' | translate }}
+        </button>
     </div>
 </div>
