@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Mar0303150026/lang/ru.json, /tmp/json2po-Mar0303150026/old_po/ru.json
+#. extracted from /tmp/json2po-Apr0411123924/lang/ru.json, /tmp/json2po-Apr0411123924/old_po/ru.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"POT-Creation-Date: 2016-04-11 12:39+0430\n"
 "PO-Revision-Date: 2016-03-04 08:53+0000\n"
 "Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-tick-"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
 #: .help.email_cs
@@ -170,26 +170,38 @@ msgstr "Баланс"
 msgid "Transaction Reference"
 msgstr "Ссылка на сделку"
 
+#: .signin.add_account
+msgid "Add Account"
+msgstr "Добавить счёт"
+
+#: .signin.signin_with_binary_com
+msgid "Sing in with Binary.com"
+msgstr ""
+
+#: .signin.language
+msgid "Language"
+msgstr "Язык"
+
 #: .signin.paste_token
 msgid "Paste your token here"
 msgstr "Введите токен здесь"
+
+#: .signin.use_token
+msgid "Or sign in with a token"
+msgstr ""
+
+#: .signin.next
+msgid "Next"
+msgstr ""
 
 #: .signin.get_token
 msgid "How to get a Token?"
 msgstr "Как получить токен?"
 
-#: .signin.add_account
-msgid "Add Account"
-msgstr "Добавить счёт"
-
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "Нужна помощь?"
-
-#: .signin.language
-msgid "Language"
-msgstr "Язык"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
@@ -205,7 +217,8 @@ msgid "Account"
 msgstr "Счёт"
 
 #: .accounts.not_allowed_to_trade
-msgid "Your don't have permission to trade!"
+#, fuzzy
+msgid "You don't have permission to trade!"
 msgstr "У Вас нет разрешения торговать!"
 
 #: .accounts.add
@@ -342,7 +355,7 @@ msgid "Trade Types"
 msgstr "Типы сделок"
 
 #: .options.digit_match
-msgid "Digit Match"
+msgid "Matches"
 msgstr "Совпадение цифр"
 
 #: .options.number_of_ticks
@@ -363,7 +376,8 @@ msgid "Payout"
 msgstr "Выплата"
 
 #: .options.digit_differs
-msgid "Digit Differs"
+#, fuzzy
+msgid "Differs"
 msgstr "Несовпадение цифр"
 
 #: .options.account
@@ -382,3 +396,6 @@ msgstr "Вверх"
 #: .options.digit_even
 msgid "Even"
 msgstr "Чётное число"
+
+#~ msgid "Digit Match"
+#~ msgstr "Совпадение цифр"

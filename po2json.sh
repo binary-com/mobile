@@ -24,7 +24,7 @@ function make_new_templates(){
 		for i in `ls !(en).json`; do cp en.json $i; done &&
 	popd
 }
-destination_branch="dev"
+destination_branch="oauth"
 current_branch=`git branch |grep '\*'|cut -d' ' -f2`
 stashed=0
 if [ "$current_branch" != "translation" ] ;then 

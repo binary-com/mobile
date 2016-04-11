@@ -14,10 +14,10 @@ mkdir "$tmp_file/new_po"
 
 current_branch=`git branch |grep '\*'|cut -d' ' -f2`
 stashed=0
-if [ "$current_branch" != "dev" ] ;then 
+if [ "$current_branch" != "oauth" ] ;then 
 	git stash
 	stashed=1
-	git checkout dev 
+	git checkout oauth 
 fi
 
 cp -r www/i18n "$tmp_file/lang"

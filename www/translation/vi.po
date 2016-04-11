@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Mar0303150026/lang/vi.json, /tmp/json2po-Mar0303150026/old_po/vi.json
+#. extracted from /tmp/json2po-Apr0411123924/lang/vi.json, /tmp/json2po-Apr0411123924/old_po/vi.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"POT-Creation-Date: 2016-04-11 12:39+0430\n"
 "PO-Revision-Date: 2016-03-31 09:51+0000\n"
 "Last-Translator: Nguyen Thi My Linh <linh.nguyen@netlink.vn>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
@@ -169,26 +169,38 @@ msgstr "Số dư"
 msgid "Transaction Reference"
 msgstr "Tham chiếu giao dịch"
 
+#: .signin.add_account
+msgid "Add Account"
+msgstr "Thêm tài khoản"
+
+#: .signin.signin_with_binary_com
+msgid "Sing in with Binary.com"
+msgstr ""
+
+#: .signin.language
+msgid "Language"
+msgstr "Ngôn ngữ"
+
 #: .signin.paste_token
 msgid "Paste your token here"
 msgstr "Dán mã token của bạn ở đây"
+
+#: .signin.use_token
+msgid "Or sign in with a token"
+msgstr ""
+
+#: .signin.next
+msgid "Next"
+msgstr ""
 
 #: .signin.get_token
 msgid "How to get a Token?"
 msgstr "Làm thế nào để nhận mã Token?"
 
-#: .signin.add_account
-msgid "Add Account"
-msgstr "Thêm tài khoản"
-
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "Cần trợ giúp?"
-
-#: .signin.language
-msgid "Language"
-msgstr "Ngôn ngữ"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
@@ -204,7 +216,8 @@ msgid "Account"
 msgstr "Tài Khoản"
 
 #: .accounts.not_allowed_to_trade
-msgid "Your don't have permission to trade!"
+#, fuzzy
+msgid "You don't have permission to trade!"
 msgstr "Bạn không có quyền giao dịch!"
 
 #: .accounts.add
@@ -343,7 +356,7 @@ msgid "Trade Types"
 msgstr "Kiểu Giao dịch"
 
 #: .options.digit_match
-msgid "Digit Match"
+msgid "Matches"
 msgstr "Chữ số khớp"
 
 #: .options.number_of_ticks
@@ -364,7 +377,8 @@ msgid "Payout"
 msgstr "Thanh toán"
 
 #: .options.digit_differs
-msgid "Digit Differs"
+#, fuzzy
+msgid "Differs"
 msgstr "Chữ số khác nhau"
 
 #: .options.account
@@ -383,3 +397,6 @@ msgstr "Lên"
 #: .options.digit_even
 msgid "Even"
 msgstr "Chẵn"
+
+#~ msgid "Digit Match"
+#~ msgstr "Chữ số khớp"

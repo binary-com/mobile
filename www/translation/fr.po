@@ -1,13 +1,13 @@
-#. extracted from /tmp/json2po-Mar0303150026/lang/fr.json, /tmp/json2po-Mar0303150026/old_po/fr.json
+#. extracted from /tmp/json2po-Apr0411123924/lang/fr.json, /tmp/json2po-Apr0411123924/old_po/fr.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"POT-Creation-Date: 2016-04-11 12:39+0430\n"
 "PO-Revision-Date: 2016-04-03 15:09+0000\n"
 "Last-Translator: Chloe Chevreton <chloe-che@hotmail.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -170,26 +170,38 @@ msgstr "Solde"
 msgid "Transaction Reference"
 msgstr "Référence de transaction"
 
+#: .signin.add_account
+msgid "Add Account"
+msgstr "Ajouter un compte"
+
+#: .signin.signin_with_binary_com
+msgid "Sing in with Binary.com"
+msgstr ""
+
+#: .signin.language
+msgid "Language"
+msgstr "Langue"
+
 #: .signin.paste_token
 msgid "Paste your token here"
 msgstr "Veuillez coller votre jeton d'authentification ici"
+
+#: .signin.use_token
+msgid "Or sign in with a token"
+msgstr ""
+
+#: .signin.next
+msgid "Next"
+msgstr ""
 
 #: .signin.get_token
 msgid "How to get a Token?"
 msgstr "Comment obtenir un jeton d'authentification ?"
 
-#: .signin.add_account
-msgid "Add Account"
-msgstr "Ajouter un compte"
-
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "Besoin d'aide ?"
-
-#: .signin.language
-msgid "Language"
-msgstr "Langue"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
@@ -205,7 +217,8 @@ msgid "Account"
 msgstr "Compte"
 
 #: .accounts.not_allowed_to_trade
-msgid "Your don't have permission to trade!"
+#, fuzzy
+msgid "You don't have permission to trade!"
 msgstr "Vous n'êtes pas autorisé à effectuer des opérations de trading !"
 
 #: .accounts.add
@@ -346,7 +359,7 @@ msgid "Trade Types"
 msgstr "Types de transaction"
 
 #: .options.digit_match
-msgid "Digit Match"
+msgid "Matches"
 msgstr "Chiffre égal"
 
 #: .options.number_of_ticks
@@ -367,7 +380,8 @@ msgid "Payout"
 msgstr "Paiement"
 
 #: .options.digit_differs
-msgid "Digit Differs"
+#, fuzzy
+msgid "Differs"
 msgstr "Chiffre différent"
 
 #: .options.account
@@ -386,3 +400,6 @@ msgstr "Haut"
 #: .options.digit_even
 msgid "Even"
 msgstr "Pair"
+
+#~ msgid "Digit Match"
+#~ msgstr "Chiffre égal"
