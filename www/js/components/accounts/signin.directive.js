@@ -30,6 +30,7 @@ angular
 			link: function(scope, element) {
 
                 scope.showTokenForm = false;
+                scope.showSingin = false;
 
 				/**
 				 * On load:
@@ -86,6 +87,14 @@ angular
 
                 scope.changeSigninView = function(){
                     scope.showTokenForm = !scope.showTokenForm;
+                    
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
+                }
+
+                scope.showSigninView = function(){
+                    scope.showSignin = true;
                     
                     if(!scope.$$phase){
                         scope.$apply();
