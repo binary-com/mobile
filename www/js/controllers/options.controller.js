@@ -17,6 +17,7 @@ angular
 			$scope.selected = {};
 			$scope.isDataLoaded = false;
             $scope.letsTrade = false;
+            $scope.hasTradePermission = getTradePermission();
 
 			if(typeof(analytics) !== "undefined"){
 					analytics.trackView("Options");
@@ -90,6 +91,7 @@ angular
 			};
 
 			$scope.$on('connection:reopened', function(e) {
+                $scope.hasTradePermission = getTradePermission();
 //				if (accountService.hasDefault()) {
 //					accountService.validate();
 //				}
@@ -107,7 +109,15 @@ angular
                 $scope.letsTrade = _.isNil(enableLetsTrade) ? stopSpinner : enableLetsTrade;
             };
             
-            $scope.hasTradePermission = function(){
+            $scope.$on('authorize', function(e){
+                 $scope.hasTradePermission = getTradePermission();
+ 
+                 if(!$scope.$$phase){
+                     $scope.$apply();
+                 }
+             });
+ 
+             function getTradePermission(){
                 return accountService.checkScope(['READ', 'TRADE']);
             }
 	});
