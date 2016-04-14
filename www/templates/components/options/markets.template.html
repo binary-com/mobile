@@ -7,15 +7,15 @@
             <input type="radio" name="market" value="forex"
             	ng-model="selected.market"
             	ng-change="updateMarket(selected.market)"
-            	ng-disabled="!market.forex && getNgDisabled()">
+            	ng-disabled="!market.forex || getNgDisabled()">
             <div class="item-content">{{'options.forex' | translate}}</div>
         </label>
         <label class="item item-radio col">
-            <input type="radio" name="market" value="random"
+            <input type="radio" name="market" value="{{ isRandom() ? 'random' : 'volidx' }}"
             	ng-model="selected.market"
             	ng-change="updateMarket(selected.market)"
-            	ng-disabled="!market.random && getNgDisabled()">
-            <div class="item-content">{{'options.random' | translate}}</div>
+            	ng-disabled="!(market.volidx || market.random) || getNgDisabled()">
+            <div class="item-content">{{ (isRandom() ? 'options.random' :'options.volidx') | translate}}</div>
         </label>
     </div>
 </div>
