@@ -44,13 +44,6 @@ angular
 				scope.updateDigit = function(_digit) {
 					scope.$parent.selected.digit = _digit;
 				};
-
-                scope.getNgDisabled = function(){
-                    if(scope.attrs.ngDisabled){
-                        return scope.$eval(scope.attrs.ngDisabled);
-                    }
-                    return false;
-                }
 			}
 		};
 	}]);
