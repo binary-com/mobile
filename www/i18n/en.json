@@ -39,6 +39,7 @@
 		"select_market": "Markets",
 		"forex": "Forex",
 		"random": "Random",
+        "volidx": "Volatility Indices",
 		"underlying": "Underlying",
 		"trade_type": "Trade Types",
 		"up": "Up",
