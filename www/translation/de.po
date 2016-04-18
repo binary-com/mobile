@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-04-18 09:43+0000\n"
-"Last-Translator: Karin Graf <karin_graf@hotmail.com>\n"
+"PO-Revision-Date: 2016-04-18 09:44+0000\n"
+"Last-Translator: Robert Grundler <grundlertex@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/de/>\n"
 "Language: de\n"
@@ -300,6 +300,7 @@ msgid "Odd"
 msgstr "Chance"
 
 #: .options.random
+#, fuzzy
 msgid "Random"
 msgstr "Random"
 
