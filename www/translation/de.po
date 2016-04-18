@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-03 15:00+0430\n"
-"PO-Revision-Date: 2016-03-30 16:17+0000\n"
+"PO-Revision-Date: 2016-04-18 09:43+0000\n"
 "Last-Translator: Karin Graf <karin_graf@hotmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/de/>\n"
@@ -206,7 +206,7 @@ msgstr "Konto"
 
 #: .accounts.not_allowed_to_trade
 msgid "Your don't have permission to trade!"
-msgstr ""
+msgstr "Sie haben keine Erlaubnis zu handeln!"
 
 #: .accounts.add
 msgid "Add"
@@ -245,13 +245,12 @@ msgid "Removing a Token"
 msgstr "Einen Token entfernen"
 
 #: .alert.no_tick
-#, fuzzy
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
 msgstr ""
 "Bitte wählen Sie eine andere Anlage. Die von Ihnen gewählte Anlage "
-"untersützt keine Ticks."
+"unterstützt keine Ticks."
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
@@ -274,10 +273,9 @@ msgid "Sorry, we couldn't authenticate you."
 msgstr "Leider können wir Sie nicht authentifizieren."
 
 #: .alert.no_underlying
-#, fuzzy
 msgid "There is no underlying for this market. Please try another market."
 msgstr ""
-"Dies ist keine Anlage für diesen Markt. Versuchen Sie bitte einen anderen "
+"Es gibt keine Anlage für diesen Markt. Versuchen Sie bitte einen anderen "
 "Markt."
 
 #: .alert.contract_error
@@ -331,7 +329,7 @@ msgstr "Devisen"
 
 #: .options.digit_over
 msgid "Over"
-msgstr ""
+msgstr "Über"
 
 #: .options.stake
 msgctxt ".options.stake"
@@ -377,9 +375,8 @@ msgid "Account"
 msgstr "Konto"
 
 #: .options.digit_under
-#, fuzzy
 msgid "Under"
-msgstr "Anlage"
+msgstr "Unter"
 
 #: .options.up
 msgid "Up"
