@@ -1,13 +1,13 @@
-#. extracted from /tmp/json2po-Mar0303150026/lang/de.json, /tmp/json2po-Mar0303150026/old_po/de.json
+#. extracted from /tmp/json2po-Apr0420134354/lang/de.json, /tmp/json2po-Apr0420134354/old_po/de.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"POT-Creation-Date: 2016-04-20 13:43+0430\n"
 "PO-Revision-Date: 2016-04-18 09:44+0000\n"
 "Last-Translator: Robert Grundler <grundlertex@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -170,26 +170,38 @@ msgstr "Guthaben"
 msgid "Transaction Reference"
 msgstr "Transaktionsreferenz"
 
+#: .signin.add_account
+msgid "Add Account"
+msgstr "Konto hinzufügen"
+
+#: .signin.signin_with_binary_com
+msgid "Sign in"
+msgstr ""
+
+#: .signin.language
+msgid "Language"
+msgstr "Sprache"
+
 #: .signin.paste_token
 msgid "Paste your token here"
 msgstr "Fügen Sie Ihren Token hier ein"
+
+#: .signin.use_token
+msgid "Or sign in with a token"
+msgstr ""
+
+#: .signin.next
+msgid "Next"
+msgstr ""
 
 #: .signin.get_token
 msgid "How to get a Token?"
 msgstr "Wie erhält man einen Token?"
 
-#: .signin.add_account
-msgid "Add Account"
-msgstr "Konto hinzufügen"
-
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "Benötigen Sie Unterstützung?"
-
-#: .signin.language
-msgid "Language"
-msgstr "Sprache"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
@@ -205,7 +217,7 @@ msgid "Account"
 msgstr "Konto"
 
 #: .accounts.not_allowed_to_trade
-msgid "Your don't have permission to trade!"
+msgid "You don't have permission to trade!"
 msgstr "Sie haben keine Erlaubnis zu handeln!"
 
 #: .accounts.add
@@ -299,8 +311,11 @@ msgstr ""
 msgid "Odd"
 msgstr "Chance"
 
+#: .options.volidx
+msgid "Volatility Indices"
+msgstr ""
+
 #: .options.random
-#, fuzzy
 msgid "Random"
 msgstr "Random"
 
@@ -308,9 +323,9 @@ msgstr "Random"
 msgid "Select Amount"
 msgstr "Betrag auswählen"
 
-#: .options.down
-msgid "Down"
-msgstr "Runter"
+#: .options.digit_differs
+msgid "Differs"
+msgstr "Kommastelle weicht ab"
 
 #: .options.underlying
 msgid "Underlying"
@@ -346,7 +361,7 @@ msgid "Trade Types"
 msgstr "Handelsarten"
 
 #: .options.digit_match
-msgid "Digit Match"
+msgid "Matches"
 msgstr "Kommastellenübereinstimmung"
 
 #: .options.number_of_ticks
@@ -366,9 +381,9 @@ msgctxt ".options.payout"
 msgid "Payout"
 msgstr "Auszahlung"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "Kommastelle weicht ab"
+#: .options.down
+msgid "Down"
+msgstr "Runter"
 
 #: .options.account
 msgctxt ".options.account"
@@ -386,3 +401,6 @@ msgstr "Hoch"
 #: .options.digit_even
 msgid "Even"
 msgstr "Gleich"
+
+#~ msgid "Digit Match"
+#~ msgstr "Kommastellenübereinstimmung"

@@ -1,13 +1,13 @@
-#. extracted from /tmp/json2po-Mar0303150026/lang/ar.json, /tmp/json2po-Mar0303150026/old_po/ar.json
+#. extracted from /tmp/json2po-Apr0420134354/lang/ar.json, /tmp/json2po-Apr0420134354/old_po/ar.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"POT-Creation-Date: 2016-04-20 13:43+0430\n"
 "PO-Revision-Date: 2016-03-04 11:39+0000\n"
 "Last-Translator: Rudy Karam <rudykaram6@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/ar/>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,26 +168,38 @@ msgstr "الرصيد"
 msgid "Transaction Reference"
 msgstr "مرجع العمليات"
 
+#: .signin.add_account
+msgid "Add Account"
+msgstr "إضافة حساب"
+
+#: .signin.signin_with_binary_com
+msgid "Sign in"
+msgstr ""
+
+#: .signin.language
+msgid "Language"
+msgstr "اللغة"
+
 #: .signin.paste_token
 msgid "Paste your token here"
 msgstr "قم بلصق الرمز المميز الخاص بك هنا"
+
+#: .signin.use_token
+msgid "Or sign in with a token"
+msgstr ""
+
+#: .signin.next
+msgid "Next"
+msgstr ""
 
 #: .signin.get_token
 msgid "How to get a Token?"
 msgstr "كيفية الحصول على رمز مميز؟"
 
-#: .signin.add_account
-msgid "Add Account"
-msgstr "إضافة حساب"
-
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "بحاجة إلى مساعدة؟"
-
-#: .signin.language
-msgid "Language"
-msgstr "اللغة"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
@@ -203,7 +215,7 @@ msgid "Account"
 msgstr "حساب"
 
 #: .accounts.not_allowed_to_trade
-msgid "Your don't have permission to trade!"
+msgid "You don't have permission to trade!"
 msgstr "ليس لديك الاذن للتجارة!"
 
 #: .accounts.add
@@ -292,6 +304,10 @@ msgstr "هل أنت متأكد من أنك تريد إزالة كافة الرم
 msgid "Odd"
 msgstr "فردي"
 
+#: .options.volidx
+msgid "Volatility Indices"
+msgstr ""
+
 #: .options.random
 msgid "Random"
 msgstr "عشوائي"
@@ -300,9 +316,9 @@ msgstr "عشوائي"
 msgid "Select Amount"
 msgstr "حدد المبلغ"
 
-#: .options.down
-msgid "Down"
-msgstr "أسفل"
+#: .options.digit_differs
+msgid "Differs"
+msgstr "اختلاف الأرقام"
 
 #: .options.underlying
 msgid "Underlying"
@@ -338,7 +354,7 @@ msgid "Trade Types"
 msgstr "أنواع التداول"
 
 #: .options.digit_match
-msgid "Digit Match"
+msgid "Matches"
 msgstr "مطابقة الأرقام"
 
 #: .options.number_of_ticks
@@ -358,9 +374,9 @@ msgctxt ".options.payout"
 msgid "Payout"
 msgstr "العائد"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "اختلاف الأرقام"
+#: .options.down
+msgid "Down"
+msgstr "أسفل"
 
 #: .options.account
 msgctxt ".options.account"
@@ -378,3 +394,6 @@ msgstr "أعلى"
 #: .options.digit_even
 msgid "Even"
 msgstr "حتى"
+
+#~ msgid "Digit Match"
+#~ msgstr "مطابقة الأرقام"
