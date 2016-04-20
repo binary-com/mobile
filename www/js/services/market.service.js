@@ -84,12 +84,17 @@ angular
 			};
 		
 			this.getActiveMarkets = function() {
-                if(!sessionStorage.active_symbols){
+                if(!sessionStorage.active_symbols || sessionStorage.active_symbols === "null"){
                     return [];
                 }
 
 				var data = JSON.parse(sessionStorage.active_symbols);
-				return Object.keys(data);
+                if(data){
+    				return Object.keys(data);
+                }
+
+                console.log(data);
+                return [];
 			};
 
 			this.getAllSymbolsForAMarket = function(_market) {
