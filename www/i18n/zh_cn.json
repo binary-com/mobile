@@ -4,7 +4,10 @@
 		"add_account": "Add Account",
 		"need_help": "Need Help?",
 		"paste_token": "Paste your token here",
-		"get_token": "How to get a Token?"
+		"get_token": "How to get a Token?",
+        "signin_with_binary_com": "Sign in",
+        "use_token": "Or sign in with a token",
+        "next": "Next"
 	},
 	"accounts": {
 		"my_accounts": "Manage Accounts",
@@ -15,7 +18,7 @@
 		"add": "Add",
 		"new_token":"Add a new token",
 		"delete": "Delete",
-        "not_allowed_to_trade": "Your don't have permission to trade!"
+    "not_allowed_to_trade": "You don't have permission to trade!"
 	},
 	"alert" : {
 		"error": "Error!",
@@ -39,6 +42,7 @@
 		"select_market": "Markets",
 		"forex": "Forex",
 		"random": "Random",
+        "volidx": "Volatility Indices",
 		"underlying": "Underlying",
 		"trade_type": "Trade Types",
 		"up": "Up",
@@ -46,8 +50,8 @@
 		"last_digit_prediction": "Last Digit Prediction",
 		"digit_even": "Even",
 		"digit_odd": "Odd",
-		"digit_match": "Digit Match",
-		"digit_differs": "Digit Differs",
+		"digit_match": "Matches",
+		"digit_differs": "Differs",
         "digit_over": "Over",
         "digit_under": "Under",
 		"number_of_ticks": "Number of Ticks",

@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Mar0303150026/lang/es.json, /tmp/json2po-Mar0303150026/old_po/es.json
+#. extracted from /tmp/json2po-Apr0420151058/lang/es.json, /tmp/json2po-Apr0420151058/old_po/es.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"POT-Creation-Date: 2016-04-20 15:10+0430\n"
 "PO-Revision-Date: 2016-03-04 14:26+0000\n"
 "Last-Translator: olga borg <olga@binary.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-tick-"
@@ -171,26 +171,38 @@ msgstr "Saldo"
 msgid "Transaction Reference"
 msgstr "Referencia de la Transacción"
 
+#: .signin.add_account
+msgid "Add Account"
+msgstr "Añadir Cuenta"
+
+#: .signin.signin_with_binary_com
+msgid "Sign in"
+msgstr ""
+
+#: .signin.language
+msgid "Language"
+msgstr "Idioma"
+
 #: .signin.paste_token
 msgid "Paste your token here"
 msgstr "Pegue su token aquí"
+
+#: .signin.use_token
+msgid "Or sign in with a token"
+msgstr ""
+
+#: .signin.next
+msgid "Next"
+msgstr ""
 
 #: .signin.get_token
 msgid "How to get a Token?"
 msgstr "¿Cómo obtener un token?"
 
-#: .signin.add_account
-msgid "Add Account"
-msgstr "Añadir Cuenta"
-
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "¿Necesita Ayuda?"
-
-#: .signin.language
-msgid "Language"
-msgstr "Idioma"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
@@ -206,7 +218,7 @@ msgid "Account"
 msgstr "Cuenta"
 
 #: .accounts.not_allowed_to_trade
-msgid "Your don't have permission to trade!"
+msgid "You don't have permission to trade!"
 msgstr "¡No tiene permiso para comerciar!"
 
 #: .accounts.add
@@ -298,6 +310,10 @@ msgstr ""
 msgid "Odd"
 msgstr "Impar"
 
+#: .options.volidx
+msgid "Volatility Indices"
+msgstr ""
+
 #: .options.random
 msgid "Random"
 msgstr "Random"
@@ -306,9 +322,9 @@ msgstr "Random"
 msgid "Select Amount"
 msgstr "Seleccione el monto"
 
-#: .options.down
-msgid "Down"
-msgstr "Abajo"
+#: .options.digit_differs
+msgid "Differs"
+msgstr "Dígito Difiere"
 
 #: .options.underlying
 msgid "Underlying"
@@ -344,7 +360,7 @@ msgid "Trade Types"
 msgstr "Tipos de Contratos"
 
 #: .options.digit_match
-msgid "Digit Match"
+msgid "Matches"
 msgstr "Dígitos Iguales"
 
 #: .options.number_of_ticks
@@ -364,9 +380,9 @@ msgctxt ".options.payout"
 msgid "Payout"
 msgstr "Pago"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "Dígito Difiere"
+#: .options.down
+msgid "Down"
+msgstr "Abajo"
 
 #: .options.account
 msgctxt ".options.account"
@@ -384,3 +400,6 @@ msgstr "Arriba"
 #: .options.digit_even
 msgid "Even"
 msgstr "Par"
+
+#~ msgid "Digit Match"
+#~ msgstr "Dígitos Iguales"

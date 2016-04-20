@@ -1,13 +1,13 @@
-#. extracted from /tmp/json2po-Mar0303150026/lang/pl.json, /tmp/json2po-Mar0303150026/old_po/pl.json
+#. extracted from /tmp/json2po-Apr0420151058/lang/pl.json, /tmp/json2po-Apr0420151058/old_po/pl.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"POT-Creation-Date: 2016-04-20 15:10+0430\n"
 "PO-Revision-Date: 2016-03-31 13:40+0000\n"
 "Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -171,26 +171,38 @@ msgstr "Saldo"
 msgid "Transaction Reference"
 msgstr "Numer referencyjny transakcji"
 
+#: .signin.add_account
+msgid "Add Account"
+msgstr "Dodaj konto"
+
+#: .signin.signin_with_binary_com
+msgid "Sign in"
+msgstr ""
+
+#: .signin.language
+msgid "Language"
+msgstr "Język"
+
 #: .signin.paste_token
 msgid "Paste your token here"
 msgstr "Wklej swój token tutaj"
+
+#: .signin.use_token
+msgid "Or sign in with a token"
+msgstr ""
+
+#: .signin.next
+msgid "Next"
+msgstr ""
 
 #: .signin.get_token
 msgid "How to get a Token?"
 msgstr "Jak uzyskać token?"
 
-#: .signin.add_account
-msgid "Add Account"
-msgstr "Dodaj konto"
-
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "Potrzebujesz pomocy?"
-
-#: .signin.language
-msgid "Language"
-msgstr "Język"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
@@ -206,7 +218,7 @@ msgid "Account"
 msgstr "Konto"
 
 #: .accounts.not_allowed_to_trade
-msgid "Your don't have permission to trade!"
+msgid "You don't have permission to trade!"
 msgstr "Nie masz pozwolenia na handlowanie!"
 
 #: .accounts.add
@@ -297,6 +309,10 @@ msgstr "Czy na pewno chcesz usunąć wszystkie tokeny i wylogować się?"
 msgid "Odd"
 msgstr "Nieparzysta"
 
+#: .options.volidx
+msgid "Volatility Indices"
+msgstr ""
+
 #: .options.random
 msgid "Random"
 msgstr "Losowe"
@@ -305,9 +321,9 @@ msgstr "Losowe"
 msgid "Select Amount"
 msgstr "Wybierz kwotę"
 
-#: .options.down
-msgid "Down"
-msgstr "Niżej"
+#: .options.digit_differs
+msgid "Differs"
+msgstr "Cyfry nie zgadzają się"
 
 #: .options.underlying
 msgid "Underlying"
@@ -343,7 +359,7 @@ msgid "Trade Types"
 msgstr "Typy zakładów"
 
 #: .options.digit_match
-msgid "Digit Match"
+msgid "Matches"
 msgstr "Cyfry zgadzają się"
 
 #: .options.number_of_ticks
@@ -363,9 +379,9 @@ msgctxt ".options.payout"
 msgid "Payout"
 msgstr "Wypłata"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "Cyfry nie zgadzają się"
+#: .options.down
+msgid "Down"
+msgstr "Niżej"
 
 #: .options.account
 msgctxt ".options.account"
@@ -383,3 +399,6 @@ msgstr "Wyżej"
 #: .options.digit_even
 msgid "Even"
 msgstr "Parzysta"
+
+#~ msgid "Digit Match"
+#~ msgstr "Cyfry zgadzają się"

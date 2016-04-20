@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Mar0303150026/lang/zh_cn.json, /tmp/json2po-Mar0303150026/old_po/zh_cn.json
+#. extracted from /tmp/json2po-Apr0420151058/lang/zh_cn.json, /tmp/json2po-Apr0420151058/old_po/zh_cn.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"POT-Creation-Date: 2016-04-20 15:10+0430\n"
 "PO-Revision-Date: 2016-03-04 14:30+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
@@ -166,26 +166,38 @@ msgstr "余额"
 msgid "Transaction Reference"
 msgstr "交易参考号"
 
+#: .signin.add_account
+msgid "Add Account"
+msgstr "添加账户"
+
+#: .signin.signin_with_binary_com
+msgid "Sign in"
+msgstr ""
+
+#: .signin.language
+msgid "Language"
+msgstr "语言"
+
 #: .signin.paste_token
 msgid "Paste your token here"
 msgstr "在此贴上令牌"
+
+#: .signin.use_token
+msgid "Or sign in with a token"
+msgstr ""
+
+#: .signin.next
+msgid "Next"
+msgstr ""
 
 #: .signin.get_token
 msgid "How to get a Token?"
 msgstr "如何获取令牌？"
 
-#: .signin.add_account
-msgid "Add Account"
-msgstr "添加账户"
-
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "需要帮助？"
-
-#: .signin.language
-msgid "Language"
-msgstr "语言"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
@@ -201,7 +213,7 @@ msgid "Account"
 msgstr "账户"
 
 #: .accounts.not_allowed_to_trade
-msgid "Your don't have permission to trade!"
+msgid "You don't have permission to trade!"
 msgstr "您没有权限进行交易！"
 
 #: .accounts.add
@@ -290,6 +302,10 @@ msgstr "确认要删除所有令牌并退出？"
 msgid "Odd"
 msgstr "奇数"
 
+#: .options.volidx
+msgid "Volatility Indices"
+msgstr ""
+
 #: .options.random
 msgid "Random"
 msgstr "随机"
@@ -298,9 +314,9 @@ msgstr "随机"
 msgid "Select Amount"
 msgstr "选择金额"
 
-#: .options.down
-msgid "Down"
-msgstr "下跌"
+#: .options.digit_differs
+msgid "Differs"
+msgstr "数字差异"
 
 #: .options.underlying
 msgid "Underlying"
@@ -336,7 +352,7 @@ msgid "Trade Types"
 msgstr "交易类型"
 
 #: .options.digit_match
-msgid "Digit Match"
+msgid "Matches"
 msgstr "数字符合"
 
 #: .options.number_of_ticks
@@ -356,9 +372,9 @@ msgctxt ".options.payout"
 msgid "Payout"
 msgstr "赔付额"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "数字差异"
+#: .options.down
+msgid "Down"
+msgstr "下跌"
 
 #: .options.account
 msgctxt ".options.account"
@@ -376,3 +392,6 @@ msgstr "上涨"
 #: .options.digit_even
 msgid "Even"
 msgstr "偶数"
+
+#~ msgid "Digit Match"
+#~ msgstr "数字符合"
