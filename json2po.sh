@@ -31,14 +31,16 @@ git checkout translation
 ./po2json.sh "$tmp_file/old_po"
 json2po "$tmp_file/lang" "$tmp_file/new_po_files"
 json2po -t "$tmp_file/lang" "$tmp_file/old_po" "$tmp_file/new_po"
+new_po_files=''
 pushd "$tmp_file/new_po_files"&&
 	for i in `ls !(en).po`; do 
 		if [ ! -e "$tmp_file/new_po"/$i ];then
-			cp $i "$tmp_file/new_po"/$i
+			new_po_files="$new_po_files $tmp_file/new_po_files/$i"
 		fi
 	done&&
 popd
 pushd www/translation&&
+	cp $new_po_files ./
 	for i in `ls !(en).po`; do msgmerge -U $i "$tmp_file/new_po/$i"; done&&
 	for i in `ls !(en).po`; do msgattrib $i --clear-fuzzy -o $i ;done&&
 popd
