@@ -61,8 +61,18 @@ angular
 							var markets = marketService.getActiveMarkets();
 							scope.market = {
 								//forex: markets.indexOf('forex') !== -1  ? true : false,
-								random: markets.indexOf('random') !== -1 ? true : false
+
+                                //FIXME Should be change after changing Random to Volitality-Indices permenantly
+								//volidx: (markets.indexOf('volidx') + markets.indexOf('random')) >= 0 ? true : false
 							};
+
+                            //FIXME Should be change after changing Random to Volitality-Indices permenantly
+                            if(markets.indexOf('volidx') >= 0){
+                                scope.market.volidx = true;
+                            }
+                            else if(markets.indexOf('random') >= 0){
+                                scope.market.random = true;
+                            }
 
 							scope.$parent.selected.market = marketService.getDefault.market(scope.market);
 
@@ -104,6 +114,12 @@ angular
                     }
                     return false;
                 };
+
+                scope.isRandom = function(){
+                    var markets = marketService.getActiveMarkets();
+                    return markets.indexOf('random') > -1;
+                }
+
 			}
 		};
 	}]);
