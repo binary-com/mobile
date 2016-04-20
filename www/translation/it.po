@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Mar0303150026/lang/it.json, /tmp/json2po-Mar0303150026/old_po/it.json
+#. extracted from /tmp/json2po-Apr0420121902/lang/it.json, /tmp/json2po-Apr0420121902/old_po/it.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-03 15:00+0430\n"
+"POT-Creation-Date: 2016-04-20 12:19+0430\n"
 "PO-Revision-Date: 2016-02-25 16:31+0000\n"
 "Last-Translator: Annalisa <ligiu@me.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-tick-"
@@ -170,26 +170,38 @@ msgstr "Saldo"
 msgid "Transaction Reference"
 msgstr "Riferimento della transazione"
 
+#: .signin.add_account
+msgid "Add Account"
+msgstr "Aggiungi account"
+
+#: .signin.signin_with_binary_com
+msgid "Sing in with Binary.com"
+msgstr ""
+
+#: .signin.language
+msgid "Language"
+msgstr "Lingua"
+
 #: .signin.paste_token
 msgid "Paste your token here"
 msgstr "Incolla qui il tuo token"
+
+#: .signin.use_token
+msgid "Or sign in with a token"
+msgstr ""
+
+#: .signin.next
+msgid "Next"
+msgstr ""
 
 #: .signin.get_token
 msgid "How to get a Token?"
 msgstr "Come si ottiene un token?"
 
-#: .signin.add_account
-msgid "Add Account"
-msgstr "Aggiungi account"
-
 #: .signin.need_help
 msgctxt ".signin.need_help"
 msgid "Need Help?"
 msgstr "Hai bisogno di aiuto?"
-
-#: .signin.language
-msgid "Language"
-msgstr "Lingua"
 
 #: .accounts.my_accounts
 msgid "Manage Accounts"
@@ -205,7 +217,7 @@ msgid "Account"
 msgstr "Account"
 
 #: .accounts.not_allowed_to_trade
-msgid "Your don't have permission to trade!"
+msgid "You don't have permission to trade!"
 msgstr ""
 
 #: .accounts.add
@@ -297,6 +309,10 @@ msgstr "Sei sicuro di voler rimuovere tutti i token e uscire?"
 msgid "Odd"
 msgstr "Dispari"
 
+#: .options.volidx
+msgid "Volatility Indices"
+msgstr ""
+
 #: .options.random
 msgid "Random"
 msgstr "Random"
@@ -305,9 +321,10 @@ msgstr "Random"
 msgid "Select Amount"
 msgstr "Seleziona importo"
 
-#: .options.down
-msgid "Down"
-msgstr "Down"
+#: .options.digit_differs
+#, fuzzy
+msgid "Differs"
+msgstr "La cifra differisce"
 
 #: .options.underlying
 msgid "Underlying"
@@ -343,7 +360,7 @@ msgid "Trade Types"
 msgstr "Tipologie di trade"
 
 #: .options.digit_match
-msgid "Digit Match"
+msgid "Matches"
 msgstr "La cifra combacia"
 
 #: .options.number_of_ticks
@@ -363,9 +380,9 @@ msgctxt ".options.payout"
 msgid "Payout"
 msgstr "Payout"
 
-#: .options.digit_differs
-msgid "Digit Differs"
-msgstr "La cifra differisce"
+#: .options.down
+msgid "Down"
+msgstr "Down"
 
 #: .options.account
 msgctxt ".options.account"
@@ -384,3 +401,6 @@ msgstr "Up"
 #: .options.digit_even
 msgid "Even"
 msgstr "Pari"
+
+#~ msgid "Digit Match"
+#~ msgstr "La cifra combacia"
