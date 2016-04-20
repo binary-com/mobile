@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 15:28+0430\n"
-"PO-Revision-Date: 2016-02-25 16:31+0000\n"
+"PO-Revision-Date: 2016-04-20 16:37+0000\n"
 "Last-Translator: Annalisa <ligiu@me.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/it/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -343,7 +343,7 @@ msgstr "Forex"
 
 #: .options.digit_over
 msgid "Over"
-msgstr ""
+msgstr "Sopra"
 
 #: .options.stake
 msgctxt ".options.stake"
@@ -390,7 +390,7 @@ msgstr "Account"
 
 #: .options.digit_under
 msgid "Under"
-msgstr "Asset sottostante"
+msgstr "Sottostante"
 
 #: .options.up
 msgid "Up"
