@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420121902/lang/es.json, /tmp/json2po-Apr0420121902/old_po/es.json
+#. extracted from /tmp/json2po-Apr0420152857/lang/es.json, /tmp/json2po-Apr0420152857/old_po/es.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 12:19+0430\n"
+"POT-Creation-Date: 2016-04-20 15:28+0430\n"
 "PO-Revision-Date: 2016-03-04 14:26+0000\n"
 "Last-Translator: olga borg <olga@binary.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-tick-"
@@ -176,7 +176,7 @@ msgid "Add Account"
 msgstr "Añadir Cuenta"
 
 #: .signin.signin_with_binary_com
-msgid "Sing in with Binary.com"
+msgid "Sign in"
 msgstr ""
 
 #: .signin.language
@@ -218,7 +218,6 @@ msgid "Account"
 msgstr "Cuenta"
 
 #: .accounts.not_allowed_to_trade
-#, fuzzy
 msgid "You don't have permission to trade!"
 msgstr "¡No tiene permiso para comerciar!"
 
@@ -324,7 +323,6 @@ msgid "Select Amount"
 msgstr "Seleccione el monto"
 
 #: .options.digit_differs
-#, fuzzy
 msgid "Differs"
 msgstr "Dígito Difiere"
 

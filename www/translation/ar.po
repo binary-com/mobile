@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420121902/lang/ar.json, /tmp/json2po-Apr0420121902/old_po/ar.json
+#. extracted from /tmp/json2po-Apr0420152857/lang/ar.json, /tmp/json2po-Apr0420152857/old_po/ar.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 12:19+0430\n"
+"POT-Creation-Date: 2016-04-20 15:28+0430\n"
 "PO-Revision-Date: 2016-03-04 11:39+0000\n"
 "Last-Translator: Rudy Karam <rudykaram6@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-trade/"
@@ -173,7 +173,7 @@ msgid "Add Account"
 msgstr "إضافة حساب"
 
 #: .signin.signin_with_binary_com
-msgid "Sing in with Binary.com"
+msgid "Sign in"
 msgstr ""
 
 #: .signin.language
@@ -215,7 +215,6 @@ msgid "Account"
 msgstr "حساب"
 
 #: .accounts.not_allowed_to_trade
-#, fuzzy
 msgid "You don't have permission to trade!"
 msgstr "ليس لديك الاذن للتجارة!"
 
@@ -318,7 +317,6 @@ msgid "Select Amount"
 msgstr "حدد المبلغ"
 
 #: .options.digit_differs
-#, fuzzy
 msgid "Differs"
 msgstr "اختلاف الأرقام"
 

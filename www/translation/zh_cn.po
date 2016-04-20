@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420121902/lang/zh_cn.json, /tmp/json2po-Apr0420121902/old_po/zh_cn.json
+#. extracted from /tmp/json2po-Apr0420152857/lang/zh_cn.json, /tmp/json2po-Apr0420152857/old_po/zh_cn.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 12:19+0430\n"
+"POT-Creation-Date: 2016-04-20 15:28+0430\n"
 "PO-Revision-Date: 2016-03-04 14:30+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
@@ -171,7 +171,7 @@ msgid "Add Account"
 msgstr "添加账户"
 
 #: .signin.signin_with_binary_com
-msgid "Sing in with Binary.com"
+msgid "Sign in"
 msgstr ""
 
 #: .signin.language
@@ -213,7 +213,6 @@ msgid "Account"
 msgstr "账户"
 
 #: .accounts.not_allowed_to_trade
-#, fuzzy
 msgid "You don't have permission to trade!"
 msgstr "您没有权限进行交易！"
 
@@ -316,7 +315,6 @@ msgid "Select Amount"
 msgstr "选择金额"
 
 #: .options.digit_differs
-#, fuzzy
 msgid "Differs"
 msgstr "数字差异"
 

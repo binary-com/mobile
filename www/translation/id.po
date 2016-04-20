@@ -173,7 +173,7 @@ msgid "Add Account"
 msgstr "Gunakan Akun"
 
 #: .signin.signin_with_binary_com
-msgid "Sing in with Binary.com"
+msgid "Sign in"
 msgstr "Mendaftar di Binary.com"
 
 #: .signin.language

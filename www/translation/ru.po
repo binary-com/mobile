@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420121902/lang/ru.json, /tmp/json2po-Apr0420121902/old_po/ru.json
+#. extracted from /tmp/json2po-Apr0420152857/lang/ru.json, /tmp/json2po-Apr0420152857/old_po/ru.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 12:19+0430\n"
+"POT-Creation-Date: 2016-04-20 15:28+0430\n"
 "PO-Revision-Date: 2016-03-04 08:53+0000\n"
 "Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-tick-"
@@ -175,7 +175,7 @@ msgid "Add Account"
 msgstr "Добавить счёт"
 
 #: .signin.signin_with_binary_com
-msgid "Sing in with Binary.com"
+msgid "Sign in"
 msgstr ""
 
 #: .signin.language
@@ -217,7 +217,6 @@ msgid "Account"
 msgstr "Счёт"
 
 #: .accounts.not_allowed_to_trade
-#, fuzzy
 msgid "You don't have permission to trade!"
 msgstr "У Вас нет разрешения торговать!"
 
@@ -322,7 +321,6 @@ msgid "Select Amount"
 msgstr "Выбрать сумму"
 
 #: .options.digit_differs
-#, fuzzy
 msgid "Differs"
 msgstr "Несовпадение цифр"
 

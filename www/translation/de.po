@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420121902/lang/de.json, /tmp/json2po-Apr0420121902/old_po/de.json
+#. extracted from /tmp/json2po-Apr0420152857/lang/de.json, /tmp/json2po-Apr0420152857/old_po/de.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 12:19+0430\n"
+"POT-Creation-Date: 2016-04-20 15:28+0430\n"
 "PO-Revision-Date: 2016-04-18 09:44+0000\n"
 "Last-Translator: Robert Grundler <grundlertex@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/binary-tick-trade/"
@@ -175,7 +175,7 @@ msgid "Add Account"
 msgstr "Konto hinzufügen"
 
 #: .signin.signin_with_binary_com
-msgid "Sing in with Binary.com"
+msgid "Sign in"
 msgstr ""
 
 #: .signin.language
@@ -217,7 +217,6 @@ msgid "Account"
 msgstr "Konto"
 
 #: .accounts.not_allowed_to_trade
-#, fuzzy
 msgid "You don't have permission to trade!"
 msgstr "Sie haben keine Erlaubnis zu handeln!"
 
@@ -317,7 +316,6 @@ msgid "Volatility Indices"
 msgstr ""
 
 #: .options.random
-#, fuzzy
 msgid "Random"
 msgstr "Random"
 
@@ -326,7 +324,6 @@ msgid "Select Amount"
 msgstr "Betrag auswählen"
 
 #: .options.digit_differs
-#, fuzzy
 msgid "Differs"
 msgstr "Kommastelle weicht ab"
 

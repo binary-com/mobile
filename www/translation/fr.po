@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420121902/lang/fr.json, /tmp/json2po-Apr0420121902/old_po/fr.json
+#. extracted from /tmp/json2po-Apr0420152857/lang/fr.json, /tmp/json2po-Apr0420152857/old_po/fr.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 12:19+0430\n"
+"POT-Creation-Date: 2016-04-20 15:28+0430\n"
 "PO-Revision-Date: 2016-04-03 15:09+0000\n"
 "Last-Translator: Chloe Chevreton <chloe-che@hotmail.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/binary-tick-trade/"
@@ -175,7 +175,7 @@ msgid "Add Account"
 msgstr "Ajouter un compte"
 
 #: .signin.signin_with_binary_com
-msgid "Sing in with Binary.com"
+msgid "Sign in"
 msgstr ""
 
 #: .signin.language
@@ -217,7 +217,6 @@ msgid "Account"
 msgstr "Compte"
 
 #: .accounts.not_allowed_to_trade
-#, fuzzy
 msgid "You don't have permission to trade!"
 msgstr "Vous n'êtes pas autorisé à effectuer des opérations de trading !"
 
@@ -326,7 +325,6 @@ msgid "Select Amount"
 msgstr "Sélectionner un montant"
 
 #: .options.digit_differs
-#, fuzzy
 msgid "Differs"
 msgstr "Chiffre différent"
 

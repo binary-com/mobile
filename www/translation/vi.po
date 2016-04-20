@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420121902/lang/vi.json, /tmp/json2po-Apr0420121902/old_po/vi.json
+#. extracted from /tmp/json2po-Apr0420152857/lang/vi.json, /tmp/json2po-Apr0420152857/old_po/vi.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 12:19+0430\n"
+"POT-Creation-Date: 2016-04-20 15:28+0430\n"
 "PO-Revision-Date: 2016-03-31 09:51+0000\n"
 "Last-Translator: Nguyen Thi My Linh <linh.nguyen@netlink.vn>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
@@ -174,7 +174,7 @@ msgid "Add Account"
 msgstr "Thêm tài khoản"
 
 #: .signin.signin_with_binary_com
-msgid "Sing in with Binary.com"
+msgid "Sign in"
 msgstr ""
 
 #: .signin.language
@@ -216,7 +216,6 @@ msgid "Account"
 msgstr "Tài Khoản"
 
 #: .accounts.not_allowed_to_trade
-#, fuzzy
 msgid "You don't have permission to trade!"
 msgstr "Bạn không có quyền giao dịch!"
 
@@ -323,7 +322,6 @@ msgid "Select Amount"
 msgstr "Chọn số tiền"
 
 #: .options.digit_differs
-#, fuzzy
 msgid "Differs"
 msgstr "Chữ số khác nhau"
 
