@@ -5,7 +5,7 @@
 		"need_help": "Need Help?",
 		"paste_token": "Paste your token here",
 		"get_token": "How to get a Token?",
-        "signin_with_binary_com": "Sing in with Binary.com",
+        "signin_with_binary_com": "Sign in",
         "use_token": "Or sign in with a token",
         "next": "Next"
 	},
@@ -42,6 +42,7 @@
 		"select_market": "Markets",
 		"forex": "Forex",
 		"random": "Random",
+        "volidx": "Volatility Indices",
 		"underlying": "Underlying",
 		"trade_type": "Trade Types",
 		"up": "Up",

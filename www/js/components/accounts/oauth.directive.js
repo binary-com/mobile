@@ -9,7 +9,7 @@
 
 angular
     .module('binary')
-    .directive('oauth', function(config, websocketService, alertService){
+    .directive('oauth', function(config, websocketService, alertService, accountService){
         return {
             restrict: "E",
             scope: {},
@@ -43,7 +43,7 @@ angular
                            }
 
                            accounts[a].email = response.email;
-                           localStorage.accounts.push(accounts[a]);
+                           accountService.add(accounts[a]);
                        }
                    }
                 });
@@ -74,7 +74,7 @@ angular
 
                     while(result=regex.exec(_url)){
                         accounts.push({
-                            id: result[1],
+                            loginid: result[1],
                             token: result[2],
                             email: "",
                             is_default: false

@@ -8,6 +8,7 @@ angular
 	.module('binary')
 	.constant('config', {
         'app_id': "id-ct9oK1jjUNyxvPKYNdqJxuGX7bHvJ",
+        'wsUrl': 'wss://ws.binaryws.com/websockets/v3?l=',  // Don't set language value here
         'tradeCategories': [
             {
                 name: "Up/Down",
@@ -32,14 +33,14 @@ angular
 			{
 				name: 'Up',
 				value: 'CALL',
-				markets: ['forex', 'random'],
+				markets: ['forex', 'volidx', 'random'],
 				digits: false,
                 category: "UP/DOWN"
 			},
 			{
 				name: 'Down',
 				value: 'PUT',
-				markets: ['forex', 'random'],
+				markets: ['forex', 'volidx', 'random'],
 				digits: false,
                 category: "UP/DOWN"
 
@@ -47,7 +48,7 @@ angular
 			{
 				name: 'Digit Match',
 				value: 'DIGITMATCH',
-				markets: ['random'],
+				markets: ['volidx', 'random'],
 				digits: true,
                 category: "MATCH/DIFF"
 
@@ -55,7 +56,7 @@ angular
 			{
 				name: 'Digit Differs',
 				value: 'DIGITDIFF',
-				markets: ['random'],
+				markets: ['volidx', 'random'],
 				digits: true,
                 category: "MATCH/DIFF"
 
@@ -64,21 +65,21 @@ angular
 			{
 				name: 'Digit Even',
 				value: 'DIGITEVEN',
-				markets: ['random'],
+				markets: ['volidx', 'random'],
                 category: "EVEN/ODD"
 
 			},
 			{
 				name: 'Digit Odd',
 				value: 'DIGITODD',
-				markets: ['random'],
+				markets: ['volidx', 'random'],
                 category: "EVEN/ODD"
 
 			},
 			{
 				name: 'Digit Over',
 				value: 'DIGITOVER',
-				markets: ['random'],
+				markets: ['volidx', 'random'],
 				digits: true,
                 category: "OVER/UNDER"
 
@@ -86,7 +87,7 @@ angular
 			{
 				name: 'Digit Under',
 				value: 'DIGITUNDER',
-				markets: ['random'],
+				markets: ['volidx', 'random'],
 				digits: true,
                 category: "OVER/UNDER"
 

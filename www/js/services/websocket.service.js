@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.factory('websocketService',
-		function($rootScope, localStorageService, alertService, appStateService, $state) {
+		function($rootScope, localStorageService, alertService, appStateService, $state, config) {
 			var dataStream = '';
 			var messageBuffer = [];
 
