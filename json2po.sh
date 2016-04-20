@@ -11,6 +11,7 @@ tmp_file="/tmp/json2po-"`date +'%h%m%d%H%M%S'`
 mkdir "$tmp_file"
 mkdir "$tmp_file/old_po"
 mkdir "$tmp_file/new_po"
+mkdir "$tmp_file/new_po_files"
 
 current_branch=`git branch |grep '\*'|cut -d' ' -f2`
 stashed=0
@@ -28,7 +29,15 @@ popd
 git checkout translation
 
 ./po2json.sh "$tmp_file/old_po"
+json2po "$tmp_file/lang" "$tmp_file/new_po_files"
 json2po -t "$tmp_file/lang" "$tmp_file/old_po" "$tmp_file/new_po"
+pushd "$tmp_file/new_po_files"&&
+	for i in `ls !(en).po`; do 
+		if [ ! -e "$tmp_file/new_po"/$i ];then
+			cp $i "$tmp_file/new_po"/$i
+		fi
+	done&&
+popd
 pushd www/translation&&
 	for i in `ls !(en).po`; do msgmerge -U $i "$tmp_file/new_po/$i"; done&&
 	for i in `ls !(en).po`; do msgattrib $i --clear-fuzzy -o $i ;done&&
