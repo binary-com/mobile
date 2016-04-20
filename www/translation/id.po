@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420151058/lang/id.json, /tmp/json2po-Apr0420151058/old_po/id.json
+#. extracted from /tmp/json2po-Apr0420152857/lang/id.json, /tmp/json2po-Apr0420152857/old_po/id.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 15:10+0430\n"
+"POT-Creation-Date: 2016-04-20 15:28+0430\n"
 "PO-Revision-Date: 2016-03-07 03:34+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"

@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420151058/lang/zh_tw.json, /tmp/json2po-Apr0420151058/old_po/zh_tw.json
+#. extracted from /tmp/json2po-Apr0420152857/lang/zh_tw.json, /tmp/json2po-Apr0420152857/old_po/zh_tw.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 15:10+0430\n"
+"POT-Creation-Date: 2016-04-20 15:28+0430\n"
 "PO-Revision-Date: 2016-03-04 14:31+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
