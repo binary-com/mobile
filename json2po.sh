@@ -31,6 +31,7 @@ git checkout translation
 json2po -t "$tmp_file/lang" "$tmp_file/old_po" "$tmp_file/new_po"
 pushd www/translation&&
 	for i in `ls !(en).po`; do msgmerge -U $i "$tmp_file/new_po/$i"; done&&
+	for i in `ls !(en).po`; do msgattrib $i --clear-fuzzy -o $i ;done&&
 popd
 cp "$tmp_file/lang"/* www/i18n
 git add www/i18n/*.json
