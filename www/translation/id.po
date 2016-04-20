@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 12:19+0430\n"
-"PO-Revision-Date: 2016-03-07 03:34+0000\n"
+"PO-Revision-Date: 2016-04-20 10:55+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -176,7 +176,7 @@ msgstr "Gunakan Akun"
 
 #: .signin.signin_with_binary_com
 msgid "Sing in with Binary.com"
-msgstr ""
+msgstr "Mendaftar di Binary.com"
 
 #: .signin.language
 msgid "Language"
@@ -188,11 +188,11 @@ msgstr "Masukkan token Anda disini"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr ""
+msgstr "Atau masuk menggunakan token"
 
 #: .signin.next
 msgid "Next"
-msgstr ""
+msgstr "Lanjut"
 
 #: .signin.get_token
 msgid "How to get a Token?"
@@ -217,7 +217,6 @@ msgid "Account"
 msgstr "Akun"
 
 #: .accounts.not_allowed_to_trade
-#, fuzzy
 msgid "You don't have permission to trade!"
 msgstr "Anda tidak memiliki izin untuk bertrading!"
 
@@ -309,7 +308,7 @@ msgstr "Odd"
 
 #: .options.volidx
 msgid "Volatility Indices"
-msgstr ""
+msgstr "Indeks Volatilitas"
 
 #: .options.random
 msgid "Random"
@@ -320,9 +319,8 @@ msgid "Select Amount"
 msgstr "Pilih Jumlah"
 
 #: .options.digit_differs
-#, fuzzy
 msgid "Differs"
-msgstr "Digit Differs"
+msgstr "Differs"
 
 #: .options.underlying
 msgid "Underlying"
