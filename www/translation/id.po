@@ -1,10 +1,10 @@
-#. extracted from /tmp/json2po-Apr0420152857/lang/id.json, /tmp/json2po-Apr0420152857/old_po/id.json
+#. extracted from /tmp/json2po-Apr0420121902/lang/id.json, /tmp/json2po-Apr0420121902/old_po/id.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 15:28+0430\n"
-"PO-Revision-Date: 2016-03-07 03:34+0000\n"
+"POT-Creation-Date: 2016-04-20 12:19+0430\n"
+"PO-Revision-Date: 2016-04-20 10:57+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -21,9 +21,7 @@ msgstr "Ada pertanyaan? Email customer support di "
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
-msgstr ""
-"dan lakukan pembuatan token. Kemudian masukkan pada kotak dihalaman pertama "
-"tadi."
+msgstr "dan buat token. Kemudian masukkan pada kotak dihalaman pertama tadi."
 
 #: .help.visit
 msgid "Please visit"
@@ -176,7 +174,7 @@ msgstr "Gunakan Akun"
 
 #: .signin.signin_with_binary_com
 msgid "Sign in"
-msgstr ""
+msgstr "Mendaftar di Binary.com"
 
 #: .signin.language
 msgid "Language"
@@ -188,11 +186,11 @@ msgstr "Masukkan token Anda disini"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr ""
+msgstr "Atau mendaftar dengan token"
 
 #: .signin.next
 msgid "Next"
-msgstr ""
+msgstr "Lanjut"
 
 #: .signin.get_token
 msgid "How to get a Token?"
@@ -308,7 +306,7 @@ msgstr "Odd"
 
 #: .options.volidx
 msgid "Volatility Indices"
-msgstr ""
+msgstr "Indeks Volatilitas"
 
 #: .options.random
 msgid "Random"
@@ -320,7 +318,7 @@ msgstr "Pilih Jumlah"
 
 #: .options.digit_differs
 msgid "Differs"
-msgstr "Digit Differs"
+msgstr "Differs"
 
 #: .options.underlying
 msgid "Underlying"
