@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 12:19+0430\n"
-"PO-Revision-Date: 2016-04-20 10:55+0000\n"
+"PO-Revision-Date: 2016-04-20 10:57+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
@@ -21,9 +21,7 @@ msgstr "Ada pertanyaan? Email customer support di "
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
-msgstr ""
-"dan lakukan pembuatan token. Kemudian masukkan pada kotak dihalaman pertama "
-"tadi."
+msgstr "dan buat token. Kemudian masukkan pada kotak dihalaman pertama tadi."
 
 #: .help.visit
 msgid "Please visit"
@@ -188,7 +186,7 @@ msgstr "Masukkan token Anda disini"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr "Atau masuk menggunakan token"
+msgstr "Atau mendaftar dengan token"
 
 #: .signin.next
 msgid "Next"
