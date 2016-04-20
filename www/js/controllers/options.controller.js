@@ -108,16 +108,16 @@ angular
                 $scope.isDataLoaded = stopSpinner;
                 $scope.letsTrade = _.isNil(enableLetsTrade) ? stopSpinner : enableLetsTrade;
             };
-
+            
             $scope.$on('authorize', function(e){
-                $scope.hasTradePermission = getTradePermission();
-
-                if(!$scope.$$phase){
-                    $scope.$apply();
-                }
-            });
-
-            function getTradePermission(){
+                 $scope.hasTradePermission = getTradePermission();
+ 
+                 if(!$scope.$$phase){
+                     $scope.$apply();
+                 }
+             });
+ 
+             function getTradePermission(){
                 return accountService.checkScope(['READ', 'TRADE']);
             }
 	});
