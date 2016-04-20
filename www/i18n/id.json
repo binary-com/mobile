@@ -65,17 +65,17 @@
         "trade_type": "Jenis Kontrak", 
         "underlying": "Dasar", 
         "up": "Up", 
-        "volidx": ""
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "Gunakan Akun", 
         "get_token": "Bagaimanakah cara memperoleh Token?", 
         "language": "Bahasa", 
         "need_help": "Perlu Bantuan?", 
-        "next": "", 
+        "next": "Next", 
         "paste_token": "Masukkan token Anda disini", 
-        "signin_with_binary_com": "", 
-        "use_token": ""
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "Saldo Akun", 
