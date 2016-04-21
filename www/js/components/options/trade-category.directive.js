@@ -17,7 +17,8 @@ angular
 			restrict: 'E',
 			templateUrl: 'templates/components/options/trade-category.template.html',
 			link: function(scope, element, attrs) {
-                scope.tradeCategories = config.tradeCategories;
+                scope.tradeCategories = _.filter(config.tradeCategories, 
+                                                 function(o){ return o.markets.indexOf(scope.$parent.selected.market) > -1 });
                 
                 scope.$parent.$watch('scope.tradeTypes', function(_newValue, _oldValue){
                     var categories = Object.keys(_.groupBy(_newValue, 'category'));
@@ -29,6 +30,8 @@ angular
                         var tradeTypeObj = _.find(config.tradeTypes, ['value', value.tradeType]);
 						scope.updateTradeType(tradeTypeObj.category);
 					}
+                    scope.tradeCategories = _.filter(config.tradeCategories, 
+                                                     function(o){ return o.markets.indexOf(scope.$parent.selected.market) > -1 });
 				}, true);
 
 

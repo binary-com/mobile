@@ -60,7 +60,7 @@ angular
 							marketService.fixOrder();
 							var markets = marketService.getActiveMarkets();
 							scope.market = {
-								//forex: markets.indexOf('forex') !== -1  ? true : false,
+								forex: markets.indexOf('forex') !== -1  ? true : false,
 
                                 //FIXME Should be change after changing Random to Volitality-Indices permenantly
 								//volidx: (markets.indexOf('volidx') + markets.indexOf('random')) >= 0 ? true : false
