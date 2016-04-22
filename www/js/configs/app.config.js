@@ -12,20 +12,24 @@ angular
         'tradeCategories': [
             {
                 name: "Up/Down",
+				markets: ['forex', 'volidx', 'random'],
                 value: "UP/DOWN"
             },
             {
                 name: "Digit Matches/Differs",
                 value: "MATCH/DIFF",
+				markets: ['volidx', 'random'],
                 digits: true
             },
             {
                 name: "Digit Even/Odd",
+				markets: ['volidx', 'random'],
                 value: "EVEN/ODD"
             },
             {
                 name: "Digit Over/Under",
                 value: "OVER/UNDER",
+				markets: ['volidx', 'random'],
                 digits: true
             },
         ],
@@ -33,14 +37,12 @@ angular
 			{
 				name: 'Up',
 				value: 'CALL',
-				markets: ['forex', 'volidx', 'random'],
 				digits: false,
                 category: "UP/DOWN"
 			},
 			{
 				name: 'Down',
 				value: 'PUT',
-				markets: ['forex', 'volidx', 'random'],
 				digits: false,
                 category: "UP/DOWN"
 
@@ -48,7 +50,6 @@ angular
 			{
 				name: 'Digit Match',
 				value: 'DIGITMATCH',
-				markets: ['volidx', 'random'],
 				digits: true,
                 category: "MATCH/DIFF"
 
@@ -56,7 +57,6 @@ angular
 			{
 				name: 'Digit Differs',
 				value: 'DIGITDIFF',
-				markets: ['volidx', 'random'],
 				digits: true,
                 category: "MATCH/DIFF"
 
@@ -65,21 +65,18 @@ angular
 			{
 				name: 'Digit Even',
 				value: 'DIGITEVEN',
-				markets: ['volidx', 'random'],
                 category: "EVEN/ODD"
 
 			},
 			{
 				name: 'Digit Odd',
 				value: 'DIGITODD',
-				markets: ['volidx', 'random'],
                 category: "EVEN/ODD"
 
 			},
 			{
 				name: 'Digit Over',
 				value: 'DIGITOVER',
-				markets: ['volidx', 'random'],
 				digits: true,
                 category: "OVER/UNDER"
 
@@ -87,7 +84,6 @@ angular
 			{
 				name: 'Digit Under',
 				value: 'DIGITUNDER',
-				markets: ['volidx', 'random'],
 				digits: true,
                 category: "OVER/UNDER"
 
