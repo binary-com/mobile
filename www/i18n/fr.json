@@ -65,17 +65,17 @@
         "trade_type": "Types de transaction", 
         "underlying": "Actif sous-jacent", 
         "up": "Haut", 
-        "volidx": ""
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "Ajouter un compte", 
         "get_token": "Comment obtenir un jeton d'authentification ?", 
         "language": "Langue", 
         "need_help": "Besoin d'aide ?", 
-        "next": "", 
+        "next": "Next", 
         "paste_token": "Veuillez coller votre jeton d'authentification ici", 
-        "signin_with_binary_com": "", 
-        "use_token": ""
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "Solde du compte", 

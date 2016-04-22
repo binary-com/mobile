@@ -65,17 +65,17 @@
         "trade_type": "أنواع التداول", 
         "underlying": "الأصول", 
         "up": "أعلى", 
-        "volidx": ""
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "إضافة حساب", 
         "get_token": "كيفية الحصول على رمز مميز؟", 
         "language": "اللغة", 
         "need_help": "بحاجة إلى مساعدة؟", 
-        "next": "", 
+        "next": "Next", 
         "paste_token": "قم بلصق الرمز المميز الخاص بك هنا", 
-        "signin_with_binary_com": "", 
-        "use_token": ""
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "رصيد الحساب", 

@@ -65,17 +65,17 @@
         "trade_type": "Handelsarten", 
         "underlying": "Anlage", 
         "up": "Hoch", 
-        "volidx": ""
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "Konto hinzufügen", 
         "get_token": "Wie erhält man einen Token?", 
         "language": "Sprache", 
         "need_help": "Benötigen Sie Unterstützung?", 
-        "next": "", 
+        "next": "Next", 
         "paste_token": "Fügen Sie Ihren Token hier ein", 
-        "signin_with_binary_com": "", 
-        "use_token": ""
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "Kontostand", 
