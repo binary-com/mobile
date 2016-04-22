@@ -92,10 +92,6 @@ angular
 
 			$scope.$on('connection:reopened', function(e) {
                 $scope.hasTradePermission = getTradePermission();
-//				if (accountService.hasDefault()) {
-//					accountService.validate();
-//				}
-
 			});
 
 			$scope.$watch('selected', function(_newValue, _oldValue){
@@ -110,7 +106,11 @@ angular
             };
             
             $scope.$on('authorize', function(e){
-                 $scope.hasTradePermission = getTradePermission();
+                $scope.hasTradePermission = getTradePermission();
+                
+                delayService.update('symbolsAndAssetIndexUpdate', function(){
+                    updateSymbols();
+                }, 60*1000);
  
                  if(!$scope.$$phase){
                      $scope.$apply();
