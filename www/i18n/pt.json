@@ -65,17 +65,17 @@
         "trade_type": "Tipos de negociações", 
         "underlying": "Ativo subjacente", 
         "up": "Acima", 
-        "volidx": ""
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "Adicionar conta", 
         "get_token": "Como recebo um token?", 
         "language": "Idioma", 
         "need_help": "Precisa de ajuda?", 
-        "next": "", 
+        "next": "Next", 
         "paste_token": "Cole o seu token aqui", 
-        "signin_with_binary_com": "", 
-        "use_token": ""
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "Saldo da conta", 
