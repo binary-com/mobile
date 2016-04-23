@@ -31,7 +31,9 @@ angular
                 window.onmessage = function(_message){
                     if(_message.data && _message.data.url){
                         accounts = getAccountsFromUrl(_message.data.url);
-                        authenticate(accounts[0].token);
+                        if(accounts.length > 0){
+                            authenticate(accounts[0].token);
+                        }
                     }
                 }
 
