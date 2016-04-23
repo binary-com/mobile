@@ -31,7 +31,9 @@ angular
                 window.onmessage = function(_message){
                     if(_message.data && _message.data.url){
                         accounts = getAccountsFromUrl(_message.data.url);
-                        authenticate(accounts[0].token);
+                        if(accounts.length > 0){
+                            authenticate(accounts[0].token);
+                        }
                     }
                 }
 
@@ -57,6 +59,12 @@ angular
                     $(authWindow).on('loadstart',
                             function(e){
                                 var url = e.originalEvent.url;
+                                
+                                if(getErrorFromUrl(url).length > 0){
+                                    authWindow.close();
+                                    return;
+                                }
+
                                 accounts = getAccountsFromUrl(url);
                                 if(accounts && accounts.length){
                                     authWindow.close();
@@ -85,6 +93,17 @@ angular
                     
                 }
 
+                function getErrorFromUrl(_url){
+                    var regex = /error=(\w+)/g;
+                    var result = null;
+                    var error = [];
+                                
+                    while(result = regex.exec(_url)){
+                        error.push(result[1]);
+                    }
+
+                    return error;
+                }
             }
         };
     });
