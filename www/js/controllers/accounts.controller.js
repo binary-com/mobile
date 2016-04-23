@@ -45,6 +45,7 @@ angular
                             marketService.removeAssetIndex();
                             localStorageService.removeWSUrl();
                             appStateService.isLoggedin = false;
+                            websocketService.closeConnection();
                             $scope.$parent.$broadcast('logout');
 							$state.go('signin');
 						}
