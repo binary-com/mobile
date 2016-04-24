@@ -370,6 +370,12 @@ angular
                     sendMessage(data);
                 }
 			};
+            
+            websocketService.closeConnection = function(){
+                if(dataStream){
+                    dataStream.close();
+                }
+            };
 
 			return websocketService;
 	});
