@@ -12,10 +12,15 @@ angular
 		function($scope, $state, websocketService, accountService, localStorageService) {
 			var init = function() {
                 $scope.hasWSUrl = true;
-
+                $scope.wsUrl = "wss://www2.binary.com/websockets/v3";
+ 
                 if(!localStorageService.getWSUrl()){
                     $scope.hasWSUrl = false;
-                    return;
+
+                   if(!$scope.$$phase){
+                       $scope.$apply();
+                   }
+                   return;
                 }
 
 				if(typeof(analytics) !== "undefined"){
