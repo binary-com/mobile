@@ -30,7 +30,7 @@ angular
 			link: function(scope, element) {
 
                 scope.showTokenForm = false;
-                scope.showSingin = false;
+                scope.showSignin = false;
 
 				/**
 				 * On load:
@@ -85,8 +85,20 @@ angular
                     languageService.update(scope.language);
                 }
 
-                scope.changeSigninView = function(){
-                    scope.showTokenForm = !scope.showTokenForm;
+                scope.changeSigninView = function(_isBack){
+                    _isBack = _isBack || false;
+
+                    if(!scope.showSignin && scope.showTokenForm){
+                        scope.showTokenForm = false;
+                        scope.showSignin = true;
+                    }
+                    else if(scope.showSignin && !scope.showTokenForm && _isBack){
+                        scope.showSignin = false;
+                    }
+                    else if(scope.showSigninView && !scope.showTokenForm){
+                        scope.showTokenForm = true;
+                        scope.showSignin = false;
+                    }
                     
                     if(!scope.$$phase){
                         scope.$apply();

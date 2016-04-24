@@ -1,6 +1,6 @@
 <ion-header-bar align-title="center" class="bar bar-header bar-positive">
     <button class="button  icon-left ion-chevron-left button-clear" 
-            ng-click="changeSigninView()" ng-show="showTokenForm"></button>
+            ng-click="changeSigninView(true)" ng-show="showTokenForm || showSignin"></button>
     <h1 class="title">
     </h1>
 </ion-header-bar>
@@ -43,10 +43,10 @@
 </div>
 
 <div class="list">
-    <language-list ng-show="!showSignin"></language-list>
+    <language-list ng-show="!showSignin && !showTokenForm"></language-list>
 </div>
 
-<div class="row center" ng-show="!showSignin">
+<div class="row center" ng-show="!showSignin && !showTokenForm">
     <div class="col col-75">
         <button class="button button-block button-possitive btn-signin" 
                 type="button" 
