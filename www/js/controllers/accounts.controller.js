@@ -43,6 +43,7 @@ angular
                             marketService.removeActiveSymbols();
                             marketService.removeAssetIndex();
                             appStateService.isLoggedin = false;
+                            websocketService.closeConnection();
                             $scope.$parent.$broadcast('logout');
 							$state.go('signin');
 						}
