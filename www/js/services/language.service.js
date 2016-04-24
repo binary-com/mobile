@@ -13,7 +13,7 @@ angular
 		function($rootScope, $translate, cleanupService) {
 
 			/**
-			 * Update default languge in local storage
+			 * Update default language in local storage
 			 * Changes the app language
 			 * @param  {String} _language [description]
 			 */
