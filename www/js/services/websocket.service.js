@@ -40,8 +40,18 @@ angular
 				});
 			};
 
-			var init = function() {
+			var init = function(forced) {
+                forced = forced || false;
 				var language = localStorage.language || 'en';
+
+                if(dataStream && dataStream.readyState !== 3 && !forced){
+                    return;
+                }
+                else if(dataStream && dataStream.readyState !== 0){
+                    dataStream.close();
+                }
+
+                dataStream = null;
 
                 appStateService.isLoggedin = false;
 
@@ -107,7 +117,7 @@ angular
 			};
 
 			$rootScope.$on('language:updated', function(){
-				init();
+				init(true);
 			})
 
 			var receiveMessage = function(_response) {
@@ -223,14 +233,14 @@ angular
 
 			var websocketService ={};
 
-			websocketService.init = function() {
-				setInterval(function restart() {
-					if (!dataStream || dataStream.readyState === 3) {
-						init();
-					}
-					return restart;
-				}(), 1000);
-			};
+//			websocketService.init = function() {
+//				setInterval(function restart() {
+//					if (!dataStream || dataStream.readyState === 3) {
+//						init();
+//					}
+//					return restart;
+//				}(), 1000);
+//			};
 
 			websocketService.authenticate = function(_token, extraParams) {
 				extraParams = null || extraParams;

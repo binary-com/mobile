@@ -38,7 +38,7 @@ angular
 				 * If default account is set, send it for validation
 				 */
 				var init = function() {
-					websocketService.init();
+					//websocketService.init();
 					scope.language = languageService.read();
 				};
 
@@ -53,7 +53,7 @@ angular
 							accountService.setDefault(response.token);
 						}
 
-						languageService.set();
+						//languageService.set();
 						scope.token = '';
 
 						$state.go('options');
@@ -69,7 +69,7 @@ angular
 				scope.signIn = function() {
 					var _token = scope.token;
 					// Set the user's language
-					languageService.update(scope.language);
+					//languageService.update(scope.language);
 
 					// Validate the token
 					scope.showSpinner = false;
