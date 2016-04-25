@@ -54,7 +54,7 @@ angular
 			};
 
             service.getWSUrl = function(){
-                var regex = /^(ws|wss):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/;
+                var regex = /^(ws|wss):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/i;
                 if(localStorage.wsurl && regex.exec(localStorage.wsurl) != null){
                     return localStorage.wsurl;
                 }
