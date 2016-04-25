@@ -6,7 +6,7 @@
         "delete": "Löschen", 
         "my_accounts": "Konten verwalten", 
         "new_token": "Einen neuen Token hinzufügen", 
-        "not_allowed_to_trade": "", 
+        "not_allowed_to_trade": "Sie haben keine Erlaubnis zu handeln!", 
         "remove_all": "Alle Konten entfernen & Abmelden", 
         "set_as_default": "Als Vorgabe einstellen"
     }, 
@@ -15,8 +15,8 @@
         "error": "Fehler!", 
         "field_between": "Es muss zwischen 0,70 und 100000 sein.", 
         "must_number": "Es muss eine Zahl sein.", 
-        "no_tick": "Bitte wählen Sie eine andere Anlage. Die von Ihnen gewählte Anlage untersützt keine Ticks.", 
-        "no_underlying": "Dies ist keine Anlage für diesen Markt. Versuchen Sie bitte einen anderen Markt.", 
+        "no_tick": "Bitte wählen Sie eine andere Anlage. Die von Ihnen gewählte Anlage unterstützt keine Ticks.", 
+        "no_underlying": "Es gibt keine Anlage für diesen Markt. Versuchen Sie bitte einen anderen Markt.", 
         "not_auth": "Leider können wir Sie nicht authentifizieren.", 
         "not_unique": "Sie haben dieses Konto schon hinzugefügt.", 
         "not_valid": "Bitte geben Sie einen gültigen Token ein.", 
@@ -48,8 +48,8 @@
         "digit_even": "Gleich", 
         "digit_match": "Kommastellenübereinstimmung", 
         "digit_odd": "Chance", 
-        "digit_over": "", 
-        "digit_under": "Under", 
+        "digit_over": "Über", 
+        "digit_under": "Unter", 
         "down": "Runter", 
         "forex": "Devisen", 
         "last_digit_prediction": "Voraussage der letzten Kommastelle", 
@@ -64,14 +64,18 @@
         "stake": "Einsatz", 
         "trade_type": "Handelsarten", 
         "underlying": "Anlage", 
-        "up": "Hoch"
+        "up": "Hoch", 
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "Konto hinzufügen", 
         "get_token": "Wie erhält man einen Token?", 
         "language": "Sprache", 
         "need_help": "Benötigen Sie Unterstützung?", 
-        "paste_token": "Fügen Sie Ihren Token hier ein"
+        "next": "Next", 
+        "paste_token": "Fügen Sie Ihren Token hier ein", 
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "Kontostand", 

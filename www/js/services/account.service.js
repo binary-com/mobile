@@ -97,12 +97,17 @@ angular
 				var account = {
 					id: _account.loginid,
 					token: _account.token,
-					currency: _account.currency,
+					currency: _account.currency || 'USD',
 					email: _account.email,
 					is_default: false
 				};
 
 				var accountList = this.getAll();
+                
+                if(_.find(accountList, ['id', account.id])){
+                    return;
+                }
+
 				accountList.push(account);
 				localStorage.accounts = JSON.stringify(accountList);
 			};

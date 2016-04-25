@@ -43,7 +43,14 @@ angular
 					cache: false,
 					templateUrl: 'templates/pages/accounts.html',
 					controller: 'AccountsController'
-				});
+				})
+                .state('redirect', {
+                    url: '/redirect',
+                    cashe: false,
+                    templateUrl: 'templates/pages/oauth-redirect.template.html',
+                    controller: 'OAuthRedirect'
+                });
+
 
 				$urlRouterProvider.otherwise('/home');
 		}

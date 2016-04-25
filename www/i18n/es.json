@@ -64,14 +64,18 @@
         "stake": "Apuesta", 
         "trade_type": "Tipos de Contratos", 
         "underlying": "Activo subyacente", 
-        "up": "Arriba"
+        "up": "Arriba", 
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "Añadir Cuenta", 
         "get_token": "¿Cómo obtener un token?", 
         "language": "Idioma", 
         "need_help": "¿Necesita Ayuda?", 
-        "paste_token": "Pegue su token aquí"
+        "next": "Next", 
+        "paste_token": "Pegue su token aquí", 
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "Saldo de la cuenta", 

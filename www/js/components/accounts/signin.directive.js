@@ -16,16 +16,21 @@ angular
 		'alertService',
 		'$state',
 		'$ionicPopup',
+        '$compile',
 		function(accountService,
 				languageService,
 				websocketService,
 				alertService,
 				$state,
-				$ionicPopup) {
+				$ionicPopup,
+                $compile) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/signin.template.html',
 			link: function(scope, element) {
+
+                scope.showTokenForm = false;
+                scope.showSignin = false;
 
 				/**
 				 * On load:
@@ -33,12 +38,7 @@ angular
 				 * If default account is set, send it for validation
 				 */
 				var init = function() {
-					websocketService.init();
-//					if (accountService.hasDefault()) {
-//						accountService.validate();
-//					}
-					//websocketService.sendRequestFor.symbols();
-					//websocketService.sendRequestFor.assetIndex();
+					//websocketService.init();
 					scope.language = languageService.read();
 				};
 
@@ -53,7 +53,7 @@ angular
 							accountService.setDefault(response.token);
 						}
 
-						languageService.set();
+						//languageService.set();
 						scope.token = '';
 
 						$state.go('options');
@@ -69,7 +69,7 @@ angular
 				scope.signIn = function() {
 					var _token = scope.token;
 					// Set the user's language
-					languageService.update(scope.language);
+					//languageService.update(scope.language);
 
 					// Validate the token
 					scope.showSpinner = false;
@@ -84,25 +84,34 @@ angular
                 scope.changeLanguage = function(){
                     languageService.update(scope.language);
                 }
+
+                scope.changeSigninView = function(_isBack){
+                    _isBack = _isBack || false;
+
+                    if(!scope.showSignin && scope.showTokenForm){
+                        scope.showTokenForm = false;
+                        scope.showSignin = true;
+                    }
+                    else if(scope.showSignin && !scope.showTokenForm && _isBack){
+                        scope.showSignin = false;
+                    }
+                    else if(scope.showSigninView && !scope.showTokenForm){
+                        scope.showTokenForm = true;
+                        scope.showSignin = false;
+                    }
+                    
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
+                }
+
+                scope.showSigninView = function(){
+                    scope.showSignin = true;
+                    
+                    if(!scope.$$phase){
+                        scope.$apply();
+                    }
+                }
 			}
 		};
 	}]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

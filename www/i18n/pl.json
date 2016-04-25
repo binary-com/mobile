@@ -48,7 +48,7 @@
         "digit_even": "Parzysta", 
         "digit_match": "Cyfry zgadzają się", 
         "digit_odd": "Nieparzysta", 
-        "digit_over": "Większa", 
+        "digit_over": "Ponad", 
         "digit_under": "Mniejsza", 
         "down": "Niżej", 
         "forex": "Forex", 
@@ -64,14 +64,18 @@
         "stake": "Stawka", 
         "trade_type": "Typy zakładów", 
         "underlying": "Rynek bazowy", 
-        "up": "Wyżej"
+        "up": "Wyżej", 
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "Dodaj konto", 
         "get_token": "Jak uzyskać token?", 
         "language": "Język", 
         "need_help": "Potrzebujesz pomocy?", 
-        "paste_token": "Wklej swój token tutaj"
+        "next": "Next", 
+        "paste_token": "Wklej swój token tutaj", 
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "Saldo konta", 
