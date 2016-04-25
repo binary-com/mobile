@@ -48,8 +48,8 @@
         "digit_even": "Par", 
         "digit_match": "Combinação de dígitos", 
         "digit_odd": "Ímpar", 
-        "digit_over": "", 
-        "digit_under": "Ativo subjacente", 
+        "digit_over": "Superior", 
+        "digit_under": "Inferior", 
         "down": "Abaixo", 
         "forex": "Forex", 
         "last_digit_prediction": "Previsão do último dígito", 
@@ -64,14 +64,18 @@
         "stake": "Aposta", 
         "trade_type": "Tipos de negociações", 
         "underlying": "Ativo subjacente", 
-        "up": "Acima"
+        "up": "Acima", 
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "Adicionar conta", 
         "get_token": "Como recebo um token?", 
         "language": "Idioma", 
         "need_help": "Precisa de ajuda?", 
-        "paste_token": "Cole o seu token aqui"
+        "next": "Next", 
+        "paste_token": "Cole o seu token aqui", 
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "Saldo da conta", 

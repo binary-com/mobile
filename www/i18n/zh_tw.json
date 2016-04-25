@@ -64,14 +64,18 @@
         "stake": "投注額", 
         "trade_type": "交易類型", 
         "underlying": "標的資產", 
-        "up": "上漲"
+        "up": "上漲", 
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "新增帳戶", 
         "get_token": "如何獲取權杖?", 
         "language": "語言", 
         "need_help": "需要幫助?", 
-        "paste_token": "在此粘貼權杖"
+        "next": "Next", 
+        "paste_token": "在此粘貼權杖", 
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "帳戶餘額", 

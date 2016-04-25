@@ -64,14 +64,18 @@
         "stake": "Cổ phần", 
         "trade_type": "Kiểu Giao dịch", 
         "underlying": "Tài sản cơ bản", 
-        "up": "Lên"
+        "up": "Lên", 
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "Thêm tài khoản", 
         "get_token": "Làm thế nào để nhận mã Token?", 
         "language": "Ngôn ngữ", 
         "need_help": "Cần trợ giúp?", 
-        "paste_token": "Dán mã token của bạn ở đây"
+        "next": "Next", 
+        "paste_token": "Dán mã token của bạn ở đây", 
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "Số dư tài khoản", 
