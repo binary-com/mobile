@@ -27,7 +27,7 @@ angular
 					analytics.trackView("Home");
 				}
 
-				websocketService.init();
+				//websocketService.init();
 				if (accountService.hasDefault()) {
 					accountService.validate();
 				} else {

@@ -19,7 +19,6 @@ angular
 			 */
 			this.update = function(_language) {
 				localStorage.language = _language;
-				$rootScope.$broadcast('language:updated');
                 this.set(_language);
 			};
 
