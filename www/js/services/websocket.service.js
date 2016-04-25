@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.factory('websocketService',
-		function($rootScope, localStorageService, alertService, appStateService, $state) {
+		function($rootScope, localStorageService, alertService, appStateService, $state, config) {
 			var dataStream = '';
 			var messageBuffer = [];
 
@@ -40,12 +40,23 @@ angular
 				});
 			};
 
-			var init = function() {
+			var init = function(forced) {
+                forced = forced || false;
 				var language = localStorage.language || 'en';
+
+                if(dataStream && dataStream.readyState !== 3 && !forced){
+                    return;
+                }
+                else if(dataStream && dataStream.readyState !== 0){
+                    dataStream.close();
+                }
+
+                dataStream = null;
 
                 appStateService.isLoggedin = false;
 
-				dataStream = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=' + language);
+				dataStream = new WebSocket(config.wsUrl + language);
+				//dataStream = new WebSocket('wss://www.binaryqa07.com/websockets/v3?l=' + language);
 
 				dataStream.onopen = function() {
                     
@@ -98,7 +109,7 @@ angular
 			};
 
 			$rootScope.$on('language:updated', function(){
-				init();
+				init(true);
 			})
 
 			var receiveMessage = function(_response) {
@@ -214,14 +225,14 @@ angular
 
 			var websocketService ={};
 
-			websocketService.init = function() {
-				setInterval(function restart() {
-					if (!dataStream || dataStream.readyState === 3) {
-						init();
-					}
-					return restart;
-				}(), 1000);
-			};
+//			websocketService.init = function() {
+//				setInterval(function restart() {
+//					if (!dataStream || dataStream.readyState === 3) {
+//						init();
+//					}
+//					return restart;
+//				}(), 1000);
+//			};
 
 			websocketService.authenticate = function(_token, extraParams) {
 				extraParams = null || extraParams;
@@ -361,6 +372,12 @@ angular
                     sendMessage(data);
                 }
 			};
+            
+            websocketService.closeConnection = function(){
+                if(dataStream){
+                    dataStream.close();
+                }
+            };
 
 			return websocketService;
 	});

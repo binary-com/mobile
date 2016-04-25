@@ -64,14 +64,18 @@
         "stake": "Ставка", 
         "trade_type": "Типы сделок", 
         "underlying": "Рынок", 
-        "up": "Вверх"
+        "up": "Вверх", 
+        "volidx": "Volatility Indices"
     }, 
     "signin": {
         "add_account": "Добавить счёт", 
         "get_token": "Как получить токен?", 
         "language": "Язык", 
         "need_help": "Нужна помощь?", 
-        "paste_token": "Введите токен здесь"
+        "next": "Next", 
+        "paste_token": "Введите токен здесь", 
+        "signin_with_binary_com": "Sign in", 
+        "use_token": "Or sign in with a token"
     }, 
     "trade": {
         "account_balance": "Баланс счета", 
