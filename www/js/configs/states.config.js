@@ -13,11 +13,13 @@ angular
 			$stateProvider
 				.state('home', {
 					url: '/home',
+                    cache: false,
 					templateUrl: 'templates/pages/home.html',
 					controller: 'HomeController'
 				})
 				.state('signin', {
 					url: '/sign-in',
+                    cache: false,
 					templateUrl: 'templates/pages/sign-in.html',
 					controller: 'SignInController'
 				})
@@ -46,7 +48,7 @@ angular
 				})
                 .state('redirect', {
                     url: '/redirect',
-                    cashe: false,
+                    cache: false,
                     templateUrl: 'templates/pages/oauth-redirect.template.html',
                     controller: 'OAuthRedirect'
                 });
