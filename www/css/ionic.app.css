@@ -10206,3 +10206,10 @@ input::-webkit-inner-spin-button {
     .help-content a {
       color: #fff;
       font-weight: 700; } }
+
+@media only screen and (max-device-width: 480px) {
+  /*RU Language*/
+  .trade .buy-again button {
+    font-size: 12px; }
+  .trade .buy-again .price-des {
+    font-size: 3vw; } }
