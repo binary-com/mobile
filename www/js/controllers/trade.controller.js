@@ -140,9 +140,7 @@ angular
 							$scope.account.loginid,
 							proposal.symbol,
 							proposal.contract_type,
-							$scope.proposalRecieved.payout,
-                            _contract.result === "lose" ? "Lost": "Won"
-						);
+							$scope.proposalRecieved.payout);
 					}
                     else{
                         var ampEventProperties = {
