@@ -11,6 +11,8 @@ var ngmin = require('gulp-ngmin');
 var del = require('del');
 var htmlreplace = require('gulp-html-replace');
 var ghPagesDeploy = require('gulp-gh-pages');
+var xml2js = require('xml2js');
+var file = require('gulp-file');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -78,7 +80,38 @@ gulp.task('modify-index', ['compress'], function(){
        .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('build', ['git-check','clean', 'compress', 'modify-index'], function(){
+gulp.task('update-web-version', function(){
+    var fs = require('fs');
+    var parser = new xml2js.Parser();
+    fs.readFile('config.xml', function(err, data) {
+        if(err){
+            console.log(err);
+            return;
+        }
+
+        parser.parseString(data, function (err, result) {
+            if(err){
+                console.log(err);
+                return;
+            }
+
+            var version = result['widget']['$']['version'];
+            if(version){
+                var webVersion = {
+                    version: version
+                };
+
+                var json = JSON.stringify(webVersion);
+                
+                return file('config.json', json)
+                           .pipe(gulp.dest('dist/js/'));
+            }
+        });
+    });
+        
+});
+
+gulp.task('build', ['git-check','clean', 'compress', 'modify-index', 'update-web-version'], function(){
     return gulp.src(['www/**/*', '!www/js{,/**}', '!www/index.html'])
        .pipe(gulp.dest('dist/'))
 });
