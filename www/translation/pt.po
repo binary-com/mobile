@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 15:28+0430\n"
-"PO-Revision-Date: 2016-03-07 16:23+0000\n"
+"PO-Revision-Date: 2016-04-29 18:27+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -174,7 +174,7 @@ msgstr "Adicionar conta"
 
 #: .signin.signin_with_binary_com
 msgid "Sign in"
-msgstr ""
+msgstr "Conectar-se"
 
 #: .signin.language
 msgid "Language"
@@ -186,11 +186,11 @@ msgstr "Cole o seu token aqui"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr ""
+msgstr "Ou conecte-se com um token"
 
 #: .signin.next
 msgid "Next"
-msgstr ""
+msgstr "Próximo"
 
 #: .signin.get_token
 msgid "How to get a Token?"
@@ -308,7 +308,7 @@ msgstr "Ímpar"
 
 #: .options.volidx
 msgid "Volatility Indices"
-msgstr ""
+msgstr "Índices Volatility"
 
 #: .options.random
 msgid "Random"
