@@ -65,17 +65,17 @@
         "trade_type": "Типы сделок", 
         "underlying": "Рынок", 
         "up": "Вверх", 
-        "volidx": "Volatility Indices"
+        "volidx": "Индексы волатильности"
     }, 
     "signin": {
         "add_account": "Добавить счёт", 
         "get_token": "Как получить токен?", 
         "language": "Язык", 
         "need_help": "Нужна помощь?", 
-        "next": "Next", 
+        "next": "Далее", 
         "paste_token": "Введите токен здесь", 
-        "signin_with_binary_com": "Sign in", 
-        "use_token": "Or sign in with a token"
+        "signin_with_binary_com": "Войти", 
+        "use_token": "Войти через токен"
     }, 
     "trade": {
         "account_balance": "Баланс счета", 

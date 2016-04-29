@@ -65,17 +65,17 @@
         "trade_type": "Kiểu Giao dịch", 
         "underlying": "Tài sản cơ bản", 
         "up": "Lên", 
-        "volidx": "Volatility Indices"
+        "volidx": "Chỉ số biến động"
     }, 
     "signin": {
         "add_account": "Thêm tài khoản", 
         "get_token": "Làm thế nào để nhận mã Token?", 
         "language": "Ngôn ngữ", 
         "need_help": "Cần trợ giúp?", 
-        "next": "Next", 
+        "next": "Tiếp theo", 
         "paste_token": "Dán mã token của bạn ở đây", 
-        "signin_with_binary_com": "Sign in", 
-        "use_token": "Or sign in with a token"
+        "signin_with_binary_com": "Đăng nhập", 
+        "use_token": "Hoặc đăng nhập với chuỗi xác nhận"
     }, 
     "trade": {
         "account_balance": "Số dư tài khoản", 
