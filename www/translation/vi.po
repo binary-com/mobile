@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 15:28+0430\n"
-"PO-Revision-Date: 2016-03-31 09:51+0000\n"
-"Last-Translator: Nguyen Thi My Linh <linh.nguyen@netlink.vn>\n"
+"PO-Revision-Date: 2016-04-29 04:10+0000\n"
+"Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/vi/>\n"
 "Language: vi\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.6\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -175,7 +175,7 @@ msgstr "Thêm tài khoản"
 
 #: .signin.signin_with_binary_com
 msgid "Sign in"
-msgstr ""
+msgstr "Đăng nhập"
 
 #: .signin.language
 msgid "Language"
@@ -187,11 +187,11 @@ msgstr "Dán mã token của bạn ở đây"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr ""
+msgstr "Hoặc đăng nhập với chuỗi xác nhận"
 
 #: .signin.next
 msgid "Next"
-msgstr ""
+msgstr "Tiếp theo"
 
 #: .signin.get_token
 msgid "How to get a Token?"
@@ -311,7 +311,7 @@ msgstr "Lẻ"
 
 #: .options.volidx
 msgid "Volatility Indices"
-msgstr ""
+msgstr "Chỉ số biến động"
 
 #: .options.random
 msgid "Random"
