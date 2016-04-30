@@ -9,7 +9,8 @@
 
 angular
     .module('binary')
-    .directive('oauth', function(config, websocketService, alertService, accountService, languageService){
+    .directive('oauth', function(config, websocketService, alertService, 
+                accountService, languageService, $ionicLoading){
         return {
             restrict: "E",
             scope: {},
@@ -19,9 +20,8 @@ angular
 
                 var authenticate = function(_token){
 					// Validate the token
-					scope.showSpinner = false;
 					if(_token && _token.length == 32) {
-						scope.showSpinner = true;
+                        $ionicLoading.show();
 						websocketService.authenticate(_token);
 					} else {
 						alertService.accountError.tokenNotValid();
@@ -55,7 +55,7 @@ angular
                             //window.open("http://localhost:8100/#/redirect?token=123123",
                             "_blank",
                             "location=no,toolbar=no");
-
+                    
                     $(authWindow).on('loadstart',
                             function(e){
                                 var url = e.originalEvent.url;
