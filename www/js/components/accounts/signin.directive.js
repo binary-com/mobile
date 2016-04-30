@@ -17,13 +17,15 @@ angular
 		'$state',
 		'$ionicPopup',
         '$compile',
+        '$ionicLoading',
 		function(accountService,
 				languageService,
 				websocketService,
 				alertService,
 				$state,
 				$ionicPopup,
-                $compile) {
+                $compile,
+                $ionicLoading) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/signin.template.html',
@@ -46,7 +48,9 @@ angular
 
 
 				scope.$on('authorize', function(e, response) {
-					scope.showSpinner = false;
+                    
+                    $ionicLoading.hide();
+
 					if (response) {
 						if (accountService.isUnique(response.loginid)) {
 							accountService.add(response);
@@ -72,9 +76,10 @@ angular
 					//languageService.update(scope.language);
 
 					// Validate the token
-					scope.showSpinner = false;
 					if(_token && _token.length === 15) {
-						scope.showSpinner = true;
+
+                        $ionicLoading.show();
+
 						websocketService.authenticate(_token);
 					} else {
 						alertService.accountError.tokenNotValid();
