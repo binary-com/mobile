@@ -31,6 +31,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "scss/shared/small";
 @import "scss/shared/header";
 @import "scss/shared/footer";
+@import "scss/shared/language";
 
 @import "scss/pages/home";
 @import "scss/pages/signin";
@@ -38,5 +39,3 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "scss/pages/options";
 @import "scss/pages/accounts";
 @import "scss/pages/help";
-
-@import "scss/shared/language";
