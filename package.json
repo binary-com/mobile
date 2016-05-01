@@ -1,7 +1,7 @@
 {
-  "name": "binary-app",
+  "name": "binary-ticktrade",
   "version": "1.0.0",
-  "description": "Binary App",
+  "description": "Binary.com Tick Trade",
   "repository": {
     "type": "git",
     "url": "git@github.com:binary-com/mobile.git"
