@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 15:28+0430\n"
-"PO-Revision-Date: 2016-04-26 12:20+0000\n"
+"PO-Revision-Date: 2016-05-02 09:28+0000\n"
 "Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -326,7 +326,7 @@ msgstr "Несовпадение цифр"
 
 #: .options.underlying
 msgid "Underlying"
-msgstr "Рынок"
+msgstr "Актив"
 
 #: .options.select_market
 msgid "Markets"
@@ -367,7 +367,7 @@ msgstr "Кол-во тиков"
 
 #: .options.lets_trade
 msgid "Let's trade!"
-msgstr "Начните торговлю!"
+msgstr "Начать торговлю!"
 
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
