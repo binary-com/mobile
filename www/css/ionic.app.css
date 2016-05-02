@@ -10197,4 +10197,8 @@ input::-webkit-inner-spin-button {
   body#ru .trade .buy-again button {
     font-size: 12px; }
   body#ru .trade .buy-again .price-des {
-    font-size: 3vw; } }
+    font-size: 3vw; }
+  body#pt .trade .buy-again button {
+    font-size: 12px;
+    line-height: 12px;
+    min-height: 32px; } }
