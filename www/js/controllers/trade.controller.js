@@ -142,7 +142,7 @@ angular
 							proposal.contract_type,
 							$scope.proposalRecieved.payout);
 					}
-                    else{
+                    //else{
                         var ampEventProperties = {
                                 Symbol: proposal.symbol,
                                 TradeType: proposal.contract_type,
@@ -154,7 +154,7 @@ angular
                         }
                         // Send statistic to Amplitude
                         amplitude.logEvent("Purchase", ampEventProperties);
-                    }
+                    //}
 					
                     proposalService.send();
 
