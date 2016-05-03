@@ -53,7 +53,7 @@
         "down": "Вниз", 
         "forex": "Forex", 
         "last_digit_prediction": "Прогноз последней десятичной", 
-        "lets_trade": "Начните торговлю!", 
+        "lets_trade": "Начать торговлю!", 
         "number_of_ticks": "Кол-во тиков", 
         "payout": "Выплата", 
         "payout_type": "Тип выплаты", 
@@ -63,7 +63,7 @@
         "select_market": "Рынки", 
         "stake": "Ставка", 
         "trade_type": "Типы сделок", 
-        "underlying": "Рынок", 
+        "underlying": "Актив", 
         "up": "Вверх", 
         "volidx": "Индексы волатильности"
     }, 
