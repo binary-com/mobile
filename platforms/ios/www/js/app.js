@@ -12,7 +12,7 @@ angular.module('binary', ['ionic', 'pascalprecht.translate', 'hmTouchEvents', 'n
 
 angular
 .module('binary')
-.run(function($rootScope, $ionicPlatform, $state, alertService, accountService, appStateService){
+.run(function($rootScope, $ionicPlatform, $state, alertService, accountService, appStateService, $location){
     $ionicPlatform.ready(function() {
 
         // Setup Google Analytics
@@ -48,7 +48,8 @@ angular
         }, 100);
 
         var handleUnloggedinUser = function(){
-            if(!accountService.getDefault()){
+            var isRedirect = /#\/redirect\?/.exec(window.location.hash);
+            if(!accountService.getDefault() && !isRedirect){
                 $state.go('signin');
             }
         }
@@ -57,7 +58,7 @@ angular
         // Redirecting to the login page if there is not any default token
         $rootScope.$on('$stateChangeStart',
                 function(event, toState, toParams, fromState, fromParams){
-                    if(toState.name != "signin" && toState.name != "help" && ! accountService.getDefault()){
+                    if(toState.name != "signin" && toState.name != "help" && toState.name != "redirect" && ! accountService.getDefault()){
                         event.preventDefault();
                         $state.go('signin');
                     }
