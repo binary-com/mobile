@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 15:28+0430\n"
-"PO-Revision-Date: 2016-03-04 14:30+0000\n"
+"PO-Revision-Date: 2016-05-03 06:57+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
 "tick-trade/app/zh_CN/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -172,7 +172,7 @@ msgstr "添加账户"
 
 #: .signin.signin_with_binary_com
 msgid "Sign in"
-msgstr ""
+msgstr "登录"
 
 #: .signin.language
 msgid "Language"
@@ -184,11 +184,11 @@ msgstr "在此贴上令牌"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr ""
+msgstr "或以令牌登录"
 
 #: .signin.next
 msgid "Next"
-msgstr ""
+msgstr "下一步"
 
 #: .signin.get_token
 msgid "How to get a Token?"
@@ -304,7 +304,7 @@ msgstr "奇数"
 
 #: .options.volidx
 msgid "Volatility Indices"
-msgstr ""
+msgstr "波动率指数"
 
 #: .options.random
 msgid "Random"
