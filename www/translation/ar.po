@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 15:28+0430\n"
-"PO-Revision-Date: 2016-03-04 11:39+0000\n"
-"Last-Translator: Rudy Karam <rudykaram6@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-trade/"
-"app/ar/>\n"
+"PO-Revision-Date: 2016-05-04 06:04+0000\n"
+"Last-Translator: Ahmed Kotb <ahmedmohamedkotp@gmail.com>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -174,7 +174,7 @@ msgstr "إضافة حساب"
 
 #: .signin.signin_with_binary_com
 msgid "Sign in"
-msgstr ""
+msgstr "تسجيل الدخول"
 
 #: .signin.language
 msgid "Language"
@@ -186,11 +186,11 @@ msgstr "قم بلصق الرمز المميز الخاص بك هنا"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr ""
+msgstr "أو تسجيل الدخول باستخدام رمز"
 
 #: .signin.next
 msgid "Next"
-msgstr ""
+msgstr "التالي"
 
 #: .signin.get_token
 msgid "How to get a Token?"
@@ -306,7 +306,7 @@ msgstr "فردي"
 
 #: .options.volidx
 msgid "Volatility Indices"
-msgstr ""
+msgstr "مؤشرات التقلب"
 
 #: .options.random
 msgid "Random"
