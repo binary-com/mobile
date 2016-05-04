@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 15:28+0430\n"
-"PO-Revision-Date: 2016-05-04 06:04+0000\n"
+"PO-Revision-Date: 2016-05-04 08:46+0000\n"
 "Last-Translator: Ahmed Kotb <ahmedmohamedkotp@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/ar/>\n"
@@ -18,20 +18,20 @@ msgstr ""
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
-msgstr "هل لديك أسئلة؟ أرسل بريدا إلكترونيا لدعم العملاء على "
+msgstr "هل لديك أسئلة؟ أرسل بريداً إلكترونياً لدعم العملاء على "
 
 #: .help.copy_token
 msgid "and create a token. Then simply copy and paste it into the top box."
-msgstr "وأنشئ رمزا مميزا. ثم قم ببساطة بالنسخ واللصق في المربع العلوي."
+msgstr "وأنشئ رمزاً. ثم ببساطة قم بنسخه ولصقه في المربع العلوي."
 
 #: .help.visit
 msgid "Please visit"
-msgstr "الرجاء زيارة"
+msgstr "يرجى زيارة"
 
 #: .help.back
 msgctxt ".help.back"
 msgid "Back"
-msgstr "الخلف"
+msgstr "إلى الخلف"
 
 #: .help.need_help
 msgctxt ".help.need_help"
@@ -43,7 +43,8 @@ msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
 msgstr ""
-"للوصول إلى تطبيق طرف ثالث، مثل تطبيق المحمول، ستتم مطالبتك بإنشاء رمز API."
+"للوصول إلى تطبيق طرف ثالث، مثل تطبيق الجوال، أنت مطالب بإنشاء رمز API (برمجة "
+"واجهة التطبيقات)."
 
 #: .help.page
 msgid "this page"
@@ -79,7 +80,7 @@ msgstr "تم تثبيت التحديث بنجاح."
 
 #: .update.up_to_date
 msgid "The application is up to date."
-msgstr "التطبيق اخر احداث."
+msgstr "التطبيق محدث."
 
 #: .update.check_for_update
 msgid "Checking for update."
@@ -87,12 +88,12 @@ msgstr "التحقق من وجود تحديث."
 
 #: .update.error
 msgid "An error occured while checking for updates"
-msgstr "حدث خطأ أثناء التحقق من وجود تحديثات"
+msgstr "حدث خطأ ما أثناء التحقق من وجود تحديثات"
 
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr "العوائد"
+msgstr "العائد"
 
 #: .trade.net_profit
 msgid "Net Profit"
@@ -116,7 +117,7 @@ msgstr "التكلفة الإجمالية"
 
 #: .trade.win
 msgid "This contract won"
-msgstr "لقد ربح هذا العقد"
+msgstr "لقد فاز هذا العقد"
 
 #: .trade.price
 msgid "Price"
@@ -125,12 +126,12 @@ msgstr "السعر"
 #: .trade.stake
 msgctxt ".trade.stake"
 msgid "Stake"
-msgstr "الحصة"
+msgstr "حصة"
 
 #: .trade.back
 msgctxt ".trade.back"
 msgid "Back"
-msgstr "الخلف"
+msgstr "إلى الخلف"
 
 #: .trade.account_balance
 msgid "Account Balance"
@@ -150,7 +151,7 @@ msgstr "الربح"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
-msgstr "الأرباح المحتملة"
+msgstr "الربح المحتمل"
 
 #: .trade.final_price
 msgid "Final Price"
@@ -158,7 +159,7 @@ msgstr "السعر النهائي"
 
 #: .trade.potential_payout
 msgid "Potential Payout"
-msgstr "العوائد المحتملة"
+msgstr "العائد المحتمل"
 
 #: .trade.balance
 msgid "Balance"
@@ -182,7 +183,7 @@ msgstr "اللغة"
 
 #: .signin.paste_token
 msgid "Paste your token here"
-msgstr "قم بلصق الرمز المميز الخاص بك هنا"
+msgstr "قم بلصق الرمز الخاص بك هنا"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
@@ -194,7 +195,7 @@ msgstr "التالي"
 
 #: .signin.get_token
 msgid "How to get a Token?"
-msgstr "كيفية الحصول على رمز مميز؟"
+msgstr "كيفية الحصول على رمز؟"
 
 #: .signin.need_help
 msgctxt ".signin.need_help"
@@ -216,7 +217,7 @@ msgstr "حساب"
 
 #: .accounts.not_allowed_to_trade
 msgid "You don't have permission to trade!"
-msgstr "ليس لديك الاذن للتجارة!"
+msgstr "ليس لديك إذن للتداول!"
 
 #: .accounts.add
 msgid "Add"
@@ -224,11 +225,11 @@ msgstr "إضافة"
 
 #: .accounts.remove_all
 msgid "Remove All Accounts & Sign Out"
-msgstr "إزالة كافة حسابات وتسجيل الخروج"
+msgstr "إزالة جميع الحسابات وتسجيل الخروج"
 
 #: .accounts.new_token
 msgid "Add a new token"
-msgstr "إضافة رمز مميز جديد"
+msgstr "إضافة رمز جديد"
 
 #: .accounts.delete
 msgid "Delete"
@@ -240,25 +241,27 @@ msgstr "تعيين كافتراضي"
 
 #: .alert.remove_token_content
 msgid "Are you sure you want to remove this token?"
-msgstr "هل أنت متأكد من أنك تريد إزالة هذا الرمز المميز؟"
+msgstr "هل أنت متأكد من أنك تريد إزالة هذا الرمز؟"
 
 #: .alert.remove_all_tokens_title
 msgid "Removing All Tokens"
-msgstr "إزالة كافة الرموز المميزة"
+msgstr "إزالة جميع الرموز"
 
 #: .alert.must_number
 msgid "It must be a number."
-msgstr "يجب أن يكون عددا."
+msgstr "يجب أن يكون رقم."
 
 #: .alert.remove_token_title
 msgid "Removing a Token"
-msgstr "إزالة الرمز المميز"
+msgstr "إزالة رمز"
 
 #: .alert.no_tick
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
-msgstr "الرجاء تحديد أصل آخر، الأصل الذي قمت بتحديده لا يدعم تداول الحركات."
+msgstr ""
+"الرجاء تحديد محدد أساسي آخر، المحدد الأساسي الذي قمت بتحديده لا يدعم التحديد "
+"بالعلامة."
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
@@ -278,11 +281,11 @@ msgstr "خطأ!"
 
 #: .alert.not_auth
 msgid "Sorry, we couldn't authenticate you."
-msgstr "عفواً، لا يمكننا توثيقك."
+msgstr "عذراً, لم نتمكن من مصادقتك."
 
 #: .alert.no_underlying
 msgid "There is no underlying for this market. Please try another market."
-msgstr "لا توجد أصول لهذا السوق. الرجاء محاولة سوق آخر."
+msgstr "لا يوجد محدد أساسي لهذا السوق. الرجاء محاولة اختيار سوق آخر."
 
 #: .alert.contract_error
 msgid "Contract not available, please try again."
@@ -294,11 +297,11 @@ msgstr "هذا الحقل مطلوب."
 
 #: .alert.not_valid
 msgid "Please enter a valid token."
-msgstr "الرجاء إدخال رمز صالح."
+msgstr "الرجاء إدخال رمز صحيح."
 
 #: .alert.remove_all_tokens_content
 msgid "Are you sure you want to remove all tokens and sign out?"
-msgstr "هل أنت متأكد من أنك تريد إزالة كافة الرموز المميزة وتسجيل الخروج؟"
+msgstr "هل أنت متأكد من أنك تريد إزالة كافة الرموز وتسجيل الخروج؟"
 
 #: .options.digit_odd
 msgid "Odd"
@@ -318,11 +321,11 @@ msgstr "حدد المبلغ"
 
 #: .options.digit_differs
 msgid "Differs"
-msgstr "اختلاف الأرقام"
+msgstr "يختلف"
 
 #: .options.underlying
 msgid "Underlying"
-msgstr "الأصول"
+msgstr "محدد أساسي"
 
 #: .options.select_market
 msgid "Markets"
@@ -334,7 +337,7 @@ msgstr "نوع العائد"
 
 #: .options.forex
 msgid "Forex"
-msgstr "العملات الأجنبية"
+msgstr "سوق العملات الأجنبية"
 
 #: .options.digit_over
 msgid "Over"
@@ -343,7 +346,7 @@ msgstr "فوق"
 #: .options.stake
 msgctxt ".options.stake"
 msgid "Stake"
-msgstr "الحصة"
+msgstr "حصة"
 
 #: .options.save
 msgid "SAVE"
@@ -355,11 +358,11 @@ msgstr "أنواع التداول"
 
 #: .options.digit_match
 msgid "Matches"
-msgstr "مطابقة الأرقام"
+msgstr "مطابقة"
 
 #: .options.number_of_ticks
 msgid "Number of Ticks"
-msgstr "عدد الحركات"
+msgstr "عدد العلامات"
 
 #: .options.lets_trade
 msgid "Let's trade!"
@@ -367,7 +370,7 @@ msgstr "لنتداول!"
 
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
-msgstr "توقع آخر رقم"
+msgstr "التنبؤ بآخر رقم"
 
 #: .options.payout
 msgctxt ".options.payout"
