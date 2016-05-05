@@ -1,7 +1,7 @@
 {
-  "name": "binary-app",
+  "name": "binary-ticktrade",
   "version": "1.0.0",
-  "description": "Binary App",
+  "description": "Binary.com Tick Trade",
   "repository": {
     "type": "git",
     "url": "git@github.com:binary-com/mobile.git"
@@ -20,6 +20,7 @@
   "devDependencies": {
     "del": "^2.2.0",
     "gulp-concat": "^2.6.0",
+    "gulp-file": "^0.2.0",
     "gulp-gh-pages": "^0.5.4",
     "gulp-html-replace": "^1.5.5",
     "gulp-minify": "0.0.5",

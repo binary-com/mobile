@@ -53,7 +53,7 @@
         "down": "Вниз", 
         "forex": "Forex", 
         "last_digit_prediction": "Прогноз последней десятичной", 
-        "lets_trade": "Начните торговлю!", 
+        "lets_trade": "Начать торговлю!", 
         "number_of_ticks": "Кол-во тиков", 
         "payout": "Выплата", 
         "payout_type": "Тип выплаты", 
@@ -63,19 +63,19 @@
         "select_market": "Рынки", 
         "stake": "Ставка", 
         "trade_type": "Типы сделок", 
-        "underlying": "Рынок", 
+        "underlying": "Актив", 
         "up": "Вверх", 
-        "volidx": "Volatility Indices"
+        "volidx": "Индексы волатильности"
     }, 
     "signin": {
         "add_account": "Добавить счёт", 
         "get_token": "Как получить токен?", 
         "language": "Язык", 
         "need_help": "Нужна помощь?", 
-        "next": "Next", 
+        "next": "Далее", 
         "paste_token": "Введите токен здесь", 
-        "signin_with_binary_com": "Sign in", 
-        "use_token": "Or sign in with a token"
+        "signin_with_binary_com": "Войти", 
+        "use_token": "Войти через токен"
     }, 
     "trade": {
         "account_balance": "Баланс счета", 
