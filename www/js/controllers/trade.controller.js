@@ -140,11 +140,9 @@ angular
 							$scope.account.loginid,
 							proposal.symbol,
 							proposal.contract_type,
-							$scope.proposalRecieved.payout,
-                            _contract.result === "lose" ? "Lost": "Won"
-						);
+							$scope.proposalRecieved.payout);
 					}
-                    else{
+                    //else{
                         var ampEventProperties = {
                                 Symbol: proposal.symbol,
                                 TradeType: proposal.contract_type,
@@ -156,7 +154,7 @@ angular
                         }
                         // Send statistic to Amplitude
                         amplitude.logEvent("Purchase", ampEventProperties);
-                    }
+                    //}
 					
                     proposalService.send();
 

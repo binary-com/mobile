@@ -35,7 +35,7 @@
     }, 
     "help": {
         "back": "Kembali", 
-        "copy_token": "dan lakukan pembuatan token. Kemudian masukkan pada kotak dihalaman pertama tadi.", 
+        "copy_token": "dan buat token. Kemudian masukkan pada kotak dihalaman pertama tadi.", 
         "email_cs": "Ada pertanyaan? Email customer support di ", 
         "generate_api": "Untuk mengakses aplikasi pihak ketiga, seperti mobile app, Anda diperlukan untuk membuat Token API.", 
         "need_help": "Memerlukan Bantuan?", 
@@ -44,7 +44,7 @@
     }, 
     "options": {
         "account": "Akun", 
-        "digit_differs": "Digit Differs", 
+        "digit_differs": "Differs", 
         "digit_even": "Even", 
         "digit_match": "Digit Match", 
         "digit_odd": "Odd", 
@@ -65,17 +65,17 @@
         "trade_type": "Jenis Kontrak", 
         "underlying": "Dasar", 
         "up": "Up", 
-        "volidx": "Volatility Indices"
+        "volidx": "Indeks Volatilitas"
     }, 
     "signin": {
         "add_account": "Gunakan Akun", 
         "get_token": "Bagaimanakah cara memperoleh Token?", 
         "language": "Bahasa", 
         "need_help": "Perlu Bantuan?", 
-        "next": "Next", 
+        "next": "Lanjut", 
         "paste_token": "Masukkan token Anda disini", 
-        "signin_with_binary_com": "Sign in", 
-        "use_token": "Or sign in with a token"
+        "signin_with_binary_com": "Mendaftar di Binary.com", 
+        "use_token": "Atau mendaftar dengan token"
     }, 
     "trade": {
         "account_balance": "Saldo Akun", 
