@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-20 15:28+0430\n"
-"PO-Revision-Date: 2016-03-04 14:26+0000\n"
-"Last-Translator: olga borg <olga@binary.com>\n"
+"PO-Revision-Date: 2016-05-06 13:58+0000\n"
+"Last-Translator: cameliagf <cameliagf@yahoo.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -177,7 +177,7 @@ msgstr "Añadir Cuenta"
 
 #: .signin.signin_with_binary_com
 msgid "Sign in"
-msgstr ""
+msgstr "Iniciar sesión"
 
 #: .signin.language
 msgid "Language"
@@ -189,11 +189,11 @@ msgstr "Pegue su token aquí"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr ""
+msgstr "O iniciar sesión con un token"
 
 #: .signin.next
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
 #: .signin.get_token
 msgid "How to get a Token?"
@@ -312,7 +312,7 @@ msgstr "Impar"
 
 #: .options.volidx
 msgid "Volatility Indices"
-msgstr ""
+msgstr "Índices de Volatilidad"
 
 #: .options.random
 msgid "Random"
