@@ -10003,13 +10003,6 @@ input::-webkit-inner-spin-button {
       color: #e98024; } }
 
 @media only screen and (max-device-width: 480px) {
-  /*RU Language*/
-  body #ru .trade .buy-again button {
-    font-size: 12px; }
-  body #ru .trade .buy-again .price-des {
-    font-size: 3vw; } }
-
-@media only screen and (max-device-width: 480px) {
   .home {
     background-color: #f2f2f2; }
     .home .branding {
@@ -10905,3 +10898,14 @@ input::-webkit-inner-spin-button {
     .help-content a {
       color: #fff;
       font-weight: 700; } }
+
+@media only screen and (max-device-width: 480px) {
+  /*RU Language*/
+  body#ru .trade .buy-again button {
+    font-size: 12px; }
+  body#ru .trade .buy-again .price-des {
+    font-size: 3vw; }
+  body#pt .trade .buy-again button {
+    font-size: 12px;
+    line-height: 12px;
+    min-height: 32px; } }
