@@ -26,6 +26,10 @@
                     };
 
                     scope.$on('authorize', function(e, _athurize){
+                        if(!_athurize){
+                            return;
+                        }
+
                         if(!scope.$$phase){
                             scope.showScopeMessage = !accountService.checkScope(['READ', 'TRADE']);
                         }
