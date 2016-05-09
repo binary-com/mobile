@@ -24,7 +24,7 @@ angular
 					duration_unit: 't',
 					passthrough: _data.passthrough
 				};
-				if(['PUT', 'CALL', 'DIGITEVEN', 'DIGITODD'].indexOf(_data.contract_type) > -1){
+				if(['PUT', 'CALL', 'DIGITEVEN', 'DIGITODD', 'ASIANU', 'ASIAND'].indexOf(_data.contract_type) > -1){
 					delete _data.digit;
 					delete _data.barrier;
 				}
