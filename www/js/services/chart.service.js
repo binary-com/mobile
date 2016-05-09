@@ -136,6 +136,16 @@ angular
 					DIGITOVER: function condition(barrier, price) {
 						return utils.lastDigit(price) > parseInt(barrier);
 					},
+                    ASIANU: function condition(barrier, price, priceList){
+                        var avg = priceList.reduce(function(a, b){ return a+b;}, 0) / priceList.length;
+
+                        return parseFloat(price) > avg;
+                    },
+                    ASIAND: function condition(barrier, price, priceList){
+                        var avg = priceList.reduce(function(a, b){ return a+b;}, 0) / priceList.length;
+
+                        return parseFloat(price) < avg;
+                    }
 				},
 				digitTrade: function digitTrade(contract) {
 					if (contract.type.indexOf('DIGIT') === 0) {
@@ -143,6 +153,12 @@ angular
 					}
 					return false;
 				},
+                asianGame: function asianGame(contract){
+                    if(contract.type.indexOf('ASIAN') === 0){
+                        return true;
+                    }
+                    return false;
+                },
 				getRelativeIndex: function getRelativeIndex(absoluteIndex, dataIndex) {
 					return absoluteIndex - (chartDrawer.getCapacity() - (chartDrawer.getTickCount() + chartDrawer.getDataIndex()));
 				},
@@ -272,6 +288,7 @@ angular
 			var ContractCtrl = function ContractCtrl(contract) {
 
 				var broadcastable = true;
+                var tickPriceList = [];
 
 				var setNotBroadcastable = function setNotBroadcastable(){
 					return broadcastable = false;
@@ -375,7 +392,7 @@ angular
 				var viewSpots = function viewSpots(index, tickTime) {
 					if (isEntrySpot(tickTime)) {
 						contract.showingEntrySpot = true;
-						if (!utils.digitTrade(contract) && !hasExitSpot()) {
+						if (!utils.digitTrade(contract) && !utils.asianGame(contract) && !hasExitSpot()) {
 							chartDrawer.addGridLine({
 								color: '#818183',
 								label: 'barrier: ' + contract.barrier,
@@ -383,7 +400,7 @@ angular
 								index: index
 							});
 						}
-					} else if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
+                    } else if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
 						contract.showingExitSpot = true;
 					}
 				};
@@ -437,13 +454,21 @@ angular
 
 				var addRegions = function addRegions(lastTime, lastPrice) {
 					if (hasEntrySpot()) {
+
+                        if(tickPriceList.length === 0){
+                            tickPriceList.push(parseFloat(contract.barrier));
+                        } else {
+                            tickPriceList.push(parseFloat(lastPrice));
+                        }
+
 						if (betweenExistingSpots(lastTime)) {
-							if (utils.conditions[contract.type](contract.barrier, lastPrice)) {
+							if (utils.conditions[contract.type](contract.barrier, lastPrice, tickPriceList)) {
 								contract.result = 'win';
 							} else {
 								contract.result = 'lose';
 							}
 							if ( isFinished() && broadcastable ) {
+                                tickPriceList = []
 								contractCtrls.forEach(function(contractctrl, index){
 									var oldContract = contractctrl.getContract();
 									if ( contract !== oldContract && !contractctrl.isFinished() ) {
@@ -1151,7 +1176,7 @@ angular
 
 				var addContract = function addContract(_contract) {
 					if (_contract) {
-						if (utils.digitTrade(_contract)) {
+						if (utils.digitTrade(_contract) || utils.asianGame(_contract)) {
 							_contract.duration -= 1;
 						}
 						contractCtrls.push(ContractCtrl(_contract));
