@@ -33,6 +33,11 @@ angular
 				markets: ['volidx', 'random'],
                 digits: true
             },
+            {
+                name: "Asians",
+                value: "Asians",
+                markets: ['volidx', 'random']
+            }
         ],
 		'tradeTypes': [
 			{
@@ -46,6 +51,20 @@ angular
 				value: 'PUT',
 				digits: false,
                 category: "UP/DOWN"
+
+			},
+			{
+                name: 'Asians Up',
+				value: 'ASIANU',
+				digits: false,
+                category: "Asians"
+
+			},
+			{
+                name: 'Asians Down',
+				value: 'ASIAND',
+				digits: false,
+                category: "Asians"
 
 			},
 			{
