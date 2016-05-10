@@ -5,7 +5,9 @@
 			<img src="img/binary2.svg" class="slogan" alt="Binary.com">
 		</div>
 
-		<ion-spinner class="spinner-energized" ng-if="hasWSUrl"></ion-spinner>
+		<div class="row center" ng-if="hasWSUrl">
+		    <ion-spinner class="spinner-energized" ></ion-spinner>
+		</div>
 		<!-- <span>Loading...</span> -->
         <form name="wsForm" novalidate ng-if="!hasWSUrl">
             <div class="list">

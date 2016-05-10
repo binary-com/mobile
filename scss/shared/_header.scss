@@ -28,26 +28,6 @@
 .bar .button.button-clear.icon-right:before {
 				font-size: 24px;
 }
-//spinner
-.spinner {
-	position: absolute;
-	top: -60px;
-	left: 0;
-	right: 0;
-
-	svg {
-		margin: 0 auto;
-		display: block;
-		width: 50px;
-		height: 50px;
-		stroke: $white;
-	}
-}
-
-.spinner svg {
-
-  fill: red;
-}
 
 .update .spinner{
     top: 0px !important;
