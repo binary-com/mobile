@@ -44,6 +44,8 @@
     }, 
     "options": {
         "account": "Tài khoản", 
+        "asians_down": "Asians Down", 
+        "asians_up": "Asians Up", 
         "digit_differs": "Chữ số khác nhau", 
         "digit_even": "Chẵn", 
         "digit_match": "Chữ số khớp", 

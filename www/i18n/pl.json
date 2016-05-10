@@ -44,6 +44,8 @@
     }, 
     "options": {
         "account": "Konto", 
+        "asians_down": "Asians Down", 
+        "asians_up": "Asians Up", 
         "digit_differs": "Cyfry nie zgadzają się", 
         "digit_even": "Parzysta", 
         "digit_match": "Cyfry zgadzają się", 
@@ -65,17 +67,17 @@
         "trade_type": "Typy zakładów", 
         "underlying": "Rynek bazowy", 
         "up": "Wyżej", 
-        "volidx": "Volatility Indices"
+        "volidx": "Wskaźniki zmienności"
     }, 
     "signin": {
         "add_account": "Dodaj konto", 
         "get_token": "Jak uzyskać token?", 
         "language": "Język", 
         "need_help": "Potrzebujesz pomocy?", 
-        "next": "Next", 
+        "next": "Dalej", 
         "paste_token": "Wklej swój token tutaj", 
-        "signin_with_binary_com": "Sign in", 
-        "use_token": "Or sign in with a token"
+        "signin_with_binary_com": "Zaloguj się", 
+        "use_token": "Lub zaloguj się przy użyciu tokenu"
     }, 
     "trade": {
         "account_balance": "Saldo konta", 
