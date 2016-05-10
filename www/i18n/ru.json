@@ -44,6 +44,8 @@
     }, 
     "options": {
         "account": "Счёт", 
+        "asians_down": "Asians Down", 
+        "asians_up": "Asians Up", 
         "digit_differs": "Несовпадение цифр", 
         "digit_even": "Чётное число", 
         "digit_match": "Совпадение цифр", 
