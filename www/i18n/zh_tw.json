@@ -44,6 +44,8 @@
     }, 
     "options": {
         "account": "帳戶", 
+        "asians_down": "Asians Down", 
+        "asians_up": "Asians Up", 
         "digit_differs": "數字差異", 
         "digit_even": "偶數", 
         "digit_match": "數字符合", 
@@ -65,17 +67,17 @@
         "trade_type": "交易類型", 
         "underlying": "標的資產", 
         "up": "上漲", 
-        "volidx": "Volatility Indices"
+        "volidx": "波動率指數"
     }, 
     "signin": {
         "add_account": "新增帳戶", 
         "get_token": "如何獲取權杖?", 
         "language": "語言", 
         "need_help": "需要幫助?", 
-        "next": "Next", 
+        "next": "下一步", 
         "paste_token": "在此粘貼權杖", 
-        "signin_with_binary_com": "Sign in", 
-        "use_token": "Or sign in with a token"
+        "signin_with_binary_com": "登入", 
+        "use_token": "以權杖登入"
     }, 
     "trade": {
         "account_balance": "帳戶餘額", 
