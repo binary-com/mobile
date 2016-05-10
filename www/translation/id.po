@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420121902/lang/id.json, /tmp/json2po-Apr0420121902/old_po/id.json
+#. extracted from /tmp/json2po-May0510110440/lang/id.json, /tmp/json2po-May0510110440/old_po/id.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 12:19+0430\n"
+"POT-Creation-Date: 2016-05-10 11:04+0430\n"
 "PO-Revision-Date: 2016-04-20 10:57+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
@@ -300,6 +300,10 @@ msgstr "Masukkan token yang berlaku."
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "Apakah Anda yakin ingin menghapus semua token dan keluar?"
 
+#: .options.asians_down
+msgid "Asians Down"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Odd"
@@ -368,6 +372,10 @@ msgstr "Ayo trade!"
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "Analisa Digit Terakhir"
+
+#: .options.asians_up
+msgid "Asians Up"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"

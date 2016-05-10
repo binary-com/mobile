@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420152857/lang/vi.json, /tmp/json2po-Apr0420152857/old_po/vi.json
+#. extracted from /tmp/json2po-May0510110440/lang/vi.json, /tmp/json2po-May0510110440/old_po/vi.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 15:28+0430\n"
+"POT-Creation-Date: 2016-05-10 11:04+0430\n"
 "PO-Revision-Date: 2016-04-29 04:10+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
@@ -305,6 +305,10 @@ msgstr "Vui lòng nhập một mã token hợp lệ."
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "Bạn có chắc muốn gỡ bỏ tất cả mã token và đăng xuất?"
 
+#: .options.asians_down
+msgid "Asians Down"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Lẻ"
@@ -373,6 +377,10 @@ msgstr "Giao dịch thôi!"
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "Dự đoán Chữ số cuối cùng"
+
+#: .options.asians_up
+msgid "Asians Up"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"

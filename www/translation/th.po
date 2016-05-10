@@ -1,13 +1,13 @@
-#. extracted from /tmp/json2po-Apr0420152857/lang/th.json
+#. extracted from /tmp/json2po-May0510110440/lang/th.json, /tmp/json2po-May0510110440/old_po/th.json
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 15:28+0430\n"
+"POT-Creation-Date: 2016-05-10 11:04+0430\n"
 "PO-Revision-Date: 2016-04-20 18:12+0000\n"
 "Last-Translator: Jutawan <bubbleblythe@gmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/th/>\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,9 +41,7 @@ msgstr "ต้องการความช่วยเหลือไหม?"
 msgid ""
 "To access a third party application, such as a mobile app, you are required "
 "to generate an API Token."
-msgstr ""
-"ในการใช้งานแอพพลิเคชันอื่นๆ เช่น แอพพลิเคชันของโทรศัพท์มือถือ "
-"ท่านต้องใช้โทเค่น API"
+msgstr "ในการใช้งานแอพพลิเคชันอื่นๆ เช่น แอพพลิเคชันของโทรศัพท์มือถือ ท่านต้องใช้โทเค่น API"
 
 #: .help.page
 msgid "this page"
@@ -258,9 +256,7 @@ msgstr "กำลังลบโทเค่น"
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
-msgstr ""
-"โปรดเลือกผลิตภัณฑ์อ้างอิงประเภทอื่น "
-"ผลิตภัณฑ์ที่ท่านเลือกไม่รองรับการซื้อขายแบบช่วงเวลา"
+msgstr "โปรดเลือกผลิตภัณฑ์อ้างอิงประเภทอื่น ผลิตภัณฑ์ที่ท่านเลือกไม่รองรับการซื้อขายแบบช่วงเวลา"
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
@@ -301,6 +297,10 @@ msgstr "โปรดป้อนโทเค่นที่ถูกต้อง
 #: .alert.remove_all_tokens_content
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "ท่านต้องการลบโทเค่นทั้งหมดและออกจากระบบ ใช่ไหม?"
+
+#: .options.asians_down
+msgid "Asians Down"
+msgstr ""
 
 #: .options.digit_odd
 msgid "Odd"
@@ -370,6 +370,10 @@ msgstr "เริ่มเทรดกันเลย!"
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "การพยากรณ์เลขหลักสุดท้าย"
+
+#: .options.asians_up
+msgid "Asians Up"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"
