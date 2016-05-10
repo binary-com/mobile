@@ -44,6 +44,8 @@
     }, 
     "options": {
         "account": "Conta", 
+        "asians_down": "Asians Down", 
+        "asians_up": "Asians Up", 
         "digit_differs": "Diferença nos dígitos", 
         "digit_even": "Par", 
         "digit_match": "Combinação de dígitos", 

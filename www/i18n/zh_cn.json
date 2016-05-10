@@ -44,6 +44,8 @@
     }, 
     "options": {
         "account": "账户", 
+        "asians_down": "Asians Down", 
+        "asians_up": "Asians Up", 
         "digit_differs": "数字差异", 
         "digit_even": "偶数", 
         "digit_match": "数字符合", 
@@ -65,17 +67,17 @@
         "trade_type": "交易类型", 
         "underlying": "标的资产", 
         "up": "上涨", 
-        "volidx": "Volatility Indices"
+        "volidx": "波动率指数"
     }, 
     "signin": {
         "add_account": "添加账户", 
         "get_token": "如何获取令牌？", 
         "language": "语言", 
         "need_help": "需要帮助？", 
-        "next": "Next", 
+        "next": "下一步", 
         "paste_token": "在此贴上令牌", 
-        "signin_with_binary_com": "Sign in", 
-        "use_token": "Or sign in with a token"
+        "signin_with_binary_com": "登录", 
+        "use_token": "或以令牌登录"
     }, 
     "trade": {
         "account_balance": "账户余额", 

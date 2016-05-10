@@ -44,6 +44,8 @@
     }, 
     "options": {
         "account": "Cuenta", 
+        "asians_down": "Asians Down", 
+        "asians_up": "Asians Up", 
         "digit_differs": "Dígito Difiere", 
         "digit_even": "Par", 
         "digit_match": "Dígitos Iguales", 
@@ -65,17 +67,17 @@
         "trade_type": "Tipos de Contratos", 
         "underlying": "Activo subyacente", 
         "up": "Arriba", 
-        "volidx": "Volatility Indices"
+        "volidx": "Índices de Volatilidad"
     }, 
     "signin": {
         "add_account": "Añadir Cuenta", 
         "get_token": "¿Cómo obtener un token?", 
         "language": "Idioma", 
         "need_help": "¿Necesita Ayuda?", 
-        "next": "Next", 
+        "next": "Siguiente", 
         "paste_token": "Pegue su token aquí", 
-        "signin_with_binary_com": "Sign in", 
-        "use_token": "Or sign in with a token"
+        "signin_with_binary_com": "Iniciar sesión", 
+        "use_token": "O iniciar sesión con un token"
     }, 
     "trade": {
         "account_balance": "Saldo de la cuenta", 
