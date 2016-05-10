@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420152857/lang/pt.json, /tmp/json2po-Apr0420152857/old_po/pt.json
+#. extracted from /tmp/json2po-May0510110440/lang/pt.json, /tmp/json2po-May0510110440/old_po/pt.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 15:28+0430\n"
+"POT-Creation-Date: 2016-05-10 11:04+0430\n"
 "PO-Revision-Date: 2016-04-29 18:27+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-tick-"
@@ -302,6 +302,10 @@ msgstr "Insira um token válido."
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "Tem certeza que deseja remover todos os tokens e sair?"
 
+#: .options.asians_down
+msgid "Asians Down"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Ímpar"
@@ -370,6 +374,10 @@ msgstr "Vamos negociar!"
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "Previsão do último dígito"
+
+#: .options.asians_up
+msgid "Asians Up"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"

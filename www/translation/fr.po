@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-Apr0420152857/lang/fr.json, /tmp/json2po-Apr0420152857/old_po/fr.json
+#. extracted from /tmp/json2po-May0510110440/lang/fr.json, /tmp/json2po-May0510110440/old_po/fr.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 15:28+0430\n"
+"POT-Creation-Date: 2016-05-10 11:04+0430\n"
 "PO-Revision-Date: 2016-04-03 15:09+0000\n"
 "Last-Translator: Chloe Chevreton <chloe-che@hotmail.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/binary-tick-trade/"
@@ -308,6 +308,10 @@ msgstr ""
 "Voulez-vous vraiment supprimer tous les jetons d'authentification et vous "
 "déconnecter ?"
 
+#: .options.asians_down
+msgid "Asians Down"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Impair"
@@ -376,6 +380,10 @@ msgstr "C'est parti !"
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "Prédiction sur le dernier chiffre"
+
+#: .options.asians_up
+msgid "Asians Up"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"

@@ -60,7 +60,9 @@
 		"payout": "Payout",
 		"stake": "Stake",
 		"save": "SAVE",
-		"lets_trade": "Let's trade!"
+		"lets_trade": "Let's trade!",
+        "asians_up": "Asians Up",
+        "asians_down": "Asians Down"
 	},
 	"trade" : {
 		"payout": "Payout",

@@ -1,13 +1,13 @@
-#. extracted from /tmp/json2po-Apr0420152857/lang/ar.json, /tmp/json2po-Apr0420152857/old_po/ar.json
+#. extracted from /tmp/json2po-May0510110440/lang/ar.json, /tmp/json2po-May0510110440/old_po/ar.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 15:28+0430\n"
+"POT-Creation-Date: 2016-05-10 11:04+0430\n"
 "PO-Revision-Date: 2016-05-04 08:46+0000\n"
 "Last-Translator: Ahmed Kotb <ahmedmohamedkotp@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/ar/>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -303,6 +303,10 @@ msgstr "الرجاء إدخال رمز صحيح."
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "هل أنت متأكد من أنك تريد إزالة كافة الرموز وتسجيل الخروج؟"
 
+#: .options.asians_down
+msgid "Asians Down"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "فردي"
@@ -371,6 +375,10 @@ msgstr "لنتداول!"
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "التنبؤ بآخر رقم"
+
+#: .options.asians_up
+msgid "Asians Up"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"

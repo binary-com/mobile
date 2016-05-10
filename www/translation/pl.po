@@ -1,13 +1,13 @@
-#. extracted from /tmp/json2po-Apr0420152857/lang/pl.json, /tmp/json2po-Apr0420152857/old_po/pl.json
+#. extracted from /tmp/json2po-May0510110440/lang/pl.json, /tmp/json2po-May0510110440/old_po/pl.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-20 15:28+0430\n"
+"POT-Creation-Date: 2016-05-10 11:04+0430\n"
 "PO-Revision-Date: 2016-05-03 17:22+0000\n"
 "Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -305,6 +305,10 @@ msgstr "Proszę podać poprawny token."
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "Czy na pewno chcesz usunąć wszystkie tokeny i wylogować się?"
 
+#: .options.asians_down
+msgid "Asians Down"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Nieparzysta"
@@ -373,6 +377,10 @@ msgstr "Zagrajmy!"
 #: .options.last_digit_prediction
 msgid "Last Digit Prediction"
 msgstr "Szacowanie ostatniej cyfry"
+
+#: .options.asians_up
+msgid "Asians Up"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"
