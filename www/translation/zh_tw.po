@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-10 11:04+0430\n"
-"PO-Revision-Date: 2016-05-03 06:57+0000\n"
+"PO-Revision-Date: 2016-05-11 03:53+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
 "tick-trade/app/zh_TW/>\n"
@@ -300,7 +300,7 @@ msgstr "確認要刪除所有權杖並登出?"
 
 #: .options.asians_down
 msgid "Asians Down"
-msgstr ""
+msgstr "亞洲下跌"
 
 #: .options.digit_odd
 msgid "Odd"
@@ -373,7 +373,7 @@ msgstr "最後數字的預測"
 
 #: .options.asians_up
 msgid "Asians Up"
-msgstr ""
+msgstr "亞洲上漲"
 
 #: .options.payout
 msgctxt ".options.payout"
