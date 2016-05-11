@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-10 11:04+0430\n"
-"PO-Revision-Date: 2016-04-29 04:10+0000\n"
+"PO-Revision-Date: 2016-05-11 06:51+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/vi/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.6\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -307,7 +307,7 @@ msgstr "Bạn có chắc muốn gỡ bỏ tất cả mã token và đăng xuất
 
 #: .options.asians_down
 msgid "Asians Down"
-msgstr ""
+msgstr "Châu Á Xuống"
 
 #: .options.digit_odd
 msgid "Odd"
@@ -380,7 +380,7 @@ msgstr "Dự đoán Chữ số cuối cùng"
 
 #: .options.asians_up
 msgid "Asians Up"
-msgstr ""
+msgstr "Châu Á Lên"
 
 #: .options.payout
 msgctxt ".options.payout"
