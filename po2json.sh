@@ -14,7 +14,7 @@ if [ -z "$dst" ] ;then
 	fi
 else
 	mode="DONOTINCLUDEPHRASESFROMLANG"
-	completed_langs={$(ls *.po| (completed=''; while read line; do completed="$completed,"$(echo $line|cut -d. -f1); done; echo $completed) | sed -rn 's/^.(.*)/\1/p')}
+	completed_langs={$(cd www/translation; ls *.po| (completed=''; while read line; do completed="$completed,"$(echo $line|cut -d. -f1); done; echo $completed) | sed -rn 's/^.(.*)/\1/p')}
 fi
 function make_new_templates(){
 	cp -r www/i18n "$tmp_file"
