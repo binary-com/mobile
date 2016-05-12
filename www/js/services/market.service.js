@@ -113,6 +113,7 @@ angular
 							var assetContracts = assetIndex[i][indexes.contracts];
 			                for(var c = 0; c < assetContracts.length; c++) {
 			                    if(assetContracts[c][indexes.contractFrom].indexOf('t') !== -1) {
+                                    market.display_name = assetIndex[i][indexes.displayName];
 			                        result.push(market);
 			                        break;
 			                    }
