@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0510110440/lang/es.json, /tmp/json2po-May0510110440/old_po/es.json
+#. extracted from /tmp/json2po-May0512225152/lang/es.json, /tmp/json2po-May0512225152/old_po/es.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-05-06 13:58+0000\n"
 "Last-Translator: cameliagf <cameliagf@yahoo.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-tick-"
@@ -310,6 +310,10 @@ msgstr ""
 msgid "Asians Down"
 msgstr ""
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Impar"
@@ -359,9 +363,17 @@ msgstr "Apuesta"
 msgid "SAVE"
 msgstr "GUARDAR"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr "Dígitos Iguales"
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "Tipos de Contratos"
+
+#: .options.asians
+msgid "Asians"
+msgstr ""
 
 #: .options.digit_match
 msgid "Matches"
@@ -383,6 +395,10 @@ msgstr "Predicción del Último Dígito"
 msgid "Asians Up"
 msgstr ""
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "Abajo"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -401,6 +417,10 @@ msgstr "Cuenta"
 msgid "Under"
 msgstr "Bajo"
 
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
+
 #: .options.up
 msgid "Up"
 msgstr "Arriba"
@@ -408,6 +428,3 @@ msgstr "Arriba"
 #: .options.digit_even
 msgid "Even"
 msgstr "Par"
-
-#~ msgid "Digit Match"
-#~ msgstr "Dígitos Iguales"

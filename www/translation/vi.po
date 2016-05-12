@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0510110440/lang/vi.json, /tmp/json2po-May0510110440/old_po/vi.json
+#. extracted from /tmp/json2po-May0512225152/lang/vi.json, /tmp/json2po-May0512225152/old_po/vi.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-05-11 06:51+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
@@ -309,6 +309,10 @@ msgstr "Bạn có chắc muốn gỡ bỏ tất cả mã token và đăng xuất
 msgid "Asians Down"
 msgstr "Châu Á Xuống"
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Lẻ"
@@ -358,9 +362,17 @@ msgstr "Cổ phần"
 msgid "SAVE"
 msgstr "LƯU"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr "Chữ số khớp"
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "Kiểu Giao dịch"
+
+#: .options.asians
+msgid "Asians"
+msgstr "Châu Á Lên"
 
 #: .options.digit_match
 msgid "Matches"
@@ -382,6 +394,10 @@ msgstr "Dự đoán Chữ số cuối cùng"
 msgid "Asians Up"
 msgstr "Châu Á Lên"
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "Xuống"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -400,6 +416,10 @@ msgstr "Tài khoản"
 msgid "Under"
 msgstr "Thấp hơn"
 
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
+
 #: .options.up
 msgid "Up"
 msgstr "Lên"
@@ -407,6 +427,3 @@ msgstr "Lên"
 #: .options.digit_even
 msgid "Even"
 msgstr "Chẵn"
-
-#~ msgid "Digit Match"
-#~ msgstr "Chữ số khớp"

@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0510110440/lang/ru.json, /tmp/json2po-May0510110440/old_po/ru.json
+#. extracted from /tmp/json2po-May0512225152/lang/ru.json, /tmp/json2po-May0512225152/old_po/ru.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-05-02 09:28+0000\n"
 "Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-tick-"
@@ -308,6 +308,10 @@ msgstr "Вы уверены, что хотите удалить все токе�
 msgid "Asians Down"
 msgstr ""
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Нечётное число"
@@ -357,9 +361,17 @@ msgstr "Ставка"
 msgid "SAVE"
 msgstr "СОХРАНИТЬ"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr "Совпадение цифр"
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "Типы сделок"
+
+#: .options.asians
+msgid "Asians"
+msgstr ""
 
 #: .options.digit_match
 msgid "Matches"
@@ -381,6 +393,10 @@ msgstr "Прогноз последней десятичной"
 msgid "Asians Up"
 msgstr ""
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "Вниз"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -399,6 +415,10 @@ msgstr "Счёт"
 msgid "Under"
 msgstr "Ниже"
 
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
+
 #: .options.up
 msgid "Up"
 msgstr "Вверх"
@@ -406,6 +426,3 @@ msgstr "Вверх"
 #: .options.digit_even
 msgid "Even"
 msgstr "Чётное число"
-
-#~ msgid "Digit Match"
-#~ msgstr "Совпадение цифр"

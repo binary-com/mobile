@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0510110440/lang/ar.json, /tmp/json2po-May0510110440/old_po/ar.json
+#. extracted from /tmp/json2po-May0512225152/lang/ar.json, /tmp/json2po-May0512225152/old_po/ar.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-05-04 08:46+0000\n"
 "Last-Translator: Ahmed Kotb <ahmedmohamedkotp@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-trade/"
@@ -307,6 +307,10 @@ msgstr "هل أنت متأكد من أنك تريد إزالة كافة الرم
 msgid "Asians Down"
 msgstr ""
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "فردي"
@@ -356,9 +360,17 @@ msgstr "حصة"
 msgid "SAVE"
 msgstr "حفظ"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr "مطابقة الأرقام"
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "أنواع التداول"
+
+#: .options.asians
+msgid "Asians"
+msgstr ""
 
 #: .options.digit_match
 msgid "Matches"
@@ -380,6 +392,10 @@ msgstr "التنبؤ بآخر رقم"
 msgid "Asians Up"
 msgstr ""
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "أسفل"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -398,6 +414,10 @@ msgstr "حساب"
 msgid "Under"
 msgstr "تحت"
 
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
+
 #: .options.up
 msgid "Up"
 msgstr "أعلى"
@@ -405,6 +425,3 @@ msgstr "أعلى"
 #: .options.digit_even
 msgid "Even"
 msgstr "حتى"
-
-#~ msgid "Digit Match"
-#~ msgstr "مطابقة الأرقام"
