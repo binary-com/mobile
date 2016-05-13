@@ -44,13 +44,17 @@
     }, 
     "options": {
         "account": "帳戶", 
-        "asians_down": "Asians Down", 
-        "asians_up": "Asians Up", 
+        "asians": "Asians", 
+        "asians_down": "亞洲下跌", 
+        "asians_up": "亞洲上漲", 
         "digit_differs": "數字差異", 
         "digit_even": "偶數", 
+        "digit_even_odd": "Digit Even/Odd", 
         "digit_match": "數字符合", 
+        "digit_matches_differs": "Digit Matches/Differs", 
         "digit_odd": "奇數", 
         "digit_over": "超出", 
+        "digit_over_under": "Digit Over/Under", 
         "digit_under": "低於", 
         "down": "下跌", 
         "forex": "外匯", 
@@ -67,6 +71,7 @@
         "trade_type": "交易類型", 
         "underlying": "標的資產", 
         "up": "上漲", 
+        "up_down": "Up/Down", 
         "volidx": "波動率指數"
     }, 
     "signin": {
