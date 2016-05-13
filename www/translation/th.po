@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0510110440/lang/th.json, /tmp/json2po-May0510110440/old_po/th.json
+#. extracted from /tmp/json2po-May0512225152/lang/th.json, /tmp/json2po-May0512225152/old_po/th.json
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-04-20 18:12+0000\n"
 "Last-Translator: Jutawan <bubbleblythe@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/binary-tick-trade/"
@@ -302,6 +302,10 @@ msgstr "ท่านต้องการลบโทเค่นทั้งห
 msgid "Asians Down"
 msgstr ""
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "คี่"
@@ -351,9 +355,17 @@ msgstr "วางเงิน"
 msgid "SAVE"
 msgstr "บันทึก"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr ""
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "ประเภทการซื้อขาย"
+
+#: .options.asians
+msgid "Asians"
+msgstr ""
 
 #: .options.digit_match
 msgid "Matches"
@@ -375,6 +387,10 @@ msgstr "การพยากรณ์เลขหลักสุดท้าย
 msgid "Asians Up"
 msgstr ""
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "ลง"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -392,6 +408,10 @@ msgstr "บัญชี"
 #: .options.digit_under
 msgid "Under"
 msgstr "ต่ำกว่า"
+
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
 
 #: .options.up
 msgid "Up"

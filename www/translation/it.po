@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0510110440/lang/it.json, /tmp/json2po-May0510110440/old_po/it.json
+#. extracted from /tmp/json2po-May0512225152/lang/it.json, /tmp/json2po-May0512225152/old_po/it.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-04-20 16:37+0000\n"
 "Last-Translator: Annalisa <ligiu@me.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-tick-"
@@ -309,6 +309,10 @@ msgstr "Sei sicuro di voler rimuovere tutti i token e uscire?"
 msgid "Asians Down"
 msgstr ""
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Dispari"
@@ -358,9 +362,17 @@ msgstr "Puntata"
 msgid "SAVE"
 msgstr "SALVA"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr "La cifra combacia"
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "Tipologie di trade"
+
+#: .options.asians
+msgid "Asians"
+msgstr ""
 
 #: .options.digit_match
 msgid "Matches"
@@ -382,6 +394,10 @@ msgstr "Previsione dell'ultima cifra"
 msgid "Asians Up"
 msgstr ""
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "Down"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -400,6 +416,10 @@ msgstr "Account"
 msgid "Under"
 msgstr "Sottostante"
 
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
+
 #: .options.up
 msgid "Up"
 msgstr "Up"
@@ -407,6 +427,3 @@ msgstr "Up"
 #: .options.digit_even
 msgid "Even"
 msgstr "Pari"
-
-#~ msgid "Digit Match"
-#~ msgstr "La cifra combacia"

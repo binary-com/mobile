@@ -1,13 +1,13 @@
-#. extracted from /tmp/json2po-May0510110440/lang/pl.json, /tmp/json2po-May0510110440/old_po/pl.json
+#. extracted from /tmp/json2po-May0512225152/lang/pl.json, /tmp/json2po-May0512225152/old_po/pl.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-05-11 20:08+0000\n"
 "Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
-"trade/app/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-trade/"
+"app/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -309,6 +309,10 @@ msgstr "Czy na pewno chcesz usunąć wszystkie tokeny i wylogować się?"
 msgid "Asians Down"
 msgstr "Azjatyckie – spadek"
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Nieparzysta"
@@ -358,9 +362,17 @@ msgstr "Stawka"
 msgid "SAVE"
 msgstr "ZAPISZ"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr "Cyfry zgadzają się"
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "Typy zakładów"
+
+#: .options.asians
+msgid "Asians"
+msgstr "Azjatyckie – wzrost"
 
 #: .options.digit_match
 msgid "Matches"
@@ -382,6 +394,10 @@ msgstr "Szacowanie ostatniej cyfry"
 msgid "Asians Up"
 msgstr "Azjatyckie – wzrost"
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "Niżej"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -400,6 +416,10 @@ msgstr "Konto"
 msgid "Under"
 msgstr "Mniejsza"
 
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
+
 #: .options.up
 msgid "Up"
 msgstr "Wyżej"
@@ -407,6 +427,3 @@ msgstr "Wyżej"
 #: .options.digit_even
 msgid "Even"
 msgstr "Parzysta"
-
-#~ msgid "Digit Match"
-#~ msgstr "Cyfry zgadzają się"

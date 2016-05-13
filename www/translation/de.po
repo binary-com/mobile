@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0510110440/lang/de.json, /tmp/json2po-May0510110440/old_po/de.json
+#. extracted from /tmp/json2po-May0512225152/lang/de.json, /tmp/json2po-May0512225152/old_po/de.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-04-18 09:44+0000\n"
 "Last-Translator: Robert Grundler <grundlertex@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/binary-tick-trade/"
@@ -311,6 +311,10 @@ msgstr ""
 msgid "Asians Down"
 msgstr ""
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Chance"
@@ -360,9 +364,17 @@ msgstr "Einsatz"
 msgid "SAVE"
 msgstr "SPEICHERN"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr "Kommastellenübereinstimmung"
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "Handelsarten"
+
+#: .options.asians
+msgid "Asians"
+msgstr ""
 
 #: .options.digit_match
 msgid "Matches"
@@ -384,6 +396,10 @@ msgstr "Voraussage der letzten Kommastelle"
 msgid "Asians Up"
 msgstr ""
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "Runter"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -402,6 +418,10 @@ msgstr "Konto"
 msgid "Under"
 msgstr "Unter"
 
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
+
 #: .options.up
 msgid "Up"
 msgstr "Hoch"
@@ -409,6 +429,3 @@ msgstr "Hoch"
 #: .options.digit_even
 msgid "Even"
 msgstr "Gleich"
-
-#~ msgid "Digit Match"
-#~ msgstr "Kommastellenübereinstimmung"

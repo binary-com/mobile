@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0510110440/lang/pt.json, /tmp/json2po-May0510110440/old_po/pt.json
+#. extracted from /tmp/json2po-May0512225152/lang/pt.json, /tmp/json2po-May0512225152/old_po/pt.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-05-11 05:42+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-tick-"
@@ -306,6 +306,10 @@ msgstr "Tem certeza que deseja remover todos os tokens e sair?"
 msgid "Asians Down"
 msgstr "Asiáticos Abaixo"
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Ímpar"
@@ -355,9 +359,17 @@ msgstr "Aposta"
 msgid "SAVE"
 msgstr "SALVAR"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr "Combinação de dígitos"
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "Tipos de negociações"
+
+#: .options.asians
+msgid "Asians"
+msgstr "Asiáticos Acima"
 
 #: .options.digit_match
 msgid "Matches"
@@ -379,6 +391,10 @@ msgstr "Previsão do último dígito"
 msgid "Asians Up"
 msgstr "Asiáticos Acima"
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "Abaixo"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -397,6 +413,10 @@ msgstr "Conta"
 msgid "Under"
 msgstr "Inferior"
 
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
+
 #: .options.up
 msgid "Up"
 msgstr "Acima"
@@ -404,6 +424,3 @@ msgstr "Acima"
 #: .options.digit_even
 msgid "Even"
 msgstr "Par"
-
-#~ msgid "Digit Match"
-#~ msgstr "Combinação de dígitos"

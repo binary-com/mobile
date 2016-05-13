@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0510110440/lang/zh_tw.json, /tmp/json2po-May0510110440/old_po/zh_tw.json
+#. extracted from /tmp/json2po-May0512225152/lang/zh_tw.json, /tmp/json2po-May0512225152/old_po/zh_tw.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-05-11 03:53+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
@@ -302,6 +302,10 @@ msgstr "確認要刪除所有權杖並登出?"
 msgid "Asians Down"
 msgstr "亞洲下跌"
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "奇數"
@@ -351,9 +355,17 @@ msgstr "投注額"
 msgid "SAVE"
 msgstr "儲存"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr "數字符合"
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "交易類型"
+
+#: .options.asians
+msgid "Asians"
+msgstr "亞洲上漲"
 
 #: .options.digit_match
 msgid "Matches"
@@ -375,6 +387,10 @@ msgstr "最後數字的預測"
 msgid "Asians Up"
 msgstr "亞洲上漲"
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "下跌"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -393,6 +409,10 @@ msgstr "帳戶"
 msgid "Under"
 msgstr "低於"
 
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
+
 #: .options.up
 msgid "Up"
 msgstr "上漲"
@@ -400,6 +420,3 @@ msgstr "上漲"
 #: .options.digit_even
 msgid "Even"
 msgstr "偶數"
-
-#~ msgid "Digit Match"
-#~ msgstr "數字符合"

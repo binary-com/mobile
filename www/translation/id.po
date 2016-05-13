@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0510110440/lang/id.json, /tmp/json2po-May0510110440/old_po/id.json
+#. extracted from /tmp/json2po-May0512225152/lang/id.json, /tmp/json2po-May0512225152/old_po/id.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-10 11:04+0430\n"
+"POT-Creation-Date: 2016-05-12 22:51+0430\n"
 "PO-Revision-Date: 2016-05-12 04:26+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
@@ -307,6 +307,10 @@ msgstr "Apakah Anda yakin ingin menghapus semua token dan keluar?"
 msgid "Asians Down"
 msgstr "Asians Down"
 
+#: .options.digit_even_odd
+msgid "Digit Even/Odd"
+msgstr ""
+
 #: .options.digit_odd
 msgid "Odd"
 msgstr "Odd"
@@ -356,9 +360,17 @@ msgstr "Modal"
 msgid "SAVE"
 msgstr "SIMPAN"
 
+#: .options.digit_matches_differs
+msgid "Digit Matches/Differs"
+msgstr "Digit Match"
+
 #: .options.trade_type
 msgid "Trade Types"
 msgstr "Jenis Kontrak"
+
+#: .options.asians
+msgid "Asians"
+msgstr ""
 
 #: .options.digit_match
 msgid "Matches"
@@ -380,6 +392,10 @@ msgstr "Analisa Digit Terakhir"
 msgid "Asians Up"
 msgstr "Asians Up"
 
+#: .options.up_down
+msgid "Up/Down"
+msgstr "Down"
+
 #: .options.payout
 msgctxt ".options.payout"
 msgid "Payout"
@@ -398,6 +414,10 @@ msgstr "Akun"
 msgid "Under"
 msgstr "Under"
 
+#: .options.digit_over_under
+msgid "Digit Over/Under"
+msgstr ""
+
 #: .options.up
 msgid "Up"
 msgstr "Up"
@@ -405,6 +425,3 @@ msgstr "Up"
 #: .options.digit_even
 msgid "Even"
 msgstr "Even"
-
-#~ msgid "Digit Match"
-#~ msgstr "Digit Match"
