@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-06 13:58+0000\n"
+"PO-Revision-Date: 2016-05-13 23:02+0000\n"
 "Last-Translator: cameliagf <cameliagf@yahoo.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/es/>\n"
@@ -308,11 +308,11 @@ msgstr ""
 
 #: .options.asians_down
 msgid "Asians Down"
-msgstr ""
+msgstr "Asiáticas Abajo"
 
 #: .options.digit_even_odd
 msgid "Digit Even/Odd"
-msgstr ""
+msgstr "Dígito Par/Impar"
 
 #: .options.digit_odd
 msgid "Odd"
@@ -373,7 +373,7 @@ msgstr "Tipos de Contratos"
 
 #: .options.asians
 msgid "Asians"
-msgstr ""
+msgstr "Asiáticos"
 
 #: .options.digit_match
 msgid "Matches"
@@ -393,7 +393,7 @@ msgstr "Predicción del Último Dígito"
 
 #: .options.asians_up
 msgid "Asians Up"
-msgstr ""
+msgstr "Asiáticos Arriba"
 
 #: .options.up_down
 msgid "Up/Down"
@@ -419,7 +419,7 @@ msgstr "Bajo"
 
 #: .options.digit_over_under
 msgid "Digit Over/Under"
-msgstr ""
+msgstr "Dígito Encima/Debajo"
 
 #: .options.up
 msgid "Up"
