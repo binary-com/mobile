@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-04-20 10:57+0000\n"
+"PO-Revision-Date: 2016-05-12 04:26+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.6-dev\n"
+"X-Generator: Weblate 2.7-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -174,7 +174,7 @@ msgstr "Gunakan Akun"
 
 #: .signin.signin_with_binary_com
 msgid "Sign in"
-msgstr "Mendaftar di Binary.com"
+msgstr "Masuk"
 
 #: .signin.language
 msgid "Language"
@@ -186,11 +186,11 @@ msgstr "Masukkan token Anda disini"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr "Atau mendaftar dengan token"
+msgstr "Atau masuk menggunakan token"
 
 #: .signin.next
 msgid "Next"
-msgstr "Lanjut"
+msgstr "Berikutnya"
 
 #: .signin.get_token
 msgid "How to get a Token?"
@@ -258,7 +258,9 @@ msgstr "Menghapus Token"
 msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
-msgstr "Pilih pasar lain, pasar yang Anda pilih tidak menyediakan pilihan tik."
+msgstr ""
+"Pilih pasar inti lainnya, pasar inti yang Anda pilih tidak tersedia dalam "
+"pilihan tik."
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
@@ -282,7 +284,8 @@ msgstr "Maaf, kami tidak dapat mengotentikasi Anda."
 
 #: .alert.no_underlying
 msgid "There is no underlying for this market. Please try another market."
-msgstr "Tidak tersedia dasar untuk pasar ini. Silahkan coba pasar lain."
+msgstr ""
+"Tidak tersedia pilihan pasar inti untuk pasar ini. Silahkan coba pasar lain."
 
 #: .alert.contract_error
 msgid "Contract not available, please try again."
@@ -302,7 +305,7 @@ msgstr "Apakah Anda yakin ingin menghapus semua token dan keluar?"
 
 #: .options.asians_down
 msgid "Asians Down"
-msgstr ""
+msgstr "Asians Down"
 
 #: .options.digit_even_odd
 msgid "Digit Even/Odd"
@@ -330,11 +333,11 @@ msgstr "Differs"
 
 #: .options.underlying
 msgid "Underlying"
-msgstr "Dasar"
+msgstr "Pasar Inti"
 
 #: .options.select_market
 msgid "Markets"
-msgstr "Pasar"
+msgstr "Pilihan Pasar"
 
 #: .options.payout_type
 msgid "Payout Type"
@@ -387,7 +390,7 @@ msgstr "Analisa Digit Terakhir"
 
 #: .options.asians_up
 msgid "Asians Up"
-msgstr ""
+msgstr "Asians Up"
 
 #: .options.up_down
 msgid "Up/Down"
