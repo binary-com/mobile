@@ -111,6 +111,9 @@ angular
 					return parseInt(num.toString()
 						.slice(-1)[0]);
 				},
+                average: function average(list){
+                    return parseFloat(list.reduce(function(a, b){ return a + b;}, 0) / list.length).toFixed(2);
+                },
 				conditions: {
 					CALL: function condition(barrier, price) {
 						return parseFloat(price) > parseFloat(barrier);
@@ -137,12 +140,12 @@ angular
 						return utils.lastDigit(price) > parseInt(barrier);
 					},
                     ASIANU: function condition(barrier, price, priceList){
-                        var avg = priceList.reduce(function(a, b){ return a+b;}, 0) / priceList.length;
+                        var avg = utils.average(priceList);
 
                         return parseFloat(price) > avg;
                     },
                     ASIAND: function condition(barrier, price, priceList){
-                        var avg = priceList.reduce(function(a, b){ return a+b;}, 0) / priceList.length;
+                        var avg = uitils.average(priceList);
 
                         return parseFloat(price) < avg;
                     }
@@ -397,9 +400,19 @@ angular
 								color: '#818183',
 								label: 'barrier: ' + contract.barrier,
 								orientation: 'horizontal',
+                                type: 'barrier',
 								index: index
 							});
-						}
+						} else if (utils.asianGame(contract) && tickPriceList.length > 0 && !hasExitSpot()){
+							chartDrawer.addGridLine({
+								color: '#818183',
+								label: 'Average: ' + utils.average(tickPriceList),
+								orientation: 'horizontal',
+                                type: 'average',
+                                firstIndex: index,
+								index: index + (tickPriceList.length - 1)
+							});
+                        }
                     } else if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
 						contract.showingExitSpot = true;
 					}
@@ -415,6 +428,8 @@ angular
 						}
 						utils.setObjValue(contract, 'entrySpotIndex', index, isEntrySpot(tickTime));
 						utils.setObjValue(contract, 'exitSpotIndex', index, isExitSpot(tickTime, index));
+
+                        //tickPriceList.push(tickPrice);
 					}
 				};
 
@@ -710,16 +725,23 @@ angular
 						ctx.textAlign = 'center';
 						ctx.fillText(gridLine.label, point.x, scale.startPoint + 12);
 					} else if (gridLine.orientation === 'horizontal') {
-						ctx.moveTo(scale.startPoint, point.y);
+                        var yPoint = point.y;
+                        if(gridLine.type === 'average' && gridLine.index !== gridLine.firstIndex){
+                            firstPoint = thisChart.datasets[0].points[gridLine.firstIndex];
+                            yPoint = (firstPoint.y + point.y) / 2;
+                        }
+
+					    ctx.moveTo(scale.startPoint, yPoint);
+                        
 						ctx.strokeStyle = gridLine.color;
 						ctx.fillStyle = gridLine.color;
-						ctx.lineTo(thisChart.chart.width, point.y);
+						ctx.lineTo(thisChart.chart.width, yPoint);
 						ctx.stroke();
 
 						ctx.textAlign = 'center';
 						var labelWidth = ctx.measureText(gridLine.label)
 							.width;
-						ctx.fillText(gridLine.label, parseInt(labelWidth / 2) + 5, point.y - 1);
+						ctx.fillText(gridLine.label, parseInt(labelWidth / 2) + 5, yPoint - 1);
 					}
 				};
 
