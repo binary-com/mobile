@@ -145,7 +145,7 @@ angular
                         return parseFloat(price) > avg;
                     },
                     ASIAND: function condition(barrier, price, priceList){
-                        var avg = uitils.average(priceList);
+                        var avg = utils.average(priceList);
 
                         return parseFloat(price) < avg;
                     }
