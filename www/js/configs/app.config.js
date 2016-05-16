@@ -12,29 +12,29 @@ angular
         'oauthUrl': 'https://www.binary.com/oauth2/authorize',
         'tradeCategories': [
             {
-                name: "Up/Down",
+                name: "up_down",
 				markets: ['forex', 'volidx', 'random'],
                 value: "UP/DOWN"
             },
             {
-                name: "Digit Matches/Differs",
+                name: "digit_matches_differs",
                 value: "MATCH/DIFF",
 				markets: ['volidx', 'random'],
                 digits: true
             },
             {
-                name: "Digit Even/Odd",
+                name: "digit_even_odd",
 				markets: ['volidx', 'random'],
                 value: "EVEN/ODD"
             },
             {
-                name: "Digit Over/Under",
+                name: "digit_over_under",
                 value: "OVER/UNDER",
 				markets: ['volidx', 'random'],
                 digits: true
             },
             {
-                name: "Asians",
+                name: "asians",
                 value: "Asians",
                 markets: ['volidx', 'random']
             }

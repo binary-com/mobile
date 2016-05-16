@@ -9,7 +9,7 @@
                                                  ng-change="updateTradeType(selected.tradeCategory)" 
                                                  ng-checked="selected.tradeCategory"
                                                  ng-disabled="getNgDisabled()">
-            <div class="item-content">{{t.name}}</div>
+            <div class="item-content">{{"options." + t.name | translate}}</div>
         </label>
     </div>
 </div>
