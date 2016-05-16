@@ -112,7 +112,8 @@ angular
 						.slice(-1)[0]);
 				},
                 average: function average(list){
-                    return parseFloat(list.reduce(function(a, b){ return a + b;}, 0) / list.length).toFixed(2);
+                    var decimalPointLength = utils.fractionalLength(list[0]) + 1;
+                    return parseFloat(list.reduce(function(a, b){ return a + b;}, 0) / list.length).toFixed(decimalPointLength);
                 },
 				conditions: {
 					CALL: function condition(barrier, price) {
