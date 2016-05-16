@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-12 04:26+0000\n"
+"PO-Revision-Date: 2016-05-16 04:27+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
@@ -309,7 +309,7 @@ msgstr "Asians Down"
 
 #: .options.digit_even_odd
 msgid "Digit Even/Odd"
-msgstr ""
+msgstr "Digit Even/Odd"
 
 #: .options.digit_odd
 msgid "Odd"
@@ -370,7 +370,7 @@ msgstr "Jenis Kontrak"
 
 #: .options.asians
 msgid "Asians"
-msgstr ""
+msgstr "Asians"
 
 #: .options.digit_match
 msgid "Matches"
@@ -416,7 +416,7 @@ msgstr "Under"
 
 #: .options.digit_over_under
 msgid "Digit Over/Under"
-msgstr ""
+msgstr "Digit Over/Under"
 
 #: .options.up
 msgid "Up"
