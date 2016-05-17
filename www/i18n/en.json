@@ -60,7 +60,14 @@
 		"payout": "Payout",
 		"stake": "Stake",
 		"save": "SAVE",
-		"lets_trade": "Let's trade!"
+		"lets_trade": "Let's trade!",
+        "asians_up": "Asians Up",
+        "asians_down": "Asians Down",
+        "asians": "Asians",
+        "digit_over_under": "Digit Over/Under",
+        "digit_even_odd": "Digit Even/Odd",
+        "digit_matches_differs": "Digit Matches/Differs",
+        "up_down": "Up/Down"
 	},
 	"trade" : {
 		"payout": "Payout",
