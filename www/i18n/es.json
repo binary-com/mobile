@@ -44,13 +44,17 @@
     }, 
     "options": {
         "account": "Cuenta", 
-        "asians_down": "Asians Down", 
-        "asians_up": "Asians Up", 
+        "asians": "Asiáticos", 
+        "asians_down": "Asiáticas Abajo", 
+        "asians_up": "Asiáticos Arriba", 
         "digit_differs": "Dígito Difiere", 
         "digit_even": "Par", 
+        "digit_even_odd": "Dígito Par/Impar", 
         "digit_match": "Dígitos Iguales", 
+        "digit_matches_differs": "Dígitos Iguales", 
         "digit_odd": "Impar", 
         "digit_over": "Sobre", 
+        "digit_over_under": "Dígito Encima/Debajo", 
         "digit_under": "Bajo", 
         "down": "Abajo", 
         "forex": "Forex", 
@@ -67,6 +71,7 @@
         "trade_type": "Tipos de Contratos", 
         "underlying": "Activo subyacente", 
         "up": "Arriba", 
+        "up_down": "Abajo", 
         "volidx": "Índices de Volatilidad"
     }, 
     "signin": {
