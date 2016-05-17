@@ -44,11 +44,17 @@
     }, 
     "options": {
         "account": "Cuenta", 
+        "asians": "Asiáticos", 
+        "asians_down": "Asiáticas Abajo", 
+        "asians_up": "Asiáticos Arriba", 
         "digit_differs": "Dígito Difiere", 
         "digit_even": "Par", 
+        "digit_even_odd": "Dígito Par/Impar", 
         "digit_match": "Dígitos Iguales", 
+        "digit_matches_differs": "Dígitos Iguales", 
         "digit_odd": "Impar", 
         "digit_over": "Sobre", 
+        "digit_over_under": "Dígito Encima/Debajo", 
         "digit_under": "Bajo", 
         "down": "Abajo", 
         "forex": "Forex", 
@@ -65,17 +71,18 @@
         "trade_type": "Tipos de Contratos", 
         "underlying": "Activo subyacente", 
         "up": "Arriba", 
-        "volidx": "Volatility Indices"
+        "up_down": "Abajo", 
+        "volidx": "Índices de Volatilidad"
     }, 
     "signin": {
         "add_account": "Añadir Cuenta", 
         "get_token": "¿Cómo obtener un token?", 
         "language": "Idioma", 
         "need_help": "¿Necesita Ayuda?", 
-        "next": "Next", 
+        "next": "Siguiente", 
         "paste_token": "Pegue su token aquí", 
-        "signin_with_binary_com": "Sign in", 
-        "use_token": "Or sign in with a token"
+        "signin_with_binary_com": "Iniciar sesión", 
+        "use_token": "O iniciar sesión con un token"
     }, 
     "trade": {
         "account_balance": "Saldo de la cuenta", 
