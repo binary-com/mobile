@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-17 17:02+0000\n"
-"Last-Translator: Annalisa <ligiu@me.com>\n"
+"PO-Revision-Date: 2016-05-17 17:04+0000\n"
+"Last-Translator: Mauro Piccillo <mauro.piccillo@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/it/>\n"
 "Language: it\n"
@@ -176,7 +176,7 @@ msgstr "Aggiungi account"
 
 #: .signin.signin_with_binary_com
 msgid "Sign in"
-msgstr "Registrati"
+msgstr "Accedi"
 
 #: .signin.language
 msgid "Language"
@@ -188,7 +188,7 @@ msgstr "Incolla qui il tuo token"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr "Oppure registrati con un token"
+msgstr "Oppure accedi con un token"
 
 #: .signin.next
 msgid "Next"
@@ -392,7 +392,7 @@ msgstr "Previsione dell'ultima cifra"
 
 #: .options.asians_up
 msgid "Asians Up"
-msgstr "Asiatiche Up"
+msgstr "Asian Up"
 
 #: .options.up_down
 msgid "Up/Down"
