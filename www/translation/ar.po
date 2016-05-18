@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-17 14:11+0000\n"
+"PO-Revision-Date: 2016-05-18 23:09+0000\n"
 "Last-Translator: Ahmed Kotb <ahmedmohamedkotp@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/ar/>\n"
@@ -93,7 +93,7 @@ msgstr "حدث خطأ ما أثناء التحقق من وجود تحديثات"
 #: .trade.payout
 msgctxt ".trade.payout"
 msgid "Payout"
-msgstr "العائد"
+msgstr "صرف العائد"
 
 #: .trade.net_profit
 msgid "Net Profit"
@@ -151,7 +151,7 @@ msgstr "الربح"
 
 #: .trade.potential_profit
 msgid "Potential Profit"
-msgstr "الربح المحتمل"
+msgstr "الربح المحتملة"
 
 #: .trade.final_price
 msgid "Final Price"
@@ -260,8 +260,7 @@ msgid ""
 "Please select another underlying, The underlying you've selected doesn't "
 "support ticks."
 msgstr ""
-"الرجاء تحديد محدد أساسي آخر، المحدد الأساسي الذي قمت بتحديده لا يدعم التحديد "
-"بالعلامة."
+"الرجاء تحديد أساسي آخر، الأساسي الذي قمت بتحديده لا يدعم التحديد بالعلامة."
 
 #: .alert.field_between
 msgid "It must be between 0.70 and 100000."
