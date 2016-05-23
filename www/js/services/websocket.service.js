@@ -55,7 +55,7 @@ angular
 
                 appStateService.isLoggedin = false;
 
-				dataStream = new WebSocket(config.wsUrl + language);
+				dataStream = new WebSocket(config.wsUrl + '?app_id='+ config.app_id +'&l=' + language );
 				//dataStream = new WebSocket('wss://www.binaryqa07.com/websockets/v3?l=' + language);
 
 				dataStream.onopen = function() {

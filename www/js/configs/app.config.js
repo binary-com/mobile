@@ -7,8 +7,8 @@
 angular
 	.module('binary')
 	.constant('config', {
-        'app_id': "id-ct9oK1jjUNyxvPKYNdqJxuGX7bHvJ",
-        'wsUrl': 'wss://ws.binaryws.com/websockets/v3?l=',  // Don't set language value here
+        'app_id': "10",
+        'wsUrl': 'wss://ws.binaryws.com/websockets/v3',  // Don't set language value here
         'oauthUrl': 'https://www.binary.com/oauth2/authorize',
         'tradeCategories': [
             {
