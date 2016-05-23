@@ -18,6 +18,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="Orientation" value="portrait" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
@@ -79,4 +80,5 @@
     <plugin name="cordova-plugin-inappbrowser" spec="~1.2.1" />
     <plugin name="cordova-plugin-app-version" spec="~0.1.8" />
     <plugin name="cordova-plugin-statusbar" spec="~2.1.3" />
+    <plugin name="cordova-plugin-code-push" spec="~1.7.1-beta" />
 </widget>
