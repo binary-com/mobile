@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-20 09:00+0000\n"
+"PO-Revision-Date: 2016-05-24 14:05+0000\n"
 "Last-Translator: Jutawan <bubbleblythe@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/th/>\n"
@@ -394,7 +394,7 @@ msgstr "Asians Up"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr "ลง"
+msgstr "Up/Down"
 
 #: .options.payout
 msgctxt ".options.payout"
