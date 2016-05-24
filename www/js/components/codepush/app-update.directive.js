@@ -74,7 +74,7 @@
                                                 //console.log("Downloading package.");
                                                 scope.isDownloading = true;
                                                 scope.message = "update.downloading";
-                                                setTimeout(scope.hide, 5000);
+                                                //setTimeout(scope.hide, 5000);
                                                 break;
                                             case SyncStatus.INSTALLING_UPDATE:
                                                 scope.isShown = true;
@@ -93,6 +93,8 @@
                                 installMode: InstallMode.IMMEDIATE, updateDialog: true
                             },
                             function (downloadProgress) {
+                                scope.isShown = true;
+                                scope.isDownloading = true;
                                 //console.log("Downloading " + downloadProgress.receivedBytes + " of " + downloadProgress.totalBytes + " bytes.");
                                 scope.progress = (downloadProgress.receivedBytes*100)/downloadProgress.totalBytes;
                                 
