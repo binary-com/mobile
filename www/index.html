@@ -28,9 +28,16 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 	<title>Binary App</title>
 
 	<link href="css/ionic.app.css" rel="stylesheet">
+
+    <script type="text/javascript">
+        if(self !== top){
+            top.location = self.location;
+        }
+    </script>
 
 	<!-- BEGIN TRACKJS -->
 	<script type="text/javascript">
