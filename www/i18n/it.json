@@ -6,7 +6,7 @@
         "delete": "Cancella", 
         "my_accounts": "Gestisci account", 
         "new_token": "Aggiungi un nuovo token", 
-        "not_allowed_to_trade": "", 
+        "not_allowed_to_trade": "Non hai il permesso per negoziare!", 
         "remove_all": "Rimuovi tutti gli account ed esci", 
         "set_as_default": "Imposta come predefinito"
     }, 
@@ -44,12 +44,18 @@
     }, 
     "options": {
         "account": "Account", 
+        "asians": "Asiatiche", 
+        "asians_down": "Asians Down", 
+        "asians_up": "Asian Up", 
         "digit_differs": "La cifra differisce", 
         "digit_even": "Pari", 
+        "digit_even_odd": "Cifra pari/dispari", 
         "digit_match": "La cifra combacia", 
+        "digit_matches_differs": "La cifra combacia", 
         "digit_odd": "Dispari", 
-        "digit_over": "", 
-        "digit_under": "Under", 
+        "digit_over": "Sopra", 
+        "digit_over_under": "Cifra superiore/inferiore", 
+        "digit_under": "Sotto", 
         "down": "Down", 
         "forex": "Forex", 
         "last_digit_prediction": "Previsione dell'ultima cifra", 
@@ -65,17 +71,18 @@
         "trade_type": "Tipologie di trade", 
         "underlying": "Asset sottostante", 
         "up": "Up", 
-        "volidx": "Volatility Indices"
+        "up_down": "Down", 
+        "volidx": "Indici di volatilità"
     }, 
     "signin": {
         "add_account": "Aggiungi account", 
         "get_token": "Come si ottiene un token?", 
         "language": "Lingua", 
         "need_help": "Hai bisogno di aiuto?", 
-        "next": "Next", 
+        "next": "Avanti", 
         "paste_token": "Incolla qui il tuo token", 
-        "signin_with_binary_com": "Sign in", 
-        "use_token": "Or sign in with a token"
+        "signin_with_binary_com": "Accedi", 
+        "use_token": "Oppure accedi con un token"
     }, 
     "trade": {
         "account_balance": "Saldo dell'account", 
