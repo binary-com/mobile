@@ -43,6 +43,16 @@ var runInShell = function runInShell(cb, cmd){
 	});
 };
 
+var removeWhitespaceFromEnd = function removeWhitespaceFromEnd(done, path){
+	exec("bash -c \"sed -i 's/[[:blank:]]*\$//' " + path + "\"", function(err, stdout, stderr){
+		if (!err){
+			done();
+		} else {
+			console.log(err, stderr)
+		}
+	});
+};
+
 var checkoutToBranch = function checkoutToBranch(cb, branch, filename){
 	runInShell(function(){
 		cb();
@@ -62,7 +72,7 @@ var copyJsonFiles = function copyJsonFiles(cb, dst) {
 var callPoToJson = function callPoToJson(cb){
 	exec('po2json -t ' + data.tmp_dir + '/i18n ' + data.tmp_dir + '/translation ' + data.tmp_dir, function (err, stdout, stderr) {
 		console.log(stdout, stderr);
-		cb();
+		removeWhitespaceFromEnd(cb, data.tmp_dir + '/*.json');
 	});
 };
 
@@ -77,7 +87,7 @@ var makeTempDir = function makeTempDir(done, prefix){
 	runInShell(function(){
 		data.tmp_dir = tmp_dir;
 		done();
-	}, 'rm -rf ' + tmp_dir + '; mkdir ' + tmp_dir)
+	}, 'rm -rf ' + tmp_dir + '; mkdir ' + tmp_dir);
 };
 var convertPoToJson = function convertPoToJson(done) {
 	checkoutToBranch(function(){
@@ -222,30 +232,33 @@ translate.json2po = function json2po(){
 		}, DESTINATION_BRANCH, 'www/i18n');
 	})
 	.pipe(function generateNewPo(done){
-		runInShell(done, 'json2po ' + data.tmp_dir + '/i18n ' + data.tmp_dir + '/new_po')
+		runInShell(done, 'json2po ' + data.tmp_dir + '/i18n ' + data.tmp_dir + '/new_po');
 	})
 	.pipe(function makeJsonBasedOnCurrentPo(done){
 		copyJsonFiles(function(){
-			runInShell(done, 'po2json -t ' + data.tmp_dir + '/current_i18n_template ' + data.tmp_dir + '/translation ' + data.tmp_dir + '/translated_i18n ')
+			runInShell(done, 'po2json -t ' + data.tmp_dir + '/current_i18n_template ' + data.tmp_dir + '/translation ' + data.tmp_dir + '/translated_i18n ');
 		}, 'current_i18n_template');
 	})
 	.pipe(function generateMergedPo(done){
-		runInShell(done, 'json2po -t ' + data.tmp_dir + '/i18n ' + data.tmp_dir + '/translated_i18n ' + data.tmp_dir + '/new_po; rm -f ' + data.tmp_dir + '/new_po/en.po')
+		runInShell(done, 'json2po -t ' + data.tmp_dir + '/i18n ' + data.tmp_dir + '/translated_i18n ' + data.tmp_dir + '/new_po; rm -f ' + data.tmp_dir + '/new_po/en.po');
 	})
 	.pipe(function finalizeChanges(rootDone){
 		copy(function(){
 			asyncChain()
 			.pipe(function mergeOldWithNew(done){
-				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile/www/translation; for filename in `ls -I en.json`; do msgmerge -U $filename ' + data.tmp_dir + '/new_po/$filename && msgattrib $filename --clear-fuzzy -o $filename; done; popd')
+				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile/www/translation; for filename in `ls -I en.json`; do msgmerge -U $filename ' + data.tmp_dir + '/new_po/$filename && msgattrib $filename --clear-fuzzy -o $filename; done; popd');
 			})
 			.pipe(function replaceJsonBackups(done){
-				copy(done, data.tmp_dir + '/i18n/*', data.tmp_dir + '/mobile/www/i18n')
+				copy(done, data.tmp_dir + '/i18n/*', data.tmp_dir + '/mobile/www/i18n');
+			})
+			.pipe(function removeWhitespaceFromJsons(done){
+				removeWhitespaceFromEnd(done, data.tmp_dir + '/mobile/www/i18n/*.json ' + data.tmp_dir + '/mobile/www/translation/*.po');
 			})
 			.pipe(function removeAllAutoBackups(done){
-				runInShell(done, 'rm -f ' + data.tmp_dir + '/mobile/www/translation/*.po~')
+				runInShell(done, 'rm -f ' + data.tmp_dir + '/mobile/www/translation/*.po~');
 			})
 			.pipe(function commitChanges(done){
-				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile/www/translation; git add www/i18n/*.json www/translation/*.po; git commit -m "Updated translation files with the recent changes - ' + (new Date()).toLocaleDateString().replace(new RegExp('/', 'g'), '-') + '"; git push origin '+ SOURCE_BRANCH + '; popd')
+				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile; git add www/i18n/*.json www/translation/*.po; git commit -m "Updated translation files with the recent changes - ' + (new Date()).toLocaleDateString().replace(new RegExp('/', 'g'), '-') + '"; git push origin '+ SOURCE_BRANCH + '; popd');
 			})
 			.exec();
 		}, '../mobile', data.tmp_dir);
