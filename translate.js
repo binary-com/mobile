@@ -192,13 +192,13 @@ translate.json2po = function json2po(){
 		checkoutToBranch(function(){
 			copy(function(){
 				checkoutToBranch(function(){
-					runInShell(function(){
-						if ( data.lastShellStdOut === '' ) {
+					exec('bash -c \'diff www/i18n/en.json ' + data.tmp_dir + '/en.json\'', function (err, stdout, stderr) {
+						if ( stdout.trim() === '' ) {
 							console.log('No change detected in the template file, exiting...');
 						} else {
 							done();
 						}
-					}, 'diff www/i18n/en.json ' + data.tmp_dir + '/en.json');
+					});
 				}, data.originalBranch, 'www/i18n');
 			}, 'www/i18n/en.json', data.tmp_dir + '/en.json');
 		}, DESTINATION_BRANCH, 'www/i18n');
