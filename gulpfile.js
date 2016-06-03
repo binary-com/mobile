@@ -6,6 +6,15 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var translate = require('./translate');
+
+gulp.task('po2json', function(cb){
+  translate.po2json();
+});
+
+gulp.task('json2po', function(cb){
+  translate.json2po();
+});
 
 var paths = {
   sass: ['./scss/**/*.scss']

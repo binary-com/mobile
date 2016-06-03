@@ -362,7 +362,7 @@ msgstr "SIMPAN"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr "Digit Match"
+msgstr ""
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -394,7 +394,7 @@ msgstr "Asians Up"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr "Down"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"

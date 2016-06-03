@@ -361,7 +361,7 @@ msgstr "SALVAR"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr "Combinação de dígitos"
+msgstr ""
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -393,7 +393,7 @@ msgstr "Asiáticos Acima"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr "Abaixo"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"
