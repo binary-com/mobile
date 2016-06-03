@@ -71,7 +71,7 @@
         "trade_type": "Jenis Kontrak",
         "underlying": "Pasar Inti",
         "up": "Up",
-        "up_down": "Up/Down", 
+        "up_down": "Down",
         "volidx": "Indeks Volatilitas"
     },
     "signin": {
