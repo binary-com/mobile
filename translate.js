@@ -70,7 +70,7 @@ var copyJsonFiles = function copyJsonFiles(cb, dst) {
 };
 
 var callPoToJson = function callPoToJson(cb){
-	exec('po2json -t ' + data.tmp_dir + '/i18n ' + data.tmp_dir + '/translation ' + data.tmp_dir, function (err, stdout, stderr) {
+	exec('po2json --fuzzy -t ' + data.tmp_dir + '/i18n ' + data.tmp_dir + '/translation ' + data.tmp_dir, function (err, stdout, stderr) {
 		console.log(stdout, stderr);
 		removeWhitespaceFromEnd(cb, data.tmp_dir + '/*.json');
 	});
@@ -99,7 +99,7 @@ var convertPoToJson = function convertPoToJson(done) {
 						checkoutToBranch(function(){
 							done();
 						}, data.originalBranch, 'www/i18n');
-					}, 'pushd ' + data.tmp_dir + '/mobile && git checkout dev && cp ../*.json www/i18n && git add www/i18n/{' + data.finishedLanguageList.join(',') + '}.json; git commit -m "Converted translation files to json - ' + (new Date()).toLocaleDateString().replace(new RegExp('/', 'g'), '-') + '"; git push origin '+DESTINATION_BRANCH+'; popd ');
+					}, 'pushd ' + data.tmp_dir + '/mobile && git checkout '+DESTINATION_BRANCH+' && cp ../*.json www/i18n && git add www/i18n/{' + data.finishedLanguageList.join(',') + '}.json; git commit -m "Converted translation files to json - ' + (new Date()).toLocaleDateString().replace(new RegExp('/', 'g'), '-') + '"; git push origin '+DESTINATION_BRANCH+'; popd ');
 				}, '../mobile', data.tmp_dir);
 			});
 		}, 'i18n');
@@ -236,7 +236,7 @@ translate.json2po = function json2po(){
 	})
 	.pipe(function makeJsonBasedOnCurrentPo(done){
 		copyJsonFiles(function(){
-			runInShell(done, 'po2json -t ' + data.tmp_dir + '/current_i18n_template ' + data.tmp_dir + '/translation ' + data.tmp_dir + '/translated_i18n ');
+			runInShell(done, 'po2json --fuzzy -t ' + data.tmp_dir + '/current_i18n_template ' + data.tmp_dir + '/translation ' + data.tmp_dir + '/translated_i18n ');
 		}, 'current_i18n_template');
 	})
 	.pipe(function generateMergedPo(done){
@@ -246,7 +246,7 @@ translate.json2po = function json2po(){
 		copy(function(){
 			asyncChain()
 			.pipe(function mergeOldWithNew(done){
-				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile/www/translation; for filename in `ls -I en.json`; do msgmerge -U $filename ' + data.tmp_dir + '/new_po/$filename && msgattrib $filename --clear-fuzzy -o $filename; done; popd');
+				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile/www/translation; for filename in `ls -I en.json`; do msgmerge --no-fuzzy-matching -U $filename ' + data.tmp_dir + '/new_po/$filename; done; popd');
 			})
 			.pipe(function replaceJsonBackups(done){
 				copy(done, data.tmp_dir + '/i18n/*', data.tmp_dir + '/mobile/www/i18n');
