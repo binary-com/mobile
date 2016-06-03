@@ -65,3 +65,26 @@ cd build
 npm install or npm update (may need sudo)
 gulp deploy
 ```
+
+### Adding a new language
+Adding a new language is as simple as copying en.json to the [new language basename].json, then commiting this change and running json2po in the translation branch.
+```
+cp en.json [new language basename].json
+git commit -am 'Language added'
+git checkout translation
+gulp json2po 
+```
+### Updating translation branch with recent changes in dev
+You need to update the translation branch every time you make a change in the dev branch in order to deliver those changes to the translators to translate. This process is as simple as running json2po in the translation branch.
+```
+vim en.json # Change the language file 
+git commit -am 'Language file updated'
+git checkout translation
+gulp po2json
+```
+### Update language files with completed translations
+In order to update the language files with the most recent translations simply run po2json
+```
+git checkout translation
+gulp po2json
+```
