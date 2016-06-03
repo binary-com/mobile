@@ -364,7 +364,7 @@ msgstr "LƯU"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr "Chữ số khớp"
+msgstr ""
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -396,7 +396,7 @@ msgstr "Châu Á Lên"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr "Xuống"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"

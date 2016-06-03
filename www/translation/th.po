@@ -360,7 +360,7 @@ msgstr "บันทึก"
 #: .options.digit_matches_differs
 #, fuzzy
 msgid "Digit Matches/Differs"
-msgstr "Digit Matches/Differs"
+msgstr ""
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -394,7 +394,7 @@ msgstr "Asians Up"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr "Up/Down"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"
