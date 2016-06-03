@@ -366,7 +366,7 @@ msgstr "SPEICHERN"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr "Kommastellenübereinstimmung"
+msgstr ""
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -398,7 +398,7 @@ msgstr "Asiaten Hoch"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr "Runter"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"

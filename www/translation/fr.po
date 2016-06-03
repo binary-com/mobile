@@ -367,7 +367,7 @@ msgstr "ENREGISTRER"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr "Chiffre égal"
+msgstr ""
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -399,7 +399,7 @@ msgstr ""
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr "Bas"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"

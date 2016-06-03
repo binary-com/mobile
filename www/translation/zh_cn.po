@@ -357,7 +357,7 @@ msgstr "保存"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr "数字符合"
+msgstr ""
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -389,7 +389,7 @@ msgstr "亚洲上涨"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr "下跌"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"

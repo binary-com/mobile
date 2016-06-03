@@ -363,7 +363,7 @@ msgstr "СОХРАНИТЬ"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr "Совпадение цифр"
+msgstr ""
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -395,7 +395,7 @@ msgstr ""
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr "Вниз"
+msgstr ""
 
 #: .options.payout
 msgctxt ".options.payout"
