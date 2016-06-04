@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-14 05:43+0000\n"
+"PO-Revision-Date: 2016-06-04 09:31+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/vi/>\n"
@@ -364,7 +364,7 @@ msgstr "LƯU"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr ""
+msgstr "Chữ số khớp/khác nhau"
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -396,7 +396,7 @@ msgstr "Châu Á Lên"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr ""
+msgstr "Lên/Xuống"
 
 #: .options.payout
 msgctxt ".options.payout"
