@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-25 05:21+0000\n"
+"PO-Revision-Date: 2016-06-06 13:36+0000\n"
 "Last-Translator: Robert Grundler <grundlertex@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/de/>\n"
@@ -176,7 +176,7 @@ msgstr "Konto hinzufügen"
 
 #: .signin.signin_with_binary_com
 msgid "Sign in"
-msgstr ""
+msgstr "Anmelden"
 
 #: .signin.language
 msgid "Language"
@@ -188,11 +188,11 @@ msgstr "Fügen Sie Ihren Token hier ein"
 
 #: .signin.use_token
 msgid "Or sign in with a token"
-msgstr ""
+msgstr "Oder mit einem Token anmelden"
 
 #: .signin.next
 msgid "Next"
-msgstr ""
+msgstr "Weiter"
 
 #: .signin.get_token
 msgid "How to get a Token?"
@@ -309,11 +309,11 @@ msgstr ""
 
 #: .options.asians_down
 msgid "Asians Down"
-msgstr ""
+msgstr "Asiaten Tief"
 
 #: .options.digit_even_odd
 msgid "Digit Even/Odd"
-msgstr ""
+msgstr "Kommastelle gerade/ungerade"
 
 #: .options.digit_odd
 msgid "Odd"
@@ -374,7 +374,7 @@ msgstr "Handelsarten"
 
 #: .options.asians
 msgid "Asians"
-msgstr ""
+msgstr "Asiaten"
 
 #: .options.digit_match
 msgid "Matches"
@@ -420,7 +420,7 @@ msgstr "Unter"
 
 #: .options.digit_over_under
 msgid "Digit Over/Under"
-msgstr ""
+msgstr "Kommastelle Über/Unter"
 
 #: .options.up
 msgid "Up"
