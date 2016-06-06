@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-16 04:27+0000\n"
+"PO-Revision-Date: 2016-06-06 04:41+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
@@ -362,7 +362,7 @@ msgstr "SIMPAN"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr ""
+msgstr "Digit Matches/Differs"
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -394,7 +394,7 @@ msgstr "Asians Up"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr ""
+msgstr "Up/Down"
 
 #: .options.payout
 msgctxt ".options.payout"
