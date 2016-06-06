@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-13 23:02+0000\n"
+"PO-Revision-Date: 2016-06-06 11:42+0000\n"
 "Last-Translator: cameliagf <cameliagf@yahoo.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/es/>\n"
@@ -365,7 +365,7 @@ msgstr "GUARDAR"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr ""
+msgstr "El Dígito es Igual/Difiere"
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -397,7 +397,7 @@ msgstr "Asiáticos Arriba"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr ""
+msgstr "Arriba/Abajo"
 
 #: .options.payout
 msgctxt ".options.payout"
