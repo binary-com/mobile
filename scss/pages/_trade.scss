@@ -171,11 +171,12 @@
 												align-items: center;
 												.price-des {
 																font-size: 4vw;
-																color: $darkgray;
+																color: $black;
 												}
 												.price {
-																color: $orange;
+																color: $black;
 																font-size: 4vw;
+																font-weight: bold;
 												}
 												button {
 																background-color: $green !important;
@@ -382,11 +383,12 @@
 												align-items: center;
 												.price-des {
 																font-size: 14px;
-																color: $darkgray;
+																color: $black;
 												}
 												.price {
-																color: $orange;
+																color: $black;
 																font-size: 14px;
+																font-weight: bold;
 												}
 												button {
 																background-color: $green !important;

@@ -10118,7 +10118,7 @@ input::-webkit-inner-spin-button {
         background-color: #fff;
         color: #000;
         font-size: 14px;
-        font-weight: 300;
+        font-weight: 400;
         text-transform: uppercase;
         padding: 0;
         right: initial;
@@ -10127,7 +10127,7 @@ input::-webkit-inner-spin-button {
       background-color: #2E8836 !important;
       font-size: 5vw; }
     .sign-in .help {
-      color: #fff; }
+      text-decoration: underline; }
     .sign-in .token-link {
       text-decoration: underline; }
     .sign-in ::-webkit-input-placeholder {
@@ -10199,7 +10199,7 @@ input::-webkit-inner-spin-button {
         background-color: #fff;
         color: #000;
         font-size: 14px;
-        font-weight: 300;
+        font-weight: 400;
         text-transform: uppercase;
         padding: 0;
         right: initial;
@@ -10208,7 +10208,7 @@ input::-webkit-inner-spin-button {
       background-color: #2E8836 !important;
       font-size: 18px; }
     .sign-in .help {
-      color: #fff; }
+      text-decoration: underline; }
     .sign-in .token-link {
       color: #fff; }
     .sign-in ::-webkit-input-placeholder {
@@ -10353,10 +10353,11 @@ input::-webkit-inner-spin-button {
     align-items: center; }
     .trade .buy-again .price-des {
       font-size: 4vw;
-      color: #818183; }
+      color: #000; }
     .trade .buy-again .price {
-      color: #e98024;
-      font-size: 4vw; }
+      color: #000;
+      font-size: 4vw;
+      font-weight: bold; }
     .trade .buy-again button {
       background-color: #2E8836 !important;
       width: 100%;
@@ -10514,10 +10515,11 @@ input::-webkit-inner-spin-button {
     align-items: center; }
     .trade .buy-again .price-des {
       font-size: 14px;
-      color: #818183; }
+      color: #000; }
     .trade .buy-again .price {
-      color: #e98024;
-      font-size: 14px; }
+      color: #000;
+      font-size: 14px;
+      font-weight: bold; }
     .trade .buy-again button {
       background-color: #2E8836 !important;
       width: 100%;
@@ -10881,29 +10883,26 @@ input::-webkit-inner-spin-button {
 
 @media only screen and (max-device-width: 480px) {
   .help-content {
-    background-color: #2a3052;
+    background-color: #fff;
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 5%;
-    color: #fff;
+    color: #000;
     font-size: 4vw; }
     .help-content h1 {
       font-size: 8vw;
-      color: #fff; }
+      color: #e98024; }
     .help-content button {
-      background-color: #e98024 !important;
-      font-size: 5vw; }
-    .help-content a {
-      color: #fff;
-      font-weight: 700; } }
+      background-color: #2E8836 !important;
+      font-size: 5vw; } }
 
 @media only screen and (min-device-width: 480px) {
   .help-content {
-    background-color: #2a3052;
+    background-color: #fff;
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 5%;
-    color: #fff;
+    color: #000;
     font-size: 16px; }
     .help-content h1 {
       font-size: 28px;
