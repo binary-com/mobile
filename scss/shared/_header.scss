@@ -1,17 +1,18 @@
 .bar.bar-positive {
 				border-color: none;
-				background-color: $darkblue;
+				background-color: $blue;
 				background-image: none;
 }
 .bar-positive .button {
-				border-color: $darkblue;
-				background-color: $darkblue;
+				// border-color: $blue;
+				background-color: $blue;
 }
 .bar-header {
-				background-color: $darkblue;
+				background-color: $blue;
 				position: relative;
+				border-bottom: 3px solid $orange!important;
 				button {
-								background-color: $darkblue;
+								background-color: $blue;
 								color: $white;
 				}
 				h1 {
