@@ -398,7 +398,7 @@ angular
 						contract.showingEntrySpot = true;
 						if (!utils.digitTrade(contract) && !utils.asianGame(contract) && !hasExitSpot()) {
 							chartDrawer.addGridLine({
-								color: '#818183',
+								color: '#2E8836',
 								label: 'barrier: ' + contract.barrier,
 								orientation: 'horizontal',
                                 type: 'barrier',
@@ -406,7 +406,7 @@ angular
 							});
 						} else if (utils.asianGame(contract) && tickPriceList.length > 0 && !hasExitSpot()){
 							chartDrawer.addGridLine({
-								color: '#818183',
+								color: '#2E8836',
 								label: 'Average: ' + utils.average(tickPriceList),
 								orientation: 'horizontal',
                                 type: 'average',
@@ -552,7 +552,7 @@ angular
 				var getLabelColor = function getLabelColor(index) {
 					var color = 'black';
 					if (!showingHistory() && isLastPoint(index)) {
-						color = 'green';
+						color = '#2E8836';
 					}
 					contractCtrls.forEach(function (contract) {
 						if (contract.isSpot(index)) {
