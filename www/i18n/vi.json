@@ -51,7 +51,7 @@
         "digit_even": "Chẵn",
         "digit_even_odd": "Số Chẵn/Lẻ",
         "digit_match": "Chữ số khớp",
-        "digit_matches_differs": "Chữ số khớp",
+        "digit_matches_differs": "Chữ số khớp/khác nhau",
         "digit_odd": "Lẻ",
         "digit_over": "Lớn hơn",
         "digit_over_under": "Số Trến/Dưới",
@@ -71,7 +71,7 @@
         "trade_type": "Kiểu Giao dịch",
         "underlying": "Tài sản cơ bản",
         "up": "Lên",
-        "up_down": "Xuống",
+        "up_down": "Lên/Xuống",
         "volidx": "Chỉ số biến động"
     },
     "signin": {
