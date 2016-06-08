@@ -135,19 +135,19 @@
 																padding: 0;
 																margin-top: 0;
 																.col {
-																				border-top: 1px solid $gray;
+																				border-top: 1px solid $lightgray;
 																				&:first-child {
 																								text-align: right;
-																								border-right: 1px solid $gray;
+																								border-right: 1px solid $lightgray;
 																								padding: 4px 10px 4px 0;
-																								color: $darkgray;
+																								color: $black;
 																				}
 																				&:last-child {
 																								text-align: center;
 																				}
 																}
 																&:last-child {
-																				border-bottom: 1px solid $gray;
+																				border-bottom: 1px solid $lightgray;
 																}
 												}
 												.win .col {
@@ -165,7 +165,7 @@
 								}
 								.buy-again {
 												background-color: $white;
-												border-bottom: 1px solid $gray;
+												border-bottom: 1px solid $lightgray;
 												padding-top: 0;
 												padding-bottom: 0;
 												align-items: center;
@@ -347,19 +347,19 @@
 																padding: 0;
 																margin-top: 0;
 																.col {
-																				border-top: 1px solid $gray;
+																				border-top: 1px solid $lightgray;
 																				&:first-child {
 																								text-align: right;
-																								border-right: 1px solid $gray;
+																								border-right: 1px solid $lightgray;
 																								padding: 4px 10px 4px 0;
-																								color: $darkgray;
+																								color: $black;
 																				}
 																				&:last-child {
 																								text-align: center;
 																				}
 																}
 																&:last-child {
-																				border-bottom: 1px solid $gray;
+																				border-bottom: 1px solid $lightgray;
 																}
 												}
 												.win .col {
@@ -377,7 +377,7 @@
 								}
 								.buy-again {
 												background-color: $white;
-												border-bottom: 1px solid $gray;
+												border-bottom: 1px solid $lightgray;
 												padding-top: 0;
 												padding-bottom: 0;
 												align-items: center;
