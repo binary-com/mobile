@@ -10082,7 +10082,6 @@ input::-webkit-inner-spin-button {
       .sign-in .list label.item-input i {
         font-size: 40px;
         width: 40px;
-        color: #5e668f;
         text-align: center; }
         .sign-in .list label.item-input i.icon-small {
           font-size: 28px; }
@@ -10103,7 +10102,6 @@ input::-webkit-inner-spin-button {
       .sign-in .list label.item-select i {
         font-size: 40px;
         width: 40px;
-        color: #5e668f;
         text-align: center; }
         .sign-in .list label.item-select i.icon-small {
           font-size: 28px; }
