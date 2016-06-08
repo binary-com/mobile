@@ -9831,7 +9831,8 @@ a {
   justify-content: center; }
 
 .item {
-  border-width: 0; }
+  border-width: 0;
+  color: #000; }
 
 .item-select select {
   max-width: 100%; }
@@ -10081,13 +10082,12 @@ input::-webkit-inner-spin-button {
       .sign-in .list label.item-input i {
         font-size: 40px;
         width: 40px;
-        color: #5e668f;
         text-align: center; }
         .sign-in .list label.item-input i.icon-small {
           font-size: 28px; }
       .sign-in .list label.item-input input[type=text],
       .sign-in .list label.item-input input[type=password] {
-        color: #f2f2f2;
+        color: #c4c4c4;
         font-family: arial;
         font-weight: 400;
         font-size: 14px;
@@ -10102,7 +10102,6 @@ input::-webkit-inner-spin-button {
       .sign-in .list label.item-select i {
         font-size: 40px;
         width: 40px;
-        color: #5e668f;
         text-align: center; }
         .sign-in .list label.item-select i.icon-small {
           font-size: 28px; }
@@ -10131,13 +10130,13 @@ input::-webkit-inner-spin-button {
     .sign-in .token-link {
       text-decoration: underline; }
     .sign-in ::-webkit-input-placeholder {
-      color: #f2f2f2; }
+      color: #c4c4c4; }
     .sign-in :-moz-placeholder {
-      color: #f2f2f2; }
+      color: #c4c4c4; }
     .sign-in ::-moz-placeholder {
-      color: #f2f2f2; }
+      color: #c4c4c4; }
     .sign-in :-ms-input-placeholder {
-      color: #f2f2f2; } }
+      color: #c4c4c4; } }
 
 @media only screen and (min-device-width: 480px) {
   .sign-in {
@@ -10168,7 +10167,7 @@ input::-webkit-inner-spin-button {
           font-size: 28px; }
       .sign-in .list label.item-input input[type=text],
       .sign-in .list label.item-input input[type=password] {
-        color: #f2f2f2;
+        color: #c4c4c4;
         font-family: arial;
         font-weight: 400;
         font-size: 14px;
@@ -10325,16 +10324,16 @@ input::-webkit-inner-spin-button {
       padding: 0;
       margin-top: 0; }
       .trade .contract-details .row .col {
-        border-top: 1px solid #c4c4c4; }
+        border-top: 1px solid #f2f2f2; }
         .trade .contract-details .row .col:first-child {
           text-align: right;
-          border-right: 1px solid #c4c4c4;
+          border-right: 1px solid #f2f2f2;
           padding: 4px 10px 4px 0;
-          color: #818183; }
+          color: #000; }
         .trade .contract-details .row .col:last-child {
           text-align: center; }
       .trade .contract-details .row:last-child {
-        border-bottom: 1px solid #c4c4c4; }
+        border-bottom: 1px solid #f2f2f2; }
     .trade .contract-details .win .col {
       color: #2E8836 !important;
       background-color: #fff !important;
@@ -10347,7 +10346,7 @@ input::-webkit-inner-spin-button {
       padding: 5px !important; }
   .trade .buy-again {
     background-color: #fff;
-    border-bottom: 1px solid #c4c4c4;
+    border-bottom: 1px solid #f2f2f2;
     padding-top: 0;
     padding-bottom: 0;
     align-items: center; }
@@ -10487,16 +10486,16 @@ input::-webkit-inner-spin-button {
       padding: 0;
       margin-top: 0; }
       .trade .contract-details .row .col {
-        border-top: 1px solid #c4c4c4; }
+        border-top: 1px solid #f2f2f2; }
         .trade .contract-details .row .col:first-child {
           text-align: right;
-          border-right: 1px solid #c4c4c4;
+          border-right: 1px solid #f2f2f2;
           padding: 4px 10px 4px 0;
-          color: #818183; }
+          color: #000; }
         .trade .contract-details .row .col:last-child {
           text-align: center; }
       .trade .contract-details .row:last-child {
-        border-bottom: 1px solid #c4c4c4; }
+        border-bottom: 1px solid #f2f2f2; }
     .trade .contract-details .win .col {
       color: #2E8836 !important;
       background-color: #fff !important;
@@ -10509,7 +10508,7 @@ input::-webkit-inner-spin-button {
       padding: 5px !important; }
   .trade .buy-again {
     background-color: #fff;
-    border-bottom: 1px solid #c4c4c4;
+    border-bottom: 1px solid #f2f2f2;
     padding-top: 0;
     padding-bottom: 0;
     align-items: center; }
