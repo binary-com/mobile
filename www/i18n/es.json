@@ -51,7 +51,7 @@
         "digit_even": "Par",
         "digit_even_odd": "Dígito Par/Impar",
         "digit_match": "Dígitos Iguales",
-        "digit_matches_differs": "Dígitos Iguales",
+        "digit_matches_differs": "El Dígito es Igual/Difiere",
         "digit_odd": "Impar",
         "digit_over": "Sobre",
         "digit_over_under": "Dígito Encima/Debajo",
@@ -71,7 +71,7 @@
         "trade_type": "Tipos de Contratos",
         "underlying": "Activo subyacente",
         "up": "Arriba",
-        "up_down": "Abajo",
+        "up_down": "Arriba/Abajo",
         "volidx": "Índices de Volatilidad"
     },
     "signin": {

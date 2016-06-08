@@ -51,7 +51,7 @@
         "digit_even": "Even",
         "digit_even_odd": "Digit Even/Odd",
         "digit_match": "Digit Match",
-        "digit_matches_differs": "Digit Match",
+        "digit_matches_differs": "Digit Matches/Differs",
         "digit_odd": "Odd",
         "digit_over": "Over",
         "digit_over_under": "Digit Over/Under",
@@ -71,7 +71,7 @@
         "trade_type": "Jenis Kontrak",
         "underlying": "Pasar Inti",
         "up": "Up",
-        "up_down": "Down",
+        "up_down": "Up/Down",
         "volidx": "Indeks Volatilitas"
     },
     "signin": {

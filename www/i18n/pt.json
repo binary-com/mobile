@@ -51,7 +51,7 @@
         "digit_even": "Par",
         "digit_even_odd": "Dígitos Par/Ímpar",
         "digit_match": "Combinação de dígitos",
-        "digit_matches_differs": "Combinação de dígitos",
+        "digit_matches_differs": "Dígito Combina/Difere",
         "digit_odd": "Ímpar",
         "digit_over": "Superior",
         "digit_over_under": "Dígito Superior/Inferior",
@@ -71,7 +71,7 @@
         "trade_type": "Tipos de negociações",
         "underlying": "Ativo subjacente",
         "up": "Acima",
-        "up_down": "Abaixo",
+        "up_down": "Acima/Abaixo",
         "volidx": "Índices Volatility"
     },
     "signin": {
