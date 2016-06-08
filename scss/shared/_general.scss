@@ -4,7 +4,7 @@ body * {
 a{
 	color: $blue;
 	text-decoration: none;
-	font-weight: bold; 
+	font-weight: bold;
 }
 .button {
 				border: none;
@@ -21,6 +21,7 @@ a{
 }
 .item {
 				border-width: 0;
+				color: $black;
 }
 .item-select select {
 				max-width: 100%;

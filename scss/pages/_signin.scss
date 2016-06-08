@@ -33,7 +33,7 @@
 																}
 																input[type=text],
 																input[type=password] {
-																				color: $lightgray;
+																				color: $gray;
 																				font-family: arial;
 																				font-weight: 400;
 																				font-size: 14px;
@@ -91,16 +91,16 @@
 												text-decoration: underline;
 								}
 								 ::-webkit-input-placeholder {
-												color: $lightgray;
+												color: $gray;
 								}
 								 :-moz-placeholder {
-												color: $lightgray;
+												color: $gray;
 								}
 								 ::-moz-placeholder {
-												color: $lightgray;
+												color: $gray;
 								}
 								 :-ms-input-placeholder {
-												color: $lightgray;
+												color: $gray;
 								}
 				}
 }
@@ -139,7 +139,7 @@
 																}
 																input[type=text],
 																input[type=password] {
-																				color: #f2f2f2;
+																				color: $gray;
 																				font-family: arial;
 																				font-weight: 400;
 																				font-size: 14px;
