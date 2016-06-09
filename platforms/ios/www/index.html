@@ -77,6 +77,11 @@
         if(/#\/redirect\%23/.exec(url)){
             url = url.replace("%23", "?");
             window.location.href = url;
+        } else if(/acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(#\/redirect)$/.exec(url)){
+            url = url.replace("#\/redirect", "");
+            var splits = url.split('?');
+            url = splits[0] + '#\/redirect' + splits[1];
+            window.location.href = url;
         }
     </script>
     <!-- END Modify -->
@@ -165,7 +170,7 @@
 	<connection-status></connection-status>
     <app-update></app-update>
     <scope-message></scope-message>
-	<ion-nav-view></ion-nav-view>
+	<ion-nav-view can-swipe-back="false"></ion-nav-view>
 </body>
 
 </html>
