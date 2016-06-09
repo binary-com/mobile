@@ -83,7 +83,7 @@
         if(/acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(#\/redirect)$/.exec(url)){
             url = url.replace("#\/redirect", "");
             var splits = url.split('?');
-            url = splits[0] + '#\/redirect' + splits[1];
+            url = splits[0] + '#\/redirect?' + splits[1];
             window.location.href = url;
         }
     </script>
