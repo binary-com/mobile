@@ -77,7 +77,10 @@
         if(/#\/redirect\%23/.exec(url)){
             url = url.replace("%23", "?");
             window.location.href = url;
-        } else if(/acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(#\/redirect)$/.exec(url)){
+        }
+        
+        url = window.location.href;
+        if(/acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(#\/redirect)$/.exec(url)){
             url = url.replace("#\/redirect", "");
             var splits = url.split('?');
             url = splits[0] + '#\/redirect' + splits[1];
