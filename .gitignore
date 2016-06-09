@@ -14,3 +14,5 @@ www/lib
 *.sw*
 dist/
 .publish/
+*.crx
+*.pem

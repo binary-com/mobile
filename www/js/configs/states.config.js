@@ -9,7 +9,8 @@
 angular
 	.module('binary')
 	.config(
-		function($stateProvider, $urlRouterProvider) {
+		function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+            $ionicConfigProvider.views.swipeBackEnabled(false);
 			$stateProvider
 				.state('home', {
 					url: '/home',

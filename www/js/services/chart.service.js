@@ -44,9 +44,9 @@ angular
 							return !distribute(index);
 						},
 						datasets: [{
-							strokeColor: "#e98024",
-							pointColor: "#e98024",
-							pointStrokeColor: "#fff",
+							strokeColor: "#7cb5ec",
+							pointColor: "#7cb5ec",
+							pointStrokeColor: "#7cb5ec",
 							data: []
 						}]
 					},
@@ -398,7 +398,7 @@ angular
 						contract.showingEntrySpot = true;
 						if (!utils.digitTrade(contract) && !utils.asianGame(contract) && !hasExitSpot()) {
 							chartDrawer.addGridLine({
-								color: '#818183',
+								color: '#2E8836',
 								label: 'barrier: ' + contract.barrier,
 								orientation: 'horizontal',
                                 type: 'barrier',
@@ -406,7 +406,7 @@ angular
 							});
 						} else if (utils.asianGame(contract) && tickPriceList.length > 0 && !hasExitSpot()){
 							chartDrawer.addGridLine({
-								color: '#818183',
+								color: '#2E8836',
 								label: 'Average: ' + utils.average(tickPriceList),
 								orientation: 'horizontal',
                                 type: 'average',
@@ -552,7 +552,7 @@ angular
 				var getLabelColor = function getLabelColor(index) {
 					var color = 'black';
 					if (!showingHistory() && isLastPoint(index)) {
-						color = 'green';
+						color = '#2E8836';
 					}
 					contractCtrls.forEach(function (contract) {
 						if (contract.isSpot(index)) {
@@ -566,16 +566,16 @@ angular
 					var color;
 					contractCtrls.forEach(function (contract) {
 						if (contract.betweenExistingSpots(value)) {
-							color = '#e98024';
+							color = '#7cb5ec';
 						}
 					});
 					if (utils.isDefined(color)) {
 						return color;
 					}
 					if (isLastPoint(index) && !showingHistory()) {
-						color = 'green';
+						color = '#2E8836';
 					} else {
-						color = '#e98024';
+						color = '#7cb5ec';
 					}
 					return color;
 				};
@@ -733,7 +733,7 @@ angular
                         }
 
 					    ctx.moveTo(scale.startPoint, yPoint);
-                        
+
 						ctx.strokeStyle = gridLine.color;
 						ctx.fillStyle = gridLine.color;
 						ctx.lineTo(thisChart.chart.width, yPoint);
