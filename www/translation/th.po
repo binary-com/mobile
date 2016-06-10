@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-24 14:05+0000\n"
+"PO-Revision-Date: 2016-06-10 15:46+0000\n"
 "Last-Translator: Jutawan <bubbleblythe@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/th/>\n"
@@ -360,7 +360,7 @@ msgstr "บันทึก"
 #: .options.digit_matches_differs
 #, fuzzy
 msgid "Digit Matches/Differs"
-msgstr ""
+msgstr "Digit Matches/Differs"
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -394,7 +394,7 @@ msgstr "Asians Up"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr ""
+msgstr "ขึ้น/ลง"
 
 #: .options.payout
 msgctxt ".options.payout"
