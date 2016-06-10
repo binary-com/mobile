@@ -8,5 +8,5 @@
       "web_url": "https://ticktrade.binary.com"
     }
   },
-  "icons": { "16": "img/icons/favicon-16x16.png", "160": "img/icons/favicon-160x160.png" }
+  "icons": { "16": "img/icons/favicon-16x16.png", "160": "img/icons/favicon-160x160.png", "128": "img/icons/favicon-128x128.png" }
 }
