@@ -8,8 +8,8 @@
 	<!-- Content Security Policy for cordova-plugin-whitelist -->
 	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
 
-	<!-- Disabling ios telephone number detection -->
-	<meta name="format-detection" content="telephone=no">
+    <!-- Disabling ios telephone number detection -->
+    <meta name = "format-detection" content = "telephone=no">
 
 	<link href='img/icons/apple-touch-icon-57x57.png' rel='apple-touch-icon' sizes='57x57' />
 	<link href='img/icons/apple-touch-icon-114x114.png' rel='apple-touch-icon' sizes='114x114' />
@@ -28,105 +28,70 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="mobile-web-app-capable" content="yes">
-	<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-	<style id="antiClickjack">
-		body {
-			display: none !important;
-		}
-	</style>
-	<script type="text/javascript">
-		if (self === top) {
-			var antiClickjack = document.getElementById("antiClickjack");
-			antiClickjack.parentNode.removeChild(antiClickjack);
-		} else {
-			top.location = self.location;
-		}
-	</script>
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+		<style id="antiClickjack">body{display:none !important;}</style>
+        <script type="text/javascript">
+            if (self === top) {
+                var antiClickjack = document.getElementById("antiClickjack");
+                antiClickjack.parentNode.removeChild(antiClickjack);
+            } else {
+                top.location = self.location;
+            }
+        </script>
 	<title>Binary App</title>
 	<link href="css/ionic.app.css" rel="stylesheet">
 
 	<!-- BEGIN TRACKJS -->
 	<script type="text/javascript">
 		window._trackJs = {
-			token: "346262e7ffef497d85874322fff3bbf8",
-			application: "tick-trade-app",
-			onError: function(payload) {
-					payload.customer.userId = window._trackJs.userId;
-					return !(window.location.hostname === "localhost");
-				}
-				// other configuration
+		    token: "346262e7ffef497d85874322fff3bbf8",
+		    application: "tick-trade-app",
+		    onError: function(payload){
+                payload.customer.userId = window._trackJs.userId;
+                return !(window.location.hostname === "localhost");
+            }
+		    // other configuration
 		}
 	</script>
 	<script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
 	<!-- END TRACKJS -->
 
-	<!-- BEGIN APMLITUDE -->
-	<script type="text/javascript">
-		(function(e, t) {
-			var n = e.amplitude || {};
-			var r = t.createElement("script");
-			r.type = "text/javascript";
-			r.async = true;
-			r.src = "https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.9.0-min.gz.js";
-			r.onload = function() {
-				e.amplitude.runQueuedFunctions()
-			};
-			var s = t.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(r, s);
-			var i = function() {
-				this._q = [];
-				return this
-			};
+    <!-- BEGIN APMLITUDE -->
+    <script type="text/javascript">
+        (function(e,t){var n=e.amplitude||{};var r=t.createElement("script");r.type="text/javascript";
+            r.async=true;r.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.9.0-min.gz.js";
+            r.onload=function(){e.amplitude.runQueuedFunctions()};var s=t.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(r,s);var i=function(){this._q=[];return this};function a(e){
+                i.prototype[e]=function(){this._q.push([e].concat(Array.prototype.slice.call(arguments,0)));
+                    return this}}var o=["add","append","clearAll","set","setOnce","unset"];for(var c=0;c<o.length;c++){
+                        a(o[c])}n.Identify=i;n._q=[];function u(e){n[e]=function(){n._q.push([e].concat(Array.prototype.slice.call(arguments,0)));
+                        }}var l=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties"];
+            for(var p=0;p<l.length;p++){u(l[p])}e.amplitude=n})(window,document);
 
-			function a(e) {
-				i.prototype[e] = function() {
-					this._q.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-					return this
-				}
-			}
-			var o = ["add", "append", "clearAll", "set", "setOnce", "unset"];
-			for (var c = 0; c < o.length; c++) {
-				a(o[c])
-			}
-			n.Identify = i;
-			n._q = [];
+        amplitude.init("bfba930e4adadaa35dfc5b68ac2c07ae");
+    </script>
+    <!-- END AMPLITUDE -->
 
-			function u(e) {
-				n[e] = function() {
-					n._q.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-				}
-			}
-			var l = ["init", "logEvent", "logRevenue", "setUserId", "setUserProperties", "setOptOut", "setVersionName", "setDomain", "setDeviceId", "setGlobalUserProperties", "identify", "clearUserProperties"];
-			for (var p = 0; p < l.length; p++) {
-				u(l[p])
-			}
-			e.amplitude = n
-		})(window, document);
+    <!-- Modify redirect url -->
+    <script>
+        var url = window.location.hash;
 
-		amplitude.init("bfba930e4adadaa35dfc5b68ac2c07ae");
-	</script>
-	<!-- END AMPLITUDE -->
+        if(/#\/redirect\%23/.exec(url)){
+            url = url.replace("%23", "?");
+            window.location.href = url;
+        }
 
-	<!-- Modify redirect url -->
-	<script>
-		var url = window.location.hash;
+        url = window.location.href;
+        if(/acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(#\/redirect)$/.exec(url)){
+            url = url.replace("#\/redirect", "");
+            var splits = url.split('?');
+            url = splits[0] + '#\/redirect?' + splits[1];
+            window.location.href = url;
+        }
+    </script>
+    <!-- END Modify -->
 
-		if (/#\/redirect\%23/.exec(url)) {
-			url = url.replace("%23", "?");
-			window.location.href = url;
-		}
-
-		url = window.location.href;
-		if (/acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(#\/redirect)$/.exec(url)) {
-			url = url.replace("#\/redirect", "");
-			var splits = url.split('?');
-			url = splits[0] + '#\/redirect?' + splits[1];
-			window.location.href = url;
-		}
-	</script>
-	<!-- END Modify -->
-
-	<!-- ionic/angularjs js -->
+    <!-- ionic/angularjs js -->
 	<script src="lib/ionic/release/js/ionic.bundle.js"></script>
 	<!-- cordova script (this will be a 404 during development) -->
 	<script src="cordova.js"></script>
@@ -142,8 +107,8 @@
 	<!-- app -->
 	<link href="css/style.css" rel="stylesheet">
 
-	<!-- build:js -->
-	<script src="js/app.js"></script>
+    <!-- build:js -->
+    <script src="js/app.js"></script>
 
 	<script src="js/configs/app.config.js"></script>
 	<script src="js/configs/states.config.js"></script>
@@ -203,13 +168,13 @@
 	<script src="js/components/language/language-list.directive.js"></script>
 
 	<script src="js/filters/custom-currency.filter.js"></script>
-	<!-- endbuild -->
+    <!-- endbuild -->
 </head>
 
 <body ng-controller="BodyController" id="{{getLanguage()}}">
 	<connection-status></connection-status>
-	<app-update></app-update>
-	<scope-message></scope-message>
+    <app-update></app-update>
+    <scope-message></scope-message>
 	<ion-nav-view can-swipe-back="false"></ion-nav-view>
 </body>
 
