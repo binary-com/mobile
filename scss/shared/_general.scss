@@ -15,6 +15,13 @@ a{
 								background-color: $darkgreen;
 				}
 }
+button:hover{
+	color: $white !important;
+	background-color: $darkgreen;
+}
+.token-link {
+				text-decoration: underline;
+}
 .center {
 				text-align: center;
 				justify-content:center;
