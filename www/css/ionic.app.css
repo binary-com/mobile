@@ -9826,6 +9826,13 @@ a {
     color: #fff !important;
     background-color: #14602B; }
 
+button:hover {
+  color: #fff !important;
+  background-color: #14602B; }
+
+.token-link {
+  text-decoration: underline; }
+
 .center {
   text-align: center;
   justify-content: center; }
@@ -10123,7 +10130,6 @@ input::-webkit-inner-spin-button {
         right: initial;
         direction: ltr; }
     .sign-in button.btn-signin {
-      background-color: #2E8836 !important;
       font-size: 5vw; }
     .sign-in .help {
       text-decoration: underline; }
@@ -10204,12 +10210,9 @@ input::-webkit-inner-spin-button {
         right: initial;
         direction: ltr; }
     .sign-in button.btn-signin {
-      background-color: #2E8836 !important;
       font-size: 18px; }
     .sign-in .help {
       text-decoration: underline; }
-    .sign-in .token-link {
-      color: #fff; }
     .sign-in ::-webkit-input-placeholder {
       color: #f2f2f2; }
     .sign-in :-moz-placeholder {
@@ -10312,7 +10315,6 @@ input::-webkit-inner-spin-button {
         color: #000; }
   .trade .contract-purchase button,
   .trade .contract-back button {
-    background-color: #2E8836 !important;
     font-size: 5vw; }
   .trade .contract-details {
     margin-top: 1%; }
@@ -10358,7 +10360,6 @@ input::-webkit-inner-spin-button {
       font-size: 4vw;
       font-weight: bold; }
     .trade .buy-again button {
-      background-color: #2E8836 !important;
       width: 100%;
       margin: 0 auto;
       font-size: 14px;
@@ -10474,7 +10475,6 @@ input::-webkit-inner-spin-button {
         color: #000; }
   .trade .contract-purchase button,
   .trade .contract-back button {
-    background-color: #2E8836 !important;
     font-size: 20px; }
   .trade .contract-details {
     margin-top: 1%; }
@@ -10520,7 +10520,6 @@ input::-webkit-inner-spin-button {
       font-size: 14px;
       font-weight: bold; }
     .trade .buy-again button {
-      background-color: #2E8836 !important;
       width: 100%;
       margin: 0 auto;
       font-size: 14px;
@@ -10907,11 +10906,7 @@ input::-webkit-inner-spin-button {
       font-size: 28px;
       color: #fff; }
     .help-content button {
-      background-color: #e98024 !important;
-      font-size: 18px; }
-    .help-content a {
-      color: #fff;
-      font-weight: 700; } }
+      font-size: 18px; } }
 
 @media only screen and (max-device-width: 480px) {
   /*RU Language*/
