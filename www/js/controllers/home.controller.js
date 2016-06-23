@@ -12,7 +12,8 @@ angular
 		function($scope, $state, websocketService, accountService, localStorageService) {
 			var init = function() {
                 $scope.hasWSUrl = true;
-                $scope.wsUrl = "wss://www2.binary.com/websockets/v3";
+                $scope.wsUrl = "wss://www2.binaryws.com/websockets/v3";
+                $scope.appId = 10;
  
                 if(!localStorageService.getWSUrl()){
                     $scope.hasWSUrl = false;
@@ -35,8 +36,9 @@ angular
 				}
 			};
 
-            $scope.save = function(_wsUrl){
+            $scope.save = function(_wsUrl, _appId){
                 localStorageService.setWSUrl(_wsUrl);
+                localStorageService.setAppId(_appId);
                 init();
             }
 

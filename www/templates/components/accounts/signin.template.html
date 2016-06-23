@@ -1,5 +1,5 @@
 <ion-header-bar align-title="center" class="bar bar-header bar-positive">
-    <button class="button  icon-left ion-chevron-left button-clear" 
+    <button class="button  icon-left ion-chevron-left button-clear"
             ng-click="changeSigninView(true)" ng-show="showTokenForm || showSignin"></button>
     <h1 class="title">
     </h1>
@@ -7,7 +7,7 @@
 <div class="row center">
 	<div class="col col-75 branding">
 		<img src="img/logo.svg" class="logo" alt="Binary Logo">
-		<img src="img/binary.svg" class="slogan" alt="Binary.com">
+		<img src="img/binary-logo-blue.svg" class="slogan" alt="Binary.com">
 	</div>
 </div>
 <form ng-submit="signIn()" role="form" name="signin" ng-show="showTokenForm">
@@ -20,7 +20,7 @@
 	</div>
 	<div class="row center">
 		<div class="col col-75">
-			<button class="button button-block button-positive btn-signin" type="submit">
+			<button class="button button-block btn-signin" type="submit">
 				{{'signin.add_account' | translate }}
 			</button>
 		</div>
@@ -33,7 +33,7 @@
         </a>
     </div>
 </div>
-        
+
 <oauth ng-show="!showTokenForm && showSignin"></oauth>
 
 <div class="row center" ng-show="!showTokenForm && showSignin">
@@ -48,8 +48,8 @@
 
 <div class="row center" ng-show="!showSignin && !showTokenForm">
     <div class="col col-75">
-        <button class="button button-block button-possitive btn-signin" 
-                type="button" 
+        <button class="button button-block button-possitive btn-signin"
+                type="button"
                 ng-click="showSigninView()">
                 {{ 'signin.next' | translate }}
         </button>

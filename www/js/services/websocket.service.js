@@ -56,6 +56,7 @@ angular
                 appStateService.isLoggedin = false;
 
                 var wsUrl = localStorageService.getWSUrl();
+                var appId = localStorageService.getAppId();
 
                 if(!wsUrl){
                     $state.go('home');
@@ -64,7 +65,8 @@ angular
 
                 wsUrl = wsUrl.replace(/\?l=\w{2}/g, "");
 
-				dataStream = new WebSocket(wsUrl +'?l=' + language);
+				dataStream = new WebSocket(wsUrl + '?app_id='+ appId +'&l=' + language );
+				//dataStream = new WebSocket('wss://www.binaryqa07.com/websockets/v3?l=' + language);
 
 				dataStream.onopen = function() {
                     

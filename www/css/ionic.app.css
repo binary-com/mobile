@@ -9813,19 +9813,33 @@ button {
 body * {
   font-family: roboto, sans-serif !important; }
 
+a {
+  color: #2a3052;
+  text-decoration: none;
+  font-weight: bold; }
+
 .button {
-  border-color: #b2b2b2;
-  background-color: #e98024;
+  border: none;
+  background-color: #2E8836;
   color: #fff; }
   .button :hover {
-    color: #fff !important; }
+    color: #fff !important;
+    background-color: #14602B; }
+
+button:hover {
+  color: #fff !important;
+  background-color: #14602B; }
+
+.token-link {
+  text-decoration: underline; }
 
 .center {
   text-align: center;
   justify-content: center; }
 
 .item {
-  border-width: 0; }
+  border-width: 0;
+  color: #000; }
 
 .item-select select {
   max-width: 100%; }
@@ -9879,12 +9893,12 @@ input::-webkit-inner-spin-button {
   background-image: none; }
 
 .bar-positive .button {
-  border-color: #2a3052;
   background-color: #2a3052; }
 
 .bar-header {
   background-color: #2a3052;
-  position: relative; }
+  position: relative;
+  border-bottom: 3px solid #e98024 !important; }
   .bar-header button {
     background-color: #2a3052;
     color: #fff; }
@@ -9976,10 +9990,10 @@ input::-webkit-inner-spin-button {
     font-size: 4vw; }
     .bar-footer .account {
       text-align: center;
-      color: #e98024; }
+      color: #fff; }
     .bar-footer .balance {
       text-align: center;
-      color: #e98024; } }
+      color: #fff; } }
 
 @media only screen and (min-device-width: 480px) {
   .bar.bar-positive.bar-footer {
@@ -10054,7 +10068,7 @@ input::-webkit-inner-spin-button {
 
 @media only screen and (max-device-width: 480px) {
   .sign-in {
-    background-color: #2a3052; }
+    background-color: #fff; }
     .sign-in .branding {
       margin: 10% auto; }
       .sign-in .branding .logo {
@@ -10066,7 +10080,7 @@ input::-webkit-inner-spin-button {
         margin: 5% auto 0;
         width: 60%; }
     .sign-in .list label.item-input {
-      border-bottom: 1px solid #5e668f;
+      border-bottom: 1px solid #f2f2f2;
       width: 80%;
       margin: 0 auto;
       height: 44px;
@@ -10075,13 +10089,12 @@ input::-webkit-inner-spin-button {
       .sign-in .list label.item-input i {
         font-size: 40px;
         width: 40px;
-        color: #5e668f;
         text-align: center; }
         .sign-in .list label.item-input i.icon-small {
           font-size: 28px; }
       .sign-in .list label.item-input input[type=text],
       .sign-in .list label.item-input input[type=password] {
-        color: #f2f2f2;
+        color: #c4c4c4;
         font-family: arial;
         font-weight: 400;
         font-size: 14px;
@@ -10091,51 +10104,49 @@ input::-webkit-inner-spin-button {
         .sign-in .list label.item-input.error i {
           color: #ff0000; }
     .sign-in .list label.item-select {
-      background-color: #2a3052;
+      background-color: #fff;
       border-width: 0 0 1px 0; }
       .sign-in .list label.item-select i {
         font-size: 40px;
         width: 40px;
-        color: #5e668f;
         text-align: center; }
         .sign-in .list label.item-select i.icon-small {
           font-size: 28px; }
       .sign-in .list label.item-select .input-label {
-        background-color: #2a3052;
-        color: #f2f2f2;
+        background-color: #fff;
+        color: #000;
         font-family: arial;
         font-weight: 400;
         font-size: 14px;
         line-height: 1;
         line-height: 1.6; }
       .sign-in .list label.item-select select {
-        background-color: #2a3052;
-        color: #f2f2f2;
+        background-color: #fff;
+        color: #000;
         font-size: 14px;
-        font-weight: 300;
+        font-weight: 400;
         text-transform: uppercase;
         padding: 0;
         right: initial;
         direction: ltr; }
     .sign-in button.btn-signin {
-      background-color: #e98024 !important;
       font-size: 5vw; }
     .sign-in .help {
-      color: #fff; }
+      text-decoration: underline; }
     .sign-in .token-link {
-      color: #fff; }
+      text-decoration: underline; }
     .sign-in ::-webkit-input-placeholder {
-      color: #f2f2f2; }
+      color: #c4c4c4; }
     .sign-in :-moz-placeholder {
-      color: #f2f2f2; }
+      color: #c4c4c4; }
     .sign-in ::-moz-placeholder {
-      color: #f2f2f2; }
+      color: #c4c4c4; }
     .sign-in :-ms-input-placeholder {
-      color: #f2f2f2; } }
+      color: #c4c4c4; } }
 
 @media only screen and (min-device-width: 480px) {
   .sign-in {
-    background-color: #2a3052; }
+    background-color: #fff; }
     .sign-in .branding {
       margin: 10% auto; }
       .sign-in .branding .logo {
@@ -10147,7 +10158,7 @@ input::-webkit-inner-spin-button {
         margin: 5% auto 0;
         width: 60%; }
     .sign-in .list label.item-input {
-      border-bottom: 1px solid #5e668f;
+      border-bottom: 1px solid #f2f2f2;
       width: 80%;
       margin: 0 auto;
       height: 44px;
@@ -10162,7 +10173,7 @@ input::-webkit-inner-spin-button {
           font-size: 28px; }
       .sign-in .list label.item-input input[type=text],
       .sign-in .list label.item-input input[type=password] {
-        color: #f2f2f2;
+        color: #c4c4c4;
         font-family: arial;
         font-weight: 400;
         font-size: 14px;
@@ -10172,7 +10183,7 @@ input::-webkit-inner-spin-button {
         .sign-in .list label.item-input.error i {
           color: #ff0000; }
     .sign-in .list label.item-select {
-      background-color: #2a3052;
+      background-color: #fff;
       border-width: 0 0 1px 0; }
       .sign-in .list label.item-select i {
         font-size: 40px;
@@ -10182,29 +10193,26 @@ input::-webkit-inner-spin-button {
         .sign-in .list label.item-select i.icon-small {
           font-size: 28px; }
       .sign-in .list label.item-select .input-label {
-        background-color: #2a3052;
-        color: #f2f2f2;
+        background-color: #fff;
+        color: #000;
         font-family: arial;
         font-weight: 400;
         font-size: 14px;
         line-height: 1;
         line-height: 1.6; }
       .sign-in .list label.item-select select {
-        background-color: #2a3052;
-        color: #f2f2f2;
+        background-color: #fff;
+        color: #000;
         font-size: 14px;
-        font-weight: 300;
+        font-weight: 400;
         text-transform: uppercase;
         padding: 0;
         right: initial;
         direction: ltr; }
     .sign-in button.btn-signin {
-      background-color: #e98024 !important;
       font-size: 18px; }
     .sign-in .help {
-      color: #fff; }
-    .sign-in .token-link {
-      color: #fff; }
+      text-decoration: underline; }
     .sign-in ::-webkit-input-placeholder {
       color: #f2f2f2; }
     .sign-in :-moz-placeholder {
@@ -10225,19 +10233,19 @@ input::-webkit-inner-spin-button {
     background-color: #f2f2f2;
     position: relative; }
   .trade .contract-payout {
-    border-bottom: 1px solid #c4c4c4;
     padding: 0 !important; }
     .trade .contract-payout .col:nth-child(3) {
       margin: 15px 0 0 !important; }
     .trade .contract-payout .price {
       font-size: 4vw;
-      color: #e98024;
+      color: #000;
+      font-weight: bold;
       text-align: center;
       line-height: 12px; }
     .trade .contract-payout .price-des {
       font-size: 4vw;
       text-align: center;
-      color: #818183;
+      color: #000;
       padding-bottom: 0; }
     .trade .contract-payout .basis {
       font-size: 4vw;
@@ -10255,7 +10263,8 @@ input::-webkit-inner-spin-button {
           border-bottom: 1px solid #f2f2f2;
           line-height: 12px;
           text-align: center;
-          color: #e98024;
+          color: #000;
+          font-weight: bold;
           padding-top: 0;
           width: 100%; }
     .trade .contract-payout .button-bar .button {
@@ -10269,18 +10278,16 @@ input::-webkit-inner-spin-button {
       border: none;
       color: #000;
       border-radius: 0;
-      border: 1px solid #c4c4c4;
+      border: 1px solid #f2f2f2;
       vertical-align: middle;
       line-height: 21px; }
       .trade .contract-payout > .col:nth-child(3) .button.plus {
-        background-color: #f2f2f2; }
+        background-color: #fff; }
       .trade .contract-payout > .col:nth-child(3) .button.minus {
-        background-color: #f2f2f2;
+        background-color: #fff;
         border-right: 0; }
   .trade .net-profit {
     background-color: #f2f2f2;
-    border-bottom: 1px solid #c4c4c4;
-    border-top: 1px solid #c4c4c4;
     margin-top: 0;
     padding: 0; }
     .trade .net-profit .col:nth-child(1) {
@@ -10288,45 +10295,49 @@ input::-webkit-inner-spin-button {
       line-height: 12px;
       color: #818183; }
     .trade .net-profit .price-des {
-      font-size: 3vw;
-      text-align: center; }
+      font-size: 4vw;
+      text-align: center;
+      display: inline-block;
+      padding: 10px 0; }
     .trade .net-profit .price {
-      font-size: 3vw;
+      font-size: 4vw;
       color: #818183;
       text-align: left;
-      line-height: 12px; }
+      line-height: 12px;
+      display: inline-block;
+      padding: 10px 0; }
     .trade .net-profit .error {
-      background-color: #ff0000; }
+      background-color: #FEF1CF;
+      padding: 10px 0; }
       .trade .net-profit .error p {
         margin: 5px !important;
         font-size: 4vw;
-        color: #fff; }
+        color: #000; }
   .trade .contract-purchase button,
   .trade .contract-back button {
-    background-color: #e98024 !important;
     font-size: 5vw; }
   .trade .contract-details {
     margin-top: 1%; }
     .trade .contract-details .win {
-      color: #4CBB17 !important; }
+      color: #2E8836 !important; }
     .trade .contract-details .lose {
       color: #ff0000 !important; }
     .trade .contract-details .row {
       padding: 0;
       margin-top: 0; }
       .trade .contract-details .row .col {
-        border-top: 1px solid #c4c4c4; }
+        border-top: 1px solid #f2f2f2; }
         .trade .contract-details .row .col:first-child {
           text-align: right;
-          border-right: 1px solid #c4c4c4;
+          border-right: 1px solid #f2f2f2;
           padding: 4px 10px 4px 0;
-          color: #818183; }
+          color: #000; }
         .trade .contract-details .row .col:last-child {
           text-align: center; }
       .trade .contract-details .row:last-child {
-        border-bottom: 1px solid #c4c4c4; }
+        border-bottom: 1px solid #f2f2f2; }
     .trade .contract-details .win .col {
-      color: #4CBB17 !important;
+      color: #2E8836 !important;
       background-color: #fff !important;
       font-size: 4vw;
       padding: 5px !important; }
@@ -10337,26 +10348,25 @@ input::-webkit-inner-spin-button {
       padding: 5px !important; }
   .trade .buy-again {
     background-color: #fff;
-    border-bottom: 1px solid #c4c4c4;
+    border-bottom: 1px solid #f2f2f2;
     padding-top: 0;
     padding-bottom: 0;
     align-items: center; }
     .trade .buy-again .price-des {
       font-size: 4vw;
-      color: #818183; }
+      color: #000; }
     .trade .buy-again .price {
-      color: #e98024;
-      font-size: 4vw; }
+      color: #000;
+      font-size: 4vw;
+      font-weight: bold; }
     .trade .buy-again button {
-      background-color: #e98024 !important;
       width: 100%;
       margin: 0 auto;
       font-size: 14px;
       line-height: 28px;
       min-height: 24px; }
   .trade .contract-type {
-    background: #f2f2f2;
-    border-bottom: #c4c4c4 1px solid !important; }
+    background: #f2f2f2; }
     .trade .contract-type .item {
       background: #f2f2f2; }
     .trade .contract-type .item:nth-child(odd) {
@@ -10366,10 +10376,12 @@ input::-webkit-inner-spin-button {
     .trade .contract-type .item-content {
       text-align: center;
       padding: 0;
-      font-size: 4vw; }
+      font-size: 4vw;
+      color: #000; }
     .trade .contract-type .item-radio input:checked ~ .item-content {
       background: transparent !important;
-      color: #e98024; } }
+      color: #000;
+      font-weight: bold; } }
 
 @media only screen and (min-device-width: 480px) {
   .trade #tradeContractChart {
@@ -10382,19 +10394,19 @@ input::-webkit-inner-spin-button {
     background-color: #f2f2f2;
     position: relative; }
   .trade .contract-payout {
-    border-bottom: 1px solid #c4c4c4;
     padding: 0 !important; }
     .trade .contract-payout .col:nth-child(3) {
       margin: 15px 0 0 !important; }
     .trade .contract-payout .price {
       font-size: 14px;
-      color: #e98024;
+      color: #000;
+      font-weight: bold;
       text-align: center;
       line-height: 12px; }
     .trade .contract-payout .price-des {
       font-size: 14px;
       text-align: center;
-      color: #818183;
+      color: #000;
       padding-bottom: 0; }
     .trade .contract-payout .basis {
       font-size: 14px;
@@ -10412,7 +10424,8 @@ input::-webkit-inner-spin-button {
           border-bottom: 1px solid #f2f2f2;
           line-height: 12px;
           text-align: center;
-          color: #e98024;
+          color: #000;
+          font-weight: bold;
           padding-top: 0;
           width: 100%; }
     .trade .contract-payout .button-bar .button {
@@ -10435,8 +10448,6 @@ input::-webkit-inner-spin-button {
         background-color: #f2f2f2; }
   .trade .net-profit {
     background-color: #f2f2f2;
-    border-bottom: 1px solid #c4c4c4;
-    border-top: 1px solid #c4c4c4;
     margin-top: 0;
     padding: 0; }
     .trade .net-profit .col:nth-child(1) {
@@ -10444,45 +10455,49 @@ input::-webkit-inner-spin-button {
       line-height: 12px;
       color: #818183; }
     .trade .net-profit .price-des {
-      font-size: 12px;
-      text-align: center; }
+      font-size: 18px;
+      text-align: center;
+      display: inline-block;
+      padding: 10px 0; }
     .trade .net-profit .price {
-      font-size: 12px;
+      font-size: 18px;
       color: #818183;
       text-align: left;
-      line-height: 12px; }
+      line-height: 12px;
+      display: inline-block;
+      padding: 10px 0; }
     .trade .net-profit .error {
-      background-color: #ff0000; }
+      background-color: #FEF1CF;
+      padding: 10px 0; }
       .trade .net-profit .error p {
         margin: 5px !important;
         font-size: 14px;
-        color: #fff; }
+        color: #000; }
   .trade .contract-purchase button,
   .trade .contract-back button {
-    background-color: #e98024 !important;
     font-size: 20px; }
   .trade .contract-details {
     margin-top: 1%; }
     .trade .contract-details .win {
-      color: #4CBB17 !important; }
+      color: #2E8836 !important; }
     .trade .contract-details .lose {
       color: #ff0000 !important; }
     .trade .contract-details .row {
       padding: 0;
       margin-top: 0; }
       .trade .contract-details .row .col {
-        border-top: 1px solid #c4c4c4; }
+        border-top: 1px solid #f2f2f2; }
         .trade .contract-details .row .col:first-child {
           text-align: right;
-          border-right: 1px solid #c4c4c4;
+          border-right: 1px solid #f2f2f2;
           padding: 4px 10px 4px 0;
-          color: #818183; }
+          color: #000; }
         .trade .contract-details .row .col:last-child {
           text-align: center; }
       .trade .contract-details .row:last-child {
-        border-bottom: 1px solid #c4c4c4; }
+        border-bottom: 1px solid #f2f2f2; }
     .trade .contract-details .win .col {
-      color: #4CBB17 !important;
+      color: #2E8836 !important;
       background-color: #fff !important;
       font-size: 14px;
       padding: 5px !important; }
@@ -10493,26 +10508,25 @@ input::-webkit-inner-spin-button {
       padding: 5px !important; }
   .trade .buy-again {
     background-color: #fff;
-    border-bottom: 1px solid #c4c4c4;
+    border-bottom: 1px solid #f2f2f2;
     padding-top: 0;
     padding-bottom: 0;
     align-items: center; }
     .trade .buy-again .price-des {
       font-size: 14px;
-      color: #818183; }
+      color: #000; }
     .trade .buy-again .price {
-      color: #e98024;
-      font-size: 14px; }
+      color: #000;
+      font-size: 14px;
+      font-weight: bold; }
     .trade .buy-again button {
-      background-color: #e98024 !important;
       width: 100%;
       margin: 0 auto;
       font-size: 14px;
       line-height: 28px;
       min-height: 24px; }
   .trade .contract-type {
-    background: #f2f2f2;
-    border-bottom: #c4c4c4 1px solid !important; }
+    background: #f2f2f2; }
     .trade .contract-type .item {
       background: #f2f2f2; }
     .trade .contract-type .item:nth-child(odd) {
@@ -10522,10 +10536,12 @@ input::-webkit-inner-spin-button {
     .trade .contract-type .item-content {
       text-align: center;
       padding: 0;
-      font-size: 14px; }
+      font-size: 14px;
+      color: #000; }
     .trade .contract-type .item-radio input:checked ~ .item-content {
       background: transparent !important;
-      color: #e98024; } }
+      color: #000;
+      font-weight: bold; } }
 
 @media only screen and (max-device-width: 480px) {
   .options .options-content {
@@ -10767,7 +10783,7 @@ input::-webkit-inner-spin-button {
         font-size: 24px;
         line-height: 40px; }
         .accounts-content .account .list i.default {
-          color: #4CBB17; }
+          color: #2E8836; }
         .accounts-content .account .list i.not-default {
           color: #c4c4c4; }
       .accounts-content .account .list div .id {
@@ -10780,7 +10796,7 @@ input::-webkit-inner-spin-button {
         display: block;
         font-weight: 500; }
     .accounts-content .account .button-green {
-      background-color: #4CBB17; }
+      background-color: #2E8836; }
     .accounts-content .add-account {
       margin-top: 20px;
       padding: 20px; }
@@ -10798,7 +10814,7 @@ input::-webkit-inner-spin-button {
         font-size: 16px; }
       .accounts-content .add-account .add {
         font-size: 28px;
-        color: #4CBB17;
+        color: #2E8836;
         line-height: 40px; } }
 
 @media only screen and (min-device-width: 480px) {
@@ -10829,7 +10845,7 @@ input::-webkit-inner-spin-button {
         font-size: 24px;
         line-height: 40px; }
         .accounts-content .account .list i.default {
-          color: #4CBB17; }
+          color: #2E8836; }
         .accounts-content .account .list i.not-default {
           color: #c4c4c4; }
       .accounts-content .account .list div .id {
@@ -10842,7 +10858,7 @@ input::-webkit-inner-spin-button {
         display: block;
         font-weight: 500; }
     .accounts-content .account .button-green {
-      background-color: #4CBB17; }
+      background-color: #2E8836; }
     .accounts-content .add-account {
       margin-top: 20px;
       padding: 20px; }
@@ -10860,44 +10876,37 @@ input::-webkit-inner-spin-button {
         font-size: 16px; }
       .accounts-content .add-account .add {
         font-size: 28px;
-        color: #4CBB17;
+        color: #2E8836;
         line-height: 40px; } }
 
 @media only screen and (max-device-width: 480px) {
   .help-content {
-    background-color: #2a3052;
+    background-color: #fff;
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 5%;
-    color: #fff;
+    color: #000;
     font-size: 4vw; }
     .help-content h1 {
       font-size: 8vw;
-      color: #fff; }
+      color: #e98024; }
     .help-content button {
-      background-color: #e98024 !important;
-      font-size: 5vw; }
-    .help-content a {
-      color: #fff;
-      font-weight: 700; } }
+      background-color: #2E8836 !important;
+      font-size: 5vw; } }
 
 @media only screen and (min-device-width: 480px) {
   .help-content {
-    background-color: #2a3052;
+    background-color: #fff;
     padding-left: 3%;
     padding-right: 3%;
     padding-top: 5%;
-    color: #fff;
+    color: #000;
     font-size: 16px; }
     .help-content h1 {
       font-size: 28px;
       color: #fff; }
     .help-content button {
-      background-color: #e98024 !important;
-      font-size: 18px; }
-    .help-content a {
-      color: #fff;
-      font-weight: 700; } }
+      font-size: 18px; } }
 
 @media only screen and (max-device-width: 480px) {
   /*RU Language*/

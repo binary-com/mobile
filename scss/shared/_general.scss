@@ -1,13 +1,26 @@
 body * {
 				font-family: roboto, sans-serif !important;
 }
+a{
+	color: $blue;
+	text-decoration: none;
+	font-weight: bold;
+}
 .button {
-				border-color: #b2b2b2;
-				background-color: $orange;
+				border: none;
+				background-color: $green;
 				color: $white;
 				 :hover {
 								color: $white !important;
+								background-color: $darkgreen;
 				}
+}
+button:hover{
+	color: $white !important;
+	background-color: $darkgreen;
+}
+.token-link {
+				text-decoration: underline;
 }
 .center {
 				text-align: center;
@@ -15,6 +28,7 @@ body * {
 }
 .item {
 				border-width: 0;
+				color: $black;
 }
 .item-select select {
 				max-width: 100%;

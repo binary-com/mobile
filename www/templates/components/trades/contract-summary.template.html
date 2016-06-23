@@ -30,13 +30,13 @@
 
 <div class="buy-again row">
     <div class="col col-33">
-        <span class="price-des">{{basis == 'payout' ? ('trade.stake' | translate) : ('trade.payout' | translate) }}:</span><br>
+        <span class="price-des">{{basis == 'payout' ? ('trade.stake' | translate) : ('trade.payout' | translate) }}</span><br>
         <span class="price" ng-show="basis == 'payout'" ng-if="!getWaitForProposal()">{{(proposalRecieved.ask_price || '0') | currency:currency:2}}</span>
         <span class="price" ng-show="basis == 'stake'" ng-if="!getWaitForProposal()">{{(proposalRecieved.payout || '0') | currency:currency:2}}</span>
         <span class="price" ng-if="getWaitForProposal()"> -- </span>
     </div>
     <div class="col col-33">
-        <span class="price-des">{{'trade.net_profit' | translate}}:</span><br>
+        <span class="price-des">{{'trade.net_profit' | translate}}</span><br>
         <span class="price" ng-if="!getWaitForProposal()">{{proposalRecieved.netProfit  | currency:currency:2}} </span>
         <span class="price" ng-if="getWaitForProposal()"> -- </span>
     </div>
@@ -48,7 +48,7 @@
 <div class="row center">
     <div class="col col-75">
         <div class="contract-back" >
-            <button class="button button-block button-positive" ng-click="backToOptionPage()" ng-disabled="!isContractFinished()">
+            <button class="button button-block" ng-click="backToOptionPage()" ng-disabled="!isContractFinished()">
                 {{'trade.back' | translate }}
             </button>
         </div>

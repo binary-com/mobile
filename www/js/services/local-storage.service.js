@@ -10,7 +10,7 @@
 angular
 	.module('binary')
 	.factory('localStorageService',
-		function($state, appStateService){
+		function($state, appStateService, config){
 			var service = {};
 
 			/**
@@ -67,6 +67,22 @@ angular
 
             service.removeWSUrl = function(){
                 delete localStorage.wsurl;
+            }
+
+            service.getAppId = function(){
+                var regex = /^(\d+)$/;
+                if(localStorage.appid && regex.exec(localStorage.appid) != null){
+                    return localStorage.appid;
+                } 
+                return config.app_id;
+            }
+
+            service.setAppId = function(_appId){
+                localStorage.appid = _appId;
+            }
+
+            service.removeAppId = function(){
+                delete localStorage.appid;
             }
             
             service.manageInvalidToken = function(){

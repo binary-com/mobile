@@ -1,6 +1,6 @@
 @media only screen and (max-device-width: 480px) {
 				.sign-in {
-								background-color: $darkblue;
+								background-color: $white;
 								.branding {
 												margin: 10% auto;
 												.logo {
@@ -16,7 +16,7 @@
 								}
 								.list {
 												label.item-input {
-																border-bottom: 1px solid $blue;
+																border-bottom: 1px solid $lightgray;
 																width: 80%;
 																margin: 0 auto;
 																height: 44px;
@@ -25,7 +25,6 @@
 																i {
 																				font-size: 40px;
 																				width: 40px;
-																				color: $blue;
 																				text-align: center;
 																				&.icon-small {
 																								font-size: 28px;
@@ -33,7 +32,7 @@
 																}
 																input[type=text],
 																input[type=password] {
-																				color: #f2f2f2;
+																				color: $gray;
 																				font-family: arial;
 																				font-weight: 400;
 																				font-size: 14px;
@@ -47,20 +46,19 @@
 																}
 												}
 												label.item-select {
-																background-color: $darkblue;
+																background-color: $white;
 																border-width: 0 0 1px 0;
 																i {
 																				font-size: 40px;
 																				width: 40px;
-																				color: $blue;
 																				text-align: center;
 																				&.icon-small {
 																								font-size: 28px;
 																				}
 																}
 																.input-label {
-																				background-color: $darkblue;
-																				color: $lightgray;
+																				background-color: $white;
+																				color: $black;
 																				font-family: arial;
 																				font-weight: 400;
 																				font-size: 14px;
@@ -69,10 +67,10 @@
 																				// margin-left: 10px;
 																}
 																select {
-																				background-color: $darkblue;
-																				color: $lightgray;
+																				background-color: $white;
+																				color: $black;
 																				font-size: 14px;
-																				font-weight: 300;
+																				font-weight: 400;
 																				text-transform: uppercase;
 																				padding: 0;
 																				right: initial;
@@ -81,32 +79,31 @@
 												}
 								}
 								button.btn-signin {
-												background-color: $orange !important;
 												font-size: 5vw;
 								}
 								.help {
-												color: $white;
+												text-decoration: underline;
 								}
 								.token-link {
-												color: $white;
+												text-decoration: underline;
 								}
 								 ::-webkit-input-placeholder {
-												color: $lightgray;
+												color: $gray;
 								}
 								 :-moz-placeholder {
-												color: $lightgray;
+												color: $gray;
 								}
 								 ::-moz-placeholder {
-												color: $lightgray;
+												color: $gray;
 								}
 								 :-ms-input-placeholder {
-												color: $lightgray;
+												color: $gray;
 								}
 				}
 }
 @media only screen and (min-device-width: 480px) {
 				.sign-in {
-								background-color: $darkblue;
+								background-color: $white;
 								.branding {
 												margin: 10% auto;
 												.logo {
@@ -122,7 +119,7 @@
 								}
 								.list {
 												label.item-input {
-																border-bottom: 1px solid $blue;
+																border-bottom: 1px solid $lightgray;
 																width: 80%;
 																margin: 0 auto;
 																height: 44px;
@@ -131,7 +128,7 @@
 																i {
 																				font-size: 40px;
 																				width: 40px;
-																				color: $blue;
+																				color: $darkblue;
 																				text-align: center;
 																				&.icon-small {
 																								font-size: 28px;
@@ -139,7 +136,7 @@
 																}
 																input[type=text],
 																input[type=password] {
-																				color: #f2f2f2;
+																				color: $gray;
 																				font-family: arial;
 																				font-weight: 400;
 																				font-size: 14px;
@@ -153,20 +150,20 @@
 																}
 												}
 												label.item-select {
-																background-color: $darkblue;
+																background-color: $white;
 																border-width: 0 0 1px 0;
 																i {
 																				font-size: 40px;
 																				width: 40px;
-																				color: $blue;
+																				color: $darkblue;
 																				text-align: center;
 																				&.icon-small {
 																								font-size: 28px;
 																				}
 																}
 																.input-label {
-																				background-color: $darkblue;
-																				color: $lightgray;
+																				background-color: $white;
+																				color: $black;
 																				font-family: arial;
 																				font-weight: 400;
 																				font-size: 14px;
@@ -175,10 +172,10 @@
 																				// margin-left: 10px;
 																}
 																select {
-																				background-color: $darkblue;
-																				color: $lightgray;
+																				background-color: $white;
+																				color: $black;
 																				font-size: 14px;
-																				font-weight: 300;
+																				font-weight: 400;
 																				text-transform: uppercase;
 																				padding: 0;
 																				right: initial;
@@ -187,14 +184,10 @@
 												}
 								}
 								button.btn-signin {
-												background-color: $orange !important;
 												font-size: 18px;
 								}
 								.help {
-												color: $white;
-								}
-								.token-link {
-												color: $white;
+												text-decoration: underline;
 								}
 								 ::-webkit-input-placeholder {
 												color: $lightgray;

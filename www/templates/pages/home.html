@@ -1,8 +1,8 @@
 <ion-view class="home">
-	<ion-content>
+	<ion-content has-bouncing="false">
 		<div class="branding" ng-if="hasWSUrl">
 			<img src="img/logo.svg"   class="logo" alt="Binary Logo">
-			<img src="img/binary2.svg" class="slogan" alt="Binary.com">
+			<img src="img/binary-logo-blue.svg" class="slogan" alt="Binary.com">
 		</div>
 
 		<div class="row center" ng-if="hasWSUrl">
@@ -17,8 +17,14 @@
                         ng-model="wsUrl" required 
                         ng-pattern="/^(ws|wss):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/i"/>
                 </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label"> Enter App ID </span>
+                    <input type="text" placeholder= "e.g. 10" 
+                        ng-model="appId" required 
+                        ng-pattern="/^(\d+)$/"/>
+                </label>
             </div>
-            <button type="button" class="button" style="margin-left:40%;" ng-click="save(wsUrl)" ng-disabled="wsForm.$invalid">Submit</button>
+            <button type="button" class="button" style="margin-left:40%;" ng-click="save(wsUrl, appId)" ng-disabled="wsForm.$invalid">Submit</button>
         </form>
 	</ion-content>
 </ion-view>

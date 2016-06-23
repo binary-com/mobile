@@ -1,0 +1,19 @@
+{
+  "name": "Binary.com TickTrade",
+  "description": "Binary.com TickTrade",
+  "version": "1.6.0",
+  "manifest_version": 2,
+  "app": {
+    "launch": {
+      "web_url": "https://ticktrade.binary.com",
+      "container": "panel",
+      "height": 700,
+      "width": 400
+    }
+  },
+  "icons": { 
+      "16": "img/icons/favicon-16x16.png", 
+      "160": "img/icons/favicon-160x160.png", 
+      "128": "img/icons/favicon-128x128.png" 
+  }
+}

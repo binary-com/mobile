@@ -13,21 +13,21 @@
 												span {}
 								}
 								.contract-payout {
-												border-bottom: 1px solid $gray;
 												padding: 0 !important;
 												.col:nth-child(3) {
 																margin: 15px 0 0 !important;
 												}
 												.price {
 																font-size: 4vw;
-																color: $orange;
+																color: $black;
+																font-weight: bold;
 																text-align: center;
 																line-height: 12px;
 												}
 												.price-des {
 																font-size: 4vw;
 																text-align: center;
-																color: $darkgray;
+																color: $black;
 																padding-bottom: 0;
 												}
 												.basis {
@@ -47,7 +47,8 @@
 																								border-bottom: 1px solid $lightgray;
 																								line-height: 12px;
 																								text-align: center;
-																								color: $orange;
+																								color: $black;
+																								font-weight: bold;
 																								padding-top: 0;
 																								width: 100%;
 																				}
@@ -69,14 +70,14 @@
 																				border: none;
 																				color: $black;
 																				border-radius: 0;
-																				border: 1px solid $gray;
+																				border: 1px solid $lightgray;
 																				vertical-align: middle;
 																				line-height: 21px;
 																				&.plus {
-																								background-color: $lightgray;
+																								background-color: $white;
 																				}
 																				&.minus {
-																								background-color: $lightgray;
+																								background-color: $white;
 																								border-right: 0;
 																				}
 																}
@@ -84,8 +85,6 @@
 								}
 								.net-profit {
 												background-color: $lightgray;
-												border-bottom: 1px solid $gray;
-												border-top: 1px solid $gray;
 												margin-top: 0;
 												padding: 0;
 												.col:nth-child(1) {
@@ -94,28 +93,32 @@
 																color: $darkgray;
 												}
 												.price-des {
-																font-size: 3vw;
+																font-size: 4vw;
 																text-align: center;
+																display: inline-block;
+																padding: 10px 0;
 												}
 												.price {
-																font-size: 3vw;
+																font-size: 4vw;
 																color: $darkgray;
 																text-align: left;
 																line-height: 12px;
+																display: inline-block;
+																padding: 10px 0;
 												}
 												.error {
-																background-color: $red;
+																background-color: $notification;
+																padding: 10px 0;
 																p {
 																				margin: 5px !important;
 																				font-size: 4vw;
-																				color: $white;
+																				color: $black;
 																}
 												}
 								}
 								.contract-purchase,
 								.contract-back {
 												button {
-																background-color: $orange !important;
 																font-size: 5vw;
 												}
 								}
@@ -131,19 +134,19 @@
 																padding: 0;
 																margin-top: 0;
 																.col {
-																				border-top: 1px solid $gray;
+																				border-top: 1px solid $lightgray;
 																				&:first-child {
 																								text-align: right;
-																								border-right: 1px solid $gray;
+																								border-right: 1px solid $lightgray;
 																								padding: 4px 10px 4px 0;
-																								color: $darkgray;
+																								color: $black;
 																				}
 																				&:last-child {
 																								text-align: center;
 																				}
 																}
 																&:last-child {
-																				border-bottom: 1px solid $gray;
+																				border-bottom: 1px solid $lightgray;
 																}
 												}
 												.win .col {
@@ -161,20 +164,20 @@
 								}
 								.buy-again {
 												background-color: $white;
-												border-bottom: 1px solid $gray;
+												border-bottom: 1px solid $lightgray;
 												padding-top: 0;
 												padding-bottom: 0;
 												align-items: center;
 												.price-des {
 																font-size: 4vw;
-																color: $darkgray;
+																color: $black;
 												}
 												.price {
-																color: $orange;
+																color: $black;
 																font-size: 4vw;
+																font-weight: bold;
 												}
 												button {
-																background-color: $orange !important;
 																width: 100%;
 																margin: 0 auto;
 																font-size: 14px;
@@ -184,7 +187,6 @@
 								}
 								.contract-type {
 												background: $lightgray;
-												border-bottom: #c4c4c4 1px solid !important;
 												.item {
 																background: $lightgray;
 												}
@@ -198,10 +200,12 @@
 																text-align: center;
 																padding: 0;
 																font-size: 4vw;
+																color:$black;
 												}
 												.item-radio input:checked ~ .item-content {
 																background: transparent !important;
-																color: #e98024;
+																color: $black;
+																font-weight: bold;
 												}
 								}
 				}
@@ -220,21 +224,21 @@
 												position: relative;
 								}
 								.contract-payout {
-												border-bottom: 1px solid $gray;
 												padding: 0 !important;
 												.col:nth-child(3) {
 																margin: 15px 0 0 !important;
 												}
 												.price {
 																font-size: 14px;
-																color: $orange;
+																color: $black;
+																font-weight: bold;
 																text-align: center;
 																line-height: 12px;
 												}
 												.price-des {
 																font-size: 14px;
 																text-align: center;
-																color: $darkgray;
+																color: $black;
 																padding-bottom: 0;
 												}
 												.basis {
@@ -254,7 +258,8 @@
 																								border-bottom: 1px solid $lightgray;
 																								line-height: 12px;
 																								text-align: center;
-																								color: $orange;
+																								color: $black;
+																								font-weight: bold;
 																								padding-top: 0;
 																								width: 100%;
 																				}
@@ -290,8 +295,6 @@
 								}
 								.net-profit {
 												background-color: $lightgray;
-												border-bottom: 1px solid $gray;
-												border-top: 1px solid $gray;
 												margin-top: 0;
 												padding: 0;
 												.col:nth-child(1) {
@@ -300,28 +303,32 @@
 																color: $darkgray;
 												}
 												.price-des {
-																font-size: 12px;
+																font-size: 18px;
 																text-align: center;
+																display: inline-block;
+																padding: 10px 0;
 												}
 												.price {
-																font-size: 12px;
+																font-size: 18px;
 																color: $darkgray;
 																text-align: left;
 																line-height: 12px;
+																display: inline-block;
+																padding: 10px 0;
 												}
 												.error {
-																background-color: $red;
+																background-color: $notification;
+																padding: 10px 0;
 																p {
 																				margin: 5px !important;
 																				font-size: 14px;
-																				color: $white;
+																				color: $black;
 																}
 												}
 								}
 								.contract-purchase,
 								.contract-back {
 												button {
-																background-color: $orange !important;
 																font-size: 20px;
 												}
 								}
@@ -337,19 +344,19 @@
 																padding: 0;
 																margin-top: 0;
 																.col {
-																				border-top: 1px solid $gray;
+																				border-top: 1px solid $lightgray;
 																				&:first-child {
 																								text-align: right;
-																								border-right: 1px solid $gray;
+																								border-right: 1px solid $lightgray;
 																								padding: 4px 10px 4px 0;
-																								color: $darkgray;
+																								color: $black;
 																				}
 																				&:last-child {
 																								text-align: center;
 																				}
 																}
 																&:last-child {
-																				border-bottom: 1px solid $gray;
+																				border-bottom: 1px solid $lightgray;
 																}
 												}
 												.win .col {
@@ -367,20 +374,20 @@
 								}
 								.buy-again {
 												background-color: $white;
-												border-bottom: 1px solid $gray;
+												border-bottom: 1px solid $lightgray;
 												padding-top: 0;
 												padding-bottom: 0;
 												align-items: center;
 												.price-des {
 																font-size: 14px;
-																color: $darkgray;
+																color: $black;
 												}
 												.price {
-																color: $orange;
+																color: $black;
 																font-size: 14px;
+																font-weight: bold;
 												}
 												button {
-																background-color: $orange !important;
 																width: 100%;
 																margin: 0 auto;
 																font-size: 14px;
@@ -390,7 +397,6 @@
 								}
 								.contract-type {
 												background: $lightgray;
-												border-bottom: #c4c4c4 1px solid !important;
 												.item {
 																background: $lightgray;
 												}
@@ -404,10 +410,12 @@
 																text-align: center;
 																padding: 0;
 																font-size: 14px;
+																color:$black;
 												}
 												.item-radio input:checked ~ .item-content {
 																background: transparent !important;
-																color: #e98024;
+																color:$black;
+																font-weight: bold;
 												}
 								}
 				}

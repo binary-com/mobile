@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="binary">
 
 <head>
 	<meta charset="utf-8">
@@ -7,6 +7,10 @@
 
 	<!-- Content Security Policy for cordova-plugin-whitelist -->
 	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    
+    <!-- Disabling ios telephone number detection -->
+    <meta name = "format-detection" content = "telephone=no">
+
 	<link href='img/icons/apple-touch-icon-57x57.png' rel='apple-touch-icon' sizes='57x57' />
 	<link href='img/icons/apple-touch-icon-114x114.png' rel='apple-touch-icon' sizes='114x114' />
 	<link href='img/icons/apple-touch-icon-72x72.png' rel='apple-touch-icon' sizes='72x72' />
@@ -24,9 +28,16 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 	<title>Binary App</title>
 
 	<link href="css/ionic.app.css" rel="stylesheet">
+
+    <script type="text/javascript">
+        if(self !== top){
+            top.location = self.location;
+        }
+    </script>
 
 	<!-- BEGIN TRACKJS -->
 	<script type="text/javascript">
@@ -43,8 +54,40 @@
 	<script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
 	<!-- END TRACKJS -->
 
-	<!-- ionic/angularjs js -->
-	<script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- BEGIN APMLITUDE -->
+    <script type="text/javascript">
+        (function(e,t){var n=e.amplitude||{};var r=t.createElement("script");r.type="text/javascript";
+            r.async=true;r.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.9.0-min.gz.js";
+            r.onload=function(){e.amplitude.runQueuedFunctions()};var s=t.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(r,s);var i=function(){this._q=[];return this};function a(e){
+                i.prototype[e]=function(){this._q.push([e].concat(Array.prototype.slice.call(arguments,0)));
+                    return this}}var o=["add","append","clearAll","set","setOnce","unset"];for(var c=0;c<o.length;c++){
+                        a(o[c])}n.Identify=i;n._q=[];function u(e){n[e]=function(){n._q.push([e].concat(Array.prototype.slice.call(arguments,0)));
+                        }}var l=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties"];
+            for(var p=0;p<l.length;p++){u(l[p])}e.amplitude=n})(window,document);
+
+        amplitude.init("bfba930e4adadaa35dfc5b68ac2c07ae");
+    </script>
+    <!-- END AMPLITUDE -->
+
+    <!-- Modify redirect url -->
+    <script>
+        var url = window.location.hash;
+
+        if(/#\/redirect\%23/.exec(url)){
+            url = url.replace("%23", "?");
+            window.location.href = url;
+        } else if(/acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(#\/redirect)$/.exec(url)){
+            url = url.replace("#\/redirect", "");
+            var splits = url.split('?');
+            url = splits[0] + '#\/redirect' + splits[1];
+            window.location.href = url;
+        }
+    </script>
+    <!-- END Modify -->
+	
+    <!-- ionic/angularjs js -->
+	<script src="lib/ionic/release/js/ionic.bundle.js"></script>
 	<!-- cordova script (this will be a 404 during development) -->
 	<script src="cordova.js"></script>
 	<!-- vendors -->
@@ -80,17 +123,20 @@
 	<script src="js/services/app-version.service.js"></script>
 	<script src="js/services/app-state.service.js"></script>
 
+	<script src="js/controllers/body.controller.js"></script>
 	<script src="js/controllers/home.controller.js"></script>
 	<script src="js/controllers/signIn.controller.js"></script>
 	<script src="js/controllers/help.controller.js"></script>
 	<script src="js/controllers/trade.controller.js"></script>
 	<script src="js/controllers/options.controller.js"></script>
 	<script src="js/controllers/accounts.controller.js"></script>
+	<script src="js/controllers/oauth-redirect.controller.js"></script>
 
 	<script src="js/components/accounts/signin.directive.js"></script>
 	<script src="js/components/accounts/change-account.directive.js"></script>
 	<script src="js/components/accounts/manage-accounts.directive.js"></script>
 	<script src="js/components/accounts/scope-message.directive.js"></script>
+	<script src="js/components/accounts/oauth.directive.js"></script>
 
 	<script src="js/components/options/markets.directive.js"></script>
 	<script src="js/components/options/symbols.directive.js"></script>
@@ -114,15 +160,17 @@
 
 	<script src="js/components/codepush/app-update.directive.js"></script>
 
+	<script src="js/components/language/language-list.directive.js"></script>
+
 	<script src="js/filters/custom-currency.filter.js"></script>
     <!-- endbuild -->
 </head>
 
-<body ng-app="binary">
+<body ng-controller="BodyController" id="{{getLanguage()}}">
 	<connection-status></connection-status>
     <app-update></app-update>
     <scope-message></scope-message>
-	<ion-nav-view></ion-nav-view>
+	<ion-nav-view can-swipe-back="false"></ion-nav-view>
 </body>
 
 </html>

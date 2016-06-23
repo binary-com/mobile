@@ -15,6 +15,17 @@ angular
 .run(function($rootScope, $ionicPlatform, $state, alertService, accountService, appStateService, localStorageService, $location){
     $ionicPlatform.ready(function() {
 
+        // Add device information to Trackjs
+        var deviceInfo = ionic.Platform.device();
+        if(! jQuery.isEmptyObject(deviceInfo)){
+            window.trackJs.addMetadata("Platform", deviceInfo.platform);
+            window.trackJs.addMetadata("Version", deviceInfo.version);
+            window.trackJs.addMetadata("Model", deviceInfo.model);
+            window.trackJs.addMetadata("Manufacturer", deviceInfo.manufacturer);
+            window.trackJs.addMetadata("IsVritual", deviceInfo.isVirtual);
+            window.trackJs.addMetadata("Cordova", deviceInfo.cordova);
+        }
+
         // Setup Google Analytics
         if(typeof analytics !== "undefined") {
             analytics.startTrackerWithId("UA-40877026-7");
