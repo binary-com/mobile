@@ -1,174 +1,85 @@
-@media only screen and (max-device-width: 480px) {
-				.accounts-content {
-								display: block;
-								.bar {
-												background-color: $orange;
-												margin-bottom: 4px !important;
-												h2 {
-																color: $white;
-												}
-								}
-								.remove-all-accounts {
-												background-color: $lightgray;
-												margin-top: 10px;
-												padding: 10px;
-												font-size: 14px;
-												a {
-																color: $red;
-												}
-								}
-								.account {
-												.list {
-																padding-top: 0 !important;
-																padding-bottom: 0;
-																margin-bottom: 4px !important;
-																.item-content {
-																				padding: 10px 0 10px 20px;
-																}
-																i {
-																				display: block;
-																				float: left;
-																				width: 40px;
-																				font-size: 24px;
-																				line-height: 40px;
-																				&.default {
-																								color: $green;
-																				}
-																				&.not-default {
-																								color: $gray;
-																				}
-																}
-																div {
-																				.id {
-																								color: $blue;
-																								font-size: 16px;
-																								font-weight: 700;
-																				}
-																				.token {
-																								color: $gray;
-																								font-size: 14px;
-																								display: block;
-																								font-weight: 500;
-																				}
-																}
-												}
-												.button-green {
-																background-color: $green;
-												}
-								}
-								.add-account {
-												margin-top: 20px;
-												padding: 20px;
-												label {
-																float: left;
-																&.error {
-																				color: $red;
-																				i {
-																								color: $red;
-																				}
-																}
-																.placeholder-icon {
-																				color: $gray;
-																}
-												}
-												.item-input {
-																padding: 0;
-												}
-												.ion-android-lock {
-																font-size: 16px;
-												}
-												.add {
-																font-size: 28px;
-																color: $green;
-																line-height: 40px;
-												}
+.accounts-content {
+				display: block;
+				.bar {
+								background-color: $orange;
+								margin-bottom: 4px !important;
+								h2 {
+												color: $white;
 								}
 				}
-}
-@media only screen and (min-device-width: 480px) {
-				.accounts-content {
-								display: block;
-								.bar {
-												background-color: $orange;
+				.remove-all-accounts {
+								background-color: $lightgray;
+								margin-top: 10px;
+								padding: 10px;
+								font-size: 14px;
+								a {
+												color: $red;
+								}
+				}
+				.account {
+								.list {
+												padding-top: 0 !important;
+												padding-bottom: 0;
 												margin-bottom: 4px !important;
-												h2 {
-																color: $white;
+												.item-content {
+																padding: 10px 0 10px 20px;
 												}
-								}
-								.remove-all-accounts {
-												background-color: $lightgray;
-												margin-top: 10px;
-												padding: 10px;
-												font-size: 14px;
-												a {
-																color: $red;
-												}
-								}
-								.account {
-												.list {
-																padding-top: 0 !important;
-																padding-bottom: 0;
-																margin-bottom: 4px !important;
-																.item-content {
-																				padding: 10px 0 10px 20px;
-																}
-																i {
-																				display: block;
-																				float: left;
-																				width: 40px;
-																				font-size: 24px;
-																				line-height: 40px;
-																				&.default {
-																								color: $green;
-																				}
-																				&.not-default {
-																								color: $gray;
-																				}
-																}
-																div {
-																				.id {
-																								color: $blue;
-																								font-size: 16px;
-																								font-weight: 700;
-																				}
-																				.token {
-																								color: $gray;
-																								font-size: 14px;
-																								display: block;
-																								font-weight: 500;
-																				}
-																}
-												}
-												.button-green {
-																background-color: $green;
-												}
-								}
-								.add-account {
-												margin-top: 20px;
-												padding: 20px;
-												label {
+												i {
+																display: block;
 																float: left;
-																&.error {
-																				color: $red;
-																				i {
-																								color: $red;
-																				}
+																width: 40px;
+																font-size: 24px;
+																line-height: 40px;
+																&.default {
+																				color: $green;
 																}
-																.placeholder-icon {
+																&.not-default {
 																				color: $gray;
 																}
 												}
-												.item-input {
-																padding: 0;
+												div {
+																.id {
+																				color: $blue;
+																				font-size: 16px;
+																				font-weight: 700;
+																}
+																.token {
+																				color: $gray;
+																				font-size: 14px;
+																				display: block;
+																				font-weight: 500;
+																}
 												}
-												.ion-android-lock {
-																font-size: 16px;
+								}
+								.button-green {
+												background-color: $green;
+								}
+				}
+				.add-account {
+								margin-top: 20px;
+								padding: 20px;
+								label {
+												float: left;
+												&.error {
+																color: $red;
+																i {
+																				color: $red;
+																}
 												}
-												.add {
-																font-size: 28px;
-																color: $green;
-																line-height: 40px;
+												.placeholder-icon {
+																color: $gray;
 												}
+								}
+								.item-input {
+												padding: 0;
+								}
+								.ion-android-lock {
+												font-size: 16px;
+								}
+								.add {
+												font-size: 28px;
+												color: $green;
+												line-height: 40px;
 								}
 				}
 }

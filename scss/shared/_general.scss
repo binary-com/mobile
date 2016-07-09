@@ -15,13 +15,6 @@ a{
 								background-color: $darkgreen;
 				}
 }
-button:hover{
-	color: $white !important;
-	background-color: $darkgreen;
-}
-.token-link {
-				text-decoration: underline;
-}
 .center {
 				text-align: center;
 				justify-content:center;
@@ -65,7 +58,12 @@ input::-webkit-inner-spin-button {
 @media only screen and (min-device-width: 768px) {
 	.trade, .accounts, .options, .sign-in, .help, .home{
 		width: 100%;
-    max-width: 768px;
+    /*max-width: 768px; <- seems it causes bad width dimension in bigger screens */
+
     margin: auto;
+	}
+	ion-content{
+		max-width: 960px;
+		margin: 0 auto;
 	}
 }

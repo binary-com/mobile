@@ -1,66 +1,31 @@
-@media only screen and (max-device-width: 480px) {
-				.home {
-								background-color: $lightgray;
-								.branding {
-												width: 80%;
-												max-width: 600px;
-												margin: 40% auto;
-												.logo {
-																display: block;
-																margin: 0 auto;
-																width: 40%;
-												}
-												.slogan {
-																display: block;
-																margin: 5% auto 0;
-																width: 60%;
-												}
-								}
-								.spinner {
-												svg {
-																margin-top: 300px;
-																display: block;
-																stroke: $blue;
-												}
-								}
-								span {
+.home {
+				background-color: $lightgray;
+				.branding {
+								width: 80%;
+								max-width: 600px;
+								margin: 40% auto;
+								.logo {
 												display: block;
-												margin: -50px auto 0;
-												color: $blue;
-												text-align: center;
+												margin: 0 auto;
+												width: 40%;
+								}
+								.slogan {
+												display: block;
+												margin: 5% auto 0;
+												width: 60%;
 								}
 				}
-}
-@media only screen and (min-device-width: 480px) {
-				.home {
-								background-color: $lightgray;
-								.branding {
-												width: 80%;
-												max-width: 600px;
-												margin: 40% auto;
-												.logo {
-																display: block;
-																margin: 0 auto;
-																width: 40%;
-												}
-												.slogan {
-																display: block;
-																margin: 5% auto 0;
-																width: 60%;
-												}
-								}
-								.spinner {
-												svg {
-																margin-top: 300px;
-																display: block;
-																stroke: $blue;
-												}
-								}
-								span {
+				.spinner {
+								svg {
+												margin-top: 300px;
 												display: block;
-												margin: -50px auto 0;
-												color: $blue;
-												text-align: center;
+												stroke: $blue;
 								}
+				}
+				span {
+								display: block;
+								margin: -50px auto 0;
+								color: $blue;
+								text-align: center;
 				}
 }

@@ -1,78 +1,220 @@
+.trade{
+	#tradeContractChart {
+					width: 100% !important;
+					height: 200px !important;
+	}
+	.contract-summary {
+					padding: 5px 10px;
+					text-align: center;
+					background-color: $lightgray;
+					position: relative;
+	}
+	.contract-payout {
+					padding: 0 !important;
+					.col:nth-child(3) {
+									margin: 15px 0 0 !important;
+					}
+					.price {
+									color: $black;
+									font-weight: bold;
+									text-align: center;
+									line-height: 12px;
+					}
+					.price-des {
+									text-align: center;
+									color: $black;
+									padding-bottom: 0;
+					}
+					.basis {
+									text-align: left;
+									line-height: 36px;
+									padding-left: 10px;
+					}
+					.amount {
+									position: relative;
+									.price {
+													padding-top: 0;
+													padding-bottom: 0;
+													input {
+																	height: auto;
+																	border-bottom: 1px solid $lightgray;
+																	line-height: 12px;
+																	text-align: center;
+																	color: $black;
+																	font-weight: bold;
+																	padding-top: 0;
+																	width: 100%;
+													}
+									}
+					}
+					.button-bar {
+									.button {
+													min-height: 20px;
+									}
+									.button:before {
+													line-height: 30px;
+									}
+					}
+					> .col:nth-child(3) {
+									.button {
+													margin: 0;
+													min-width: 20px;
+													min-height: 20px;
+													border: none;
+													color: $black;
+													border-radius: 0;
+													vertical-align: middle;
+													line-height: 21px;
+									}
+					}
+	}
+	.net-profit {
+					background-color: $lightgray;
+					margin-top: 0;
+					padding: 0;
+					.col:nth-child(1) {
+									text-align: center;
+									line-height: 12px;
+									color: $darkgray;
+					}
+					.price-des {
+									text-align: center;
+									display: inline-block;
+									padding: 10px 0;
+					}
+					.price {
+									color: $darkgray;
+									text-align: left;
+									line-height: 12px;
+									display: inline-block;
+									padding: 10px 0;
+					}
+					.error {
+									background-color: $notification;
+									padding: 10px 0;
+									p {
+													margin: 5px !important;
+													color: $black;
+									}
+					}
+	}
+	.contract-purchase,
+	.contract-back {
+					button {
+									background-color: $green !important;
+					}
+	}
+	.contract-details {
+					margin-top: 1%;
+					.win {
+									color: $green !important;
+					}
+					.lose {
+									color: $red !important;
+					}
+					.row {
+									padding: 0;
+									margin-top: 0;
+									.col {
+													border-top: 1px solid $lightgray;
+													&:first-child {
+																	text-align: right;
+																	border-right: 1px solid $lightgray;
+																	padding: 4px 10px 4px 0;
+																	color: $black;
+													}
+													&:last-child {
+																	text-align: center;
+													}
+									}
+									&:last-child {
+													border-bottom: 1px solid $lightgray;
+									}
+					}
+					.win .col {
+									color: $green !important;
+									background-color: $white !important;
+									padding: 5px !important;
+					}
+					.lose .col {
+									color: $red !important;
+									background-color: $white !important;
+									padding: 5px !important;
+					}
+	}
+	.buy-again {
+					background-color: $white;
+					border-bottom: 1px solid $lightgray;
+					padding-top: 0;
+					padding-bottom: 0;
+					align-items: center;
+					.price-des {
+									color: $black;
+					}
+					.price {
+									color: $black;
+									font-weight: bold;
+					}
+					button {
+									background-color: $green !important;
+									width: 100%;
+									margin: 0 auto;
+									font-size: 14px;
+									line-height: 28px;
+									min-height: 24px;
+					}
+	}
+	.contract-type {
+					background: $lightgray;
+					.item {
+									background: $lightgray;
+					}
+					.item:nth-child(odd) {
+									border-right: $gray 3px solid !important;
+					}
+					.item-select select {
+									background: $lightgray;
+					}
+					.item-content {
+									text-align: center;
+									padding: 0;
+									color:$black;
+					}
+					.item-radio input:checked ~ .item-content {
+									background: transparent !important;
+									color:$black;
+									font-weight: bold;
+					}
+	}
+}
+
 @media only screen and (max-device-width: 480px) {
 				.trade {
-								#tradeContractChart {
-												width: 100% !important;
-												height: 200px !important;
-								}
+
 								.contract-summary {
-												padding: 5px 10px;
-												text-align: center;
 												font-size: 4vw;
-												background-color: $lightgray;
-												position: relative;
-												span {}
 								}
 								.contract-payout {
-												padding: 0 !important;
-												.col:nth-child(3) {
-																margin: 15px 0 0 !important;
-												}
 												.price {
 																font-size: 4vw;
-																color: $black;
-																font-weight: bold;
-																text-align: center;
-																line-height: 12px;
 												}
 												.price-des {
 																font-size: 4vw;
-																text-align: center;
-																color: $black;
-																padding-bottom: 0;
 												}
 												.basis {
 																font-size: 4vw;
-																text-align: left;
-																line-height: 36px;
-																padding-left: 10px;
 												}
 												.amount {
-																position: relative;
 																.price {
-																				padding-top: 0;
-																				padding-bottom: 0;
 																				input {
 																								font-size: 4vw;
-																								height: auto;
-																								border-bottom: 1px solid $lightgray;
-																								line-height: 12px;
-																								text-align: center;
-																								color: $black;
-																								font-weight: bold;
-																								padding-top: 0;
-																								width: 100%;
 																				}
 																}
 												}
-												.button-bar {
-																.button {
-																				min-height: 20px;
-																}
-																.button:before {
-																				line-height: 30px;
-																}
-												}
+
 												> .col:nth-child(3) {
 																.button {
-																				margin: 0;
-																				min-width: 20px;
-																				min-height: 20px;
-																				border: none;
-																				color: $black;
-																				border-radius: 0;
 																				border: 1px solid $lightgray;
-																				vertical-align: middle;
-																				line-height: 21px;
 																				&.plus {
 																								background-color: $white;
 																				}
@@ -84,35 +226,15 @@
 												}
 								}
 								.net-profit {
-												background-color: $lightgray;
-												margin-top: 0;
-												padding: 0;
-												.col:nth-child(1) {
-																text-align: center;
-																line-height: 12px;
-																color: $darkgray;
-												}
 												.price-des {
 																font-size: 4vw;
-																text-align: center;
-																display: inline-block;
-																padding: 10px 0;
 												}
 												.price {
 																font-size: 4vw;
-																color: $darkgray;
-																text-align: left;
-																line-height: 12px;
-																display: inline-block;
-																padding: 10px 0;
 												}
 												.error {
-																background-color: $notification;
-																padding: 10px 0;
 																p {
-																				margin: 5px !important;
 																				font-size: 4vw;
-																				color: $black;
 																}
 												}
 								}
@@ -123,167 +245,55 @@
 												}
 								}
 								.contract-details {
-												margin-top: 1%;
-												.win {
-																color: $green !important;
-												}
-												.lose {
-																color: $red !important;
-												}
-												.row {
-																padding: 0;
-																margin-top: 0;
-																.col {
-																				border-top: 1px solid $lightgray;
-																				&:first-child {
-																								text-align: right;
-																								border-right: 1px solid $lightgray;
-																								padding: 4px 10px 4px 0;
-																								color: $black;
-																				}
-																				&:last-child {
-																								text-align: center;
-																				}
-																}
-																&:last-child {
-																				border-bottom: 1px solid $lightgray;
-																}
-												}
 												.win .col {
-																color: $green !important;
-																background-color: $white !important;
 																font-size: 4vw;
-																padding: 5px !important;
 												}
 												.lose .col {
-																color: $red !important;
-																background-color: $white !important;
 																font-size: 4vw;
-																padding: 5px !important;
 												}
 								}
 								.buy-again {
-												background-color: $white;
-												border-bottom: 1px solid $lightgray;
-												padding-top: 0;
-												padding-bottom: 0;
-												align-items: center;
 												.price-des {
 																font-size: 4vw;
-																color: $black;
 												}
 												.price {
-																color: $black;
 																font-size: 4vw;
-																font-weight: bold;
-												}
-												button {
-																width: 100%;
-																margin: 0 auto;
-																font-size: 14px;
-																line-height: 28px;
-																min-height: 24px;
 												}
 								}
 								.contract-type {
-												background: $lightgray;
-												.item {
-																background: $lightgray;
-												}
-												.item:nth-child(odd) {
-																border-right: #c4c4c4 3px solid !important;
-												}
-												.item-select select {
-																background: $lightgray;
-												}
 												.item-content {
-																text-align: center;
-																padding: 0;
 																font-size: 4vw;
-																color:$black;
-												}
-												.item-radio input:checked ~ .item-content {
-																background: transparent !important;
-																color: $black;
-																font-weight: bold;
 												}
 								}
 				}
 }
 @media only screen and (min-device-width: 480px) {
 				.trade {
-								#tradeContractChart {
-												width: 100% !important;
-												height: 200px !important;
-								}
+
 								.contract-summary {
-												padding: 5px 10px;
-												text-align: center;
 												font-size: 14px;
-												background-color: $lightgray;
-												position: relative;
 								}
 								.contract-payout {
-												padding: 0 !important;
-												.col:nth-child(3) {
-																margin: 15px 0 0 !important;
-												}
 												.price {
 																font-size: 14px;
-																color: $black;
-																font-weight: bold;
-																text-align: center;
-																line-height: 12px;
 												}
 												.price-des {
 																font-size: 14px;
-																text-align: center;
-																color: $black;
-																padding-bottom: 0;
 												}
 												.basis {
 																font-size: 14px;
-																text-align: left;
-																line-height: 36px;
-																padding-left: 10px;
 												}
 												.amount {
-																position: relative;
 																.price {
-																				padding-top: 0;
-																				padding-bottom: 0;
 																				input {
 																								font-size: 14px;
-																								height: auto;
-																								border-bottom: 1px solid $lightgray;
-																								line-height: 12px;
-																								text-align: center;
-																								color: $black;
-																								font-weight: bold;
-																								padding-top: 0;
-																								width: 100%;
 																				}
 																}
 												}
-												.button-bar {
-																.button {
-																				min-height: 20px;
-																}
-																.button:before {
-																				line-height: 30px;
-																}
-												}
+
 												> .col:nth-child(3) {
 																.button {
-																				margin: 0;
-																				min-width: 20px;
-																				min-height: 20px;
-																				border: none;
-																				color: $black;
-																				border-radius: 0;
 																				border: 1px solid $gray;
-																				vertical-align: middle;
-																				line-height: 21px;
 																				&.plus {
 																								background-color: $lightgray;
 																				}
@@ -294,35 +304,15 @@
 												}
 								}
 								.net-profit {
-												background-color: $lightgray;
-												margin-top: 0;
-												padding: 0;
-												.col:nth-child(1) {
-																text-align: center;
-																line-height: 12px;
-																color: $darkgray;
-												}
 												.price-des {
 																font-size: 18px;
-																text-align: center;
-																display: inline-block;
-																padding: 10px 0;
 												}
 												.price {
 																font-size: 18px;
-																color: $darkgray;
-																text-align: left;
-																line-height: 12px;
-																display: inline-block;
-																padding: 10px 0;
 												}
 												.error {
-																background-color: $notification;
-																padding: 10px 0;
 																p {
-																				margin: 5px !important;
 																				font-size: 14px;
-																				color: $black;
 																}
 												}
 								}
@@ -333,89 +323,24 @@
 												}
 								}
 								.contract-details {
-												margin-top: 1%;
-												.win {
-																color: $green !important;
-												}
-												.lose {
-																color: $red !important;
-												}
-												.row {
-																padding: 0;
-																margin-top: 0;
-																.col {
-																				border-top: 1px solid $lightgray;
-																				&:first-child {
-																								text-align: right;
-																								border-right: 1px solid $lightgray;
-																								padding: 4px 10px 4px 0;
-																								color: $black;
-																				}
-																				&:last-child {
-																								text-align: center;
-																				}
-																}
-																&:last-child {
-																				border-bottom: 1px solid $lightgray;
-																}
-												}
 												.win .col {
-																color: $green !important;
-																background-color: $white !important;
 																font-size: 14px;
-																padding: 5px !important;
 												}
 												.lose .col {
-																color: $red !important;
-																background-color: $white !important;
 																font-size: 14px;
-																padding: 5px !important;
 												}
 								}
 								.buy-again {
-												background-color: $white;
-												border-bottom: 1px solid $lightgray;
-												padding-top: 0;
-												padding-bottom: 0;
-												align-items: center;
 												.price-des {
 																font-size: 14px;
-																color: $black;
 												}
 												.price {
-																color: $black;
 																font-size: 14px;
-																font-weight: bold;
-												}
-												button {
-																width: 100%;
-																margin: 0 auto;
-																font-size: 14px;
-																line-height: 28px;
-																min-height: 24px;
 												}
 								}
 								.contract-type {
-												background: $lightgray;
-												.item {
-																background: $lightgray;
-												}
-												.item:nth-child(odd) {
-																border-right: #c4c4c4 3px solid !important;
-												}
-												.item-select select {
-																background: $lightgray;
-												}
 												.item-content {
-																text-align: center;
-																padding: 0;
 																font-size: 14px;
-																color:$black;
-												}
-												.item-radio input:checked ~ .item-content {
-																background: transparent !important;
-																color:$black;
-																font-weight: bold;
 												}
 								}
 				}

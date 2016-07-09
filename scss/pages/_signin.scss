@@ -1,88 +1,94 @@
+.sign-in{
+	background-color: $white;
+	.branding {
+					margin: 10% auto;
+					.logo {
+									display: block;
+									margin: 0 auto;
+									width: 40%;
+					}
+					.slogan {
+									display: block;
+									margin: 5% auto 0;
+									width: 60%;
+					}
+	}
+
+.list{
+	label.item-input {
+					border-bottom: 1px solid $lightgray;
+					width: 80%;
+					margin: 0 auto;
+					height: 44px;
+					padding-left: 4px !important;
+					margin-bottom: 26px;
+					i {
+									font-size: 40px;
+									width: 40px;
+									text-align: center;
+									&.icon-small {
+													font-size: 28px;
+									}
+					}
+					input[type=text],
+					input[type=password] {
+									color: $gray;
+									font-family: arial;
+									font-weight: 400;
+									font-size: 14px;
+									line-height: 1.6;
+					}
+					&.error {
+									border-bottom-color: $red;
+									i {
+													color: $red;
+									}
+					}
+	}
+	label.item-select {
+					background-color: $white;
+					border-width: 0 0 1px 0;
+					i {
+									font-size: 40px;
+									width: 40px;
+									text-align: center;
+									&.icon-small {
+													font-size: 28px;
+									}
+					}
+					.input-label {
+									background-color: $white;
+									color: $black;
+									font-family: arial;
+									font-weight: 400;
+									font-size: 14px;
+									line-height: 1;
+									line-height: 1.6;
+					}
+					select {
+									background-color: $white;
+									color: $black;
+									font-size: 14px;
+									font-weight: 400;
+									text-transform: uppercase;
+									padding: 0;
+									right: initial;
+									direction: ltr;
+					}
+			}
+}
+button.btn-signin {
+				background-color: $green !important;
+}
+.help {
+				text-decoration: underline;
+			}
+}
+
 @media only screen and (max-device-width: 480px) {
 				.sign-in {
-								background-color: $white;
-								.branding {
-												margin: 10% auto;
-												.logo {
-																display: block;
-																margin: 0 auto;
-																width: 40%;
-												}
-												.slogan {
-																display: block;
-																margin: 5% auto 0;
-																width: 60%;
-												}
-								}
-								.list {
-												label.item-input {
-																border-bottom: 1px solid $lightgray;
-																width: 80%;
-																margin: 0 auto;
-																height: 44px;
-																padding-left: 4px !important;
-																margin-bottom: 26px;
-																i {
-																				font-size: 40px;
-																				width: 40px;
-																				text-align: center;
-																				&.icon-small {
-																								font-size: 28px;
-																				}
-																}
-																input[type=text],
-																input[type=password] {
-																				color: $gray;
-																				font-family: arial;
-																				font-weight: 400;
-																				font-size: 14px;
-																				line-height: 1.6;
-																}
-																&.error {
-																				border-bottom-color: $red;
-																				i {
-																								color: $red;
-																				}
-																}
-												}
-												label.item-select {
-																background-color: $white;
-																border-width: 0 0 1px 0;
-																i {
-																				font-size: 40px;
-																				width: 40px;
-																				text-align: center;
-																				&.icon-small {
-																								font-size: 28px;
-																				}
-																}
-																.input-label {
-																				background-color: $white;
-																				color: $black;
-																				font-family: arial;
-																				font-weight: 400;
-																				font-size: 14px;
-																				line-height: 1;
-																				line-height: 1.6;
-																				// margin-left: 10px;
-																}
-																select {
-																				background-color: $white;
-																				color: $black;
-																				font-size: 14px;
-																				font-weight: 400;
-																				text-transform: uppercase;
-																				padding: 0;
-																				right: initial;
-																				direction: ltr;
-																}
-												}
-								}
 								button.btn-signin {
 												font-size: 5vw;
-								}
-								.help {
-												text-decoration: underline;
 								}
 								.token-link {
 												text-decoration: underline;
@@ -103,91 +109,24 @@
 }
 @media only screen and (min-device-width: 480px) {
 				.sign-in {
-								background-color: $white;
-								.branding {
-												margin: 10% auto;
-												.logo {
-																display: block;
-																margin: 0 auto;
-																width: 40%;
-												}
-												.slogan {
-																display: block;
-																margin: 5% auto 0;
-																width: 60%;
-												}
-								}
+
 								.list {
 												label.item-input {
-																border-bottom: 1px solid $lightgray;
-																width: 80%;
-																margin: 0 auto;
-																height: 44px;
-																padding-left: 4px !important;
-																margin-bottom: 26px;
 																i {
-																				font-size: 40px;
-																				width: 40px;
 																				color: $darkblue;
-																				text-align: center;
-																				&.icon-small {
-																								font-size: 28px;
-																				}
-																}
-																input[type=text],
-																input[type=password] {
-																				color: $gray;
-																				font-family: arial;
-																				font-weight: 400;
-																				font-size: 14px;
-																				line-height: 1.6;
-																}
-																&.error {
-																				border-bottom-color: $red;
-																				i {
-																								color: $red;
-																				}
 																}
 												}
 												label.item-select {
-																background-color: $white;
-																border-width: 0 0 1px 0;
 																i {
-																				font-size: 40px;
-																				width: 40px;
 																				color: $darkblue;
-																				text-align: center;
-																				&.icon-small {
-																								font-size: 28px;
-																				}
-																}
-																.input-label {
-																				background-color: $white;
-																				color: $black;
-																				font-family: arial;
-																				font-weight: 400;
-																				font-size: 14px;
-																				line-height: 1;
-																				line-height: 1.6;
-																				// margin-left: 10px;
-																}
-																select {
-																				background-color: $white;
-																				color: $black;
-																				font-size: 14px;
-																				font-weight: 400;
-																				text-transform: uppercase;
-																				padding: 0;
-																				right: initial;
-																				direction: ltr;
 																}
 												}
 								}
 								button.btn-signin {
 												font-size: 18px;
 								}
-								.help {
-												text-decoration: underline;
+								.token-link {
+												color: $white;
 								}
 								 ::-webkit-input-placeholder {
 												color: $lightgray;

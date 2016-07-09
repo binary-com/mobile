@@ -1,10 +1,13 @@
+.help-content {
+				background-color: $white;
+				padding-left: 3%;
+				padding-right: 3%;
+				padding-top: 5%;
+				color: $black;
+			}
+
 @media only screen and (max-device-width: 480px) {
 				.help-content {
-								background-color: $white;
-								padding-left: 3%;
-								padding-right: 3%;
-								padding-top: 5%;
-								color: $black;
 								font-size: 4vw;
 								h1 {
 												font-size: 8vw;
@@ -18,18 +21,18 @@
 }
 @media only screen and (min-device-width: 480px) {
 				.help-content {
-								background-color: $white;
-								padding-left: 3%;
-								padding-right: 3%;
-								padding-top: 5%;
-								color: $black;
 								font-size: 16px;
 								h1 {
 												font-size: 28px;
 												color: $white;
 								}
 								button {
+												background-color: $orange !important;
 												font-size: 18px;
+								}
+								a {
+												color: $white;
+												font-weight: 700;
 								}
 				}
 }
