@@ -192,6 +192,35 @@
 	}
 }
 
+/*tablet fix*/
+
+.trade{
+	.scroll{
+		height: 90vh;
+    height: calc(100vh - 94px);
+    display: flex;
+    flex-direction: column;
+
+}
+
+}
+form.form-fixer {
+	display: flex;
+	height: 90vh;
+    height: calc(100vh - 84px);
+		// height: 80vh;
+    flex-direction: column;
+    /* flex-grow: 1; */
+}
+
+
+long-code, trade-contract-chart, payout, .trade .row .center{
+	display: flex;
+	 flex-grow: 1;
+	 flex-direction: column;
+
+}
+
 @media only screen and (max-device-width: 480px) {
 				.trade {
 

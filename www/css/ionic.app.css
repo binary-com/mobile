@@ -10293,6 +10293,25 @@ input::-webkit-inner-spin-button {
     color: #000;
     font-weight: bold; }
 
+/*tablet fix*/
+.trade .scroll {
+  height: 90vh;
+  height: calc(100vh - 94px);
+  display: flex;
+  flex-direction: column; }
+
+form.form-fixer {
+  display: flex;
+  height: 90vh;
+  height: calc(100vh - 84px);
+  flex-direction: column;
+  /* flex-grow: 1; */ }
+
+long-code, trade-contract-chart, payout, .trade .row .center {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column; }
+
 @media only screen and (max-device-width: 480px) {
   .trade .contract-summary {
     font-size: 4vw; }
@@ -10565,6 +10584,35 @@ input::-webkit-inner-spin-button {
       font-size: 28px;
       color: #2E8836;
       line-height: 40px; }
+
+.scroll {
+  height: 90vh;
+  height: calc(100vh - 54px);
+  display: flex;
+  flex-direction: column; }
+
+change-account, markets-option, symbols-option, trade-category, ticks-option, digits-option, payout-stake-option, .options-save, long-code, trade-contract-chart, payout, .trade .row .center {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column; }
+
+.options .options-save {
+  margin-bottom: 30px; }
+  .options .options-save .col {
+    margin: 0 auto !important; }
+
+.purchaseForm {
+  display: flex;
+  height: calc(100vh - 84px);
+  flex-direction: column;
+  /* flex-grow: 1; */
+  margin: 0 auto; }
+
+@media only screen and (max-device-width: 768px) {
+  .options .options-save {
+    margin-bottom: 30px; }
+    .options .options-save .col {
+      margin: 0 auto !important; } }
 
 .help-content {
   background-color: #fff;
