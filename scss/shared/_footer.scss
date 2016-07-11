@@ -1,51 +1,29 @@
+.bar.bar-positive.bar-footer {
+				background-image: none;
+}
+.bar-footer {
+				background-color: $blue;
+				bottom: 0;
+				border-top-width: 0;
+				border-bottom-width: 1px;
+				height: auto;
+				.account , .balance {
+								text-align: center;
+				}
+}
+
 @media only screen and (max-device-width: 480px) {
-				.bar.bar-positive.bar-footer {
-								background-image: none;
-				}
-				.bar.bar-positive {
-								border-color: $blue;
-								background-color: $blue;
-								background-image: none;
-				}
 				.bar-footer {
-								background-color: $blue;
-								bottom: 0;
-								border-top-width: 0;
-								border-bottom-width: 1px;
-								height: auto;
 								font-size: 4vw;
-								.account {
-												text-align: center;
-												color: $white;
-								}
-								.balance {
-												text-align: center;
+								.account , .balance {
 												color: $white;
 								}
 				}
 }
 @media only screen and (min-device-width: 480px) {
-				.bar.bar-positive.bar-footer {
-								background-image: none;
-				}
-				.bar.bar-positive {
-								border-color: $blue;
-								background-color: $blue;
-								background-image: none;
-				}
 				.bar-footer {
-								background-color: $blue;
-								bottom: 0;
-								border-top-width: 0;
-								border-bottom-width: 1px;
-								height: auto;
 								font-size: 14px;
-								.account {
-												text-align: center;
-												color: $orange;
-								}
-								.balance {
-												text-align: center;
+								.account , .balance {
 												color: $orange;
 								}
 				}

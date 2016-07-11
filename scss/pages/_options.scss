@@ -1,316 +1,223 @@
+.options{
+	.options-content {
+					padding-left: 3%;
+					padding-right: 3%;
+					.col {
+									padding: 1px;
+					}
+	}
+	[class*="options"] {
+					border-radius: 0 !important;
+					h1 {
+									color: $blue;
+									border-radius: 0 !important;
+									font-weight: bold;
+									text-align: left;
+									padding: 2px 0 5px;
+									margin: 0;
+									width: 100%;
+					}
+	}
+	.options-account {
+					padding-top: 10px;
+					padding-bottom: 5px;
+					border-bottom: 1px solid $lightgray;
+					.manage-account {
+									text-align: right;
+									font-size: 28px;
+					}
+	}
+	.options-market {
+					border-bottom: 1px solid $lightgray;
+					.item {
+									display: inline-block;
+					}
+					.item-content {
+									padding: 0;
+									text-align: center;
+					}
+					.item-radio {
+									input:checked ~ .item-content {
+													background: $blue;
+													color: $white;
+									}
+
+					}
+	}
+	.options-upderlying {
+					border-bottom: 1px solid $lightgray;
+	}
+	.options-trade {
+					border-bottom: 1px solid $lightgray;
+					.padding {
+									padding: 0 5px 5px;
+									width: 100%;
+									margin-top: -5px;
+					}
+					.item {
+									display: inline-table;
+									position: relative;
+									width: 50%;
+									padding: 2px 2px 0;
+					}
+					.item-content {
+									padding: 0;
+									text-align: center;
+									font-size: 14px;
+					}
+					.item-radio {
+									input:checked ~ .item-content {
+													background: $blue;
+													color: $white;
+									}
+					}
+	}
+	.options-ticks {
+					border-bottom: 1px solid $lightgray;
+					.item {
+									display: inline-block;
+									width: 16%;
+					}
+					.item-content {
+									padding: 0;
+									text-align: center;
+									font-size: 14px;
+					}
+					.item-radio {
+									input:checked ~ .item-content {
+													background: $blue;
+													color: $white;
+									}
+					}
+					.disabled {
+									opacity: 0.4;
+					}
+	}
+	.options-amount {
+					border-bottom: 1px solid $lightgray;
+					.item {
+									display: inline-block;
+									width: 30%;
+					}
+					.item-content {
+									padding: 0;
+									text-align: center;
+					}
+					.item-radio {
+									input:checked ~ .item-content {
+													background: $blue;
+													color: $white;
+									}
+					}
+	}
+
+	.options-save {
+					margin-bottom: 20%;
+	}
+	label {
+					.input-label {
+									padding: 0;
+					}
+					&.item-input {
+									border-width: 0;
+									margin: 1px 0;
+									padding: 6px 0 5px;
+					}
+					&.item-select {
+									height: 25px;
+					}
+					&.item-radio {
+									.item-content {
+													padding-top: 4px;
+													padding-bottom: 4px;
+									}
+									.radio-icon {
+													padding: 0 14px 0 0;
+									}
+					}
+	}
+
+
+
+}
+.popover-backdrop.active {
+				background-color: $fadeblack;
+}
+
 @media only screen and (max-device-width: 480px) {
 				.options {
-								.options-content {
-												padding-left: 3%;
-												padding-right: 3%;
-												.col {
-																padding: 1px;
-												}
-								}
+
 								[class*="options"] {
-												border-radius: 0 !important;
 												h1 {
-																color: $blue;
-																border-radius: 0 !important;
 																font-size: 4vw;
-																font-weight: bold;
-																text-align: left;
-																padding: 2px 0 5px;
-																margin: 0;
-																width: 100%;
 												}
 								}
-								.options-account {
-												padding-top: 10px;
-												padding-bottom: 5px;
-												border-bottom: 1px solid $lightgray;
-												.manage-account {
-																text-align: right;
-																font-size: 28px;
-												}
-								}
+
 								.options-market {
-												border-bottom: 1px solid $lightgray;
-												// padding:5px 0;
-												.item {
-																display: inline-block;
-												}
 												.item-content {
-																padding: 0;
-																text-align: center;
 																font-size: 4vw;
 												}
-												.item-radio {
-																input:checked ~ .item-content {
-																				background: $blue;
-																				color: $white;
-																}
-																input[disabled] + div {
-                                                                    /*
-																				background-color: $lightgray;
-																				color: $gray;
-                                                                    */
-																}
-												}
 								}
-								.options-upderlying {
-												border-bottom: 1px solid $lightgray;
-								}
+
 								.options-trade {
-												border-bottom: 1px solid $lightgray;
-												.padding {
-																padding: 0 5px 5px;
-																width: 100%;
-																margin-top: -5px;
-												}
-												.item {
-																display: inline-table;
-																position: relative;
-																width: 50%;
-																padding: 2px 2px 0;
-												}
 												.item-content {
-																padding: 0;
-																text-align: center;
 																font-size: 4vw;
-												}
-												.item-radio {
-																input:checked ~ .item-content {
-																				background: $blue;
-																				color: $white;
-																}
 												}
 								}
 								.options-ticks {
-												border-bottom: 1px solid $lightgray;
-												.item {
-																display: inline-block;
-																width: 16%;
-												}
 												.item-content {
-																padding: 0;
-																text-align: center;
 																font-size: 4vw;
-												}
-												.item-radio {
-																input:checked ~ .item-content {
-																				background: $blue;
-																				color: $white;
-																}
-												}
-												.disabled {
-																opacity: 0.4;
 												}
 								}
 								.options-amount {
-												border-bottom: 1px solid $lightgray;
-												.item {
-																display: inline-block;
-																width: 30%;
-												}
 												.item-content {
-																padding: 0;
-																text-align: center;
 																font-size: 4vw;
 												}
-												.item-radio {
-																input:checked ~ .item-content {
-																				background: $blue;
-																				color: $white;
-																}
-												}
 								}
-								.options-save {
-												margin-bottom: 20%;
-								}
+
 								button {
 												font-size: 5vw;
 								}
-								label {
-												.input-label {
-																padding: 0;
-												}
-												&.item-input {
-																border-width: 0;
-																margin: 1px 0;
-																padding: 6px 0 5px;
-												}
-												&.item-select {
-																height: 25px;
-												}
-												&.item-radio {
-																.item-content {
-																				padding-top: 4px;
-																				padding-bottom: 4px;
-																}
-																.radio-icon {
-																				padding: 0 14px 0 0;
-																}
-												}
-								}
+
 				}
-				.popover-backdrop.active {
-								background-color: rgba(0, 0, 0, 0.5);
-				}
+
 }
 @media only screen and (min-device-width: 480px) {
 				.options {
-								.options-content {
-												padding-left: 3%;
-												padding-right: 3%;
-												.col {
-																padding: 1px;
-												}
-								}
+
 								[class*="options"] {
-												border-radius: 0 !important;
+
 												h1 {
-																// background-color: $blue;
-																color: $blue;
-																border-radius: 0 !important;
 																font-size: 18px;
-																font-weight: bold;
-																text-align: left;
-																padding: 2px 0 5px;
-																margin: 0;
-																width: 100%;
 												}
 								}
-								.options-account {
-												padding-top: 10px;
-												padding-bottom: 5px;
-												border-bottom: 1px solid $lightgray;
-												// margin-bottom: 20px;
-												.manage-account {
-																text-align: right;
-																font-size: 28px;
-																i:before {
-																				// margin-top:3px;
-																}
-												}
-								}
+
 								.options-market {
-												border-bottom: 1px solid $lightgray;
-												// padding:5px 0;
-												.item {
-																display: inline-block;
-												}
 												.item-content {
-																padding: 0;
-																text-align: center;
 																font-size: 14px;
 												}
-												.item-radio {
-																input:checked ~ .item-content {
-																				background: $blue;
-																				color: $white;
-																}
-																input[disabled] + div {
-                                                                    /*
-																				background-color: $lightgray;
-																				color: $gray;
-                                                                    */
-																}
-												}
 								}
-								.options-upderlying {
-												border-bottom: 1px solid $lightgray;
-								}
+
 								.options-trade {
-												border-bottom: 1px solid $lightgray;
-												.padding {
-																padding: 0 5px 5px;
-																width: 100%;
-																margin-top: -5px;
-												}
-												.item {
-																display: inline-table;
-																position: relative;
-																width: 50%;
-																padding: 2px 2px 0;
-												}
 												.item-content {
-																padding: 0;
-																text-align: center;
 																font-size: 14px;
-												}
-												.item-radio {
-																input:checked ~ .item-content {
-																				background: $blue;
-																				color: $white;
-																}
 												}
 								}
 								.options-ticks {
-												border-bottom: 1px solid $lightgray;
-												.item {
-																display: inline-block;
-																width: 16%;
-												}
 												.item-content {
-																padding: 0;
-																text-align: center;
 																font-size: 14px;
-												}
-												.item-radio {
-																input:checked ~ .item-content {
-																				background: $blue;
-																				color: $white;
-																}
-												}
-												.disabled {
-																opacity: 0.4;
 												}
 								}
 								.options-amount {
-												border-bottom: 1px solid $lightgray;
-												// padding:5px 0;
-												.item {
-																display: inline-block;
-																width: 30%;
-												}
 												.item-content {
-																padding: 0;
-																text-align: center;
 																font-size: 14px;
 												}
-												.item-radio {
-																input:checked ~ .item-content {
-																				background: $blue;
-																				color: $white;
-																}
-												}
 								}
-								.options-save {
-												margin-bottom: 20%;
-								}
+
 								button {
 												font-size: 20px;
 								}
-								label {
-												.input-label {
-																padding: 0;
-												}
-												&.item-input {
-																border-width: 0;
-																margin: 1px 0;
-																padding: 6px 0 5px;
-												}
-												&.item-select {
-																height: 25px;
-												}
-												&.item-radio {
-																.item-content {
-																				padding-top: 4px;
-																				padding-bottom: 4px;
-																}
-																.radio-icon {
-																				padding: 0 14px 0 0;
-																}
-												}
-								}
+
 				}
-				.popover-backdrop.active {
-								background-color: rgba(0, 0, 0, 0.5);
-				}
+
 }
