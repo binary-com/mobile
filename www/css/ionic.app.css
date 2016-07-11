@@ -9841,11 +9841,11 @@ a {
   text-decoration: none;
   font-weight: bold; }
 
-.button {
+.button-block {
   border: none;
   background-color: #2E8836;
   color: #fff; }
-  .button:hover {
+  .button-block:hover {
     color: #fff !important;
     background-color: #14602B; }
 
@@ -10222,7 +10222,11 @@ input::-webkit-inner-spin-button {
 
 .trade .contract-purchase button,
 .trade .contract-back button {
-  background-color: #2E8836 !important; }
+  background-color: #2E8836; }
+  .trade .contract-purchase button:hover,
+  .trade .contract-back button:hover {
+    color: #fff !important;
+    background-color: #14602B; }
 
 .trade .contract-details {
   margin-top: 1%; }
@@ -10265,7 +10269,7 @@ input::-webkit-inner-spin-button {
     color: #000;
     font-weight: bold; }
   .trade .buy-again button {
-    background-color: #2E8836 !important;
+    background-color: #2E8836;
     width: 100%;
     margin: 0 auto;
     font-size: 14px;

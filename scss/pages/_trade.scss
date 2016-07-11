@@ -101,7 +101,11 @@
 	.contract-purchase,
 	.contract-back {
 					button {
-									background-color: $green !important;
+									background-color: $green;
+									&:hover{
+										color: $white !important;
+										background-color: $darkgreen;
+									}
 					}
 	}
 	.contract-details {
@@ -156,7 +160,7 @@
 									font-weight: bold;
 					}
 					button {
-									background-color: $green !important;
+									background-color: $green;
 									width: 100%;
 									margin: 0 auto;
 									font-size: 14px;
