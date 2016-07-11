@@ -9845,7 +9845,7 @@ a {
   border: none;
   background-color: #2E8836;
   color: #fff; }
-  .button :hover {
+  .button:hover {
     color: #fff !important;
     background-color: #14602B; }
 

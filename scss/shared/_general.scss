@@ -10,7 +10,7 @@ a{
 				border: none;
 				background-color: $green;
 				color: $white;
-				 :hover {
+				 &:hover {
 								color: $white !important;
 								background-color: $darkgreen;
 				}
