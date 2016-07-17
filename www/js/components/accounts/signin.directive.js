@@ -40,7 +40,6 @@ angular
 				 * If default account is set, send it for validation
 				 */
 				var init = function() {
-					//websocketService.init();
 					scope.language = languageService.read();
 				};
 
@@ -57,7 +56,6 @@ angular
 							accountService.setDefault(response.token);
 						}
 
-						//languageService.set();
 						scope.token = '';
 
 						$state.go('options');
@@ -90,32 +88,29 @@ angular
                     languageService.update(scope.language);
                 }
 
+                // change different type of singing methods
                 scope.changeSigninView = function(_isBack){
                     _isBack = _isBack || false;
 
-                    if(!scope.showSignin && scope.showTokenForm){
-                        scope.showTokenForm = false;
-                        scope.showSignin = true;
-                    }
-                    else if(scope.showSignin && !scope.showTokenForm && _isBack){
-                        scope.showSignin = false;
-                    }
-                    else if(scope.showSigninView && !scope.showTokenForm){
-                        scope.showTokenForm = true;
-                        scope.showSignin = false;
-                    }
-                    
-                    if(!scope.$$phase){
-                        scope.$apply();
-                    }
+                    scope.$applyAsync(function(){
+                        if(!scope.showSignin && scope.showTokenForm){
+                            scope.showTokenForm = false;
+                            scope.showSignin = true;
+                        }
+                        else if(scope.showSignin && !scope.showTokenForm && _isBack){
+                            scope.showSignin = false;
+                        }
+                        else if(scope.showSigninView && !scope.showTokenForm){
+                            scope.showTokenForm = true;
+                            scope.showSignin = false;
+                        }
+                    });
                 }
 
                 scope.showSigninView = function(){
-                    scope.showSignin = true;
-                    
-                    if(!scope.$$phase){
-                        scope.$apply();
-                    }
+                    scope.$applyAsync(function(){
+                        scope.showSignin = true;
+                    });
                 }
 			}
 		};
