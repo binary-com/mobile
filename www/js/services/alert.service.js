@@ -39,6 +39,30 @@ angular
 					);
 				}
 			};
+			this.displayRealitCheckInterval = function(_title, _class, scope, _template, _buttons, _callback) {
+			if (!localStorage._interval || localStorage._interval == undefined) {
+				var showPopup = $ionicPopup.show({
+					title: _title,
+					cssClass: _class,
+					scope: scope,
+					templateUrl: _template,
+					buttons: _buttons,
+				});
+				showPopup.then(_callback);
+			}
+		};
+
+
+			this.displayRealityCheckResult = function(_title, _class, scope, _template, _buttons, _callback){
+				var showPopup = $ionicPopup.show({
+					title: _title,
+					cssClass: _class,
+					scope: scope,
+					templateUrl: _template,
+					buttons: _buttons,
+				});
+				showPopup.then(_callback);
+			};
 
 			this.displayError = function(_message) {
 				$translate(['alert.error'])

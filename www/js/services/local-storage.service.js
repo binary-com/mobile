@@ -30,11 +30,21 @@ angular
 				});
 				return index;
 			};
+			service.setInterval = function setInterval(val){
+			var _interval;
+			var set =	localStorage.setItem('_interval', val);
+			};
+			service.getInterval = function(key){
+				return localStorage.getItem(key);
+			};
+			service.removeInterval = function(key){
+			var remove = localStorage.removeItem(key);
+			};
 
 			service.removeToken = function removeToken(token) {
 				if ( localStorage.hasOwnProperty('accounts') ) {
 					var accounts = JSON.parse(localStorage.accounts);
-					var tokenIndex = findIndex(accounts, 'token', token); 
+					var tokenIndex = findIndex(accounts, 'token', token);
 					if (tokenIndex > -1) {
 						accounts.splice(tokenIndex);
 						localStorage.accounts = JSON.stringify(accounts);
