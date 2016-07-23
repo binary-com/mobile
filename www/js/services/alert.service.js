@@ -113,7 +113,6 @@ angular
 							}
 
 							if(res) {
-								console.log('You are sure');
 								$rootScope.$broadcast('token:remove', _token);
 							}
 						}

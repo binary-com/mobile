@@ -10,10 +10,8 @@ angular
 	.module('binary')
 	.directive('purchase',[
 		'websocketService',
-		'alertService',
-		'$rootScope',
         'appStateService',
-		function(websocketService, alertService, $rootScope, appStateService) {
+		function(websocketService, appStateService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/purchase.template.html',

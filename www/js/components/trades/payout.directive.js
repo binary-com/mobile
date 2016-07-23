@@ -9,12 +9,11 @@
 angular
 	.module('binary')
 	.directive('payout',[
-		'websocketService',
 		'marketService',
 		'proposalService',
 		'delayService',
         'appStateService',
-		function(websocketService, marketService, proposalService, delayService, appStateService) {
+		function(marketService, proposalService, delayService, appStateService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/trades/payout.template.html',
@@ -38,40 +37,29 @@ angular
 
 				scope.$parent.$watch('proposalRecieved', function(_proposal){
 					if (_proposal) {
-						var netProfit = parseFloat(_proposal.payout) - parseFloat(_proposal.ask_price);
-						_proposal.netProfit =  (isNaN(netProfit) || netProfit < 0) ? '0' : netProfit.toFixed(2);
-						scope.proposal = _proposal;
-                        scope.proposalError = null;
+                        scope.$applyAsync(function(){
+                            var netProfit = parseFloat(_proposal.payout) - parseFloat(_proposal.ask_price);
+                            _proposal.netProfit =  (isNaN(netProfit) || netProfit < 0) ? '0' : netProfit.toFixed(2);
+                            scope.proposal = _proposal;
+                            scope.proposalError = null;
 
-                        if(scope.$parent && scope.$parent.purchaseFrom){
-                            scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", true);
-                        }
-                        
-                        if(!scope.$$phase){
-                            scope.$apply();
-                        }
+                            if(scope.$parent && scope.$parent.purchaseFrom){
+                                scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", true);
+                            }
+                        });
 					}
 				});
 
-                scope.$on('purchase:error', function(e, error){
-                    if(scope.$parent.purchaseFrom){
-                        scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", false);
-                    }
-                    
-                    if(!scope.$$phase){
-                        scope.$apply();
-                    }
-                });
                 scope.$on('proposal:error', function(e, error){
-                    scope.proposalError = error;
 
-                    if(scope.$parent.purchaseFrom){
-                        scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", false);
-                    }
+                    scope.$applyAsync(function(){
+                        scope.proposalError = error;
+
+                        if(scope.$parent.purchaseFrom){
+                            scope.$parent.purchaseFrom.amount.$setValidity("InvalidAmount", false);
+                        }
+                    });
                     
-                    if(!scope.$$phase){
-                        scope.$apply();
-                    }
                 });
 
 				function roundNumber(_newAmount, _oldAmount) {
@@ -93,10 +81,10 @@ angular
 				};
 
 				scope.delayedUpdateProposal = function delayedUpdateProposal() {
-                    appStateService.waitForProposal = true;
-                    if(!scope.$$phase){
-                        scope.$apply();
-                    }
+                    scope.$applyAsync(function(){
+                        appStateService.waitForProposal = true;
+                    });
+
 					delayService.update('updateProposal', updateProposal, minimumUpdateDelay);
 				};
 
@@ -105,8 +93,6 @@ angular
 				};
 				
 
-				// TODO: limit to the account balance for stake
-				// TODO: figure out how to handle it for payout
 				scope.addAmount = function() {
 					var amount = parseFloat(scope.amount);
                     

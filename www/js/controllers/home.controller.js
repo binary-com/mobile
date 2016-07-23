@@ -9,7 +9,7 @@
 angular
 	.module('binary')
 	.controller('HomeController',
-		function($scope, $state, websocketService, accountService) {
+		function($scope, $state, accountService, analyticsService) {
 			var init = function() {
 
                 // send track view to Google Analytics

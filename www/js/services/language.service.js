@@ -39,7 +39,6 @@ angular
 
 			};
 
-			// TODO: remove
 			this.read = function() {
 				var language = localStorage['language'];
 				return language ? language : 'en';

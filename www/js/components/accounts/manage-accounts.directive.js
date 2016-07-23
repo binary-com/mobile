@@ -17,8 +17,11 @@ angular
         'marketService',
         'proposalService',
         'appStateService',
+        '$ionicLoading',
 		function(accountService, alertService, cleanupService, 
-            $state, languageService, marketService, proposalService, appStateService) {
+                $state, languageService, marketService, 
+                proposalService, appStateService, $ionicLoading) 
+        {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/manage-accounts.template.html',
@@ -28,17 +31,15 @@ angular
                 scope.accounts = accountService.getAll();
 
 				scope.$on('authorize', function(e, response, reqId) {
-					// TODO: Add spinner
-					scope.showSpinner = false;
+                    $ionicLoading.hide();
 					if(reqId === requestId){
                         if (response) {
                             if (accountService.isUnique(response.loginid)) {
-                                accountService.add(response);
-                                accountService.setDefault(response.token);
-                                scope.accounts = accountService.getAll();
-                                if(!scope.$$phase){
-                                    scope.$apply();
-                                }
+                                scope.$applyAsync(function(){
+                                    accountService.add(response);
+                                    accountService.setDefault(response.token);
+                                    scope.accounts = accountService.getAll();
+                                });
                             } else {
                                 if (scope.settingDefault) {
                                     scope.settingDefault = false;
@@ -57,11 +58,10 @@ angular
 				});
 
 				scope.$on('token:remove', function(e, response) {
-					accountService.remove(response);
-					scope.accounts = accountService.getAll();
-					if(!scope.$$phase){
-						scope.$apply();
-					}
+                    scope.$applyAsync(function(){
+                        accountService.remove(response);
+                        scope.accounts = accountService.getAll();
+                    });
 				});
 
                 var cleanLocalData = function(){
@@ -73,6 +73,7 @@ angular
                 };
 
 				scope.addAccount = function(_token) {
+                    $ionicLoading.show();
                     requestId = new Date().getTime();
 					scope.showSpinner = false;
 					// Validate the token
@@ -83,6 +84,7 @@ angular
                         
                         accountService.validate(_token, {req_id: requestId});
 					} else {
+                        $ionicLoading.hide();
 						alertService.accountError.tokenNotValid();
 					}
 				};
@@ -98,6 +100,7 @@ angular
                     cleanLocalData();                    
 
 					accountService.setDefault(_token);
+                    $ionicLoading.show();
 					accountService.validate(null, {req_id: requestId});
 					scope.accounts = accountService.getAll();
 				};
