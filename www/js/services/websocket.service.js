@@ -59,9 +59,9 @@ angular
 				//dataStream = new WebSocket('wss://www.binaryqa07.com/websockets/v3?l=' + language);
 
 				dataStream.onopen = function() {
-                    
+
                     sendMessage({ping: 1});
-                    
+
                     // CLEANME
                     // Authorize the default token if it's exist
                     var token = localStorageService.getDefaultToken();
@@ -75,14 +75,14 @@ angular
                         sendMessage(data);
 
                     }
-                    
+
                     console.log('socket is opened');
                     $rootScope.$broadcast('connection:ready');
-					
+
 					// if(typeof(analytics) !== "undefined"){
 					// 	analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
 					// }
-					
+
 					//dataStream.send(JSON.stringify({ping: 1}));
 				};
 
@@ -166,6 +166,12 @@ angular
                             //sessionStorage.currencies = JSON.stringify(message.payout_currencies);
                             $rootScope.$broadcast('currencies', message.payout_currencies);
                             break;
+												case 'landing_company_details':
+													$rootScope.$broadcast('landing_company_details', message.landing_company_details);
+													break;
+											  case 'reality_check':
+												$rootScope.$broadcast('reality_check', message.reality_check);
+													break;
                         case 'proposal':
                             if(message.proposal){
                                 $rootScope.$broadcast('proposal', message.proposal);
@@ -241,7 +247,7 @@ angular
                 var data = {
 					authorize: _token
 				};
-                
+
                 for(key in extraParams){
                     if(extraParams.hasOwnProperty(key)){
                         data[key] = extraParams[key];
@@ -329,11 +335,23 @@ angular
 					};
 					sendMessage(data);
 				},
+				landingCompanyDetails: function(company){
+					var data = {
+  					landing_company_details: company
+					};
+					sendMessage(data);
+				},
+				realityCheck: function(){
+					var data = {
+  					"reality_check": 1
+					};
+					sendMessage(data);
+				},
 				profitTable: function(params) {
 					var data = {
 						profit_table: 1
 					};
-                    
+
                     for(key in params){
                         if(params.hasOwnProperty(key)){
                             data[key] = params[key]
@@ -351,7 +369,7 @@ angular
                 openContract: function(contractId, extraParams){
                     var data = {};
                     data.proposal_open_contract = 1;
-                    
+
                     if(contractId){
                         data.contract_id = contractId;
                     }
@@ -372,7 +390,7 @@ angular
                     sendMessage(data);
                 }
 			};
-            
+
             websocketService.closeConnection = function(){
                 if(dataStream){
                     dataStream.close();
