@@ -80,10 +80,11 @@ You need to update the translation branch every time you make a change in the de
 vim en.json # Change the language file 
 git commit -am 'Language file updated'
 git checkout translation
-gulp po2json
+gulp json2po
 ```
 ### Update language files with completed translations
-In order to update the language files with the most recent translations simply run po2json
+In order to update the language files with the most recent translations run po2json. Please be aware that the script needs to know about the completed translations, to do so it will find the commits after a commit with message **Updated translation files with the recent changes** with **100.0%** in their message and assumes the files changed in those commits as completed translations.
+If you changed any language file manually in a commit and you want po2json to only translate commits after your change (e.g. corrected a mistake and waited till translations are corrected too), you need to set **Updated translation files with the recent changes** as the message for your commit (Or create an empty commit with this message after your commit). 
 ```
 git checkout translation
 gulp po2json
