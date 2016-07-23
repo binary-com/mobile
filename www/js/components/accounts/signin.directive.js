@@ -15,16 +15,12 @@ angular
 		'websocketService',
 		'alertService',
 		'$state',
-		'$ionicPopup',
-        '$compile',
         '$ionicLoading',
 		function(accountService,
 				languageService,
 				websocketService,
 				alertService,
 				$state,
-				$ionicPopup,
-                $compile,
                 $ionicLoading) {
 		return {
 			restrict: 'E',
@@ -70,8 +66,6 @@ angular
 				 */
 				scope.signIn = function() {
 					var _token = scope.token;
-					// Set the user's language
-					//languageService.update(scope.language);
 
 					// Validate the token
 					if(_token && _token.length === 15) {

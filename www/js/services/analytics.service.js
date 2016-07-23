@@ -17,6 +17,19 @@ angular
                         if(typeof(analytics) !== "undefined"){
                             analytics.trackView(_view);
                         }
+                    },
+                    trackEvent: function(id, symbole, contractType, payout){
+                        if(typeof(analytics) !== "undefined"){
+                            analytics.trackEvent(id, symbole, contractType, payout);
+                        }
+                    }
+                };
+
+                factory.amplitude = {
+                    logEvent: function(title, data){
+                        if(amplitude !== "undefined"){
+                            amplitude.logEvent(title, data);
+                        }
                     }
                 }
 

@@ -18,19 +18,16 @@
  					scope.isConnectionError = false;
 
  					scope.$on("connection:error", function(){
- 						scope.isConnectionError = true;
-
- 						if(!scope.$$phase){
- 							scope.$apply();
- 						}
+                        scope.$applyAsync(function(){
+ 						    scope.isConnectionError = true;
+                        });
  					});
 
  					scope.$on("connection:ready", function(){
- 						scope.isConnectionError = false;
+                        scope.$applyAsync(function(){
+     						scope.isConnectionError = false;
+                        });
 
- 						if(!scope.$$phase){
- 							scope.$apply();
- 						}
  					});
  				}
  			}
