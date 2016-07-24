@@ -30,13 +30,15 @@
                             return;
                         }
 
-                        if(!scope.$$phase){
+                        scope.$applyAsync(function(){
                             scope.showScopeMessage = !accountService.checkScope(['READ', 'TRADE']);
-                        }
+                        });
                     });
 
                     scope.$on('logout', function(e){
-                        scope.showScopeMessage = false;
+                        scope.$applyAsync(function(){
+                            scope.showScopeMessage = false;
+                        });
                     });
                 }
             };

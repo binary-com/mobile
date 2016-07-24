@@ -18,22 +18,24 @@ angular
 			templateUrl: 'templates/components/utils/app-version.template.html',
 			link: function(scope){
 				$ionicPlatform.ready(function(){
-					if(window.cordova){
-						cordova.getAppVersion(function(version){
-							scope.appVersion = version;
-						}, function(err){
-							console.log(err);
-						});
-					}
-                    else{
-                        appVersionService.getAppVersion()
-                            .success(function(data){
-                                scope.appVersion = data.version;
-                            })
-                            .error(function(data){
-                                scope.appVersion = "0.0.0"
+                    scope.$applyAsync(function(){
+                        if(window.cordova){
+                            cordova.getAppVersion(function(version){
+                                scope.appVersion = version;
+                            }, function(err){
+                                console.log(err);
                             });
-                    }
+                        }
+                        else{
+                            appVersionService.getAppVersion()
+                                .success(function(data){
+                                    scope.appVersion = data.version;
+                                })
+                                .error(function(data){
+                                    scope.appVersion = "0.0.0"
+                                });
+                        }
+                    });
 				});
 			}
 		}

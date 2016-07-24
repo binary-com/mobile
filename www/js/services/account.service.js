@@ -84,9 +84,6 @@ angular
 				}
 
 				validate(_token, extraParams);
-				// setInterval(function() {
-				// 	validate(_token);
-				// }, 1000);
 			};
 
 			/**
