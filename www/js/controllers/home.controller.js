@@ -9,27 +9,25 @@
 angular
 	.module('binary')
 	.controller('HomeController',
-		function($scope, $state, websocketService, accountService, localStorageService) {
+		function($scope, $state, accountService, localStorageService, analyticsService) {
 			var init = function() {
                 $scope.hasWSUrl = true;
                 $scope.wsUrl = "wss://www2.binaryws.com/websockets/v3";
                 $scope.appId = 10;
  
                 if(!localStorageService.getWSUrl()){
-                    $scope.hasWSUrl = false;
-
-                   if(!$scope.$$phase){
-                       $scope.$apply();
-                   }
+                    $scope.$applyAsync(function(){
+                        $scope.hasWSUrl = false;
+                    });
                    return;
                 }
 
-				if(typeof(analytics) !== "undefined"){
-					analytics.trackView("Home");
-				}
+                // send track view to Google Analytics
+                analyticsService.google.trackView("Home");
 
-				//websocketService.init();
+                // Check that is saved any default account or not
 				if (accountService.hasDefault()) {
+                    // Login to the server if there is any default account
 					accountService.validate();
 				} else {
 					$state.go('signin');
@@ -44,7 +42,11 @@ angular
 
 			init();
 
-			$scope.$on('authorize', function(e, response) {
+			/**
+             * wait untile authorization and decide 
+             * to redirect user  to the proper page
+             */
+            $scope.$on('authorize', function(e, response) {
 				if (response) {
 					$state.go('options');
 				} else {

@@ -10,9 +10,8 @@ angular
 	.module('binary')
 	.directive('marketsOption',[
 		'marketService',
-		'proposalService',
 		'alertService',
-		function(marketService, proposalService, alertService) {
+		function(marketService, alertService) {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/options/markets.template.html',
@@ -24,29 +23,27 @@ angular
 				 * @param  {String} _market Selected Market
 				 */
 				var updateSymbols = function(_market) {
-					scope.symbols = marketService.getAllSymbolsForAMarket(_market);
-					//marketService.getActiveTickSymbolsForMarket(_market);
-					if (scope.symbols.length > 0) {
-						scope.$parent.selected.symbol = marketService.getDefault.symbol(_market, scope.symbols);
-						marketService.getSymbolDetails(scope.$parent.selected.symbol);
-					}
-					else{
-						// If there is not any symbol that has tick support, a empty array broadcast for symbol
-						scope.$broadcast('symbol', []);
+                    scope.$applyAsync(function(){
+                        scope.symbols = marketService.getAllSymbolsForAMarket(_market);
+                        if (scope.symbols.length > 0) {
+                            scope.$parent.selected.symbol = marketService.getDefault.symbol(_market, scope.symbols);
+                            marketService.getSymbolDetails(scope.$parent.selected.symbol);
+                        }
+                        else{
+                            // If there is not any symbol that has tick support, a empty array broadcast for symbol
+                            scope.$broadcast('symbol', []);
 
-						if(scope.showSymbolWarning){
-							scope.showSymbolWarning = false;
-							alertService.displaySymbolWarning('alert.no_underlying');
-							scope.$watch(function(){ return scope.$parent.selected.market;}, function(newVal, oldVal){
-								if(newVal !== oldVal)
-									scope.showSymbolWarning = true;
-							});
-						}
-					}
-
-					if(!scope.$$phase) {
-						scope.$apply();
-					}
+                            if(scope.showSymbolWarning){
+                                scope.showSymbolWarning = false;
+                                alertService.displaySymbolWarning('alert.no_underlying');
+                                scope.$watch(function(){ return scope.$parent.selected.market;}, function(newVal, oldVal){
+                                    if(newVal !== oldVal)
+                                        scope.showSymbolWarning = true;
+                                });
+                            }
+                        }
+                    });
+					
 				};
 
 				/**
@@ -57,31 +54,26 @@ angular
 				var init = function() {
 					if( marketService.hasActiveSymobols() && marketService.hasAssetIndex() ){
 						try{
-							marketService.fixOrder();
-							var markets = marketService.getActiveMarkets();
-							scope.market = {
-								forex: markets.indexOf('forex') !== -1  ? true : false,
+                            scope.$applyAsync(function(){
+                                marketService.fixOrder();
+                                var markets = marketService.getActiveMarkets();
+                                scope.market = {
+                                    forex: markets.indexOf('forex') !== -1  ? true : false,
+                                };
 
-                                //FIXME Should be change after changing Random to Volitality-Indices permenantly
-								//volidx: (markets.indexOf('volidx') + markets.indexOf('random')) >= 0 ? true : false
-							};
+                                if(markets.indexOf('volidx') >= 0){
+                                    scope.market.volidx = true;
+                                }
+                                else if(markets.indexOf('random') >= 0){
+                                    scope.market.random = true;
+                                }
 
-                            //FIXME Should be change after changing Random to Volitality-Indices permenantly
-                            if(markets.indexOf('volidx') >= 0){
-                                scope.market.volidx = true;
-                            }
-                            else if(markets.indexOf('random') >= 0){
-                                scope.market.random = true;
-                            }
-
-							scope.$parent.selected.market = marketService.getDefault.market(scope.market);
+                                scope.$parent.selected.market = marketService.getDefault.market(scope.market);
 
 
-							updateSymbols(scope.$parent.selected.market);
+                                updateSymbols(scope.$parent.selected.market);
+                            });
 
-							if(!scope.$$phase) {
-								scope.$apply();
-							}
 						}
 						catch(error){
 							console.log(error);
@@ -96,7 +88,6 @@ angular
 				});
 
 				scope.$on('assetIndex:updated', function(e, _symbol){
-					//updateSymbols(scope.$parent.selected.market);
     					init();
 				});
 

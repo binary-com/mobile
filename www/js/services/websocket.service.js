@@ -15,7 +15,7 @@ angular
 			var messageBuffer = [];
 
 			var waitForConnection = function(callback) {
-				if (dataStream.readyState === 3) {
+				if (!dataStream || dataStream.readyState === 3) {
 					init();
 					setTimeout(function() {
 						waitForConnection(callback);
@@ -66,13 +66,11 @@ angular
                 wsUrl = wsUrl.replace(/\?l=\w{2}/g, "");
 
 				dataStream = new WebSocket(wsUrl + '?app_id='+ appId +'&l=' + language );
-				//dataStream = new WebSocket('wss://www.binaryqa07.com/websockets/v3?l=' + language);
 
 				dataStream.onopen = function() {
                     
                     sendMessage({ping: 1});
                     
-                    // CLEANME
                     // Authorize the default token if it's exist
                     var token = localStorageService.getDefaultToken();
                     if(token){
@@ -89,11 +87,6 @@ angular
                     console.log('socket is opened');
                     $rootScope.$broadcast('connection:ready');
 					
-					// if(typeof(analytics) !== "undefined"){
-					// 	analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
-					// }
-					
-					//dataStream.send(JSON.stringify({ping: 1}));
 				};
 
 				dataStream.onmessage = function(message) {
@@ -109,7 +102,6 @@ angular
 				};
 
 				dataStream.onerror = function(e) {
-					//console.log('error in socket ', e);
 					if(e.target.readyState == 3){
 						$rootScope.$broadcast('connection:error');
 					}
@@ -173,7 +165,6 @@ angular
                             }
                             break;
                         case 'payout_currencies':
-                            //sessionStorage.currencies = JSON.stringify(message.payout_currencies);
                             $rootScope.$broadcast('currencies', message.payout_currencies);
                             break;
                         case 'proposal':
@@ -228,22 +219,11 @@ angular
                             $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
                             break;
                         default:
-                            //console.log('another message type: ', message);
                     }
 				}
 			};
 
 			var websocketService ={};
-
-//			websocketService.init = function() {
-//				setInterval(function restart() {
-//					if (!dataStream || dataStream.readyState === 3) {
-//						init();
-//					}
-//					return restart;
-//				}(), 1000);
-//			};
-
 			websocketService.authenticate = function(_token, extraParams) {
 				extraParams = null || extraParams;
                 appStateService.isLoggedin = false;

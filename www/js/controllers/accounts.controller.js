@@ -10,8 +10,7 @@
 angular
 	.module('binary')
 	.controller('AccountsController',
-		function($scope, $rootScope, $state, $window, $ionicPopup,
-            websocketService, accountService, alertService,
+		function($scope, $state, websocketService, accountService, alertService,
             proposalService, appStateService, marketService,
             localStorageService) {
 
