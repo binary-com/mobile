@@ -10,24 +10,26 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, $ionicSlideBoxDelegate, marketService,
-            proposalService, websocketService, accountService, alertService,
-            appStateService) {
+		function($scope, $state, proposalService, 
+                websocketService, accountService, 
+                alertService, appStateService, analyticsService) {
 
             appStateService.waitForProposal = false;
 
 			window.addEventListener('native.keyboardhide', function(e) {
-				$scope.hideFooter = false;
-				$scope.$apply();
+				$scope.$applyAsync(function(){
+                    $scope.hideFooter = false;
+                });
+				
 			});
 
 			window.addEventListener('native.keyboardshow', function(e) {
-				$scope.hideFooter = true;
-				$scope.$apply();
+                $scope.$applyAsync(function(){
+				    $scope.hideFooter = true;
+                });
 			});
 
             $scope.setTradeMode = function(mode){
-                //$scope.tradeMode = mode;
                 appStateService.tradeMode = mode;
             }
 
@@ -37,9 +39,8 @@ angular
 
 			var init = function () {
 
-				if(typeof(analytics) !== "undefined"){
-					analytics.trackView("Trade");
-				}
+                analyticsService.google.trackView("Trade");
+
 
 
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
@@ -49,17 +50,21 @@ angular
 			};
 
 			init();
+			websocketService.sendRequestFor.forgetAll('balance');
+			websocketService.sendRequestFor.balance();
 
 			$scope.$on('proposal', function(e, response) {
-				$scope.proposalRecieved = response;
-                appStateService.waitForProposal = false;
-				$scope.$apply();
+                $scope.$applyAsync(function(){
+                    $scope.proposalRecieved = response;
+                    appStateService.waitForProposal = false;
+                });
 			});
 
 			$scope.$on('currencies', function(e, response){
 				if(response && response.length > 0){
-					$scope.currency = response[0];
-					$scope.$apply();
+                    $scope.$applyAsync(function(){
+    					$scope.currency = response[0];
+                    });
 
 					var proposal = proposalService.get();
 					if(proposal){
@@ -70,29 +75,29 @@ angular
 				}
 			});
 
-			websocketService.sendRequestFor.forgetAll('balance');
-			websocketService.sendRequestFor.balance();
 			
 			$scope.$on('balance', function(e, _balance) {
-				$scope.account = _balance;
-				$scope.$apply();
+                $scope.$applyAsync(function(){
+    				$scope.account = _balance;
+                });
 			});
 
 			$scope.$on('purchase', function(e, _contractConfirmation) {
 				if (_contractConfirmation.buy) {
-					$scope.setTradeMode(false);
-                    appStateService.purchaseMode = true;
-					$scope.contract = {
-						contract_id: _contractConfirmation.buy.contract_id,
-						longcode: _contractConfirmation.buy.longcode,
-						payout: $scope.proposalRecieved.payout,
-						cost: _contractConfirmation.buy.buy_price,
-						profit: parseFloat($scope.proposalRecieved.payout) - parseFloat(_contractConfirmation.buy.buy_price),
-						balance: _contractConfirmation.buy.balance_after,
-						transaction_id: _contractConfirmation.buy.transaction_id
-					};
-					websocketService.sendRequestFor.portfolio();
-					$scope.$apply();
+                    $scope.$applyAsync(function(){
+                        $scope.setTradeMode(false);
+                        appStateService.purchaseMode = true;
+                        $scope.contract = {
+                            contract_id: _contractConfirmation.buy.contract_id,
+                            longcode: _contractConfirmation.buy.longcode,
+                            payout: $scope.proposalRecieved.payout,
+                            cost: _contractConfirmation.buy.buy_price,
+                            profit: parseFloat($scope.proposalRecieved.payout) - parseFloat(_contractConfirmation.buy.buy_price),
+                            balance: _contractConfirmation.buy.balance_after,
+                            transaction_id: _contractConfirmation.buy.transaction_id
+                        };
+                        websocketService.sendRequestFor.portfolio();
+                    });
 				} else if (_contractConfirmation.error){
 					alertService.displayError(_contractConfirmation.error.message);
 					$('.contract-purchase button').attr('disabled', false);
@@ -104,8 +109,6 @@ angular
 				}
 				websocketService.sendRequestFor.balance();
 
-				// it's moved to first if
-				// websocketService.sendRequestFor.portfolio();
 			});
 
             $scope.$on('purchase:error', function(e, _error){
@@ -116,33 +119,32 @@ angular
 
 			$scope.$on('contract:finished', function (e, _contract){
 				if(_contract.exitSpot){
-					if(_contract.result === "win"){
-						$scope.contract.buyPrice = $scope.contract.cost;
-						$scope.contract.profit = $scope.contract.profit;
-						$scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.profit;
-                        websocketService.sendRequestFor.openContract();
-					}
-					else if(_contract.result === "lose"){
-						$scope.contract.buyPrice = $scope.contract.cost;
-						$scope.contract.loss = $scope.contract.cost * -1;
-						$scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.loss;
-					}
-					$scope.contract.result = _contract.result;
-					
-                    // Unlock view to navigate
-                    appStateService.purchaseMode = false;
+                    $scope.$applyAsync(function(){
+                        if(_contract.result === "win"){
+                            $scope.contract.buyPrice = $scope.contract.cost;
+                            $scope.contract.profit = $scope.contract.profit;
+                            $scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.profit;
+                            websocketService.sendRequestFor.openContract();
+                        }
+                        else if(_contract.result === "lose"){
+                            $scope.contract.buyPrice = $scope.contract.cost;
+                            $scope.contract.loss = $scope.contract.cost * -1;
+                            $scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.loss;
+                        }
+                        $scope.contract.result = _contract.result;
+                        
+                        // Unlock view to navigate
+                        appStateService.purchaseMode = false;
 
-					var proposal = JSON.parse(localStorage.proposal);
-                    
-					// Send statistic to Google Analytics
-					if(typeof(analytics) !== 'undefined'){
-						analytics.trackEvent(
-							$scope.account.loginid,
-							proposal.symbol,
-							proposal.contract_type,
-							$scope.proposalRecieved.payout);
-					}
-                    //else{
+                        var proposal = JSON.parse(localStorage.proposal);
+                        
+                        // Send statistic to Google Analytics
+                        analyticsService.google.trackEvent(
+                            $scope.account.loginid,
+                            proposal.symbol,
+                            proposal.contract_type,
+                            $scope.proposalRecieved.payout);
+                        
                         var ampEventProperties = {
                                 Symbol: proposal.symbol,
                                 TradeType: proposal.contract_type,
@@ -153,14 +155,11 @@ angular
                                 result: _contract.result === "lose" ? "Lost": "Won"
                         }
                         // Send statistic to Amplitude
-                        amplitude.logEvent("Purchase", ampEventProperties);
-                    //}
-					
-                    proposalService.send();
+                        analyticsService.amplitude.logEvent("Purchase", ampEventProperties);
+                        
+                        proposalService.send();
 
-					if(!$scope.$$phase){
-						$scope.$apply();
-					}
+                    });
 				}
 			});
 

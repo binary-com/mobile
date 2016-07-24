@@ -10,15 +10,12 @@
 angular
 	.module('binary')
 	.controller('HelpController',
-		function($scope, $state, languageService) {
+		function($scope, $state, languageService, analyticsService) {
 
             var language = languageService.read();
-//            $scope.tokenUrl = "https://www.binary.com/user/api_tokenws?l=" + language.toUpperCase();
             $scope.tokenUrl = "https://www.binary.com/" + language.toLowerCase() +"/user/settings/api_tokenws.html";
 
-			if(typeof(analytics) !== "undefined"){
-					analytics.trackView("Help");
-			}
+            analyticsService.google.trackView("Help");
 
 			$scope.backToSignInPage = function() {
 				$state.go('signin');
