@@ -62,10 +62,10 @@ angular
 						//navigator.notification.alert(translation['alert.not_valid'], null, translation['alert.error'], 'OK');
 					});
 				},
-				tokenNotAuthenticated: function() {
+				tokenNotAuthenticated: function(message) {
 					$translate(['alert.error', 'alert.not_auth'])
 					.then(function (translation) {
-						displayAlert(translation['alert.error'], translation['alert.not_auth']);
+						displayAlert(message ? message : translation['alert.error'], translation['alert.not_auth']);
 					});
 				},
 				tokenNotUnique: function() {
