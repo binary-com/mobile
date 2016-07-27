@@ -114,114 +114,6 @@ angular
 				init(true);
 			})
 
-			var receiveMessage = function(_response) {
-				var message = JSON.parse(_response.data);
-
-				if (message) {
-                    if(message.error){
-                        if(message.error.code === 'InvalidToken'){
-                            localStorageService.manageInvalidToken();
-                        }
-                    }
-
-                    var messageType = message.msg_type;
-                    switch(messageType) {
-                        case 'authorize':
-                            if (message.authorize) {
-                                message.authorize.token = message.echo_req.authorize;
-                                window._trackJs.userId = message.authorize.loginid;
-                                appStateService.isLoggedin = true;
-                                appStateService.scopes = message.authorize.scopes;
-                                amplitude.setUserId(message.authorize.loginid);
-                                $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
-                            } else {
-                                if (message.hasOwnProperty('error') && message.error.code === 'InvalidToken') {
-                                  localStorageService.removeToken(message.echo_req.authorize);
-                                }
-                                $rootScope.$broadcast('authorize', false);
-                                appStateService.isLoggedin = false;
-                            }
-                            break;
-                        case 'active_symbols':
-                            var markets = message.active_symbols;
-                            var groupedMarkets = _.groupBy(markets, 'market');
-                            var openMarkets = {};
-                            for (var key in groupedMarkets) {
-                                if (groupedMarkets.hasOwnProperty(key)) {
-                                    if (groupedMarkets[key][0].exchange_is_open == 1) {
-                                        openMarkets[key] = groupedMarkets[key];
-                                    }
-                                }
-                            }
-                            if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
-                               sessionStorage.active_symbols = JSON.stringify(openMarkets);
-                               $rootScope.$broadcast('symbols:updated');
-                            }
-                            break;
-                        case 'asset_index':
-                            if ( !sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index) ) {
-                              sessionStorage.asset_index = JSON.stringify(message.asset_index);
-                              $rootScope.$broadcast('assetIndex:updated');
-                            }
-                            break;
-                        case 'payout_currencies':
-                            $rootScope.$broadcast('currencies', message.payout_currencies);
-                            break;
-                        case 'proposal':
-                            if(message.proposal){
-                                $rootScope.$broadcast('proposal', message.proposal);
-                            }
-                            else if(message.error){
-                                $rootScope.$broadcast('proposal:error', message.error);
-                            }
-                            break;
-                        case 'contracts_for':
-                            var symbol = message.echo_req.contracts_for;
-                            var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_type');
-                            $rootScope.$broadcast('symbol', groupedSymbol);
-                            break;
-                        case 'buy':
-                            if(message.error){
-                                $rootScope.$broadcast('purchase:error', message.error);
-                                alertService.displayError(message.error.message);
-                            }
-                            else{
-                                $rootScope.$broadcast('purchase', message);
-                            }
-                            break;
-                        case 'balance':
-                            if(!(message.error && message.error.code === "AlreadySubscribed")){
-                                $rootScope.$broadcast('balance', message.balance);
-                            }
-                            break;
-                        case 'tick':
-                            $rootScope.$broadcast('tick', message);
-                            break;
-                        case 'history':
-                            $rootScope.$broadcast('history', message);
-                            break;
-                        case 'candles':
-                            $rootScope.$broadcast('candles', message);
-                            break;
-                        case 'ohlc':
-                            $rootScope.$broadcast('ohlc', message);
-                            break;
-                        case 'portfolio':
-                            $rootScope.$broadcast('portfolio', message.portfolio);
-                            break;
-                        case 'profit_table':
-                            $rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
-                            break;
-                        case 'sell_expired':
-                            $rootScope.$broadcast('sell:expired', message.sell_expired);
-                            break;
-                        case 'proposal_open_contract':
-                            $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
-                            break;
-                        default:
-                    }
-				}
-			};
 
 			var websocketService ={};
 			websocketService.authenticate = function(_token, extraParams) {
@@ -368,6 +260,124 @@ angular
                     dataStream.close();
                 }
             };
+
+			var receiveMessage = function(_response) {
+				var message = JSON.parse(_response.data);
+
+				if (message) {
+                    if(message.error){
+                        if(message.error.code === 'InvalidToken'){
+                            localStorageService.manageInvalidToken();
+                        }
+                    }
+
+                    var messageType = message.msg_type;
+                    switch(messageType) {
+                        case 'authorize':
+                            if (message.authorize) {
+                                message.authorize.token = message.echo_req.authorize;
+                                window._trackJs.userId = message.authorize.loginid;
+                                appStateService.isLoggedin = true;
+                                appStateService.scopes = message.authorize.scopes;
+                                amplitude.setUserId(message.authorize.loginid);
+                                
+                                if(_.isEmpty(message.authorize.currency)){
+                                    websocketService.sendRequestFor.currencies();
+                                } else {
+                                    sessionStorage.currency = message.authorize.currency;
+                                }
+
+                                $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
+                            } else {
+                                var errorMessage = "Unexpected Error!"
+                                if (message.hasOwnProperty('error')) {
+                                  localStorageService.removeToken(message.echo_req.authorize);
+                                  errorMessage = message.error.message;
+                                }
+                                $rootScope.$broadcast('authorize', false, errorMessage);
+                                appStateService.isLoggedin = false;
+                            }
+                            break;
+                        case 'active_symbols':
+                            var markets = message.active_symbols;
+                            var groupedMarkets = _.groupBy(markets, 'market');
+                            var openMarkets = {};
+                            for (var key in groupedMarkets) {
+                                if (groupedMarkets.hasOwnProperty(key)) {
+                                    if (groupedMarkets[key][0].exchange_is_open == 1) {
+                                        openMarkets[key] = groupedMarkets[key];
+                                    }
+                                }
+                            }
+                            if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
+                               sessionStorage.active_symbols = JSON.stringify(openMarkets);
+                               $rootScope.$broadcast('symbols:updated');
+                            }
+                            break;
+                        case 'asset_index':
+                            if ( !sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index) ) {
+                              sessionStorage.asset_index = JSON.stringify(message.asset_index);
+                              $rootScope.$broadcast('assetIndex:updated');
+                            }
+                            break;
+                        case 'payout_currencies':
+                            $rootScope.$broadcast('currencies', message.payout_currencies);
+                            break;
+                        case 'proposal':
+                            if(message.proposal){
+                                $rootScope.$broadcast('proposal', message.proposal);
+                            }
+                            else if(message.error){
+                                $rootScope.$broadcast('proposal:error', message.error);
+                            }
+                            break;
+                        case 'contracts_for':
+                            var symbol = message.echo_req.contracts_for;
+                            var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_type');
+                            $rootScope.$broadcast('symbol', groupedSymbol);
+                            break;
+                        case 'buy':
+                            if(message.error){
+                                $rootScope.$broadcast('purchase:error', message.error);
+                                alertService.displayError(message.error.message);
+                            }
+                            else{
+                                $rootScope.$broadcast('purchase', message);
+                            }
+                            break;
+                        case 'balance':
+                            if(!(message.error && message.error.code === "AlreadySubscribed")){
+                                $rootScope.$broadcast('balance', message.balance);
+                            }
+                            break;
+                        case 'tick':
+                            $rootScope.$broadcast('tick', message);
+                            break;
+                        case 'history':
+                            $rootScope.$broadcast('history', message);
+                            break;
+                        case 'candles':
+                            $rootScope.$broadcast('candles', message);
+                            break;
+                        case 'ohlc':
+                            $rootScope.$broadcast('ohlc', message);
+                            break;
+                        case 'portfolio':
+                            $rootScope.$broadcast('portfolio', message.portfolio);
+                            break;
+                        case 'profit_table':
+                            $rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
+                            break;
+                        case 'sell_expired':
+                            $rootScope.$broadcast('sell:expired', message.sell_expired);
+                            break;
+                        case 'proposal_open_contract':
+                            $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
+                            break;
+                        default:
+                    }
+				}
+			};
 
 			return websocketService;
 	});
