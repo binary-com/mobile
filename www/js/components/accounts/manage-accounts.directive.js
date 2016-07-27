@@ -38,7 +38,6 @@ angular
                                 scope.$applyAsync(function(){
                                     accountService.add(response);
                                     accountService.setDefault(response.token);
-                                    accountService.getCurrencies();
                                     scope.accounts = accountService.getAll();
                                 });
                             } else {
