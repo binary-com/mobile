@@ -10944,8 +10944,15 @@ input::-webkit-inner-spin-button {
 .realitycheck .interval-input input {
   border: 1px solid #f2f2f2; }
 
+.realitycheck .popup-body p {
+  white-space: normal; }
+
 .getinterval .popup {
   width: 80vh; }
+
+@media only screen and (max-device-width: 480px) {
+  .realitycheck .popup-body p {
+    font-size: 12px; } }
 
 @media only screen and (max-device-width: 480px) {
   /*RU Language*/

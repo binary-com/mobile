@@ -13,9 +13,23 @@
 			border: 1px solid $lightgray;
 		}
 	}
+	.popup-body {
+		p {
+			white-space: normal;
+		}
+	}
 }
-.getinterval{
+.getinterval {
 	.popup {
 		width: 80vh;
+	}
+}
+@media only screen and (max-device-width: 480px) {
+	.realitycheck {
+		.popup-body {
+			p {
+				font-size: 12px;
+			}
+		}
 	}
 }
