@@ -11,7 +11,6 @@ angular
 					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
 				}
 				else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 1){
-					console.log('time to destroy it');
 					$timeout.cancel($scope.realityCheckTimeout);
 					appStateService.isChangedAccount = false;
 					appStateService.isRealityChecked = true;
