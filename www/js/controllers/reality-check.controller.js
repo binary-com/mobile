@@ -17,7 +17,9 @@ angular
 					appStateService.isRealityChecked = true;
 				}
 				else if(appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0){
-					console.log('initialize again');
+					if($scope.realityCheckTimeout){
+						$timeout.cancel($scope.realityCheckTimeout);
+					}
 					appStateService.isRealityChecked = false;
 					landingCompanyName = authorize.landing_company_name;
 					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
@@ -47,7 +49,7 @@ angular
 				if (!appStateService.isRealityChecked) {
 					$scope.realityCheck();
 				} else {
-					var period = $scope.getInterval('_interval') * 60000;
+					var period = $scope.getInterval('_interval') * 600;
 					$scope.realityCheckTimeout =	$timeout($scope.getRealityCheck, period);
 
 				}
