@@ -32,8 +32,8 @@ angular
 
 				scope.$on('authorize', function(e, response, reqId) {
                     $ionicLoading.hide();
-					if(reqId === requestId){
-                        if (response) {
+                    if(response){
+					    if(reqId === requestId){
                             if (accountService.isUnique(response.loginid)) {
                                 scope.$applyAsync(function(){
                                     accountService.add(response);
@@ -50,11 +50,11 @@ angular
                             
                             // reloading language setting
                             languageService.set();
-
-                        } else {
-                            alertService.accountError.tokenNotAuthenticated();
                         }
+                    } else {
+                        alertService.accountError.tokenNotAuthenticated(reqId);
                     }
+                    
 				});
 
 				scope.$on('token:remove', function(e, response) {
@@ -78,7 +78,6 @@ angular
 					scope.showSpinner = false;
 					// Validate the token
 					if (_token && _token.length === 15) {
-						scope.showSpinner = true;
                         
                         cleanLocalData(); 
                         
