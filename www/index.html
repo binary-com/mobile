@@ -28,7 +28,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="mobile-web-app-capable" content="yes">
-    
+
     <style id="antiClickjack">body{display:none !important;}</style>
     <script type="text/javascript">
         if (self === top) {
@@ -138,6 +138,7 @@
 	<script src="js/controllers/options.controller.js"></script>
 	<script src="js/controllers/accounts.controller.js"></script>
 	<script src="js/controllers/oauth-redirect.controller.js"></script>
+	<script src="js/controllers/reality-check.controller.js"></script>
 
 	<script src="js/components/accounts/signin.directive.js"></script>
 	<script src="js/components/accounts/change-account.directive.js"></script>
@@ -152,6 +153,7 @@
 	<script src="js/components/options/ticks.directive.js"></script>
 	<script src="js/components/options/digits.directive.js"></script>
 	<script src="js/components/options/payout-stake.directive.js"></script>
+	<script src="js/components/reality-check/reality-check.directive.js"></script>
 
 	<script src="js/components/trades/longcode.directive.js"></script>
 	<script src="js/components/trades/trade-contract-chart.directive.js"></script>
@@ -179,6 +181,7 @@
     <app-update></app-update>
     <scope-message></scope-message>
     <currency></currency>
+	<reality-check></reality-check>
 	<ion-nav-view can-swipe-back="false"></ion-nav-view>
 </body>
 
