@@ -68,6 +68,13 @@ angular
 			};
 
 			$scope.navigateToTradePage = function() {
+                var proposal = proposalService.get();
+
+                if(proposal.currency !== sessionStorage.currency){
+                    proposal.currency = sessionStorage.currency;
+                    proposalService.update(proposal);
+                }
+
 				$state.go('trade');
 			};
 
@@ -77,7 +84,7 @@ angular
 					contract_type: $scope.selected.tradeType,
 					duration: $scope.selected.tick,
 					basis: $scope.selected.basis,
-					currency: accountService.getDefault().currency,
+					currency: _.isEmpty(accountService.getDefault().currency) ? sessionStorage.currency : accountService.getDefault().currency,
 					passthrough: {
 						market: $scope.selected.market
 					},
@@ -113,12 +120,6 @@ angular
                 });
              });
  
-            $scope.$on('currencies', function(e, response){
-                if(response && response.length > 0){
-                    sessionStorage.currencis = JSON.stringify(response);
-                }
-            });
-
              function getTradePermission(){
                 return accountService.checkScope(['READ', 'TRADE']);
             }
