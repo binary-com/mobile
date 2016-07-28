@@ -1,0 +1,18 @@
+git .architect
+bootstrap.json
+build/node_modules/
+build/dist/
+build/.publish/
+ext/
+node_modules/
+bower_components/
+platforms/
+plugins/
+www/lib
+*.log
+.*.log
+*.sw*
+dist/
+.publish/
+*.crx
+*.pem
