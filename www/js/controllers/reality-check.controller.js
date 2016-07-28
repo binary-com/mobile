@@ -1,7 +1,7 @@
 angular
 	.module('binary')
 	.controller('RealityCheckController',
-		function($scope, $rootScope, $state, $timeout, websocketService, appStateService, accountService, $ionicPopup, alertService, $translate, languageService, proposalService, marketService) {
+		function($scope, $rootScope, $state, $timeout, $location, websocketService, appStateService, accountService, $ionicPopup, alertService, $translate, languageService, proposalService, marketService) {
 			var landingCompanyName;
 			$scope.$on('authorize', function(e, authorize) {
 				if (!appStateService.isRealityChecked && authorize.is_virtual == 0) {
@@ -91,17 +91,17 @@ angular
 				websocketService.sendRequestFor.realityCheck();
 			}
 			$scope.sessionTime = function(reality_check) {
-				$scope.date = reality_check.start_time * 1000;
-				$scope.start_time = new Date($scope.date);
-				$scope.realityCheckitems.start_time = $scope.start_time.toString();
-				$scope.now = new Date();
-				$scope.realityCheckitems.currentTime = $scope.now.toString();
-				$scope.duration = ($scope.now - $scope.date);
-				$scope.realityCheckitems.days = Math.floor($scope.duration / 864e5);
-				$scope.hour = $scope.duration - ($scope.realityCheckitems.days * 864e5);
-				$scope.realityCheckitems.hours = Math.floor($scope.hour / 36e5);
-				$scope.min = $scope.duration - ($scope.realityCheckitems.hours * 36e5);
-				$scope.realityCheckitems.minutes = Math.floor($scope.min / 60000);
+								$scope.date = reality_check.start_time * 1000;
+								$scope.start_time = new Date($scope.date);
+								$scope.realityCheckitems.start_time = $scope.start_time.toString();
+								$scope.now = Date.now();
+								$scope.realityCheckitems.currentTime = new Date($scope.now).toString();
+								$scope.duration = ($scope.now - $scope.date);
+								$scope.realityCheckitems.days = Math.floor($scope.duration / 864e5);
+								$scope.hour = $scope.duration - ($scope.realityCheckitems.days * 864e5);
+								$scope.realityCheckitems.hours = Math.floor($scope.hour / 36e5);
+								$scope.min = $scope.duration - ($scope.realityCheckitems.hours * 36e5);
+								$scope.realityCheckitems.minutes = Math.floor($scope.min / 60000);
 			}
 
 			$scope.logout = function() {
@@ -146,6 +146,7 @@ angular
 								$scope,
 								'templates/components/reality-check/reality-check-result.template.html', [{
 									text: translation['realitycheck.logout'],
+									type: 'button-secondary',
 									onTap: function() {
 										$scope.logout();
 									}

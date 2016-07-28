@@ -10936,6 +10936,9 @@ input::-webkit-inner-spin-button {
 
 .realitycheck .popup {
   width: 100vh; }
+  .realitycheck .popup .button-secondary {
+    color: #000 !important;
+    background: #c4c4c4 !important; }
 
 .realitycheck .popup-head h3.popup-title {
   color: #e98024 !important;

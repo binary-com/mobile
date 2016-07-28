@@ -1,6 +1,10 @@
 .realitycheck {
 	.popup {
 		width: 100vh;
+		.button-secondary{
+			color: #000!important;
+			background: $gray!important;
+		}
 	}
 	.popup-head {
 		h3.popup-title {
