@@ -41,42 +41,43 @@ angular
 			};
 
 			var init = function(forced) {
-                forced = forced || false;
+				forced = forced || false;
 				var language = localStorage.language || 'en';
 
-                if(dataStream && dataStream.readyState !== 3 && !forced){
-                    return;
-                }
-                else if(dataStream && dataStream.readyState !== 0){
-                    dataStream.close();
-                }
+				if (dataStream && dataStream.readyState !== 3 && !forced) {
+					return;
+				} else if (dataStream && dataStream.readyState !== 0) {
+					dataStream.close();
+				}
 
-                dataStream = null;
+				dataStream = null;
 
-                appStateService.isLoggedin = false;
+				appStateService.isLoggedin = false;
 
-				dataStream = new WebSocket(config.wsUrl + '?app_id='+ config.app_id +'&l=' + language );
+				dataStream = new WebSocket(config.wsUrl + '?app_id=' + config.app_id + '&l=' + language);
 
 				dataStream.onopen = function() {
-                    
-                    sendMessage({ping: 1});
-                    
-                    // Authorize the default token if it's exist
-                    var token = localStorageService.getDefaultToken();
-                    if(token){
-                        var data = {
-                            authorize: token,
-                            passthrough: {
-                                type: "reopen-connection"
-                            }
-                        };
-                        sendMessage(data);
 
-                    }
-                    
-                    console.log('socket is opened');
-                    $rootScope.$broadcast('connection:ready');
-					
+					sendMessage({
+						ping: 1
+					});
+
+					// Authorize the default token if it's exist
+					var token = localStorageService.getDefaultToken();
+					if (token) {
+						var data = {
+							authorize: token,
+							passthrough: {
+								type: "reopen-connection"
+							}
+						};
+						sendMessage(data);
+
+					}
+
+					console.log('socket is opened');
+					$rootScope.$broadcast('connection:ready');
+
 				};
 
 				dataStream.onmessage = function(message) {
@@ -87,38 +88,38 @@ angular
 					console.log('socket is closed ', e);
 					init();
 					console.log('socket is reopened');
-                    appStateService.isLoggedin = false;
+					appStateService.isLoggedin = false;
 					$rootScope.$broadcast('connection:reopened');
 				};
 
 				dataStream.onerror = function(e) {
-					if(e.target.readyState == 3){
+					if (e.target.readyState == 3) {
 						$rootScope.$broadcast('connection:error');
 					}
-                    appStateService.isLoggedin = false;
+					appStateService.isLoggedin = false;
 				};
 
 			};
 
-			$rootScope.$on('language:updated', function(){
+			$rootScope.$on('language:updated', function() {
 				init(true);
 			})
 
 
-			var websocketService ={};
+			var websocketService = {};
 			websocketService.authenticate = function(_token, extraParams) {
 				extraParams = null || extraParams;
-                appStateService.isLoggedin = false;
+				appStateService.isLoggedin = false;
 
-                var data = {
+				var data = {
 					authorize: _token
 				};
-                
-                for(key in extraParams){
-                    if(extraParams.hasOwnProperty(key)){
-                        data[key] = extraParams[key];
-                    }
-                }
+
+				for (key in extraParams) {
+					if (extraParams.hasOwnProperty(key)) {
+						data[key] = extraParams[key];
+					}
+				}
 
 				sendMessage(data);
 			};
@@ -205,12 +206,12 @@ angular
 					var data = {
 						profit_table: 1
 					};
-                    
-                    for(key in params){
-                        if(params.hasOwnProperty(key)){
-                            data[key] = params[key]
-                        }
-                    }
+
+					for (key in params) {
+						if (params.hasOwnProperty(key)) {
+							data[key] = params[key]
+						}
+					}
 
 					sendMessage(data);
 				},
@@ -220,36 +221,48 @@ angular
 						sendMessage(data);
 					}
 				},
-                openContract: function(contractId, extraParams){
-                    var data = {};
-                    data.proposal_open_contract = 1;
-                    
-                    if(contractId){
-                        data.contract_id = contractId;
-                    }
+				openContract: function(contractId, extraParams) {
+					var data = {};
+					data.proposal_open_contract = 1;
 
-                    for(key in extraParams){
-                        if(extraParams.hasOwnProperty(key)){
-                            data[key] = extraParams[key]
-                        }
-                    }
+					if (contractId) {
+						data.contract_id = contractId;
+					}
 
-                    sendMessage(data);
-                },
-                sellExpiredContract: function(){
-                    var data = {
-                        sell_expired: 1
-                    };
+					for (key in extraParams) {
+						if (extraParams.hasOwnProperty(key)) {
+							data[key] = extraParams[key]
+						}
+					}
 
-                    sendMessage(data);
-                }
+					sendMessage(data);
+				},
+				sellExpiredContract: function() {
+					var data = {
+						sell_expired: 1
+					};
+
+					sendMessage(data);
+				},
+				landingCompanyDetails: function(company) {
+					var data = {
+						landing_company_details: company
+					};
+					sendMessage(data);
+				},
+				realityCheck: function() {
+					var data = {
+						"reality_check": 1
+					};
+					sendMessage(data);
+				}
 			};
-            
-            websocketService.closeConnection = function(){
-                if(dataStream){
-                    dataStream.close();
-                }
-            };
+
+			websocketService.closeConnection = function() {
+				if (dataStream) {
+					dataStream.close();
+				}
+			};
 
 			var receiveMessage = function(_response) {
 				var message = JSON.parse(_response.data);
@@ -364,10 +377,16 @@ angular
                         case 'proposal_open_contract':
                             $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
                             break;
+						case 'landing_company_details':
+							$rootScope.$broadcast('landing_company_details', message.landing_company_details);
+							break;
+						case 'reality_check':
+							$rootScope.$broadcast('reality_check', message.reality_check);
+							break;
                         default:
                     }
 				}
 			};
 
 			return websocketService;
-	});
+		});
