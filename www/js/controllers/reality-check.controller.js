@@ -48,7 +48,7 @@ angular
 				if (!appStateService.isRealityChecked) {
 					$scope.realityCheck();
 				} else {
-					var period = $scope.getInterval('_interval') * 600;
+					var period = $scope.getInterval('_interval') * 60000;
 					$scope.realityCheckTimeout =	$timeout($scope.getRealityCheck, period);
 
 				}
