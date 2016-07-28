@@ -19,6 +19,7 @@ angular
                 factory.waitForProposal = false;
                 factory.scopes = [];
                 factory.invalidTokenRemoved = false;
+                factory.isChangedAccount = false;
 
                 return factory;
             });

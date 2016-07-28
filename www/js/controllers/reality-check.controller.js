@@ -6,9 +6,23 @@ angular
 				landingCompanyName;
 
 			$scope.$on('authorize', function(e, authorize) {
-				if (!appStateService.isRealityChecked) {
+				if (!appStateService.isRealityChecked && authorize.is_virtual == 0) {
 					landingCompanyName = authorize.landing_company_name;
 					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
+				}
+				else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 1){
+					$timeout.cancel($scope.realityCheckTimeout);
+					appStateService.isChangedAccount = false;
+					appStateService.isRealityChecked = true;
+				}
+				else if(appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0){
+					if($scope.realityCheckTimeout){
+						$timeout.cancel($scope.realityCheckTimeout);
+					}
+					appStateService.isRealityChecked = false;
+					landingCompanyName = authorize.landing_company_name;
+					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
+					appStateService.isChangedAccount = false;
 				}
 			});
 			$scope.$on('landing_company_details', function(e, landingCompanyDetails) {
@@ -34,8 +48,9 @@ angular
 				if (!appStateService.isRealityChecked) {
 					$scope.realityCheck();
 				} else {
-					var period = $scope.getInterval('_interval') * 60000;
-					$timeout($scope.getRealityCheck, period);
+					var period = $scope.getInterval('_interval') * 600;
+					$scope.realityCheckTimeout =	$timeout($scope.getRealityCheck, period);
+
 				}
 			}
 
