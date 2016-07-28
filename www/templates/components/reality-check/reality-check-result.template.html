@@ -1,0 +1,98 @@
+<ion-item>
+	<ion-label>{{'realitycheck.login_time' | translate }}{{realityCheckitems.start_time}}</ion-label>
+	<ion-label>{{'realitycheck.current_time' | translate }}{{realityCheckitems.currentTime}}</ion-label>
+	<ion-label>
+		{{'realitycheck.days' | translate}}
+		{{realityCheckitems.days}}
+		{{'realitycheck.hours' | translate}}
+		{{realityCheckitems.hours}}
+		{{'realitycheck.minutes' | translate}}
+		{{realityCheckitems.minutes}}
+	</ion-label>
+
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.loginid' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.loginid}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.currency' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.currency}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.buy_amount' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.buy_amount}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.profit_loss' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.sell_amount - realityCheckitems.buy_amount}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.buy_count' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.buy_count}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.sell_count' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.sell_count}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.open_contract_count' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.open_contract_count}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.potential_profit' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.potential_profit}}
+		</div>
+	</div>
+
+	<!--
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.start_time' || translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.start_time}}
+		</div>
+	</div> -->
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.interval' | translate}}
+		</div>
+		<div class="col interval-input">
+			<input ng-model="data.interval" type="number" min="10" max="120"/>
+		</div>
+	</div>
+</ion-item>

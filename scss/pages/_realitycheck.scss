@@ -1,0 +1,21 @@
+.realitycheck {
+	.popup {
+		width: 100vh;
+	}
+	.popup-head {
+		h3.popup-title {
+			color: $orange!important;
+			font-size: 28px!important;
+		}
+	}
+	.interval-input {
+		input {
+			border: 1px solid $lightgray;
+		}
+	}
+}
+.getinterval{
+	.popup {
+		width: 80vh;
+	}
+}
