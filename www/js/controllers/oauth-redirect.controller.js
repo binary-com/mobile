@@ -10,7 +10,7 @@
 angular
     .module('binary')
     .controller('OAuthRedirect',
-            function($scope, $location, $state){
+            function($scope, $state){
                 var response = {};
                 response.url = window.location.href;
 

@@ -10,18 +10,16 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $rootScope, $state, $window, config, proposalService,
-            accountService, websocketService, chartService, delayService,
-            appStateService) {
+		function($scope, $state, config, proposalService,
+            accountService, websocketService, delayService,
+            appStateService, analyticsService) {
 
 			$scope.selected = {};
 			$scope.isDataLoaded = false;
             $scope.letsTrade = false;
             $scope.hasTradePermission = getTradePermission();
 
-			if(typeof(analytics) !== "undefined"){
-					analytics.trackView("Options");
-			}
+            analyticsService.google.trackView("Options");
 
 			websocketService.sendRequestFor.forgetAll('ticks');
 
@@ -106,17 +104,21 @@ angular
             };
             
             $scope.$on('authorize', function(e){
-                $scope.hasTradePermission = getTradePermission();
-                
-                delayService.update('symbolsAndAssetIndexUpdate', function(){
-                    updateSymbols();
-                }, 60*1000);
- 
-                 if(!$scope.$$phase){
-                     $scope.$apply();
-                 }
+                $scope.$applyAsync(function(){
+                    $scope.hasTradePermission = getTradePermission();
+                    
+                    delayService.update('symbolsAndAssetIndexUpdate', function(){
+                        updateSymbols();
+                    }, 60*1000);
+                });
              });
  
+            $scope.$on('currencies', function(e, response){
+                if(response && response.length > 0){
+                    sessionStorage.currencis = JSON.stringify(response);
+                }
+            });
+
              function getTradePermission(){
                 return accountService.checkScope(['READ', 'TRADE']);
             }

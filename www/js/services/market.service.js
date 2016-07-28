@@ -72,7 +72,7 @@ angular
 			};
 
 			this.fixOrder = function() {
-                if(!sessionStorage.active_symbols){
+                if(!sessionStorage.active_symbols || sessionStorage.active_symbols === 'null'){
                     return;
                 }
 
@@ -244,10 +244,14 @@ angular
 			}
 
             this.hasActiveSymobols = function(){
-                return sessionStorage.active_symbols;
+                if(!sessionStorage.active_symbols)
+                    return false;
+                return JSON.parse(sessionStorage.active_symbols);
             }
 
             this.hasAssetIndex = function(){
-                return sessionStorage.asset_index;
+                if(!sessionStorage.asset_index)
+                    return false;
+                return JSON.parse(sessionStorage.asset_index);
             }
 	});

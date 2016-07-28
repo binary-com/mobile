@@ -41,49 +41,43 @@ angular
 			};
 
 			var init = function(forced) {
-                forced = forced || false;
+				forced = forced || false;
 				var language = localStorage.language || 'en';
 
-                if(dataStream && dataStream.readyState !== 3 && !forced){
-                    return;
-                }
-                else if(dataStream && dataStream.readyState !== 0){
-                    dataStream.close();
-                }
+				if (dataStream && dataStream.readyState !== 3 && !forced) {
+					return;
+				} else if (dataStream && dataStream.readyState !== 0) {
+					dataStream.close();
+				}
 
-                dataStream = null;
+				dataStream = null;
 
-                appStateService.isLoggedin = false;
+				appStateService.isLoggedin = false;
 
-				dataStream = new WebSocket(config.wsUrl + '?app_id='+ config.app_id +'&l=' + language );
-				//dataStream = new WebSocket('wss://www.binaryqa07.com/websockets/v3?l=' + language);
+				dataStream = new WebSocket(config.wsUrl + '?app_id=' + config.app_id + '&l=' + language);
 
 				dataStream.onopen = function() {
-                    
-                    sendMessage({ping: 1});
-                    
-                    // CLEANME
-                    // Authorize the default token if it's exist
-                    var token = localStorageService.getDefaultToken();
-                    if(token){
-                        var data = {
-                            authorize: token,
-                            passthrough: {
-                                type: "reopen-connection"
-                            }
-                        };
-                        sendMessage(data);
 
-                    }
-                    
-                    console.log('socket is opened');
-                    $rootScope.$broadcast('connection:ready');
-					
-					// if(typeof(analytics) !== "undefined"){
-					// 	analytics.trackEvent('WebSocket', 'OpenConnection', 'OpenConnection', 25);
-					// }
-					
-					//dataStream.send(JSON.stringify({ping: 1}));
+					sendMessage({
+						ping: 1
+					});
+
+					// Authorize the default token if it's exist
+					var token = localStorageService.getDefaultToken();
+					if (token) {
+						var data = {
+							authorize: token,
+							passthrough: {
+								type: "reopen-connection"
+							}
+						};
+						sendMessage(data);
+
+					}
+
+					console.log('socket is opened');
+					$rootScope.$broadcast('connection:ready');
+
 				};
 
 				dataStream.onmessage = function(message) {
@@ -94,21 +88,20 @@ angular
 					console.log('socket is closed ', e);
 					init();
 					console.log('socket is reopened');
-                    appStateService.isLoggedin = false;
+					appStateService.isLoggedin = false;
 					$rootScope.$broadcast('connection:reopened');
 				};
 
 				dataStream.onerror = function(e) {
-					//console.log('error in socket ', e);
-					if(e.target.readyState == 3){
+					if (e.target.readyState == 3) {
 						$rootScope.$broadcast('connection:error');
 					}
-                    appStateService.isLoggedin = false;
+					appStateService.isLoggedin = false;
 				};
 
 			};
 
-			$rootScope.$on('language:updated', function(){
+			$rootScope.$on('language:updated', function() {
 				init(true);
 			})
 
@@ -116,137 +109,129 @@ angular
 				var message = JSON.parse(_response.data);
 
 				if (message) {
-                    if(message.error){
-                        if(message.error.code === 'InvalidToken'){
-                            localStorageService.manageInvalidToken();
-                        }
-                    }
+					if (message.error) {
+						if (message.error.code === 'InvalidToken') {
+							localStorageService.manageInvalidToken();
+						}
+					}
 
-                    var messageType = message.msg_type;
-                    switch(messageType) {
-                        case 'authorize':
-                            if (message.authorize) {
-                                message.authorize.token = message.echo_req.authorize;
-                                window._trackJs.userId = message.authorize.loginid;
-                                appStateService.isLoggedin = true;
-                                appStateService.scopes = message.authorize.scopes;
-                                amplitude.setUserId(message.authorize.loginid);
-                                $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
-                            } else {
-                                if (message.hasOwnProperty('error') && message.error.code === 'InvalidToken') {
-                                  localStorageService.removeToken(message.echo_req.authorize);
-                                }
-                                $rootScope.$broadcast('authorize', false);
-                                appStateService.isLoggedin = false;
-                            }
-                            break;
-                        case 'active_symbols':
-                            var markets = message.active_symbols;
-                            var groupedMarkets = _.groupBy(markets, 'market');
-                            var openMarkets = {};
-                            for (var key in groupedMarkets) {
-                                if (groupedMarkets.hasOwnProperty(key)) {
-                                    if (groupedMarkets[key][0].exchange_is_open == 1) {
-                                        openMarkets[key] = groupedMarkets[key];
-                                    }
-                                }
-                            }
-                            if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
-                               sessionStorage.active_symbols = JSON.stringify(openMarkets);
-                               $rootScope.$broadcast('symbols:updated');
-                            }
-                            break;
-                        case 'asset_index':
-                            if ( !sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index) ) {
-                              sessionStorage.asset_index = JSON.stringify(message.asset_index);
-                              $rootScope.$broadcast('assetIndex:updated');
-                            }
-                            break;
-                        case 'payout_currencies':
-                            //sessionStorage.currencies = JSON.stringify(message.payout_currencies);
-                            $rootScope.$broadcast('currencies', message.payout_currencies);
-                            break;
-                        case 'proposal':
-                            if(message.proposal){
-                                $rootScope.$broadcast('proposal', message.proposal);
-                            }
-                            else if(message.error){
-                                $rootScope.$broadcast('proposal:error', message.error);
-                            }
-                            break;
-                        case 'contracts_for':
-                            var symbol = message.echo_req.contracts_for;
-                            var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_type');
-                            $rootScope.$broadcast('symbol', groupedSymbol);
-                            break;
-                        case 'buy':
-                            if(message.error){
-                                $rootScope.$broadcast('purchase:error', message.error);
-                                alertService.displayError(message.error.message);
-                            }
-                            else{
-                                $rootScope.$broadcast('purchase', message);
-                            }
-                            break;
-                        case 'balance':
-                            if(!(message.error && message.error.code === "AlreadySubscribed")){
-                                $rootScope.$broadcast('balance', message.balance);
-                            }
-                            break;
-                        case 'tick':
-                            $rootScope.$broadcast('tick', message);
-                            break;
-                        case 'history':
-                            $rootScope.$broadcast('history', message);
-                            break;
-                        case 'candles':
-                            $rootScope.$broadcast('candles', message);
-                            break;
-                        case 'ohlc':
-                            $rootScope.$broadcast('ohlc', message);
-                            break;
-                        case 'portfolio':
-                            $rootScope.$broadcast('portfolio', message.portfolio);
-                            break;
-                        case 'profit_table':
-                            $rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
-                            break;
-                        case 'sell_expired':
-                            $rootScope.$broadcast('sell:expired', message.sell_expired);
-                            break;
-                        case 'proposal_open_contract':
-                            $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
-                            break;
-                        default:
-                            //console.log('another message type: ', message);
-                    }
+					var messageType = message.msg_type;
+					switch (messageType) {
+						case 'authorize':
+							if (message.authorize) {
+								message.authorize.token = message.echo_req.authorize;
+								window._trackJs.userId = message.authorize.loginid;
+								appStateService.isLoggedin = true;
+								appStateService.scopes = message.authorize.scopes;
+								amplitude.setUserId(message.authorize.loginid);
+								$rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
+							} else {
+								if (message.hasOwnProperty('error') && message.error.code === 'InvalidToken') {
+									localStorageService.removeToken(message.echo_req.authorize);
+								}
+								$rootScope.$broadcast('authorize', false);
+								appStateService.isLoggedin = false;
+							}
+							break;
+						case 'active_symbols':
+							var markets = message.active_symbols;
+							var groupedMarkets = _.groupBy(markets, 'market');
+							var openMarkets = {};
+							for (var key in groupedMarkets) {
+								if (groupedMarkets.hasOwnProperty(key)) {
+									if (groupedMarkets[key][0].exchange_is_open == 1) {
+										openMarkets[key] = groupedMarkets[key];
+									}
+								}
+							}
+							if (!sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets)) {
+								sessionStorage.active_symbols = JSON.stringify(openMarkets);
+								$rootScope.$broadcast('symbols:updated');
+							}
+							break;
+						case 'asset_index':
+							if (!sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index)) {
+								sessionStorage.asset_index = JSON.stringify(message.asset_index);
+								$rootScope.$broadcast('assetIndex:updated');
+							}
+							break;
+						case 'payout_currencies':
+							$rootScope.$broadcast('currencies', message.payout_currencies);
+							break;
+						case 'proposal':
+							if (message.proposal) {
+								$rootScope.$broadcast('proposal', message.proposal);
+							} else if (message.error) {
+								$rootScope.$broadcast('proposal:error', message.error);
+							}
+							break;
+						case 'contracts_for':
+							var symbol = message.echo_req.contracts_for;
+							var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_type');
+							$rootScope.$broadcast('symbol', groupedSymbol);
+							break;
+						case 'buy':
+							if (message.error) {
+								$rootScope.$broadcast('purchase:error', message.error);
+								alertService.displayError(message.error.message);
+							} else {
+								$rootScope.$broadcast('purchase', message);
+							}
+							break;
+						case 'balance':
+							if (!(message.error && message.error.code === "AlreadySubscribed")) {
+								$rootScope.$broadcast('balance', message.balance);
+							}
+							break;
+						case 'tick':
+							$rootScope.$broadcast('tick', message);
+							break;
+						case 'history':
+							$rootScope.$broadcast('history', message);
+							break;
+						case 'candles':
+							$rootScope.$broadcast('candles', message);
+							break;
+						case 'ohlc':
+							$rootScope.$broadcast('ohlc', message);
+							break;
+						case 'portfolio':
+							$rootScope.$broadcast('portfolio', message.portfolio);
+							break;
+						case 'profit_table':
+							$rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
+							break;
+						case 'sell_expired':
+							$rootScope.$broadcast('sell:expired', message.sell_expired);
+							break;
+						case 'proposal_open_contract':
+							$rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
+							break;
+						case 'landing_company_details':
+							$rootScope.$broadcast('landing_company_details', message.landing_company_details);
+							break;
+						case 'reality_check':
+							$rootScope.$broadcast('reality_check', message.reality_check);
+							break;
+						default:
+					}
 				}
 			};
 
-			var websocketService ={};
-
-//			websocketService.init = function() {
-//				setInterval(function restart() {
-//					if (!dataStream || dataStream.readyState === 3) {
-//						init();
-//					}
-//					return restart;
-//				}(), 1000);
-//			};
-
+			var websocketService = {};
 			websocketService.authenticate = function(_token, extraParams) {
 				extraParams = null || extraParams;
-                appStateService.isLoggedin = false;
+				appStateService.isLoggedin = false;
 
-                var data = {
+				var data = {
 					authorize: _token
 				};
-                
-                for(key in extraParams){
-                    if(extraParams.hasOwnProperty(key)){
-                        data[key] = extraParams[key];
-                    }
-                }
+
+				for (key in extraParams) {
+					if (extraParams.hasOwnProperty(key)) {
+						data[key] = extraParams[key];
+					}
+				}
 
 				sendMessage(data);
 			};
@@ -333,12 +318,12 @@ angular
 					var data = {
 						profit_table: 1
 					};
-                    
-                    for(key in params){
-                        if(params.hasOwnProperty(key)){
-                            data[key] = params[key]
-                        }
-                    }
+
+					for (key in params) {
+						if (params.hasOwnProperty(key)) {
+							data[key] = params[key]
+						}
+					}
 
 					sendMessage(data);
 				},
@@ -348,36 +333,48 @@ angular
 						sendMessage(data);
 					}
 				},
-                openContract: function(contractId, extraParams){
-                    var data = {};
-                    data.proposal_open_contract = 1;
-                    
-                    if(contractId){
-                        data.contract_id = contractId;
-                    }
+				openContract: function(contractId, extraParams) {
+					var data = {};
+					data.proposal_open_contract = 1;
 
-                    for(key in extraParams){
-                        if(extraParams.hasOwnProperty(key)){
-                            data[key] = extraParams[key]
-                        }
-                    }
+					if (contractId) {
+						data.contract_id = contractId;
+					}
 
-                    sendMessage(data);
-                },
-                sellExpiredContract: function(){
-                    var data = {
-                        sell_expired: 1
-                    };
+					for (key in extraParams) {
+						if (extraParams.hasOwnProperty(key)) {
+							data[key] = extraParams[key]
+						}
+					}
 
-                    sendMessage(data);
-                }
+					sendMessage(data);
+				},
+				sellExpiredContract: function() {
+					var data = {
+						sell_expired: 1
+					};
+
+					sendMessage(data);
+				},
+				landingCompanyDetails: function(company) {
+					var data = {
+						landing_company_details: company
+					};
+					sendMessage(data);
+				},
+				realityCheck: function() {
+					var data = {
+						"reality_check": 1
+					};
+					sendMessage(data);
+				}
 			};
-            
-            websocketService.closeConnection = function(){
-                if(dataStream){
-                    dataStream.close();
-                }
-            };
+
+			websocketService.closeConnection = function() {
+				if (dataStream) {
+					dataStream.close();
+				}
+			};
 
 			return websocketService;
-	});
+		});

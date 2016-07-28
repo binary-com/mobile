@@ -15,9 +15,11 @@ angular
                 factory.tradeMode = true;
                 factory.purchaseMode = false;
                 factory.isLoggedin=false;
+                factory.isRealityChecked = false;
                 factory.waitForProposal = false;
                 factory.scopes = [];
                 factory.invalidTokenRemoved = false;
+                factory.isChangedAccount = false;
 
                 return factory;
             });
