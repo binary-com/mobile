@@ -37,7 +37,8 @@ angular
 						}
 
 						if(res){
-							appStateService.isRealityChecked= false;;
+							appStateService.isRealityChecked= false;
+							appStateService.isChangedAccount = false;
 							sessionStorage.clear('_interval');
 							accountService.removeAll();
 							proposalService.remove();

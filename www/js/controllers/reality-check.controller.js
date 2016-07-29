@@ -4,6 +4,7 @@ angular
 		function($scope, $rootScope, $state, $timeout, $location, websocketService, appStateService, accountService, $ionicPopup, alertService, $translate, languageService, proposalService, marketService) {
 			var landingCompanyName;
 			$scope.$on('authorize', function(e, authorize) {
+				$scope.SessionLoginId = authorize.loginid;
 				if (!appStateService.isRealityChecked && authorize.is_virtual == 0) {
 					landingCompanyName = authorize.landing_company_name;
 					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
@@ -91,17 +92,17 @@ angular
 				websocketService.sendRequestFor.realityCheck();
 			}
 			$scope.sessionTime = function(reality_check) {
-								$scope.date = reality_check.start_time * 1000;
-								$scope.start_time = new Date($scope.date);
-								$scope.realityCheckitems.start_time = $scope.start_time.toString();
-								$scope.now = Date.now();
-								$scope.realityCheckitems.currentTime = new Date($scope.now).toString();
-								$scope.duration = ($scope.now - $scope.date);
-								$scope.realityCheckitems.days = Math.floor($scope.duration / 864e5);
-								$scope.hour = $scope.duration - ($scope.realityCheckitems.days * 864e5);
-								$scope.realityCheckitems.hours = Math.floor($scope.hour / 36e5);
-								$scope.min = $scope.duration - ($scope.realityCheckitems.hours * 36e5);
-								$scope.realityCheckitems.minutes = Math.floor($scope.min / 60000);
+				$scope.date = reality_check.start_time * 1000;
+				$scope.start_time = new Date($scope.date);
+				$scope.realityCheckitems.start_time = $scope.start_time.toString();
+				$scope.now = Date.now();
+				$scope.realityCheckitems.currentTime = new Date($scope.now).toString();
+				$scope.duration = ($scope.now - $scope.date);
+				$scope.realityCheckitems.days = Math.floor($scope.duration / 864e5);
+				$scope.hour = $scope.duration - ($scope.realityCheckitems.days * 864e5);
+				$scope.realityCheckitems.hours = Math.floor($scope.hour / 36e5);
+				$scope.min = $scope.duration - ($scope.realityCheckitems.hours * 36e5);
+				$scope.realityCheckitems.minutes = Math.floor($scope.min / 60000);
 			}
 
 			$scope.logout = function() {
@@ -135,36 +136,38 @@ angular
 
 			$scope.alertRealityCheck = function(reality_check) {
 				$scope.realityCheckitems = reality_check;
-				$scope.sessionTime(reality_check);
-				$scope.data = {};
-				$scope.data.interval = parseInt($scope.getInterval('_interval'));
+				if ($scope.SessionLoginId == $scope.realityCheckitems.loginid) {
+					$scope.sessionTime(reality_check);
+					$scope.data = {};
+					$scope.data.interval = parseInt($scope.getInterval('_interval'));
 
-				$translate(['realitycheck.title', 'realitycheck.continue', 'realitycheck.logout'])
-					.then(
-						function(translation) {
-							alertService.displayRealityCheckResult(
-								translation['realitycheck.title'],
-								'realitycheck',
-								$scope,
-								'templates/components/reality-check/reality-check-result.template.html', [{
-									text: translation['realitycheck.logout'],
-									type: 'button-secondary',
-									onTap: function() {
-										$scope.logout();
-									}
-								}, {
-									text: translation['realitycheck.continue'],
-									onTap: function() {
-										if (sessionStorage._interval) {
-											$scope.getLastInterval();
-										} else {
-											$scope.data.interval = 60;
+					$translate(['realitycheck.title', 'realitycheck.continue', 'realitycheck.logout'])
+						.then(
+							function(translation) {
+								alertService.displayRealityCheckResult(
+									translation['realitycheck.title'],
+									'realitycheck',
+									$scope,
+									'templates/components/reality-check/reality-check-result.template.html', [{
+										text: translation['realitycheck.logout'],
+										type: 'button-secondary',
+										onTap: function() {
+											$scope.logout();
 										}
-										$scope.hasRealityCheck();
-									}
-								}, ]);
-						}
-					)
+									}, {
+										text: translation['realitycheck.continue'],
+										onTap: function() {
+											if (sessionStorage._interval) {
+												$scope.getLastInterval();
+											} else {
+												$scope.data.interval = 60;
+											}
+											$scope.hasRealityCheck();
+										}
+									}, ]);
+							}
+						)
+				}
 
 			};
 		});
