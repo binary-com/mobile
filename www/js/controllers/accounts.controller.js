@@ -37,6 +37,8 @@ angular
 						}
 
 						if(res){
+							appStateService.isRealityChecked= false;;
+							sessionStorage.clear('_interval');
 							accountService.removeAll();
 							proposalService.remove();
                             marketService.removeActiveSymbols();

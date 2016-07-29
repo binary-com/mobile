@@ -123,6 +123,7 @@ angular
 							websocketService.closeConnection();
 							$scope.$parent.$broadcast('logout');
 							$scope.removeInterval('_interval');
+							appStateService.isRealityChecked = false;
 							$state.go('signin');
 						}
 						if (!res) {
