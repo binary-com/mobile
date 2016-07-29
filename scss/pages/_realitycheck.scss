@@ -1,6 +1,10 @@
 .realitycheck {
 	.popup {
 		width: 100vh;
+		.button-secondary{
+			color: #000!important;
+			background: $gray!important;
+		}
 	}
 	.popup-head {
 		h3.popup-title {
@@ -13,9 +17,23 @@
 			border: 1px solid $lightgray;
 		}
 	}
+	.popup-body {
+		p {
+			white-space: normal;
+		}
+	}
 }
-.getinterval{
+.getinterval {
 	.popup {
 		width: 80vh;
+	}
+}
+@media only screen and (max-device-width: 480px) {
+	.realitycheck {
+		.popup-body {
+			p {
+				font-size: 12px;
+			}
+		}
 	}
 }

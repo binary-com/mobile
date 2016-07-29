@@ -1,22 +1,18 @@
 angular
 	.module('binary')
 	.controller('RealityCheckController',
-		function($scope, $rootScope, $state, $timeout, websocketService, appStateService, accountService, $ionicPopup, alertService, $translate, languageService) {
-			var popupInterval,
-				landingCompanyName;
-
+		function($scope, $rootScope, $state, $timeout, $location, websocketService, appStateService, accountService, $ionicPopup, alertService, $translate, languageService, proposalService, marketService) {
+			var landingCompanyName;
 			$scope.$on('authorize', function(e, authorize) {
 				if (!appStateService.isRealityChecked && authorize.is_virtual == 0) {
 					landingCompanyName = authorize.landing_company_name;
 					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
-				}
-				else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 1){
+				} else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 1) {
 					$timeout.cancel($scope.realityCheckTimeout);
 					appStateService.isChangedAccount = false;
 					appStateService.isRealityChecked = true;
-				}
-				else if(appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0){
-					if($scope.realityCheckTimeout){
+				} else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0) {
+					if ($scope.realityCheckTimeout) {
 						$timeout.cancel($scope.realityCheckTimeout);
 					}
 					appStateService.isRealityChecked = false;
@@ -49,7 +45,7 @@ angular
 					$scope.realityCheck();
 				} else {
 					var period = $scope.getInterval('_interval') * 600;
-					$scope.realityCheckTimeout =	$timeout($scope.getRealityCheck, period);
+					$scope.realityCheckTimeout = $timeout($scope.getRealityCheck, period);
 
 				}
 			}
@@ -90,22 +86,50 @@ angular
 				$scope.alertRealityCheck(reality_check);
 			});
 
+
 			$scope.getRealityCheck = function() {
 				websocketService.sendRequestFor.realityCheck();
 			}
 			$scope.sessionTime = function(reality_check) {
-				$scope.date = reality_check.start_time * 1000;
-				$scope.start_time = new Date($scope.date);
-				$scope.realityCheckitems.start_time = $scope.start_time.toString();
-				$scope.now = new Date();
-				$scope.realityCheckitems.currentTime = $scope.now;
-				$scope.duration = ($scope.now - $scope.date);
-				$scope.realityCheckitems.days = Math.floor($scope.duration / 864e5);
-				$scope.hour = $scope.duration - ($scope.realityCheckitems.days * 864e5);
-				$scope.realityCheckitems.hours = Math.floor($scope.hour / 36e5);
-				$scope.min = $scope.duration - ($scope.realityCheckitems.hours * 36e5);
-				$scope.realityCheckitems.minutes = Math.floor($scope.min / 60000);
+								$scope.date = reality_check.start_time * 1000;
+								$scope.start_time = new Date($scope.date);
+								$scope.realityCheckitems.start_time = $scope.start_time.toString();
+								$scope.now = Date.now();
+								$scope.realityCheckitems.currentTime = new Date($scope.now).toString();
+								$scope.duration = ($scope.now - $scope.date);
+								$scope.realityCheckitems.days = Math.floor($scope.duration / 864e5);
+								$scope.hour = $scope.duration - ($scope.realityCheckitems.days * 864e5);
+								$scope.realityCheckitems.hours = Math.floor($scope.hour / 36e5);
+								$scope.min = $scope.duration - ($scope.realityCheckitems.hours * 36e5);
+								$scope.realityCheckitems.minutes = Math.floor($scope.min / 60000);
 			}
+
+			$scope.logout = function() {
+				alertService.confirmRemoveAllAccount(
+					function(res) {
+						if (typeof(res) !== "boolean") {
+							if (res == 1)
+								res = true;
+							else
+								res = false;
+						}
+
+						if (res) {
+							accountService.removeAll();
+							proposalService.remove();
+							marketService.removeActiveSymbols();
+							marketService.removeAssetIndex();
+							appStateService.isLoggedin = false;
+							websocketService.closeConnection();
+							$scope.$parent.$broadcast('logout');
+							$state.go('signin');
+						}
+						if (!res) {
+							$scope.hasRealityCheck();
+						}
+					}
+				);
+			};
 
 			$scope.alertRealityCheck = function(reality_check) {
 				$scope.realityCheckitems = reality_check;
@@ -122,8 +146,9 @@ angular
 								$scope,
 								'templates/components/reality-check/reality-check-result.template.html', [{
 									text: translation['realitycheck.logout'],
+									type: 'button-secondary',
 									onTap: function() {
-										alertService.confirmRemoveAllAccount();
+										$scope.logout();
 									}
 								}, {
 									text: translation['realitycheck.continue'],
