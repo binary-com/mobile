@@ -213,6 +213,9 @@ angular
 						case 'reality_check':
 							$rootScope.$broadcast('reality_check', message.reality_check);
 							break;
+						case 'verify_email':
+							$rootScope.$broadcast('verify_email', message.verify_email);
+							break;
 						default:
 					}
 				}
@@ -367,8 +370,15 @@ angular
 						"reality_check": 1
 					};
 					sendMessage(data);
+				},
+				accountOpening: function(mail) {
+					var data = {
+						"verify_email": mail,
+						"type": "account_opening"
+					};
+					sendMessage(data);
 				}
-			};
+			}
 
 			websocketService.closeConnection = function() {
 				if (dataStream) {
