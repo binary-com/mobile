@@ -122,6 +122,7 @@ angular
 							appStateService.isLoggedin = false;
 							websocketService.closeConnection();
 							$scope.$parent.$broadcast('logout');
+							$scope.removeInterval('_interval');
 							$state.go('signin');
 						}
 						if (!res) {
