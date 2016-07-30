@@ -42,8 +42,6 @@ angular
 
                 analyticsService.google.trackView("Trade");
 
-
-
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
 				$scope.setTradeMode(true);
                 appStateService.purchaseMode = false;
