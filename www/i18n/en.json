@@ -134,6 +134,7 @@
 		"logout": "Logout",
 		"days": "days",
 		"hours": "hours",
-		"minutes": "minutes"
+		"minutes": "minutes",
+		"interval_error": "Please enter a number between 10 to 120."
 	}
 }

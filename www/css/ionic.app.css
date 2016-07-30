@@ -10947,6 +10947,10 @@ input::-webkit-inner-spin-button {
 .realitycheck .interval-input input {
   border: 1px solid #f2f2f2; }
 
+.realitycheck .interval_error {
+  position: fixed;
+  font-size: 12px; }
+
 .realitycheck .popup-body p {
   white-space: normal; }
 

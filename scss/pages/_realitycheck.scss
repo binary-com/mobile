@@ -1,7 +1,7 @@
 .realitycheck {
 	.popup {
 		width: 100vh;
-		.button-secondary{
+		.button-secondary {
 			color: #000!important;
 			background: $gray!important;
 		}
@@ -16,6 +16,10 @@
 		input {
 			border: 1px solid $lightgray;
 		}
+	}
+	.interval_error {
+		position: fixed;
+		font-size: 12px;
 	}
 	.popup-body {
 		p {

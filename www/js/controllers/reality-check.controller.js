@@ -65,11 +65,11 @@ angular
 								'templates/components/reality-check/interval-popup.template.html', [{
 									text: translation['realitycheck.continue'],
 									onTap: function(e) {
-										if (!$scope.data.interval) {
-											e.preventDefault();
-										} else {
+										if ($scope.data.interval <= 120 && $scope.data.interval >= 10) {
 											$scope.setInterval($scope.data.interval);
 											$scope.hasRealityCheck();
+										} else {
+											e.preventDefault();
 										}
 									}
 								}, ]);
@@ -94,9 +94,9 @@ angular
 			$scope.sessionTime = function(reality_check) {
 				$scope.date = reality_check.start_time * 1000;
 				$scope.start_time = new Date($scope.date);
-				$scope.realityCheckitems.start_time = $scope.start_time.toString();
+				$scope.realityCheckitems.start_time = $scope.start_time.toUTCString();
 				$scope.now = Date.now();
-				$scope.realityCheckitems.currentTime = new Date($scope.now).toString();
+				$scope.realityCheckitems.currentTime = new Date($scope.now).toUTCString();
 				$scope.duration = ($scope.now - $scope.date);
 				$scope.realityCheckitems.days = Math.floor($scope.duration / 864e5);
 				$scope.hour = $scope.duration - ($scope.realityCheckitems.days * 864e5);
@@ -156,15 +156,16 @@ angular
 										}
 									}, {
 										text: translation['realitycheck.continue'],
-										onTap: function() {
-											if (sessionStorage._interval) {
-												$scope.getLastInterval();
+										onTap: function(e) {
+											if ($scope.data.interval <= 120 && $scope.data.interval >= 10) {
+												$scope.data.interval = $scope.getLastInterval();
+												$scope.hasRealityCheck();
 											} else {
-												$scope.data.interval = 60;
+												e.preventDefault();
 											}
-											$scope.hasRealityCheck();
 										}
-									}, ]);
+									}, ]
+								);
 							}
 						)
 				}
