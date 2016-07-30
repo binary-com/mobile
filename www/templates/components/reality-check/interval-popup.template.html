@@ -14,8 +14,14 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col">
-			<input ng-model="data.interval" type="number" min="10" max="120"/>
+		<div class="col interval-input">
+			<form class="" action="index.html" method="post">
+				<input ng-model="data.interval" type="number"/>
+				<div class="interval_error" ng-show="data.interval<10 || data.interval>120">
+					{{'realitycheck.interval_error' | translate}}
+				</div>
+			</form>
+
 		</div>
 	</div>
 </ion-item>
