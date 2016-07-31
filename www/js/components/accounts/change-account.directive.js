@@ -42,11 +42,12 @@ angular
 				init();
 
 				scope.updateAccount = function(_selectedAccount) {
+										appStateService.isChangedAccount = true;
                     scope.setDataLoaded(false);
 					accountService.setDefault(_selectedAccount);
 					accountService.validate();
                     updateSymbols();
-										appStateService.isChangedAccount = true;
+
 				};
 
 				scope.navigateToManageAccounts = function() {

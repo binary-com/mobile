@@ -59,7 +59,7 @@ angular
 			var validate = function(_token, extraParams) {
                 //Remove the last delay queue of 'symbolsAndAssetIndexUpdate'
                 delayService.remove('symbolsAndAssetIndexUpdate');
-				
+
                 if (_token) {
 					websocketService.authenticate(_token, extraParams);
 				} else {
@@ -100,7 +100,7 @@ angular
 				};
 
 				var accountList = this.getAll();
-                
+
                 if(_.find(accountList, ['id', account.id])){
                     return;
                 }
