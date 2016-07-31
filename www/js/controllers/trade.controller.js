@@ -15,6 +15,7 @@ angular
                 alertService, appStateService, analyticsService) {
 
             appStateService.waitForProposal = false;
+            $scope.currency = _.isEmpty(accountService.getDefault().currency) ? sessionStorage.currency : accountService.getDefault().currency;
 
 			window.addEventListener('native.keyboardhide', function(e) {
 				$scope.$applyAsync(function(){
@@ -41,12 +42,9 @@ angular
 
                 analyticsService.google.trackView("Trade");
 
-
-
 				$scope.proposalToSend = JSON.parse(localStorage.proposal);
 				$scope.setTradeMode(true);
                 appStateService.purchaseMode = false;
-				proposalService.getCurrencies();
 			};
 
 			init();
@@ -59,23 +57,7 @@ angular
                     appStateService.waitForProposal = false;
                 });
 			});
-
-			$scope.$on('currencies', function(e, response){
-				if(response && response.length > 0){
-                    $scope.$applyAsync(function(){
-    					$scope.currency = response[0];
-                    });
-
-					var proposal = proposalService.get();
-					if(proposal){
-						proposal.currency = response[0];
-						proposalService.update(proposal);
-						proposalService.send();
-					}
-				}
-			});
-
-			
+	
 			$scope.$on('balance', function(e, _balance) {
                 $scope.$applyAsync(function(){
     				$scope.account = _balance;
