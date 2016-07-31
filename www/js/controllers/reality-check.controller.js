@@ -4,7 +4,7 @@ angular
 		function($scope, $rootScope, $state, $timeout, $location, websocketService, appStateService, accountService, $ionicPopup, alertService, $translate, languageService, proposalService, marketService) {
 			var landingCompanyName;
 			$scope.$on('authorize', function(e, authorize) {
-				$scope.SessionLoginId = authorize.loginid;
+				$scope.sessionLoginId = authorize.loginid;
 				if (!appStateService.isRealityChecked && authorize.is_virtual == 0) {
 					landingCompanyName = authorize.landing_company_name;
 					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
@@ -136,7 +136,7 @@ angular
 
 			$scope.alertRealityCheck = function(reality_check) {
 				$scope.realityCheckitems = reality_check;
-				if ($scope.SessionLoginId == $scope.realityCheckitems.loginid) {
+				if ($scope.sessionLoginId == $scope.realityCheckitems.loginid) {
 					$scope.sessionTime(reality_check);
 					$scope.data = {};
 					$scope.data.interval = parseInt($scope.getInterval('_interval'));
@@ -158,8 +158,11 @@ angular
 										text: translation['realitycheck.continue'],
 										onTap: function(e) {
 											if ($scope.data.interval <= 120 && $scope.data.interval >= 10) {
-												$scope.data.interval = $scope.getLastInterval();
-												$scope.hasRealityCheck();
+												if($scope.sessionLoginId == $scope.realityCheckitems.loginid){
+													$scope.data.interval = $scope.getLastInterval();
+													$scope.hasRealityCheck();
+												}
+
 											} else {
 												e.preventDefault();
 											}
