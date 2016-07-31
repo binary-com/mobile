@@ -49,7 +49,7 @@ angular
                             }
                             
                             // reloading language setting
-                            languageService.set();
+                            //languageService.set();
                         }
                     } else {
                         alertService.accountError.tokenNotAuthenticated(reqId);
