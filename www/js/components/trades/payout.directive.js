@@ -26,10 +26,11 @@ angular
                 if(scope.amount == 0){
                     scope.amount = 5;
                     updateProposal();
+                } else {
+                    proposalService.send();
                 }
                 scope.proposalError = null;
 
-                proposalService.send();
 
                 scope.$on('$destroy', function(){
                     delayService.remove('updateProposal');
