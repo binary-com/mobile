@@ -1,15 +1,39 @@
 <ion-item>
-	<ion-label>{{'realitycheck.login_time' | translate }}{{realityCheckitems.start_time}}</ion-label>
-	<ion-label>{{'realitycheck.current_time' | translate }}{{realityCheckitems.currentTime}}</ion-label>
-	<ion-label>
-		{{'realitycheck.session_duration' | translate}}
-		{{realityCheckitems.days}}
-		{{'realitycheck.days' | translate}}
-		{{realityCheckitems.hours}}
-		{{'realitycheck.hours' | translate}}
-		{{realityCheckitems.minutes}}
-		{{'realitycheck.minutes' | translate}}
-	</ion-label>
+	<div class="row">
+		<div class="col">
+			<span>{{'realitycheck.login_time' | translate }}
+			</span>
+
+		</div>
+		<div class="col">
+			{{realityCheckitems.start_time}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+
+			<span>{{'realitycheck.current_time' | translate }}
+			</span>
+
+		</div>
+		<div class="col">
+			{{realityCheckitems.currentTime}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<span>{{'realitycheck.session_duration' | translate}}</span>
+		</div>
+		<div class="col">
+
+			{{realityCheckitems.days}}
+			<span>{{'realitycheck.days' | translate}}</span>
+			{{realityCheckitems.hours}}
+			<span>{{'realitycheck.hours' | translate}}</span>
+			{{realityCheckitems.minutes}}
+			<span>{{'realitycheck.minutes' | translate}}</span>
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col">
@@ -78,22 +102,18 @@
 			{{realityCheckitems.potential_profit}}
 		</div>
 	</div>
-
-	<!--
-	<div class="row">
-		<div class="col">
-			{{'realitycheck.start_time' || translate}}
-		</div>
-		<div class="col">
-			{{realityCheckitems.start_time}}
-		</div>
-	</div> -->
-	<div class="row">
-		<div class="col">
+	<div class="row interval">
+		<div class="col col-50 interval-text">
 			{{'realitycheck.interval' | translate}}
 		</div>
-		<div class="col interval-input">
-			<input ng-model="data.interval" type="number" min="10" max="120"/>
+		<div class="col col-50 interval-input">
+			<form>
+				<input ng-model="data.interval" name="input" type="number" required/>
+				<div class="interval_error" ng-show="data.interval<10 || data.interval>120">
+					{{'realitycheck.interval_error' | translate}}
+				</div>
+			</form>
 		</div>
+
 	</div>
 </ion-item>

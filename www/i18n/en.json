@@ -121,10 +121,10 @@
 		"session_duration": "Session duration:",
 		"statistics": "Your trading statistics since",
 		"interval_question": "Please specify your preferred reality-check interval in minutes:",
-		"login_id": "Login ID",
+		"loginid": "Login ID",
 		"currency": "Currency",
 		"buy_amount": "Turnover",
-		"profit_loss": "Profit / Loss",
+		"profit_loss": "Profit/Loss",
 		"buy_count": "Contracts bought",
 		"sell_count": "Contracts sold",
 		"open_contract_count": "Open contracts",
@@ -134,6 +134,7 @@
 		"logout": "Logout",
 		"days": "days",
 		"hours": "hours",
-		"minutes": "minutes"
+		"minutes": "minutes",
+		"interval_error": "Please enter a number between 10 to 120."
 	}
 }

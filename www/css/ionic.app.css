@@ -10935,25 +10935,66 @@ input::-webkit-inner-spin-button {
       font-size: 18px; } }
 
 .realitycheck .popup {
-  width: 100vh; }
+  background-color: #f2f2f2;
+  width: 90vh;
+  padding: 2px;
+  font-size: 14px; }
+  .realitycheck .popup .button {
+    font-size: 14px; }
   .realitycheck .popup .button-secondary {
     color: #000 !important;
     background: #c4c4c4 !important; }
 
-.realitycheck .popup-head h3.popup-title {
-  color: #e98024 !important;
-  font-size: 28px !important; }
+.realitycheck .popup-head {
+  padding: 10px;
+  border: none;
+  background-color: #5e668f; }
+  .realitycheck .popup-head h3.popup-title {
+    color: #fff !important;
+    font-size: 14px !important;
+    text-align: left;
+    font-weight: bold; }
 
 .realitycheck .interval-input input {
   border: 1px solid #f2f2f2; }
 
-.realitycheck .popup-body p {
-  white-space: normal; }
+.realitycheck .interval_error {
+  position: fixed;
+  font-size: 12px; }
+
+.realitycheck .popup-body {
+  background-color: #f2f2f2;
+  padding: 5px; }
+  .realitycheck .popup-body .item {
+    font-size: 14px;
+    padding: 5px;
+    background-color: #f2f2f2; }
+    .realitycheck .popup-body .item .row {
+      white-space: normal; }
+      .realitycheck .popup-body .item .row.realitycheck-text {
+        padding: 15px 0 0 0 !important; }
+      .realitycheck .popup-body .item .row .col:nth-child(2n) {
+        text-align: center; }
+      .realitycheck .popup-body .item .row.interval {
+        padding: 10px 5px; }
+    .realitycheck .popup-body .item .interval-text {
+      padding: 10px 5px; }
+    .realitycheck .popup-body .item p {
+      white-space: normal;
+      color: #000; }
 
 .getinterval .popup {
   width: 80vh; }
 
 @media only screen and (max-device-width: 480px) {
+  .realitycheck .popup-body .item {
+    font-size: 12px; }
+  .realitycheck .popup-body .item {
+    font-size: 12px; }
+    .realitycheck .popup-body .item .row {
+      padding: 0; }
+      .realitycheck .popup-body .item .row .interval-text {
+        padding: 0; }
   .realitycheck .popup-body p {
     font-size: 12px; } }
 

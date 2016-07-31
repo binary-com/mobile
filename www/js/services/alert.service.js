@@ -39,7 +39,6 @@ angular
 			};
 
 			this.displayRealitCheckInterval = function(_title, _class, scope, _template, _buttons, _callback) {
-				if (!localStorage._interval || localStorage._interval == undefined) {
 					var showPopup = $ionicPopup.show({
 						title: _title,
 						cssClass: _class,
@@ -48,7 +47,6 @@ angular
 						buttons: _buttons,
 					});
 					showPopup.then(_callback);
-				}
 			};
 
 

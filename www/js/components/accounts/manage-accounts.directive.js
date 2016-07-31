@@ -18,9 +18,9 @@ angular
         'proposalService',
         'appStateService',
         '$ionicLoading',
-		function(accountService, alertService, cleanupService, 
-                $state, languageService, marketService, 
-                proposalService, appStateService, $ionicLoading) 
+		function(accountService, alertService, cleanupService,
+                $state, languageService, marketService,
+                proposalService, appStateService, $ionicLoading)
         {
 		return {
 			restrict: 'E',
@@ -47,14 +47,14 @@ angular
                                     alertService.accountError.tokenNotUnique();
                                 }
                             }
-                            
+
                             // reloading language setting
                             //languageService.set();
                         }
                     } else {
                         alertService.accountError.tokenNotAuthenticated(reqId);
                     }
-                    
+
 				});
 
 				scope.$on('token:remove', function(e, response) {
@@ -78,10 +78,11 @@ angular
 					scope.showSpinner = false;
 					// Validate the token
 					if (_token && _token.length === 15) {
-                        
-                        cleanLocalData(); 
-                        
+
+                        cleanLocalData();
+
                         accountService.validate(_token, {req_id: requestId});
+												appStateService.isChangedAccount = true;
 					} else {
                         $ionicLoading.hide();
 						alertService.accountError.tokenNotValid();
@@ -96,12 +97,14 @@ angular
                     requestId = new Date().getTime();
 					scope.settingDefault = true;
 
-                    cleanLocalData();                    
+                    cleanLocalData();
 
 					accountService.setDefault(_token);
                     $ionicLoading.show();
 					accountService.validate(null, {req_id: requestId});
 					scope.accounts = accountService.getAll();
+					sessionStorage.clear('_interval');
+					appStateService.isChangedAccount = true;
 				};
 			}
 		};
