@@ -38,6 +38,7 @@ angular
             if($state.current.name === "options"){
                 alertService.confirmExit(function(res){
                     if(res == 1)
+                        sessionStorage.removeItem('start');
                         navigator.app.exitApp();
                 });
             }
