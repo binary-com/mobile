@@ -73,9 +73,6 @@ angular
 						var period = $scope.getInterval('_interval') * 60000;
 						$scope.realityCheckTimeout = $timeout($scope.getRealityCheck, period);
 					}
-
-
-
 			}
 
 			$scope.realityCheck = function() {
@@ -130,7 +127,7 @@ angular
 				$scope.realityCheckitems.days = Math.floor($scope.duration / 864e5);
 				$scope.hour = $scope.duration - ($scope.realityCheckitems.days * 864e5);
 				$scope.realityCheckitems.hours = Math.floor($scope.hour / 36e5);
-				$scope.min = $scope.duration - ($scope.realityCheckitems.hours * 36e5);
+				$scope.min = $scope.duration - (($scope.realityCheckitems.days * 864e5) + ($scope.realityCheckitems.hours * 36e5));
 				$scope.realityCheckitems.minutes = Math.floor($scope.min / 60000);
 			}
 
