@@ -10935,8 +10935,8 @@ input::-webkit-inner-spin-button {
       font-size: 18px; } }
 
 .realitycheck .popup {
-  background-color: #f2f2f2;
-  width: 90vh;
+  background-color: #fff;
+  width: 90vw;
   padding: 2px;
   font-size: 14px; }
   .realitycheck .popup .button {
@@ -10948,7 +10948,7 @@ input::-webkit-inner-spin-button {
 .realitycheck .popup-head {
   padding: 10px;
   border: none;
-  background-color: #5e668f; }
+  background-color: #2a3052; }
   .realitycheck .popup-head h3.popup-title {
     color: #fff !important;
     font-size: 14px !important;
@@ -10972,7 +10972,7 @@ input::-webkit-inner-spin-button {
     .realitycheck .popup-body .item .row {
       white-space: normal; }
       .realitycheck .popup-body .item .row.realitycheck-text {
-        padding: 15px 0 0 0 !important; }
+        padding: 15px 0 0 !important; }
       .realitycheck .popup-body .item .row .col:nth-child(2n) {
         text-align: center; }
       .realitycheck .popup-body .item .row.interval {
@@ -10984,7 +10984,7 @@ input::-webkit-inner-spin-button {
       color: #000; }
 
 .getinterval .popup {
-  width: 80vh; }
+  width: 80vw; }
 
 @media only screen and (max-device-width: 480px) {
   .realitycheck .popup-body .item {

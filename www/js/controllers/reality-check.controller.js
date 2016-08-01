@@ -5,7 +5,7 @@ angular
 			var landingCompanyName;
 			$scope.$on('authorize', function(e, authorize) {
 				$scope.sessionLoginId = authorize.loginid;
-				if (!appStateService.isRealityChecked && authorize.is_virtual == 0) {
+				if (!appStateService.isRealityChecked && authorize.is_virtual == 0 && !appStateService.isChangedAccount) {
 					landingCompanyName = authorize.landing_company_name;
 					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
 				} else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 1) {
@@ -13,6 +13,15 @@ angular
 					appStateService.isChangedAccount = false;
 					appStateService.isRealityChecked = true;
 				} else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0) {
+					if ($scope.realityCheckTimeout) {
+						$timeout.cancel($scope.realityCheckTimeout);
+					}
+					appStateService.isRealityChecked = false;
+					landingCompanyName = authorize.landing_company_name;
+					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
+					appStateService.isChangedAccount = false;
+				}
+				else if(!appStateService.isRealityChecked && authorize.is_virtual == 0 && appStateService.isChangedAccount){
 					if ($scope.realityCheckTimeout) {
 						$timeout.cancel($scope.realityCheckTimeout);
 					}
@@ -174,7 +183,7 @@ angular
 							function(translation) {
 								alertService.displayRealityCheckResult(
 									translation['realitycheck.title'],
-									'realitycheck',
+									'realitycheck result-popup',
 									$scope,
 									'templates/components/reality-check/reality-check-result.template.html', [{
 										text: translation['realitycheck.logout'],
