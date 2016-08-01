@@ -9831,7 +9831,7 @@ a.button {
   font-weight: 700; }
 
 ::-webkit-input-placeholder {
-  color: #5e668f; }
+  color: #15212d; }
 
 button {
   border: none !important; }
@@ -9885,7 +9885,7 @@ button:hover {
   font-size: 8px; }
 
 .appVersion {
-  color: #f2f2f2;
+  color: #2a3052;
   opacity: 0.5;
   font-size: 14px;
   display: block;
@@ -10193,7 +10193,7 @@ input::-webkit-inner-spin-button {
       .sign-in .list label.item-input i {
         font-size: 40px;
         width: 40px;
-        color: #5e668f;
+        color: #15212d;
         text-align: center; }
         .sign-in .list label.item-input i.icon-small {
           font-size: 28px; }
@@ -10214,7 +10214,7 @@ input::-webkit-inner-spin-button {
       .sign-in .list label.item-select i {
         font-size: 40px;
         width: 40px;
-        color: #5e668f;
+        color: #15212d;
         text-align: center; }
         .sign-in .list label.item-select i.icon-small {
           font-size: 28px; }
@@ -10956,19 +10956,21 @@ input::-webkit-inner-spin-button {
     font-weight: bold; }
 
 .realitycheck .interval-input input {
-  border: 1px solid #f2f2f2; }
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+  padding-left: 5px; }
 
 .realitycheck .interval_error {
   position: fixed;
   font-size: 12px; }
 
 .realitycheck .popup-body {
-  background-color: #f2f2f2;
+  background-color: #fff;
   padding: 5px; }
   .realitycheck .popup-body .item {
     font-size: 14px;
     padding: 5px;
-    background-color: #f2f2f2; }
+    background-color: #fff; }
     .realitycheck .popup-body .item .row {
       white-space: normal; }
       .realitycheck .popup-body .item .row.realitycheck-text {
