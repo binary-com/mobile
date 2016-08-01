@@ -9885,7 +9885,7 @@ button:hover {
   font-size: 8px; }
 
 .appVersion {
-  color: #f2f2f2;
+  color: #2a3052;
   opacity: 0.5;
   font-size: 14px;
   display: block;
@@ -10193,7 +10193,7 @@ input::-webkit-inner-spin-button {
       .sign-in .list label.item-input i {
         font-size: 40px;
         width: 40px;
-        color: #5e668f;
+        color: #15212d;
         text-align: center; }
         .sign-in .list label.item-input i.icon-small {
           font-size: 28px; }
@@ -10214,7 +10214,7 @@ input::-webkit-inner-spin-button {
       .sign-in .list label.item-select i {
         font-size: 40px;
         width: 40px;
-        color: #5e668f;
+        color: #15212d;
         text-align: center; }
         .sign-in .list label.item-select i.icon-small {
           font-size: 28px; }
