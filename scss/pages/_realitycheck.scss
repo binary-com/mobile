@@ -1,10 +1,10 @@
 .realitycheck {
 	.popup {
-		background-color: $lightgray;
-		width: 90vh;
+		background-color: $white;
+		width: 90vw;
 		padding: 2px;
 		font-size: 14px;
-		.button{
+		.button {
 			font-size: 14px;
 		}
 		.button-secondary {
@@ -15,7 +15,7 @@
 	.popup-head {
 		padding: 10px;
 		border: none;
-		background-color: $darkblue;
+		background-color: $blue;
 		h3.popup-title {
 			color: $white!important;
 			font-size: 14px!important;
@@ -39,22 +39,21 @@
 			font-size: 14px;
 			padding: 5px;
 			background-color: $lightgray;
-			.row{
+			.row {
 				white-space: normal;
-				&.realitycheck-text{
-					padding:15px 0 0 0!important;
+				&.realitycheck-text {
+					padding: 15px 0 0 !important;
 				}
-				.col:nth-child(2n){
-					    text-align: center;
+				.col:nth-child(2n) {
+					text-align: center;
 				}
-				&.interval{
+				&.interval {
 					padding: 10px 5px;
 				}
 			}
-			.interval-text{
+			.interval-text {
 				padding: 10px 5px;
 			}
-
 			p {
 				white-space: normal;
 				color: $black;
@@ -64,20 +63,20 @@
 }
 .getinterval {
 	.popup {
-		width: 80vh;
+		width: 80vw;
 	}
 }
 @media only screen and (max-device-width: 480px) {
-.realitycheck .popup-body .item{
-	font-size: 12px;
-}
+	.realitycheck .popup-body .item {
+		font-size: 12px;
+	}
 	.realitycheck {
 		.popup-body {
-			.item{
+			.item {
 				font-size: 12px;
-				.row{
+				.row {
 					padding: 0;
-					.interval-text{
+					.interval-text {
 						padding: 0;
 					}
 				}
