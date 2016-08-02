@@ -10956,12 +10956,12 @@ input::-webkit-inner-spin-button {
     font-weight: bold; }
 
 .realitycheck .interval-input input {
-  border: 1px solid #f2f2f2;
+  border: 1px solid #c4c4c4;
   border-radius: 4px;
   padding-left: 5px; }
 
 .realitycheck .interval_error {
-  position: fixed;
+  position: relative;
   font-size: 12px; }
 
 .realitycheck .popup-body {
@@ -10986,9 +10986,16 @@ input::-webkit-inner-spin-button {
       color: #000; }
 
 .getinterval .popup {
-  width: 80vw; }
+  width: 40vw; }
 
-@media only screen and (max-device-width: 480px) {
+.getinterval .popup, .result-popup .popup {
+  width: 40vw; }
+
+@media screen and (max-width: 960px) {
+  .getinterval .popup, .result-popup .popup {
+    width: 80vw !important; } }
+
+@media screen and (max-width: 480px) {
   .realitycheck .popup-body .item {
     font-size: 12px; }
   .realitycheck .popup-body .item {
@@ -10996,9 +11003,14 @@ input::-webkit-inner-spin-button {
     .realitycheck .popup-body .item .row {
       padding: 0; }
       .realitycheck .popup-body .item .row .interval-text {
-        padding: 0; }
+        padding: 0;
+        width: 100%; }
   .realitycheck .popup-body p {
-    font-size: 12px; } }
+    font-size: 12px; }
+  .getinterval .popup {
+    width: 90vw !important; }
+  .result-popup .popup {
+    width: 90vw !important; } }
 
 @media only screen and (max-device-width: 480px) {
   /*RU Language*/
