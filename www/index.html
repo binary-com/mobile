@@ -167,6 +167,7 @@
 	<script src="js/components/utils/app-version.directive.js"></script>
 	<script src="js/components/utils/logo-spinner.directive.js"></script>
 	<script src="js/components/utils/long-press.directive.js"></script>
+	<script src="js/components/utils/ping.directive.js"></script>
 
 	<script src="js/components/codepush/app-update.directive.js"></script>
 
@@ -177,6 +178,7 @@
 </head>
 
 <body ng-controller="BodyController" id="{{getLanguage()}}">
+    <ping></ping>
 	<connection-status></connection-status>
     <app-update></app-update>
     <scope-message></scope-message>

@@ -14,19 +14,23 @@ angular
 			var dataStream = '';
 			var messageBuffer = [];
 
-			var waitForConnection = function(callback) {
+			var waitForConnection = function(callback, isAuthonticationRequest) {
 				if (dataStream.readyState === 3) {
 					init();
-					setTimeout(function() {
-						waitForConnection(callback);
-					}, 1000);
+                    if(!isAuthonticationRequest){
+                        setTimeout(function() {
+                            waitForConnection(callback);
+                        }, 1000);
+                    }
 				} else if (dataStream.readyState === 1) {
 					callback();
 				} else if (!(dataStream instanceof WebSocket)) {
 					init();
-					setTimeout(function() {
-						waitForConnection(callback);
-					}, 1000);
+                    if(!isAuthonticationRequest){
+                        setTimeout(function() {
+                            waitForConnection(callback);
+                        }, 1000);
+                    }
 				} else {
 					setTimeout(function() {
 						waitForConnection(callback);
@@ -37,7 +41,7 @@ angular
 			var sendMessage = function(_data) {
 				waitForConnection(function() {
 					dataStream.send(JSON.stringify(_data));
-				});
+				}, _data.hasOwnProperty('authorize'));
 			};
 
 			var init = function(forced) {
@@ -255,7 +259,13 @@ angular
 						"reality_check": 1
 					};
 					sendMessage(data);
-				}
+				},
+                ping: function(){
+                    var data = {
+                        ping: 1
+                    };
+                    sendMessage(data);
+                }
 			};
 
 			websocketService.closeConnection = function() {
