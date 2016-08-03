@@ -1,13 +1,13 @@
 {
-	"signin" : {
+	"signin": {
 		"language": "Language",
 		"add_account": "Add Account",
 		"need_help": "Need Help?",
 		"paste_token": "Paste your token here",
 		"get_token": "How to get a Token?",
-        "signin_with_binary_com": "Sign in",
-        "use_token": "Or sign in with a token",
-        "next": "Next"
+		"signin_with_binary_com": "Sign in",
+		"use_token": "Or sign in with a token",
+		"next": "Next"
 	},
 	"accounts": {
 		"my_accounts": "Manage Accounts",
@@ -16,11 +16,11 @@
 		"default": "Default",
 		"set_as_default": "Set as default",
 		"add": "Add",
-		"new_token":"Add a new token",
+		"new_token": "Add a new token",
 		"delete": "Delete",
-    "not_allowed_to_trade": "You don't have permission to trade!"
+		"not_allowed_to_trade": "You don't have permission to trade!"
 	},
-	"alert" : {
+	"alert": {
 		"error": "Error!",
 		"warning": "Warning",
 		"not_valid": "Please enter a valid token.",
@@ -34,15 +34,15 @@
 		"remove_all_tokens_content": "Are you sure you want to remove all tokens and sign out?",
 		"no_underlying": "There is no underlying for this market. Please try another market.",
 		"required_field": "This field is required.",
-		"field_between":"It must be between 0.70 and 100000.",
-		"must_number":"It must be a number."
+		"field_between": "It must be between 0.70 and 100000.",
+		"must_number": "It must be a number."
 	},
-	"options" : {
+	"options": {
 		"account": "Account",
 		"select_market": "Markets",
 		"forex": "Forex",
 		"random": "Random",
-        "volidx": "Volatility Indices",
+		"volidx": "Volatility Indices",
 		"underlying": "Underlying",
 		"trade_type": "Trade Types",
 		"up": "Up",
@@ -52,8 +52,8 @@
 		"digit_odd": "Odd",
 		"digit_match": "Matches",
 		"digit_differs": "Differs",
-        "digit_over": "Over",
-        "digit_under": "Under",
+		"digit_over": "Over",
+		"digit_under": "Under",
 		"number_of_ticks": "Number of Ticks",
 		"payout_type": "Payout Type",
 		"select_amount": "Select Amount",
@@ -61,15 +61,15 @@
 		"stake": "Stake",
 		"save": "SAVE",
 		"lets_trade": "Let's trade!",
-        "asians_up": "Asians Up",
-        "asians_down": "Asians Down",
-        "asians": "Asians",
-        "digit_over_under": "Digit Over/Under",
-        "digit_even_odd": "Digit Even/Odd",
-        "digit_matches_differs": "Digit Matches/Differs",
-        "up_down": "Up/Down"
+		"asians_up": "Asians Up",
+		"asians_down": "Asians Down",
+		"asians": "Asians",
+		"digit_over_under": "Digit Over/Under",
+		"digit_even_odd": "Digit Even/Odd",
+		"digit_matches_differs": "Digit Matches/Differs",
+		"up_down": "Up/Down"
 	},
-	"trade" : {
+	"trade": {
 		"payout": "Payout",
 		"stake": "Stake",
 		"price": "Price",
@@ -88,29 +88,53 @@
 		"win": "This contract won",
 		"lose": "This contract lost",
 		"transaction_id": "Transaction Reference",
-        "buy_again": "Buy Again"
+		"buy_again": "Buy Again"
 	},
-	"help" : {
+	"help": {
 		"need_help": "Need Help?",
 		"generate_api": "To access a third party application, such as a mobile app, you are required to generate an API Token.",
 		"visit": "Please visit",
 		"page": "this page",
 		"copy_token": "and create a token. Then simply copy and paste it into the top box.",
-		"email_cs":"Have questions? Email customer support at ",
-		"back":"Back"
+		"email_cs": "Have questions? Email customer support at ",
+		"back": "Back"
 	},
-	"app" : {
+	"app": {
 		"exit_title": "Exit",
 		"exit_confirmation": "Are you sure you want to exit?",
 		"connection_error_title": "Connection Error",
 		"connection_error": "There is no internet connection!"
 	},
-    "update": {
-        "installed": "The update was installed successfully.",
-        "up_to_date": "The application is up to date.",
-        "error": "An error occured while checking for updates",
-        "check_for_update": "Checking for update.",
-        "downloading": "Downloading ...",
-        "installing": "Installing update"
-    }
+	"update": {
+		"installed": "The update was installed successfully.",
+		"up_to_date": "The application is up to date.",
+		"error": "An error occured while checking for updates",
+		"check_for_update": "Checking for update.",
+		"downloading": "Downloading ...",
+		"installing": "Installing update"
+	},
+	"realitycheck": {
+		"title": "Reality Check",
+		"about": "Options trading can become a real addiction, as can any other activity pushed to its limits. To avoid the danger of such an addiction, we provide a reality-check that gives you a summary of your trades and accounts on a regular basis.",
+		"login_time": "Login time:",
+		"current_time": "Current time:",
+		"session_duration": "Session duration:",
+		"statistics": "Your trading statistics since",
+		"interval_question": "Please specify your preferred reality-check interval in minutes:",
+		"loginid": "Login ID",
+		"currency": "Currency",
+		"buy_amount": "Turnover",
+		"profit_loss": "Profit/Loss",
+		"buy_count": "Contracts bought",
+		"sell_count": "Contracts sold",
+		"open_contract_count": "Open contracts",
+		"potential_profit": "Potential profit",
+		"interval": "Reality Check Interval in minutes",
+		"continue": "Continue Trading",
+		"logout": "Logout",
+		"days": "days",
+		"hours": "hours",
+		"minutes": "minutes",
+		"interval_error": "Please enter a number between 10 to 120."
+	}
 }
