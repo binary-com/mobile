@@ -1,9 +1,9 @@
-#. extracted from /tmp/json2po-May0512225152/lang/pt.json, /tmp/json2po-May0512225152/old_po/pt.json
+#. extracted from /tmp/json2po-8-3-2016/i18n/pt.json, /tmp/json2po-8-3-2016/translated_i18n/pt.json
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-12 22:51+0430\n"
+"POT-Creation-Date: 2016-08-03 11:07+0800\n"
 "PO-Revision-Date: 2016-06-06 12:38+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-tick-"
@@ -301,6 +301,98 @@ msgstr "Insira um token válido."
 #: .alert.remove_all_tokens_content
 msgid "Are you sure you want to remove all tokens and sign out?"
 msgstr "Tem certeza que deseja remover todos os tokens e sair?"
+
+#: .realitycheck.interval
+msgid "Reality Check Interval in minutes"
+msgstr ""
+
+#: .realitycheck.currency
+msgid "Currency"
+msgstr ""
+
+#: .realitycheck.potential_profit
+msgid "Potential profit"
+msgstr ""
+
+#: .realitycheck.loginid
+msgid "Login ID"
+msgstr ""
+
+#: .realitycheck.current_time
+msgid "Current time:"
+msgstr ""
+
+#: .realitycheck.statistics
+msgid "Your trading statistics since"
+msgstr ""
+
+#: .realitycheck.title
+msgid "Reality Check"
+msgstr ""
+
+#: .realitycheck.open_contract_count
+msgid "Open contracts"
+msgstr ""
+
+#: .realitycheck.buy_count
+msgid "Contracts bought"
+msgstr ""
+
+#: .realitycheck.login_time
+msgid "Login time:"
+msgstr ""
+
+#: .realitycheck.session_duration
+msgid "Session duration:"
+msgstr ""
+
+#: .realitycheck.hours
+msgid "hours"
+msgstr ""
+
+#: .realitycheck.buy_amount
+msgid "Turnover"
+msgstr ""
+
+#: .realitycheck.interval_error
+msgid "Please enter a number between 10 to 120."
+msgstr ""
+
+#: .realitycheck.logout
+msgid "Logout"
+msgstr ""
+
+#: .realitycheck.sell_count
+msgid "Contracts sold"
+msgstr ""
+
+#: .realitycheck.interval_question
+msgid "Please specify your preferred reality-check interval in minutes:"
+msgstr ""
+
+#: .realitycheck.about
+msgid ""
+"Options trading can become a real addiction, as can any other activity "
+"pushed to its limits. To avoid the danger of such an addiction, we provide a "
+"reality-check that gives you a summary of your trades and accounts on a "
+"regular basis."
+msgstr ""
+
+#: .realitycheck.profit_loss
+msgid "Profit/Loss"
+msgstr ""
+
+#: .realitycheck.days
+msgid "days"
+msgstr ""
+
+#: .realitycheck.continue
+msgid "Continue Trading"
+msgstr ""
+
+#: .realitycheck.minutes
+msgid "minutes"
+msgstr ""
 
 #: .options.asians_down
 msgid "Asians Down"
