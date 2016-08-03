@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-18 23:09+0000\n"
+"PO-Revision-Date: 2016-06-08 18:26+0000\n"
 "Last-Translator: Ahmed Kotb <ahmedmohamedkotp@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/ar/>\n"
@@ -361,7 +361,7 @@ msgstr "حفظ"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr ""
+msgstr "رقم يطابق/يختلف"
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -393,7 +393,7 @@ msgstr "ارتفاع الآسيويين"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr ""
+msgstr "أعلى/أسفل"
 
 #: .options.payout
 msgctxt ".options.payout"

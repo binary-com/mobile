@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-14 06:37+0000\n"
+"PO-Revision-Date: 2016-06-09 02:50+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
 "tick-trade/app/zh_CN/>\n"
@@ -357,7 +357,7 @@ msgstr "保存"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr ""
+msgstr "数字匹配/差异"
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -389,7 +389,7 @@ msgstr "亚洲上涨"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr ""
+msgstr "上涨/下跌"
 
 #: .options.payout
 msgctxt ".options.payout"

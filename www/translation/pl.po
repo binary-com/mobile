@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-12 22:51+0430\n"
-"PO-Revision-Date: 2016-05-13 22:10+0000\n"
+"PO-Revision-Date: 2016-06-08 12:37+0000\n"
 "Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/pl/>\n"
@@ -364,7 +364,7 @@ msgstr "ZAPISZ"
 
 #: .options.digit_matches_differs
 msgid "Digit Matches/Differs"
-msgstr ""
+msgstr "Cyfry zgadzają się/ różnią się"
 
 #: .options.trade_type
 msgid "Trade Types"
@@ -396,7 +396,7 @@ msgstr "Azjatyckie – wzrost"
 
 #: .options.up_down
 msgid "Up/Down"
-msgstr ""
+msgstr "Góra/dół"
 
 #: .options.payout
 msgctxt ".options.payout"
