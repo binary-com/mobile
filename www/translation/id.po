@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-03 11:07+0800\n"
-"PO-Revision-Date: 2016-06-06 04:41+0000\n"
+"PO-Revision-Date: 2016-08-04 07:02+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/id/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -305,71 +305,71 @@ msgstr "Apakah Anda yakin ingin menghapus semua token dan keluar?"
 
 #: .realitycheck.interval
 msgid "Reality Check Interval in minutes"
-msgstr ""
+msgstr "Interval Pemeriksaan Realitas dalam menit"
 
 #: .realitycheck.currency
 msgid "Currency"
-msgstr ""
+msgstr "Mata uang"
 
 #: .realitycheck.potential_profit
 msgid "Potential profit"
-msgstr ""
+msgstr "Potensi profit"
 
 #: .realitycheck.loginid
 msgid "Login ID"
-msgstr ""
+msgstr "Login ID"
 
 #: .realitycheck.current_time
 msgid "Current time:"
-msgstr ""
+msgstr "Waktu saat ini:"
 
 #: .realitycheck.statistics
 msgid "Your trading statistics since"
-msgstr ""
+msgstr "Statistik trading Anda sejak"
 
 #: .realitycheck.title
 msgid "Reality Check"
-msgstr ""
+msgstr "Pengecekan Realitas"
 
 #: .realitycheck.open_contract_count
 msgid "Open contracts"
-msgstr ""
+msgstr "Kontrak berjalan"
 
 #: .realitycheck.buy_count
 msgid "Contracts bought"
-msgstr ""
+msgstr "Kontrak yang dibeli"
 
 #: .realitycheck.login_time
 msgid "Login time:"
-msgstr ""
+msgstr "Waktu login:"
 
 #: .realitycheck.session_duration
 msgid "Session duration:"
-msgstr ""
+msgstr "Sesi durasi:"
 
 #: .realitycheck.hours
 msgid "hours"
-msgstr ""
+msgstr "jam"
 
 #: .realitycheck.buy_amount
 msgid "Turnover"
-msgstr ""
+msgstr "Turnover"
 
 #: .realitycheck.interval_error
 msgid "Please enter a number between 10 to 120."
-msgstr ""
+msgstr "Silakan masukkan nomor antara 10 hingga 120."
 
 #: .realitycheck.logout
 msgid "Logout"
-msgstr ""
+msgstr "Keluar"
 
 #: .realitycheck.sell_count
 msgid "Contracts sold"
-msgstr ""
+msgstr "Kontrak terjual"
 
 #: .realitycheck.interval_question
 msgid "Please specify your preferred reality-check interval in minutes:"
-msgstr ""
+msgstr "Tentukan interval pengecekan realitas Anda dalam hitungan menit:"
 
 #: .realitycheck.about
 msgid ""
@@ -378,22 +378,25 @@ msgid ""
 "reality-check that gives you a summary of your trades and accounts on a "
 "regular basis."
 msgstr ""
+"Trading opsi dapat menyebabkan ketagihan, sama seperti aktifitas lain yang "
+"dilakukan secara berlebihan. Untuk menghindari bahaya tersebut, kami "
+"menyediakan pengecekan realitas berupa rangkuman trading secara berkala."
 
 #: .realitycheck.profit_loss
 msgid "Profit/Loss"
-msgstr ""
+msgstr "Untung/Rugi"
 
 #: .realitycheck.days
 msgid "days"
-msgstr ""
+msgstr "hari"
 
 #: .realitycheck.continue
 msgid "Continue Trading"
-msgstr ""
+msgstr "Lanjutkan Trading"
 
 #: .realitycheck.minutes
 msgid "minutes"
-msgstr ""
+msgstr "menit"
 
 #: .options.asians_down
 msgid "Asians Down"
