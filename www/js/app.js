@@ -37,9 +37,10 @@ angular
         $ionicPlatform.registerBackButtonAction(function(){
             if($state.current.name === "options"){
                 alertService.confirmExit(function(res){
-                    if(res == 1)
+                    if(res == 1){
                         sessionStorage.removeItem('start');
                         navigator.app.exitApp();
+                    }
                 });
             }
             else if($state.current.name === "signin" || $state.current.name === "home" ){
