@@ -16,7 +16,11 @@ angular
                 link: function(scope, elm, attrs) {
                     var timer = 0;
                     var interval = attrs.interval ? Number(attrs.interval) : 300;
+                    scope.longPress = false;
+
                     var startPress = function(evt) {
+                        evt.stopPropagation();
+                        evt.preventDefault();
                         // Locally scoped variable that will keep track of the long press
                         scope.longPress = true;
                         
