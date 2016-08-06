@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-03 11:07+0800\n"
-"PO-Revision-Date: 2016-08-06 15:49+0000\n"
+"PO-Revision-Date: 2016-08-06 15:51+0000\n"
 "Last-Translator: Jutawan <bubbleblythe@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/th/>\n"
@@ -324,7 +324,7 @@ msgstr "สถิติการซื้อขายของท่านตั
 
 #: .realitycheck.title
 msgid "Reality Check"
-msgstr "Reality Check"
+msgstr "การตรวจสอบสภาพความเป็นจริง (Reality Check)"
 
 #: .realitycheck.open_contract_count
 msgid "Open contracts"
