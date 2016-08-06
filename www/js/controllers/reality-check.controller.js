@@ -12,15 +12,7 @@ angular
 					$timeout.cancel($scope.realityCheckTimeout);
 					appStateService.isChangedAccount = false;
 					appStateService.isRealityChecked = true;
-				} else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0) {
-					if ($scope.realityCheckTimeout) {
-						$timeout.cancel($scope.realityCheckTimeout);
-					}
-					appStateService.isRealityChecked = false;
-					landingCompanyName = authorize.landing_company_name;
-					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
-					appStateService.isChangedAccount = false;
-				} else if (!appStateService.isRealityChecked && authorize.is_virtual == 0 && appStateService.isChangedAccount) {
+				} else if (appStateService.isChangedAccount && authorize.is_virtual == 0) {
 					if ($scope.realityCheckTimeout) {
 						$timeout.cancel($scope.realityCheckTimeout);
 					}
@@ -37,11 +29,9 @@ angular
 			});
 
 			$scope.setInterval = function setInterval(val) {
-				var _interval;
 				var set = sessionStorage.setItem('_interval', val);
 			};
 			$scope.setStart = function setInterval(val) {
-				var start;
 				var set = sessionStorage.setItem('start', val);
 			};
 
@@ -60,21 +50,18 @@ angular
 			};
 
 			$scope.hasRealityCheck = function() {
-				if (!appStateService.isRealityChecked && !sessionStorage.start) {
-						$scope.realityCheck();
-
-
+				if (!appStateService.isRealityChecked && _.isEmpty(sessionStorage._interval) == true) {
+					$scope.realityCheck();
 				} else if (!appStateService.isRealityChecked && sessionStorage.start) {
 					appStateService.isRealityChecked = true;
 					var timeGap = $scope.getStart('start');
-					var now = (new Date()).getTime();
-					if (($scope.getInterval('_interval') * 60000) - (now - timeGap) > 0) {
-						var period = ($scope.getInterval('_interval') * 60000) - (now - timeGap);
+					var thisTime = (new Date()).getTime();
+					if (($scope.getInterval('_interval') * 60000) - (thisTime - timeGap) > 0) {
+						var period = ($scope.getInterval('_interval') * 60000) - (thisTime - timeGap);
 						$scope.realityCheckTimeout = $timeout($scope.getRealityCheck, period);
 					}
-
 				} else {
-					if(_.isEmpty(sessionStorage._interval) == false){
+					if (_.isEmpty(sessionStorage._interval) == false) {
 						var period = $scope.getInterval('_interval') * 60000;
 						$scope.realityCheckTimeout = $timeout($scope.getRealityCheck, period);
 					}
@@ -95,7 +82,7 @@ angular
 								'templates/components/reality-check/interval-popup.template.html', [{
 									text: translation['realitycheck.continue'],
 									onTap: function(e) {
-										if ($scope.data.interval <= 120 && $scope.data.interval >= 10) {
+										if ($scope.data.interval <= 120 && $scope.data.interval >= 1) {
 											$scope.setInterval($scope.data.interval);
 											$scope.data.start_interval = (new Date()).getTime();
 											$scope.setStart($scope.data.start_interval);
@@ -174,7 +161,7 @@ angular
 					$scope.sessionTime(reality_check);
 					$scope.data = {};
 					$scope.data.interval = parseInt($scope.getInterval('_interval'));
-
+					$timeout.cancel($scope.realityCheckTimeout);
 					$translate(['realitycheck.title', 'realitycheck.continue', 'realitycheck.logout'])
 						.then(
 							function(translation) {
@@ -191,9 +178,9 @@ angular
 									}, {
 										text: translation['realitycheck.continue'],
 										onTap: function(e) {
-											if ($scope.data.interval <= 120 && $scope.data.interval >= 10) {
+											if ($scope.data.interval <= 120 && $scope.data.interval >= 1) {
 												if ($scope.sessionLoginId == $scope.realityCheckitems.loginid) {
-													$scope.data.interval = $scope.getLastInterval();
+													$scope.getLastInterval($scope.data.interval);
 													$scope.data.start_interval = (new Date()).getTime();
 
 													$scope.setStart($scope.data.start_interval);
