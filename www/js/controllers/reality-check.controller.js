@@ -5,22 +5,19 @@ angular
 			var landingCompanyName;
 			$scope.$on('authorize', function(e, authorize) {
 				$scope.sessionLoginId = authorize.loginid;
+				// check if user is not already authorized, account is real money account  & is not changed in app
 				if (!appStateService.isRealityChecked && authorize.is_virtual == 0 && !appStateService.isChangedAccount) {
 					landingCompanyName = authorize.landing_company_name;
 					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
-				} else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 1) {
+				}
+				// check if user is already authorized, account changed and is virtual money account
+				else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 1) {
 					$timeout.cancel($scope.realityCheckTimeout);
 					appStateService.isChangedAccount = false;
 					appStateService.isRealityChecked = true;
-				} else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0) {
-					if ($scope.realityCheckTimeout) {
-						$timeout.cancel($scope.realityCheckTimeout);
-					}
-					appStateService.isRealityChecked = false;
-					landingCompanyName = authorize.landing_company_name;
-					websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
-					appStateService.isChangedAccount = false;
-				} else if (!appStateService.isRealityChecked && authorize.is_virtual == 0 && appStateService.isChangedAccount) {
+				}
+				// check if account is changed and is real money account
+				else if (appStateService.isChangedAccount && authorize.is_virtual == 0) {
 					if ($scope.realityCheckTimeout) {
 						$timeout.cancel($scope.realityCheckTimeout);
 					}
@@ -37,11 +34,9 @@ angular
 			});
 
 			$scope.setInterval = function setInterval(val) {
-				var _interval;
 				var set = sessionStorage.setItem('_interval', val);
 			};
 			$scope.setStart = function setInterval(val) {
-				var start;
 				var set = sessionStorage.setItem('start', val);
 			};
 
@@ -60,21 +55,26 @@ angular
 			};
 
 			$scope.hasRealityCheck = function() {
-				if (!appStateService.isRealityChecked && !sessionStorage.start) {
-						$scope.realityCheck();
-
-
-				} else if (!appStateService.isRealityChecked && sessionStorage.start) {
+				// if not asked the interval from user and the start time of reality check popups are not set in sessionStorage
+				if (!appStateService.isRealityChecked && _.isEmpty(sessionStorage._interval) == true) {
+					$scope.realityCheck();
+				}
+				// if not asked the interval from user and the start time of reality check popups are set in sessionStorage
+				// happens when user refresh the browser
+				else if (!appStateService.isRealityChecked && sessionStorage.start) {
 					appStateService.isRealityChecked = true;
+					// calculate the difference between time of last popup and current time
 					var timeGap = $scope.getStart('start');
-					var now = (new Date()).getTime();
-					if (($scope.getInterval('_interval') * 60000) - (now - timeGap) > 0) {
-						var period = ($scope.getInterval('_interval') * 60000) - (now - timeGap);
+					var thisTime = (new Date()).getTime();
+					// if the difference above is smaller than the interval set the period for popup timeout to remained time
+					if (($scope.getInterval('_interval') * 60000) - (thisTime - timeGap) > 0) {
+						var period = ($scope.getInterval('_interval') * 60000) - (thisTime - timeGap);
 						$scope.realityCheckTimeout = $timeout($scope.getRealityCheck, period);
 					}
-
-				} else {
-					if(_.isEmpty(sessionStorage._interval) == false){
+				}
+				// if user did not refresh the app and the interval is set
+				else {
+					if (_.isEmpty(sessionStorage._interval) == false) {
 						var period = $scope.getInterval('_interval') * 60000;
 						$scope.realityCheckTimeout = $timeout($scope.getRealityCheck, period);
 					}
@@ -174,7 +174,7 @@ angular
 					$scope.sessionTime(reality_check);
 					$scope.data = {};
 					$scope.data.interval = parseInt($scope.getInterval('_interval'));
-
+					$timeout.cancel($scope.realityCheckTimeout);
 					$translate(['realitycheck.title', 'realitycheck.continue', 'realitycheck.logout'])
 						.then(
 							function(translation) {
@@ -193,9 +193,8 @@ angular
 										onTap: function(e) {
 											if ($scope.data.interval <= 120 && $scope.data.interval >= 10) {
 												if ($scope.sessionLoginId == $scope.realityCheckitems.loginid) {
-													$scope.data.interval = $scope.getLastInterval();
+													$scope.getLastInterval($scope.data.interval);
 													$scope.data.start_interval = (new Date()).getTime();
-
 													$scope.setStart($scope.data.start_interval);
 													$scope.hasRealityCheck();
 												}
