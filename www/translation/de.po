@@ -365,7 +365,7 @@ msgstr "Bitte geben Sie eine Zahl zwischen 10 und 120 ein."
 
 #: .realitycheck.logout
 msgid "Logout"
-msgstr "Logout"
+msgstr "Abmelden"
 
 #: .realitycheck.sell_count
 msgid "Contracts sold"
