@@ -84,6 +84,7 @@ angular
                         accountService.validate(_token, {req_id: requestId});
 												appStateService.isChangedAccount = true;
 												sessionStorage.removeItem('start');
+												sessionStorage.removeItem('_interval');
 					} else {
                         $ionicLoading.hide();
 						alertService.accountError.tokenNotValid();
@@ -107,6 +108,7 @@ angular
 					sessionStorage.clear('_interval');
 					appStateService.isChangedAccount = true;
 					sessionStorage.removeItem('start');
+					sessionStorage.removeItem('_interval');
 				};
 			}
 		};
