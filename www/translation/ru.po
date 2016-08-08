@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-03 11:07+0800\n"
-"PO-Revision-Date: 2016-08-08 19:43+0000\n"
-"Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
+"PO-Revision-Date: 2016-08-08 19:49+0000\n"
+"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/ru/>\n"
 "Language: ru\n"
@@ -319,47 +319,47 @@ msgstr ""
 
 #: .realitycheck.loginid
 msgid "Login ID"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: .realitycheck.current_time
 msgid "Current time:"
-msgstr ""
+msgstr "Текущее время:"
 
 #: .realitycheck.statistics
 msgid "Your trading statistics since"
-msgstr ""
+msgstr "Ваша статистика торговли с"
 
 #: .realitycheck.title
 msgid "Reality Check"
-msgstr ""
+msgstr "Проверка реальности"
 
 #: .realitycheck.open_contract_count
 msgid "Open contracts"
-msgstr ""
+msgstr "Открытые контракты"
 
 #: .realitycheck.buy_count
 msgid "Contracts bought"
-msgstr ""
+msgstr "Купленные контракты"
 
 #: .realitycheck.login_time
 msgid "Login time:"
-msgstr ""
+msgstr "Время входа:"
 
 #: .realitycheck.session_duration
 msgid "Session duration:"
-msgstr ""
+msgstr "Продолжительность сессии:"
 
 #: .realitycheck.hours
 msgid "hours"
-msgstr ""
+msgstr "часов"
 
 #: .realitycheck.buy_amount
 msgid "Turnover"
-msgstr ""
+msgstr "Объём покупок"
 
 #: .realitycheck.interval_error
 msgid "Please enter a number between 10 to 120."
-msgstr ""
+msgstr "Пожалуйста, введите цифру от 10 до 120."
 
 #: .realitycheck.logout
 msgid "Logout"
