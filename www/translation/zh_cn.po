@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-03 11:07+0800\n"
-"PO-Revision-Date: 2016-08-08 03:21+0000\n"
+"PO-Revision-Date: 2016-08-08 03:28+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
 "tick-trade/app/zh_CN/>\n"
@@ -300,7 +300,7 @@ msgstr "确认要删除所有令牌并退出？"
 
 #: .realitycheck.interval
 msgid "Reality Check Interval in minutes"
-msgstr "以分钟为单位的真实检查时间间隔"
+msgstr "以分钟为单位的实况调查时间间隔"
 
 #: .realitycheck.currency
 msgid "Currency"
@@ -324,7 +324,7 @@ msgstr "交易统计数据从"
 
 #: .realitycheck.title
 msgid "Reality Check"
-msgstr "真实检查"
+msgstr "实况调查"
 
 #: .realitycheck.open_contract_count
 msgid "Open contracts"
