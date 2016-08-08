@@ -39,6 +39,7 @@ angular
                 alertService.confirmExit(function(res){
                     if(res == 1){
                         sessionStorage.removeItem('start');
+                        sessionStorage.removeItem('_interval');
                         navigator.app.exitApp();
                     }
                 });

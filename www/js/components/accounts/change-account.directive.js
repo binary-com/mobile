@@ -44,6 +44,7 @@ angular
 				scope.updateAccount = function(_selectedAccount) {
 										appStateService.isChangedAccount = true;
 										sessionStorage.removeItem('start');
+										sessionStorage.removeItem('_interval');
                     scope.setDataLoaded(false);
 					accountService.setDefault(_selectedAccount);
 					accountService.validate();
