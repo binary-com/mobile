@@ -94,6 +94,7 @@ angular
 								$scope,
 								'templates/components/reality-check/interval-popup.template.html', [{
 									text: translation['realitycheck.continue'],
+									type: 'button-positive',
 									onTap: function(e) {
 										if ($scope.data.interval <= 120 && $scope.data.interval >= 10) {
 											$scope.setInterval($scope.data.interval);
@@ -190,6 +191,7 @@ angular
 										}
 									}, {
 										text: translation['realitycheck.continue'],
+										type: 'button-positive',
 										onTap: function(e) {
 											if ($scope.data.interval <= 120 && $scope.data.interval >= 10) {
 												if ($scope.sessionLoginId == $scope.realityCheckitems.loginid) {

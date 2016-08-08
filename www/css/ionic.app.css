@@ -9844,6 +9844,26 @@ a {
   text-decoration: none;
   font-weight: bold; }
 
+.popup-head {
+  padding: 10px;
+  border: none;
+  background-color: #2a3052; }
+  .popup-head h3.popup-title {
+    color: #fff !important;
+    font-size: 14px !important;
+    text-align: left;
+    font-weight: bold; }
+
+button.button.button-default {
+  color: #000 !important;
+  background: #c4c4c4 !important; }
+
+button.button.button-positive {
+  background-color: #2E8836 !important; }
+  button.button.button-positive:hover {
+    color: #fff !important;
+    background-color: #14602B !important; }
+
 .button {
   border: none;
   background-color: #2E8836;
@@ -9891,15 +9911,20 @@ button:hover {
   display: block;
   margin: 0 auto; }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
   margin: 0;
   /* <-- Apparently some margin are still there even though it's hidden */ }
 
 @media only screen and (min-device-width: 768px) {
-  .trade, .accounts, .options, .sign-in, .help, .home {
+  .accounts,
+  .help,
+  .home,
+  .options,
+  .sign-in,
+  .trade {
     width: 100%;
     max-width: 768px;
     margin: auto; } }
@@ -10267,7 +10292,8 @@ input::-webkit-inner-spin-button {
       color: #000;
       font-weight: bold;
       text-align: center;
-      line-height: 12px; }
+      line-height: 12px;
+      word-wrap: normal; }
     .trade .contract-payout .price-des {
       font-size: 4vw;
       text-align: center;
