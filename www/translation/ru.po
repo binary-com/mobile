@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-03 11:07+0800\n"
-"PO-Revision-Date: 2016-08-08 19:49+0000\n"
-"Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
+"PO-Revision-Date: 2016-08-08 19:52+0000\n"
+"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/ru/>\n"
 "Language: ru\n"
@@ -363,15 +363,15 @@ msgstr "Пожалуйста, введите число от 10 до 120."
 
 #: .realitycheck.logout
 msgid "Logout"
-msgstr ""
+msgstr "Выход"
 
 #: .realitycheck.sell_count
 msgid "Contracts sold"
-msgstr ""
+msgstr "Проданные контракты"
 
 #: .realitycheck.interval_question
 msgid "Please specify your preferred reality-check interval in minutes:"
-msgstr ""
+msgstr "Пожалуйста, укажите интервал для проверки реальности (в минутах):"
 
 #: .realitycheck.about
 msgid ""
@@ -380,22 +380,26 @@ msgid ""
 "reality-check that gives you a summary of your trades and accounts on a "
 "regular basis."
 msgstr ""
+"Торговля бинарными опционами может вызвать зависимость, как и любая другая "
+"деятельность, доведённая до крайности. Чтобы избежать опасности "
+"возникновения подобной зависимости, мы проводим проверку реальности с "
+"регулярным отчётом о Ваших сделках и счёте."
 
 #: .realitycheck.profit_loss
 msgid "Profit/Loss"
-msgstr ""
+msgstr "Прибыль/Убытки"
 
 #: .realitycheck.days
 msgid "days"
-msgstr ""
+msgstr "дн."
 
 #: .realitycheck.continue
 msgid "Continue Trading"
-msgstr ""
+msgstr "Продолжить"
 
 #: .realitycheck.minutes
 msgid "minutes"
-msgstr ""
+msgstr "мин."
 
 #: .options.asians_down
 msgid "Asians Down"
