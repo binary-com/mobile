@@ -1,71 +1,97 @@
 body * {
-				font-family: roboto, sans-serif !important;
+	font-family: roboto, sans-serif !important;
 }
-a{
+a {
 	color: $blue;
 	text-decoration: none;
 	font-weight: bold;
 }
-.button {
-				border: none;
-				background-color: $green;
-				color: $white;
-				 :hover {
-								color: $white !important;
-								background-color: $darkgreen;
-				}
+.popup-head {
+	padding: 10px;
+	border: none;
+	background-color: $blue;
+	h3.popup-title {
+		color: $white!important;
+		font-size: 14px!important;
+		text-align: left;
+		font-weight: bold;
+	}
 }
-button:hover{
+button.button.button-default {
+	color: $black!important;
+	background: $gray!important;
+}
+button.button.button-positive {
+	background-color: $green!important;
+	&:hover {
+		color: $white !important;
+		background-color: $darkgreen!important;
+	}
+}
+.button {
+	border: none;
+	background-color: $green;
+	color: $white;
+	:hover {
+		color: $white !important;
+		background-color: $darkgreen;
+	}
+}
+button:hover {
 	color: $white !important;
 	background-color: $darkgreen;
 }
 .token-link {
-				text-decoration: underline;
+	text-decoration: underline;
 }
 .center {
-				text-align: center;
-				justify-content:center;
+	text-align: center;
+	justify-content: center;
 }
 .item {
-				border-width: 0;
-				color: $black;
+	border-width: 0;
+	color: $black;
 }
 .item-select select {
-				max-width: 100%;
+	max-width: 100%;
 }
 .item-complex .item-content,
 .item-radio .item-content {
-				background-color: $lightgray;
+	background-color: $lightgray;
 }
-
-.item-radio > input[disabled="disabled"] + div.item-content{
-    opacity: 0.4;
+.item-radio > input[disabled="disabled"] + div.item-content {
+	opacity: 0.4;
 }
-
 .scroll {
-				padding-bottom: 1px;
+	padding-bottom: 1px;
 }
 .error p {
-				color: red;
-				font-size: 8px;
+	color: red;
+	font-size: 8px;
 }
 .appVersion {
-				color: $blue;
-				opacity: 0.5;
-				font-size: 14px;
-				display: block;
-				margin: 0 auto;
+	color: $blue;
+	opacity: 0.5;
+	font-size: 14px;
+	display: block;
+	margin: 0 auto;
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+	/* display: none; <- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	margin: 0;
+	/* <-- Apparently some margin are still there even though it's hidden */
 }
 @media only screen and (min-device-width: 768px) {
-	.trade, .accounts, .options, .sign-in, .help, .home{
+	.accounts,
+	.help,
+	.home,
+	.options,
+	.sign-in,
+	.trade {
 		width: 100%;
-    max-width: 768px;
-    margin: auto;
+		max-width: 768px;
+		margin: auto;
 	}
 }
