@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-03 11:07+0800\n"
 "PO-Revision-Date: 2016-08-08 19:49+0000\n"
-"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
+"Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/ru/>\n"
 "Language: ru\n"
@@ -359,7 +359,7 @@ msgstr "Объём покупок"
 
 #: .realitycheck.interval_error
 msgid "Please enter a number between 10 to 120."
-msgstr "Пожалуйста, введите цифру от 10 до 120."
+msgstr "Пожалуйста, введите число от 10 до 120."
 
 #: .realitycheck.logout
 msgid "Logout"
