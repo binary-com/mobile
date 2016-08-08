@@ -6,6 +6,19 @@ a{
 	text-decoration: none;
 	font-weight: bold;
 }
+
+	button.button.button-default {
+		color: $black!important;
+		background: $gray!important;
+	}
+	button.button.button-positive{
+		background-color: $green!important;
+		&:hover{
+			color: $white !important;
+			background-color: $darkgreen!important;
+		}
+	}
+
 .button {
 				border: none;
 				background-color: $green;
@@ -19,6 +32,7 @@ button:hover{
 	color: $white !important;
 	background-color: $darkgreen;
 }
+
 .token-link {
 				text-decoration: underline;
 }

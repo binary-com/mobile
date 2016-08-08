@@ -9844,6 +9844,16 @@ a {
   text-decoration: none;
   font-weight: bold; }
 
+button.button.button-default {
+  color: #000 !important;
+  background: #c4c4c4 !important; }
+
+button.button.button-positive {
+  background-color: #2E8836 !important; }
+  button.button.button-positive:hover {
+    color: #fff !important;
+    background-color: #14602B !important; }
+
 .button {
   border: none;
   background-color: #2E8836;
@@ -10267,7 +10277,8 @@ input::-webkit-inner-spin-button {
       color: #000;
       font-weight: bold;
       text-align: center;
-      line-height: 12px; }
+      line-height: 12px;
+      word-wrap: normal; }
     .trade .contract-payout .price-des {
       font-size: 4vw;
       text-align: center;
