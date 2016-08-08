@@ -39,13 +39,13 @@ angular
 						if(res){
 							appStateService.isRealityChecked= false;
 							appStateService.isChangedAccount = false;
-							sessionStorage.clear('_interval');
 							accountService.removeAll();
 							proposalService.remove();
                             marketService.removeActiveSymbols();
                             marketService.removeAssetIndex();
                             appStateService.isLoggedin = false;
 														sessionStorage.removeItem('start');
+														sessionStorage.removeItem('_interval');
                             websocketService.closeConnection();
                             $scope.$parent.$broadcast('logout');
 							$state.go('signin');
