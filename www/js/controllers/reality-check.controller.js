@@ -95,7 +95,7 @@ angular
 								'templates/components/reality-check/interval-popup.template.html', [{
 									text: translation['realitycheck.continue'],
 									onTap: function(e) {
-										if ($scope.data.interval <= 120 && $scope.data.interval >= 10) {
+										if ($scope.data.interval <= 120 && $scope.data.interval >= 1) {
 											$scope.setInterval($scope.data.interval);
 											$scope.data.start_interval = (new Date()).getTime();
 											$scope.setStart($scope.data.start_interval);
@@ -191,7 +191,7 @@ angular
 									}, {
 										text: translation['realitycheck.continue'],
 										onTap: function(e) {
-											if ($scope.data.interval <= 120 && $scope.data.interval >= 10) {
+											if ($scope.data.interval <= 120 && $scope.data.interval >= 1) {
 												if ($scope.sessionLoginId == $scope.realityCheckitems.loginid) {
 													$scope.getLastInterval($scope.data.interval);
 													$scope.data.start_interval = (new Date()).getTime();
