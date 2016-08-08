@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-03 11:07+0800\n"
-"PO-Revision-Date: 2016-06-09 02:50+0000\n"
+"PO-Revision-Date: 2016-08-08 03:21+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
 "tick-trade/app/zh_CN/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -300,71 +300,71 @@ msgstr "确认要删除所有令牌并退出？"
 
 #: .realitycheck.interval
 msgid "Reality Check Interval in minutes"
-msgstr ""
+msgstr "以分钟为单位的真实检查时间间隔"
 
 #: .realitycheck.currency
 msgid "Currency"
-msgstr ""
+msgstr "货币"
 
 #: .realitycheck.potential_profit
 msgid "Potential profit"
-msgstr ""
+msgstr "潜在利润"
 
 #: .realitycheck.loginid
 msgid "Login ID"
-msgstr ""
+msgstr "登录 ID"
 
 #: .realitycheck.current_time
 msgid "Current time:"
-msgstr ""
+msgstr "当前时间："
 
 #: .realitycheck.statistics
 msgid "Your trading statistics since"
-msgstr ""
+msgstr "交易统计数据从"
 
 #: .realitycheck.title
 msgid "Reality Check"
-msgstr ""
+msgstr "真实检查"
 
 #: .realitycheck.open_contract_count
 msgid "Open contracts"
-msgstr ""
+msgstr "未平仓合约"
 
 #: .realitycheck.buy_count
 msgid "Contracts bought"
-msgstr ""
+msgstr "已买入合约"
 
 #: .realitycheck.login_time
 msgid "Login time:"
-msgstr ""
+msgstr "登录时间："
 
 #: .realitycheck.session_duration
 msgid "Session duration:"
-msgstr ""
+msgstr "交易期持续时间："
 
 #: .realitycheck.hours
 msgid "hours"
-msgstr ""
+msgstr "小时"
 
 #: .realitycheck.buy_amount
 msgid "Turnover"
-msgstr ""
+msgstr "交易额"
 
 #: .realitycheck.interval_error
 msgid "Please enter a number between 10 to 120."
-msgstr ""
+msgstr "请输入10到120之间的数字。"
 
 #: .realitycheck.logout
 msgid "Logout"
-msgstr ""
+msgstr "注销"
 
 #: .realitycheck.sell_count
 msgid "Contracts sold"
-msgstr ""
+msgstr "已卖出合约"
 
 #: .realitycheck.interval_question
 msgid "Please specify your preferred reality-check interval in minutes:"
-msgstr ""
+msgstr "请指定您的优选实况调查间隔时间分钟数："
 
 #: .realitycheck.about
 msgid ""
@@ -372,23 +372,23 @@ msgid ""
 "pushed to its limits. To avoid the danger of such an addiction, we provide a "
 "reality-check that gives you a summary of your trades and accounts on a "
 "regular basis."
-msgstr ""
+msgstr "二元期权交易和其他类似活动一样，过于沉迷可能会上瘾。为了避免这种风险，我们会定期向您提供交易和财务的实况简报。"
 
 #: .realitycheck.profit_loss
 msgid "Profit/Loss"
-msgstr ""
+msgstr "利润/亏损"
 
 #: .realitycheck.days
 msgid "days"
-msgstr ""
+msgstr "天"
 
 #: .realitycheck.continue
 msgid "Continue Trading"
-msgstr ""
+msgstr "继续交易"
 
 #: .realitycheck.minutes
 msgid "minutes"
-msgstr ""
+msgstr "分钟"
 
 #: .options.asians_down
 msgid "Asians Down"
