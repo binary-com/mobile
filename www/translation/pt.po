@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-03 11:07+0800\n"
-"PO-Revision-Date: 2016-06-06 12:38+0000\n"
+"PO-Revision-Date: 2016-08-09 03:20+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-tick-"
 "trade/app/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -304,71 +304,72 @@ msgstr "Tem certeza que deseja remover todos os tokens e sair?"
 
 #: .realitycheck.interval
 msgid "Reality Check Interval in minutes"
-msgstr ""
+msgstr "Intervalo do Balanço da Realidade em minutos"
 
 #: .realitycheck.currency
 msgid "Currency"
-msgstr ""
+msgstr "Moeda"
 
 #: .realitycheck.potential_profit
 msgid "Potential profit"
-msgstr ""
+msgstr "Lucro potencial"
 
 #: .realitycheck.loginid
 msgid "Login ID"
-msgstr ""
+msgstr "ID de login"
 
 #: .realitycheck.current_time
 msgid "Current time:"
-msgstr ""
+msgstr "Hora atual:"
 
 #: .realitycheck.statistics
 msgid "Your trading statistics since"
-msgstr ""
+msgstr "As suas estatísticas de negociação desde"
 
 #: .realitycheck.title
 msgid "Reality Check"
-msgstr ""
+msgstr "Balanço da realidade"
 
 #: .realitycheck.open_contract_count
 msgid "Open contracts"
-msgstr ""
+msgstr "Contratos abertos"
 
 #: .realitycheck.buy_count
 msgid "Contracts bought"
-msgstr ""
+msgstr "Contratos adquiridos"
 
 #: .realitycheck.login_time
 msgid "Login time:"
-msgstr ""
+msgstr "Hora de login:"
 
 #: .realitycheck.session_duration
 msgid "Session duration:"
-msgstr ""
+msgstr "Duração da sessão:"
 
 #: .realitycheck.hours
 msgid "hours"
-msgstr ""
+msgstr "horas"
 
 #: .realitycheck.buy_amount
 msgid "Turnover"
-msgstr ""
+msgstr "Volume de negócios"
 
 #: .realitycheck.interval_error
 msgid "Please enter a number between 10 to 120."
-msgstr ""
+msgstr "Insira um número entre 10 e 120."
 
 #: .realitycheck.logout
 msgid "Logout"
-msgstr ""
+msgstr "Sair"
 
 #: .realitycheck.sell_count
 msgid "Contracts sold"
-msgstr ""
+msgstr "Contratos vendidos"
 
 #: .realitycheck.interval_question
 msgid "Please specify your preferred reality-check interval in minutes:"
 msgstr ""
+"Especifique o seu intervalo preferido para o balanço da realidade em minutos:"
 
 #: .realitycheck.about
 msgid ""
@@ -377,22 +378,26 @@ msgid ""
 "reality-check that gives you a summary of your trades and accounts on a "
 "regular basis."
 msgstr ""
+"A negociação de opções pode se tornar num verdadeiro vício, tal como "
+"qualquer outra atividade levada ao extremo. Para evitar o perigo de tal tipo "
+"de vício, fornecemos um balanço da realidade que lhe proporciona um resumo "
+"das suas negociações e conta regularmente."
 
 #: .realitycheck.profit_loss
 msgid "Profit/Loss"
-msgstr ""
+msgstr "Lucro/Perdas"
 
 #: .realitycheck.days
 msgid "days"
-msgstr ""
+msgstr "dias"
 
 #: .realitycheck.continue
 msgid "Continue Trading"
-msgstr ""
+msgstr "Continue a negociar"
 
 #: .realitycheck.minutes
 msgid "minutes"
-msgstr ""
+msgstr "minutos"
 
 #: .options.asians_down
 msgid "Asians Down"
