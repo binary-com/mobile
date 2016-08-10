@@ -38,7 +38,7 @@ angular
           if(appStateService.isPopupOpen){
                     return;
           }
-          else if(!appStateService.isPopupOpen){
+          else {
             if($state.current.name === "options"){
                   alertService.confirmExit(function(res){
                       if(res == 1){
