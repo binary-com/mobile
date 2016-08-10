@@ -20,6 +20,7 @@ angular
                 factory.scopes = [];
                 factory.invalidTokenRemoved = false;
                 factory.isChangedAccount = false;
+                factory.isPopupOpen = false;
 
                 return factory;
             });
