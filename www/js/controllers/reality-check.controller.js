@@ -81,13 +81,14 @@ angular
 				}
 			}
 
+
 			$scope.realityCheck = function() {
 				appStateService.isRealityChecked = true;
 				$scope.data = {};
 				$scope.data.interval = 60;
+				appStateService.isPopupOpen = true;
 				$translate(['realitycheck.continue', 'realitycheck.title'])
-					.then(
-						function(translation) {
+					.then(function(translation) {
 							alertService.displayRealitCheckInterval(
 								translation['realitycheck.title'],
 								'realitycheck getinterval',
@@ -101,6 +102,7 @@ angular
 											$scope.data.start_interval = (new Date()).getTime();
 											$scope.setStart($scope.data.start_interval);
 											$scope.hasRealityCheck();
+											appStateService.isPopupOpen = false;
 										} else {
 											e.preventDefault();
 										}
@@ -158,6 +160,7 @@ angular
 							$scope.$parent.$broadcast('logout');
 							$scope.removeInterval('_interval');
 							appStateService.isRealityChecked = false;
+							appStateService.isPopupOpen = false;
 							sessionStorage.removeItem('start');
 							$state.go('signin');
 						}
@@ -176,6 +179,7 @@ angular
 					$scope.data = {};
 					$scope.data.interval = parseInt($scope.getInterval('_interval'));
 					$timeout.cancel($scope.realityCheckTimeout);
+					appStateService.isPopupOpen = true;
 					$translate(['realitycheck.title', 'realitycheck.continue', 'realitycheck.logout'])
 						.then(
 							function(translation) {
@@ -199,6 +203,7 @@ angular
 													$scope.data.start_interval = (new Date()).getTime();
 													$scope.setStart($scope.data.start_interval);
 													$scope.hasRealityCheck();
+													appStateService.isPopupOpen = false;
 												}
 											} else {
 												e.preventDefault();

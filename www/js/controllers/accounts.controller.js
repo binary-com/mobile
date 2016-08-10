@@ -39,6 +39,7 @@ angular
 						if(res){
 							appStateService.isRealityChecked= false;
 							appStateService.isChangedAccount = false;
+							appStateService.isPopupOpen = false;
 							accountService.removeAll();
 							proposalService.remove();
                             marketService.removeActiveSymbols();
