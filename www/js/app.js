@@ -35,31 +35,37 @@ angular
 
         // Handle the android's hardware button
         $ionicPlatform.registerBackButtonAction(function(){
+          if(appStateService.isPopupOpen){
+                    return;
+          }
+          else {
             if($state.current.name === "options"){
-                alertService.confirmExit(function(res){
-                    if(res == 1){
-                        sessionStorage.removeItem('start');
-                        sessionStorage.removeItem('_interval');
-                        navigator.app.exitApp();
-                    }
-                });
-            }
-            else if($state.current.name === "signin" || $state.current.name === "home" ){
-                navigator.app.exitApp();
-            }
-            else if($state.current.name === "trade" && appStateService.purchaseMode){
-                return;
-            }
-            else if($state.current.name === "trade" && !appStateService.purchaseMode && !appStateService.tradeMode){
-                appStateService.tradeMode = true;
-                if(!$rootScope.$$phase){
-                    $rootScope.$apply();
-                }
-            }
-            else{
-                navigator.app.backHistory();
-            }
-        }, 100);
+                  alertService.confirmExit(function(res){
+                      if(res == 1){
+                          sessionStorage.removeItem('start');
+                          sessionStorage.removeItem('_interval');
+                          navigator.app.exitApp();
+                      }
+                  });
+              }
+              else if($state.current.name === "signin" || $state.current.name === "home" ){
+                  navigator.app.exitApp();
+              }
+              else if($state.current.name === "trade" && appStateService.purchaseMode){
+                  return;
+              }
+              else if($state.current.name === "trade" && !appStateService.purchaseMode && !appStateService.tradeMode){
+                  appStateService.tradeMode = true;
+                  if(!$rootScope.$$phase){
+                      $rootScope.$apply();
+                  }
+              }
+              else{
+                  navigator.app.backHistory();
+              }
+          }
+
+        }, 401);
 
         var handleUnloggedinUser = function(){
             var isRedirect = /#\/redirect\?/.exec(window.location.hash);
