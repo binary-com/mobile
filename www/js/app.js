@@ -65,7 +65,7 @@ angular
               }
           }
 
-        }, 401);
+        }, 500);
 
         var handleUnloggedinUser = function(){
             var isRedirect = /#\/redirect\?/.exec(window.location.hash);
