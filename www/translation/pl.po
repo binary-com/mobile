@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-03 11:07+0800\n"
-"PO-Revision-Date: 2016-06-08 12:37+0000\n"
+"PO-Revision-Date: 2016-08-11 17:22+0000\n"
 "Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-trade/"
-"app/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -307,71 +307,73 @@ msgstr "Czy na pewno chcesz usunąć wszystkie tokeny i wylogować się?"
 
 #: .realitycheck.interval
 msgid "Reality Check Interval in minutes"
-msgstr ""
+msgstr "Odstęp czasu pomiędzy bieżącymi kontrolami konta w minutach"
 
 #: .realitycheck.currency
 msgid "Currency"
-msgstr ""
+msgstr "Waluta"
 
 #: .realitycheck.potential_profit
 msgid "Potential profit"
-msgstr ""
+msgstr "Potencjalny zysk"
 
 #: .realitycheck.loginid
 msgid "Login ID"
-msgstr ""
+msgstr "Login ID"
 
 #: .realitycheck.current_time
 msgid "Current time:"
-msgstr ""
+msgstr "Obecny czas:"
 
 #: .realitycheck.statistics
 msgid "Your trading statistics since"
-msgstr ""
+msgstr "Twoje statystyki handlowe od"
 
 #: .realitycheck.title
 msgid "Reality Check"
-msgstr ""
+msgstr "Bieżąca kontrola konta"
 
 #: .realitycheck.open_contract_count
 msgid "Open contracts"
-msgstr ""
+msgstr "Otwarte kontrakty"
 
 #: .realitycheck.buy_count
 msgid "Contracts bought"
-msgstr ""
+msgstr "Zakupione kontrakty"
 
 #: .realitycheck.login_time
 msgid "Login time:"
-msgstr ""
+msgstr "Czas logowania:"
 
 #: .realitycheck.session_duration
 msgid "Session duration:"
-msgstr ""
+msgstr "Czas trwania sesji:"
 
 #: .realitycheck.hours
 msgid "hours"
-msgstr ""
+msgstr "godzin(y)"
 
 #: .realitycheck.buy_amount
 msgid "Turnover"
-msgstr ""
+msgstr "Obrót"
 
 #: .realitycheck.interval_error
 msgid "Please enter a number between 10 to 120."
-msgstr ""
+msgstr "Proszę wpisać liczbę z przedziału od 10 do 120."
 
 #: .realitycheck.logout
 msgid "Logout"
-msgstr ""
+msgstr "Wyloguj"
 
 #: .realitycheck.sell_count
 msgid "Contracts sold"
-msgstr ""
+msgstr "Sprzedane kontrakty"
 
 #: .realitycheck.interval_question
 msgid "Please specify your preferred reality-check interval in minutes:"
 msgstr ""
+"Proszę określić w minutach preferowany odstęp czasu pomiędzy kontrolami "
+"konta:"
 
 #: .realitycheck.about
 msgid ""
@@ -380,22 +382,27 @@ msgid ""
 "reality-check that gives you a summary of your trades and accounts on a "
 "regular basis."
 msgstr ""
+"Handel opcjami może stać się poważnym uzależnieniem, tak jak wszystkie inne "
+"czynności, którym poświęcamy zbyt wiele czasu. Aby zapobiec "
+"niebezpieczeństwu takiego uzależnienia, umożliwiamy sprawdzanie rzeczywistej "
+"sytuacji na bieżąco, co zapewnia Ci regularne zestawienie Twoich zakładów i "
+"kont."
 
 #: .realitycheck.profit_loss
 msgid "Profit/Loss"
-msgstr ""
+msgstr "Zysk/Strata"
 
 #: .realitycheck.days
 msgid "days"
-msgstr ""
+msgstr "dni"
 
 #: .realitycheck.continue
 msgid "Continue Trading"
-msgstr ""
+msgstr "Kontynuuj handel"
 
 #: .realitycheck.minutes
 msgid "minutes"
-msgstr ""
+msgstr "minut(y)"
 
 #: .options.asians_down
 msgid "Asians Down"
