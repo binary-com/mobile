@@ -17,20 +17,20 @@ angular
 			var waitForConnection = function(callback, isAuthonticationRequest) {
 				if (dataStream.readyState === 3) {
 					init();
-                    if(!isAuthonticationRequest){
-                        setTimeout(function() {
-                            waitForConnection(callback);
-                        }, 1000);
-                    }
+					if (!isAuthonticationRequest) {
+						setTimeout(function() {
+							waitForConnection(callback);
+						}, 1000);
+					}
 				} else if (dataStream.readyState === 1) {
 					callback();
 				} else if (!(dataStream instanceof WebSocket)) {
 					init();
-                    if(!isAuthonticationRequest){
-                        setTimeout(function() {
-                            waitForConnection(callback);
-                        }, 1000);
-                    }
+					if (!isAuthonticationRequest) {
+						setTimeout(function() {
+							waitForConnection(callback);
+						}, 1000);
+					}
 				} else {
 					setTimeout(function() {
 						waitForConnection(callback);
@@ -260,12 +260,108 @@ angular
 					};
 					sendMessage(data);
 				},
-                ping: function(){
-                    var data = {
-                        ping: 1
-                    };
-                    sendMessage(data);
-                }
+				accountOpening: function(verifyEmail) {
+					var data = {
+						"verify_email": verifyEmail,
+						"type": "account_opening"
+					};
+					sendMessage(data);
+				},
+				residenceListSend: function() {
+					var data = {
+						"residence_list": 1
+					};
+					sendMessage(data);
+				},
+				newAccountVirtual: function(verificationCode, clientPassword, residence) {
+					var data = {
+						"new_account_virtual": "1",
+						"verification_code": verificationCode,
+						"client_password": clientPassword,
+						"residence": residence
+					};
+					sendMessage(data);
+				},
+				accountSetting: function() {
+					var data = {
+						"get_settings": 1
+					};
+					sendMessage(data);
+				},
+				landingCompanySend: function(company) {
+					var data = {
+						"landing_company": company
+					};
+					sendMessage(data);
+				},
+				statesListSend: function(company) {
+					var data = {
+						"states_list": company
+					};
+					sendMessage(data);
+				},
+				createRealAccountSend: function(salutation, firstName, lastName, dateOfBirth, residence, addressLine1, addressLine2, addressCity, addressState, addressPostcode, phone, secretQuestion, secretAnswer) {
+					var data = {
+						"new_account_real": "1",
+						"salutation": salutation,
+						"first_name": firstName,
+						"last_name": lastName,
+						"date_of_birth": dateOfBirth,
+						"residence": residence,
+						"address_line_1": addressLine1,
+						"address_line_2": addressLine2,
+						"address_city": addressCity,
+						"address_state": addressState,
+						"address_postcode": addressPostcode,
+						"phone": phone,
+						"secret_question": secretQuestion,
+						"secret_answer": secretAnswer
+					};
+					sendMessage(data);
+				},
+				createMaltainvestAccountSend: function(salutation, firstName, lastName, dateOfBirth, residence, addressLine1, addressLine2, addressCity, addressState, addressPostcode, phone, secretQuestion, secretAnswer, forexTradingExperience, forexTradingFrequency, indicesTradingExperience, indicesTradingFrequency, commoditiesTradingExperience, commoditiesTradingFrequency, stocksTradingExperience, stocksTradingFrequency, otherDerivativesTradingExperience, otherDerivativesTradingFrequency, otherInstrumentsTradingExperience, otherInstrumentsTradingFrequency, employmentIndustry, educationLevel, incomeSource, netIncome, estimatedWorth, acceptRisk) {
+					var data = {
+						"new_account_maltainvest": "1",
+						"salutation": salutation,
+						"first_name": firstName,
+						"last_name": lastName,
+						"date_of_birth": dateOfBirth,
+						"residence": residence,
+						"address_line_1": addressLine1,
+						"address_line_2": addressLine2,
+						"address_city": addressCity,
+						"address_state": addressState,
+						"address_postcode": addressPostcode,
+						"phone": phone,
+						"secret_question": secretQuestion,
+						"secret_answer": secretAnswer,
+						"forex_trading_experience": forexTradingExperience,
+						"forex_trading_frequency": forexTradingFrequency,
+						"indices_trading_experience": indicesTradingExperience,
+						"indices_trading_frequency": indicesTradingFrequency,
+						"commodities_trading_experience": commoditiesTradingExperience,
+						"commodities_trading_frequency": commoditiesTradingFrequency,
+						"stocks_trading_experience": stocksTradingExperience,
+						"stocks_trading_frequency": stocksTradingFrequency,
+						"other_derivatives_trading_experience": otherDerivativesTradingExperience,
+						"other_derivatives_trading_frequency": otherDerivativesTradingFrequency,
+						"other_instruments_trading_experience": otherInstrumentsTradingExperience,
+						"other_instruments_trading_frequency": otherInstrumentsTradingFrequency,
+						"employment_industry": employmentIndustry,
+						"education_level": educationLevel,
+						"income_source": incomeSource,
+						"net_income": netIncome,
+						"estimated_worth": estimatedWorth,
+						"accept_risk": acceptRisk
+					};
+					sendMessage(data);
+				},
+				ping: function() {
+					var data = {
+						ping: 1
+					};
+					sendMessage(data);
+				}
 			};
 
 			websocketService.closeConnection = function() {
@@ -278,123 +374,165 @@ angular
 				var message = JSON.parse(_response.data);
 
 				if (message) {
-                    if(message.error){
-                        if(message.error.code === 'InvalidToken'){
-                            localStorageService.manageInvalidToken();
-                        }
-                    }
+					if (message.error) {
+						if (message.error.code === 'InvalidToken') {
+							localStorageService.manageInvalidToken();
+						}
+					}
 
-                    var messageType = message.msg_type;
-                    switch(messageType) {
-                        case 'authorize':
-                            if (message.authorize) {
-                                message.authorize.token = message.echo_req.authorize;
-                                window._trackJs.userId = message.authorize.loginid;
-                                appStateService.isLoggedin = true;
-                                appStateService.scopes = message.authorize.scopes;
-                                amplitude.setUserId(message.authorize.loginid);
-                                
-                                if(_.isEmpty(message.authorize.currency)){
-                                    websocketService.sendRequestFor.currencies();
-                                } else {
-                                    sessionStorage.currency = message.authorize.currency;
-                                }
+					var messageType = message.msg_type;
+					switch (messageType) {
+						case 'authorize':
+							if (message.authorize) {
+								message.authorize.token = message.echo_req.authorize;
+								window._trackJs.userId = message.authorize.loginid;
+								appStateService.isLoggedin = true;
+								appStateService.scopes = message.authorize.scopes;
+								amplitude.setUserId(message.authorize.loginid);
 
-                                $rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
-                            } else {
-                                var errorMessage = "Unexpected Error!"
-                                if (message.hasOwnProperty('error')) {
-                                  localStorageService.removeToken(message.echo_req.authorize);
-                                  errorMessage = message.error.message;
-                                }
-                                $rootScope.$broadcast('authorize', false, errorMessage);
-                                appStateService.isLoggedin = false;
-                            }
-                            break;
-                        case 'active_symbols':
-                            var markets = message.active_symbols;
-                            var groupedMarkets = _.groupBy(markets, 'market');
-                            var openMarkets = {};
-                            for (var key in groupedMarkets) {
-                                if (groupedMarkets.hasOwnProperty(key)) {
-                                    if (groupedMarkets[key][0].exchange_is_open == 1) {
-                                        openMarkets[key] = groupedMarkets[key];
-                                    }
-                                }
-                            }
-                            if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
-                               sessionStorage.active_symbols = JSON.stringify(openMarkets);
-                               $rootScope.$broadcast('symbols:updated');
-                            }
-                            break;
-                        case 'asset_index':
-                            if ( !sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index) ) {
-                              sessionStorage.asset_index = JSON.stringify(message.asset_index);
-                              $rootScope.$broadcast('assetIndex:updated');
-                            }
-                            break;
-                        case 'payout_currencies':
-                            $rootScope.$broadcast('currencies', message.payout_currencies);
-                            break;
-                        case 'proposal':
-                            if(message.proposal){
-                                $rootScope.$broadcast('proposal', message.proposal);
-                            }
-                            else if(message.error){
-                                $rootScope.$broadcast('proposal:error', message.error);
-                            }
-                            break;
-                        case 'contracts_for':
-                            var symbol = message.echo_req.contracts_for;
-                            var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_type');
-                            $rootScope.$broadcast('symbol', groupedSymbol);
-                            break;
-                        case 'buy':
-                            if(message.error){
-                                $rootScope.$broadcast('purchase:error', message.error);
-                                alertService.displayError(message.error.message);
-                            }
-                            else{
-                                $rootScope.$broadcast('purchase', message);
-                            }
-                            break;
-                        case 'balance':
-                            if(!(message.error && message.error.code === "AlreadySubscribed")){
-                                $rootScope.$broadcast('balance', message.balance);
-                            }
-                            break;
-                        case 'tick':
-                            $rootScope.$broadcast('tick', message);
-                            break;
-                        case 'history':
-                            $rootScope.$broadcast('history', message);
-                            break;
-                        case 'candles':
-                            $rootScope.$broadcast('candles', message);
-                            break;
-                        case 'ohlc':
-                            $rootScope.$broadcast('ohlc', message);
-                            break;
-                        case 'portfolio':
-                            $rootScope.$broadcast('portfolio', message.portfolio);
-                            break;
-                        case 'profit_table':
-                            $rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
-                            break;
-                        case 'sell_expired':
-                            $rootScope.$broadcast('sell:expired', message.sell_expired);
-                            break;
-                        case 'proposal_open_contract':
-                            $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
-                            break;
+								if (_.isEmpty(message.authorize.currency)) {
+									websocketService.sendRequestFor.currencies();
+								} else {
+									sessionStorage.currency = message.authorize.currency;
+								}
+
+								$rootScope.$broadcast('authorize', message.authorize, message['req_id'], message['passthrough']);
+							} else {
+								var errorMessage = "Unexpected Error!"
+								if (message.hasOwnProperty('error')) {
+									localStorageService.removeToken(message.echo_req.authorize);
+									errorMessage = message.error.message;
+								}
+								$rootScope.$broadcast('authorize', false, errorMessage);
+								appStateService.isLoggedin = false;
+							}
+							break;
+						case 'active_symbols':
+							var markets = message.active_symbols;
+							var groupedMarkets = _.groupBy(markets, 'market');
+							var openMarkets = {};
+							for (var key in groupedMarkets) {
+								if (groupedMarkets.hasOwnProperty(key)) {
+									if (groupedMarkets[key][0].exchange_is_open == 1) {
+										openMarkets[key] = groupedMarkets[key];
+									}
+								}
+							}
+							if (!sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets)) {
+								sessionStorage.active_symbols = JSON.stringify(openMarkets);
+								$rootScope.$broadcast('symbols:updated');
+							}
+							break;
+						case 'asset_index':
+							if (!sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index)) {
+								sessionStorage.asset_index = JSON.stringify(message.asset_index);
+								$rootScope.$broadcast('assetIndex:updated');
+							}
+							break;
+						case 'payout_currencies':
+							$rootScope.$broadcast('currencies', message.payout_currencies);
+							break;
+						case 'proposal':
+							if (message.proposal) {
+								$rootScope.$broadcast('proposal', message.proposal);
+							} else if (message.error) {
+								$rootScope.$broadcast('proposal:error', message.error);
+							}
+							break;
+						case 'contracts_for':
+							var symbol = message.echo_req.contracts_for;
+							var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_type');
+							$rootScope.$broadcast('symbol', groupedSymbol);
+							break;
+						case 'buy':
+							if (message.error) {
+								$rootScope.$broadcast('purchase:error', message.error);
+								alertService.displayError(message.error.message);
+							} else {
+								$rootScope.$broadcast('purchase', message);
+							}
+							break;
+						case 'balance':
+							if (!(message.error && message.error.code === "AlreadySubscribed")) {
+								$rootScope.$broadcast('balance', message.balance);
+							}
+							break;
+						case 'tick':
+							$rootScope.$broadcast('tick', message);
+							break;
+						case 'history':
+							$rootScope.$broadcast('history', message);
+							break;
+						case 'candles':
+							$rootScope.$broadcast('candles', message);
+							break;
+						case 'ohlc':
+							$rootScope.$broadcast('ohlc', message);
+							break;
+						case 'portfolio':
+							$rootScope.$broadcast('portfolio', message.portfolio);
+							break;
+						case 'profit_table':
+							$rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
+							break;
+						case 'sell_expired':
+							$rootScope.$broadcast('sell:expired', message.sell_expired);
+							break;
+						case 'proposal_open_contract':
+							$rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
+							break;
 						case 'landing_company_details':
 							$rootScope.$broadcast('landing_company_details', message.landing_company_details);
 							break;
 						case 'reality_check':
 							$rootScope.$broadcast('reality_check', message.reality_check);
 							break;
-                        default:
-                    }
+						case 'verify_email':
+							if (message.verify_email) {
+								$rootScope.$broadcast('verify_email', message.verify_email);
+							} else if (message.error) {
+								$rootScope.$broadcast('verify_email:error', message.error.message);
+								alertService.displayError(message.error.message);
+							}
+							break;
+						case 'residence_list':
+							$rootScope.$broadcast('residence_list', message.residence_list);
+							break;
+						case 'new_account_virtual':
+							if (message.new_account_virtual) {
+								$rootScope.$broadcast('new_account_virtual', message.new_account_virtual);
+							} else if (message.error) {
+								$rootScope.$broadcast('new_account_virtual:error', message.error.message);
+								alertService.displayError(message.error.message);
+							}
+							break;
+						case 'get_settings':
+							$rootScope.$broadcast('get_settings', message.get_settings);
+							break;
+						case 'landing_company':
+							$rootScope.$broadcast('landing_company', message.landing_company);
+							break;
+						case 'states_list':
+							$rootScope.$broadcast('states_list', message.states_list);
+							break;
+						case 'new_account_real':
+							if (message.new_account_real) {
+								$rootScope.$broadcast('new_account_real', message.new_account_real);
+							} else if (message.error) {
+								$rootScope.$broadcast('new_account_real:error', message.error.message);
+								alertService.displayError(message.error.message);
+							}
+							break;
+						case 'new_account_maltainvest':
+							if (message.new_account_maltainvest) {
+								$rootScope.$broadcast('new_account_maltainvest', message.new_account_maltainvest);
+							} else if (message.error) {
+								$rootScope.$broadcast('new_account_maltainvest:error', message.error.message);
+								alertService.displayError(message.error.message);
+							}
+							break;
+						default:
+					}
 				}
 			};
 

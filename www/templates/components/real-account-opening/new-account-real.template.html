@@ -1,0 +1,161 @@
+<div class="title">
+	<h3>{{'newaccountreal.real_account_opening' | translate}}
+	</h3>
+</div>
+<div class="sections" ng-show="isFirstSection">
+	<h1 class="">{{'newaccountreal.details' | translate}}</h1>
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.salutation' | translate}}
+			</div>
+			<select ng-model="data.salutation">
+				<option value="Mr">
+					{{'newaccountreal.mr' | translate}}
+				</option>
+				<option value="Mrs">
+					{{'newaccountreal.mrs' | translate}}
+				</option>
+				<option value="Miss">
+					{{'newaccountreal.miss' | translate}}
+				</option>
+				<option value="Ms">
+					{{'newaccountreal.mrs' | translate}}
+				</option>
+			</select>
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.first_name' | translate}}
+			</div>
+			<input ng-model="data.firstName">
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.last_name' | translate}}
+			</div>
+			<input ng-model="data.lastName">
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.date_of_birth' | translate}}
+			</div>
+			<input type="date" class="date" ng-model="data.dateOfBirth" name="input"/>
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.residence' | translate}}
+			</div>
+			<input ng-model="data.country" ng-readonly="true">
+		</div>
+	</ion-item>
+</div>
+<div class="sections" ng-show="isSecondSection">
+	<h1 class="">{{'newaccountreal.address' | translate}}</h1>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.addreess_line_1' | translate}}
+			</div>
+			<input ng-model="data.addressLine1">
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.addreess_line_2' | translate}}
+			</div>
+			<input ng-model="data.addressLine2">
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.address_city' | translate}}
+			</div>
+			<input ng-model="data.addressCity">
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.address_state' | translate}}
+			</div>
+			<select ng-model="data.state" ng-options="state.value as state.text for state in statesList track by state.value"></select>
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.address_postcode' | translate}}
+			</div>
+			<input ng-model="data.addressPostcode">
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.phone' | translate}}
+			</div>
+			<input ng-model="data.phone" type="number">
+		</div>
+	</ion-item>
+</div>
+<div class="sections" ng-show="isThirdSection">
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.secret_question' | translate}}
+			</div>
+			<select ng-model="data.secretQuestion">
+				<option value="Mother's maiden name">{{'newaccountreal.secret_question_1' | translate}}</option>
+				<option value="Name of your pet">{{'newaccountreal.secret_question_2' | translate}}</option>
+				<option value="Name of first love">{{'newaccountreal.secret_question_3' | translate}}</option>
+				<option value="Memorable town/city">{{'newaccountreal.secret_question_4' | translate}}</option>
+				<option value="Memorable date">{{'newaccountreal.secret_question_5' | translate}}</option>
+				<option value="Favourite dish">{{'newaccountreal.secret_question_6' | translate}}</option>
+				<option value="Brand of first car">{{'newaccountreal.secret_question_7' | translate}}</option>
+				<option value="Favourite artist">{{'newaccountreal.secret_question_8' | translate}}</option>
+			</select>
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="item-select col">
+			<div class="input-title">
+				{{'newaccountreal.secret_answer' | translate}}
+			</div>
+			<input ng-model="data.secretAnswer">
+		</div>
+	</ion-item>
+
+
+
+</div>
+<div class="row center">
+	<div class="col">
+		<button class="button button-positive button-block" ng-click="submitAccountOpening()" ng-show="!hasMoreStages">{{'newaccountreal.open_account' | translate}}</button>
+	</div>
+</div>
+<div class="row center">
+			<button class="button button-block button-positive" ng-show="hasLessStages" ng-click="goToLastSection()">{{'newaccountreal.previous' | translate}}</button>
+		<button class="button button-block button-positive" ng-show="hasMoreStages" ng-click="goToNextSection()">{{'newaccountreal.next' | translate}}</button>
+</div>

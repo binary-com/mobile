@@ -29,6 +29,8 @@ angular
 
                 scope.showTokenForm = false;
                 scope.showSignin = false;
+								scope.showSignup = false;
+								scope.virtualws = false;
 
 				/**
 				 * On load:
@@ -43,7 +45,7 @@ angular
 
 
 				scope.$on('authorize', function(e, response) {
-                    
+
                     $ionicLoading.hide();
 
 					if (response) {
@@ -86,20 +88,46 @@ angular
                 scope.changeSigninView = function(_isBack){
                     _isBack = _isBack || false;
 
-                    scope.$applyAsync(function(){
-                        if(!scope.showSignin && scope.showTokenForm){
+										scope.$applyAsync(function(){
+                        if(!scope.showSignin && !scope.showSignup && !scope.showvirtualws && scope.showTokenForm){
                             scope.showTokenForm = false;
                             scope.showSignin = true;
                         }
-                        else if(scope.showSignin && !scope.showTokenForm && _isBack){
+												else if(!scope.showSignin && scope.showSignup && !scope.showTokenForm && !scope.showvirtualws){
+                            scope.showSignup = false;
+                            scope.showSignin = true;
+                        }
+												else if(!scope.showSignin && scope.showSignup && !scope.showTokenForm && scope.showvirtualws){
+														scope.showvirtualws = false;
+														scope.showSignup = false;
+                            scope.showSignin = true;
+                        }
+												else if(!scope.showSignin && scope.showSignup && !scope.showTokenForm && !scope.showvirtualws){
+														scope.showvirtualws = false;
+														scope.showSignup = false;
+                            scope.showSignin = true;
+                        }
+                        else if(scope.showSignin && !scope.showSignup && !scope.showTokenForm && !scope.showvirtualws && _isBack){
                             scope.showSignin = false;
                         }
-                        else if(scope.showSigninView && !scope.showTokenForm){
-                            scope.showTokenForm = true;
-                            scope.showSignin = false;
-                        }
+
+
                     });
                 }
+
+								scope.changeSigninViewtoToken = function(){
+									if(scope.showSignin && !scope.showTokenForm){
+											scope.showTokenForm = true;
+											scope.showSignin = false;
+									}
+								}
+								
+								scope.changeSigninViewtoSignup = function(){
+									if(scope.showSignin && !scope.showSignup){
+											scope.showSignup= true;
+											scope.showSignin = false;
+									}
+								}
 
                 scope.showSigninView = function(){
                     scope.$applyAsync(function(){
