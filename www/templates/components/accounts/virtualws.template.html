@@ -1,0 +1,56 @@
+<form>
+<div class="row center">
+	<div class="col col-75">
+
+
+	<div class="list">
+
+	<label class="item item-input">
+
+
+		<!-- <div class="input-label">
+			{{'newvirtualaccount.verification-code' | translate}}
+		</div> -->
+		<input ng-model="data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}">
+
+	</label>
+
+		</div>
+		</div>
+</div>
+<div class="row center">
+	<div class="col col-75">
+
+		<div class="list">
+	<label class="item item-input">
+		<!-- <div class="input-label">
+			{{'newvirtualaccount.password' | translate}}
+		</div> -->
+		<input ng-model="data.clientPassword" type="password" value="" placeholder="{{'newvirtualaccount.password' | translate }}">
+	</label>
+</div>
+</div>
+</div>
+<div class="row center">
+	<div class="col col-75">
+
+		<div class="list">
+	<label class="item item-select">
+		<!-- <div class="input-label">
+		{{'newvirtualaccount.residence' | translate}}
+			</div> -->
+		<select ng-model="data.residence" ng-options="residence.value as residence.text for residence in residenceList track by residence.value">
+			<option value="">{{'newvirtualaccount.select' | translate}}</option>
+		</select>
+</label>
+</div>
+</div>
+</div>
+<div class="row center">
+	<div class="col col-75">
+		<button class="button button-block btn-signin" ng-click="createVirtualAccount()">
+			{{'newvirtualaccount.signup' | translate}}
+		</button>
+	</div>
+</div>
+	</form>

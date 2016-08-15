@@ -1,6 +1,6 @@
 <ion-header-bar align-title="center" class="bar bar-header bar-positive">
     <button class="button  icon-left ion-chevron-left button-clear"
-            ng-click="changeSigninView(true)" ng-show="showTokenForm || showSignin"></button>
+            ng-click="changeSigninView(true)" ng-show="showTokenForm || showSignin || showSignup || showvirtualws"></button>
     <h1 class="title">
     </h1>
 </ion-header-bar>
@@ -26,6 +26,10 @@
 		</div>
 	</div>
 </form>
+
+<sign-up ng-show="showSignup && !showvirtualws"></sign-up>
+
+<virtualws ng-show="showvirtualws && !showSignin && !showTokenForm"></virtualws>
 <div class="row responsive-sm" ng-show="showTokenForm">
     <div class="col center">
         <a href="#" class="help" ui-sref="help">
@@ -34,19 +38,28 @@
     </div>
 </div>
 
-<oauth ng-show="!showTokenForm && showSignin"></oauth>
+<oauth ng-show="!showTokenForm && !showSignup && showSignin"></oauth>
 
-<div class="row center" ng-show="!showTokenForm && showSignin">
+<div class="row center" ng-show="!showTokenForm && !showSignup && showSignin">
     <div class="col col-75">
         <a href="" class="token-link" ng-click="changeSigninView()">{{ 'signin.use_token' | translate }}</a>
     </div>
 </div>
 
+<!-- signup -->
+ <div class="row center" ng-show="!showTokenForm && !showSignup && showSignin">
+    <div class="col col-75">
+    {{'newvirtualaccount.signup-question' | translate}}
+        <a href ng-click="changeSigninViewtoSignup()"> {{'newvirtualaccount.signup' | translate}} </a>
+    </div>
+</div>
+<!-- end signup -->
+
 <div class="list">
-    <language-list ng-show="!showSignin && !showTokenForm"></language-list>
+    <language-list ng-show="!showSignin && !showTokenForm && !showSignup"></language-list>
 </div>
 
-<div class="row center" ng-show="!showSignin && !showTokenForm">
+<div class="row center" ng-show="!showSignin && !showTokenForm && !showSignup">
     <div class="col col-75">
         <button class="button button-block button-possitive btn-signin"
                 type="button"

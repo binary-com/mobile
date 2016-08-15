@@ -47,6 +47,12 @@ angular
 					templateUrl: 'templates/pages/accounts.html',
 					controller: 'AccountsController'
 				})
+				.state('realaccountopening', {
+									url: '/real-account-opening',
+				                    cache: false,
+									templateUrl: 'templates/pages/real-account-opening.html',
+									controller: 'RealAccountOpeningController'
+								})
                 .state('redirect', {
                     url: '/redirect',
                     cache: false,
