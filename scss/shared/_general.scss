@@ -17,9 +17,15 @@ a {
 		font-weight: bold;
 	}
 }
+.popup-body{
+	background-color: $white;
+}
+.popup-buttons{
+	background-color: $white;
+}
 button.button.button-default {
 	color: $black!important;
-	background: $gray!important;
+	background: $lightgray!important;
 }
 button.button.button-positive {
 	background-color: $green!important;
