@@ -83,7 +83,7 @@
         "current_time": "当前时间：",
         "days": "天",
         "hours": "小时",
-        "interval": "以分钟为单位的真实检查时间间隔",
+        "interval": "以分钟为单位的实况调查时间间隔",
         "interval_error": "请输入10到120之间的数字。",
         "interval_question": "请指定您的优选实况调查间隔时间分钟数：",
         "login_time": "登录时间：",
@@ -96,7 +96,7 @@
         "sell_count": "已卖出合约",
         "session_duration": "交易期持续时间：",
         "statistics": "交易统计数据从",
-        "title": "真实检查"
+        "title": "实况调查"
     },
     "signin": {
         "add_account": "添加账户",
