@@ -9854,9 +9854,15 @@ a {
     text-align: left;
     font-weight: bold; }
 
+.popup-body {
+  background-color: #fff; }
+
+.popup-buttons {
+  background-color: #fff; }
+
 button.button.button-default {
   color: #000 !important;
-  background: #c4c4c4 !important; }
+  background: #f2f2f2 !important; }
 
 button.button.button-positive {
   background-color: #2E8836 !important; }
@@ -10969,7 +10975,7 @@ input::-webkit-outer-spin-button {
     font-size: 14px; }
   .realitycheck .popup .button-secondary {
     color: #000 !important;
-    background: #c4c4c4 !important; }
+    background: #f2f2f2 !important; }
 
 .realitycheck .popup-head {
   padding: 10px;
