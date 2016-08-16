@@ -39,9 +39,10 @@ angular
 			};
 
 			var sendMessage = function(_data) {
+				var token = localStorageService.getDefaultToken();
 				waitForConnection(function() {
 					dataStream.send(JSON.stringify(_data));
-				}, _data.hasOwnProperty('authorize'));
+				}, _data.hasOwnProperty('authorize') && token);
 			};
 
 			var init = function(forced) {
@@ -293,7 +294,7 @@ angular
                                 appStateService.isLoggedin = true;
                                 appStateService.scopes = message.authorize.scopes;
                                 amplitude.setUserId(message.authorize.loginid);
-                                
+
                                 if(_.isEmpty(message.authorize.currency)){
                                     websocketService.sendRequestFor.currencies();
                                 } else {
