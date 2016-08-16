@@ -271,7 +271,10 @@ translate.json2po = function json2po(){
 				runInShell(done, 'rm -f ' + data.tmp_dir + '/mobile/www/translation/*.po~');
 			})
 			.pipe(function commitChanges(done){
-				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile; git add www/i18n/*.json www/translation/*.po; git commit -m "Updated translation files with the recent changes - ' + (new Date()).toLocaleDateString().replace(new RegExp('/', 'g'), '-') + '"; git push '+data.remoteUrl+' '+ SOURCE_BRANCH + '; popd');
+				runInShell(function(){
+					console.log(data.lastShellStdOut, data.lastShellStdErr);
+					done();
+				}, 'pushd ' + data.tmp_dir + '/mobile; git add www/i18n/*.json www/translation/*.po; git commit -m "Updated translation files with the recent changes - ' + (new Date()).toLocaleDateString().replace(new RegExp('/', 'g'), '-') + '"; git push '+data.remoteUrl+' '+ SOURCE_BRANCH + '; popd');
 			})
 			.exec();
 		}, 'git clone -b '+SOURCE_BRANCH+' ./ ' + data.tmp_dir + '/mobile');
