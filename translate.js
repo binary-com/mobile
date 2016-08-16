@@ -3,6 +3,7 @@ var path = require('path');
 
 // If going to run from a branch but translation and dev should check if checkout of destination branch, source branch and original branch is being doing right
 
+var darwin_prefix = '';
 var asyncChain = function asyncChain(){
 	return {
 		asyncCallChain: [],
@@ -44,11 +45,11 @@ var runInShell = function runInShell(cb, cmd){
 };
 
 var removeWhitespaceFromEnd = function removeWhitespaceFromEnd(done, path){
-	exec("bash -c \"sed -i 's/[[:blank:]]*\$//' " + path + "\"", function(err, stdout, stderr){
+	exec("bash -c \""+darwin_prefix+"sed -i 's/[[:blank:]]*\$//' " + path + "\"", function(err, stdout, stderr){
 		if (!err){
 			done();
 		} else {
-			console.log(err, stderr)
+			console.log(err, stderr);
 		}
 	});
 };
@@ -60,12 +61,12 @@ var checkoutToBranch = function checkoutToBranch(cb, branch, filename){
 };
 
 var copy = function copy(cb, src, dst){
-	runInShell(cb, "cp -r " + src + " " + dst);
+	runInShell(cb, darwin_prefix+"cp -r " + src + " " + dst);
 };
 
 var copyJsonFiles = function copyJsonFiles(cb, dst) {
 	copy(function(){
-		runInShell(cb, 'for filename in `ls -I en.json ' +  data.tmp_dir + '/' + dst + '/`; do cp ' +  data.tmp_dir + '/' + dst + '/en.json ' +  data.tmp_dir + '/' + dst + '/$filename; done');
+		runInShell(cb, 'for filename in `'+darwin_prefix+'ls -I en.json ' +  data.tmp_dir + '/' + dst + '/`; do '+darwin_prefix+'cp ' +  data.tmp_dir + '/' + dst + '/en.json ' +  data.tmp_dir + '/' + dst + '/$filename; done');
 	}, 'www/i18n', data.tmp_dir + '/' + dst);
 };
 
@@ -79,7 +80,7 @@ var callPoToJson = function callPoToJson(cb){
 var makeDir = function makeDir(done, dir){
 	runInShell(function(){
 		done();
-	}, 'mkdir -p ' + dir);
+	}, darwin_prefix + 'mkdir -p ' + dir);
 };
 
 var makeTempDir = function makeTempDir(done, prefix){
@@ -87,20 +88,20 @@ var makeTempDir = function makeTempDir(done, prefix){
 	runInShell(function(){
 		data.tmp_dir = tmp_dir;
 		done();
-	}, 'rm -rf ' + tmp_dir + '; mkdir ' + tmp_dir);
+	}, darwin_prefix + 'rm -rf ' + tmp_dir + '; '+darwin_prefix+'mkdir -p ' + tmp_dir);
 };
 var convertPoToJson = function convertPoToJson(done) {
 	checkoutToBranch(function(){
 		copyJsonFiles(function(){
 			callPoToJson(function(){
-				copy(function(){
+				runInShell(function(){
 					runInShell(function(){
 						console.log(data.lastShellStdOut, data.lastShellStdErr);
 						checkoutToBranch(function(){
 							done();
 						}, data.originalBranch, 'www/i18n');
-					}, 'pushd ' + data.tmp_dir + '/mobile && git checkout '+DESTINATION_BRANCH+' && cp ../*.json www/i18n && git add www/i18n/{' + data.finishedLanguageList.join(',') + '}.json; git commit -m "Converted translation files to json - ' + (new Date()).toLocaleDateString().replace(new RegExp('/', 'g'), '-') + '"; git push origin '+DESTINATION_BRANCH+'; popd ');
-				}, '../mobile', data.tmp_dir);
+					}, 'pushd ' + data.tmp_dir + '/mobile && '+darwin_prefix+'cp ../*.json www/i18n && git add www/i18n/{' + data.finishedLanguageList.join(',') + '}.json; git commit -m "Converted translation files to json - ' + (new Date()).toLocaleDateString().replace(new RegExp('/', 'g'), '-') + '"; git push '+data.remoteUrl+' '+DESTINATION_BRANCH+'; popd ');
+				}, 'git clone -b '+DESTINATION_BRANCH+' ./ ' + data.tmp_dir + '/mobile');
 			});
 		}, 'i18n');
 	}, DESTINATION_BRANCH, 'www/i18n');
@@ -110,8 +111,11 @@ var isLinux = function isLinux(done){
 	var os = process.platform;
 	if ( os === 'linux' ) {
 		done();
+	} else if ( os === 'darwin' ) {
+		darwin_prefix = 'g';
+		done();
 	} else {
-		console.log('Sorry this script only works on Linux');
+		console.log('Sorry this script only works on Mac or Linux');
 	}
 };
 
@@ -132,6 +136,13 @@ var getNameOfOriginalBranch = function getNameOfOriginalBranch(done){
 	}, 'git rev-parse --abbrev-ref HEAD');
 };
 
+var getRemoteUrl = function getRemoteUrl(done, dir){
+	runInShell(function(){
+		data.remoteUrl = data.lastShellStdOut;
+		done();
+	}, 'git remote get-url --push origin');
+};
+
 var translate = {};
 translate.po2json = function po2json(){
 
@@ -139,6 +150,7 @@ translate.po2json = function po2json(){
 	.pipe(isLinux)
 	.pipe(runIfBranchClean)
 	.pipe(getNameOfOriginalBranch)
+	.pipe(getRemoteUrl)
 	.pipe(function(done) {
 		makeTempDir(done, '/tmp/po2json-');
 	})
@@ -146,13 +158,13 @@ translate.po2json = function po2json(){
 		var finishedLanguageList = [];
 		var lastUpdateOfTranslations = '';
 		asyncChain().pipe(function(doneLvl2){
-			exec("git log --grep='Updated translation files with the recent changes' --oneline|head -1 |cut -d' ' -f1", function (err, stdout, stderr) {
+			exec("git log --grep='Updated translation files with the recent changes' --oneline|"+darwin_prefix+"head -1 |"+darwin_prefix+"cut -d' ' -f1", function (err, stdout, stderr) {
 				lastUpdateOfTranslations = stdout.trim();
 				doneLvl2();
 			});
 		})
 		.pipe(function(){
-			exec("git log "+lastUpdateOfTranslations+"..HEAD --grep='100.0%' --oneline |cut -d' ' -f1 ", function (err, stdout, stderr) {
+			exec("git log "+lastUpdateOfTranslations+"..HEAD --grep='100.0%' --oneline |"+darwin_prefix+"cut -d' ' -f1 ", function (err, stdout, stderr) {
 				var listOfCommits = stdout.trim().split('\n');
 				listOfCommits.forEach(function (commit, index){
 					exec("git diff-tree --no-commit-id --name-only -r "+commit, function (err, stdout, stderr) {
@@ -195,6 +207,7 @@ translate.json2po = function json2po(){
 	.pipe(isLinux)
 	.pipe(runIfBranchClean)
 	.pipe(getNameOfOriginalBranch)
+	.pipe(getRemoteUrl)
 	.pipe(function (done) {
 		makeTempDir(done, '/tmp/json2po-');
 	})
@@ -240,13 +253,13 @@ translate.json2po = function json2po(){
 		}, 'current_i18n_template');
 	})
 	.pipe(function generateMergedPo(done){
-		runInShell(done, 'json2po -t ' + data.tmp_dir + '/i18n ' + data.tmp_dir + '/translated_i18n ' + data.tmp_dir + '/new_po; rm -f ' + data.tmp_dir + '/new_po/en.po');
+		runInShell(done, 'json2po -t ' + data.tmp_dir + '/i18n ' + data.tmp_dir + '/translated_i18n ' + data.tmp_dir + '/new_po; '+darwin_prefix+'rm -f ' + data.tmp_dir + '/new_po/en.po');
 	})
 	.pipe(function finalizeChanges(rootDone){
-		copy(function(){
+		runInShell(function(){
 			asyncChain()
 			.pipe(function mergeOldWithNew(done){
-				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile/www/translation; for filename in `ls -I en.json`; do msgmerge --no-fuzzy-matching -U $filename ' + data.tmp_dir + '/new_po/$filename; done; popd');
+				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile/www/translation; for filename in `'+darwin_prefix+'ls -I en.json`; do msgmerge --no-fuzzy-matching -U $filename ' + data.tmp_dir + '/new_po/$filename; done; popd');
 			})
 			.pipe(function replaceJsonBackups(done){
 				copy(done, data.tmp_dir + '/i18n/*', data.tmp_dir + '/mobile/www/i18n');
@@ -258,10 +271,10 @@ translate.json2po = function json2po(){
 				runInShell(done, 'rm -f ' + data.tmp_dir + '/mobile/www/translation/*.po~');
 			})
 			.pipe(function commitChanges(done){
-				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile; git add www/i18n/*.json www/translation/*.po; git commit -m "Updated translation files with the recent changes - ' + (new Date()).toLocaleDateString().replace(new RegExp('/', 'g'), '-') + '"; git push origin '+ SOURCE_BRANCH + '; popd');
+				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile; git add www/i18n/*.json www/translation/*.po; git commit -m "Updated translation files with the recent changes - ' + (new Date()).toLocaleDateString().replace(new RegExp('/', 'g'), '-') + '"; git push '+data.remoteUrl+' '+ SOURCE_BRANCH + '; popd');
 			})
 			.exec();
-		}, '../mobile', data.tmp_dir);
+		}, 'git clone -b '+SOURCE_BRANCH+' ./ ' + data.tmp_dir + '/mobile');
 	})
 	.exec();
 };
