@@ -107,7 +107,7 @@ var convertPoToJson = function convertPoToJson(done) {
 	}, DESTINATION_BRANCH, 'www/i18n');
 };
 
-var isLinux = function isLinux(done){
+var isUnix = function isUnix(done){
 	var os = process.platform;
 	if ( os === 'linux' ) {
 		done();
@@ -147,7 +147,7 @@ var translate = {};
 translate.po2json = function po2json(){
 
 	asyncChain()
-	.pipe(isLinux)
+	.pipe(isUnix)
 	.pipe(runIfBranchClean)
 	.pipe(getNameOfOriginalBranch)
 	.pipe(getRemoteUrl)
@@ -204,7 +204,7 @@ translate.po2json = function po2json(){
 
 translate.json2po = function json2po(){
 	asyncChain()
-	.pipe(isLinux)
+	.pipe(isUnix)
 	.pipe(runIfBranchClean)
 	.pipe(getNameOfOriginalBranch)
 	.pipe(getRemoteUrl)
@@ -259,7 +259,7 @@ translate.json2po = function json2po(){
 		runInShell(function(){
 			asyncChain()
 			.pipe(function mergeOldWithNew(done){
-				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile/www/translation; for filename in `'+darwin_prefix+'ls -I en.json`; do msgmerge --no-fuzzy-matching -U $filename ' + data.tmp_dir + '/new_po/$filename; done; popd');
+				runInShell(done, 'pushd ' + data.tmp_dir + '/mobile/www/translation; for filename in `'+darwin_prefix+'ls -I en.po`; do msgmerge --no-fuzzy-matching -U $filename ' + data.tmp_dir + '/new_po/$filename; done; popd');
 			})
 			.pipe(function replaceJsonBackups(done){
 				copy(done, data.tmp_dir + '/i18n/*', data.tmp_dir + '/mobile/www/i18n');
