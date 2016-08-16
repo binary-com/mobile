@@ -66,6 +66,24 @@ npm install or npm update (may need sudo)
 gulp deploy
 ```
 
+## Using translation scripts
+
+### Installing requirements in Linux
+```
+sudo apt-get install translate-toolkit
+```
+
+### Installing requirements in Mac OS X
+You need to have [Homebrew](http://brew.sh/) installed.
+```
+sudo echo &&
+(brew install coreutils gettext python
+curl -Lo translate.tgz https://github.com/translate/translate/archive/1.10.0.tar.gz
+tar xf translate.tgz
+pushd translate-1.10.0/ && sudo python setup.py install && popd
+sudo rm -rf translate-1.10.0 translate.tgz)
+```
+
 ### Adding a new language
 Adding a new language is as simple as copying en.json to the [new language basename].json, then commiting this change and running json2po in the translation branch.
 ```
