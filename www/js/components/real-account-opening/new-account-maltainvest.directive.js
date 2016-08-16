@@ -18,7 +18,8 @@ angular
 			$state,
 			$compile,
 			$ionicLoading,
-			appStateService, $rootScope) {
+			appStateService,
+			$rootScope) {
 			return {
 				restrict: 'E',
 				templateUrl: 'templates/components/real-account-opening/new-account-maltainvest.template.html',
@@ -34,6 +35,11 @@ angular
 					scope.isForthSection = false;
 					scope.hasMoreStages = true;
 					scope.hasLessStages = false;
+					scope.$applyAsync(function(){
+						if(appStateService.hasMLT){
+							scope.isReadonly = true;
+						}
+					});
 
 					// handle the 'next' button
 					scope.goToNextSection = function() {

@@ -37,6 +37,8 @@ angular
 						}
 					});
 
+
+
 					// get account-setting and landing-company
 					scope.getCompany = function() {
 						scope.data = {};
@@ -59,15 +61,12 @@ angular
 						if (scope.data.landingCompany.hasOwnProperty('financial_company') && scope.data.landingCompany.hasOwnProperty('gaming_company') == true && scope.data.landingCompany.financial_company.shortcode == "maltainvest") {
 							scope.hasFinancialAndGamingAndMaltainvest = true;
 							scope.getToken();
-							scope.financialAndGamingAndMaltainvestStages();
 						} else if (scope.data.landingCompany.hasOwnProperty('financial_company') && scope.data.landingCompany.hasOwnProperty('gaming_company') == false && scope.data.landingCompany.financial_company.shortcode == "maltainvest") {
 							scope.hasFinancialAndMaltainvest = true;
 							scope.getToken();
-							scope.financialAndMaltainvestStages();
 						} else if (!(scope.data.landingCompany.financial_company.shortcode == "maltainvest")) {
 							scope.notMaltainvest = true;
 							scope.getToken();
-							scope.notMaltainvestStages();
 						}
 					}
 
@@ -83,6 +82,7 @@ angular
 					scope.findTokens = function() {
 						if (scope.hasFinancialAndGamingAndMaltainvest == true) {
 							scope.idsFound = [];
+							scope.count = scope.accounts.length;
 							scope.accounts.forEach(function(el, i) {
 								scope.val = scope.accounts[i]['id'];
 								if (scope.val.search('MLT') > -1) {
@@ -92,9 +92,15 @@ angular
 								} else if (scope.val.search('VRTC') > -1) {
 									scope.idsFound.push('VRTC');
 								}
-							});
+								if(!--scope.count){
+									scope.financialAndGamingAndMaltainvestStages();
+								}
+							}
+						);
 						} else if (scope.hasFinancialAndMaltainvest == true) {
 							scope.idsFoundMaltainvest = [];
+							scope.count = scope.accounts.length;
+
 							scope.accounts.forEach(function(el, i) {
 								scope.val = scope.accounts[i]['id'];
 								if (scope.val.search('MF') > -1) {
@@ -102,9 +108,16 @@ angular
 								} else if (scope.val.search('VRTC') > -1) {
 									scope.idsFoundMaltainvest.push('VRTC');
 								}
-							});
+								if(!--scope.count){
+									scope.financialAndMaltainvestStages();
+
+								}
+							}
+
+					);
 						} else if (scope.notMaltainvest == true) {
 							scope.idsFoundNoLicense = [];
+							scope.count = scope.accounts.length;
 							scope.accounts.forEach(function(el, i) {
 								scope.val = scope.accounts[i]['id'];
 								if (scope.val.search('VRTC') > -1) {
@@ -114,10 +127,16 @@ angular
 								} else if (scope.val.search('CR') > -1) {
 									scope.idsFoundNoLicense.push('MXorCR');
 								}
-							});
+								if(!--scope.count){
+									scope.notMaltainvestStages();
+
+								}
+							}
+
+						);
 						}
 					}
-
+					
 
 					scope.financialAndGamingAndMaltainvestStages = function() {
 						if (scope.idsFound.indexOf('VRTC') > -1 && scope.idsFound.indexOf('MLT') == -1 && scope.idsFound.indexOf('MF') == -1) {
@@ -127,6 +146,8 @@ angular
 						} else if (scope.idsFound.indexOf('VRTC') > -1 && scope.idsFound.indexOf('MLT') > -1 && scope.idsFound.indexOf('MF') == -1) {
 							// can upgrade to MF
 							// use https://developers.binary.com/api/#new_account_maltainvest
+							// flag for readonly inputs of account setting
+								appStateService.hasMLT = true;
 							scope.newAccountMaltainvest();
 						} else if (scope.idsFound.indexOf('VRTC') > -1 && scope.idsFound.indexOf('MLT') > -1 && scope.idsFound.indexOf('MF') > -1) {
 							// already has all kind of accounts

@@ -27,6 +27,7 @@ angular
                 factory.isNewAccountReal = false;
                 factory.isNewAccountMaltainvest = false;
                 factory.showUpgradeLink = false;
+                factory.hasMLT = false;
 
                 return factory;
             });
