@@ -1,0 +1,19 @@
+<div class="row center">
+	<div class="col col-75 center">
+		<div class="list">
+			<!-- <ion-spinner ng-show="showSpinner"></ion-spinner> -->
+			<label class="item item-input">
+				<i class="icon ion-android-lock placeholder-icon icon-small"></i>
+				<!-- <span>{{'newvirtualaccount.email' | translate}}</span> -->
+				<input type="email" ng-model="data.mail" placeholder="{{'newvirtualaccount.email' | translate }}">
+			</label>
+		</div>
+		<div class="row center">
+			<div class="col col-75">
+				<button class="button button-block btn-signin" ng-click="verifyUserMail()">
+					{{'newvirtualaccount.continue' | translate}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

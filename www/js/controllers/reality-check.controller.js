@@ -162,6 +162,7 @@ angular
 							appStateService.isRealityChecked = false;
 							appStateService.isPopupOpen = false;
 							sessionStorage.removeItem('start');
+							appStateService.isCheckedAccountType = false;
 							$state.go('signin');
 						}
 						if (!res) {

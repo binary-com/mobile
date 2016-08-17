@@ -1,0 +1,70 @@
+open-real-money-account {
+	bottom: 0;
+	position: fixed;
+	z-index: 10;
+	padding: 0 50px;
+}
+.real-account {
+	bottom: 15px;
+	z-index: 10000;
+	width: 100%;
+	max-width: 768px;
+	position: relative!important;
+	a {
+		background-color: $green;
+		color: $white;
+		padding: 2px 10px;
+		border-radius: 5px;
+	}
+}
+.new-account {
+	.title {
+		padding-top: 10px;
+		padding-bottom: 5px;
+		border-bottom: 1px solid $lightgray;
+	}
+	h1 {
+		padding: 10px 0;
+	}
+	p{
+		white-space: normal;
+	}
+	input {
+		background: $white;
+		border: 1px solid $lightgray;
+		padding: 2px 3px;
+		border-radius: 3px;
+		width: 100%;
+		&.checkbox {
+			position: relative;
+			float: right;
+		}
+	}
+	select {
+		width: 100%;
+		padding: 2px 3px;
+		border: 1px solid $lightgray;
+		background: $white;
+		border-radius: 3px;
+		position: relative;
+		direction: ltr;
+		option {
+			width: 100%;
+			text-align: left;
+		}
+	}
+	.sections {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		ion-item {
+			padding: 5px 16px;
+			display: flex;
+			flex-grow: 1;
+		}
+	}
+	.input-title {
+		font-size: 14px;
+		white-space: normal;
+	}
+}
