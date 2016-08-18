@@ -48,11 +48,11 @@ angular
                            accountService.add(accounts[a]);
                        }
                    }
+                   $ionicLoading.hide();
                 });
 
                 scope.signin = function(){
                     var authWindow = window.open(config.oauthUrl + '?app_id=' + config.app_id + '&l=' + languageService.read(),
-                            //window.open("http://localhost:8100/#/redirect?token=123123",
                             "_blank",
                             "location=no,toolbar=no");
                     

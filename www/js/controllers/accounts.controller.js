@@ -10,8 +10,7 @@
 angular
 	.module('binary')
 	.controller('AccountsController',
-		function($scope, $rootScope, $state, $window, $ionicPopup,
-            websocketService, accountService, alertService,
+		function($scope, $state, websocketService, accountService, alertService,
             proposalService, appStateService, marketService) {
 
 			if (typeof(analytics) !== "undefined") {
@@ -38,11 +37,16 @@ angular
 						}
 
 						if(res){
+							appStateService.isRealityChecked= false;
+							appStateService.isChangedAccount = false;
+							appStateService.isPopupOpen = false;
 							accountService.removeAll();
 							proposalService.remove();
                             marketService.removeActiveSymbols();
                             marketService.removeAssetIndex();
                             appStateService.isLoggedin = false;
+														sessionStorage.removeItem('start');
+														sessionStorage.removeItem('_interval');
                             websocketService.closeConnection();
                             $scope.$parent.$broadcast('logout');
 							$state.go('signin');

@@ -23,6 +23,7 @@
 																font-weight: bold;
 																text-align: center;
 																line-height: 12px;
+																word-wrap: normal;
 												}
 												.price-des {
 																font-size: 4vw;
@@ -119,7 +120,6 @@
 								.contract-purchase,
 								.contract-back {
 												button {
-																background-color: $green !important;
 																font-size: 5vw;
 												}
 								}
@@ -179,7 +179,6 @@
 																font-weight: bold;
 												}
 												button {
-																background-color: $green !important;
 																width: 100%;
 																margin: 0 auto;
 																font-size: 14px;
@@ -236,6 +235,7 @@
 																font-weight: bold;
 																text-align: center;
 																line-height: 12px;
+																
 												}
 												.price-des {
 																font-size: 14px;
@@ -331,7 +331,6 @@
 								.contract-purchase,
 								.contract-back {
 												button {
-																background-color: $green !important;
 																font-size: 20px;
 												}
 								}
@@ -391,7 +390,6 @@
 																font-weight: bold;
 												}
 												button {
-																background-color: $green !important;
 																width: 100%;
 																margin: 0 auto;
 																font-size: 14px;

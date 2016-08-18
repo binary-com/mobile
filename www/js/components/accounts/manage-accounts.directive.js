@@ -17,8 +17,11 @@ angular
         'marketService',
         'proposalService',
         'appStateService',
-		function(accountService, alertService, cleanupService, 
-            $state, languageService, marketService, proposalService, appStateService) {
+        '$ionicLoading',
+		function(accountService, alertService, cleanupService,
+                $state, languageService, marketService,
+                proposalService, appStateService, $ionicLoading)
+        {
 		return {
 			restrict: 'E',
 			templateUrl: 'templates/components/accounts/manage-accounts.template.html',
@@ -28,17 +31,15 @@ angular
                 scope.accounts = accountService.getAll();
 
 				scope.$on('authorize', function(e, response, reqId) {
-					// TODO: Add spinner
-					scope.showSpinner = false;
-					if(reqId === requestId){
-                        if (response) {
+                    $ionicLoading.hide();
+                    if(response){
+					    if(reqId === requestId){
                             if (accountService.isUnique(response.loginid)) {
-                                accountService.add(response);
-                                accountService.setDefault(response.token);
-                                scope.accounts = accountService.getAll();
-                                if(!scope.$$phase){
-                                    scope.$apply();
-                                }
+                                scope.$applyAsync(function(){
+                                    accountService.add(response);
+                                    accountService.setDefault(response.token);
+                                    scope.accounts = accountService.getAll();
+                                });
                             } else {
                                 if (scope.settingDefault) {
                                     scope.settingDefault = false;
@@ -46,22 +47,21 @@ angular
                                     alertService.accountError.tokenNotUnique();
                                 }
                             }
-                            
-                            // reloading language setting
-                            languageService.set();
 
-                        } else {
-                            alertService.accountError.tokenNotAuthenticated();
+                            // reloading language setting
+                            //languageService.set();
                         }
+                    } else {
+                        alertService.accountError.tokenNotAuthenticated(reqId);
                     }
+
 				});
 
 				scope.$on('token:remove', function(e, response) {
-					accountService.remove(response);
-					scope.accounts = accountService.getAll();
-					if(!scope.$$phase){
-						scope.$apply();
-					}
+                    scope.$applyAsync(function(){
+                        accountService.remove(response);
+                        scope.accounts = accountService.getAll();
+                    });
 				});
 
                 var cleanLocalData = function(){
@@ -73,16 +73,20 @@ angular
                 };
 
 				scope.addAccount = function(_token) {
+                    $ionicLoading.show();
                     requestId = new Date().getTime();
 					scope.showSpinner = false;
 					// Validate the token
 					if (_token && _token.length === 15) {
-						scope.showSpinner = true;
-                        
-                        cleanLocalData(); 
-                        
+
+                        cleanLocalData();
+
                         accountService.validate(_token, {req_id: requestId});
+												appStateService.isChangedAccount = true;
+												sessionStorage.removeItem('start');
+												sessionStorage.removeItem('_interval');
 					} else {
+                        $ionicLoading.hide();
 						alertService.accountError.tokenNotValid();
 					}
 				};
@@ -95,11 +99,16 @@ angular
                     requestId = new Date().getTime();
 					scope.settingDefault = true;
 
-                    cleanLocalData();                    
+                    cleanLocalData();
 
 					accountService.setDefault(_token);
+                    $ionicLoading.show();
 					accountService.validate(null, {req_id: requestId});
 					scope.accounts = accountService.getAll();
+					sessionStorage.clear('_interval');
+					appStateService.isChangedAccount = true;
+					sessionStorage.removeItem('start');
+					sessionStorage.removeItem('_interval');
 				};
 			}
 		};

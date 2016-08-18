@@ -10,10 +10,9 @@
 angular
 	.module('binary')
 	.controller('SignInController',
-		function($scope, $state, appStateService) {
-			if(typeof(analytics) !== "undefined"){
-					analytics.trackView("Singin");
-			}
+		function($scope, $state, appStateService, analyticsService) {
+
+            analyticsService.google.trackView("Singin");
 
             appStateService.invalidTokenRemoved = false;
 

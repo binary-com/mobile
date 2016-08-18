@@ -1,0 +1,27 @@
+<ion-item>
+	<div class="row">
+		<div class="col">
+			<p>
+				{{'realitycheck.about' | translate}}
+			</p>
+		</div>
+	</div>
+	<div class="row realitycheck-text">
+		<div class="col">
+			<p>
+				{{'realitycheck.interval_question' | translate}}
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col interval-input">
+			<form>
+				<input ng-model="data.interval" type="number"/>
+				<div class="interval_error" ng-show="data.interval<10 || data.interval>120">
+					{{'realitycheck.interval_error' | translate}}
+				</div>
+			</form>
+
+		</div>
+	</div>
+</ion-item>

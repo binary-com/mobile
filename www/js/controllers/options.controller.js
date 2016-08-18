@@ -10,18 +10,16 @@
 angular
 	.module('binary')
 	.controller('OptionsController',
-		function($scope, $rootScope, $state, $window, config, proposalService,
-            accountService, websocketService, chartService, delayService,
-            appStateService) {
+		function($scope, $state, config, proposalService,
+            accountService, websocketService, delayService,
+            appStateService, analyticsService) {
 
 			$scope.selected = {};
 			$scope.isDataLoaded = false;
             $scope.letsTrade = false;
             $scope.hasTradePermission = getTradePermission();
 
-			if(typeof(analytics) !== "undefined"){
-					analytics.trackView("Options");
-			}
+            analyticsService.google.trackView("Options");
 
 			websocketService.sendRequestFor.forgetAll('ticks');
 
@@ -70,6 +68,13 @@ angular
 			};
 
 			$scope.navigateToTradePage = function() {
+                var proposal = proposalService.get();
+
+                if(proposal.currency !== sessionStorage.currency){
+                    proposal.currency = sessionStorage.currency;
+                    proposalService.update(proposal);
+                }
+
 				$state.go('trade');
 			};
 
@@ -79,7 +84,7 @@ angular
 					contract_type: $scope.selected.tradeType,
 					duration: $scope.selected.tick,
 					basis: $scope.selected.basis,
-					currency: accountService.getDefault().currency,
+					currency: _.isEmpty(accountService.getDefault().currency) ? sessionStorage.currency : accountService.getDefault().currency,
 					passthrough: {
 						market: $scope.selected.market
 					},
@@ -106,15 +111,13 @@ angular
             };
             
             $scope.$on('authorize', function(e){
-                $scope.hasTradePermission = getTradePermission();
-                
-                delayService.update('symbolsAndAssetIndexUpdate', function(){
-                    updateSymbols();
-                }, 60*1000);
- 
-                 if(!$scope.$$phase){
-                     $scope.$apply();
-                 }
+                $scope.$applyAsync(function(){
+                    $scope.hasTradePermission = getTradePermission();
+                    
+                    delayService.update('symbolsAndAssetIndexUpdate', function(){
+                        updateSymbols();
+                    }, 60*1000);
+                });
              });
  
              function getTradePermission(){

@@ -7,7 +7,7 @@
 
 	<!-- Content Security Policy for cordova-plugin-whitelist -->
 	<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-    
+
     <!-- Disabling ios telephone number detection -->
     <meta name = "format-detection" content = "telephone=no">
 
@@ -28,23 +28,26 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="mobile-web-app-capable" content="yes">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-	<title>Binary App</title>
 
-	<link href="css/ionic.app.css" rel="stylesheet">
-
+    <style id="antiClickjack">body{display:none !important;}</style>
     <script type="text/javascript">
-        if(self !== top){
+        if (self === top) {
+            var antiClickjack = document.getElementById("antiClickjack");
+            antiClickjack.parentNode.removeChild(antiClickjack);
+        } else {
             top.location = self.location;
         }
     </script>
+
+	<title>Binary App</title>
+	<link href="css/ionic.app.css" rel="stylesheet">
 
 	<!-- BEGIN TRACKJS -->
 	<script type="text/javascript">
 		window._trackJs = {
 		    token: "346262e7ffef497d85874322fff3bbf8",
 		    application: "tick-trade-app",
-		    onError: function(payload){ 
+		    onError: function(payload){
                 payload.customer.userId = window._trackJs.userId;
                 return !(window.location.hostname === "localhost");
             }
@@ -77,15 +80,18 @@
         if(/#\/redirect\%23/.exec(url)){
             url = url.replace("%23", "?");
             window.location.href = url;
-        } else if(/acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(#\/redirect)$/.exec(url)){
+        }
+
+        url = window.location.href;
+        if(/acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(#\/redirect)$/.exec(url)){
             url = url.replace("#\/redirect", "");
             var splits = url.split('?');
-            url = splits[0] + '#\/redirect' + splits[1];
+            url = splits[0] + '#\/redirect?' + splits[1];
             window.location.href = url;
         }
     </script>
     <!-- END Modify -->
-	
+
     <!-- ionic/angularjs js -->
 	<script src="lib/ionic/release/js/ionic.bundle.js"></script>
 	<!-- cordova script (this will be a 404 during development) -->
@@ -101,7 +107,7 @@
 
 	<!-- app -->
 	<link href="css/style.css" rel="stylesheet">
-    
+
     <!-- build:js -->
     <script src="js/app.js"></script>
 
@@ -122,6 +128,7 @@
 	<script src="js/services/delay.service.js"></script>
 	<script src="js/services/app-version.service.js"></script>
 	<script src="js/services/app-state.service.js"></script>
+	<script src="js/services/analytics.service.js"></script>
 
 	<script src="js/controllers/body.controller.js"></script>
 	<script src="js/controllers/home.controller.js"></script>
@@ -131,12 +138,14 @@
 	<script src="js/controllers/options.controller.js"></script>
 	<script src="js/controllers/accounts.controller.js"></script>
 	<script src="js/controllers/oauth-redirect.controller.js"></script>
+	<script src="js/controllers/reality-check.controller.js"></script>
 
 	<script src="js/components/accounts/signin.directive.js"></script>
 	<script src="js/components/accounts/change-account.directive.js"></script>
 	<script src="js/components/accounts/manage-accounts.directive.js"></script>
 	<script src="js/components/accounts/scope-message.directive.js"></script>
 	<script src="js/components/accounts/oauth.directive.js"></script>
+	<script src="js/components/accounts/currency.directive.js"></script>
 
 	<script src="js/components/options/markets.directive.js"></script>
 	<script src="js/components/options/symbols.directive.js"></script>
@@ -144,6 +153,7 @@
 	<script src="js/components/options/ticks.directive.js"></script>
 	<script src="js/components/options/digits.directive.js"></script>
 	<script src="js/components/options/payout-stake.directive.js"></script>
+	<script src="js/components/reality-check/reality-check.directive.js"></script>
 
 	<script src="js/components/trades/longcode.directive.js"></script>
 	<script src="js/components/trades/trade-contract-chart.directive.js"></script>
@@ -157,6 +167,7 @@
 	<script src="js/components/utils/app-version.directive.js"></script>
 	<script src="js/components/utils/logo-spinner.directive.js"></script>
 	<script src="js/components/utils/long-press.directive.js"></script>
+	<script src="js/components/utils/ping.directive.js"></script>
 
 	<script src="js/components/codepush/app-update.directive.js"></script>
 
@@ -167,9 +178,12 @@
 </head>
 
 <body ng-controller="BodyController" id="{{getLanguage()}}">
+    <ping></ping>
 	<connection-status></connection-status>
     <app-update></app-update>
     <scope-message></scope-message>
+    <currency></currency>
+	<reality-check></reality-check>
 	<ion-nav-view can-swipe-back="false"></ion-nav-view>
 </body>
 

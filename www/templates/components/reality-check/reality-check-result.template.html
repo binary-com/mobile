@@ -1,0 +1,119 @@
+<ion-item>
+	<div class="row">
+		<div class="col">
+			<span>{{'realitycheck.login_time' | translate }}
+			</span>
+
+		</div>
+		<div class="col">
+			{{realityCheckitems.start_time}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+
+			<span>{{'realitycheck.current_time' | translate }}
+			</span>
+
+		</div>
+		<div class="col">
+			{{realityCheckitems.currentTime}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<span>{{'realitycheck.session_duration' | translate}}</span>
+		</div>
+		<div class="col">
+
+			{{realityCheckitems.days}}
+			<span>{{'realitycheck.days' | translate}}</span>
+			{{realityCheckitems.hours}}
+			<span>{{'realitycheck.hours' | translate}}</span>
+			{{realityCheckitems.minutes}}
+			<span>{{'realitycheck.minutes' | translate}}</span>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.loginid' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.loginid}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.currency' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.currency}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.buy_amount' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.buy_amount}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.profit_loss' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.sell_amount - realityCheckitems.buy_amount}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.buy_count' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.buy_count}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.sell_count' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.sell_count}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.open_contract_count' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.open_contract_count}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			{{'realitycheck.potential_profit' | translate}}
+		</div>
+		<div class="col">
+			{{realityCheckitems.potential_profit}}
+		</div>
+	</div>
+	<div class="row interval">
+		<div class="col col-50 interval-text">
+			{{'realitycheck.interval' | translate}}
+		</div>
+		<div class="col col-50 interval-input">
+			<form>
+				<input ng-model="data.interval" name="input" type="number" required/>
+				<div class="interval_error" ng-show="data.interval<10 || data.interval>120">
+					{{'realitycheck.interval_error' | translate}}
+				</div>
+			</form>
+		</div>
+
+	</div>
+</ion-item>
