@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-03 11:07+0800\n"
-"PO-Revision-Date: 2016-06-08 18:26+0000\n"
+"PO-Revision-Date: 2016-08-18 03:20+0000\n"
 "Last-Translator: Ahmed Kotb <ahmedmohamedkotp@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-trade/"
-"app/ar/>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/binary-tick-"
+"trade/app/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 #: .help.email_cs
 msgid "Have questions? Email customer support at "
@@ -304,71 +304,71 @@ msgstr "هل أنت متأكد من أنك تريد إزالة كافة الرم
 
 #: .realitycheck.interval
 msgid "Reality Check Interval in minutes"
-msgstr ""
+msgstr "تحقق واقعي للفاصل الزمني في دقائق"
 
 #: .realitycheck.currency
 msgid "Currency"
-msgstr ""
+msgstr "العملات"
 
 #: .realitycheck.potential_profit
 msgid "Potential profit"
-msgstr ""
+msgstr "الأرباح المحتملة"
 
 #: .realitycheck.loginid
 msgid "Login ID"
-msgstr ""
+msgstr "معرف تسجيل الدخول"
 
 #: .realitycheck.current_time
 msgid "Current time:"
-msgstr ""
+msgstr "الوقت الحالي:"
 
 #: .realitycheck.statistics
 msgid "Your trading statistics since"
-msgstr ""
+msgstr "إحصائيات التداولات الخاصة بك منذ"
 
 #: .realitycheck.title
 msgid "Reality Check"
-msgstr ""
+msgstr "تحقق واقعي"
 
 #: .realitycheck.open_contract_count
 msgid "Open contracts"
-msgstr ""
+msgstr "العقود المفتوحة"
 
 #: .realitycheck.buy_count
 msgid "Contracts bought"
-msgstr ""
+msgstr "العقود المشتراه"
 
 #: .realitycheck.login_time
 msgid "Login time:"
-msgstr ""
+msgstr "وقت الدخول:"
 
 #: .realitycheck.session_duration
 msgid "Session duration:"
-msgstr ""
+msgstr "مدة الجلسة:"
 
 #: .realitycheck.hours
 msgid "hours"
-msgstr ""
+msgstr "الساعات"
 
 #: .realitycheck.buy_amount
 msgid "Turnover"
-msgstr ""
+msgstr "الدوران"
 
 #: .realitycheck.interval_error
 msgid "Please enter a number between 10 to 120."
-msgstr ""
+msgstr "من فضلك أدخل رقم بين 10 إلى 120."
 
 #: .realitycheck.logout
 msgid "Logout"
-msgstr ""
+msgstr "تسجيل الخروج"
 
 #: .realitycheck.sell_count
 msgid "Contracts sold"
-msgstr ""
+msgstr "العقود المباعة"
 
 #: .realitycheck.interval_question
 msgid "Please specify your preferred reality-check interval in minutes:"
-msgstr ""
+msgstr "برجاء تحديد التحقق الواقعي المفضل لديك للفاصل الزمني في دقائق:"
 
 #: .realitycheck.about
 msgid ""
@@ -377,22 +377,25 @@ msgid ""
 "reality-check that gives you a summary of your trades and accounts on a "
 "regular basis."
 msgstr ""
+"تداول الخيارات يمكن أن يصبح إدمان حقيقي, كما أن أي نشاط آخر يمكن أن يدفع إلى "
+"حدوده. ولتجنب خطر مثل هذا الإدمان, نحن نقدم تحقق واقعي والذي يمنحك ملخص "
+"لتداولاتك وحساباتك على أساس منتظم."
 
 #: .realitycheck.profit_loss
 msgid "Profit/Loss"
-msgstr ""
+msgstr "ربح/خسارة"
 
 #: .realitycheck.days
 msgid "days"
-msgstr ""
+msgstr "أيام"
 
 #: .realitycheck.continue
 msgid "Continue Trading"
-msgstr ""
+msgstr "مواصلة التداول"
 
 #: .realitycheck.minutes
 msgid "minutes"
-msgstr ""
+msgstr "دقائق"
 
 #: .options.asians_down
 msgid "Asians Down"
