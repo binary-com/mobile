@@ -11051,11 +11051,11 @@ open-real-money-account {
   padding: 0 50px; }
 
 .real-account {
-  bottom: 15px;
+  top: 15px;
   z-index: 10000;
   width: 100%;
   max-width: 768px;
-  position: relative !important; }
+  position: fixed !important; }
   .real-account a {
     background-color: #2E8836;
     color: #fff;
@@ -11066,6 +11066,16 @@ open-real-money-account {
   padding-top: 10px;
   padding-bottom: 5px;
   border-bottom: 1px solid #f2f2f2; }
+
+.new-account ul {
+  display: inline-block;
+  width: 100%; }
+  .new-account ul li {
+    width: 33%;
+    display: inline-block;
+    padding: 10px; }
+  .new-account ul li.active {
+    background-color: #f2f2f2 !important; }
 
 .new-account h1 {
   padding: 10px 0; }

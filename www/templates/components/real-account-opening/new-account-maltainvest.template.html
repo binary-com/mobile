@@ -2,402 +2,351 @@
 	<h3>{{'newaccountmaltainvest.financial_account_opening' | translate}}
 	</h3>
 </div>
-<div class="sections" ng-show="isFirstSection">
-	<h1 class="">{{'newaccountmaltainvest.details' | translate}}</h1>
+
+<!-- tab version -->
+<ul>
+	 <li ng-repeat="step in steps" ng-class="{'active': $index === getCurrentStepIndex() }">
+		 <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
+	 </li>
+ </ul>
+
+ <div ng-switch on="selection">
+
+	 <!-- First Step -->
+	 <div ng-switch-when="Step 1: Details">
+		 <h1 class="">{{'newaccountmaltainvest.details' | translate}}</h1>
+
+ 		<ion-item>
+ 			<div class="col">
+ 				<div class="input-title">
+ 					{{'newaccountmaltainvest.salutation' | translate}}
+ 				</div>
+ 				<input ng-model="data.salutation" ng-readonly="isReadonly">
+ 			</div>
+ 		</ion-item>
+
+ 		<ion-item>
+ 			<div class="col">
+ 				<div class="input-title">
+ 					{{'newaccountmaltainvest.first_name' | translate}}
+ 				</div>
+ 				<input ng-model="data.firstName" ng-readonly="isReadonly ">
+ 			</div>
+ 		</ion-item>
+
+ 		<ion-item>
+ 			<div class="col">
+ 				<div class="input-title">
+ 					{{'newaccountmaltainvest.last_name' | translate}}
+ 				</div>
+ 				<input ng-model="data.lastName" ng-readonly="isReadonly">
+ 			</div>
+ 		</ion-item>
+
+ 		<ion-item>
+ 			<div class="col">
+ 				<div class="input-title">
+ 					{{'newaccountmaltainvest.date_of_birth' | translate}}
+ 				</div>
+ 				<input ng-model="data.dateOfBirth" ng-readonly="isReadonly">
+ 			</div>
+ 		</ion-item>
+
+ 		<ion-item>
+ 			<div class="col">
+ 				<div class="input-title">
+ 					{{'newaccountmaltainvest.residence' | translate}}
+ 				</div>
+ 				<input ng-model="data.country" ng-readonly="true">
+ 			</div>
+ 		</ion-item>
+
+		<h1 class="title">{{'newaccountmaltainvest.address' | translate}}</h1>
+
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.addreess_line_1' | translate}}
+				</div>
+				<input ng-model="data.addressLine1">
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.addreess_line_2' | translate}}
+				</div>
+				<input ng-model="data.addressLine2">
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.address_city' | translate}}
+				</div>
+				<input ng-model="data.addressCity">
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.address_state' | translate}}
+				</div>
+				<select ng-model="data.state" ng-options="state.value as state.text for state in statesList track by state.value"></select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.address_postcode' | translate}}
+				</div>
+				<input ng-model="data.addressPostcode">
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.phone' | translate}}
+				</div>
+				<input ng-model="data.phone" type="number">
+			</div>
+		</ion-item>
+	 </div>
+
+	 <!-- Second Step -->
+	 <div ng-switch-when="Step 2: questions">
+		 <h1 class="title">{{'newaccountmaltainvest.financial_information' | translate}}</h1>
+		<ion-item>
+			<div class="item-select col">
+
+				<div class="input-title">
+					{{'newaccountmaltainvest.forex_trading_experience' | translate}}
+				</div>
+				<select ng-model="data.forexTradingExperience">
+					<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+					<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+					<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.forex_trading_frequency' | translate}}
+				</div>
+				<select ng-model="data.forexTradingFrequency">
+					<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+					<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+					<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.indices_trading_experience' | translate}}
+				</div>
+				<select ng-model="data.indicesTradingExperience">
+					<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+					<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+					<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.indices_trading_frequency' | translate}}
+				</div>
+				<select ng-model="data.indicesTradingFrequency">
+					<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+					<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+					<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.commodities_trading_experience' | translate}}
+				</div>
+				<select ng-model="data.commoditiesTradingExperience">
+					<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+					<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+					<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.commodities_trading_frequency' | translate}}
+				</div>
+				<select ng-model="data.commoditiesTradingFrequency">
+					<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+					<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+					<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.stocks_trading_experience' | translate}}
+				</div>
+				<select ng-model="data.stocksTradingExperience">
+					<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+					<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+					<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.stocks_trading_frequency' | translate}}
+				</div>
+				<select ng-model="data.stocksTradingFrequency">
+					<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+					<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+					<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.other_derivatives_trading_experience' | translate}}
+				</div>
+				<select ng-model="data.otherDrivativesTradingExperience">
+					<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+					<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+					<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.other_derivatives_trading_frequency' | translate}}
+				</div>
+				<select ng-model="data.otherDrivativesTradingFrequency">
+					<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+					<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+					<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.other_instruments_trading_experience' | translate}}
+				</div>
+				<select ng-model="data.otherInstrumentsTradingExperience">
+					<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+					<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+					<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.other_instruments_trading_frequency' | translate}}
+				</div>
+				<select ng-model="data.otherInstrumentsTradingFrequency">
+					<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}"</option>
+					<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+					<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+
+
+
+
+
+		<!-- <div class="row center">
+			<div class="col col-100">
+				<button class="button button-block button-positive" ng-show="!hasMoreStages" ng-click="submitAccountOpening()">{{'newaccountmaltainvest.open_account' | translate}}</button>
+			</div>
+		</div> -->
+	 </div>
+
+
+
+	 <!-- Third Step -->
+	 <div ng-switch-when="Step 3: Agree">
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.secret_question' | translate}}
+				</div>
+				<select ng-model="data.secretQuestion">
+					<option value="Mother's maiden name">{{'newaccountmaltainvest.secret_question_1' | translate}}</option>
+					<option value="Name of your pet">{{'newaccountmaltainvest.secret_question_2' | translate}}</option>
+					<option value="Name of first love">{{'newaccountmaltainvest.secret_question_3' | translate}}</option>
+					<option value="Memorable town/city">{{'newaccountmaltainvest.secret_question_4' | translate}}</option>
+					<option value="Memorable date">{{'newaccountmaltainvest.secret_question_5' | translate}}</option>
+					<option value="Favourite dish">{{'newaccountmaltainvest.secret_question_6' | translate}}</option>
+					<option value="Brand of first car">{{'newaccountmaltainvest.secret_question_7' | translate}}</option>
+					<option value="Favourite artist">{{'newaccountmaltainvest.secret_question_8' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.secret_answer' | translate}}
+				</div>
+				<input ng-model="data.secretAnswer">
+			</div>
+		</ion-item>
 
 	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.salutation' | translate}}
-			</div>
-			<input ng-model="data.salutation" ng-readonly="isReadonly">
-		</div>
+		<p>
+			{{'newaccountmaltainvest.info' | translate}}
+		</p>
 	</ion-item>
 
-	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.first_name' | translate}}
+		<ion-item>
+			<div class="item">
+				<div class="input-title">
+					{{'newaccountmaltainvest.accept_risk_question' | translate}}
+				</div>
+				<input type="checkbox" ng-model="data.accept" class="checkbox"/>
 			</div>
-			<input ng-model="data.firstName" ng-readonly="isReadonly ">
-		</div>
-	</ion-item>
+		</ion-item>
 
-	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.last_name' | translate}}
-			</div>
-			<input ng-model="data.lastName" ng-readonly="isReadonly">
-		</div>
-	</ion-item>
 
-	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.date_of_birth' | translate}}
-			</div>
-			<input ng-model="data.dateOfBirth" ng-readonly="isReadonly">
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.residence' | translate}}
-			</div>
-			<input ng-model="data.country" ng-readonly="true">
-		</div>
-	</ion-item>
-</div>
-
-<div class="sections" ng-show="isSecondSection">
-	<h1 class="title">{{'newaccountmaltainvest.address' | translate}}</h1>
-
-	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.addreess_line_1' | translate}}
-			</div>
-			<input ng-model="data.addressLine1">
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.addreess_line_2' | translate}}
-			</div>
-			<input ng-model="data.addressLine2">
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.address_city' | translate}}
-			</div>
-			<input ng-model="data.addressCity">
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.address_state' | translate}}
-			</div>
-			<select ng-model="data.state" ng-options="state.value as state.text for state in statesList track by state.value"></select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.address_postcode' | translate}}
-			</div>
-			<input ng-model="data.addressPostcode">
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.phone' | translate}}
-			</div>
-			<input ng-model="data.phone" type="number">
-		</div>
-	</ion-item>
-</div>
-
-<div class="sections" ng-show="isThirdSection">
-	<h1 class="title">{{'newaccountmaltainvest.financial_information' | translate}}</h1>
-	<ion-item>
-		<div class="item-select col">
-
-			<div class="input-title">
-				{{'newaccountmaltainvest.forex_trading_experience' | translate}}
-			</div>
-			<select ng-model="data.forexTradingExperience">
-				<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
-				<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
-				<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.forex_trading_frequency' | translate}}
-			</div>
-			<select ng-model="data.forexTradingFrequency">
-				<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
-				<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
-				<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.indices_trading_experience' | translate}}
-			</div>
-			<select ng-model="data.indicesTradingExperience">
-				<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
-				<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
-				<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.indices_trading_frequency' | translate}}
-			</div>
-			<select ng-model="data.indicesTradingFrequency">
-				<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
-				<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
-				<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.commodities_trading_experience' | translate}}
-			</div>
-			<select ng-model="data.commoditiesTradingExperience">
-				<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
-				<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
-				<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.commodities_trading_frequency' | translate}}
-			</div>
-			<select ng-model="data.commoditiesTradingFrequency">
-				<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
-				<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
-				<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.stocks_trading_experience' | translate}}
-			</div>
-			<select ng-model="data.stocksTradingExperience">
-				<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
-				<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
-				<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.stocks_trading_frequency' | translate}}
-			</div>
-			<select ng-model="data.stocksTradingFrequency">
-				<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
-				<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
-				<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.other_derivatives_trading_experience' | translate}}
-			</div>
-			<select ng-model="data.otherDrivativesTradingExperience">
-				<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
-				<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
-				<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.other_derivatives_trading_frequency' | translate}}
-			</div>
-			<select ng-model="data.otherDrivativesTradingFrequency">
-				<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
-				<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
-				<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.other_instruments_trading_experience' | translate}}
-			</div>
-			<select ng-model="data.otherInstrumentsTradingExperience">
-				<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
-				<option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
-				<option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.other_instruments_trading_frequency' | translate}}
-			</div>
-			<select ng-model="data.otherInstrumentsTradingFrequency">
-				<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}"</option>
-				<option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
-				<option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-</div>
-
-<div class="sections" ng-show="isForthSection">
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.employment_industry' | translate}}
-			</div>
-			<select ng-model="data.employmentIndustry">
-				<option value="Construction">{{'newaccountmaltainvest.construction' | translate}}</option>
-				<option value="Education">{{'newaccountmaltainvest.education' | translate}}</option>
-				<option value="Finance">{{'newaccountmaltainvest.finance' | translate}}</option>
-				<option value="Health">{{'newaccountmaltainvest.health' | translate}}</option>
-				<option value="Tourism">{{'newaccountmaltainvest.tourism' | translate}}</option>
-				<option value="Other">{{'newaccountmaltainvest.other' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.education_level' | translate}}
-			</div>
-			<select ng-model="data.educationLevel">
-				<option value="Primary">{{'newaccountmaltainvest.primary' | translate}}</option>
-				<option value="Secondary">{{'newaccountmaltainvest.secondary' | translate}}</option>
-				<option value="Tertiary">{{'newaccountmaltainvest.tertiary' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.income_source' | translate}}
-			</div>
-			<select ng-model="data.incomeSource">
-				<option value="Salaried Employee">{{'newaccountmaltainvest.salaried' | translate}}</option>
-				<option value="Self-Employed">{{'newaccountmaltainvest.self_employed' | translate}}</option>
-				<option value="Investments & Dividends">{{'newaccountmaltainvest.investment' | translate}}</option>
-				<option value="Pension">{{'newaccountmaltainvest.pension' | translate}}</option>
-				<option value="Other">{{'newaccountmaltainvest.other' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.net_income' | translate}}
-			</div>
-			<select ng-model="data.netIncome">
-				<option value="Less than $25,000">{{'newaccountmaltainvest.net_income_1' | translate}}</option>
-				<option value="$25,000 - $75,000">{{'newaccountmaltainvest.net_income_2' | translate}}</option>
-				<option value="$75,001 - $75,000">{{'newaccountmaltainvest.net_income_3' | translate}}</option>
-				<option value="$75,001 - $750,000">{{'newaccountmaltainvest.net_income_4' | translate}}</option>
-				<option value="Over $750,000">{{'newaccountmaltainvest.net_income_5' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.estimated_worth' | translate}}
-			</div>
-			<select ng-model="data.estimatedWorth">
-				<option value="Less than $100,000">{{'newaccountmaltainvest.estimated_worth_1' | translate}}</option>
-				<option value="$100,000 - $250,000">{{'newaccountmaltainvest.estimated_worth_2' | translate}}</option>
-				<option value="$250,001 - $500,000">{{'newaccountmaltainvest.estimated_worth_3' | translate}}</option>
-				<option value="$500,001 - $1,000,000">{{'newaccountmaltainvest.estimated_worth_4' | translate}}</option>
-				<option value="Over $1,000,000">{{'newaccountmaltainvest.estimated_worth_5' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-</div>
-
-<div class="sections" ng-show="isFifthSection">
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.secret_question' | translate}}
-			</div>
-			<select ng-model="data.secretQuestion">
-				<option value="Mother's maiden name">{{'newaccountmaltainvest.secret_question_1' | translate}}</option>
-				<option value="Name of your pet">{{'newaccountmaltainvest.secret_question_2' | translate}}</option>
-				<option value="Name of first love">{{'newaccountmaltainvest.secret_question_3' | translate}}</option>
-				<option value="Memorable town/city">{{'newaccountmaltainvest.secret_question_4' | translate}}</option>
-				<option value="Memorable date">{{'newaccountmaltainvest.secret_question_5' | translate}}</option>
-				<option value="Favourite dish">{{'newaccountmaltainvest.secret_question_6' | translate}}</option>
-				<option value="Brand of first car">{{'newaccountmaltainvest.secret_question_7' | translate}}</option>
-				<option value="Favourite artist">{{'newaccountmaltainvest.secret_question_8' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="col">
-			<div class="input-title">
-				{{'newaccountmaltainvest.secret_answer' | translate}}
-			</div>
-			<input ng-model="data.secretAnswer">
-		</div>
-	</ion-item>
-
-<ion-item>
-	<p>
-		{{'newaccountmaltainvest.info' | translate}}
-	</p>
-</ion-item>
-
-	<ion-item>
-		<div class="item">
-			<div class="input-title">
-				{{'newaccountmaltainvest.accept_risk_question' | translate}}
-			</div>
-			<input type="checkbox" ng-model="data.accept" class="checkbox"/>
-		</div>
-	</ion-item>
-
-	<div class="row center">
-		<div class="col col-100">
-			<button class="button button-block button-positive" ng-show="!hasMoreStages" ng-click="submitAccountOpening()">{{'newaccountmaltainvest.open_account' | translate}}</button>
-		</div>
-	</div>
-</div>
-<div class="row center">
-			<button class="button button-block button-positive" ng-show="hasLessStages" ng-click="goToLastSection()">{{'newaccountmaltainvest.previous' | translate}}</button>
-		<button class="button button-block button-positive" ng-show="hasMoreStages" ng-click="goToNextSection()">{{'newaccountmaltainvest.next' | translate}}</button>
-</div>
+	 </div>
+ </div>
+ <div class="clearfix"></div>
+ <ul class="pager pull-left">
+	 <li class="" ng-class="{disabled: !hasPreviousStep()}">
+		 <a href="javascript:void(0);" ng-click="decrementStep()">&larr; Previous Step</a>
+	 </li>
+	 <li class="" ng-class="{disabled: !hasNextStep()}">
+		 <a href="javascript:void(0);" ng-click="incrementStep()">Next Step &rarr;</a>
+	 </li>
+ </ul>
+ <div class="col col-100"><button class="button button-block button-positive" ng-show="!hasNextStep()" ng-click="submitAccountOpening()">{{'newaccountmaltainvest.open_account' | translate}}</button></div>
+ <div class="clearfix"></div>

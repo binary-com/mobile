@@ -10,6 +10,7 @@ angular
 		'$ionicLoading',
 		'appStateService',
 		'$rootScope',
+		'$location',
 
 		function(accountService,
 			languageService,
@@ -19,78 +20,139 @@ angular
 			$compile,
 			$ionicLoading,
 			appStateService,
-			$rootScope) {
+			$rootScope,
+		$location) {
 			return {
 				restrict: 'E',
 				templateUrl: 'templates/components/real-account-opening/new-account-maltainvest.template.html',
 				scope: {
 					message: "="
 				},
-				link: function(scope, element) {
+				link: function(scope, $location, element) {
+					scope.steps = [
+						'Step 1: Details',
+						'Step 2: questions',
+						'Step 3: Agree'
+					];
+					scope.selection = scope.steps[0];
 
-					scope.isFirstSection = true;
-					scope.isSecondSection = false;
-					scope.isThirdSection = false;
-					scope.isFifthSection = false;
-					scope.isForthSection = false;
-					scope.hasMoreStages = true;
-					scope.hasLessStages = false;
+	  scope.getCurrentStepIndex = function(){
+	    // Get the index of the current step given selection
+	    return _.indexOf(scope.steps, scope.selection);
+	  };
+
+	  // Go to a defined step index
+	  scope.goToStep = function(index) {
+
+				if ( !_.isUndefined(scope.steps[index]) )
+		    {
+		      scope.selection = scope.steps[index];
+		    }
+	  };
+
+	  scope.hasNextStep = function(){
+	    var stepIndex = scope.getCurrentStepIndex();
+	    var nextStep = stepIndex + 1;
+	    // Return true if there is a next step, false if not
+	    return !_.isUndefined(scope.steps[nextStep]);
+	  };
+
+	  scope.hasPreviousStep = function(){
+	    var stepIndex = scope.getCurrentStepIndex();
+	    var previousStep = stepIndex - 1;
+	    // Return true if there is a next step, false if not
+	    return !_.isUndefined(scope.steps[previousStep]);
+	  };
+
+	  scope.incrementStep = function() {
+	    if ( scope.hasNextStep() )
+	    {
+	      var stepIndex = scope.getCurrentStepIndex();
+	      var nextStep = stepIndex + 1;
+	      scope.selection = scope.steps[nextStep];
+	    }
+	  };
+
+	  scope.decrementStep = function() {
+	    if ( scope.hasPreviousStep() )
+	    {
+	      var stepIndex = scope.getCurrentStepIndex();
+	      var previousStep = stepIndex - 1;
+	      scope.selection = scope.steps[previousStep];
+	    }
+	  };
+
+
+
+
+
+
+
+
+					//
+					// scope.isFirstSection = true;
+					// scope.isSecondSection = false;
+					// scope.isThirdSection = false;
+					// scope.isFifthSection = false;
+					// scope.isForthSection = false;
+					// scope.hasMoreStages = true;
+					// scope.hasLessStages = false;
 					scope.$applyAsync(function(){
 						if(appStateService.hasMLT){
 							scope.isReadonly = true;
 						}
 					});
-
-					// handle the 'next' button
-					scope.goToNextSection = function() {
-						scope.$applyAsync(function() {
-							if (scope.isFirstSection == true && scope.isSecondSection == false && scope.isThirdSection == false && scope.isForthSection == false && scope.isFifthSection == false) {
-								scope.isFirstSection = false;
-								scope.isSecondSection = true;
-								scope.isThirdSection = false;
-								scope.hasLessStages = true;
-							} else if (scope.isFirstSection == false && scope.isSecondSection == true && scope.isThirdSection == false && scope.isForthSection == false && scope.isFifthSection == false) {
-								scope.isSecondSection = false;
-								scope.isThirdSection = true;
-								scope.hasLessStages = true;
-							} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == true && scope.isForthSection == false && scope.isFifthSection == false) {
-								scope.isThirdSection = false;
-								scope.isForthSection = true;
-								scope.hasLessStages = true;
-							} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == false && scope.isForthSection == true && scope.isFifthSection == false) {
-								scope.isForthSection = false;
-								scope.isFifthSection = true;
-								scope.hasMoreStages = false;
-								scope.hasLessStages = true;
-							}
-						});
-					}
-
-						scope.goToLastSection = function(){
-							scope.$applyAsync(function() {
-							if (scope.isFirstSection == false && scope.isSecondSection == true && scope.isThirdSection == false && scope.isForthSection == false && scope.isFifthSection == false) {
-									scope.isSecondSection = false;
-									scope.isFirstSection = true;
-									scope.hasLessStages = false;
-									scope.hasMoreStages = true;
-								} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == true && scope.isForthSection == false && scope.isFifthSection == false) {
-									scope.isThirdSection = false;
-									scope.isSecondSection = true;
-									scope.hasLessStages = true;
-									scope.hasMoreStages = true;
-								} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == false && scope.isForthSection == true && scope.isFifthSection == false) {
-									scope.isForthSection = false;
-									scope.isThirdSection = true;
-									scope.hasLessStages = true;
-									scope.hasMoreStages = true;
-								} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == false && scope.isForthSection == false && scope.isFifthSection == true) {
-									scope.isFifthSection = false;
-									scope.isForthSection = true;
-									scope.hasLessStages = true;
-									scope.hasMoreStages = true;
-								}
-							});
-						}
+					//
+					// // handle the 'next' button
+					// scope.goToNextSection = function() {
+					// 	scope.$applyAsync(function() {
+					// 		if (scope.isFirstSection == true && scope.isSecondSection == false && scope.isThirdSection == false && scope.isForthSection == false && scope.isFifthSection == false) {
+					// 			scope.isFirstSection = false;
+					// 			scope.isSecondSection = true;
+					// 			scope.isThirdSection = false;
+					// 			scope.hasLessStages = true;
+					// 		} else if (scope.isFirstSection == false && scope.isSecondSection == true && scope.isThirdSection == false && scope.isForthSection == false && scope.isFifthSection == false) {
+					// 			scope.isSecondSection = false;
+					// 			scope.isThirdSection = true;
+					// 			scope.hasLessStages = true;
+					// 		} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == true && scope.isForthSection == false && scope.isFifthSection == false) {
+					// 			scope.isThirdSection = false;
+					// 			scope.isForthSection = true;
+					// 			scope.hasLessStages = true;
+					// 		} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == false && scope.isForthSection == true && scope.isFifthSection == false) {
+					// 			scope.isForthSection = false;
+					// 			scope.isFifthSection = true;
+					// 			scope.hasMoreStages = false;
+					// 			scope.hasLessStages = true;
+					// 		}
+					// 	});
+					// }
+					//
+					// 	scope.goToLastSection = function(){
+					// 		scope.$applyAsync(function() {
+					// 		if (scope.isFirstSection == false && scope.isSecondSection == true && scope.isThirdSection == false && scope.isForthSection == false && scope.isFifthSection == false) {
+					// 				scope.isSecondSection = false;
+					// 				scope.isFirstSection = true;
+					// 				scope.hasLessStages = false;
+					// 				scope.hasMoreStages = true;
+					// 			} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == true && scope.isForthSection == false && scope.isFifthSection == false) {
+					// 				scope.isThirdSection = false;
+					// 				scope.isSecondSection = true;
+					// 				scope.hasLessStages = true;
+					// 				scope.hasMoreStages = true;
+					// 			} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == false && scope.isForthSection == true && scope.isFifthSection == false) {
+					// 				scope.isForthSection = false;
+					// 				scope.isThirdSection = true;
+					// 				scope.hasLessStages = true;
+					// 				scope.hasMoreStages = true;
+					// 			} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == false && scope.isForthSection == false && scope.isFifthSection == true) {
+					// 				scope.isFifthSection = false;
+					// 				scope.isForthSection = true;
+					// 				scope.hasLessStages = true;
+					// 				scope.hasMoreStages = true;
+					// 			}
+					// 		});
+					// 	}
 
 
 
