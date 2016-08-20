@@ -10,8 +10,8 @@
 angular
 	.module('binary')
 	.controller('TradeController',
-		function($scope, $state, proposalService, 
-                websocketService, accountService, 
+		function($scope, $state, proposalService,
+                websocketService, accountService,
                 alertService, appStateService, analyticsService) {
 
             appStateService.waitForProposal = false;
@@ -21,7 +21,7 @@ angular
 				$scope.$applyAsync(function(){
                     $scope.hideFooter = false;
                 });
-				
+
 			});
 
 			window.addEventListener('native.keyboardshow', function(e) {
@@ -54,10 +54,14 @@ angular
 			$scope.$on('proposal', function(e, response) {
                 $scope.$applyAsync(function(){
                     $scope.proposalRecieved = response;
+
+					var netProfit = parseFloat($scope.proposalRecieved.payout) - parseFloat($scope.proposalRecieved.ask_price);
+					$scope.proposalRecieved.netProfit =  (isNaN(netProfit) || netProfit < 0) ? '0' : netProfit.toFixed(2);
+
                     appStateService.waitForProposal = false;
                 });
 			});
-	
+
 			$scope.$on('balance', function(e, _balance) {
                 $scope.$applyAsync(function(){
     				$scope.account = _balance;
@@ -83,7 +87,7 @@ angular
 				} else if (_contractConfirmation.error){
 					alertService.displayError(_contractConfirmation.error.message);
 					$('.contract-purchase button').attr('disabled', false);
-					
+
 					proposalService.send();
 				} else {
 					alertService.contractError.notAvailable();
@@ -114,19 +118,19 @@ angular
                             $scope.contract.finalPrice = $scope.contract.buyPrice + $scope.contract.loss;
                         }
                         $scope.contract.result = _contract.result;
-                        
+
                         // Unlock view to navigate
                         appStateService.purchaseMode = false;
 
                         var proposal = JSON.parse(localStorage.proposal);
-                        
+
                         // Send statistic to Google Analytics
                         analyticsService.google.trackEvent(
                             $scope.account.loginid,
                             proposal.symbol,
                             proposal.contract_type,
                             $scope.proposalRecieved.payout);
-                        
+
                         var ampEventProperties = {
                                 Symbol: proposal.symbol,
                                 TradeType: proposal.contract_type,
@@ -138,7 +142,7 @@ angular
                         }
                         // Send statistic to Amplitude
                         analyticsService.amplitude.logEvent("Purchase", ampEventProperties);
-                        
+
                         proposalService.send();
 
                     });
@@ -174,7 +178,7 @@ angular
 
                 if(_passthrough.hasOwnProperty('isConnectionReopen')
                         && _passthrough.isConnectionReopen){
-                    
+
                     if(_profitTable.count > 0){
                         // Check that contract is finished or not after connection reopenning
                         if(appStateService.purchaseMode){
@@ -203,7 +207,7 @@ angular
             $scope.getWaitForProposal = function(){
                 return appStateService.waitForProposal;
             }
-           
+
             function sendProfitTableRequest(params){
                 // Wait untile the login progress is finished
                 if(!appStateService.isLoggedin){
@@ -216,7 +220,7 @@ angular
                     conditions.date_to = conditions.date_from;
                     conditions.limit = 10;
                     conditions.passthrough = { isConnectionReopen: true };
-                    
+
                     websocketService.sendRequestFor.profitTable(conditions);
                 }
             }
