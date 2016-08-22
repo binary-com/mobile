@@ -9,6 +9,10 @@
     "lodash": "4.0.0",
     "hammerjs": "~2.0.4",
     "AngularHammer": "ryanmullins-angular-hammer#~2.1.10",
-    "Chart.js": "~1.0.2"
+    "Chart.js": "~1.0.2",
+    "angular-messages": "1.5.8"
+  },
+  "resolutions": {
+    "angular": "1.5.8"
   }
 }
