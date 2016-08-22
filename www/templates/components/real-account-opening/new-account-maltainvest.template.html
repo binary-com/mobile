@@ -22,7 +22,20 @@
 						{{'newaccountmaltainvest.salutation' | translate}}
 						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
-					<input ng-model="data.salutation" ng-readonly="isReadonly" name="salutation" required>
+					<select ng-model="data.salutation" name="salutation" ng-disabled="isReadonly" required>
+						<option value="Mr">
+							{{'newaccountmaltainvest.mr' | translate}}
+						</option>
+						<option value="Mrs">
+							{{'newaccountmaltainvest.mrs' | translate}}
+						</option>
+						<option value="Miss">
+							{{'newaccountmaltainvest.miss' | translate}}
+						</option>
+						<option value="Ms">
+							{{'newaccountmaltainvest.mrs' | translate}}
+						</option>
+					</select>
 				</div>
 			</ion-item>
 
@@ -32,7 +45,7 @@
 						{{'newaccountmaltainvest.first_name' | translate}}
 						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
-					<input ng-model="data.firstName" ng-readonly="isReadonly" name="firstname" required>
+					<input name="firstname" ng-model="data.firstName" ng-readonly="isReadonly" ng-pattern="/^[\p{L}\s'.-]{2,30}$/" required>
 				</div>
 			</ion-item>
 
@@ -43,7 +56,7 @@
 						<span>
 							{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
-					<input ng-model="data.lastName" ng-readonly="isReadonly" required>
+					<input name="lastname" ng-model="data.lastName" ng-readonly="isReadonly" ng-pattern="/^[\p{L}\s'.-]{2,30}$/" required>
 				</div>
 			</ion-item>
 
@@ -53,7 +66,8 @@
 						{{'newaccountmaltainvest.date_of_birth' | translate}}
 						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
-					<input ng-model="data.dateOfBirth" ng-readonly="isReadonly" required>
+					<input ng-model="data.dateOfBirth" ng-readonly="isReadonly" ng-show="isReadonly" required>
+					<input ng-model="data.userDateOfBirth" ng-show="!isReadonly" required type="date">
 				</div>
 			</ion-item>
 
