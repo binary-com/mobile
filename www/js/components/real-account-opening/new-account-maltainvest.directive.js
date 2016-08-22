@@ -43,9 +43,16 @@ angular
 
 					// Go to a defined step index
 					scope.goToStep = function(index) {
-
+						scope.current = scope.getCurrentStepIndex();
 						if (!_.isUndefined(scope.steps[index])) {
-							scope.selection = scope.steps[index];
+							if (index > scope.current) {
+								if (!scope.newaccount.$invalid) {
+									scope.selection = scope.steps[index];
+								}
+							} else {
+								scope.selection = scope.steps[index];
+							}
+
 						}
 					};
 
@@ -67,7 +74,9 @@ angular
 						if (scope.hasNextStep()) {
 							var stepIndex = scope.getCurrentStepIndex();
 							var nextStep = stepIndex + 1;
-							scope.selection = scope.steps[nextStep];
+							if (!scope.newaccount.$invalid) {
+								scope.selection = scope.steps[nextStep];
+							}
 						}
 					};
 
@@ -104,21 +113,19 @@ angular
 						});
 					});
 
-
-
 					scope.submitAccountOpening = function() {
 						if (scope.data.accept == true) {
 							scope.data.acceptRisk = 1
 						} else {
 							scope.data.acceptRisk = 0
 						}
-						if(_.isEmpty(scope.data.state)){
+						if (_.isEmpty(scope.data.state)) {
 							scope.data.state = "";
 						}
-						if(_.isEmpty(scope.data.addressLine2)){
+						if (_.isEmpty(scope.data.addressLine2)) {
 							scope.data.addressLine2 = "";
 						}
-						if(_.isEmpty(scope.data.addressPostcode)){
+						if (_.isEmpty(scope.data.addressPostcode)) {
 							scope.data.addressPostcode = "";
 						}
 						websocketService.sendRequestFor.createMaltainvestAccountSend(scope.data.salutation, scope.data.firstName, scope.data.lastName, scope.data.dateOfBirth, scope.data.countryCode, scope.data.addressLine1, scope.data.addressLine2, scope.data.addressCity, scope.data.state, scope.data.addressPostcode, scope.data.phone, scope.data.secretQuestion, scope.data.secretAnswer, scope.data.forexTradingExperience, scope.data.forexTradingFrequency, scope.data.indicesTradingExperience, scope.data.indicesTradingFrequency, scope.data.commoditiesTradingExperience, scope.data.commoditiesTradingFrequency, scope.data.stocksTradingExperience, scope.data.stocksTradingFrequency, scope.data.otherDrivativesTradingExperience, scope.data.otherDrivativesTradingFrequency, scope.data.otherInstrumentsTradingExperience, scope.data.otherInstrumentsTradingFrequency, scope.data.employmentIndustry, scope.data.educationLevel, scope.data.incomeSource, scope.data.netIncome, scope.data.estimatedWorth, scope.data.acceptRisk);

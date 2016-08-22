@@ -20,6 +20,7 @@
 				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.salutation' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<input ng-model="data.salutation" ng-readonly="isReadonly" name="salutation" required>
 				</div>
@@ -29,6 +30,7 @@
 				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.first_name' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<input ng-model="data.firstName" ng-readonly="isReadonly" name="firstname" required>
 				</div>
@@ -38,6 +40,8 @@
 				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.last_name' | translate}}
+						<span>
+							{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<input ng-model="data.lastName" ng-readonly="isReadonly" required>
 				</div>
@@ -47,6 +51,7 @@
 				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.date_of_birth' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<input ng-model="data.dateOfBirth" ng-readonly="isReadonly" required>
 				</div>
@@ -56,6 +61,7 @@
 				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.residence' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<input ng-model="data.country" ng-readonly="true" required>
 				</div>
@@ -65,9 +71,9 @@
 				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.addreess_line_1' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<input name="addressLine1" ng-model="data.addressLine1" required ng-maxlength="70">
-
 				</div>
 				<div class="help-block" ng-messages="newaccount.addressLine1.$error" role="alert" ng-if='newaccount.addressLine1.$dirty'>
 					<div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
@@ -79,6 +85,7 @@
 				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.addreess_line_2' | translate}}
+						<span>{{'newaccountmaltainvest.isoptional' | translate}}</span>
 					</div>
 					<input name="addressLine2" ng-model="data.addressLine2" ng-maxlength="70">
 				</div>
@@ -91,10 +98,12 @@
 				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.address_city' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
-					<input name="addressCity" ng-model="data.addressCity" ng-maxlength="35">
+					<input name="addressCity" ng-model="data.addressCity" ng-maxlength="35" required>
 				</div>
 				<div class="help-block" ng-messages="newaccount.addressCity.$error" role="alert" ng-if='newaccount.addressCity.$dirty'>
+					<div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
 					<div ng-message="maxlength">{{'newaccountmaltainvest.maxlength_error_35' | translate}}</div>
 				</div>
 			</ion-item>
@@ -103,15 +112,17 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.address_state' | translate}}
+						<span>{{'newaccountmaltainvest.isoptional' | translate}}</span>
 					</div>
 					<select name="state" ng-model="data.state" ng-options="state.value as state.text for state in statesList track by state.value"></select>
 				</div>
 			</ion-item>
 
 			<ion-item>
-				<div class="col" ng-class="{ 'has-error' : newaccount.postcode.$invalid && !newaccount.postcode.$pristine }">
+				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.address_postcode' | translate}}
+						<span>{{'newaccountmaltainvest.isoptional' | translate}}</span>
 					</div>
 					<input name="postcode" ng-model="data.addressPostcode" ng-pattern="/^[^+]{0,20}$/">
 					<div class="help-block" ng-messages="newaccount.postcode.$error" role="alert" ng-if='newaccount.postcode.$dirty'>
@@ -124,6 +135,7 @@
 				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.phone' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<input name="phone" ng-model="data.phone" ng-pattern="/^\+?[0-9\s]{6,35}$/" required>
 				</div>
@@ -140,6 +152,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.forex_trading_experience' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="forexTradingExperience" ng-model="data.forexTradingExperience" required>
 						<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
@@ -156,6 +169,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.forex_trading_frequency' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="forexTradingFrequency" ng-model="data.forexTradingFrequency" required>
 						<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
@@ -172,6 +186,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.indices_trading_experience' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="indicesTradingExperience" ng-model="data.indicesTradingExperience" required>
 						<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
@@ -188,6 +203,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.indices_trading_frequency' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="indicesTradingFrequency" ng-model="data.indicesTradingFrequency" required>
 						<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
@@ -204,6 +220,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.commodities_trading_experience' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="commoditiesTradingExperience" ng-model="data.commoditiesTradingExperience" required>
 						<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
@@ -220,6 +237,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.commodities_trading_frequency' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="commoditiesTradingFrequency" ng-model="data.commoditiesTradingFrequency" required>
 						<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
@@ -236,6 +254,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.stocks_trading_experience' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="stocksTradingExperience" ng-model="data.stocksTradingExperience" required>
 						<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
@@ -252,6 +271,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.stocks_trading_frequency' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="stocksTradingFrequency" ng-model="data.stocksTradingFrequency" required>
 						<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
@@ -268,6 +288,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.other_derivatives_trading_experience' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="otherDrivativesTradingExperience" ng-model="data.otherDrivativesTradingExperience" required>
 						<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
@@ -284,6 +305,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.other_derivatives_trading_frequency' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="otherDrivativesTradingFrequency" ng-model="data.otherDrivativesTradingFrequency" required>
 						<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
@@ -300,6 +322,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.other_instruments_trading_experience' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="otherInstrumentsTradingExperience" ng-model="data.otherInstrumentsTradingExperience" required>
 						<option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
@@ -316,6 +339,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.other_instruments_trading_frequency' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="otherInstrumentsTradingFrequency" ng-model="data.otherInstrumentsTradingFrequency" required>
 						<option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
@@ -332,8 +356,9 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.employment_industry' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
-					<select name="employmentIndustry" ng-model="data.employmentIndustry">
+					<select name="employmentIndustry" ng-model="data.employmentIndustry" required>
 						<option value="Construction">{{'newaccountmaltainvest.construction' | translate}}</option>
 						<option value="Education">{{'newaccountmaltainvest.education' | translate}}</option>
 						<option value="Finance">{{'newaccountmaltainvest.finance' | translate}}</option>
@@ -351,8 +376,9 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.education_level' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
-					<select name="educationLevel" ng-model="data.educationLevel">
+					<select name="educationLevel" ng-model="data.educationLevel" required>
 						<option value="Primary">{{'newaccountmaltainvest.primary' | translate}}</option>
 						<option value="Secondary">{{'newaccountmaltainvest.secondary' | translate}}</option>
 						<option value="Tertiary">{{'newaccountmaltainvest.tertiary' | translate}}</option>
@@ -367,8 +393,9 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.income_source' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
-					<select name="incomeSource" ng-model="data.incomeSource">
+					<select name="incomeSource" ng-model="data.incomeSource" required>
 						<option value="Salaried Employee">{{'newaccountmaltainvest.salaried' | translate}}</option>
 						<option value="Self-Employed">{{'newaccountmaltainvest.self_employed' | translate}}</option>
 						<option value="Investments & Dividends">{{'newaccountmaltainvest.investment' | translate}}</option>
@@ -385,8 +412,9 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.net_income' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
-					<select name="netIncome" ng-model="data.netIncome">
+					<select name="netIncome" ng-model="data.netIncome" required>
 						<option value="Less than $25,000">{{'newaccountmaltainvest.net_income_1' | translate}}</option>
 						<option value="$25,000 - $75,000">{{'newaccountmaltainvest.net_income_2' | translate}}</option>
 						<option value="$75,001 - $75,000">{{'newaccountmaltainvest.net_income_3' | translate}}</option>
@@ -403,19 +431,19 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.estimated_worth' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
-					<select name="estimatedWorth" ng-model="data.estimatedWorth">
- 				<option value="Less than $100,000">{{'newaccountmaltainvest.estimated_worth_1' | translate}}</option>
- 				<option value="$100,000 - $250,000">{{'newaccountmaltainvest.estimated_worth_2' | translate}}</option>
- 				<option value="$250,001 - $500,000">{{'newaccountmaltainvest.estimated_worth_3' | translate}}</option>
- 				<option value="$500,001 - $1,000,000">{{'newaccountmaltainvest.estimated_worth_4' | translate}}</option>
- 				<option value="Over $1,000,000">{{'newaccountmaltainvest.estimated_worth_5' | translate}}</option>
- 			</select>
+					<select name="estimatedWorth" ng-model="data.estimatedWorth" required>
+						<option value="Less than $100,000">{{'newaccountmaltainvest.estimated_worth_1' | translate}}</option>
+						<option value="$100,000 - $250,000">{{'newaccountmaltainvest.estimated_worth_2' | translate}}</option>
+						<option value="$250,001 - $500,000">{{'newaccountmaltainvest.estimated_worth_3' | translate}}</option>
+						<option value="$500,001 - $1,000,000">{{'newaccountmaltainvest.estimated_worth_4' | translate}}</option>
+						<option value="Over $1,000,000">{{'newaccountmaltainvest.estimated_worth_5' | translate}}</option>
+					</select>
 				</div>
 				<div class="help-block" ng-messages="newaccount.estimatedWorth.$error" role="alert" ng-if='newaccount.estimatedWorth.$submitted'>
 					<div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
 				</div>
-
 			</ion-item>
 
 		</div>
@@ -425,6 +453,7 @@
 				<div class="item-select col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.secret_question' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<select name="secretQuestion" ng-model="data.secretQuestion" required>
 						<option value="Mother's maiden name">{{'newaccountmaltainvest.secret_question_1' | translate}}</option>
@@ -438,14 +467,15 @@
 					</select>
 				</div>
 				<div class="help-block" ng-messages="newaccount.secretQuestion.$error" role="alert" ng-if='newaccount.secretQuestion.$submitted'>
-	<div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
-</div>
+					<div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+				</div>
 			</ion-item>
 
 			<ion-item>
 				<div class="col">
 					<div class="input-title">
 						{{'newaccountmaltainvest.secret_answer' | translate}}
+						<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 					</div>
 					<input name="secretAnswer" ng-model="data.secretAnswer" ng-maxlength="50" ng-minlength="4" required>
 				</div>

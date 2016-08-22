@@ -237,7 +237,9 @@
 		"required": "This field is required.",
 		"error_postcode": "Wrong format or length",
 		"error_phone": "Wrong format or length",
-		"error_secretanswer": "This field must be within 4-50 characters."
+		"error_secretanswer": "This field must be within 4-50 characters.",
+		"isrequired": "(required)",
+		"isoptional": "(optional)"
 	},
 	"newaccountreal": {
 		"open_real": "Upgrade to a real account",
