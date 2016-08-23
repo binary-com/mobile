@@ -37,10 +37,6 @@ angular
 
 					scope.$on('authorize', function(e, authorize) {
 						if (!appStateService.isCheckedAccountType) {
-							scope.showUpgradeLink = false;
-							scope.showUpgradeLinkMaltainvest = false;
-							scope.hasFinancialAndGamingAndMaltainvest = false;
-							scope.hasFinancialAndMaltainvest = false;
 							scope.getCompany();
 						}
 					});
@@ -59,7 +55,7 @@ angular
 							websocketService.sendRequestFor.landingCompanySend(scope.countryCode);
 						});
 						scope.$on('landing_company', function(e, landing_company) {
-							if(!appStateService.isCheckedAccountType){
+							if (!appStateService.isCheckedAccountType) {
 								appStateService.isCheckedAccountType = true;
 								scope.accountStates(landing_company);
 							}
@@ -198,17 +194,17 @@ angular
 					scope.newAccountReal = function() {
 						scope.$applyAsync(function() {
 							if (appStateService.isCheckedAccountType) {
-							scope.showUpgradeLink = true;
-							$rootScope.isNewAccountReal = true;
-						}
+								scope.showUpgradeLink = true;
+								$rootScope.isNewAccountReal = true;
+							}
 						});
 					}
 					scope.newAccountMaltainvest = function() {
 						scope.$applyAsync(function() {
 							if (appStateService.isCheckedAccountType) {
-							scope.showUpgradeLinkMaltainvest = true;
-							$rootScope.isNewAccountMaltainvest = true;
-						}
+								scope.showUpgradeLinkMaltainvest = true;
+								$rootScope.isNewAccountMaltainvest = true;
+							}
 						});
 					}
 					scope.$on('logout', function(e) {
@@ -218,6 +214,8 @@ angular
 							$rootScope.isNewAccountReal = false;
 							$rootScope.isNewAccountMaltainvest = false;
 							appStateService.isCheckedAccountType = false;
+							scope.hasFinancialAndGamingAndMaltainvest = false;
+							scope.hasFinancialAndMaltainvest = false;
 						});
 					});
 

@@ -45,13 +45,16 @@ angular
 					scope.goToStep = function(index) {
 						scope.current = scope.getCurrentStepIndex();
 						if (!_.isUndefined(scope.steps[index])) {
-							if (index > scope.current) {
-								if (!scope.newaccount.$invalid) {
+							if (index == scope.current + 1) {
+								if(scope.current == 0 && detailsForm.$valid){
 									scope.selection = scope.steps[index];
 								}
-							} else {
-								scope.selection = scope.steps[index];
-							}
+								if(scope.current == 1 && financialForm.$valid){
+									scope.selection = scope.steps[index];
+								}
+
+
+							} 
 
 						}
 					};
@@ -74,9 +77,8 @@ angular
 						if (scope.hasNextStep()) {
 							var stepIndex = scope.getCurrentStepIndex();
 							var nextStep = stepIndex + 1;
-							if (!scope.newaccount.$invalid) {
 								scope.selection = scope.steps[nextStep];
-							}
+
 						}
 					};
 
@@ -93,6 +95,22 @@ angular
 							scope.isReadonly = true;
 						}
 					});
+
+
+
+					scope.validateName = (function(val){
+						var regex = /^[\p{L}\s'.-]{2,30}$/;
+						return {
+							test: function(){
+								if(!scope.isReadonly){
+									return regex.test(val);
+								}
+								else{
+									return true;
+								}
+							}
+						}
+					})();
 
 					scope.data = {};
 					scope.data.countryCode = $rootScope.countryCodeOfAccount;
