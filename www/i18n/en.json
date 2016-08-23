@@ -277,6 +277,14 @@
 		"secret_question_5": "Memorable date",
 		"secret_question_6": "Favourite dish",
 		"secret_question_7": "Brand of first car",
-		"secret_question_8": "Favourite artist"
+		"secret_question_8": "Favourite artist",
+		"maxlength_error_70": "This field can be at most 70 characters long.",
+		"maxlength_error_35": "This field can be at most 35 characters long.",
+		"required": "This field is required.",
+		"error_postcode": "Wrong format or length",
+		"error_format": "Wrong format or length",
+		"error_secretanswer": "This field must be within 4-50 characters.",
+		"isrequired": "(required)",
+		"isoptional": "(optional)"
 	}
 }

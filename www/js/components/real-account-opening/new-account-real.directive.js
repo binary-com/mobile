@@ -26,44 +26,7 @@ angular
 					message: "="
 				},
 				link: function(scope, element) {
-					scope.isFirstSection = true;
-					scope.isSecondSection = false;
-					scope.isThirdSection = false;
-					scope.hasMoreStages = true;
-					scope.hasLessStages = false;
-
-					// handle the 'next' button
-					scope.goToNextSection = function() {
-						scope.$applyAsync(function() {
-							if (scope.isFirstSection == true && scope.isSecondSection == false && scope.isThirdSection == false) {
-								scope.isFirstSection = false;
-								scope.isSecondSection = true;
-								scope.isThirdSection = false;
-								scope.hasLessStages = true;
-							} else if (scope.isFirstSection == false && scope.isSecondSection == true && scope.isThirdSection == false) {
-								scope.isSecondSection = false;
-								scope.isThirdSection = true;
-								scope.hasLessStages = true;
-								scope.hasMoreStages = false;
-							}
-						});
-					}
-						scope.goToLastSection = function(){
-							scope.$applyAsync(function() {
-							if (scope.isFirstSection == false && scope.isSecondSection == true && scope.isThirdSection == false) {
-									scope.isSecondSection = false;
-									scope.isFirstSection = true;
-									scope.hasLessStages = false;
-									scope.hasMoreStages = true;
-								} else if (scope.isFirstSection == false && scope.isSecondSection == false && scope.isThirdSection == true) {
-									scope.isThirdSection = false;
-									scope.isSecondSection = true;
-									scope.hasLessStages = true;
-									scope.hasMoreStages = true;
-								}
-							});
-						}
-
+				
 					scope.data = {};
 					scope.data.countryCode = $rootScope.countryCodeOfAccount;
 					scope.data.country = $rootScope.countryOfAccount;

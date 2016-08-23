@@ -33,6 +33,7 @@ angular
 					scope.showUpgradeLinkMaltainvest = false;
 					scope.hasFinancialAndGamingAndMaltainvest = false;
 					scope.hasFinancialAndMaltainvest = false;
+					scope.notMaltainvest = false;
 
 
 					scope.$on('authorize', function(e, authorize) {
@@ -216,6 +217,7 @@ angular
 							appStateService.isCheckedAccountType = false;
 							scope.hasFinancialAndGamingAndMaltainvest = false;
 							scope.hasFinancialAndMaltainvest = false;
+							scope.notMaltainvest = false;
 						});
 					});
 

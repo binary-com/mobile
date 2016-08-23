@@ -54,7 +54,7 @@ angular
 								}
 
 
-							} 
+							}
 
 						}
 					};
@@ -99,7 +99,7 @@ angular
 
 
 					scope.validateName = (function(val){
-						var regex = /^[\p{L}\s'.-]{2,30}$/;
+						var regex = /^[a-zA-Z'.,-]{2,30}$/;
 						return {
 							test: function(){
 								if(!scope.isReadonly){

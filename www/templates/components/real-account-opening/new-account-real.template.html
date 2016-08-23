@@ -1,161 +1,191 @@
-<div class="title">
-	<h3>{{'newaccountreal.real_account_opening' | translate}}
-	</h3>
-</div>
-<div class="sections" ng-show="isFirstSection">
-	<h1 class="">{{'newaccountreal.details' | translate}}</h1>
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.salutation' | translate}}
-			</div>
-			<select ng-model="data.salutation">
-				<option value="Mr">
-					{{'newaccountreal.mr' | translate}}
-				</option>
-				<option value="Mrs">
-					{{'newaccountreal.mrs' | translate}}
-				</option>
-				<option value="Miss">
-					{{'newaccountreal.miss' | translate}}
-				</option>
-				<option value="Ms">
-					{{'newaccountreal.mrs' | translate}}
-				</option>
-			</select>
+<div class="new-account">
+	<form name="newAccount">
+
+		<div class="title">
+			<h3>{{'newaccountreal.real_account_opening' | translate}}
+			</h3>
 		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.first_name' | translate}}
+		<h1 class="">{{'newaccountreal.details' | translate}}</h1>
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountreal.salutation' | translate}}
+					<span>{{'newaccountreal.isrequired' | translate}}</span>
+				</div>
+				<select ng-model="data.salutation">
+					<option value="Mr">
+						{{'newaccountreal.mr' | translate}}
+					</option>
+					<option value="Mrs">
+						{{'newaccountreal.mrs' | translate}}
+					</option>
+					<option value="Miss">
+						{{'newaccountreal.miss' | translate}}
+					</option>
+					<option value="Ms">
+						{{'newaccountreal.mrs' | translate}}
+					</option>
+				</select>
 			</div>
-			<input ng-model="data.firstName">
-		</div>
-	</ion-item>
+		</ion-item>
 
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.last_name' | translate}}
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountmaltainvest.first_name' | translate}}
+					<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+				</div>
+				<input name="firstName" ng-model="data.firstName" ng-pattern="/^[a-zA-Z'.,-]{2,30}$/" ng-required>
 			</div>
-			<input ng-model="data.lastName">
-		</div>
-	</ion-item>
-
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.date_of_birth' | translate}}
+			<div class="help-block" ng-messages="newAccount.firstName.$error" role="alert" ng-if='newAccount.firstName.$dirty'>
+				<div ng-message="pattern">{{'newaccountmaltainvest.error_format' | translate}}</div>
 			</div>
-			<input type="date" class="date" ng-model="data.dateOfBirth" name="input"/>
-		</div>
-	</ion-item>
+		</ion-item>
 
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.residence' | translate}}
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountreal.last_name' | translate}}
+					<span>{{'newaccountreal.isrequired' | translate}}</span>
+				</div>
+				<input name="lastName" ng-model="data.lastName" ng-pattern="/^[a-zA-Z'.,-]{2,30}$/" ng-required>
+				<div class="help-block" ng-messages="newAccount.lastName.$error" role="alert" ng-if='newAccount.lastName.$dirty'>
+					<div ng-message="pattern">{{'newaccountreal.error_format' | translate}}</div>
+				</div>
 			</div>
-			<input ng-model="data.country" ng-readonly="true">
-		</div>
-	</ion-item>
-</div>
-<div class="sections" ng-show="isSecondSection">
-	<h1 class="">{{'newaccountreal.address' | translate}}</h1>
+		</ion-item>
 
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.addreess_line_1' | translate}}
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountreal.date_of_birth' | translate}}
+					<span>{{'newaccountreal.isrequired' | translate}}</span>
+				</div>
+				<input type="date" class="date" ng-model="data.dateOfBirth" name="input" required/>
 			</div>
-			<input ng-model="data.addressLine1">
-		</div>
-	</ion-item>
+		</ion-item>
 
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.addreess_line_2' | translate}}
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountreal.residence' | translate}}
+					<span>{{'newaccountreal.isrequired' | translate}}</span>
+				</div>
+				<input ng-model="data.country" ng-readonly="true">
 			</div>
-			<input ng-model="data.addressLine2">
-		</div>
-	</ion-item>
+		</ion-item>
+		<h1 class="">{{'newaccountreal.address' | translate}}</h1>
 
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.address_city' | translate}}
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountreal.addreess_line_1' | translate}}
+					<span>{{'newaccountreal.isrequired' | translate}}</span>
+				</div>
+				<input name="addressLine1" ng-model="data.addressLine1" ng-maxlength="70" required>
+				<div class="help-block" ng-messages="newAccount.addressLine1.$error" role="alert" ng-if='newAccount.addressLine1.$dirty'>
+					<div ng-message="maxlength">{{'newaccountreal.maxlength_error_70' | translate}}</div>
+				</div>
 			</div>
-			<input ng-model="data.addressCity">
-		</div>
-	</ion-item>
+		</ion-item>
 
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.address_state' | translate}}
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountreal.addreess_line_2' | translate}}
+					<span>{{'newaccountreal.isoptional' | translate}}</span>
+				</div>
+				<input name="addressLine2" ng-model="data.addressLine2" ng-maxlength="70">
+				<div class="help-block" ng-messages="newAccount.addressLine2.$error" role="alert" ng-if='newAccount.addressLine2.$dirty'>
+					<div ng-message="maxlength">{{'newaccountreal.maxlength_error_70' | translate}}</div>
+				</div>
 			</div>
-			<select ng-model="data.state" ng-options="state.value as state.text for state in statesList track by state.value"></select>
-		</div>
-	</ion-item>
+		</ion-item>
 
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.address_postcode' | translate}}
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountreal.address_city' | translate}}
+					<span>{{'newaccountreal.isrequired' | translate}}</span>
+				</div>
+				<input name="addressCity" ng-model="data.addressCity" ng-maxlength="35" required>
+				<div class="help-block" ng-messages="newAccount.addressCity.$error" role="alert" ng-if='newAccount.addressCity.$dirty'>
+					<div ng-message="maxlength">{{'newaccountreal.maxlength_error_35' | translate}}</div>
+				</div>
 			</div>
-			<input ng-model="data.addressPostcode">
-		</div>
-	</ion-item>
+		</ion-item>
 
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.phone' | translate}}
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountreal.address_state' | translate}}
+					<span>{{'newaccountreal.isoptional' | translate}}</span>
+				</div>
+				<select name="state" ng-model="data.state" ng-options="state.value as state.text for state in statesList track by state.value"></select>
 			</div>
-			<input ng-model="data.phone" type="number">
-		</div>
-	</ion-item>
-</div>
-<div class="sections" ng-show="isThirdSection">
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.secret_question' | translate}}
+		</ion-item>
+
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountreal.address_postcode' | translate}}
+					<span>{{'newaccountreal.isoptional' | translate}}</span>
+				</div>
+				<input name="addressPostcode" ng-model="data.addressPostcode" ng-pattern="/^[^+]{0,20}$/">
+				<div class="help-block" ng-messages="newAccount.addressPostcode.$error" role="alert" ng-if='newAccount.addressPostcode.$dirty'>
+					<div ng-message="pattern">{{'newaccountreal.error_format' | translate}}</div>
+				</div>
 			</div>
-			<select ng-model="data.secretQuestion">
-				<option value="Mother's maiden name">{{'newaccountreal.secret_question_1' | translate}}</option>
-				<option value="Name of your pet">{{'newaccountreal.secret_question_2' | translate}}</option>
-				<option value="Name of first love">{{'newaccountreal.secret_question_3' | translate}}</option>
-				<option value="Memorable town/city">{{'newaccountreal.secret_question_4' | translate}}</option>
-				<option value="Memorable date">{{'newaccountreal.secret_question_5' | translate}}</option>
-				<option value="Favourite dish">{{'newaccountreal.secret_question_6' | translate}}</option>
-				<option value="Brand of first car">{{'newaccountreal.secret_question_7' | translate}}</option>
-				<option value="Favourite artist">{{'newaccountreal.secret_question_8' | translate}}</option>
-			</select>
-		</div>
-	</ion-item>
+		</ion-item>
 
-	<ion-item>
-		<div class="item-select col">
-			<div class="input-title">
-				{{'newaccountreal.secret_answer' | translate}}
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountreal.phone' | translate}}
+					<span>{{'newaccountreal.isrequired' | translate}}</span>
+				</div>
+				<input name="phone" ng-model="data.phone" ng-pattern="/^\+?[0-9\s]{6,35}$/" required>
+				<div class="help-block" ng-messages="newAccount.phone.$error" role="alert" ng-if='newAccount.phone.$dirty'>
+					<div ng-message="pattern">{{'newaccountreal.error_format' | translate}}</div>
+				</div>
 			</div>
-			<input ng-model="data.secretAnswer">
+		</ion-item>
+		<ion-item>
+			<div class="item-select col">
+				<div class="input-title">
+					{{'newaccountreal.secret_question' | translate}}
+					<span>{{'newaccountreal.isrequired' | translate}}</span>
+				</div>
+				<select ng-model="data.secretQuestion" required>
+					<option value="Mother's maiden name">{{'newaccountreal.secret_question_1' | translate}}</option>
+					<option value="Name of your pet">{{'newaccountreal.secret_question_2' | translate}}</option>
+					<option value="Name of first love">{{'newaccountreal.secret_question_3' | translate}}</option>
+					<option value="Memorable town/city">{{'newaccountreal.secret_question_4' | translate}}</option>
+					<option value="Memorable date">{{'newaccountreal.secret_question_5' | translate}}</option>
+					<option value="Favourite dish">{{'newaccountreal.secret_question_6' | translate}}</option>
+					<option value="Brand of first car">{{'newaccountreal.secret_question_7' | translate}}</option>
+					<option value="Favourite artist">{{'newaccountreal.secret_question_8' | translate}}</option>
+				</select>
+			</div>
+		</ion-item>
+
+		<ion-item>
+			<div class="col">
+				<div class="input-title">
+					{{'newaccountreal.secret_answer' | translate}}
+					<span>{{'newaccountreal.isrequired' | translate}}</span>
+				</div>
+				<input name="secretAnswer" ng-model="data.secretAnswer" ng-minlength="4" ng-maxlength="50" required>
+				<div class="help-block" ng-messages="newAccount.secretAnswer.$error" role="alert" ng-if='newAccount.secretAnswer.$dirty'>
+					<div ng-message="maxlength && minlength">{{'newaccountreal.error_secretanswer' | translate}}</div>
+				</div>
+			</div>
+		</ion-item>
+
+		<div class="row center">
+			<div class="col">
+				<button class="button button-positive button-block" ng-click="submitAccountOpening()" >{{'newaccountreal.open_account' | translate}}</button>
+			</div>
 		</div>
-	</ion-item>
-
-
-
-</div>
-<div class="row center">
-	<div class="col">
-		<button class="button button-positive button-block" ng-click="submitAccountOpening()" ng-show="!hasMoreStages">{{'newaccountreal.open_account' | translate}}</button>
-	</div>
-</div>
-<div class="row center">
-			<button class="button button-block button-positive" ng-show="hasLessStages" ng-click="goToLastSection()">{{'newaccountreal.previous' | translate}}</button>
-		<button class="button button-block button-positive" ng-show="hasMoreStages" ng-click="goToNextSection()">{{'newaccountreal.next' | translate}}</button>
+	</form>
 </div>
