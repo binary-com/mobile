@@ -101,19 +101,6 @@ angular
 					scope.validateName = (function(val) {
 						var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
 						return {
-							test: function() {
-								if (!scope.isReadonly) {
-									return !regex.test(val);
-								} else {
-									return true;
-								}
-							}
-						}
-					})();
-
-					scope.validateName = (function(val) {
-						var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
-						return {
 							test: function(val) {
 								if (!scope.isReadonly) {
 									var reg = regex.test(val);
@@ -144,12 +131,14 @@ angular
 						scope.$applyAsync(function() {
 							if (appStateService.hasMLT) {
 								scope.data.dateOfBirth = birth.toISOString().slice(0, 10);
+								scope.data.firstName = get_settings.first_name;
+								scope.data.lastName = get_settings.last_name;
+								scope.data.salutation = get_settings.salutation;
 							} else {
 								scope.data.birthDate = scope.data.userDateOfBirth.toISOString().slice(0, 10);
 							}
-							scope.data.firstName = get_settings.first_name;
-							scope.data.lastName = get_settings.last_name;
-							scope.data.salutation = get_settings.salutation;
+
+
 						});
 					});
 

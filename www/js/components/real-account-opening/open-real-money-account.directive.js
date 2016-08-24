@@ -31,13 +31,16 @@ angular
 				link: function(scope, element) {
 					scope.showUpgradeLink = false;
 					scope.showUpgradeLinkMaltainvest = false;
-					scope.hasFinancialAndGamingAndMaltainvest = false;
+					scope.hasGamingAndMaltainvest = false;
 					scope.hasFinancialAndMaltainvest = false;
 					scope.notMaltainvest = false;
+					scope.hasGamingAndFinancialAndMaltainvest = false;
+					scope.isCheckedCompany = false;
 
 
 					scope.$on('authorize', function(e, authorize) {
 						if (!appStateService.isCheckedAccountType) {
+							appStateService.isCheckedAccountType = true;
 							scope.getCompany();
 						}
 					});
@@ -56,9 +59,10 @@ angular
 							websocketService.sendRequestFor.landingCompanySend(scope.countryCode);
 						});
 						scope.$on('landing_company', function(e, landing_company) {
-							if (!appStateService.isCheckedAccountType) {
-								appStateService.isCheckedAccountType = true;
+							if(!scope.isCheckedCompany){
+								scope.isCheckedCompany = true;
 								scope.accountStates(landing_company);
+
 							}
 
 						});
@@ -67,8 +71,12 @@ angular
 					// check 3 states combining of Maltainvest shortcode, gaming company and financial company
 					scope.accountStates = function(landing_company) {
 						scope.data.landingCompany = landing_company;
-						if (scope.data.landingCompany.hasOwnProperty('financial_company') && scope.data.landingCompany.hasOwnProperty('gaming_company') == true && scope.data.landingCompany.financial_company.shortcode == "maltainvest") {
-							scope.hasFinancialAndGamingAndMaltainvest = true;
+						if (scope.data.landingCompany.hasOwnProperty('gaming_company') == true && scope.data.landingCompany.gaming_company.shortcode == "maltainvest") {
+							if(scope.data.landingCompany.hasOwnProperty('financial_company') == true){
+								scope.hasGamingAndFinancialAndMaltainvest = true;
+							}
+							scope.hasGamingAndMaltainvest = true;
+
 							scope.getToken();
 						} else if (scope.data.landingCompany.hasOwnProperty('financial_company') && scope.data.landingCompany.hasOwnProperty('gaming_company') == false && scope.data.landingCompany.financial_company.shortcode == "maltainvest") {
 							scope.hasFinancialAndMaltainvest = true;
@@ -89,7 +97,7 @@ angular
 
 					// check tokens for account and find which type of virtual and real money account user has already
 					scope.findTokens = function() {
-						if (scope.hasFinancialAndGamingAndMaltainvest == true) {
+						if (scope.hasGamingAndMaltainvest == true) {
 							scope.idsFound = [];
 							scope.count = scope.accounts.length;
 							scope.accounts.forEach(function(el, i) {
@@ -155,8 +163,13 @@ angular
 							// can upgrade to MF
 							// use https://developers.binary.com/api/#new_account_maltainvest
 							// flag for readonly inputs of account setting
-							appStateService.hasMLT = true;
-							scope.newAccountMaltainvest();
+							console.log("out");
+							if(scope.hasGamingAndFinancialAndMaltainvest){
+								appStateService.hasMLT = true;
+								scope.newAccountMaltainvest();
+								console.log("in");
+							}
+
 						} else if (scope.idsFound.indexOf('VRTC') > -1 && scope.idsFound.indexOf('MLT') > -1 && scope.idsFound.indexOf('MF') > -1) {
 							// already has all kind of accounts
 							// do nothing
@@ -215,9 +228,12 @@ angular
 							$rootScope.isNewAccountReal = false;
 							$rootScope.isNewAccountMaltainvest = false;
 							appStateService.isCheckedAccountType = false;
-							scope.hasFinancialAndGamingAndMaltainvest = false;
+							scope.hasGamingAndMaltainvest = false;
 							scope.hasFinancialAndMaltainvest = false;
 							scope.notMaltainvest = false;
+							scope.hasGamingAndFinancialAndMaltainvest = false;
+							scope.isCheckedCompany = false;
+
 						});
 					});
 
