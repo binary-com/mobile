@@ -1,4 +1,4 @@
-<div class="new-account" name="newaccount">
+<div class="new-account">
 	<div class="title">
 		<h3>{{'newaccountmaltainvest.financial_account_opening' | translate}}
 		</h3>
@@ -47,10 +47,10 @@
 							{{'newaccountmaltainvest.first_name' | translate}}
 							<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 						</div>
-						<input name="firstName" ng-model="data.firstName" ng-readonly="isReadonly" ng-pattern="validateName" ng-required="!isReadonly">
+						<input name="firstName" ng-model="data.firstName" ng-readonly="isReadonly" ng-pattern="validateName" ng-minlength="2" ng-maxlength="30" ng-required="!isReadonly">
 					</div>
 					<div class="help-block" ng-messages="detailsForm.firstName.$error" role="alert" ng-if='detailsForm.firstName.$dirty'>
-						<div ng-message="pattern">{{'newaccountmaltainvest.error_format' | translate}}</div>
+						<div ng-message="pattern && minlength && maxlength">{{'newaccountmaltainvest.error_format' | translate}}</div>
 					</div>
 				</ion-item>
 
@@ -61,10 +61,10 @@
 							<span>
 								{{'newaccountmaltainvest.isrequired' | translate}}</span>
 						</div>
-						<input name="lastName" ng-model="data.lastName" ng-readonly="isReadonly" ng-pattern="validateName" ng-required="!isReadonly">
+						<input name="lastName" ng-model="data.lastName" ng-readonly="isReadonly" ng-pattern="validateName" ng-required="!isReadonly" ng-minlength="2" ng-maxlength="30">
 					</div>
 					<div class="help-block" ng-messages="detailsForm.lastName.$error" role="alert" ng-if='detailsForm.lastName.$dirty'>
-						<div ng-message="pattern">{{'newaccountmaltainvest.error_format' | translate}}</div>
+						<div ng-message="pattern && minlength && maxlength">{{'newaccountmaltainvest.error_format' | translate}}</div>
 					</div>
 				</ion-item>
 

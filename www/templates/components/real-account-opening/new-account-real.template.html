@@ -1,5 +1,5 @@
 <div class="new-account">
-	<form name="newAccount">
+	<form name="newAccount" novalidate>
 
 		<div class="title">
 			<h3>{{'newaccountreal.real_account_opening' | translate}}
@@ -12,7 +12,7 @@
 					{{'newaccountreal.salutation' | translate}}
 					<span>{{'newaccountreal.isrequired' | translate}}</span>
 				</div>
-				<select ng-model="data.salutation">
+				<select ng-model="data.salutation" ng-required>
 					<option value="Mr">
 						{{'newaccountreal.mr' | translate}}
 					</option>
@@ -32,13 +32,13 @@
 		<ion-item>
 			<div class="col">
 				<div class="input-title">
-					{{'newaccountmaltainvest.first_name' | translate}}
-					<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+					{{'newaccountreal.first_name' | translate}}
+					<span>{{'newaccountreal.isrequired' | translate}}</span>
 				</div>
-				<input name="firstName" ng-model="data.firstName" ng-pattern="/^[a-zA-Z'.,-]{2,30}$/" ng-required>
+				<input name="firstName" ng-model="data.firstName" ng-pattern="validateName" ng-minlength="2" ng-maxlength="30" ng-required>
 			</div>
 			<div class="help-block" ng-messages="newAccount.firstName.$error" role="alert" ng-if='newAccount.firstName.$dirty'>
-				<div ng-message="pattern">{{'newaccountmaltainvest.error_format' | translate}}</div>
+				<div ng-message="pattern && minlength && maxlength">{{'newaccountreal.error_format' | translate}}</div>
 			</div>
 		</ion-item>
 
@@ -48,9 +48,9 @@
 					{{'newaccountreal.last_name' | translate}}
 					<span>{{'newaccountreal.isrequired' | translate}}</span>
 				</div>
-				<input name="lastName" ng-model="data.lastName" ng-pattern="/^[a-zA-Z'.,-]{2,30}$/" ng-required>
+				<input name="lastName" ng-model="data.lastName" ng-pattern="validateName" ng-minlength="2" ng-maxlength="30" ng-required>
 				<div class="help-block" ng-messages="newAccount.lastName.$error" role="alert" ng-if='newAccount.lastName.$dirty'>
-					<div ng-message="pattern">{{'newaccountreal.error_format' | translate}}</div>
+					<div ng-message="pattern && minlength && maxlength">{{'newaccountreal.error_format' | translate}}</div>
 				</div>
 			</div>
 		</ion-item>
@@ -184,7 +184,7 @@
 
 		<div class="row center">
 			<div class="col">
-				<button class="button button-positive button-block" ng-click="submitAccountOpening()" >{{'newaccountreal.open_account' | translate}}</button>
+				<button class="button button-positive button-block" ng-click="submitAccountOpening()">{{'newaccountreal.open_account' | translate}}</button>
 			</div>
 		</div>
 	</form>

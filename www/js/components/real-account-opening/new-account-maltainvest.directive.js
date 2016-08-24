@@ -46,10 +46,10 @@ angular
 						scope.current = scope.getCurrentStepIndex();
 						if (!_.isUndefined(scope.steps[index])) {
 							if (index == scope.current + 1) {
-								if(scope.current == 0 && detailsForm.$valid){
+								if (scope.current == 0 && detailsForm.$valid) {
 									scope.selection = scope.steps[index];
 								}
-								if(scope.current == 1 && financialForm.$valid){
+								if (scope.current == 1 && financialForm.$valid) {
 									scope.selection = scope.steps[index];
 								}
 
@@ -77,7 +77,7 @@ angular
 						if (scope.hasNextStep()) {
 							var stepIndex = scope.getCurrentStepIndex();
 							var nextStep = stepIndex + 1;
-								scope.selection = scope.steps[nextStep];
+							scope.selection = scope.steps[nextStep];
 
 						}
 					};
@@ -98,14 +98,32 @@ angular
 
 
 
-					scope.validateName = (function(val){
-						var regex = /^[a-zA-Z'.,-]{2,30}$/;
+					scope.validateName = (function(val) {
+						var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
 						return {
-							test: function(){
-								if(!scope.isReadonly){
-									return regex.test(val);
+							test: function() {
+								if (!scope.isReadonly) {
+									return !regex.test(val);
+								} else {
+									return true;
 								}
-								else{
+							}
+						}
+					})();
+
+					scope.validateName = (function(val) {
+						var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
+						return {
+							test: function(val) {
+								if (!scope.isReadonly) {
+									var reg = regex.test(val);
+
+									if (reg == true) {
+										return false;
+									} else {
+										return true;
+									}
+								} else {
 									return true;
 								}
 							}
@@ -125,9 +143,8 @@ angular
 						var birth = new Date(get_settings.date_of_birth);
 						scope.$applyAsync(function() {
 							if (appStateService.hasMLT) {
-							scope.data.dateOfBirth = birth.toISOString().slice(0, 10);
-							}
-							else{
+								scope.data.dateOfBirth = birth.toISOString().slice(0, 10);
+							} else {
 								scope.data.birthDate = scope.data.userDateOfBirth.toISOString().slice(0, 10);
 							}
 							scope.data.firstName = get_settings.first_name;

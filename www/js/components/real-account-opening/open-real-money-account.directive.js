@@ -73,7 +73,7 @@ angular
 						} else if (scope.data.landingCompany.hasOwnProperty('financial_company') && scope.data.landingCompany.hasOwnProperty('gaming_company') == false && scope.data.landingCompany.financial_company.shortcode == "maltainvest") {
 							scope.hasFinancialAndMaltainvest = true;
 							scope.getToken();
-						} else if (!(scope.data.landingCompany.shortcode == "maltainvest")) {
+						} else if (!(scope.data.landingCompany.shortcode == "maltainvest") || (scope.data.landingCompany.hasOwnProperty('financial_company') && !(scope.data.landingCompany.financial_company.shortcode == "maltainvest")) || (scope.data.landingCompany.hasOwnProperty('gaming_company') && (!scope.data.landingCompany.gaming_company.shortcode == "maltainvest"))) {
 							scope.notMaltainvest = true;
 							scope.getToken();
 						}
