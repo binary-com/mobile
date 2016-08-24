@@ -36,6 +36,7 @@ angular
 					scope.notMaltainvest = false;
 					scope.hasGamingAndFinancialAndMaltainvest = false;
 					scope.isCheckedCompany = false;
+					appStateService.hasMLT = false;
 
 
 					scope.$on('authorize', function(e, authorize) {
@@ -163,11 +164,9 @@ angular
 							// can upgrade to MF
 							// use https://developers.binary.com/api/#new_account_maltainvest
 							// flag for readonly inputs of account setting
-							console.log("out");
 							if(scope.hasGamingAndFinancialAndMaltainvest){
 								appStateService.hasMLT = true;
 								scope.newAccountMaltainvest();
-								console.log("in");
 							}
 
 						} else if (scope.idsFound.indexOf('VRTC') > -1 && scope.idsFound.indexOf('MLT') > -1 && scope.idsFound.indexOf('MF') > -1) {
@@ -198,9 +197,9 @@ angular
 							scope.newAccountReal();
 						} else if (scope.idsFoundNoLicense.indexOf('VRTC') > -1 && scope.idsFoundNoLicense.indexOf('MXorCR') > -1) {
 							scope.showUpgradeLink = false;
+							scope.showUpgradeLinkMaltainvest = false;
 							// already has all kind of accounts
 							// do nothing
-							scope.showUpgradeLinkMaltainvest = false;
 						}
 					}
 
@@ -233,6 +232,7 @@ angular
 							scope.notMaltainvest = false;
 							scope.hasGamingAndFinancialAndMaltainvest = false;
 							scope.isCheckedCompany = false;
+							appStateService.hasMLT = false;
 
 						});
 					});

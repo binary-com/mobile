@@ -18,7 +18,7 @@
 		<div ng-switch-when="details">
 			<form name="detailsForm">
 
-				<ion-item>
+				 <ion-item>
 					<div class="col">
 						<div class="input-title">
 							{{'newaccountmaltainvest.salutation' | translate}}
@@ -41,7 +41,7 @@
 					</div>
 				</ion-item>
 
-				<ion-item>
+				 <ion-item>
 					<div class="col">
 						<div class="input-title">
 							{{'newaccountmaltainvest.first_name' | translate}}
@@ -68,14 +68,14 @@
 					</div>
 				</ion-item>
 
-				<ion-item>
+				 <ion-item>
 					<div class="col">
 						<div class="input-title">
 							{{'newaccountmaltainvest.date_of_birth' | translate}}
 							<span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
 						</div>
-						<input ng-model="data.dateOfBirth" ng-readonly="isReadonly" ng-show="isReadonly" required="isReadonly">
-						<input name="dateOfBirth" ng-model="data.userDateOfBirth" ng-show="!isReadonly" required"!isReadonly" type="date">
+						 <input ng-model="data.dateOfBirth" ng-readonly="isReadonly" ng-if="isReadonly" required="isReadonly">
+						<input name="dateOfBirth" ng-model="data.userDateOfBirth" ng-if="!isReadonly" required"!isReadonly" type="date">
 					</div>
 				</ion-item>
 
