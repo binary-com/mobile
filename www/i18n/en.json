@@ -146,7 +146,9 @@
 		"password": "Password:",
 		"residence": "Residence:",
 		"select": "Select your country",
-		"isrequired" : "Required"
+		"isrequired" : "Required",
+		"password_hint": "Password must be minimum of six lower and uppercase letters with numbers",
+		"code_hint": "Please check your email for the value of this token"
 	},
 	"newaccountmaltainvest": {
 		"open_financial": "Open a financial account",
