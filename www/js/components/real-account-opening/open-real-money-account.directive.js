@@ -61,7 +61,7 @@ angular
 							scope.countryCode = scope.data.setting.country_code;
 							$rootScope.countryCodeOfAccount = scope.data.setting.country_code;
 							$rootScope.countryOfAccount = scope.data.setting.country;
-							if (scope.countryCode != "JP") {
+							if (scope.countryCode != "jp") {
 								websocketService.sendRequestFor.landingCompanySend(scope.countryCode);
 							}
 						});
