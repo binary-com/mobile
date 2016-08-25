@@ -1,54 +1,44 @@
-<form>
-	<div class="row center">
-		<div class="col col-75">
+<div class="row center">
 
-			<div class="list">
-
-				<label class="item item-input">
-
-					<!-- <div class="input-label">
-			{{'newvirtualaccount.verification-code' | translate}}
-		</div> -->
+	<div class="col-75">
+		<div class="new-account">
+		<form>
+			<ion-item>
+				<div class="col">
+					<div class="input-title">
+						{{'newvirtualaccount.verification-code' | translate}}
+					</div>
 					<input ng-model="data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}">
+				</div>
+			</ion-item>
+			<ion-item>
+				<div class="col">
+					<div class="input-title">
+						{{'newvirtualaccount.password' | translate}}
+					</div>
+					<input ng-model="data.clientPassword" type="password" placeholder="{{'newvirtualaccount.password' | translate }}">
+				</div>
+			</ion-item>
 
-				</label>
-
-			</div>
-		</div>
-	</div>
-	<div class="row center">
-		<div class="col col-75">
-
-			<div class="list">
-				<label class="item item-input">
-					<!-- <div class="input-label">
-			{{'newvirtualaccount.password' | translate}}
-		</div> -->
-					<input ng-model="data.clientPassword" type="password" value="" placeholder="{{'newvirtualaccount.password' | translate }}">
-				</label>
-			</div>
-		</div>
-	</div>
-	<div class="row center">
-		<div class="col col-75">
-
-			<div class="list">
-				<label class="item item-select">
-					<!-- <div class="input-label">
-		{{'newvirtualaccount.residence' | translate}}
-			</div> -->
+			<ion-item>
+				<div class="col item-select">
+					<div class="input-title">
+						{{'newvirtualaccount.residence' | translate}}
+					</div>
 					<select ng-model="data.residence" ng-options="residence.value as residence.text for residence in residenceList track by residence.value">
 						<option value="">{{'newvirtualaccount.select' | translate}}</option>
 					</select>
-				</label>
+				</div>
+			</ion-item>
+
+			<div class="row center">
+				<div class="col col-75">
+					<button class="button button-block btn-signin" ng-click="createVirtualAccount()">
+						{{'newvirtualaccount.signup' | translate}}
+					</button>
+				</div>
 			</div>
-		</div>
+		</form>
 	</div>
-	<div class="row center">
-		<div class="col col-75">
-			<button class="button button-block btn-signin" ng-click="createVirtualAccount()">
-				{{'newvirtualaccount.signup' | translate}}
-			</button>
-		</div>
 	</div>
-</form>
+</div>

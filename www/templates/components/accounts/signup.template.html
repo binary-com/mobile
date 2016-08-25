@@ -1,19 +1,28 @@
 <div class="row center">
-	<div class="col col-75 center">
-		<div class="list">
-			<!-- <ion-spinner ng-show="showSpinner"></ion-spinner> -->
-			<label class="item item-input">
-				<i class="icon ion-android-lock placeholder-icon icon-small"></i>
-				<!-- <span>{{'newvirtualaccount.email' | translate}}</span> -->
-				<input type="email" ng-model="data.mail" placeholder="{{'newvirtualaccount.email' | translate }}">
-			</label>
-		</div>
-		<div class="row center">
-			<div class="col col-75">
-				<button class="button button-block btn-signin" ng-click="verifyUserMail()">
-					{{'newvirtualaccount.continue' | translate}}
-				</button>
-			</div>
+
+	<div class="col-75">
+		<div class="new-account">
+			<form name="emailForm" novalidate>
+				<ion-item>
+					<div class="col">
+						<div class="input-title">
+							{{'newvirtualaccount.email' | translate}}
+							<span>{{'newvirtualaccount.isrequired' | translate}}</span>
+						</div>
+						<!-- <ion-spinner ng-show="showSpinner"></ion-spinner> -->
+						<i class="icon ion-android-lock placeholder-icon icon-small"></i>
+						<!-- <span>{{'newvirtualaccount.email' | translate}}</span> -->
+						<input ng-model="data.mail" placeholder="{{'newvirtualaccount.email' | translate }}"/>
+						<div class="row center">
+							<div class="col col-75">
+								<button class="button button-block btn-signin" ng-click="verifyUserMail()">
+									{{'newvirtualaccount.continue' | translate}}
+								</button>
+							</div>
+						</div>
+					</div>
+				</ion-item>
+			</form>
 		</div>
 	</div>
 </div>

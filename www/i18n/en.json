@@ -145,7 +145,8 @@
 		"verification-code": "Verification Code:",
 		"password": "Password:",
 		"residence": "Residence:",
-		"select": "Select your country"
+		"select": "Select your country",
+		"isrequired" : "Required"
 	},
 	"newaccountmaltainvest": {
 		"open_financial": "Open a financial account",
