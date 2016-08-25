@@ -85,6 +85,7 @@ angular
 												appStateService.isChangedAccount = true;
 												sessionStorage.removeItem('start');
 												sessionStorage.removeItem('_interval');
+												appStateService.isCheckedAccountType = false;
 					} else {
                         $ionicLoading.hide();
 						alertService.accountError.tokenNotValid();

@@ -142,16 +142,6 @@ angular
 					});
 
 					scope.submitAccountOpening = function() {
-
-
-                // find the first invalid element
-                scope.firstInvalid = input.querySelector('.ng-invalid');
-								console.log(scope.firstInvalid);
-                // if we find one, set focus
-                // if (firstInvalid) {
-                //     firstInvalid.focus();
-                // }
-
 						if (scope.data.accept == true) {
 							scope.data.acceptRisk = 1
 						} else {

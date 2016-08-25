@@ -31,22 +31,26 @@ angular
 				link: function(scope, element) {
 					scope.showUpgradeLink = false;
 					scope.showUpgradeLinkMaltainvest = false;
-					scope.hasGamingAndMaltainvest = false;
-					scope.hasFinancialAndMaltainvest = false;
-					scope.notMaltainvest = false;
-					scope.hasGamingAndFinancialAndMaltainvest = false;
 					scope.isCheckedCompany = false;
 					appStateService.hasMLT = false;
-
+					scope.isVirtual = false;
+					scope.hasGamingAndVirtual == false;
+					scope.hasGamingNotVirtual == false;
+					scope.hasFinancialAndMaltainvest == false;
+					scope.idsFound = [];
 
 					scope.$on('authorize', function(e, authorize) {
 						if (!appStateService.isCheckedAccountType) {
+							scope.idsFound = [];
 							appStateService.isCheckedAccountType = true;
+							if (authorize.is_virtual == 1) {
+								scope.isVirtual = true;
+							} else {
+								scope.isVirtual = false;
+							}
 							scope.getCompany();
 						}
 					});
-
-
 
 					// get account-setting and landing-company
 					scope.getCompany = function() {
@@ -57,13 +61,14 @@ angular
 							scope.countryCode = scope.data.setting.country_code;
 							$rootScope.countryCodeOfAccount = scope.data.setting.country_code;
 							$rootScope.countryOfAccount = scope.data.setting.country;
-							websocketService.sendRequestFor.landingCompanySend(scope.countryCode);
+							if (scope.countryCode != "JP") {
+								websocketService.sendRequestFor.landingCompanySend(scope.countryCode);
+							}
 						});
 						scope.$on('landing_company', function(e, landing_company) {
-							if(!scope.isCheckedCompany){
+							if (!scope.isCheckedCompany) {
 								scope.isCheckedCompany = true;
 								scope.accountStates(landing_company);
-
 							}
 
 						});
@@ -72,20 +77,26 @@ angular
 					// check 3 states combining of Maltainvest shortcode, gaming company and financial company
 					scope.accountStates = function(landing_company) {
 						scope.data.landingCompany = landing_company;
-						if (scope.data.landingCompany.hasOwnProperty('gaming_company') == true && scope.data.landingCompany.gaming_company.shortcode == "maltainvest") {
-							if(scope.data.landingCompany.hasOwnProperty('financial_company') == true){
-								scope.hasGamingAndFinancialAndMaltainvest = true;
+						if (scope.data.landingCompany.hasOwnProperty('gaming_company')) {
+							if (scope.isVirtual) {
+								scope.hasGamingAndVirtual = true;
+								scope.getToken();
+							} else {
+								if (scope.data.landingCompany.hasOwnProperty('financial_company') && (scope.data.landingCompany.gaming_company.shortcode == "maltainvest")) {
+									scope.hasGamingNotVirtual = true;
+									scope.getToken();
+								}
 							}
-							scope.hasGamingAndMaltainvest = true;
+						} else if (!scope.data.landingCompany.hasOwnProperty('gaming_company')) {
+							if (scope.isVirtual) {
+								if (scope.data.landingCompany.hasOwnProperty('financial_company') && (scope.data.landingCompany.gaming_company.shortcode == "maltainvest")) {
+									scope.hasFinancialAndMaltainvest = true;
+									scope.getToken();
+								}
+							}
 
-							scope.getToken();
-						} else if (scope.data.landingCompany.hasOwnProperty('financial_company') && scope.data.landingCompany.hasOwnProperty('gaming_company') == false && scope.data.landingCompany.financial_company.shortcode == "maltainvest") {
-							scope.hasFinancialAndMaltainvest = true;
-							scope.getToken();
-						} else if (!(scope.data.landingCompany.shortcode == "maltainvest") || (scope.data.landingCompany.hasOwnProperty('financial_company') && !(scope.data.landingCompany.financial_company.shortcode == "maltainvest")) || (scope.data.landingCompany.hasOwnProperty('gaming_company') && (!scope.data.landingCompany.gaming_company.shortcode == "maltainvest"))) {
-							scope.notMaltainvest = true;
-							scope.getToken();
 						}
+
 					}
 
 					// get tokens from localStorage
@@ -93,120 +104,81 @@ angular
 						if (localStorage.hasOwnProperty('accounts')) {
 							scope.accounts = JSON.parse(localStorage.accounts);
 							scope.findTokens();
+
 						}
 					}
 
-					// check tokens for account and find which type of virtual and real money account user has already
 					scope.findTokens = function() {
-						if (scope.hasGamingAndMaltainvest == true) {
+						if (scope.hasGamingAndVirtual == true) {
 							scope.idsFound = [];
-							scope.count = scope.accounts.length;
-							scope.accounts.forEach(function(el, i) {
-								scope.val = scope.accounts[i]['id'];
-								if (scope.val.search('MLT') > -1) {
-									scope.idsFound.push('MLT');
-								} else if (scope.val.search('MF') > -1) {
-									scope.idsFound.push('MF');
-								} else if (scope.val.search('VRTC') > -1) {
-									scope.idsFound.push('VRTC');
-								}
-								if (!--scope.count) {
-									scope.financialAndGamingAndMaltainvestStages();
-								}
-							});
-						} else if (scope.hasFinancialAndMaltainvest == true) {
-							scope.idsFoundMaltainvest = [];
-							scope.count = scope.accounts.length;
-
-							scope.accounts.forEach(function(el, i) {
-									scope.val = scope.accounts[i]['id'];
-									if (scope.val.search('MF') > -1) {
-										scope.idsFoundMaltainvest.push('MF');
-									} else if (scope.val.search('VRTC') > -1) {
-										scope.idsFoundMaltainvest.push('VRTC');
-									}
-									if (!--scope.count) {
-										scope.financialAndMaltainvestStages();
-
-									}
-								}
-
-							);
-						} else if (scope.notMaltainvest == true) {
-							scope.idsFoundNoLicense = [];
 							scope.count = scope.accounts.length;
 							scope.accounts.forEach(function(el, i) {
 									scope.val = scope.accounts[i]['id'];
 									if (scope.val.search('VRTC') > -1) {
-										scope.idsFoundNoLicense.push('VRTC');
+										scope.idsFound.push('VRTC');
 									} else if (scope.val.search('MX') > -1) {
-										scope.idsFoundNoLicense.push('MXorCRorMLT');
+										scope.idsFound.push('MXorCRorMLT');
 									} else if (scope.val.search('CR') > -1) {
-										scope.idsFoundNoLicense.push('MXorCRorMLT');
-									}
-									else if (scope.val.search('MLT') > -1) {
-										scope.idsFoundNoLicense.push('MXorCRorMLT');
+										scope.idsFound.push('MXorCRorMLT');
+									} else if (scope.val.search('MLT') > -1) {
+										scope.idsFound.push('MXorCRorMLT');
 									}
 
 									if (!--scope.count) {
-										scope.notMaltainvestStages();
+										scope.gamingAndVirtualStages();
 									}
 								}
 
 							);
+						} else if (scope.hasGamingNotVirtual == true) {
+							scope.idsFound = [];
+							scope.count = scope.accounts.length;
+							scope.accounts.forEach(function(el, i) {
+								scope.val = scope.accounts[i]['id'];
+								if (scope.val.search('MF') > -1) {
+									scope.idsFound.push('MF');
+								}
+
+								if (!--scope.count) {
+									scope.gamingAndFinancialAndMaltainvestStages();
+								}
+							});
+						} else if (scope.hasFinancialAndMaltainvest == true) {
+							scope.idsFound = [];
+							scope.count = scope.accounts.length;
+							scope.accounts.forEach(function(el, i) {
+								scope.val = scope.accounts[i]['id'];
+								if (scope.val.search('MF') > -1) {
+									scope.idsFound.push('MF');
+								}
+
+								if (!--scope.count) {
+									scope.financialAndMaltainvestStages();
+								}
+							});
 						}
 					}
 
-
-					scope.financialAndGamingAndMaltainvestStages = function() {
-						if (scope.idsFound.indexOf('VRTC') > -1 && scope.idsFound.indexOf('MLT') == -1 && scope.idsFound.indexOf('MF') == -1) {
-							// can upgrade to mlt
-							// use https://developers.binary.com/api/#new_account_real
-							scope.newAccountReal();
-						} else if (scope.idsFound.indexOf('VRTC') > -1 && scope.idsFound.indexOf('MLT') > -1 && scope.idsFound.indexOf('MF') == -1) {
-							// can upgrade to MF
-							// use https://developers.binary.com/api/#new_account_maltainvest
-							// flag for readonly inputs of account setting
-							if(scope.hasGamingAndFinancialAndMaltainvest){
-								appStateService.hasMLT = true;
-								scope.newAccountMaltainvest();
-							}
-
-						} else if (scope.idsFound.indexOf('VRTC') > -1 && scope.idsFound.indexOf('MLT') > -1 && scope.idsFound.indexOf('MF') > -1) {
-							// already has all kind of accounts
-							// do nothing
-							scope.showUpgradeLink = false;
-							scope.showUpgradeLinkMaltainvest = false;
-						}
-					}
-
-					scope.financialAndMaltainvestStages = function() {
-						if (scope.idsFoundMaltainvest.indexOf('VRTC') > -1 && scope.idsFoundMaltainvest.indexOf('MF') == -1) {
-							// can upgrade to MF
-							// use https://developers.binary.com/api/#new_account_maltainvest
-							scope.newAccountMaltainvest();
-						} else if (scope.idsFoundMaltainvest.indexOf('VRTC') > -1 && scope.idsFoundMaltainvest.indexOf('MF') > -1) {
-							// already has all kind of accounts
-							// do nothing
-							scope.showUpgradeLink = false;
-							scope.showUpgradeLinkMaltainvest = false;
-						}
-					}
-
-					scope.notMaltainvestStages = function() {
-						if (scope.idsFoundNoLicense.indexOf('VRTC') > -1 && scope.idsFoundNoLicense.indexOf('MXorCRorMLT') == -1) {
+					scope.gamingAndVirtualStages = function() {
+						if (scope.idsFound.indexOf('VRTC') > -1 && scope.idsFound.indexOf('MXorCRorMLT') == -1) {
 							// can upgrade to MX or CR
 							// use https://developers.binary.com/api/#new_account_real
 							scope.newAccountReal();
-						} else if (scope.idsFoundNoLicense.indexOf('VRTC') > -1 && scope.idsFoundNoLicense.indexOf('MXorCRorMLT') > -1) {
-							scope.showUpgradeLink = false;
-							scope.showUpgradeLinkMaltainvest = false;
-							// already has all kind of accounts
-							// do nothing
 						}
 					}
 
-					// functions for showing the upgrade link and show the related forms to the condition
+					scope.gamingAndFinancialAndMaltainvestStages = function() {
+						if (scope.idsFound.indexOf('MF') == -1) {
+							appStateService.hasMLT = true;
+							scope.newAccountMaltainvest();
+						}
+					}
+					scope.financialAndMaltainvestStages = function() {
+							if (scope.idsFound.indexOf('MF') == -1) {
+								scope.newAccountMaltainvest();
+							}
+						}
+						// functions for showing the upgrade link and show the related forms to the condition
 					scope.newAccountReal = function() {
 						scope.$applyAsync(function() {
 							if (appStateService.isCheckedAccountType) {
