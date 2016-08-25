@@ -140,9 +140,12 @@ angular
 									if (scope.val.search('VRTC') > -1) {
 										scope.idsFoundNoLicense.push('VRTC');
 									} else if (scope.val.search('MX') > -1) {
-										scope.idsFoundNoLicense.push('MXorCR');
+										scope.idsFoundNoLicense.push('MXorCRorMLT');
 									} else if (scope.val.search('CR') > -1) {
-										scope.idsFoundNoLicense.push('MXorCR');
+										scope.idsFoundNoLicense.push('MXorCRorMLT');
+									}
+									else if (scope.val.search('MLT') > -1) {
+										scope.idsFoundNoLicense.push('MXorCRorMLT');
 									}
 
 									if (!--scope.count) {
@@ -191,11 +194,11 @@ angular
 					}
 
 					scope.notMaltainvestStages = function() {
-						if (scope.idsFoundNoLicense.indexOf('VRTC') > -1 && scope.idsFoundNoLicense.indexOf('MXorCR') == -1) {
+						if (scope.idsFoundNoLicense.indexOf('VRTC') > -1 && scope.idsFoundNoLicense.indexOf('MXorCRorMLT') == -1) {
 							// can upgrade to MX or CR
 							// use https://developers.binary.com/api/#new_account_real
 							scope.newAccountReal();
-						} else if (scope.idsFoundNoLicense.indexOf('VRTC') > -1 && scope.idsFoundNoLicense.indexOf('MXorCR') > -1) {
+						} else if (scope.idsFoundNoLicense.indexOf('VRTC') > -1 && scope.idsFoundNoLicense.indexOf('MXorCRorMLT') > -1) {
 							scope.showUpgradeLink = false;
 							scope.showUpgradeLinkMaltainvest = false;
 							// already has all kind of accounts
