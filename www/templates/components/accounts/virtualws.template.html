@@ -2,7 +2,7 @@
 
 	<div class="col-75">
 		<div class="new-account">
-		<form name="virtualws">
+		<form name="virtualws" id="virtualws">
 			<ion-item>
 				<div class="col">
 					<div class="input-title">
@@ -23,11 +23,17 @@
 						<span>{{'newvirtualaccount.isrequired' | translate}}</span>
 
 					</div>
-					<input name="password" ng-model="data.clientPassword" type="password" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]{6,25}$/">
+					<input name="password" id="password" ng-model="data.clientPassword" type="{{inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]{6,25}$/">
 				</div>
 				<div class="help-block">
 					<div>{{'newvirtualaccount.password_hint' | translate}}</div>
 				</div>
+				<div class="help-block show-hide-password">
+					<input type="checkbox" id="show-hide" name="show-hide" ng-model="passwordCheckbox" ng-click="hideShowPassword()"/>
+					<label for="checkbox" ng-if="passwordCheckbox">{{'newvirtualaccount.hide_pass' | translate }}</label>
+			  <label for="checkbox" ng-if="!passwordCheckbox">{{'newvirtualaccount.show_pass' | translate }}</label>
+				</div>
+
 			</ion-item>
 
 			<ion-item>

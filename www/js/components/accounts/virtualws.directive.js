@@ -36,10 +36,21 @@ angular
 						}
 					});
 					// scope.$watch('residenceList', function() {
-  				// 	if (scope.residenceList) {
-    			// scope.data.residence = scope.residenceList[0].text;
-  				// }
+					// 	if (scope.residenceList) {
+					// scope.data.residence = scope.residenceList[0].text;
+					// }
 					// });
+
+					scope.inputType = 'password';
+
+					// Hide & show password function
+					scope.hideShowPassword = function() {
+						if (scope.inputType == 'password')
+							scope.inputType = 'text';
+						else
+							scope.inputType = 'password';
+					};
+
 					scope.createVirtualAccount = function() {
 
 						var verificationCode = scope.data.verificationCode;
@@ -47,8 +58,8 @@ angular
 						var residence = scope.data.residence;
 						websocketService.sendRequestFor.newAccountVirtual(verificationCode, clientPassword, residence);
 					};
-					scope.$on('new_account_virtual', function(e, new_account_virtual){
-						if(!appStateService.isLoggedin){
+					scope.$on('new_account_virtual', function(e, new_account_virtual) {
+						if (!appStateService.isLoggedin) {
 							var _token = new_account_virtual.oauth_token;
 							// accountService.validate(token);
 							websocketService.authenticate(_token)

@@ -11116,14 +11116,21 @@ open-real-money-account {
 
 .new-account .input-title {
   font-size: 14px;
-  white-space: normal; }
+  white-space: normal;
+  text-align: left; }
   .new-account .input-title span {
     font-size: 12px;
     color: #818183; }
 
 .new-account .help-block {
   font-size: 12px;
-  color: #818183; }
+  color: #818183;
+  text-align: left; }
+  .new-account .help-block.show-hide-password {
+    color: #000; }
+
+.new-account input#show-hide {
+  width: 20px; }
 
 @media only screen and (max-device-width: 480px) {
   /*RU Language*/

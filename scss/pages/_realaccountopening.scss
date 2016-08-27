@@ -81,6 +81,7 @@ open-real-money-account {
 	.input-title {
 		font-size: 14px;
 		white-space: normal;
+		text-align: left;
 		span{
 			font-size: 12px;
 			color: $darkgray;
@@ -89,5 +90,12 @@ open-real-money-account {
 	.help-block{
 		font-size: 12px;
 		color: $darkgray;
+		text-align: left;
+		&.show-hide-password{
+			color: $black;
+		}
+	}
+	input#show-hide{
+		width: 20px;
 	}
 }
