@@ -301,59 +301,25 @@ angular
 					};
 					sendMessage(data);
 				},
-				createRealAccountSend: function(salutation, firstName, lastName, dateOfBirth, residence, addressLine1, addressLine2, addressCity, addressState, addressPostcode, phone, secretQuestion, secretAnswer) {
+				createRealAccountSend: function(params) {
 					var data = {
-						"new_account_real": "1",
-						"salutation": salutation,
-						"first_name": firstName,
-						"last_name": lastName,
-						"date_of_birth": dateOfBirth,
-						"residence": residence,
-						"address_line_1": addressLine1,
-						"address_line_2": addressLine2,
-						"address_city": addressCity,
-						"address_state": addressState,
-						"address_postcode": addressPostcode,
-						"phone": phone,
-						"secret_question": secretQuestion,
-						"secret_answer": secretAnswer
+						"new_account_real": "1"
+					};
+					for (key in params) {
+						if (params.hasOwnProperty(key)) {
+							data[key] = params[key]
+						}
 					};
 					sendMessage(data);
 				},
-				createMaltainvestAccountSend: function(salutation, firstName, lastName, dateOfBirth, residence, addressLine1, addressLine2, addressCity, addressState, addressPostcode, phone, secretQuestion, secretAnswer, forexTradingExperience, forexTradingFrequency, indicesTradingExperience, indicesTradingFrequency, commoditiesTradingExperience, commoditiesTradingFrequency, stocksTradingExperience, stocksTradingFrequency, otherDerivativesTradingExperience, otherDerivativesTradingFrequency, otherInstrumentsTradingExperience, otherInstrumentsTradingFrequency, employmentIndustry, educationLevel, incomeSource, netIncome, estimatedWorth, acceptRisk) {
+				createMaltainvestAccountSend: function(params) {
 					var data = {
-						"new_account_maltainvest": "1",
-						"salutation": salutation,
-						"first_name": firstName,
-						"last_name": lastName,
-						"date_of_birth": dateOfBirth,
-						"residence": residence,
-						"address_line_1": addressLine1,
-						"address_line_2": addressLine2,
-						"address_city": addressCity,
-						"address_state": addressState,
-						"address_postcode": addressPostcode,
-						"phone": phone,
-						"secret_question": secretQuestion,
-						"secret_answer": secretAnswer,
-						"forex_trading_experience": forexTradingExperience,
-						"forex_trading_frequency": forexTradingFrequency,
-						"indices_trading_experience": indicesTradingExperience,
-						"indices_trading_frequency": indicesTradingFrequency,
-						"commodities_trading_experience": commoditiesTradingExperience,
-						"commodities_trading_frequency": commoditiesTradingFrequency,
-						"stocks_trading_experience": stocksTradingExperience,
-						"stocks_trading_frequency": stocksTradingFrequency,
-						"other_derivatives_trading_experience": otherDerivativesTradingExperience,
-						"other_derivatives_trading_frequency": otherDerivativesTradingFrequency,
-						"other_instruments_trading_experience": otherInstrumentsTradingExperience,
-						"other_instruments_trading_frequency": otherInstrumentsTradingFrequency,
-						"employment_industry": employmentIndustry,
-						"education_level": educationLevel,
-						"income_source": incomeSource,
-						"net_income": netIncome,
-						"estimated_worth": estimatedWorth,
-						"accept_risk": acceptRisk
+						"new_account_maltainvest": "1"
+					};
+					for (key in params) {
+						if (params.hasOwnProperty(key)) {
+							data[key] = params[key]
+						}
 					};
 					sendMessage(data);
 				},

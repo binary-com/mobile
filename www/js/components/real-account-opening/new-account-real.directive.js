@@ -65,7 +65,22 @@ angular
 						if (_.isEmpty(scope.data.addressPostcode)) {
 							scope.data.addressPostcode = "";
 						}
-						websocketService.sendRequestFor.createRealAccountSend(scope.data.salutation, scope.data.firstName, scope.data.lastName, birth, scope.data.countryCode, scope.data.addressLine1, scope.data.addressLine2, scope.data.addressCity, scope.data.state, scope.data.addressPostcode, scope.data.phone, scope.data.secretQuestion, scope.data.secretAnswer);
+						var params = {
+							"salutation": scope.data.salutation,
+							"first_name": scope.data.firstName,
+							"last_name": scope.data.lastName,
+							"date_of_birth": birth,
+							"residence": scope.data.countryCode,
+							"address_line_1": scope.data.addressLine1,
+							"address_line_2": scope.data.addressLine2,
+							"address_city": scope.data.addressCity,
+							"address_state": scope.data.state,
+							"address_postcode": scope.data.addressPostcode,
+							"phone": scope.data.phone,
+							"secret_question": scope.data.secretQuestion,
+							"secret_answer": scope.data.secretAnswer
+						}
+						websocketService.sendRequestFor.createRealAccountSend(params);
 					};
 
 				}

@@ -159,7 +159,43 @@ angular
 						if(!appStateService.hasMLT){
 							scope.data.birthDate = scope.data.userDateOfBirth.toISOString().slice(0, 10);
 						}
-						websocketService.sendRequestFor.createMaltainvestAccountSend(scope.data.salutation, scope.data.firstName, scope.data.lastName, scope.data.birthDate, scope.data.countryCode, scope.data.addressLine1, scope.data.addressLine2, scope.data.addressCity, scope.data.state, scope.data.addressPostcode, scope.data.phone, scope.data.secretQuestion, scope.data.secretAnswer, scope.data.forexTradingExperience, scope.data.forexTradingFrequency, scope.data.indicesTradingExperience, scope.data.indicesTradingFrequency, scope.data.commoditiesTradingExperience, scope.data.commoditiesTradingFrequency, scope.data.stocksTradingExperience, scope.data.stocksTradingFrequency, scope.data.otherDrivativesTradingExperience, scope.data.otherDrivativesTradingFrequency, scope.data.otherInstrumentsTradingExperience, scope.data.otherInstrumentsTradingFrequency, scope.data.employmentIndustry, scope.data.educationLevel, scope.data.incomeSource, scope.data.netIncome, scope.data.estimatedWorth, scope.data.acceptRisk);
+						if(appStateService.hasMLT){
+							scope.data.birthDate = scope.data.dateOfBirth;
+						}
+						var params = {
+								"salutation": scope.data.salutation,
+								"first_name": scope.data.firstName,
+								"last_name": scope.data.lastName,
+								"date_of_birth": scope.data.birthDate,
+								"residence": scope.data.countryCode,
+								"address_line_1": scope.data.addressLine1,
+								"address_line_2": scope.data.addressLine2,
+								"address_city": scope.data.addressCity,
+								"address_state": scope.data.state,
+								"address_postcode": scope.data.addressPostcode,
+								"phone": scope.data.phone,
+								"secret_question": scope.data.secretQuestion,
+								"secret_answer": scope.data.secretAnswer,
+								"forex_trading_experience": scope.data.forexTradingExperience,
+								"forex_trading_frequency": scope.data.forexTradingFrequency,
+								"indices_trading_experience": scope.data.indicesTradingExperience,
+								"indices_trading_frequency": scope.data.indicesTradingFrequency,
+								"commodities_trading_experience": scope.data.commoditiesTradingExperience,
+								"commodities_trading_frequency": scope.data.commoditiesTradingFrequency,
+								"stocks_trading_experience": scope.data.stocksTradingExperience,
+								"stocks_trading_frequency": scope.data.stocksTradingFrequency,
+								"other_derivatives_trading_experience": scope.data.otherDerivativesTradingExperience,
+								"other_derivatives_trading_frequency": scope.data.otherDerivativesTradingFrequency,
+								"other_instruments_trading_experience": scope.data.otherInstrumentsTradingExperience,
+								"other_instruments_trading_frequency": scope.data.otherInstrumentsTradingFrequency,
+								"employment_industry": scope.data.employmentIndustry,
+								"education_level": scope.data.educationLevel,
+								"income_source": scope.data.incomeSource,
+								"net_income": scope.data.netIncome,
+								"estimated_worth": scope.data.estimatedWorth,
+								"accept_risk": scope.data.acceptRisk
+							};
+						websocketService.sendRequestFor.createMaltainvestAccountSend(params);
 					};
 
 				}
