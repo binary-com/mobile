@@ -150,7 +150,12 @@
 		"password_hint": "Password must be minimum of six lower and uppercase letters with numbers",
 		"code_hint": "Please check your email for the value of this token",
 		"hide_pass": "Hide password",
-		"show_pass": "Show password"
+		"show_pass": "Show password",
+		"enter-email": "Enter your email",
+		"email-error": "Email is not valid",
+		"token-invalid": "Token is invalid",
+		"error_format": "Wrong format or length",
+		"residence-error": "Please choose your country"
 	},
 	"newaccountmaltainvest": {
 		"open_financial": "Open a financial account",

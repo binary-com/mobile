@@ -460,8 +460,7 @@ angular
 														if (message.verify_email) {
 															$rootScope.$broadcast('verify_email', message.verify_email);
 														} else if (message.error) {
-															$rootScope.$broadcast('verify_email:error', message.error.message);
-															alertService.displayError(message.error.message);
+															$rootScope.$broadcast('verify_email:error', message.error);
 														}
 														break;
 												case 'residence_list':
@@ -471,8 +470,7 @@ angular
 													if (message.new_account_virtual) {
 														$rootScope.$broadcast('new_account_virtual', message.new_account_virtual);
 													} else if (message.error) {
-														$rootScope.$broadcast('new_account_virtual:error', message.error.message);
-														alertService.displayError(message.error.message);
+														$rootScope.$broadcast('new_account_virtual:error', message.error);
 													}
 													break;
 												case 'get_settings':

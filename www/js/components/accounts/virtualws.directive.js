@@ -26,13 +26,16 @@ angular
 				},
 				link: function(scope, element) {
 					scope.data = {};
+					scope.passwordError = false;
+					scope.tokenError = false;
+					scope.residenceError = false;
 					websocketService.sendRequestFor.residenceListSend();
 
 					scope.$on('residence_list', function(e, residence_list) {
 						if (!appStateService.hasGetResidence) {
 							scope.residenceList = residence_list;
 							appStateService.hasGetResidence = true;
-							scope.data.residence = scope.residenceList[0].text;
+							// scope.data.residence = scope.residenceList[0].text;
 						}
 					});
 					// scope.$watch('residenceList', function() {
@@ -52,7 +55,6 @@ angular
 					};
 
 					scope.createVirtualAccount = function() {
-
 						var verificationCode = scope.data.verificationCode;
 						var clientPassword = scope.data.clientPassword;
 						var residence = scope.data.residence;
@@ -66,8 +68,41 @@ angular
 						}
 
 					});
+					scope.$on('new_account_virtual:error', function(e, error){
+						if(error){
+							scope.$applyAsync(function(){
+								if (error.details.hasOwnProperty('client_password')){
+									scope.passwordError = true;
+								}
+								if(error.details.hasOwnProperty('verification_code')){
+									scope.tokenError = true;
+								}
+								if (!error.details.hasOwnProperty('client_password')){
+									scope.passwordError = false;
+								}
+								if(error.details.hasOwnProperty('residence')){
+									scope.residenceError = true;
+								}
+								if(!error.details.hasOwnProperty('verification_code')){
+									scope.tokenError = false;
+								}
+								if(!error.details.hasOwnProperty('residence')){
+									scope.tokenError = false;
+								}
+								if(!error.details.hasOwnProperty('residence')){
+									scope.residenceError = false;
+								}
+
+							});
+						}
+						if(!error){
+							scope.passwordError = false;
+							scope.tokenError = false;
+							scope.residenceError = false;
+						}
 
 
+					});
 				}
 			};
 		}

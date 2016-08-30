@@ -15,6 +15,9 @@
 				<div class="help-block">
 					<div>{{'newvirtualaccount.code_hint' | translate}}</div>
 				</div>
+				<div class="help-block" ng-if="tokenError">
+					{{'newvirtualaccount.token-invalid' | translate}}
+				</div>
 			</ion-item>
 			<ion-item>
 				<div class="col">
@@ -23,10 +26,16 @@
 						<span>{{'newvirtualaccount.isrequired' | translate}}</span>
 
 					</div>
-					<input name="password" id="password" ng-model="data.clientPassword" type="{{inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]{6,25}$/">
+					<input name="password" id="password" ng-model="data.clientPassword" type="{{inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]$/">
 				</div>
 				<div class="help-block">
 					<div>{{'newvirtualaccount.password_hint' | translate}}</div>
+				</div>
+				<div class="help-block">
+					<div class="help-block" ng-if="passwordError" >
+						{{'newvirtualaccount.error_format' | translate}}
+					</div>
+
 				</div>
 				<div class="help-block show-hide-password">
 					<input type="checkbox" id="show-hide" name="show-hide" ng-model="passwordCheckbox" ng-click="hideShowPassword()"/>
@@ -43,9 +52,12 @@
 						<span>{{'newvirtualaccount.isrequired' | translate}}</span>
 
 					</div>
-					<select ng-model="data.residence" ng-options="residence.value as residence.text for residence in residenceList track by residence.value">
+					<select ng-model="data.residence" ng-options="residence.value as residence.text disable when residence.disabled for residence in residenceList track by residence.value" >
 						<option value="">{{'newvirtualaccount.select' | translate}}</option>
 					</select>
+					<div class="help-block" ng-if="residenceError">
+						{{'newvirtualaccount.residence-error' | translate}}
+					</div>
 				</div>
 			</ion-item>
 
