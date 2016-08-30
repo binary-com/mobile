@@ -109,18 +109,21 @@ angular
                 $scope.isDataLoaded = stopSpinner;
                 $scope.letsTrade = _.isNil(enableLetsTrade) ? stopSpinner : enableLetsTrade;
             };
-            
+
             $scope.$on('authorize', function(e){
                 $scope.$applyAsync(function(){
                     $scope.hasTradePermission = getTradePermission();
-                    
+
                     delayService.update('symbolsAndAssetIndexUpdate', function(){
                         updateSymbols();
                     }, 60*1000);
                 });
              });
- 
+
              function getTradePermission(){
                 return accountService.checkScope(['READ', 'TRADE']);
             }
+						$scope.navigateToProfitTablePage = function(){
+							$state.go('profit-table');
+						}
 	});

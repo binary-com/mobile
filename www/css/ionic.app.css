@@ -11132,6 +11132,25 @@ open-real-money-account {
 .new-account input#show-hide {
   width: 20px; }
 
+.profit-table-container #profit-table {
+  width: 100%; }
+  .profit-table-container #profit-table thead {
+    line-height: 1.1em;
+    font-weight: bold;
+    vertical-align: middle;
+    padding: 3px 8px;
+    background: #f2f2f2;
+    border-bottom: 1px solid #f2f2f2; }
+    .profit-table-container #profit-table thead th {
+      padding-right: 8px;
+      text-align: left;
+      overflow: hidden;
+      border-bottom: none !important; }
+  .profit-table-container #profit-table tbody tr td {
+    text-align: left; }
+    .profit-table-container #profit-table tbody tr td.center {
+      text-align: center; }
+
 @media only screen and (max-device-width: 480px) {
   /*RU Language*/
   body#ru .trade .buy-again button {

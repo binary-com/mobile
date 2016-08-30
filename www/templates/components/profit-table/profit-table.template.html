@@ -1,0 +1,71 @@
+<div class="profit-table-container">
+	<div class="col">
+		<ion-radio name="appID" ng-model="appID" ng-value="'allApps'">all apps</ion-radio>
+		<ion-radio name="appID" ng-model="appID" ng-value="'tickTradeApp'">tick trade app</ion-radio>
+	</div>
+<div class="col">
+	<ion-radio name="dateType" ng-model="dateType" ng-value="'allTime'">all time</ion-radio>
+	<ion-radio name="dateType" ng-model="dateType" ng-value="'monthAgo'">1 month ago</ion-radio>
+	<ion-radio name="dateType" ng-model="dateType" ng-value="'sevenDayAgo'">7 days ago</ion-radio>
+	<ion-radio name="dateType" ng-model="dateType" ng-value="'threeDayAgo'">3 days ago</ion-radio>
+	<ion-radio name="dateType" ng-model="dateType" ng-value="'oneDayAgo'">1 day ago</ion-radio>
+	<ion-radio name="dateType" ng-model="dateType" ng-value="'customDate'">Custom date</ion-radio>
+</div>
+
+
+
+	<div class="col">
+		start date:
+		<input type="date" ng-model="dateFrom" id="datefrom">
+	</div>
+
+	<div class="col">
+		finish date:
+		<input type="date" ng-model="dateTo" id="dateto">
+	</div>
+
+	<table class="" id="profit-table">
+		<thead>
+			<tr>
+				<th>
+					date
+				</th>
+				<th>
+					Ref.
+				</th>
+				<th>
+					Potential Payout
+				</th>
+				<th>
+					Purchase Price
+				</th>
+				<th>
+					Sale Date
+				</th>
+				<th>
+					Sale Price
+				</th>
+				<th>
+					Profit/Loss (USD)
+				</th>
+				<th>
+					Details
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="transaction in transactions | dataFilter:appID:dateType:dateFrom:dateTo">
+				<td ng-bind="transaction.purchase_time * 1000 | date : 'medium' "></td>
+				<td ng-bind="transaction.transaction_id"></td>
+				<td ng-bind="transaction.payout" class="center"></td>
+				<td ng-bind="transaction.buy_price" class="center"></td>
+				<td ng-bind="transaction.sell_time * 1000 | date : 'medium' "></td>
+				<td ng-bind="transaction.sell_price" class="center"></td>
+				<td ng-bind="transaction.sell_price - transaction.buy_price" class="center"></td>
+				<td>
+					<button ng-click="sendContractDetailRequest(transaction.contract_id)">view</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

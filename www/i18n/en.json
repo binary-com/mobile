@@ -67,7 +67,8 @@
 		"digit_over_under": "Digit Over/Under",
 		"digit_even_odd": "Digit Even/Odd",
 		"digit_matches_differs": "Digit Matches/Differs",
-		"up_down": "Up/Down"
+		"up_down": "Up/Down",
+		"profit_table": "Profit Table"
 	},
 	"trade": {
 		"payout": "Payout",

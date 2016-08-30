@@ -1,0 +1,29 @@
+.profit-table-container {
+	#profit-table {
+		width: 100%;
+		thead {
+			line-height: 1.1em;
+			font-weight: bold;
+			vertical-align: middle;
+			padding: 3px 8px;
+			background: rgb(242, 242, 242);
+			border-bottom: 1px solid rgb(242, 242, 242);
+			th {
+				padding-right: 8px;
+				text-align: left;
+				overflow: hidden;
+				border-bottom: none !important;
+			}
+		}
+		tbody {
+			tr {
+				td {
+					text-align: left;
+					&.center{
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}
