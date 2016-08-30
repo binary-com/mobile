@@ -54,7 +54,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="transaction in transactions | dataFilter:appID:dateType:dateFrom:dateTo">
+			<tr ng-repeat="transaction in transactions track by $index">
 				<td ng-bind="transaction.purchase_time * 1000 | date : 'medium' "></td>
 				<td ng-bind="transaction.transaction_id"></td>
 				<td ng-bind="transaction.payout" class="center"></td>
@@ -68,4 +68,7 @@
 			</tr>
 		</tbody>
 	</table>
-</div>
+
+
+							<button href ng-click="prevPage()" ng-disabled="prevPageDisabled">« Prev</button>
+							<button href ng-click="nextPage()" ng-disabled="nextPageDisabled">Next »</button>
