@@ -69,40 +69,15 @@ angular
 
 					});
 					scope.$on('new_account_virtual:error', function(e, error){
-						if(error){
-							scope.$applyAsync(function(){
-								if (error.details.hasOwnProperty('client_password')){
-									scope.passwordError = true;
-								}
-								if(error.details.hasOwnProperty('verification_code')){
-									scope.tokenError = true;
-								}
-								if (!error.details.hasOwnProperty('client_password')){
-									scope.passwordError = false;
-								}
-								if(error.details.hasOwnProperty('residence')){
-									scope.residenceError = true;
-								}
-								if(!error.details.hasOwnProperty('verification_code')){
-									scope.tokenError = false;
-								}
-								if(!error.details.hasOwnProperty('residence')){
-									scope.tokenError = false;
-								}
-								if(!error.details.hasOwnProperty('residence')){
-									scope.residenceError = false;
-								}
+				 	if(error){
 
-							});
-						}
-						if(!error){
-							scope.passwordError = false;
-							scope.tokenError = false;
-							scope.residenceError = false;
-						}
+					 			if((error.hasOwnProperty('details') && error.details.hasOwnProperty('verification_code')) || (error.hasOwnProperty('code') && error.code == "InvalidToken")){
+									alertService.displayError(error.message);
+							}
 
+					 	}
 
-					});
+					 });
 				}
 			};
 		}

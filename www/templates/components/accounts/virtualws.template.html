@@ -10,14 +10,15 @@
 						<span>{{'newvirtualaccount.isrequired' | translate}}</span>
 
 					</div>
-					<input ng-model="data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}">
+					<input name="verificationCode" ng-model="data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-pattern="/^\w{15,128}$/" required>
 				</div>
 				<div class="help-block">
 					<div>{{'newvirtualaccount.code_hint' | translate}}</div>
 				</div>
-				<div class="help-block" ng-if="tokenError">
-					{{'newvirtualaccount.token-invalid' | translate}}
+				<div class="help-block" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty'>
+					<div ng-message="pattern">{{'newvirtualaccount.token-invalid' | translate}}</div>
 				</div>
+
 			</ion-item>
 			<ion-item>
 				<div class="col">
@@ -26,16 +27,13 @@
 						<span>{{'newvirtualaccount.isrequired' | translate}}</span>
 
 					</div>
-					<input name="password" id="password" ng-model="data.clientPassword" type="{{inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]$/">
+					<input name="password" id="password" ng-model="data.clientPassword" type="{{inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]{6,25}$/" required>
 				</div>
 				<div class="help-block">
 					<div>{{'newvirtualaccount.password_hint' | translate}}</div>
 				</div>
-				<div class="help-block">
-					<div class="help-block" ng-if="passwordError" >
-						{{'newvirtualaccount.error_format' | translate}}
-					</div>
-
+				<div class="help-block" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty'>
+					<div ng-message="pattern">{{'newvirtualaccount.error_format' | translate}}</div>
 				</div>
 				<div class="help-block show-hide-password">
 					<input type="checkbox" id="show-hide" name="show-hide" ng-model="passwordCheckbox" ng-click="hideShowPassword()"/>
@@ -52,18 +50,15 @@
 						<span>{{'newvirtualaccount.isrequired' | translate}}</span>
 
 					</div>
-					<select ng-model="data.residence" ng-options="residence.value as residence.text disable when residence.disabled for residence in residenceList track by residence.value" >
+					<select ng-model="data.residence" ng-options="residence.value as residence.text disable when residence.disabled for residence in residenceList track by residence.value" required>
 						<option value="">{{'newvirtualaccount.select' | translate}}</option>
 					</select>
-					<div class="help-block" ng-if="residenceError">
-						{{'newvirtualaccount.residence-error' | translate}}
-					</div>
 				</div>
 			</ion-item>
 
 			<div class="row center">
 				<div class="col col-75">
-					<button class="button button-block btn-signin" ng-click="createVirtualAccount()">
+					<button class="button button-block btn-signin" ng-click="createVirtualAccount()" ng-disabled="virtualws.$invalid">
 						{{'newvirtualaccount.signup' | translate}}
 					</button>
 				</div>
