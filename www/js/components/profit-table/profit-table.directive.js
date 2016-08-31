@@ -3,8 +3,10 @@ angular
 	.directive('profitTable', [
 		'appStateService',
 		'websocketService',
+		'$timeout',
 		function(appStateService,
-			websocketService) {
+			websocketService,
+			$timeout) {
 			return {
 				restrict: 'E',
 				templateUrl: 'templates/components/profit-table/profit-table.template.html',
@@ -20,14 +22,24 @@ angular
 					scope.prevPageDisabled = true;
 					scope.customDateEnabled = false;
 					scope.transactions = [];
+					scope.noTransaction = false;
 					// send request for profit table for the first time
-					if (!scope.profitTableSet) {
-						var params = {
-							"limit": scope.itemsFirstCall,
-							"description": 1
+					scope.init = function() {
+						if (appStateService.isLoggedin) {
+							if (!scope.profitTableSet) {
+								var params = {
+									"limit": scope.itemsFirstCall,
+									"description": 1
+								}
+								websocketService.sendRequestFor.profitTable(params);
+							}
+						} else {
+							$timeout(scope.init, 500);
 						}
-						websocketService.sendRequestFor.profitTable(params);
 					}
+					scope.init();
+
+
 					// previous button
 					scope.prevPage = function() {
 						if (scope.currentPage > 0) {
@@ -56,6 +68,7 @@ angular
 					});
 					scope.$watch("dateType", function() {
 						scope.currentPage = 0;
+						scope.transactions = [];
 
 						scope.$applyAsync(function() {
 							if (scope.dateType == 'customDate') {
@@ -131,7 +144,11 @@ angular
 						scope.profitTableSet = true;
 						scope.profitTable = _profitTable;
 						scope.count = scope.profitTable.count;
-						if (scope.profitTable.transactions) {
+						if (scope.count > 0) {
+							scope.$applyAsync(function() {
+								scope.noTransaction = false;
+
+							});
 							scope.items = scope.profitTable.transactions;
 							// enable and disabling previous button
 							if (scope.currentPage == 0) {
@@ -161,6 +178,11 @@ angular
 									}
 								});
 							}
+						} else {
+							scope.$applyAsync(function() {
+								scope.noTransaction = true;
+
+							});
 						}
 					});
 

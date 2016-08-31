@@ -1,30 +1,49 @@
 <div class="profit-table-container">
-	<h3>{{'profittable.profit_table' | translate}}</h3>
-	<div class="col">
-		<ion-radio name="appID" ng-model="appID" ng-value="'allApps'">{{'profittable.all_apps' | translate}}</ion-radio>
-		<ion-radio name="appID" ng-model="appID" ng-value="'tickTradeApp'">{{'profittable.tick_trade_app' | translate}}</ion-radio>
+	<h1>{{'profittable.profit_table' | translate}}</h1>
+	<div class="row">
+		<h1>{{'profittable.filter_by_app' | translate}}</h1>
+
 	</div>
-<div class="col">
-	<ion-radio name="dateType" ng-model="dateType" ng-value="'allTime'">{{'profittable.all_time' | translate}}</ion-radio>
-	<ion-radio name="dateType" ng-model="dateType" ng-value="'monthAgo'">{{'profittable.last_month' | translate}}</ion-radio>
-	<ion-radio name="dateType" ng-model="dateType" ng-value="'sevenDayAgo'">{{'profittable.last_week' | translate}}</ion-radio>
-	<ion-radio name="dateType" ng-model="dateType" ng-value="'threeDayAgo'">{{'profittable.last_3_days' | translate}}</ion-radio>
-	<ion-radio name="dateType" ng-model="dateType" ng-value="'oneDayAgo'">{{'profittable.last_day' | translate}}</ion-radio>
-	<ion-radio name="dateType" ng-model="dateType" ng-value="'customDate'">{{'profittable.custom_date' | translate}}</ion-radio>
-</div>
+	<div class="row">
+		<div class="col">
+			<ion-radio name="appID" ng-model="appID" ng-value="'allApps'">{{'profittable.all_apps' | translate}}</ion-radio>
+			<ion-radio name="appID" ng-model="appID" ng-value="'tickTradeApp'">{{'profittable.tick_trade_app' | translate}}</ion-radio>
+		</div>
+	</div>
+	<div class="row">
+		<h1>{{'profittable.filter_by_date' | translate}}</h1>
 
+	</div>
+	<div class="row">
+		<div class="col date">
+			<ion-radio name="dateType" ng-model="dateType" ng-value="'allTime'">{{'profittable.all_time' | translate}}</ion-radio>
+			<ion-radio name="dateType" ng-model="dateType" ng-value="'monthAgo'">{{'profittable.last_month' | translate}}</ion-radio>
+			<ion-radio name="dateType" ng-model="dateType" ng-value="'sevenDayAgo'">{{'profittable.last_week' | translate}}</ion-radio>
+			<ion-radio name="dateType" ng-model="dateType" ng-value="'threeDayAgo'">{{'profittable.last_3_days' | translate}}</ion-radio>
+			<ion-radio name="dateType" ng-model="dateType" ng-value="'oneDayAgo'">{{'profittable.last_day' | translate}}</ion-radio>
+		</div>
 
-
-	<div class="col">
-		{{'profittable.from' | translate}}
-		<input type="date" ng-model="startFrom" id="datefrom">
 	</div>
 
-	<div class="col">
-		{{'profittable.to' | translate}}
-		<input type="date" ng-model="endTo" id="dateto">
+	<div class="row">
+		<ion-radio name="dateType" ng-model="dateType" ng-value="'customDate'">{{'profittable.custom_date' | translate}}</ion-radio>
 	</div>
-	<button ng-disabled="!customDateEnabled" ng-click="setCustomDate()">run custom date</button>
+	<div class="row">
+
+		<div class="col col-50">
+			<span>
+				{{'profittable.from' | translate}}</span>
+			<input type="date" ng-model="startFrom" id="datefrom">
+		</div>
+
+		<div class="col col-50">
+			<span>
+				{{'profittable.to' | translate}}</span>
+			<input type="date" ng-model="endTo" id="dateto">
+		</div>
+	</div>
+
+	<button class="button" ng-disabled="!customDateEnabled" ng-click="setCustomDate()">run custom date</button>
 
 	<table class="" id="profit-table">
 		<thead>
@@ -68,10 +87,18 @@
 					<button ng-click="sendContractDetailRequest(transaction.contract_id)">{{'profittable.view' | translate}}</button>
 				</td>
 			</tr>
+			<tr ng-if="noTransaction">
+				<td colspan="8">
+					<p>{{'profittable.no_transaction' | translate}}</p>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 
-<div class="col">
-	<button href ng-click="prevPage()" ng-disabled="prevPageDisabled">« {{'profittable.prev' | translate}}</button>
-	<button href ng-click="nextPage()" ng-disabled="nextPageDisabled">{{'profittable.next' | translate}} »</button>
+	<div class="col">
+		<button class="button" href ng-click="prevPage()" ng-disabled="prevPageDisabled">«
+			{{'profittable.prev' | translate}}</button>
+		<button class="button" href ng-click="nextPage()" ng-disabled="nextPageDisabled">{{'profittable.next' | translate}}
+			»</button>
+	</div>
 </div>

@@ -1,6 +1,40 @@
 .profit-table-container {
+	h1 {
+		color: $blue;
+		border-radius: 0 !important;
+		font-size: 4vw;
+		font-weight: bold;
+		text-align: left;
+		padding: 2px 0 5px;
+		margin: 0;
+		width: 100%;
+	}
+	.item {
+		display: inline-block;
+		width: 50%;
+	}
+	.date {
+		.item {
+			width: 18%;
+		}
+	}
+	.item-content {
+		padding: 0;
+		text-align: center;
+		font-size: 14px;
+	}
+	.item-radio {
+		input:checked ~ .item-content {
+			background: $blue;
+			color: $white;
+		}
+	}
+	.disabled {
+		opacity: 0.4;
+	}
 	#profit-table {
 		width: 100%;
+		margin: 20px 0;
 		thead {
 			line-height: 1.1em;
 			font-weight: bold;
@@ -19,10 +53,24 @@
 			tr {
 				td {
 					text-align: left;
-					&.center{
+					&.center {
 						text-align: center;
 					}
 				}
+			}
+		}
+	}
+
+}
+@media only screen and (max-width: 480px) {
+	.profit-table-container{
+		.item {
+			display: inline-block;
+			width: 50%;
+		}
+		.date {
+			.item {
+				width: 50%;
 			}
 		}
 	}

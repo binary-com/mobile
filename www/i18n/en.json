@@ -315,6 +315,9 @@
 		"details": "Details",
 		"view": "View",
 		"prev": "Previous",
-		"next": "Next"
+		"next": "Next",
+		"filter_by_app": "Choose app",
+		"filter_by_date": "Choose date",
+		"no_transaction": "There is no transaction to show."
 	}
 }

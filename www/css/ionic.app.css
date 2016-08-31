@@ -11132,8 +11132,38 @@ open-real-money-account {
 .new-account input#show-hide {
   width: 20px; }
 
-.profit-table-container #profit-table {
+.profit-table-container h1 {
+  color: #2a3052;
+  border-radius: 0 !important;
+  font-size: 4vw;
+  font-weight: bold;
+  text-align: left;
+  padding: 2px 0 5px;
+  margin: 0;
   width: 100%; }
+
+.profit-table-container .item {
+  display: inline-block;
+  width: 50%; }
+
+.profit-table-container .date .item {
+  width: 18%; }
+
+.profit-table-container .item-content {
+  padding: 0;
+  text-align: center;
+  font-size: 14px; }
+
+.profit-table-container .item-radio input:checked ~ .item-content {
+  background: #2a3052;
+  color: #fff; }
+
+.profit-table-container .disabled {
+  opacity: 0.4; }
+
+.profit-table-container #profit-table {
+  width: 100%;
+  margin: 20px 0; }
   .profit-table-container #profit-table thead {
     line-height: 1.1em;
     font-weight: bold;
@@ -11150,6 +11180,13 @@ open-real-money-account {
     text-align: left; }
     .profit-table-container #profit-table tbody tr td.center {
       text-align: center; }
+
+@media only screen and (max-width: 480px) {
+  .profit-table-container .item {
+    display: inline-block;
+    width: 50%; }
+  .profit-table-container .date .item {
+    width: 50%; } }
 
 @media only screen and (max-device-width: 480px) {
   /*RU Language*/
