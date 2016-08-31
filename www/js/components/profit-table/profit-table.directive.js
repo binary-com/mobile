@@ -24,7 +24,7 @@ angular
 					scope.transactions = [];
 					scope.noTransaction = false;
 					// function of sending profti table request through websocket
-					scope.sendProfitTableRequest = function(){
+					scope.sendProfitTableRequest = function() {
 						var params = {
 							"limit": scope.itemsFirstCall,
 							"offset": scope.currentPage * scope.itemsPerPage,
@@ -50,7 +50,6 @@ angular
 						}
 					}
 					scope.firstProfitTableRequest();
-
 
 					// previous button
 					scope.prevPage = function() {
@@ -94,7 +93,7 @@ angular
 							var now = new Date();
 							var current = now.getTime();
 							var dayBeforeDate = now.setDate(now.getDate() - 30);
-							scope.dateFrom = dayBeforeDate/ 1000;
+							scope.dateFrom = dayBeforeDate / 1000;
 							scope.dateTo = "";
 						} else if (scope.dateType == 'sevenDayAgo') {
 							var now = new Date();
@@ -117,7 +116,6 @@ angular
 						}
 
 						scope.sendProfitTableRequest();
-
 					});
 
 					scope.setCustomDate = function() {
