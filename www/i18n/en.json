@@ -292,5 +292,29 @@
 		"error_secretanswer": "This field must be within 4-50 characters.",
 		"isrequired": "(required)",
 		"isoptional": "(optional)"
+	},
+	"profittable": {
+		"profit_table": "Profit table",
+		"all_apps": "All apps",
+		"tick_trade_app": "Tick-trade app",
+		"all_time": "All time",
+		"last_month": "Last month",
+		"last_week": "Last week",
+		"last_3_days": "Last 3 days",
+		"last_day": "Last day",
+		"custom_date": "Custom date",
+		"from": "From",
+		"to": "To",
+		"date": "Date",
+		"ref": "Ref.",
+		"potential_payout": "Potential payout",
+		"purchase_price": "Purchase price",
+		"sale_date": "Sale date",
+		"sale_price": "Sale price",
+		"profit_loss": "Profit/loss (USD)",
+		"details": "Details",
+		"view": "View",
+		"prev": "Previous",
+		"next": "Next"
 	}
 }
