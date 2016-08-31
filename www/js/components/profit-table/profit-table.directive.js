@@ -91,27 +91,39 @@ angular
 							scope.dateTo = "";
 						} else if (scope.dateType == 'monthAgo') {
 							var now = new Date();
-							var current = now.getTime();
+							var currentEpoch = now.getTime();
+							var today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+							var midnightEpoch = new Date(today).getTime();
+							var diff = currentEpoch - midnightEpoch;
 							var dayBeforeDate = now.setDate(now.getDate() - 30);
-							scope.dateFrom = dayBeforeDate / 1000;
+							scope.dateFrom = Math.ceil(dayBeforeDate - diff) / 1000;
 							scope.dateTo = "";
 						} else if (scope.dateType == 'sevenDayAgo') {
 							var now = new Date();
-							var current = now.getTime();
+							var currentEpoch = now.getTime();
+							var today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+							var midnightEpoch = new Date(today).getTime();
+							var diff = currentEpoch - midnightEpoch;
 							var dayBeforeDate = now.setDate(now.getDate() - 7);
-							scope.dateFrom = dayBeforeDate / 1000;
+							scope.dateFrom = (dayBeforeDate - diff) / 1000;
 							scope.dateTo = "";
 						} else if (scope.dateType == 'threeDayAgo') {
 							var now = new Date();
-							var current = now.getTime();
+							var currentEpoch = now.getTime();
+							var today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+							var midnightEpoch = new Date(today).getTime();
+							var diff = currentEpoch - midnightEpoch;
 							var dayBeforeDate = now.setDate(now.getDate() - 3);
-							scope.dateFrom = dayBeforeDate / 1000;
+							scope.dateFrom = (dayBeforeDate - diff) / 1000;
 							scope.dateTo = "";
 						} else if (scope.dateType == 'oneDayAgo') {
 							var now = new Date();
-							var current = now.getTime();
+							var currentEpoch = now.getTime();
+							var today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+							var midnightEpoch = new Date(today).getTime();
+							var diff = currentEpoch - midnightEpoch;
 							var dayBeforeDate = now.setDate(now.getDate() - 1);
-							scope.dateFrom = dayBeforeDate / 1000;
+							scope.dateFrom = (dayBeforeDate - diff) / 1000;
 							scope.dateTo = "";
 						}
 
