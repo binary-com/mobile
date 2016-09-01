@@ -1,0 +1,115 @@
+.realitycheck {
+	.popup {
+		background-color: $white;
+		width: 90vw;
+		padding: 2px;
+		font-size: 14px;
+		.button {
+			font-size: 14px;
+		}
+		.button-secondary {
+			color: $black!important;
+			background: $gray!important;
+		}
+	}
+	.popup-head {
+		padding: 10px;
+		border: none;
+		background-color: $blue;
+		h3.popup-title {
+			color: $white!important;
+			font-size: 14px!important;
+			text-align: left;
+			font-weight: bold;
+		}
+	}
+	.interval-input {
+		input {
+			border: 1px solid $gray;
+			border-radius: 4px;
+			padding-left: 5px;
+		}
+	}
+	.interval_error {
+		position: relative;
+		font-size: 12px;
+	}
+	.popup-body {
+		background-color: $white;
+		padding: 5px;
+		.item {
+			font-size: 14px;
+			padding: 5px;
+			background-color: $white;
+			.row {
+				white-space: normal;
+				&.realitycheck-text {
+					padding: 15px 0 0 !important;
+				}
+				.col:nth-child(2n) {
+					text-align: center;
+				}
+				&.interval {
+					padding: 10px 5px;
+				}
+			}
+			.interval-text {
+				padding: 10px 5px;
+			}
+			p {
+				white-space: normal;
+				color: $black;
+			}
+		}
+	}
+}
+.getinterval {
+	.popup {
+		width: 40vw;
+	}
+}
+.getinterval, .result-popup {
+	.popup {
+		width: 40vw;
+	}
+}
+@media screen and (max-width: 960px){
+	.getinterval, .result-popup {
+		.popup {
+			width: 80vw!important;
+		}
+	}
+}
+@media screen and (max-width: 480px) {
+	.realitycheck .popup-body .item {
+		font-size: 12px;
+	}
+	.realitycheck {
+		.popup-body {
+			.item {
+				font-size: 12px;
+				.row {
+					padding: 0;
+					.interval-text {
+						padding: 0;
+						width: 100%;
+					}
+				}
+			}
+			p {
+				font-size: 12px;
+			}
+		}
+	}
+	.getinterval {
+		.popup {
+			width: 90vw!important;
+		}
+	}
+	.result-popup {
+		.popup {
+			width: 90vw!important;
+		}
+	}
+
+}

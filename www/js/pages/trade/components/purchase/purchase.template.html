@@ -1,0 +1,34 @@
+<div class="purchase">
+    <div class="row">
+        <div class="col col-50 center" ng-repeat="contract in vm.contracts">
+            <div class="row">
+                <div class="col col-30 center">
+                    <img src="{{vm.getImageUrl(contract.contract_type)}}"/>
+                </div>
+                <div class="col col-70 center">
+                    <div class="row">
+                        <div class="col center">
+                            <div class="row">
+                                <div class="col center">
+                                {{ (vm.proposal.basis === 'payout' ? "options.stake" : "options.payout") | translate }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col center">
+                                {{ (vm.proposal.basis === "payout" ? vm.proposalResponses[$index].ask_price : vm.proposalResponses[$index].payout) | currency:vm.proposal.currency:2 }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col center">
+                    <button class="button button-default" ng-click="vm.purchase($index)"> 
+                        {{ "trade.buy" | translate}} {{contract.contract_display.toUpperCase()}} 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

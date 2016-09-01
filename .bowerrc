@@ -1,4 +1,3 @@
 {
-	"directory": "www/lib",
-	"timeout": 300000
+  "directory": "www/lib"
 }

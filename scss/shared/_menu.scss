@@ -1,0 +1,32 @@
+.menu {
+  background-color: #2a3052;
+  .bar-header {
+    border-bottom: 0px !important;
+    background: trasparent;
+    background-color: #2a3052;
+    align-items: center;
+  }
+  .item-complex {
+    .item-content {
+      background-color: #2a3052;
+    }
+  }
+  .options-account {
+    left: 50%;
+    background-color: #2a3052;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    .manage-account {
+      text-align: right;
+      font-size: 28px;
+    }
+    select {
+      color: #f2f2f2;
+      background-color: #2a3052;
+      border-color: #2a3052;
+    }
+  }
+  a.item-content{
+    color: #f2f2f2;
+  }
+}
