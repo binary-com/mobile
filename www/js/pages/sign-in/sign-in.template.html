@@ -1,0 +1,68 @@
+<ion-view class="sign-in">
+  <ion-content class="options-content" has-bouncing="false">
+    <ion-header-bar align-title="center" class="bar bar-header bar-positive">
+      <button class="button  icon-left ion-chevron-left button-clear"
+              ng-click="vm.changeSigninView(true)" ng-show="vm.showTokenForm || vm.showSignin"></button>
+      <h1 class="title">
+      </h1>
+    </ion-header-bar>
+    <div class="row center">
+      <div class="col col-75 branding">
+        <img src="img/logo.svg" class="logo" alt="Binary Logo">
+        <img src="img/binary-logo-blue.svg" class="slogan" alt="Binary.com">
+      </div>
+    </div>
+    <form ng-submit="vm.signIn()" role="form" name="signin" ng-show="vm.showTokenForm">
+      <div class="list">
+        <ion-spinner ng-show="vm.showSpinner"></ion-spinner>
+        <label class="item-input" ng-class="{'error': vm.tokenError}">
+          <i class="icon ion-android-lock placeholder-icon icon-small"></i>
+          <input type="text" placeholder="{{'signin.paste_token' | translate }}" ng-model="vm.token" tabindex="1" ngRequired>
+        </label>
+      </div>
+      <div class="row center">
+        <div class="col col-75">
+          <button class="button button-block btn-signin" type="submit">
+            {{'signin.add_account' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="row responsive-sm" ng-show="vm.showTokenForm">
+      <div class="col center">
+        <a href="#" class="help" ui-sref="help">
+          {{'signin.get_token' | translate }}
+        </a>
+      </div>
+    </div>
+
+    <oauth ng-show="!vm.showTokenForm && vm.showSignin"></oauth>
+
+    <div class="row center" ng-show="!vm.showTokenForm && vm.showSignin">
+      <div class="col col-75">
+        <a href="" class="token-link" ng-click="vm.changeSigninView()">{{ 'signin.use_token' | translate }}</a>
+      </div>
+    </div>
+
+    <div class="list">
+      <language ng-show="!vm.showSignin && !vm.showTokenForm"></language>
+    </div>
+
+    <div class="row center" ng-show="!vm.showSignin && !vm.showTokenForm">
+      <div class="col col-75">
+        <button class="button button-block button-possitive btn-signin"
+                type="button"
+                ng-click="vm.showSigninView()">
+          {{ 'signin.next' | translate }}
+        </button>
+      </div>
+    </div>
+
+    <div class="row responsive-sm">
+      <div class="col center">
+        <app-version class="appVersion"></app-version>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

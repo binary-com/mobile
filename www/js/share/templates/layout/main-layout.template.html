@@ -1,0 +1,43 @@
+<ion-view class="layout">
+  <ion-side-menus>
+    <!-- Left menu -->
+    <ion-side-menu side="left">
+      <header class="bar bar-header bar-stable">
+        <bg-accounts></bg-accounts>
+      </header>
+      <ion-content class="has-header">
+        <ion-list>
+          <ion-item nav-clear menu-close ui-sref="home.trade">
+            <i class="ion-arrow-graph-up-right"></i> Trade
+          </ion-item>
+          <ion-item nav-clear menu-close href="#/app/browse">
+            <i class="ion-social-usd"></i> Profit Table
+          </ion-item>
+          <ion-item nav-clear menu-close href="#/app/playlists">
+            <i class="ion-android-person"></i> Accounts
+          </ion-item>
+          <ion-item nav-clear menu-close href="#/app/playlists">
+            <i class="ion-ios-world-outline"></i> Language
+          </ion-item>
+          <ion-item nav-clear menu-close href="#/app/playlists">
+            <i class="ion-ios-world-outline"></i> Walkthrough Guide
+          </ion-item>
+          <ion-item nav-clear menu-close href="#/app/playlists">
+            <i class="ion-power"></i> Sign Out
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-side-menu>
+
+    <ion-side-menu-content>
+      <ion-pane>
+        <ion-content>
+          <bg-header></bg-header>
+          <ion-nav-view></ion-nav-view>
+        </ion-content>
+      </ion-pane>
+    </ion-side-menu-content>
+
+  </ion-side-menus>
+</ion-view>
+
