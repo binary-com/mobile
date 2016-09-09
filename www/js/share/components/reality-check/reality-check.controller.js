@@ -1,5 +1,5 @@
 /**
- * @name reality-check module
+ * @name reality-check controller
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 08/14/2016

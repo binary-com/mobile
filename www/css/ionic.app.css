@@ -11127,6 +11127,116 @@ input::-webkit-inner-spin-button {
   .profit-table-container .date .item {
     width: 50%; } }
 
+.pane,
+body,
+html,
+ion-nav-view {
+  overflow: visible; }
+
+.real-account {
+  right: 0;
+  z-index: 10000;
+  width: 100%;
+  max-width: 768px;
+  position: fixed !important; }
+  .real-account a {
+    background-color: #2E8836;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 5px; }
+
+bg-new-account-maltainvest,
+bg-new-account-real {
+  transform: none !important; }
+  bg-new-account-maltainvest .new-account,
+  bg-new-account-real .new-account {
+    padding: 10px; }
+    bg-new-account-maltainvest .new-account .title,
+    bg-new-account-real .new-account .title {
+      padding-top: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #f2f2f2; }
+      bg-new-account-maltainvest .new-account .title h3,
+      bg-new-account-real .new-account .title h3 {
+        color: #2a3052;
+        font-size: 18px;
+        font-weight: bold; }
+    bg-new-account-maltainvest .new-account ul,
+    bg-new-account-real .new-account ul {
+      display: inline-block;
+      width: 100%; }
+      bg-new-account-maltainvest .new-account ul li,
+      bg-new-account-real .new-account ul li {
+        width: 33%;
+        display: inline-block;
+        padding: 10px; }
+      bg-new-account-maltainvest .new-account ul li.active,
+      bg-new-account-real .new-account ul li.active {
+        background-color: #f2f2f2 !important; }
+    bg-new-account-maltainvest .new-account h1,
+    bg-new-account-real .new-account h1 {
+      padding: 10px 0;
+      color: #2a3052;
+      font-size: 18px;
+      font-weight: bold; }
+    bg-new-account-maltainvest .new-account p,
+    bg-new-account-real .new-account p {
+      white-space: normal; }
+    bg-new-account-maltainvest .new-account input,
+    bg-new-account-real .new-account input {
+      background: #fff;
+      border: 1px solid #f2f2f2;
+      padding: 2px 3px;
+      border-radius: 3px;
+      width: 100%; }
+      bg-new-account-maltainvest .new-account input.checkbox,
+      bg-new-account-real .new-account input.checkbox {
+        position: relative;
+        float: right; }
+    bg-new-account-maltainvest .new-account select,
+    bg-new-account-real .new-account select {
+      width: 100%;
+      padding: 2px 3px;
+      border: 1px solid #f2f2f2;
+      background: #fff;
+      border-radius: 3px;
+      position: relative;
+      direction: ltr; }
+      bg-new-account-maltainvest .new-account select option,
+      bg-new-account-real .new-account select option {
+        width: 100%;
+        text-align: left; }
+    bg-new-account-maltainvest .new-account .sections,
+    bg-new-account-real .new-account .sections {
+      display: flex;
+      flex-direction: column;
+      height: 100%; }
+      bg-new-account-maltainvest .new-account .sections ion-item,
+      bg-new-account-real .new-account .sections ion-item {
+        padding: 5px 16px;
+        display: flex;
+        flex-grow: 1; }
+    bg-new-account-maltainvest .new-account .input-title,
+    bg-new-account-real .new-account .input-title {
+      font-size: 14px;
+      white-space: normal;
+      text-align: left; }
+      bg-new-account-maltainvest .new-account .input-title span,
+      bg-new-account-real .new-account .input-title span {
+        font-size: 12px;
+        color: #818183; }
+    bg-new-account-maltainvest .new-account .help-block,
+    bg-new-account-real .new-account .help-block {
+      font-size: 12px;
+      color: #818183;
+      text-align: left; }
+      bg-new-account-maltainvest .new-account .help-block.show-hide-password,
+      bg-new-account-real .new-account .help-block.show-hide-password {
+        color: #000; }
+    bg-new-account-maltainvest .new-account input#show-hide,
+    bg-new-account-real .new-account input#show-hide {
+      width: 20px; }
+
 @media only screen and (max-device-width: 480px) {
   /*RU Language*/
   body#ru .trade .buy-again button {

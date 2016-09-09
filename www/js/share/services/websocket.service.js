@@ -489,7 +489,7 @@ angular
 																				$rootScope.$broadcast('new_account_real', message.new_account_real);
 																			} else if (message.error) {
 																				$rootScope.$broadcast('new_account_real:error', message.error.message);
-																				alertService.displayError(message.error.message);
+																				// alertService.displayError(message.error.message);
 																			}
 																			break;
 												case 'new_account_maltainvest':
@@ -497,7 +497,7 @@ angular
 																				$rootScope.$broadcast('new_account_maltainvest', message.new_account_maltainvest);
 																			} else if (message.error) {
 																				$rootScope.$broadcast('new_account_maltainvest:error', message.error.message);
-																				alertService.displayError(message.error.message);
+																				// alertService.displayError(message.error.message);
 																			}
 																			break;
                         default:

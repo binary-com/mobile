@@ -54,6 +54,13 @@ angular
 					controller: 'TransactionDetailController',
 					controllerAs: 'vm'
 				})
+				.state('realaccountopening',{
+					parent: 'layout',
+				  cache: false,
+					templateUrl: 'js/pages/new-real-account-opening/new-real-account-opening.template.html',
+					controller: 'NewRealAccountOpeningController',
+					controllerAs: 'vm'
+				})
         .state('redirect', {
             url: '/redirect',
             cache: false,
