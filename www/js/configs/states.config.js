@@ -40,6 +40,20 @@ angular
           controller: 'HelpController',
           controllerAs: 'vm'
         })
+				.state('profittable',{
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/profit-table/profit-table.template.html',
+					controller: 'ProfitTableController',
+					controllerAs: 'vm'
+				})
+				.state('transactiondetail',{
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/transaction-detail/transaction-detail.template.html',
+					controller: 'TransactionDetailController',
+					controllerAs: 'vm'
+				})
         .state('redirect', {
             url: '/redirect',
             cache: false,

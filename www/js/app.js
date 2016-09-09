@@ -23,7 +23,8 @@
         'binary.share.components.ping',
         'binary.share.components.accounts',
         'binary.share.components.spinner-logo',
-        'binary.share.components.balance'
+        'binary.share.components.balance',
+        'binary.share.components.reality-check'
     ]);
 
   angular
@@ -34,7 +35,9 @@
         'binary.pages.home',
         'binary.pages.signin',
         'binary.pages.help',
-        'binary.pages.trade'
+        'binary.pages.trade',
+        'binary.pages.profit-table',
+        'binary.pages.transaction-detail'
     ]);
 
   String.prototype.capitalize = function() {

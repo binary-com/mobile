@@ -261,6 +261,68 @@ angular
 					};
 					sendMessage(data);
 				},
+				accountOpening: function(verifyEmail) {
+					var data = {
+						"verify_email": verifyEmail,
+						"type": "account_opening"
+					};
+					sendMessage(data);
+				},
+				residenceListSend: function() {
+					var data = {
+						"residence_list": 1
+					};
+					sendMessage(data);
+				},
+				newAccountVirtual: function(verificationCode, clientPassword, residence) {
+					var data = {
+						"new_account_virtual": "1",
+						"verification_code": verificationCode,
+						"client_password": clientPassword,
+						"residence": residence
+					};
+					sendMessage(data);
+				},
+				accountSetting: function() {
+					var data = {
+						"get_settings": 1
+					};
+					sendMessage(data);
+				},
+				landingCompanySend: function(company) {
+					var data = {
+						"landing_company": company
+					};
+					sendMessage(data);
+				},
+				statesListSend: function(company) {
+					var data = {
+						"states_list": company
+					};
+					sendMessage(data);
+				},
+				createRealAccountSend: function(params) {
+					var data = {
+						"new_account_real": "1"
+					};
+					for (key in params) {
+						if (params.hasOwnProperty(key)) {
+							data[key] = params[key]
+						}
+					};
+					sendMessage(data);
+				},
+				createMaltainvestAccountSend: function(params) {
+					var data = {
+						"new_account_maltainvest": "1"
+					};
+					for (key in params) {
+						if (params.hasOwnProperty(key)) {
+							data[key] = params[key]
+						}
+					};
+					sendMessage(data);
+				},
                 ping: function(){
                     var data = {
                         ping: 1
@@ -386,14 +448,58 @@ angular
                             $rootScope.$broadcast('sell:expired', message.sell_expired);
                             break;
                         case 'proposal_open_contract':
-                            $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
+                            $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract, message['req_id']);
                             break;
-						case 'landing_company_details':
-							$rootScope.$broadcast('landing_company_details', message.landing_company_details);
-							break;
-						case 'reality_check':
-							$rootScope.$broadcast('reality_check', message.reality_check);
-							break;
+												case 'landing_company_details':
+																				$rootScope.$broadcast('landing_company_details', message.landing_company_details);
+																				break;
+												case 'reality_check':
+																				$rootScope.$broadcast('reality_check', message.reality_check);
+																				break;
+												case 'verify_email':
+																				if (message.verify_email) {
+																					$rootScope.$broadcast('verify_email', message.verify_email);
+																				} else if (message.error) {
+																					$rootScope.$broadcast('verify_email:error', message.error.message);
+																					alertService.displayError(message.error.message);
+																				}
+																				break;
+												case 'residence_list':
+																			$rootScope.$broadcast('residence_list', message.residence_list);
+																			break;
+												case 'new_account_virtual':
+																			if (message.new_account_virtual) {
+																				$rootScope.$broadcast('new_account_virtual', message.new_account_virtual);
+																			} else if (message.error) {
+																				$rootScope.$broadcast('new_account_virtual:error', message.error.message);
+																				alertService.displayError(message.error.message);
+																			}
+																			break;
+												case 'get_settings':
+																				$rootScope.$broadcast('get_settings', message.get_settings);
+																			break;
+												case 'landing_company':
+																				$rootScope.$broadcast('landing_company', message.landing_company);
+																			break;
+												case 'states_list':
+																				$rootScope.$broadcast('states_list', message.states_list);
+																				break;
+												case 'new_account_real':
+																			if (message.new_account_real) {
+																				$rootScope.$broadcast('new_account_real', message.new_account_real);
+																			} else if (message.error) {
+																				$rootScope.$broadcast('new_account_real:error', message.error.message);
+																				alertService.displayError(message.error.message);
+																			}
+																			break;
+												case 'new_account_maltainvest':
+																			if (message.new_account_maltainvest) {
+																				$rootScope.$broadcast('new_account_maltainvest', message.new_account_maltainvest);
+																			} else if (message.error) {
+																				$rootScope.$broadcast('new_account_maltainvest:error', message.error.message);
+																				alertService.displayError(message.error.message);
+																			}
+																			break;
                         default:
                     }
 				}

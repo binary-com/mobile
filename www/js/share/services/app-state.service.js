@@ -20,6 +20,15 @@ angular
                 factory.scopes = [];
                 factory.invalidTokenRemoved = false;
                 factory.isChangedAccount = false;
+                factory.isRealityChecked = false;
+                factory.isPopupOpen = false;
+                factory.isProfitTableSet = false;
+                factory.hasGetResidence = false;
+                factory.showForm = false;
+                factory.isCheckedAccountType = false;
+                factory.isNewAccountReal = false;
+                factory.isNewAccountMaltainvest = false;
+                factory.hasMLT = false;
 
                 return factory;
             });
