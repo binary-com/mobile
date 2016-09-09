@@ -14,6 +14,14 @@
 																width: 60%;
 												}
 								}
+								#virtualws , #emailform{
+									text-align: center;
+									.list{
+										label{
+											margin-bottom: 0;
+										}
+									}
+								}
 								.list {
 												label.item-input {
 																border-bottom: 1px solid $lightgray;

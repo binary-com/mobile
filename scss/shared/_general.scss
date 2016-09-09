@@ -56,6 +56,17 @@ button:hover{
 				display: block;
 				margin: 0 auto;
 }
+.help-block{
+	font-size: 12px;
+	color: $darkgray;
+	text-align: left;
+	&.show-hide-password{
+		color: $black;
+	}
+}
+input#show-hide{
+	width: 20px;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
