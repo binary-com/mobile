@@ -86,21 +86,29 @@
     vm.changeLanguage = function(){
       languageService.update(vm.language);
     }
-    // sign up email verify
 
+    // sign up email verify
         vm.verifyUserMail = function() {
           var mail = vm.data.mail;
           websocketService.sendRequestFor.accountOpening(mail);
         }
         $scope.$on('verify_email', function(e, verify_email) {
-          vm.userMail = verify_email;
-          if (vm.userMail == 1) {
-            $scope.$applyAsync(function() {
-              vm.showvirtualws = true;
-              vm.showSignup = false;
-            });
-          }
-        });
+						vm.userMail = verify_email;
+						if (vm.userMail == 1) {
+							$scope.$applyAsync(function(){
+								vm.emailError = false;
+							});
+							$scope.$applyAsync(function() {
+								vm.showvirtualws = true;
+								vm.showSignup = false;
+							});
+						}
+					});
+					$scope.$on('verify_email:error', function(e){
+						$scope.$applyAsync(function(){
+							vm.emailError = true;
+						});
+					});
 
         // virtual ws opening
         websocketService.sendRequestFor.residenceListSend();
@@ -132,6 +140,16 @@
           websocketService.authenticate(_token)
         }
       });
+      $scope.$on('new_account_virtual:error', function(e, error){
+				 	if(error){
+					 			if((error.hasOwnProperty('details') && error.details.hasOwnProperty('verification_code')) || (error.hasOwnProperty('code') && error.code == "InvalidToken")){
+									alertService.displayError(error.message);
+							}
+              if((error.hasOwnProperty('details') && error.details.hasOwnProperty('client_password')) || (error.hasOwnProperty('code') && error.code == "PasswordError")){
+                alertService.displayError(error.message);
+              }
+					 	}
+          });
 
     // change different type of singing methods
         vm.changeSigninView = function(_isBack){
