@@ -57,7 +57,7 @@
 
         var cleanLocalData = function() {
             // Clearing local data
-            proposalService.remove();
+            // proposalService.remove();
             marketService.removeActiveSymbols();
             marketService.removeAssetIndex();
             appStateService.isLoggedin = false;
