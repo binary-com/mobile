@@ -4,7 +4,6 @@
     <ion-side-menu side="left">
       <header class="bar bar-header bar-stable">
         <bg-accounts></bg-accounts>
-        <bg-reality-check></bg-reality-check>
       </header>
       <ion-content class="has-header">
         <ion-list>
@@ -14,7 +13,7 @@
           <ion-item nav-clear menu-close ui-sref="profittable">
             <i class="ion-social-usd"></i> Profit Table
           </ion-item>
-          <ion-item nav-clear menu-close href="#/app/playlists">
+          <ion-item nav-clear menu-close ui-sref="manageaccounts">
             <i class="ion-android-person"></i> Accounts
           </ion-item>
           <ion-item nav-clear menu-close href="#/app/playlists">
@@ -23,7 +22,7 @@
           <ion-item nav-clear menu-close href="#/app/playlists">
             <i class="ion-ios-world-outline"></i> Walkthrough Guide
           </ion-item>
-          <ion-item nav-clear menu-close href="#/app/playlists">
+          <ion-item nav-clear menu-close ng-click="vm.logout()">
             <i class="ion-power"></i> Sign Out
           </ion-item>
           <ion-item nav-clear menu-close href="#/app/playlists">

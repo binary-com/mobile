@@ -26,6 +26,15 @@
         vm.transactions = [];
         vm.noTransaction = false;
 
+        // refresh table and filters on changing account
+        $scope.$on('changedAccount', function(){
+          if(appStateService.isChangedAccount){
+            appStateService.isChangedAccount = false;
+            profitTableService.remove();
+            vm.setDefaults();
+          }
+        });
+
         // function of sending profti table request through websocket
         vm.sendProfitTableRequest = function() {
           vm.profitTableSet = true;
@@ -44,6 +53,11 @@
           if (appStateService.isLoggedin) {
             if (!vm.isProfitTableSet) {
               vm.isProfitTableSet = true;
+              vm.sendProfitTableRequest();
+              profitTableService.update(vm.data);
+            }
+            else if (vm.isProfitTableSet || appStateService.isChangedAccount) {
+              appStateService.isChangedAccount = false;
               vm.sendProfitTableRequest();
               profitTableService.update(vm.data);
             }

@@ -61,6 +61,13 @@ angular
 					controller: 'NewRealAccountOpeningController',
 					controllerAs: 'vm'
 				})
+				.state('manageaccounts',{
+					parent: 'layout',
+				  cache: false,
+					templateUrl: 'js/share/components/manage-accounts/manage-accounts.template.html',
+					controller: 'ManageAccountsController',
+					controllerAs: 'vm'
+				})
         .state('redirect', {
             url: '/redirect',
             cache: false,

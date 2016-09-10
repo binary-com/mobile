@@ -20,6 +20,7 @@
 			var landingCompanyName;
 			$scope.$on('authorize', function(e, authorize) {
 				vm.sessionLoginId = authorize.loginid;
+
 				// check if user is not already authorized, account is real money account  & is not changed in app
 				if (!appStateService.isRealityChecked && authorize.is_virtual == 0 && !appStateService.isChangedAccount) {
 					landingCompanyName = authorize.landing_company_name;
@@ -167,12 +168,12 @@
 
 						if (res) {
 							accountService.removeAll();
-							proposalService.remove();
-							marketService.removeActiveSymbols();
-							marketService.removeAssetIndex();
+							// proposalService.remove();
+							// marketService.removeActiveSymbols();
+							// marketService.removeAssetIndex();
 							appStateService.isLoggedin = false;
 							websocketService.closeConnection();
-							vm.$parent.$broadcast('logout');
+              // vm.$parent.$broadcast('logout');
 							vm.removeInterval('_interval');
 							appStateService.isRealityChecked = false;
 							appStateService.isPopupOpen = false;

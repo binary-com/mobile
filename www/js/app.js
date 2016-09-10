@@ -26,7 +26,8 @@
         'binary.share.components.spinner-logo',
         'binary.share.components.balance',
         'binary.share.components.reality-check',
-        'binary.share.components.real-account-opening'
+        'binary.share.components.real-account-opening',
+        'binary.share.components.manage-accounts'
     ]);
 
   angular
