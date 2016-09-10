@@ -27,16 +27,11 @@
 					vm.hasFinancialAndMaltainvest == false;
 					vm.idsFound = [];
 
-					// go back to home on refresh
-					if(!appStateService.isLoggedin){
-						$state.go('home');
-					}
-
-					$scope.$on('authorize', function(e, authorize) {
+					$scope.$on('authorize', function(e, response, requestId, pathtrough) {
 						if (!appStateService.isCheckedAccountType) {
 							vm.idsFound = [];
 							appStateService.isCheckedAccountType = true;
-							if (authorize.is_virtual == 1) {
+							if (response.is_virtual == 1) {
 								vm.isVirtual = true;
 							} else {
 								vm.isVirtual = false;
@@ -44,6 +39,11 @@
 							vm.getCompany();
 						}
 					});
+
+					// go back to home on refresh
+					if(!appStateService.isLoggedin){
+						$state.go('home');
+					};
 
 					// get account-setting and landing-company
 					vm.getCompany = function() {

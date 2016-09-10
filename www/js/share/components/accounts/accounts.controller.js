@@ -81,7 +81,8 @@
 														sessionStorage.removeItem('_interval');
                             localStorage.removeItem('profitTable');
                             websocketService.closeConnection();
-                            // vm.$parent.$broadcast('logout');
+                            appStateService.hasMLT = false;
+                            $scope.$parent.$broadcast('logout');
 							$state.go('signin');
 						}
 					}
