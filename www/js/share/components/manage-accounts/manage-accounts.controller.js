@@ -81,7 +81,7 @@
                 appStateService.isCheckedAccountType = false;
                 localStorage.removeItem('profitTableState');
                 localStorage.removeItem('statementState');
-                $rootScope.$broadcast('changedAccount');
+                $root.$broadcast('changedAccount');
                 appStateService.isPopupOpen = false;
             } else {
                 $ionicLoading.hide();

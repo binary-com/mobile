@@ -207,8 +207,6 @@
 
         // link to forms page
         vm.navigateToUpgrade = function() {
-          $rootScope.$broadcast('countryCodeOfAccount', vm.countryCodeOfAccount);
-          $rootScope.$broadcast('countryOfAccount', vm.countryOfAccount);
             $state.go('realaccountopening');
         }
 

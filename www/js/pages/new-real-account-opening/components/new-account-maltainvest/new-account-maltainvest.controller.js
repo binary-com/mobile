@@ -107,14 +107,8 @@
 				})();
 
 				vm.data = {};
-        $scope.$on('countryCodeOfAccount', (e, countryCodeOfAccount) => {
-          vm.data.countryCode = countryCodeOfAccount;
-        });
-        $scope.$on('countryOfAccount', (e, countryOfAccount) => {
-          vm.data.country = countryOfAccount;
-        });
-				// vm.data.countryCode = $rootScope.countryCodeOfAccount;
-				// vm.data.country = $rootScope.countryOfAccount;
+				vm.data.countryCode = $rootScope.countryCodeOfAccount;
+				vm.data.country = $rootScope.countryOfAccount;
 
 				websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
 				$scope.$on('states_list', (e, states_list) => {
