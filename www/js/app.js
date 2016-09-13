@@ -14,7 +14,8 @@
       'ngIOS9UIWebViewPatch',
       'binary.share.components',
       'binary.share.services',
-      'binary.pages'
+      'binary.pages',
+      'ngMessages'
       ]);
 
   angular
@@ -23,7 +24,10 @@
         'binary.share.components.ping',
         'binary.share.components.accounts',
         'binary.share.components.spinner-logo',
-        'binary.share.components.balance'
+        'binary.share.components.balance',
+        'binary.share.components.reality-check',
+        'binary.share.components.real-account-opening',
+        'binary.share.components.manage-accounts'
     ]);
 
   angular
@@ -34,7 +38,11 @@
         'binary.pages.home',
         'binary.pages.signin',
         'binary.pages.help',
-        'binary.pages.trade'
+        'binary.pages.trade',
+        'binary.pages.profit-table',
+        'binary.pages.statement',
+        'binary.pages.transaction-detail',
+        'binary.pages.new-real-account-opening'
     ]);
 
   String.prototype.capitalize = function() {

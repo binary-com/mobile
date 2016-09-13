@@ -15,13 +15,14 @@
 
   Accounts.$inject = [
     'accountService', 'appStateService',
-    'utilsService', 'websocketService'];
+    'utilsService', 'websocketService', '$rootScope', 'alertService'];
 
   function Accounts(
       accountService,
       appStateService,
       utilsService,
-      websocketService){
+      websocketService,
+    $rootScope){
     var vm = this;
 
     var init = function() {
@@ -44,12 +45,52 @@
 
     vm.updateAccount = function(_selectedAccount) {
       appStateService.isChangedAccount = true;
-      sessionStorage.removeItem('start');
+			appStateService.isCheckedAccountType = false;
+			sessionStorage.removeItem('start');
+			sessionStorage.removeItem('_interval');
       utilsService.spinnerLogo.start();
       accountService.setDefault(_selectedAccount);
       accountService.validate();
       updateSymbols();
+      $rootScope.$broadcast('changedAccount');
 
     };
+
+
+    vm.logout = function(res) {
+				alertService.confirmRemoveAllAccount(
+					function(res){
+						if(typeof(res) !== "boolean"){
+							if(res == 1)
+								res = true;
+							else
+								res = false;
+						}
+
+						if(res){
+							appStateService.isRealityChecked = false;
+							appStateService.isChangedAccount = false;
+							appStateService.isPopupOpen = false;
+							appStateService.isCheckedAccountType = false;
+							accountService.removeAll();
+							// proposalService.remove();
+                            // marketService.removeActiveSymbols();
+                            // marketService.removeAssetIndex();
+                            appStateService.isLoggedin = false;
+														sessionStorage.removeItem('start');
+														sessionStorage.removeItem('_interval');
+                            localStorage.removeItem('profitTableState');
+                            localStorage.removeItem('statementState');
+                            websocketService.closeConnection();
+                            appStateService.hasMLT = false;
+                            $scope.$parent.$broadcast('logout');
+							$state.go('signin');
+						}
+					}
+				);
+			};
+
+
+
   }
 })();

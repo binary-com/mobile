@@ -1,0 +1,112 @@
+<div class="profit-table-container">
+	<h1>{{'profittable.profit_table' | translate}}</h1>
+	<div class="row">
+		<h1>{{'profittable.filter_by_app' | translate}}</h1>
+
+	</div>
+	<div class="row">
+		<div class="col">
+			<ion-radio name="appID" ng-model="vm.data.appID" ng-value="'allApps'">{{'profittable.all_apps' | translate}}</ion-radio>
+			<ion-radio name="appID" ng-model="vm.data.appID" ng-value="'tickTradeApp'">{{'profittable.tick_trade_app' | translate}}</ion-radio>
+		</div>
+	</div>
+	<div class="row">
+		<h1>{{'profittable.filter_by_date' | translate}}</h1>
+
+	</div>
+	<div class="row">
+		<div class="col date">
+			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'allTime'">{{'profittable.all_time' | translate}}</ion-radio>
+			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'monthAgo'">{{'profittable.last_month' | translate}}</ion-radio>
+			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'sevenDayAgo'">{{'profittable.last_week' | translate}}</ion-radio>
+			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'threeDayAgo'">{{'profittable.last_3_days' | translate}}</ion-radio>
+			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'oneDayAgo'">{{'profittable.last_day' | translate}}</ion-radio>
+			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'today'">{{'profittable.today' | translate}}</ion-radio>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'customDate'">{{'profittable.custom_date' | translate}}</ion-radio>
+	</div>
+	<div class="row">
+
+		<div class="col col-50">
+			<span>
+				{{'profittable.from' | translate}}</span>
+			<label class="item item-input">
+
+				<input type="date" ng-model="vm.data.start" id="start"/>
+			</label>
+		</div>
+
+		<div class="col col-50">
+			<span>
+				{{'profittable.to' | translate}}</span>
+			<label class="item item-input">
+
+				<input type="date" ng-model="vm.data.end" id="end"/>
+			</label>
+
+		</div>
+	</div>
+
+	<button class="button" ng-disabled="!vm.customDateEnabled" ng-click="vm.setCustomDate()">run custom date</button>
+
+	<table class="" id="profit-table">
+		<thead>
+			<tr>
+				<th style="display:none;">
+					{{'profittable.date' | translate}}
+				</th>
+				<th>
+					{{'profittable.ref' | translate}}
+				</th>
+				<th>
+					{{'profittable.potential_payout' | translate}}
+				</th>
+				<th>
+					{{'profittable.purchase_price' | translate}}
+				</th>
+				<th style="display:none;">
+					{{'profittable.sale_date' | translate}}
+				</th>
+				<th>
+					{{'profittable.sale_price' | translate}}
+				</th>
+				<th>
+					{{'profittable.profit_loss' | translate}}
+				</th>
+				<th>
+					{{'profittable.details' | translate}}
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="transaction in vm.transactions | DataFilter:vm.data.appID">
+				<td style="display:none;" ng-bind="transaction.purchase_time * 1000 | date : 'medium' "></td>
+				<td ng-bind="transaction.transaction_id"></td>
+				<td ng-bind="transaction.payout" class="center"></td>
+				<td ng-bind="(transaction.buy_price - 0).toFixed(2)" class="center"></td>
+				<td style="display:none;" ng-bind="transaction.sell_time * 1000 | date : 'medium' "></td>
+				<td ng-bind="(transaction.sell_price - 0).toFixed(2)" class="center"></td>
+				<td ng-bind="(transaction.sell_price - transaction.buy_price).toFixed(2)" class="center"></td>
+				<td>
+					<button ng-click="vm.sendContractDetailRequest(transaction.contract_id)">{{'profittable.view' | translate}}</button>
+				</td>
+			</tr>
+			<tr ng-if="vm.noTransaction">
+				<td colspan="8">
+					<p>{{'profittable.no_transaction' | translate}}</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="col">
+		<button class="button" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled">«
+			{{'profittable.prev' | translate}}</button>
+		<button class="button" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled">{{'profittable.next' | translate}}
+			»</button>
+	</div>
+</div>
