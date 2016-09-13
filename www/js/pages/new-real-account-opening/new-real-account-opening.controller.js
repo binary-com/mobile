@@ -13,8 +13,8 @@
         .module('binary.pages.new-real-account-opening.controllers')
         .controller('NewRealAccountOpeningController', NewRealAccountOpeningController);
 
-    NewRealAccountOpeningController.$inject = ['$scope', '$rootScope', '$state', '$timeout', '$location', 'websocketService', 'appStateService', 'accountService', '$ionicPopup', 'alertService', '$translate', 'languageService'];
+    NewRealAccountOpeningController.$inject = [];
 
-    function NewRealAccountOpeningController($scope, $rootScope, $state, $timeout, $location, websocketService, appStateService, accountService, $ionicPopup, alertService, $translate, languageService) {
+    function NewRealAccountOpeningController() {
 
 		}})();

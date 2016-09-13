@@ -328,5 +328,33 @@
     "transactiondetails": {
         "detail": "Transaction detail",
         "ok": "OK"
+    },
+    "statement": {
+      "statement": "Statement",
+      "all_apps": "All apps",
+      "tick_trade_app": "Tick-trade app",
+      "all_time": "Lifetime",
+      "last_month": "Last month",
+      "last_week": "Last week",
+      "last_3_days": "Last 3 days",
+      "last_day": "Last day",
+      "custom_date": "Custom date",
+      "from": "From",
+      "to": "To",
+      "date": "Date",
+      "ref": "Ref.",
+      "potential_payout": "Potential payout",
+      "purchase_price": "Purchase price",
+      "sale_date": "Sale date",
+      "sale_price": "Sale price",
+      "profit_loss": "Profit/loss (USD)",
+      "details": "Details",
+      "view": "View",
+      "prev": "Previous",
+      "next": "Next",
+      "filter_by_app": "Choose app",
+      "filter_by_date": "Choose date",
+      "no_transaction": "There is no transaction to show.",
+      "today": "Today"
     }
 }

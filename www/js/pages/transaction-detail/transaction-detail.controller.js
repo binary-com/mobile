@@ -13,9 +13,9 @@
         .module('binary.pages.profit-table.controllers')
         .controller('TransactionDetailController', TransactionDetail);
 
-    TransactionDetail.$inject = ['$scope', 'appStateService', 'websocketService', '$timeout'];
+    TransactionDetail.$inject = ['$scope', '$timeout', 'appStateService', 'websocketService'];
 
-    function TransactionDetail($scope, appStateService, websocketService, $timeout) {
+    function TransactionDetail($scope, $timeout, appStateService, websocketService) {
         var vm = this;
         vm.data = {};
 				vm.data.id = localStorage.getItem('id');
@@ -25,11 +25,11 @@
 				vm.sendDetailsRequest = function(){
 					if(appStateService.isLoggedin){
 						websocketService.sendRequestFor.openContract(vm.data.id, vm.data.extraParams);
-						$scope.$on('proposal:open-contract', function(e, proposal_open_contract, req_id) {
+						$scope.$on('proposal:open-contract', (e, proposal_open_contract, req_id) => {
 							vm.proposalOpenContract = proposal_open_contract;
 							vm.data.reqId = req_id;
 							if (vm.data.reqId == vm.data.id) {
-                $scope.$applyAsync(function(){
+                $scope.$applyAsync(() => {
 								vm.contract = vm.proposalOpenContract;
 								});
 							}

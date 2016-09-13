@@ -47,7 +47,7 @@
     init();
 
 
-    $scope.$on('authorize', function(e, response) {
+    $scope.$on('authorize', (e, response) => {
 
       $ionicLoading.hide();
 
@@ -92,27 +92,27 @@
           var mail = vm.data.mail;
           websocketService.sendRequestFor.accountOpening(mail);
         }
-        $scope.$on('verify_email', function(e, verify_email) {
+        $scope.$on('verify_email', (e, verify_email) => {
 						vm.userMail = verify_email;
 						if (vm.userMail == 1) {
-							$scope.$applyAsync(function(){
+							$scope.$applyAsync(() => {
 								vm.emailError = false;
 							});
-							$scope.$applyAsync(function() {
+							$scope.$applyAsync(() => {
 								vm.showvirtualws = true;
 								vm.showSignup = false;
 							});
 						}
 					});
-					$scope.$on('verify_email:error', function(e){
-						$scope.$applyAsync(function(){
+					$scope.$on('verify_email:error', (e) => {
+						$scope.$applyAsync(() => {
 							vm.emailError = true;
 						});
 					});
 
         // virtual ws opening
         websocketService.sendRequestFor.residenceListSend();
-      $scope.$on('residence_list', function(e, residence_list) {
+      $scope.$on('residence_list', (e, residence_list) => {
         if (!appStateService.hasGetResidence) {
           vm.data.residenceList = residence_list;
           appStateService.hasGetResidence = true;
@@ -134,13 +134,13 @@
         var residence = vm.data.residence;
         websocketService.sendRequestFor.newAccountVirtual(verificationCode, clientPassword, residence);
       };
-      $scope.$on('new_account_virtual', function(e, new_account_virtual) {
+      $scope.$on('new_account_virtual', (e, new_account_virtual) => {
         if (!appStateService.isLoggedin) {
           var _token = new_account_virtual.oauth_token;
           websocketService.authenticate(_token)
         }
       });
-      $scope.$on('new_account_virtual:error', function(e, error){
+      $scope.$on('new_account_virtual:error', (e, error) => {
 				 	if(error){
 					 			if((error.hasOwnProperty('details') && error.details.hasOwnProperty('verification_code')) || (error.hasOwnProperty('code') && error.code == "InvalidToken")){
 									alertService.displayError(error.message);
@@ -155,7 +155,7 @@
         vm.changeSigninView = function(_isBack){
             _isBack = _isBack || false;
 
-            $scope.$applyAsync(function(){
+            $scope.$applyAsync(() => {
                 if(!vm.showSignin && !vm.showSignup && !vm.showvirtualws && vm.showTokenForm){
                     vm.showTokenForm = false;
                     vm.showSignin = true;
@@ -197,7 +197,7 @@
         }
 
         vm.showSigninView = function(){
-            $scope.$applyAsync(function(){
+            $scope.$applyAsync(() => {
                 vm.showSignin = true;
             });
         }

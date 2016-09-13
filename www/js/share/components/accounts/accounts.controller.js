@@ -15,7 +15,7 @@
 
   Accounts.$inject = [
     'accountService', 'appStateService',
-    'utilsService', 'websocketService', '$rootScope'];
+    'utilsService', 'websocketService', '$rootScope', 'alertService'];
 
   function Accounts(
       accountService,
@@ -57,7 +57,7 @@
     };
 
 
-    vm.logout = function() {
+    vm.logout = function(res) {
 				alertService.confirmRemoveAllAccount(
 					function(res){
 						if(typeof(res) !== "boolean"){
@@ -79,7 +79,8 @@
                             appStateService.isLoggedin = false;
 														sessionStorage.removeItem('start');
 														sessionStorage.removeItem('_interval');
-                            localStorage.removeItem('profitTable');
+                            localStorage.removeItem('profitTableState');
+                            localStorage.removeItem('statementState');
                             websocketService.closeConnection();
                             appStateService.hasMLT = false;
                             $scope.$parent.$broadcast('logout');

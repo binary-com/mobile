@@ -13,20 +13,20 @@
         .module('binary.share.components.manage-accounts.controllers')
         .controller('ManageAccountsController', ManageAccounts);
 
-    ManageAccounts.$inject = ['$scope', '$state', 'languageService', 'accountService', 'websocketService', 'appStateService', 'alertService', 'cleanupService', 'proposalService', '$ionicLoading', 'marketService'];
+    ManageAccounts.$inject = ['$scope', '$state', '$ionicLoading', 'languageService', 'accountService', 'websocketService', 'appStateService', 'alertService', 'cleanupService', 'proposalService', 'marketService'];
 
-    function ManageAccounts($scope, $state, languageService, accountService, websocketService, appStateService, alertService, cleanupService, proposalService, $ionicLoading, marketService) {
+    function ManageAccounts($scope, $state, $ionicLoading, languageService, accountService, websocketService, appStateService, alertService, cleanupService, proposalService, marketService) {
         var vm = this;
 
         var requestId = null;
         vm.accounts = accountService.getAll();
 
-        $scope.$on('authorize', function(e, response, reqId) {
+        $scope.$on('authorize', (e, response, reqId) => {
             $ionicLoading.hide();
             if (response) {
                 if (reqId === requestId) {
                     if (accountService.isUnique(response.loginid)) {
-                        $scope.$applyAsync(function() {
+                        $scope.$applyAsync(() => {
                             accountService.add(response);
                             accountService.setDefault(response.token);
                             vm.accounts = accountService.getAll();
@@ -48,8 +48,8 @@
 
         });
 
-        $scope.$on('token:remove', function(e, response) {
-            $scope.$applyAsync(function() {
+        $scope.$on('token:remove', (e, response) => {
+            $scope.$applyAsync(() => {
                 accountService.remove(response);
                 vm.accounts = accountService.getAll();
             });
@@ -79,7 +79,8 @@
                 sessionStorage.removeItem('start');
                 sessionStorage.removeItem('_interval');
                 appStateService.isCheckedAccountType = false;
-                localStorage.removeItem('profitTable');
+                localStorage.removeItem('profitTableState');
+                localStorage.removeItem('statementState');
                 $rootScope.$broadcast('changedAccount');
                 appStateService.isPopupOpen = false;
             } else {

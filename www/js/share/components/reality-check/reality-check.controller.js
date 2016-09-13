@@ -13,12 +13,12 @@
         .module('binary.share.components.reality-check.controllers')
         .controller('RealityCheckController', RealityCheck);
 
-    RealityCheck.$inject = ['$scope', '$rootScope', '$state', '$timeout', '$location', 'websocketService', 'appStateService', 'accountService', '$ionicPopup', 'alertService', '$translate', 'languageService'];
+    RealityCheck.$inject = ['$scope', '$timeout', '$translate', '$location', '$state', '$ionicPopup', 'websocketService', 'appStateService', 'accountService', 'alertService', 'languageService'];
 
-    function RealityCheck($scope, $rootScope, $state, $timeout, $location, websocketService, appStateService, accountService, $ionicPopup, alertService, $translate, languageService) {
+    function RealityCheck($scope, $timeout, $translate, $location, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
 			var vm = this;
 			var landingCompanyName;
-			$scope.$on('authorize', function(e, authorize) {
+			$scope.$on('authorize', (e, authorize) => {
 				vm.sessionLoginId = authorize.loginid;
 
 				// check if user is not already authorized, account is real money account  & is not changed in app
@@ -43,7 +43,7 @@
 					appStateService.isChangedAccount = false;
 				}
 			});
-			$scope.$on('landing_company_details', function(e, landingCompanyDetails) {
+			$scope.$on('landing_company_details', (e, landingCompanyDetails) => {
 				if (landingCompanyDetails.has_reality_check === 1) {
 					vm.hasRealityCheck();
 				}
@@ -134,7 +134,7 @@
 				vm.setInterval(vm.data.interval);
 			};
 
-			$scope.$on('reality_check', function(e, reality_check) {
+			$scope.$on('reality_check', (e, reality_check) => {
 				vm.alertRealityCheck(reality_check);
 			});
 
@@ -179,6 +179,10 @@
 							appStateService.isPopupOpen = false;
 							sessionStorage.removeItem('start');
 							appStateService.isCheckedAccountType = false;
+              appStateService.hasMLT = false;
+              // $scope.$parent.$broadcast('logout');
+              localStorage.removeItem('profitTableState');
+              localStorage.removeItem('statementState');
 							$state.go('signin');
 						}
 						if (!res) {

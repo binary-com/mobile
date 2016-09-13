@@ -13,10 +13,28 @@
         .module('binary.pages.new-real-account-opening.components.new-account-real')
         .controller('NewAccountRealController', NewAccountReal);
 
-    NewAccountReal.$inject = ['$scope', '$rootScope', '$state', '$timeout', '$location', 'websocketService', 'appStateService', 'accountService', '$ionicPopup', 'alertService', '$translate', 'languageService'];
+    NewAccountReal.$inject = ['$scope', '$timeout', '$translate', '$state', '$ionicPopup', 'websocketService', 'appStateService', 'accountService', 'alertService', 'languageService'];
 
-    function NewAccountReal($scope, $rootScope, $state, $timeout, $location, websocketService, appStateService, accountService, $ionicPopup, alertService, $translate, languageService) {
+    function NewAccountReal($scope, $timeout, $translate, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
         var vm = this;
+        vm.data = {};
+
+        $scope.$on('countryCodeOfAccount', (e, countryCodeOfAccount) => {
+          vm.data.countryCode = countryCodeOfAccount;
+        });
+
+        $scope.$on('countryOfAccount', (e, countryOfAccount) => {
+          vm.data.country = countryOfAccount;
+        });
+
+        websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
+        $scope.$on('states_list', (e, states_list) => {
+          $scope.$applyAsync(() => {
+            vm.data.statesList = states_list;
+          });
+        });
+
+
         vm.validateName = (function(val) {
             var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
             return {
@@ -30,18 +48,6 @@
                 }
             }
         })();
-
-
-        vm.data = {};
-        vm.data.countryCode = $rootScope.countryCodeOfAccount;
-        vm.data.country = $rootScope.countryOfAccount;
-        websocketService.sendRequestFor.statesListSend($rootScope.countryCodeOfAccount);
-        $scope.$on('states_list', function(e, states_list) {
-          $scope.$applyAsync(function(){
-            vm.data.statesList = states_list;
-
-          });
-        });
 
         vm.submitAccountOpening = function() {
             if (vm.data.dateOfBirth) {

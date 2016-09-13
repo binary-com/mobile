@@ -1,5 +1,5 @@
 /**
- * @name profit-table service
+ * @name statement serivce
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 08/14/2016
@@ -10,38 +10,38 @@
         'use strict';
 
         angular
-            .module('binary.pages.profit-table.services')
-            .factory('profitTableService', ProfitTable);
-        ProfitTable.$inject = [];
+            .module('binary.pages.statement.services')
+            .factory('statementService', Statement);
+        Statement.$inject = [];
 
-        function ProfitTable() {
+        function Statement() {
             var factory = {};
-            var createProfitTable = function(_data) {
+            var createStatement = function(_data) {
                 // needs to check if
-                var profitTableState = {
+                var statementState = {
                     dateType: _data.dateType || 'allTime',
                     dateFrom: _data.dateFrom || "",
                     dateTo: _data.dateTo || "",
                     currentPage: _data.currentPage || 0,
                     appID: _data.appID || 'allApps'
                     }
-                return profitTableState;
+                return statementState;
             }
             factory.update = function(_data) {
                 if (_data) {
-                    localStorage.profitTableState = JSON.stringify(createProfitTable(_data));
+                    localStorage.statementState = JSON.stringify(createStatement(_data));
                 }
             }
 
             factory.get = function() {
-                if (localStorage.profitTableState) {
-                    return JSON.parse(localStorage.profitTableState);
+                if (localStorage.statementState) {
+                    return JSON.parse(localStorage.statementState);
                 }
                 return false;
             };
 
             factory.remove = function() {
-                localStorage.removeItem('profitTableState');
+                localStorage.removeItem('statementState');
             }
             return factory;
         }

@@ -47,6 +47,13 @@ angular
 					controller: 'ProfitTableController',
 					controllerAs: 'vm'
 				})
+				.state('statement',{
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/statement/statement.template.html',
+					controller: 'StatementController',
+					controllerAs: 'vm'
+				})
 				.state('transactiondetail',{
 					parent: 'layout',
 					cache: false,

@@ -1,5 +1,5 @@
 /**
- * @name profit-table controller
+ * @name statement controller
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 08/14/2016
@@ -10,12 +10,12 @@
     'use strict';
 
     angular
-        .module('binary.pages.profit-table.controllers')
-        .controller('ProfitTableController', ProfitTable);
+        .module('binary.pages.statement.controllers')
+        .controller('StatementController', Statement);
 
-    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', 'languageService', 'profitTableService', 'accountService', 'websocketService', 'appStateService'];
+    Statement.$inject = ['$scope', '$filter', '$timeout', '$state', 'languageService', 'statementService', 'accountService', 'websocketService', 'appStateService'];
 
-    function ProfitTable($scope, $filter, $timeout, $state, languageService, profitTableService, accountService, websocketService, appStateService) {
+    function Statement($scope, $filter, $timeout, $state, languageService, statementService, accountService, websocketService, appStateService) {
         var vm = this;
         vm.data = {};
         vm.itemsPerPage = 10;
@@ -26,22 +26,22 @@
         vm.transactions = [];
         vm.noTransaction = false;
         vm.data = {};
-        vm.data.isProfitTableSet = false;
+        vm.data.isStatementSet = false;
 
 
         // refresh table and filters on changing account
         $scope.$on('changedAccount', () => {
             if (appStateService.isChangedAccount) {
                 appStateService.isChangedAccount = false;
-                profitTableService.remove();
-                if (vm.data.isProfitTableSet) {
+                statementService.remove();
+                if (vm.data.isStatementSet) {
                     vm.setDefaultParams();
                 }
             }
         });
 
         // function of sending profti table request through websocket
-        vm.setProfitTableParams = function() {
+        vm.setStatementParams = function() {
 
                 vm.params = {
                     "description": 1,
@@ -54,42 +54,42 @@
                 if (vm.data.hasOwnProperty('dateTo') && vm.data.dateTo != "") {
                     vm.params.date_to = vm.data.dateTo;
                 }
-                websocketService.sendRequestFor.profitTable(vm.params);
+                websocketService.sendRequestFor.statement(vm.params);
             }
             // check if user is loggedin for preventing errors on page refresh
             // send request for profit table for the first time
-        vm.sendProfitTableRequest = function() {
+        vm.sendStatementRequest = function() {
             if (appStateService.isLoggedin) {
-                if (!vm.data.isProfitTableSet) {
-                    vm.setProfitTableParams();
-                    profitTableService.update(vm.data);
-                } else if (vm.data.isProfitTableSet || appStateService.isChangedAccount) {
+                if (!vm.data.isStatementSet) {
+                    vm.setStatementParams();
+                    statementService.update(vm.data);
+                } else if (vm.data.isStatementSet || appStateService.isChangedAccount) {
                     appStateService.isChangedAccount = false;
-                    vm.setProfitTableParams();
-                    profitTableService.update(vm.data);
+                    vm.setStatementParams();
+                    statementService.update(vm.data);
                 }
             } else {
-                $timeout(vm.sendProfitTableRequest, 500);
+                $timeout(vm.sendStatementRequest, 500);
             }
         }
 
         vm.setDefaultParams = function() {
-            if (_.isEmpty(localStorage.profitTableState)) {
+            if (_.isEmpty(localStorage.statementState)) {
                 vm.data.currentPage = 0;
                 vm.data.appID = 'allApps';
                 vm.data.dateType = 'allTime';
             } else {
-                vm.data = profitTableService.get();
+                vm.data = statementService.get();
                 if (vm.data.dateType == 'customDate') {
                     $scope.$applyAsync(() => {
                         document.getElementById("start").value = $filter('date')(new Date(vm.data.dateFrom * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
                         document.getElementById("end").value = $filter('date')(new Date(vm.data.dateTo * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
                         vm.customDateEnabled = true;
                     });
-                    profitTableService.update(vm.data);
+                    statementService.update(vm.data);
                 }
             }
-            return vm.sendProfitTableRequest();
+            return vm.sendStatementRequest();
         }
 
         vm.setDefaultParams();
@@ -120,7 +120,7 @@
         vm.setPage = function(n) {
             if (n > 0) {
                 vm.data.currentPage = n;
-                profitTableService.update(vm.data);
+                statementService.update(vm.data);
             }
         };
         vm.setTransactions = function() {
@@ -158,13 +158,13 @@
         // whenever changed send request for new data
         $scope.$watch("vm.data.currentPage", (newValue, oldValue) => {
             vm.data.currentPage = newValue;
-            if (vm.data.isProfitTableSet) {
-                vm.setProfitTableParams();
-                profitTableService.update(vm.data);
+            if (vm.data.isStatementSet) {
+                vm.setStatementParams();
+                statementService.update(vm.data);
             }
         });
         $scope.$watch("vm.data.appID", () => {
-            profitTableService.update(vm.data);
+            statementService.update(vm.data);
         });
 
         $scope.$watch("vm.data.dateType", () => {
@@ -172,11 +172,11 @@
             vm.transactions = [];
 
             // preventing from multiple requests at page load
-            if (vm.data.isProfitTableSet) {
+            if (vm.data.isStatementSet) {
 
                 if (vm.data.dateType == 'customDate') {
                     vm.customDateEnabled = true;
-                    if (vm.data.isProfitTableSet) {
+                    if (vm.data.isStatementSet) {
                         vm.setCustomDate();
                     }
                 } else {
@@ -215,29 +215,29 @@
                     }
                 }
 
-                profitTableService.update(vm.data);
-                vm.setProfitTableParams();
+                statementService.update(vm.data);
+                vm.setStatementParams();
             }
         });
 
         vm.setCustomDate = function() {
             vm.data.dateFrom = (new Date(document.getElementById("start").value).getTime()) / 1000 || "";
             vm.data.dateTo = (new Date(document.getElementById("end").value).getTime()) / 1000 || "";
-            profitTableService.update(vm.data);
-            vm.setProfitTableParams();
+            statementService.update(vm.data);
+            vm.setStatementParams();
         }
 
-        // do this on response of any profitTable request
-        $scope.$on('profit_table:update', (e, _profitTable, _passthrough) => {
-            vm.data.isProfitTableSet = true;
+        // do this on response of any statement request
+        $scope.$on('statement:update', (e, _statement, _passthrough) => {
+            vm.data.isStatementSet = true;
             vm.transactions.length = 0;
-            vm.profitTable = _profitTable;
-            vm.count = vm.profitTable.count;
+            vm.statement = _statement;
+            vm.count = vm.statement.count;
             if (vm.count > 0) {
                 $scope.$applyAsync(() => {
                     vm.noTransaction = false;
                 });
-                vm.items = vm.profitTable.transactions;
+                vm.items = vm.statement.transactions;
                 // enable and disabling previous button
                 vm.prevButtonState();
                 vm.setTransactions();
@@ -250,12 +250,12 @@
         });
 
         vm.navigateToOptions = function() {
-            profitTableService.remove();
+            statementService.remove();
             $state.go('options');
         }
 
         // $scope.$on('logout', function(e) {
-        //     profitTableService.remove();
+        //     statementService.remove();
         // });
         // details functions
         vm.sendContractDetailRequest = function(id) {

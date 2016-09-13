@@ -13,9 +13,9 @@
         .module('binary.pages.new-real-account-opening.components.new-account-maltainvest')
         .controller('NewAccountMaltainvestController', NewAccountMaltainvest);
 
-    NewAccountMaltainvest.$inject = ['$scope', '$rootScope', '$state', '$timeout', '$location', 'websocketService', 'appStateService', 'accountService', '$ionicPopup', 'alertService', '$translate', 'languageService'];
+    NewAccountMaltainvest.$inject = ['$scope', '$timeout',  '$translate', '$location', '$state', '$ionicPopup', 'websocketService', 'appStateService', 'accountService', 'alertService', 'languageService'];
 
-    function NewAccountMaltainvest($scope, $rootScope, $state, $timeout, $location, websocketService, appStateService, accountService, $ionicPopup, alertService, $translate, languageService) {
+    function NewAccountMaltainvest($scope, $timeout,  $translate, $location, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
         var vm = this;
 				vm.isReadonly = false;
 				vm.steps = [
@@ -79,7 +79,7 @@
 					}
 				};
 
-				$scope.$applyAsync(function() {
+				$scope.$applyAsync( () => {
 					if (appStateService.hasMLT) {
 						vm.isReadonly = true;
 					}
@@ -107,16 +107,22 @@
 				})();
 
 				vm.data = {};
-				vm.data.countryCode = $rootScope.countryCodeOfAccount;
-				vm.data.country = $rootScope.countryOfAccount;
+        $scope.$on('countryCodeOfAccount', (e, countryCodeOfAccount) => {
+          vm.data.countryCode = countryCodeOfAccount;
+        });
+        $scope.$on('countryOfAccount', (e, countryOfAccount) => {
+          vm.data.country = countryOfAccount;
+        });
+				// vm.data.countryCode = $rootScope.countryCodeOfAccount;
+				// vm.data.country = $rootScope.countryOfAccount;
 
-				websocketService.sendRequestFor.statesListSend($rootScope.countryCodeOfAccount);
-				$scope.$on('states_list', function(e, states_list) {
+				websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
+				$scope.$on('states_list', (e, states_list) => {
 					vm.data.statesList = states_list;
 				});
 				websocketService.sendRequestFor.accountSetting();
-				$scope.$on('get_settings', function(e, get_settings) {
-					$scope.$applyAsync(function() {
+				$scope.$on('get_settings', (e, get_settings) => {
+					$scope.$applyAsync(() => {
 						if (appStateService.hasMLT) {
 							var birth = new Date(get_settings.date_of_birth);
 							vm.data.dateOfBirth = birth.toISOString().slice(0, 10);
