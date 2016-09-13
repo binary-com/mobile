@@ -40,6 +40,7 @@
         'binary.pages.help',
         'binary.pages.trade',
         'binary.pages.profit-table',
+        'binary.pages.statement',
         'binary.pages.transaction-detail',
         'binary.pages.new-real-account-opening'
     ]);
