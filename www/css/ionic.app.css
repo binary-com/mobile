@@ -10364,36 +10364,32 @@ input::-webkit-inner-spin-button {
   .trade .contract-purchase button,
   .trade .contract-back button {
     font-size: 5vw; }
-  .trade .contract-details {
+  .trade .contract-summary {
     margin-top: 1%; }
-    .trade .contract-details .win {
+    .trade .contract-summary .win {
       color: #2E8836 !important; }
-    .trade .contract-details .lose {
+    .trade .contract-summary .loss {
       color: #ff0000 !important; }
-    .trade .contract-details .row {
+    .trade .contract-summary .row {
       padding: 0;
       margin-top: 0; }
-      .trade .contract-details .row .col {
+      .trade .contract-summary .row .col {
         border-top: 1px solid #f2f2f2; }
-        .trade .contract-details .row .col:first-child {
+        .trade .contract-summary .row .col:first-child {
           text-align: right;
           border-right: 1px solid #f2f2f2;
           padding: 4px 10px 4px 0;
           color: #000; }
-        .trade .contract-details .row .col:last-child {
+        .trade .contract-summary .row .col:last-child {
           text-align: center; }
-      .trade .contract-details .row:last-child {
+      .trade .contract-summary .row:last-child {
         border-bottom: 1px solid #f2f2f2; }
-    .trade .contract-details .win .col {
+    .trade .contract-summary .win {
       color: #2E8836 !important;
-      background-color: #fff !important;
-      font-size: 4vw;
-      padding: 5px !important; }
-    .trade .contract-details .lose .col {
+      font-size: 4vw; }
+    .trade .contract-summary .lose {
       color: #ff0000 !important;
-      background-color: #fff !important;
-      font-size: 4vw;
-      padding: 5px !important; }
+      font-size: 4vw; }
   .trade .buy-again {
     background-color: #fff;
     border-bottom: 1px solid #f2f2f2;
@@ -10451,7 +10447,14 @@ input::-webkit-inner-spin-button {
     .trade .ticks .button:hover, .trade .digits .button:hover {
       color: gray !important; }
   .trade .balance.row {
-    background: lightgray; } }
+    background: lightgray; }
+  .trade .error {
+    background-color: #FEF1CF;
+    padding: 10px 0; }
+    .trade .error p {
+      margin: 5px !important;
+      font-size: 4vw;
+      color: #000; } }
 
 @media only screen and (min-device-width: 480px) {
   .trade #tradeChart {
@@ -10546,36 +10549,32 @@ input::-webkit-inner-spin-button {
   .trade .contract-purchase button,
   .trade .contract-back button {
     font-size: 20px; }
-  .trade .contract-details {
+  .trade .contract-summary {
     margin-top: 1%; }
-    .trade .contract-details .win {
+    .trade .contract-summary .win {
       color: #2E8836 !important; }
-    .trade .contract-details .lose {
+    .trade .contract-summary .lose {
       color: #ff0000 !important; }
-    .trade .contract-details .row {
+    .trade .contract-summary .row {
       padding: 0;
       margin-top: 0; }
-      .trade .contract-details .row .col {
+      .trade .contract-summary .row .col {
         border-top: 1px solid #f2f2f2; }
-        .trade .contract-details .row .col:first-child {
+        .trade .contract-summary .row .col:first-child {
           text-align: right;
           border-right: 1px solid #f2f2f2;
           padding: 4px 10px 4px 0;
           color: #000; }
-        .trade .contract-details .row .col:last-child {
+        .trade .contract-summary .row .col:last-child {
           text-align: center; }
-      .trade .contract-details .row:last-child {
+      .trade .contract-summary .row:last-child {
         border-bottom: 1px solid #f2f2f2; }
-    .trade .contract-details .win .col {
+    .trade .contract-summary .win {
       color: #2E8836 !important;
-      background-color: #fff !important;
-      font-size: 14px;
-      padding: 5px !important; }
-    .trade .contract-details .lose .col {
+      font-size: 14px; }
+    .trade .contract-summary .lose {
       color: #ff0000 !important;
-      background-color: #fff !important;
-      font-size: 14px;
-      padding: 5px !important; }
+      font-size: 14px; }
   .trade .buy-again {
     background-color: #fff;
     border-bottom: 1px solid #f2f2f2;
@@ -10633,7 +10632,14 @@ input::-webkit-inner-spin-button {
     .trade .ticks .button:hover, .trade .digits .button:hover {
       color: gray !important; }
   .trade .balance.row {
-    background: lightgray; } }
+    background: lightgray; }
+  .trade .error {
+    background-color: #FEF1CF;
+    padding: 10px 0; }
+    .trade .error p {
+      margin: 5px !important;
+      font-size: 4vw;
+      color: #000; } }
 
 @media only screen and (max-device-width: 480px) {
   .options .options-content {

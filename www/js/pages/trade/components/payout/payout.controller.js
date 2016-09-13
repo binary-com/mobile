@@ -17,6 +17,7 @@
 
     function Payout(){
         var vm = this;
+        vm.amount = vm.proposal.amount;
 
 
         vm.changePayoutType = function(){
@@ -26,7 +27,27 @@
                 vm.proposal.basis = "payout";
             }
         }
-        
+
+        vm.changeAmount = function(){
+          if(_.isEmpty(vm.amount) || vm.amount === 'NaN' || Number(vm.amount) == 0){
+            vm.proposal.amount = 0;
+          } else {
+            vm.proposal.amount = vm.amount;
+          }
+        }
+
+        vm.add = function(){
+           vm.amount = (Number(vm.amount) + 1) <= 10000 ? Number(vm.amount) + 1 : 100000;
+        }
+
+        vm.subtract = function() {
+            vm.amount = (Number(vm.amount) - 1) >= 1 ? Number(vm.amount) - 1 : 1;
+        }
+
+        vm.stopLongPress = function(){
+          vm.proposal.amount = vm.amount;
+        }
+
         function init(){
         }
 

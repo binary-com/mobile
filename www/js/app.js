@@ -23,7 +23,9 @@
         'binary.share.components.ping',
         'binary.share.components.accounts',
         'binary.share.components.spinner-logo',
-        'binary.share.components.balance'
+        'binary.share.components.balance',
+        'binary.share.components.currency',
+        'binary.share.components.long-press'
     ]);
 
   angular

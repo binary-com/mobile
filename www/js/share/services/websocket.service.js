@@ -342,7 +342,7 @@ angular
                                 $rootScope.$broadcast('proposal', message.proposal, message.req_id);
                             }
                             else if(message.error){
-                                $rootScope.$broadcast('proposal:error', message.error);
+                              $rootScope.$broadcast('proposal:error', message.error, message.req_id);
                             }
                             break;
                         case 'contracts_for':

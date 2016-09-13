@@ -122,12 +122,12 @@
 																font-size: 5vw;
 												}
 								}
-								.contract-details {
+								.contract-summary {
 												margin-top: 1%;
 												.win {
 																color: $green !important;
 												}
-												.lose {
+												.loss {
 																color: $red !important;
 												}
 												.row {
@@ -149,17 +149,13 @@
 																				border-bottom: 1px solid $lightgray;
 																}
 												}
-												.win .col {
+												.win {
 																color: $green !important;
-																background-color: $white !important;
 																font-size: 4vw;
-																padding: 5px !important;
 												}
-												.lose .col {
+												.lose {
 																color: $red !important;
-																background-color: $white !important;
 																font-size: 4vw;
-																padding: 5px !important;
 												}
 								}
 								.buy-again {
@@ -232,6 +228,15 @@
                 .balance {
                   &.row{
                     background: lightgray;
+                  }
+                }
+                .error {
+                  background-color: $notification;
+                  padding: 10px 0;
+                  p {
+                    margin: 5px !important;
+                    font-size: 4vw;
+                    color: $black;
                   }
                 }
 				}
@@ -358,7 +363,7 @@
 																font-size: 20px;
 												}
 								}
-								.contract-details {
+								.contract-summary {
 												margin-top: 1%;
 												.win {
 																color: $green !important;
@@ -385,17 +390,13 @@
 																				border-bottom: 1px solid $lightgray;
 																}
 												}
-												.win .col {
+												.win {
 																color: $green !important;
-																background-color: $white !important;
 																font-size: 14px;
-																padding: 5px !important;
 												}
-												.lose .col {
+												.lose {
 																color: $red !important;
-																background-color: $white !important;
 																font-size: 14px;
-																padding: 5px !important;
 												}
 								}
 								.buy-again {
@@ -468,6 +469,15 @@
                 .balance {
                   &.row{
                     background: lightgray;
+                  }
+                }
+                .error {
+                  background-color: $notification;
+                  padding: 10px 0;
+                  p {
+                    margin: 5px !important;
+                    font-size: 4vw;
+                    color: $black;
                   }
                 }
 				}

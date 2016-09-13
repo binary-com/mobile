@@ -1,0 +1,50 @@
+<div class="contract-summary">
+  <div class="row">
+    <div class="col center">
+      {{ 'trade.transaction_id' | translate }}: {{ vm.purchasedContract.transactionId }}
+    </div>
+  </div>
+  <div class="row">
+    <!-- Buy Col -->
+    <div class="col center buy">
+      <div class="row">
+        <div class="col center title"> {{ 'trade.buy' | translate }} </div>
+      </div>
+      <div class="row">
+        <div class="col center">
+          <strong> {{ vm.purchasedContract.cost | currency:vm.proposal.currency:2 }} </strong>
+        </div>
+      </div>
+    </div>
+    <!-- Sell Col -->
+    <div class="col center sell">
+      <div class="row">
+        <div class="col center title"> {{ 'trade.sell' | translate }} </div>
+      </div>
+      <div class="row">
+        <div class="col center">
+          <strong> {{ vm.purchasedContract.payout | currency:vm.proposal.currency:2 }} </strong>
+        </div>
+      </div>
+    </div>
+    <!-- Profit Col -->
+    <div class="col center profit">
+      <div class="row">
+        <div class="col center title" ng-if="!vm.purchasedContract.result"> {{ 'trade.profit' | translate }} </div>
+        <div class="col center title" ng-if="vm.purchasedContract.result === 'loss'"> {{ 'trade.loss' | translate }} </div>
+        <div class="col center title" ng-if="vm.purchasedContract.result === 'win'"> {{ 'trade.win' | translate }} </div>
+      </div>
+      <div class="row">
+        <div class="col center" ng-if="!vm.purchasedContract.result">
+          <strong> {{ vm.purchasedContract.profit | currency:vm.proposal.currency:2 }} </strong>
+        </div>
+        <div class="col center loss" ng-if="vm.purchasedContract.result === 'loss'">
+          <strong>{{ vm.purchasedContract.profit | currency:vm.proposal.currency:2 }} </strong>
+        </div>
+        <div class="col center win" ng-if="vm.purchasedContract.result === 'win'">
+          <strong> {{ vm.purchasedContract.profit | currency:vm.proposal.currency:2 }} </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -25,8 +25,8 @@
         }
 
         function init(){
-            var tradeType = JSON.parse(sessionStorage.tradeTypes)[vm.tradeType][0];
-            vm.digits = tradeType.last_digit_range;
+            var tradeTypes = JSON.parse(sessionStorage.tradeTypes)[vm.tradeType];
+            vm.digits = _.union(tradeTypes[0].last_digit_range, tradeTypes[1].last_digit_range);
         }
 
         init();
