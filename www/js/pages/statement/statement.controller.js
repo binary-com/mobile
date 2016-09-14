@@ -254,7 +254,7 @@
             $state.go('options');
         }
 
-        // $scope.$on('logout', function(e) {
+        // $scope.$on('logout', (e) => {
         //     statementService.remove();
         // });
         // details functions

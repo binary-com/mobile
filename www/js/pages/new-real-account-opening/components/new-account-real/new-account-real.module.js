@@ -1,8 +1,8 @@
 /**
  * @name new-account-real module
- * @author Morteza Tavanarad
+ * @author Nazanin Reihani Haghighi
  * @contributors []
- * @since 8/13/2016
+ * @since 08/14/2016
  * @copyright Binary Ltd
  */
 

@@ -13,10 +13,12 @@
         .module('binary.share.components.real-account-opening.controllers')
         .controller('RealAccountOpeningController', RealAccountOpening);
 
-    RealAccountOpening.$inject = ['$scope', '$rootScope', '$timeout', '$translate', '$state', '$ionicPopup', 'websocketService', 'appStateService', 'accountService', 'alertService', 'languageService'];
+    RealAccountOpening.$inject = ['$scope', '$timeout', '$translate', '$state', '$ionicPopup', 'websocketService', 'appStateService', 'accountService', 'alertService', 'languageService'];
 
-    function RealAccountOpening($scope, $rootScope, $timeout, $translate, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
+    function RealAccountOpening($scope, $timeout, $translate, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
         var vm = this;
+        vm.data = {};
+        vm.countryParams = {};
         vm.showUpgradeLink = false;
         vm.showUpgradeLinkMaltainvest = false;
         vm.isCheckedCompany = false;
@@ -40,32 +42,29 @@
             }
         });
 
-        // go back to home on refresh
-        // if (!appStateService.isLoggedin) {
-        //     $state.go('home');
-        // };
-
         // get account-setting and landing-company
         vm.getCompany = function() {
-            vm.data = {};
             websocketService.sendRequestFor.accountSetting();
-            $scope.$on('get_settings', (e, get_settings) => {
-                vm.data.setting = get_settings;
-                vm.countryCode = vm.data.setting.country_code;
-                vm.countryCodeOfAccount = vm.data.setting.country_code;
-                vm.countryOfAccount = vm.data.setting.country;
-                if (vm.countryCode != "jp") {
-                    websocketService.sendRequestFor.landingCompanySend(vm.countryCode);
-                }
-            });
-            $scope.$on('landing_company', (e, landing_company) => {
-                if (!vm.isCheckedCompany) {
-                    vm.isCheckedCompany = true;
-                    vm.accountStates(landing_company);
-                }
-
-            });
         };
+
+        $scope.$on('get_settings', (e, get_settings) => {
+            vm.data.setting = get_settings;
+            vm.data.countryCode = vm.data.setting.country_code;
+            vm.data.countryOfAccount = vm.data.setting.country;
+            vm.countryParams.countryCode = vm.data.countryCode;
+            vm.countryParams.countryOfAccount = vm.data.countryOfAccount;
+            sessionStorage.countryParams = JSON.stringify(vm.countryParams);
+            if (vm.data.countryCode != "jp") {
+                websocketService.sendRequestFor.landingCompanySend(vm.data.countryCode);
+            }
+        });
+        $scope.$on('landing_company', (e, landing_company) => {
+            if (!vm.isCheckedCompany) {
+                vm.isCheckedCompany = true;
+                vm.accountStates(landing_company);
+            }
+
+        });
 
         // check 3 states combining of Maltainvest shortcode, gaming company and financial company
         vm.accountStates = function(landing_company) {
@@ -87,9 +86,7 @@
                         vm.getToken();
                     }
                 }
-
             }
-
         }
 
         // get tokens from localStorage
@@ -176,7 +173,7 @@
             $scope.$applyAsync(() => {
                 if (appStateService.isCheckedAccountType) {
                     vm.showUpgradeLink = true;
-                    $rootScope.isNewAccountReal = true;
+                    appStateService.isNewAccountReal = true;
                 }
             });
         }
@@ -184,7 +181,7 @@
             $scope.$applyAsync(() => {
                 if (appStateService.isCheckedAccountType) {
                     vm.showUpgradeLinkMaltainvest = true;
-                    $rootScope.isNewAccountMaltainvest = true;
+                    appStateService.isNewAccountMaltainvest = true;
                 }
             });
         }
@@ -192,8 +189,8 @@
             $scope.$applyAsync(() => {
                 vm.showUpgradeLink = false;
                 vm.showUpgradeLinkMaltainvest = false;
-                $rootScope.isNewAccountReal = false;
-                $rootScope.isNewAccountMaltainvest = false;
+                appStateService.isNewAccountReal = false;
+                appStateService.isNewAccountMaltainvest = false;
                 appStateService.isCheckedAccountType = false;
                 vm.hasGamingAndMaltainvest = false;
                 vm.hasFinancialAndMaltainvest = false;
@@ -209,13 +206,6 @@
         vm.navigateToUpgrade = function() {
             $state.go('realaccountopening');
         }
-
-        // back button
-        vm.navigateToOptions = function() {
-            $state.go('home');
-        }
-
-
 
     }
 })();

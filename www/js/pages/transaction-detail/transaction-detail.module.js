@@ -1,5 +1,5 @@
 /**
- * @name profit-table module
+ * @name transaction-detail module
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 08/14/2016

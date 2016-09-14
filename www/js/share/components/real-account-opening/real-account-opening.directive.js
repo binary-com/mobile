@@ -18,7 +18,9 @@
             restrict: 'E',
             templateUrl: 'js/share/components/real-account-opening/real-account-opening.template.html',
             controller: 'RealAccountOpeningController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            bindToController: true,
+            scope: {}
 
         };
         return directive;

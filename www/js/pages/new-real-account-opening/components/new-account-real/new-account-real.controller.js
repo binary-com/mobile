@@ -18,8 +18,11 @@
     function NewAccountReal($scope, $timeout, $translate, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
         var vm = this;
         vm.data = {};
-        vm.data.countryCode = $rootScope.countryCodeOfAccount;
-        vm.data.country = $rootScope.countryOfAccount;
+        vm.countryParams = JSON.parse(sessionStorage.countryParams);
+        vm.data.countryCode = vm.countryParams.countryCode;
+        $scope.$applyAsync(() => {
+          vm.data.country = vm.countryParams.countryOfAccount;
+        });
 
         websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
         $scope.$on('states_list', (e, states_list) => {
@@ -73,7 +76,6 @@
             }
             websocketService.sendRequestFor.createRealAccountSend(params);
         };
-
 
     }
 })();

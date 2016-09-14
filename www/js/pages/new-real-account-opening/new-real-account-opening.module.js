@@ -1,8 +1,8 @@
 /**
- * @name Singin Module
- * @author Morteza Tavanarad
+ * @name new-real-account-opening module
+ * @author Nazanin Reihani Haghighi
  * @contributors []
- * @since 8/10/2016
+ * @since 08/14/2016
  * @copyright Binary Ltd
  */
 

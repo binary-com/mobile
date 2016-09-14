@@ -18,7 +18,9 @@
             restrict: 'E',
             templateUrl: 'js/pages/new-real-account-opening/components/new-account-real/new-account-real.template.html',
             controller: 'NewAccountRealController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            bindToController: true,
+            scope: {}
 
           }
           return directive;

@@ -13,8 +13,19 @@
         .module('binary.pages.new-real-account-opening.controllers')
         .controller('NewRealAccountOpeningController', NewRealAccountOpeningController);
 
-    NewRealAccountOpeningController.$inject = [];
+    NewRealAccountOpeningController.$inject = ['$scope', 'appStateService'];
 
-    function NewRealAccountOpeningController() {
+    function NewRealAccountOpeningController($scope, appStateService) {
+      var vm = this;
+      vm.isNewAccountReal = false;
+      vm.isNewAccountMaltainvest = false;
+      $scope.$applyAsync(() => {
+        if(appStateService.isNewAccountReal){
+          vm.isNewAccountReal = true;
+        }
+        if(appStateService.isNewAccountMaltainvest){
+          vm.isNewAccountMaltainvest = true;
+        }
+      });
 
 		}})();

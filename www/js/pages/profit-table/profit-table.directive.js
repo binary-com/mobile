@@ -17,12 +17,10 @@
         var directive = {
             restrict: 'E',
             templateUrl: 'js/pages/profit-table/profit-table.template.html',
-            scope: {},
-            bindToController: {
-              data : "="
-            },
             controller: 'ProfitTableController',
             controllerAs: 'vm',
+            bindToController: true,
+            scope: {}
 
         };
         return directive;

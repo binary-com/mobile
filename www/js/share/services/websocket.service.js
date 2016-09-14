@@ -106,7 +106,7 @@ angular
 
             };
 
-            $rootScope.$on('language:updated', function() {
+            $rootScope.$on('language:updated', () => {
                 init(true);
             })
 

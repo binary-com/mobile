@@ -12,21 +12,15 @@
     angular
         .module('binary.pages.new-real-account-opening.components.new-account-maltainvest')
         .directive('bgNewAccountMaltainvest', NewAccountMaltainvest);
-        NewAccountMaltainvest.$inject = ['accountService',
-		      'languageService',
-		      'websocketService',
-		      'alertService',
-		      '$state',
-		      'appStateService',
-		      '$rootScope',
-		      '$location', '$compile'];
 
     function NewAccountMaltainvest() {
         var directive = {
             restrict: 'E',
             templateUrl: 'js/pages/new-real-account-opening/components/new-account-maltainvest/new-account-maltainvest.template.html',
             controller: 'NewAccountMaltainvestController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            bindToController: true,
+            scope: {}
 
           }
           return directive;

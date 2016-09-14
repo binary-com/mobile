@@ -1,5 +1,5 @@
 /**
- * @name profit-table directive
+ * @name transaction-detail directive
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 08/14/2016
@@ -17,12 +17,12 @@
         var directive = {
             restrict: 'E',
             templateUrl: 'js/pages/transaction-detail/transaction-detail.template.html',
-            scope: {},
+            controller: 'transactionDetailController',
+            controllerAs: 'vm',
             bindToController: {
               data : "="
             },
-            controller: 'transactionDetailController',
-            controllerAs: 'vm',
+            scope: {}
 
         };
         return directive;

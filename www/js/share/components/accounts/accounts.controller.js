@@ -15,14 +15,14 @@
 
   Accounts.$inject = [
     'accountService', 'appStateService',
-    'utilsService', 'websocketService', '$rootScope', 'alertService'];
+    'utilsService', 'websocketService', 'alertService'];
 
   function Accounts(
       accountService,
       appStateService,
       utilsService,
-      websocketService,
-    $rootScope){
+      websocketService
+    ){
     var vm = this;
 
     var init = function() {
@@ -52,7 +52,7 @@
       accountService.setDefault(_selectedAccount);
       accountService.validate();
       updateSymbols();
-      $rootScope.$broadcast('changedAccount');
+      $root.$broadcast('changedAccount');
 
     };
 

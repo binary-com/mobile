@@ -25,20 +25,21 @@
 				vm.sendDetailsRequest = function(){
 					if(appStateService.isLoggedin){
 						websocketService.sendRequestFor.openContract(vm.data.id, vm.data.extraParams);
-						$scope.$on('proposal:open-contract', (e, proposal_open_contract, req_id) => {
-							vm.proposalOpenContract = proposal_open_contract;
-							vm.data.reqId = req_id;
-							if (vm.data.reqId == vm.data.id) {
-                $scope.$applyAsync(() => {
-								vm.contract = vm.proposalOpenContract;
-								});
-							}
-						});
 					}
 					else{
 						$timeout(vm.sendDetailsRequest, 500);
 					}
 				};
+
+        $scope.$on('proposal:open-contract', (e, proposal_open_contract, req_id) => {
+          vm.proposalOpenContract = proposal_open_contract;
+          vm.data.reqId = req_id;
+          if (vm.data.reqId == vm.data.id) {
+            $scope.$applyAsync(() => {
+            vm.contract = vm.proposalOpenContract;
+            });
+          }
+        });
 
 				vm.sendDetailsRequest();
 

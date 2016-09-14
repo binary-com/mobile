@@ -173,7 +173,7 @@
 							// marketService.removeAssetIndex();
 							appStateService.isLoggedin = false;
 							websocketService.closeConnection();
-              // vm.$parent.$broadcast('logout');
+              // $root.$broadcast('logout');
 							vm.removeInterval('_interval');
 							appStateService.isRealityChecked = false;
 							appStateService.isPopupOpen = false;

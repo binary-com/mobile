@@ -17,9 +17,10 @@
         var directive = {
             restrict: 'E',
             templateUrl: 'js/share/components/reality-check/reality-check.template.html',
-          
             controller: 'RealityCheckController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            bindToController: true,
+            scope: {}
 
         };
         return directive;

@@ -17,12 +17,10 @@
         var directive = {
             restrict: 'E',
             templateUrl: 'js/pages/statement/statement.template.html',
-            scope: {},
-            bindToController: {
-              data : "="
-            },
             controller: 'StatementController',
             controllerAs: 'vm',
+            bindToController: true,
+            scope: {}
 
         };
         return directive;

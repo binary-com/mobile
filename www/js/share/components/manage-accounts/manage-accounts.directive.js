@@ -18,7 +18,9 @@
             restrict: 'E',
             templateUrl: 'js/share/components/manage-accounts/manage-accounts.template.html',
             controller: 'ManageAccountsController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            bindToController: true,
+            scope: {}
 
         };
         return directive;

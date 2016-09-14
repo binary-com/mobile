@@ -17,6 +17,7 @@
 
     function NewAccountMaltainvest($scope, $timeout,  $translate, $location, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
         var vm = this;
+        vm.data = {};
 				vm.isReadonly = false;
 				vm.steps = [
 					'details',
@@ -106,9 +107,11 @@
 					}
 				})();
 
-				vm.data = {};
-				vm.data.countryCode = $rootScope.countryCodeOfAccount;
-				vm.data.country = $rootScope.countryOfAccount;
+        vm.countryParams = JSON.parse(sessionStorage.countryParams);
+        vm.data.countryCode = vm.countryParams.countryCode;
+        $scope.$applyAsync(() => {
+          vm.data.country = vm.countryParams.countryOfAccount;
+        });
 
 				websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
 				$scope.$on('states_list', (e, states_list) => {
@@ -155,7 +158,7 @@
 							"first_name": vm.data.firstName,
 							"last_name": vm.data.lastName,
 							"date_of_birth": vm.data.birthDate,
-							"residence": vm.data.countryCode,
+							"residence": vm.countryParams.countryCode,
 							"address_line_1": vm.data.addressLine1,
 							"address_line_2": vm.data.addressLine2,
 							"address_city": vm.data.addressCity,
@@ -185,8 +188,6 @@
 						};
 					websocketService.sendRequestFor.createMaltainvestAccountSend(params);
 				};
-
-
 
 
 			}})();
