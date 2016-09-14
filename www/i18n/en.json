@@ -79,16 +79,18 @@
 		"total_cost": "Total Cost",
 		"potential_profit": "Potential Profit",
 		"account_balance": "Account Balance",
-		"back": "Back",
+		"back": "Back To Trade",
 		"balance": "Balance",
 		"buy_price": "Buy Price",
 		"final_price": "Final Price",
 		"profit": "Profit",
 		"loss": "Loss",
-		"win": "This contract won",
+		"win": "Win",
 		"lose": "This contract lost",
 		"transaction_id": "Transaction Reference",
-		"buy_again": "Buy Again"
+		"buy_again": "Buy Again",
+    "sell": "Sell"
+
 	},
 	"help": {
 		"need_help": "Need Help?",
