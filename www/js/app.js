@@ -14,8 +14,7 @@
       'ngIOS9UIWebViewPatch',
       'binary.share.components',
       'binary.share.services',
-      'binary.pages',
-      'ngMessages'
+      'binary.pages'
       ]);
 
   angular
@@ -25,6 +24,8 @@
         'binary.share.components.accounts',
         'binary.share.components.spinner-logo',
         'binary.share.components.balance',
+        'binary.share.components.currency',
+        'binary.share.components.long-press',
         'binary.share.components.reality-check',
         'binary.share.components.real-account-opening',
         'binary.share.components.manage-accounts',
