@@ -27,7 +27,8 @@
         'binary.share.components.balance',
         'binary.share.components.reality-check',
         'binary.share.components.real-account-opening',
-        'binary.share.components.manage-accounts'
+        'binary.share.components.manage-accounts',
+        'binary.share.components.logout'
     ]);
 
   angular

@@ -15,7 +15,7 @@
 
   Accounts.$inject = [
     'accountService', 'appStateService',
-    'utilsService', 'websocketService', 'alertService'];
+    'utilsService', 'websocketService'];
 
   function Accounts(
       accountService,
@@ -53,43 +53,7 @@
       accountService.validate();
       updateSymbols();
       $root.$broadcast('changedAccount');
-
     };
-
-
-    vm.logout = function(res) {
-				alertService.confirmRemoveAllAccount(
-					function(res){
-						if(typeof(res) !== "boolean"){
-							if(res == 1)
-								res = true;
-							else
-								res = false;
-						}
-
-						if(res){
-							appStateService.isRealityChecked = false;
-							appStateService.isChangedAccount = false;
-							appStateService.isPopupOpen = false;
-							appStateService.isCheckedAccountType = false;
-							accountService.removeAll();
-							// proposalService.remove();
-                            // marketService.removeActiveSymbols();
-                            // marketService.removeAssetIndex();
-                            appStateService.isLoggedin = false;
-														sessionStorage.removeItem('start');
-														sessionStorage.removeItem('_interval');
-                            localStorage.removeItem('profitTableState');
-                            localStorage.removeItem('statementState');
-                            websocketService.closeConnection();
-                            appStateService.hasMLT = false;
-                            $scope.$parent.$broadcast('logout');
-							$state.go('signin');
-						}
-					}
-				);
-			};
-
 
 
   }
