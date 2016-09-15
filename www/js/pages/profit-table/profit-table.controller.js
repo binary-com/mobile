@@ -254,9 +254,6 @@
             $state.go('options');
         }
 
-        // $scope.$on('logout', (e) => {
-        //     profitTableService.remove();
-        // });
         // details functions
         vm.sendContractDetailRequest = function(id) {
             vm.id = id;

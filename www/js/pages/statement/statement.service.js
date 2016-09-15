@@ -17,7 +17,6 @@
         function Statement() {
             var factory = {};
             var createStatement = function(_data) {
-                // needs to check if
                 var statementState = {
                     dateType: _data.dateType || 'allTime',
                     dateFrom: _data.dateFrom || "",

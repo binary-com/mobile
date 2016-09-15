@@ -86,8 +86,6 @@
 					}
 				});
 
-
-
 				vm.validateName = (function(val) {
 					var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
 					return {
@@ -127,8 +125,6 @@
 							vm.data.lastName = get_settings.last_name;
 							vm.data.salutation = get_settings.salutation;
 						}
-
-
 					});
 				});
 
@@ -188,6 +184,5 @@
 						};
 					websocketService.sendRequestFor.createMaltainvestAccountSend(params);
 				};
-
 
 			}})();

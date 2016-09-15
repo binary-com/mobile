@@ -39,8 +39,6 @@
                         }
                     }
 
-                    // reloading language setting
-                    //languageService.set();
                 }
             } else {
                 alertService.accountError.tokenNotAuthenticated(reqId);
@@ -56,8 +54,6 @@
         });
 
         var cleanLocalData = function() {
-            // Clearing local data
-            // proposalService.remove();
             marketService.removeActiveSymbols();
             marketService.removeAssetIndex();
             appStateService.isLoggedin = false;
@@ -79,8 +75,13 @@
                 sessionStorage.removeItem('start');
                 sessionStorage.removeItem('_interval');
                 appStateService.isCheckedAccountType = false;
+                appStateService.isCheckedAccountType = false;
+                appStateService.isNewAccountReal = false;
+                appStateService.isNewAccountMaltainvest = false;
+                appStateService.hasMLT = false;
                 localStorage.removeItem('profitTableState');
                 localStorage.removeItem('statementState');
+                sessionStorage.removeItem('countryParams');
                 $root.$broadcast('changedAccount');
                 appStateService.isPopupOpen = false;
             } else {

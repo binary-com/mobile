@@ -168,21 +168,19 @@
 
 						if (res) {
 							accountService.removeAll();
-							// proposalService.remove();
-							// marketService.removeActiveSymbols();
-							// marketService.removeAssetIndex();
 							appStateService.isLoggedin = false;
 							websocketService.closeConnection();
-              // $root.$broadcast('logout');
 							vm.removeInterval('_interval');
 							appStateService.isRealityChecked = false;
 							appStateService.isPopupOpen = false;
 							sessionStorage.removeItem('start');
 							appStateService.isCheckedAccountType = false;
+              appStateService.isNewAccountReal = false;
+              appStateService.isNewAccountMaltainvest = false;
               appStateService.hasMLT = false;
-              // $scope.$parent.$broadcast('logout');
               localStorage.removeItem('profitTableState');
               localStorage.removeItem('statementState');
+              sessionStorage.removeItem('countryParams');
 							$state.go('signin');
 						}
 						if (!res) {

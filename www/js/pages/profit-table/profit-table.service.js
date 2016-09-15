@@ -17,7 +17,6 @@
         function ProfitTable() {
             var factory = {};
             var createProfitTable = function(_data) {
-                // needs to check if
                 var profitTableState = {
                     dateType: _data.dateType || 'allTime',
                     dateFrom: _data.dateFrom || "",

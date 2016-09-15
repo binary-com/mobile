@@ -56,7 +56,7 @@
 	<table class="" id="profit-table">
 		<thead>
 			<tr>
-				<th style="display:none;">
+				<th>
 					{{'profittable.date' | translate}}
 				</th>
 				<th>
@@ -68,7 +68,7 @@
 				<th>
 					{{'profittable.purchase_price' | translate}}
 				</th>
-				<th style="display:none;">
+				<th>
 					{{'profittable.sale_date' | translate}}
 				</th>
 				<th>
@@ -84,11 +84,11 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="transaction in vm.transactions | DataFilter:vm.data.appID">
-				<td style="display:none;" ng-bind="transaction.purchase_time * 1000 | date : 'medium' "></td>
+				<td ng-bind="transaction.purchase_time * 1000 | date : 'medium' "></td>
 				<td ng-bind="transaction.transaction_id"></td>
 				<td ng-bind="transaction.payout" class="center"></td>
 				<td ng-bind="(transaction.buy_price - 0).toFixed(2)" class="center"></td>
-				<td style="display:none;" ng-bind="transaction.sell_time * 1000 | date : 'medium' "></td>
+				<td ng-bind="transaction.sell_time * 1000 | date : 'medium' "></td>
 				<td ng-bind="(transaction.sell_price - 0).toFixed(2)" class="center"></td>
 				<td ng-bind="(transaction.sell_price - transaction.buy_price).toFixed(2)" class="center"></td>
 				<td>

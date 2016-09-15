@@ -8,7 +8,6 @@
 
         <!-- tab version -->
         <ul>
-            <!-- <li ng-repeat="step in steps" ng-class="{'active': $index === getCurrentStepIndex() }" ng-click="goToStep($index)"> -->
             <li ng-repeat="step in steps" ng-class="{'active': $index === getCurrentStepIndex() }">
                 <a href="javascript:void(0)" ng-bind-html="$index ==0 ? ('newaccountmaltainvest.details'| translate) : ($index == 1 ? ('newaccountmaltainvest.financial_information'| translate) : ('newaccountmaltainvest.privacy'| translate) )"></a>
             </li>
@@ -562,4 +561,4 @@
         </div>
         <div class="clearfix"></div>
     </ion-content>
-</ion-view >
+</ion-view>

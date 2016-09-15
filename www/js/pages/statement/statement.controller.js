@@ -28,7 +28,6 @@
         vm.data = {};
         vm.data.isStatementSet = false;
 
-
         // refresh table and filters on changing account
         $scope.$on('changedAccount', () => {
             if (appStateService.isChangedAccount) {
@@ -254,9 +253,6 @@
             $state.go('options');
         }
 
-        // $scope.$on('logout', (e) => {
-        //     statementService.remove();
-        // });
         // details functions
         vm.sendContractDetailRequest = function(id) {
             vm.id = id;
