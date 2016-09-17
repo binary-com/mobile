@@ -40,9 +40,8 @@
             }
         });
 
-        // function of sending profti table request through websocket
+        // function of sending profit table request through websocket
         vm.setProfitTableParams = function() {
-
                 vm.params = {
                     "description": 1,
                     "limit": vm.itemsFirstCall,
@@ -93,6 +92,7 @@
         }
 
         vm.setDefaultParams();
+
         // previous button
         vm.prevPage = function() {
             if (vm.data.currentPage > 0) {
@@ -110,7 +110,7 @@
                     $scope.$applyAsync(() => {
                         vm.prevPageDisabled = true;
                     });
-                } else if (vm.data.currentPage != 0) {
+                } else {
                     $scope.$applyAsync(() => {
                         vm.prevPageDisabled = false;
                     });
@@ -123,6 +123,7 @@
                 profitTableService.update(vm.data);
             }
         };
+
         vm.setTransactions = function() {
             // check if there are still more to show
             if (vm.count < vm.itemsFirstCall) {
@@ -168,11 +169,11 @@
         });
 
         $scope.$watch("vm.data.dateType", () => {
-            vm.data.currentPage = 0;
-            vm.transactions = [];
 
             // preventing from multiple requests at page load
             if (vm.data.isProfitTableSet) {
+                vm.transactions = [];
+                vm.data.currentPage = 0;
 
                 if (vm.data.dateType == 'customDate') {
                     vm.customDateEnabled = true;

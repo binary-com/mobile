@@ -167,12 +167,11 @@
         });
 
         $scope.$watch("vm.data.dateType", () => {
-            vm.data.currentPage = 0;
-            vm.transactions = [];
-
             // preventing from multiple requests at page load
             if (vm.data.isStatementSet) {
-
+              vm.data.currentPage = 0;
+              vm.transactions = [];
+              
                 if (vm.data.dateType == 'customDate') {
                     vm.customDateEnabled = true;
                     if (vm.data.isStatementSet) {
