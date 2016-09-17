@@ -22,8 +22,15 @@
       bindToController: true,
       scope: {
           proposal: '=?'
-      }
+      },
+      link: link
     };
+
+    function link(scope, element, attributes, vm){
+      scope.$on('$destroy', () => {
+        websocketService.sendRequestFor.forget(vm.balance.id);
+      });
+    }
 
     return directive;
   }
