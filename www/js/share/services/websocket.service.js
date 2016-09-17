@@ -8,285 +8,359 @@
  */
 
 angular
-	.module('binary')
-	.factory('websocketService',
-		function($rootScope, localStorageService, alertService, appStateService, $state, config) {
-			var dataStream = '';
-			var messageBuffer = [];
+    .module('binary')
+    .factory('websocketService',
+        function($rootScope, localStorageService, alertService, appStateService, $state, config) {
+            var dataStream = '';
+            var messageBuffer = [];
 
-			var waitForConnection = function(callback, isAuthonticationRequest) {
-				if (dataStream.readyState === 3) {
-					init();
-                    if(!isAuthonticationRequest){
+            var waitForConnection = function(callback, isAuthonticationRequest) {
+                if (dataStream.readyState === 3) {
+                    init();
+                    if (!isAuthonticationRequest) {
                         setTimeout(function() {
                             waitForConnection(callback);
                         }, 1000);
                     }
-				} else if (dataStream.readyState === 1) {
-					callback();
-				} else if (!(dataStream instanceof WebSocket)) {
-					init();
-                    if(!isAuthonticationRequest){
+                } else if (dataStream.readyState === 1) {
+                    callback();
+                } else if (!(dataStream instanceof WebSocket)) {
+                    init();
+                    if (!isAuthonticationRequest) {
                         setTimeout(function() {
                             waitForConnection(callback);
                         }, 1000);
                     }
-				} else {
-					setTimeout(function() {
-						waitForConnection(callback);
-					}, 1000);
-				}
-			};
+                } else {
+                    setTimeout(function() {
+                        waitForConnection(callback);
+                    }, 1000);
+                }
+            };
 
-			var sendMessage = function(_data) {
-        var token = localStorageService.getDefaultToken();
-				waitForConnection(function() {
-					dataStream.send(JSON.stringify(_data));
-				}, _data.hasOwnProperty('authorize') && token);
-			};
+            var sendMessage = function(_data) {
+                var token = localStorageService.getDefaultToken();
+                waitForConnection(function() {
+                    dataStream.send(JSON.stringify(_data));
+                }, _data.hasOwnProperty('authorize') && token);
+            };
 
-			var init = function(forced) {
-				forced = forced || false;
-				var language = localStorage.language || 'en';
+            var init = function(forced) {
+                forced = forced || false;
+                var language = localStorage.language || 'en';
 
-				if (dataStream && dataStream.readyState !== 3 && !forced) {
-					return;
-				} else if (dataStream && dataStream.readyState !== 0) {
-					dataStream.close();
-				}
+                if (dataStream && dataStream.readyState !== 3 && !forced) {
+                    return;
+                } else if (dataStream && dataStream.readyState !== 0) {
+                    dataStream.close();
+                }
 
-				dataStream = null;
+                dataStream = null;
 
-				appStateService.isLoggedin = false;
+                appStateService.isLoggedin = false;
 
-				dataStream = new WebSocket(config.wsUrl + '?app_id=' + config.app_id + '&l=' + language);
+                dataStream = new WebSocket(config.wsUrl + '?app_id=' + config.app_id + '&l=' + language);
 
-				dataStream.onopen = function() {
+                dataStream.onopen = function() {
 
-					sendMessage({
-						ping: 1
-					});
+                    sendMessage({
+                        ping: 1
+                    });
 
-					// Authorize the default token if it's exist
-					var token = localStorageService.getDefaultToken();
-					if (token) {
-						var data = {
-							authorize: token,
-							passthrough: {
-								type: "reopen-connection"
-							}
-						};
-						sendMessage(data);
+                    // Authorize the default token if it's exist
+                    var token = localStorageService.getDefaultToken();
+                    if (token) {
+                        var data = {
+                            authorize: token,
+                            passthrough: {
+                                type: "reopen-connection"
+                            }
+                        };
+                        sendMessage(data);
 
-					}
+                    }
 
-					console.log('socket is opened');
-					$rootScope.$broadcast('connection:ready');
+                    console.log('socket is opened');
+                    $rootScope.$broadcast('connection:ready');
 
-				};
+                };
 
-				dataStream.onmessage = function(message) {
-					receiveMessage(message);
-				};
+                dataStream.onmessage = function(message) {
+                    receiveMessage(message);
+                };
 
-				dataStream.onclose = function(e) {
-					console.log('socket is closed ', e);
-					init();
-					console.log('socket is reopened');
-					appStateService.isLoggedin = false;
-					$rootScope.$broadcast('connection:reopened');
-				};
+                dataStream.onclose = function(e) {
+                    console.log('socket is closed ', e);
+                    init();
+                    console.log('socket is reopened');
+                    appStateService.isLoggedin = false;
+                    $rootScope.$broadcast('connection:reopened');
+                };
 
-				dataStream.onerror = function(e) {
-					if (e.target.readyState == 3) {
-						$rootScope.$broadcast('connection:error');
-					}
-					appStateService.isLoggedin = false;
-				};
+                dataStream.onerror = function(e) {
+                    if (e.target.readyState == 3) {
+                        $rootScope.$broadcast('connection:error');
+                    }
+                    appStateService.isLoggedin = false;
+                };
 
-			};
+            };
 
-			$rootScope.$on('language:updated', function() {
-				init(true);
-			})
+            $rootScope.$on('language:updated', function() {
+                init(true);
+            })
 
 
-			var websocketService = {};
-			websocketService.authenticate = function(_token, extraParams) {
-				extraParams = null || extraParams;
-				appStateService.isLoggedin = false;
+            var websocketService = {};
+            websocketService.authenticate = function(_token, extraParams) {
+                extraParams = null || extraParams;
+                appStateService.isLoggedin = false;
 
-				var data = {
-					authorize: _token
-				};
+                var data = {
+                    authorize: _token
+                };
 
-				for (key in extraParams) {
-					if (extraParams.hasOwnProperty(key)) {
-						data[key] = extraParams[key];
-					}
-				}
+                for (key in extraParams) {
+                    if (extraParams.hasOwnProperty(key)) {
+                        data[key] = extraParams[key];
+                    }
+                }
 
-				sendMessage(data);
-			};
+                sendMessage(data);
+            };
 
-			websocketService.sendRequestFor = {
-				symbols: function() {
-					var data = {
-						active_symbols: "brief"
-					};
-					sendMessage(data);
-				},
-				assetIndex: function() {
-					var data = {
-						asset_index: 1
-					};
-					sendMessage(data);
-				},
-				currencies: function() {
-					var data = {
-						payout_currencies: 1
-					};
-					sendMessage(data);
-				},
-				contractsForSymbol: function(_symbol) {
-					var data = {
-						contracts_for: _symbol
-					};
-					sendMessage(data);
-				},
-				ticksForSymbol: function(_symbol) {
-					var data = {
-						ticks: _symbol
-					};
-					sendMessage(data);
-				},
-				forgetAll: function(_stream) {
-					var data = {
-						forget_all: _stream
-					};
-					sendMessage(data);
-				},
-				forgetStream: function(_id) {
-					var data = {
-						forget: _id
-					};
-					sendMessage(data);
-				},
-				forgetProposals: function() {
-					var data = {
-						forget_all: 'proposal'
-					};
-					sendMessage(data);
-				},
-				forgetTicks: function() {
-					var data = {
-						forget_all: 'ticks'
-					};
-					sendMessage(data);
-				},
-				proposal: function(_proposal) {
-					sendMessage(_proposal);
-				},
-				purchase: function(_proposalId, price) {
-					var data = {
-						buy: _proposalId,
-						price: price || 0
-					};
-					sendMessage(data);
-				},
-				balance: function() {
-					var data = {
-						balance: 1,
-						subscribe: 1
-					};
-					sendMessage(data);
-				},
-				portfolio: function() {
-					var data = {
-						portfolio: 1
-					};
-					sendMessage(data);
-				},
-				profitTable: function(params) {
-					var data = {
-						profit_table: 1
-					};
+            websocketService.sendRequestFor = {
+                symbols: function() {
+                    var data = {
+                        active_symbols: "brief"
+                    };
+                    sendMessage(data);
+                },
+                assetIndex: function() {
+                    var data = {
+                        asset_index: 1
+                    };
+                    sendMessage(data);
+                },
+                currencies: function() {
+                    var data = {
+                        payout_currencies: 1
+                    };
+                    sendMessage(data);
+                },
+                contractsForSymbol: function(_symbol) {
+                    var data = {
+                        contracts_for: _symbol
+                    };
+                    sendMessage(data);
+                },
+                ticksForSymbol: function(_symbol) {
+                    var data = {
+                        ticks: _symbol
+                    };
+                    sendMessage(data);
+                },
+                forgetAll: function(_stream) {
+                    var data = {
+                        forget_all: _stream
+                    };
+                    sendMessage(data);
+                },
+                forgetStream: function(_id) {
+                    var data = {
+                        forget: _id
+                    };
+                    sendMessage(data);
+                },
+                forgetProposals: function() {
+                    var data = {
+                        forget_all: 'proposal'
+                    };
+                    sendMessage(data);
+                },
+                forgetTicks: function() {
+                    var data = {
+                        forget_all: 'ticks'
+                    };
+                    sendMessage(data);
+                },
+                proposal: function(_proposal) {
+                    sendMessage(_proposal);
+                },
+                purchase: function(_proposalId, price) {
+                    var data = {
+                        buy: _proposalId,
+                        price: price || 0
+                    };
+                    sendMessage(data);
+                },
+                balance: function() {
+                    var data = {
+                        balance: 1,
+                        subscribe: 1
+                    };
+                    sendMessage(data);
+                },
+                portfolio: function() {
+                    var data = {
+                        portfolio: 1
+                    };
+                    sendMessage(data);
+                },
+                profitTable: function(params) {
+                    var data = {
+                        profit_table: 1
+                    };
 
-					for (key in params) {
-						if (params.hasOwnProperty(key)) {
-							data[key] = params[key]
-						}
-					}
+                    for (key in params) {
+                        if (params.hasOwnProperty(key)) {
+                            data[key] = params[key]
+                        }
+                    }
 
-					sendMessage(data);
-				},
-				ticksHistory: function(data) {
-					// data is the whole JSON convertable object parameter for the ticks_history API call
-					if (data.ticks_history) {
-						sendMessage(data);
-					}
-				},
-				openContract: function(contractId, extraParams) {
-					var data = {};
-					data.proposal_open_contract = 1;
+                    sendMessage(data);
+                },
+                ticksHistory: function(data) {
+                    // data is the whole JSON convertable object parameter for the ticks_history API call
+                    if (data.ticks_history) {
+                        sendMessage(data);
+                    }
+                },
+                openContract: function(contractId, extraParams) {
+                    var data = {};
+                    data.proposal_open_contract = 1;
 
-					if (contractId) {
-						data.contract_id = contractId;
-					}
+                    if (contractId) {
+                        data.contract_id = contractId;
+                    }
 
-					for (key in extraParams) {
-						if (extraParams.hasOwnProperty(key)) {
-							data[key] = extraParams[key]
-						}
-					}
+                    for (key in extraParams) {
+                        if (extraParams.hasOwnProperty(key)) {
+                            data[key] = extraParams[key]
+                        }
+                    }
 
-					sendMessage(data);
-				},
-				sellExpiredContract: function() {
-					var data = {
-						sell_expired: 1
-					};
+                    sendMessage(data);
+                },
+                sellExpiredContract: function() {
+                    var data = {
+                        sell_expired: 1
+                    };
 
-					sendMessage(data);
-				},
-				landingCompanyDetails: function(company) {
-					var data = {
-						landing_company_details: company
-					};
-					sendMessage(data);
-				},
-				realityCheck: function() {
-					var data = {
-						"reality_check": 1
-					};
-					sendMessage(data);
-				},
-                ping: function(){
+                    sendMessage(data);
+                },
+                landingCompanyDetails: function(company) {
+                    var data = {
+                        landing_company_details: company
+                    };
+                    sendMessage(data);
+                },
+                realityCheck: function() {
+                    var data = {
+                        "reality_check": 1
+                    };
+                    sendMessage(data);
+                },
+                accountOpening: function(verifyEmail) {
+                    var data = {
+                        "verify_email": verifyEmail,
+                        "type": "account_opening"
+                    };
+                    sendMessage(data);
+                },
+                residenceListSend: function() {
+                    var data = {
+                        "residence_list": 1
+                    };
+                    sendMessage(data);
+                },
+                newAccountVirtual: function(verificationCode, clientPassword, residence) {
+                    var data = {
+                        "new_account_virtual": "1",
+                        "verification_code": verificationCode,
+                        "client_password": clientPassword,
+                        "residence": residence
+                    };
+                    sendMessage(data);
+                },
+                accountSetting: function() {
+                    var data = {
+                        "get_settings": 1
+                    };
+                    sendMessage(data);
+                },
+                landingCompanySend: function(company) {
+                    var data = {
+                        "landing_company": company
+                    };
+                    sendMessage(data);
+                },
+                statesListSend: function(company) {
+                    var data = {
+                        "states_list": company
+                    };
+                    sendMessage(data);
+                },
+                createRealAccountSend: function(params) {
+                    var data = {
+                        "new_account_real": "1"
+                    };
+                    for (key in params) {
+                        if (params.hasOwnProperty(key)) {
+                            data[key] = params[key]
+                        }
+                    };
+                    sendMessage(data);
+                },
+                createMaltainvestAccountSend: function(params) {
+                    var data = {
+                        "new_account_maltainvest": "1"
+                    };
+                    for (key in params) {
+                        if (params.hasOwnProperty(key)) {
+                            data[key] = params[key]
+                        }
+                    };
+                    sendMessage(data);
+                },
+                statement: function(params) {
+                    var data = {
+                        statement: 1
+                    };
+
+                    for (key in params) {
+                        if (params.hasOwnProperty(key)) {
+                            data[key] = params[key]
+                        }
+                    }
+                    sendMessage(data);
+                },
+                ping: function() {
                     var data = {
                         ping: 1
                     };
                     sendMessage(data);
                 }
-			};
+            };
 
-			websocketService.closeConnection = function() {
-				if (dataStream) {
-					dataStream.close();
-				}
-			};
+            websocketService.closeConnection = function() {
+                if (dataStream) {
+                    dataStream.close();
+                }
+            };
 
-			var receiveMessage = function(_response) {
-				var message = JSON.parse(_response.data);
+            var receiveMessage = function(_response) {
+                var message = JSON.parse(_response.data);
 
-				if (message) {
-                    if(message.error){
-                        if(message.error.code === 'InvalidToken'){
+                if (message) {
+                    if (message.error) {
+                        if (message.error.code === 'InvalidToken') {
                             localStorageService.manageInvalidToken();
                         }
                     }
 
                     var messageType = message.msg_type;
-                    switch(messageType) {
+                    switch (messageType) {
                         case 'authorize':
                             if (message.authorize) {
                                 message.authorize.token = message.echo_req.authorize;
@@ -295,7 +369,7 @@ angular
                                 appStateService.scopes = message.authorize.scopes;
                                 amplitude.setUserId(message.authorize.loginid);
 
-                                if(_.isEmpty(message.authorize.currency)){
+                                if (_.isEmpty(message.authorize.currency)) {
                                     websocketService.sendRequestFor.currencies();
                                 } else {
                                     sessionStorage.currency = message.authorize.currency;
@@ -305,8 +379,8 @@ angular
                             } else {
                                 var errorMessage = "Unexpected Error!"
                                 if (message.hasOwnProperty('error')) {
-                                  localStorageService.removeToken(message.echo_req.authorize);
-                                  errorMessage = message.error.message;
+                                    localStorageService.removeToken(message.echo_req.authorize);
+                                    errorMessage = message.error.message;
                                 }
                                 $rootScope.$broadcast('authorize', false, errorMessage);
                                 appStateService.isLoggedin = false;
@@ -324,25 +398,24 @@ angular
                                 }
                             }
                             //if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
-                               sessionStorage.active_symbols = JSON.stringify(openMarkets);
-                               $rootScope.$broadcast('symbols:updated');
+                            sessionStorage.active_symbols = JSON.stringify(openMarkets);
+                            $rootScope.$broadcast('symbols:updated');
                             //}
                             break;
                         case 'asset_index':
                             //if ( !sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index) ) {
-                              sessionStorage.asset_index = JSON.stringify(message.asset_index);
-                              $rootScope.$broadcast('assetIndex:updated');
+                            sessionStorage.asset_index = JSON.stringify(message.asset_index);
+                            $rootScope.$broadcast('assetIndex:updated');
                             //}
                             break;
                         case 'payout_currencies':
                             $rootScope.$broadcast('currencies', message.payout_currencies);
                             break;
                         case 'proposal':
-                            if(message.proposal){
+                            if (message.proposal) {
                                 $rootScope.$broadcast('proposal', message.proposal, message.req_id);
-                            }
-                            else if(message.error){
-                              $rootScope.$broadcast('proposal:error', message.error, message.req_id);
+                            } else if (message.error) {
+                                $rootScope.$broadcast('proposal:error', message.error, message.req_id);
                             }
                             break;
                         case 'contracts_for':
@@ -351,16 +424,15 @@ angular
                             $rootScope.$broadcast('symbol', groupedSymbol);
                             break;
                         case 'buy':
-                            if(message.error){
+                            if (message.error) {
                                 $rootScope.$broadcast('purchase:error', message.error);
                                 alertService.displayError(message.error.message);
-                            }
-                            else{
+                            } else {
                                 $rootScope.$broadcast('purchase', message);
                             }
                             break;
                         case 'balance':
-                            if(!(message.error)){
+                            if (!(message.error)) {
                                 $rootScope.$broadcast('balance', message.balance);
                             }
                             break;
@@ -388,13 +460,13 @@ angular
                         case 'proposal_open_contract':
                             $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
                             break;
-												case 'landing_company_details':
-														$rootScope.$broadcast('landing_company_details', message.landing_company_details);
-														break;
-												case 'reality_check':
-														$rootScope.$broadcast('reality_check', message.reality_check);
-														break;
-														case 'verify_email':
+                        case 'landing_company_details':
+                            $rootScope.$broadcast('landing_company_details', message.landing_company_details);
+                            break;
+                        case 'reality_check':
+                            $rootScope.$broadcast('reality_check', message.reality_check);
+                            break;
+                        case 'verify_email':
                             if (message.verify_email) {
                                 $rootScope.$broadcast('verify_email', message.verify_email);
                             } else if (message.error) {
@@ -442,8 +514,8 @@ angular
                             break;
                         default:
                     }
-				}
-			};
+                }
+            };
 
-			return websocketService;
-		});
+            return websocketService;
+        });
