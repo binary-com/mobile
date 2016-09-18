@@ -1,112 +1,52 @@
-<div class="profit-table-container">
-	<h1>{{'statement.statement' | translate}}</h1>
-	<div class="row">
-		<h1>{{'statement.filter_by_app' | translate}}</h1>
+<ion-view class="accounts">
+    <ion-content class="accounts-content" has-bouncing="false">
+        <div class="profit-table-container">
+            <bg-balance></bg-balance>
+            <div class="row">
+                <div class="col col-50">
+                    <label class="item item-input item-select">
+                        <select class="" name="appID" ng-model="vm.data.appID">
+                            <option ng-selected="vm.data.appID == app.label" ng-value="app.label" ng-repeat="app in vm.apps" ng-bind="app.text"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col col-50">
+                    <label class="item item-input item-select">
+                        <select class="" name="dateType" ng-model="vm.data.dateType">
+                            <option ng-selected="vm.data.dateType == date.label" ng-value="date.label" ng-repeat="date in vm.dates" ng-bind="date.text"></option>
+                        </select>
+                    </label>
+                </div>
+            </div>
 
-	</div>
-	<div class="row">
-		<div class="col">
-			<ion-radio name="appID" ng-model="vm.data.appID" ng-value="'allApps'">{{'statement.all_apps' | translate}}</ion-radio>
-			<ion-radio name="appID" ng-model="vm.data.appID" ng-value="'tickTradeApp'">{{'statement.tick_trade_app' | translate}}</ion-radio>
-		</div>
-	</div>
-	<div class="row">
-		<h1>{{'statement.filter_by_date' | translate}}</h1>
-
-	</div>
-	<div class="row">
-		<div class="col date">
-			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'allTime'">{{'statement.all_time' | translate}}</ion-radio>
-			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'monthAgo'">{{'statement.last_month' | translate}}</ion-radio>
-			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'sevenDayAgo'">{{'statement.last_week' | translate}}</ion-radio>
-			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'threeDayAgo'">{{'statement.last_3_days' | translate}}</ion-radio>
-			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'oneDayAgo'">{{'statement.last_day' | translate}}</ion-radio>
-			<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'today'">{{'statement.today' | translate}}</ion-radio>
-		</div>
-
-	</div>
-
-	<div class="row">
-		<ion-radio name="dateType" ng-model="vm.data.dateType" ng-value="'customDate'">{{'statement.custom_date' | translate}}</ion-radio>
-	</div>
-	<div class="row">
-
-		<div class="col col-50">
-			<span>
-				{{'statement.from' | translate}}</span>
-			<label class="item item-input">
-
-				<input type="date" ng-model="vm.data.start" id="start"/>
-			</label>
-		</div>
-
-		<div class="col col-50">
-			<span>
-				{{'statement.to' | translate}}</span>
-			<label class="item item-input">
-
-				<input type="date" ng-model="vm.data.end" id="end"/>
-			</label>
-
-		</div>
-	</div>
-
-	<button class="button" ng-disabled="!vm.customDateEnabled" ng-click="vm.setCustomDate()">run custom date</button>
-
-	<table class="" id="profit-table">
-		<thead>
-			<tr>
-				<th>
-					{{'statement.date' | translate}}
-				</th>
-				<th>
-					{{'statement.ref' | translate}}
-				</th>
-				<th>
-					{{'statement.potential_payout' | translate}}
-				</th>
-				<th>
-					{{'statement.purchase_price' | translate}}
-				</th>
-				<th>
-					{{'statement.sale_date' | translate}}
-				</th>
-				<th>
-					{{'statement.sale_price' | translate}}
-				</th>
-				<th>
-					{{'statement.profit_loss' | translate}}
-				</th>
-				<th>
-					{{'statement.details' | translate}}
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="transaction in vm.transactions | StatementFilter:vm.data.appID">
-				<td ng-bind="transaction.purchase_time * 1000 | date : 'medium' "></td>
-				<td ng-bind="transaction.transaction_id"></td>
-				<td ng-bind="transaction.payout" class="center"></td>
-				<td ng-bind="(transaction.buy_price - 0).toFixed(2)" class="center"></td>
-				<td ng-bind="transaction.sell_time * 1000 | date : 'medium' "></td>
-				<td ng-bind="(transaction.sell_price - 0).toFixed(2)" class="center"></td>
-				<td ng-bind="(transaction.sell_price - transaction.buy_price).toFixed(2)" class="center"></td>
-				<td>
-					<button ng-click="vm.sendContractDetailRequest(transaction.contract_id)">{{'statement.view' | translate}}</button>
-				</td>
-			</tr>
-			<tr ng-if="vm.noTransaction">
-				<td colspan="8">
-					<p>{{'statement.no_transaction' | translate}}</p>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-
-	<div class="col">
-		<button class="button" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled">«
-			{{'statement.prev' | translate}}</button>
-		<button class="button" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled">{{'statement.next' | translate}}
-			»</button>
-	</div>
-</div>
+            <div class="profit-table col col-100">
+                <div class="row header">
+                    <div class="col profit-table-cell profit-table-title">{{'statement.date' | translate}}</div>
+                    <div class="col profit-table-cell profit-table-title">{{'statement.ref' | translate}}</div>
+                    <div class="col profit-table-cell profit-table-title">{{'statement.action_type' | translate}}</div>
+                    <div class="col profit-table-cell profit-table-title">{{'statement.credit_debit' | translate}}</div>
+                    <div class="col profit-table-cell profit-table-title">{{'statement.balance' | translate}}</div>
+                </div>
+                <div class="row" ng-repeat="transaction in vm.transactions | DataFilter:vm.data.appID" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                    <div class="col profit-table-cell" ng-bind="transaction.transaction_time * 1000 | date : 'mediumDate' "></div>
+                    <div class="col profit-table-cell" ng-bind="transaction.transaction_id"></div>
+                    <div class="col profit-table-cell" ng-bind="transaction.action_type" class="center"></div>
+                    <div class="col profit-table-cell" ng-bind="(transaction.amount - 0).toFixed(2)" class="center"></div>
+                    <!-- <div class="col profit-table-cell" ng-bind="(transaction.balance_after - 0).toFixed(2)"></div> -->
+                    <div class="col profit-table-cell" ng-bind="transaction.balance_after | currency: USD :2"></div>
+                </div>
+                <div class="row" ng-if="vm.noTransaction">
+                    <div class="col">
+                        {{'statement.no_transaction' | translate}}
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <button class="button" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled">«
+                    {{'statement.prev' | translate}}</button>
+                <button class="button" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled">{{'statement.next' | translate}}
+                    »</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

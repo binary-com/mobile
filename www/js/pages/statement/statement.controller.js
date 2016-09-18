@@ -13,12 +13,12 @@
         .module('binary.pages.statement.controllers')
         .controller('StatementController', Statement);
 
-    Statement.$inject = ['$scope', '$filter', '$timeout', '$state', 'languageService', 'statementService', 'accountService', 'websocketService', 'appStateService'];
+    Statement.$inject = ['$scope', '$filter', '$timeout', '$translate', '$state', 'languageService', 'statementService', 'accountService', 'websocketService', 'appStateService'];
 
-    function Statement($scope, $filter, $timeout, $state, languageService, statementService, accountService, websocketService, appStateService) {
+    function Statement($scope, $filter, $timeout, $translate, $state, languageService, statementService, accountService, websocketService, appStateService) {
         var vm = this;
         vm.data = {};
-        vm.itemsPerPage = 10;
+        vm.itemsPerPage = 7;
         vm.itemsFirstCall = vm.itemsPerPage + 1;
         vm.nextPageDisabled = true;
         vm.prevPageDisabled = true;
@@ -27,6 +27,46 @@
         vm.noTransaction = false;
         vm.data = {};
         vm.data.isStatementSet = false;
+        $translate(['statement.all_apps', 'statement.tick_trade_app', 'statement.all_time', 'statement.last_month', 'statement.last_week', 'statement.last_3_days', 'statement.last_day', 'statement.today'])
+        .then((translation) => {
+            vm.apps = [
+              {
+                label: "allApps",
+                text: translation['statement.all_apps']
+              },
+              {
+                label: "tickTradeApp",
+                text: translation['statement.tick_trade_app']
+              }
+            ];
+            vm.dates = [
+              {
+                label: "allTime",
+                text: translation['statement.all_time']
+              },
+              {
+                label: "monthAgo",
+                text: translation['statement.last_month']
+              },
+              {
+                label: "sevenDayAgo",
+                text: translation['statement.last_week']
+              },
+              {
+                label: "threeDayAgo",
+                text: translation['statement.last_3_days']
+              },
+              {
+                label: "oneDayAgo",
+                text: translation['statement.last_day']
+              },
+              {
+                label: "today",
+                text: translation['statement.today']
+              }
+            ];
+
+        });
 
         // refresh table and filters on changing account
         $scope.$on('changedAccount', () => {
@@ -92,6 +132,7 @@
         }
 
         vm.setDefaultParams();
+
         // previous button
         vm.prevPage = function() {
             if (vm.data.currentPage > 0) {
@@ -109,7 +150,7 @@
                     $scope.$applyAsync(() => {
                         vm.prevPageDisabled = true;
                     });
-                } else if (vm.data.currentPage != 0) {
+                } else {
                     $scope.$applyAsync(() => {
                         vm.prevPageDisabled = false;
                     });
@@ -169,9 +210,6 @@
         $scope.$watch("vm.data.dateType", () => {
             // preventing from multiple requests at page load
             if (vm.data.isStatementSet) {
-              vm.data.currentPage = 0;
-              vm.transactions = [];
-              
                 if (vm.data.dateType == 'customDate') {
                     vm.customDateEnabled = true;
                     if (vm.data.isStatementSet) {
@@ -212,7 +250,8 @@
                         }
                     }
                 }
-
+                vm.transactions = [];
+                vm.data.currentPage = 0;
                 statementService.update(vm.data);
                 vm.setStatementParams();
             }
@@ -241,6 +280,7 @@
                 vm.setTransactions();
             } else {
                 $scope.$applyAsync(() => {
+                    vm.prevButtonState();
                     vm.nextPageDisabled = true;
                     vm.noTransaction = true;
                 });

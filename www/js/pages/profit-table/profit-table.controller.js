@@ -13,12 +13,12 @@
         .module('binary.pages.profit-table.controllers')
         .controller('ProfitTableController', ProfitTable);
 
-    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', 'languageService', 'profitTableService', 'accountService', 'websocketService', 'appStateService'];
+    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$translate', '$state', 'languageService', 'profitTableService', 'accountService', 'websocketService', 'appStateService'];
 
-    function ProfitTable($scope, $filter, $timeout, $state, languageService, profitTableService, accountService, websocketService, appStateService) {
+    function ProfitTable($scope, $filter, $timeout, $translate, $state, languageService, profitTableService, accountService, websocketService, appStateService) {
         var vm = this;
         vm.data = {};
-        vm.itemsPerPage = 10;
+        vm.itemsPerPage = 5;
         vm.itemsFirstCall = vm.itemsPerPage + 1;
         vm.nextPageDisabled = true;
         vm.prevPageDisabled = true;
@@ -27,7 +27,45 @@
         vm.noTransaction = false;
         vm.data = {};
         vm.data.isProfitTableSet = false;
-
+        $translate(['profittable.all_apps', 'profittable.tick_trade_app', 'profittable.all_time', 'profittable.last_month', 'profittable.last_week', 'profittable.last_3_days', 'profittable.last_day', 'profittable.today'])
+        .then((translation) => {
+            vm.apps = [
+              {
+                label: "allApps",
+                text: translation['profittable.all_apps']
+              },
+              {
+                label: "tickTradeApp",
+                text: translation['profittable.tick_trade_app']
+              }
+            ];
+            vm.dates = [
+              {
+                label: "allTime",
+                text: translation['profittable.all_time']
+              },
+              {
+                label: "monthAgo",
+                text: translation['profittable.last_month']
+              },
+              {
+                label: "sevenDayAgo",
+                text: translation['profittable.last_week']
+              },
+              {
+                label: "threeDayAgo",
+                text: translation['profittable.last_3_days']
+              },
+              {
+                label: "oneDayAgo",
+                text: translation['profittable.last_day']
+              },
+              {
+                label: "today",
+                text: translation['profittable.today']
+              }
+            ];
+        });
 
         // refresh table and filters on changing account
         $scope.$on('changedAccount', () => {
@@ -172,8 +210,6 @@
 
             // preventing from multiple requests at page load
             if (vm.data.isProfitTableSet) {
-                vm.transactions = [];
-                vm.data.currentPage = 0;
 
                 if (vm.data.dateType == 'customDate') {
                     vm.customDateEnabled = true;
@@ -215,7 +251,8 @@
                         }
                     }
                 }
-
+                vm.transactions = [];
+                vm.data.currentPage = 0;
                 profitTableService.update(vm.data);
                 vm.setProfitTableParams();
             }
@@ -244,6 +281,7 @@
                 vm.setTransactions();
             } else {
                 $scope.$applyAsync(() => {
+                    vm.prevButtonState();
                     vm.nextPageDisabled = true;
                     vm.noTransaction = true;
                 });

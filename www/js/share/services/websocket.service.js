@@ -458,7 +458,7 @@ angular
                             $rootScope.$broadcast('sell:expired', message.sell_expired);
                             break;
                         case 'proposal_open_contract':
-                            $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract);
+                            $rootScope.$broadcast('proposal:open-contract', message.proposal_open_contract, message.req_id);
                             break;
                         case 'landing_company_details':
                             $rootScope.$broadcast('landing_company_details', message.landing_company_details);

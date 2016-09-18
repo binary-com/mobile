@@ -17,11 +17,9 @@
         var directive = {
             restrict: 'E',
             templateUrl: 'js/pages/transaction-detail/transaction-detail.template.html',
-            controller: 'transactionDetailController',
+            controller: 'TransactionDetailController',
             controllerAs: 'vm',
-            bindToController: {
-              data : "="
-            },
+            bindToController: true,
             scope: {}
 
         };

@@ -1,5 +1,59 @@
-<ion-item><h1>Transaction details</h1></ion-item>
-<ion-item><div class="list">{{vm.contract.longcode}}</div></ion-item>
-<ion-item><h1>contract information</h1></ion-item>
-<ion-item><div class="list">contract id: {{vm.contract.contract_id}}</div></ion-item>
-<ion-item><div class="list">contract id: {{vm.contract.contract_id}}</div></ion-item>
+<ion-view class="accounts">
+    <ion-content class="accounts-content" has-bouncing="false">
+        <div class="transaction-detail-container">
+            <table>
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            contract details
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            {{vm.contract.longcode}}
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr>
+                        <th>
+                            contract id:
+                        </th>
+                        <td>
+                            {{vm.contract.contract_id}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            contract id:
+                        </th>
+                        <td>
+                            {{vm.contract.contract_id}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- <ul class="list">
+    <li class="item">
+      {{vm.contract.longcode}}
+    </li>
+		<li class="item">
+      <div class="col-50">
+contract id:
+      </div>
+      <div class="col-50">
+        {{vm.contract.contract_id}}
+      </div>
+    </li>
+</ul>
+
+					<ion-item><h1>contract information</h1></ion-item>
+					<ion-item><div class="list">contract id: {{vm.contract.contract_id}}</div></ion-item>
+					<ion-item><div class="list">contract id: {{vm.contract.contract_id}}</div></ion-item> -->
+        </div>
+    </ion-content>
+</ion-view>
