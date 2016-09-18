@@ -312,7 +312,7 @@
         "from": "From",
         "to": "To",
         "date": "Date",
-        "ref": "Ref.",
+        "ref": "Reference",
         "potential_payout": "Potential payout",
         "purchase_price": "Purchase price",
         "sale_date": "Sale date",
@@ -344,7 +344,7 @@
       "from": "From",
       "to": "To",
       "date": "Date",
-      "ref": "Ref.",
+      "ref": "Reference",
       "potential_payout": "Potential payout",
       "purchase_price": "Purchase price",
       "sale_date": "Sale date",
@@ -357,6 +357,9 @@
       "filter_by_app": "Choose app",
       "filter_by_date": "Choose date",
       "no_transaction": "There is no transaction to show.",
-      "today": "Today"
+      "today": "Today",
+			"action_type": "Action",
+			"credit_debit": "Credit/Debit",
+			"balance": "Balance (USD)"
     }
 }
