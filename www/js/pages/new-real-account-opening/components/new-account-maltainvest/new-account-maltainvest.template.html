@@ -1,0 +1,564 @@
+<ion-view class="sign-in new-account">
+    <ion-content class="options-content" has-bouncing="false">
+
+        <ion-item>
+            <h3>{{'newaccountmaltainvest.financial_account_opening' | translate}}
+            </h3>
+        </ion-item>
+
+        <!-- tab version -->
+        <ul>
+            <li ng-repeat="step in steps" ng-class="{'active': $index === getCurrentStepIndex() }">
+                <a href="javascript:void(0)" ng-bind-html="$index ==0 ? ('newaccountmaltainvest.details'| translate) : ($index == 1 ? ('newaccountmaltainvest.financial_information'| translate) : ('newaccountmaltainvest.privacy'| translate) )"></a>
+            </li>
+        </ul>
+
+        <div ng-switch on="selection">
+
+            <!-- First Step -->
+            <div ng-switch-when="details">
+                <form name="detailsForm">
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.salutation' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select ng-model="vm.data.salutation" name="salutation" ng-disabled="vm.isReadonly" ng-required="!vm.isReadonly">
+                                <option value="Mr">
+                                    {{'newaccountmaltainvest.mr' | translate}}
+                                </option>
+                                <option value="Mrs">
+                                    {{'newaccountmaltainvest.mrs' | translate}}
+                                </option>
+                                <option value="Miss">
+                                    {{'newaccountmaltainvest.miss' | translate}}
+                                </option>
+                                <option value="Ms">
+                                    {{'newaccountmaltainvest.mrs' | translate}}
+                                </option>
+                            </select>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.first_name' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <input name="firstName" ng-model="vm.data.firstName" ng-readonly="vm.isReadonly" ng-pattern="validateName" ng-minlength="2" ng-maxlength="30" ng-required="!vm.isReadonly">
+                        </div>
+                        <div class="help-block" ng-messages="detailsForm.firstName.$error" role="alert" ng-if='detailsForm.firstName.$dirty'>
+                            <div ng-message="pattern && minlength && maxlength">{{'newaccountmaltainvest.error_format' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.last_name' | translate}}
+                                <span>
+                                    {{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <input name="lastName" ng-model="vm.data.lastName" ng-readonly="vm.isReadonly" ng-pattern="validateName" ng-required="!vm.isReadonly" ng-minlength="2" ng-maxlength="30">
+                        </div>
+                        <div class="help-block" ng-messages="detailsForm.lastName.$error" role="alert" ng-if='detailsForm.lastName.$dirty'>
+                            <div ng-message="pattern && minlength && maxlength">{{'newaccountmaltainvest.error_format' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.date_of_birth' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <label class="item item-input">
+                                <input ng-model="vm.data.dateOfBirth" ng-readonly="vm.isReadonly" ng-if="vm.isReadonly" required="vm.isReadonly">
+                            </label>
+                            <label class="item item-input">
+                                <input name="dateOfBirth" ng-model="vm.data.userDateOfBirth" ng-if="!vm.isReadonly" required"!vm.isReadonly" type="date">
+                            </label>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.residence' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <input name="country" ng-model="vm.data.country" ng-readonly="true">
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.addreess_line_1' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <input name="addressLine1" ng-model="vm.data.addressLine1" required ng-maxlength="70">
+                        </div>
+                        <div class="help-block" ng-messages="detailsForm.addressLine1.$error" role="alert" ng-if='detailsForm.addressLine1.$dirty'>
+                            <div ng-message="maxlength">{{'newaccountmaltainvest.maxlength_error_70' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.addreess_line_2' | translate}}
+                                <span>{{'newaccountmaltainvest.isoptional' | translate}}</span>
+                            </div>
+                            <input name="addressLine2" ng-model="vm.data.addressLine2" ng-maxlength="70">
+                        </div>
+                        <div class="help-block" ng-messages="detailsForm.addressLine2.$error" role="alert" ng-if='detailsForm.addressLine2.$dirty'>
+                            <div ng-message="maxlength">{{'newaccountmaltainvest.maxlength_error_70' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.address_city' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <input name="addressCity" ng-model="vm.data.addressCity" ng-maxlength="35" required>
+                        </div>
+                        <div class="help-block" ng-messages="detailsForm.addressCity.$error" role="alert" ng-if='detailsForm.addressCity.$dirty'>
+                            <div ng-message="maxlength">{{'newaccountmaltainvest.maxlength_error_35' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.address_state' | translate}}
+                                <span>{{'newaccountmaltainvest.isoptional' | translate}}</span>
+                            </div>
+                            <select name="state" ng-model="vm.data.state" ng-options="state.value as state.text for state in vm.data.statesList track by state.value"></select>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.address_postcode' | translate}}
+                                <span>{{'newaccountmaltainvest.isoptional' | translate}}</span>
+                            </div>
+                            <input name="postcode" ng-model="vm.data.addressPostcode" ng-pattern="/^[^+]{0,20}$/">
+                            <div class="help-block" ng-messages="detailsForm.postcode.$error" role="alert" ng-if='detailsForm.postcode.$dirty'>
+                                <div ng-message="pattern">{{'newaccountmaltainvest.error_postcode' | translate}}</div>
+                            </div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.phone' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <input name="phone" ng-model="vm.data.phone" ng-pattern="/^\+?[0-9\s]{6,35}$/" required>
+                        </div>
+                        <div class="help-block" ng-messages="detailsForm.phone.$error" role="alert" ng-if='detailsForm.phone.$dirty'>
+                            <div ng-message="pattern">{{'newaccountmaltainvest.error_format' | translate}}</div>
+                        </div>
+                    </ion-item>
+                    <ul>
+                        <li class="col col-50" ng-class="{disabled: !vm.hasPreviousStep()}">
+                            <button class="button button-default" ng-click="vm.decrementStep()">{{'newaccountmaltainvest.previous_step' | translate}}</button>
+                        </li>
+                        <li class="col col-50" ng-class="{disabled: !vm.hasNextStep()}">
+                            <button ng-click="vm.incrementStep()" class="button button-default" ng-disabled="detailsForm.$invalid">{{'newaccountmaltainvest.next_step' | translate}}</button>
+                        </li>
+                    </ul>
+
+                </form>
+
+            </div>
+
+            <!-- Second Step -->
+            <div ng-switch-when="financial_information">
+                <form name="financialForm">
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.forex_trading_experience' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="forexTradingExperience" ng-model="vm.data.forexTradingExperience" required>
+                                <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.forexTradingExperience.$error" role="alert" ng-if='newaccount.forexTradingExperience.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.forex_trading_frequency' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="forexTradingFrequency" ng-model="vm.data.forexTradingFrequency" required>
+                                <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.forexTradingFrequency.$error" role="alert" ng-if='newaccount.forexTradingFrequency.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.indices_trading_experience' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="indicesTradingExperience" ng-model="vm.data.indicesTradingExperience" required>
+                                <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.indicesTradingExperience.$error" role="alert" ng-if='newaccount.indicesTradingExperience.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.indices_trading_frequency' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="indicesTradingFrequency" ng-model="vm.data.indicesTradingFrequency" required>
+                                <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.indicesTradingFrequency.$error" role="alert" ng-if='newaccount.indicesTradingFrequency.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.commodities_trading_experience' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="commoditiesTradingExperience" ng-model="vm.data.commoditiesTradingExperience" required>
+                                <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.commoditiesTradingExperience.$error" role="alert" ng-if='newaccount.commoditiesTradingExperience.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.commodities_trading_frequency' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="commoditiesTradingFrequency" ng-model="vm.data.commoditiesTradingFrequency" required>
+                                <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.commoditiesTradingFrequency.$error" role="alert" ng-if='newaccount.commoditiesTradingFrequency.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.stocks_trading_experience' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="stocksTradingExperience" ng-model="vm.data.stocksTradingExperience" required>
+                                <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.stocksTradingExperience.$error" role="alert" ng-if='newaccount.stocksTradingExperience.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.stocks_trading_frequency' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="stocksTradingFrequency" ng-model="vm.data.stocksTradingFrequency" required>
+                                <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.stocksTradingFrequency.$error" role="alert" ng-if='newaccount.stocksTradingFrequency.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.other_derivatives_trading_experience' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="otherDerivativesTradingExperience" ng-model="vm.data.otherDerivativesTradingExperience" required>
+                                <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.otherDerivativesTradingExperience.$error" role="alert" ng-if='newaccount.otherDerivativesTradingExperience.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.other_derivatives_trading_frequency' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="otherDerivativesTradingFrequency" ng-model="vm.data.otherDerivativesTradingFrequency" required>
+                                <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.otherDerivativesTradingFrequency.$error" role="alert" ng-if='newaccount.otherDerivativesTradingFrequency.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.other_instruments_trading_experience' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="otherInstrumentsTradingExperience" ng-model="vm.data.otherInstrumentsTradingExperience" required>
+                                <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.otherInstrumentsTradingExperience.$error" role="alert" ng-if='newaccount.otherInstrumentsTradingExperience.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.other_instruments_trading_frequency' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="otherInstrumentsTradingFrequency" ng-model="vm.data.otherInstrumentsTradingFrequency" required>
+                                <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.otherInstrumentsTradingFrequency.$error" role="alert" ng-if='newaccount.otherInstrumentsTradingFrequency.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.employment_industry' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="employmentIndustry" ng-model="vm.data.employmentIndustry" required>
+                                <option value="Construction">{{'newaccountmaltainvest.construction' | translate}}</option>
+                                <option value="Education">{{'newaccountmaltainvest.education' | translate}}</option>
+                                <option value="Finance">{{'newaccountmaltainvest.finance' | translate}}</option>
+                                <option value="Health">{{'newaccountmaltainvest.health' | translate}}</option>
+                                <option value="Tourism">{{'newaccountmaltainvest.tourism' | translate}}</option>
+                                <option value="Other">{{'newaccountmaltainvest.other' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.employmentIndustry.$error" role="alert" ng-if='newaccount.employmentIndustry.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.education_level' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="educationLevel" ng-model="vm.data.educationLevel" required>
+                                <option value="Primary">{{'newaccountmaltainvest.primary' | translate}}</option>
+                                <option value="Secondary">{{'newaccountmaltainvest.secondary' | translate}}</option>
+                                <option value="Tertiary">{{'newaccountmaltainvest.tertiary' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.educationLevel.$error" role="alert" ng-if='newaccount.educationLevel.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.income_source' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="incomeSource" ng-model="vm.data.incomeSource" required>
+                                <option value="Salaried Employee">{{'newaccountmaltainvest.salaried' | translate}}</option>
+                                <option value="Self-Employed">{{'newaccountmaltainvest.self_employed' | translate}}</option>
+                                <option value="Investments & Dividends">{{'newaccountmaltainvest.investment' | translate}}</option>
+                                <option value="Pension">{{'newaccountmaltainvest.pension' | translate}}</option>
+                                <option value="Other">{{'newaccountmaltainvest.other' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.incomeSource.$error" role="alert" ng-if='newaccount.incomeSource.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.net_income' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="netIncome" ng-model="vm.data.netIncome" required>
+                                <option value="Less than $25,000">{{'newaccountmaltainvest.net_income_1' | translate}}</option>
+                                <option value="$25,000 - $50,000">{{'newaccountmaltainvest.net_income_2' | translate}}</option>
+                                <option value="$50,001 - $100,000">{{'newaccountmaltainvest.net_income_3' | translate}}</option>
+                                <option value="$100,001 - $500,000">{{'newaccountmaltainvest.net_income_4' | translate}}</option>
+                                <option value="Over $500,000">{{'newaccountmaltainvest.net_income_5' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.netIncome.$error" role="alert" ng-if='newaccount.netIncome.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.estimated_worth' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="estimatedWorth" ng-model="vm.data.estimatedWorth" required>
+                                <option value="Less than $100,000">{{'newaccountmaltainvest.estimated_worth_1' | translate}}</option>
+                                <option value="$100,000 - $250,000">{{'newaccountmaltainvest.estimated_worth_2' | translate}}</option>
+                                <option value="$250,001 - $500,000">{{'newaccountmaltainvest.estimated_worth_3' | translate}}</option>
+                                <option value="$500,001 - $1,000,000">{{'newaccountmaltainvest.estimated_worth_4' | translate}}</option>
+                                <option value="Over $1,000,000">{{'newaccountmaltainvest.estimated_worth_5' | translate}}</option>
+                            </select>
+                        </div>
+                        <div class="help-block" ng-messages="newaccount.estimatedWorth.$error" role="alert" ng-if='newaccount.estimatedWorth.$submitted'>
+                            <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                        </div>
+                    </ion-item>
+                    <ul>
+                        <li class="col col-50" ng-class="{disabled: !vm.hasPreviousStep()}">
+                            <button class="button button-default" ng-click="vm.decrementStep()">{{'newaccountmaltainvest.previous_step' | translate}}</button>
+                        </li>
+                        <li class="col col-50" ng-class="{disabled: !vm.hasNextStep()}">
+                            <button ng-click="vm.incrementStep()" class="button button-default" ng-disabled="financialForm.$invalid">{{'newaccountmaltainvest.next_step' | translate}}</button>
+                        </li>
+                    </ul>
+                </form>
+
+            </div>
+            <!-- Third Step -->
+            <div ng-switch-when="privacy">
+                <form name="privacyform">
+
+                    <ion-item>
+                        <div class="item-select col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.secret_question' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <select name="secretQuestion" ng-model="vm.data.secretQuestion" required>
+                                <option value="Mother's maiden name">{{'newaccountmaltainvest.secret_question_1' | translate}}</option>
+                                <option value="Name of your pet">{{'newaccountmaltainvest.secret_question_2' | translate}}</option>
+                                <option value="Name of first love">{{'newaccountmaltainvest.secret_question_3' | translate}}</option>
+                                <option value="Memorable town/city">{{'newaccountmaltainvest.secret_question_4' | translate}}</option>
+                                <option value="Memorable date">{{'newaccountmaltainvest.secret_question_5' | translate}}</option>
+                                <option value="Favourite dish">{{'newaccountmaltainvest.secret_question_6' | translate}}</option>
+                                <option value="Brand of first car">{{'newaccountmaltainvest.secret_question_7' | translate}}</option>
+                                <option value="Favourite artist">{{'newaccountmaltainvest.secret_question_8' | translate}}</option>
+                            </select>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.secret_answer' | translate}}
+                                <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                            </div>
+                            <input name="secretAnswer" ng-model="vm.data.secretAnswer" ng-maxlength="50" ng-minlength="4" required>
+                        </div>
+                        <div class="help-block" ng-messages="privacyForm.secretAnswer.$error" role="alert" ng-if='privacyForm.secretAnswer.$dirty'>
+                            <div ng-message="maxlength && minlength">{{'newaccountmaltainvest.error_secretanswer' | translate}}</div>
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <p>
+                            {{'newaccountmaltainvest.info' | translate}}
+                        </p>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="item">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.accept_risk_question' | translate}}
+                            </div>
+                            <input type="checkbox" ng-model="vm.data.accept" class="checkbox" required/>
+                        </div>
+                    </ion-item>
+                    <ul>
+                        <li class="col col-50" ng-class="{disabled: !vm.hasPreviousStep()}">
+                            <button class="button button-default" ng-click="vm.decrementStep()">{{'newaccountmaltainvest.previous_step' | translate}}</button>
+                        </li>
+                        <li class="col col-50" ng-class="{disabled: !vm.hasNextStep()}">
+                            <button ng-click="vm.incrementStep()" class="button button-default" ng-disabled="privacyForm.$invalid">{{'newaccountmaltainvest.next_step' | translate}}</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="col col-100">
+            <button class="button button-block button-default" ng-show="!vm.hasNextStep()" ng-click="vm.submitAccountOpening()">{{'newaccountmaltainvest.open_account' | translate}}</button>
+        </div>
+        <div class="clearfix"></div>
+    </ion-content>
+</ion-view>

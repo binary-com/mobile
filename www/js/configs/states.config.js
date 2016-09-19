@@ -40,6 +40,41 @@ angular
           controller: 'HelpController',
           controllerAs: 'vm'
         })
+				.state('profittable',{
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/profit-table/profit-table.template.html',
+					controller: 'ProfitTableController',
+					controllerAs: 'vm'
+				})
+				.state('statement',{
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/statement/statement.template.html',
+					controller: 'StatementController',
+					controllerAs: 'vm'
+				})
+				.state('transactiondetail',{
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/transaction-detail/transaction-detail.template.html',
+					controller: 'TransactionDetailController',
+					controllerAs: 'vm'
+				})
+				.state('realaccountopening',{
+					parent: 'layout',
+				  cache: false,
+					templateUrl: 'js/pages/new-real-account-opening/new-real-account-opening.template.html',
+					controller: 'NewRealAccountOpeningController',
+					controllerAs: 'vm'
+				})
+				.state('manageaccounts',{
+					parent: 'layout',
+				  cache: false,
+					templateUrl: 'js/share/components/manage-accounts/manage-accounts.template.html',
+					controller: 'ManageAccountsController',
+					controllerAs: 'vm'
+				})
         .state('redirect', {
             url: '/redirect',
             cache: false,

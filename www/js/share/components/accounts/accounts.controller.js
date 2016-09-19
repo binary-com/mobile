@@ -21,7 +21,8 @@
       accountService,
       appStateService,
       utilsService,
-      websocketService){
+      websocketService
+    ){
     var vm = this;
 
     var init = function() {
@@ -44,12 +45,16 @@
 
     vm.updateAccount = function(_selectedAccount) {
       appStateService.isChangedAccount = true;
-      sessionStorage.removeItem('start');
+			appStateService.isCheckedAccountType = false;
+			sessionStorage.removeItem('start');
+			sessionStorage.removeItem('_interval');
       utilsService.spinnerLogo.start();
       accountService.setDefault(_selectedAccount);
       accountService.validate();
       updateSymbols();
-
+      $root.$broadcast('changedAccount');
     };
+
+
   }
 })();

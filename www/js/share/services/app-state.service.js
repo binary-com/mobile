@@ -15,11 +15,19 @@ angular
                 factory.tradeMode = true;
                 factory.purchaseMode = false;
                 factory.isLoggedin=false;
-                factory.isRealityChecked = false;
                 factory.waitForProposal = false;
                 factory.scopes = [];
                 factory.invalidTokenRemoved = false;
                 factory.isChangedAccount = false;
+                factory.isRealityChecked = false;
+                factory.isPopupOpen = false;
+                factory.isProfitTableSet = false;
+                factory.hasGetResidence = false;
+                factory.showForm = false;
+                factory.isCheckedAccountType = false;
+                factory.isNewAccountReal = false;
+                factory.isNewAccountMaltainvest = false;
+                factory.hasMLT = false;
 
                 return factory;
             });

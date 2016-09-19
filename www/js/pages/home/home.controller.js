@@ -39,7 +39,7 @@
      * wait untile authorization and decide
      * to redirect user  to the proper page
      */
-    $scope.$on('authorize', function(e, response) {
+    $scope.$on('authorize', (e, response) => {
       if (response) {
         $state.go('trade');
       } else {
