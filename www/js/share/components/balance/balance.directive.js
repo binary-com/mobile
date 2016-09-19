@@ -13,6 +13,8 @@
     .module('binary.share.components.balance.directives')
     .directive('bgBalance', Balance);
 
+  Balance.$inject = ['websocketService'];
+
   function Balance(){
     var directive = {
       restrict: 'E',
@@ -28,7 +30,7 @@
 
     function link(scope, element, attributes, vm){
       scope.$on('$destroy', () => {
-        websocketService.sendRequestFor.forget(vm.balance.id);
+        websocketService.sendRequestFor.forgetStream(vm.balance.id);
       });
     }
 
