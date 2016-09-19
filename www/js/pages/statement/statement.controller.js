@@ -119,14 +119,14 @@
                 vm.data.dateType = 'allTime';
             } else {
                 vm.data = statementService.get();
-                if (vm.data.dateType == 'customDate') {
-                    $scope.$applyAsync(() => {
-                        document.getElementById("start").value = $filter('date')(new Date(vm.data.dateFrom * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
-                        document.getElementById("end").value = $filter('date')(new Date(vm.data.dateTo * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
-                        vm.customDateEnabled = true;
-                    });
-                    statementService.update(vm.data);
-                }
+                // if (vm.data.dateType == 'customDate') {
+                //     $scope.$applyAsync(() => {
+                //         document.getElementById("start").value = $filter('date')(new Date(vm.data.dateFrom * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
+                //         document.getElementById("end").value = $filter('date')(new Date(vm.data.dateTo * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
+                //         vm.customDateEnabled = true;
+                //     });
+                //     statementService.update(vm.data);
+                // }
             }
             return vm.sendStatementRequest();
         }
@@ -210,12 +210,13 @@
         $scope.$watch("vm.data.dateType", () => {
             // preventing from multiple requests at page load
             if (vm.data.isStatementSet) {
-                if (vm.data.dateType == 'customDate') {
-                    vm.customDateEnabled = true;
-                    if (vm.data.isStatementSet) {
-                        vm.setCustomDate();
-                    }
-                } else {
+                // if (vm.data.dateType == 'customDate') {
+                //     vm.customDateEnabled = true;
+                //     if (vm.data.isStatementSet) {
+                //         vm.setCustomDate();
+                //     }
+                // }
+                // else {
                     vm.customDateEnabled = false;
 
                     if (vm.data.dateType == 'allTime') {
@@ -249,7 +250,7 @@
                             delete vm.data.dateTo;
                         }
                     }
-                }
+                // }
                 vm.transactions = [];
                 vm.data.currentPage = 0;
                 statementService.update(vm.data);
@@ -257,12 +258,12 @@
             }
         });
 
-        vm.setCustomDate = function() {
-            vm.data.dateFrom = (new Date(document.getElementById("start").value).getTime()) / 1000 || "";
-            vm.data.dateTo = (new Date(document.getElementById("end").value).getTime()) / 1000 || "";
-            statementService.update(vm.data);
-            vm.setStatementParams();
-        }
+        // vm.setCustomDate = function() {
+        //     vm.data.dateFrom = (new Date(document.getElementById("start").value).getTime()) / 1000 || "";
+        //     vm.data.dateTo = (new Date(document.getElementById("end").value).getTime()) / 1000 || "";
+        //     statementService.update(vm.data);
+        //     vm.setStatementParams();
+        // }
 
         // do this on response of any statement request
         $scope.$on('statement:update', (e, _statement, _passthrough) => {

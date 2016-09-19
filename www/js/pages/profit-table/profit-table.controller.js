@@ -77,7 +77,6 @@
                 }
             }
         });
-
         // function of sending profit table request through websocket
         vm.setProfitTableParams = function() {
                 vm.params = {
