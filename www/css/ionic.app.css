@@ -11103,11 +11103,11 @@ input::-webkit-inner-spin-button {
   width: 90vw;
   padding: 2px;
   font-size: 14px; }
+  .realitycheck .popup .button {
+    font-size: 14px; }
   .realitycheck .popup .button-secondary {
     color: #000 !important;
     background: #c4c4c4 !important; }
-  .realitycheck .popup .button {
-    font-size: 14px; }
 
 .realitycheck .popup-head {
   padding: 10px;
