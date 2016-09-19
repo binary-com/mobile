@@ -11110,9 +11110,9 @@ input::-webkit-inner-spin-button {
     background: #c4c4c4 !important; }
 
 .realitycheck .popup-head {
+  background-color: #2a3052;
   padding: 10px;
-  border: none;
-  background-color: #2a3052; }
+  border: none; }
   .realitycheck .popup-head h3.popup-title {
     color: #fff !important;
     font-size: 14px !important;
