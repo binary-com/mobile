@@ -14,7 +14,8 @@
       'ngIOS9UIWebViewPatch',
       'binary.share.components',
       'binary.share.services',
-      'binary.pages'
+      'binary.pages',
+      'ngMessages'
       ]);
 
   angular
