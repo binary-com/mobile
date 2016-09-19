@@ -25,7 +25,11 @@
         'binary.share.components.spinner-logo',
         'binary.share.components.balance',
         'binary.share.components.currency',
-        'binary.share.components.long-press'
+        'binary.share.components.long-press',
+        'binary.share.components.reality-check',
+        'binary.share.components.real-account-opening',
+        'binary.share.components.manage-accounts',
+        'binary.share.components.logout'
     ]);
 
   angular
@@ -36,7 +40,11 @@
         'binary.pages.home',
         'binary.pages.signin',
         'binary.pages.help',
-        'binary.pages.trade'
+        'binary.pages.trade',
+        'binary.pages.new-real-account-opening',
+        'binary.pages.profit-table',
+        'binary.pages.statement',
+        'binary.pages.transaction-detail'
     ]);
 
   String.prototype.capitalize = function() {
