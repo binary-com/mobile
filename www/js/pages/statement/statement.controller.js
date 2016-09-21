@@ -28,8 +28,9 @@
         vm.data = {};
         vm.data.isStatementSet = false;
 
-        vm.currency = sessionStorage.getItem('currency');
+
         vm.formatMoney = function(currency, amount){
+          vm.currency = sessionStorage.getItem('currency');
           return currencyToSymbolService.formatMoney(currency, amount);
         }
 
