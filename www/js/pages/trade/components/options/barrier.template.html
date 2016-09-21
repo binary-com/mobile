@@ -1,0 +1,14 @@
+<div class="barrier">
+  <div class="row">
+    <div class="col center">
+      <strong> {{ 'trade.barrier' | translate }} </strong>
+    </div>
+    <div class="col center">
+      <input type="text" ng-model="vm.proposal.barrier"
+                         pattern="^[\+-]\d+(\.\d{1,5})?|\d+(\.\d{1,5})?"/>
+    </div>
+    <div class="col center">
+      {{ vm.spot }}
+    </div>
+  </div>
+</div>

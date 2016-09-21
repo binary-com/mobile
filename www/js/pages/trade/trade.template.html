@@ -3,6 +3,7 @@
   <bg-options proposal="vm.proposal"></bg-options>
   <bg-chart proposal="vm.proposal"
             purchased-contract="vm.purchasedContract"></bg-chart>
+  <bg-barrier ng-if="vm.proposal.tradeType=='Higher/Lower'"  proposal="vm.proposal"></bg-barrier>
   <bg-payout proposal="vm.proposal"></bg-payout>
   <bg-purchase proposal="vm.proposal"
                purchased-contract="vm.purchasedContract"></bg-purchase>

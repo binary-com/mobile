@@ -34,7 +34,7 @@
 
             proposal.symbol = options.underlying.symbol;
             proposal.duration = options.tick;
-            proposal.barrier = options.digit;
+            proposal.barrier = options.digit || options.barrier;
             proposal.tradeType = options.tradeType;
 
             factory.save(options);
@@ -81,7 +81,7 @@
                 }
             });
             return true;
-            
+
             var contraints = {
                 amount: {
                     presence: true,
@@ -134,7 +134,7 @@
                 }
 
             }
-        
+
             if(_.isEmpty(validate(proposal, contraints))){
                 return true;
             }
