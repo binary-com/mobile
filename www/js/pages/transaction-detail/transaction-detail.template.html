@@ -1,10 +1,41 @@
 <ion-view class="profit-table">
     <ion-content has-bouncing="false">
         <ion-item>
-            <a ng-click="vm.goToPrevPage()">Back</a>
+            <a ng-click="vm.goToPrevPage()">{{'transactiondetails.back' | translate}}</a>
         </ion-item>
-        <div class="transaction-detail-container">
-            {{vm.contract.contract_id}}
+
+        <div class="row">
+          <div class="col">
+            <ul>
+              <li class="list">
+                <div class="row">
+                  <div class="col-50">
+                    <div class="list-item">
+                      {{'transactiondetails.ref' | translate}}
+                    </div>
+                  </div>
+                  <div class="col-50 right">
+                    <div class="list-item" ng-bind="vm.contract.contract_id">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="list">
+                <div class="row">
+                  <div class="col-50">
+                    <div class="list-item">
+                      {{'transactiondetails.contract_type' | translate}}
+                    </div>
+                  </div>
+                  <div class="col-50 right">
+                    <div class="list-item" ng-bind="vm.contract.contract_type">
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
+
     </ion-content>
 </ion-view>
