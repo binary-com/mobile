@@ -46,9 +46,7 @@
     }
 
     function changeProposalCurrency(){
-        if(!_.isEmpty(vm.proposal)){
-            vm.proposal.currency = vm.balance.currency;
-        }
+      $scope.$broadcast('currency:changed', vm.balance.currency);
     }
 
     getBalance();

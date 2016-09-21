@@ -89,7 +89,8 @@
 		"lose": "This contract lost",
 		"transaction_id": "Transaction Reference",
 		"buy_again": "Buy Again",
-    "sell": "Sell"
+    "sell": "Sell",
+    "barrier": "Barrier offset"
 
 	},
 	"help": {

@@ -15,7 +15,7 @@
 
   Balance.$inject = ['websocketService'];
 
-  function Balance(){
+  function Balance(websocketService){
     var directive = {
       restrict: 'E',
       templateUrl: 'js/share/components/balance/balance.template.html',

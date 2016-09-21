@@ -62,10 +62,15 @@
         vm.options.tradeType = Object.keys(tradeTypes)[0];
         vm.options.tick = tradeTypes[vm.options.tradeType][0].min_contract_duration.slice(0, -1);
         vm.options.digit = tradeTypes[vm.options.tradeType][0].last_digit_range ? tradeTypes[vm.options.tradeType][0].last_digit_range[0] : null;
+        vm.options.barrier = tradeTypes.barriers > 0 ? tradeType.barrier : null;
         updateProposal();
         tradeService.proposalIsReady = true;
       });
 
+    });
+
+    $scope.$on('currency:changed', (e, currency) =>{
+      vm.proposal.currency = currency;
     });
 
     vm.setSection = function(section){
@@ -92,6 +97,7 @@
         var tradeType = JSON.parse(sessionStorage.tradeTypes)[tradeType][0];
         vm.options.tick = tradeType.min_contract_duration.slice(0, -1);
         vm.options.digit = tradeType.last_digit_range ? tradeType.last_digit_range[0] : null;
+        vm.options.barrier = tradeType.barriers > 0 ? tradeType.barrier : null;
         vm.section = vm.SECTIONS.OVERVIEW;
         updateProposal();
     }
@@ -119,11 +125,9 @@
     }
 
     function updateProposal(){
-        //if(!_.isEmpty(vm.proposal)){
         $scope.$applyAsync(() => {
             vm.proposal = proposalService.update(vm.options);
         });
-        //}
     }
 
     init();
