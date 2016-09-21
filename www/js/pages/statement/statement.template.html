@@ -1,5 +1,5 @@
-<ion-view class="accounts">
-    <ion-content class="accounts-content" has-bouncing="false">
+<ion-view class="profit-table">
+    <ion-content has-bouncing="false">
         <div class="profit-table-container">
             <bg-balance></bg-balance>
             <div class="row">
@@ -19,33 +19,42 @@
                 </div>
             </div>
 
-            <div class="profit-table col col-100">
-                <div class="row header">
-                    <div class="col profit-table-cell profit-table-title">{{'statement.date' | translate}}</div>
-                    <div class="col profit-table-cell profit-table-title">{{'statement.ref' | translate}}</div>
-                    <div class="col profit-table-cell profit-table-title">{{'statement.action_type' | translate}}</div>
-                    <div class="col profit-table-cell profit-table-title">{{'statement.credit_debit' | translate}}</div>
-                    <div class="col profit-table-cell profit-table-title">{{'statement.balance' | translate}}</div>
-                </div>
-                <div class="row" ng-repeat="transaction in vm.transactions | DataFilter:vm.data.appID" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
-                    <div class="col profit-table-cell" ng-bind="transaction.transaction_time * 1000 | date : 'mediumDate' "></div>
-                    <div class="col profit-table-cell" ng-bind="transaction.transaction_id"></div>
-                    <div class="col profit-table-cell" ng-bind="transaction.action_type" class="center"></div>
-                    <div class="col profit-table-cell" ng-bind="(transaction.amount - 0).toFixed(2)" class="center"></div>
-                    <!-- <div class="col profit-table-cell" ng-bind="(transaction.balance_after - 0).toFixed(2)"></div> -->
-                    <div class="col profit-table-cell" ng-bind="transaction.balance_after | currency: USD :2"></div>
-                </div>
+            <div class="row">
+              <div class="col">
+                <ul>
+                  <li class="list" ng-repeat="transaction in vm.transactions | DataFilter:vm.data.appID" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                    <div class="row">
+                      <div class="col-50">
+                        <div class="list-item" ng-bind="transaction.transaction_time * 1000 | date : 'mediumDate' ">
+                        </div>
+                        <div class="list-item" ng-bind="transaction.transaction_time * 1000 | date : 'mediumTime' ">
+                        </div>
+                      </div>
+                      <div class="col-50 right">
+                        <div class="list-item bold" ng-bind="transaction.transaction_id">
+                        </div>
+                        <div class="list-item bold green">
+                          <span  ng-bind="vm.formatMoney(vm.currency,transaction.balance_after)"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
                 <div class="row" ng-if="vm.noTransaction">
                     <div class="col">
-                        {{'statement.no_transaction' | translate}}
+                        {{'profittable.no_transaction' | translate}}
                     </div>
                 </div>
+              </div>
             </div>
-            <div class="col">
-                <button class="button" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled">«
-                    {{'statement.prev' | translate}}</button>
-                <button class="button" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled">{{'statement.next' | translate}}
-                    »</button>
+
+            <div class="row">
+              <div class="col">
+                  <button class="button button-gray prev" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled">«
+                      {{'statement.prev' | translate}}</button>
+                  <button class="button button-gray next" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled">{{'statement.next' | translate}}
+                      »</button>
+              </div>
             </div>
         </div>
     </ion-content>
