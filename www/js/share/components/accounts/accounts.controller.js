@@ -14,10 +14,11 @@
     .controller('AccountsController', Accounts);
 
   Accounts.$inject = [
-    'accountService', 'appStateService',
+    '$scope', 'accountService', 'appStateService',
     'utilsService', 'websocketService'];
 
   function Accounts(
+      $scope,
       accountService,
       appStateService,
       utilsService,
@@ -52,7 +53,6 @@
       accountService.setDefault(_selectedAccount);
       accountService.validate();
       updateSymbols();
-      $root.$broadcast('changedAccount');
     };
 
 

@@ -75,14 +75,11 @@
         });
 
         // refresh table and filters on changing account
-        $scope.$on('changedAccount', () => {
-            if (appStateService.isChangedAccount) {
-                appStateService.isChangedAccount = false;
+        $scope.$on('authorize', () => {
                 statementService.remove();
                 if (vm.data.isStatementSet) {
                     vm.setDefaultParams();
                 }
-            }
         });
 
         // function of sending profti table request through websocket
