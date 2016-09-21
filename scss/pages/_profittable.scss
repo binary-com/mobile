@@ -1,0 +1,37 @@
+.profit-table-container {
+	background: $lightgray;
+	.item{
+		padding: 15px;
+	}
+	.profit-table{
+		width: 100%;
+		padding: 0;
+		position: relative;
+		.profit-table-cell{
+			border-bottom: 1px solid $lightgray;
+			background: $white;
+			text-align: center;
+		}
+		.profit-table-title{
+			font-weight: bold;
+			background: $lightgray;
+			border-bottom: 1px solid $gray;
+		}
+	}
+	.item-select{
+		border: 1px solid $gray;
+	}
+}
+
+.transaction-detail-container {
+	background: $lightgray;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 480px) {
+
+}

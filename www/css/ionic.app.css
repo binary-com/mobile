@@ -9891,6 +9891,16 @@ button:hover {
   display: block;
   margin: 0 auto; }
 
+.help-block {
+  font-size: 12px;
+  color: #818183;
+  text-align: left; }
+  .help-block.show-hide-password {
+    color: #000; }
+
+input#show-hide {
+  width: 20px; }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
@@ -10127,6 +10137,10 @@ input::-webkit-inner-spin-button {
         display: block;
         margin: 5% auto 0;
         width: 60%; }
+    .sign-in #virtualws, .sign-in #emailform {
+      text-align: center; }
+      .sign-in #virtualws .list label, .sign-in #emailform .list label {
+        margin-bottom: 0; }
     .sign-in .list label.item-input {
       border-bottom: 1px solid #f2f2f2;
       width: 80%;
@@ -10190,7 +10204,92 @@ input::-webkit-inner-spin-button {
     .sign-in ::-moz-placeholder {
       color: #c4c4c4; }
     .sign-in :-ms-input-placeholder {
-      color: #c4c4c4; } }
+      color: #c4c4c4; }
+  bg-new-account-maltainvest,
+  bg-new-account-real {
+    transform: none !important; }
+  .new-account {
+    padding: 10px; }
+    ion-nav-view .new-account {
+      overflow: visible; }
+    .new-account .title {
+      padding-top: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #f2f2f2; }
+      .new-account .title h3 {
+        color: #2a3052;
+        font-size: 18px;
+        font-weight: bold; }
+    .new-account ul {
+      display: inline-block;
+      width: 100%; }
+      .new-account ul li {
+        width: 33%;
+        display: inline-block;
+        padding: 10px; }
+      .new-account ul li.active {
+        background-color: #f2f2f2 !important; }
+    .new-account h1 {
+      padding: 10px 0;
+      color: #2a3052;
+      font-size: 18px;
+      font-weight: bold; }
+    .new-account p {
+      white-space: normal; }
+    .new-account input {
+      background: #fff;
+      border: 1px solid #f2f2f2;
+      padding: 2px 3px;
+      border-radius: 3px;
+      width: 100%; }
+      .new-account input.checkbox {
+        position: relative;
+        float: right; }
+    .new-account select {
+      width: 100%;
+      padding: 2px 3px;
+      border: 1px solid #f2f2f2;
+      background: #fff;
+      border-radius: 3px;
+      position: relative;
+      direction: ltr; }
+      .new-account select option {
+        width: 100%;
+        text-align: left; }
+    .new-account .sections {
+      display: flex;
+      flex-direction: column;
+      height: 100%; }
+      .new-account .sections ion-item {
+        padding: 5px 16px;
+        display: flex;
+        flex-grow: 1; }
+    .new-account .input-title {
+      font-size: 14px;
+      white-space: normal;
+      text-align: left; }
+      .new-account .input-title span {
+        font-size: 12px;
+        color: #818183; }
+    .new-account .help-block {
+      font-size: 12px;
+      color: #818183;
+      text-align: left; }
+      .new-account .help-block.show-hide-password {
+        color: #000; }
+    .new-account input#show-hide {
+      width: 20px; }
+  .new-account-link {
+    right: 0;
+    z-index: 10000;
+    width: 100%;
+    max-width: 768px;
+    position: fixed !important; }
+    .new-account-link a {
+      background-color: #2E8836;
+      color: #fff;
+      padding: 2px 10px;
+      border-radius: 5px; } }
 
 @media only screen and (min-device-width: 480px) {
   .sign-in {
@@ -11011,9 +11110,9 @@ input::-webkit-inner-spin-button {
     background: #c4c4c4 !important; }
 
 .realitycheck .popup-head {
+  background-color: #2a3052;
   padding: 10px;
-  border: none;
-  background-color: #2a3052; }
+  border: none; }
   .realitycheck .popup-head h3.popup-title {
     color: #fff !important;
     font-size: 14px !important;
@@ -11076,6 +11175,28 @@ input::-webkit-inner-spin-button {
     width: 90vw !important; }
   .result-popup .popup {
     width: 90vw !important; } }
+
+.profit-table-container {
+  background: #f2f2f2; }
+  .profit-table-container .item {
+    padding: 15px; }
+  .profit-table-container .profit-table {
+    width: 100%;
+    padding: 0;
+    position: relative; }
+    .profit-table-container .profit-table .profit-table-cell {
+      border-bottom: 1px solid #f2f2f2;
+      background: #fff;
+      text-align: center; }
+    .profit-table-container .profit-table .profit-table-title {
+      font-weight: bold;
+      background: #f2f2f2;
+      border-bottom: 1px solid #c4c4c4; }
+  .profit-table-container .item-select {
+    border: 1px solid #c4c4c4; }
+
+.transaction-detail-container {
+  background: #f2f2f2; }
 
 @media only screen and (max-device-width: 480px) {
   /*RU Language*/

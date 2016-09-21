@@ -49,7 +49,7 @@
       }
     }
 
-    $scope.$on('authorize', function(e, response){
+    $scope.$on('authorize', (e, response) => {
       if(response){
         for(var a in accounts){
           if (a == 0){
