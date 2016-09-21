@@ -69,6 +69,10 @@
 
     });
 
+    $scope.$on('currency:changed', (e, currency) =>{
+      vm.proposal.currency = currency;
+    });
+
     vm.setSection = function(section){
       vm.section = section;
     }
