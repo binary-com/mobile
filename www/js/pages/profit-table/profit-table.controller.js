@@ -13,9 +13,9 @@
         .module('binary.pages.profit-table.controllers')
         .controller('ProfitTableController', ProfitTable);
 
-    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$translate', '$state', 'languageService', 'profitTableService', 'accountService', 'websocketService', 'appStateService'];
+    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$translate', '$state', 'languageService', 'profitTableService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
 
-    function ProfitTable($scope, $filter, $timeout, $translate, $state, languageService, profitTableService, accountService, websocketService, appStateService) {
+    function ProfitTable($scope, $filter, $timeout, $translate, $state, languageService, profitTableService, accountService, websocketService, appStateService, currencyToSymbolService) {
         var vm = this;
         vm.data = {};
         vm.itemsPerPage = 5;
@@ -27,55 +27,50 @@
         vm.noTransaction = false;
         vm.data = {};
         vm.data.isProfitTableSet = false;
+
+        vm.currency = sessionStorage.getItem('currency');
+        vm.formatMoney = function(currency, amount){
+          return currencyToSymbolService.formatMoney(currency, amount);
+        }
+
         $translate(['profittable.all_apps', 'profittable.tick_trade_app', 'profittable.all_time', 'profittable.last_month', 'profittable.last_week', 'profittable.last_3_days', 'profittable.last_day', 'profittable.today'])
-        .then((translation) => {
-            vm.apps = [
-              {
-                label: "allApps",
-                text: translation['profittable.all_apps']
-              },
-              {
-                label: "tickTradeApp",
-                text: translation['profittable.tick_trade_app']
-              }
-            ];
-            vm.dates = [
-              {
-                label: "allTime",
-                text: translation['profittable.all_time']
-              },
-              {
-                label: "monthAgo",
-                text: translation['profittable.last_month']
-              },
-              {
-                label: "sevenDayAgo",
-                text: translation['profittable.last_week']
-              },
-              {
-                label: "threeDayAgo",
-                text: translation['profittable.last_3_days']
-              },
-              {
-                label: "oneDayAgo",
-                text: translation['profittable.last_day']
-              },
-              {
-                label: "today",
-                text: translation['profittable.today']
-              }
-            ];
-        });
+            .then((translation) => {
+                vm.apps = [{
+                    label: "allApps",
+                    text: translation['profittable.all_apps']
+                }, {
+                    label: "tickTradeApp",
+                    text: translation['profittable.tick_trade_app']
+                }];
+                vm.dates = [{
+                    label: "allTime",
+                    text: translation['profittable.all_time']
+                }, {
+                    label: "monthAgo",
+                    text: translation['profittable.last_month']
+                }, {
+                    label: "sevenDayAgo",
+                    text: translation['profittable.last_week']
+                }, {
+                    label: "threeDayAgo",
+                    text: translation['profittable.last_3_days']
+                }, {
+                    label: "oneDayAgo",
+                    text: translation['profittable.last_day']
+                }, {
+                    label: "today",
+                    text: translation['profittable.today']
+                }];
+            });
 
         // refresh table and filters on changing account
-        $scope.$on('changedAccount', () => {
-            if (appStateService.isChangedAccount) {
-                appStateService.isChangedAccount = false;
+        $scope.$on('authorize', () => {
                 profitTableService.remove();
+                if(appStateService.isChangedAccount = true){
                 if (vm.data.isProfitTableSet) {
                     vm.setDefaultParams();
                 }
-            }
+              }
         });
 
         // function of sending profit table request through websocket
@@ -117,14 +112,14 @@
                 vm.data.dateType = 'allTime';
             } else {
                 vm.data = profitTableService.get();
-                if (vm.data.dateType == 'customDate') {
-                    $scope.$applyAsync(() => {
-                        document.getElementById("start").value = $filter('date')(new Date(vm.data.dateFrom * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
-                        document.getElementById("end").value = $filter('date')(new Date(vm.data.dateTo * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
-                        vm.customDateEnabled = true;
-                    });
-                    profitTableService.update(vm.data);
-                }
+                // if (vm.data.dateType == 'customDate') {
+                //     $scope.$applyAsync(() => {
+                //         document.getElementById("start").value = $filter('date')(new Date(vm.data.dateFrom * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
+                //         document.getElementById("end").value = $filter('date')(new Date(vm.data.dateTo * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
+                //         vm.customDateEnabled = true;
+                //     });
+                //     profitTableService.update(vm.data);
+                // }
             }
             return vm.sendProfitTableRequest();
         }
@@ -211,46 +206,47 @@
             // preventing from multiple requests at page load
             if (vm.data.isProfitTableSet) {
 
-                if (vm.data.dateType == 'customDate') {
-                    vm.customDateEnabled = true;
-                    if (vm.data.isProfitTableSet) {
-                        vm.setCustomDate();
-                    }
-                } else {
-                    vm.customDateEnabled = false;
+                // if (vm.data.dateType == 'customDate') {
+                //     vm.customDateEnabled = true;
+                //     if (vm.data.isProfitTableSet) {
+                //         vm.setCustomDate();
+                //     }
+                // }
+                // else {
+                vm.customDateEnabled = false;
 
-                    if (vm.data.dateType == 'allTime') {
-                        if (vm.data.hasOwnProperty('dateFrom')) {
-                            delete vm.data.dateFrom;
-                        }
-                        if (vm.data.hasOwnProperty('dateTo')) {
-                            delete vm.data.dateTo;
-                        }
-                    } else if (vm.data.dateType == 'monthAgo') {
-                        vm.setTiming(30);
-                        if (vm.data.hasOwnProperty('dateTo')) {
-                            delete vm.data.dateTo;
-                        }
-                    } else if (vm.data.dateType == 'sevenDayAgo') {
-                        vm.setTiming(7);
-                        if (vm.data.hasOwnProperty('dateTo')) {
-                            delete vm.data.dateTo;
-                        }
-                    } else if (vm.data.dateType == 'threeDayAgo') {
-                        vm.setTiming(3);
-                        if (vm.data.hasOwnProperty('dateTo')) {
-                            delete vm.data.dateTo;
-                        }
-                    } else if (vm.data.dateType == 'oneDayAgo') {
-                        vm.setTiming(1);
-                        vm.data.dateTo = Math.ceil((vm.currentEpoch - vm.diff) / 1000);
-                    } else if (vm.data.dateType == 'today') {
-                        vm.setTiming(0);
-                        if (vm.data.hasOwnProperty('dateTo')) {
-                            delete vm.data.dateTo;
-                        }
+                if (vm.data.dateType == 'allTime') {
+                    if (vm.data.hasOwnProperty('dateFrom')) {
+                        delete vm.data.dateFrom;
+                    }
+                    if (vm.data.hasOwnProperty('dateTo')) {
+                        delete vm.data.dateTo;
+                    }
+                } else if (vm.data.dateType == 'monthAgo') {
+                    vm.setTiming(30);
+                    if (vm.data.hasOwnProperty('dateTo')) {
+                        delete vm.data.dateTo;
+                    }
+                } else if (vm.data.dateType == 'sevenDayAgo') {
+                    vm.setTiming(7);
+                    if (vm.data.hasOwnProperty('dateTo')) {
+                        delete vm.data.dateTo;
+                    }
+                } else if (vm.data.dateType == 'threeDayAgo') {
+                    vm.setTiming(3);
+                    if (vm.data.hasOwnProperty('dateTo')) {
+                        delete vm.data.dateTo;
+                    }
+                } else if (vm.data.dateType == 'oneDayAgo') {
+                    vm.setTiming(1);
+                    vm.data.dateTo = Math.ceil((vm.currentEpoch - vm.diff) / 1000);
+                } else if (vm.data.dateType == 'today') {
+                    vm.setTiming(0);
+                    if (vm.data.hasOwnProperty('dateTo')) {
+                        delete vm.data.dateTo;
                     }
                 }
+                // }
                 vm.transactions = [];
                 vm.data.currentPage = 0;
                 profitTableService.update(vm.data);
@@ -258,12 +254,12 @@
             }
         });
 
-        vm.setCustomDate = function() {
-            vm.data.dateFrom = (new Date(document.getElementById("start").value).getTime()) / 1000 || "";
-            vm.data.dateTo = (new Date(document.getElementById("end").value).getTime()) / 1000 || "";
-            profitTableService.update(vm.data);
-            vm.setProfitTableParams();
-        }
+        // vm.setCustomDate = function() {
+        //     vm.data.dateFrom = (new Date(document.getElementById("start").value).getTime()) / 1000 || "";
+        //     vm.data.dateTo = (new Date(document.getElementById("end").value).getTime()) / 1000 || "";
+        //     profitTableService.update(vm.data);
+        //     vm.setProfitTableParams();
+        // }
 
         // do this on response of any profitTable request
         $scope.$on('profit_table:update', (e, _profitTable, _passthrough) => {

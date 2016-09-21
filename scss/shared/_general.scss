@@ -19,6 +19,18 @@ button:hover{
 	color: $white !important;
 	background-color: $darkgreen;
 }
+.button-gray{
+	background: $lightgray;
+	color: $black;
+	&:hover{
+		background: $gray!important;
+		color: $black!important;
+	}
+}
+.side-item{
+	background: inherit;
+	color: $white;
+}
 .token-link {
 				text-decoration: underline;
 }

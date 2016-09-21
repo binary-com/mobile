@@ -82,7 +82,6 @@
                 localStorage.removeItem('profitTableState');
                 localStorage.removeItem('statementState');
                 sessionStorage.removeItem('countryParams');
-                $root.$broadcast('changedAccount');
                 appStateService.isPopupOpen = false;
             } else {
                 $ionicLoading.hide();

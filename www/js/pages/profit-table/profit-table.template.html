@@ -1,49 +1,60 @@
-<ion-view class="accounts">
-    <ion-content class="accounts-content" has-bouncing="false">
+<ion-view class="profit-table">
+    <ion-content has-bouncing="false">
         <div class="profit-table-container">
             <bg-balance></bg-balance>
             <div class="row">
                 <div class="col col-50">
-                    <label class="item item-input item-select">
-                        <select class="" name="appID" ng-model="vm.data.appID">
+                    <div class="item item-input item-select">
+                        <select name="appID" ng-model="vm.data.appID">
                             <option ng-selected="vm.data.appID == app.label" ng-value="app.label" ng-repeat="app in vm.apps" ng-bind="app.text"></option>
                         </select>
-                    </label>
+                    </div>
                 </div>
                 <div class="col col-50">
-                    <label class="item item-input item-select">
-                        <select class="" name="dateType" ng-model="vm.data.dateType">
+                    <div class="item item-input item-select">
+                        <select name="dateType" ng-model="vm.data.dateType">
                             <option ng-selected="vm.data.dateType == date.label" ng-value="date.label" ng-repeat="date in vm.dates" ng-bind="date.text"></option>
                         </select>
-                    </label>
+                    </div>
                 </div>
             </div>
-            <div class="profit-table col col-100">
-                <div class="row header">
-                    <div class="col profit-table-cell profit-table-title">{{'profittable.date' | translate}}</div>
-                    <div class="col profit-table-cell profit-table-title">{{'profittable.ref' | translate}}</div>
-                    <div class="col profit-table-cell profit-table-title">{{'profittable.purchase_price' | translate}}</div>
-                    <div class="col profit-table-cell profit-table-title">{{'profittable.sale_price' | translate}}</div>
-                    <div class="col profit-table-cell profit-table-title">{{'profittable.profit_loss' | translate}}</div>
-                </div>
-                <div class="row" ng-repeat="transaction in vm.transactions | DataFilter:vm.data.appID" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
-                    <div class="col profit-table-cell" ng-bind="transaction.purchase_time * 1000 | date : 'mediumDate' "></div>
-                    <div class="col profit-table-cell" ng-bind="transaction.transaction_id"></div>
-                    <div class="col profit-table-cell" ng-bind="(transaction.buy_price - 0).toFixed(2)" class="center"></div>
-                    <div class="col profit-table-cell" ng-bind="(transaction.sell_price - 0).toFixed(2)" class="center"></div>
-                    <div class="col profit-table-cell" ng-bind="(transaction.sell_price - transaction.buy_price).toFixed(2)"></div>
-                </div>
+            <div class="row">
+              <div class="col">
+                <ul>
+                  <li class="list" ng-repeat="transaction in vm.transactions | DataFilter:vm.data.appID" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                    <div class="row">
+                      <div class="col-50">
+                        <div class="list-item" ng-bind="transaction.purchase_time * 1000 | date : 'mediumDate' ">
+                        </div>
+                        <div class="list-item" ng-bind="transaction.purchase_time * 1000 | date : 'mediumTime' ">
+                        </div>
+                      </div>
+                      <div class="col-50 right">
+                        <div class="list-item">
+                          <span class="bold" ng-bind="transaction.transaction_id"></span>
+                        </div>
+                        <div class="list-item">
+                          <span class="bold green" ng-class="{red : (transaction.sell_price - transaction.buy_price).toFixed(2) < 0}" ng-bind="vm.formatMoney(vm.currency, (transaction.sell_price - transaction.buy_price).toFixed(2))"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
                 <div class="row" ng-if="vm.noTransaction">
                     <div class="col">
                         {{'profittable.no_transaction' | translate}}
                     </div>
                 </div>
+              </div>
             </div>
-            <div class="col">
-                <button class="button" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled">«
-                    {{'profittable.prev' | translate}}</button>
-                <button class="button" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled">{{'profittable.next' | translate}}
-                    »</button>
+
+            <div class="row">
+              <div class="col">
+                  <button class="button button-gray prev" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled">
+                      {{'profittable.prev' | translate}}</button>
+                  <button class="button button-gray next" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled">{{'profittable.next' | translate}}
+                      </button>
+              </div>
             </div>
         </div>
     </ion-content>
