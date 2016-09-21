@@ -105,7 +105,8 @@
 		"exit_title": "Exit",
 		"exit_confirmation": "Are you sure you want to exit?",
 		"connection_error_title": "Connection Error",
-		"connection_error": "There is no internet connection!"
+		"connection_error": "There is no internet connection!",
+		"sign_out": "Sign out"
 	},
 	"update": {
 		"installed": "The update was installed successfully.",
@@ -312,12 +313,12 @@
         "from": "From",
         "to": "To",
         "date": "Date",
-        "ref": "Reference",
+        "ref": "Reference:",
         "potential_payout": "Potential payout",
         "purchase_price": "Purchase price",
         "sale_date": "Sale date",
         "sale_price": "Sale price",
-        "profit_loss": "Profit/loss (USD)",
+        "profit_loss": "Profit/loss",
         "details": "Details",
         "view": "View",
         "prev": "Previous",

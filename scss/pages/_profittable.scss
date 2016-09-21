@@ -1,37 +1,51 @@
-.profit-table-container {
-	background: $lightgray;
-	.item{
+.profit-table {
+	.balance {
+		&.row{
+			background: lightgray;
+		}
+	}
+	.item {
 		padding: 15px;
 	}
-	.profit-table{
-		width: 100%;
-		padding: 0;
-		position: relative;
-		.profit-table-cell{
-			border-bottom: 1px solid $lightgray;
-			background: $white;
-			text-align: center;
-		}
-		.profit-table-title{
-			font-weight: bold;
-			background: $lightgray;
-			border-bottom: 1px solid $gray;
-		}
-	}
-	.item-select{
+	.item-select {
 		border: 1px solid $gray;
 	}
+	select {
+		width: 100%;
+		padding: 0 15px;
+		direction: ltr;
+	}
+	.next {
+		float: right;
+	}
+	.prev {
+		float: left;
+	}
+	ul {
+		.list{
+			    padding: 5px 0;
+					margin-bottom: 0;
+					border-bottom: 1px solid $gray;
+					.list-item{
+						        padding: 10px 0;
+										color: $black;
+					}
+					.right{
+						text-align: right;
+					}
+					.green{
+						color: $green;
+					}
+					.red{
+						color: $red!important;
+					}
+					.bold{
+						font-weight: bold;
+					}
+		}
+	}
 }
-
 .transaction-detail-container {
 	background: $lightgray;
 }
-
-
-
-
-
-
-@media only screen and (max-width: 480px) {
-
-}
+@media only screen and (max-width: 480px) {}
