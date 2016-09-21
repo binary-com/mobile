@@ -66,9 +66,11 @@
         // refresh table and filters on changing account
         $scope.$on('authorize', () => {
                 profitTableService.remove();
+                if(appStateService.isChangedAccount = true){
                 if (vm.data.isProfitTableSet) {
                     vm.setDefaultParams();
                 }
+              }
         });
 
         // function of sending profit table request through websocket

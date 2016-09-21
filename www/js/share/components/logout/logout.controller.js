@@ -48,7 +48,6 @@
 														localStorage.removeItem('statementState');
 														websocketService.closeConnection();
 														appStateService.hasMLT = false;
-														$rootScope.$broadcast('logout');
 							$state.go('signin');
 						}
 					}
