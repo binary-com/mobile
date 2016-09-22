@@ -31,7 +31,7 @@
 		"remove_token_title": "Removing a Token",
 		"remove_token_content": "Are you sure you want to remove this token?",
 		"remove_all_tokens_title": "Removing All Tokens",
-		"remove_all_tokens_content": "Are you sure you want to remove all tokens and sign out?",
+		"remove_all_tokens_content": "Are you sure you want to exit the app?",
 		"no_underlying": "There is no underlying for this market. Please try another market.",
 		"required_field": "This field is required.",
 		"field_between": "It must be between 0.70 and 100000.",
@@ -106,7 +106,8 @@
 		"exit_title": "Exit",
 		"exit_confirmation": "Are you sure you want to exit?",
 		"connection_error_title": "Connection Error",
-		"connection_error": "There is no internet connection!"
+		"connection_error": "There is no internet connection!",
+		"sign_out": "Sign out"
 	},
 	"update": {
 		"installed": "The update was installed successfully.",
@@ -313,12 +314,12 @@
         "from": "From",
         "to": "To",
         "date": "Date",
-        "ref": "Reference",
+        "ref": "Reference:",
         "potential_payout": "Potential payout",
         "purchase_price": "Purchase price",
         "sale_date": "Sale date",
         "sale_price": "Sale price",
-        "profit_loss": "Profit/loss (USD)",
+        "profit_loss": "Profit/loss",
         "details": "Details",
         "view": "View",
         "prev": "Previous",
@@ -330,7 +331,10 @@
     },
     "transactiondetails": {
         "detail": "Transaction detail",
-        "ok": "OK"
+				"back": "Back",
+        "ok": "OK",
+				"ref": "Reference",
+				"contract_type": "Contract type"
     },
     "statement": {
       "statement": "Statement",

@@ -1,59 +1,41 @@
-<ion-view class="accounts">
-    <ion-content class="accounts-content" has-bouncing="false">
-        <div class="transaction-detail-container">
-            <table>
-                <tbody>
-                    <tr>
-                        <td colspan="2">
-                            contract details
-                        </td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <td colspan="2">
-                            {{vm.contract.longcode}}
-                        </td>
-                    </tr>
-                </tbody>
+<ion-view class="profit-table">
+    <ion-content has-bouncing="false">
+        <ion-item>
+            <a ng-click="vm.goToPrevPage()">{{'transactiondetails.back' | translate}}</a>
+        </ion-item>
 
-                <tbody>
-                    <tr>
-                        <th>
-                            contract id:
-                        </th>
-                        <td>
-                            {{vm.contract.contract_id}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            contract id:
-                        </th>
-                        <td>
-                            {{vm.contract.contract_id}}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- <ul class="list">
-    <li class="item">
-      {{vm.contract.longcode}}
-    </li>
-		<li class="item">
-      <div class="col-50">
-contract id:
-      </div>
-      <div class="col-50">
-        {{vm.contract.contract_id}}
-      </div>
-    </li>
-</ul>
-
-					<ion-item><h1>contract information</h1></ion-item>
-					<ion-item><div class="list">contract id: {{vm.contract.contract_id}}</div></ion-item>
-					<ion-item><div class="list">contract id: {{vm.contract.contract_id}}</div></ion-item> -->
+        <div class="row">
+          <div class="col">
+            <ul>
+              <li class="list">
+                <div class="row">
+                  <div class="col-50">
+                    <div class="list-item">
+                      {{'transactiondetails.ref' | translate}}
+                    </div>
+                  </div>
+                  <div class="col-50 right">
+                    <div class="list-item" ng-bind="vm.contract.contract_id">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="list">
+                <div class="row">
+                  <div class="col-50">
+                    <div class="list-item">
+                      {{'transactiondetails.contract_type' | translate}}
+                    </div>
+                  </div>
+                  <div class="col-50 right">
+                    <div class="list-item" ng-bind="vm.contract.contract_type">
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
+
     </ion-content>
 </ion-view>

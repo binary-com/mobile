@@ -28,5 +28,9 @@
   }
   a.item-content{
     color: #f2f2f2;
+    &.activated{
+      background: #2a3052;
+
+    }
   }
 }
