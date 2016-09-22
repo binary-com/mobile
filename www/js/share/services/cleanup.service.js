@@ -13,6 +13,6 @@ angular
 		function($translate, proposalService) {
 
 			this.run = function() {
-				proposalService.remove();
+				proposalService.forget();
 			};
 	});

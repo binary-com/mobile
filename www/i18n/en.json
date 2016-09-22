@@ -331,7 +331,10 @@
     },
     "transactiondetails": {
         "detail": "Transaction detail",
-        "ok": "OK"
+				"back": "Back",
+        "ok": "OK",
+				"ref": "Reference",
+				"contract_type": "Contract type"
     },
     "statement": {
       "statement": "Statement",
