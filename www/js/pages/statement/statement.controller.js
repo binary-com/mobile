@@ -73,6 +73,9 @@
               }
             ];
 
+        })
+        .then(() => {
+          vm.setDefaultParams();
         });
 
         // refresh table and filters on changing account
@@ -124,8 +127,8 @@
         vm.setDefaultParams = function() {
             if (_.isEmpty(sessionStorage.statementState)) {
                 vm.data.currentPage = 0;
-                vm.data.appID = 'allApps';
-                vm.data.dateType = 'allTime';
+                vm.data.appID = vm.apps[0].label;
+                vm.data.dateType = vm.dates[0].label;
             } else {
                 vm.data = statementService.get();
             }

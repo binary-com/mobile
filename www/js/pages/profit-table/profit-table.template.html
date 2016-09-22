@@ -4,15 +4,13 @@
             <div class="row">
                 <div class="col col-50">
                     <div class="item item-input item-select">
-                        <select name="appID" ng-model="vm.data.appID">
-                            <option ng-selected="vm.data.appID == app.label" ng-value="app.label" ng-repeat="app in vm.apps" ng-bind="app.text"></option>
+                        <select name="appID" ng-model="vm.data.appID" ng-options="app.label as app.text for app in vm.apps">
                         </select>
                     </div>
                 </div>
                 <div class="col col-50">
                     <div class="item item-input item-select">
-                        <select name="dateType" ng-model="vm.data.dateType">
-                            <option ng-selected="vm.data.dateType == date.label" ng-value="date.label" ng-repeat="date in vm.dates" ng-bind="date.text"></option>
+                        <select name="dateType" ng-model="vm.data.dateType" ng-options="date.label as date.text for date in vm.dates">
                         </select>
                     </div>
                 </div>
