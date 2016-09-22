@@ -12,7 +12,7 @@
 
 angular
 	.module('binary.pages.statement.filters')
-	.filter('DataFilter', Statement);
+	.filter('DataFilter', DataFilter);
 
 	DataFilter.$inject = ['$filter'];
 
