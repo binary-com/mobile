@@ -106,7 +106,7 @@
         }
 
         vm.setDefaultParams = function() {
-            if (_.isEmpty(localStorage.profitTableState)) {
+            if (_.isEmpty(sessionStorage.profitTableState)) {
                 vm.data.currentPage = 0;
                 vm.data.appID = 'allApps';
                 vm.data.dateType = 'allTime';
@@ -292,7 +292,7 @@
         // details functions
         vm.sendContractDetailRequest = function(id) {
             vm.id = id;
-            localStorage.setItem('id', vm.id);
+            sessionStorage.setItem('id', vm.id);
             $state.go('transactiondetail');
         }
     }

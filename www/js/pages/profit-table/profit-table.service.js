@@ -28,19 +28,19 @@
             }
             factory.update = function(_data) {
                 if (_data) {
-                    localStorage.profitTableState = JSON.stringify(createProfitTable(_data));
+                    sessionStorage.profitTableState = JSON.stringify(createProfitTable(_data));
                 }
             }
 
             factory.get = function() {
-                if (localStorage.profitTableState) {
-                    return JSON.parse(localStorage.profitTableState);
+                if (sessionStorage.profitTableState) {
+                    return JSON.parse(sessionStorage.profitTableState);
                 }
                 return false;
             };
 
             factory.remove = function() {
-                localStorage.removeItem('profitTableState');
+                sessionStorage.removeItem('profitTableState');
             }
             return factory;
         }
