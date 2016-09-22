@@ -164,7 +164,7 @@
                     vm.showSignup = false;
                     vm.showSignin = true;
                 }
-                else if(!vm.showSignin && vm.showSignup && !vm.showTokenForm && vm.showvirtualws){
+                else if(!vm.showSignin && !vm.showSignup && !vm.showTokenForm && vm.showvirtualws){
                     vm.showvirtualws = false;
                     vm.showSignup = false;
                     vm.showSignin = true;
