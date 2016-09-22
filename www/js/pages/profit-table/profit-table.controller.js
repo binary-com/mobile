@@ -25,6 +25,7 @@
         vm.customDateEnabled = false;
         vm.transactions = [];
         vm.noTransaction = false;
+        vm.data = {};
         vm.data.isProfitTableSet = false;
 
         vm.formatMoney = function(currency, amount){
@@ -60,9 +61,6 @@
                     label: "today",
                     text: translation['profittable.today']
                 }];
-            })
-            .then(() => {
-              vm.setDefaultParams();
             });
 
         // refresh table and filters on changing account
@@ -112,13 +110,23 @@
         vm.setDefaultParams = function() {
             if (_.isEmpty(sessionStorage.profitTableState)) {
                 vm.data.currentPage = 0;
-                vm.data.appID = vm.apps[0].label;
-                vm.data.dateType = vm.dates[0].label;
+                vm.data.appID = 'allApps';
+                vm.data.dateType = 'allTime';
             } else {
                 vm.data = profitTableService.get();
+                // if (vm.data.dateType == 'customDate') {
+                //     $scope.$applyAsync(() => {
+                //         document.getElementById("start").value = $filter('date')(new Date(vm.data.dateFrom * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
+                //         document.getElementById("end").value = $filter('date')(new Date(vm.data.dateTo * 1000).toISOString().slice(0, 10), 'yyyy-MM-dd');
+                //         vm.customDateEnabled = true;
+                //     });
+                //     profitTableService.update(vm.data);
+                // }
             }
             return vm.sendProfitTableRequest();
         }
+
+        vm.setDefaultParams();
 
         // previous button
         vm.prevPage = function() {
@@ -208,6 +216,13 @@
             // preventing from multiple requests at page load
             if (vm.data.isProfitTableSet) {
 
+                // if (vm.data.dateType == 'customDate') {
+                //     vm.customDateEnabled = true;
+                //     if (vm.data.isProfitTableSet) {
+                //         vm.setCustomDate();
+                //     }
+                // }
+                // else {
                 vm.customDateEnabled = false;
 
                 if (vm.data.dateType == 'allTime') {
@@ -241,12 +256,20 @@
                         delete vm.data.dateTo;
                     }
                 }
+                // }
                 vm.filteredTransactions = [];
                 vm.data.currentPage = 0;
                 profitTableService.update(vm.data);
                 vm.setProfitTableParams();
             }
         });
+
+        // vm.setCustomDate = function() {
+        //     vm.data.dateFrom = (new Date(document.getElementById("start").value).getTime()) / 1000 || "";
+        //     vm.data.dateTo = (new Date(document.getElementById("end").value).getTime()) / 1000 || "";
+        //     profitTableService.update(vm.data);
+        //     vm.setProfitTableParams();
+        // }
 
         // do this on response of any profitTable request
         $scope.$on('profit_table:update', (e, _profitTable, _passthrough) => {

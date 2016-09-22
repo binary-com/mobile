@@ -12,11 +12,11 @@
 
 angular
 	.module('binary.pages.statement.filters')
-	.filter('StatementFilter', Statement);
+	.filter('DataFilter', Statement);
 
-	Statement.$inject = ['$filter'];
+	DataFilter.$inject = ['$filter'];
 
-		function Statement(transactions, appID) {
+		function DataFilter(transactions, appID) {
 			function DataChange(transactions, appID){
 				var filtered = [],
 				appID = appID,

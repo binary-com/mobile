@@ -19,7 +19,7 @@
             <div class="row">
               <div class="col">
                 <ul>
-                  <li class="list" ng-repeat="transaction in vm.filteredTtransactions" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                  <li class="list" ng-repeat="transaction in vm.filteredTransactions" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
                     <div class="row">
                       <div class="col-50">
                         <div class="list-item" ng-bind="transaction.transaction_time * 1000 | date : 'mediumDate' ">
