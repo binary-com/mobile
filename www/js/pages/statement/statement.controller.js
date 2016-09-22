@@ -135,8 +135,6 @@
             return vm.sendStatementRequest();
         }
 
-        vm.setDefaultParams();
-
         // previous button
         vm.prevPage = function() {
             if (vm.data.currentPage > 0) {
