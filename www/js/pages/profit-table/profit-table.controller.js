@@ -66,6 +66,8 @@
         // refresh table and filters on changing account
         $scope.$on('authorize', () => {
                 profitTableService.remove();
+                vm.filteredTransactions = [];
+                vm.noTransaction = false;
                 if(appStateService.isChangedAccount = true){
                 if (vm.data.isProfitTableSet) {
                     vm.setDefaultParams();
@@ -106,7 +108,7 @@
         }
 
         vm.setDefaultParams = function() {
-            if (_.isEmpty(localStorage.profitTableState)) {
+            if (_.isEmpty(sessionStorage.profitTableState)) {
                 vm.data.currentPage = 0;
                 vm.data.appID = 'allApps';
                 vm.data.dateType = 'allTime';
@@ -176,6 +178,14 @@
                     }
                 });
             }
+
+            $scope.$watch('vm.data.appID', () => {
+              vm.noTransaction = false;
+              vm.filteredTransactions = $filter('DataFilter')(vm.transactions, vm.data.appID);
+              if(vm.filteredTransactions.length == 0){
+                vm.noTransaction = true;
+              }
+            });
         }
 
         vm.setTiming = function(daysNumber) {
@@ -247,7 +257,7 @@
                     }
                 }
                 // }
-                vm.transactions = [];
+                vm.filteredTransactions = [];
                 vm.data.currentPage = 0;
                 profitTableService.update(vm.data);
                 vm.setProfitTableParams();
@@ -268,9 +278,6 @@
             vm.profitTable = _profitTable;
             vm.count = vm.profitTable.count;
             if (vm.count > 0) {
-                $scope.$applyAsync(() => {
-                    vm.noTransaction = false;
-                });
                 vm.items = vm.profitTable.transactions;
                 // enable and disabling previous button
                 vm.prevButtonState();
@@ -292,7 +299,7 @@
         // details functions
         vm.sendContractDetailRequest = function(id) {
             vm.id = id;
-            localStorage.setItem('id', vm.id);
+            sessionStorage.setItem('id', vm.id);
             $state.go('transactiondetail');
         }
     }
