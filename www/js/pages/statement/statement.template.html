@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col">
                 <ul>
-                  <li class="list" ng-repeat="transaction in vm.transactions | DataFilter:vm.data.appID" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                  <li class="list" ng-repeat="transaction in vm.filteredTtransactions" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
                     <div class="row">
                       <div class="col-50">
                         <div class="list-item" ng-bind="transaction.transaction_time * 1000 | date : 'mediumDate' ">
@@ -38,20 +38,18 @@
                       </div>
                     </div>
                   </li>
+                  <li class="row" ng-if="vm.noTransaction">
+                          {{'profittable.no_transaction' | translate}}
+                  </li>
                 </ul>
-                <div class="row" ng-if="vm.noTransaction">
-                    <div class="col">
-                        {{'profittable.no_transaction' | translate}}
-                    </div>
-                </div>
               </div>
             </div>
 
             <div class="row">
               <div class="col">
-                  <button class="button button-gray prev" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled">
+                  <button class="button button-gray prev" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled" ng-hide="vm.noTransaction">
                       {{'statement.prev' | translate}}</button>
-                  <button class="button button-gray next" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled">{{'statement.next' | translate}}
+                  <button class="button button-gray next" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled" ng-hide="vm.noTransaction">{{'statement.next' | translate}}
                       </button>
               </div>
             </div>

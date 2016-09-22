@@ -176,6 +176,14 @@
                     }
                 });
             }
+
+            $scope.$watch('vm.data.appID', () => {
+              vm.noTransaction = false;
+              vm.filteredTransactions = $filter('DataFilter')(vm.transactions, vm.data.appID);
+              if(vm.filteredTransactions.length == 0){
+                vm.noTransaction = true;
+              }
+            });
         }
 
         vm.setTiming = function(daysNumber) {
@@ -247,7 +255,7 @@
                     }
                 }
                 // }
-                vm.transactions = [];
+                vm.filteredTransactions = [];
                 vm.data.currentPage = 0;
                 profitTableService.update(vm.data);
                 vm.setProfitTableParams();
@@ -268,9 +276,6 @@
             vm.profitTable = _profitTable;
             vm.count = vm.profitTable.count;
             if (vm.count > 0) {
-                $scope.$applyAsync(() => {
-                    vm.noTransaction = false;
-                });
                 vm.items = vm.profitTable.transactions;
                 // enable and disabling previous button
                 vm.prevButtonState();

@@ -181,6 +181,14 @@
                     }
                 });
             }
+
+            $scope.$watch('vm.data.appID', () => {
+              vm.noTransaction = false;
+              vm.filteredTransactions = $filter('DataFilter')(vm.transactions, vm.data.appID);
+              if(vm.filteredTransactions.length == 0){
+                vm.noTransaction = true;
+              }
+            });
         }
 
         vm.setTiming = function(daysNumber) {
@@ -242,7 +250,7 @@
                             delete vm.data.dateTo;
                         }
                     }
-                vm.transactions = [];
+                vm.filteredTransactions = [];
                 vm.data.currentPage = 0;
                 statementService.update(vm.data);
                 vm.setStatementParams();
@@ -256,9 +264,6 @@
             vm.statement = _statement;
             vm.count = vm.statement.count;
             if (vm.count > 0) {
-                $scope.$applyAsync(() => {
-                    vm.noTransaction = false;
-                });
                 vm.items = vm.statement.transactions;
                 // enable and disabling previous button
                 vm.prevButtonState();
