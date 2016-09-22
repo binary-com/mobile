@@ -78,6 +78,8 @@
         // refresh table and filters on changing account
         $scope.$on('authorize', () => {
                 statementService.remove();
+                vm.filteredTransactions = [];
+                vm.noTransaction = false;
                 if(appStateService.isChangedAccount = true){
                   if (vm.data.isStatementSet) {
                       vm.setDefaultParams();
