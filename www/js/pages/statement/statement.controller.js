@@ -57,7 +57,7 @@
             websocketService.sendRequestFor.statement(vm.params);
         }
 
-        vm.sendStatementRequest = function() {
+        vm.checkState = function() {
             if (appStateService.isLoggedin) {
                 if (!vm.data.isStatementSet) {
                     vm.sendRequest();
@@ -67,7 +67,7 @@
                 }
                 statementService.update(vm.data);
             } else {
-                $timeout(vm.sendStatementRequest, 500);
+                $timeout(vm.checkState, 500);
             }
         }
 
@@ -79,7 +79,7 @@
             } else {
                 vm.data = statementService.get();
             }
-            return vm.sendStatementRequest();
+            return vm.checkState();
         }
 
         vm.setParams();

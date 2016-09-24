@@ -57,7 +57,7 @@
             websocketService.sendRequestFor.profitTable(vm.params);
         }
 
-        vm.sendProfitTableRequest = function() {
+        vm.checkState = function() {
             if (appStateService.isLoggedin) {
                 if (!vm.data.isProfitTableSet) {
                     vm.sendRequest();
@@ -67,7 +67,7 @@
                 }
                 profitTableService.update(vm.data);
             } else {
-                $timeout(vm.sendProfitTableRequest, 500);
+                $timeout(vm.checkState, 500);
             }
         }
 
@@ -79,7 +79,7 @@
             } else {
                 vm.data = profitTableService.get();
             }
-            return vm.sendProfitTableRequest();
+            return vm.checkState();
         }
 
         vm.setParams();

@@ -30,6 +30,12 @@
 						        padding: 10px 0;
 										color: $black;
 					}
+					.profit-table-element{
+						width: 33%;
+						&:nth-child(2){
+							text-align: center;
+						}
+					}
 					.right{
 						text-align: right;
 					}
