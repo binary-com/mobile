@@ -13,9 +13,9 @@
         .module('binary.pages.transaction-detail.controllers')
         .controller('TransactionDetailController', TransactionDetail);
 
-    TransactionDetail.$inject = ['$scope', '$timeout', '$state', 'appStateService', 'websocketService'];
+    TransactionDetail.$inject = ['$scope', '$timeout', '$interval', '$state', 'appStateService', 'websocketService', 'currencyToSymbolService'];
 
-    function TransactionDetail($scope, $timeout, $state, appStateService, websocketService) {
+    function TransactionDetail($scope, $timeout, $interval, $state, appStateService, websocketService, currencyToSymbolService) {
         var vm = this;
         vm.data = {};
         vm.data.id = sessionStorage.getItem('id');
@@ -41,6 +41,18 @@
         });
 
         vm.sendDetailsRequest();
+
+        vm.formatMoney = function(currency, amount) {
+            vm.currency = sessionStorage.getItem('currency');
+            return currencyToSymbolService.formatMoney(currency, amount);
+        }
+
+        vm.liveDateCalc = function(){
+          vm.liveDate = new Date().getTime();
+          return vm.liveDate;
+        }
+
+        $interval(vm.liveDateCalc, 1000);
 
         // back button function
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {

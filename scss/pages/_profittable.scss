@@ -1,6 +1,6 @@
 .profit-table {
 	.balance {
-		&.row{
+		&.row {
 			background: lightgray;
 		}
 	}
@@ -22,38 +22,66 @@
 		float: left;
 	}
 	ul {
-		.list{
-			    padding: 5px 0;
-					margin-bottom: 0;
-					border-bottom: 1px solid $gray;
-					.list-item{
-						        padding: 10px 0;
-										color: $black;
-					}
-					.profit-table-element{
-						width: 33%;
-						&:nth-child(2){
-							text-align: center;
-						}
-					}
-					.statement-element{
-						width: 25%;
-					}
-					.right{
-						text-align: right;
-					}
-					.green{
-						color: $green;
-					}
-					.red{
-						color: $red!important;
-					}
-					.bold{
-						font-weight: bold;
-					}
+		.list {
+			padding: 0;
+			margin-bottom: 0;
+			border-bottom: 1px solid $lightgray;
+			&:first-child {
+				border-top: 1px solid $lightgray;
+			}
+			&:last-child {
+				border-bottom: none;
+			}
+			.list-item {
+				padding: 10px 0;
+				color: $black;
+			}
+			.profit-table-element {
+				width: 33%;
+				&:nth-child(2) {
+					text-align: center;
+				}
+			}
+			.statement-element {
+				width: 25%;
+			}
+			.right {
+				text-align: right;
+			}
+			.green {
+				color: $green;
+			}
+			.red {
+				color: $red!important;
+			}
+			.bold {
+				font-weight: bold;
+			}
 		}
 	}
 }
-.transaction-detail-container {
-	background: $lightgray;
+.transaction-detail {
+	.reference {
+		font-size: 16px;
+		border-bottom: 1px solid $lightgray;
+		padding: 5px 0;
+		span {
+			font-weight: bold;
+		}
+	}
+	.small-text {
+		font-size: 12px;
+	}
+	.back {
+		button {
+			margin-top: 0 !important;
+		}
+	}
+	.title {
+		padding: 0 5px;
+	}
+	.longcode {
+		padding: 5px 0;
+		font-size: 12px;
+	}
 }
