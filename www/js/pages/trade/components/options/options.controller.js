@@ -69,8 +69,8 @@
 
     });
 
-    $scope.$on('currency:changed', (e, currency) =>{
-      vm.proposal.currency = currency;
+    $scope.$on('authorize', (e, response) =>{
+      vm.proposal.currency = response.currency;
     });
 
     vm.setSection = function(section){

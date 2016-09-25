@@ -22,7 +22,9 @@
             if(_.isEmpty(localStorage.proposal)){
                 return create();
             }
-            return JSON.parse(localStorage.proposal);
+            var proposal = JSON.parse(localStorage.proposal);
+            proposal.currency = sessionStorage.currency || 'USD';
+            return proposal;
         }
 
         factory.save = function(options){
@@ -65,7 +67,7 @@
                 contract_type: null,
                 duration: null,
                 basis: 'payout',
-                currency: 'USD',
+                currency: sessionStorage.currency || 'USD',
                 amount: 5,
                 duration_unit: 't',
                 passthrough: null

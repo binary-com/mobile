@@ -1,10 +1,14 @@
 <ion-view class="trade">
-  <bg-options proposal="vm.proposal"></bg-options>
+  {{ console.log(vm.purchasedContract) }}
+  <bg-options proposal="vm.proposal" ng-show="!vm.inPurchaseMode"></bg-options>
+  <bg-longcode purchased-contract="vm.purchasedContract"
+               ng-if="vm.inPurchaseMode"></bg-longcode>
   <bg-chart proposal="vm.proposal"
             purchased-contract="vm.purchasedContract"></bg-chart>
   <bg-barrier ng-if="vm.proposal.tradeType=='Higher/Lower'"  proposal="vm.proposal"></bg-barrier>
-  <bg-payout proposal="vm.proposal"></bg-payout>
+  <bg-payout proposal="vm.proposal"
+             ng-if="!vm.inPurchaseMode"></bg-payout>
   <bg-purchase proposal="vm.proposal"
-               purchased-contract="vm.purchasedContract"></bg-purchase>
+               purchased-contract="vm.purchasedContract"
+               in-purchase-mode="vm.inPurchaseMode"></bg-purchase>
 </ion-view>
-

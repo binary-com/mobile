@@ -22,7 +22,8 @@
             bindToController: true,
             scope: {
                 proposal: '=',
-                purchasedContract: '='
+                purchasedContract: '=',
+                inPurchaseMode: '='
             }
         };
 
