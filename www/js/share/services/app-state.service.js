@@ -28,6 +28,8 @@ angular
                 factory.isNewAccountReal = false;
                 factory.isNewAccountMaltainvest = false;
                 factory.hasMLT = false;
+                factory.profitTableRefresh = false;
+                factory.statementRefresh = false;
 
                 return factory;
             });

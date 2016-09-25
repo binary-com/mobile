@@ -45,14 +45,15 @@
     init();
 
     vm.updateAccount = function(_selectedAccount) {
+      accountService.setDefault(_selectedAccount);
+      accountService.validate();
+      updateSymbols();
       appStateService.isChangedAccount = true;
 			appStateService.isCheckedAccountType = false;
 			sessionStorage.removeItem('start');
 			sessionStorage.removeItem('_interval');
-      utilsService.spinnerLogo.start();
-      accountService.setDefault(_selectedAccount);
-      accountService.validate();
-      updateSymbols();
+      appStateService.profitTableRefresh = true;
+      appStateService.statementRefresh = true;
     };
 
 
