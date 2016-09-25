@@ -31,7 +31,6 @@
             <div class="list">
                 <ion-spinner ng-show="vm.showSpinner"></ion-spinner>
                 <label class="item-input">
-                    <i class="icon ion-android-lock placeholder-icon icon-small"></i>
                     <input autocomplete="off" type="text" placeholder="{{'newvirtualaccount.email' | translate }}" ng-model="vm.data.mail" tabindex="1" ngRequired />
                     <div class="help-block" ng-if="emailError">
         							{{'newvirtualaccount.email-error' | translate}}
@@ -50,43 +49,34 @@
         <form name="virtualws" id="virtualws" ng-show="vm.showvirtualws && !vm.showSignin && !vm.showTokenForm" ng-submit="vm.createVirtualAccount()">
 
             <div class="list">
-                <label class="item-input">
-                    <div class="help-block">
-                        <div>{{'newvirtualaccount.code_hint' | translate}}</div>
-                    </div>
-                </label>
 
-                <label class="item-input">
-                    <i class="icon ion-android-lock placeholder-icon icon-small"></i>
-                    <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }} {{'newvirtualaccount.isrequired' | translate}}" ng-pattern="/^\w{15,128}$/" required/>
+                 <label class="item-input">
+                    <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-pattern="/^\w{15,128}$/" required/>
                 </label>
+                <div class="help-block">
+                    {{'newvirtualaccount.code_hint' | translate}}
+                </div>
 
-                <label class="item-input">
-                    <div class="help-block" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty'>
+                    <!-- <div class="help-block" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty'>
                         <div ng-message="pattern">{{'newvirtualaccount.token-invalid' | translate}}</div>
-                    </div>
-                </label>
+                    </div> -->
 
             </div>
 
             <div class="list">
 
-                <label class="item-input">
-                    <div class="help-block">
-                        <div>{{'newvirtualaccount.password_hint' | translate}}</div>
-                    </div>
-                </label>
+
 
                 <label class="item-input">
-                    <i class="icon ion-android-lock placeholder-icon icon-small"></i>
                     <input name="password" id="password" ng-model="vm.data.clientPassword" type="{{vm.data.inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]{6,25}$/" ng-pattern="/^[ -~]{6,25}$/" required/>
                 </label>
+                <div class="help-block">
+                    {{'newvirtualaccount.password_hint' | translate}}
+                </div>
 
-                <label class="item-input">
-                    <div class="help-block" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty'>
+                    <!-- <div class="help-block" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty'>
                         <div ng-message="pattern">{{'newvirtualaccount.error_format' | translate}}</div>
-                    </div>
-                </label>
+                    </div> -->
 
                 <div class="help-block show-hide-password">
                     <input type="checkbox" id="show-hide" name="show-hide" ng-model="vm.passwordCheckbox" ng-click="vm.hideShowPassword()"/>

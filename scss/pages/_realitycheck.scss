@@ -2,27 +2,17 @@
 	.popup {
 		background-color: $white;
 		width: 90vw;
-		padding: 2px;
+		padding: 0;
 		font-size: 14px;
 		.button {
 			font-size: 14px;
 		}
 		.button-secondary {
 			color: $black!important;
-			background: $gray!important;
+			background: $lightgray!important;
 		}
 	}
-	.popup-head {
-		background-color: $blue;
-		padding: 10px;
-		border: none;
-		h3.popup-title {
-			color: $white!important;
-			font-size: 14px!important;
-			text-align: left;
-			font-weight: bold;
-		}
-	}
+
 	.interval-input {
 		input {
 			border: 1px solid $gray;

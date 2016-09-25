@@ -18,7 +18,7 @@
     function TransactionDetail($scope, $timeout, $state, appStateService, websocketService) {
         var vm = this;
         vm.data = {};
-        vm.data.id = localStorage.getItem('id');
+        vm.data.id = sessionStorage.getItem('id');
         vm.data.extraParams = {
             'req_id': vm.data.id
         }

@@ -15,11 +15,32 @@
 												}
 								}
 								#virtualws , #emailform{
-									text-align: center;
+									// text-align: center;
 									.list{
 										label{
 											margin-bottom: 0;
 										}
+									}
+									input[type=text],
+									input[type=password], select{
+										border: 1px solid $lightgray;
+										border-radius: 2px;
+										background: $white;
+										padding: 10px 5px;
+										&.ng-invalid-pattern{
+											border: 1px solid $red;
+										}
+									}
+									select{
+										width: 100%;
+									}
+									.help-block{
+										width: 80%;
+										margin: 0 auto;
+										padding-left: 4px !important;
+									}
+									.show-hide-password{
+										padding-top: 15px;
 									}
 								}
 								.list {

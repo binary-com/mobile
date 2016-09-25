@@ -28,19 +28,19 @@
             }
             factory.update = function(_data) {
                 if (_data) {
-                    localStorage.statementState = JSON.stringify(createStatement(_data));
+                    sessionStorage.statementState = JSON.stringify(createStatement(_data));
                 }
             }
 
             factory.get = function() {
-                if (localStorage.statementState) {
-                    return JSON.parse(localStorage.statementState);
+                if (sessionStorage.statementState) {
+                    return JSON.parse(sessionStorage.statementState);
                 }
                 return false;
             };
 
             factory.remove = function() {
-                localStorage.removeItem('statementState');
+                sessionStorage.removeItem('statementState');
             }
             return factory;
         }

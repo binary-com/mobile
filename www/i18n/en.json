@@ -30,7 +30,7 @@
 		"no_tick": "Please select another underlying, The underlying you've selected doesn't support ticks.",
 		"remove_token_title": "Removing a Token",
 		"remove_token_content": "Are you sure you want to remove this token?",
-		"remove_all_tokens_title": "Removing All Tokens",
+		"remove_all_tokens_title": "Exit",
 		"remove_all_tokens_content": "Are you sure you want to exit the app?",
 		"no_underlying": "There is no underlying for this market. Please try another market.",
 		"required_field": "This field is required.",

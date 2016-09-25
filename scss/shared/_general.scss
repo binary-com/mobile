@@ -6,6 +6,34 @@ a{
 	text-decoration: none;
 	font-weight: bold;
 }
+.popup-head {
+	padding: 10px;
+	border: none;
+	background-color: $blue;
+	h3.popup-title {
+		color: $white!important;
+		font-size: 14px!important;
+		text-align: left;
+		font-weight: bold;
+	}
+}
+.popup-body{
+	background-color: $white;
+}
+.popup-buttons{
+	background-color: $white;
+}
+button.button.button-default {
+	color: $black!important;
+	background: $lightgray!important;
+}
+button.button.button-positive {
+	background-color: $green!important;
+	&:hover {
+		color: $white !important;
+		background-color: $darkgreen!important;
+	}
+}
 .button {
 				border: none;
 				background-color: $green;
@@ -27,6 +55,10 @@ button:hover{
 		color: $black!important;
 	}
 }
+button.button.button-default {
+  	color: $black!important;
+ 	background: $lightgray!important;
+  }
 .side-item{
 	background: inherit;
 	color: $white;
