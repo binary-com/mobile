@@ -9856,6 +9856,17 @@ button:hover {
   color: #fff !important;
   background-color: #14602B; }
 
+.button-gray {
+  background: #f2f2f2;
+  color: #000; }
+  .button-gray:hover {
+    background: #c4c4c4 !important;
+    color: #000 !important; }
+
+.side-item {
+  background: inherit;
+  color: #fff; }
+
 .token-link {
   text-decoration: underline; }
 
@@ -10075,6 +10086,8 @@ input::-webkit-inner-spin-button {
       border-color: #2a3052; }
   .menu a.item-content {
     color: #f2f2f2; }
+    .menu a.item-content.activated {
+      background: #2a3052; }
 
 @media only screen and (max-device-width: 480px) {
   .home {
@@ -11176,24 +11189,41 @@ input::-webkit-inner-spin-button {
   .result-popup .popup {
     width: 90vw !important; } }
 
-.profit-table-container {
-  background: #f2f2f2; }
-  .profit-table-container .item {
-    padding: 15px; }
-  .profit-table-container .profit-table {
-    width: 100%;
-    padding: 0;
-    position: relative; }
-    .profit-table-container .profit-table .profit-table-cell {
-      border-bottom: 1px solid #f2f2f2;
-      background: #fff;
-      text-align: center; }
-    .profit-table-container .profit-table .profit-table-title {
-      font-weight: bold;
-      background: #f2f2f2;
-      border-bottom: 1px solid #c4c4c4; }
-  .profit-table-container .item-select {
-    border: 1px solid #c4c4c4; }
+.profit-table .balance.row {
+  background: lightgray; }
+
+.profit-table .item {
+  padding: 15px; }
+
+.profit-table .item-select {
+  border: 1px solid #c4c4c4; }
+
+.profit-table select {
+  width: 100%;
+  padding: 0 15px;
+  direction: ltr; }
+
+.profit-table .next {
+  float: right; }
+
+.profit-table .prev {
+  float: left; }
+
+.profit-table ul .list {
+  padding: 5px 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid #c4c4c4; }
+  .profit-table ul .list .list-item {
+    padding: 10px 0;
+    color: #000; }
+  .profit-table ul .list .right {
+    text-align: right; }
+  .profit-table ul .list .green {
+    color: #2E8836; }
+  .profit-table ul .list .red {
+    color: #ff0000 !important; }
+  .profit-table ul .list .bold {
+    font-weight: bold; }
 
 .transaction-detail-container {
   background: #f2f2f2; }
