@@ -1,40 +1,196 @@
-<ion-view class="profit-table">
+<ion-view class="profit-table transaction-detail">
     <ion-content has-bouncing="false">
-        <ion-item>
-            <a ng-click="vm.goToPrevPage()">{{'transactiondetails.back' | translate}}</a>
-        </ion-item>
+
+        <div class="row title">
+            <div class="col title">
+                <div class="list titles">
+                    <div class="list-item ">
+                        <div class="row">
+                            <div class="col reference">
+                                {{'transactiondetails.contract_id' | translate}}
+                                <span>{{vm.contract.contract_id}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col longcode">
+                                {{vm.contract.longcode}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
-          <div class="col">
-            <ul>
-              <li class="list">
-                <div class="row">
-                  <div class="col-50">
+            <div class="col">
+                <ul>
+                    <li class="list">
+                        <div class="row">
+                            <div class="col-40">
+                                <div class="list-item">
+                                    {{'transactiondetails.ref' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-60 right">
+                                <div class="list-item">
+                                    <span ng-bind="vm.contract.transaction_ids.buy"></span>
+                                    -
+                                    <span ng-bind="vm.contract.transaction_ids.sell"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.start_time' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item" ng-bind="(vm.contract.date_start * 1000) | date: 'medium'"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list" ng-if="vm.contract.date_expiry">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.end_time' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item" ng-bind="(vm.contract.date_expiry * 1000) | date: 'medium'"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.entry_spot' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item" ng-bind="vm.contract.entry_spot"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list" ng-if="vm.contract.barrier">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.barrier' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item" ng-bind="vm.contract.barrier"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.payout' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item" ng-bind="vm.formatMoney(vm.currency, vm.contract.payout)"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.buy_price' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item" ng-bind="vm.formatMoney(vm.currency, vm.contract.buy_price)"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.exit_spot' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item" ng-bind="vm.formatMoney(vm.currency, vm.contract.exit_tick)"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.exit_spot_time' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item" ng-bind="(vm.contract.exit_tick_time * 1000) | date: 'medium'"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.current_time' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item" ng-bind="vm.liveDate | date: 'medium'"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.sell_price' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item" ng-bind="vm.formatMoney(vm.currency, vm.contract.sell_price)"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list">
+                        <div class="row">
+                            <div class="col-50">
+                                <div class="list-item">
+                                    {{'transactiondetails.profit_loss' | translate}}
+                                </div>
+                            </div>
+                            <div class="col-50 right">
+                                <div class="list-item green" ng-class="{red : (vm.contract.sell_price - vm.contract.buy_price) < 0}">
+                                    <span ng-bind="vm.formatMoney(vm.currency, (vm.contract.sell_price - vm.contract.buy_price))"></span>
+                                    <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) > 0">(+{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
+                                    <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) < 0">(-{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
+                                    <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) == 0">({{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class=" list">
                     <div class="list-item">
-                      {{'transactiondetails.ref' | translate}}
+                        <div class="back">
+                            <button class="button button-block button-gray" ng-click="vm.goToPrevPage()">{{'transactiondetails.back' | translate}}</button>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-50 right">
-                    <div class="list-item" ng-bind="vm.contract.contract_id">
-                    </div>
-                  </div>
                 </div>
-              </li>
-              <li class="list">
-                <div class="row">
-                  <div class="col-50">
-                    <div class="list-item">
-                      {{'transactiondetails.contract_type' | translate}}
-                    </div>
-                  </div>
-                  <div class="col-50 right">
-                    <div class="list-item" ng-bind="vm.contract.contract_type">
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
+            </div>
         </div>
 
     </ion-content>

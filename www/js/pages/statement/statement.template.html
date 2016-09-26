@@ -4,60 +4,60 @@
             <div class="row">
                 <div class="col col-50">
                     <label class="item item-input item-select">
-                      <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFilteredTransactions()">
-                        <option value="allApps" selected="selected">{{'statement.all_apps' | translate}}</option>
-                        <option value="tickTradeApp">{{'statement.tick_trade_app' | translate}}</option>
-                      </select>
+                        <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFilteredTransactions()">
+                            <option value="allApps" selected="selected">{{'statement.all_apps' | translate}}</option>
+                            <option value="tickTradeApp">{{'statement.tick_trade_app' | translate}}</option>
+                        </select>
                     </label>
                 </div>
                 <div class="col col-50">
                     <label class="item item-input item-select">
-                      <select name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
-                        <option value="allTime">{{'statement.all_time' | translate}}</option>
-                        <option value="monthAgo">{{'statement.last_month' | translate}}</option>
-                        <option value="sevenDayAgo">{{'statement.last_week' | translate}}</option>
-                        <option value="threeDayAgo">{{'statement.last_3_days' | translate}}</option>
-                        <option value="oneDayAgo">{{'statement.last_day' | translate}}</option>
-                        <option value="today">{{'statement.today' | translate}}</option>
-                      </select>
+                        <select name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
+                            <option value="allTime">{{'statement.all_time' | translate}}</option>
+                            <option value="monthAgo">{{'statement.last_month' | translate}}</option>
+                            <option value="sevenDayAgo">{{'statement.last_week' | translate}}</option>
+                            <option value="threeDayAgo">{{'statement.last_3_days' | translate}}</option>
+                            <option value="oneDayAgo">{{'statement.last_day' | translate}}</option>
+                            <option value="today">{{'statement.today' | translate}}</option>
+                        </select>
                     </label>
                 </div>
             </div>
 
             <div class="row">
-              <div class="col">
-                <ul>
-                  <li class="list" ng-repeat="transaction in vm.filteredTransactions" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
-                    <div class="row">
-                      <div class="col-50">
-                        <div class="list-item" ng-bind="transaction.transaction_time * 1000 | date : 'mediumDate' ">
-                        </div>
-                        <div class="list-item" ng-bind="transaction.transaction_time * 1000 | date : 'mediumTime' ">
-                        </div>
-                      </div>
-                      <div class="col-50 right">
-                        <div class="list-item bold" ng-bind="transaction.transaction_id">
-                        </div>
-                        <div class="list-item bold green">
-                          <span  ng-bind="vm.formatMoney(vm.currency,transaction.balance_after)"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="row" ng-if="vm.noTransaction">
-                          {{'statement.no_transaction' | translate}}
-                  </li>
-                </ul>
-              </div>
+                <div class="col">
+                    <ul>
+                        <li class="list" ng-repeat="transaction in vm.filteredTransactions" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                            <div class="row">
+                                <div class="list-item statement-element">
+                                    <span ng-bind="transaction.transaction_time * 1000 | date : 'mediumDate' "></span>
+                                </div>
+                                <div class="list-item statement-element center">
+                                    <span ng-bind="transaction.transaction_id"></span>
+                                </div>
+                                <div class="list-item bold statement-element center">
+                                    <span ng-bind="transaction.action_type"></span>
+
+                                </div>
+                                <div class="list-item bold green statement-element right ">
+                                        <span ng-bind="vm.formatMoney(vm.currency,transaction.balance_after)"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="row" ng-if="vm.noTransaction">
+                            {{'statement.no_transaction' | translate}}
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="row">
-              <div class="col">
-                <button class="button button-gray prev" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled" ng-hide="vm.noTransaction">
-                    {{'statement.prev' | translate}}</button>
-                <button class="button button-gray next" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled" ng-hide="vm.noTransaction">{{'statement.next' | translate}}
+                <div class="col">
+                    <button class="button button-gray prev" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled" ng-hide="vm.noTransaction">
+                        {{'statement.prev' | translate}}</button>
+                    <button class="button button-gray next" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled" ng-hide="vm.noTransaction">{{'statement.next' | translate}}
                     </button>
-              </div>
+                </div>
             </div>
         </div>
     </ion-content>
