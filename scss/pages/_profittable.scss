@@ -61,6 +61,10 @@
 	}
 }
 .transaction-detail {
+	.list-item {
+		padding: 5px 0!important;
+		color: $black;
+	}
 	.reference {
 		font-size: 18px;
 		border-bottom: 2px solid $black;
