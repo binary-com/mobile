@@ -36,6 +36,12 @@
         else{
           vm.hideMenuButton = false;
           vm.showBack = false;
+          if(vm.from.name == 'profittable'){
+            sessionStorage.removeItem('profitTableState');
+          }
+          if(vm.from.name == 'statement'){
+            sessionStorage.removeItem('statementState');
+          }
         }
     });
 
