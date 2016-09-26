@@ -54,13 +54,5 @@
 
         $interval(vm.liveDateCalc, 1000);
 
-        // back button function
-        $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
-            vm.backTarget = from;
-        });
-        vm.goToPrevPage = function() {
-            $state.go(vm.backTarget);
-        };
-
     }
 })();

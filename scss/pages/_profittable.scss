@@ -25,13 +25,6 @@
 		.list {
 			padding: 0;
 			margin-bottom: 0;
-			border-bottom: 1px solid $lightgray;
-			&:first-child {
-				border-top: 1px solid $lightgray;
-			}
-			&:last-child {
-				border-bottom: none;
-			}
 			.list-item {
 				padding: 10px 0;
 				color: $black;
@@ -58,9 +51,16 @@
 				font-weight: bold;
 			}
 		}
+		.profit-table-list{
+				border-bottom: 1px solid $lightgray;
+		}
 	}
 }
 .transaction-detail {
+	.list-item {
+		padding: 5px 0!important;
+		color: $black;
+	}
 	.reference {
 		font-size: 18px;
 		border-bottom: 2px solid $black;
