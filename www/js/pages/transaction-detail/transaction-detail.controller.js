@@ -46,6 +46,5 @@
             vm.currency = sessionStorage.getItem('currency');
             return currencyToSymbolService.formatMoney(currency, amount);
         }
-
     }
 })();

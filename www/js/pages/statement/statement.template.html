@@ -28,21 +28,16 @@
                 <div class="col">
                     <ul>
                         <li class="list profit-table-list" ng-repeat="transaction in vm.filteredTransactions" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
-                            <div class="row">
-                                <div class="list-item statement-element">
-                                    <span ng-bind="transaction.transaction_time * 1000 | date : 'mediumDate' "></span>
-                                </div>
-                                <div class="list-item statement-element center">
-                                    <span ng-bind="transaction.transaction_id"></span>
-                                </div>
-                                <div class="list-item bold statement-element center">
-                                    <span ng-bind="transaction.action_type"></span>
-
-                                </div>
-                                <div class="list-item bold green statement-element right ">
-                                        <span ng-bind="vm.formatMoney(vm.currency,transaction.balance_after)"></span>
-                                </div>
-                            </div>
+                            <ul class="col-100 statement-list">
+                                <li class=" statement-element" ng-bind="transaction.transaction_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' ">
+                                </li>
+                                <li class="center statement-element" ng-bind="transaction.transaction_id">
+                                </li>
+                                <li class="bold center statement-element" ng-bind="transaction.action_type">
+                                </li>
+                                <li class="statement-element last-statement-element bold green right" ng-bind="vm.formatMoney(vm.currency,transaction.balance_after)">
+                                </li>
+                            </ul>
                         </li>
                         <li class="row" ng-if="vm.noTransaction">
                             {{'statement.no_transaction' | translate}}
