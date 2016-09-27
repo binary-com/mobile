@@ -13,9 +13,9 @@
         .module('binary.pages.trade.components.payout.controllers')
         .controller('PayoutController', Payout);
 
-    Payout.$inject = [];
+    Payout.$inject = ['proposalService'];
 
-    function Payout(){
+    function Payout(proposalService){
         var vm = this;
         vm.amount = vm.proposal.amount;
 
@@ -26,6 +26,7 @@
             } else {
                 vm.proposal.basis = "payout";
             }
+            proposalService.setBasis(vm.proposal.basis);
         }
 
         vm.changeAmount = function(){
@@ -34,6 +35,7 @@
           } else {
             vm.proposal.amount = vm.amount;
           }
+          proposalService.setAmount(vm.proposal.amount);
         }
 
         vm.add = function(){
@@ -46,6 +48,7 @@
 
         vm.stopLongPress = function(){
           vm.proposal.amount = vm.amount;
+          proposalService.setAmount(vm.proposal.amount);
         }
 
         function init(){
