@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="col-50 right">
-                                <div class="list-item" ng-bind="(vm.contract.date_start * 1000) | date: 'medium'"></div>
+                                <div class="list-item" ng-bind="vm.contract.date_start *1000 | date: 'medium' : 'UTC'"></div>
                             </div>
                         </div>
                     </li>
@@ -120,7 +120,7 @@
                                 </div>
                             </div>
                             <div class="col-50 right">
-                                <div class="list-item" ng-bind="vm.formatMoney(vm.currency, vm.contract.exit_tick)"></div>
+                                <div class="list-item" ng-bind="vm.contract.exit_tick"></div>
                             </div>
                         </div>
                     </li>
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="list">
+                    <!-- <li class="list">
                         <div class="row">
                             <div class="col-50">
                                 <div class="list-item">
@@ -147,7 +147,7 @@
                                 <div class="list-item" ng-bind="vm.liveDate | date: 'medium'"></div>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
                     <li class="list">
                         <div class="row">
                             <div class="col-50">
