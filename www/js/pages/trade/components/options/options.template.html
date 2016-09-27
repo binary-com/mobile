@@ -1,12 +1,22 @@
+<div class="options">
 <ion-scroll direction='x'>
-  <div class="options" ng-if="vm.section== vm.SECTIONS.OVERVIEW">
-    <div class= "center"> <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.MARKETS)">{{vm.options.market.displayName}}</button> </div>
-    <div class= "center"> <button class="button button-clear"  ng-click="vm.setSection(vm.SECTIONS.UNDERLYINGS)"> {{vm.options.underlying.display_name}} </button> </div>
-    <div class= "center"> <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TRADETYPES)" > {{vm.options.tradeType}} </button> </div>
-    <div class= "center"> <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TICKS)" > {{vm.options.tick}} Ticks </button> </div>
-    <div class= "center"> <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.DIGITS)"
-                        ng-if="vm.options.digit != null"> Last Digit: {{ vm.options.digit }} </button> </div>
-  </div>
+  <div class="row" ng-if="vm.section== vm.SECTIONS.OVERVIEW">
+      <div class= "col center">
+        <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.MARKETS)">{{vm.options.market.displayName}}</button>
+      </div>
+      <div class= "col center">
+        <button class="button button-clear"  ng-click="vm.setSection(vm.SECTIONS.UNDERLYINGS)"> {{vm.options.underlying.display_name}} </button>
+      </div>
+      <div class= "col center">
+        <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TRADETYPES)" > {{vm.options.tradeType}} </button>
+      </div>
+      <div class= "col center">
+        <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TICKS)" > {{vm.options.tick}} Ticks </button>
+      </div>
+      <div class= "col center" ng-if="vm.options.digit != null">
+        <button class="button button-clear"
+                ng-click="vm.setSection(vm.SECTIONS.DIGITS)"> Last Digit: {{ vm.options.digit }} </button>
+      </div>
   </div>
     <bg-markets ng-if="vm.section== vm.SECTIONS.MARKETS"
                 select="vm.selectMarket"></bg-markets>
@@ -22,4 +32,4 @@
               select="vm.selectDigit"
               trade-type="vm.options.tradeType"></bg-ticks>
 </ion-scroll>
-
+</div>

@@ -59,10 +59,10 @@
       sessionStorage.groupSymbols = JSON.stringify(groupSymbols);
       var tradeTypes = tradeTypesService.findTickContracts(groupSymbols);
       $scope.$applyAsync(()=>{
-        vm.options.tradeType = Object.keys(tradeTypes)[0];
-        vm.options.tick = tradeTypes[vm.options.tradeType][0].min_contract_duration.slice(0, -1);
-        vm.options.digit = tradeTypes[vm.options.tradeType][0].last_digit_range ? tradeTypes[vm.options.tradeType][0].last_digit_range[0] : null;
-        vm.options.barrier = tradeTypes.barriers > 0 ? tradeType.barrier : null;
+        vm.options.tradeType = Object.keys(tradeTypes).indexOf(vm.options.tradeType) > -1 ? vm.options.tradeType || Object.keys(tradeTypes)[0] : Object.keys(tradeTypes)[0];
+        vm.options.tick = vm.options.tick || tradeTypes[vm.options.tradeType][0].min_contract_duration.slice(0, -1);
+        vm.options.digit = tradeTypes[vm.options.tradeType][0].last_digit_range ? vm.options.digit || tradeTypes[vm.options.tradeType][0].last_digit_range[0] : null;
+        vm.options.barrier = tradeTypes.barriers > 0 ? vm.options.barrier || tradeType.barrier : null;
         updateProposal();
         tradeService.proposalIsReady = true;
       });
@@ -95,9 +95,9 @@
     vm.selectTradeType = function(tradeType){
         vm.options.tradeType = tradeType;
         var tradeType = JSON.parse(sessionStorage.tradeTypes)[tradeType][0];
-        vm.options.tick = tradeType.min_contract_duration.slice(0, -1);
-        vm.options.digit = tradeType.last_digit_range ? tradeType.last_digit_range[0] : null;
-        vm.options.barrier = tradeType.barriers > 0 ? tradeType.barrier : null;
+        vm.options.tick = vm.options.tick || tradeType.min_contract_duration.slice(0, -1);
+        vm.options.digit = tradeType.last_digit_range ? vm.options.digit || tradeType.last_digit_range[0] : null;
+        vm.options.barrier = tradeType.barriers > 0 ? vm.options.barrier || tradeType.barrier : null;
         vm.section = vm.SECTIONS.OVERVIEW;
         updateProposal();
     }
@@ -118,7 +118,7 @@
       var options = optionsService.get();
       if(!_.isEmpty(options)){
         vm.options = options;
-        vm.selectMarket(vm.options.market);
+        //vm.selectMarket(vm.options.market);
         updateProposal();
       }
       websocketService.sendRequestFor.symbols();

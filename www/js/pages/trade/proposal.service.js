@@ -31,6 +31,18 @@
             localStorage.options = JSON.stringify(options);
         }
 
+        factory.setAmount = function(amount){
+          var options = JSON.parse(localStorage.options);
+          options.amount = amount;
+          localStorage.options = JSON.stringify(options);
+        }
+
+        factory.setBasis = function(basis){
+          var options = JSON.parse(localStorage.options);
+          options.basis = basis;
+          localStorage.options = JSON.stringify(options);
+        }
+
         factory.update = function(options){
             var proposal = factory.get();
 
@@ -38,6 +50,8 @@
             proposal.duration = options.tick;
             proposal.barrier = options.digit || options.barrier;
             proposal.tradeType = options.tradeType;
+            proposal.amount = options.amount || proposal.amount;
+            proposal.basis = options.basis || proposal.basis;
 
             factory.save(options);
             return proposal;
