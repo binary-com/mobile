@@ -14,14 +14,34 @@
     .module('binary.share.components')
     .controller('HeaderController', Header);
 
-  Header.$inject = ['$ionicSideMenuDelegate'];
+  Header.$inject = ['$scope', '$state', '$ionicSideMenuDelegate'];
 
-  function Header($ionicSideMenuDelegate){
+  function Header($scope, $state, $ionicSideMenuDelegate){
     var vm = this;
+    vm.hideMenuButton = false;
+    vm.showBack = false;
     $ionicSideMenuDelegate.canDragContent(false);
 
     vm.toggleSideMenu = function(){
       $ionicSideMenuDelegate.toggleLeft();
     }
+
+    $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
+        vm.to = to;
+        vm.from = from;
+        if(vm.to.name == 'transactiondetail'){
+          vm.hideMenuButton = true;
+          vm.showBack = true;
+        }
+        else{
+          vm.hideMenuButton = false;
+          vm.showBack = false;
+        }
+    });
+
+    // back button function
+    vm.goToPrevPage = function() {
+        $state.go(vm.from);
+    };
   }
 })();

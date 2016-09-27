@@ -333,8 +333,20 @@
         "detail": "Transaction detail",
 				"back": "Back",
         "ok": "OK",
-				"ref": "Reference",
-				"contract_type": "Contract type"
+				"contract_id": "Contract ID:",
+				"ref": "Reference ID",
+				"contract_type": "Contract type",
+				"start_time": "Start time",
+				"entry_spot": "Entry spot",
+				"barrier": "Barrier",
+				"payout": "Potential payout",
+				"buy_price": "Purchase Price",
+				"exit_spot": "Exit spot",
+				"exit_spot_time": "Exit Spot Time",
+				"current_time": "Current Time",
+				"sell_price": "Sell price",
+				"profit_loss": "Profit/Loss",
+				"end_time": "End Time"
     },
     "statement": {
       "statement": "Statement",
