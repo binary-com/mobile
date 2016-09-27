@@ -9836,6 +9836,9 @@ a.button {
 button {
   border: none !important; }
 
+ion-scroll[direction=x] {
+  width: 100vw; }
+
 body * {
   font-family: roboto, sans-serif !important; }
 
@@ -9843,6 +9846,32 @@ a {
   color: #2a3052;
   text-decoration: none;
   font-weight: bold; }
+
+.popup-head {
+  padding: 10px;
+  border: none;
+  background-color: #2a3052; }
+  .popup-head h3.popup-title {
+    color: #fff !important;
+    font-size: 14px !important;
+    text-align: left;
+    font-weight: bold; }
+
+.popup-body {
+  background-color: #fff; }
+
+.popup-buttons {
+  background-color: #fff; }
+
+button.button.button-default {
+  color: #000 !important;
+  background: #f2f2f2 !important; }
+
+button.button.button-positive {
+  background-color: #2E8836 !important; }
+  button.button.button-positive:hover {
+    color: #fff !important;
+    background-color: #14602B !important; }
 
 .button {
   border: none;
@@ -9862,6 +9891,10 @@ button:hover {
   .button-gray:hover {
     background: #c4c4c4 !important;
     color: #000 !important; }
+
+button.button.button-default {
+  color: #000 !important;
+  background: #f2f2f2 !important; }
 
 .side-item {
   background: inherit;
@@ -10150,10 +10183,27 @@ input::-webkit-inner-spin-button {
         display: block;
         margin: 5% auto 0;
         width: 60%; }
-    .sign-in #virtualws, .sign-in #emailform {
-      text-align: center; }
-      .sign-in #virtualws .list label, .sign-in #emailform .list label {
-        margin-bottom: 0; }
+    .sign-in #virtualws .list label, .sign-in #emailform .list label {
+      margin-bottom: 0; }
+    .sign-in #virtualws input[type=text],
+    .sign-in #virtualws input[type=password], .sign-in #virtualws select, .sign-in #emailform input[type=text],
+    .sign-in #emailform input[type=password], .sign-in #emailform select {
+      border: 1px solid #f2f2f2;
+      border-radius: 2px;
+      background: #fff;
+      padding: 10px 5px; }
+      .sign-in #virtualws input[type=text].ng-invalid-pattern,
+      .sign-in #virtualws input[type=password].ng-invalid-pattern, .sign-in #virtualws select.ng-invalid-pattern, .sign-in #emailform input[type=text].ng-invalid-pattern,
+      .sign-in #emailform input[type=password].ng-invalid-pattern, .sign-in #emailform select.ng-invalid-pattern {
+        border: 1px solid #ff0000; }
+    .sign-in #virtualws select, .sign-in #emailform select {
+      width: 100%; }
+    .sign-in #virtualws .help-block, .sign-in #emailform .help-block {
+      width: 80%;
+      margin: 0 auto;
+      padding-left: 4px !important; }
+    .sign-in #virtualws .show-hide-password, .sign-in #emailform .show-hide-password {
+      padding-top: 15px; }
     .sign-in .list label.item-input {
       border-bottom: 1px solid #f2f2f2;
       width: 80%;
@@ -11114,23 +11164,13 @@ input::-webkit-inner-spin-button {
 .realitycheck .popup {
   background-color: #fff;
   width: 90vw;
-  padding: 2px;
+  padding: 0;
   font-size: 14px; }
   .realitycheck .popup .button {
     font-size: 14px; }
   .realitycheck .popup .button-secondary {
     color: #000 !important;
-    background: #c4c4c4 !important; }
-
-.realitycheck .popup-head {
-  background-color: #2a3052;
-  padding: 10px;
-  border: none; }
-  .realitycheck .popup-head h3.popup-title {
-    color: #fff !important;
-    font-size: 14px !important;
-    text-align: left;
-    font-weight: bold; }
+    background: #f2f2f2 !important; }
 
 .realitycheck .interval-input input {
   border: 1px solid #c4c4c4;
@@ -11216,6 +11256,10 @@ input::-webkit-inner-spin-button {
   .profit-table ul .list .list-item {
     padding: 10px 0;
     color: #000; }
+  .profit-table ul .list .profit-table-element {
+    width: 33%; }
+    .profit-table ul .list .profit-table-element:nth-child(2) {
+      text-align: center; }
   .profit-table ul .list .right {
     text-align: right; }
   .profit-table ul .list .green {
