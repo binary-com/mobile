@@ -22,6 +22,14 @@
           vm.noMore = false;
           vm.hasRefresh = false;
 
+          $scope.$on('authorize', () => {
+            if(appStateService.profitTableRefresh){
+              appStateService.profitTableRefresh = false;
+              appStateService.isProfitTableSet = false;
+              vm.pageState();
+            }
+          });
+
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
         });

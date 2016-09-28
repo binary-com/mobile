@@ -54,8 +54,6 @@
 			sessionStorage.removeItem('_interval');
       appStateService.profitTableRefresh = true;
       appStateService.statementRefresh = true;
-      sessionStorage.removeItem('profitTableState');
-      sessionStorage.removeItem('statementState');
     };
 
 

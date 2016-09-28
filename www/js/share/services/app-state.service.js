@@ -29,6 +29,8 @@ angular
                 factory.isNewAccountMaltainvest = false;
                 factory.hasMLT = false;
                 factory.isProfitTableSet = false;
+                factory.profitTableRefresh = false;
+                factory.statementRefresh = false;
 
                 return factory;
             });
