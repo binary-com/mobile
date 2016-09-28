@@ -18,7 +18,7 @@
     function Statement($scope, $filter, $timeout, $state, languageService, statementService, accountService, websocketService, appStateService, currencyToSymbolService) {
         var vm = this;
         vm.data = {};
-        vm.itemsPerPage = 5;
+        vm.itemsPerPage = 30;
         vm.itemsFirstCall = vm.itemsPerPage + 1;
         vm.nextPageDisabled = true;
         vm.prevPageDisabled = true;

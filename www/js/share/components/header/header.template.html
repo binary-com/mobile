@@ -3,7 +3,7 @@
         <button ng-click="vm.toggleSideMenu()" class="button button-icon icon ion-navicon"></button>
     </div>
     <div ng-if="vm.showBack">
-        <button ng-click="vm.goToPrevPage()" class="button button-icon icon ion-ios-arrow-left"></button>
+        <button ng-click="vm.goToPrevPage()" class="button button-icon ion-android-arrow-back" ng-class="{'ion-ios-arrow-back' : vm.ios}"></button>
     </div>
 
     <h1 class="title">

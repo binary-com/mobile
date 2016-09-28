@@ -18,7 +18,7 @@
     function ProfitTable($scope, $filter, $timeout, $state, languageService, profitTableService, accountService, websocketService, appStateService, currencyToSymbolService) {
         var vm = this;
         vm.data = {};
-        vm.itemsPerPage = 5;
+        vm.itemsPerPage = 50;
         vm.itemsFirstCall = vm.itemsPerPage + 1;
         vm.nextPageDisabled = true;
         vm.prevPageDisabled = true;

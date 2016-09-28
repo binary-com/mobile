@@ -1,21 +1,14 @@
 <ion-view class="profit-table transaction-detail">
     <ion-content has-bouncing="false">
-
         <div class="row title">
             <div class="col title">
-                <div class="list titles">
-                    <div class="list-item ">
-                        <div class="row">
-                            <div class="col reference">
-                                {{'transactiondetails.contract_id' | translate}}
-                                <span>{{vm.contract.contract_id}}</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col longcode">
-                                {{vm.contract.longcode}}
-                            </div>
-                        </div>
+                <div class="list">
+                    <div class=" reference">
+                        {{'transactiondetails.contract_id' | translate}}
+                        <span>{{vm.contract.contract_id}}</span>
+                    </div>
+                    <div class=" longcode">
+                        {{vm.contract.longcode}}
                     </div>
                 </div>
             </div>
@@ -25,157 +18,89 @@
             <div class="col">
                 <ul>
                     <li class="list">
-                        <div class="row">
-                            <div class="col-40">
-                                <div class="list-item">
-                                    {{'transactiondetails.ref' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-60 right">
-                                <div class="list-item">
-                                    <span ng-bind="vm.contract.transaction_ids.buy"></span>
-                                    -
-                                    <span ng-bind="vm.contract.transaction_ids.sell"></span>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.ref' | translate}}</li>
+                            <li class="statement-element last-statement-element right">
+                                <span ng-bind="vm.contract.transaction_ids.buy"></span>
+                                -
+                                <span ng-bind="vm.contract.transaction_ids.sell"></span>
+                            </li>
+                        </ul>
                     </li>
                     <li class="list">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.start_time' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item" ng-bind="(vm.contract.date_start * 1000) | date: 'medium'"></div>
-                            </div>
-                        </div>
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.start_time' | translate}}</li>
+                            <li class="statement-element last-statement-element right">{{(vm.contract.date_start * 1000) | date: 'yyyy-MM-dd' : 'GMT'}}
+                                {{(vm.contract.date_start * 1000) | date: 'HH:mm:ss' : 'GMT'}}
+                                GMT</li>
+                        </ul>
                     </li>
                     <li class="list" ng-if="vm.contract.date_expiry">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.end_time' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item" ng-bind="(vm.contract.date_expiry * 1000) | date: 'medium'"></div>
-                            </div>
-                        </div>
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.end_time' | translate}}</li>
+                            <li class="statement-element last-statement-element right">
+                                {{(vm.contract.date_expiry * 1000) | date: 'yyyy-MM-dd' : 'GMT'}}
+                                {{(vm.contract.date_expiry * 1000) | date: 'HH:mm:ss' : 'GMT'}}
+                                GMT
+                            </li>
+                        </ul>
                     </li>
-                    <li class="list">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.entry_spot' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item" ng-bind="vm.contract.entry_spot"></div>
-                            </div>
-                        </div>
+                    <li class="list" ng-if="vm.contract.entry_spot">
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.entry_spot' | translate}}</li>
+                            <li class="statement-element last-statement-element right">{{vm.contract.entry_spot}}</li>
+                        </ul>
                     </li>
                     <li class="list" ng-if="vm.contract.barrier">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.barrier' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item" ng-bind="vm.contract.barrier"></div>
-                            </div>
-                        </div>
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.barrier' | translate}}</li>
+                            <li class="statement-element last-statement-element right">{{vm.contract.barrier}}</li>
+                        </ul>
                     </li>
                     <li class="list">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.payout' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item" ng-bind="vm.formatMoney(vm.currency, vm.contract.payout)"></div>
-                            </div>
-                        </div>
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.payout' | translate}}</li>
+                            <li class="statement-element last-statement-element right" ng-bind="vm.formatMoney(vm.currency, vm.contract.payout)"></li>
+                        </ul>
                     </li>
                     <li class="list">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.buy_price' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item" ng-bind="vm.formatMoney(vm.currency, vm.contract.buy_price)"></div>
-                            </div>
-                        </div>
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.buy_price' | translate}}</li>
+                            <li class="statement-element last-statement-element right" ng-bind="vm.formatMoney(vm.currency, vm.contract.buy_price)"></li>
+                        </ul>
                     </li>
                     <li class="list">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.exit_spot' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item" ng-bind="vm.formatMoney(vm.currency, vm.contract.exit_tick)"></div>
-                            </div>
-                        </div>
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.exit_spot' | translate}}</li>
+                            <li class="statement-element last-statement-element right">{{vm.contract.exit_tick}}</li>
+                        </ul>
                     </li>
                     <li class="list">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.exit_spot_time' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item" ng-bind="(vm.contract.exit_tick_time * 1000) | date: 'medium'"></div>
-                            </div>
-                        </div>
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.exit_spot_time' | translate}}</li>
+                            <li class="statement-element last-statement-element right">
+                                {{(vm.contract.exit_tick_time * 1000) | date: 'yyyy-MM-dd' : 'GMT'}}
+                                {{(vm.contract.exit_tick_time * 1000) | date: 'HH:mm:ss' : 'GMT'}}
+                                GMT
+                            </li>
+                        </ul>
                     </li>
                     <li class="list">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.current_time' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item" ng-bind="vm.liveDate | date: 'medium'"></div>
-                            </div>
-                        </div>
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.sell_price' | translate}}</li>
+                            <li class="statement-element last-statement-element right" ng-bind="vm.formatMoney(vm.currency, vm.contract.sell_price)"></li>
+                        </ul>
                     </li>
                     <li class="list">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.sell_price' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item" ng-bind="vm.formatMoney(vm.currency, vm.contract.sell_price)"></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="list-item">
-                                    {{'transactiondetails.profit_loss' | translate}}
-                                </div>
-                            </div>
-                            <div class="col-50 right">
-                                <div class="list-item green" ng-class="{red : (vm.contract.sell_price - vm.contract.buy_price) < 0}">
-                                    <span ng-bind="vm.formatMoney(vm.currency, (vm.contract.sell_price - vm.contract.buy_price))"></span>
-                                    <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) > 0">(+{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
-                                    <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) < 0">(-{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
-                                    <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) == 0">({{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="statement-list">
+                            <li class="statement-element">{{'transactiondetails.profit_loss' | translate}}</li>
+                            <li class="statement-element last-statement-element right green" ng-class="{red : (vm.contract.sell_price - vm.contract.buy_price) < 0}">
+                                <span ng-bind="vm.formatMoney(vm.currency, (vm.contract.sell_price - vm.contract.buy_price))"></span>
+                                <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) > 0">(+{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
+                                <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) < 0">(-{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
+                                <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) == 0">({{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
