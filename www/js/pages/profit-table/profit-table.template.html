@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col col-50">
                     <div class="item item-input item-select">
-                        <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFilteredTransactions()">
+                        <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFiltered()">
                             <option value="allApps" selected="selected">{{'profittable.all_apps' | translate}}</option>
                             <option value="tickTradeApp">{{'profittable.tick_trade_app' | translate}}</option>
                         </select>
@@ -23,12 +23,13 @@
                     </div>
                 </div>
             </div>
+        
             <div class="row">
                 <div class="col">
                     <ul>
-                        <li class="list profit-table-list" ng-repeat="transaction in vm.filteredTransactions" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                        <li class="list profit-table-list" ng-repeat="transaction in vm.filteredTransactions" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
                               <ul>
-                                  <li class="list profit-table-list" ng-repeat="transaction in vm.filteredTransactions" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                                  <li class="list profit-table-list">
                                       <ul class="col-100 statement-list">
                                           <li class=" statement-element" ng-bind="transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' ">
                                           </li>
@@ -50,15 +51,7 @@
 
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col">
-                    <button class="button button-gray prev" href ng-click="vm.prevPage()" ng-disabled="vm.prevPageDisabled" ng-hide="vm.noTransaction">
-                        {{'profittable.prev' | translate}}</button>
-                    <button class="button button-gray next" href ng-click="vm.nextPage()" ng-disabled="vm.nextPageDisabled" ng-hide="vm.noTransaction">{{'profittable.next' | translate}}
-                    </button>
-                </div>
-            </div>
+            <ion-infinite-scroll on-infinite="vm.loadMore()" distance="5%" ng-if="!vm.noMore"></ion-infinite-scroll>
         </div>
     </ion-content>
 </ion-view>
