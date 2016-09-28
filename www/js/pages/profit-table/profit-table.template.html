@@ -27,17 +27,21 @@
                 <div class="col">
                     <ul>
                         <li class="list profit-table-list" ng-repeat="transaction in vm.filteredTransactions" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
-                            <div class="row">
-                                <div class="list-item profit-table-element left">
-                                    <span ng-bind="transaction.purchase_time * 1000 | date : 'mediumDate' "></span>
-                                </div>
-                                <div class="list-item profit-table-element">
-                                    <span class="bold" ng-bind="transaction.transaction_id"></span>
-                                </div>
-                                <div class="list-item profit-table-element right">
-                                    <span class="bold green" ng-class="{red : (transaction.sell_price - transaction.buy_price).toFixed(2) < 0}" ng-bind="vm.formatMoney(vm.currency, (transaction.sell_price - transaction.buy_price).toFixed(2))"></span>
-                                </div>
-                            </div>
+                              <ul>
+                                  <li class="list profit-table-list" ng-repeat="transaction in vm.filteredTransactions" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                                      <ul class="col-100 statement-list">
+                                          <li class=" statement-element" ng-bind="transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' ">
+                                          </li>
+                                          <li class="center statement-element" ng-bind="transaction.transaction_id">
+                                          </li>
+                                          <li class="statement-element last-statement-element bold green right" ng-class="{red : (transaction.sell_price - transaction.buy_price).toFixed(2) < 0}" ng-bind="vm.formatMoney(vm.currency, (transaction.sell_price - transaction.buy_price).toFixed(2))">
+                                          </li>
+                                      </ul>
+                                  </li>
+                                  <li class="row" ng-if="vm.noTransaction">
+                                      {{'statement.no_transaction' | translate}}
+                                  </li>
+                              </ul>
                         </li>
                         <li class="row" ng-if="vm.noTransaction">
                             {{'profittable.no_transaction' | translate}}
