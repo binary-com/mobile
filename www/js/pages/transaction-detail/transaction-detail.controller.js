@@ -46,13 +46,5 @@
             vm.currency = sessionStorage.getItem('currency');
             return currencyToSymbolService.formatMoney(currency, amount);
         }
-
-        vm.liveDateCalc = function(){
-          vm.liveDate = new Date().getTime();
-          return vm.liveDate;
-        }
-
-        $interval(vm.liveDateCalc, 1000);
-
     }
 })();

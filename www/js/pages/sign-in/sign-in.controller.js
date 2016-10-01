@@ -34,6 +34,8 @@
     vm.showSignup = false;
     vm.showvirtualws = false;
     vm.data = {};
+    vm.ios = ionic.Platform.isIOS();
+    vm.android = ionic.Platform.isAndroid();
 
     /**
      * On load:

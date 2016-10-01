@@ -1,7 +1,7 @@
 <ion-view class="sign-in">
     <ion-content class="options-content" has-bouncing="false">
         <ion-header-bar align-title="center" class="bar bar-header bar-positive">
-            <button class="button  icon-left ion-chevron-left button-clear" ng-click="vm.changeSigninView(true)" ng-show="vm.showTokenForm || vm.showSignin || vm.showSignup || vm.showvirtualws"></button>
+            <button class="button  icon-left button-clear ion-android-arrow-back" ng-class="{'ion-ios-arrow-back' : vm.ios}" ng-click="vm.changeSigninView(true)" ng-show="vm.showTokenForm || vm.showSignin || vm.showSignup || vm.showvirtualws"></button>
             <h1 class="title"></h1>
         </ion-header-bar>
         <div class="row center">
@@ -28,14 +28,15 @@
         </form>
 
         <form name="emailForm" id="emailform" ng-show="vm.showSignup && !vm.showvirtualws" ng-submit="vm.verifyUserMail()">
-            <div class="list">
-                <ion-spinner ng-show="vm.showSpinner"></ion-spinner>
-                <label class="item-input">
-                    <input autocomplete="off" type="text" placeholder="{{'newvirtualaccount.email' | translate }}" ng-model="vm.data.mail" tabindex="1" ngRequired />
-                    <div class="help-block" ng-if="emailError">
-        							{{'newvirtualaccount.email-error' | translate}}
-        						</div>
-                </label>
+            <div class="row center">
+                <div class="col col-75">
+                    <label class="item-input">
+                        <input autocomplete="off" type="text" placeholder="{{'newvirtualaccount.email' | translate }}" ng-model="vm.data.mail" tabindex="1" ngRequired/>
+                        <div class="help-block" ng-if="emailError">
+                            {{'newvirtualaccount.email-error' | translate}}
+                        </div>
+                    </label>
+                </div>
             </div>
             <div class="row center">
                 <div class="col col-75">
@@ -50,31 +51,28 @@
 
             <div class="list">
 
-                 <label class="item-input">
+                <label class="col col-75 item-input">
                     <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-pattern="/^\w{15,128}$/" required/>
                 </label>
-                <div class="help-block">
+                <div class="col col-75 help-block">
                     {{'newvirtualaccount.code_hint' | translate}}
                 </div>
 
-                    <!-- <div class="help-block" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty'>
+                <!-- <div class="help-block" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty'>
                         <div ng-message="pattern">{{'newvirtualaccount.token-invalid' | translate}}</div>
                     </div> -->
 
             </div>
 
             <div class="list">
-
-
-
-                <label class="item-input">
+                <label class="col col-75 item-input">
                     <input name="password" id="password" ng-model="vm.data.clientPassword" type="{{vm.data.inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]{6,25}$/" ng-pattern="/^[ -~]{6,25}$/" required/>
                 </label>
-                <div class="help-block">
+                <div class="col col-75 help-block">
                     {{'newvirtualaccount.password_hint' | translate}}
                 </div>
 
-                    <!-- <div class="help-block" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty'>
+                <!-- <div class="help-block" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty'>
                         <div ng-message="pattern">{{'newvirtualaccount.error_format' | translate}}</div>
                     </div> -->
 
