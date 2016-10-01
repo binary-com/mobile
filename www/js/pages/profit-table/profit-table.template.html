@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="row">
                 <div class="col">
                     <ul>
@@ -31,11 +31,11 @@
                               <ul>
                                   <li class="list profit-table-list">
                                       <ul class="col-100 statement-list">
-                                          <li class=" statement-element" ng-bind="transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' ">
+                                          <li class=" statement-element" ng-bind="::transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' ">
                                           </li>
-                                          <li class="center statement-element" ng-bind="transaction.transaction_id">
+                                          <li class="center statement-element" ng-bind="::transaction.transaction_id">
                                           </li>
-                                          <li class="statement-element last-statement-element bold green right" ng-class="{red : (transaction.sell_price - transaction.buy_price).toFixed(2) < 0}" ng-bind="vm.formatMoney(vm.currency, (transaction.sell_price - transaction.buy_price).toFixed(2))">
+                                          <li class="statement-element last-statement-element bold green right" ng-class="{red : (transaction.sell_price - transaction.buy_price).toFixed(2) < 0}" ng-bind="::vm.formatMoney(vm.currency, (transaction.sell_price - transaction.buy_price).toFixed(2))">
                                           </li>
                                       </ul>
                                   </li>
@@ -51,7 +51,7 @@
 
                 </div>
             </div>
-            <ion-infinite-scroll on-infinite="vm.loadMore()" distance="5%" ng-if="!vm.noMore"></ion-infinite-scroll>
+            <ion-infinite-scroll on-infinite="vm.loadMore()" distance="1%" ng-if="!vm.noMore"></ion-infinite-scroll>
         </div>
     </ion-content>
 </ion-view>
