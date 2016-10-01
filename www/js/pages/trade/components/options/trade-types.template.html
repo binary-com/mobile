@@ -1,10 +1,12 @@
 <div class="trade-types">
+  <ion-scroll direction='x'>
     <div class="row">
-        <div class="col center" ng-repeat="(key, value) in vm.tradeTypes"> 
-            <button class="button button-clear" 
-                    ng-click="vm.selectTradeType(key)">
-                {{key}}
-            </button>
-        </div>
+      <div class="col center" ng-repeat="(key, value) in vm.tradeTypes">
+        <button class="button button-clear"
+                ng-click="vm.selectTradeType(key)">
+          {{key}}
+        </button>
+      </div>
     </div>
+  </ion-scroll>
 </div>

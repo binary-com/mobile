@@ -1,11 +1,13 @@
 <div class="ticks">
+  <ion-scroll direction='x'>
     <div class="row">
-        <div class="col center" ng-repeat="value in vm.tickRange"> 
-            <button class="button button-clear" 
+        <div class="col center" ng-repeat="value in vm.tickRange">
+            <button class="button button-clear"
                     ng-click="vm.selectTick(value)">
                 {{value}}
             </button>
         </div>
     </div>
+  </ion-scroll>
 </div>
 
