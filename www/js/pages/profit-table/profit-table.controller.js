@@ -21,7 +21,7 @@
         vm.noTransaction = false;
         vm.noMore = false;
         vm.hasRefresh = false;
-        vm.cameBack = false;
+        vm.enteredNow = false;
 
         $scope.$on('authorize', () => {
             if (appStateService.profitTableRefresh) {
@@ -33,6 +33,7 @@
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
+            vm.enteredNow = true;
         });
 
         vm.loadMore = function() {
@@ -50,7 +51,9 @@
                 tableStateService.dateType = 'allTime';
                 vm.resetParams();
                 vm.setParams();
-            } else if (appStateService.isProfitTableSet && vm.lastPage == 'transactiondetail') {
+            } else if (appStateService.isProfitTableSet && vm.enteredNow && vm.lastPage == 'transactiondetail') {
+              console.log('cached');
+              vm.enteredNow = false;
                 vm.lastPage = '';
                 vm.setParams();
             } else if (appStateService.isProfitTableSet && appStateService.isChangedAccount) {

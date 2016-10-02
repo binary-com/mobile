@@ -1,8 +1,25 @@
 .profit-table {
-	.balance {
-		&.row {
-			background: lightgray;
-		}
+	.float-button{
+		background-color:$red;
+	 opacity: 0.9;
+	 color: white;
+	 border-radius: 50%;
+	 /*border-radius:15% 0 0 0;*/
+	 width: 50px;
+	 height: 50px;
+	 font-size: 16px;
+	 position: fixed;
+	 top: 70vh;
+	 right: 6%;
+	 z-index: 1000;
+	 text-align: center;
+	 a{
+		 position: relative;
+     top: 15px;
+		 background: inherit;
+		 text-align: center;
+		 color: $white;
+	 }
 	}
 	.item {
 		padding: 15px;

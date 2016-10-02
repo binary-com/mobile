@@ -21,6 +21,9 @@
           </div>
       </div>
   </div>
+  <div class="float-button" ng-if="vm.transactions.length != 0">
+    <a ng-click="vm.goToPrevPage()" class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></a>
+  </div>
     <ion-content has-bouncing="false" class="profit-table-content">
         <div class="profit-table-container">
             <div class="row">
@@ -30,7 +33,7 @@
                               <ul>
                                   <li class="list profit-table-list">
                                       <ul class="col-100 statement-list">
-                                          <li class=" statement-element" ng-bind="::transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' ">
+                                          <li class="statement-element" ng-bind="::transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' ">
                                           </li>
                                           <li class="center statement-element" ng-bind="::transaction.transaction_id">
                                           </li>
@@ -52,5 +55,7 @@
             </div>
             <ion-infinite-scroll on-infinite="vm.loadMore()" distance="1%" ng-if="!vm.noMore"></ion-infinite-scroll>
         </div>
+
     </ion-content>
+
 </ion-view>
