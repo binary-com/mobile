@@ -13,15 +13,17 @@
         .module('binary.pages.profit-table.controllers')
         .controller('ProfitTableController', ProfitTable);
 
-    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', '$location', '$anchorScroll', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService', '$ionicScrollDelegate', '$templateCache'];
+    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', '$location', '$anchorScroll', '$ionicScrollDelegate', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
 
-    function ProfitTable($scope, $filter, $timeout, $state, $location, $anchorScroll, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService, $ionicScrollDelegate, $templateCache) {
+    function ProfitTable($scope, $filter, $timeout, $state, $location, $anchorScroll, $ionicScrollDelegate, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService) {
         var vm = this;
         vm.data = {};
         vm.noTransaction = false;
         vm.noMore = false;
         vm.hasRefresh = false;
         vm.enteredNow = false;
+        vm.ios = ionic.Platform.isIOS();
+        vm.android = ionic.Platform.isAndroid();
 
         $scope.$on('authorize', () => {
             if (appStateService.profitTableRefresh) {
@@ -35,16 +37,6 @@
             vm.lastPage = from.name;
             vm.enteredNow = true;
         });
-        $scope.$on('$stateChangeStart', function(event, next, current) {
-        if (next.name != 'transactiondetail'){
-          vm.resetParams();
-          vm.setParams();
-          vm.filteredTransactions = [];
-            $templateCache.remove(current.templateUrl);
-            appStateService.isProfitTableSet = false;
-            vm.goTop();
-        }
-      });
 
         vm.loadMore = function() {
             tableStateService.currentPage += 1;
@@ -70,12 +62,14 @@
                 tableStateService.dateType = 'allTime';
                 vm.resetParams();
                 vm.setParams();
+                vm.goTop();
             } else if (appStateService.isProfitTableSet && vm.dateChanged == true) {
                 vm.transactions = [];
                 vm.filteredTransactions = [];
                 vm.dateChanged = false;
                 tableStateService.currentPage = 0;
                 vm.setParams();
+                vm.goTop();
             } else {
                 vm.setParams();
                 $scope.$applyAsync(() => {
