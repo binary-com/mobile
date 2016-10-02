@@ -21,7 +21,6 @@ angular
                 factory.isChangedAccount = false;
                 factory.isRealityChecked = false;
                 factory.isPopupOpen = false;
-                factory.isProfitTableSet = false;
                 factory.hasGetResidence = false;
                 factory.showForm = false;
                 factory.isCheckedAccountType = false;
@@ -30,6 +29,7 @@ angular
                 factory.hasMLT = false;
                 factory.isProfitTableSet = false;
                 factory.profitTableRefresh = false;
+                factory.isStatementSet = false;
                 factory.statementRefresh = false;
 
                 return factory;

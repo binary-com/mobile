@@ -49,7 +49,7 @@ angular
 				})
 				.state('statement',{
 					parent: 'layout',
-					cache: false,
+					cache: true,
 					templateUrl: 'js/pages/statement/statement.template.html',
 					controller: 'StatementController',
 					controllerAs: 'vm'

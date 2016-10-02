@@ -17,6 +17,11 @@ angular
                 factory.dateTo = '';
                 factory.currentPage = 0;
                 factory.appID = 'allApps';
+                factory.statementDateType = 'allTime';
+                factory.statementDateFrom = '';
+                factory.statementDateTo = '';
+                factory.statementCurrentPage = 0;
+                factory.statementAppID = 'allApps';
 
 
                 return factory;
