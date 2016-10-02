@@ -1,8 +1,25 @@
 .profit-table {
-	.balance {
-		&.row {
-			background: lightgray;
-		}
+	.float-button{
+		background-color:$darkblue;
+	 opacity: 0.9;
+	 color: white;
+	 border-radius: 50%;
+	 /*border-radius:15% 0 0 0;*/
+	 width: 50px;
+	 height: 50px;
+	 font-size: 16px;
+	 position: fixed;
+	 top: 70vh;
+	 right: 6%;
+	 z-index: 1000;
+	 text-align: center;
+	 i{
+		 position: relative;
+     top: 15px;
+		 background: inherit;
+		 text-align: center;
+		 color: $white;
+	 }
 	}
 	.item {
 		padding: 15px;
@@ -21,8 +38,11 @@
 	.prev {
 		float: left;
 	}
+	.profit-table-content {
+		margin-top: 35px;
+	}
 	ul {
-		&.statement-list{
+		&.statement-list {
 			display: flex;
 			flex-direction: row;
 			.statement-element {
@@ -30,7 +50,7 @@
 				flex-grow: 1;
 				padding: 5px 0;
 				font-size: 4vw;
-				&.last-statement-element{
+				&.last-statement-element {
 					display: block;
 				}
 			}
@@ -43,7 +63,6 @@
 				padding: 10px 0;
 				color: $black;
 			}
-
 			.right {
 				text-align: right;
 			}
@@ -57,15 +76,15 @@
 				font-weight: bold;
 			}
 		}
-		.profit-table-list{
-				border-bottom: 1px solid $lightgray;
-				padding: 5px;
+		.profit-table-list {
+			border-bottom: 1px solid $lightgray;
+			padding: 5px;
 		}
 	}
 }
 .transaction-detail {
 	.list-item {
-		padding: 0!important;
+		padding: 0 !important;
 		color: $black;
 	}
 	.reference {
