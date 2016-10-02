@@ -21,9 +21,9 @@
           </div>
       </div>
   </div>
-  <div class="float-button" ng-if="vm.transactions.length != 0">
-    <a ng-click="vm.goToPrevPage()" class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></a>
-  </div>
+  <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0">
+    <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
+  </a>
     <ion-content has-bouncing="false" class="profit-table-content">
         <div class="profit-table-container">
             <div class="row">

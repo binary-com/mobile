@@ -13,9 +13,9 @@
         .module('binary.pages.profit-table.controllers')
         .controller('ProfitTableController', ProfitTable);
 
-    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', '$location', '$anchorScroll', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService', '$ionicScrollDelegate'];
+    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', '$location', '$anchorScroll', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService', '$ionicScrollDelegate', '$templateCache'];
 
-    function ProfitTable($scope, $filter, $timeout, $state, $location, $anchorScroll, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService, $ionicScrollDelegate) {
+    function ProfitTable($scope, $filter, $timeout, $state, $location, $anchorScroll, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService, $ionicScrollDelegate, $templateCache) {
         var vm = this;
         vm.data = {};
         vm.noTransaction = false;
@@ -35,6 +35,16 @@
             vm.lastPage = from.name;
             vm.enteredNow = true;
         });
+        $scope.$on('$stateChangeStart', function(event, next, current) {
+        if (next.name != 'transactiondetail'){
+          vm.resetParams();
+          vm.setParams();
+          vm.filteredTransactions = [];
+            $templateCache.remove(current.templateUrl);
+            appStateService.isProfitTableSet = false;
+            vm.goTop();
+        }
+      });
 
         vm.loadMore = function() {
             tableStateService.currentPage += 1;
@@ -52,7 +62,6 @@
                 vm.resetParams();
                 vm.setParams();
             } else if (appStateService.isProfitTableSet && vm.enteredNow && vm.lastPage == 'transactiondetail') {
-              console.log('cached');
               vm.enteredNow = false;
                 vm.lastPage = '';
                 vm.setParams();
@@ -202,6 +211,10 @@
         vm.formatMoney = function(currency, amount) {
             vm.currency = sessionStorage.getItem('currency');
             return currencyToSymbolService.formatMoney(currency, amount);
+        }
+
+        vm.goTop = function(){
+          $ionicScrollDelegate.scrollTop(true);
         }
 
         // details functions
