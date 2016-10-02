@@ -42,7 +42,7 @@ angular
         })
 				.state('profittable',{
 					parent: 'layout',
-					cache: false,
+					cache: true,
 					templateUrl: 'js/pages/profit-table/profit-table.template.html',
 					controller: 'ProfitTableController',
 					controllerAs: 'vm'
@@ -59,7 +59,8 @@ angular
 					cache: false,
 					templateUrl: 'js/pages/transaction-detail/transaction-detail.template.html',
 					controller: 'TransactionDetailController',
-					controllerAs: 'vm'
+					controllerAs: 'vm',
+					reloadOnSearch: false
 				})
 				.state('realaccountopening',{
 					parent: 'layout',

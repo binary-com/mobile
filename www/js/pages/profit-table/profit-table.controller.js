@@ -13,14 +13,15 @@
         .module('binary.pages.profit-table.controllers')
         .controller('ProfitTableController', ProfitTable);
 
-    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', '$location', '$anchorScroll', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
+    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', '$location', '$anchorScroll', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService', '$ionicScrollDelegate'];
 
-    function ProfitTable($scope, $filter, $timeout, $state, $location, $anchorScroll, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService) {
+    function ProfitTable($scope, $filter, $timeout, $state, $location, $anchorScroll, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService, $ionicScrollDelegate) {
         var vm = this;
         vm.data = {};
         vm.noTransaction = false;
         vm.noMore = false;
         vm.hasRefresh = false;
+        vm.cameBack = false;
 
         $scope.$on('authorize', () => {
             if (appStateService.profitTableRefresh) {
@@ -35,12 +36,12 @@
         });
 
         vm.loadMore = function() {
-                tableStateService.currentPage += 1;
-                vm.pageState();
+            tableStateService.currentPage += 1;
+            vm.pageState();
         }
 
         $scope.$on('scroll.infiniteScrollComplete', () => {
-            console.log('new data loaded');
+            // console.log('new data loaded');
         });
 
         vm.pageState = function() {
@@ -50,18 +51,8 @@
                 vm.resetParams();
                 vm.setParams();
             } else if (appStateService.isProfitTableSet && vm.lastPage == 'transactiondetail') {
-                vm.transactions = [];
-                vm.filteredTransactions = [];
                 vm.lastPage = '';
-                // vm.cameFromTransaction = true;
-                // scroll to desired postition last clicked
-                // show all prev contracts
-                // maybe can use ionic refresher to load upper transactions on pulling page
                 vm.setParams();
-                if (vm.data.currentPage > 0) {
-                    vm.limit = vm.itemsPerPage * vm.data.currentPage + 1;
-                    vm.data.currentPage = 0;
-                }
             } else if (appStateService.isProfitTableSet && appStateService.isChangedAccount) {
                 // if account is changed reset data attributes and send request again
                 tableStateService.dateType = 'allTime';
@@ -113,7 +104,7 @@
             if (vm.data.hasOwnProperty('dateTo') && vm.data.dateTo != "") {
                 vm.params.date_to = vm.data.dateTo;
             }
-              websocketService.sendRequestFor.profitTable(vm.params);
+            websocketService.sendRequestFor.profitTable(vm.params);
         }
 
         $scope.$on('profit_table:update', (e, _profitTable, _passthrough) => {
@@ -161,15 +152,7 @@
                     vm.noTransaction = false;
                 }
                 $scope.$broadcast('scroll.infiniteScrollComplete');
-                // if(vm.cameFromTransaction){
-                //   if (!_.isEmpty(sessionStorage.id)) {
-                //       vm.scrto = sessionStorage.getItem('id');
-                //     }
-                //   vm.scrollTo(vm.scrto);
-                //   vm.cameFromTransaction = false;
-                // }
-            })
-
+            });
         }
 
         vm.calcTime = function(daysNumber) {
@@ -213,12 +196,10 @@
             vm.pageState();
         }
 
-
         vm.formatMoney = function(currency, amount) {
             vm.currency = sessionStorage.getItem('currency');
             return currencyToSymbolService.formatMoney(currency, amount);
         }
-
 
         // details functions
         vm.sendContractDetailRequest = function(id) {
@@ -226,12 +207,5 @@
             sessionStorage.setItem('id', vm.id);
             $state.go('transactiondetail');
         }
-
-        // vm.scrollTo = function(id) {
-        //
-        //         $location.hash(id);
-        //         $anchorScroll();
-        //
-        // }
     }
 })();
