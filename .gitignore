@@ -18,3 +18,4 @@ dist/
 *.pem
 .editorconfig
 .io-config.json
+www/css/ionic.app*.css

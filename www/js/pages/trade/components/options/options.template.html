@@ -1,5 +1,4 @@
 <div class="options">
-<ion-scroll direction='x'>
   <div class="row" ng-if="vm.section== vm.SECTIONS.OVERVIEW">
       <div class= "col center">
         <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.MARKETS)">{{vm.options.market.displayName}}</button>
@@ -18,6 +17,7 @@
                 ng-click="vm.setSection(vm.SECTIONS.DIGITS)"> Last Digit: {{ vm.options.digit }} </button>
       </div>
   </div>
+</div>
     <bg-markets ng-if="vm.section== vm.SECTIONS.MARKETS"
                 select="vm.selectMarket"></bg-markets>
     <bg-tradetypes ng-if="vm.section== vm.SECTIONS.TRADETYPES"
@@ -31,5 +31,3 @@
     <bg-digits ng-if="vm.section == vm.SECTIONS.DIGITS"
               select="vm.selectDigit"
               trade-type="vm.options.tradeType"></bg-ticks>
-</ion-scroll>
-</div>

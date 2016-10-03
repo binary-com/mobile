@@ -23,7 +23,7 @@
             scope: {
                 proposal: '=',
                 purchasedContract: '=',
-                inPurchaseMode: '='
+                showSummary: '=inPurchaseMode'
             }
         };
 

@@ -206,7 +206,7 @@
 								}
                 .options, .markets, .trade-types, .underlyings,
                 .ticks, .digits{
-                  width: 600px;
+                  //width: 600px;
                   /*height: 50px;*/
                   .center {
                     display: inline-block;
@@ -238,6 +238,36 @@
                     font-size: 4vw;
                     color: $black;
                   }
+                }
+                .digit-result {
+                  .col{
+                    padding: 0px !important;
+                  }
+                  .numberCircle {
+                    display:inline-block;
+                    line-height:0px;
+
+                    border-radius:50%;
+                    border:2px solid;
+
+                    font-size:4vw;
+                    span {
+                      display:inline-block;
+
+                      padding-top:50%;
+                      padding-bottom:50%;
+
+                      margin-left:8px;
+                      margin-right:8px;
+                    }
+                    &.lose {
+                      color: red;
+                    }
+                    &.win {
+                      color: green;
+                    }
+                  }
+
                 }
 				}
 }
@@ -447,7 +477,7 @@
 								}
                 .options, .markets, .trade-types, .underlyings,
                 .ticks, .digits{
-                  width: 600px;
+                  //width: 600px;
                   /*height: 50px;*/
                   .center {
                     display: inline-block;
@@ -479,6 +509,36 @@
                     font-size: 4vw;
                     color: $black;
                   }
+                }
+                .digit-result {
+                  .col{
+                    padding: 0px !important;
+                  }
+                  .numberCircle {
+                    display:inline-block;
+                    line-height:0px;
+
+                    border-radius:50%;
+                    border:2px solid;
+
+                    font-size:4vw;
+                    span {
+                      display:inline-block;
+
+                      padding-top:50%;
+                      padding-bottom:50%;
+
+                      margin-left:8px;
+                      margin-right:8px;
+                    }
+                    &.lose {
+                      color: red;
+                    }
+                    &.win {
+                      color: green;
+                    }
+                  }
+
                 }
 				}
 }

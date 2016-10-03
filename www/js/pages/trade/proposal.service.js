@@ -48,7 +48,7 @@
 
             proposal.symbol = options.underlying.symbol;
             proposal.duration = options.tick;
-            proposal.barrier = options.digit || options.barrier;
+            proposal.barrier = _.isEmpty(options.barrier) ? options.digit : options.barrier;
             proposal.tradeType = options.tradeType;
             proposal.amount = options.amount || proposal.amount;
             proposal.basis = options.basis || proposal.basis;

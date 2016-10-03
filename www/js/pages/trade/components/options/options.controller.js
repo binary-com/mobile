@@ -97,7 +97,7 @@
         var tradeType = JSON.parse(sessionStorage.tradeTypes)[tradeType][0];
         vm.options.tick = vm.options.tick || tradeType.min_contract_duration.slice(0, -1);
         vm.options.digit = tradeType.last_digit_range ? vm.options.digit || tradeType.last_digit_range[0] : null;
-        vm.options.barrier = tradeType.barriers > 0 ? vm.options.barrier || tradeType.barrier : null;
+        vm.options.barrier = tradeType.barriers > 0 && !_.isEmpty(tradeType.barrier) ? vm.options.barrier || tradeType.barrier : null;
         vm.section = vm.SECTIONS.OVERVIEW;
         updateProposal();
     }
@@ -110,6 +110,7 @@
 
     vm.selectDigit = function(digit){
         vm.options.digit = digit;
+        vm.options.barrier = null;
         vm.section = vm.SECTIONS.OVERVIEW;
         updateProposal();
     }

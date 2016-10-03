@@ -1,7 +1,9 @@
-<div class="markets"
+<div class="markets">
+  <ion-scroll direction='x'>
     <div class="row">
-        <div class="col center" ng-repeat="(key, value) in vm.markets">
-            <button class="button button-clear" ng-click="vm.selectMarket(value)"> {{value.displayName}} </button>
-        </div>
+      <div class="col center" ng-repeat="(key, value) in vm.markets">
+        <button class="button button-clear" ng-click="vm.selectMarket(value)"> {{value.displayName}} </button>
+      </div>
     </div>
+  </ion-scroll>
 </div>
