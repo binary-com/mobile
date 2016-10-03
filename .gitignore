@@ -8,6 +8,7 @@ node_modules/
 bower_components/
 platforms/
 plugins/
+resources/
 www/lib
 *.log
 .*.log
@@ -18,3 +19,5 @@ dist/
 *.pem
 .editorconfig
 .io-config.json
+www/css/ionic.app.css
+www/css/ionic.app.min.css
