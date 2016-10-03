@@ -165,7 +165,6 @@
           tableStateService.batchLimit = Math.ceil(vm.transactions.length / tableStateService.batchSize);
           vm.sliced = [];
           vm.sliced = vm.transactions.slice(tableStateService.batchNum * tableStateService.batchSize, (tableStateService.batchNum + 1) * tableStateService.batchSize);
-          console.log(vm.sliced);
           vm.sliced.forEach(function(el, i){
             vm.batchedTransaction.push(vm.sliced[i]);
           });
