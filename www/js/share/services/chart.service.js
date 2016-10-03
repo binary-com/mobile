@@ -483,6 +483,11 @@ angular
 							} else {
 								contract.result = 'lose';
 							}
+
+              if(broadcastable){
+                $rootScope.$broadcast('contract:spot', contract, lastPrice);
+              }
+
 							if ( isFinished() && broadcastable ) {
                                 tickPriceList = []
 								contractCtrls.forEach(function(contractctrl, index){
