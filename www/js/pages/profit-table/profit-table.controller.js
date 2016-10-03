@@ -76,7 +76,7 @@
                 vm.filteredTransactions = [];
                 vm.dateChanged = false;
                 tableStateService.currentPage = 0;
-                tableStateService.completedGroup = false;
+                tableStateService.completedGroup = true;
                 tableStateService.batchNum = 0;
                 tableStateService.batchLimit = 0;
                 vm.setParams();
@@ -110,7 +110,7 @@
             tableStateService.currentPage = 0;
             vm.transactions = [];
             vm.batchedTransaction = [];
-            tableStateService.completedGroup = false;
+            tableStateService.completedGroup = true;
             tableStateService.batchNum = 0;
             tableStateService.batchLimit = 0;
         }
