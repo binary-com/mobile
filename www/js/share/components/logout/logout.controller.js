@@ -44,8 +44,6 @@
 														appStateService.isLoggedin = false;
 														sessionStorage.removeItem('start');
 														sessionStorage.removeItem('_interval');
-														sessionStorage.removeItem('profitTableState');
-														sessionStorage.removeItem('statementState');
 														websocketService.closeConnection();
 														appStateService.hasMLT = false;
 							$state.go('signin');

@@ -43,7 +43,7 @@
             // here can load some amount of transactions already recieved
             vm.setBatch();
           }
-          if(tableStateService.completedGroup){
+          else if(tableStateService.completedGroup){
             tableStateService.currentPage += 1;
             vm.pageState();
           }

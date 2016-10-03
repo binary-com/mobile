@@ -17,15 +17,20 @@ angular
                 factory.dateTo = '';
                 factory.currentPage = 0;
                 factory.appID = 'allApps';
+                factory.batchNum = 0;
+                factory.batchLimit = 0;
+                factory.batchSize = 20;
+                factory.completedGroup = true;
                 factory.statementDateType = 'allTime';
                 factory.statementDateFrom = '';
                 factory.statementDateTo = '';
                 factory.statementCurrentPage = 0;
                 factory.statementAppID = 'allApps';
-                factory.batchNum = 0;
-                factory.batchLimit = 0;
-                factory.batchSize = 20;
-                factory.completedGroup = true;
+                factory.statementBatchNum = 0;
+                factory.statementBatchLimit = 0;
+                factory.statementBatchSize = 20;
+                factory.statementCompletedGroup = true;
+
 
 
                 return factory;

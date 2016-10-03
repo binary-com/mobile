@@ -39,8 +39,14 @@
         });
 
         vm.loadMore = function() {
+          if(!tableStateService.statementCompletedGroup){
+            // here can load some amount of transactions already recieved
+            vm.setBatch();
+          }
+          else if(tableStateService.statementCompletedGroup){
             tableStateService.statementCurrentPage += 1;
             vm.pageState();
+          }
         }
 
         $scope.$on('scroll.infiniteScrollComplete', () => {
@@ -53,6 +59,7 @@
                 tableStateService.statementDateType = 'allTime';
                 vm.resetParams();
                 vm.setParams();
+                tableStateService.statementCompletedGroup = false;
             } else if (appStateService.isStatementSet && vm.enteredNow && vm.lastPage == 'transactiondetail') {
               vm.enteredNow = false;
                 vm.lastPage = '';
@@ -65,11 +72,18 @@
                 vm.goTop();
             } else if (appStateService.isStatementSet && vm.dateChanged == true) {
                 vm.transactions = [];
+                vm.batchedTransaction = [];
                 vm.filteredTransactions = [];
                 vm.dateChanged = false;
                 tableStateService.statementCurrentPage = 0;
+                tableStateService.statementCompletedGroup = true;
+                tableStateService.statementBatchNum = 0;
+                tableStateService.statementBatchLimit = 0;
                 vm.setParams();
                 vm.goTop();
+            } else if(appStateService.isStatementSet && tableStateService.statementCompletedGroup) {
+              vm.transactions = [];
+              tableStateService.statementCompletedGroup = false;
             } else {
                 vm.setParams();
                 $scope.$applyAsync(() => {
@@ -86,7 +100,7 @@
             vm.data.dateFrom = tableStateService.statementDateFrom;
             vm.data.dateTo = tableStateService.statementDateTo;
             vm.data.currentPage = tableStateService.statementCurrentPage;
-            vm.itemsPerPage = 40;
+            vm.itemsPerPage = 300;
             vm.limit = vm.itemsPerPage + 1;
         }
         vm.resetParams = function() {
@@ -95,6 +109,10 @@
             tableStateService.statementDateTo = '';
             tableStateService.statementCurrentPage = 0;
             vm.transactions = [];
+            vm.batchedTransaction = [];
+            tableStateService.statementCompletedGroup = true;
+            tableStateService.statementBatchNum = 0;
+            tableStateService.statementBatchLimit = 0;
         }
 
         vm.sendRequest = function() {
@@ -121,7 +139,7 @@
                 $scope.$applyAsync(() => {
                     vm.noMore = true;
                 });
-                vm.setFiltered();
+                 vm.setBatch();
             } else if (vm.count > 0) {
                 if (vm.count < vm.limit) {
                     // has no more to load on next call
@@ -132,7 +150,7 @@
                     vm.statement.transactions.forEach(function(el, i) {
                         vm.transactions.push(vm.statement.transactions[i]);
                     });
-                    vm.setFiltered();
+                     vm.setBatch();
                 } else if (vm.count == vm.limit) {
                     // has at least one transaction on next call to show to user
                     vm.noTransaction = false;
@@ -144,14 +162,31 @@
                             vm.transactions.push(vm.statement.transactions[i]);
                         }
                     });
-                    vm.setFiltered();
+                     vm.setBatch();
                 }
             }
         });
 
+        vm.setBatch = function(){
+          tableStateService.statementBatchLimit = Math.ceil(vm.transactions.length / tableStateService.statementBatchSize);
+          vm.sliced = [];
+          vm.sliced = vm.transactions.slice(tableStateService.statementBatchNum * tableStateService.statementBatchSize, (tableStateService.statementBatchNum + 1) * tableStateService.statementBatchSize);
+          vm.sliced.forEach(function(el, i){
+            vm.batchedTransaction.push(vm.sliced[i]);
+          });
+            tableStateService.statementBatchNum = tableStateService.statementBatchNum + 1;
+          if(tableStateService.statementBatchNum == tableStateService.statementBatchLimit){
+            tableStateService.statementBatchLimit = 0;
+            tableStateService.statementBatchNum = 0;
+            tableStateService.statementCompletedGroup = true;
+          }
+
+          vm.setFiltered();
+        }
+
         vm.setFiltered = function() {
             $scope.$applyAsync(() => {
-                vm.filteredTransactions = $filter('DataFilter')(vm.transactions, vm.data.appID);
+                vm.filteredTransactions = $filter('DataFilter')(vm.batchedTransaction, vm.data.appID);
                 if (vm.filteredTransactions.length == 0) {
                     vm.noTransaction = true;
                 } else {
@@ -217,5 +252,6 @@
             sessionStorage.setItem('id', vm.id);
             $state.go('transactiondetail');
         }
+
     }
 })();

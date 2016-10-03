@@ -79,8 +79,6 @@
                 appStateService.isNewAccountReal = false;
                 appStateService.isNewAccountMaltainvest = false;
                 appStateService.hasMLT = false;
-                sessionStorage.removeItem('profitTableState');
-                sessionStorage.removeItem('statementState');
                 sessionStorage.removeItem('countryParams');
                 appStateService.isPopupOpen = false;
             } else {
