@@ -22,6 +22,10 @@ angular
                 factory.statementDateTo = '';
                 factory.statementCurrentPage = 0;
                 factory.statementAppID = 'allApps';
+                factory.batchNum = 0;
+                factory.batchLimit = 0;
+                factory.batchSize = 20;
+                factory.completedGroup = true;
 
 
                 return factory;

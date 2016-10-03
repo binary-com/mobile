@@ -39,8 +39,14 @@
         });
 
         vm.loadMore = function() {
+          if(!tableStateService.completedGroup){
+            // here can load some amount of transactions already recieved
+            vm.setBatch();
+          }
+          if(tableStateService.completedGroup){
             tableStateService.currentPage += 1;
             vm.pageState();
+          }
         }
 
         $scope.$on('scroll.infiniteScrollComplete', () => {
@@ -53,6 +59,7 @@
                 tableStateService.dateType = 'allTime';
                 vm.resetParams();
                 vm.setParams();
+                tableStateService.completedGroup = false;
             } else if (appStateService.isProfitTableSet && vm.enteredNow && vm.lastPage == 'transactiondetail') {
               vm.enteredNow = false;
                 vm.lastPage = '';
@@ -65,11 +72,18 @@
                 vm.goTop();
             } else if (appStateService.isProfitTableSet && vm.dateChanged == true) {
                 vm.transactions = [];
+                vm.batchedTransaction = [];
                 vm.filteredTransactions = [];
                 vm.dateChanged = false;
                 tableStateService.currentPage = 0;
+                tableStateService.completedGroup = false;
+                tableStateService.batchNum = 0;
+                tableStateService.batchLimit = 0;
                 vm.setParams();
                 vm.goTop();
+            } else if(appStateService.isProfitTableSet && tableStateService.completedGroup) {
+              vm.transactions = [];
+              tableStateService.completedGroup = false;
             } else {
                 vm.setParams();
                 $scope.$applyAsync(() => {
@@ -86,7 +100,7 @@
             vm.data.dateFrom = tableStateService.dateFrom;
             vm.data.dateTo = tableStateService.dateTo;
             vm.data.currentPage = tableStateService.currentPage;
-            vm.itemsPerPage = 40;
+            vm.itemsPerPage = 300;
             vm.limit = vm.itemsPerPage + 1;
         }
         vm.resetParams = function() {
@@ -95,6 +109,10 @@
             tableStateService.dateTo = '';
             tableStateService.currentPage = 0;
             vm.transactions = [];
+            vm.batchedTransaction = [];
+            tableStateService.completedGroup = false;
+            tableStateService.batchNum = 0;
+            tableStateService.batchLimit = 0;
         }
 
         vm.sendRequest = function() {
@@ -121,7 +139,7 @@
                 $scope.$applyAsync(() => {
                     vm.noMore = true;
                 });
-                vm.setFiltered();
+                 vm.setBatch();
             } else if (vm.count > 0) {
                 if (vm.count < vm.limit) {
                     // has no more to load on next call
@@ -132,7 +150,7 @@
                     vm.profitTable.transactions.forEach(function(el, i) {
                         vm.transactions.push(vm.profitTable.transactions[i]);
                     });
-                    vm.setFiltered();
+                     vm.setBatch();
                 } else if (vm.count == vm.limit) {
                     // has at least one transaction on next call to show to user
                     vm.noTransaction = false;
@@ -144,14 +162,31 @@
                             vm.transactions.push(vm.profitTable.transactions[i]);
                         }
                     });
-                    vm.setFiltered();
+                     vm.setBatch();
                 }
             }
         });
 
+        vm.setBatch = function(){
+          tableStateService.batchLimit = Math.ceil(vm.transactions.length / tableStateService.batchSize);
+          vm.sliced = [];
+          vm.sliced = vm.transactions.slice(tableStateService.batchNum * tableStateService.batchSize, (tableStateService.batchNum + 1) * tableStateService.batchSize);
+          vm.sliced.forEach(function(el, i){
+            vm.batchedTransaction.push(vm.sliced[i]);
+          });
+            tableStateService.batchNum = tableStateService.batchNum + 1;
+          if(tableStateService.batchNum == tableStateService.batchLimit){
+            tableStateService.batchLimit = 0;
+            tableStateService.batchNum = 0;
+            tableStateService.completedGroup = true;
+          }
+
+          vm.setFiltered();
+        }
+
         vm.setFiltered = function() {
             $scope.$applyAsync(() => {
-                vm.filteredTransactions = $filter('DataFilter')(vm.transactions, vm.data.appID);
+                vm.filteredTransactions = $filter('DataFilter')(vm.batchedTransaction, vm.data.appID);
                 if (vm.filteredTransactions.length == 0) {
                     vm.noTransaction = true;
                 } else {
