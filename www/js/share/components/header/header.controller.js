@@ -41,7 +41,7 @@
                     appStateService.isProfitTableSet = false;
                 }
                 if (vm.from.name == 'statement') {
-                    sessionStorage.removeItem('statementState');
+                    appStateService.isStatementSet = false;
                 }
             }
         });

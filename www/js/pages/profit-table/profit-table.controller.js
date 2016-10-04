@@ -25,6 +25,9 @@
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
 
+
+
+
         $scope.$on('authorize', () => {
             if (appStateService.profitTableRefresh) {
                 appStateService.profitTableRefresh = false;
@@ -36,6 +39,11 @@
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
             vm.enteredNow = true;
+              if(appStateService.profitTableRefresh){
+                appStateService.profitTableRefresh = false;
+                appStateService.isProfitTableSet = false;
+                vm.pageState();
+              }
         });
 
         vm.loadMore = function() {
@@ -43,7 +51,7 @@
             // here can load some amount of transactions already recieved
             vm.setBatch();
           }
-          if(tableStateService.completedGroup){
+          else if(tableStateService.completedGroup){
             tableStateService.currentPage += 1;
             vm.pageState();
           }
@@ -76,7 +84,7 @@
                 vm.filteredTransactions = [];
                 vm.dateChanged = false;
                 tableStateService.currentPage = 0;
-                tableStateService.completedGroup = false;
+                tableStateService.completedGroup = true;
                 tableStateService.batchNum = 0;
                 tableStateService.batchLimit = 0;
                 vm.setParams();
@@ -110,7 +118,7 @@
             tableStateService.currentPage = 0;
             vm.transactions = [];
             vm.batchedTransaction = [];
-            tableStateService.completedGroup = false;
+            tableStateService.completedGroup = true;
             tableStateService.batchNum = 0;
             tableStateService.batchLimit = 0;
         }
