@@ -31,7 +31,5 @@ angular
                 factory.statementBatchSize = 20;
                 factory.statementCompletedGroup = true;
 
-
-
                 return factory;
             });

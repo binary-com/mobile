@@ -25,10 +25,14 @@
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
 
-        $scope.$on('authorize', () => {
-            if (appStateService.statementRefresh) {
+        $scope.$on('authorize', (e, response) => {
+            if (appStateService.statementRefresh || vm.defaultId == response.loginid) {
+              vm.defaultId != response.loginid;
                 appStateService.statementRefresh = false;
                 appStateService.isStatementSet = false;
+                vm.transactions = [];
+                vm.filteredTransactions = [];
+                tableStateService.statementCompletedGroup = true;
                 vm.pageState();
             }
         });
@@ -36,6 +40,16 @@
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
             vm.enteredNow = true;
+            vm.default = accountService.getDefault();
+            vm.defaultId = vm.default.id;
+              if(appStateService.statementRefresh){
+                appStateService.statementRefresh = false;
+                appStateService.isStatementSet = false;
+                vm.transactions = [];
+                vm.filteredTransactions = [];
+                tableStateService.statementCompletedGroup = true;
+                vm.pageState();
+              }
         });
 
         vm.loadMore = function() {

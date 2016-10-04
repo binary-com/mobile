@@ -25,6 +25,9 @@
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
 
+
+
+
         $scope.$on('authorize', () => {
             if (appStateService.profitTableRefresh) {
                 appStateService.profitTableRefresh = false;
@@ -36,6 +39,11 @@
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
             vm.enteredNow = true;
+              if(appStateService.profitTableRefresh){
+                appStateService.profitTableRefresh = false;
+                appStateService.isProfitTableSet = false;
+                vm.pageState();
+              }
         });
 
         vm.loadMore = function() {

@@ -81,6 +81,8 @@
                 appStateService.hasMLT = false;
                 sessionStorage.removeItem('countryParams');
                 appStateService.isPopupOpen = false;
+                appStateService.profitTableRefresh = true;
+                appStateService.statementRefresh = true;
             } else {
                 $ionicLoading.hide();
                 alertService.accountError.tokenNotValid();
@@ -105,8 +107,16 @@
             vm.accounts = accountService.getAll();
             sessionStorage.clear('_interval');
             appStateService.isChangedAccount = true;
+            appStateService.isCheckedAccountType = false;
             sessionStorage.removeItem('start');
             sessionStorage.removeItem('_interval');
+            appStateService.profitTableRefresh = true;
+            appStateService.statementRefresh = true;
+            appStateService.isNewAccountReal = false;
+            appStateService.isNewAccountMaltainvest = false;
+            appStateService.hasMLT = false;
+            sessionStorage.removeItem('countryParams');
+            appStateService.isPopupOpen = false;
         };
 
     }

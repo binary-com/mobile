@@ -49,11 +49,18 @@
       accountService.validate();
       updateSymbols();
       appStateService.isChangedAccount = true;
-			appStateService.isCheckedAccountType = false;
-			sessionStorage.removeItem('start');
-			sessionStorage.removeItem('_interval');
+      appStateService.isCheckedAccountType = false;
+      sessionStorage.removeItem('start');
+      sessionStorage.removeItem('_interval');
+      appStateService.isProfitTableSet = false;
+      appStateService.isStatementSet = false;
       appStateService.profitTableRefresh = true;
       appStateService.statementRefresh = true;
+      appStateService.isNewAccountReal = false;
+      appStateService.isNewAccountMaltainvest = false;
+      appStateService.hasMLT = false;
+      sessionStorage.removeItem('countryParams');
+      appStateService.isPopupOpen = false;
     };
 
 

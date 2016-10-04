@@ -45,7 +45,12 @@
 														sessionStorage.removeItem('start');
 														sessionStorage.removeItem('_interval');
 														websocketService.closeConnection();
-														appStateService.hasMLT = false;
+                            appStateService.profitTableRefresh = true;
+                            appStateService.statementRefresh = true;
+                            appStateService.isNewAccountReal = false;
+                            appStateService.isNewAccountMaltainvest = false;
+                            appStateService.hasMLT = false;
+                            sessionStorage.removeItem('countryParams');
 							$state.go('signin');
 						}
 					}
