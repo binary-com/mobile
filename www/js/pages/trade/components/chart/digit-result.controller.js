@@ -23,8 +23,6 @@
     vm.counter = 0;
 
     $scope.$on('contract:spot', (e, contract, lastPrice) => {
-      console.log(contract);
-      console.log(lastPrice);
       if(vm.reset){
         vm.spots = new Array(contract.duration+1).fill().map((e, i) => { return {}});
         vm.reset = false;
