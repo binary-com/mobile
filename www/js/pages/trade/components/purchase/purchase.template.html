@@ -10,29 +10,21 @@
               </div>
             </div>
             <div class="row">
-                <div class="col col-30 center">
+                <div class="col center">
                     <img src="{{vm.getImageUrl(contract.contract_type)}}"/>
                 </div>
-                <div class="col col-70 center">
-                    <div class="row">
-                        <div class="col center">
-                            <div class="row">
-                                <div class="col center">
-                                {{ (vm.proposal.basis === 'payout' ? "options.stake" : "options.payout") | translate }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col center">
-                                {{ (vm.proposal.basis === "payout" ? vm.proposalResponses[$index].ask_price || 0 : vm.proposalResponses[$index].payout || 0) | currency:vm.proposal.currency:2 }}
-                                </div>
-                            </div>
+                <div class="col left">
+                        <div class="basis-title">
+                          {{ (vm.proposal.basis === 'payout' ? "options.stake" : "options.payout") | translate }}
                         </div>
-                    </div>
-                </div>
+                        <div class="basis">
+                                {{ (vm.proposal.basis === "payout" ? vm.proposalResponses[$index].ask_price || 0 : vm.proposalResponses[$index].payout || 0) | currency:vm.proposal.currency:2 }}
+                        </div>
+                        </div>
             </div>
             <div class="row">
                 <div class="col center" ng-if="!vm.proposalResponses[$index].hasError">
-                    <button class="button button-default" ng-click="vm.purchase($index)">
+                    <button class="button" ng-click="vm.purchase($index)">
                         {{ "trade.buy" | translate}} {{contract.contract_display.toUpperCase()}}
                     </button>
                 </div>

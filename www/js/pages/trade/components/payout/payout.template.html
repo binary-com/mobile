@@ -1,9 +1,9 @@
 <div class="payout">
     <div class="row">
-        <div class="col center">
+        <div class="col payout-cell center">
             <a class="button button-clear button-dark" ng-click="vm.changePayoutType()"> {{ 'options.' + vm.proposal.basis | translate }} </a>
         </div>
-        <div class="col center">
+        <div class="col payout-cell center">
             <input type="number"
                    id="payout"
                    require
@@ -12,7 +12,7 @@
                    ng-change = "vm.changeAmount()"
                    bg-currency/>
         </div>
-        <div class="col center">
+        <div class="col payout-cell center">
             <div class="button-bar">
                 <a class="button button-icon icon ion-minus-round button-clear button-dark"
                    on-long-press="vm.subtract()" on-touch-end="vm.stopLongPress()" repetitive="true"></a>

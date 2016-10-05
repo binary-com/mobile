@@ -7,7 +7,7 @@
       <input type="text" ng-model="vm.proposal.barrier"
                          pattern="^[\+-]\d+(\.\d{1,5})?|\d+(\.\d{1,5})?"/>
     </div>
-    <div class="col center">
+    <div class="col center" ng-if="vm.spot">
       {{ vm.spot }}
     </div>
   </div>
