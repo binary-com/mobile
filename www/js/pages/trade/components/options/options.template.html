@@ -1,18 +1,18 @@
 <div class="options">
-  <div class="row" ng-if="vm.section== vm.SECTIONS.OVERVIEW">
-      <div class= "col center">
+  <div class="row">
+      <div class= "col center"  ng-class="{activated : (vm.section == vm.SECTIONS.MARKETS)}">
         <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.MARKETS)">{{vm.options.market.displayName}}</button>
       </div>
-      <div class= "col center">
+      <div class= "col center" ng-class="{activated : vm.section == vm.SECTIONS.UNDERLYINGS}">
         <button class="button button-clear"  ng-click="vm.setSection(vm.SECTIONS.UNDERLYINGS)"> {{vm.options.underlying.display_name}} </button>
       </div>
-      <div class= "col center">
-        <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TRADETYPES)" > {{vm.options.tradeType}} </button>
+      <div class= "col center"  ng-class="{activated : vm.section == vm.SECTIONS.TRADETYPES}">
+        <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TRADETYPES)"> {{vm.options.tradeType}} </button>
       </div>
-      <div class= "col center">
-        <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TICKS)" > {{vm.options.tick}} Ticks </button>
+      <div class= "col center" ng-class="{activated : vm.section == vm.SECTIONS.TICKS}">
+        <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TICKS)"> {{vm.options.tick}} Ticks </button>
       </div>
-      <div class= "col center" ng-if="vm.options.digit != null">
+      <div class= "col center" ng-if="vm.options.digit != null" ng-class="{activated : vm.section == vm.SECTIONS.DIGITS}">
         <button class="button button-clear"
                 ng-click="vm.setSection(vm.SECTIONS.DIGITS)"> Last Digit: {{ vm.options.digit }} </button>
       </div>

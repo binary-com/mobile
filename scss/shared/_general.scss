@@ -114,6 +114,12 @@ button.button.button-default {
 input#show-hide{
 	width: 20px;
 }
+.left{
+  text-align: left;
+}
+.right{
+  text-align: right;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
