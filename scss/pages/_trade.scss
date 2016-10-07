@@ -1,10 +1,10 @@
 @media only screen and (max-device-width: 480px) {
 	.trade {
 		background: $lightgray;
-		#tradeChart {
-			width: 100% !important;
-			height: 200px !important;
-		}
+		// #tradeChart {
+		// 	width: 100% !important;
+		// 	height: 150px !important;
+		// }
 		.contract-summary {
 			padding: 5px 10px;
 			text-align: center;
@@ -133,8 +133,8 @@
 				color: $red !important;
 			}
 			.row {
-				padding: 0;
-				margin-top: 0;
+				// padding: 0;
+				// margin-top: 0;
 				.col {
 					border-top: 1px solid $lightgray;
 					&:first-child {
@@ -294,152 +294,120 @@
 				}
 			}
 		}
-		.payout {
-			width: 95%;
-			width:95%;
-			width: calc(100% - 10px);
-			background: $white;
-			margin: 10px auto;
-			border: 1px solid $gray;
-			border-radius: 2px;
-			font-size: 4vw;
-			.col,
-			.row {
-				padding: 0;
-			}
-			.payout-cell {
-				display: flex;
-				flex-direction: column;
-				a {
-					line-height: 50px;
-				}
-				&:first-child {
-					a {
-						color: $darkgray;
-						font-size: 4vw;
-					}
-				}
-			}
-			input {
-				font-size: 4vw;
-				height: auto;
-				border-bottom: 1px solid $lightgray;
-				line-height: 50px;
-				text-align: center;
-				color: $black;
-				font-weight: bold;
-				width: 100%;
-			}
-			.button-bar {
+
+		.trade-container{
+			height: 85vh;
+			height: calc(100vh - 90px);
+			display: flex;
+			flex-direction: column;
+		}
+	bg-options {
+		display: flex;
+		flex-grow: 1;
+		width: 100vw;
+		max-height: 75px;
+	}
+	bg-payout{
+		display: flex;
+		flex-grow: 1;
+		width: 100vw;
+		max-height: 40px;
+	}
+	bg-chart, bg-purchase{
+		width: 100vw;
+		display: flex;
+		flex-grow: 1;
+	}
+	.options{
+		width: 100%;
+	}
+	.contract-chart{
+		width: 100%;
+	}
+	.payout{
+		width: 95%;
+		margin: 0 auto;
+		border: 1px solid $gray;
+		border-radius: 3px;
+		background: $white;
+		display: flex;
+		flex-direction: column;
+		.payout-cell-container{
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			flex-grow: 1;
+			.payout-cell{
 				display: flex;
 				flex-grow: 1;
-				flex-direction: row;
-				a {
-					padding: 5px 0;
+    		flex-direction: column;
+				a{
+					font-size: 4vw;
 				}
-			}
-		}
-		.purchase {
-			width: 95%;
-			width:95%;
-			width: calc(100% - 10px);
-			background: $white;
-			margin: 10px auto;
-			border: 1px solid $gray;
-			border-radius: 2px;
-			font-size: 4vw;
-			.basis-title {
-				color: $darkgray;
-			}
-			.basis {
-				font-weight: bold;
-			}
-			.button {
-				font-size: 4vw;
-			}
-			img{
-				width: 45px;
-			}
-		}
-		.contract-chart {
-			border-top: 1px solid $gray;
-			border-bottom: 1px solid $gray;
-			background: $white;
-			margin-top: 10px;
-		}
-		.options {
-			background-color: $white;
-			border: 1px solid $gray;
-			border-right: none;
-			border-left: none;
-			overflow-x: scroll;
-			.row {
-				padding: 0 5px;
-			}
-			.button {
-				color: $darkgray;
-				white-space: nowrap;
-				font-size: 16px;
-				padding: 10px 5px;
-			}
-			.activated {
-				background: $blue;
-				.button-clear {
-					color: $white!important;
+				input{
+					width: 70px;
+					padding: 10px 5px;
+    			border-radius: 3px;
 				}
+				.button-bar{
+					a{
+						color: $black;
+						font-size: 16px;
+						min-height: 0;
+					}
+				}
+
 			}
 		}
-		.digits,
-		.markets,
-		.ticks,
-		.trade-types,
-		.underlyings {
-			background-color: $white;
-			border: 1px solid $gray;
-			overflow-x: scroll;
-			margin: 5px auto;
-			width:95%;
-			width: calc(100% - 10px);
-			.button {
-				color: $darkgray;
-				white-space: nowrap;
-				font-size: 16px;
-			}
+	}
+
+.purchase{
+	font-size: 4vw;
+    width: 95%;
+    margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		.row{
+			padding: 5px 0;
+			flex-grow: 1;
 		}
-		.barrier {
-			margin: 10px auto;
-			padding: 0 5px;
+		.contract{
 			background: $white;
-			width:95%;
-			width: calc(100% - 10px);
+			border-radius: 3px;
 			border: 1px solid $gray;
-			color: $darkgray;
-			font-size: 4vw;
-			.col{
-				flex-direction: column;
-    display: flex;
-		input{
-			border: 1px solid $gray;
-			border-radius: 2px;
-			padding: 5px;
-		}
+			margin: 0 2px;
+			display: flex;
+			flex-direction: column;
+			&:first-child{
+				margin-left: 2px;
+			}
+			&:nth-child(2){
+				margin-right: 2px;
+			}
+			.row{
+				padding: 0;
+				flex-grow: 1;
 			}
 		}
-		.longcode{
-			background: $white;
-			border-top: 1px solid $gray;
-			border-bottom: 1px solid $gray;
-			color: $darkgray;
-			font-size: 4vw;
+		button, .error{
+			font-size: 3.5vw;
+			line-height: 25px;
+			min-height: 0;
+			width:100%;
 		}
+}
+
+
+
+
 	}
 }
 @media only screen and (min-device-width: 480px) {
 	.trade {
-		#tradeChart {
-			width: 100% !important;
-			height: 200px !important;
-		}
+		// #tradeChart {
+		// 	width: 100% !important;
+		// 	height: 200px !important;
+		// }
 		.contract-summary {
 			padding: 5px 10px;
 			text-align: center;
@@ -564,11 +532,8 @@
 			.lose {
 				color: $red !important;
 			}
-			.row {
-				padding: 0;
-				margin-top: 0;
-				.col {
-					border-top: 1px solid $lightgray;
+
+
 					&:first-child {
 						text-align: right;
 						border-right: 1px solid $lightgray;
@@ -580,11 +545,9 @@
 					 &.ref{
 						color: $darkgray;
 					}
-				}
 				&:last-child {
 					border-bottom: 1px solid $lightgray;
 				}
-			}
 			.win {
 				color: $green !important;
 				font-size: 14px;
@@ -704,5 +667,139 @@
 				}
 			}
 		}
+
+		.trade-container{
+			height: 85vh;
+			height: calc(100vh - 90px);
+			display: flex;
+			flex-direction: column;
+		}
+		bg-options {
+		display: flex;
+		flex-grow: 1;
+		width: 100vw;
+		max-height: 75px;
+		}
+		bg-payout{
+		display: flex;
+		flex-grow: 1;
+		width: 100vw;
+		max-height: 40px;
+		}
+		bg-chart, bg-purchase{
+		width: 100vw;
+		display: flex;
+		flex-grow: 1;
+		}
+		.options{
+		width: 100%;
+		}
+		.contract-chart{
+		width: 100%;
+		}
+		.payout{
+		width: 95%;
+		margin: 0 auto;
+		border: 1px solid $gray;
+		border-radius: 3px;
+		background: $white;
+		display: flex;
+		flex-direction: column;
+		.payout-cell-container{
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			flex-grow: 1;
+			.payout-cell{
+				display: flex;
+				flex-grow: 1;
+				flex-direction: column;
+				a{
+					font-size: 4vw;
+				}
+				input{
+					width: 70px;
+					padding: 10px 5px;
+					border-radius: 3px;
+				}
+				.button-bar{
+					a{
+						color: $black;
+						font-size: 16px;
+						min-height: 0;
+					}
+				}
+
+			}
+		}
+		}
+
+		.purchase{
+		font-size: 4vw;
+		width: 95%;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		.row{
+			padding: 5px 0;
+			flex-grow: 1;
+		}
+		.contract{
+			background: $white;
+			border-radius: 3px;
+			border: 1px solid $gray;
+			margin: 0 2px;
+			display: flex;
+			flex-direction: column;
+			&:first-child{
+				margin-left: 2px;
+			}
+			&:nth-child(2){
+				margin-right: 2px;
+			}
+			.row{
+				padding: 0;
+				flex-grow: 1;
+			}
+		}
+		button, .error{
+			font-size: 3.5vw;
+			line-height: 25px;
+			min-height: 0;
+			width:100%;
+		}
+		}
+
+
+
+
 	}
+}
+
+
+@media only screen and (max-device-height: 480px) {
+	.trade{
+		#tradeChart {
+			width: 100% !important;
+			height: 150px !important;
+		}
+	}
+
+}
+@media only screen and (min-device-height: 481px) and (max-device-height: 640px) {
+	.trade{
+		#tradeChart {
+			width: 100% !important;
+			height: 200px !important;
+		}
+	}
+}
+	@media only screen and (min-device-height: 640px) {
+		.trade{
+			#tradeChart {
+				width: 100% !important;
+				height: 250px !important;
+			}
+		}
+
 }
