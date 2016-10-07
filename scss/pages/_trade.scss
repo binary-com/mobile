@@ -349,6 +349,7 @@
 					flex-direction: column;
 					a {
 						font-size: 4vw;
+						color: $darkgray;
 					}
 					input {
 						width: 70px;
@@ -393,9 +394,17 @@
 					margin-right: 2px;
 				}
 				.row {
-					padding: 0;
+					    padding: 5px 0;
 					flex-grow: 1;
 				}
+				.basis-title {
+ 				color: $darkgray;
+				padding: 5px 0;
+ 			}
+ 			.basis {
+ 				font-weight: bold;
+				padding: 5px 0;
+ 			}
 			}
 			.error,
 			button {
@@ -776,10 +785,18 @@
 					margin-right: 2px;
 				}
 				.row {
-					padding: 0;
+					    padding: 5px 0;
 					flex-grow: 1;
 					max-height: 80px;
 				}
+				.basis-title {
+ 				color: $darkgray;
+				padding: 5px 0;
+ 			}
+ 			.basis {
+ 				font-weight: bold;
+				padding: 5px 0;
+ 			}
 			}
 			.error,
 			button {
@@ -829,11 +846,11 @@
 	.trade {
 		#tradeChart {
 			width: 100% !important;
-			height: 350px !important;
+			height: 315px !important;
 		}
 		bg-chart{
-		max-height: 400px;
-		min-height: 365px;
+		max-height: 365px;
+		min-height: 330px;
 		}
 	}
 }
