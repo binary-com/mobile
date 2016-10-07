@@ -146,24 +146,24 @@
 					&:last-child {
 						text-align: center;
 					}
-					&.ref{
-					 color: $darkgray;
-				 }
-				 &.buy{
-					 .title{
-						 color: $darkgray;
-					 }
-				 }
-				 &.sell{
-					 .title{
-						 color: $darkgray;
-					 }
-				 }
-				 &.profit{
-					 .title{
-						 color: $darkgray;
-					 }
-				 }
+					&.ref {
+						color: $darkgray;
+					}
+					&.buy {
+						.title {
+							color: $darkgray;
+						}
+					}
+					&.sell {
+						.title {
+							color: $darkgray;
+						}
+					}
+					&.profit {
+						.title {
+							color: $darkgray;
+						}
+					}
 				}
 				&:last-child {
 					border-bottom: 1px solid $lightgray;
@@ -182,7 +182,7 @@
 			margin: 10px auto;
 			padding: 0 5px;
 			background: $white;
-			width:95%;
+			width: 95%;
 			width: calc(100% - 10px);
 			border: 1px solid $gray;
 			border-bottom: 3px solid $gray;
@@ -295,111 +295,122 @@
 			}
 		}
 
-		.trade-container{
+		.trade-types{
+			.button{
+				font-size: 4vw;
+			}
+		}
+		.trade-container {
 			height: 85vh;
 			height: calc(100vh - 90px);
 			display: flex;
 			flex-direction: column;
 		}
-	bg-options {
-		display: flex;
-		flex-grow: 1;
-		width: 100vw;
-		max-height: 75px;
-	}
-	bg-payout{
-		display: flex;
-		flex-grow: 1;
-		width: 100vw;
-		max-height: 40px;
-	}
-	bg-chart, bg-purchase{
-		width: 100vw;
-		display: flex;
-		flex-grow: 1;
-	}
-	.options{
-		width: 100%;
-	}
-	.contract-chart{
-		width: 100%;
-	}
-	.payout{
-		width: 95%;
-		margin: 0 auto;
-		border: 1px solid $gray;
-		border-radius: 3px;
-		background: $white;
-		display: flex;
-		flex-direction: column;
-		.payout-cell-container{
+		bg-options {
 			display: flex;
-			flex-direction: row;
+			flex-grow: 1;
+			width: 100vw;
+
+		}
+		bg-payout {
+			display: flex;
+			flex-grow: 1;
+			width: 100vw;
+			max-height: 40px;
+		}
+		bg-chart,
+		bg-purchase {
+			width: 100vw;
+			display: flex;
+			flex-grow: 1;
+		}
+		.options {
 			width: 100%;
-			flex-grow: 1;
-			.payout-cell{
-				display: flex;
-				flex-grow: 1;
-    		flex-direction: column;
-				a{
-					font-size: 4vw;
-				}
-				input{
-					width: 70px;
-					padding: 10px 5px;
-    			border-radius: 3px;
-				}
-				.button-bar{
-					a{
-						color: $black;
-						font-size: 16px;
-						min-height: 0;
-					}
-				}
-
-			}
 		}
-	}
-
-.purchase{
-	font-size: 4vw;
-    width: 95%;
-    margin: 0 auto;
-		display: flex;
-		flex-direction: column;
-		.row{
-			padding: 5px 0;
-			flex-grow: 1;
+		.contract-chart {
+			width: 100%;
 		}
-		.contract{
-			background: $white;
-			border-radius: 3px;
+		.payout {
+			width: 95%;
+			margin: 0 auto;
 			border: 1px solid $gray;
-			margin: 0 2px;
+			border-radius: 3px;
+			background: $white;
 			display: flex;
 			flex-direction: column;
-			&:first-child{
-				margin-left: 2px;
+			.payout-cell-container {
+				display: flex;
+				flex-direction: row;
+				width: 100%;
+				flex-grow: 1;
+				.payout-cell {
+					display: flex;
+					flex-grow: 1;
+					flex-direction: column;
+					a {
+						font-size: 4vw;
+					}
+					input {
+						width: 70px;
+						padding: 10px 5px;
+						border-radius: 3px;
+						font-size: 4vw;
+					}
+					.button-bar {
+						a {
+							color: $black;
+							font-size: 16px;
+							min-height: 0;
+							font-size: 4vw;
+							margin-top: 13%;
+							padding: 0;
+						}
+					}
+				}
 			}
-			&:nth-child(2){
-				margin-right: 2px;
-			}
-			.row{
-				padding: 0;
+		}
+		.purchase {
+			font-size: 4vw;
+			width: 95%;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			.row {
+				padding: 5px 0;
 				flex-grow: 1;
 			}
+			.contract {
+				background: $white;
+				border-radius: 3px;
+				border: 1px solid $gray;
+				margin: 0 2px;
+				display: flex;
+				flex-direction: column;
+				&:first-child {
+					margin-left: 2px;
+				}
+				&:nth-child(2) {
+					margin-right: 2px;
+				}
+				.row {
+					padding: 0;
+					flex-grow: 1;
+				}
+			}
+			.error,
+			button {
+				font-size: 3.5vw;
+				line-height: 25px;
+				min-height: 0;
+				width: 100%;
+			}
+			.button {
+				padding: 10px !important;
+			}
 		}
-		button, .error{
-			font-size: 3.5vw;
-			line-height: 25px;
-			min-height: 0;
-			width:100%;
+		#chartContainer{
+			background: $white;
 		}
-}
-
-
-
-
 	}
 }
 @media only screen and (min-device-width: 480px) {
@@ -532,22 +543,20 @@
 			.lose {
 				color: $red !important;
 			}
-
-
-					&:first-child {
-						text-align: right;
-						border-right: 1px solid $lightgray;
-						padding: 4px 10px 4px 0;
-					}
-					&:last-child {
-						text-align: center;
-					}
-					 &.ref{
-						color: $darkgray;
-					}
-				&:last-child {
-					border-bottom: 1px solid $lightgray;
-				}
+			&:first-child {
+				text-align: right;
+				border-right: 1px solid $lightgray;
+				padding: 4px 10px 4px 0;
+			}
+			&:last-child {
+				text-align: center;
+			}
+			&.ref {
+				color: $darkgray;
+			}
+			&:last-child {
+				border-bottom: 1px solid $lightgray;
+			}
 			.win {
 				color: $green !important;
 				font-size: 14px;
@@ -667,139 +676,164 @@
 				}
 			}
 		}
+		.trade-types{
+			.button{
+				font-size: 4vw;
+			}
+		}
 
-		.trade-container{
+		.trade-container {
 			height: 85vh;
 			height: calc(100vh - 90px);
 			display: flex;
 			flex-direction: column;
 		}
 		bg-options {
-		display: flex;
-		flex-grow: 1;
-		width: 100vw;
-		max-height: 75px;
-		}
-		bg-payout{
-		display: flex;
-		flex-grow: 1;
-		width: 100vw;
-		max-height: 40px;
-		}
-		bg-chart, bg-purchase{
-		width: 100vw;
-		display: flex;
-		flex-grow: 1;
-		}
-		.options{
-		width: 100%;
-		}
-		.contract-chart{
-		width: 100%;
-		}
-		.payout{
-		width: 95%;
-		margin: 0 auto;
-		border: 1px solid $gray;
-		border-radius: 3px;
-		background: $white;
-		display: flex;
-		flex-direction: column;
-		.payout-cell-container{
 			display: flex;
-			flex-direction: row;
+			flex-grow: 1;
+			width: 100vw;
+
+		}
+		bg-payout {
+			display: flex;
+			flex-grow: 1;
+			width: 100vw;
+			max-height: 120px;
+		}
+		bg-chart,
+		bg-purchase {
+			width: 100vw;
+			display: flex;
+			flex-grow: 1;
+		}
+
+		.options {
 			width: 100%;
-			flex-grow: 1;
-			.payout-cell{
-				display: flex;
-				flex-grow: 1;
-				flex-direction: column;
-				a{
-					font-size: 4vw;
-				}
-				input{
-					width: 70px;
-					padding: 10px 5px;
-					border-radius: 3px;
-				}
-				.button-bar{
-					a{
-						color: $black;
-						font-size: 16px;
-						min-height: 0;
-					}
-				}
-
-			}
 		}
+		.contract-chart {
+			width: 100%;
 		}
-
-		.purchase{
-		font-size: 4vw;
-		width: 95%;
-		margin: 0 auto;
-		display: flex;
-		flex-direction: column;
-		.row{
-			padding: 5px 0;
-			flex-grow: 1;
-		}
-		.contract{
-			background: $white;
-			border-radius: 3px;
+		.payout {
+			width: 95%;
+			margin: 0 auto;
 			border: 1px solid $gray;
-			margin: 0 2px;
+			border-radius: 3px;
+			background: $white;
 			display: flex;
 			flex-direction: column;
-			&:first-child{
-				margin-left: 2px;
+			.payout-cell-container {
+				display: flex;
+				flex-direction: row;
+				width: 100%;
+				flex-grow: 1;
+				.payout-cell {
+					display: flex;
+					flex-grow: 1;
+					flex-direction: column;
+					a {
+						font-size: 4vw;
+					}
+					input {
+						width: 70px;
+						padding: 10px 5px;
+						border-radius: 3px;
+						font-size: 4vw;
+					}
+					.button-bar {
+						a {
+							color: $black;
+							font-size: 16px;
+							min-height: 0;
+							font-size: 4vw;
+							margin-top: 13%;
+							padding: 0;
+						}
+					}
+				}
 			}
-			&:nth-child(2){
-				margin-right: 2px;
-			}
-			.row{
-				padding: 0;
+		}
+		.purchase {
+			font-size: 4vw;
+			width: 95%;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			.row {
+				padding: 5px 0;
 				flex-grow: 1;
 			}
+			.contract {
+				background: $white;
+				border-radius: 3px;
+				border: 1px solid $gray;
+				margin: 0 2px;
+				display: flex;
+				flex-direction: column;
+				&:first-child {
+					margin-left: 2px;
+				}
+				&:nth-child(2) {
+					margin-right: 2px;
+				}
+				.row {
+					padding: 0;
+					flex-grow: 1;
+					max-height: 80px;
+				}
+			}
+			.error,
+			button {
+				font-size: 3.5vw;
+				line-height: 25px;
+				min-height: 0;
+				width: 100%;
+			}
+			.button {
+				padding: 5px 12px !important;
+				font-size: 4vw;
+				line-height: 80px;
+				min-height: 50px;
+				width: 100%;
+			}
 		}
-		button, .error{
-			font-size: 3.5vw;
-			line-height: 25px;
-			min-height: 0;
-			width:100%;
+		#chartContainer{
+			background: $white;
 		}
-		}
-
-
-
-
 	}
 }
-
-
 @media only screen and (max-device-height: 480px) {
-	.trade{
+	.trade {
 		#tradeChart {
 			width: 100% !important;
 			height: 150px !important;
 		}
+		bg-chart{
+			max-height: 200px;
+			min-height: 165px;
+		}
 	}
-
 }
 @media only screen and (min-device-height: 481px) and (max-device-height: 640px) {
-	.trade{
+	.trade {
 		#tradeChart {
 			width: 100% !important;
 			height: 200px !important;
 		}
+		bg-chart{
+		max-height: 250px;
+		min-height: 215px;
+		}
 	}
 }
-	@media only screen and (min-device-height: 640px) {
-		.trade{
-			#tradeChart {
-				width: 100% !important;
-				height: 250px !important;
-			}
+@media only screen and (min-device-height: 641px) {
+	.trade {
+		#tradeChart {
+			width: 100% !important;
+			height: 350px !important;
 		}
-
+		bg-chart{
+		max-height: 400px;
+		min-height: 365px;
+		}
+	}
 }
