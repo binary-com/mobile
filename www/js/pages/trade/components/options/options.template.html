@@ -6,6 +6,8 @@
       <div class= "col center" ng-class="{activated : vm.section == vm.SECTIONS.UNDERLYINGS}">
         <button class="button button-clear"  ng-click="vm.setSection(vm.SECTIONS.UNDERLYINGS)"> {{vm.options.underlying.display_name}} </button>
       </div>
+  </div>
+  <div class="row">
       <div class= "col center"  ng-class="{activated : vm.section == vm.SECTIONS.TRADETYPES}">
         <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TRADETYPES)"> {{vm.options.tradeType}} </button>
       </div>
