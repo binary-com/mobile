@@ -13,9 +13,9 @@
         .module('binary.pages.profit-table.controllers')
         .controller('ProfitTableController', ProfitTable);
 
-    ProfitTable.$inject = ['$scope', '$filter', '$state', '$ionicScrollDelegate', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
+    ProfitTable.$inject = ['$scope', '$filter', '$state', '$timeout', '$ionicScrollDelegate', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
 
-    function ProfitTable($scope, $filter, $state, $ionicScrollDelegate, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService) {
+    function ProfitTable($scope, $filter, $state, $timeout, $ionicScrollDelegate, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService) {
         var vm = this;
         vm.data = {};
         vm.noTransaction = false;
@@ -26,33 +26,36 @@
         vm.android = ionic.Platform.isAndroid();
         vm.goToTopButton = false;
 
-        $scope.$on('authorize', () => {
-            if (appStateService.profitTableRefresh) {
-                appStateService.profitTableRefresh = false;
-                appStateService.isProfitTableSet = false;
-                vm.pageState();
+        $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
+            vm.lastPage = from.name;
+            vm.enteredNow = true;
+            // check if state is changed from any state other than transactiondetail
+            // we do not refresh the state if it comes back from transactiondetail
+            if(vm.lastPage != 'transactiondetail'){
+                vm.notAuthorizeYet();
             }
         });
 
-        // $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
-        //     vm.lastPage = from.name;
-        //     vm.enteredNow = true;
-        //       if(appStateService.profitTableRefresh){
-        //         appStateService.profitTableRefresh = false;
-        //         appStateService.isProfitTableSet = false;
-        //         vm.pageState();
-        //       }
-        // });
+        vm.notAuthorizeYet = function(){
+          // check if app is authorized already or has to wait for it to be authorized
+          if(appStateService.isLoggedin){
+            if(appStateService.profitTableRefresh){
+              appStateService.profitTableRefresh = false;
+              appStateService.isProfitTableSet = false;
+              vm.pageState();
+            }
+          }
+          else{
+            $timeout(vm.notAuthorizeYet, 1000);
+          }
+        }
 
         vm.loadMore = function() {
           if(!tableStateService.completedGroup){
             // here can load some amount of transactions already recieved
             vm.setBatch();
-            // if(tableStateService.batchNum >= 1){
-            //   vm.goToTopButton = true;
-            // }
-
           }
+
           else if(tableStateService.completedGroup){
             tableStateService.currentPage += 1;
             vm.pageState();
