@@ -1,50 +1,50 @@
-<ion-view class="profit-table" >
-  <div class="row filters">
-      <div class="col col-50">
-          <div class="item item-input item-select">
-              <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFiltered()">
-                  <option value="allApps" selected="selected">{{'profittable.all_apps' | translate}}</option>
-                  <option value="tickTradeApp">{{'profittable.tick_trade_app' | translate}}</option>
-              </select>
-          </div>
-      </div>
-      <div class="col col-50">
-          <div class="item item-input item-select">
-              <select name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
-                  <option value="allTime" selected="selected">{{'profittable.all_time' | translate}}</option>
-                  <option value="monthAgo">{{'profittable.last_month' | translate}}</option>
-                  <option value="sevenDayAgo">{{'profittable.last_week' | translate}}</option>
-                  <option value="threeDayAgo">{{'profittable.last_3_days' | translate}}</option>
-                  <option value="oneDayAgo">{{'profittable.last_day' | translate}}</option>
-                  <option value="today">{{'profittable.today' | translate}}</option>
-              </select>
-          </div>
-      </div>
-  </div>
-  <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
-    <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
-  </a>
+<ion-view class="profit-table">
+    <div class="row filters">
+        <div class="col col-50">
+            <div class="item item-input item-select">
+                <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFiltered()">
+                    <option value="allApps" selected="selected">{{'profittable.all_apps' | translate}}</option>
+                    <option value="tickTradeApp">{{'profittable.tick_trade_app' | translate}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col col-50">
+            <div class="item item-input item-select">
+                <select name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
+                    <option value="allTime" selected="selected">{{'profittable.all_time' | translate}}</option>
+                    <option value="monthAgo">{{'profittable.last_month' | translate}}</option>
+                    <option value="sevenDayAgo">{{'profittable.last_week' | translate}}</option>
+                    <option value="threeDayAgo">{{'profittable.last_3_days' | translate}}</option>
+                    <option value="oneDayAgo">{{'profittable.last_day' | translate}}</option>
+                    <option value="today">{{'profittable.today' | translate}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
+        <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
+    </a>
     <ion-content has-bouncing="false" class="profit-table-content" on-scroll="vm.goToTopButtonCondition()" delegate-handle="handler">
         <div class="profit-table-container">
             <div class="row">
                 <div class="col">
                     <ul>
                         <li class="list profit-table-list" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
-                              <ul>
-                                  <li class="list profit-table-list">
-                                      <ul class="col-100 statement-list">
-                                          <li class="statement-element" ng-bind="::transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' ">
-                                          </li>
-                                          <li class="center statement-element" ng-bind="::transaction.transaction_id">
-                                          </li>
-                                          <li class="statement-element last-statement-element bold green right" ng-class="{red : (transaction.sell_price - transaction.buy_price).toFixed(2) < 0}" ng-bind="::vm.formatMoney(vm.currency, (transaction.sell_price - transaction.buy_price).toFixed(2))">
-                                          </li>
-                                      </ul>
-                                  </li>
-                                  <li class="row" ng-if="vm.noTransaction">
-                                      {{'statement.no_transaction' | translate}}
-                                  </li>
-                              </ul>
+                            <ul>
+                                <li class="list profit-table-list">
+                                    <ul class="col-100 statement-list">
+                                        <li class="statement-element" ng-bind="::transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></li>
+                                        <li class="center statement-element" ng-bind="::transaction.transaction_id"></li>
+                                        <li
+                                            class="statement-element last-statement-element bold green right"
+                                            ng-class="{red : (transaction.sell_price - transaction.buy_price).toFixed(2) < 0}"
+                                            ng-bind="::vm.formatMoney(vm.currency, (transaction.sell_price - transaction.buy_price).toFixed(2))"></li>
+                                    </ul>
+                                </li>
+                                <li class="row" ng-if="vm.noTransaction">
+                                    {{'statement.no_transaction' | translate}}
+                                </li>
+                            </ul>
                         </li>
                         <li class="row" ng-if="vm.noTransaction">
                             {{'profittable.no_transaction' | translate}}
