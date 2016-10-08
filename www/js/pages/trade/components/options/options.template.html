@@ -1,35 +1,35 @@
 <div class="options">
-  <div class="row">
-      <div class= "col center"  ng-class="{activated : (vm.section == vm.SECTIONS.MARKETS)}">
-        <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.MARKETS)">{{vm.options.market.displayName}}</button>
+  <div class="row" ng-if="vm.section1== vm.SECTIONS.OVERVIEW1">
+      <div class= "col center">
+        <button class="button button-clear" ng-click="vm.setSection(1, vm.SECTIONS.MARKETS)">{{vm.options.market.displayName}}</button>
       </div>
-      <div class= "col center" ng-class="{activated : vm.section == vm.SECTIONS.UNDERLYINGS}">
-        <button class="button button-clear"  ng-click="vm.setSection(vm.SECTIONS.UNDERLYINGS)"> {{vm.options.underlying.display_name}} </button>
-      </div>
-  </div>
-  <div class="row">
-      <div class= "col center"  ng-class="{activated : vm.section == vm.SECTIONS.TRADETYPES}">
-        <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TRADETYPES)"> {{vm.options.tradeType}} </button>
-      </div>
-      <div class= "col center" ng-class="{activated : vm.section == vm.SECTIONS.TICKS}">
-        <button class="button button-clear" ng-click="vm.setSection(vm.SECTIONS.TICKS)"> {{vm.options.tick}} Ticks </button>
-      </div>
-      <div class= "col center" ng-if="vm.options.digit != null" ng-class="{activated : vm.section == vm.SECTIONS.DIGITS}">
-        <button class="button button-clear"
-                ng-click="vm.setSection(vm.SECTIONS.DIGITS)"> Last Digit: {{ vm.options.digit }} </button>
+      <div class= "col center">
+        <button class="button button-clear"  ng-click="vm.setSection(1, vm.SECTIONS.UNDERLYINGS)"> {{vm.options.underlying.display_name}} </button>
       </div>
   </div>
-</div>
-    <bg-markets ng-if="vm.section== vm.SECTIONS.MARKETS"
+    <bg-markets ng-if="vm.section1 == vm.SECTIONS.MARKETS"
                 select="vm.selectMarket"></bg-markets>
-    <bg-tradetypes ng-if="vm.section== vm.SECTIONS.TRADETYPES"
-                select="vm.selectTradeType"></bg-tradetypes>
-    <bg-underlyings ng-if="vm.section== vm.SECTIONS.UNDERLYINGS"
+    <bg-underlyings ng-if="vm.section1 == vm.SECTIONS.UNDERLYINGS"
                 select="vm.selectUnderlying"
                 market="vm.options.market"></bg-underlyings>
-    <bg-ticks ng-if="vm.section == vm.SECTIONS.TICKS"
+  <div class="row" ng-if="vm.section2== vm.SECTIONS.OVERVIEW2">
+      <div class= "col center">
+        <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TRADETYPES)"> {{vm.options.tradeType}} </button>
+      </div>
+      <div class= "col center">
+        <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TICKS)"> {{vm.options.tick}} Ticks </button>
+      </div>
+      <div class= "col center" ng-if="vm.options.digit != null">
+        <button class="button button-clear"
+                ng-click="vm.setSection(2, vm.SECTIONS.DIGITS)"> Last Digit: {{ vm.options.digit }} </button>
+      </div>
+  </div>
+    <bg-tradetypes ng-if="vm.section2 == vm.SECTIONS.TRADETYPES"
+                select="vm.selectTradeType"></bg-tradetypes>
+    <bg-ticks ng-if="vm.section2 == vm.SECTIONS.TICKS"
               select="vm.selectTick"
               trade-type="vm.options.tradeType"></bg-ticks>
-    <bg-digits ng-if="vm.section == vm.SECTIONS.DIGITS"
+    <bg-digits ng-if="vm.section2 == vm.SECTIONS.DIGITS"
               select="vm.selectDigit"
               trade-type="vm.options.tradeType"></bg-ticks>
+</div>
