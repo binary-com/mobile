@@ -26,12 +26,13 @@
     var vm = this;
 
     vm.SECTIONS = {
-      OVERVIEW: 0,
-      MARKETS: 1,
+      OVERVIEW1: 0,
+      OVERVIEW2: 1,
       UNDERLYINGS: 2,
-      TRADETYPES: 3,
-      TICKS: 4,
-      DIGITS: 5
+      MARKETS: 3,
+      TRADETYPES: 4,
+      TICKS: 5,
+      DIGITS: 6
     }
 
     vm.options = {
@@ -42,7 +43,8 @@
       digit: null
     };
 
-    vm.section = vm.SECTIONS.OVERVIEW; //vm.options.market ? vm.SECTIONS.OVERVIEW : vm.SECTIONS.MARKETS;
+    vm.section1 = vm.SECTIONS.OVERVIEW1; //vm.options.market ? vm.SECTIONS.OVERVIEW : vm.SECTIONS.MARKETS;
+    vm.section2 = vm.SECTIONS.OVERVIEW2;
 
     $scope.$on('symbols:updated', (e) => {
       websocketService.sendRequestFor.assetIndex();
@@ -62,7 +64,7 @@
         vm.options.tradeType = Object.keys(tradeTypes).indexOf(vm.options.tradeType) > -1 ? vm.options.tradeType || Object.keys(tradeTypes)[0] : Object.keys(tradeTypes)[0];
         vm.options.tick = vm.options.tick || tradeTypes[vm.options.tradeType][0].min_contract_duration.slice(0, -1);
         vm.options.digit = tradeTypes[vm.options.tradeType][0].last_digit_range ? vm.options.digit || tradeTypes[vm.options.tradeType][0].last_digit_range[0] : null;
-        vm.options.barrier = tradeTypes.barriers > 0 ? vm.options.barrier || tradeType.barrier : null;
+        vm.options.barrier = tradeTypes[vm.options.tradeType][0].barriers > 0 ? vm.options.barrier || tradeTypes[vm.options.tradeType][0].barrier : null;
         updateProposal();
         tradeService.proposalIsReady = true;
       });
@@ -73,22 +75,27 @@
       vm.proposal.currency = response.currency;
     });
 
-    vm.setSection = function(section){
-      vm.section = section;
+    vm.setSection = function(id, section){
+      if(id == 1){
+        vm.section1 = section;
+      }
+      else if( id == 2){
+        vm.section2 = section;
+      }
     }
 
     vm.selectMarket = function(market){
       vm.options.market = market;
       vm.options.underlying = market.underlying[0];
       websocketService.sendRequestFor.contractsForSymbol(vm.options.underlying.symbol);
-      vm.section = vm.SECTIONS.OVERVIEW;
+      vm.section1 = vm.SECTIONS.OVERVIEW1;
         updateProposal();
     }
 
     vm.selectUnderlying = function(underlying){
         vm.options.underlying = underlying;
         websocketService.sendRequestFor.contractsForSymbol(underlying.symbol);
-        vm.section = vm.SECTIONS.OVERVIEW;
+        vm.section1 = vm.SECTIONS.OVERVIEW1;
         updateProposal();
     }
 
@@ -98,20 +105,20 @@
         vm.options.tick = vm.options.tick || tradeType.min_contract_duration.slice(0, -1);
         vm.options.digit = tradeType.last_digit_range ? vm.options.digit || tradeType.last_digit_range[0] : null;
         vm.options.barrier = tradeType.barriers > 0 && !_.isEmpty(tradeType.barrier) ? vm.options.barrier || tradeType.barrier : null;
-        vm.section = vm.SECTIONS.OVERVIEW;
+        vm.section2 = vm.SECTIONS.OVERVIEW2;
         updateProposal();
     }
 
     vm.selectTick = function(tick){
         vm.options.tick = tick;
-        vm.section = vm.SECTIONS.OVERVIEW;
+        vm.section2 = vm.SECTIONS.OVERVIEW2;
         updateProposal();
     }
 
     vm.selectDigit = function(digit){
         vm.options.digit = digit;
         vm.options.barrier = null;
-        vm.section = vm.SECTIONS.OVERVIEW;
+        vm.section2 = vm.SECTIONS.OVERVIEW2;
         updateProposal();
     }
 
