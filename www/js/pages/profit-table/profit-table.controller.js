@@ -24,9 +24,7 @@
         vm.enteredNow = false;
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
-
-
-
+        vm.goToTopButton = false;
 
         $scope.$on('authorize', () => {
             if (appStateService.profitTableRefresh) {
@@ -36,20 +34,24 @@
             }
         });
 
-        $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
-            vm.lastPage = from.name;
-            vm.enteredNow = true;
-              if(appStateService.profitTableRefresh){
-                appStateService.profitTableRefresh = false;
-                appStateService.isProfitTableSet = false;
-                vm.pageState();
-              }
-        });
+        // $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
+        //     vm.lastPage = from.name;
+        //     vm.enteredNow = true;
+        //       if(appStateService.profitTableRefresh){
+        //         appStateService.profitTableRefresh = false;
+        //         appStateService.isProfitTableSet = false;
+        //         vm.pageState();
+        //       }
+        // });
 
         vm.loadMore = function() {
           if(!tableStateService.completedGroup){
             // here can load some amount of transactions already recieved
             vm.setBatch();
+            // if(tableStateService.batchNum >= 1){
+            //   vm.goToTopButton = true;
+            // }
+
           }
           else if(tableStateService.completedGroup){
             tableStateService.currentPage += 1;
@@ -252,6 +254,19 @@
 
         vm.goTop = function(){
           $ionicScrollDelegate.scrollTop(true);
+          vm.goToTopButton = false;
+        }
+
+        vm.goToTopButtonCondition = function() {
+          $scope.$applyAsync(() => {
+            if($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30){
+               vm.goToTopButton = true;
+            }
+            else if($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30){
+              vm.goToTopButton = false;
+            }
+          });
+
         }
 
         // details functions
