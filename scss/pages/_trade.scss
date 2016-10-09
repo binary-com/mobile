@@ -1,17 +1,10 @@
 @media only screen and (max-device-width: 480px) {
 	.trade {
 		background: $lightgray;
-		// #tradeChart {
-		// 	width: 100% !important;
-		// 	height: 150px !important;
-		// }
 		.contract-summary {
-			padding: 5px 10px;
 			text-align: center;
 			font-size: 4vw;
 			background-color: $lightgray;
-			position: relative;
-			span {}
 		}
 		.contract-payout {
 			padding: 0 !important;
@@ -120,12 +113,21 @@
 		.contract-back,
 		.contract-purchase {
 			button {
-				font-size: 5vw;
+				font-size: 3.5vw;
 				background-color: $blue;
+				margin: 0 auto;
+    font-size: 4vw;
+    line-height: 28px;
+    min-height: 24px;
 			}
 		}
 		.contract-summary {
 			margin-top: 1%;
+			width: 95%;
+			margin: 0 auto;
+			display: flex;
+			flex-grow: 1;
+			flex-direction: column;
 			.win {
 				color: $green !important;
 			}
@@ -135,11 +137,14 @@
 			.row {
 				// padding: 0;
 				// margin-top: 0;
+				display: flex;
+				flex-grow: 1;
+				flex-direction: row;
 				.col {
-					border-top: 1px solid $lightgray;
+					display: flex;
+					flex-direction: column;
 					&:first-child {
 						text-align: right;
-						border-right: 1px solid $lightgray;
 						padding: 4px 10px 4px 0;
 						color: $black;
 					}
@@ -150,23 +155,23 @@
 						color: $darkgray;
 					}
 					&.buy {
+						padding: 0;
 						.title {
 							color: $darkgray;
 						}
 					}
 					&.sell {
+						padding: 0;
 						.title {
 							color: $darkgray;
 						}
 					}
 					&.profit {
+						padding: 0;
 						.title {
 							color: $darkgray;
 						}
 					}
-				}
-				&:last-child {
-					border-bottom: 1px solid $lightgray;
 				}
 			}
 			.win {
@@ -180,16 +185,17 @@
 		}
 		.buy-again {
 			margin: 10px auto;
-			padding: 0 5px;
 			background: $white;
 			width: 95%;
-			width: calc(100% - 10px);
+			margin: 0 auto;
 			border: 1px solid $gray;
 			border-bottom: 3px solid $gray;
 			border-radius: 2px;
 			color: $darkgray;
 			font-size: 4vw;
 			align-items: center;
+			display: flex;
+			flex-direction: row;
 			.price-des {
 				font-size: 4vw;
 				color: $black;
@@ -205,6 +211,21 @@
 				font-size: 14px;
 				line-height: 28px;
 				min-height: 24px;
+			}
+			.col {
+				display: flex;
+				flex-grow: 1;
+				flex-direction: column;
+				padding: 0;
+				margin: 0;
+				font-size: 4vw;
+				.row {
+					display: flex;
+					flex-grow: 1;
+					flex-direction: row;
+					padding: 0;
+					margin: 0;
+				}
 			}
 		}
 		.contract-type {
@@ -247,17 +268,14 @@
 				background: none;
 				box-shadow: none;
 				color: black;
-				line-height: 15px !important;
+				line-height: 0 !important;
 				min-height: 0 !important;
 				padding: 5px;
+				font-size: 4vw;
+				white-space: nowrap;
 			}
 			.button:hover {
 				color: gray !important;
-			}
-		}
-		.balance {
-			&.row {
-				background: lightgray;
 			}
 		}
 		.error {
@@ -294,15 +312,12 @@
 				}
 			}
 		}
-
-		.trade-types{
-			.button{
+		.trade-types {
+			.button {
 				font-size: 4vw;
 			}
 		}
 		.trade-container {
-			height: 85vh;
-			height: calc(100vh - 90px);
 			display: flex;
 			flex-direction: column;
 		}
@@ -310,8 +325,11 @@
 			display: flex;
 			flex-grow: 1;
 			width: 100vw;
-
+			overflow-x: scroll;
+			overflow-y: hidden;
+			max-height: 70px;
 		}
+		bg-barrier,
 		bg-payout {
 			display: flex;
 			flex-grow: 1;
@@ -323,12 +341,47 @@
 			width: 100vw;
 			display: flex;
 			flex-grow: 1;
+			flex-direction: column;
+		}
+		bg-chart{
+			margin-bottom: 5px;
+		}
+		.barrier {
+			width: 95%;
+			margin: 0 auto;
+			border: 1px solid $gray;
+			border-radius: 3px;
+			background: $white;
+			display: flex;
+			flex-direction: column;
+			color: $darkgray;
+			.row {
+				display: flex;
+				flex-direction: row;
+				flex-grow: 1;
+				.col {
+					display: flex;
+					flex-direction: column;
+					flex-grow: 1;
+					font-size: 4vw;
+					input {
+						font-size: 4vw;
+						padding: 5px;
+					}
+				}
+			}
 		}
 		.options {
 			width: 100%;
+			display: flex;
+			flex-direction: column;
 		}
 		.contract-chart {
 			width: 100%;
+			width: 100%;
+			display: flex;
+		flex-direction: column;
+		flex-grow: 1;
 		}
 		.payout {
 			width: 95%;
@@ -394,17 +447,17 @@
 					margin-right: 2px;
 				}
 				.row {
-					    padding: 5px 0;
+					padding: 0;
 					flex-grow: 1;
 				}
 				.basis-title {
- 				color: $darkgray;
-				padding: 5px 0;
- 			}
- 			.basis {
- 				font-weight: bold;
-				padding: 5px 0;
- 			}
+					color: $darkgray;
+					padding: 5px 0;
+				}
+				.basis {
+					font-weight: bold;
+					padding: 5px 0;
+				}
 			}
 			.error,
 			button {
@@ -414,26 +467,75 @@
 				width: 100%;
 			}
 			.button {
-				padding: 10px !important;
+				padding: 1% !important;
 			}
 		}
-		#chartContainer{
+		#chartContainer {
 			background: $white;
+			display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		}
+		bg-contract-summary,
+		bg-longcode {
+			display: flex;
+			flex-grow: 1;
+			flex-direction: column;
+		}
+		bg-longcode{
+			max-height: 50px;
+		}
+		bg-contract-summary {
+			width: 95%;
+			margin: 0 auto;
+		}
+		.buy-again-container {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+		}
+		.contract-back-container {
+			display: flex;
+			flex-grow: 1;
+			flex-direction: column;
+			margin: 0;
+			padding: 0;
+		}
+		.buy-again,
+		.contract-back {
+			display: flex;
+			flex-grow: 1;
+		}
+		.longcode {
+			display: flex;
+			flex-grow: 1;
+			font-size: 3vw;
+			.row {
+				.col {
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+		.contract-back {
+			.button {
+				// display: flex;
+				// flex-grow: 1;
+				line-height: 0;
+				margin: 0 auto;
+    font-size: 4vw;
+    line-height: 28px;
+    min-height: 24px;
+			}
 		}
 	}
 }
 @media only screen and (min-device-width: 480px) {
 	.trade {
-		// #tradeChart {
-		// 	width: 100% !important;
-		// 	height: 200px !important;
-		// }
 		.contract-summary {
-			padding: 5px 10px;
 			text-align: center;
-			font-size: 14px;
+			font-size: 4vw;
 			background-color: $lightgray;
-			position: relative;
 		}
 		.contract-payout {
 			padding: 0 !important;
@@ -541,11 +643,25 @@
 		.contract-back,
 		.contract-purchase {
 			button {
-				font-size: 20px;
+				font-size: 3.5vw;
 			}
 		}
 		.contract-summary {
 			margin-top: 1%;
+			width: 95%;
+			margin: 0 auto;
+			display: flex;
+			flex-grow: 1;
+			flex-direction: column;
+			.row {
+				display: flex;
+				flex-grow: 1;
+				flex-direction: row;
+				.col {
+					display: flex;
+					flex-direction: column;
+				}
+			}
 			.win {
 				color: $green !important;
 			}
@@ -581,6 +697,8 @@
 			padding-top: 0;
 			padding-bottom: 0;
 			align-items: center;
+			display: flex;
+			flex-direction: row;
 			.price-des {
 				font-size: 14px;
 				color: $black;
@@ -638,7 +756,7 @@
 				background: none;
 				box-shadow: none;
 				color: black;
-				line-height: 15px !important;
+				line-height: 0 !important;
 				min-height: 0 !important;
 				padding: 5px;
 			}
@@ -685,15 +803,14 @@
 				}
 			}
 		}
-		.trade-types{
-			.button{
+		.trade-types {
+			.button {
 				font-size: 4vw;
 			}
 		}
-
 		.trade-container {
-			height: 85vh;
-			height: calc(100vh - 90px);
+			// height: 85vh;
+			// height: calc(100vh - 90px);
 			display: flex;
 			flex-direction: column;
 		}
@@ -701,7 +818,9 @@
 			display: flex;
 			flex-grow: 1;
 			width: 100vw;
-
+			max-height: 70px;
+			overflow-x: scroll;
+			overflow-y: hidden;
 		}
 		bg-payout {
 			display: flex;
@@ -714,13 +833,58 @@
 			width: 100vw;
 			display: flex;
 			flex-grow: 1;
+			flex-direction: column;
 		}
-
+		bg-chart{
+			margin-bottom: 5px;
+		}
+		bg-purchase {
+			max-height: 220px;
+			flex-direction: column;
+			padding: 5px 0;
+		}
+		bg-barrier {
+			padding-bottom: 10px;
+			display: flex;
+			flex-grow: 1;
+			width: 100vw;
+			max-height: 120px;
+		}
+		.barrier {
+			width: 95%;
+			margin: 0 auto;
+			border: 1px solid $gray;
+			border-radius: 3px;
+			background: $white;
+			display: flex;
+			flex-direction: column;
+			color: $darkgray;
+			.row {
+				display: flex;
+				flex-direction: row;
+				flex-grow: 1;
+				.col {
+					display: flex;
+					flex-direction: column;
+					flex-grow: 1;
+					font-size: 4vw;
+					font-weight: bold;
+					input {
+						font-size: 4vw;
+						padding: 5px;
+					}
+				}
+			}
+		}
 		.options {
 			width: 100%;
 		}
 		.contract-chart {
 			width: 100%;
+			width: 100%;
+			display: flex;
+		flex-direction: column;
+		flex-grow: 1;
 		}
 		.payout {
 			width: 95%;
@@ -741,6 +905,7 @@
 					flex-direction: column;
 					a {
 						font-size: 4vw;
+						color: $darkgray;
 					}
 					input {
 						width: 70px;
@@ -785,18 +950,18 @@
 					margin-right: 2px;
 				}
 				.row {
-					    padding: 5px 0;
+					padding: 5px 0;
 					flex-grow: 1;
 					max-height: 80px;
 				}
 				.basis-title {
- 				color: $darkgray;
-				padding: 5px 0;
- 			}
- 			.basis {
- 				font-weight: bold;
-				padding: 5px 0;
- 			}
+					color: $darkgray;
+					padding: 5px 0;
+				}
+				.basis {
+					font-weight: bold;
+					padding: 5px 0;
+				}
 			}
 			.error,
 			button {
@@ -813,8 +978,39 @@
 				width: 100%;
 			}
 		}
-		#chartContainer{
+		#chartContainer {
 			background: $white;
+			display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		}
+		bg-contract-summary,
+		bg-longcode {
+			display: flex;
+			flex-grow: 1;
+			flex-direction: column;
+		}
+		bg-longcode{
+			max-height: 50px;
+		}
+		bg-contract-summary {
+			width: 95%;
+			margin: 0 auto;
+		}
+		.buy-again-container {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+		}
+		.buy-again,
+		.contract-back {
+			display: flex;
+			flex-grow: 1;
+		}
+		.longcode {
+			display: flex;
+			flex-grow: 1;
+			font-size: 3vw;
 		}
 	}
 }
@@ -822,11 +1018,11 @@
 	.trade {
 		#tradeChart {
 			width: 100% !important;
-			height: 150px !important;
+			height: 130 !important;
 		}
-		bg-chart{
-			max-height: 200px;
-			min-height: 165px;
+		bg-chart {
+			max-height: 170px;
+			min-height: 150px;
 		}
 	}
 }
@@ -834,11 +1030,11 @@
 	.trade {
 		#tradeChart {
 			width: 100% !important;
-			height: 200px !important;
+			height: 170px !important;
 		}
-		bg-chart{
-		max-height: 250px;
-		min-height: 215px;
+		bg-chart {
+			max-height: 190px;
+			min-height: 185px;
 		}
 	}
 }
@@ -848,9 +1044,9 @@
 			width: 100% !important;
 			height: 315px !important;
 		}
-		bg-chart{
-		max-height: 365px;
-		min-height: 330px;
+		bg-chart {
+			max-height: 365px;
+			min-height: 330px;
 		}
 	}
 }

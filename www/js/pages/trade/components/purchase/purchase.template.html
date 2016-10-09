@@ -40,7 +40,7 @@
                       purchased-contract="vm.purchasedContract">
 </bg-contract-summary>
 
-<div ng-if="vm.showSummary">
+<div class="buy-again-container" ng-if="vm.showSummary">
   <div class="buy-again row">
     <div class="col center">
       <div class="row">
@@ -75,7 +75,7 @@
       </button>
     </div>
   </div>
-  <div class="row">
+  <div class="row contract-back-container">
     <div class="col center contract-back">
       <button class="button"
               ng-disabled="vm.inPurchaseMode"
