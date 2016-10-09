@@ -13,9 +13,9 @@
         .module('binary.share.components.real-account-opening.controllers')
         .controller('RealAccountOpeningController', RealAccountOpening);
 
-    RealAccountOpening.$inject = ['$scope', '$timeout', '$translate', '$state', '$ionicPopup', 'websocketService', 'appStateService', 'accountService', 'alertService', 'languageService'];
+    RealAccountOpening.$inject = ['$scope', '$state', 'websocketService', 'appStateService', 'accountService'];
 
-    function RealAccountOpening($scope, $timeout, $translate, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
+    function RealAccountOpening($scope, $state, websocketService, appStateService, accountService) {
         var vm = this;
         vm.data = {};
         vm.countryParams = {};
@@ -24,10 +24,12 @@
         vm.isCheckedCompany = false;
         appStateService.hasMLT = false;
         vm.isVirtual = false;
-        vm.hasGamingAndVirtual == false;
-        vm.hasGamingNotVirtual == false;
-        vm.hasFinancialAndMaltainvest == false;
+        vm.hasGamingAndVirtual = false;
+        vm.hasGamingNotVirtual = false;
+        vm.hasFinancialAndMaltainvest = false;
         vm.idsFound = [];
+
+
 
         $scope.$on('authorize', (e, response) => {
             if (!appStateService.isCheckedAccountType) {
@@ -63,7 +65,6 @@
                 vm.isCheckedCompany = true;
                 vm.accountStates(landing_company);
             }
-
         });
 
         // check 3 states combining of Maltainvest shortcode, gaming company and financial company

@@ -36,11 +36,11 @@
 						}
 
 						if(res){
-							appStateService.isRealityChecked = false;
-							appStateService.isChangedAccount = false;
-							appStateService.isPopupOpen = false;
-							appStateService.isCheckedAccountType = false;
 							accountService.removeAll();
+              appStateService.isRealityChecked = false;
+              appStateService.isChangedAccount = false;
+              appStateService.isPopupOpen = false;
+              appStateService.isCheckedAccountType = false;
 														appStateService.isLoggedin = false;
 														sessionStorage.removeItem('start');
 														sessionStorage.removeItem('_interval');
