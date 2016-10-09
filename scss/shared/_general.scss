@@ -4,12 +4,9 @@ ion-scroll[direction=x] {
 body * {
 				font-family: roboto, sans-serif !important;
 }
-.balance{
-  font-size: 4vw!important;
-  background: $white;
-}
 ion-content{
-  height: calc(100vh - 85px);
+  height: 90vh;
+  height: calc(100vh - 85px)!important;
 }
 a{
 	color: $blue;
