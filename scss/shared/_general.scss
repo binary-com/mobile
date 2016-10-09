@@ -8,7 +8,9 @@ body * {
   font-size: 4vw!important;
   background: $white;
 }
-
+ion-content{
+  height: calc(100vh - 85px);
+}
 a{
 	color: $blue;
 	text-decoration: none;

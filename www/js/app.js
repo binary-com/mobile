@@ -29,7 +29,6 @@
         'binary.share.components.long-press',
         'binary.share.components.reality-check',
         'binary.share.components.real-account-opening',
-        'binary.share.components.manage-accounts',
         'binary.share.components.logout'
     ]);
 

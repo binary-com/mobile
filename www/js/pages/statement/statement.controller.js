@@ -13,9 +13,9 @@
         .module('binary.pages.statement.controllers')
         .controller('StatementController', Statement);
 
-    Statement.$inject = ['$scope', '$filter', '$state', '$ionicScrollDelegate', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
+    Statement.$inject = ['$scope', '$filter', '$state', '$timeout', '$ionicScrollDelegate', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
 
-    function Statement($scope, $filter, $state, $ionicScrollDelegate, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService) {
+    function Statement($scope, $filter, $state, $timeout, $ionicScrollDelegate, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService) {
         var vm = this;
         vm.data = {};
         vm.noTransaction = false;
@@ -24,43 +24,46 @@
         vm.enteredNow = false;
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
-
-        $scope.$on('authorize', (e, response) => {
-            if (appStateService.statementRefresh || vm.defaultId == response.loginid) {
-              vm.defaultId != response.loginid;
-                appStateService.statementRefresh = false;
-                appStateService.isStatementSet = false;
-                vm.transactions = [];
-                vm.filteredTransactions = [];
-                tableStateService.statementCompletedGroup = true;
-                vm.pageState();
-            }
-        });
+        vm.goToTopButton = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
             vm.enteredNow = true;
-            vm.default = accountService.getDefault();
-            vm.defaultId = vm.default.id;
-              if(appStateService.statementRefresh){
-                appStateService.statementRefresh = false;
-                appStateService.isStatementSet = false;
-                vm.transactions = [];
-                vm.filteredTransactions = [];
-                tableStateService.statementCompletedGroup = true;
-                vm.pageState();
-              }
+            // check if state is changed from any state other than transactiondetail
+            // we do not refresh the state if it comes back from transactiondetail
+            if (vm.lastPage != 'transactiondetail') {
+                vm.notAuthorizeYet();
+            }
         });
 
+        $scope.$on('authorize', (e, response) => {
+            if (appStateService.statementRefresh) {
+                vm.notAuthorizeYet();
+            }
+        });
+
+        vm.notAuthorizeYet = function() {
+            // check if app is authorized already or has to wait for it to be authorized
+            if (appStateService.isLoggedin) {
+                if (appStateService.statementRefresh) {
+                    appStateService.statementRefresh = false;
+                    appStateService.isStatementSet = false;
+                    vm.pageState();
+                }
+            }
+            // else{
+            //    wait for authorize
+            // }
+        }
+
         vm.loadMore = function() {
-          if(!tableStateService.statementCompletedGroup){
-            // here can load some amount of transactions already recieved
-            vm.setBatch();
-          }
-          else if(tableStateService.statementCompletedGroup){
-            tableStateService.statementCurrentPage += 1;
-            vm.pageState();
-          }
+            if (!tableStateService.statementCompletedGroup) {
+                // here can load some amount of transactions already recieved
+                vm.setBatch();
+            } else if (tableStateService.statementCompletedGroup) {
+                tableStateService.statementCurrentPage += 1;
+                vm.pageState();
+            }
         }
 
         $scope.$on('scroll.infiniteScrollComplete', () => {
@@ -75,7 +78,7 @@
                 vm.setParams();
                 tableStateService.statementCompletedGroup = false;
             } else if (appStateService.isStatementSet && vm.enteredNow && vm.lastPage == 'transactiondetail') {
-              vm.enteredNow = false;
+                vm.enteredNow = false;
                 vm.lastPage = '';
                 vm.setParams();
             } else if (appStateService.isStatementSet && appStateService.isChangedAccount) {
@@ -95,9 +98,9 @@
                 tableStateService.statementBatchLimit = 0;
                 vm.setParams();
                 vm.goTop();
-            } else if(appStateService.isStatementSet && tableStateService.statementCompletedGroup) {
-              vm.transactions = [];
-              tableStateService.statementCompletedGroup = false;
+            } else if (appStateService.isStatementSet && tableStateService.statementCompletedGroup) {
+                vm.transactions = [];
+                tableStateService.statementCompletedGroup = false;
             } else {
                 vm.setParams();
                 $scope.$applyAsync(() => {
@@ -153,7 +156,7 @@
                 $scope.$applyAsync(() => {
                     vm.noMore = true;
                 });
-                 vm.setBatch();
+                vm.setBatch();
             } else if (vm.count > 0) {
                 if (vm.count < vm.limit) {
                     // has no more to load on next call
@@ -164,7 +167,7 @@
                     vm.statement.transactions.forEach(function(el, i) {
                         vm.transactions.push(vm.statement.transactions[i]);
                     });
-                     vm.setBatch();
+                    vm.setBatch();
                 } else if (vm.count == vm.limit) {
                     // has at least one transaction on next call to show to user
                     vm.noTransaction = false;
@@ -176,26 +179,26 @@
                             vm.transactions.push(vm.statement.transactions[i]);
                         }
                     });
-                     vm.setBatch();
+                    vm.setBatch();
                 }
             }
         });
 
-        vm.setBatch = function(){
-          tableStateService.statementBatchLimit = Math.ceil(vm.transactions.length / tableStateService.statementBatchSize);
-          vm.sliced = [];
-          vm.sliced = vm.transactions.slice(tableStateService.statementBatchNum * tableStateService.statementBatchSize, (tableStateService.statementBatchNum + 1) * tableStateService.statementBatchSize);
-          vm.sliced.forEach(function(el, i){
-            vm.batchedTransaction.push(vm.sliced[i]);
-          });
+        vm.setBatch = function() {
+            tableStateService.statementBatchLimit = Math.ceil(vm.transactions.length / tableStateService.statementBatchSize);
+            vm.sliced = [];
+            vm.sliced = vm.transactions.slice(tableStateService.statementBatchNum * tableStateService.statementBatchSize, (tableStateService.statementBatchNum + 1) * tableStateService.statementBatchSize);
+            vm.sliced.forEach(function(el, i) {
+                vm.batchedTransaction.push(vm.sliced[i]);
+            });
             tableStateService.statementBatchNum = tableStateService.statementBatchNum + 1;
-          if(tableStateService.statementBatchNum == tableStateService.statementBatchLimit){
-            tableStateService.statementBatchLimit = 0;
-            tableStateService.statementBatchNum = 0;
-            tableStateService.statementCompletedGroup = true;
-          }
+            if (tableStateService.statementBatchNum == tableStateService.statementBatchLimit) {
+                tableStateService.statementBatchLimit = 0;
+                tableStateService.statementBatchNum = 0;
+                tableStateService.statementCompletedGroup = true;
+            }
 
-          vm.setFiltered();
+            vm.setFiltered();
         }
 
         vm.setFiltered = function() {
@@ -256,8 +259,19 @@
             return currencyToSymbolService.formatMoney(currency, amount);
         }
 
-        vm.goTop = function(){
-          $ionicScrollDelegate.scrollTop(true);
+        vm.goTop = function() {
+            $ionicScrollDelegate.scrollTop(true);
+            vm.goToTopButton = false;
+        }
+
+        vm.goToTopButtonCondition = function() {
+            $scope.$applyAsync(() => {
+                if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
+                    vm.goToTopButton = true;
+                } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
+                    vm.goToTopButton = false;
+                }
+            });
         }
 
         // details functions
