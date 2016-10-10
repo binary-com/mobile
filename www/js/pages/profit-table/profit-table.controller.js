@@ -26,6 +26,8 @@
         vm.android = ionic.Platform.isAndroid();
         vm.goToTopButton = false;
         vm.backFromMainPages = false;
+        vm.firstCompleted = false;
+        vm.noMoreRequest = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -34,6 +36,7 @@
             // we do not refresh the state if it comes back from transactiondetail
             if (vm.lastPage != 'transactiondetail') {
                 vm.resetParams();
+                vm.firstCompleted = false;
                 vm.backFromMainPages = true;
                 vm.notAuthorizeYet();
             }
@@ -49,8 +52,10 @@
             // check if app is authorized already or has to wait for it to be authorized
             if (appStateService.isLoggedin) {
                 if (appStateService.profitTableRefresh || vm.backFromMainPages) {
-                  $templateCache.remove();
-                  vm.resetParams();
+                    $templateCache.remove();
+                    vm.resetParams();
+                    vm.firstCompleted = false;
+                    vm.noMoreRequest = false;
                     vm.filteredTransactions = [];
                     vm.noTransaction = false;
                     vm.backFromMainPages = false;
@@ -160,6 +165,7 @@
         $scope.$on('profit_table:update', (e, _profitTable, _passthrough) => {
             vm.profitTable = _profitTable;
             vm.count = vm.profitTable.count;
+            vm.firstCompleted = true;
             if (vm.count == 0) {
                 vm.noTransaction = true;
                 $scope.$applyAsync(() => {
@@ -170,9 +176,9 @@
                 if (vm.count < vm.limit) {
                     // has no more to load on next call
                     vm.noTransaction = false;
-                    $scope.$applyAsync(() => {
-                        vm.noMore = true;
-                    });
+                    // $scope.$applyAsync(() => {
+                    vm.noMoreRequest = true;
+                    // });
                     vm.profitTable.transactions.forEach(function(el, i) {
                         vm.transactions.push(vm.profitTable.transactions[i]);
                     });
@@ -194,7 +200,7 @@
         });
 
         vm.setBatch = function() {
-            tableStateService.batchLimit = Math.ceil(vm.transactions.length / tableStateService.batchSize);
+            tableStateService.batchLimit = Math.floor(vm.transactions.length / tableStateService.batchSize) + 1;
             vm.sliced = [];
             vm.sliced = vm.transactions.slice(tableStateService.batchNum * tableStateService.batchSize, (tableStateService.batchNum + 1) * tableStateService.batchSize);
             vm.sliced.forEach(function(el, i) {
@@ -205,8 +211,13 @@
                 tableStateService.batchLimit = 0;
                 tableStateService.batchNum = 0;
                 tableStateService.completedGroup = true;
+                if (vm.noMoreRequest) {
+                    $scope.$applyAsync(() => {
+                        vm.noMore = true;
+                    });
+                }
             }
-
+        
             vm.setFiltered();
         }
 

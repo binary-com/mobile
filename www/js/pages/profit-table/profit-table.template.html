@@ -53,7 +53,7 @@
 
                 </div>
             </div>
-            <ion-infinite-scroll on-infinite="vm.loadMore()" distance="1%" ng-if="!vm.noMore && tableStateService.currentPage > 0"></ion-infinite-scroll>
+            <ion-infinite-scroll on-infinite="vm.loadMore()" distance="1%" ng-if="!vm.noMore && vm.firstCompleted"></ion-infinite-scroll>
         </div>
     </ion-content>
 </ion-view>
