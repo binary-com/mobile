@@ -31,15 +31,7 @@
         vm.purchasedContractIndex = -1;
 
         $scope.$watch(()=>{ return vm.proposal }, (newValue, oldValue) =>{
-            if(!_.isEmpty(sessionStorage.tradeTypes)){
-                var tradeTypes = JSON.parse(sessionStorage.tradeTypes);
-                vm.contracts = tradeTypes[vm.proposal.tradeType];
-
-                if(!_.isEmpty(vm.contracts)){
-                    sendProposal();
-                }
-            }
-
+          proposalUpdated();
         }, true);
 
         $scope.$on('proposal', (e, proposal, reqId) => {
@@ -174,6 +166,20 @@
 
             proposalService.send(proposal1);
             proposalService.send(proposal2);
+        }
+
+        function proposalUpdated(){
+            if(!_.isEmpty(sessionStorage.tradeTypes)){
+                var tradeTypes = JSON.parse(sessionStorage.tradeTypes);
+                vm.contracts = tradeTypes[vm.proposal.tradeType];
+
+                if(!_.isEmpty(vm.contracts)){
+                    sendProposal();
+                }
+            }
+            else {
+              setTimeout(proposalUpdated, 5);
+            }
         }
 
         init();

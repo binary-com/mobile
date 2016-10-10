@@ -54,6 +54,8 @@
       var markets = marketsService.findTickMarkets();
       if(_.isEmpty(vm.options.market)){
         vm.selectMarket(marketsService.getMarketByIndex(0));
+      } else {
+        vm.selectMarket(vm.options.market);
       }
     });
 
@@ -86,7 +88,7 @@
 
     vm.selectMarket = function(market){
       vm.options.market = market;
-      vm.options.underlying = market.underlying[0];
+      vm.options.underlying = !_.isEmpty(vm.options.underlying) && _.findIndex(market.underlying, ['symbol', vm.options.underlying.symbol]) > -1 ? vm.options.underlying :  market.underlying[0];
       websocketService.sendRequestFor.contractsForSymbol(vm.options.underlying.symbol);
       vm.section1 = vm.SECTIONS.OVERVIEW1;
         updateProposal();
