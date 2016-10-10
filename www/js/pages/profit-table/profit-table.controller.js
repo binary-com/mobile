@@ -25,6 +25,7 @@
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
         vm.goToTopButton = false;
+        vm.backFromMainPages = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -32,7 +33,10 @@
             // check if state is changed from any state other than transactiondetail
             // we do not refresh the state if it comes back from transactiondetail
             if (vm.lastPage != 'transactiondetail') {
+                vm.resetParams();
+                vm.backFromMainPages = true;
                 vm.notAuthorizeYet();
+
             }
         });
 
@@ -45,10 +49,16 @@
         vm.notAuthorizeYet = function() {
             // check if app is authorized already or has to wait for it to be authorized
             if (appStateService.isLoggedin) {
-                if (appStateService.profitTableRefresh) {
+                if (appStateService.profitTableRefresh || vm.backFromMainPages) {
+                    vm.transactions = [];
+                    vm.batchedTransaction = [];
+                    vm.filteredTransactions = [];
+                    vm.noTransaction = false;
+                    vm.backFromMainPages = false;
+                    tableStateService.completedGroup = true;
                     appStateService.profitTableRefresh = false;
                     appStateService.isProfitTableSet = false;
-                    vm.pageState();
+                    vm.loadMore();
                 }
             }
             // else{
