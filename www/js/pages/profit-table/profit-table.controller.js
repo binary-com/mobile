@@ -13,9 +13,9 @@
         .module('binary.pages.profit-table.controllers')
         .controller('ProfitTableController', ProfitTable);
 
-    ProfitTable.$inject = ['$scope', '$filter', '$state', '$timeout', '$ionicScrollDelegate', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
+    ProfitTable.$inject = ['$scope', '$filter', '$state', '$timeout', '$templateCache', '$ionicScrollDelegate', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
 
-    function ProfitTable($scope, $filter, $state, $timeout, $ionicScrollDelegate, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService) {
+    function ProfitTable($scope, $filter, $state, $timeout, $templateCache, $ionicScrollDelegate, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService) {
         var vm = this;
         vm.data = {};
         vm.noTransaction = false;
@@ -36,7 +36,6 @@
                 vm.resetParams();
                 vm.backFromMainPages = true;
                 vm.notAuthorizeYet();
-
             }
         });
 
@@ -50,8 +49,8 @@
             // check if app is authorized already or has to wait for it to be authorized
             if (appStateService.isLoggedin) {
                 if (appStateService.profitTableRefresh || vm.backFromMainPages) {
-                    vm.transactions = [];
-                    vm.batchedTransaction = [];
+                  $templateCache.remove();
+                  vm.resetParams();
                     vm.filteredTransactions = [];
                     vm.noTransaction = false;
                     vm.backFromMainPages = false;
@@ -59,6 +58,8 @@
                     appStateService.profitTableRefresh = false;
                     appStateService.isProfitTableSet = false;
                     vm.loadMore();
+                    console.log('np');
+
                 }
             }
             // else{
