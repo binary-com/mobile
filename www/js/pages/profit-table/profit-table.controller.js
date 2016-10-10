@@ -58,8 +58,6 @@
                     appStateService.profitTableRefresh = false;
                     appStateService.isProfitTableSet = false;
                     vm.loadMore();
-                    console.log('np');
-
                 }
             }
             // else{
