@@ -15,6 +15,13 @@
 												}
 								}
 								#virtualws , #emailform{
+									.email-title{
+										text-align: left;
+										color: $darkgray;
+									}
+									.item-input{
+										padding: 0!important;
+									}
 									// text-align: center;
 									.list{
 										label{
