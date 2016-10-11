@@ -30,11 +30,27 @@
         vm.idsFound = [];
 
 
+        // get account-setting and landing-company
+        vm.getCompany = function() {
+            appStateService.isCheckedAccountType = true;
+            websocketService.sendRequestFor.accountSetting();
+        };
 
+        // in case the authorize response is passed before the execution of this controller
+        // get the virtuality of account by appStateService.virtuality which is saved in authorize
+        if (appStateService.isLoggedin && !appStateService.isCheckedAccountType) {
+            if (appStateService.virtuality == 1) {
+                vm.isVirtual = true;
+            } else {
+                vm.isVirtual = false;
+            }
+            vm.getCompany();
+        }
+
+        // in case still not authorized when this controller is executed listen for the response of authorize
         $scope.$on('authorize', (e, response) => {
             if (!appStateService.isCheckedAccountType) {
                 vm.idsFound = [];
-                appStateService.isCheckedAccountType = true;
                 if (response.is_virtual == 1) {
                     vm.isVirtual = true;
                 } else {
@@ -44,10 +60,6 @@
             }
         });
 
-        // get account-setting and landing-company
-        vm.getCompany = function() {
-            websocketService.sendRequestFor.accountSetting();
-        };
 
         $scope.$on('get_settings', (e, get_settings) => {
             vm.data.setting = get_settings;
