@@ -88,7 +88,7 @@
                     <li class="list" ng-if="vm.contract.sell_price">
                         <ul class="statement-list">
                             <li class="statement-element">{{'transactiondetails.sell_price' | translate}}</li>
-                            <li class="statement-element last-statement-element right" ng-bind="vm.formatMoney(vm.currency, vm.contract.sell_price)"></li>
+                            <li class="statement-element last-statement-element right" ng-bind="vm.formatMoney(vm.currency, vm.contract.sell_price).toFixed(2)"></li>
                         </ul>
                     </li>
                     <li class="list" ng-if="vm.contract.sell_price && vm.contract.buy_price">

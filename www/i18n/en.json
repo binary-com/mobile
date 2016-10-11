@@ -155,7 +155,7 @@
         "code_hint": "Please check your email for the value of this token",
         "hide_pass": "Hide password",
         "show_pass": "Show password",
-        "enter-email": "Enter your email",
+        "enter-email": "Please enter your email",
         "email-error": "Email is not valid",
         "token-invalid": "Token is invalid",
         "error_format": "Wrong format or length",
