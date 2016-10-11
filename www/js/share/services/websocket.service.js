@@ -63,9 +63,6 @@ angular
 
                 dataStream.onopen = function() {
 
-                    sendMessage({
-                        ping: 1
-                    });
 
                     // Authorize the default token if it's exist
                     var token = localStorageService.getDefaultToken();

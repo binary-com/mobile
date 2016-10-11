@@ -13,11 +13,23 @@
     .module('binary.pages.home.controllers')
     .controller('HomeController', Home);
 
-  Home.$inject = ['$scope', '$state', 'accountService', 'analyticsService'];
+  Home.$inject = ['$scope', '$state', 'accountService', 'analyticsService', 'appStateService'];
 
-  function Home($scope, $state, accountService, analyticsService){
+  function Home($scope, $state, accountService, analyticsService, appStateService){
 
     var vm  = this;
+
+    /**
+     * wait untile authorization and decide
+     * to redirect user  to the proper page
+     */
+    $scope.$on('authorize', (e, response) => {
+      if (response) {
+          $state.go('trade');
+      } else {
+        $state.go('signin');
+      }
+    });
 
     vm.init = function() {
 
@@ -25,7 +37,7 @@
       analyticsService.google.trackView("Home");
 
       // Check that is saved any default account or not
-      if (accountService.hasDefault()) {
+      if (!appStateService.isLoggedin && accountService.hasDefault()) {
         // Login to the server if there is any default account
         accountService.validate();
       } else {
@@ -35,17 +47,6 @@
 
     vm.init();
 
-    /**
-     * wait untile authorization and decide
-     * to redirect user  to the proper page
-     */
-    $scope.$on('authorize', (e, response) => {
-      if (response) {
-        $state.go('trade');
-      } else {
-        $state.go('signin');
-      }
-    });
 
   }
 })();
