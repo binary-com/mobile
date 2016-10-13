@@ -19,12 +19,28 @@
   function Language(languageService){
 
     var vm = this;
+
     vm.ios = ionic.Platform.isIOS();
     vm.android = ionic.Platform.isAndroid();
 
+    vm.languages = [
+      { id: 'de', title: 'Deutsch'},
+      { id: 'en', title: 'English'},
+      { id: 'es', title: 'Español'},
+      { id: 'it', title: 'Italiano'},
+      { id: 'pl', title: 'Polish'},
+      { id: 'pt', title: 'Português'},
+      { id: 'th', title: 'ไทย'},
+      { id: 'zh_cn', title: '简体中文'},
+      { id: 'zh_tw', title: '繁體中文'},
+      { id: 'ru', title: 'Русский'},
+      { id: 'vi', title: 'Vietnamese'}
+    ];
+
     vm.language = languageService.read();
 
-    vm.changeLanguage = function(){
+    vm.changeLanguage = function(language){
+      vm.language = language || vm.language;
       languageService.update(vm.language);
     }
   }

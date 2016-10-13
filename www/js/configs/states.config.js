@@ -69,12 +69,18 @@ angular
 					controller: 'NewRealAccountOpeningController',
 					controllerAs: 'vm'
 				})
+        .state('language', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/language/language.template.html'
+        })
         .state('redirect', {
             url: '/redirect',
             cache: false,
             templateUrl: 'templates/pages/oauth-redirect.template.html',
             controller: 'OAuthRedirect'
-        });
+        })
+        ;
 
 
 				$urlRouterProvider.otherwise('/');
