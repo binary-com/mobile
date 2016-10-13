@@ -143,9 +143,9 @@
 	},
     "newvirtualaccount": {
         "continue": "Continue",
-        "signup": "Sign up",
+        "signup": "Sign up here",
         "email": "Email:",
-        "signup-question": "Dont you have an account?",
+        "signup-question": "Don't have an account?",
         "verification-code": "Verification Code:",
         "password": "Password:",
         "residence": "Residence:",
