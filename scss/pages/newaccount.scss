@@ -1,0 +1,300 @@
+@media only screen and (max-device-width: 480px)
+{
+    .new-account
+    {
+        padding: 10px;
+        ion-nav-view &
+        {
+            overflow: visible;
+        }
+        .title
+        {
+            padding-top: 10px;
+            padding-bottom: 5px;
+
+            border-bottom: 1px solid $lightgray;
+            h3
+            {
+                font-size: 18px;
+                font-weight: bold;
+
+                color: $blue;
+            }
+        }
+        ul
+        {
+            display: inline-block;
+
+            width: 100%;
+            li
+            {
+                display: inline-block;
+
+                width: 33%;
+                padding: 10px;
+            }
+            li.active
+            {
+                background-color: $lightgray!important;
+            }
+        }
+        h1
+        {
+            font-size: 18px;
+            font-weight: bold;
+
+            padding: 10px 0;
+
+            color: $blue;
+        }
+        p
+        {
+            white-space: normal;
+        }
+        input
+        {
+            width: 100%;
+            padding: 2px 3px;
+
+            border: 1px solid $lightgray;
+            border-radius: 3px;
+            background: $white;
+            &.checkbox
+            {
+                position: relative;
+
+                float: right;
+            }
+        }
+        select
+        {
+            position: relative;
+
+            width: 100%;
+            padding: 2px 3px;
+
+            border: 1px solid $lightgray;
+            border-radius: 3px;
+            background: $white;
+
+            direction: ltr;
+            option
+            {
+                width: 100%;
+
+                text-align: left;
+            }
+        }
+        .sections
+        {
+            display: flex;
+            flex-direction: column;
+
+            height: 100%;
+            ion-item
+            {
+                display: flex;
+
+                padding: 5px 16px;
+
+                flex-grow: 1;
+            }
+        }
+        .input-title
+        {
+            font-size: 14px;
+
+            text-align: left;
+            white-space: normal;
+            span
+            {
+                font-size: 12px;
+
+                color: $darkgray;
+            }
+        }
+        .help-block
+        {
+            font-size: 12px;
+
+            text-align: left;
+
+            color: $darkgray;
+            &.show-hide-password
+            {
+                color: $black;
+            }
+        }
+        input#show-hide
+        {
+            width: 20px;
+        }
+    }
+    .new-account-link
+    {
+        position: fixed !important;
+        z-index: 10000;
+        right: 0;
+
+        width: 100%;
+        max-width: 768px;
+        a
+        {
+            padding: 2px 10px;
+
+            color: $white;
+            border-radius: 5px;
+            background-color: $green;
+        }
+    }
+}
+@media only screen and (min-device-width: 480px)
+{
+    .new-account
+    {
+        padding: 10px;
+        ion-nav-view &
+        {
+            overflow: visible;
+        }
+        .title
+        {
+            padding-top: 10px;
+            padding-bottom: 5px;
+
+            border-bottom: 1px solid $lightgray;
+            h3
+            {
+                font-size: 18px;
+                font-weight: bold;
+
+                color: $blue;
+            }
+        }
+        ul
+        {
+            display: inline-block;
+
+            width: 100%;
+            li
+            {
+                display: inline-block;
+
+                width: 33%;
+                padding: 10px;
+            }
+            li.active
+            {
+                background-color: $lightgray!important;
+            }
+        }
+        h1
+        {
+            font-size: 18px;
+            font-weight: bold;
+
+            padding: 10px 0;
+
+            color: $blue;
+        }
+        p
+        {
+            white-space: normal;
+        }
+        input
+        {
+            width: 100%;
+            padding: 2px 3px;
+
+            border: 1px solid $lightgray;
+            border-radius: 3px;
+            background: $white;
+            &.checkbox
+            {
+                position: relative;
+
+                float: right;
+            }
+        }
+        select
+        {
+            position: relative;
+
+            width: 100%;
+            padding: 2px 3px;
+
+            border: 1px solid $lightgray;
+            border-radius: 3px;
+            background: $white;
+
+            direction: ltr;
+            option
+            {
+                width: 100%;
+
+                text-align: left;
+            }
+        }
+        .sections
+        {
+            display: flex;
+            flex-direction: column;
+
+            height: 100%;
+            ion-item
+            {
+                display: flex;
+
+                padding: 5px 16px;
+
+                flex-grow: 1;
+            }
+        }
+        .input-title
+        {
+            font-size: 14px;
+
+            text-align: left;
+            white-space: normal;
+            span
+            {
+                font-size: 12px;
+
+                color: $darkgray;
+            }
+        }
+        .help-block
+        {
+            font-size: 12px;
+
+            text-align: left;
+
+            color: $darkgray;
+            &.show-hide-password
+            {
+                color: $black;
+            }
+        }
+        input#show-hide
+        {
+            width: 20px;
+        }
+    }
+    .new-account-link
+    {
+        position: fixed !important;
+        z-index: 10000;
+        right: 0;
+
+        width: 100%;
+        max-width: 768px;
+        a
+        {
+            padding: 2px 10px;
+
+            color: $white;
+            border-radius: 5px;
+            background-color: $green;
+        }
+    }
+}
