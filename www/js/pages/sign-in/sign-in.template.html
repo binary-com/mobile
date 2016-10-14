@@ -31,7 +31,7 @@
             <div class="row center">
                 <div class="col col-75">
                     <label class="item-input">
-                        <input autocomplete="off" type="text" placeholder="{{'newvirtualaccount.email' | translate }}" ng-model="vm.data.mail" tabindex="1" ngRequired/>
+                        <input autocomplete="off" type="text" placeholder="{{'newvirtualaccount.enter-email' | translate}}" ng-model="vm.data.mail" tabindex="1" ngRequired/>
                         <div class="help-block" ng-if="emailError">
                             {{'newvirtualaccount.email-error' | translate}}
                         </div>
@@ -112,18 +112,20 @@
         <oauth ng-show="!vm.showTokenForm && vm.showSignin && !vm.showSignup"></oauth>
 
         <div class="row center" ng-show="!vm.showTokenForm && vm.showSignin && !vm.showSignup">
-            <div class="col col-75">
+            <!-- <div class="col col-75">
                 <a href="" class="token-link" ng-click="vm.changeSigninViewtoToken()">{{ 'signin.use_token' | translate }}</a>
-            </div>
+            </div> -->
         </div>
 
         <!-- signup -->
         <div class="row center" ng-show="!vm.showTokenForm && !vm.showSignup && vm.showSignin">
             <div class="col col-75">
                 {{'newvirtualaccount.signup-question' | translate}}
-                <a href ng-click="vm.changeSigninViewtoSignup()">
-                    {{'newvirtualaccount.signup' | translate}}
-                </a>
+                <div>
+                    <a href ng-click="vm.changeSigninViewtoSignup()">
+                        {{'newvirtualaccount.signup' | translate}}
+                    </a>
+                </div>
             </div>
         </div>
         <!-- end signup -->
