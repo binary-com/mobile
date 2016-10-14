@@ -17,6 +17,7 @@
 			border: 1px solid $gray;
 			border-radius: 3px;
 			padding: 5px;
+			    font-size: 4vw;
 		}
 		input[type="date"]::-webkit-calendar-picker-indicator {
   color: $gray;
@@ -45,6 +46,9 @@
 	}
 	.item {
 		padding: 15px;
+		.input-title{
+			font-size: 4vw;
+		}
 	}
 	.item-select {
 		border: 1px solid $gray;
@@ -54,6 +58,7 @@
 		width: 100%;
 		padding: 0 15px;
 		direction: ltr;
+		  font-size: 4vw;
 	}
 	.label{
 		padding: 0;
@@ -74,12 +79,12 @@
 		&.statement-list {
 			display: flex;
 			flex-direction: row;
-			padding: 2px 5px;
+			padding: 5px;
 			.statement-element {
 				display: flex;
 				flex-grow: 1;
 				padding: 5px 0;
-				font-size: 4vw;
+				font-size: 3.5vw;
 				&.last-statement-element {
 					display: block;
 				}
@@ -109,6 +114,9 @@
 		.profit-table-list {
 			padding: 2px 5px;
 		}
+	}
+	.jump-to-date{
+		padding: 0;
 	}
 }
 .transaction-detail {

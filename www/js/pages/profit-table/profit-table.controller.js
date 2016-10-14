@@ -40,6 +40,7 @@
                 vm.resetParams();
                 vm.firstCompleted = false;
                 vm.backFromMainPages = true;
+                vm.jumpToDateInputShow = false;
                 vm.notAuthorizeYet();
             }
         });
@@ -56,6 +57,7 @@
                 if (appStateService.profitTableRefresh || vm.backFromMainPages) {
                     $templateCache.remove();
                     vm.resetParams();
+                    vm.jumpToDateInputShow = false;
                     vm.firstCompleted = false;
                     vm.noMoreRequest = false;
                     vm.filteredTransactions = [];
@@ -90,6 +92,7 @@
             if (!appStateService.isProfitTableSet) {
                 appStateService.isProfitTableSet = true;
                 tableStateService.dateType = 'allTime';
+                vm.jumpToDateInputShow = false;
                 vm.resetParams();
                 vm.setParams();
                 tableStateService.completedGroup = false;
@@ -100,6 +103,7 @@
             } else if (appStateService.isProfitTableSet && appStateService.isChangedAccount) {
                 // if account is changed reset data attributes and send request again
                 tableStateService.dateType = 'allTime';
+                vm.jumpToDateInputShow = false;
                 vm.resetParams();
                 vm.setParams();
                 vm.goTop();
@@ -244,7 +248,6 @@
             }
             if (vm.data.dateType == 'jumpToDate'){
               vm.jumpToDateInputShow = true;
-              tableStateService.dateType = vm.data.dateType;
             }
             tableStateService.dateType = vm.data.dateType;
             vm.dateChanged = true;
