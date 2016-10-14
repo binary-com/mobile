@@ -1,4 +1,13 @@
 .profit-table {
+		input{
+			margin-left: 15px;
+			border: 1px solid $gray;
+			border-radius: 3px;
+			padding: 5px;
+		}
+		input[type="date"]::-webkit-calendar-picker-indicator {
+  color: $gray;
+}
 	.float-button{
 		background-color:$darkblue;
 	 opacity: 0.9;
@@ -26,6 +35,7 @@
 	}
 	.item-select {
 		border: 1px solid $gray;
+		border-radius: 3px;
 	}
 	select {
 		width: 100%;
