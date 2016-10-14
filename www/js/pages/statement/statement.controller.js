@@ -28,6 +28,7 @@
         vm.backFromMainPages = false;
         vm.firstCompleted = false;
         vm.noMoreRequest = false;
+        vm.jumpToDateInputShow = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -201,7 +202,7 @@
         });
 
         vm.setBatch = function() {
-            tableStateService.statementBatchLimit = Math.floor(vm.transactions.length / tableStateService.statementBatchSize) + 1;
+            tableStateService.statementBatchLimit = Math.ceil(vm.transactions.length / tableStateService.statementBatchSize);
             vm.sliced = [];
             vm.sliced = vm.transactions.slice(tableStateService.statementBatchNum * tableStateService.statementBatchSize, (tableStateService.statementBatchNum + 1) * tableStateService.statementBatchSize);
             vm.sliced.forEach(function(el, i) {

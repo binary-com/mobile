@@ -202,7 +202,7 @@
         });
 
         vm.setBatch = function() {
-            tableStateService.batchLimit = Math.floor(vm.transactions.length / tableStateService.batchSize) + 1;
+            tableStateService.batchLimit = Math.ceil(vm.transactions.length / tableStateService.batchSize);
             vm.sliced = [];
             vm.sliced = vm.transactions.slice(tableStateService.batchNum * tableStateService.batchSize, (tableStateService.batchNum + 1) * tableStateService.batchSize);
             vm.sliced.forEach(function(el, i) {
