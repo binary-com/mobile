@@ -28,6 +28,7 @@
         vm.backFromMainPages = false;
         vm.firstCompleted = false;
         vm.noMoreRequest = false;
+        vm.jumpToDateInputShow = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -249,30 +250,45 @@
                 tableStateService.dateType = 'allTime';
                 tableStateService.dateFrom = '';
                 tableStateService.dateTo = '';
-            } else if (vm.data.dateType == 'monthAgo') {
-                tableStateService.dateType = 'monthAgo';
-                vm.calcTime(30);
-                tableStateService.dateTo = '';
-            } else if (vm.data.dateType == 'sevenDayAgo') {
-                tableStateService.dateType = 'sevenDayAgo';
-                vm.calcTime(7);
-                tableStateService.dateTo = '';
-            } else if (vm.data.dateType == 'threeDayAgo') {
-                tableStateService.dateType = 'threeDayAgo';
-                vm.calcTime(3);
-                tableStateService.dateTo = '';
-            } else if (vm.data.dateType == 'oneDayAgo') {
-                tableStateService.dateType = 'oneDayAgo';
-                vm.calcTime(1);
-                tableStateService.dateTo = Math.ceil((vm.currentEpoch - vm.diff) / 1000);
-            } else if (vm.data.dateType == 'today') {
-                tableStateService.dateType = 'today';
-                vm.calcTime(0);
-                tableStateService.dateTo = '';
+                vm.jumpToDateInputShow = false;
             }
+            if (vm.data.dateType == 'jumpToDate'){
+              vm.jumpToDateInputShow = true;
+              tableStateService.dateType = vm.data.dateType;
+            }
+
+            //  else if (vm.data.dateType == 'monthAgo') {
+            //     tableStateService.dateType = 'monthAgo';
+            //     vm.calcTime(30);
+            //     tableStateService.dateTo = '';
+            // } else if (vm.data.dateType == 'sevenDayAgo') {
+            //     tableStateService.dateType = 'sevenDayAgo';
+            //     vm.calcTime(7);
+            //     tableStateService.dateTo = '';
+            // } else if (vm.data.dateType == 'threeDayAgo') {
+            //     tableStateService.dateType = 'threeDayAgo';
+            //     vm.calcTime(3);
+            //     tableStateService.dateTo = '';
+            // } else if (vm.data.dateType == 'oneDayAgo') {
+            //     tableStateService.dateType = 'oneDayAgo';
+            //     vm.calcTime(1);
+            //     tableStateService.dateTo = Math.ceil((vm.currentEpoch - vm.diff) / 1000);
+            // } else if (vm.data.dateType == 'today') {
+            //     tableStateService.dateType = 'today';
+            //     vm.calcTime(0);
+            //     tableStateService.dateTo = '';
+            // }
             tableStateService.dateType = vm.data.dateType;
             vm.dateChanged = true;
             vm.pageState();
+        }
+
+        vm.jumpToDateFilter = function(){
+          vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
+          tableStateService.dateTo = vm.data.dateTo;
+          console.log(vm.data.dateTo);
+          vm.dateChanged = true;
+          vm.pageState();
         }
 
         vm.formatMoney = function(currency, amount) {
