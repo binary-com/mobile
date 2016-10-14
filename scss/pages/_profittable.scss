@@ -74,6 +74,7 @@
 		&.statement-list {
 			display: flex;
 			flex-direction: row;
+			padding: 2px 5px;
 			.statement-element {
 				display: flex;
 				flex-grow: 1;
@@ -106,7 +107,7 @@
 			}
 		}
 		.profit-table-list {
-			padding: 5px;
+			padding: 2px 5px;
 		}
 	}
 }
