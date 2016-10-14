@@ -1,4 +1,7 @@
 <ion-view class="profit-table">
+  <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
+      <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
+  </a>
     <div class="row filters">
         <div class="col col-50">
             <div class="item item-input item-select">
@@ -27,17 +30,15 @@
             </label>
         </div>
     </div>
-    <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
-        <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
-    </a>
+
     <ion-content has-bouncing="false" class="profit-table-content" on-scroll="vm.goToTopButtonCondition()" delegate-handle="handler">
         <div class="profit-table-container">
             <div class="row">
                 <div class="col">
                     <ul>
-                        <li class="list profit-table-list" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                        <li class="list" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
                             <ul>
-                                <li class="list profit-table-list">
+                                <li class="list">
                                     <ul class="col-100 statement-list">
                                         <li class="statement-element" ng-bind="::transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></li>
                                         <li class="center statement-element" ng-bind="::transaction.transaction_id"></li>

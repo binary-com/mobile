@@ -1,4 +1,17 @@
 .profit-table {
+	display: flex;
+	flex-direction: column;
+	ion-content{
+		display: flex;
+		flex-grow: 1;
+		flex-direction: column;
+		position: relative;
+	}
+	.filter{
+		display: flex;
+		flex-grow: 1;
+		position: relative;
+	}
 		input{
 			margin-left: 15px;
 			border: 1px solid $gray;
@@ -56,9 +69,7 @@
 	.prev {
 		float: left;
 	}
-	.profit-table-content {
-		margin-top: 35px;
-	}
+
 	ul {
 		&.statement-list {
 			display: flex;
