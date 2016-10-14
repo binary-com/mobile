@@ -77,39 +77,6 @@
 				}
 			}
 		}
-		.net-profit {
-			background-color: $lightgray;
-			margin-top: 0;
-			padding: 0;
-			.col:nth-child(1) {
-				text-align: center;
-				line-height: 12px;
-				color: $darkgray;
-			}
-			.price-des {
-				font-size: 4vw;
-				text-align: center;
-				display: inline-block;
-				padding: 10px 0;
-			}
-			.price {
-				font-size: 4vw;
-				color: $darkgray;
-				text-align: left;
-				line-height: 12px;
-				display: inline-block;
-				padding: 10px 0;
-			}
-			.error {
-				background-color: $notification;
-				padding: 10px 0;
-				p {
-					margin: 5px !important;
-					font-size: 4vw;
-					color: $black;
-				}
-			}
-		}
 		.contract-back,
 		.contract-purchase {
 			button {
@@ -189,7 +156,6 @@
 			width: 95%;
 			margin: 0 auto;
 			border: 1px solid $gray;
-			border-bottom: 3px solid $gray;
 			border-radius: 2px;
 			color: $darkgray;
 			font-size: 4vw;
