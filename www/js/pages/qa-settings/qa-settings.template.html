@@ -1,0 +1,30 @@
+<ion-view title="QA Settings">
+  <form name="qaSettingsForm" novalidate>
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">WS URL</span>
+        <input type="text"
+               ng-model="vm.wsUrl"
+               placeholder="e.g. wss://ws.binaryws.com/websockets/v3"
+               ng-pattern="/^(ws|wss):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/i"/>
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">App ID</span>
+        <input type="number"
+               ng-model="vm.appId"
+               placeholder="10"
+               ng-pattern="/^(\d+)$/"
+               />
+      </label>
+    </div>
+    <div class="padding">
+      <button type="button"
+              class="button button-block"
+              ng-click="vm.saveSettings()"
+              ng-disabled="qaSettingsForm.$invalid"
+              disabled="disabled">
+        Save
+      </button>
+    </div>
+  </form>
+</ion-view>

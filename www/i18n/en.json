@@ -143,9 +143,9 @@
 	},
     "newvirtualaccount": {
         "continue": "Continue",
-        "signup": "Sign up",
+        "signup": "Sign up here",
         "email": "Email:",
-        "signup-question": "Dont you have an account?",
+        "signup-question": "Don't have an account?",
         "verification-code": "Verification Code:",
         "password": "Password:",
         "residence": "Residence:",
@@ -155,7 +155,7 @@
         "code_hint": "Please check your email for the value of this token",
         "hide_pass": "Hide password",
         "show_pass": "Show password",
-        "enter-email": "Enter your email",
+        "enter-email": "Please enter your email",
         "email-error": "Email is not valid",
         "token-invalid": "Token is invalid",
         "error_format": "Wrong format or length",
@@ -378,5 +378,11 @@
 			"action_type": "Action",
 			"credit_debit": "Credit/Debit",
 			"balance": "Balance (USD)"
+    },
+    "menu": {
+      "trade": "Trade",
+      "profit_table": "Profit Table",
+      "statement": "Statement",
+      "language": "Language"
     }
 }

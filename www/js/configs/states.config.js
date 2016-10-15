@@ -12,6 +12,13 @@ angular
 		function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             $ionicConfigProvider.views.swipeBackEnabled(false);
 			$stateProvider
+        .state('qa-settings', {
+          url: '/',
+          cache: false,
+          templateUrl: 'js/pages/qa-settings/qa-settings.template.html',
+          controller: 'QASettingsController',
+          controllerAs: 'vm'
+        })
 				.state('home', {
           url: '/',
           cache: false,
@@ -69,12 +76,18 @@ angular
 					controller: 'NewRealAccountOpeningController',
 					controllerAs: 'vm'
 				})
+        .state('language', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/language/language.template.html'
+        })
         .state('redirect', {
             url: '/redirect',
             cache: false,
             templateUrl: 'templates/pages/oauth-redirect.template.html',
             controller: 'OAuthRedirect'
-        });
+        })
+        ;
 
 
 				$urlRouterProvider.otherwise('/');

@@ -31,6 +31,7 @@ angular
                 factory.profitTableRefresh = false;
                 factory.isStatementSet = false;
                 factory.statementRefresh = false;
+                factory.virtuality = 0;
 
                 return factory;
             });

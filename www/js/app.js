@@ -44,7 +44,8 @@
         'binary.pages.new-real-account-opening',
         'binary.pages.profit-table',
         'binary.pages.statement',
-        'binary.pages.transaction-detail'
+        'binary.pages.transaction-detail',
+        'binary.pages.qa-settings'
     ]);
 
   String.prototype.capitalize = function() {
