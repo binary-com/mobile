@@ -50,7 +50,7 @@
                 <div class="col">
                     <input name="firstName" ng-model="vm.data.firstName" ng-readonly="vm.isReadonly" ng-pattern="validateName" ng-minlength="2" ng-maxlength="30" ng-required="!vm.isReadonly">
 
-                    <div class="help-block" ng-messages="newAccountMaltainvestForm.firstName.$error" role="alert" ng-if='newAccountMaltainvestForm.firstName.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.firstName.$error" role="alert" ng-if='newAccountMaltainvestForm.firstName.$dirty'>
                         <div ng-message="pattern && minlength && maxlength">{{'newaccountmaltainvest.error_format' | translate}}</div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                 <div class="col">
                     <input name="lastName" ng-model="vm.data.lastName" ng-readonly="vm.isReadonly" ng-pattern="validateName" ng-required="!vm.isReadonly" ng-minlength="2" ng-maxlength="30">
 
-                    <div class="help-block" ng-messages="newAccountMaltainvestForm.lastName.$error" role="alert" ng-if='newAccountMaltainvestForm.lastName.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.lastName.$error" role="alert" ng-if='newAccountMaltainvestForm.lastName.$dirty'>
                         <div ng-message="pattern && minlength && maxlength">{{'newaccountmaltainvest.error_format' | translate}}</div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
             <div class="row">
                 <div class="col">
                     <input name="addressLine1" ng-model="vm.data.addressLine1" required ng-maxlength="70">
-                    <div class="help-block" ng-messages="newAccountMaltainvestForm.addressLine1.$error" role="alert" ng-if='newAccountMaltainvestForm.addressLine1.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.addressLine1.$error" role="alert" ng-if='newAccountMaltainvestForm.addressLine1.$dirty'>
                         <div ng-message="maxlength">{{'newaccountmaltainvest.maxlength_error_70' | translate}}</div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
             <div class="row">
                 <div class="col">
                     <input name="addressLine2" ng-model="vm.data.addressLine2" ng-maxlength="70">
-                    <div class="help-block" ng-messages="newAccountMaltainvestForm.addressLine2.$error" role="alert" ng-if='newAccountMaltainvestForm.addressLine2.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.addressLine2.$error" role="alert" ng-if='newAccountMaltainvestForm.addressLine2.$dirty'>
                         <div ng-message="maxlength">{{'newaccountmaltainvest.maxlength_error_70' | translate}}</div>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
             <div class="row">
                 <div class="col">
                     <input name="addressCity" ng-model="vm.data.addressCity" ng-maxlength="35" required>
-                    <div class="help-block" ng-messages="newAccountMaltainvestForm.addressCity.$error" role="alert" ng-if='newAccountMaltainvestForm.addressCity.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.addressCity.$error" role="alert" ng-if='newAccountMaltainvestForm.addressCity.$dirty'>
                         <div ng-message="maxlength">{{'newaccountmaltainvest.maxlength_error_35' | translate}}</div>
                     </div>
                 </div>
@@ -200,7 +200,7 @@
             <div class="row">
                 <div class="col">
                     <input name="postcode" ng-model="vm.data.addressPostcode" ng-pattern="/^[^+]{0,20}$/">
-                    <div class="help-block" ng-messages="newAccountMaltainvestForm.postcode.$error" role="alert" ng-if='newAccountMaltainvestForm.postcode.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.postcode.$error" role="alert" ng-if='newAccountMaltainvestForm.postcode.$dirty'>
                         <div ng-message="pattern">{{'newaccountmaltainvest.error_postcode' | translate}}</div>
                     </div>
                 </div>
@@ -219,7 +219,7 @@
             <div class="row">
                 <div class="col">
                     <input name="phone" ng-model="vm.data.phone" ng-pattern="/^\+?[0-9\s]{6,35}$/" required>
-                    <div class="help-block" ng-messages="newAccountMaltainvestForm.phone.$error" role="alert" ng-if='newAccountMaltainvestForm.phone.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.phone.$error" role="alert" ng-if='newAccountMaltainvestForm.phone.$dirty'>
                         <div ng-message="pattern">{{'newaccountmaltainvest.error_format' | translate}}</div>
                     </div>
                 </div>
@@ -639,7 +639,12 @@
         </div>
     </div>
 
-    <div class="col col-100">
-        <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid">{{'newaccountmaltainvest.open_account' | translate}}</button>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+
+                <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid">{{'newaccountmaltainvest.open_account' | translate}}</button>
+            </div>
+        </div>
     </div>
 </form>

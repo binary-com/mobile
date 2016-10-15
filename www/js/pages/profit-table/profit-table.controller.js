@@ -36,7 +36,7 @@
             vm.thisPage = to.name;
             // check if state is changed from any state other than transactiondetail
             // we do not refresh the state if it comes back from transactiondetail
-            if (vm.lastPage != 'transactiondetail' && vm.thisPage != 'transactiondetail') {
+            if (vm.lastPage != 'transactiondetail' && vm.thisPage == 'profittable') {
                 vm.resetParams();
                 vm.firstCompleted = false;
                 vm.backFromMainPages = true;
