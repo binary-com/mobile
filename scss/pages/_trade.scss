@@ -424,6 +424,9 @@
 					font-weight: bold;
 					padding: 5px 0;
 				}
+				.contract-image-container{
+					display: flex;
+				}
 			}
 			.error,
 			button {
@@ -927,6 +930,9 @@
 				.basis {
 					font-weight: bold;
 					padding: 5px 0;
+				}
+				.contract-image-container{
+					display: flex;
 				}
 			}
 			.error,
