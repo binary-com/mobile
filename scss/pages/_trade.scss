@@ -306,9 +306,19 @@
 				}
 				&.lose {
 					color: red;
+          &.last{
+            color: $white !important;
+            background: $red !important;
+            border-color: $red !important;
+          }
 				}
 				&.win {
 					color: green;
+          &.last{
+            color: $white !important;
+            background: $green !important;
+            border-color: $green !important;
+          }
 				}
 			}
 		}
@@ -797,9 +807,19 @@
 				}
 				&.lose {
 					color: red;
+          &.last{
+            color: $white !important;
+            background: $red !important;
+            border-color: $red !important;
+          }
 				}
 				&.win {
 					color: green;
+          &.last{
+            color: $white !important;
+            background: $green !important;
+            border-color: $green !important;
+          }
 				}
 			}
 		}
