@@ -58,7 +58,6 @@
         // in case the authorize response is passed before the execution of this controller
         // get the virtuality of account by appStateService.virtuality which is saved in authorize
         if (appStateService.isLoggedin && !appStateService.isCheckedAccountType) {
-          console.log('heris');
           vm.reset();
             if (appStateService.virtuality == 1) {
                 vm.isVirtual = true;
