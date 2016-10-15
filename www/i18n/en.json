@@ -378,5 +378,11 @@
 			"action_type": "Action",
 			"credit_debit": "Credit/Debit",
 			"balance": "Balance (USD)"
+    },
+    "menu": {
+      "trade": "Trade",
+      "profit_table": "Profit Table",
+      "statement": "Statement",
+      "language": "Language"
     }
 }

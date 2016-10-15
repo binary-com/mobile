@@ -79,9 +79,11 @@
 
     vm.setSection = function(id, section){
       if(id == 1){
+        vm.section2 = vm.SECTIONS.OVERVIEW2;
         vm.section1 = section;
       }
       else if( id == 2){
+        vm.section1 = vm.SECTIONS.OVERVIEW1;
         vm.section2 = section;
       }
     }
