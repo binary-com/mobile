@@ -248,6 +248,8 @@
             }
             if (vm.data.dateType == 'jumpToDate'){
               vm.jumpToDateInputShow = true;
+              vm.nowDateInputLimit = $filter('date')(new Date(), 'yyyy-MM-dd');
+              document.getElementById('dateTo').setAttribute('max', vm.nowDateInputLimit);
             }
             tableStateService.dateType = vm.data.dateType;
             vm.dateChanged = true;
