@@ -1,5 +1,5 @@
 <ion-view class="sign-in">
-    <ion-content class="options-content" has-bouncing="false">
+    <ion-content class="signin-content" has-bouncing="false">
         <ion-header-bar align-title="center" class="bar bar-header bar-positive">
             <button class="button  icon-left button-clear ion-android-arrow-back" ng-class="{'ion-ios-arrow-back' : vm.ios}" ng-click="vm.changeSigninView(true)" ng-show="vm.showTokenForm || vm.showSignin || vm.showSignup || vm.showvirtualws"></button>
             <h1 class="title"></h1>
@@ -30,12 +30,15 @@
         <form name="emailForm" id="emailform" ng-show="vm.showSignup && !vm.showvirtualws" ng-submit="vm.verifyUserMail()">
             <div class="row center">
                 <div class="col col-75">
+                  <div class="email-title">
+                    {{'newvirtualaccount.enter-email' | translate}}
+                  </div>
                     <label class="item-input">
                         <input autocomplete="off" type="text" placeholder="{{'newvirtualaccount.enter-email' | translate}}" ng-model="vm.data.mail" tabindex="1" ngRequired/>
-                        <div class="help-block" ng-if="emailError">
-                            {{'newvirtualaccount.email-error' | translate}}
-                        </div>
                     </label>
+                    <div class="help-block error" ng-if="vm.emailError">
+                        {{'newvirtualaccount.email-error' | translate}}
+                    </div>
                 </div>
             </div>
             <div class="row center">
@@ -48,47 +51,51 @@
         </form>
 
         <form name="virtualws" id="virtualws" ng-show="vm.showvirtualws && !vm.showSignin && !vm.showTokenForm" ng-submit="vm.createVirtualAccount()">
+            <div class="row center">
+                <div class="col col-75">
 
-            <div class="list">
+                    <label class="item-input">
+                        <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-pattern="/^\w{15,128}$/" required/>
+                    </label>
+                    <div class="help-block">
+                        {{'newvirtualaccount.code_hint' | translate}}
+                    </div>
 
-                <label class="col col-75 item-input">
-                    <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-pattern="/^\w{15,128}$/" required/>
-                </label>
-                <div class="col col-75 help-block">
-                    {{'newvirtualaccount.code_hint' | translate}}
-                </div>
-
-                <!-- <div class="help-block" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty'>
+                    <div class="help-block error" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty'>
                         <div ng-message="pattern">{{'newvirtualaccount.token-invalid' | translate}}</div>
-                    </div> -->
+                    </div>
 
-            </div>
-
-            <div class="list">
-                <label class="col col-75 item-input">
-                    <input name="password" id="password" ng-model="vm.data.clientPassword" type="{{vm.data.inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]{6,25}$/" ng-pattern="/^[ -~]{6,25}$/" required/>
-                </label>
-                <div class="col col-75 help-block">
-                    {{'newvirtualaccount.password_hint' | translate}}
                 </div>
+            </div>
+            <div class="row center">
+                <div class="col col-75">
+                    <label class="item-input">
+                        <input name="password" id="password" ng-model="vm.data.clientPassword" type="{{vm.data.inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]{6,25}$/" ng-pattern="/^[ -~]{6,25}$/" required/>
+                    </label>
+                    <div class="help-block">
+                        {{'newvirtualaccount.password_hint' | translate}}
+                    </div>
 
-                <!-- <div class="help-block" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty'>
+                    <div class="help-block error" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty'>
                         <div ng-message="pattern">{{'newvirtualaccount.error_format' | translate}}</div>
-                    </div> -->
+                    </div>
 
-                <div class="help-block show-hide-password">
-                    <input type="checkbox" id="show-hide" name="show-hide" ng-model="vm.passwordCheckbox" ng-click="vm.hideShowPassword()"/>
-                    <label for="checkbox" ng-if="vm.passwordCheckbox">{{'newvirtualaccount.hide_pass' | translate }}</label>
-                    <label for="checkbox" ng-if="!vm.passwordCheckbox">{{'newvirtualaccount.show_pass' | translate }}</label>
+                    <div class="help-block show-hide-password">
+                        <input type="checkbox" id="show-hide" name="show-hide" ng-model="vm.passwordCheckbox" ng-click="vm.hideShowPassword()"/>
+                        <label for="show-hide" ng-if="vm.passwordCheckbox">{{'newvirtualaccount.hide_pass' | translate }}</label>
+                        <label for="show-hide" ng-if="!vm.passwordCheckbox">{{'newvirtualaccount.show_pass' | translate }}</label>
+                    </div>
                 </div>
             </div>
 
-            <div class="list">
-                <label class="item-input">
-                    <select ng-model="vm.data.residence" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.data.residenceList track by residence.value" required>
-                        <option value="">{{'newvirtualaccount.select' | translate}}</option>
-                    </select>
-                </label>
+            <div class="row center">
+                <div class="col col-75">
+                    <label class="item-input item-select">
+                        <select ng-model="vm.data.residence" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.data.residenceList track by residence.value" required>
+                            <option value="">{{'newvirtualaccount.select' | translate}}</option>
+                        </select>
+                    </label>
+                </div>
             </div>
 
             <div class="row center">
