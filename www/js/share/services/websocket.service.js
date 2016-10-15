@@ -342,6 +342,7 @@ angular
             };
 
             websocketService.closeConnection = function() {
+                appStateService.isLoggedin = false;
                 if (dataStream) {
                     dataStream.close();
                 }

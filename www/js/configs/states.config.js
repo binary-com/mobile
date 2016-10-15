@@ -12,6 +12,13 @@ angular
 		function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             $ionicConfigProvider.views.swipeBackEnabled(false);
 			$stateProvider
+        .state('qa-settings', {
+          url: '/',
+          cache: false,
+          templateUrl: 'js/pages/qa-settings/qa-settings.template.html',
+          controller: 'QASettingsController',
+          controllerAs: 'vm'
+        })
 				.state('home', {
           url: '/',
           cache: false,
