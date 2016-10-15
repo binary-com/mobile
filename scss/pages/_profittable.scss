@@ -1,4 +1,27 @@
 .profit-table {
+	display: flex;
+	flex-direction: column;
+	ion-content{
+		display: flex;
+		flex-grow: 1;
+		flex-direction: column;
+		position: relative;
+	}
+	.filter{
+		display: flex;
+		flex-grow: 1;
+		position: relative;
+	}
+		input{
+			margin-left: 15px;
+			border: 1px solid $gray;
+			border-radius: 3px;
+			padding: 5px;
+			    font-size: 4vw;
+		}
+		input[type="date"]::-webkit-calendar-picker-indicator {
+  color: $gray;
+}
 	.float-button{
 		background-color:$darkblue;
 	 opacity: 0.9;
@@ -7,7 +30,7 @@
 	 /*border-radius:15% 0 0 0;*/
 	 width: 50px;
 	 height: 50px;
-	 font-size: 16px;
+	 font-size: 4vw;
 	 position: fixed;
 	 top: 70vh;
 	 right: 6%;
@@ -23,14 +46,27 @@
 	}
 	.item {
 		padding: 15px;
+		.input-title{
+			font-size: 4vw;
+		}
 	}
 	.item-select {
 		border: 1px solid $gray;
+		border-radius: 3px;
 	}
 	select {
 		width: 100%;
 		padding: 0 15px;
 		direction: ltr;
+		  font-size: 4vw;
+	}
+	.label{
+		padding: 0;
+		input{
+			margin: 0;
+			padding-right: 0!important;
+			font-size: 4vw;
+		}
 	}
 	.next {
 		float: right;
@@ -38,18 +74,17 @@
 	.prev {
 		float: left;
 	}
-	.profit-table-content {
-		margin-top: 35px;
-	}
+
 	ul {
 		&.statement-list {
 			display: flex;
 			flex-direction: row;
+			padding: 5px;
 			.statement-element {
 				display: flex;
 				flex-grow: 1;
 				padding: 5px 0;
-				font-size: 4vw;
+				font-size: 3.5vw;
 				&.last-statement-element {
 					display: block;
 				}
@@ -77,8 +112,11 @@
 			}
 		}
 		.profit-table-list {
-			padding: 5px;
+			padding: 2px 5px;
 		}
+	}
+	.jump-to-date{
+		padding: 0;
 	}
 }
 .transaction-detail {

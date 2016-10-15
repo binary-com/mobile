@@ -95,7 +95,7 @@
                         <ul class="statement-list">
                             <li class="statement-element">{{'transactiondetails.profit_loss' | translate}}</li>
                             <li class="statement-element last-statement-element right green" ng-class="{red : (vm.contract.sell_price - vm.contract.buy_price) < 0}">
-                                <span ng-bind="vm.formatMoney(vm.currency, (vm.contract.sell_price - vm.contract.buy_price))"></span>
+                                <span ng-bind="vm.formatMoney(vm.currency, (vm.contract.sell_price - vm.contract.buy_price).toFixed(2))"></span>
                                 <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) > 0">(+{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
                                 <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) < 0">(-{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
                                 <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) == 0">({{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>

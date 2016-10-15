@@ -1,4 +1,7 @@
 <ion-view class="profit-table">
+    <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
+        <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
+    </a>
     <div class="row filters">
         <div class="col col-50">
             <div class="item item-input item-select">
@@ -9,29 +12,33 @@
             </div>
         </div>
         <div class="col col-50">
-            <div class="item item-input item-select">
-                <select name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
-                    <option value="allTime" selected="selected">{{'statement.all_time' | translate}}</option>
-                    <option value="monthAgo">{{'statement.last_month' | translate}}</option>
-                    <option value="sevenDayAgo">{{'statement.last_week' | translate}}</option>
-                    <option value="threeDayAgo">{{'statement.last_3_days' | translate}}</option>
-                    <option value="oneDayAgo">{{'statement.last_day' | translate}}</option>
-                    <option value="today">{{'statement.today' | translate}}</option>
-                </select>
-            </div>
+          <div class="item item-input item-select">
+              <select name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
+                  <option value="allTime" selected="selected">{{'statement.all_time' | translate}}</option>
+                      <option value="jumpToDate">{{'statement.jump_to_date' | translate}}</option>
+              </select>
+          </div>
         </div>
     </div>
-    <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
-        <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
-    </a>
+    <div class="row filters" ng-show="vm.jumpToDateInputShow">
+        <div class="col col-100">
+            <label class="item item-input jump-to-date" for="dateTo">
+              <div class="input-title">
+                {{'statement.jump_to_date' | translate}}
+              </div>
+                <input type="date" name="dateTo" ng-model="vm.data.end" ng-change="vm.jumpToDateFilter()">
+            </label>
+        </div>
+    </div>
     <ion-content has-bouncing="false" class="profit-table-content" on-scroll="vm.goToTopButtonCondition()" delegate-handle="handler">
+
         <div class="profit-table-container">
             <div class="row">
                 <div class="col">
                     <ul>
-                        <li class="list profit-table-list" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                        <li class="list" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
                             <ul class="col-100 statement-list">
-                                <li class=" statement-element" ng-bind="::transaction.transaction_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></li>
+                                <li class="statement-element" ng-bind="::transaction.transaction_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></li>
                                 <li class="center statement-element" ng-bind="::transaction.transaction_id"></li>
                                 <li class="bold center statement-element" ng-bind="::transaction.action_type"></li>
                                 <li class="statement-element last-statement-element bold green right" ng-bind="::vm.formatMoney(vm.currency,transaction.balance_after)"></li>

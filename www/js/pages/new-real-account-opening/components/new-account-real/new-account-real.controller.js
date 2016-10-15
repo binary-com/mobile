@@ -18,16 +18,19 @@
     function NewAccountReal($scope, $timeout, $translate, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
         var vm = this;
         vm.data = {};
+        vm.data.salutation = "Mr";
+        vm.data.secretQuestion = "Mother's maiden name";
         vm.countryParams = JSON.parse(sessionStorage.countryParams);
         vm.data.countryCode = vm.countryParams.countryCode;
         $scope.$applyAsync(() => {
-          vm.data.country = vm.countryParams.countryOfAccount;
+            vm.data.country = vm.countryParams.countryOfAccount;
         });
 
         websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
         $scope.$on('states_list', (e, states_list) => {
             $scope.$applyAsync(() => {
                 vm.data.statesList = states_list;
+                vm.data.state = vm.data.statesList[0];
             });
         });
 
@@ -45,6 +48,7 @@
                 }
             }
         })();
+
 
         vm.submitAccountOpening = function() {
             if (vm.data.dateOfBirth) {

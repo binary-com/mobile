@@ -28,6 +28,7 @@
         vm.backFromMainPages = false;
         vm.firstCompleted = false;
         vm.noMoreRequest = false;
+        vm.jumpToDateInputShow = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -39,6 +40,7 @@
                 vm.resetParams();
                 vm.firstCompleted = false;
                 vm.backFromMainPages = true;
+                vm.jumpToDateInputShow = false;
                 vm.notAuthorizeYet();
             }
         });
@@ -55,6 +57,7 @@
                 if (appStateService.profitTableRefresh || vm.backFromMainPages) {
                     $templateCache.remove();
                     vm.resetParams();
+                    vm.jumpToDateInputShow = false;
                     vm.firstCompleted = false;
                     vm.noMoreRequest = false;
                     vm.filteredTransactions = [];
@@ -89,6 +92,7 @@
             if (!appStateService.isProfitTableSet) {
                 appStateService.isProfitTableSet = true;
                 tableStateService.dateType = 'allTime';
+                vm.jumpToDateInputShow = false;
                 vm.resetParams();
                 vm.setParams();
                 tableStateService.completedGroup = false;
@@ -99,6 +103,7 @@
             } else if (appStateService.isProfitTableSet && appStateService.isChangedAccount) {
                 // if account is changed reset data attributes and send request again
                 tableStateService.dateType = 'allTime';
+                vm.jumpToDateInputShow = false;
                 vm.resetParams();
                 vm.setParams();
                 vm.goTop();
@@ -201,7 +206,7 @@
         });
 
         vm.setBatch = function() {
-            tableStateService.batchLimit = Math.floor(vm.transactions.length / tableStateService.batchSize) + 1;
+            tableStateService.batchLimit = Math.ceil(vm.transactions.length / tableStateService.batchSize);
             vm.sliced = [];
             vm.sliced = vm.transactions.slice(tableStateService.batchNum * tableStateService.batchSize, (tableStateService.batchNum + 1) * tableStateService.batchSize);
             vm.sliced.forEach(function(el, i) {
@@ -234,45 +239,26 @@
             });
         }
 
-        vm.calcTime = function(daysNumber) {
-            var now = new Date();
-            vm.currentEpoch = now.getTime();
-            var today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
-            var midnightEpoch = new Date(today).getTime();
-            vm.diff = vm.currentEpoch - midnightEpoch;
-            var dayBeforeDate = now.setDate(now.getDate() - daysNumber);
-            tableStateService.dateFrom = Math.ceil((dayBeforeDate - vm.diff) / 1000);
-        }
-
         vm.dateFilter = function() {
             if (vm.data.dateType == 'allTime') {
                 tableStateService.dateType = 'allTime';
                 tableStateService.dateFrom = '';
                 tableStateService.dateTo = '';
-            } else if (vm.data.dateType == 'monthAgo') {
-                tableStateService.dateType = 'monthAgo';
-                vm.calcTime(30);
-                tableStateService.dateTo = '';
-            } else if (vm.data.dateType == 'sevenDayAgo') {
-                tableStateService.dateType = 'sevenDayAgo';
-                vm.calcTime(7);
-                tableStateService.dateTo = '';
-            } else if (vm.data.dateType == 'threeDayAgo') {
-                tableStateService.dateType = 'threeDayAgo';
-                vm.calcTime(3);
-                tableStateService.dateTo = '';
-            } else if (vm.data.dateType == 'oneDayAgo') {
-                tableStateService.dateType = 'oneDayAgo';
-                vm.calcTime(1);
-                tableStateService.dateTo = Math.ceil((vm.currentEpoch - vm.diff) / 1000);
-            } else if (vm.data.dateType == 'today') {
-                tableStateService.dateType = 'today';
-                vm.calcTime(0);
-                tableStateService.dateTo = '';
+                vm.jumpToDateInputShow = false;
+            }
+            if (vm.data.dateType == 'jumpToDate'){
+              vm.jumpToDateInputShow = true;
             }
             tableStateService.dateType = vm.data.dateType;
             vm.dateChanged = true;
             vm.pageState();
+        }
+
+        vm.jumpToDateFilter = function(){
+          vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
+          tableStateService.dateTo = vm.data.dateTo;
+          vm.dateChanged = true;
+          vm.pageState();
         }
 
         vm.formatMoney = function(currency, amount) {

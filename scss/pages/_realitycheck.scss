@@ -3,9 +3,9 @@
 		background-color: $white;
 		width: 90vw;
 		padding: 0;
-		font-size: 14px;
+		font-size: 4vw;
 		.button {
-			font-size: 14px;
+			font-size: 4vw;
 		}
 		.button-secondary {
 			color: $black!important;
@@ -22,13 +22,13 @@
 	}
 	.interval_error {
 		position: relative;
-		font-size: 12px;
+		font-size: 4vw;
 	}
 	.popup-body {
 		background-color: $white;
 		padding: 5px;
 		.item {
-			font-size: 14px;
+			font-size: 4vw;
 			padding: 5px;
 			background-color: $white;
 			.row {
@@ -72,12 +72,12 @@
 }
 @media screen and (max-width: 480px) {
 	.realitycheck .popup-body .item {
-		font-size: 12px;
+		font-size: 4vw;
 	}
 	.realitycheck {
 		.popup-body {
 			.item {
-				font-size: 12px;
+				font-size: 4vw;
 				.row {
 					padding: 0;
 					.interval-text {
@@ -87,7 +87,7 @@
 				}
 			}
 			p {
-				font-size: 12px;
+				font-size: 4vw;
 			}
 		}
 	}
