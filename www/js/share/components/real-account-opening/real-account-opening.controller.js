@@ -87,7 +87,7 @@
                     vm.hasGamingAndVirtual = true;
                     vm.getToken();
                 } else {
-                    if (vm.data.landingCompany.hasOwnProperty('financial_company') && (vm.data.landingCompany.gaming_company.shortcode == "maltainvest")) {
+                    if (vm.data.landingCompany.hasOwnProperty('financial_company') && (vm.data.landingCompany.financial_company.shortcode == "maltainvest")) {
                         vm.hasGamingNotVirtual = true;
                         vm.getToken();
                     }
