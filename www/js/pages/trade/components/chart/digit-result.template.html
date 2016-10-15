@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col {{spot.result}} center"
          ng-repeat="spot in vm.spots">
-      <span class="numberCircle {{spot.result}}" ng-show="spot.value">
+      <span class="numberCircle {{spot.result}}"
+            ng-show="spot.value"
+            ng-class="{last: $index == vm.spots.length -1 }">
         <span>{{ spot.value }}</span>
       </span>
     </div>
