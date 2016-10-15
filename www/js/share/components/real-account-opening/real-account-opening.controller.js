@@ -17,7 +17,6 @@
 
     function RealAccountOpening($scope, $state, websocketService, appStateService, accountService) {
         var vm = this;
-        vm.reset = function(){
           vm.data = {};
           vm.countryParams = {};
           vm.showUpgradeLink = false;
@@ -29,9 +28,25 @@
           vm.hasGamingNotVirtual = false;
           vm.hasFinancialAndMaltainvest = false;
           vm.idsFound = [];
-        }
 
-        vm.reset();
+          vm.reset = function(){
+            vm.data = {};
+            vm.countryParams = {};
+            vm.showUpgradeLink = false;
+            vm.showUpgradeLinkMaltainvest = false;
+            vm.isCheckedCompany = false;
+            appStateService.hasMLT = false;
+            vm.hasGamingAndVirtual = false;
+            vm.hasGamingNotVirtual = false;
+            vm.hasFinancialAndMaltainvest = false;
+            vm.idsFound = [];
+            appStateService.isNewAccountReal = false;
+            appStateService.isNewAccountMaltainvest = false;
+            appStateService.isCheckedAccountType = false;
+            vm.hasGamingAndMaltainvest = false;
+            vm.notMaltainvest = false;
+            vm.hasGamingAndFinancialAndMaltainvest = false;
+          }
 
 
         // get account-setting and landing-company
@@ -43,6 +58,8 @@
         // in case the authorize response is passed before the execution of this controller
         // get the virtuality of account by appStateService.virtuality which is saved in authorize
         if (appStateService.isLoggedin && !appStateService.isCheckedAccountType) {
+          console.log('heris');
+          vm.reset();
             if (appStateService.virtuality == 1) {
                 vm.isVirtual = true;
             } else {
@@ -54,12 +71,13 @@
         // in case still not authorized when this controller is executed listen for the response of authorize
         $scope.$on('authorize', (e, response) => {
             if (!appStateService.isCheckedAccountType) {
-              vm.reset();
+                vm.reset();
                 if (response.is_virtual == 1) {
                     vm.isVirtual = true;
                 } else {
                     vm.isVirtual = false;
                 }
+
                 vm.getCompany();
             }
         });
@@ -204,18 +222,7 @@
         }
         $scope.$on('logout', (e) => {
             $scope.$applyAsync(() => {
-                vm.showUpgradeLink = false;
-                vm.showUpgradeLinkMaltainvest = false;
-                appStateService.isNewAccountReal = false;
-                appStateService.isNewAccountMaltainvest = false;
-                appStateService.isCheckedAccountType = false;
-                vm.hasGamingAndMaltainvest = false;
-                vm.hasFinancialAndMaltainvest = false;
-                vm.notMaltainvest = false;
-                vm.hasGamingAndFinancialAndMaltainvest = false;
-                vm.isCheckedCompany = false;
-                appStateService.hasMLT = false;
-
+              vm.reset();
             });
         });
 

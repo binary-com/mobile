@@ -57,6 +57,7 @@
                 if (accountService.isUnique(response.loginid)) {
                     accountService.add(response);
                     accountService.setDefault(response.token);
+                    appStateService.virtuality = response.is_virtual;
                 }
 
                 vm.token = '';
