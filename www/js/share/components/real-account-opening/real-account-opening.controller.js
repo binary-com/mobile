@@ -17,17 +17,21 @@
 
     function RealAccountOpening($scope, $state, websocketService, appStateService, accountService) {
         var vm = this;
-        vm.data = {};
-        vm.countryParams = {};
-        vm.showUpgradeLink = false;
-        vm.showUpgradeLinkMaltainvest = false;
-        vm.isCheckedCompany = false;
-        appStateService.hasMLT = false;
-        vm.isVirtual = false;
-        vm.hasGamingAndVirtual = false;
-        vm.hasGamingNotVirtual = false;
-        vm.hasFinancialAndMaltainvest = false;
-        vm.idsFound = [];
+        vm.reset = function(){
+          vm.data = {};
+          vm.countryParams = {};
+          vm.showUpgradeLink = false;
+          vm.showUpgradeLinkMaltainvest = false;
+          vm.isCheckedCompany = false;
+          appStateService.hasMLT = false;
+          vm.isVirtual = false;
+          vm.hasGamingAndVirtual = false;
+          vm.hasGamingNotVirtual = false;
+          vm.hasFinancialAndMaltainvest = false;
+          vm.idsFound = [];
+        }
+
+        vm.reset();
 
 
         // get account-setting and landing-company
@@ -50,7 +54,7 @@
         // in case still not authorized when this controller is executed listen for the response of authorize
         $scope.$on('authorize', (e, response) => {
             if (!appStateService.isCheckedAccountType) {
-                vm.idsFound = [];
+              vm.reset();
                 if (response.is_virtual == 1) {
                     vm.isVirtual = true;
                 } else {
