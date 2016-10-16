@@ -24,12 +24,8 @@
 				color: $black;
 				padding-bottom: 0;
 			}
-			.basis {
-				font-size: 4vw;
-				text-align: left;
-				line-height: 36px;
-				padding-left: 10px;
-			}
+
+
 			.amount {
 				position: relative;
 				.price {
@@ -300,7 +296,7 @@
 		bg-options {
 			display: flex;
 			flex-grow: 1;
-			width: 100vw;
+			width: 100%;
 			overflow-x: scroll;
 			overflow-y: hidden;
 			max-height: 70px;
@@ -309,12 +305,12 @@
 		bg-payout {
 			display: flex;
 			flex-grow: 1;
-			width: 100vw;
+			width: 100%;
 			max-height: 40px;
 		}
 		bg-chart,
 		bg-purchase {
-			width: 100vw;
+			width: 100%;
 			display: flex;
 			flex-grow: 1;
 			flex-direction: column;
@@ -426,14 +422,22 @@
 					padding: 0;
 					flex-grow: 1;
 				}
-				.basis-title {
-					color: $darkgray;
-					padding: 5px 0;
+				.basis-container{
+					display: flex;
+					flex-direction: column;
+					font-size: 4vw;
+					.basis-title {
+						color: $darkgray;
+						padding: 5px 0;
+						display: flex;
+					}
+					.basis {
+						font-weight: bold;
+						padding: 5px 0;
+						display: flex;
+					}
 				}
-				.basis {
-					font-weight: bold;
-					padding: 5px 0;
-				}
+
 				.contract-image-container{
 					display: flex;
 				}
@@ -509,11 +513,11 @@
 		}
 	}
 }
-@media only screen and (min-device-width: 480px) {
+@media only screen and (min-device-width: 480px) and (max-device-width: 720px) {
 	.trade {
 		.contract-summary {
 			text-align: center;
-			font-size: 4vw;
+			font-size: 3vw;
 			background-color: $lightgray;
 		}
 		.contract-payout {
@@ -522,31 +526,27 @@
 				margin: 15px 0 0 !important;
 			}
 			.price {
-				font-size: 14px;
+				font-size: 3vw;
 				color: $black;
 				font-weight: bold;
 				text-align: center;
 				line-height: 12px;
 			}
 			.price-des {
-				font-size: 14px;
+				font-size: 3vw;
 				text-align: center;
 				color: $black;
 				padding-bottom: 0;
 			}
-			.basis {
-				font-size: 14px;
-				text-align: left;
-				line-height: 36px;
-				padding-left: 10px;
-			}
+
+
 			.amount {
 				position: relative;
 				.price {
 					padding-top: 0;
 					padding-bottom: 0;
 					input {
-						font-size: 14px;
+						font-size: 3vw;
 						height: auto;
 						border-bottom: 1px solid $lightgray;
 						line-height: 12px;
@@ -596,13 +596,13 @@
 				color: $darkgray;
 			}
 			.price-des {
-				font-size: 18px;
+				font-size: 3vw;
 				text-align: center;
 				display: inline-block;
 				padding: 10px 0;
 			}
 			.price {
-				font-size: 18px;
+				font-size: 3vw;
 				color: $darkgray;
 				text-align: left;
 				line-height: 12px;
@@ -614,7 +614,7 @@
 				padding: 10px 0;
 				p {
 					margin: 5px !important;
-					font-size: 14px;
+					font-size: 3vw;
 					color: $black;
 				}
 			}
@@ -622,7 +622,7 @@
 		.contract-back,
 		.contract-purchase {
 			button {
-				font-size: 3.5vw;
+				font-size: 3vw;
 			}
 		}
 		.contract-summary {
@@ -663,11 +663,11 @@
 			}
 			.win {
 				color: $green !important;
-				font-size: 14px;
+				font-size: 3vw;
 			}
 			.lose {
 				color: $red !important;
-				font-size: 14px;
+				font-size: 3vw;
 			}
 		}
 		.buy-again {
@@ -679,18 +679,18 @@
 			display: flex;
 			flex-direction: row;
 			.price-des {
-				font-size: 14px;
+				font-size: 3vw;
 				color: $black;
 			}
 			.price {
 				color: $black;
-				font-size: 14px;
+				font-size: 3vw;
 				font-weight: bold;
 			}
 			button {
 				width: 100%;
 				margin: 0 auto;
-				font-size: 14px;
+				font-size: 3vw;
 				line-height: 28px;
 				min-height: 24px;
 			}
@@ -709,7 +709,7 @@
 			.item-content {
 				text-align: center;
 				padding: 0;
-				font-size: 14px;
+				font-size: 3vw;
 				color: $black;
 			}
 			.item-radio input:checked ~ .item-content {
@@ -753,7 +753,7 @@
 			padding: 10px 0;
 			p {
 				margin: 5px !important;
-				font-size: 4vw;
+				font-size: 3vw;
 				color: $black;
 			}
 		}
@@ -766,7 +766,7 @@
 				line-height: 0;
 				border-radius: 50%;
 				border: 2px solid;
-				font-size: 4vw;
+				font-size: 3vw;
 				span {
 					display: inline-block;
 					padding-top: 50%;
@@ -794,7 +794,7 @@
 		}
 		.trade-types {
 			.button {
-				font-size: 4vw;
+				font-size: 3vw;
 			}
 		}
 		.trade-container {
@@ -806,7 +806,7 @@
 		bg-options {
 			display: flex;
 			flex-grow: 1;
-			width: 100vw;
+			width: 100%;
 			max-height: 70px;
 			overflow-x: scroll;
 			overflow-y: hidden;
@@ -814,12 +814,12 @@
 		bg-payout {
 			display: flex;
 			flex-grow: 1;
-			width: 100vw;
+			width: 100%;
 			max-height: 120px;
 		}
 		bg-chart,
 		bg-purchase {
-			width: 100vw;
+			width: 100%;
 			display: flex;
 			flex-grow: 1;
 			flex-direction: column;
@@ -836,7 +836,7 @@
 			padding-bottom: 10px;
 			display: flex;
 			flex-grow: 1;
-			width: 100vw;
+			width: 100%;
 			max-height: 120px;
 		}
 		.barrier {
@@ -856,10 +856,10 @@
 					display: flex;
 					flex-direction: column;
 					flex-grow: 1;
-					font-size: 4vw;
+					font-size: 3vw;
 					font-weight: bold;
 					input {
-						font-size: 4vw;
+						font-size: 3vw;
 						padding: 5px;
 					}
 				}
@@ -893,21 +893,20 @@
 					flex-grow: 1;
 					flex-direction: column;
 					a {
-						font-size: 4vw;
+						font-size: 3vw;
 						color: $darkgray;
 					}
 					input {
 						width: 70px;
 						padding: 10px 5px;
 						border-radius: 3px;
-						font-size: 4vw;
+						font-size: 3vw;
 					}
 					.button-bar {
 						a {
 							color: $black;
-							font-size: 16px;
 							min-height: 0;
-							font-size: 4vw;
+							font-size: 3vw;
 							margin-top: 13%;
 							padding: 0;
 						}
@@ -916,7 +915,7 @@
 			}
 		}
 		.purchase {
-			font-size: 4vw;
+			font-size: 3vw;
 			width: 95%;
 			margin: 0 auto;
 			display: flex;
@@ -943,13 +942,22 @@
 					flex-grow: 1;
 					max-height: 80px;
 				}
-				.basis-title {
-					color: $darkgray;
-					padding: 5px 0;
-				}
-				.basis {
-					font-weight: bold;
-					padding: 5px 0;
+				.basis-container{
+					display: flex;
+					flex-direction: column;
+					font-size: 3vw;
+					.basis-title {
+						color: $darkgray;
+						padding: 5px 0;
+						display: flex;
+						font-size: 3vw;
+					}
+					.basis {
+						font-weight: bold;
+						padding: 5px 0;
+						display: flex;
+						font-size: 3vw;
+					}
 				}
 				.contract-image-container{
 					display: flex;
@@ -957,15 +965,14 @@
 			}
 			.error,
 			button {
-				font-size: 3.5vw;
+				font-size: 3vw;
 				line-height: 25px;
 				min-height: 0;
 				width: 100%;
 			}
 			.button {
 				padding: 5px 12px !important;
-				font-size: 4vw;
-				line-height: 80px;
+				font-size: 3vw;
 				min-height: 50px;
 				width: 100%;
 			}
@@ -1005,6 +1012,511 @@
 			font-size: 3vw;
 		}
 	}
+}
+
+@media only screen and (min-device-width: 720px) {
+	.trade {
+		.contract-summary {
+			text-align: center;
+			font-size: 2vw;
+			background-color: $lightgray;
+		}
+		.contract-payout {
+			padding: 0 !important;
+			.col:nth-child(3) {
+				margin: 15px 0 0 !important;
+			}
+			.price {
+				font-size: 2vw;
+				color: $black;
+				font-weight: bold;
+				text-align: center;
+				line-height: 12px;
+			}
+			.price-des {
+				font-size: 2vw;
+				text-align: center;
+				color: $black;
+				padding-bottom: 0;
+			}
+
+
+			.amount {
+				position: relative;
+				.price {
+					padding-top: 0;
+					padding-bottom: 0;
+					input {
+						font-size: 2vw;
+						height: auto;
+						border-bottom: 1px solid $lightgray;
+						line-height: 12px;
+						text-align: center;
+						color: $black;
+						font-weight: bold;
+						padding-top: 0;
+						width: 100%;
+					}
+				}
+			}
+			.button-bar {
+				.button {
+					min-height: 20px;
+				}
+				.button:before {
+					line-height: 30px;
+				}
+			}
+			> .col:nth-child(3) {
+				.button {
+					margin: 0;
+					min-width: 20px;
+					min-height: 20px;
+					border: none;
+					color: $black;
+					border-radius: 0;
+					border: 1px solid $gray;
+					vertical-align: middle;
+					line-height: 21px;
+					&.plus {
+						background-color: $lightgray;
+					}
+					&.minus {
+						background-color: $lightgray;
+					}
+				}
+			}
+		}
+		.net-profit {
+			background-color: $lightgray;
+			margin-top: 0;
+			padding: 0;
+			.col:nth-child(1) {
+				text-align: center;
+				line-height: 12px;
+				color: $darkgray;
+			}
+			.price-des {
+				font-size: 2vw;
+				text-align: center;
+				display: inline-block;
+				padding: 10px 0;
+			}
+			.price {
+				font-size: 2vw;
+				color: $darkgray;
+				text-align: left;
+				line-height: 12px;
+				display: inline-block;
+				padding: 10px 0;
+			}
+			.error {
+				background-color: $notification;
+				padding: 10px 0;
+				p {
+					margin: 5px !important;
+					font-size: 2vw;
+					color: $black;
+				}
+			}
+		}
+		.contract-back,
+		.contract-purchase {
+			button {
+				font-size: 2vw;
+			}
+		}
+		.contract-summary {
+			margin-top: 1%;
+			width: 95%;
+			margin: 0 auto;
+			display: flex;
+			flex-grow: 1;
+			flex-direction: column;
+			.row {
+				display: flex;
+				flex-grow: 1;
+				flex-direction: row;
+				.col {
+					display: flex;
+					flex-direction: column;
+				}
+			}
+			.win {
+				color: $green !important;
+			}
+			.lose {
+				color: $red !important;
+			}
+			&:first-child {
+				text-align: right;
+				border-right: 1px solid $lightgray;
+				padding: 4px 10px 4px 0;
+			}
+			&:last-child {
+				text-align: center;
+			}
+			&.ref {
+				color: $darkgray;
+			}
+			&:last-child {
+				border-bottom: 1px solid $lightgray;
+			}
+			.win {
+				color: $green !important;
+				font-size: 2vw;
+			}
+			.lose {
+				color: $red !important;
+				font-size: 2vw;
+			}
+		}
+		.buy-again {
+			background-color: $white;
+			border-bottom: 1px solid $lightgray;
+			padding-top: 0;
+			padding-bottom: 0;
+			align-items: center;
+			display: flex;
+			flex-direction: row;
+			.price-des {
+				font-size: 2vw;
+				color: $black;
+			}
+			.price {
+				color: $black;
+				font-size: 2vw;
+				font-weight: bold;
+			}
+			button {
+				width: 100%;
+				margin: 0 auto;
+				font-size: 2vw;
+				line-height: 28px;
+				min-height: 24px;
+			}
+		}
+		.contract-type {
+			background: $lightgray;
+			.item {
+				background: $lightgray;
+			}
+			.item:nth-child(odd) {
+				border-right: #c4c4c4 3px solid !important;
+			}
+			.item-select select {
+				background: $lightgray;
+			}
+			.item-content {
+				text-align: center;
+				padding: 0;
+				font-size: 2vw;
+				color: $black;
+			}
+			.item-radio input:checked ~ .item-content {
+				background: transparent !important;
+				color: $black;
+				font-weight: bold;
+			}
+		}
+		.digits,
+		.markets,
+		.options,
+		.ticks,
+		.trade-types,
+		.underlyings {
+			//width: 600px;
+			/*height: 50px;*/
+			.center {
+				display: inline-block;
+				padding-right: 10px;
+			}
+			.button-clear {
+				border-color: transparent;
+				background: none;
+				box-shadow: none;
+				color: black;
+				line-height: 0 !important;
+				min-height: 0 !important;
+				padding: 5px;
+			}
+			.button:hover {
+				color: gray !important;
+			}
+		}
+		.balance {
+			&.row {
+				background: lightgray;
+			}
+		}
+		.error {
+			background-color: $notification;
+			padding: 10px 0;
+			p {
+				margin: 5px !important;
+				font-size: 2vw;
+				color: $black;
+			}
+		}
+		.digit-result {
+			.col {
+				padding: 0 !important;
+			}
+			.numberCircle {
+				display: inline-block;
+				line-height: 0;
+				border-radius: 50%;
+				border: 2px solid;
+				font-size: 2vw;
+				span {
+					display: inline-block;
+					padding-top: 50%;
+					padding-bottom: 50%;
+					margin-left: 8px;
+					margin-right: 8px;
+				}
+				&.lose {
+					color: red;
+          &.last{
+            color: $white !important;
+            background: $red !important;
+            border-color: $red !important;
+          }
+				}
+				&.win {
+					color: green;
+          &.last{
+            color: $white !important;
+            background: $green !important;
+            border-color: $green !important;
+          }
+				}
+			}
+		}
+		.trade-types {
+			.button {
+				font-size: 2vw;
+			}
+		}
+		.trade-container {
+			// height: 85vh;
+			// height: calc(100vh - 90px);
+			display: flex;
+			flex-direction: column;
+		}
+		bg-options {
+			display: flex;
+			flex-grow: 1;
+			width: 100%;
+			max-height: 70px;
+			overflow-x: scroll;
+			overflow-y: hidden;
+		}
+		bg-payout {
+			display: flex;
+			flex-grow: 1;
+			width: 100%;
+			max-height: 120px;
+		}
+		bg-chart,
+		bg-purchase {
+			width: 100%;
+			display: flex;
+			flex-grow: 1;
+			flex-direction: column;
+		}
+		bg-chart{
+			margin-bottom: 5px;
+		}
+		bg-purchase {
+			max-height: 220px;
+			flex-direction: column;
+			padding: 5px 0;
+		}
+		bg-barrier {
+			padding-bottom: 10px;
+			display: flex;
+			flex-grow: 1;
+			width: 100%;
+			max-height: 120px;
+		}
+		.barrier {
+			width: 95%;
+			margin: 0 auto;
+			border: 1px solid $gray;
+			border-radius: 3px;
+			background: $white;
+			display: flex;
+			flex-direction: column;
+			color: $darkgray;
+			.row {
+				display: flex;
+				flex-direction: row;
+				flex-grow: 1;
+				.col {
+					display: flex;
+					flex-direction: column;
+					flex-grow: 1;
+					font-size: 2vw;
+					font-weight: bold;
+					input {
+						font-size: 2vw;
+						padding: 5px;
+					}
+				}
+			}
+		}
+		.options {
+			width: 100%;
+		}
+		.contract-chart {
+			width: 100%;
+			width: 100%;
+			display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		}
+		.payout {
+			width: 95%;
+			margin: 0 auto;
+			border: 1px solid $gray;
+			border-radius: 3px;
+			background: $white;
+			display: flex;
+			flex-direction: column;
+			.payout-cell-container {
+				display: flex;
+				flex-direction: row;
+				width: 100%;
+				flex-grow: 1;
+				.payout-cell {
+					display: flex;
+					flex-grow: 1;
+					flex-direction: column;
+					a {
+						font-size: 2vw;
+						color: $darkgray;
+					}
+					input {
+						width: 70px;
+						padding: 10px 5px;
+						border-radius: 3px;
+						font-size: 2vw;
+					}
+					.button-bar {
+						a {
+							color: $black;
+							min-height: 0;
+							font-size: 2vw;
+							margin-top: 13%;
+							padding: 0;
+						}
+					}
+				}
+			}
+		}
+		.purchase {
+			font-size: 2vw;
+			width: 95%;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			.row {
+				padding: 5px 0;
+				flex-grow: 1;
+			}
+			.contract {
+				background: $white;
+				border-radius: 3px;
+				border: 1px solid $gray;
+				margin: 0 2px;
+				display: flex;
+				flex-direction: column;
+				&:first-child {
+					margin-left: 2px;
+				}
+				&:nth-child(2) {
+					margin-right: 2px;
+				}
+				.row {
+					padding: 5px 0;
+					flex-grow: 1;
+					max-height: 80px;
+				}
+				.basis-container{
+					display: flex;
+					flex-direction: column;
+					font-size: 2vw;
+					.basis-title {
+						color: $darkgray;
+						padding: 5px 0;
+						display: flex;
+						font-size: 2vw;
+					}
+					.basis {
+						font-weight: bold;
+						padding: 5px 0;
+						display: flex;
+						font-size: 2vw;
+					}
+				}
+				.contract-image-container{
+					display: flex;
+				}
+			}
+			.error,
+			button {
+				font-size: 2vw;
+				line-height: 25px;
+				min-height: 0;
+				width: 100%;
+			}
+			.button {
+				padding: 5px 12px !important;
+				font-size: 2vw;
+				min-height: 50px;
+				width: 100%;
+			}
+		}
+		#chartContainer {
+			background: $white;
+			display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		}
+		bg-contract-summary,
+		bg-longcode {
+			display: flex;
+			flex-grow: 1;
+			flex-direction: column;
+		}
+		bg-longcode{
+			max-height: 50px;
+		}
+		bg-contract-summary {
+			width: 95%;
+			margin: 0 auto;
+		}
+		.buy-again-container {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+		}
+		.buy-again,
+		.contract-back {
+			display: flex;
+			flex-grow: 1;
+		}
+		.longcode {
+			display: flex;
+			flex-grow: 1;
+			font-size: 2vw;
+		}
+	}
+
+
+
+
 }
 @media only screen and (max-device-height: 480px) {
 	.trade {

@@ -1,52 +1,52 @@
 .profit-table {
 	display: flex;
 	flex-direction: column;
-	ion-content{
+	ion-content {
 		display: flex;
 		flex-grow: 1;
 		flex-direction: column;
 		position: relative;
 	}
-	.filter{
+	.filter {
 		display: flex;
 		flex-grow: 1;
 		position: relative;
 	}
-		input{
-			margin-left: 15px;
-			border: 1px solid $gray;
-			border-radius: 3px;
-			padding: 5px;
-			    font-size: 4vw;
+	input {
+		margin-left: 15px;
+		border: 1px solid $gray;
+		border-radius: 3px;
+		padding: 5px;
+		font-size: 4vw;
+	}
+	input[type="date"]::-webkit-calendar-picker-indicator {
+		color: $gray;
+	}
+	.float-button {
+		background-color: $darkblue;
+		opacity: 0.9;
+		color: white;
+		border-radius: 50%;
+		/*border-radius:15% 0 0 0;*/
+		width: 50px;
+		height: 50px;
+		font-size: 4vw;
+		position: fixed;
+		top: 70vh;
+		right: 6%;
+		z-index: 1000;
+		text-align: center;
+		i {
+			position: relative;
+			top: 15px;
+			background: inherit;
+			text-align: center;
+			color: $white;
 		}
-		input[type="date"]::-webkit-calendar-picker-indicator {
-  color: $gray;
-}
-	.float-button{
-		background-color:$darkblue;
-	 opacity: 0.9;
-	 color: white;
-	 border-radius: 50%;
-	 /*border-radius:15% 0 0 0;*/
-	 width: 50px;
-	 height: 50px;
-	 font-size: 4vw;
-	 position: fixed;
-	 top: 70vh;
-	 right: 6%;
-	 z-index: 1000;
-	 text-align: center;
-	 i{
-		 position: relative;
-     top: 15px;
-		 background: inherit;
-		 text-align: center;
-		 color: $white;
-	 }
 	}
 	.item {
 		padding: 15px;
-		.input-title{
+		.input-title {
 			font-size: 4vw;
 		}
 	}
@@ -58,13 +58,13 @@
 		width: 100%;
 		padding: 0 15px;
 		direction: ltr;
-		  font-size: 4vw;
+		font-size: 4vw;
 	}
-	.label{
+	.label {
 		padding: 0;
-		input{
+		input {
 			margin: 0;
-			padding-right: 0!important;
+			padding-right: 0 !important;
 			font-size: 4vw;
 		}
 	}
@@ -74,7 +74,6 @@
 	.prev {
 		float: left;
 	}
-
 	ul {
 		&.statement-list {
 			display: flex;
@@ -115,7 +114,7 @@
 			padding: 2px 5px;
 		}
 	}
-	.jump-to-date{
+	.jump-to-date {
 		padding: 0;
 	}
 }
@@ -142,5 +141,91 @@
 	}
 	.longcode {
 		padding: 5px 0;
+	}
+}
+@media only screen and (min-device-width: 480px) and (max-device-width: 720px) {
+	.profit-table {
+		input {
+			font-size: 3vw;
+		}
+		.float-button {
+			font-size: 3vw;
+		}
+		.item {
+			.input-title {
+				font-size: 3vw;
+			}
+		}
+		select {
+			font-size: 3vw;
+		}
+		.label {
+			input {
+				font-size: 3vw;
+			}
+		}
+		ul {
+			&.statement-list {
+				.statement-element {
+					font-size: 2.5vw;
+				}
+			}
+			.list {
+				.list-item {
+					font-size: 3vw;
+				}
+			}
+		}
+	}
+	.transaction-detail {
+		.reference {
+			font-size: 3.5vw;
+		}
+		.small-text {
+			font-size: 2.5vw;
+		}
+	}
+}
+@media only screen and (min-device-width: 721px) {
+	.profit-table {
+		input {
+			font-size: 2vw;
+		}
+		.float-button {
+			font-size: 2vw;
+		}
+		.item {
+			.input-title {
+				font-size: 2vw;
+			}
+		}
+		select {
+			font-size: 2vw;
+		}
+		.label {
+			input {
+				font-size: 2vw;
+			}
+		}
+		ul {
+			&.statement-list {
+				.statement-element {
+					font-size: 1.5vw;
+				}
+			}
+			.list {
+				.list-item {
+					font-size: 2vw;
+				}
+			}
+		}
+	}
+	.transaction-detail {
+		.reference {
+			font-size: 2.5vw;
+		}
+		.small-text {
+			font-size: 1.5vw;
+		}
 	}
 }
