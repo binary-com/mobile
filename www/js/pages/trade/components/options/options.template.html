@@ -1,4 +1,5 @@
-<div class="options">
+<div class="options"
+     ng-if="vm.showOptions">
   <div class="row" ng-if="vm.section1== vm.SECTIONS.OVERVIEW1">
       <div class= "col center">
         <button class="button button-clear" ng-click="vm.setSection(1, vm.SECTIONS.MARKETS)">{{vm.options.market.displayName}}</button>
@@ -32,4 +33,9 @@
     <bg-digits ng-if="vm.section2 == vm.SECTIONS.DIGITS"
               select="vm.selectDigit"
               trade-type="vm.options.tradeType"></bg-ticks>
+</div>
+<div class="row" ng-if="!vm.showOptions && vm.marketsClosed">
+  <div class="col center wrap">
+    {{ "options.markets_are_closed" | translate }}
+  </div>
 </div>
