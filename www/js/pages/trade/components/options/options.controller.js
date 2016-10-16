@@ -25,6 +25,9 @@
           tradeTypesService, websocketService) {
     var vm = this;
 
+    vm.showOptions = false;
+    vm.marketsClosed = false;
+
     vm.SECTIONS = {
       OVERVIEW1: 0,
       OVERVIEW2: 1,
@@ -46,8 +49,16 @@
     vm.section1 = vm.SECTIONS.OVERVIEW1; //vm.options.market ? vm.SECTIONS.OVERVIEW : vm.SECTIONS.MARKETS;
     vm.section2 = vm.SECTIONS.OVERVIEW2;
 
-    $scope.$on('symbols:updated', (e) => {
-      websocketService.sendRequestFor.assetIndex();
+    $scope.$on('symbols:updated', (e, openMarkets) => {
+      if(_.isEmpty(openMarkets)){
+        vm.showOptions = false;
+        vm.marketsClosed = true;
+        vm.proposal = {};
+      }
+      else{
+        vm.showOptions = true;
+        websocketService.sendRequestFor.assetIndex();
+      }
     });
 
     $scope.$on('assetIndex:updated', (e) => {

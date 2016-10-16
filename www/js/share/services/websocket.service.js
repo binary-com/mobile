@@ -397,7 +397,7 @@ angular
                             }
                             //if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
                             sessionStorage.active_symbols = JSON.stringify(openMarkets);
-                            $rootScope.$broadcast('symbols:updated');
+                            $rootScope.$broadcast('symbols:updated', openMarkets);
                             //}
                             break;
                         case 'asset_index':
