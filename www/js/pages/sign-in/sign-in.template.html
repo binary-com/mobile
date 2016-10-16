@@ -37,7 +37,7 @@
                         <input autocomplete="off" type="text" placeholder="{{'newvirtualaccount.enter-email' | translate}}" ng-model="vm.data.mail" tabindex="1" ngRequired/>
                     </label>
                     <div class="help-block error" ng-if="vm.emailError">
-                        {{'newvirtualaccount.email-error' | translate}}
+                        {{vm.emailErrorMessage}}
                     </div>
                 </div>
             </div>
@@ -61,8 +61,11 @@
                         {{'newvirtualaccount.code_hint' | translate}}
                     </div>
 
-                    <div class="help-block error" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty'>
+                    <div class="help-block error" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty' ng-hide="vm.tokenError">
                         <div ng-message="pattern">{{'newvirtualaccount.token-invalid' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-show="vm.tokenError">
+                        <div>{{vm.tokenErrorMessage}}</div>
                     </div>
 
                 </div>
@@ -76,8 +79,11 @@
                         {{'newvirtualaccount.password_hint' | translate}}
                     </div>
 
-                    <div class="help-block error" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty'>
+                    <div class="help-block error" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty' ng-hide="vm.passwordError">
                         <div ng-message="pattern">{{'newvirtualaccount.error_format' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-if="vm.passwordError">
+                        <div>{{vm.passwordErrorMessage}}</div>
                     </div>
 
                     <div class="help-block show-hide-password">

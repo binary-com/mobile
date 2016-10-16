@@ -472,8 +472,7 @@ angular
                             if (message.verify_email) {
                                 $rootScope.$broadcast('verify_email', message.verify_email);
                             } else if (message.error) {
-                                $rootScope.$broadcast('verify_email:error', message.error.message);
-                                // alertService.displayError(message.error.message);
+                                $rootScope.$broadcast('verify_email:error', message.error.details);
                             }
                             break;
                         case 'residence_list':

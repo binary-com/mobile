@@ -18,7 +18,20 @@
     function NewAccountReal($scope, $state, websocketService) {
         var vm = this;
         vm.data = {};
+        vm.salutationError = false;
         vm.firstNameError = false;
+        vm.lastNameError = false;
+        vm.dateOfBirthError = false;
+        vm.countryError = false;
+        vm.addressLine1Error = false;
+        vm.addressLine2Error = false;
+        vm.addressCityError = false;
+        vm.addressStateError = false;
+        vm.addressPostcodeError = false;
+        vm.phoneError = false;
+        vm.secretQuestionError = false;
+        vm.secretAnswerError = false;
+
         vm.data.salutation = "Mr";
         vm.data.secretQuestion = "Mother's maiden name";
         vm.countryParams = JSON.parse(sessionStorage.countryParams);
@@ -50,6 +63,19 @@
 
 
         vm.submitAccountOpening = function() {
+          vm.salutationError = false;
+          vm.firstNameError = false;
+          vm.lastNameError = false;
+          vm.dateOfBirthError = false;
+          vm.countryError = false;
+          vm.addressLine1Error = false;
+          vm.addressLine2Error = false;
+          vm.addressCityError = false;
+          vm.addressStateError = false;
+          vm.addressPostcodeError = false;
+          vm.phoneError = false;
+          vm.secretQuestionError = false;
+          vm.secretAnswerError = false;
             if (vm.data.dateOfBirth) {
                 var birth = vm.data.dateOfBirth.toISOString().slice(0, 10);
             }
@@ -137,7 +163,6 @@
             }
 
           });
-
         });
 
     }

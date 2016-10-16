@@ -18,6 +18,19 @@
     function NewAccountMaltainvest($scope, $timeout,  $translate, $location, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
         var vm = this;
         vm.data = {};
+        vm.salutationError = false;
+        vm.firstNameError = false;
+        vm.lastNameError = false;
+        vm.dateOfBirthError = false;
+        vm.countryError = false;
+        vm.addressLine1Error = false;
+        vm.addressLine2Error = false;
+        vm.addressCityError = false;
+        vm.addressStateError = false;
+        vm.addressPostcodeError = false;
+        vm.phoneError = false;
+        vm.secretQuestionError = false;
+        vm.secretAnswerError = false;
 				vm.isReadonly = false;
         vm.data.salutation = "Mr";
         vm.data.forexTradingExperience = "0-1 year";
@@ -107,6 +120,19 @@
 				});
 
 				vm.submitAccountOpening = function() {
+          vm.salutationError = false;
+          vm.firstNameError = false;
+          vm.lastNameError = false;
+          vm.dateOfBirthError = false;
+          vm.countryError = false;
+          vm.addressLine1Error = false;
+          vm.addressLine2Error = false;
+          vm.addressCityError = false;
+          vm.addressStateError = false;
+          vm.addressPostcodeError = false;
+          vm.phoneError = false;
+          vm.secretQuestionError = false;
+          vm.secretAnswerError = false;
 					if (vm.data.accept == true) {
 						vm.data.acceptRisk = 1
 					} else {
