@@ -1,4 +1,4 @@
-<ion-view class="profit-table">
+<ion-view class="trade profit-table">
     <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
         <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
     </a>
@@ -50,7 +50,7 @@
                     </ul>
                 </div>
             </div>
-            <ion-infinite-scroll on-infinite="vm.loadMore()" distance="1%" ng-if="!vm.noMore  && vm.firstCompleted"></ion-infinite-scroll>
+            <ion-infinite-scroll on-infinite="vm.loadMore()" distance="1%" ng-if="!vm.noMore  && vm.firstCompleted && !vm.dateChanged"></ion-infinite-scroll>
         </div>
     </ion-content>
 </ion-view>
