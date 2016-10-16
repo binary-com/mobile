@@ -450,7 +450,11 @@ angular
                             $rootScope.$broadcast('portfolio', message.portfolio);
                             break;
                         case 'profit_table':
+                            if (message.profit_table) {
                             $rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
+                            } else if (message.error) {
+                            $rootScope.$broadcast('profit_table:error', message.error.message);
+                            }
                             break;
                         case 'sell_expired':
                             $rootScope.$broadcast('sell:expired', message.sell_expired);
@@ -508,7 +512,11 @@ angular
                             }
                             break;
                         case 'statement':
+                            if (message.statement) {
                             $rootScope.$broadcast('statement:update', message.statement, message.echo_req.passthrough);
+                            } else if (message.error) {
+                            $rootScope.$broadcast('statement:error', message.error.message);
+                            }
                             break;
                         default:
                     }

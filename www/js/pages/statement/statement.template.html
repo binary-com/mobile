@@ -47,6 +47,12 @@
                         <li class="row" ng-if="vm.noTransaction">
                             {{'statement.no_transaction' | translate}}
                         </li>
+                        <li class="row center has-error" ng-if="vm.hasError">
+                            <div class="col">
+                              <i class="icon ion-alert-circled"></i>
+                              {{vm.errorMessage}}
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

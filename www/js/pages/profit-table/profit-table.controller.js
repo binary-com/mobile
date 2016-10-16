@@ -29,6 +29,7 @@
         vm.firstCompleted = false;
         vm.noMoreRequest = false;
         vm.jumpToDateInputShow = false;
+        vm.hasError = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -66,6 +67,7 @@
                     tableStateService.completedGroup = true;
                     appStateService.profitTableRefresh = false;
                     appStateService.isProfitTableSet = false;
+                    vm.hasError = false;
                     vm.loadMore();
                 }
             }
@@ -204,6 +206,13 @@
                 }
             }
         });
+
+          $scope.$on('profit_table:error', (e, message) => {
+            $scope.$applyAsync(() => {
+              vm.hasError = true;
+              vm.errorMessage = message;
+            });
+          });
 
         vm.setBatch = function() {
             tableStateService.batchLimit = Math.ceil(vm.transactions.length / tableStateService.batchSize);
