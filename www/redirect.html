@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="binary">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Binary App</title>
+
+	</head>
+	<body>
+
+		<style id="antiClickjack">body{display:none !important;}</style>
+		<script type="text/javascript">
+			if (self === top) {
+				var antiClickjack = document.getElementById("antiClickjack");
+				antiClickjack.parentNode.removeChild(antiClickjack);
+			} else {
+				top.location = self.location;
+			}
+		</script>
+
+		<!-- Redirect to #/redirect -->
+		<script type="text/javascript">
+			var response = {};
+			response.url = window.location.href;
+			window.opener.postMessage(response, '*');
+			window.close();
+		</script>
+
+	</body>
+</html>
