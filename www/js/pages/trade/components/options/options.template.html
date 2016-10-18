@@ -1,6 +1,6 @@
 <div class="options"
      ng-if="vm.showOptions">
-  <div class="row" ng-if="vm.section1== vm.SECTIONS.OVERVIEW1">
+  <div class="row options-row" ng-if="vm.section1== vm.SECTIONS.OVERVIEW1">
       <div class= "col center">
         <button class="button button-clear" ng-click="vm.setSection(1, vm.SECTIONS.MARKETS)">{{vm.options.market.displayName}}</button>
       </div>
@@ -13,7 +13,7 @@
     <bg-underlyings ng-if="vm.section1 == vm.SECTIONS.UNDERLYINGS"
                 select="vm.selectUnderlying"
                 market="vm.options.market"></bg-underlyings>
-  <div class="row" ng-if="vm.section2== vm.SECTIONS.OVERVIEW2">
+  <div class="row options-row" ng-if="vm.section2== vm.SECTIONS.OVERVIEW2">
       <div class= "col center">
         <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TRADETYPES)"> {{vm.options.tradeType}} </button>
       </div>
