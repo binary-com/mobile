@@ -38,10 +38,10 @@
                     <ul>
                         <li class="list" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
                             <ul class="col-100 statement-list">
-                                <li class="statement-element" ng-bind="::transaction.transaction_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></li>
-                                <li class="center statement-element" ng-bind="::transaction.transaction_id"></li>
-                                <li class="bold center statement-element" ng-bind="::transaction.action_type"></li>
-                                <li class="statement-element last-statement-element bold green right" ng-bind="::vm.formatMoney(vm.currency,transaction.balance_after)"></li>
+                                <li class="statement-element" ng-bind="transaction.transaction_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></li>
+                                <li class="center statement-element" ng-bind="transaction.transaction_id"></li>
+                                <li class="bold center statement-element" ng-bind="transaction.action_type"></li>
+                                <li class="statement-element last-statement-element bold green right" ng-bind="vm.formatMoney(vm.currency,transaction.balance_after)"></li>
                             </ul>
                         </li>
                         <li class="row" ng-if="vm.noTransaction">

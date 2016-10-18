@@ -40,12 +40,12 @@
                             <ul>
                                 <li class="list">
                                     <ul class="col-100 statement-list">
-                                        <li class="statement-element" ng-bind="::transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></li>
-                                        <li class="center statement-element" ng-bind="::transaction.transaction_id"></li>
+                                        <li class="statement-element" ng-bind="transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></li>
+                                        <li class="center statement-element" ng-bind="transaction.transaction_id"></li>
                                         <li
                                             class="statement-element last-statement-element bold green right"
                                             ng-class="{red : (transaction.sell_price - transaction.buy_price).toFixed(2) < 0}"
-                                            ng-bind="::vm.formatMoney(vm.currency, (transaction.sell_price - transaction.buy_price).toFixed(2))"></li>
+                                            ng-bind="vm.formatMoney(vm.currency, (transaction.sell_price - transaction.buy_price).toFixed(2))"></li>
                                     </ul>
                                 </li>
                                 <li class="row" ng-if="vm.noTransaction">
