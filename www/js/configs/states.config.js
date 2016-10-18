@@ -77,7 +77,7 @@ angular
         .state('redirect', {
             url: '/redirect',
             cache: false,
-            templateUrl: 'templates/pages/oauth-redirect.template.html',
+            templateUrl: 'js/pages/sign-in/components/oauth/oauth.template.html',
             controller: 'OAuthRedirect'
         })
         ;
