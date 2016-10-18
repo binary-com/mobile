@@ -13,9 +13,9 @@
         .module('binary.pages.profit-table.controllers')
         .controller('ProfitTableController', ProfitTable);
 
-    ProfitTable.$inject = ['$scope', '$filter', '$state', '$timeout', '$templateCache', '$ionicScrollDelegate', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
+    ProfitTable.$inject = ['$scope', '$filter', '$state', '$templateCache', '$ionicScrollDelegate','tableStateService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
 
-    function ProfitTable($scope, $filter, $state, $timeout, $templateCache, $ionicScrollDelegate, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService) {
+    function ProfitTable($scope, $filter, $state, $templateCache, $ionicScrollDelegate, tableStateService, websocketService, appStateService, currencyToSymbolService) {
         var vm = this;
         vm.data = {};
         vm.noTransaction = false;
@@ -63,6 +63,7 @@
                     vm.noMoreRequest = false;
                     vm.filteredTransactions = [];
                     vm.noTransaction = false;
+                    vm.hasError = false;
                     vm.backFromMainPages = false;
                     tableStateService.completedGroup = true;
                     appStateService.profitTableRefresh = false;

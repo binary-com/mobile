@@ -26,7 +26,7 @@ angular
 				for (var i in transactions) {
 					var item = transactions[i];
 					var itemId = item.app_id;
-					if(appID == 'allApps' || ((appID == 'tickTradeApp') && itemId == 10)){
+					if(appID == 'allApps' || ((appID == 'tickTradeApp') && itemId === '10')){
 						filtered.push(item);
 					}
 				};
@@ -34,4 +34,5 @@ angular
 			}
 			return DataChange;
 		};
+		return DataFilter;
 })();

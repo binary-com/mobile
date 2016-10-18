@@ -13,9 +13,9 @@
         .module('binary.pages.statement.controllers')
         .controller('StatementController', Statement);
 
-    Statement.$inject = ['$scope', '$filter', '$state', '$timeout', '$templateCache', '$ionicScrollDelegate', 'languageService', 'tableStateService', 'accountService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
+    Statement.$inject = ['$scope', '$filter', '$state', '$templateCache', '$ionicScrollDelegate', 'tableStateService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
 
-    function Statement($scope, $filter, $state, $timeout, $templateCache, $ionicScrollDelegate, languageService, tableStateService, accountService, websocketService, appStateService, currencyToSymbolService) {
+    function Statement($scope, $filter, $state, $templateCache, $ionicScrollDelegate, tableStateService, websocketService, appStateService, currencyToSymbolService) {
         var vm = this;
         vm.data = {};
         vm.noTransaction = false;
@@ -61,6 +61,7 @@
                     vm.jumpToDateInputShow = false;
                     vm.firstCompleted = false;
                     vm.noMoreRequest = false;
+                    vm.hasError = false;
                     vm.filteredTransactions = [];
                     vm.noTransaction = false;
                     vm.backFromMainPages = false;
@@ -239,7 +240,7 @@
 
         vm.setFiltered = function() {
             $scope.$applyAsync(() => {
-                vm.filteredTransactions = $filter('DataFilter')(vm.batchedTransaction, vm.data.appID);
+                vm.filteredTransactions = $filter('StatementDataFilter')(vm.batchedTransaction, vm.data.appID);
                 if (vm.filteredTransactions.length == 0) {
                     vm.noTransaction = true;
                 } else {
