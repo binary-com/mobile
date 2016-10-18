@@ -124,6 +124,7 @@
             } else if (appStateService.isStatementSet && tableStateService.statementCompletedGroup) {
                 vm.transactions = [];
                 tableStateService.statementCompletedGroup = false;
+                vm.setParams();
             } else {
                 vm.setParams();
                 $scope.$applyAsync(() => {
