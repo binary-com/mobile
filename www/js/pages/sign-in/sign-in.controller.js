@@ -34,6 +34,8 @@
         vm.showSignup = false;
         vm.showvirtualws = false;
         vm.data = {};
+        vm.tokenError = false;
+        vm.passwordError = false;
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
 
@@ -92,7 +94,13 @@
 
         // sign up email verify
         vm.verifyUserMail = function() {
+          vm.emailError = false;
+          if(vm.data.mail){
             var mail = vm.data.mail;
+          }
+          else{
+            var mail = "";
+          }
             websocketService.sendRequestFor.accountOpening(mail);
         }
         $scope.$on('verify_email', (e, verify_email) => {
@@ -107,9 +115,10 @@
                 });
             }
         });
-        $scope.$on('verify_email:error', (e) => {
+        $scope.$on('verify_email:error', (e, details) => {
             $scope.$applyAsync(() => {
                 vm.emailError = true;
+                vm.emailErrorMessage = details.verify_email;
             });
         });
 
@@ -132,6 +141,8 @@
         };
 
         vm.createVirtualAccount = function() {
+            vm.tokenError = false;
+            vm.passwordError = false;
             var verificationCode = vm.data.verificationCode;
             var clientPassword = vm.data.clientPassword;
             var residence = vm.data.residence;
@@ -144,14 +155,26 @@
             }
         });
         $scope.$on('new_account_virtual:error', (e, error) => {
+          $scope.$applyAsync(() => {
             if (error) {
-                if ((error.hasOwnProperty('details') && error.details.hasOwnProperty('verification_code')) || (error.hasOwnProperty('code') && error.code == "InvalidToken")) {
-                    alertService.displayError(error.message);
+                if (error.hasOwnProperty('details') && error.details.hasOwnProperty('verification_code')) {
+                    vm.tokenError = true;
+                    vm.tokenErrorMessage = error.details.verification_code || error.code;
                 }
-                if ((error.hasOwnProperty('details') && error.details.hasOwnProperty('client_password')) || (error.hasOwnProperty('code') && error.code == "PasswordError")) {
-                    alertService.displayError(error.message);
+                if (error.hasOwnProperty('code') && error.code == "InvalidToken"){
+                  vm.tokenError = true;
+                  vm.tokenErrorMessage = error.message;
+                }
+                if (error.hasOwnProperty('details') && error.details.hasOwnProperty('client_password')) {
+                  vm.passwordError = true;
+                  vm.passwordErrorMessage = error.details.client_password || error.code;
+                }
+                if (error.hasOwnProperty('code') && error.code == "PasswordError"){
+                  vm.passwordError = true;
+                  vm.passwordErrorMessage = error.message;
                 }
             }
+          });
         });
 
         // change different type of singing methods

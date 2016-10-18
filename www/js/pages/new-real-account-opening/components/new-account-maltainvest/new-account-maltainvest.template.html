@@ -33,6 +33,9 @@
                             {{'newaccountmaltainvest.mrs' | translate}}
                         </option>
                     </select>
+                    <div class="help-block error" ng-messages="vm.salutationError" role="alert" ng-if='vm.salutationError'>
+                        <div>{{vm.salutationErrorMessage}}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,8 +53,11 @@
                 <div class="col">
                     <input name="firstName" ng-model="vm.data.firstName" ng-readonly="vm.isReadonly" ng-pattern="validateName" ng-minlength="2" ng-maxlength="30" ng-required="!vm.isReadonly">
 
-                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.firstName.$error" role="alert" ng-if='newAccountMaltainvestForm.firstName.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.firstName.$error" role="alert" ng-if='newAccountMaltainvestForm.firstName.$dirty' ng-hide="vm.firstNameError">
                         <div ng-message="pattern && minlength && maxlength">{{'newaccountmaltainvest.error_format' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-messages="vm.firstNameError" role="alert" ng-if='vm.firstNameError'>
+                        <div>{{vm.firstNameErrorMessage}}</div>
                     </div>
                 </div>
             </div>
@@ -69,9 +75,11 @@
             <div class="row">
                 <div class="col">
                     <input name="lastName" ng-model="vm.data.lastName" ng-readonly="vm.isReadonly" ng-pattern="validateName" ng-required="!vm.isReadonly" ng-minlength="2" ng-maxlength="30">
-
-                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.lastName.$error" role="alert" ng-if='newAccountMaltainvestForm.lastName.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.lastName.$error" role="alert" ng-if='newAccountMaltainvestForm.lastName.$dirty' ng-hide="vm.lastNameError">
                         <div ng-message="pattern && minlength && maxlength">{{'newaccountmaltainvest.error_format' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-messages="vm.lastNameError" role="alert" ng-if='vm.lastNameError'>
+                        <div>{{vm.lastNameErrorMessage}}</div>
                     </div>
                 </div>
             </div>
@@ -87,15 +95,17 @@
                 </div>
             </div>
             <div class="row" ng-if="vm.isReadonly">
-              <label class="col item-input"  >
-                      <input ng-model="vm.data.dateOfBirth" ng-readonly="vm.isReadonly" required="vm.isReadonly">
-                  </label>
-                  </div>
-                  <div class="row"  ng-if="!vm.isReadonly">
-                  <label class="col item-input" >
-                      <input name="dateOfBirth" ng-model="vm.data.userDateOfBirth" required"!vm.isReadonly" type="date">
-                  </label>
-
+                <label class="col">
+                    <input ng-model="vm.data.dateOfBirth" ng-readonly="vm.isReadonly" required="vm.isReadonly">
+                </label>
+            </div>
+            <div class="row" ng-if="!vm.isReadonly">
+                <label class="col">
+                    <input name="dateOfBirth" ng-model="vm.data.userDateOfBirth" required"!vm.isReadonly" type="date">
+                </label>
+            </div>
+            <div class="help-block error" ng-messages="vm.dateOfBirthError" role="alert" ng-if='vm.dateOfBirthError'>
+                <div>{{vm.dateOfBirthErrorMessage}}</div>
             </div>
         </div>
     </div>
@@ -111,6 +121,9 @@
             <div class="row">
                 <div class="col">
                     <input name="country" ng-model="vm.data.country" ng-readonly="true">
+                    <div class="help-block error" ng-messages="vm.countryError" role="alert" ng-if='vm.countryError'>
+                        <div>{{vm.dateOfBirthErrorMessage}}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,8 +140,11 @@
             <div class="row">
                 <div class="col">
                     <input name="addressLine1" ng-model="vm.data.addressLine1" required ng-maxlength="70">
-                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.addressLine1.$error" role="alert" ng-if='newAccountMaltainvestForm.addressLine1.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.addressLine1.$error" role="alert" ng-if='newAccountMaltainvestForm.addressLine1.$dirty' ng-hide="vm.addressLine1Error">
                         <div ng-message="maxlength">{{'newaccountmaltainvest.maxlength_error_70' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-messages="vm.addressLine1Error" role="alert" ng-if='vm.addressLine1Error'>
+                        <div>{{vm.addressLine1ErrorMessage}}</div>
                     </div>
                 </div>
             </div>
@@ -146,8 +162,11 @@
             <div class="row">
                 <div class="col">
                     <input name="addressLine2" ng-model="vm.data.addressLine2" ng-maxlength="70">
-                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.addressLine2.$error" role="alert" ng-if='newAccountMaltainvestForm.addressLine2.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.addressLine2.$error" role="alert" ng-if='newAccountMaltainvestForm.addressLine2.$dirty' ng-hide="vm.addressLine2Error">
                         <div ng-message="maxlength">{{'newaccountmaltainvest.maxlength_error_70' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-messages="vm.addressLine2Error" role="alert" ng-if='vm.addressLine2Error'>
+                        <div>{{vm.addressLine2ErrorMessage}}</div>
                     </div>
                 </div>
             </div>
@@ -165,8 +184,11 @@
             <div class="row">
                 <div class="col">
                     <input name="addressCity" ng-model="vm.data.addressCity" ng-maxlength="35" required>
-                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.addressCity.$error" role="alert" ng-if='newAccountMaltainvestForm.addressCity.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.addressCity.$error" role="alert" ng-if='newAccountMaltainvestForm.addressCity.$dirty' ng-hide="vm.addressCityError">
                         <div ng-message="maxlength">{{'newaccountmaltainvest.maxlength_error_35' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-messages="vm.addressCityError" role="alert" ng-if='vm.addressCityError'>
+                        <div>{{vm.addressCityErrorMessage}}</div>
                     </div>
                 </div>
             </div>
@@ -184,6 +206,9 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="state" ng-model="vm.data.state" ng-options="state.value as state.text for state in vm.data.statesList"></select>
+                    <div class="help-block error" ng-messages="vm.addressStateError" role="alert" ng-if='vm.addressStateError'>
+                        <div>{{vm.addressStateErrorMessage}}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -200,8 +225,11 @@
             <div class="row">
                 <div class="col">
                     <input name="postcode" ng-model="vm.data.addressPostcode" ng-pattern="/^[^+]{0,20}$/">
-                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.postcode.$error" role="alert" ng-if='newAccountMaltainvestForm.postcode.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.postcode.$error" role="alert" ng-if='newAccountMaltainvestForm.postcode.$dirty' ng-hide="vm.addressPostcodeError">
                         <div ng-message="pattern">{{'newaccountmaltainvest.error_postcode' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-messages="vm.addressPostcodeError" role="alert" ng-if='vm.addressPostcodeError'>
+                        <div>{{vm.addressPostcodeErrorMessage}}</div>
                     </div>
                 </div>
             </div>
@@ -219,8 +247,11 @@
             <div class="row">
                 <div class="col">
                     <input name="phone" ng-model="vm.data.phone" ng-pattern="/^\+?[0-9\s]{6,35}$/" required>
-                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.phone.$error" role="alert" ng-if='newAccountMaltainvestForm.phone.$dirty'>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.phone.$error" role="alert" ng-if='newAccountMaltainvestForm.phone.$dirty' ng-hide="vm.phoneError">
                         <div ng-message="pattern">{{'newaccountmaltainvest.error_format' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-messages="vm.phoneError" role="alert" ng-if='vm.phoneError'>
+                        <div>{{vm.phoneErrorMessage}}</div>
                     </div>
                 </div>
             </div>
@@ -596,6 +627,9 @@
                         <option value="Brand of first car">{{'newaccountmaltainvest.secret_question_7' | translate}}</option>
                         <option value="Favourite artist">{{'newaccountmaltainvest.secret_question_8' | translate}}</option>
                     </select>
+                    <div class="help-block error" ng-messages="vm.secretQuestionError" role="alert" ng-if='vm.secretQuestionError'>
+                        <div>{{vm.secretQuestionErrorMessage}}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -612,6 +646,12 @@
             <div class="row">
                 <div class="col">
                     <input name="secretAnswer" ng-model="vm.data.secretAnswer" ng-maxlength="50" ng-minlength="4" required>
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.secretAnswer.$error" role="alert" ng-if='newAccountMaltainvestForm.secretAnswer.$dirty' ng-hide="vm.secretAnswerError">
+                        <div ng-message="maxlength && minlength">{{'newaccountmaltainvest.error_secretanswer' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-messages="vm.secretAnswerError" role="alert" ng-if='vm.secretAnswerError'>
+                        <div>{{vm.secretAnswerErrorMessage}}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -630,10 +670,12 @@
     <div class="row">
         <div class="col">
             <div class="row">
-
                 <label class="input-title checkbox-container">
-                  <input type="checkbox" ng-model="vm.data.accept" class="checkbox" required/>
+                    <input type="checkbox" ng-model="vm.data.accept" class="checkbox" required/>
                     {{'newaccountmaltainvest.accept_risk_question' | translate}}
+                    <div class="help-block error" ng-messages="vm.acceptError" role="alert" ng-if='vm.acceptError'>
+                        <div>{{vm.secretAnswerErrorMessage}}</div>
+                    </div>
                 </label>
             </div>
         </div>
@@ -642,7 +684,6 @@
     <div class="row">
         <div class="col">
             <div class="row">
-
                 <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid">{{'newaccountmaltainvest.open_account' | translate}}</button>
             </div>
         </div>

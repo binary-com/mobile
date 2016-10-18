@@ -18,6 +18,19 @@
     function NewAccountMaltainvest($scope, $timeout,  $translate, $location, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
         var vm = this;
         vm.data = {};
+        vm.salutationError = false;
+        vm.firstNameError = false;
+        vm.lastNameError = false;
+        vm.dateOfBirthError = false;
+        vm.countryError = false;
+        vm.addressLine1Error = false;
+        vm.addressLine2Error = false;
+        vm.addressCityError = false;
+        vm.addressStateError = false;
+        vm.addressPostcodeError = false;
+        vm.phoneError = false;
+        vm.secretQuestionError = false;
+        vm.secretAnswerError = false;
 				vm.isReadonly = false;
         vm.data.salutation = "Mr";
         vm.data.forexTradingExperience = "0-1 year";
@@ -107,6 +120,19 @@
 				});
 
 				vm.submitAccountOpening = function() {
+          vm.salutationError = false;
+          vm.firstNameError = false;
+          vm.lastNameError = false;
+          vm.dateOfBirthError = false;
+          vm.countryError = false;
+          vm.addressLine1Error = false;
+          vm.addressLine2Error = false;
+          vm.addressCityError = false;
+          vm.addressStateError = false;
+          vm.addressPostcodeError = false;
+          vm.phoneError = false;
+          vm.secretQuestionError = false;
+          vm.secretAnswerError = false;
 					if (vm.data.accept == true) {
 						vm.data.acceptRisk = 1
 					} else {
@@ -162,5 +188,64 @@
 						};
 					websocketService.sendRequestFor.createMaltainvestAccountSend(params);
 				};
+
+
+        $scope.$on('new-account-maltainvest:error', (e, details) => {
+          $scope.$applyAsync(() => {
+            if(details.hasOwnProperty('salutation')){
+              vm.salutationError = true;
+              vm.salutationErrorMessage = details.salutation;
+            }
+            if(details.hasOwnProperty('first_name')){
+              vm.firstNameError = true;
+              vm.firstNameErrorMessage = details.first_name;
+            }
+            if(details.hasOwnProperty('last_name')){
+              vm.lastNameError = true;
+              vm.lastNameErrorMessage = details.last_name;
+            }
+            if(details.hasOwnProperty('date_of_birth')){
+              vm.dateOfBirthError = true;
+              vm.dateOfBirthErrorMessage = details.date_of_birth;
+            }
+            if(details.hasOwnProperty('residence')){
+              vm.countryError = true;
+              vm.countryErrorMessage = details.residence;
+            }
+            if(details.hasOwnProperty('address_line_1')){
+              vm.addressLine1Error = true;
+              vm.addressLine1ErrorMessage = details.address_line_1;
+            }
+            if(details.hasOwnProperty('address_line_2')){
+              vm.addressLine2Error = true;
+              vm.addressLine2ErrorMessage = details.address_line_2;
+            }
+            if(details.hasOwnProperty('address_city')){
+              vm.addressCityError = true;
+              vm.addressCityErrorMessage = details.address_city;
+            }
+            if(details.hasOwnProperty('address_state')){
+              vm.addressStateError = true;
+              vm.addressStateErrorMessage = details.address_state;
+            }
+            if(details.hasOwnProperty('address_postcode')){
+              vm.addressPostcodeError = true;
+              vm.addressPostcodeErrorMessage = details.address_postcode;
+            }
+            if(details.hasOwnProperty('phone')){
+              vm.phoneError = true;
+              vm.phoneErrorMessage = details.phone;
+            }
+            if(details.hasOwnProperty('secret_question')){
+              vm.secretQuestionError = true;
+              vm.secretQuestionErrorMessage = details.secret_question;
+            }
+            if(details.hasOwnProperty('secret_answer')){
+              vm.secretAnswerError = true;
+              vm.secretAnswerErrorMessage = details.secret_answer;
+            }
+
+          });
+        });
 
 			}})();

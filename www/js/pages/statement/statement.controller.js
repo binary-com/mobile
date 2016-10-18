@@ -29,6 +29,7 @@
         vm.firstCompleted = false;
         vm.noMoreRequest = false;
         vm.jumpToDateInputShow = false;
+        vm.hasError = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -66,6 +67,7 @@
                     tableStateService.statementCompletedGroup = true;
                     appStateService.statementRefresh = false;
                     appStateService.isStatementSet = false;
+                    vm.hasError = false;
                     vm.loadMore();
                 }
             }
@@ -204,6 +206,13 @@
                     vm.setBatch();
                 }
             }
+        });
+
+        $scope.$on('statement:error', (e, message) => {
+          $scope.$applyAsync(() => {
+            vm.hasError = true;
+            vm.errorMessage = message;
+          });
         });
 
         vm.setBatch = function() {

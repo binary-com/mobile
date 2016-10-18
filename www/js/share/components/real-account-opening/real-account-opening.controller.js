@@ -136,7 +136,7 @@
             if (vm.hasGamingAndVirtual == true) {
                 vm.idsFound = [];
                 vm.count = vm.accounts.length;
-                vm.accounts.forEach(function(el, i) {
+                vm.accounts.forEach((el, i) => {
                         vm.val = vm.accounts[i]['id'];
                         if (vm.val.search('VRTC') > -1) {
                             vm.idsFound.push('VRTC');
@@ -157,7 +157,7 @@
             } else if (vm.hasGamingNotVirtual == true) {
                 vm.idsFound = [];
                 vm.count = vm.accounts.length;
-                vm.accounts.forEach(function(el, i) {
+                vm.accounts.forEach((el, i) => {
                     vm.val = vm.accounts[i]['id'];
                     if (vm.val.search('MF') > -1) {
                         vm.idsFound.push('MF');
@@ -170,7 +170,7 @@
             } else if (vm.hasFinancialAndMaltainvest == true) {
                 vm.idsFound = [];
                 vm.count = vm.accounts.length;
-                vm.accounts.forEach(function(el, i) {
+                vm.accounts.forEach((el, i) => {
                     vm.val = vm.accounts[i]['id'];
                     if (vm.val.search('MF') > -1) {
                         vm.idsFound.push('MF');

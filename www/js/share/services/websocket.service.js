@@ -450,7 +450,11 @@ angular
                             $rootScope.$broadcast('portfolio', message.portfolio);
                             break;
                         case 'profit_table':
+                            if (message.profit_table) {
                             $rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
+                            } else if (message.error) {
+                            $rootScope.$broadcast('profit_table:error', message.error.message);
+                            }
                             break;
                         case 'sell_expired':
                             $rootScope.$broadcast('sell:expired', message.sell_expired);
@@ -468,8 +472,7 @@ angular
                             if (message.verify_email) {
                                 $rootScope.$broadcast('verify_email', message.verify_email);
                             } else if (message.error) {
-                                $rootScope.$broadcast('verify_email:error', message.error.message);
-                                // alertService.displayError(message.error.message);
+                                $rootScope.$broadcast('verify_email:error', message.error.details);
                             }
                             break;
                         case 'residence_list':
@@ -495,20 +498,22 @@ angular
                             if (message.new_account_real) {
                                 $rootScope.$broadcast('new_account_real', message.new_account_real);
                             } else if (message.error) {
-                                $rootScope.$broadcast('new_account_real:error', message.error.message);
-                                // alertService.displayError(message.error.message);
+                                $rootScope.$broadcast('new_account_real:error', message.error.details);
                             }
                             break;
                         case 'new_account_maltainvest':
                             if (message.new_account_maltainvest) {
                                 $rootScope.$broadcast('new_account_maltainvest', message.new_account_maltainvest);
                             } else if (message.error) {
-                                $rootScope.$broadcast('new_account_maltainvest:error', message.error.message);
-                                // alertService.displayError(message.error.message);
+                                $rootScope.$broadcast('new_account_maltainvest:error', message.error.details);
                             }
                             break;
                         case 'statement':
+                            if (message.statement) {
                             $rootScope.$broadcast('statement:update', message.statement, message.echo_req.passthrough);
+                            } else if (message.error) {
+                            $rootScope.$broadcast('statement:error', message.error.message);
+                            }
                             break;
                         default:
                     }
