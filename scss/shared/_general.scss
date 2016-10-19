@@ -4,6 +4,11 @@ ion-scroll[direction=x] {
 body * {
 				font-family: roboto, sans-serif !important;
 }
+ion-side-menu{
+  ion-content{
+    overflow-y: hidden;
+  }
+}
 ion-content{
   height: 90vh;
   height: calc(100vh - 85px)!important;
