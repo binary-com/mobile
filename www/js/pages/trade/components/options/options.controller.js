@@ -88,6 +88,10 @@
       vm.proposal.currency = response.currency;
     });
 
+    $scope.$on('options:updated', (e, options) => {
+      vm.options = options;
+    });
+
     vm.setSection = function(id, section){
       if(id == 1){
         vm.section2 = vm.SECTIONS.OVERVIEW2;

@@ -13,9 +13,9 @@
         .module('binary.pages.trade.services')
         .factory('proposalService', Proposal);
 
-    Proposal.$inject = ['websocketService'];
+    Proposal.$inject = ['$rootScope', 'websocketService'];
 
-    function Proposal(websocketService){
+    function Proposal($rootScope, websocketService){
         var factory = {};
 
         factory.get = function(){
@@ -31,16 +31,11 @@
             localStorage.options = JSON.stringify(options);
         }
 
-        factory.setAmount = function(amount){
+        factory.setPropertyValue = function(propertyName, value){
           var options = JSON.parse(localStorage.options);
-          options.amount = amount;
+          options[propertyName] = value;
           localStorage.options = JSON.stringify(options);
-        }
-
-        factory.setBasis = function(basis){
-          var options = JSON.parse(localStorage.options);
-          options.basis = basis;
-          localStorage.options = JSON.stringify(options);
+          $rootScope.$broadcast('options:updated', options);
         }
 
         factory.update = function(options){
