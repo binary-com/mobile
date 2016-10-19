@@ -157,12 +157,18 @@ angular
 					}
 					return false;
 				},
-                asianGame: function asianGame(contract){
-                    if(contract.type.indexOf('ASIAN') === 0){
-                        return true;
-                    }
-                    return false;
-                },
+        asianGame: function asianGame(contract){
+          if(contract.type.indexOf('ASIAN') === 0){
+            return true;
+          }
+          return false;
+        },
+        higherLowerTrade: function higherLowerTrade(contract){
+          if(['PUT', 'CALL'].indexOf(contract.type) > -1 && !_.isEmpty(contract.barrier)){
+            return true;
+          }
+          return false;
+        },
 				getRelativeIndex: function getRelativeIndex(absoluteIndex, dataIndex) {
 					return absoluteIndex - (chartDrawer.getCapacity() - (chartDrawer.getTickCount() + chartDrawer.getDataIndex()));
 				},
@@ -393,36 +399,42 @@ angular
 					}
 				};
 
-				var viewSpots = function viewSpots(index, tickTime) {
-					if (isEntrySpot(tickTime)) {
-						contract.showingEntrySpot = true;
-						if (!utils.digitTrade(contract) && !utils.asianGame(contract) && !hasExitSpot()) {
-							chartDrawer.addGridLine({
-								color: '#2E8836',
-								label: 'barrier: ' + contract.barrier,
-								orientation: 'horizontal',
-                                type: 'barrier',
-								index: index
-							});
-						} else if (utils.asianGame(contract) && tickPriceList.length > 0 && !hasExitSpot()){
-							chartDrawer.addGridLine({
-								color: '#2E8836',
-								label: 'Average: ' + utils.average(tickPriceList),
-								orientation: 'horizontal',
-                                type: 'average',
-                                firstIndex: index,
-								index: index + (tickPriceList.length - 1)
-							});
-                        }
-                    } else if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
-						contract.showingExitSpot = true;
-					}
+        var viewSpots = function viewSpots(index, tickTime) {
+          if (isEntrySpot(tickTime)) {
+            contract.showingEntrySpot = true;
+            if (!utils.digitTrade(contract) && !utils.asianGame(contract) && !hasExitSpot()) {
+              chartDrawer.addGridLine({
+                color: '#2E8836',
+                label: 'barrier: ' + contract.barrier,
+                orientation: 'horizontal',
+                type: 'barrier',
+                index: index
+              });
+            } else if (utils.asianGame(contract) && tickPriceList.length > 0 && !hasExitSpot()){
+              chartDrawer.addGridLine({
+                color: '#2E8836',
+                label: 'Average: ' + utils.average(tickPriceList),
+                orientation: 'horizontal',
+                type: 'average',
+                firstIndex: index,
+                index: index + (tickPriceList.length - 1)
+              });
+            }
+          } else if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
+            contract.showingExitSpot = true;
+          }
 				};
 
 				var addSpots = function addSpots(index, tickTime, tickPrice) {
 					if (isEntrySpot(tickTime) || betweenExistingSpots(tickTime)) {
 						if (isEntrySpot(tickTime)) {
-							utils.setObjValue(contract, 'barrier', tickPrice, !utils.digitTrade(contract));
+              var barrier = tickPrice;
+              if(utils.higherLowerTrade(contract)){
+                contract.offset = contract.offset || contract.barrier;
+                barrier = Number(tickPrice) + Number(contract.offset);
+                barrier = barrier.toFixed(utils.fractionalLength(tickPrice));
+              }
+							utils.setObjValue(contract, 'barrier', barrier, !utils.digitTrade(contract));
 							utils.setObjValue(contract, 'entrySpotTime', tickTime, !hasEntrySpot());
 						} else if (isExitSpot(tickTime, index)) {
 							utils.setObjValue(contract, 'exitSpot', tickTime, !hasExitSpot());
@@ -730,12 +742,12 @@ angular
 
 						ctx.textAlign = 'center';
 						ctx.fillText(gridLine.label, point.x, scale.startPoint + 12);
-					} else if (gridLine.orientation === 'horizontal') {
-                        var yPoint = point.y;
-                        if(gridLine.type === 'average' && gridLine.index !== gridLine.firstIndex){
-                            firstPoint = thisChart.datasets[0].points[gridLine.firstIndex];
-                            yPoint = (firstPoint.y + point.y) / 2;
-                        }
+          } else if (gridLine.orientation === 'horizontal') {
+            var yPoint = point.y;
+            if(gridLine.type === 'average' && gridLine.index !== gridLine.firstIndex){
+              firstPoint = thisChart.datasets[0].points[gridLine.firstIndex];
+              yPoint = (firstPoint.y + point.y) / 2;
+            }
 
 					    ctx.moveTo(scale.startPoint, yPoint);
 
