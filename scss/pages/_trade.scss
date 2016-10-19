@@ -1,7 +1,10 @@
 .trade {
 	background: $lightgray;
-	.scroll{
-		    touch-action: initial;
+	.ionic-scroll{
+		min-height: 30px;
+		.scroll{
+				min-height: 30px;
+		}
 	}
 	.trade-container {
 		display: flex;
@@ -31,8 +34,9 @@
 			flex-grow: 1;
 		}
 		bg-options {
-			max-height: 100px;
+		height: 100px;
 			.options {
+				min-height: 30px;
 				max-height: 100px;
 				display: flex;
 				flex-grow: 1;
@@ -43,6 +47,7 @@
 					padding: 0;
 					&.options-row {
 						padding: 5px 0;
+						min-height: 30px;
 					}
 					.col {
 						padding: 0;
@@ -74,10 +79,17 @@
 		bg-ticks,
 		bg-tradetypes,
 		bg-underlyings {
+			min-height: 30px;
 			width: 100%;
 			display: flex;
 			flex-grow: 1;
 			padding: 5px 0 !important;
+			.ionic-scroll{
+				min-height: 30px;
+				.scroll{
+						min-height: 30px;
+				}
+			}
 			.digits,
 			.markets,
 			.ticks,
