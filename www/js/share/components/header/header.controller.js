@@ -14,13 +14,19 @@
         .module('binary.share.components')
         .controller('HeaderController', Header);
 
-    Header.$inject = ['$scope', '$state', '$ionicSideMenuDelegate', 'appStateService'];
+    Header.$inject = ['$scope', '$state',
+                      '$ionicHistory', '$ionicSideMenuDelegate',
+                      'appStateService',
+                    ];
 
-    function Header($scope, $state, $ionicSideMenuDelegate, appStateService) {
+    function Header($scope, $state,
+                    $ionicHistory, $ionicSideMenuDelegate,
+                    appStateService) {
         var vm = this;
         vm.hideMenuButton = false;
         vm.showBack = false;
         $ionicSideMenuDelegate.canDragContent(false);
+        $ionicHistory.backView(null);
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
 
