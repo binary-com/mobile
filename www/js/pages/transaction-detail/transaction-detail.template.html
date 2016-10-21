@@ -60,13 +60,13 @@
                     <li class="list" ng-if="vm.contract.payout">
                         <ul class="statement-list">
                             <li class="statement-element">{{'transactiondetails.payout' | translate}}</li>
-                            <li class="statement-element last-statement-element right" ng-bind="vm.formatMoney(vm.currency, vm.contract.payout)"></li>
+                            <li class="statement-element last-statement-element right" ng-bind="vm.contract.payout | currency : vm.currency : 2"></li>
                         </ul>
                     </li>
                     <li class="list" ng-if="vm.contract.buy_price">
                         <ul class="statement-list">
                             <li class="statement-element">{{'transactiondetails.buy_price' | translate}}</li>
-                            <li class="statement-element last-statement-element right" ng-bind="vm.formatMoney(vm.currency, vm.contract.buy_price)"></li>
+                            <li class="statement-element last-statement-element right" ng-bind="vm.contract.buy_price | currency : vm.currency : 2"></li>
                         </ul>
                     </li>
                     <li class="list" ng-if="vm.contract.exit_tick">
@@ -88,14 +88,14 @@
                     <li class="list" ng-if="vm.contract.sell_price">
                         <ul class="statement-list">
                             <li class="statement-element">{{'transactiondetails.sell_price' | translate}}</li>
-                            <li class="statement-element last-statement-element right" ng-bind="vm.formatMoney(vm.currency, vm.contract.sell_price)"></li>
+                            <li class="statement-element last-statement-element right" ng-bind="vm.contract.sell_price | currency : vm.currency : 2"></li>
                         </ul>
                     </li>
                     <li class="list" ng-if="vm.contract.sell_price && vm.contract.buy_price">
                         <ul class="statement-list">
                             <li class="statement-element">{{'transactiondetails.profit_loss' | translate}}</li>
                             <li class="statement-element last-statement-element right green" ng-class="{red : (vm.contract.sell_price - vm.contract.buy_price) < 0}">
-                                <span ng-bind="vm.formatMoney(vm.currency, (vm.contract.sell_price - vm.contract.buy_price).toFixed(2))"></span>
+                                <span ng-bind="(vm.contract.sell_price - vm.contract.buy_price) | currency : vm.currency : 2"></span>
                                 <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) > 0">(+{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
                                 <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) < 0">(-{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
                                 <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) == 0">({{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>

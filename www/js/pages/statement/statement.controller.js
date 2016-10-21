@@ -13,9 +13,13 @@
         .module('binary.pages.statement.controllers')
         .controller('StatementController', Statement);
 
-    Statement.$inject = ['$scope', '$filter', '$state', '$templateCache', '$ionicScrollDelegate', 'tableStateService', 'websocketService', 'appStateService', 'currencyToSymbolService'];
+    Statement.$inject = ['$scope', '$filter', '$state', '$templateCache',
+                         '$ionicScrollDelegate', 'tableStateService',
+                         'websocketService', 'appStateService'];
 
-    function Statement($scope, $filter, $state, $templateCache, $ionicScrollDelegate, tableStateService, websocketService, appStateService, currencyToSymbolService) {
+    function Statement($scope, $filter, $state, $templateCache,
+                       $ionicScrollDelegate, tableStateService,
+                       websocketService, appStateService) {
         var vm = this;
         vm.data = {};
         vm.noTransaction = false;
@@ -30,6 +34,7 @@
         vm.noMoreRequest = false;
         vm.jumpToDateInputShow = false;
         vm.hasError = false;
+        vm.currency = sessionStorage.getItem('currency');
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -278,11 +283,6 @@
             tableStateService.statementDateTo = vm.data.dateTo;
             vm.dateChanged = true;
             vm.pageState();
-        }
-
-        vm.formatMoney = function(currency, amount) {
-            vm.currency = sessionStorage.getItem('currency');
-            return currencyToSymbolService.formatMoney(currency, amount);
         }
 
         vm.goTop = function() {

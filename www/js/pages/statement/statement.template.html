@@ -41,7 +41,8 @@
                                 <li class="statement-element" ng-bind="transaction.transaction_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></li>
                                 <li class="center statement-element" ng-bind="transaction.transaction_id"></li>
                                 <li class="bold center statement-element" ng-bind="transaction.action_type"></li>
-                                <li class="statement-element last-statement-element bold green right" ng-bind="vm.formatMoney(vm.currency,transaction.balance_after)"></li>
+                                <li class="statement-element last-statement-element bold green right"
+                                    ng-bind="transaction.balance_after | currency : vm.currency : 2"></li>
                             </ul>
                         </li>
                         <li class="row" ng-if="vm.noTransaction">
