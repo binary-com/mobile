@@ -73,14 +73,7 @@ angular
           parent: 'layout',
           cache: false,
           templateUrl: 'js/pages/language/language.template.html'
-        })
-        .state('redirect', {
-            url: '/redirect',
-            cache: false,
-            templateUrl: 'js/pages/sign-in/components/oauth/oauth.template.html',
-            controller: 'OAuthRedirect'
-        })
-        ;
+        });
 
 
 				$urlRouterProvider.otherwise('/');
