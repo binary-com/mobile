@@ -1,16 +1,26 @@
 .trade {
 	background: $lightgray;
+	.scroll-content{
+		margin-top: 0!important;
+ 		padding-top: 0!important;
+ 		margin-bottom: 0!important;
+	}
 	.ionic-scroll{
 		min-height: 30px;
 		.scroll{
 				min-height: 30px;
+				display: flex;
+				flex-direction: column;
+		}
+		.scroll-bar-v{
+			display: none!important;
 		}
 	}
 	.trade-container {
 		display: flex;
 		flex-direction: column;
-		height: 85vh;
-		height: calc(100vh - 85px);
+		// height: 85vh;
+		// height: calc(100vh - 85px);
 		.scroll-bar-h {
 			bottom: -5px!important;
 			height: 1px;
@@ -34,10 +44,11 @@
 			flex-grow: 1;
 		}
 		bg-options {
-		height: 100px;
+		height: 70px;
+		margin-top: 75px;
 			.options {
-				min-height: 30px;
-				max-height: 100px;
+				// min-height: 20px;
+				max-height: 70px;
 				display: flex;
 				flex-grow: 1;
 				flex-direction: column;
@@ -47,7 +58,7 @@
 					padding: 0;
 					&.options-row {
 						padding: 5px 0;
-						min-height: 30px;
+						// min-height: 30px;
 					}
 					.col {
 						padding: 0;
@@ -271,6 +282,7 @@
 									display: inline-block;
 									vertical-align: middle;
 									line-height: normal;
+									width: 100%;
 									span {
 										display: inline-block;
 										vertical-align: middle;
@@ -282,6 +294,7 @@
 									font-size: 3.5vw;
 									display: inline-block;
 									vertical-align: middle;
+									width: 100%;
 									span {
 										display: inline-block;
 										vertical-align: middle;
@@ -547,11 +560,11 @@
 	.trade {
 		#tradeChart {
 			width: 100% !important;
-			height: 280px !important;
+			height: 230px !important;
 		}
 		bg-chart {
-			max-height: 290px;
-			min-height: 285px;
+			max-height: 240px;
+			min-height: 235px;
 		}
 	}
 	bg-purchase {

@@ -1,16 +1,29 @@
 .profit-table {
 	display: flex;
 	flex-direction: column;
-	ion-content {
-		display: flex;
-		flex-grow: 1;
-		flex-direction: column;
-		position: relative;
+	ion-content{
+		padding-top: 120px!important;
+		margin-top: 0 !important;
+    margin-bottom: 0 !important;
+		&.pull-down{
+			padding-top: 160px!important;
+		}
 	}
-	.filter {
-		display: flex;
-		flex-grow: 1;
-		position: relative;
+
+	.filters{
+		    margin-top: 75px;
+				position: absolute;
+				background: $white;
+				z-index: 10;
+	}
+	.jump-to-date-container{
+		margin-top: 125px;
+		.jump-to-date{
+			padding: 0;
+			input{
+				background: $white;
+			}
+		}
 	}
 	input {
 		margin-left: 15px;
@@ -27,18 +40,17 @@
 		opacity: 0.9;
 		color: white;
 		border-radius: 50%;
-		/*border-radius:15% 0 0 0;*/
-		width: 50px;
-		height: 50px;
+		width: 3em;
+		height: 3em;
 		font-size: 4vw;
 		position: fixed;
-		top: 70vh;
+		top: 85%;
 		right: 6%;
 		z-index: 1000;
 		text-align: center;
+		line-height: 3em;
 		i {
 			position: relative;
-			top: 15px;
 			background: inherit;
 			text-align: center;
 			color: $white;
@@ -114,9 +126,7 @@
 			padding: 2px 5px;
 		}
 	}
-	.jump-to-date {
-		padding: 0;
-	}
+
 	.has-error{
 		font-size: 4.5vw;
     color: red;
@@ -142,94 +152,9 @@
 	}
 	.title {
 		padding: 0 5px;
+		    margin-top: 40px;
 	}
 	.longcode {
 		padding: 5px 0;
-	}
-}
-@media only screen and (min-device-width: 480px) and (max-device-width: 720px) {
-	.profit-table {
-		input {
-			font-size: 3vw;
-		}
-		.float-button {
-			font-size: 3vw;
-		}
-		.item {
-			.input-title {
-				font-size: 3vw;
-			}
-		}
-		select {
-			font-size: 3vw;
-		}
-		.label {
-			input {
-				font-size: 3vw;
-			}
-		}
-		ul {
-			&.statement-list {
-				.statement-element {
-					font-size: 2.5vw;
-				}
-			}
-			.list {
-				.list-item {
-					font-size: 3vw;
-				}
-			}
-		}
-	}
-	.transaction-detail {
-		.reference {
-			font-size: 3.5vw;
-		}
-		.small-text {
-			font-size: 2.5vw;
-		}
-	}
-}
-@media only screen and (min-device-width: 721px) {
-	.profit-table {
-		input {
-			font-size: 2vw;
-		}
-		.float-button {
-			font-size: 2vw;
-		}
-		.item {
-			.input-title {
-				font-size: 2vw;
-			}
-		}
-		select {
-			font-size: 2vw;
-		}
-		.label {
-			input {
-				font-size: 2vw;
-			}
-		}
-		ul {
-			&.statement-list {
-				.statement-element {
-					font-size: 1.5vw;
-				}
-			}
-			.list {
-				.list-item {
-					font-size: 2vw;
-				}
-			}
-		}
-	}
-	.transaction-detail {
-		.reference {
-			font-size: 2.5vw;
-		}
-		.small-text {
-			font-size: 1.5vw;
-		}
 	}
 }
