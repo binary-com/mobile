@@ -1,18 +1,18 @@
 .trade {
 	background: $lightgray;
-	.scroll-content{
-		margin-top: 0!important;
- 		padding-top: 0!important;
- 		margin-bottom: 0!important;
+	.scroll-content {
+		margin-top: 0 !important;
+		padding-top: 0 !important;
+		margin-bottom: 0 !important;
 	}
-	.ionic-scroll{
+	.ionic-scroll {
 		min-height: 30px;
-		.scroll{
-				min-height: 30px;
-				display: flex;
-				flex-direction: column;
+		.scroll {
+			min-height: 30px;
+			display: flex;
+			flex-direction: column;
 		}
-		.scroll-bar-v{
+		.scroll-bar-v {
 			display: none!important;
 		}
 	}
@@ -42,8 +42,8 @@
 			flex-grow: 1;
 		}
 		bg-options {
-		height: 70px;
-		margin-top: 75px;
+			height: 70px;
+			margin-top: 75px;
 			.options {
 				max-height: 70px;
 				display: flex;
@@ -55,7 +55,7 @@
 					padding: 0;
 					&.options-row {
 						padding: 5px 0;
-						.col{
+						.col {
 							// border-bottom: 1px solid $gray;
 						}
 					}
@@ -94,10 +94,10 @@
 			display: flex;
 			flex-grow: 1;
 			padding: 5px 0 !important;
-			.ionic-scroll{
+			.ionic-scroll {
 				min-height: 30px;
-				.scroll{
-						min-height: 30px;
+				.scroll {
+					min-height: 30px;
 				}
 			}
 			.digits,
@@ -166,11 +166,11 @@
 						a {
 							color: $darkgray;
 						}
-						input{
-					    padding: 2px 3px;
-					    border: 1px solid #F2F2F2;
-					    background: #FFF;
-					    border-radius: 3px;
+						input {
+							padding: 2px 3px;
+							border: 1px solid #F2F2F2;
+							background: #FFF;
+							border-radius: 3px;
 						}
 						.payout-cell-link {
 							display: flex;
@@ -352,12 +352,18 @@
 						}
 						&.buy {
 							padding: 0;
+							.row{
+								color: $blue;
+							}
 							.title {
 								color: $darkgray;
 							}
 						}
 						&.sell {
 							padding: 0;
+							.row{
+								color: $green;
+							}
 							.title {
 								color: $darkgray;
 							}
@@ -368,6 +374,12 @@
 								color: $darkgray;
 							}
 						}
+						&.win {
+							color: $green !important;
+						}
+						&.lose {
+							color: $red !important;
+						}
 					}
 				}
 			}
@@ -375,21 +387,29 @@
 		.buy-again-container {
 			margin: 0 auto;
 			width: 100%;
-			width: calc(100vw - 10px);
-			background: $white;
-			border: 1px solid $gray;
-			border-radius: 3px;
+			padding: 0 5px;
 			display: flex;
 			flex-grow: 1;
 			.buy-again {
 				display: flex;
 				flex-grow: 1;
 				flex-direction: row;
+				background: $white;
+				border: 1px solid $gray;
+				border-radius: 3px;
+				margin-bottom: 5px;
 				.col {
 					flex-grow: 1;
 					display: flex;
 					flex-direction: column;
 					font-size: 4vw;
+					color: $darkgray;
+					padding: 0;
+					.row{
+						&:last-child{
+							font-weight: bold;
+						}
+					}
 					.button {
 						white-space: nowrap;
 						font-size: 4vw;
@@ -420,10 +440,13 @@
 					font-size: 4vw;
 					white-space: nowrap;
 					min-height: 40px!important;
+					max-height: 45px;
 					line-height: inherit;
 					flex-grow: 1;
 					display: block;
 					margin: 5px;
+					margin: 0 auto;
+					background: $blue;
 				}
 			}
 		}
@@ -458,26 +481,72 @@
 		bg-digit-result {
 			padding: 5px;
 			max-height: 75px;
+			margin: 0 auto;
+			width: 100%;
 			.digit-result {
 				border: 1px solid $gray;
-				border-radius: 3px;
 				background: $white;
+				border-radius: 3px;
 				display: flex;
 				flex-direction: column;
 				color: $darkgray;
-				.row {
-					display: flex;
-					flex-direction: row;
-					flex-grow: 1;
-					.col {
-						display: flex;
-						flex-direction: column;
-						flex-grow: 1;
-						font-size: 4vw;
-						font-weight: bold;
+				padding: 5px 0;
+				.col {
+					padding: 0 !important;
+				}
+				.numberCircle {
+					display: inline-block;
+					line-height: 0;
+					border-radius: 50%;
+					border: 2px solid;
+					font-size: 4vw;
+					span {
+						display: inline-block;
+						padding-top: 50%;
+						padding-bottom: 50%;
+						margin-left: 8px;
+						margin-right: 8px;
+					}
+					&.lose {
+						color: red;
+						&.last {
+							color: $white !important;
+							background: $red !important;
+							border-color: $red !important;
+						}
+					}
+					&.win {
+						color: green;
+						&.last {
+							color: $white !important;
+							background: $green !important;
+							border-color: $green !important;
+						}
 					}
 				}
 			}
+			//
+			//
+			// .digit-result {
+			// 	border: 1px solid $gray;
+			// 	border-radius: 3px;
+			// 	background: $white;
+			// 	display: flex;
+			// 	flex-direction: column;
+			// 	color: $darkgray;
+			// 	.row {
+			// 		display: flex;
+			// 		flex-direction: row;
+			// 		flex-grow: 1;
+			// 		.col {
+			// 			display: flex;
+			// 			flex-direction: column;
+			// 			flex-grow: 1;
+			// 			font-size: 4vw;
+			// 			font-weight: bold;
+			// 		}
+			// 	}
+			// }
 		}
 	}
 }
