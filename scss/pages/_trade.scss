@@ -19,8 +19,6 @@
 	.trade-container {
 		display: flex;
 		flex-direction: column;
-		// height: 85vh;
-		// height: calc(100vh - 85px);
 		.scroll-bar-h {
 			bottom: -5px!important;
 			height: 1px;
@@ -47,7 +45,6 @@
 		height: 70px;
 		margin-top: 75px;
 			.options {
-				// min-height: 20px;
 				max-height: 70px;
 				display: flex;
 				flex-grow: 1;
@@ -58,11 +55,13 @@
 					padding: 0;
 					&.options-row {
 						padding: 5px 0;
-						// min-height: 30px;
+						.col{
+							// border-bottom: 1px solid $gray;
+						}
 					}
 					.col {
 						padding: 0;
-						margin-left: 30px;
+						margin-left: 2%;
 						display: flex;
 						flex-grow: 1;
 						flex-direction: column;
@@ -107,22 +106,15 @@
 			.tradetypes,
 			.underlyings {
 				width: 100%;
-				// padding: 0;
-				// margin-left: 30px;
 				display: flex;
 				flex-direction: column;
 				flex-grow: 1;
-				// .scroll-view.scroll-x {
-				// 	display: flex;
-				// 	flex-direction: column;
-				// }
 				.row {
 					display: flex;
 					flex-grow: 1;
 					padding: 0 !important;
 					.col {
 						padding: 0;
-						// margin-left: 30px;
 						display: flex;
 						flex-grow: 1;
 						flex-direction: column;
@@ -173,6 +165,12 @@
 						text-align: center;
 						a {
 							color: $darkgray;
+						}
+						input{
+					    padding: 2px 3px;
+					    border: 1px solid #F2F2F2;
+					    background: #FFF;
+					    border-radius: 3px;
 						}
 						.payout-cell-link {
 							display: flex;

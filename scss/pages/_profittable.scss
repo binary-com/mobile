@@ -1,40 +1,41 @@
 .profit-table {
 	display: flex;
 	flex-direction: column;
-	ion-content{
-		padding-top: 120px!important;
+	ion-content {
+		padding-top: 120px !important;
 		margin-top: 0 !important;
-    margin-bottom: 0 !important;
-		&.pull-down{
-			padding-top: 160px!important;
+		margin-bottom: 0 !important;
+		&.pull-down {
+			padding-top: 160px !important;
 		}
 	}
-
-	.filters{
-		    margin-top: 75px;
-				position: absolute;
-				background: $white;
-				z-index: 10;
-	}
-	.jump-to-date-container{
-		margin-top: 125px;
-		.jump-to-date{
-			padding: 0;
-			input{
-				background: $white;
+	.filters {
+		margin-top: 75px;
+		position: absolute;
+		background: $white;
+		z-index: 10;
+		input {
+			margin-left: 15px;
+			border: 1px solid $gray;
+			border-radius: 3px;
+			padding: 5px;
+			font-size: 4vw;
+		}
+		input[type="date"]::-webkit-calendar-picker-indicator {
+			color: $gray;
+		}
+		&.jump-to-date-container {
+			margin-top: 125px;
+			.jump-to-date {
+				padding: 0;
+				input {
+					background: $white;
+				}
 			}
 		}
 	}
-	input {
-		margin-left: 15px;
-		border: 1px solid $gray;
-		border-radius: 3px;
-		padding: 5px;
-		font-size: 4vw;
-	}
-	input[type="date"]::-webkit-calendar-picker-indicator {
-		color: $gray;
-	}
+
+
 	.float-button {
 		background-color: $darkblue;
 		opacity: 0.9;
@@ -65,12 +66,12 @@
 	.item-select {
 		border: 1px solid $gray;
 		border-radius: 3px;
-	}
-	select {
-		width: 100%;
-		padding: 0 15px;
-		direction: ltr;
-		font-size: 4vw;
+		select {
+			width: 100%;
+			padding: 0 15px;
+			direction: ltr;
+			font-size: 4vw;
+		}
 	}
 	.label {
 		padding: 0;
@@ -126,10 +127,9 @@
 			padding: 2px 5px;
 		}
 	}
-
-	.has-error{
+	.has-error {
 		font-size: 4.5vw;
-    color: red;
+		color: red;
 	}
 }
 .transaction-detail {
@@ -152,9 +152,49 @@
 	}
 	.title {
 		padding: 0 5px;
-		    margin-top: 40px;
+		margin-top: 45px;
 	}
 	.longcode {
 		padding: 5px 0;
+	}
+	ul {
+		&.statement-list {
+			display: flex;
+			flex-direction: row;
+			padding: 5px;
+			.statement-element {
+				display: flex;
+				flex-grow: 1;
+				padding: 5px 0;
+				font-size: 3.5vw;
+				&.last-statement-element {
+					display: block;
+				}
+			}
+		}
+		.list {
+			padding: 0;
+			margin-bottom: 0;
+			.list-item {
+				font-size: 4vw;
+				padding: 10px 0;
+				color: $black;
+			}
+			.right {
+				text-align: right;
+			}
+			.green {
+				color: $green;
+			}
+			.red {
+				color: $red!important;
+			}
+			.bold {
+				font-weight: bold;
+			}
+		}
+		.profit-table-list {
+			padding: 2px 5px;
+		}
 	}
 }
