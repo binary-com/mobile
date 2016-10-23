@@ -13,11 +13,11 @@
         .module('binary.pages.statement.controllers')
         .controller('StatementController', Statement);
 
-    Statement.$inject = ['$scope', '$filter', '$state', '$templateCache',
+    Statement.$inject = ['$scope', '$filter', '$timeout', '$state', '$templateCache',
                          '$ionicScrollDelegate', 'tableStateService',
                          'websocketService', 'appStateService'];
 
-    function Statement($scope, $filter, $state, $templateCache,
+    function Statement($scope, $filter, $timeout, $state, $templateCache,
                        $ionicScrollDelegate, tableStateService,
                        websocketService, appStateService) {
         var vm = this;
@@ -80,6 +80,10 @@
             // else{
             //    wait for authorize
             // }
+        }
+
+        vm.delayedLoad = function(){
+          $timeout(vm.loadMore, 2000);
         }
 
         vm.loadMore = function() {
