@@ -72,6 +72,7 @@
             </div>
 
         </div>
-          <ion-infinite-scroll on-infinite="vm.loadMore()" distance="1%" ng-if="!vm.noMore && vm.firstCompleted && !vm.dateChanged"></ion-infinite-scroll>
+          <ion-infinite-scroll on-infinite="vm.delayedLoad()" distance="1%" ng-if="!vm.noMore && vm.firstCompleted && !vm.dateChanged"></ion-infinite-scroll>
+          <ion-spinner class="first-spinner" ng-if="!vm.firstCompleted"></ion-spinner>
     </ion-content>
 </ion-view>
