@@ -320,6 +320,9 @@
 		}
 		bg-longcode {
 			max-height: 75px;
+			margin-top: 75px;
+			display: flex;
+			flex-grow: 1;
 			.longcode {
 				max-height: 75px;
 				display: flex;
@@ -331,6 +334,7 @@
 						display: flex;
 						flex-grow: 1;
 						flex-direction: column;
+						color: $darkgray;
 					}
 				}
 			}
