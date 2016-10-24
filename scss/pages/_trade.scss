@@ -5,6 +5,9 @@
 		padding-top: 0 !important;
 		margin-bottom: 0 !important;
 	}
+	ion-content{
+		height: 100vh!important;
+	}
 	.ionic-scroll {
 		min-height: 30px;
 		.scroll {
@@ -317,6 +320,9 @@
 		}
 		bg-longcode {
 			max-height: 75px;
+			margin-top: 75px;
+			display: flex;
+			flex-grow: 1;
 			.longcode {
 				max-height: 75px;
 				display: flex;
@@ -328,6 +334,7 @@
 						display: flex;
 						flex-grow: 1;
 						flex-direction: column;
+						color: $darkgray;
 					}
 				}
 			}

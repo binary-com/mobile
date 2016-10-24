@@ -250,7 +250,8 @@
 
         vm.setFiltered = function() {
             $scope.$applyAsync(() => {
-                vm.filteredTransactions = $filter('StatementDataFilter')(vm.batchedTransaction, vm.data.appID);
+              tableStateService.statementAppID = vm.data.appID;
+                vm.filteredTransactions = $filter('StatementDataFilter')(vm.batchedTransaction, tableStateService.statementAppID);
                 if (vm.filteredTransactions.length == 0) {
                     vm.noTransaction = true;
                 } else {
