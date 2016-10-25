@@ -187,7 +187,6 @@
         vm.autoSizeText = function() {
             var el, elements, _i, _len, _results;
             elements = document.getElementsByClassName('resize');
-            console.log(elements);
             if (elements.length < 0) {
                 return;
             }
