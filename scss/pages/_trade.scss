@@ -308,10 +308,12 @@
 						.error {
 							background-color: $notification;
 							padding: 10px 0;
+							height: 70px;
 							p {
 								margin: 5px !important;
 								font-size: 4vw;
 								color: $black;
+								height: 70px;
 							}
 						}
 					}
