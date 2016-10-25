@@ -244,6 +244,7 @@
 						display: flex;
 						min-height: inherit;
 						flex-grow: 1;
+						margin-top: 0;
 						.col {
 							line-height: normal;
 							font-size: 4vw;
@@ -267,8 +268,9 @@
 							height: auto;
 							.contract-image-container {
 								text-align: center;
-								display: block;
+								display: flex;
 								height: auto;
+								align-items: center;
 								img {
 									margin: 0 auto;
 								}
