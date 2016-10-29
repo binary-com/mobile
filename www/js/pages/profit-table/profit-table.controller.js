@@ -13,11 +13,11 @@
         .module('binary.pages.profit-table.controllers')
         .controller('ProfitTableController', ProfitTable);
 
-    ProfitTable.$inject = ['$scope', '$filter', '$state', '$templateCache',
+    ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', '$templateCache',
                            '$ionicScrollDelegate','tableStateService',
                            'websocketService', 'appStateService'];
 
-    function ProfitTable($scope, $filter, $state, $templateCache,
+    function ProfitTable($scope, $filter, $timeout, $state, $templateCache,
                          $ionicScrollDelegate, tableStateService,
                          websocketService, appStateService) {
         var vm = this;
@@ -81,6 +81,10 @@
             // else{
             //    wait for authorize
             // }
+        }
+
+        vm.delayedLoad = function(){
+          $timeout(vm.loadMore, 2000);
         }
 
         vm.loadMore = function() {
@@ -246,7 +250,8 @@
 
         vm.setFiltered = function() {
             $scope.$applyAsync(() => {
-                vm.filteredTransactions = $filter('DataFilter')(vm.batchedTransaction, vm.data.appID);
+              tableStateService.appID = vm.data.appID;
+                vm.filteredTransactions = $filter('DataFilter')(vm.batchedTransaction, tableStateService.appID);
                 if (vm.filteredTransactions.length == 0) {
                     vm.noTransaction = true;
                 } else {
