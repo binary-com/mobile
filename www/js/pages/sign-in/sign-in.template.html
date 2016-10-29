@@ -34,7 +34,7 @@
                     {{'newvirtualaccount.enter-email' | translate}}
                   </div>
                     <label class="item-input">
-                        <input autocomplete="off" type="text" placeholder="{{'newvirtualaccount.enter-email' | translate}}" ng-model="vm.data.mail" tabindex="1" ngRequired/>
+                        <input autocomplete="off" type="text" placeholder="{{'newvirtualaccount.email' | translate}}" ng-model="vm.data.mail" tabindex="1" ngRequired/>
                     </label>
                     <div class="help-block error" ng-if="vm.emailError">
                         {{vm.emailErrorMessage}}
@@ -57,16 +57,17 @@
                     <label class="item-input">
                         <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-pattern="/^\w{15,128}$/" required/>
                     </label>
-                    <div class="help-block">
-                        {{'newvirtualaccount.code_hint' | translate}}
-                    </div>
-
                     <div class="help-block error" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty' ng-hide="vm.tokenError">
                         <div ng-message="pattern">{{'newvirtualaccount.token-invalid' | translate}}</div>
                     </div>
                     <div class="help-block error" ng-show="vm.tokenError">
                         <div>{{vm.tokenErrorMessage}}</div>
                     </div>
+                    <div class="help-block">
+                        {{'newvirtualaccount.code_hint' | translate}}
+                    </div>
+
+
 
                 </div>
             </div>
@@ -75,16 +76,17 @@
                     <label class="item-input">
                         <input name="password" id="password" ng-model="vm.data.clientPassword" type="{{vm.data.inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]{6,25}$/" ng-pattern="/^[ -~]{6,25}$/" required/>
                     </label>
-                    <div class="help-block">
-                        {{'newvirtualaccount.password_hint' | translate}}
-                    </div>
-
                     <div class="help-block error" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty' ng-hide="vm.passwordError">
                         <div ng-message="pattern">{{'newvirtualaccount.error_format' | translate}}</div>
                     </div>
                     <div class="help-block error" ng-if="vm.passwordError">
                         <div>{{vm.passwordErrorMessage}}</div>
                     </div>
+                    <div class="help-block">
+                        {{'newvirtualaccount.password_hint' | translate}}
+                    </div>
+
+
 
                     <div class="help-block show-hide-password">
                         <input type="checkbox" id="show-hide" name="show-hide" ng-model="vm.passwordCheckbox" ng-click="vm.hideShowPassword()"/>

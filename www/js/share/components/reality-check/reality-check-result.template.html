@@ -6,7 +6,8 @@
 
 		</div>
 		<div class="col">
-			{{vm.realityCheckitems.start_time}}
+			<span ng-bind="vm.realityCheckitems.start_time | date: 'yyyy-MM-dd hh:mm:ss' : 'GMT'"></span>
+			<span>GMT</span>
 		</div>
 	</div>
 	<div class="row">
@@ -17,7 +18,8 @@
 
 		</div>
 		<div class="col">
-			{{vm.realityCheckitems.currentTime}}
+			<span ng-bind="vm.now | date: 'yyyy-MM-dd hh:mm:ss' : 'GMT'"></span>
+			<span>GMT</span>
 		</div>
 	</div>
 	<div class="row">
