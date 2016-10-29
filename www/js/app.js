@@ -15,7 +15,8 @@
       'binary.share.components',
       'binary.share.services',
       'binary.pages',
-      'ngMessages'
+      'ngMessages',
+      'ngCordova'
       ]);
 
   angular
@@ -29,7 +30,8 @@
         'binary.share.components.long-press',
         'binary.share.components.reality-check',
         'binary.share.components.real-account-opening',
-        'binary.share.components.logout'
+        'binary.share.components.logout',
+        'binary.share.components.connectivity'
     ]);
 
   angular

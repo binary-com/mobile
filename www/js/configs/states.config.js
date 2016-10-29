@@ -73,6 +73,9 @@ angular
           parent: 'layout',
           cache: false,
           templateUrl: 'js/pages/language/language.template.html'
+        })
+        .state('no-connection', {
+          templateUrl: 'js/share/components/connectivity/connectivity.template.html'
         });
 
 
