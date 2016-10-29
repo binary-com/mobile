@@ -5,7 +5,7 @@
 		padding-top: 0 !important;
 		margin-bottom: 0 !important;
 	}
-	ion-content{
+	ion-content {
 		height: 100vh!important;
 	}
 	.ionic-scroll {
@@ -52,6 +52,7 @@
 				display: flex;
 				flex-grow: 1;
 				flex-direction: column;
+				background: $white;
 				.row {
 					display: flex;
 					flex-grow: 1;
@@ -69,13 +70,15 @@
 						flex-grow: 1;
 						flex-direction: column;
 						flex-basis: 20px;
-						.button {
+						.button,
+						a {
 							max-height: none;
 							min-height: 20px!important;
 							font-size: 4vw;
 							color: $black;
 							line-height: normal;
 							white-space: nowrap;
+							font-weight: normal;
 							&:hover {
 								color: $black!important;
 							}
@@ -85,72 +88,27 @@
 				.row + .row {
 					margin-top: 0 !important;
 				}
+				ion-tab {
+					color: $black;
+				}
 			}
 		}
 		bg-digits,
-		bg-markets,
-		bg-ticks,
-		bg-tradetypes,
-		bg-underlyings {
-			min-height: 30px;
-			width: 100%;
-			display: flex;
-			flex-grow: 1;
-			align-items: center;
-			.ionic-scroll {
-				min-height: 30px;
-				.scroll {
-					min-height: 30px;
-				}
-			}
-			.digits,
-			.markets,
-			.ticks,
-			.tradetypes,
-			.underlyings {
-				width: 100%;
-				display: flex;
-				flex-direction: column;
-				flex-grow: 1;
-				.row {
-					display: flex;
-					flex-grow: 1;
-					padding: 0 !important;
-					.col {
-						padding: 0;
-						display: flex;
-						flex-grow: 1;
-						flex-direction: column;
-						flex-basis: 20px!important;
-						.button {
-							max-height: none;
-							min-height: 20px!important;
-							font-size: 4vw;
-							color: $black;
-							line-height: normal;
-							white-space: nowrap;
-							&:hover {
-								color: $black!important;
-							}
-						}
-					}
-				}
-			}
-		}
-		bg-digits, bg-ticks{
+		bg-ticks {
 			width: 100vw;
-			.digits, .ticks{
+			.digits,
+			.ticks {
 				width: 100vw;
 				display: flex;
-				.row{
+				.row {
 					display: flex;
 					flex-direction: row;
-					.col{
+					.col {
 						display: flex;
 						flex-grow: 1;
 						padding: 0;
 						margin: 0;
-						.button{
+						.button {
 							padding: 0;
 							margin: 0;
 							min-width: inherit;
@@ -385,7 +343,7 @@
 						}
 						&.buy {
 							padding: 0;
-							.row{
+							.row {
 								color: $blue;
 							}
 							.title {
@@ -394,7 +352,7 @@
 						}
 						&.sell {
 							padding: 0;
-							.row{
+							.row {
 								color: $green;
 							}
 							.title {
@@ -438,8 +396,8 @@
 					font-size: 4vw;
 					color: $darkgray;
 					padding: 0;
-					.row{
-						&:last-child{
+					.row {
+						&:last-child {
 							font-weight: bold;
 						}
 					}
@@ -477,7 +435,6 @@
 					line-height: inherit;
 					flex-grow: 1;
 					display: block;
-					margin: 5px;
 					margin: 0 auto;
 					background: $blue;
 				}
@@ -580,6 +537,92 @@
 			// 		}
 			// 	}
 			// }
+		}
+	}
+}
+.modal {
+	opacity: 0.95;
+	background: $white;
+	.bar-header {
+		background: $white;
+		font-size: 5vw;
+	}
+	.button {
+		color: $black;
+	}
+	bg-digits,
+	bg-markets,
+	bg-ticks,
+	bg-tradetypes,
+	bg-underlyings {
+		min-height: 30px;
+		width: 100%;
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		background: $white;
+		height: calc(100vh - 46px);
+		display: flex;
+		align-items: center;
+		.ionic-scroll {
+			min-height: 30px;
+			.scroll {
+				min-height: 30px;
+			}
+		}
+		.digits,
+		.markets,
+		.ticks,
+		.trade-types,
+		.underlyings {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			height: calc(90vh - 46px);
+			display: flex;
+			align-items: center;
+			.row {
+				display: flex;
+				flex-grow: 1;
+				padding: 0 !important;
+				height: calc(90vh - 46px)!important;
+				align-items: center!important;
+				flex-direction: column;
+				.col {
+					padding: 0;
+					display: flex;
+					flex-grow: 1;
+					flex-direction: column;
+					flex-basis: 20px!important;
+					border-bottom: 1px solid $lightgray;
+					width: 70%;
+					margin: 0 auto;
+					&:first-child{
+						border-top: none;
+					}
+					&:last-child{
+						border-bottom: none;
+					}
+					.button,
+					a {
+						max-height: none;
+						min-height: 20px!important;
+						font-size: 4vw;
+						color: $black;
+						line-height: normal;
+						white-space: nowrap;
+						font-weight: normal;
+						font-size: 5vw;
+						border-radius: 0;
+						text-align: center;
+						color: $blue;
+						&:hover {
+							color: $black!important;
+						}
+					}
+				}
+			}
 		}
 	}
 }
