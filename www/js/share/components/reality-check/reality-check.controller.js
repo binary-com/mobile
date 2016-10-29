@@ -147,20 +147,8 @@
       websocketService.sendRequestFor.realityCheck();
     }
     vm.sessionTime = function(reality_check) {
-      // vm.date = reality_check.start_time * 1000;
-      // vm.start_time = new Date(vm.date);
-      // vm.realityCheckitems.start_time = vm.start_time.toUTCString();
-      // vm.now = Date.now();
-      // vm.realityCheckitems.currentTime = new Date(vm.now).toUTCString();
-      // vm.duration = (vm.now - vm.date);
-      // vm.realityCheckitems.days = Math.floor(vm.duration / 864e5);
-      // vm.hour = vm.duration - (vm.realityCheckitems.days * 864e5);
-      // vm.realityCheckitems.hours = Math.floor(vm.hour / 36e5);
-      // vm.min = vm.duration - ((vm.realityCheckitems.days * 864e5) + (vm.realityCheckitems.hours * 36e5));
-      // vm.realityCheckitems.minutes = Math.floor(vm.min / 60000);
       vm.realityCheckitems.start_time = sessionStorage.getItem('realityCheckStart');
       vm.now = Date.now();
-
       vm.duration = (vm.now - vm.realityCheckitems.start_time);
       vm.realityCheckitems.days = Math.floor(vm.duration / 864e5);
       vm.hour = vm.duration - (vm.realityCheckitems.days * 864e5);
