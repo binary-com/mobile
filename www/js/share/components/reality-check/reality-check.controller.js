@@ -21,8 +21,7 @@
     $scope.$on('authorize', function(e, authorize) {
       vm.sessionLoginId = authorize.loginid;
       // check if user is not already authorized, account is real money account  & is not changed in app
-      if (!appStateService.isRealityChecked && authorize.is_virtual == 0 && appStateService.isChangedAccount) {
-        appStateService.isChangedAccount = false;
+      if (!appStateService.isRealityChecked && authorize.is_virtual == 0 && !appStateService.isChangedAccount) {
         landingCompanyName = authorize.landing_company_name;
         websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
       }
@@ -43,6 +42,7 @@
         appStateService.isChangedAccount = false;
       }
     });
+
     $scope.$on('landing_company_details', function(e, landingCompanyDetails) {
       if (landingCompanyDetails.has_reality_check === 1) {
         vm.hasRealityCheck();
