@@ -265,6 +265,7 @@
 
         vm.dateFilter = function() {
           vm.noTransaction = false;
+            vm.dateChanged = true;
             if (vm.data.dateType == 'allTime') {
                 vm.firstCompleted = false;
                 tableStateService.statementDateType = 'allTime';
@@ -282,7 +283,6 @@
                 document.getElementById('statement-dateTo').value =  vm.nowDateInputLimit;
             }
             tableStateService.statementDateType = vm.data.dateType;
-            vm.dateChanged = true;
         }
 
         vm.jumpToDateFilter = function() {
