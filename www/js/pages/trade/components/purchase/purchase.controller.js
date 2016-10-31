@@ -151,7 +151,7 @@
                 setTimeout(init, 500);
                 return;
             }
-            sendProposal();
+            //sendProposal();
         }
 
         function sendProposal() {
