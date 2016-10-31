@@ -435,6 +435,7 @@ angular
                 barrier = barrier.toFixed(utils.fractionalLength(tickPrice));
               }
 							utils.setObjValue(contract, 'barrier', barrier, !utils.digitTrade(contract));
+              utils.setObjValue(contract, 'entrySpotPrice', barrier, true);
 							utils.setObjValue(contract, 'entrySpotTime', tickTime, !hasEntrySpot());
 						} else if (isExitSpot(tickTime, index)) {
 							utils.setObjValue(contract, 'exitSpot', tickTime, !hasExitSpot());
@@ -481,39 +482,49 @@ angular
 				};
 
 				var addRegions = function addRegions(lastTime, lastPrice) {
-					if (hasEntrySpot()) {
+          if (hasEntrySpot()) {
 
-                        if(tickPriceList.length === 0){
-                            tickPriceList.push(parseFloat(contract.barrier));
-                        } else {
-                            tickPriceList.push(parseFloat(lastPrice));
-                        }
+            if(tickPriceList.length === 0){
+              if(contract.barrier){
+                tickPriceList.push(parseFloat(contract.barrier));
+              } else if(contract.entrySpotTime != lastTime && betweenExistingSpots(lastTime)){
+                tickPriceList.push(parseFloat(contract.entrySpotPrice));
+                if (utils.conditions[contract.type](contract.barrier, contract.entrySpotPrice, tickPriceList)) {
+                  contract.result = 'win';
+                } else {
+                  contract.result = 'lose';
+                }
+                $rootScope.$broadcast('contract:spot', contract, contract.entrySpotPrice);
+              } else {
+                tickPriceList.push(parseFloat(lastPrice));
+              }
+            } else {
+              tickPriceList.push(parseFloat(lastPrice));
+            }
 
-						if (betweenExistingSpots(lastTime)) {
-							if (utils.conditions[contract.type](contract.barrier, lastPrice, tickPriceList)) {
-								contract.result = 'win';
-							} else {
-								contract.result = 'lose';
-							}
-
-              if(broadcastable){
-                $rootScope.$broadcast('contract:spot', contract, lastPrice);
+            if (betweenExistingSpots(lastTime)) {
+              if (utils.conditions[contract.type](contract.barrier, lastPrice, tickPriceList)) {
+                contract.result = 'win';
+              } else {
+                contract.result = 'lose';
               }
 
-							if ( isFinished() && broadcastable ) {
-                                tickPriceList = []
-								contractCtrls.forEach(function(contractctrl, index){
-									var oldContract = contractctrl.getContract();
-									if ( contract !== oldContract && !contractctrl.isFinished() ) {
-										setNotBroadcastable();
-									}
-								});
-								if ( broadcastable ) {
-									$rootScope.$broadcast("contract:finished", contract);
-								}
-							}
-						}
-					}
+              $rootScope.$broadcast('contract:spot', contract, lastPrice);
+
+              if ( isFinished() && broadcastable ) {
+                tickPriceList = []
+                contractCtrls.forEach(function(contractctrl, index){
+                  var oldContract = contractctrl.getContract();
+                  if ( contract !== oldContract && !contractctrl.isFinished() ) {
+                    setNotBroadcastable();
+                  }
+                });
+                if ( broadcastable ) {
+                  $rootScope.$broadcast("contract:finished", contract);
+                }
+              }
+            }
+          }
 				};
 
 				return {
