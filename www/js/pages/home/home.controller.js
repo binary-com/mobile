@@ -40,7 +40,9 @@
       // Check that is saved any default account or not
       if (!appStateService.isLoggedin && accountService.hasDefault()) {
         // Login to the server if there is any default account
-        accountService.validate();
+        if(!appStateService.isLoggedin){
+          accountService.validate();
+        }
       } else {
         $state.go('signin');
       }

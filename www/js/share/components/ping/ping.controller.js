@@ -14,16 +14,18 @@
     .module('binary.share.components.ping.controllers')
     .controller('PingController', Ping);
 
-  Ping.$inject = ['$timeout', 'websocketService']
+  Ping.$inject = ['$timeout', 'appStateService', 'websocketService']
 
-  function Ping($timeout, websocketService){
+  function Ping($timeout, appStateService, websocketService){
 
     function init(){
       ping();
     }
 
     function ping(){
-      websocketService.sendRequestFor.ping();
+      if(appStateService.isLoggedin){
+        websocketService.sendRequestFor.ping();
+      }
 
       $timeout(ping, 60000);
     }
