@@ -65,20 +65,23 @@
 					}
 					.col {
 						padding: 0;
-						margin: 0 1%;
 						display: flex;
 						flex-grow: 1;
 						flex-direction: column;
 						flex-basis: 20px;
+						align-items: center;
 						.button,
 						a {
 							max-height: none;
 							min-height: 20px!important;
 							font-size: 4vw;
-							color: $black;
+							color: $darkgray;
 							line-height: normal;
 							white-space: nowrap;
-							font-weight: normal;
+							font-weight: bold;
+							border-radius: 3px;
+							border-bottom: 1px solid $lightgray!important;
+
 							&:hover {
 								color: $black!important;
 							}
@@ -549,11 +552,15 @@
 	background: $white;
 	.bar-header {
 		background: $white;
-		font-size: 5vw;
-	}
-	.button {
+		font-size: 4vw;
 		color: $black;
+		h1, button{
+			color: $black!important;
+		}
 	}
+	// .button {
+	// 	color: $black;
+	// }
 	bg-digits,
 	bg-markets,
 	bg-ticks,
@@ -592,24 +599,27 @@
 				padding: 0 !important;
 				height: calc(90vh - 46px)!important;
 				align-items: center!important;
-				flex-direction: column;
+				flex-direction: row;
+				flex-wrap: wrap;
 				.col {
 					padding: 0;
 					display: flex;
 					flex-grow: 1;
 					flex-direction: column;
-					flex-basis: 20px!important;
-					border-bottom: 1px solid $lightgray;
-					width: 70%;
+					flex-basis: 40vw!important;
+					max-width: 60vw;
+					// width: 70%;
 					margin: 0 auto;
+					// min-width: 50%;
+					align-items: center;
+  			  display: flex;
 					&:first-child{
 						border-top: none;
 					}
 					&:last-child{
 						border-bottom: none;
 					}
-					.button,
-					a {
+					.button, a {
 						max-height: none;
 						min-height: 20px!important;
 						font-size: 4vw;
@@ -617,10 +627,11 @@
 						line-height: normal;
 						white-space: nowrap;
 						font-weight: normal;
-						font-size: 5vw;
 						border-radius: 0;
 						text-align: center;
-						color: $blue;
+						padding: 10px 5px;
+						border-bottom: 1px solid $gray!important;
+						border-radius: 8px;
 						&:hover {
 							color: $black!important;
 						}
