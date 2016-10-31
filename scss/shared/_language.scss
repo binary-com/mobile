@@ -1,9 +1,10 @@
-bg-language-list{
-	ion-content{
-		    padding-top: 75px;
+.language{
+	bg-language-list{
+		ion-content{
+			padding-top: 75px!important;
+		}
 	}
 }
-
 @media only screen and (max-device-width: 480px) {
 				/*RU Language*/
 				body#ru {
