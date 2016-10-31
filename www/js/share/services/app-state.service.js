@@ -18,7 +18,7 @@ angular
                 factory.waitForProposal = false;
                 factory.scopes = [];
                 factory.invalidTokenRemoved = false;
-                factory.isChangedAccount = false;
+                factory.isChangedAccount = true;
                 factory.isRealityChecked = false;
                 factory.isPopupOpen = false;
                 factory.hasGetResidence = false;

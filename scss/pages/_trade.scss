@@ -5,7 +5,7 @@
 		padding-top: 0 !important;
 		margin-bottom: 0 !important;
 	}
-	ion-content{
+	ion-content {
 		height: 100vh!important;
 	}
 	.ionic-scroll {
@@ -52,6 +52,7 @@
 				display: flex;
 				flex-grow: 1;
 				flex-direction: column;
+				background: $white;
 				.row {
 					display: flex;
 					flex-grow: 1;
@@ -69,13 +70,15 @@
 						flex-grow: 1;
 						flex-direction: column;
 						flex-basis: 20px;
-						.button {
+						.button,
+						a {
 							max-height: none;
 							min-height: 20px!important;
 							font-size: 4vw;
 							color: $black;
 							line-height: normal;
 							white-space: nowrap;
+							font-weight: normal;
 							&:hover {
 								color: $black!important;
 							}
@@ -85,53 +88,30 @@
 				.row + .row {
 					margin-top: 0 !important;
 				}
+				ion-tab {
+					color: $black;
+				}
 			}
 		}
 		bg-digits,
-		bg-markets,
-		bg-ticks,
-		bg-tradetypes,
-		bg-underlyings {
-			min-height: 30px;
-			width: 100%;
-			display: flex;
-			flex-grow: 1;
-			padding: 5px 0 !important;
-			.ionic-scroll {
-				min-height: 30px;
-				.scroll {
-					min-height: 30px;
-				}
-			}
+		bg-ticks {
+			width: 100vw;
 			.digits,
-			.markets,
-			.ticks,
-			.tradetypes,
-			.underlyings {
-				width: 100%;
+			.ticks {
+				width: 100vw;
 				display: flex;
-				flex-direction: column;
-				flex-grow: 1;
 				.row {
 					display: flex;
-					flex-grow: 1;
-					padding: 0 !important;
+					flex-direction: row;
 					.col {
-						padding: 0;
 						display: flex;
 						flex-grow: 1;
-						flex-direction: column;
-						flex-basis: 20px!important;
+						padding: 0;
+						margin: 0;
 						.button {
-							max-height: none;
-							min-height: 20px!important;
-							font-size: 4vw;
-							color: $black;
-							line-height: normal;
-							white-space: nowrap;
-							&:hover {
-								color: $black!important;
-							}
+							padding: 0;
+							margin: 0;
+							min-width: inherit;
 						}
 					}
 				}
@@ -244,6 +224,7 @@
 						display: flex;
 						min-height: inherit;
 						flex-grow: 1;
+						margin-top: 0;
 						.col {
 							line-height: normal;
 							font-size: 4vw;
@@ -265,10 +246,12 @@
 						}
 						&.basis-container {
 							height: auto;
+							align-items: center;
 							.contract-image-container {
 								text-align: center;
-								display: block;
+								display: flex;
 								height: auto;
+								align-items: center;
 								img {
 									margin: 0 auto;
 								}
@@ -280,10 +263,11 @@
 									font-weight: bold;
 									font-size: 4vw;
 									color: $darkgray;
-									display: inline-block;
 									vertical-align: middle;
 									line-height: normal;
 									width: 100%;
+									align-items: center;
+    							display: flex;
 									span {
 										display: inline-block;
 										vertical-align: middle;
@@ -296,6 +280,8 @@
 									display: inline-block;
 									vertical-align: middle;
 									width: 100%;
+									align-items: center;
+    							display: flex;
 									span {
 										display: inline-block;
 										vertical-align: middle;
@@ -308,10 +294,12 @@
 						.error {
 							background-color: $notification;
 							padding: 10px 0;
+							height: 70px;
 							p {
 								margin: 5px !important;
 								font-size: 4vw;
 								color: $black;
+								height: 70px;
 							}
 						}
 					}
@@ -359,7 +347,7 @@
 						}
 						&.buy {
 							padding: 0;
-							.row{
+							.row {
 								color: $blue;
 							}
 							.title {
@@ -368,7 +356,7 @@
 						}
 						&.sell {
 							padding: 0;
-							.row{
+							.row {
 								color: $green;
 							}
 							.title {
@@ -412,8 +400,8 @@
 					font-size: 4vw;
 					color: $darkgray;
 					padding: 0;
-					.row{
-						&:last-child{
+					.row {
+						&:last-child {
 							font-weight: bold;
 						}
 					}
@@ -451,7 +439,6 @@
 					line-height: inherit;
 					flex-grow: 1;
 					display: block;
-					margin: 5px;
 					margin: 0 auto;
 					background: $blue;
 				}
@@ -554,6 +541,92 @@
 			// 		}
 			// 	}
 			// }
+		}
+	}
+}
+.modal {
+	opacity: 0.95;
+	background: $white;
+	.bar-header {
+		background: $white;
+		font-size: 5vw;
+	}
+	.button {
+		color: $black;
+	}
+	bg-digits,
+	bg-markets,
+	bg-ticks,
+	bg-tradetypes,
+	bg-underlyings {
+		min-height: 30px;
+		width: 100%;
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		background: $white;
+		height: calc(100vh - 46px);
+		display: flex;
+		align-items: center;
+		.ionic-scroll {
+			min-height: 30px;
+			.scroll {
+				min-height: 30px;
+			}
+		}
+		.digits,
+		.markets,
+		.ticks,
+		.trade-types,
+		.underlyings {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			height: calc(90vh - 46px);
+			display: flex;
+			align-items: center;
+			.row {
+				display: flex;
+				flex-grow: 1;
+				padding: 0 !important;
+				height: calc(90vh - 46px)!important;
+				align-items: center!important;
+				flex-direction: column;
+				.col {
+					padding: 0;
+					display: flex;
+					flex-grow: 1;
+					flex-direction: column;
+					flex-basis: 20px!important;
+					border-bottom: 1px solid $lightgray;
+					width: 70%;
+					margin: 0 auto;
+					&:first-child{
+						border-top: none;
+					}
+					&:last-child{
+						border-bottom: none;
+					}
+					.button,
+					a {
+						max-height: none;
+						min-height: 20px!important;
+						font-size: 4vw;
+						color: $black;
+						line-height: normal;
+						white-space: nowrap;
+						font-weight: normal;
+						font-size: 5vw;
+						border-radius: 0;
+						text-align: center;
+						color: $blue;
+						&:hover {
+							color: $black!important;
+						}
+					}
+				}
+			}
 		}
 	}
 }
