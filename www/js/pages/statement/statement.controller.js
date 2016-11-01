@@ -34,6 +34,8 @@
         vm.noMoreRequest = false;
         vm.jumpToDateInputShow = false;
         vm.hasError = false;
+        vm.dateChanged = false;
+        
         vm.currency = sessionStorage.getItem('currency');
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {

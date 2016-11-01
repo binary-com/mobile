@@ -34,6 +34,7 @@
         vm.noMoreRequest = false;
         vm.jumpToDateInputShow = false;
         vm.hasError = false;
+        vm.dateChanged = false;
 
         vm.currency = sessionStorage.getItem('currency');
 
@@ -120,7 +121,7 @@
                 vm.resetParams();
                 vm.setParams();
                 vm.goTop();
-            } else if (appStateService.isProfitTableSet && vm.dateChanged == true) {
+            } else if (appStateService.isProfitTableSet && vm.dateChanged) {
                 vm.transactions = [];
                 vm.batchedTransaction = [];
                 vm.filteredTransactions = [];
