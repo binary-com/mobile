@@ -63,10 +63,11 @@
 				background: $white;
 				.row {
 					display: flex;
+					flex-direction: row;
 					flex-grow: 1;
 					padding: 0;
 					&.options-row {
-						padding: 5px 0;
+						padding: 5px;
 						.col {
 							// border-bottom: 1px solid $gray;
 						}
@@ -75,21 +76,24 @@
 						padding: 0;
 						display: flex;
 						flex-grow: 1;
-						flex-direction: column;
-						flex-basis: 20px;
+						// flex-direction: column;
+						// flex-basis: 20px;
 						align-items: center;
+						flex-basis: inherit;
+						width: auto;
 						.button,
 						a {
 							max-height: none;
 							min-height: 20px!important;
-							font-size: 4vw;
+							font-size: 3.5vw;
 							color: $darkgray;
 							line-height: normal;
 							white-space: nowrap;
 							font-weight: bold;
 							border-radius: 3px;
 							border-bottom: 1px solid $lightgray!important;
-
+							margin: 0;
+							padding: 0;
 							&:hover {
 								color: $black!important;
 							}
