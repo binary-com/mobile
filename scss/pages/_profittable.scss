@@ -14,6 +14,30 @@
 		position: absolute;
 		background: $white;
 		z-index: 10;
+		.item {
+			padding: 15px;
+			.input-title {
+				font-size: 4vw;
+			}
+		}
+		.item-select {
+			border: 1px solid $gray;
+			border-radius: 3px;
+			select {
+				width: 100%;
+				padding: 0 15px;
+				direction: ltr;
+				font-size: 4vw;
+			}
+		}
+		.label {
+			padding: 0;
+			input {
+				margin: 0;
+				padding-right: 0 !important;
+				font-size: 4vw;
+			}
+		}
 		input {
 			margin-left: 15px;
 			border: 1px solid $gray;
@@ -34,8 +58,12 @@
 			}
 		}
 	}
-
-
+	.first-spinner {
+		left: 1em;
+		right: 1em;
+		position: absolute;
+		text-align: center;
+	}
 	.float-button {
 		background-color: $darkblue;
 		opacity: 0.9;
@@ -57,58 +85,16 @@
 			color: $white;
 		}
 	}
-	.item {
-		padding: 15px;
-		.input-title {
-			font-size: 4vw;
-		}
-	}
-	.item-select {
-		border: 1px solid $gray;
-		border-radius: 3px;
-		select {
+	ul.statement-table {
+		display: table;
+		width: 100%;
+		li.list {
+			display: table-row;
 			width: 100%;
-			padding: 0 15px;
-			direction: ltr;
-			font-size: 4vw;
-		}
-	}
-	.label {
-		padding: 0;
-		input {
-			margin: 0;
-			padding-right: 0 !important;
-			font-size: 4vw;
-		}
-	}
-	.next {
-		float: right;
-	}
-	.prev {
-		float: left;
-	}
-	ul {
-		&.statement-list {
-			display: flex;
-			flex-direction: row;
-			padding: 5px;
 			.statement-element {
-				display: flex;
-				flex-grow: 1;
+				display: table-cell;
 				padding: 5px 0;
 				font-size: 3.5vw;
-				&.last-statement-element {
-					display: block;
-				}
-			}
-		}
-		.list {
-			padding: 0;
-			margin-bottom: 0;
-			.list-item {
-				font-size: 4vw;
-				padding: 10px 0;
-				color: $black;
 			}
 			.right {
 				text-align: right;
@@ -123,22 +109,27 @@
 				font-weight: bold;
 			}
 		}
-		.profit-table-list {
-			padding: 2px 5px;
+		.has-error {
+			font-size: 4.5vw;
+			color: red;
 		}
-	}
-	.has-error {
-		font-size: 4.5vw;
-		color: red;
-	}
-	.first-spinner{
-		left: 1em;
-    right: 1em;
-    position: absolute;
-		text-align: center;
 	}
 }
 .transaction-detail {
+	.statement-list {
+		display: flex;
+		flex-direction: row;
+		padding: 5px;
+		.statement-element {
+			display: flex;
+			flex-grow: 1;
+			padding: 5px 0;
+			font-size: 3.5vw;
+			&.last-statement-element {
+				display: block;
+			}
+		}
+	}
 	.list-item {
 		padding: 0 !important;
 		color: $black;
@@ -198,9 +189,6 @@
 			.bold {
 				font-weight: bold;
 			}
-		}
-		.profit-table-list {
-			padding: 2px 5px;
 		}
 	}
 }
