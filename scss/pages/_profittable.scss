@@ -120,6 +120,9 @@
 	}
 }
 .transaction-detail {
+	ion-content{
+		padding-bottom: 25px;
+	}
 	.statement-list {
 		display: flex;
 		flex-direction: row;
@@ -153,7 +156,7 @@
 	}
 	.title {
 		padding: 0 5px;
-		margin-top: 45px;
+		margin-top: 25px;
 	}
 	.longcode {
 		padding: 5px 0;
