@@ -3,10 +3,17 @@
 	flex-direction: column;
 	ion-content {
 		padding-top: 80px !important;
+		// padding-bottom: 80px !important;
 		margin-top: 0 !important;
 		margin-bottom: 0 !important;
+		.profit-table-container{
+			margin-bottom: 40px;
+		}
 		&.pull-down {
 			padding-top: 125px !important;
+		}
+		.spinner{
+margin-top: -50px;
 		}
 	}
 	.filters {
