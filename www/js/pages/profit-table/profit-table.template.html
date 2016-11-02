@@ -1,20 +1,20 @@
 <ion-view class="profit-table">
             <div class="row filters">
                 <div class="col col-50">
-                    <label class="item item-input item-select">
+                    <div class="item item-input item-select">
                         <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFiltered()">
                             <option value="allApps">{{'profittable.all_apps' | translate}}</option>
                             <option value="tickTradeApp">{{'profittable.tick_trade_app' | translate}}</option>
                         </select>
-                    </label>
+                    </div>
                 </div>
                 <div class="col col-50">
-                    <label class="item item-input item-select">
+                    <div class="item item-input item-select">
                         <select name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
                             <option value="allTime">{{'profittable.all_time' | translate}}</option>
                                 <option value="jumpToDate">{{'profittable.jump_to_date' | translate}}</option>
                         </select>
-                    </label>
+                    </div>
                 </div>
             </div>
             <div class="row filters jump-to-date-container" ng-show="vm.jumpToDateInputShow">
@@ -31,13 +31,13 @@
   <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
       <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
   </a>
-    <ion-content has-bouncing="false" class="profit-table-content" ng-class="{'pull-down' : vm.jumpToDateInputShow}" on-scroll="vm.goToTopButtonCondition()" delegate-handle="handler">
-        <div class="profit-table-container">
+    <ion-content has-bouncing="false" class="profit-table-content" on-scroll="vm.goToTopButtonCondition()" delegate-handle="handler">
+        <div class="profit-table-container" ng-class="{'pull-down' : vm.jumpToDateInputShow}">
 
             <div class="row">
                 <div class="col">
                     <ul class="statement-table">
-                        <li class="list" ng-repeat="transaction in vm.filteredTransactions" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+                        <li class="list" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
                                         <div class="statement-element" ng-bind="transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></div>
                                         <div class="statement-element center" ng-bind="transaction.transaction_id"></div>
                                         <div
@@ -64,7 +64,7 @@
             </div>
 
         </div>
-          <ion-infinite-scroll on-infinite="vm.delayedLoad()" distance="5%" ng-if="!vm.noMore && vm.firstCompleted && !vm.dateChanged"></ion-infinite-scroll>
+          <ion-infinite-scroll on-infinite="vm.delayedLoad()" distance="1%" ng-if="!vm.noMore && vm.firstCompleted && !vm.dateChanged"></ion-infinite-scroll>
           <ion-spinner class="first-spinner" ng-if="!vm.firstCompleted"></ion-spinner>
     </ion-content>
 </ion-view>

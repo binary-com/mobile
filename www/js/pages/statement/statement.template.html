@@ -1,20 +1,20 @@
 <ion-view class="profit-table">
   <div class="row filters">
       <div class="col col-50">
-          <label class="item item-input item-select">
+          <div class="item item-input item-select">
               <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFiltered()">
                   <option value="allApps" selected="selected">{{'statement.all_apps' | translate}}</option>
                   <option value="tickTradeApp">{{'statement.tick_trade_app' | translate}}</option>
               </select>
-          </label>
+          </div>
       </div>
       <div class="col col-50">
-        <label class="item item-input item-select">
+        <div class="item item-input item-select">
             <select name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
                 <option value="allTime" selected="selected">{{'statement.all_time' | translate}}</option>
                     <option value="jumpToDate">{{'statement.jump_to_date' | translate}}</option>
             </select>
-        </label>
+        </div>
       </div>
   </div>
   <div class="row filters jump-to-date-container" ng-show="vm.jumpToDateInputShow">
@@ -30,9 +30,9 @@
     <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
         <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
     </a>
-    <ion-content has-bouncing="false" class="profit-table-content" on-scroll="vm.goToTopButtonCondition()" delegate-handle="handler" ng-class="{'pull-down' : vm.jumpToDateInputShow}">
+    <ion-content has-bouncing="false" class="profit-table-content" on-scroll="vm.goToTopButtonCondition()" delegate-handle="handler">
 
-        <div class="profit-table-container">
+        <div class="profit-table-container" ng-class="{'pull-down' : vm.jumpToDateInputShow}">
             <div class="row">
                 <div class="col">
                     <ul class="statement-table">
