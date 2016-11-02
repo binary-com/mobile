@@ -7,7 +7,16 @@
 	}
 	ion-content {
 		height: 100vh!important;
+		width: 100vw;
+		padding-bottom: 40px;
+		// position: absolute;
+
 	}
+	// .keyboard-up{
+	// 	display: block;
+	// 	position: absolute;
+	// }
+
 	.ionic-scroll {
 		min-height: 30px;
 		.scroll {
@@ -46,7 +55,8 @@
 		}
 		bg-options {
 			height: 70px;
-			margin-top: 75px;
+			max-height: 140px;
+			margin-top: 40px;
 			.options {
 				max-height: 70px;
 				display: flex;
@@ -121,6 +131,7 @@
 			}
 		}
 		bg-chart {
+			margin-top: 10px;
 			.contract-chart {
 				background: $white;
 				.chart-container {
