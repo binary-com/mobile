@@ -1,9 +1,10 @@
     .new-account {
         bg-new-account-maltainvest,
         bg-new-account-real {
-            margin-top: 75px;
             width: 100vw;
-            position: absolute;
+            form{
+              margin-top: 40px;
+            }
             .new-real-account {
                 .row {
                     margin: 0;
