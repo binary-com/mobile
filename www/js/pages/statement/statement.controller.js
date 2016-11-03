@@ -35,7 +35,7 @@
         vm.jumpToDateInputShow = false;
         vm.hasError = false;
         vm.dateChanged = false;
-        
+
         vm.currency = sessionStorage.getItem('currency');
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
@@ -180,7 +180,7 @@
 
             }
             if (vm.data.hasOwnProperty('dateTo') && vm.data.dateTo != "") {
-                vm.params.date_to = vm.data.dateTo;
+                vm.params.date_to = vm.data.dateTo + 8.64e+4;
             }
             websocketService.sendRequestFor.statement(vm.params);
         }

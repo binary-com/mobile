@@ -181,7 +181,7 @@
 
             }
             if (vm.data.hasOwnProperty('dateTo') && vm.data.dateTo != "") {
-                vm.params.date_to = vm.data.dateTo;
+                vm.params.date_to = vm.data.dateTo + 8.64e+4;
             }
             websocketService.sendRequestFor.profitTable(vm.params);
         }
