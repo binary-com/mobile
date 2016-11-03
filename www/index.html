@@ -94,6 +94,7 @@
   </head>
   <body ng-app="binary">
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
+    <bg-connectivity></bg-connectivity>
     <ping></ping>
     <bg-reality-check></bg-reality-check>
 
@@ -114,6 +115,7 @@
     <script src="lib/AngularHammer/angular.hammer.min.js"></script>
     <script src="lib/validate/validate.min.js"></script>
     <script src="lib/angular-messages/angular-messages.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
@@ -122,6 +124,7 @@
     <script src="js/configs/app.config.js"></script>
     <script src="js/configs/states.config.js"></script>
     <script src="js/configs/translation.config.js"></script>
+    <script src="js/configs/currency.decorator.js"></script>
     <script src="js/configs/angular-ios9-uiwebview.patch.js"></script>
 
     <script src="js/share/services/websocket.service.js"></script>
@@ -137,7 +140,6 @@
     <script src="js/share/services/app-state.service.js"></script>
     <script src="js/share/services/analytics.service.js"></script>
     <script src="js/share/services/utils.service.js"></script>
-    <script src="js/share/services/currency-to-symbol.service.js"></script>
     <script src="js/share/services/table-state.service.js"></script>
 
 
@@ -176,6 +178,10 @@
     <script src="js/share/components/logout/logout.module.js"></script>
     <script src="js/share/components/logout/logout.directive.js"></script>
     <script src="js/share/components/logout/logout.controller.js"></script>
+
+    <script src="js/share/components/connectivity/connectivity.module.js"></script>
+    <script src="js/share/components/connectivity/connectivity.directive.js"></script>
+    <script src="js/share/components/connectivity/connectivity.controller.js"></script>
 
     <script src="js/pages/home/home.module.js"></script>
     <script src="js/pages/home/home.controller.js"></script>

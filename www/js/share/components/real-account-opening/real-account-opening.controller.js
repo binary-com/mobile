@@ -17,17 +17,36 @@
 
     function RealAccountOpening($scope, $state, websocketService, appStateService, accountService) {
         var vm = this;
-        vm.data = {};
-        vm.countryParams = {};
-        vm.showUpgradeLink = false;
-        vm.showUpgradeLinkMaltainvest = false;
-        vm.isCheckedCompany = false;
-        appStateService.hasMLT = false;
-        vm.isVirtual = false;
-        vm.hasGamingAndVirtual = false;
-        vm.hasGamingNotVirtual = false;
-        vm.hasFinancialAndMaltainvest = false;
-        vm.idsFound = [];
+          vm.data = {};
+          vm.countryParams = {};
+          vm.showUpgradeLink = false;
+          vm.showUpgradeLinkMaltainvest = false;
+          vm.isCheckedCompany = false;
+          appStateService.hasMLT = false;
+          vm.isVirtual = false;
+          vm.hasGamingAndVirtual = false;
+          vm.hasGamingNotVirtual = false;
+          vm.hasFinancialAndMaltainvest = false;
+          vm.idsFound = [];
+
+          vm.reset = function(){
+            vm.data = {};
+            vm.countryParams = {};
+            vm.showUpgradeLink = false;
+            vm.showUpgradeLinkMaltainvest = false;
+            vm.isCheckedCompany = false;
+            appStateService.hasMLT = false;
+            vm.hasGamingAndVirtual = false;
+            vm.hasGamingNotVirtual = false;
+            vm.hasFinancialAndMaltainvest = false;
+            vm.idsFound = [];
+            appStateService.isNewAccountReal = false;
+            appStateService.isNewAccountMaltainvest = false;
+            appStateService.isCheckedAccountType = false;
+            vm.hasGamingAndMaltainvest = false;
+            vm.notMaltainvest = false;
+            vm.hasGamingAndFinancialAndMaltainvest = false;
+          }
 
 
         // get account-setting and landing-company
@@ -39,6 +58,7 @@
         // in case the authorize response is passed before the execution of this controller
         // get the virtuality of account by appStateService.virtuality which is saved in authorize
         if (appStateService.isLoggedin && !appStateService.isCheckedAccountType) {
+          vm.reset();
             if (appStateService.virtuality == 1) {
                 vm.isVirtual = true;
             } else {
@@ -50,12 +70,13 @@
         // in case still not authorized when this controller is executed listen for the response of authorize
         $scope.$on('authorize', (e, response) => {
             if (!appStateService.isCheckedAccountType) {
-                vm.idsFound = [];
+                vm.reset();
                 if (response.is_virtual == 1) {
                     vm.isVirtual = true;
                 } else {
                     vm.isVirtual = false;
                 }
+
                 vm.getCompany();
             }
         });
@@ -87,7 +108,7 @@
                     vm.hasGamingAndVirtual = true;
                     vm.getToken();
                 } else {
-                    if (vm.data.landingCompany.hasOwnProperty('financial_company') && (vm.data.landingCompany.gaming_company.shortcode == "maltainvest")) {
+                    if (vm.data.landingCompany.hasOwnProperty('financial_company') && (vm.data.landingCompany.financial_company.shortcode == "maltainvest")) {
                         vm.hasGamingNotVirtual = true;
                         vm.getToken();
                     }
@@ -115,7 +136,7 @@
             if (vm.hasGamingAndVirtual == true) {
                 vm.idsFound = [];
                 vm.count = vm.accounts.length;
-                vm.accounts.forEach(function(el, i) {
+                vm.accounts.forEach((el, i) => {
                         vm.val = vm.accounts[i]['id'];
                         if (vm.val.search('VRTC') > -1) {
                             vm.idsFound.push('VRTC');
@@ -136,7 +157,7 @@
             } else if (vm.hasGamingNotVirtual == true) {
                 vm.idsFound = [];
                 vm.count = vm.accounts.length;
-                vm.accounts.forEach(function(el, i) {
+                vm.accounts.forEach((el, i) => {
                     vm.val = vm.accounts[i]['id'];
                     if (vm.val.search('MF') > -1) {
                         vm.idsFound.push('MF');
@@ -149,7 +170,7 @@
             } else if (vm.hasFinancialAndMaltainvest == true) {
                 vm.idsFound = [];
                 vm.count = vm.accounts.length;
-                vm.accounts.forEach(function(el, i) {
+                vm.accounts.forEach((el, i) => {
                     vm.val = vm.accounts[i]['id'];
                     if (vm.val.search('MF') > -1) {
                         vm.idsFound.push('MF');
@@ -200,18 +221,7 @@
         }
         $scope.$on('logout', (e) => {
             $scope.$applyAsync(() => {
-                vm.showUpgradeLink = false;
-                vm.showUpgradeLinkMaltainvest = false;
-                appStateService.isNewAccountReal = false;
-                appStateService.isNewAccountMaltainvest = false;
-                appStateService.isCheckedAccountType = false;
-                vm.hasGamingAndMaltainvest = false;
-                vm.hasFinancialAndMaltainvest = false;
-                vm.notMaltainvest = false;
-                vm.hasGamingAndFinancialAndMaltainvest = false;
-                vm.isCheckedCompany = false;
-                appStateService.hasMLT = false;
-
+              vm.reset();
             });
         });
 

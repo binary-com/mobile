@@ -157,12 +157,18 @@ angular
 					}
 					return false;
 				},
-                asianGame: function asianGame(contract){
-                    if(contract.type.indexOf('ASIAN') === 0){
-                        return true;
-                    }
-                    return false;
-                },
+        asianGame: function asianGame(contract){
+          if(contract.type.indexOf('ASIAN') === 0){
+            return true;
+          }
+          return false;
+        },
+        higherLowerTrade: function higherLowerTrade(contract){
+          if(['PUT', 'CALL'].indexOf(contract.type) > -1 && !_.isEmpty(contract.barrier)){
+            return true;
+          }
+          return false;
+        },
 				getRelativeIndex: function getRelativeIndex(absoluteIndex, dataIndex) {
 					return absoluteIndex - (chartDrawer.getCapacity() - (chartDrawer.getTickCount() + chartDrawer.getDataIndex()));
 				},
@@ -393,36 +399,43 @@ angular
 					}
 				};
 
-				var viewSpots = function viewSpots(index, tickTime) {
-					if (isEntrySpot(tickTime)) {
-						contract.showingEntrySpot = true;
-						if (!utils.digitTrade(contract) && !utils.asianGame(contract) && !hasExitSpot()) {
-							chartDrawer.addGridLine({
-								color: '#2E8836',
-								label: 'barrier: ' + contract.barrier,
-								orientation: 'horizontal',
-                                type: 'barrier',
-								index: index
-							});
-						} else if (utils.asianGame(contract) && tickPriceList.length > 0 && !hasExitSpot()){
-							chartDrawer.addGridLine({
-								color: '#2E8836',
-								label: 'Average: ' + utils.average(tickPriceList),
-								orientation: 'horizontal',
-                                type: 'average',
-                                firstIndex: index,
-								index: index + (tickPriceList.length - 1)
-							});
-                        }
-                    } else if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
-						contract.showingExitSpot = true;
-					}
+        var viewSpots = function viewSpots(index, tickTime) {
+          if (isEntrySpot(tickTime)) {
+            contract.showingEntrySpot = true;
+            if (!utils.digitTrade(contract) && !utils.asianGame(contract) && !hasExitSpot()) {
+              chartDrawer.addGridLine({
+                color: '#2E8836',
+                label: 'barrier: ' + contract.barrier,
+                orientation: 'horizontal',
+                type: 'barrier',
+                index: index
+              });
+            } else if (utils.asianGame(contract) && tickPriceList.length > 0 && !hasExitSpot()){
+              chartDrawer.addGridLine({
+                color: '#2E8836',
+                label: 'Average: ' + utils.average(tickPriceList),
+                orientation: 'horizontal',
+                type: 'average',
+                firstIndex: index,
+                index: index + (tickPriceList.length - 1)
+              });
+            }
+          } else if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
+            contract.showingExitSpot = true;
+          }
 				};
 
 				var addSpots = function addSpots(index, tickTime, tickPrice) {
 					if (isEntrySpot(tickTime) || betweenExistingSpots(tickTime)) {
 						if (isEntrySpot(tickTime)) {
-							utils.setObjValue(contract, 'barrier', tickPrice, !utils.digitTrade(contract));
+              var barrier = tickPrice;
+              if(utils.higherLowerTrade(contract)){
+                contract.offset = contract.offset || contract.barrier;
+                barrier = Number(tickPrice) + Number(contract.offset);
+                barrier = barrier.toFixed(utils.fractionalLength(tickPrice));
+              }
+							utils.setObjValue(contract, 'barrier', barrier, !utils.digitTrade(contract));
+              utils.setObjValue(contract, 'entrySpotPrice', barrier, true);
 							utils.setObjValue(contract, 'entrySpotTime', tickTime, !hasEntrySpot());
 						} else if (isExitSpot(tickTime, index)) {
 							utils.setObjValue(contract, 'exitSpot', tickTime, !hasExitSpot());
@@ -469,39 +482,49 @@ angular
 				};
 
 				var addRegions = function addRegions(lastTime, lastPrice) {
-					if (hasEntrySpot()) {
+          if (hasEntrySpot()) {
 
-                        if(tickPriceList.length === 0){
-                            tickPriceList.push(parseFloat(contract.barrier));
-                        } else {
-                            tickPriceList.push(parseFloat(lastPrice));
-                        }
+            if(tickPriceList.length === 0){
+              if(contract.barrier){
+                tickPriceList.push(parseFloat(contract.barrier));
+              } else if(contract.entrySpotTime != lastTime && betweenExistingSpots(lastTime)){
+                tickPriceList.push(parseFloat(contract.entrySpotPrice));
+                if (utils.conditions[contract.type](contract.barrier, contract.entrySpotPrice, tickPriceList)) {
+                  contract.result = 'win';
+                } else {
+                  contract.result = 'lose';
+                }
+                $rootScope.$broadcast('contract:spot', contract, contract.entrySpotPrice);
+              } else {
+                tickPriceList.push(parseFloat(lastPrice));
+              }
+            } else {
+              tickPriceList.push(parseFloat(lastPrice));
+            }
 
-						if (betweenExistingSpots(lastTime)) {
-							if (utils.conditions[contract.type](contract.barrier, lastPrice, tickPriceList)) {
-								contract.result = 'win';
-							} else {
-								contract.result = 'lose';
-							}
-
-              if(broadcastable){
-                $rootScope.$broadcast('contract:spot', contract, lastPrice);
+            if (betweenExistingSpots(lastTime)) {
+              if (utils.conditions[contract.type](contract.barrier, lastPrice, tickPriceList)) {
+                contract.result = 'win';
+              } else {
+                contract.result = 'lose';
               }
 
-							if ( isFinished() && broadcastable ) {
-                                tickPriceList = []
-								contractCtrls.forEach(function(contractctrl, index){
-									var oldContract = contractctrl.getContract();
-									if ( contract !== oldContract && !contractctrl.isFinished() ) {
-										setNotBroadcastable();
-									}
-								});
-								if ( broadcastable ) {
-									$rootScope.$broadcast("contract:finished", contract);
-								}
-							}
-						}
-					}
+              $rootScope.$broadcast('contract:spot', contract, lastPrice);
+
+              if ( isFinished() && broadcastable ) {
+                tickPriceList = []
+                contractCtrls.forEach(function(contractctrl, index){
+                  var oldContract = contractctrl.getContract();
+                  if ( contract !== oldContract && !contractctrl.isFinished() ) {
+                    setNotBroadcastable();
+                  }
+                });
+                if ( broadcastable ) {
+                  $rootScope.$broadcast("contract:finished", contract);
+                }
+              }
+            }
+          }
 				};
 
 				return {
@@ -730,12 +753,12 @@ angular
 
 						ctx.textAlign = 'center';
 						ctx.fillText(gridLine.label, point.x, scale.startPoint + 12);
-					} else if (gridLine.orientation === 'horizontal') {
-                        var yPoint = point.y;
-                        if(gridLine.type === 'average' && gridLine.index !== gridLine.firstIndex){
-                            firstPoint = thisChart.datasets[0].points[gridLine.firstIndex];
-                            yPoint = (firstPoint.y + point.y) / 2;
-                        }
+          } else if (gridLine.orientation === 'horizontal') {
+            var yPoint = point.y;
+            if(gridLine.type === 'average' && gridLine.index !== gridLine.firstIndex){
+              firstPoint = thisChart.datasets[0].points[gridLine.firstIndex];
+              yPoint = (firstPoint.y + point.y) / 2;
+            }
 
 					    ctx.moveTo(scale.startPoint, yPoint);
 

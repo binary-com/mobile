@@ -4,9 +4,19 @@ ion-scroll[direction=x] {
 body * {
 				font-family: roboto, sans-serif !important;
 }
-ion-content{
-  height: 90vh;
-  height: calc(100vh - 85px)!important;
+ion-side-menu{
+  ion-content{
+    overflow-y: hidden;
+  }
+}
+.bar-subheader{
+  padding: 0;
+    height: inherit;
+    width: 100%;
+    background: $white;
+    bg-balance{
+      width: 100%;
+    }
 }
 a{
 	color: $blue;
@@ -111,12 +121,6 @@ button.button.button-default {
 	font-size: 12px;
 	color: $darkgray;
 	text-align: left;
-	&.show-hide-password{
-		color: $black;
-	}
-}
-input#show-hide{
-	width: 20px;
 }
 .left{
   text-align: left;

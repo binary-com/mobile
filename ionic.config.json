@@ -1,4 +1,8 @@
 {
   "name": "tickTrade",
-  "app_id": ""
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ]
 }

@@ -13,7 +13,8 @@
     "angular-messages": "~1.5.8"
   },
   "dependencies": {
-    "validate": "validate.js#^0.10.0"
+    "validate": "validate.js#^0.10.0",
+    "ngCordova": "^0.1.27-alpha"
   },
   "resolutions": {
     "angular": ">=1.2.0"

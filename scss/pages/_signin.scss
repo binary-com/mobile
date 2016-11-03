@@ -1,246 +1,333 @@
 @media only screen and (max-device-width: 480px) {
-				.sign-in {
-								background-color: $white;
-								.branding {
-												margin: 10% auto;
-												.logo {
-																display: block;
-																margin: 0 auto;
-																width: 40%;
-												}
-												.slogan {
-																display: block;
-																margin: 5% auto 0;
-																width: 60%;
-												}
-								}
-								#virtualws , #emailform{
-									.email-title{
-										text-align: left;
-										color: $darkgray;
-									}
-									.item-input{
-										padding: 0!important;
-									}
-									// text-align: center;
-									.list{
-										label{
-											margin-bottom: 0;
-										}
-									}
-									input[type=text],
-									input[type=password], select{
-										border: 1px solid $lightgray;
-										border-radius: 2px;
-										background: $white;
-										padding: 10px 5px;
-										&.ng-invalid-pattern{
-											border: 1px solid $red;
-										}
-									}
-									select{
-										width: 100%;
-									}
-									.help-block{
-										width: 80%;
-										margin: 0 auto;
-										padding-left: 4px !important;
-									}
-									.show-hide-password{
-										padding-top: 15px;
-									}
-								}
-								.list {
-												label.item-input {
-																border-bottom: 1px solid $lightgray;
-																width: 80%;
-																margin: 0 auto;
-																height: 44px;
-																padding-left: 4px !important;
-																margin-bottom: 26px;
-																i {
-																				font-size: 40px;
-																				width: 40px;
-																				text-align: center;
-																				&.icon-small {
-																								font-size: 28px;
-																				}
-																}
-																input[type=text],
-																input[type=password] {
-																				color: $gray;
-																				font-family: arial;
-																				font-weight: 400;
-																				font-size: 14px;
-																				line-height: 1.6;
-																}
-																&.error {
-																				border-bottom-color: $red;
-																				i {
-																								color: $red;
-																				}
-																}
-												}
-												label.item-select {
-																background-color: $white;
-																border-width: 0 0 1px 0;
-																i {
-																				font-size: 40px;
-																				width: 40px;
-																				text-align: center;
-																				&.icon-small {
-																								font-size: 28px;
-																				}
-																}
-																.input-label {
-																				background-color: $white;
-																				color: $black;
-																				font-family: arial;
-																				font-weight: 400;
-																				font-size: 14px;
-																				line-height: 1;
-																				line-height: 1.6;
-																				// margin-left: 10px;
-																}
-																select {
-																				background-color: $white;
-																				color: $black;
-																				font-size: 14px;
-																				font-weight: 400;
-																				text-transform: uppercase;
-																				padding: 0;
-																				right: initial;
-																				direction: ltr;
-																}
-												}
-								}
-								button.btn-signin {
-												font-size: 5vw;
-								}
-								.help {
-												text-decoration: underline;
-								}
-								.token-link {
-												text-decoration: underline;
-								}
-								 ::-webkit-input-placeholder {
-												color: $gray;
-								}
-								 :-moz-placeholder {
-												color: $gray;
-								}
-								 ::-moz-placeholder {
-												color: $gray;
-								}
-								 :-ms-input-placeholder {
-												color: $gray;
-								}
+	.signin-content {
+		height: calc(100vh - 15px)!important;
+	}
+	.sign-in {
+		background-color: $white;
+		.branding {
+			margin: 10% auto;
+			.logo {
+				display: block;
+				margin: 0 auto;
+				width: 40%;
+			}
+			.slogan {
+				display: block;
+				margin: 5% auto 0;
+				width: 60%;
+			}
+		}
+		#emailform,
+		#virtualws {
+			.item-input {
+				width: 100%;
+				padding-left: 0 !important;
+			}
+			.email-title {
+				font-size: 4vw;
+				text-align: left;
+				color: $darkgray;
+			}
+			input[type=password],
+			input[type=text] {
+				border: 1px solid $lightgray;
+				border-radius: 3px;
+				background: $white;
+				padding: 10px 5px;
+			}
+			select {
+				background-color: $white;
+				color: $darkgray;
+				font-size: 4vw;
+				font-weight: 400;
+				text-transform: uppercase;
+				padding: 0;
+				right: initial;
+				direction: ltr;
+				border: 1px solid $lightgray;
+				border-radius: 3px;
+				width: 100%;
+				padding: 10px 5px;
+				position: relative;
+			}
+			.help-block {
+				width: 100%;
+				margin: 0 auto;
+				padding-left: 4px !important;
+				font-size: 3vw;
+				&.error {
+					color: $red;
 				}
-				bg-new-account-maltainvest ,
-				bg-new-account-real  {
-					transform: none!important;
+				&.show-hide-password {
+					margin-top: 15px;
+					input#show-hide
+					{
+							width: 20px;
+							top: 2px;
+    					position: relative;
+					}
+				}
+			}
+			label, input, select, textarea{
+				font-size: 4vw;
+			}
 
+		}
+		.list {
+			label.item-input {
+				border-bottom: 1px solid $lightgray;
+				width: 80%;
+				margin: 0 auto;
+				height: 44px;
+				padding-left: 4px !important;
+				margin-bottom: 26px;
+				i {
+					font-size: 40px;
+					width: 40px;
+					text-align: center;
+					&.icon-small {
+						font-size: 28px;
+					}
 				}
+				input[type=password],
+				input[type=text] {
+					color: $gray;
+					font-family: arial;
+					font-weight: 400;
+					font-size: 4vw;
+					line-height: 1.6;
+				}
+				&.error {
+					border-bottom-color: $red;
+					i {
+						color: $red;
+					}
+				}
+			}
+			label.item-select {
+				background-color: $white;
+				border-width: 0 0 1px 0;
+				i {
+					font-size: 40px;
+					width: 40px;
+					text-align: center;
+					&.icon-small {
+						font-size: 28px;
+					}
+				}
+				.input-label {
+					background-color: $white;
+					color: $black;
+					font-family: arial;
+					font-weight: 400;
+					font-size: 4vw;
+					line-height: 1;
+					line-height: 1.6;
+				}
+				select {
+					background-color: $white;
+					color: $black;
+					font-size: 4vw;
+					font-weight: 400;
+					text-transform: uppercase;
+					padding: 0;
+					right: initial;
+					direction: ltr;
+					width: 100%;
+					padding: 0 5px;
+				}
+			}
+		}
+		button.btn-signin {
+			font-size: 5vw;
+		}
+		.help {
+			text-decoration: underline;
+		}
+		.token-link {
+			text-decoration: underline;
+		}
+		::-webkit-input-placeholder {
+			color: $gray;
+		}
+		:-moz-placeholder {
+			color: $gray;
+		}
+		::-moz-placeholder {
+			color: $gray;
+		}
+		:-ms-input-placeholder {
+			color: $gray;
+		}
+	}
 }
 @media only screen and (min-device-width: 480px) {
-				.sign-in {
-								background-color: $white;
-								.branding {
-												margin: 10% auto;
-												.logo {
-																display: block;
-																margin: 0 auto;
-																width: 40%;
-												}
-												.slogan {
-																display: block;
-																margin: 5% auto 0;
-																width: 60%;
-												}
-								}
-								.list {
-												label.item-input {
-																border-bottom: 1px solid $lightgray;
-																width: 80%;
-																margin: 0 auto;
-																height: 44px;
-																padding-left: 4px !important;
-																margin-bottom: 26px;
-																i {
-																				font-size: 40px;
-																				width: 40px;
-																				color: $darkblue;
-																				text-align: center;
-																				&.icon-small {
-																								font-size: 28px;
-																				}
-																}
-																input[type=text],
-																input[type=password] {
-																				color: $gray;
-																				font-family: arial;
-																				font-weight: 400;
-																				font-size: 14px;
-																				line-height: 1.6;
-																}
-																&.error {
-																				border-bottom-color: $red;
-																				i {
-																								color: $red;
-																				}
-																}
-												}
-												label.item-select {
-																background-color: $white;
-																border-width: 0 0 1px 0;
-																i {
-																				font-size: 40px;
-																				width: 40px;
-																				color: $darkblue;
-																				text-align: center;
-																				&.icon-small {
-																								font-size: 28px;
-																				}
-																}
-																.input-label {
-																				background-color: $white;
-																				color: $black;
-																				font-family: arial;
-																				font-weight: 400;
-																				font-size: 14px;
-																				line-height: 1;
-																				line-height: 1.6;
-																				// margin-left: 10px;
-																}
-																select {
-																				background-color: $white;
-																				color: $black;
-																				font-size: 14px;
-																				font-weight: 400;
-																				text-transform: uppercase;
-																				padding: 0;
-																				right: initial;
-																				direction: ltr;
-																}
-												}
-								}
-								button.btn-signin {
-												font-size: 18px;
-								}
-								.help {
-												text-decoration: underline;
-								}
-								 ::-webkit-input-placeholder {
-												color: $lightgray;
-								}
-								 :-moz-placeholder {
-												color: $lightgray;
-								}
-								 ::-moz-placeholder {
-												color: $lightgray;
-								}
-								 :-ms-input-placeholder {
-												color: $lightgray;
-								}
+	.signin-content {
+		height: calc(100vh - 30px)!important;
+	}
+	.sign-in {
+		background-color: $white;
+		.branding {
+			margin: 10% auto;
+			.logo {
+				display: block;
+				margin: 0 auto;
+				width: 40%;
+			}
+			.slogan {
+				display: block;
+				margin: 5% auto 0;
+				width: 60%;
+			}
+		}
+		.list {
+			label.item-input {
+				border-bottom: 1px solid $lightgray;
+				width: 80%;
+				margin: 0 auto;
+				height: 44px;
+				padding-left: 4px !important;
+				margin-bottom: 26px;
+				font-size: 4vw;
+				i {
+					font-size: 40px;
+					width: 40px;
+					color: $darkblue;
+					text-align: center;
+					&.icon-small {
+						font-size: 28px;
+					}
 				}
+				input[type=password],
+				input[type=text] {
+					color: $gray;
+					font-family: arial;
+					font-weight: 400;
+					font-size: 4vw;
+					line-height: 1.6;
+				}
+				&.error {
+					border-bottom-color: $red;
+					i {
+						color: $red;
+					}
+				}
+			}
+			label.item-select {
+				background-color: $white;
+				border-width: 0 0 1px 0;
+				i {
+					font-size: 40px;
+					width: 40px;
+					color: $darkblue;
+					text-align: center;
+					&.icon-small {
+						font-size: 28px;
+					}
+				}
+				.input-label {
+					background-color: $white;
+					color: $black;
+					font-family: arial;
+					font-weight: 400;
+					font-size: 4vw;
+					line-height: 1;
+					line-height: 1.6;
+				}
+				select {
+					background-color: $white;
+					color: $black;
+					font-size: 4vw;
+					font-weight: 400;
+					text-transform: uppercase;
+					padding: 0;
+					right: initial;
+					direction: ltr;
+					border: 1px solid $lightgray;
+					border-radius: 3px;
+					width: 100%;
+					padding: 0 5px;
+				}
+			}
+		}
+		button.btn-signin {
+			font-size: 5vw;
+		}
+		.help {
+			text-decoration: underline;
+		}
+		::-webkit-input-placeholder {
+			color: $lightgray;
+		}
+		:-moz-placeholder {
+			color: $lightgray;
+		}
+		::-moz-placeholder {
+			color: $lightgray;
+		}
+		:-ms-input-placeholder {
+			color: $lightgray;
+		}
+		#emailform,
+		#virtualws {
+			.item-input {
+				width: 100%;
+				padding-left: 0;
+			}
+			.email-title {
+				font-size: 4vw;
+				text-align: left;
+				color: $darkgray;
+			}
+			.list {
+				label {
+					margin-bottom: 0;
+					font-size: 4vw;
+				}
+			}
+			input[type=password],
+			input[type=text] {
+				border: 1px solid $lightgray;
+				border-radius: 3px;
+				background: $white;
+				padding: 10px 5px;
+			}
+			select {
+				background-color: $white;
+				color: $darkgray;
+				font-size: 4vw;
+				font-weight: 400;
+				text-transform: uppercase;
+				padding: 0;
+				right: initial;
+				direction: ltr;
+				border: 1px solid $lightgray;
+				border-radius: 3px;
+				width: 100%;
+				padding: 10px 5px;
+				position: relative;
+			}
+			.help-block {
+				width: 100%;
+				margin: 0 auto;
+				padding-left: 4px !important;
+				font-size: 3vw;
+				&.error {
+					color: $red;
+				}
+			}
+			.show-hide-password {
+				margin-top: 15px;
+				input#show-hide
+				{
+						width: 20px;
+						top: 2px;
+    				position: relative;
+				}
+			}
+			label, input, select, textarea{
+				font-size: 4vw;
+			}
+		}
+	}
 }

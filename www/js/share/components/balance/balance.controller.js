@@ -14,12 +14,12 @@
     .controller('BalanceController', Balance);
 
   Balance.$inject = [
-    '$scope', 'websocketService', 'currencyToSymbolService'
+    '$scope', 'websocketService'
   ]
 
   function Balance(
       $scope,
-      websocketService, currencyToSymbolService) {
+      websocketService) {
     var vm = this;
     vm.balance = {};
 
@@ -38,10 +38,6 @@
           $scope.$applyAsync(() => {
             vm.balance = response;
             changeProposalCurrency();
-            vm.formatMoney = function(currency, amount){
-              vm.currency = sessionStorage.getItem('currency');
-              return currencyToSymbolService.formatMoney(currency, amount);
-            }
           });
         });
 
