@@ -22,9 +22,11 @@
       $scope.$applyAsync(() => {
         if(appStateService.isNewAccountReal){
           vm.isNewAccountReal = true;
+          vm.isNewAccountMaltainvest = false;
         }
         if(appStateService.isNewAccountMaltainvest){
           vm.isNewAccountMaltainvest = true;
+          vm.isNewAccountReal = false;
         }
       });
 

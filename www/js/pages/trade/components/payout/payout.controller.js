@@ -26,7 +26,7 @@
             } else {
                 vm.proposal.basis = "payout";
             }
-            proposalService.setBasis(vm.proposal.basis);
+            proposalService.setPropertyValue('basis', vm.proposal.basis);
         }
 
         vm.changeAmount = function(){
@@ -35,7 +35,7 @@
           } else {
             vm.proposal.amount = vm.amount;
           }
-          proposalService.setAmount(vm.proposal.amount);
+          proposalService.setPropertyValue('amount', vm.proposal.amount);
         }
 
         vm.add = function(){
@@ -48,7 +48,7 @@
 
         vm.stopLongPress = function(){
           vm.proposal.amount = vm.amount;
-          proposalService.setAmount(vm.proposal.amount);
+          proposalService.setPropertyValue('amount', vm.proposal.amount);
         }
 
         function init(){

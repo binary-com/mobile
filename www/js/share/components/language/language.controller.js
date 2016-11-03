@@ -24,6 +24,7 @@
     vm.android = ionic.Platform.isAndroid();
 
     vm.languages = [
+      { id: 'id', title: 'Bahasa Indonesia'},
       { id: 'de', title: 'Deutsch'},
       { id: 'en', title: 'English'},
       { id: 'es', title: 'Español'},

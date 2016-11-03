@@ -1,55 +1,176 @@
 .profit-table {
-	.float-button{
-		background-color:$darkblue;
-	 opacity: 0.9;
-	 color: white;
-	 border-radius: 50%;
-	 /*border-radius:15% 0 0 0;*/
-	 width: 50px;
-	 height: 50px;
-	 font-size: 16px;
-	 position: fixed;
-	 top: 70vh;
-	 right: 6%;
-	 z-index: 1000;
-	 text-align: center;
-	 i{
-		 position: relative;
-     top: 15px;
-		 background: inherit;
-		 text-align: center;
-		 color: $white;
-	 }
+	ion-content {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		.profit-table-container {
+			margin-top: 75px;
+			padding-bottom: 75px;
+			&.pull-down {
+				padding-top: 45px !important;
+			}
+		}
+		.spinner {
+			margin-top: -50px;
+		}
 	}
-	.item {
-		padding: 15px;
+	.filters {
+		margin-top: 30px;
+		position: absolute;
+		background: $white;
+		z-index: 10;
+		.item {
+			padding: 15px;
+			.input-title {
+				font-size: 4vw;
+			}
+		}
+		.item-select {
+			border: 1px solid $gray;
+			border-radius: 3px;
+			select {
+				width: 100%;
+				padding: 0 15px;
+				direction: ltr;
+				font-size: 4vw;
+			}
+		}
+		.label {
+			padding: 0;
+			input {
+				margin: 0;
+				padding-right: 0 !important;
+				font-size: 4vw;
+			}
+		}
+		input {
+			margin-left: 15px;
+			border: 1px solid $gray;
+			border-radius: 3px;
+			padding: 5px;
+			font-size: 4vw;
+		}
+		input[type="date"]::-webkit-calendar-picker-indicator {
+			color: $gray;
+		}
+		&.jump-to-date-container {
+			margin-top: 80px;
+			.jump-to-date {
+				padding: 0;
+				input {
+					background: $white;
+				}
+			}
+		}
 	}
-	.item-select {
-		border: 1px solid $gray;
+	.first-spinner {
+		left: 1em;
+		right: 1em;
+		position: absolute;
+		text-align: center;
 	}
-	select {
+	.float-button {
+		background-color: $darkblue;
+		opacity: 0.9;
+		color: white;
+		border-radius: 50%;
+		width: 3em;
+		height: 3em;
+		font-size: 4vw;
+		position: fixed;
+		top: 75%;
+		right: 6%;
+		z-index: 1000;
+		text-align: center;
+		line-height: 3em;
+		i {
+			position: relative;
+			background: inherit;
+			text-align: center;
+			color: $white;
+		}
+	}
+	ul.statement-table {
+		display: table;
 		width: 100%;
-		padding: 0 15px;
-		direction: ltr;
+		li.list {
+			display: table-row;
+			width: 100%;
+			.statement-element {
+				display: table-cell;
+				padding: 5px 0;
+				font-size: 3.5vw;
+			}
+			.right {
+				text-align: right;
+			}
+			.green {
+				color: $green;
+			}
+			.red {
+				color: $red!important;
+			}
+			.bold {
+				font-weight: bold;
+			}
+		}
+		.has-error {
+			font-size: 4.5vw;
+			color: red;
+		}
 	}
-	.next {
-		float: right;
+}
+.transaction-detail {
+	ion-content{
+		padding-bottom: 25px;
 	}
-	.prev {
-		float: left;
+	.statement-list {
+		display: flex;
+		flex-direction: row;
+		padding: 5px;
+		.statement-element {
+			display: flex;
+			flex-grow: 1;
+			padding: 5px 0;
+			font-size: 3.5vw;
+			&.last-statement-element {
+				display: block;
+			}
+		}
 	}
-	.profit-table-content {
-		margin-top: 35px;
+	.list-item {
+		padding: 0 !important;
+		color: $black;
+	}
+	.reference {
+		font-size: 5vw;
+		border-bottom: 2px solid $black;
+		padding: 5px 0;
+	}
+	.small-text {
+		font-size: 3vw;
+	}
+	.back {
+		button {
+			margin-top: 0 !important;
+		}
+	}
+	.title {
+		padding: 0 5px;
+		margin-top: 25px;
+	}
+	.longcode {
+		padding: 5px 0;
 	}
 	ul {
 		&.statement-list {
 			display: flex;
 			flex-direction: row;
+			padding: 5px;
 			.statement-element {
 				display: flex;
 				flex-grow: 1;
 				padding: 5px 0;
-				font-size: 4vw;
+				font-size: 3.5vw;
 				&.last-statement-element {
 					display: block;
 				}
@@ -76,33 +197,5 @@
 				font-weight: bold;
 			}
 		}
-		.profit-table-list {
-			padding: 5px;
-		}
-	}
-}
-.transaction-detail {
-	.list-item {
-		padding: 0 !important;
-		color: $black;
-	}
-	.reference {
-		font-size: 5vw;
-		border-bottom: 2px solid $black;
-		padding: 5px 0;
-	}
-	.small-text {
-		font-size: 3vw;
-	}
-	.back {
-		button {
-			margin-top: 0 !important;
-		}
-	}
-	.title {
-		padding: 0 5px;
-	}
-	.longcode {
-		padding: 5px 0;
 	}
 }

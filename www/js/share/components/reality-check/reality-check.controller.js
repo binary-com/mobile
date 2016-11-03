@@ -32,7 +32,7 @@
         appStateService.isRealityChecked = true;
       }
       // check if account is changed and is real money account
-      else if (appStateService.isChangedAccount && authorize.is_virtual == 0) {
+      else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0) {
         if (vm.realityCheckTimeout) {
           $timeout.cancel(vm.realityCheckTimeout);
         }
@@ -42,6 +42,7 @@
         appStateService.isChangedAccount = false;
       }
     });
+
     $scope.$on('landing_company_details', function(e, landingCompanyDetails) {
       if (landingCompanyDetails.has_reality_check === 1) {
         vm.hasRealityCheck();
@@ -76,7 +77,7 @@
       }
       // if not asked the interval from user and the start time of reality check popups are set in sessionStorage
       // happens when user refresh the browser
-      else if (!appStateService.isRealityChecked && sessionStorage.start) {
+      else if (!appStateService.isRealityChecked && !_.isEmpty(sessionStorage.start)) {
         appStateService.isRealityChecked = true;
         // calculate the difference between time of last popup and current time
         var timeGap = vm.getStart('start');
@@ -101,30 +102,34 @@
       appStateService.isRealityChecked = true;
       vm.data = {};
       vm.data.interval = 60;
-      appStateService.isPopupOpen = true;
-      $translate(['realitycheck.continue', 'realitycheck.title'])
-        .then(function(translation) {
-            alertService.displayRealitCheckInterval(
-              translation['realitycheck.title'],
-              'realitycheck getinterval',
-              $scope,
-              'js/share/components/reality-check/interval-popup.template.html', [{
-                text: translation['realitycheck.continue'],
-                type: 'button-positive',
-                onTap: function(e) {
-                  if (vm.data.interval <= 120 && vm.data.interval >= 10) {
-                    vm.setInterval(vm.data.interval);
-                    vm.data.start_interval = (new Date()).getTime();
-                    vm.setStart(vm.data.start_interval);
-                    vm.hasRealityCheck();
-                    appStateService.isPopupOpen = false;
-                  } else {
-                    e.preventDefault();
+      if(!appStateService.isPopupOpen){
+        appStateService.isPopupOpen = true;
+        $translate(['realitycheck.continue', 'realitycheck.title'])
+          .then(function(translation) {
+              alertService.displayRealitCheckInterval(
+                translation['realitycheck.title'],
+                'realitycheck getinterval',
+                $scope,
+                'js/share/components/reality-check/interval-popup.template.html', [{
+                  text: translation['realitycheck.continue'],
+                  type: 'button-positive',
+                  onTap: function(e) {
+                    if (vm.data.interval <= 120 && vm.data.interval >= 10) {
+                      vm.setInterval(vm.data.interval);
+                      vm.data.start_interval = (new Date()).getTime();
+                      vm.setStart(vm.data.start_interval);
+                      vm.hasRealityCheck();
+                      appStateService.isPopupOpen = false;
+                      sessionStorage.setItem('realityCheckStart', Date.now());
+                    } else {
+                      e.preventDefault();
+                    }
                   }
-                }
-              }, ]);
-          }
-        )
+                }, ]);
+            }
+          )
+      }
+
 
     };
 
@@ -142,12 +147,9 @@
       websocketService.sendRequestFor.realityCheck();
     }
     vm.sessionTime = function(reality_check) {
-      vm.date = reality_check.start_time * 1000;
-      vm.start_time = new Date(vm.date);
-      vm.realityCheckitems.start_time = vm.start_time.toUTCString();
+      vm.realityCheckitems.start_time = sessionStorage.getItem('realityCheckStart');
       vm.now = Date.now();
-      vm.realityCheckitems.currentTime = new Date(vm.now).toUTCString();
-      vm.duration = (vm.now - vm.date);
+      vm.duration = (vm.now - vm.realityCheckitems.start_time);
       vm.realityCheckitems.days = Math.floor(vm.duration / 864e5);
       vm.hour = vm.duration - (vm.realityCheckitems.days * 864e5);
       vm.realityCheckitems.hours = Math.floor(vm.hour / 36e5);
@@ -181,6 +183,7 @@
                     appStateService.isNewAccountMaltainvest = false;
                     appStateService.hasMLT = false;
                     sessionStorage.removeItem('countryParams');
+                    sessionStorage.removeItem('realityCheckStart')
             $state.go('signin');
           }
           if (!res) {
@@ -193,7 +196,7 @@
     vm.alertRealityCheck = function(reality_check) {
       vm.removeStart('start');
       vm.realityCheckitems = reality_check;
-      if (vm.sessionLoginId == vm.realityCheckitems.loginid) {
+      if (vm.sessionLoginId == vm.realityCheckitems.loginid && !appStateService.isPopupOpen) {
         vm.sessionTime(reality_check);
         vm.data = {};
         vm.data.interval = parseInt(vm.getInterval('_interval'));

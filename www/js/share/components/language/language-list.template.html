@@ -1,11 +1,17 @@
 <ion-content>
-<div class="list">
-  <div class="item item-divider">
+<div class="bar bar-header bar-light">
+  <h1 class="title">
     {{ 'signin.language' | translate }}
-  </div>
-  <a class="item item-icon-left" ng-repeat="language in vm.languages" ng-click="vm.changeLanguage(language.id)">
-    <i class="icon ion-android-checkbox-outline{{vm.language === language.id ? '' : '-blank'}}"></i>
+  </h1>
+</div>
+
+
+<div class="list">
+  <ion-radio ng-repeat="language in vm.languages"
+             ng-model="vm.language"
+             ng-value="language.id"
+             ng-click="vm.changeLanguage(language.id)">
       {{language.title}}
-  </a>
+  </ion-radio>
 </div>
 </ion-content>

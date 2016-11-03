@@ -13,10 +13,15 @@
         .module('binary.pages.transaction-detail.controllers')
         .controller('TransactionDetailController', TransactionDetail);
 
-    TransactionDetail.$inject = ['$scope', '$timeout', '$interval', '$state', 'appStateService', 'websocketService', 'currencyToSymbolService'];
+    TransactionDetail.$inject = ['$scope', '$timeout', '$interval', '$state',
+                                 'appStateService', 'websocketService'];
 
-    function TransactionDetail($scope, $timeout, $interval, $state, appStateService, websocketService, currencyToSymbolService) {
+    function TransactionDetail($scope, $timeout, $interval, $state,
+                               appStateService, websocketService) {
         var vm = this;
+
+        vm.currency = sessionStorage.getItem('currency');
+
         vm.data = {};
         vm.data.id = sessionStorage.getItem('id');
         vm.data.extraParams = {
@@ -42,9 +47,5 @@
 
         vm.sendDetailsRequest();
 
-        vm.formatMoney = function(currency, amount) {
-            vm.currency = sessionStorage.getItem('currency');
-            return currencyToSymbolService.formatMoney(currency, amount);
-        }
     }
 })();

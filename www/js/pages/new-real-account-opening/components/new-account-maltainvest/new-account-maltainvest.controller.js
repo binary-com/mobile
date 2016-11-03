@@ -18,67 +18,39 @@
     function NewAccountMaltainvest($scope, $timeout,  $translate, $location, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
         var vm = this;
         vm.data = {};
+        vm.salutationError = false;
+        vm.firstNameError = false;
+        vm.lastNameError = false;
+        vm.dateOfBirthError = false;
+        vm.countryError = false;
+        vm.addressLine1Error = false;
+        vm.addressLine2Error = false;
+        vm.addressCityError = false;
+        vm.addressStateError = false;
+        vm.addressPostcodeError = false;
+        vm.phoneError = false;
+        vm.secretQuestionError = false;
+        vm.secretAnswerError = false;
 				vm.isReadonly = false;
-				vm.steps = [
-					'details',
-					'financial_information',
-					'privacy'
-				];
-				vm.selection = vm.steps[0];
-
-				vm.getCurrentStepIndex = function() {
-					// Get the index of the current step given selection
-					return _.indexOf(vm.steps, vm.selection);
-				};
-
-				// Go to a defined step index
-				vm.goToStep = function(index) {
-					vm.current = vm.getCurrentStepIndex();
-					if (!_.isUndefined(vm.steps[index])) {
-						if (index == vm.current + 1) {
-							if (vm.current == 0 && !detailsForm.$error) {
-								vm.selection = vm.steps[index];
-							}
-							if (vm.current == 1 && !financialForm.$error) {
-								vm.selection = vm.steps[index];
-							}
-						}
-						if(index < vm.current){
-							vm.selection = vm.steps[index];
-						}
-					}
-				};
-
-				vm.hasNextStep = function() {
-					var stepIndex = vm.getCurrentStepIndex();
-					var nextStep = stepIndex + 1;
-					// Return true if there is a next step, false if not
-					return !_.isUndefined(vm.steps[nextStep]);
-				};
-
-				vm.hasPreviousStep = function() {
-					var stepIndex = vm.getCurrentStepIndex();
-					var previousStep = stepIndex - 1;
-					// Return true if there is a next step, false if not
-					return !_.isUndefined(vm.steps[previousStep]);
-				};
-
-				vm.incrementStep = function() {
-					if (vm.hasNextStep()) {
-						var stepIndex = vm.getCurrentStepIndex();
-						var nextStep = stepIndex + 1;
-						vm.selection = vm.steps[nextStep];
-
-					}
-				};
-
-				vm.decrementStep = function() {
-					if (vm.hasPreviousStep()) {
-						var stepIndex = vm.getCurrentStepIndex();
-						var previousStep = stepIndex - 1;
-						vm.selection = vm.steps[previousStep];
-					}
-				};
+        vm.data.salutation = "Mr";
+        vm.data.forexTradingExperience = "0-1 year";
+        vm.data.forexTradingFrequency = "0-5 transactions in the past 12 months";
+        vm.data.indicesTradingExperience = "0-1 year";
+        vm.data.indicesTradingFrequency = "0-5 transactions in the past 12 months";
+        vm.data.commoditiesTradingExperience = "0-1 year";
+        vm.data.commoditiesTradingFrequency = "0-5 transactions in the past 12 months";
+        vm.data.stocksTradingExperience = "0-1 year";
+        vm.data.stocksTradingFrequency = "0-5 transactions in the past 12 months";
+        vm.data.otherDerivativesTradingExperience = "0-1 year";
+        vm.data.otherDerivativesTradingFrequency = "0-5 transactions in the past 12 months";
+        vm.data.otherInstrumentsTradingExperience = "0-1 year";
+        vm.data.otherInstrumentsTradingFrequency = "0-5 transactions in the past 12 months";
+        vm.data.employmentIndustry = "Construction";
+        vm.data.educationLevel = "Primary";
+        vm.data.incomeSource = "Salaried Employee";
+        vm.data.netIncome = "Less than $25,000";
+        vm.data.estimatedWorth = "Less than $100,000";
+        vm.data.secretQuestion = "Mother's maiden name";
 
 				$scope.$applyAsync( () => {
 					if (appStateService.hasMLT) {
@@ -114,6 +86,7 @@
 				websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
 				$scope.$on('states_list', (e, states_list) => {
 					vm.data.statesList = states_list;
+          vm.data.state = vm.data.statesList[0].value;
 				});
 				websocketService.sendRequestFor.accountSetting();
 				$scope.$on('get_settings', (e, get_settings) => {
@@ -125,10 +98,41 @@
 							vm.data.lastName = get_settings.last_name;
 							vm.data.salutation = get_settings.salutation;
 						}
+            if(get_settings.hasOwnProperty('address_line_1')){
+              vm.data.addressLine1 = get_settings.address_line_1;
+            }
+            if(get_settings.hasOwnProperty('address_line_2')){
+              vm.data.addressLine2 = get_settings.address_line_2;
+            }
+            if(get_settings.hasOwnProperty('address_postcode')){
+              vm.data.addressPostCode = get_settings.address_postcode;
+            }
+            if(get_settings.hasOwnProperty('address_state')){
+              vm.data.state = get_settings.address_state;
+            }
+            if(get_settings.hasOwnProperty('phone')){
+              vm.data.phone = get_settings.phone;
+            }
+            if(get_settings.hasOwnProperty('address_city')){
+              vm.data.addressCity = get_settings.address_city;
+            }
 					});
 				});
 
 				vm.submitAccountOpening = function() {
+          vm.salutationError = false;
+          vm.firstNameError = false;
+          vm.lastNameError = false;
+          vm.dateOfBirthError = false;
+          vm.countryError = false;
+          vm.addressLine1Error = false;
+          vm.addressLine2Error = false;
+          vm.addressCityError = false;
+          vm.addressStateError = false;
+          vm.addressPostcodeError = false;
+          vm.phoneError = false;
+          vm.secretQuestionError = false;
+          vm.secretAnswerError = false;
 					if (vm.data.accept == true) {
 						vm.data.acceptRisk = 1
 					} else {
@@ -184,5 +188,64 @@
 						};
 					websocketService.sendRequestFor.createMaltainvestAccountSend(params);
 				};
+
+
+        $scope.$on('new-account-maltainvest:error', (e, details) => {
+          $scope.$applyAsync(() => {
+            if(details.hasOwnProperty('salutation')){
+              vm.salutationError = true;
+              vm.salutationErrorMessage = details.salutation;
+            }
+            if(details.hasOwnProperty('first_name')){
+              vm.firstNameError = true;
+              vm.firstNameErrorMessage = details.first_name;
+            }
+            if(details.hasOwnProperty('last_name')){
+              vm.lastNameError = true;
+              vm.lastNameErrorMessage = details.last_name;
+            }
+            if(details.hasOwnProperty('date_of_birth')){
+              vm.dateOfBirthError = true;
+              vm.dateOfBirthErrorMessage = details.date_of_birth;
+            }
+            if(details.hasOwnProperty('residence')){
+              vm.countryError = true;
+              vm.countryErrorMessage = details.residence;
+            }
+            if(details.hasOwnProperty('address_line_1')){
+              vm.addressLine1Error = true;
+              vm.addressLine1ErrorMessage = details.address_line_1;
+            }
+            if(details.hasOwnProperty('address_line_2')){
+              vm.addressLine2Error = true;
+              vm.addressLine2ErrorMessage = details.address_line_2;
+            }
+            if(details.hasOwnProperty('address_city')){
+              vm.addressCityError = true;
+              vm.addressCityErrorMessage = details.address_city;
+            }
+            if(details.hasOwnProperty('address_state')){
+              vm.addressStateError = true;
+              vm.addressStateErrorMessage = details.address_state;
+            }
+            if(details.hasOwnProperty('address_postcode')){
+              vm.addressPostcodeError = true;
+              vm.addressPostcodeErrorMessage = details.address_postcode;
+            }
+            if(details.hasOwnProperty('phone')){
+              vm.phoneError = true;
+              vm.phoneErrorMessage = details.phone;
+            }
+            if(details.hasOwnProperty('secret_question')){
+              vm.secretQuestionError = true;
+              vm.secretQuestionErrorMessage = details.secret_question;
+            }
+            if(details.hasOwnProperty('secret_answer')){
+              vm.secretAnswerError = true;
+              vm.secretAnswerErrorMessage = details.secret_answer;
+            }
+
+          });
+        });
 
 			}})();
