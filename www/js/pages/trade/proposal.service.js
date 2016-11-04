@@ -43,7 +43,12 @@
 
             proposal.symbol = options.underlying.symbol;
             proposal.duration = options.tick;
-            proposal.barrier = _.isEmpty(options.barrier) ? options.digit : options.barrier;
+            if(options.tradeType === 'Higher/Lower'){
+              proposal.barrier = _.isEmpty(options.barrier) ? "" : options.barrier;
+            }
+            else{
+              proposal.barrier = options.digit;
+            }
             proposal.tradeType = options.tradeType;
             proposal.amount = options.amount || proposal.amount;
             proposal.basis = options.basis || proposal.basis;
