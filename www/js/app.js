@@ -31,7 +31,8 @@
         'binary.share.components.reality-check',
         'binary.share.components.real-account-opening',
         'binary.share.components.logout',
-        'binary.share.components.connectivity'
+        'binary.share.components.connectivity',
+        'binary.share.components.regex-validate'
     ]);
 
   angular
