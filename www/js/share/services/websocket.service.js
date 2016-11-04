@@ -209,7 +209,7 @@ angular
                         profit_table: 1
                     };
 
-                    for (key in params) {
+                    for (var key in params) {
                         if (params.hasOwnProperty(key)) {
                             data[key] = params[key]
                         }
@@ -231,7 +231,7 @@ angular
                         data.contract_id = contractId;
                     }
 
-                    for (key in extraParams) {
+                    for (var key in extraParams) {
                         if (extraParams.hasOwnProperty(key)) {
                             data[key] = extraParams[key]
                         }
@@ -302,7 +302,7 @@ angular
                     var data = {
                         "new_account_real": "1"
                     };
-                    for (key in params) {
+                    for (var key in params) {
                         if (params.hasOwnProperty(key)) {
                             data[key] = params[key]
                         }
@@ -313,7 +313,7 @@ angular
                     var data = {
                         "new_account_maltainvest": "1"
                     };
-                    for (key in params) {
+                    for (var key in params) {
                         if (params.hasOwnProperty(key)) {
                             data[key] = params[key]
                         }
@@ -325,7 +325,7 @@ angular
                         statement: 1
                     };
 
-                    for (key in params) {
+                    for (var key in params) {
                         if (params.hasOwnProperty(key)) {
                             data[key] = params[key]
                         }
