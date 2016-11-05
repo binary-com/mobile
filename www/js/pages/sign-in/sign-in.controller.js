@@ -152,6 +152,10 @@
             if (!appStateService.isLoggedin) {
                 var _token = new_account_virtual.oauth_token;
                 websocketService.authenticate(_token);
+                vm.showTokenForm = false;
+                vm.showSignin = false;
+                vm.showSignup = false;
+                vm.showvirtualws = false;
             }
         });
         $scope.$on('new_account_virtual:error', (e, error) => {
