@@ -46,6 +46,17 @@
                 vm.data.state = vm.data.statesList[0].value;
         });
 
+        vm.findPhoneCode = function(country){
+          return country.value == vm.data.countryCode;
+        }
+        websocketService.sendRequestFor.residenceListSend();
+        $scope.$on('residence_list', (e, residence_list) => {
+            vm.residenceList = residence_list;
+            vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
+            vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
+        });
+
+
 
         vm.validateName = (function(val) {
             var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;

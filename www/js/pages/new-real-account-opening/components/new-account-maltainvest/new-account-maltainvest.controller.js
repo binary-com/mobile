@@ -52,6 +52,11 @@
         vm.data.estimatedWorth = "Less than $100,000";
         vm.data.secretQuestion = "Mother's maiden name";
 
+        websocketService.sendRequestFor.residenceListSend();
+        $scope.$on('residence_list', (e, residence_list) => {
+            vm.residenceList = residence_list;
+        });
+
         $scope.$applyAsync(() => {
             if (appStateService.hasMLT) {
                 vm.isReadonly = true;
@@ -77,11 +82,15 @@
             }
         })();
 
+
         vm.countryParams = JSON.parse(sessionStorage.countryParams);
         vm.data.countryCode = vm.countryParams.countryCode;
         $scope.$applyAsync(() => {
             vm.data.country = vm.countryParams.countryOfAccount;
         });
+        vm.findPhoneCode = function(country){
+          return country.value == vm.data.countryCode;
+        }
 
         websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
         $scope.$on('states_list', (e, states_list) => {
@@ -112,6 +121,10 @@
                 }
                 if (get_settings.hasOwnProperty('phone')) {
                     vm.data.phone = get_settings.phone;
+                }
+                if (!get_settings.hasOwnProperty('phone')) {
+                  vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
+                  vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
                 }
                 if (get_settings.hasOwnProperty('address_city')) {
                     vm.data.addressCity = get_settings.address_city;
