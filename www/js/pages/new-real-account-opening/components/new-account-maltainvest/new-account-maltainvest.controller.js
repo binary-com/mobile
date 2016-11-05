@@ -13,9 +13,9 @@
         .module('binary.pages.new-real-account-opening.components.new-account-maltainvest')
         .controller('NewAccountMaltainvestController', NewAccountMaltainvest);
 
-    NewAccountMaltainvest.$inject = ['$scope', '$timeout', '$state', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    NewAccountMaltainvest.$inject = ['$scope', '$timeout', '$rootScope', '$state', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function NewAccountMaltainvest($scope, $timeout, $state, websocketService, appStateService, accountService, alertService) {
+    function NewAccountMaltainvest($scope, $timeout, $state, $rootScope, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
         vm.salutationError = false;
@@ -260,27 +260,28 @@
                     vm.secretAnswerErrorMessage = error.details.secret_answer;
                 }
               });
-
                 }
-
-          if(error.code == 'PermissionDenied'){
+          if(error.code){
             alertService.displayError(error.message);
           }
         });
 
         $scope.$on('new_account_maltainvest', (e, new_account_maltainvest) => {
-            vm.req_id = new_account_maltainvest.oauth_token;
-            websocketService.authenticate(new_account_maltainvest.oauth_token, req_id);
+            // websocketService.authenticate(new_account_maltainvest.oauth_token);
+            // accountService.setDefault(new_account_maltainvest.oauth_token);
+            // accountService.validate();
+            websocketService.authenticate(new_account_maltainvest.oauth_token);
         });
 
-        $scope.$on('authorize', (e, authorize, req_id) => {
+        $scope.$on('authorize', (e, authorize) => {
             if (authorize) {
-                if (req_id == vm.req_id) {
                     accountService.add(authorize);
+                    accountService.getAll();
                     accountService.setDefault(authorize.token);
                     appStateService.isChangedAccount = true;
-                    $state.$go('trade');
-                }
+                    $rootScope.$broadcast('accounts:updated');
+                    $state.go('home');
+
             }
         });
 

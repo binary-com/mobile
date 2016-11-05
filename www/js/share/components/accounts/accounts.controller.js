@@ -63,6 +63,11 @@
       appStateService.isPopupOpen = false;
     };
 
+    $scope.$on('accounts:updated', () => {
+      init();
+      vm.updateAccount(vm.addedAccount);
+    });
+
 
   }
 })();
