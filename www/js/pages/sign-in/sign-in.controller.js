@@ -151,7 +151,7 @@
         $scope.$on('new_account_virtual', (e, new_account_virtual) => {
             if (!appStateService.isLoggedin) {
                 var _token = new_account_virtual.oauth_token;
-                websocketService.authenticate(_token)
+                websocketService.authenticate(_token);
             }
         });
         $scope.$on('new_account_virtual:error', (e, error) => {

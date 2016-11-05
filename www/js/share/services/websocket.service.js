@@ -498,14 +498,14 @@ angular
                             if (message.new_account_real) {
                                 $rootScope.$broadcast('new_account_real', message.new_account_real);
                             } else if (message.error) {
-                                $rootScope.$broadcast('new_account_real:error', message.error.details);
+                                $rootScope.$broadcast('new_account_real:error', message.error);
                             }
                             break;
                         case 'new_account_maltainvest':
                             if (message.new_account_maltainvest) {
                                 $rootScope.$broadcast('new_account_maltainvest', message.new_account_maltainvest);
                             } else if (message.error) {
-                                $rootScope.$broadcast('new_account_maltainvest:error', message.error.details);
+                                $rootScope.$broadcast('new_account_maltainvest:error', message.error);
                             }
                             break;
                         case 'statement':
