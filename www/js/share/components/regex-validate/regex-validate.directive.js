@@ -28,15 +28,20 @@
     function link(scope, elements, attrs, ngModel){
 
       scope.$watch(() => { return ngModel.$viewValue; }, (newVal, oldVal) => {
-        if(_.isEmpty(scope.regex)){
+        if(_.isEmpty(scope.regex) || _.isEmpty(ngModel.$viewValue)){
           return;
         }
 
         var regex = RegExp(scope.regex);
 
-        if(!_.isEmpty(ngModel.$viewValue) && !regex.test(ngModel.$viewValue))
+
+        if(!regex.test(ngModel.$viewValue))
         {
           ngModel.$setViewValue(oldVal);
+          ngModel.$render();
+        }
+        else {
+          ngModel.$setViewValue(regex.exec(ngModel.$viewValue)[0]);
           ngModel.$render();
         }
 
