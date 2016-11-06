@@ -6,30 +6,23 @@
 		margin-bottom: 0 !important;
 	}
 	ion-content {
-		height: 100vh!important;
 		width: 100vw;
-		padding-bottom: 40px;
-	}
-	// .keyboard-up{
-	// 	display: block;
-	// 	position: absolute;
-	// }
+		&.trade-container{
+			display: flex;
+			height: 100vh!important;
+			padding-bottom: 40px;
+		}
 
+	}
 	.ionic-scroll {
 		min-height: 30px;
 		width: 100vw;
-		.scroll {
-			min-height: 30px;
-			display: flex;
-			flex-direction: column;
-			width: 100vw;
 
-		}
 		.scroll-bar-v {
 			display: none!important;
 		}
 	}
-	.trade-container {
+	#trade-container {
 		display: flex;
 		flex-direction: column;
 		.scroll-bar-h {
@@ -766,7 +759,7 @@
 			}
 		}
 	}
-	.trade .trade-container bg-payout {
+	.trade #trade-container bg-payout {
 		max-height: 130px;
 	}
 }
