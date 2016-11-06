@@ -13,9 +13,9 @@
         .module('binary.pages.new-real-account-opening.components.new-account-real')
         .controller('NewAccountRealController', NewAccountReal);
 
-    NewAccountReal.$inject = ['$scope', '$state', 'websocketService', 'appStateService', 'accountService'];
+    NewAccountReal.$inject = ['$scope', '$state' , '$rootScope', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function NewAccountReal($scope, $state, websocketService,  appStateService, accountService) {
+    function NewAccountReal($scope, $state, $rootScope, websocketService,  appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
         vm.salutationError = false;
@@ -53,7 +53,9 @@
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
             vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
-            vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
+            if(vm.phoneCodeObj.hasOwnProperty('phone_idd')){
+              vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
+            }
         });
 
 
@@ -176,28 +178,19 @@
           });
 
             }
-
-
-          if(error.code == 'PermissionDenied'){
+          if(error.code){
             alertService.displayError(error.message);
           }
         });
 
         $scope.$on('new_account_real', (e, new_account_real) => {
-            vm.req_id = new_account_real.oauth_token;
-            websocketService.authenticate(new_account_real.oauth_token, req_id);
+            websocketService.authenticate(new_account_real.oauth_token);
+            vm.selectedAccount = new_account_real.oauth_token;
+            appStateService.newAccountAdded = true;
+            accountService.addedAccount =  vm.selectedAccount;
         });
 
-        $scope.$on('authorize', (e, authorize, req_id) => {
-            if (authorize) {
-                if (req_id == vm.req_id) {
-                    accountService.add(authorize);
-                    accountService.setDefault(authorize.token);
-                    appStateService.isChangedAccount = true;
-                    $state.$go('trade');
-                }
-            }
-        });
+
 
     }
 })();
