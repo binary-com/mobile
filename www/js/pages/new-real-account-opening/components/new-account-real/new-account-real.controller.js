@@ -13,9 +13,9 @@
         .module('binary.pages.new-real-account-opening.components.new-account-real')
         .controller('NewAccountRealController', NewAccountReal);
 
-    NewAccountReal.$inject = ['$scope', '$state', '$rootScope', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    NewAccountReal.$inject = ['$scope', '$state' , '$rootScope', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function NewAccountReal($scope, $state,  $rootScope, websocketService,  appStateService, accountService, alertService) {
+    function NewAccountReal($scope, $state, $rootScope, websocketService,  appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
         vm.salutationError = false;
@@ -185,22 +185,12 @@
 
         $scope.$on('new_account_real', (e, new_account_real) => {
             websocketService.authenticate(new_account_real.oauth_token);
-            // accountService.add(new_account_real.oauth_token);
-            // appStateService.isChangedAccount = true;
-            //   $state.go('home');
+            vm.selectedAccount = new_account_real.oauth_token;
+            appStateService.newAccountAdded = true;
+            accountService.addedAccount =  vm.selectedAccount;
         });
 
-        $scope.$on('authorize', (e, authorize) => {
-            if (authorize) {
-                    accountService.add(authorize);
-                    accountService.getAll();
-                    accountService.setDefault(authorize.token);
-                    appStateService.isChangedAccount = true;
-                    $rootScope.$broadcast('accounts:updated');
-                    $state.go('home');
 
-            }
-        });
 
     }
 })();

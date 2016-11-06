@@ -18,6 +18,8 @@ angular
 			 * @param  {String, Number, Boolean} _value
 			 * @return {Number} Index of the found array element
 			 */
+
+			this.addedAccount = '';
 			var findIndex = function(_accounts, _key, _value) {
 				var index = -1;
 				_accounts.forEach(function(el, i) {
