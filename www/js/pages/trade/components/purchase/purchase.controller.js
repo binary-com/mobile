@@ -141,8 +141,8 @@
 
         vm.purchase = function(contractIndex) {
             $scope.$applyAsync(() => {
-                vm.purchasedContractIndex = contractIndex;
                 vm.inPurchaseMode = true;
+                vm.purchasedContractIndex = contractIndex;
                 appStateService.purchaseMode = true;
                 appStateService.tradeMode = false;
             });

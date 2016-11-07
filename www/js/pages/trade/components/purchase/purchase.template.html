@@ -27,7 +27,8 @@
             </div>
             <div class="row" ng-if="!vm.proposalResponses[$index].hasError">
                 <div class="col center">
-                    <button class="button" ng-click="vm.purchase($index)">
+                    <button class="button" ng-click="vm.purchase($index)"
+                            ng-disabled="vm.inPurchaseMode">
                         {{ "trade.buy" | translate}}
                         {{contract.contract_display.toUpperCase()}}
                     </button>
