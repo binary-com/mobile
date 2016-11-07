@@ -14,7 +14,7 @@
     .controller('LogoutController', Logout);
 
   Logout.$inject = [
-		'$rootScope', '$state', 'accountService', 'appStateService', 'websocketService', 'alertService'];
+		'$rootScope', '$state', 'accountService', 'appStateService', 'websocketService', 'alertService', 'proposalService', 'marketService'];
 
   function Logout(
 			$rootScope,
@@ -22,7 +22,9 @@
       accountService,
       appStateService,
       websocketService,
-      alertService
+      alertService,
+      proposalService,
+      marketService
     ){
     var vm = this;
 		vm.logout = function(res) {
@@ -37,6 +39,9 @@
 
 						if(res){
 							accountService.removeAll();
+              proposalService.forget();
+              marketService.removeActiveSymbols();
+              marketService.removeAssetIndex();
               appStateService.isRealityChecked = false;
               appStateService.isChangedAccount = false;
               appStateService.isPopupOpen = false;
