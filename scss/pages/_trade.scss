@@ -376,9 +376,12 @@
 						}
 						&.sell {
 							padding: 0;
-							.row {
-								color: $green;
+							.loss {
+								color: $blue;
 							}
+              .win {
+                color: $blue !important;
+              }
 							.title {
 								color: $darkgray;
 							}
