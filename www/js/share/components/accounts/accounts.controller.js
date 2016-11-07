@@ -64,24 +64,6 @@
             appStateService.isPopupOpen = false;
         };
 
-        // $scope.$on('newAccountAdded', (selectedAccount) => {
-        //   console.log(selectedAccount);
-        //   vm.accounts = accountService.getAll();
-        //   accountService.setDefault(selectedAccount);
-        //   vm.selectedAccount = accountService.getDefault().token;
-        //   vm.updateAccount(vm.selectedAccount);
-        // });
-
-        // $scope.$watch('appStateService.newAccountAdded', () => {
-        //   if(appStateService.newAccountAdded){
-        //     vm.accounts = accountService.getAll();
-        //     vm.selectedAccount = accountService.getDefault().token;
-        //     console.log(vm.selectedAccount);
-        //     vm.updateAccount(vm.selectedAccount);
-        //     appStateService.newAccountAdded = false;
-        //   }
-        // });
-
         $scope.$on('authorize', (e, authorize) => {
             if (authorize && appStateService.newAccountAdded) {
                 accountService.add(authorize);
