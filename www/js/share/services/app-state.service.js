@@ -32,6 +32,7 @@ angular
                 factory.isStatementSet = false;
                 factory.statementRefresh = false;
                 factory.virtuality = 0;
+                factory.newAccountAdded = false;
 
                 return factory;
             });

@@ -82,7 +82,7 @@ angular
 				});
 				sessionStorage.active_symbols = JSON.stringify(symbols);
 			};
-		
+
 			this.getActiveMarkets = function() {
                 if(!sessionStorage.active_symbols || sessionStorage.active_symbols === "null"){
                     return [];
@@ -108,7 +108,7 @@ angular
 				var result = [];
 
 				activeSymbols.map(function(market){
-					for(i=0; i < assetIndex.length; i++){
+					for(var i=0; i < assetIndex.length; i++){
 						if(market.symbol === assetIndex[i][indexes.symbol]){
 							var assetContracts = assetIndex[i][indexes.contracts];
 			                for(var c = 0; c < assetContracts.length; c++) {
@@ -145,7 +145,7 @@ angular
 
 						return proposal.passthrough.market;
 					}
-                    
+
 					//return _market.random ? 'random' : 'forex';
                     return _.findKey(_market, function(o){return o});
 				},

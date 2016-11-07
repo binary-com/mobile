@@ -17,10 +17,13 @@
 
 	.ionic-scroll {
 		min-height: 30px;
+		width: 100vw;
 		.scroll {
 			min-height: 30px;
 			display: flex;
 			flex-direction: column;
+			width: 100vw;
+
 		}
 		.scroll-bar-v {
 			display: none!important;
@@ -133,7 +136,7 @@
 			}
 		}
 		bg-chart {
-			margin-top: 10px;
+			// margin-top: 10px;
 			.contract-chart {
 				background: $white;
 				.chart-container {
@@ -214,10 +217,11 @@
 			}
 		}
 		bg-purchase {
-			padding: 5px 0;
+			padding:  0;
 			max-height: 400px;
 			flex-grow: 2;
-			flex-basis: 240px;
+			// flex-basis: 240px;
+			margin-bottom: 10px;
 			.purchase {
 				display: flex;
 				flex-grow: 1;
@@ -324,7 +328,7 @@
 		}
 		bg-longcode {
 			max-height: 75px;
-			margin-top: 75px;
+			margin-top: 35px;
 			display: flex;
 			flex-grow: 1;
 			.longcode {
@@ -344,7 +348,7 @@
 			}
 		}
 		bg-contract-summary {
-			padding: 0 5px 5px;
+			padding: 0 5px;
 			.contract-summary {
 				display: flex;
 				flex-grow: 1;
@@ -411,7 +415,7 @@
 				background: $white;
 				border: 1px solid $gray;
 				border-radius: 3px;
-				margin-bottom: 5px;
+				margin-bottom: 10px;
 				.col {
 					flex-grow: 1;
 					display: flex;
