@@ -13,9 +13,9 @@
         .module('binary.share.components.reality-check.controllers')
         .controller('RealityCheckController', RealityCheck);
 
-    RealityCheck.$inject = ['$scope', '$timeout', '$translate', '$location', '$state', '$ionicPopup', 'websocketService', 'appStateService', 'accountService', 'alertService', 'languageService'];
+    RealityCheck.$inject = ['$scope', '$timeout', '$translate', '$location', '$state', '$ionicPopup', 'websocketService', 'appStateService', 'accountService', 'alertService', 'languageService', 'proposalService', 'marketService'];
 
-    function RealityCheck($scope, $timeout, $translate, $location, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService) {
+    function RealityCheck($scope, $timeout, $translate, $location, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService, proposalService, marketService) {
 			var vm = this;
     var landingCompanyName;
     $scope.$on('authorize', function(e, authorize) {
@@ -169,7 +169,7 @@
 
           if (res) {
             accountService.removeAll();
-            proposalService.remove();
+            proposalService.forget();
             marketService.removeActiveSymbols();
             marketService.removeAssetIndex();
             appStateService.isLoggedin = false;
