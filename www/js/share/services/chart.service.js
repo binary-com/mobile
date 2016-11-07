@@ -122,6 +122,12 @@ angular
 					PUT: function condition(barrier, price) {
 						return parseFloat(price) < parseFloat(barrier);
 					},
+					CALLHL: function condition(barrier, price) { // Higher/Lower CALL
+						return parseFloat(price) > parseFloat(barrier);
+					},
+          PUTHL: function condition(barrier, price) { // Higher/Lower PUT
+						return parseFloat(price) < parseFloat(barrier);
+					},
 					DIGITMATCH: function condition(barrier, price) {
 						return utils.lastDigit(barrier) === utils.lastDigit(price);
 					},
@@ -164,7 +170,7 @@ angular
           return false;
         },
         higherLowerTrade: function higherLowerTrade(contract){
-          if(['PUT', 'CALL'].indexOf(contract.type) > -1 && !_.isEmpty(contract.barrier)){
+          if(['PUTHL', 'CALLHL'].indexOf(contract.type) > -1 && !_.isEmpty(contract.barrier)){
             return true;
           }
           return false;
@@ -756,7 +762,7 @@ angular
           } else if (gridLine.orientation === 'horizontal') {
             var yPoint = point.y;
             if(gridLine.type === 'average' && gridLine.index !== gridLine.firstIndex){
-              firstPoint = thisChart.datasets[0].points[gridLine.firstIndex];
+              var firstPoint = thisChart.datasets[0].points[gridLine.firstIndex];
               yPoint = (firstPoint.y + point.y) / 2;
             }
 
