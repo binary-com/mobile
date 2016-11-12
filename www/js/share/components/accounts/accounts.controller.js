@@ -14,13 +14,14 @@
         .controller('AccountsController', Accounts);
 
     Accounts.$inject = [
-        '$scope', '$state', 'accountService', 'appStateService',
+        '$scope', '$state', '$ionicSideMenuDelegate', 'accountService', 'appStateService',
         'utilsService', 'websocketService'
     ];
 
     function Accounts(
         $scope,
         $state,
+        $ionicSideMenuDelegate,
         accountService,
         appStateService,
         utilsService,
@@ -62,6 +63,7 @@
             appStateService.hasMLT = false;
             sessionStorage.removeItem('countryParams');
             appStateService.isPopupOpen = false;
+            $ionicSideMenuDelegate.toggleLeft();
         };
 
         $scope.$on('authorize', (e, authorize) => {
