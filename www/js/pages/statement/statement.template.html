@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col">
                     <ul class="statement-table">
-                      <li class="list list-title">
+                      <li class="list list-title" ng-if="!vm.noTransaction && vm.firstCompleted">
                         <div class="statement-element">{{'statement.date' | translate}}</div>
                         <div class="statement-element center">{{'statement.ref' | translate}}</div>
                         <div class="statement-element center">{{'statement.action_type' | translate}}</div>
@@ -51,10 +51,10 @@
                                 <div class="statement-element last-statement-element bold green right"
                                     ng-bind="transaction.balance_after | currency : vm.currency : 2"></div>
                         </li>
-                        <li class="row" ng-if="vm.noTransaction">
+                        <li class="list" ng-if="vm.noTransaction">
                             {{'statement.no_transaction' | translate}}
                         </li>
-                        <li class="row center has-error" ng-if="vm.hasError">
+                        <li class="list center has-error" ng-if="vm.hasError">
                             <div class="col">
                               <i class="icon ion-alert-circled"></i>
                               {{vm.errorMessage}}
