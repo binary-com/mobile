@@ -37,6 +37,13 @@
             <div class="row">
                 <div class="col">
                     <ul class="statement-table">
+                      <li class="list list-title">
+                        <div class="statement-element bold">{{'profittable.date' | translate}}</div>
+                        <div class="statement-element bold center">{{'profittable.ref' | translate}}</div>
+                        <div class="statement-element bold right">
+                          {{'profittable.profit_loss' | translate}}
+                        </div>
+                      </li>
                         <li class="list" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
                                         <div class="statement-element" ng-bind="transaction.purchase_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></div>
                                         <div class="statement-element center" ng-bind="transaction.transaction_id"></div>

@@ -97,7 +97,7 @@
 			width: 100%;
 			.statement-element {
 				display: table-cell;
-				padding: 5px 0;
+				padding: 5px;
 				font-size: 3.5vw;
 			}
 			.right {
@@ -112,7 +112,11 @@
 			.bold {
 				font-weight: bold;
 			}
+			&.list-title{
+				background: $lightgray;
+			}
 		}
+
 		.has-error {
 			font-size: 4.5vw;
 			color: red;
