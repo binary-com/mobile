@@ -31,7 +31,9 @@
         vm.android = ionic.Platform.isAndroid();
 
         vm.toggleSideMenu = function() {
+          if(appStateService.tradeMode || !appStateService.purchaseMode){
             $ionicSideMenuDelegate.toggleLeft();
+          }
         }
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {

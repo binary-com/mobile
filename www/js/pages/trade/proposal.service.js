@@ -19,10 +19,22 @@
         var factory = {};
 
         factory.get = function(){
-            if(_.isEmpty(localStorage.proposal)){
+            if(_.isEmpty(localStorage.options)){
                 return create();
             }
-            var proposal = JSON.parse(localStorage.proposal);
+            var options = JSON.parse(localStorage.options);
+            var proposal = create();
+            proposal.symbol = options.underlying.symbol;
+            proposal.duration = options.tick;
+            if(options.tradeType === 'Higher/Lower'){
+              proposal.barrier = _.isEmpty(options.barrier) ? "" : options.barrier;
+            }
+            else{
+              proposal.barrier = options.digit;
+            }
+            proposal.tradeType = options.tradeType;
+            proposal.amount = options.amount || proposal.amount;
+            proposal.basis = options.basis || proposal.basis;
             proposal.currency = sessionStorage.currency || 'USD';
             return proposal;
         }
