@@ -37,15 +37,11 @@
 
         function keyboardShowHandler(e) {
             document.getElementById('trade-container').className = '';
-            document.getElementById('trade-container').setAttribute("scroll-content" ,"true");
-            document.getElementById('trade-container').setAttribute("scroll" ,"true");
         }
 
 
         function keyboardHideHandler(e) {
-            document.getElementById('trade-container').className = 'trade-container';
-            document.getElementById('trade-container').setAttribute("scroll-content" ,"false");
-            document.getElementById('trade-container').setAttribute("scroll" ,"false");
+            document.getElementById('trade-container').className = 'flexed';
         }
     }
 })();

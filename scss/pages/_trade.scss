@@ -8,15 +8,24 @@
 	ion-content {
 		width: 100vw;
 		&.trade-container{
-			display: flex;
-			height: 100vh!important;
+			// display: flex;
+			// height: 100vh!important;
 			padding-bottom: 40px;
+		}
+		.scroll{
+			 height: 100%;
+			 .flexed{
+				 display: flex;
+				 height: 100%!important;
+				 flex-direction: column;
+				//  padding-bottom: 40px;
+			 }
 		}
 
 	}
 	.ionic-scroll {
-		min-height: 30px;
-		width: 100vw;
+		// min-height: 30px;
+		// width: 100vw;
 
 		.scroll-bar-v {
 			display: none!important;

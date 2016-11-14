@@ -299,7 +299,6 @@
 
         vm.goTop = function() {
             $ionicScrollDelegate.scrollTop(true);
-            vm.goToTopButton = false;
         }
 
         vm.goToTopButtonCondition = function() {
