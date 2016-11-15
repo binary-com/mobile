@@ -212,25 +212,44 @@
 		width: 80vw;
 		margin: 0 auto;
 		max-width: 768px;
-		.filters .item-select select{
-			font-size: 1.5vw;
-		}
-		.filters .item .input-title{
-			font-size: 1.5vw;
-		}
-		.filters input{
-			font-size: 1.5vw;
-		}
-		.float-button{
-			font-size: 1.5vw;
-			height: 3em;
-			width: 3em;
-		}
 		ion-content {
 			width: 80vw;
 			margin: 0 auto;
 			max-width: 768px;
-			ul.statement-table li.list .statement-element{
+		}
+		.filters {
+			.item {
+				.input-title {
+					font-size: 1.5vw;
+				}
+			}
+			.item-select {
+				select {
+					font-size: 1.5vw;
+				}
+			}
+			.label {
+				input {
+					font-size: 1.5vw;
+				}
+			}
+			input {
+				font-size: 1.5vw;
+			}
+		}
+		.float-button {
+			font-size: 1.5vw;
+			height: 3em;
+			width: 3em;
+			line-height: 3em;
+		}
+		ul.statement-table {
+			li.list {
+				.statement-element {
+					font-size: 1.5vw;
+				}
+			}
+			.has-error {
 				font-size: 1.5vw;
 			}
 		}
@@ -245,7 +264,7 @@
 			font-size: 2vw;
 		}
 		.small-text {
-			font-size: 1vw;
+			font-size: 1.5vw;
 		}
 		ul {
 			&.statement-list {
