@@ -205,7 +205,7 @@
 		}
 	}
 }
-@media only screen and (min-device-width: 480px) {
+@media screen and (min-device-width: 480px) {
 	.profit-table {
 		width: 80vw;
 		margin: 0 auto;
@@ -230,6 +230,31 @@
 			max-width: 768px;
 			ul.statement-table li.list .statement-element{
 				font-size: 1.5vw;
+			}
+		}
+	}
+	.transaction-detail {
+		.statement-list {
+			.statement-element {
+				font-size: 1.5vw;
+			}
+		}
+		.reference {
+			font-size: 2vw;
+		}
+		.small-text {
+			font-size: 1vw;
+		}
+		ul {
+			&.statement-list {
+				.statement-element {
+					font-size: 1.5vw;
+				}
+			}
+			.list {
+				.list-item {
+					font-size: 1.5vw;
+				}
 			}
 		}
 	}

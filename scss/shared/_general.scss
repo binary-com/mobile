@@ -29,16 +29,21 @@ a {
     background-color: $primaryBrandColor;
     h3.popup-title {
         color: $white!important;
-        font-size: 14px!important;
+        font-size: 4vw!important;
         text-align: left;
         font-weight: bold;
     }
 }
 .popup-body {
     background-color: $white;
+    font-size: 4vw;
 }
 .popup-buttons {
     background-color: $white;
+    font-size: 4vw;
+    .button{
+      font-size: 4vw!important;
+    }
 }
 button.button.button-default {
     color: $contentColor!important;
@@ -138,6 +143,28 @@ input::-webkit-outer-spin-button {
         width: 80vw;
         margin: 0 auto;
         max-width: 768px;
+    }
+    .popup-head {
+        padding: 10px;
+        border: none;
+        background-color: $primaryBrandColor;
+        h3.popup-title {
+            color: $white!important;
+            font-size: 1.5vw!important;
+            text-align: left;
+            font-weight: bold;
+        }
+    }
+    .popup-body {
+        background-color: $white;
+        font-size: 1.5vw;
+    }
+    .popup-buttons {
+        background-color: $white;
+        font-size: 1.5vw;
+        .button{
+          font-size: 1.5vw!important;
+        }
     }
 }
 @media only screen and (min-device-width: 768px) {

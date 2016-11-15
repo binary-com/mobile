@@ -237,7 +237,7 @@
 				select {
 					background-color: $white;
 					color: $contentColor;
-					font-size: 4vw;
+					font-size: 1.5vw;
 					font-weight: 400;
 					text-transform: uppercase;
 					padding: 0;
@@ -251,7 +251,7 @@
 			}
 		}
 		button.btn-signin {
-			font-size: 5vw;
+			font-size: 1.5vw;
 		}
 		.help {
 			text-decoration: underline;
@@ -275,14 +275,14 @@
 				padding-left: 0;
 			}
 			.email-title {
-				font-size: 4vw;
+				font-size: 1.5vw;
 				text-align: left;
 				color: $secondaryContentColor;
 			}
 			.list {
 				label {
 					margin-bottom: 0;
-					font-size: 4vw;
+					font-size: 1.5vw;
 				}
 			}
 			input[type=password],
@@ -294,8 +294,8 @@
 			}
 			select {
 				background-color: $white;
-				color: $secondaryContentColor;
-				font-size: 4vw;
+				color: $contentColor;
+				font-size: 1.5vw;
 				font-weight: 400;
 				text-transform: uppercase;
 				padding: 0;
@@ -311,7 +311,7 @@
 				width: 100%;
 				margin: 0 auto;
 				padding-left: 4px !important;
-				font-size: 3vw;
+				font-size: 1.5vw;
 				&.error {
 					color: $negativeColor;
 				}
@@ -326,7 +326,7 @@
 				}
 			}
 			label, input, select, textarea{
-				font-size: 4vw;
+				font-size: 1.5vw;
 			}
 		}
 	}

@@ -688,6 +688,28 @@
 	.trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content .basis-title span {
 		font-size: 2vw;
 	}
+	.modal{
+		bg-digits,
+		bg-markets,
+		bg-ticks,
+		bg-tradetypes,
+		bg-underlyings {
+			.digits,
+			.markets,
+			.ticks,
+			.trade-types,
+			.underlyings {
+
+				.row {
+					.col {
+						.button, a {
+							font-size: 1.5vw;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 
