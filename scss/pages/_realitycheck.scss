@@ -8,14 +8,14 @@
 			font-size: 4vw;
 		}
 		.button-secondary {
-			color: $black!important;
-			background: $lightgray!important;
+			color: $contentColor!important;
+			background: $fillColor!important;
 		}
 	}
 
 	.interval-input {
 		input {
-			border: 1px solid $gray;
+			border: 1px solid $borderColor;
 			border-radius: 4px;
 			padding-left: 5px;
 		}
@@ -48,7 +48,7 @@
 			}
 			p {
 				white-space: normal;
-				color: $black;
+				color: $contentColor;
 			}
 		}
 	}

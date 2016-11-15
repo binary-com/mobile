@@ -1,143 +1,154 @@
 ion-scroll[direction=x] {
-  width: 100vw;
+    width: 100vw;
 }
 body * {
-				font-family: roboto, sans-serif !important;
+    font-family: roboto, sans-serif !important;
 }
-ion-side-menu{
-  ion-content{
-    overflow-y: hidden;
-  }
+ion-side-menu {
+    ion-content {
+        overflow-y: hidden;
+    }
 }
-.bar-subheader{
-  padding: 0;
+.bar-subheader {
+    padding: 0;
     height: inherit;
     width: 100%;
     background: $white;
-    bg-balance{
-      width: 100%;
+    bg-balance {
+        width: 100%;
     }
 }
-a{
-	color: $blue;
-	text-decoration: none;
-	font-weight: bold;
+a {
+    color: $primaryBrandColor;
+    text-decoration: none;
+    font-weight: bold;
 }
 .popup-head {
-	padding: 10px;
-	border: none;
-	background-color: $blue;
-	h3.popup-title {
-		color: $white!important;
-		font-size: 14px!important;
-		text-align: left;
-		font-weight: bold;
-	}
+    padding: 10px;
+    border: none;
+    background-color: $primaryBrandColor;
+    h3.popup-title {
+        color: $white!important;
+        font-size: 14px!important;
+        text-align: left;
+        font-weight: bold;
+    }
 }
-.popup-body{
-	background-color: $white;
+.popup-body {
+    background-color: $white;
 }
-.popup-buttons{
-	background-color: $white;
+.popup-buttons {
+    background-color: $white;
 }
 button.button.button-default {
-	color: $black!important;
-	background: $lightgray!important;
+    color: $contentColor!important;
+    background: $fillColor!important;
 }
 button.button.button-positive {
-	background-color: $green!important;
-	&:hover {
-		color: $white !important;
-		background-color: $darkgreen!important;
-	}
+    background-color: $positiveColor!important;
+    &:hover {
+        color: $white !important;
+        background-color: $darkPositiveColor!important;
+    }
 }
 .button {
-				border: none;
-				background-color: $green;
-				color: $white;
-				 :hover {
-								color: $white !important;
-								background-color: $darkgreen;
-				}
+    border: none;
+    background-color: $positiveColor;
+    color: $white;
+    :hover {
+        color: $white !important;
+        background-color: $darkPositiveColor;
+    }
 }
-button:hover{
-	color: $white !important;
-	background-color: $darkgreen;
+button:hover {
+    color: $white !important;
+    background-color: $darkPositiveColor;
 }
-.button-gray{
-	background: $lightgray;
-	color: $black;
-	&:hover{
-		background: $gray!important;
-		color: $black!important;
-	}
+.button-gray {
+    background: $fillColor;
+    color: $contentColor;
+    &:hover {
+        background: $secondaryContentColor!important;
+        color: $contentColor!important;
+    }
 }
 button.button.button-default {
-  	color: $black!important;
- 	background: $lightgray!important;
-  }
-.side-item{
-	background: inherit;
-	color: $white;
+    color: $contentColor!important;
+    background: $fillColor!important;
+}
+.side-item {
+    background: inherit;
+    color: $white;
 }
 .token-link {
-				text-decoration: underline;
+    text-decoration: underline;
 }
 .center {
-				text-align: center;
-				justify-content:center;
+    text-align: center;
+    justify-content: center;
 }
 .item {
-				border-width: 0;
-				color: $black;
+    border-width: 0;
+    color: $contentColor;
 }
 .item-select select {
-				max-width: 100%;
+    max-width: 100%;
 }
 .item-complex .item-content,
 .item-radio .item-content {
-				background-color: $lightgray;
+    background-color: $fillColor;
 }
-
-.item-radio > input[disabled="disabled"] + div.item-content{
+.item-radio > input[disabled="disabled"] + div.item-content {
     opacity: 0.4;
 }
-
 .scroll {
-				padding-bottom: 1px;
+    padding-bottom: 1px;
 }
 .error p {
-				color: red;
-				font-size: 8px;
+    color: $negativeColor;
+    font-size: 8px;
 }
 .appVersion {
-				color: $blue;
-				opacity: 0.5;
-				font-size: 14px;
-				display: block;
-				margin: 0 auto;
+    color: $primaryBrandColor;
+    opacity: 0.5;
+    font-size: 14px;
+    display: block;
+    margin: 0 auto;
 }
-.help-block{
-	font-size: 12px;
-	color: $darkgray;
-	text-align: left;
+.help-block {
+    font-size: 12px;
+    color: $contentColor;
+    text-align: left;
 }
-.left{
-  text-align: left;
+.left {
+    text-align: left;
 }
-.right{
-  text-align: right;
+.right {
+    text-align: right;
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+@media only screen and (min-device-width: 480px) {
+    ion-view, ion-content {
+        width: 80vw;
+        margin: 0 auto;
+        max-width: 768px;
+    }
 }
 @media only screen and (min-device-width: 768px) {
-	.trade, .accounts, .options, .sign-in, .help, .home{
-		width: 100%;
-    max-width: 768px;
-    margin: auto;
-	}
+    .accounts,
+    .help,
+    .home,
+    .options,
+    .sign-in,
+    .trade {
+        width: 100%;
+        max-width: 768px;
+        margin: auto;
+    }
 }
