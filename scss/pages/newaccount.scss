@@ -82,3 +82,15 @@
             }
         }
     }
+
+    @media only screen and (min-device-width: 480px) {
+    .new-account bg-new-account-maltainvest .new-real-account .row .input-title, .new-account bg-new-account-real .new-real-account .row .input-title, .new-account bg-new-account-maltainvest .new-real-account .row .title, .new-account bg-new-account-real .new-real-account .row .title, .new-account bg-new-account-maltainvest .new-real-account .row .input-title span, .new-account bg-new-account-real .new-real-account .row .input-title span{
+      font-size: 1.5vw;
+    }
+    .new-account bg-new-account-maltainvest .new-real-account .row .error, .new-account bg-new-account-real .new-real-account .row .error{
+      font-size: 1.5vw;
+    }
+    .new-account bg-new-account-maltainvest .new-real-account .row, .new-account bg-new-account-real .new-real-account .row{
+      padding: 5px;
+    }
+}
