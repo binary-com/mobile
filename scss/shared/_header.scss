@@ -8,10 +8,12 @@
 	border-color: none;
 	background-color: $primaryBrandColor;
 	background-image: none;
+	z-index: 10;
 }
 .bar-positive .button {
 	// border-color: $primaryBrandColor;
 	background-color: $primaryBrandColor;
+	z-index: 12;
 }
 .bar-header {
 	background-color: $primaryBrandColor;
