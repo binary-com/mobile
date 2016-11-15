@@ -2,19 +2,19 @@
 				.accounts-content {
 								display: block;
 								.bar {
-												background-color: $orange;
+												background-color: $secondaryBrandColor;
 												margin-bottom: 4px !important;
 												h2 {
 																color: $white;
 												}
 								}
 								.remove-all-accounts {
-												background-color: $lightgray;
+												background-color: $fillColor;
 												margin-top: 10px;
 												padding: 10px;
 												font-size: 14px;
 												a {
-																color: $red;
+																color: $negativeColor;
 												}
 								}
 								.account {
@@ -32,20 +32,20 @@
 																				font-size: 24px;
 																				line-height: 40px;
 																				&.default {
-																								color: $green;
+																								color: $positiveColor;
 																				}
 																				&.not-default {
-																								color: $gray;
+																								color: $secondaryContentColor;
 																				}
 																}
 																div {
 																				.id {
-																								color: $blue;
+																								color: $primaryBrandColor;
 																								font-size: 16px;
 																								font-weight: 700;
 																				}
 																				.token {
-																								color: $gray;
+																								color: $secondaryContentColor;
 																								font-size: 14px;
 																								display: block;
 																								font-weight: 500;
@@ -53,7 +53,7 @@
 																}
 												}
 												.button-green {
-																background-color: $green;
+																background-color: $positiveColor;
 												}
 								}
 								.add-account {
@@ -62,13 +62,13 @@
 												label {
 																float: left;
 																&.error {
-																				color: $red;
+																				color: $negativeColor;
 																				i {
-																								color: $red;
+																								color: $negativeColor;
 																				}
 																}
 																.placeholder-icon {
-																				color: $gray;
+																				color: $secondaryContentColor;
 																}
 												}
 												.item-input {
@@ -79,7 +79,7 @@
 												}
 												.add {
 																font-size: 28px;
-																color: $green;
+																color: $positiveColor;
 																line-height: 40px;
 												}
 								}
@@ -89,19 +89,19 @@
 				.accounts-content {
 								display: block;
 								.bar {
-												background-color: $orange;
+												background-color: $secondaryBrandColor;
 												margin-bottom: 4px !important;
 												h2 {
 																color: $white;
 												}
 								}
 								.remove-all-accounts {
-												background-color: $lightgray;
+												background-color: $fillColor;
 												margin-top: 10px;
 												padding: 10px;
 												font-size: 14px;
 												a {
-																color: $red;
+																color: $negativeColor;
 												}
 								}
 								.account {
@@ -119,20 +119,20 @@
 																				font-size: 24px;
 																				line-height: 40px;
 																				&.default {
-																								color: $green;
+																								color: $positiveColor;
 																				}
 																				&.not-default {
-																								color: $gray;
+																								color: $secondaryContentColor;
 																				}
 																}
 																div {
 																				.id {
-																								color: $blue;
+																								color: $primaryBrandColor;
 																								font-size: 16px;
 																								font-weight: 700;
 																				}
 																				.token {
-																								color: $gray;
+																								color: $secondaryContentColor;
 																								font-size: 14px;
 																								display: block;
 																								font-weight: 500;
@@ -140,7 +140,7 @@
 																}
 												}
 												.button-green {
-																background-color: $green;
+																background-color: $positiveColor;
 												}
 								}
 								.add-account {
@@ -149,13 +149,13 @@
 												label {
 																float: left;
 																&.error {
-																				color: $red;
+																				color: $negativeColor;
 																				i {
-																								color: $red;
+																								color: $negativeColor;
 																				}
 																}
 																.placeholder-icon {
-																				color: $gray;
+																				color: $secondaryContentColor;
 																}
 												}
 												.item-input {
@@ -166,7 +166,7 @@
 												}
 												.add {
 																font-size: 28px;
-																color: $green;
+																color: $positiveColor;
 																line-height: 40px;
 												}
 								}

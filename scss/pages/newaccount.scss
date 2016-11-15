@@ -12,7 +12,7 @@
                     padding: 0 5px;
                     .title {
                         font-size: 4vw;
-                        color: $blue;
+                        color: $primaryBrandColor;
                         font-weight: bold;
                         padding-top: 0;
                         padding-bottom: 0;
@@ -24,7 +24,7 @@
                         padding: 0 5px;
                         span {
                             font-size: 4vw;
-                            color: $darkgray;
+                            color: $secondaryContentColor;
                         }
                         &.checkbox-container {
                             text-align: center;
@@ -34,7 +34,7 @@
                         position: relative;
                         width: 100%;
                         padding: 5px 3px;
-                        border: 1px solid $lightgray;
+                        border: 1px solid $borderColor;
                         border-radius: 3px;
                         background: $white;
                         direction: ltr;
@@ -46,7 +46,7 @@
                     input {
                         width: 100%;
                         padding: 5px 3px;
-                        border: 1px solid $lightgray;
+                        border: 1px solid $borderColor;
                         border-radius: 3px;
                         background: $white;
                         &.checkbox {
@@ -55,22 +55,22 @@
                             position: relative;
                         }
                         &.input-disabled {
-                            background: $lightgray;
+                            background: $fillColor;
                         }
                     }
                     .help-block {
                         font-size: 3vw;
                         text-align: left;
-                        color: $darkgray;
+                        color: $secondaryContentColor;
                         position: absolute;
                     }
                     .error {
-                        color: $red;
+                        color: $negativeColor;
                         font-size: 3vw;
                     }
                     .info-container {
                         border-radius: 3px;
-                        background: $lightgray;
+                        background: $fillColor;
                         word-break: break-word;
                         padding: 0;
                         margin-top: 10px;
@@ -82,3 +82,15 @@
             }
         }
     }
+
+    @media only screen and (min-device-width: 480px) {
+    .new-account bg-new-account-maltainvest .new-real-account .row .input-title, .new-account bg-new-account-real .new-real-account .row .input-title, .new-account bg-new-account-maltainvest .new-real-account .row .title, .new-account bg-new-account-real .new-real-account .row .title, .new-account bg-new-account-maltainvest .new-real-account .row .input-title span, .new-account bg-new-account-real .new-real-account .row .input-title span{
+      font-size: 1.5vw;
+    }
+    .new-account bg-new-account-maltainvest .new-real-account .row .error, .new-account bg-new-account-real .new-real-account .row .error{
+      font-size: 1.5vw;
+    }
+    .new-account bg-new-account-maltainvest .new-real-account .row, .new-account bg-new-account-real .new-real-account .row{
+      padding: 5px;
+    }
+}
