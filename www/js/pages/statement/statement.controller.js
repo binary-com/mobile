@@ -85,7 +85,7 @@
         }
 
         vm.delayedLoad = function(){
-          $timeout(vm.loadMore, 2000);
+          $timeout(vm.loadMore, 500);
         }
 
         vm.loadMore = function() {
