@@ -17,12 +17,18 @@
 			border: 1px solid $borderColor;
 			border-radius: 4px;
 			padding-left: 5px;
+			font-size: 4vw;
 		}
 	}
 	.interval_error {
 		position: relative;
 		font-size: 4vw;
 		color: $negativeColor;
+	}
+	.popup-head{
+		.popup-title{
+			font-size: 4vw;
+		}
 	}
 	.popup-body {
 		background-color: $white;
@@ -64,14 +70,7 @@
 		width: 40vw;
 	}
 }
-@media screen and (max-width: 960px) {
-	.getinterval,
-	.result-popup {
-		.popup {
-			width: 80vw!important;
-		}
-	}
-}
+
 @media screen and (max-width: 480px) {
 	.realitycheck .popup-body .item {
 		font-size: 4vw;
@@ -79,7 +78,6 @@
 	.realitycheck {
 		.popup-body {
 			.item {
-				font-size: 4vw;
 				.row {
 					padding: 0;
 					.interval-text {
@@ -111,12 +109,10 @@
 			color: $negativeColor;
 		}
 	}
-
-
 	.realitycheck {
 		.popup {
 			background-color: $white;
-			width: 90vw;
+			width: 40vw;
 			padding: 0;
 			font-size: 1.5vw;
 			.button {
@@ -132,12 +128,18 @@
 				border: 1px solid $borderColor;
 				border-radius: 4px;
 				padding-left: 5px;
+				font-size: 1.5vw;
 			}
 		}
 		.interval_error {
 			position: relative;
 			font-size: 1.5vw;
 			color: $negativeColor;
+		}
+		.popup-head{
+			.popup-title{
+				font-size: 1.5vw;
+			}
 		}
 		.popup-body {
 			background-color: $white;
@@ -164,8 +166,19 @@
 				p {
 					white-space: normal;
 					color: $contentColor;
+					font-size: 1.5vw;
+
 				}
 			}
+		}
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.getinterval,
+	.result-popup {
+		.popup {
+			width: 80vw!important;
 		}
 	}
 }

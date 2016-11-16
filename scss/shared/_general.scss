@@ -29,7 +29,7 @@ a {
     background-color: $primaryBrandColor;
     h3.popup-title {
         color: $white!important;
-        font-size: 4vw!important;
+        font-size: 4vw;
         text-align: left;
         font-weight: bold;
     }
@@ -42,7 +42,7 @@ a {
     background-color: $white;
     font-size: 4vw;
     .button{
-      font-size: 4vw!important;
+      font-size: 4vw;
     }
 }
 button.button.button-default {
@@ -150,7 +150,7 @@ input::-webkit-outer-spin-button {
         background-color: $primaryBrandColor;
         h3.popup-title {
             color: $white!important;
-            font-size: 1.5vw!important;
+            font-size: 1.5vw;
             text-align: left;
             font-weight: bold;
         }
@@ -163,7 +163,7 @@ input::-webkit-outer-spin-button {
         background-color: $white;
         font-size: 1.5vw;
         .button{
-          font-size: 1.5vw!important;
+          font-size: 1.5vw;
         }
     }
 }

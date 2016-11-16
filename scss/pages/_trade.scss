@@ -7,26 +7,24 @@
 	}
 	ion-content {
 		width: 100vw;
-		&.trade-container{
+		&.trade-container {
 			// display: flex;
 			// height: 100vh!important;
 			padding-bottom: 40px;
 		}
-		.scroll{
-			 height: 100%;
-			 .flexed{
-				 display: flex;
-				 height: 100%!important;
-				 flex-direction: column;
+		.scroll {
+			height: 100%;
+			.flexed {
+				display: flex;
+				height: 100%!important;
+				flex-direction: column;
 				//  padding-bottom: 40px;
-			 }
+			}
 		}
-
 	}
 	.ionic-scroll {
 		// min-height: 30px;
 		// width: 100vw;
-
 		.scroll-bar-v {
 			display: none!important;
 		}
@@ -187,7 +185,7 @@
 								color: $contentColor;
 								font-size: 6vw;
 								align-items: center;
-    						display: flex;
+								display: flex;
 								&:hover {
 									color: $contentColor!important;
 								}
@@ -218,7 +216,7 @@
 			}
 		}
 		bg-purchase {
-			padding:  0;
+			padding: 0;
 			max-height: 400px;
 			flex-grow: 2;
 			// flex-basis: 240px;
@@ -290,7 +288,7 @@
 									line-height: normal;
 									width: 100%;
 									align-items: center;
-    							display: flex;
+									display: flex;
 									span {
 										display: inline-block;
 										vertical-align: middle;
@@ -304,7 +302,7 @@
 									vertical-align: middle;
 									width: 100%;
 									align-items: center;
-    							display: flex;
+									display: flex;
 									span {
 										display: inline-block;
 										vertical-align: middle;
@@ -334,6 +332,7 @@
 			margin-top: 35px;
 			display: flex;
 			flex-grow: 1;
+			font-size: 4vw;
 			.longcode {
 				max-height: 75px;
 				display: flex;
@@ -382,9 +381,9 @@
 							.loss {
 								color: $primaryBrandColor;
 							}
-              .win {
-                color: $primaryBrandColor !important;
-              }
+							.win {
+								color: $primaryBrandColor !important;
+							}
 							.title {
 								color: $contentColor;
 							}
@@ -577,7 +576,8 @@
 		background: $white;
 		font-size: 4vw;
 		color: $contentColor;
-		h1, button{
+		button,
+		h1 {
 			color: $contentColor!important;
 		}
 	}
@@ -635,14 +635,15 @@
 					margin: 0 auto;
 					// min-width: 50%;
 					align-items: center;
-  			  display: flex;
-					&:first-child{
+					display: flex;
+					&:first-child {
 						border-top: none;
 					}
-					&:last-child{
+					&:last-child {
 						border-bottom: none;
 					}
-					.button, a {
+					.button,
+					a {
 						max-height: none;
 						min-height: 20px!important;
 						font-size: 4vw;
@@ -662,7 +663,6 @@
 		}
 	}
 }
-
 @media only screen and (min-device-width: 480px) {
 	ion-content {
 		&.trade-container {
@@ -671,24 +671,130 @@
 			max-width: 768px;
 		}
 	}
-	.trade #trade-container bg-options .options .row .col .button,
-	.trade #trade-container bg-options .options .row .col a {
-		font-size: 1.5vw;
+	.trade {
+		#trade-container {
+			bg-options {
+				.options {
+					.row {
+						.col {
+							.button,
+							a {
+								font-size: 1.5vw;
+							}
+						}
+					}
+				}
+			}
+			bg-payout {
+				.payout {
+					font-size: 1.5vw;
+					.payout-cell-container {
+						.payout-cell {
+							.payout-cell-link {
+								.button {
+									font-size: 2.5vw;
+								}
+							}
+							input {
+								font-size: 1.5vw;
+							}
+						}
+					}
+				}
+			}
+			bg-purchase {
+				.purchase {
+					.contract {
+						.row {
+							.col {
+								font-size: 1.5vw;
+								.button {
+									font-size: 1.5vw;
+								}
+							}
+							&.basis-container {
+								.basis-content {
+									.basis-title {
+										font-size: 2vw;
+										span {
+											font-size: 2vw;
+										}
+									}
+									.basis {
+										font-size: 2vw;
+										span {
+											font-size: 2vw;
+										}
+									}
+								}
+							}
+							.error {
+								p {
+									font-size: 1.5vw;
+								}
+							}
+						}
+					}
+				}
+			}
+			bg-longcode {
+				.longcode {
+					.row {
+						.col {
+							font-size: 1.5vw;
+						}
+					}
+				}
+			}
+			bg-contract-summary {
+				.contract-summary {
+					.row {
+						.col {
+							font-size: 1.5vw;
+						}
+					}
+				}
+			}
+			.buy-again-container {
+				.buy-again {
+					.col {
+						font-size: 1.5vw;
+						.button {
+							font-size: 1.5vw;
+						}
+					}
+				}
+			}
+			.contract-back-container {
+				.col {
+					font-size: 1.5vw;
+					.button {
+						font-size: 1.5vw;
+					}
+				}
+			}
+			bg-barrier {
+				.barrier {
+					.row {
+						.col {
+							font-size: 1.5vw;
+							input {
+								font-size: 1.5vw;
+							}
+						}
+					}
+				}
+			}
+			bg-digit-result {
+				.digit-result {
+					.numberCircle {
+						font-size: 1.5vw;
+					}
+				}
+			}
+		}
 	}
-	.trade #trade-container bg-payout .payout,
-	.trade #trade-container bg-payout .payout .payout-cell-container .payout-cell input,
-	.trade #trade-container bg-purchase .purchase .contract .row .col,
-	.trade #trade-container bg-purchase .purchase .contract .row .col .button {
-		font-size: 1.5vw;
-	}
-	.trade #trade-container bg-payout .payout .payout-cell-container .payout-cell .payout-cell-link .button {
-		font-size: 2.5vw;
-	}
-	.trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content .basis span,
-	.trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content .basis-title span {
-		font-size: 2vw;
-	}
-	.modal{
+	.modal {
 		bg-digits,
 		bg-markets,
 		bg-ticks,
@@ -699,10 +805,10 @@
 			.ticks,
 			.trade-types,
 			.underlyings {
-
 				.row {
 					.col {
-						.button, a {
+						.button,
+						a {
 							font-size: 1.5vw;
 						}
 					}
@@ -711,8 +817,6 @@
 		}
 	}
 }
-
-
 @media only screen and (max-device-height: 480px) {
 	.trade {
 		#tradeChart {
