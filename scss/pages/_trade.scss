@@ -581,6 +581,13 @@
 			color: $contentColor!important;
 		}
 	}
+	ion-content{
+		width: 100%!important;
+		.scroll{
+			height: 100%!important;
+		}
+	}
+
 	// .button {
 	// 	color: $contentColor;
 	// }
@@ -596,6 +603,7 @@
 		align-items: center;
 		background: $white;
 		height: calc(100vh - 46px);
+		height: 100%;
 		display: flex;
 		align-items: center;
 		.ionic-scroll {
@@ -616,11 +624,13 @@
 			height: calc(90vh - 46px);
 			display: flex;
 			align-items: center;
+			height: 100%;
 			.row {
 				display: flex;
 				flex-grow: 1;
 				padding: 0 !important;
 				height: calc(90vh - 46px)!important;
+				height: 100%;
 				align-items: center!important;
 				flex-direction: row;
 				flex-wrap: wrap;
@@ -629,7 +639,7 @@
 					display: flex;
 					flex-grow: 1;
 					flex-direction: column;
-					flex-basis: 40vw!important;
+					flex-basis: 40%!important;
 					max-width: 60vw;
 					// width: 70%;
 					margin: 0 auto;
