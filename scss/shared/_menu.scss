@@ -2,6 +2,7 @@
   background-color: $primaryBrandColor;
   ion-content{
     overflow-y: hidden;
+    width: 100%!important;
   }
   .bar-header {
     border-bottom: 0px !important;
@@ -31,6 +32,7 @@
   }
   a.item-content{
     color: $contentInverseColor;
+    font-size: 1rem;
     &.activated{
       background: $primaryBrandColor;
 
