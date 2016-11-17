@@ -1,7 +1,7 @@
 .balance {
 	background: $white;
 	color: $contentColor;
-	font-size: 4vw;
+	font-size: 1rem;
 	padding: 0 5px;
 }
 .bar.bar-positive {
@@ -105,10 +105,5 @@
 	}
 	to {
 		transform: rotate(360deg);
-	}
-}
-@media only screen and (min-device-width: 480px) {
-	.balance {
-		font-size: 2vw;
 	}
 }

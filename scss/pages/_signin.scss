@@ -1,4 +1,3 @@
-@media only screen and (max-device-width: 480px) {
 	.signin-content {
 		height: calc(100vh - 15px)!important;
 	}
@@ -24,7 +23,7 @@
 				padding-left: 0 !important;
 			}
 			.email-title {
-				font-size: 4vw;
+				font-size: 1rem;
 				text-align: left;
 				color: $secondaryContentColor;
 			}
@@ -36,9 +35,9 @@
 				padding: 10px 5px;
 			}
 			select {
-				background-color: $white;
+				background: $white;
 				color: $secondaryContentColor;
-				font-size: 4vw;
+				font-size: 1rem;
 				font-weight: 400;
 				text-transform: uppercase;
 				padding: 0;
@@ -54,7 +53,7 @@
 				width: 100%;
 				margin: 0 auto;
 				padding-left: 4px !important;
-				font-size: 3vw;
+				font-size: 0.8rem;
 				&.error {
 					color: $negativeColor;
 				}
@@ -69,7 +68,7 @@
 				}
 			}
 			label, input, select, textarea{
-				font-size: 4vw;
+				font-size: 1rem;
 			}
 
 		}
@@ -94,7 +93,7 @@
 					color: $secondaryContentColor;
 					font-family: arial;
 					font-weight: 400;
-					font-size: 4vw;
+					font-size: 1rem;
 					line-height: 1.6;
 				}
 				&.error {
@@ -105,7 +104,7 @@
 				}
 			}
 			label.item-select {
-				background-color: $white;
+				background: $white;
 				border-width: 0 0 1px 0;
 				i {
 					font-size: 40px;
@@ -116,18 +115,18 @@
 					}
 				}
 				.input-label {
-					background-color: $white;
+					background: $white;
 					color: $contentColor;
 					font-family: arial;
 					font-weight: 400;
-					font-size: 4vw;
+					font-size: 1rem;
 					line-height: 1;
 					line-height: 1.6;
 				}
 				select {
-					background-color: $white;
+					background: $white;
 					color: $contentColor;
-					font-size: 4vw;
+					font-size: 1rem;
 					font-weight: 400;
 					text-transform: uppercase;
 					padding: 0;
@@ -139,7 +138,7 @@
 			}
 		}
 		button.btn-signin {
-			font-size: 5vw;
+			font-size: 1.1rem;
 		}
 		.help {
 			text-decoration: underline;
@@ -160,174 +159,56 @@
 			color: $secondaryContentColor;
 		}
 	}
+
+	@media only screen and (max-device-width: 480px) {
+				.sign-in {
+								.token-link {
+												text-decoration: underline;
+								}
+								 ::-webkit-input-placeholder {
+												color: $secondaryContentColor;
+								}
+								 :-moz-placeholder {
+												color: $secondaryContentColor;
+								}
+								 ::-moz-placeholder {
+												color: $secondaryContentColor;
+								}
+								 :-ms-input-placeholder {
+												color: $secondaryContentColor;
+								}
+				}
 }
 @media only screen and (min-device-width: 480px) {
-	.signin-content {
-		height: calc(100vh - 30px)!important;
-	}
-	.sign-in {
-		background-color: $white;
-		.branding {
-			margin: 10% auto;
-			.logo {
-				display: block;
-				margin: 0 auto;
-				width: 40%;
-			}
-			.slogan {
-				display: block;
-				margin: 5% auto 0;
-				width: 60%;
-			}
-		}
-		.list {
-			label.item-input {
-				border-bottom: 1px solid $borderColor;
-				width: 80%;
-				margin: 0 auto;
-				height: 44px;
-				padding-left: 4px !important;
-				margin-bottom: 26px;
-				font-size: 1.5vw;
-				i {
-					font-size: 40px;
-					width: 40px;
-					color: $darkPrimaryBrandColor;
-					text-align: center;
-					&.icon-small {
-						font-size: 28px;
-					}
+				.sign-in {
+
+								.list {
+												label.item-input {
+																i {
+																				color: $darkPrimaryBrandColor;
+																}
+												}
+												label.item-select {
+																i {
+																				color: $darkPrimaryBrandColor;
+																}
+												}
+								}
+
+								.token-link {
+												color: $white;
+								}
+								 ::-webkit-input-placeholder {
+												color: $secondaryContentColor;
+								}
+								 :-moz-placeholder {
+												color: $secondaryContentColor;
+								}
+								 ::-moz-placeholder {
+												color: $secondaryContentColor;
+								}
+								 :-ms-input-placeholder {
+												color: $secondaryContentColor;
+								}
 				}
-				input[type=password],
-				input[type=text] {
-					color: $secondaryContentColor;
-					font-family: arial;
-					font-weight: 400;
-					font-size: 1.5vw;
-					line-height: 1.6;
-				}
-				&.error {
-					border-bottom-color: $negativeColor;
-					i {
-						color: $negativeColor;
-					}
-				}
-			}
-			label.item-select {
-				background-color: $white;
-				border-width: 0 0 1px 0;
-				i {
-					font-size: 40px;
-					width: 40px;
-					color: $darkPrimaryBrandColor;
-					text-align: center;
-					&.icon-small {
-						font-size: 28px;
-					}
-				}
-				.input-label {
-					background-color: $white;
-					color: $contentColor;
-					font-family: arial;
-					font-weight: 400;
-					font-size: 1.5vw;
-					line-height: 1;
-					line-height: 1.6;
-				}
-				select {
-					background-color: $white;
-					color: $contentColor;
-					font-size: 1.5vw;
-					font-weight: 400;
-					text-transform: uppercase;
-					padding: 0;
-					right: initial;
-					direction: ltr;
-					// border: 1px solid $borderColor;
-					border-radius: 3px;
-					width: 100%;
-					padding: 0 5px;
-				}
-			}
-		}
-		button.btn-signin {
-			font-size: 1.5vw;
-		}
-		.help {
-			text-decoration: underline;
-		}
-		::-webkit-input-placeholder {
-			color: $fillColor;
-		}
-		:-moz-placeholder {
-			color: $fillColor;
-		}
-		::-moz-placeholder {
-			color: $fillColor;
-		}
-		:-ms-input-placeholder {
-			color: $fillColor;
-		}
-		#emailform,
-		#virtualws {
-			.item-input {
-				width: 100%;
-				padding-left: 0;
-			}
-			.email-title {
-				font-size: 1.5vw;
-				text-align: left;
-				color: $secondaryContentColor;
-			}
-			.list {
-				label {
-					margin-bottom: 0;
-					font-size: 1.5vw;
-				}
-			}
-			input[type=password],
-			input[type=text] {
-				border: 1px solid $borderColor;
-				border-radius: 3px;
-				background: $white;
-				padding: 10px 5px;
-			}
-			select {
-				background-color: $white;
-				color: $contentColor;
-				font-size: 1.5vw;
-				font-weight: 400;
-				text-transform: uppercase;
-				padding: 0;
-				right: initial;
-				direction: ltr;
-				border: 1px solid $borderColor;
-				border-radius: 3px;
-				width: 100%;
-				padding: 10px 5px;
-				position: relative;
-			}
-			.help-block {
-				width: 100%;
-				margin: 0 auto;
-				padding-left: 4px !important;
-				font-size: 1.5vw;
-				&.error {
-					color: $negativeColor;
-				}
-			}
-			.show-hide-password {
-				margin-top: 15px;
-				input#show-hide
-				{
-						width: 20px;
-						top: 2px;
-    				position: relative;
-				}
-			}
-			label, input, select, textarea{
-				font-size: 1.5vw;
-			}
-		}
-	}
 }
