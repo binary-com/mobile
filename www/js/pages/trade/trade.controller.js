@@ -32,16 +32,19 @@
 
         init();
 
-        window.addEventListener('native.keyboardshow', keyboardShowHandler);
-        window.addEventListener('native.keyboardhide', keyboardHideHandler);
+        angular.element(document).ready(function() {
+            window.addEventListener('native.keyboardshow', keyboardShowHandler);
+            window.addEventListener('native.keyboardhide', keyboardHideHandler);
 
-        function keyboardShowHandler(e) {
-            document.getElementById('trade-container').className = '';
-        }
+            function keyboardShowHandler(e) {
+                document.getElementById('trade-container').className = "";
+            }
+
+            function keyboardHideHandler(e) {
+                document.getElementById('trade-container').className = "flexed";
+            }
+        });
 
 
-        function keyboardHideHandler(e) {
-            document.getElementById('trade-container').className = 'flexed';
-        }
     }
 })();
