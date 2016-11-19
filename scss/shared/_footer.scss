@@ -3,12 +3,12 @@
 								background-image: none;
 				}
 				.bar.bar-positive {
-								border-color: $blue;
-								background-color: $blue;
+								border-color: $primaryBrandColor;
+								background-color: $primaryBrandColor;
 								background-image: none;
 				}
 				.bar-footer {
-								background-color: $blue;
+								background-color: $primaryBrandColor;
 								bottom: 0;
 								border-top-width: 0;
 								border-bottom-width: 1px;
@@ -29,12 +29,12 @@
 								background-image: none;
 				}
 				.bar.bar-positive {
-								border-color: $blue;
-								background-color: $blue;
+								border-color: $primaryBrandColor;
+								background-color: $primaryBrandColor;
 								background-image: none;
 				}
 				.bar-footer {
-								background-color: $blue;
+								background-color: $primaryBrandColor;
 								bottom: 0;
 								border-top-width: 0;
 								border-bottom-width: 1px;
@@ -42,11 +42,11 @@
 								font-size: 14px;
 								.account {
 												text-align: center;
-												color: $orange;
+												color: $secondaryBrandColor;
 								}
 								.balance {
 												text-align: center;
-												color: $orange;
+												color: $secondaryBrandColor;
 								}
 				}
 }

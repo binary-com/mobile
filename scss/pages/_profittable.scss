@@ -25,7 +25,7 @@
 			}
 		}
 		.item-select {
-			border: 1px solid $gray;
+			border: 1px solid $borderColor;
 			border-radius: 3px;
 			select {
 				width: 100%;
@@ -44,18 +44,20 @@
 		}
 		input {
 			margin-left: 15px;
-			border: 1px solid $gray;
+			border: 1px solid $borderColor;
 			border-radius: 3px;
 			padding: 5px;
 			font-size: 4vw;
 		}
 		input[type="date"]::-webkit-calendar-picker-indicator {
-			color: $gray;
+			color: $secondaryContentColor;
 		}
 		&.jump-to-date-container {
 			margin-top: 80px;
 			.jump-to-date {
 				padding: 0;
+				width: 70%;
+				margin: 0 auto;
 				input {
 					background: $white;
 				}
@@ -69,7 +71,7 @@
 		text-align: center;
 	}
 	.float-button {
-		background-color: $darkblue;
+		background-color: $darkPrimaryBrandColor;
 		opacity: 0.9;
 		color: white;
 		border-radius: 50%;
@@ -97,30 +99,36 @@
 			width: 100%;
 			.statement-element {
 				display: table-cell;
-				padding: 5px 0;
+				padding: 5px;
 				font-size: 3.5vw;
+				&:nth-child(2) {
+					padding-top: 10px;
+				}
 			}
 			.right {
 				text-align: right;
 			}
 			.green {
-				color: $green;
+				color: $positiveColor;
 			}
 			.red {
-				color: $red!important;
+				color: $negativeColor!important;
 			}
 			.bold {
 				font-weight: bold;
 			}
+			&.list-title {
+				background: $fillColor;
+			}
 		}
 		.has-error {
 			font-size: 4.5vw;
-			color: red;
+			color: $negativeColor;
 		}
 	}
 }
 .transaction-detail {
-	ion-content{
+	ion-content {
 		padding-bottom: 25px;
 	}
 	.statement-list {
@@ -139,7 +147,7 @@
 	}
 	.list-item {
 		padding: 0 !important;
-		color: $black;
+		color: $contentColor;
 	}
 	.reference {
 		font-size: 5vw;
@@ -160,6 +168,7 @@
 	}
 	.longcode {
 		padding: 5px 0;
+		font-size: 4vw;
 	}
 	ul {
 		&.statement-list {
@@ -182,19 +191,92 @@
 			.list-item {
 				font-size: 4vw;
 				padding: 10px 0;
-				color: $black;
+				color: $contentColor;
 			}
 			.right {
 				text-align: right;
 			}
 			.green {
-				color: $green;
+				color: $positiveColor;
 			}
 			.red {
-				color: $red!important;
+				color: $negativeColor!important;
 			}
 			.bold {
 				font-weight: bold;
+			}
+		}
+	}
+}
+@media screen and (min-device-width: 480px) {
+	.profit-table {
+		width: 80vw;
+		margin: 0 auto;
+		max-width: 768px;
+		ion-content {
+			width: 80vw;
+			margin: 0 auto;
+			max-width: 768px;
+		}
+		.filters {
+			.item {
+				.input-title {
+					font-size: 1.5vw;
+				}
+			}
+			.item-select {
+				select {
+					font-size: 1.5vw;
+				}
+			}
+			.label {
+				input {
+					font-size: 1.5vw;
+				}
+			}
+			input {
+				font-size: 1.5vw;
+			}
+		}
+		.float-button {
+			font-size: 1.5vw;
+			height: 3em;
+			width: 3em;
+			line-height: 3em;
+		}
+		ul.statement-table {
+			li.list {
+				.statement-element {
+					font-size: 1.5vw;
+				}
+			}
+			.has-error {
+				font-size: 1.5vw;
+			}
+		}
+	}
+	.transaction-detail {
+		.statement-list {
+			.statement-element {
+				font-size: 1.5vw;
+			}
+		}
+		.reference {
+			font-size: 2vw;
+		}
+		.small-text {
+			font-size: 1.5vw;
+		}
+		ul {
+			&.statement-list {
+				.statement-element {
+					font-size: 1.5vw;
+				}
+			}
+			.list {
+				.list-item {
+					font-size: 1.5vw;
+				}
 			}
 		}
 	}

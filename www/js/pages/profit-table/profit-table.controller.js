@@ -85,7 +85,7 @@
         }
 
         vm.delayedLoad = function(){
-          $timeout(vm.loadMore, 2000);
+          $timeout(vm.loadMore, 500);
         }
 
         vm.loadMore = function() {
@@ -299,7 +299,6 @@
 
         vm.goTop = function() {
             $ionicScrollDelegate.scrollTop(true);
-            vm.goToTopButton = false;
         }
 
         vm.goToTopButtonCondition = function() {

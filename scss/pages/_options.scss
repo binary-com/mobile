@@ -10,7 +10,7 @@
 // 								[class*="options"] {
 // 												border-radius: 0 !important;
 // 												h1 {
-// 																color: $blue;
+// 																color: $primaryBrandColor;
 // 																border-radius: 0 !important;
 // 																font-size: 4vw;
 // 																font-weight: bold;
@@ -21,7 +21,7 @@
 // 												}
 // 								}
 // 								.options-market {
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 												// padding:5px 0;
 // 												.item {
 // 																display: inline-block;
@@ -33,22 +33,22 @@
 // 												}
 // 												.item-radio {
 // 																input:checked ~ .item-content {
-// 																				background: $blue;
+// 																				background: $primaryBrandColor;
 // 																				color: $white;
 // 																}
 // 																input[disabled] + div {
 //                                                                     /*
-// 																				background-color: $lightgray;
-// 																				color: $gray;
+// 																				background-color: $fillColor;
+// 																				color: $secondaryContentColor;
 //                                                                     */
 // 																}
 // 												}
 // 								}
 // 								.options-upderlying {
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 								}
 // 								.options-trade {
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 												.padding {
 // 																padding: 0 5px 5px;
 // 																width: 100%;
@@ -67,13 +67,13 @@
 // 												}
 // 												.item-radio {
 // 																input:checked ~ .item-content {
-// 																				background: $blue;
+// 																				background: $primaryBrandColor;
 // 																				color: $white;
 // 																}
 // 												}
 // 								}
 // 								.options-ticks {
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 												.item {
 // 																display: inline-block;
 // 																width: 16%;
@@ -85,7 +85,7 @@
 // 												}
 // 												.item-radio {
 // 																input:checked ~ .item-content {
-// 																				background: $blue;
+// 																				background: $primaryBrandColor;
 // 																				color: $white;
 // 																}
 // 												}
@@ -94,7 +94,7 @@
 // 												}
 // 								}
 // 								.options-amount {
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 												.item {
 // 																display: inline-block;
 // 																width: 30%;
@@ -106,7 +106,7 @@
 // 												}
 // 												.item-radio {
 // 																input:checked ~ .item-content {
-// 																				background: $blue;
+// 																				background: $primaryBrandColor;
 // 																				color: $white;
 // 																}
 // 												}
@@ -159,8 +159,8 @@
 // 								[class*="options"] {
 // 												border-radius: 0 !important;
 // 												h1 {
-// 																// background-color: $blue;
-// 																color: $blue;
+// 																// background-color: $primaryBrandColor;
+// 																color: $primaryBrandColor;
 // 																border-radius: 0 !important;
 // 																font-size: 4.2vw;
 // 																font-weight: bold;
@@ -173,7 +173,7 @@
 // 								.options-account {
 // 												padding-top: 10px;
 // 												padding-bottom: 5px;
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 												// margin-bottom: 20px;
 // 												.manage-account {
 // 																text-align: right;
@@ -184,7 +184,7 @@
 // 												}
 // 								}
 // 								.options-market {
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 												// padding:5px 0;
 // 												.item {
 // 																display: inline-block;
@@ -196,22 +196,22 @@
 // 												}
 // 												.item-radio {
 // 																input:checked ~ .item-content {
-// 																				background: $blue;
+// 																				background: $primaryBrandColor;
 // 																				color: $white;
 // 																}
 // 																input[disabled] + div {
 //                                                                     /*
-// 																				background-color: $lightgray;
-// 																				color: $gray;
+// 																				background-color: $fillColor;
+// 																				color: $secondaryContentColor;
 //                                                                     */
 // 																}
 // 												}
 // 								}
 // 								.options-upderlying {
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 								}
 // 								.options-trade {
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 												.padding {
 // 																padding: 0 5px 5px;
 // 																width: 100%;
@@ -230,13 +230,13 @@
 // 												}
 // 												.item-radio {
 // 																input:checked ~ .item-content {
-// 																				background: $blue;
+// 																				background: $primaryBrandColor;
 // 																				color: $white;
 // 																}
 // 												}
 // 								}
 // 								.options-ticks {
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 												.item {
 // 																display: inline-block;
 // 																width: 16%;
@@ -248,7 +248,7 @@
 // 												}
 // 												.item-radio {
 // 																input:checked ~ .item-content {
-// 																				background: $blue;
+// 																				background: $primaryBrandColor;
 // 																				color: $white;
 // 																}
 // 												}
@@ -257,7 +257,7 @@
 // 												}
 // 								}
 // 								.options-amount {
-// 												border-bottom: 1px solid $lightgray;
+// 												border-bottom: 1px solid $borderColor;
 // 												// padding:5px 0;
 // 												.item {
 // 																display: inline-block;
@@ -270,7 +270,7 @@
 // 												}
 // 												.item-radio {
 // 																input:checked ~ .item-content {
-// 																				background: $blue;
+// 																				background: $primaryBrandColor;
 // 																				color: $white;
 // 																}
 // 												}

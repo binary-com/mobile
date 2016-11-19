@@ -8,21 +8,27 @@
 			font-size: 4vw;
 		}
 		.button-secondary {
-			color: $black!important;
-			background: $lightgray!important;
+			color: $contentColor!important;
+			background: $fillColor!important;
 		}
 	}
-
 	.interval-input {
 		input {
-			border: 1px solid $gray;
+			border: 1px solid $borderColor;
 			border-radius: 4px;
 			padding-left: 5px;
+			font-size: 4vw;
 		}
 	}
 	.interval_error {
 		position: relative;
 		font-size: 4vw;
+		color: $negativeColor;
+	}
+	.popup-head{
+		.popup-title{
+			font-size: 4vw;
+		}
 	}
 	.popup-body {
 		background-color: $white;
@@ -48,7 +54,7 @@
 			}
 			p {
 				white-space: normal;
-				color: $black;
+				color: $contentColor;
 			}
 		}
 	}
@@ -58,18 +64,13 @@
 		width: 40vw;
 	}
 }
-.getinterval, .result-popup {
+.getinterval,
+.result-popup {
 	.popup {
 		width: 40vw;
 	}
 }
-@media screen and (max-width: 960px){
-	.getinterval, .result-popup {
-		.popup {
-			width: 80vw!important;
-		}
-	}
-}
+
 @media screen and (max-width: 480px) {
 	.realitycheck .popup-body .item {
 		font-size: 4vw;
@@ -77,7 +78,6 @@
 	.realitycheck {
 		.popup-body {
 			.item {
-				font-size: 4vw;
 				.row {
 					padding: 0;
 					.interval-text {
@@ -101,5 +101,84 @@
 			width: 90vw!important;
 		}
 	}
+}
+@media screen and (min-width: 480px) {
+	.realitycheck {
+		.interval_error {
+			font-size: 1.5vw;
+			color: $negativeColor;
+		}
+	}
+	.realitycheck {
+		.popup {
+			background-color: $white;
+			width: 40vw;
+			padding: 0;
+			font-size: 1.5vw;
+			.button {
+				font-size: 1.5vw;
+			}
+			.button-secondary {
+				color: $contentColor!important;
+				background: $fillColor!important;
+			}
+		}
+		.interval-input {
+			input {
+				border: 1px solid $borderColor;
+				border-radius: 4px;
+				padding-left: 5px;
+				font-size: 1.5vw;
+			}
+		}
+		.interval_error {
+			position: relative;
+			font-size: 1.5vw;
+			color: $negativeColor;
+		}
+		.popup-head{
+			.popup-title{
+				font-size: 1.5vw;
+			}
+		}
+		.popup-body {
+			background-color: $white;
+			padding: 5px;
+			.item {
+				font-size: 1.5vw;
+				padding: 5px;
+				background-color: $white;
+				.row {
+					white-space: normal;
+					&.realitycheck-text {
+						padding: 15px 0 0 !important;
+					}
+					.col:nth-child(2n) {
+						text-align: center;
+					}
+					&.interval {
+						padding: 10px 5px;
+					}
+				}
+				.interval-text {
+					padding: 10px 5px;
+				}
+				p {
+					white-space: normal;
+					color: $contentColor;
+					font-size: 1.5vw;
 
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.getinterval,
+	.result-popup {
+		.popup {
+			width: 80vw!important;
+		}
+	}
 }

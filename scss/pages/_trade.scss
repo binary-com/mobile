@@ -1,5 +1,5 @@
 .trade {
-	background: $lightgray;
+	background: $white;
 	.scroll-content {
 		margin-top: 0 !important;
 		padding-top: 0 !important;
@@ -7,17 +7,24 @@
 	}
 	ion-content {
 		width: 100vw;
-		&.trade-container{
-			display: flex;
-			height: 100vh!important;
+		&.trade-container {
+			// display: flex;
+			// height: 100vh!important;
 			padding-bottom: 40px;
 		}
-
+		.scroll {
+			height: 100%;
+			.flexed {
+				display: flex;
+				height: 100%!important;
+				flex-direction: column;
+				//  padding-bottom: 40px;
+			}
+		}
 	}
 	.ionic-scroll {
-		min-height: 30px;
-		width: 100vw;
-
+		// min-height: 30px;
+		// width: 100vw;
 		.scroll-bar-v {
 			display: none!important;
 		}
@@ -65,7 +72,7 @@
 					&.options-row {
 						padding: 5px;
 						.col {
-							// border-bottom: 1px solid $gray;
+							// border-bottom: 1px solid $borderColor;
 						}
 					}
 					.col {
@@ -82,16 +89,14 @@
 							max-height: none;
 							min-height: 20px!important;
 							font-size: 3.5vw;
-							color: $darkgray;
+							color: $contentColor;
 							line-height: normal;
 							white-space: nowrap;
-							font-weight: bold;
 							border-radius: 3px;
-							border-bottom: 1px solid $lightgray!important;
 							margin: 0;
 							padding: 0;
 							&:hover {
-								color: $black!important;
+								color: $contentColor!important;
 							}
 						}
 					}
@@ -100,7 +105,7 @@
 					margin-top: 0 !important;
 				}
 				ion-tab {
-					color: $black;
+					color: $contentColor;
 				}
 			}
 		}
@@ -146,7 +151,7 @@
 				flex-direction: row;
 				max-height: 100px;
 				background: $white;
-				border: 1px solid $gray;
+				border: 1px solid $borderColor;
 				border-radius: 3px;
 				font-size: 4vw;
 				.payout-cell-container {
@@ -159,7 +164,7 @@
 						flex-direction: column;
 						text-align: center;
 						a {
-							color: $darkgray;
+							color: $contentColor;
 						}
 						input {
 							padding: 2px 3px;
@@ -177,11 +182,12 @@
 								line-height: normal;
 								white-space: nowrap;
 								margin: 0 auto;
-								color: $darkgray;
+								color: $contentColor;
 								font-size: 6vw;
-								top: -1vw;
+								align-items: center;
+								display: flex;
 								&:hover {
-									color: $darkgray!important;
+									color: $contentColor!important;
 								}
 							}
 						}
@@ -210,7 +216,7 @@
 			}
 		}
 		bg-purchase {
-			padding:  0;
+			padding: 0;
 			max-height: 400px;
 			flex-grow: 2;
 			// flex-basis: 240px;
@@ -228,7 +234,7 @@
 					display: flex;
 					flex-direction: column;
 					background: $white;
-					border: 1px solid $gray;
+					border: 1px solid $borderColor;
 					border-radius: 3px;
 					padding: 5px 0;
 					margin-right: 5px;
@@ -238,6 +244,7 @@
 						min-height: inherit;
 						flex-grow: 1;
 						margin-top: 0;
+						align-items: center;
 						.col {
 							line-height: normal;
 							font-size: 4vw;
@@ -246,10 +253,11 @@
 								font-size: 4vw;
 								white-space: nowrap;
 								min-height: 30px!important;
-								line-height: inherit;
+								// line-height: inherit;
 								display: block;
 								margin: 0 auto;
 								max-height: none;
+								width: 100%;
 							}
 							.price-container {
 								display: inline-block;
@@ -274,44 +282,44 @@
 								margin: 0;
 								.basis-title {
 									font-weight: bold;
-									font-size: 4vw;
-									color: $darkgray;
+									font-size: 4.5vw;
+									color: $contentColor;
 									vertical-align: middle;
 									line-height: normal;
 									width: 100%;
 									align-items: center;
-    							display: flex;
+									display: flex;
 									span {
 										display: inline-block;
 										vertical-align: middle;
-										font-size: 4vw;
+										font-size: 4.5vw;
 										line-height: normal;
 									}
 								}
 								.basis {
-									font-size: 3.5vw;
+									font-size: 4.5vw;
 									display: inline-block;
 									vertical-align: middle;
 									width: 100%;
 									align-items: center;
-    							display: flex;
+									display: flex;
 									span {
 										display: inline-block;
 										vertical-align: middle;
-										font-size: 3.5vw;
+										font-size: 4.5vw;
 										line-height: normal;
 									}
 								}
 							}
 						}
 						.error {
-							background-color: $notification;
+							background-color: $noticeColor;
 							padding: 10px 0;
 							height: 70px;
 							p {
 								margin: 5px !important;
 								font-size: 4vw;
-								color: $black;
+								color: $contentColor;
 								height: 70px;
 							}
 						}
@@ -324,6 +332,7 @@
 			margin-top: 35px;
 			display: flex;
 			flex-grow: 1;
+			font-size: 4vw;
 			.longcode {
 				max-height: 75px;
 				display: flex;
@@ -335,7 +344,7 @@
 						display: flex;
 						flex-grow: 1;
 						flex-direction: column;
-						color: $darkgray;
+						color: $contentColor;
 					}
 				}
 			}
@@ -356,40 +365,40 @@
 						flex-grow: 1;
 						flex-direction: column;
 						&.ref {
-							color: $darkgray;
+							color: $contentColor;
 						}
 						&.buy {
 							padding: 0;
 							.row {
-								color: $blue;
+								color: $primaryBrandColor;
 							}
 							.title {
-								color: $darkgray;
+								color: $contentColor;
 							}
 						}
 						&.sell {
 							padding: 0;
 							.loss {
-								color: $blue;
+								color: $primaryBrandColor;
 							}
-              .win {
-                color: $blue !important;
-              }
+							.win {
+								color: $primaryBrandColor !important;
+							}
 							.title {
-								color: $darkgray;
+								color: $contentColor;
 							}
 						}
 						&.profit {
 							padding: 0;
 							.title {
-								color: $darkgray;
+								color: $contentColor;
 							}
 						}
 						&.win {
-							color: $green !important;
+							color: $positiveColor !important;
 						}
 						&.lose {
-							color: $red !important;
+							color: $negativeColor !important;
 						}
 					}
 				}
@@ -406,7 +415,7 @@
 				flex-grow: 1;
 				flex-direction: row;
 				background: $white;
-				border: 1px solid $gray;
+				border: 1px solid $borderColor;
 				border-radius: 3px;
 				margin-bottom: 10px;
 				.col {
@@ -414,7 +423,7 @@
 					display: flex;
 					flex-direction: column;
 					font-size: 4vw;
-					color: $darkgray;
+					color: $contentColor;
 					padding: 0;
 					.row {
 						&:last-child {
@@ -456,7 +465,7 @@
 					flex-grow: 1;
 					display: block;
 					margin: 0 auto;
-					background: $blue;
+					background: $primaryBrandColor;
 				}
 			}
 		}
@@ -464,12 +473,12 @@
 			padding: 5px;
 			max-height: 75px;
 			.barrier {
-				border: 1px solid $gray;
+				border: 1px solid $borderColor;
 				border-radius: 3px;
 				background: $white;
 				display: flex;
 				flex-direction: column;
-				color: $darkgray;
+				color: $contentColor;
 				.row {
 					display: flex;
 					flex-direction: row;
@@ -494,12 +503,12 @@
 			margin: 0 auto;
 			width: 100%;
 			.digit-result {
-				border: 1px solid $gray;
+				border: 1px solid $borderColor;
 				background: $white;
 				border-radius: 3px;
 				display: flex;
 				flex-direction: column;
-				color: $darkgray;
+				color: $contentColor;
 				padding: 5px 0;
 				.col {
 					padding: 0 !important;
@@ -518,19 +527,19 @@
 						margin-right: 8px;
 					}
 					&.lose {
-						color: red;
+						color: $negativeColor;
 						&.last {
 							color: $white !important;
-							background: $red !important;
-							border-color: $red !important;
+							background: $negativeColor !important;
+							border-color: $negativeColor !important;
 						}
 					}
 					&.win {
 						color: green;
 						&.last {
 							color: $white !important;
-							background: $green !important;
-							border-color: $green !important;
+							background: $positiveColor !important;
+							border-color: $positiveColor !important;
 						}
 					}
 				}
@@ -538,12 +547,12 @@
 			//
 			//
 			// .digit-result {
-			// 	border: 1px solid $gray;
+			// 	border: 1px solid $borderColor;
 			// 	border-radius: 3px;
 			// 	background: $white;
 			// 	display: flex;
 			// 	flex-direction: column;
-			// 	color: $darkgray;
+			// 	color: $contentColor;
 			// 	.row {
 			// 		display: flex;
 			// 		flex-direction: row;
@@ -566,13 +575,14 @@
 	.bar-header {
 		background: $white;
 		font-size: 4vw;
-		color: $black;
-		h1, button{
-			color: $black!important;
+		color: $contentColor;
+		button,
+		h1 {
+			color: $contentColor!important;
 		}
 	}
 	// .button {
-	// 	color: $black;
+	// 	color: $contentColor;
 	// }
 	bg-digits,
 	bg-markets,
@@ -625,28 +635,181 @@
 					margin: 0 auto;
 					// min-width: 50%;
 					align-items: center;
-  			  display: flex;
-					&:first-child{
+					display: flex;
+					&:first-child {
 						border-top: none;
 					}
-					&:last-child{
+					&:last-child {
 						border-bottom: none;
 					}
-					.button, a {
+					.button,
+					a {
 						max-height: none;
 						min-height: 20px!important;
 						font-size: 4vw;
-						color: $black;
+						color: $contentColor;
 						line-height: normal;
 						white-space: nowrap;
 						font-weight: normal;
 						border-radius: 0;
 						text-align: center;
 						padding: 10px 5px;
-						border-bottom: 1px solid $gray!important;
-						border-radius: 8px;
 						&:hover {
-							color: $black!important;
+							color: $contentColor!important;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-device-width: 480px) {
+	ion-content {
+		&.trade-container {
+			width: 80vw;
+			margin: 0 auto;
+			max-width: 768px;
+		}
+	}
+	.trade {
+		#trade-container {
+			bg-options {
+				.options {
+					.row {
+						.col {
+							.button,
+							a {
+								font-size: 1.5vw;
+							}
+						}
+					}
+				}
+			}
+			bg-payout {
+				.payout {
+					font-size: 1.5vw;
+					.payout-cell-container {
+						.payout-cell {
+							.payout-cell-link {
+								.button {
+									font-size: 2.5vw;
+								}
+							}
+							input {
+								font-size: 1.5vw;
+							}
+						}
+					}
+				}
+			}
+			bg-purchase {
+				.purchase {
+					.contract {
+						.row {
+							.col {
+								font-size: 1.5vw;
+								.button {
+									font-size: 1.5vw;
+								}
+							}
+							&.basis-container {
+								.basis-content {
+									.basis-title {
+										font-size: 2vw;
+										span {
+											font-size: 2vw;
+										}
+									}
+									.basis {
+										font-size: 2vw;
+										span {
+											font-size: 2vw;
+										}
+									}
+								}
+							}
+							.error {
+								p {
+									font-size: 1.5vw;
+								}
+							}
+						}
+					}
+				}
+			}
+			bg-longcode {
+				.longcode {
+					.row {
+						.col {
+							font-size: 1.5vw;
+						}
+					}
+				}
+			}
+			bg-contract-summary {
+				.contract-summary {
+					.row {
+						.col {
+							font-size: 1.5vw;
+						}
+					}
+				}
+			}
+			.buy-again-container {
+				.buy-again {
+					.col {
+						font-size: 1.5vw;
+						.button {
+							font-size: 1.5vw;
+						}
+					}
+				}
+			}
+			.contract-back-container {
+				.col {
+					font-size: 1.5vw;
+					.button {
+						font-size: 1.5vw;
+					}
+				}
+			}
+			bg-barrier {
+				.barrier {
+					.row {
+						.col {
+							font-size: 1.5vw;
+							input {
+								font-size: 1.5vw;
+							}
+						}
+					}
+				}
+			}
+			bg-digit-result {
+				.digit-result {
+					.numberCircle {
+						font-size: 1.5vw;
+					}
+				}
+			}
+		}
+	}
+	.modal {
+		bg-digits,
+		bg-markets,
+		bg-ticks,
+		bg-tradetypes,
+		bg-underlyings {
+			.digits,
+			.markets,
+			.ticks,
+			.trade-types,
+			.underlyings {
+				.row {
+					.col {
+						.button,
+						a {
+							font-size: 1.5vw;
 						}
 					}
 				}

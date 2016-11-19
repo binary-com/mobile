@@ -26,25 +26,25 @@
 			.email-title {
 				font-size: 4vw;
 				text-align: left;
-				color: $darkgray;
+				color: $secondaryContentColor;
 			}
 			input[type=password],
 			input[type=text] {
-				border: 1px solid $lightgray;
+				border: 1px solid $borderColor;
 				border-radius: 3px;
 				background: $white;
 				padding: 10px 5px;
 			}
 			select {
 				background-color: $white;
-				color: $darkgray;
+				color: $secondaryContentColor;
 				font-size: 4vw;
 				font-weight: 400;
 				text-transform: uppercase;
 				padding: 0;
 				right: initial;
 				direction: ltr;
-				border: 1px solid $lightgray;
+				border: 1px solid $borderColor;
 				border-radius: 3px;
 				width: 100%;
 				padding: 10px 5px;
@@ -56,7 +56,7 @@
 				padding-left: 4px !important;
 				font-size: 3vw;
 				&.error {
-					color: $red;
+					color: $negativeColor;
 				}
 				&.show-hide-password {
 					margin-top: 15px;
@@ -75,7 +75,7 @@
 		}
 		.list {
 			label.item-input {
-				border-bottom: 1px solid $lightgray;
+				border-bottom: 1px solid $borderColor;
 				width: 80%;
 				margin: 0 auto;
 				height: 44px;
@@ -91,16 +91,16 @@
 				}
 				input[type=password],
 				input[type=text] {
-					color: $gray;
+					color: $secondaryContentColor;
 					font-family: arial;
 					font-weight: 400;
 					font-size: 4vw;
 					line-height: 1.6;
 				}
 				&.error {
-					border-bottom-color: $red;
+					border-bottom-color: $negativeColor;
 					i {
-						color: $red;
+						color: $negativeColor;
 					}
 				}
 			}
@@ -117,7 +117,7 @@
 				}
 				.input-label {
 					background-color: $white;
-					color: $black;
+					color: $contentColor;
 					font-family: arial;
 					font-weight: 400;
 					font-size: 4vw;
@@ -126,7 +126,7 @@
 				}
 				select {
 					background-color: $white;
-					color: $black;
+					color: $contentColor;
 					font-size: 4vw;
 					font-weight: 400;
 					text-transform: uppercase;
@@ -148,16 +148,16 @@
 			text-decoration: underline;
 		}
 		::-webkit-input-placeholder {
-			color: $gray;
+			color: $secondaryContentColor;
 		}
 		:-moz-placeholder {
-			color: $gray;
+			color: $secondaryContentColor;
 		}
 		::-moz-placeholder {
-			color: $gray;
+			color: $secondaryContentColor;
 		}
 		:-ms-input-placeholder {
-			color: $gray;
+			color: $secondaryContentColor;
 		}
 	}
 }
@@ -182,17 +182,17 @@
 		}
 		.list {
 			label.item-input {
-				border-bottom: 1px solid $lightgray;
+				border-bottom: 1px solid $borderColor;
 				width: 80%;
 				margin: 0 auto;
 				height: 44px;
 				padding-left: 4px !important;
 				margin-bottom: 26px;
-				font-size: 4vw;
+				font-size: 1.5vw;
 				i {
 					font-size: 40px;
 					width: 40px;
-					color: $darkblue;
+					color: $darkPrimaryBrandColor;
 					text-align: center;
 					&.icon-small {
 						font-size: 28px;
@@ -200,16 +200,16 @@
 				}
 				input[type=password],
 				input[type=text] {
-					color: $gray;
+					color: $secondaryContentColor;
 					font-family: arial;
 					font-weight: 400;
-					font-size: 4vw;
+					font-size: 1.5vw;
 					line-height: 1.6;
 				}
 				&.error {
-					border-bottom-color: $red;
+					border-bottom-color: $negativeColor;
 					i {
-						color: $red;
+						color: $negativeColor;
 					}
 				}
 			}
@@ -219,7 +219,7 @@
 				i {
 					font-size: 40px;
 					width: 40px;
-					color: $darkblue;
+					color: $darkPrimaryBrandColor;
 					text-align: center;
 					&.icon-small {
 						font-size: 28px;
@@ -227,23 +227,23 @@
 				}
 				.input-label {
 					background-color: $white;
-					color: $black;
+					color: $contentColor;
 					font-family: arial;
 					font-weight: 400;
-					font-size: 4vw;
+					font-size: 1.5vw;
 					line-height: 1;
 					line-height: 1.6;
 				}
 				select {
 					background-color: $white;
-					color: $black;
-					font-size: 4vw;
+					color: $contentColor;
+					font-size: 1.5vw;
 					font-weight: 400;
 					text-transform: uppercase;
 					padding: 0;
 					right: initial;
 					direction: ltr;
-					border: 1px solid $lightgray;
+					// border: 1px solid $borderColor;
 					border-radius: 3px;
 					width: 100%;
 					padding: 0 5px;
@@ -251,22 +251,22 @@
 			}
 		}
 		button.btn-signin {
-			font-size: 5vw;
+			font-size: 1.5vw;
 		}
 		.help {
 			text-decoration: underline;
 		}
 		::-webkit-input-placeholder {
-			color: $lightgray;
+			color: $fillColor;
 		}
 		:-moz-placeholder {
-			color: $lightgray;
+			color: $fillColor;
 		}
 		::-moz-placeholder {
-			color: $lightgray;
+			color: $fillColor;
 		}
 		:-ms-input-placeholder {
-			color: $lightgray;
+			color: $fillColor;
 		}
 		#emailform,
 		#virtualws {
@@ -275,33 +275,33 @@
 				padding-left: 0;
 			}
 			.email-title {
-				font-size: 4vw;
+				font-size: 1.5vw;
 				text-align: left;
-				color: $darkgray;
+				color: $secondaryContentColor;
 			}
 			.list {
 				label {
 					margin-bottom: 0;
-					font-size: 4vw;
+					font-size: 1.5vw;
 				}
 			}
 			input[type=password],
 			input[type=text] {
-				border: 1px solid $lightgray;
+				border: 1px solid $borderColor;
 				border-radius: 3px;
 				background: $white;
 				padding: 10px 5px;
 			}
 			select {
 				background-color: $white;
-				color: $darkgray;
-				font-size: 4vw;
+				color: $contentColor;
+				font-size: 1.5vw;
 				font-weight: 400;
 				text-transform: uppercase;
 				padding: 0;
 				right: initial;
 				direction: ltr;
-				border: 1px solid $lightgray;
+				border: 1px solid $borderColor;
 				border-radius: 3px;
 				width: 100%;
 				padding: 10px 5px;
@@ -311,9 +311,9 @@
 				width: 100%;
 				margin: 0 auto;
 				padding-left: 4px !important;
-				font-size: 3vw;
+				font-size: 1.5vw;
 				&.error {
-					color: $red;
+					color: $negativeColor;
 				}
 			}
 			.show-hide-password {
@@ -326,7 +326,7 @@
 				}
 			}
 			label, input, select, textarea{
-				font-size: 4vw;
+				font-size: 1.5vw;
 			}
 		}
 	}
