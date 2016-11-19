@@ -74,6 +74,20 @@ angular
           cache: false,
           templateUrl: 'js/pages/language/language.template.html'
         })
+        .state('settings', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/settings/settings.template.html',
+          controller: 'SettingsController',
+          controllerAs: 'vm'
+        })
+        .state('self-exclusion', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/self-exclusion/self-exclusion.template.html',
+          controller: 'SelfExclusionController',
+          controllerAs: 'vm'
+        })
         .state('no-connection', {
           templateUrl: 'js/share/components/connectivity/connectivity.template.html'
         });

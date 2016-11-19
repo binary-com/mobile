@@ -14,7 +14,10 @@
     .controller('LogoutController', Logout);
 
   Logout.$inject = [
-		'$rootScope', '$state', 'accountService', 'appStateService', 'websocketService', 'alertService', 'proposalService', 'marketService'];
+		'$rootScope', '$state',
+    'accountService', 'appStateService',
+    'websocketService', 'alertService',
+    'proposalService'];
 
   function Logout(
 			$rootScope,
@@ -23,8 +26,7 @@
       appStateService,
       websocketService,
       alertService,
-      proposalService,
-      marketService
+      proposalService
     ){
     var vm = this;
 		vm.logout = function(res) {
@@ -38,25 +40,7 @@
 						}
 
 						if(res){
-							accountService.removeAll();
-              proposalService.forget();
-              marketService.removeActiveSymbols();
-              marketService.removeAssetIndex();
-              appStateService.isRealityChecked = false;
-              appStateService.isChangedAccount = false;
-              appStateService.isPopupOpen = false;
-              appStateService.isCheckedAccountType = false;
-														appStateService.isLoggedin = false;
-														sessionStorage.removeItem('start');
-														sessionStorage.removeItem('_interval');
-                            appStateService.profitTableRefresh = true;
-                            appStateService.statementRefresh = true;
-                            appStateService.isNewAccountReal = false;
-                            appStateService.isNewAccountMaltainvest = false;
-                            appStateService.hasMLT = false;
-                            sessionStorage.removeItem('countryParams');
-														websocketService.closeConnection();
-							$state.go('signin');
+              websocketService.logout();
 						}
 					}
 				);

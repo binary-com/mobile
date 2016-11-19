@@ -13,9 +13,16 @@
         .module('binary.share.components.reality-check.controllers')
         .controller('RealityCheckController', RealityCheck);
 
-    RealityCheck.$inject = ['$scope', '$timeout', '$translate', '$location', '$state', '$ionicPopup', 'websocketService', 'appStateService', 'accountService', 'alertService', 'languageService', 'proposalService', 'marketService'];
+    RealityCheck.$inject = [
+      '$scope', '$timeout', '$translate', '$location',
+      '$state', '$ionicPopup', 'websocketService',
+      'appStateService', 'accountService', 'alertService',
+      'languageService', 'proposalService'];
 
-    function RealityCheck($scope, $timeout, $translate, $location, $state, $ionicPopup, websocketService, appStateService, accountService, alertService, languageService, proposalService, marketService) {
+    function RealityCheck(
+        $scope, $timeout, $translate, $location, $state,
+        $ionicPopup, websocketService, appStateService,
+        accountService, alertService, languageService, proposalService) {
 			var vm = this;
     var landingCompanyName;
     $scope.$on('authorize', function(e, authorize) {
@@ -168,23 +175,7 @@
           }
 
           if (res) {
-            accountService.removeAll();
-            proposalService.forget();
-            marketService.removeActiveSymbols();
-            marketService.removeAssetIndex();
-            appStateService.isLoggedin = false;
-            websocketService.closeConnection();
-            vm.removeInterval('_interval');
-            sessionStorage.removeItem('start');
-            appStateService.isRealityChecked = false;
-            appStateService.isPopupOpen = false;
-            appStateService.isCheckedAccountType = false;
-                    appStateService.isNewAccountReal = false;
-                    appStateService.isNewAccountMaltainvest = false;
-                    appStateService.hasMLT = false;
-                    sessionStorage.removeItem('countryParams');
-                    sessionStorage.removeItem('realityCheckStart')
-            $state.go('signin');
+            websocketService.logout();
           }
           if (!res) {
             vm.hasRealityCheck();

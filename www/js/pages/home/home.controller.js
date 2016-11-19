@@ -25,7 +25,6 @@
      */
     $scope.$on('authorize', (e, response) => {
       if (response) {
-        appStateService.virtuality = response.is_virtual;
           $state.go('trade');
       } else {
         $state.go('signin');
