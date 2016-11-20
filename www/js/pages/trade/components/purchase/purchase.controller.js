@@ -85,6 +85,8 @@
         $scope.$on('purchase:error', (e, error) => {
             vm.inPurchaseMode = false;
             vm.showSummary = false;
+            appStateService.tradeMode = true;
+            appStateService.purchaseMode = false;
             vm.purchasedContractIndex = -1;
             sendProposal();
         });

@@ -51,7 +51,7 @@
         init();
 
 
-        $scope.$on('authorize', (e, response) => {
+        $scope.$on('authorize', (e, response, message) => {
 
             $ionicLoading.hide();
 
@@ -66,7 +66,7 @@
 
                 $state.go('trade');
             } else {
-                alertService.accountError.tokenNotAuthenticated();
+              alertService.accountError.tokenNotAuthenticated(message);
             }
         });
 

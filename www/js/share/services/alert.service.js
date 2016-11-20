@@ -87,7 +87,7 @@ angular
 				tokenNotAuthenticated: function(message) {
 					$translate(['alert.error', 'alert.not_auth'])
 					.then(function (translation) {
-						displayAlert(message ? message : translation['alert.error'], translation['alert.not_auth']);
+						displayAlert(translation['alert.error'], message ? message : translation['alert.not_auth']);
 					});
 				},
 				tokenNotUnique: function() {

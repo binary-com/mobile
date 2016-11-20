@@ -126,6 +126,28 @@ angular
                 sendMessage(data);
             };
 
+            websocketService.logout = function(){
+				      localStorage.removeItem('accounts');
+              websocketService.sendRequestFor.forgetProposals();
+              sessionStorage.active_symbols = null;
+              sessionStorage.asset_index = null;
+              appStateService.isRealityChecked = false;
+              appStateService.isChangedAccount = false;
+              appStateService.isPopupOpen = false;
+              appStateService.isCheckedAccountType = false;
+              appStateService.isLoggedin = false;
+              sessionStorage.removeItem('start');
+              sessionStorage.removeItem('_interval');
+              appStateService.profitTableRefresh = true;
+              appStateService.statementRefresh = true;
+              appStateService.isNewAccountReal = false;
+              appStateService.isNewAccountMaltainvest = false;
+              appStateService.hasMLT = false;
+              sessionStorage.removeItem('countryParams');
+              websocketService.closeConnection();
+              $state.go('signin');
+            };
+
             websocketService.sendRequestFor = {
                 symbols: function() {
                     var data = {
@@ -338,7 +360,27 @@ angular
                         ping: 1
                     };
                     sendMessage(data);
+                },
+              setSelfExclusion: function(params){
+                var data = {
+                  set_self_exclusion: 1
                 }
+
+                for( var key in params){
+                  if(params.hasOwnProperty(key)){
+                    data[key] = params[key];
+                  }
+                }
+
+                sendMessage(data);
+              },
+              getSelfExclusion: function(){
+                var data = {
+                  get_self_exclusion: 1
+                }
+
+                sendMessage(data);
+              }
             };
 
             websocketService.closeConnection = function() {
@@ -364,6 +406,7 @@ angular
                                 message.authorize.token = message.echo_req.authorize;
                                 window._trackJs.userId = message.authorize.loginid;
                                 appStateService.isLoggedin = true;
+                                appStateService.virtuality = message.authorize.is_virtual;
                                 appStateService.scopes = message.authorize.scopes;
                                 amplitude.setUserId(message.authorize.loginid);
 
@@ -513,6 +556,22 @@ angular
                             $rootScope.$broadcast('statement:update', message.statement, message.echo_req.passthrough);
                             } else if (message.error) {
                             $rootScope.$broadcast('statement:error', message.error.message);
+                            }
+                            break;
+                        case 'get_self_exclusion':
+                            if(message.get_self_exclusion) {
+                              $rootScope.$broadcast('get-self-exclusion', message.get_self_exclusion);
+                            }
+                            else if( message.error){
+                              $rootScope.$broadcast('get-self-exclusion:error', message.error.message);
+                            }
+                            break;
+                        case 'set_self_exclusion':
+                            if(message.set_self_exclusion){
+                              $rootScope.$broadcast('set-self-exclusion', message.set_self_exclusion);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('set-self-exclusion:error', message.error.message);
                             }
                             break;
                         default:
