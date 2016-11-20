@@ -51,7 +51,7 @@
         init();
 
 
-        $scope.$on('authorize', (e, response) => {
+        $scope.$on('authorize', (e, response, message) => {
 
             $ionicLoading.hide();
 
@@ -66,7 +66,7 @@
 
                 $state.go('trade');
             } else {
-                alertService.accountError.tokenNotAuthenticated();
+              alertService.accountError.tokenNotAuthenticated(message);
             }
         });
 
@@ -151,7 +151,11 @@
         $scope.$on('new_account_virtual', (e, new_account_virtual) => {
             if (!appStateService.isLoggedin) {
                 var _token = new_account_virtual.oauth_token;
-                websocketService.authenticate(_token)
+                websocketService.authenticate(_token);
+                vm.showTokenForm = false;
+                vm.showSignin = false;
+                vm.showSignup = false;
+                vm.showvirtualws = false;
             }
         });
         $scope.$on('new_account_virtual:error', (e, error) => {

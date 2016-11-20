@@ -6,7 +6,7 @@
  * @copyright Binary Ltd
  */
 
-(function(){
+(function() {
     'use strict';
 
     angular
@@ -15,21 +15,36 @@
 
     Trade.$inject = [
         '$scope', 'proposalService',
-        'tradeService', 'websocketService'
+        'tradeService', 'websocketService', 'alertService'
     ];
 
     function Trade($scope, proposalService,
-            tradeService, websocketService){
+        tradeService, websocketService, alertService) {
         var vm = this;
 
         vm.proposal = {};
         vm.purchasedContract = {};
 
         function init() {
-                vm.proposal = proposalService.get();
+            vm.proposal = proposalService.get();
         }
 
 
         init();
+
+        angular.element(document).ready(function() {
+            window.addEventListener('native.keyboardshow', keyboardShowHandler);
+            window.addEventListener('native.keyboardhide', keyboardHideHandler);
+
+            function keyboardShowHandler(e) {
+                document.getElementById('trade-container').className = "";
+            }
+
+            function keyboardHideHandler(e) {
+                document.getElementById('trade-container').className = "flexed";
+            }
+        });
+
+
     }
 })();

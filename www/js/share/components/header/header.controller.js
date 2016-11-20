@@ -24,6 +24,7 @@
                     appStateService) {
         var vm = this;
         vm.hideMenuButton = false;
+        vm.disableMenuButton = false;
         vm.showBack = false;
         $ionicSideMenuDelegate.canDragContent(false);
         $ionicHistory.backView(null);
@@ -31,8 +32,15 @@
         vm.android = ionic.Platform.isAndroid();
 
         vm.toggleSideMenu = function() {
+          if(appStateService.tradeMode || !appStateService.purchaseMode){
             $ionicSideMenuDelegate.toggleLeft();
+          }
         }
+
+        $scope.$watch(
+            () => { return appStateService.purchaseMode } ,
+            () =>{ vm.disableMenuButton = appStateService.purchaseMode; }
+            );
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.to = to;

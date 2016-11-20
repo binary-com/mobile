@@ -118,6 +118,28 @@
                 vm.section1 = vm.SECTIONS.OVERVIEW1;
                 vm.section2 = section;
             }
+
+            switch(section){
+              case vm.SECTIONS.MARKETS:
+                var markets = JSON.parse(sessionStorage.markets || '{}');
+                if(Object.keys(markets).length <= 1){
+                  return;
+                }
+                break;
+              case vm.SECTIONS.UNDERLYINGS:
+                if(vm.options.market.underlying.length <= 1){
+                  return;
+                }
+                break;
+              case vm.SECTIONS.TRADETYPES:
+                var tradeTypes = JSON.parse(sessionStorage.tradeTypes || '{}');
+                if(Object.keys(tradeTypes).length <= 1){
+                  return;
+                }
+                break;
+
+            }
+
             vm.modalCtrl.show();
         }
 

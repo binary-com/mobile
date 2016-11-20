@@ -32,7 +32,7 @@
                         chartService.addContract({
                             startTime: contract.date_start + 1,
                             duration: parseInt(vm.proposal.duration),
-                            type: contract.contract_type,
+                            type: vm.proposal.tradeType === "Higher/Lower" ? contract.contract_type + 'HL' : contract.contract_type,
                             barrier: vm.proposal.barrier
                         });
                     }

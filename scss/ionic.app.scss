@@ -30,18 +30,18 @@ $ionicons-font-path: "../lib/ionic/release/fonts" !default;
 @import "scss/shared/general";
 @import "scss/shared/small";
 @import "scss/shared/header";
-@import "scss/shared/footer";
 @import "scss/shared/menu";
+@import "scss/shared/typography";
 
 @import "scss/pages/home";
 @import "scss/pages/signin";
 @import "scss/pages/trade";
-@import "scss/pages/options";
-@import "scss/pages/accounts";
 @import "scss/pages/help";
 @import "scss/pages/realitycheck";
 @import "scss/pages/profittable";
 @import "scss/pages/newaccount";
 @import "scss/pages/connectivity";
+@import "scss/pages/settings";
+@import "scss/pages/self-exclusion";
 
 @import "scss/shared/language";
