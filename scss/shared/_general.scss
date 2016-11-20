@@ -138,13 +138,14 @@ input::-webkit-outer-spin-button {
     margin: 0;
     /* <-- Apparently some margin are still there even though it's hidden */
 }
-@media only screen and (min-device-width: 480px) {
+@media only screen and (min-device-width: 768) {
     ion-view, ion-content {
         width: 80vw!important;
         margin: 0 auto;
         max-width: 768px;
     }
 }
+
 @media only screen and (min-device-width: 768px) {
     .accounts,
     .help,
