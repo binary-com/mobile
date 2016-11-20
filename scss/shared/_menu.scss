@@ -1,42 +1,51 @@
 .menu {
-  background-color: #2a3052;
+  background-color: $primaryBrandColor;
+  ion-content{
+    overflow-y: hidden;
+    width: 100%!important;
+  }
   .bar-header {
     border-bottom: 0px !important;
     background: trasparent;
-    background-color: #2a3052;
+    background-color: $primaryBrandColor;
     align-items: center;
   }
   .item-complex {
     .item-content {
-      background-color: #2a3052;
+      background-color: $primaryBrandColor;
     }
   }
+  .item{
+    margin: 0;
+      background-color: $primaryBrandColor;
+  }
   .options-account {
-    background-color: #2a3052;
+    background-color: $primaryBrandColor;
     padding-top: 10px;
     padding-bottom: 5px;
     margin-left: 10px;
     .manage-account {
       text-align: right;
-      font-size: 4vw;
+      font-size: 1rem;
     }
     select {
-      color: #f2f2f2;
-      background-color: #2a3052;
-      border-color: #2a3052;
+      color: $contentInverseColor;
+      background-color: $primaryBrandColor;
+      border-color: $primaryBrandColor;
     }
   }
   a.item-content{
-    color: #f2f2f2;
+    color: $contentInverseColor;
+    font-size: 1rem;
     &.activated{
-      background: #2a3052;
+      background: $primaryBrandColor;
 
     }
   }
   .upgrade-link{
     margin-left: 0;
     a{
-      font-size: 3vw;
+      font-size: 12px;
     }
   }
 }

@@ -278,7 +278,7 @@
                 vm.pageState();
             }
             if (vm.data.dateType == 'jumpToDate'){
-              vm.firstCompleted = false;
+              // vm.firstCompleted = false;
               vm.jumpToDateInputShow = true;
               vm.nowDateInputLimit = $filter('date')(new Date(), 'yyyy-MM-dd');
               document.getElementById('dateTo').setAttribute('max', vm.nowDateInputLimit);

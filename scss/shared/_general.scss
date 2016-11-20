@@ -26,23 +26,23 @@ a {
 .popup-head {
     padding: 10px;
     border: none;
-    background-color: $primaryBrandColor;
+    background: $primaryBrandColor;
     h3.popup-title {
         color: $white!important;
-        font-size: 4vw;
+        font-size: 1rem;
         text-align: left;
         font-weight: bold;
     }
 }
 .popup-body {
-    background-color: $white;
-    font-size: 4vw;
+    background: $white;
+    font-size: 1rem;
 }
 .popup-buttons {
-    background-color: $white;
-    font-size: 4vw;
+    background: $white;
+    font-size: 1rem;
     .button{
-      font-size: 4vw;
+      font-size: 1rem;
     }
 }
 button.button.button-default {
@@ -50,24 +50,24 @@ button.button.button-default {
     background: $fillColor!important;
 }
 button.button.button-positive {
-    background-color: $positiveColor!important;
+    background: $positiveColor!important;
     &:hover {
         color: $white !important;
-        background-color: $darkPositiveColor!important;
+        background: $darkPositiveColor!important;
     }
 }
 .button {
     border: none;
-    background-color: $positiveColor;
+    background: $positiveColor;
     color: $white;
     :hover {
         color: $white !important;
-        background-color: $darkPositiveColor;
+        background: $darkPositiveColor;
     }
 }
 button:hover {
     color: $white !important;
-    background-color: $darkPositiveColor;
+    background: $darkPositiveColor;
 }
 .button-gray {
     background: $fillColor;
@@ -101,7 +101,7 @@ button.button.button-default {
 }
 .item-complex .item-content,
 .item-radio .item-content {
-    background-color: $fillColor;
+    background: $fillColor;
 }
 .item-radio > input[disabled="disabled"] + div.item-content {
     opacity: 0.4;
@@ -111,17 +111,17 @@ button.button.button-default {
 }
 .error p {
     color: $negativeColor;
-    font-size: 8px;
+    font-size: 0.5rem;
 }
 .appVersion {
     color: $primaryBrandColor;
     opacity: 0.5;
-    font-size: 14px;
+    font-size: 0.8rem;
     display: block;
     margin: 0 auto;
 }
 .help-block {
-    font-size: 12px;
+    font-size: 0.8rem;
     color: $contentColor;
     text-align: left;
 }
@@ -140,31 +140,9 @@ input::-webkit-outer-spin-button {
 }
 @media only screen and (min-device-width: 480px) {
     ion-view, ion-content {
-        width: 80vw;
+        width: 80vw!important;
         margin: 0 auto;
         max-width: 768px;
-    }
-    .popup-head {
-        padding: 10px;
-        border: none;
-        background-color: $primaryBrandColor;
-        h3.popup-title {
-            color: $white!important;
-            font-size: 1.5vw;
-            text-align: left;
-            font-weight: bold;
-        }
-    }
-    .popup-body {
-        background-color: $white;
-        font-size: 1.5vw;
-    }
-    .popup-buttons {
-        background-color: $white;
-        font-size: 1.5vw;
-        .button{
-          font-size: 1.5vw;
-        }
     }
 }
 @media only screen and (min-device-width: 768px) {

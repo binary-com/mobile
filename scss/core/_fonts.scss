@@ -15,3 +15,23 @@
     src: url(../fonts/Roboto/Roboto-Bold.ttf);
     font-weight: 700;
 }
+@media only screen and (max-width: 480px) {
+  html, body{
+    font-size: 4vw;
+  }
+}
+@media only screen and (min-width: 480px) {
+  html, body{
+    font-size: 3vw;
+  }
+}
+@media only screen and (min-width: 780px) {
+  html, body{
+    font-size: 1.5vw;
+  }
+}
+@media only screen and (min-width: 960px) {
+  html, body{
+    font-size: 16px;
+  }
+}
