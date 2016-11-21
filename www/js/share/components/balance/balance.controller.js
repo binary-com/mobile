@@ -21,7 +21,7 @@
       $scope,
       websocketService) {
     var vm = this;
-    vm.balance = {};
+    vm.balance = null;
 
     $scope.$on('authorize',
         (e, response, requestId, pathtrough) => {
@@ -39,6 +39,13 @@
             vm.balance = response;
             changeProposalCurrency();
           });
+        });
+
+    $scope.$on('language:updated',
+        (e) => {
+          websocketService.sendRequestFor.forgetAll('balance');
+          vm.balance = null;
+          getBalance();
         });
 
     function getBalance() {
