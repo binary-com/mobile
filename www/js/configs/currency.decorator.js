@@ -20,13 +20,18 @@
       var srcFilter = $delegate;
 
       var extendsFilter = function(){
-        arguments[1] = arguments[1] ? formatMoney(arguments[1]) : arguments[1];
-        return srcFilter.apply(this, arguments);
+        var locale = localStorage.language.replace('_', '-');
+        var currency = arguments[1] || 'USD';
+        return formatMoney(locale, currency, arguments[0]);
       };
 
-      function formatMoney (currency) {
-        var symbol = format_money[currency] || currency;
-        return symbol;
+      function formatMoney (locale, currency, value) {
+        return Intl.NumberFormat(locale,
+            {
+              style: 'currency',
+              currency: currency || 'USD'
+            })
+        .format(value);
       }
       var format_money = {
         "USD": "$",
