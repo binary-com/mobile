@@ -1,35 +1,35 @@
 @media only screen and (max-device-width: 480px) {
 				.help-content {
-								background-color: $white;
+								background: $white;
 								padding-left: 3%;
 								padding-right: 3%;
 								padding-top: 5%;
-								color: $black;
-								font-size: 4vw;
+								color: $contentColor;
+								font-size: 1rem;
 								h1 {
-												font-size: 8vw;
-												color: $orange;
+												font-size: 1.5rem;
+												color: $secondaryBrandColor;
 								}
 								button {
-												background-color: $green !important;
-												font-size: 5vw;
+												background: $positiveColor !important;
+												font-size: 1.1rem;
 								}
 				}
 }
 @media only screen and (min-device-width: 480px) {
 				.help-content {
-								background-color: $white;
+								background: $white;
 								padding-left: 3%;
 								padding-right: 3%;
 								padding-top: 5%;
-								color: $black;
-								font-size: 4vw;
+								color: $contentColor;
+								font-size: 0.8rem;
 								h1 {
-												font-size: 5vw;
+												font-size: 1rem;
 												color: $white;
 								}
 								button {
-												font-size: 4vw;
+												font-size: 0.8rem;
 								}
 				}
 }

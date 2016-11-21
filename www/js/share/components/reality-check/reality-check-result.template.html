@@ -59,7 +59,7 @@
 			{{'realitycheck.buy_amount' | translate}}
 		</div>
 		<div class="col">
-			{{vm.realityCheckitems.buy_amount}}
+			{{vm.realityCheckitems.buy_amount | currency : vm.currency : 2}}
 		</div>
 	</div>
 	<div class="row">
@@ -101,7 +101,7 @@
 			{{'realitycheck.potential_profit' | translate}}
 		</div>
 		<div class="col">
-			{{vm.realityCheckitems.potential_profit}}
+			{{vm.realityCheckitems.potential_profit | currency : vm.currency : 2}}
 		</div>
 	</div>
 	<div class="row interval">

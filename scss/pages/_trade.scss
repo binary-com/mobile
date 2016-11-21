@@ -1,32 +1,35 @@
 .trade {
-	background: $lightgray;
+	background: $white;
 	.scroll-content {
 		margin-top: 0 !important;
 		padding-top: 0 !important;
 		margin-bottom: 0 !important;
 	}
 	ion-content {
-		height: 100vh!important;
 		width: 100vw;
-		padding-bottom: 40px;
-	}
-	// .keyboard-up{
-	// 	display: block;
-	// 	position: absolute;
-	// }
-
-	.ionic-scroll {
-		min-height: 30px;
-		.scroll {
-			min-height: 30px;
-			display: flex;
-			flex-direction: column;
+		&.trade-container {
+			// display: flex;
+			// height: 100vh!important;
+			padding-bottom: 40px;
 		}
+		.scroll {
+			height: 100%;
+			.flexed {
+				display: flex;
+				height: 100%!important;
+				flex-direction: column;
+				//  padding-bottom: 40px;
+			}
+		}
+	}
+	.ionic-scroll {
+		// min-height: 30px;
+		// width: 100vw;
 		.scroll-bar-v {
 			display: none!important;
 		}
 	}
-	.trade-container {
+	#trade-container {
 		display: flex;
 		flex-direction: column;
 		.scroll-bar-h {
@@ -69,7 +72,7 @@
 					&.options-row {
 						padding: 5px;
 						.col {
-							// border-bottom: 1px solid $gray;
+							// border-bottom: 1px solid $borderColor;
 						}
 					}
 					.col {
@@ -85,17 +88,15 @@
 						a {
 							max-height: none;
 							min-height: 20px!important;
-							font-size: 3.5vw;
-							color: $darkgray;
+							font-size: 1rem;
+							color: $contentColor;
 							line-height: normal;
 							white-space: nowrap;
-							font-weight: bold;
 							border-radius: 3px;
-							border-bottom: 1px solid $lightgray!important;
 							margin: 0;
 							padding: 0;
 							&:hover {
-								color: $black!important;
+								color: $contentColor!important;
 							}
 						}
 					}
@@ -104,7 +105,7 @@
 					margin-top: 0 !important;
 				}
 				ion-tab {
-					color: $black;
+					color: $contentColor;
 				}
 			}
 		}
@@ -133,7 +134,7 @@
 			}
 		}
 		bg-chart {
-			margin-top: 10px;
+			// margin-top: 10px;
 			.contract-chart {
 				background: $white;
 				.chart-container {
@@ -150,9 +151,9 @@
 				flex-direction: row;
 				max-height: 100px;
 				background: $white;
-				border: 1px solid $gray;
+				border: 1px solid $borderColor;
 				border-radius: 3px;
-				font-size: 4vw;
+				font-size: 1rem;
 				.payout-cell-container {
 					display: flex;
 					flex-grow: 1;
@@ -163,12 +164,12 @@
 						flex-direction: column;
 						text-align: center;
 						a {
-							color: $darkgray;
+							color: $contentColor;
 						}
 						input {
 							padding: 2px 3px;
-							border: 1px solid #F2F2F2;
-							background: #FFF;
+							border: 1px solid $borderColor;
+							background: $fillColor;
 							border-radius: 3px;
 						}
 						.payout-cell-link {
@@ -177,22 +178,22 @@
 							.button {
 								max-height: none;
 								min-height: inherit!important;
-								font-size: 32px;
 								line-height: normal;
 								white-space: nowrap;
 								margin: 0 auto;
-								color: $darkgray;
-								font-size: 6vw;
-								top: -1vw;
+								color: $contentColor;
+								font-size: 1.5rem;
+								align-items: center;
+								display: flex;
 								&:hover {
-									color: $darkgray!important;
+									color: $contentColor!important;
 								}
 							}
 						}
 						input {
 							max-width: 100px;
 							margin: 0 auto;
-							font-size: 4vw;
+							font-size: 1rem;
 						}
 						.button .icon:before,
 						.button.icon-left:before,
@@ -214,10 +215,11 @@
 			}
 		}
 		bg-purchase {
-			padding: 5px 0;
+			padding: 0;
 			max-height: 400px;
 			flex-grow: 2;
-			flex-basis: 240px;
+			// flex-basis: 240px;
+			margin-bottom: 10px;
 			.purchase {
 				display: flex;
 				flex-grow: 1;
@@ -231,7 +233,7 @@
 					display: flex;
 					flex-direction: column;
 					background: $white;
-					border: 1px solid $gray;
+					border: 1px solid $borderColor;
 					border-radius: 3px;
 					padding: 5px 0;
 					margin-right: 5px;
@@ -241,18 +243,20 @@
 						min-height: inherit;
 						flex-grow: 1;
 						margin-top: 0;
+						align-items: center;
 						.col {
 							line-height: normal;
-							font-size: 4vw;
+							font-size: 1rem;
 							padding: 0;
 							.button {
-								font-size: 4vw;
+								font-size: 1rem;
 								white-space: nowrap;
 								min-height: 30px!important;
-								line-height: inherit;
+								// line-height: inherit;
 								display: block;
 								margin: 0 auto;
 								max-height: none;
+								width: 100%;
 							}
 							.price-container {
 								display: inline-block;
@@ -277,44 +281,44 @@
 								margin: 0;
 								.basis-title {
 									font-weight: bold;
-									font-size: 4vw;
-									color: $darkgray;
+									font-size: 1.1rem;
+									color: $contentColor;
 									vertical-align: middle;
 									line-height: normal;
 									width: 100%;
 									align-items: center;
-    							display: flex;
+									display: flex;
 									span {
 										display: inline-block;
 										vertical-align: middle;
-										font-size: 4vw;
+										font-size: 1.1rem;
 										line-height: normal;
 									}
 								}
 								.basis {
-									font-size: 3.5vw;
+									font-size: 1.1rem;
 									display: inline-block;
 									vertical-align: middle;
 									width: 100%;
 									align-items: center;
-    							display: flex;
+									display: flex;
 									span {
 										display: inline-block;
 										vertical-align: middle;
-										font-size: 3.5vw;
+										font-size: 1.1rem;
 										line-height: normal;
 									}
 								}
 							}
 						}
 						.error {
-							background-color: $notification;
+							background-color: $noticeColor;
 							padding: 10px 0;
 							height: 70px;
 							p {
 								margin: 5px !important;
-								font-size: 4vw;
-								color: $black;
+								font-size: 1rem;
+								color: $contentColor;
 								height: 70px;
 							}
 						}
@@ -324,9 +328,10 @@
 		}
 		bg-longcode {
 			max-height: 75px;
-			margin-top: 75px;
+			margin-top: 35px;
 			display: flex;
 			flex-grow: 1;
+			font-size: 1rem;
 			.longcode {
 				max-height: 75px;
 				display: flex;
@@ -334,17 +339,17 @@
 				flex-direction: column;
 				.row {
 					.col {
-						font-size: 4vw;
+						font-size: 1rem;
 						display: flex;
 						flex-grow: 1;
 						flex-direction: column;
-						color: $darkgray;
+						color: $contentColor;
 					}
 				}
 			}
 		}
 		bg-contract-summary {
-			padding: 0 5px 5px;
+			padding: 0 5px;
 			.contract-summary {
 				display: flex;
 				flex-grow: 1;
@@ -354,42 +359,45 @@
 					flex-grow: 1;
 					flex-direction: row;
 					.col {
-						font-size: 4vw;
+						font-size: 1rem;
 						display: flex;
 						flex-grow: 1;
 						flex-direction: column;
 						&.ref {
-							color: $darkgray;
+							color: $contentColor;
 						}
 						&.buy {
 							padding: 0;
 							.row {
-								color: $blue;
+								color: $primaryBrandColor;
 							}
 							.title {
-								color: $darkgray;
+								color: $contentColor;
 							}
 						}
 						&.sell {
 							padding: 0;
-							.row {
-								color: $green;
+							.loss {
+								color: $primaryBrandColor;
+							}
+							.win {
+								color: $primaryBrandColor !important;
 							}
 							.title {
-								color: $darkgray;
+								color: $contentColor;
 							}
 						}
 						&.profit {
 							padding: 0;
 							.title {
-								color: $darkgray;
+								color: $contentColor;
 							}
 						}
 						&.win {
-							color: $green !important;
+							color: $positiveColor !important;
 						}
 						&.lose {
-							color: $red !important;
+							color: $negativeColor !important;
 						}
 					}
 				}
@@ -406,15 +414,15 @@
 				flex-grow: 1;
 				flex-direction: row;
 				background: $white;
-				border: 1px solid $gray;
+				border: 1px solid $borderColor;
 				border-radius: 3px;
-				margin-bottom: 5px;
+				margin-bottom: 10px;
 				.col {
 					flex-grow: 1;
 					display: flex;
 					flex-direction: column;
-					font-size: 4vw;
-					color: $darkgray;
+					font-size: 1rem;
+					color: $contentColor;
 					padding: 0;
 					.row {
 						&:last-child {
@@ -423,7 +431,7 @@
 					}
 					.button {
 						white-space: nowrap;
-						font-size: 4vw;
+						font-size: 1rem;
 						white-space: nowrap;
 						min-height: 30px!important;
 						max-height: 45px;
@@ -445,10 +453,10 @@
 				flex-grow: 1;
 				display: flex;
 				flex-direction: column;
-				font-size: 4vw;
+				font-size: 1rem;
 				.button {
 					white-space: nowrap;
-					font-size: 4vw;
+					font-size: 1rem;
 					white-space: nowrap;
 					min-height: 40px!important;
 					max-height: 45px;
@@ -456,7 +464,7 @@
 					flex-grow: 1;
 					display: block;
 					margin: 0 auto;
-					background: $blue;
+					background: $primaryBrandColor;
 				}
 			}
 		}
@@ -464,12 +472,12 @@
 			padding: 5px;
 			max-height: 75px;
 			.barrier {
-				border: 1px solid $gray;
+				border: 1px solid $borderColor;
 				border-radius: 3px;
 				background: $white;
 				display: flex;
 				flex-direction: column;
-				color: $darkgray;
+				color: $contentColor;
 				.row {
 					display: flex;
 					flex-direction: row;
@@ -478,10 +486,10 @@
 						display: flex;
 						flex-direction: column;
 						flex-grow: 1;
-						font-size: 4vw;
+						font-size: 1rem;
 						font-weight: bold;
 						input {
-							font-size: 4vw;
+							font-size: 1rem;
 							padding: 5px;
 						}
 					}
@@ -494,12 +502,12 @@
 			margin: 0 auto;
 			width: 100%;
 			.digit-result {
-				border: 1px solid $gray;
+				border: 1px solid $borderColor;
 				background: $white;
 				border-radius: 3px;
 				display: flex;
 				flex-direction: column;
-				color: $darkgray;
+				color: $contentColor;
 				padding: 5px 0;
 				.col {
 					padding: 0 !important;
@@ -509,7 +517,7 @@
 					line-height: 0;
 					border-radius: 50%;
 					border: 2px solid;
-					font-size: 4vw;
+					font-size: 1rem;
 					span {
 						display: inline-block;
 						padding-top: 50%;
@@ -518,19 +526,19 @@
 						margin-right: 8px;
 					}
 					&.lose {
-						color: red;
+						color: $negativeColor;
 						&.last {
 							color: $white !important;
-							background: $red !important;
-							border-color: $red !important;
+							background: $negativeColor !important;
+							border-color: $negativeColor !important;
 						}
 					}
 					&.win {
 						color: green;
 						&.last {
 							color: $white !important;
-							background: $green !important;
-							border-color: $green !important;
+							background: $positiveColor !important;
+							border-color: $positiveColor !important;
 						}
 					}
 				}
@@ -538,12 +546,12 @@
 			//
 			//
 			// .digit-result {
-			// 	border: 1px solid $gray;
+			// 	border: 1px solid $borderColor;
 			// 	border-radius: 3px;
 			// 	background: $white;
 			// 	display: flex;
 			// 	flex-direction: column;
-			// 	color: $darkgray;
+			// 	color: $contentColor;
 			// 	.row {
 			// 		display: flex;
 			// 		flex-direction: row;
@@ -552,7 +560,7 @@
 			// 			display: flex;
 			// 			flex-direction: column;
 			// 			flex-grow: 1;
-			// 			font-size: 4vw;
+			// 			font-size: 1rem;
 			// 			font-weight: bold;
 			// 		}
 			// 	}
@@ -565,14 +573,22 @@
 	background: $white;
 	.bar-header {
 		background: $white;
-		font-size: 4vw;
-		color: $black;
-		h1, button{
-			color: $black!important;
+		font-size: 1rem;
+		color: $contentColor;
+		button,
+		h1 {
+			color: $contentColor!important;
 		}
 	}
+	ion-content{
+		width: 100%!important;
+		.scroll{
+			height: 100%!important;
+		}
+	}
+
 	// .button {
-	// 	color: $black;
+	// 	color: $contentColor;
 	// }
 	bg-digits,
 	bg-markets,
@@ -586,6 +602,7 @@
 		align-items: center;
 		background: $white;
 		height: calc(100vh - 46px);
+		height: 100%;
 		display: flex;
 		align-items: center;
 		.ionic-scroll {
@@ -606,11 +623,13 @@
 			height: calc(90vh - 46px);
 			display: flex;
 			align-items: center;
+			height: 100%;
 			.row {
 				display: flex;
 				flex-grow: 1;
 				padding: 0 !important;
 				height: calc(90vh - 46px)!important;
+				height: 100%;
 				align-items: center!important;
 				flex-direction: row;
 				flex-wrap: wrap;
@@ -619,34 +638,33 @@
 					display: flex;
 					flex-grow: 1;
 					flex-direction: column;
-					flex-basis: 40vw!important;
+					flex-basis: 40%!important;
 					max-width: 60vw;
 					// width: 70%;
 					margin: 0 auto;
 					// min-width: 50%;
 					align-items: center;
-  			  display: flex;
-					&:first-child{
+					display: flex;
+					&:first-child {
 						border-top: none;
 					}
-					&:last-child{
+					&:last-child {
 						border-bottom: none;
 					}
-					.button, a {
+					.button,
+					a {
 						max-height: none;
 						min-height: 20px!important;
-						font-size: 4vw;
-						color: $black;
+						font-size: 1rem;
+						color: $contentColor;
 						line-height: normal;
 						white-space: nowrap;
 						font-weight: normal;
 						border-radius: 0;
 						text-align: center;
 						padding: 10px 5px;
-						border-bottom: 1px solid $gray!important;
-						border-radius: 8px;
 						&:hover {
-							color: $black!important;
+							color: $contentColor!important;
 						}
 					}
 				}
@@ -654,6 +672,7 @@
 		}
 	}
 }
+
 @media only screen and (max-device-height: 480px) {
 	.trade {
 		#tradeChart {
@@ -762,7 +781,7 @@
 			}
 		}
 	}
-	.trade .trade-container bg-payout {
+	.trade #trade-container bg-payout {
 		max-height: 130px;
 	}
 }

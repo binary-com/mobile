@@ -85,7 +85,7 @@
         }
 
         vm.delayedLoad = function(){
-          $timeout(vm.loadMore, 2000);
+          $timeout(vm.loadMore, 500);
         }
 
         vm.loadMore = function() {
@@ -278,7 +278,7 @@
                 vm.pageState();
             }
             if (vm.data.dateType == 'jumpToDate'){
-              vm.firstCompleted = false;
+              // vm.firstCompleted = false;
               vm.jumpToDateInputShow = true;
               vm.nowDateInputLimit = $filter('date')(new Date(), 'yyyy-MM-dd');
               document.getElementById('dateTo').setAttribute('max', vm.nowDateInputLimit);
@@ -299,7 +299,6 @@
 
         vm.goTop = function() {
             $ionicScrollDelegate.scrollTop(true);
-            vm.goToTopButton = false;
         }
 
         vm.goToTopButtonCondition = function() {

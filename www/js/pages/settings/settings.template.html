@@ -1,0 +1,23 @@
+<ion-view class="settings">
+  <ion-content>
+    <div class="bar bar-header bar-light">
+      <h1 class="title">
+        {{ 'settings.settings' | translate }}
+      </h1>
+    </div>
+    <div class="list">
+      <div ng-repeat="s in vm.settings">
+        <div class="item item-divider">
+          {{ s.name | translate}}
+        </div>
+        <a ng-repeat="m in s.submenus"
+           href="#"
+           ui-sref="{{m.url}}"
+           ng-if="vm.checkScope(m.scope) && vm.checkAccount(m.forRealAccount)"
+           class="item">
+          {{ m.name | translate }}
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -15,13 +15,15 @@
 
     Purchase.$inject = [
         '$scope', '$timeout', 'analyticsService',
-        'accountService', 'proposalService',
-        'tradeService', 'websocketService',
+        'accountService', 'appStateService',
+        'proposalService','tradeService',
+        'websocketService',
     ];
 
     function Purchase($scope, $timeout, analyticsService,
-        accountService, proposalService,
-        tradeService, websocketService) {
+        accountService, appStateService,
+        proposalService, tradeService,
+        websocketService) {
         var vm = this;
 
         vm.contracts = [];
@@ -35,6 +37,10 @@
         }, (newValue, oldValue) => {
             proposalUpdated();
         }, true);
+
+        $scope.$on('appState:tradeMode', (e) => {
+          vm.showSummary = !appStateService.tradeMode;
+        });
 
         $scope.$on('proposal', (e, proposal, reqId) => {
             if ([1, 2].indexOf(reqId) > -1) {
@@ -79,6 +85,8 @@
         $scope.$on('purchase:error', (e, error) => {
             vm.inPurchaseMode = false;
             vm.showSummary = false;
+            appStateService.tradeMode = true;
+            appStateService.purchaseMode = false;
             vm.purchasedContractIndex = -1;
             sendProposal();
         });
@@ -125,6 +133,7 @@
 
                 // Unlock view to navigate
                 vm.inPurchaseMode = false;
+                appStateService.purchaseMode = false;
             }
         });
 
@@ -134,14 +143,18 @@
 
         vm.purchase = function(contractIndex) {
             $scope.$applyAsync(() => {
-                vm.purchasedContractIndex = contractIndex;
                 vm.inPurchaseMode = true;
+                vm.purchasedContractIndex = contractIndex;
+                appStateService.purchaseMode = true;
+                appStateService.tradeMode = false;
             });
             proposalService.purchase(vm.proposalResponses[contractIndex]);
         }
 
         vm.backToTrade = function() {
             vm.showSummary = false;
+            appStateService.tradeMode = true;
+            appStateService.purchaseMode = false;
             vm.purchasedContractIndex = -1;
         }
 

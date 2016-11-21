@@ -1,64 +1,60 @@
-.balance{
+.balance {
 	background: $white;
-	color: $darkgray;
-	font-size: 4vw;
+	color: $contentColor;
+	font-size: 1rem;
 	padding: 0 5px;
 }
 .bar.bar-positive {
-				border-color: none;
-				background-color: $blue;
-				background-image: none;
+	border-color: $borderColor;
+	background-color: $primaryBrandColor;
+	background-image: none;
+	z-index: 10;
 }
 .bar-positive .button {
-				// border-color: $blue;
-				background-color: $blue;
+	// border-color: $primaryBrandColor;
+	background-color: $primaryBrandColor;
+	z-index: 12;
 }
 .bar-header {
-				background-color: $blue;
-				position: relative;
-				border-bottom: 3px solid $orange!important;
-				button {
-								background-color: $blue;
-								color: $white;
-				}
-				h1 {
-
-								img {
-												height: 80%;
-												padding-top: 10px;
-								}
-				}
+	background-color: $primaryBrandColor;
+	position: relative;
+	border-bottom: 3px solid $secondaryBrandColor!important;
+	button {
+		background-color: $primaryBrandColor;
+		color: $white;
+	}
+	h1 {
+		img {
+			height: 80%;
+			padding-top: 10px;
+		}
+	}
 }
 .bar .button.button-clear .icon:before,
-.bar .button.button-clear.icon:before,
 .bar .button.button-clear.icon-left:before,
-.bar .button.button-clear.icon-right:before {
-				font-size: 24px;
+.bar .button.button-clear.icon-right:before,
+.bar .button.button-clear.icon:before {
+	font-size: 24px;
 }
-
-.update .spinner{
-    top: 0px !important;
-    left: 0;
-    right: 0;
-    position: inherit !important;
-
-    svg {
-        margin: -10px 0;
-        display: block;
-        width: 28px !important;
-        height: 28px !important;
-        storke: $white;
-    }
+.update .spinner {
+	top: 0 !important;
+	left: 0;
+	right: 0;
+	position: inherit !important;
+	svg {
+		margin: -10px 0;
+		display: block;
+		width: 28px !important;
+		height: 28px !important;
+		storke: $white;
+	}
 }
-
-.update progress{
-    margin: 0 1px 0 1px !important;
+.update progress {
+	margin: 0 1px !important;
 }
-
-.update .icon{
-    font-size: 28px !important;
+.update .icon {
+	font-size: 28px !important;
 }
-
 .logo-spinner {
 	-webkit-animation-name: spin;
 	-webkit-animation-duration: 1000ms;
@@ -72,7 +68,6 @@
 	-ms-animation-duration: 1000ms;
 	-ms-animation-iteration-count: infinite;
 	-ms-animation-timing-function: linear;
-
 	animation-name: spin;
 	animation-duration: 1000ms;
 	animation-iteration-count: infinite;
@@ -81,22 +76,34 @@
 	display: inline-block;
 }
 @-ms-keyframes spin {
-	from { -ms-transform: rotate(0deg); }
-	to { -ms-transform: rotate(360deg); }
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+	}
 }
 @-moz-keyframes spin {
-	from { -moz-transform: rotate(0deg); }
-	to { -moz-transform: rotate(360deg); }
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(360deg);
+	}
 }
 @-webkit-keyframes spin {
-	from { -webkit-transform: rotate(0deg); }
-	to { -webkit-transform: rotate(360deg); }
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
 }
 @keyframes spin {
 	from {
-		transform:rotate(0deg);
+		transform: rotate(0deg);
 	}
 	to {
-		transform:rotate(360deg);
+		transform: rotate(360deg);
 	}
 }

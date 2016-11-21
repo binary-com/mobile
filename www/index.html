@@ -92,7 +92,7 @@
     <!-- END Modify -->
 
   </head>
-  <body ng-app="binary">
+  <body ng-app="binary" ng-cloak>
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
     <bg-connectivity></bg-connectivity>
     <ping></ping>
@@ -125,6 +125,7 @@
     <script src="js/configs/states.config.js"></script>
     <script src="js/configs/translation.config.js"></script>
     <script src="js/configs/currency.decorator.js"></script>
+    <script src="js/configs/state.decorator.js"></script>
     <script src="js/configs/angular-ios9-uiwebview.patch.js"></script>
 
     <script src="js/share/services/websocket.service.js"></script>
@@ -163,15 +164,15 @@
     <script src="js/share/components/language/language-list.directive.js"></script>
     <script src="js/share/components/language/language.controller.js"></script>
 
+    <script src="js/pages/settings/settings.module.js"></script>
+    <script src="js/pages/settings/settings.controller.js"></script>
+
     <script src="js/share/components/ping/ping.module.js"></script>
     <script src="js/share/components/ping/ping.directive.js"></script>
     <script src="js/share/components/ping/ping.controller.js"></script>
 
     <script src="js/share/components/long-press/long-press.module.js"></script>
     <script src="js/share/components/long-press/long-press.directive.js"></script>
-
-    <script src="js/share/components/currency/currency.module.js"></script>
-    <script src="js/share/components/currency/currency.directive.js"></script>
 
     <script src="js/share/components/side-menu/side-menu.directive.js"></script>
 
@@ -182,6 +183,9 @@
     <script src="js/share/components/connectivity/connectivity.module.js"></script>
     <script src="js/share/components/connectivity/connectivity.directive.js"></script>
     <script src="js/share/components/connectivity/connectivity.controller.js"></script>
+
+    <script src="js/share/components/regex-validate/regex-validate.module.js"></script>
+    <script src="js/share/components/regex-validate/regex-validate.directive.js"></script>
 
     <script src="js/pages/home/home.module.js"></script>
     <script src="js/pages/home/home.controller.js"></script>
@@ -275,6 +279,7 @@
     <script src="js/pages/qa-settings/qa-settings.module.js"></script>
     <script src="js/pages/qa-settings/qa-settings.controller.js"></script>
 
-
+    <script src="js/pages/self-exclusion/self-exclusion.module.js"></script>
+    <script src="js/pages/self-exclusion/self-exclusion.controller.js"></script>
   </body>
 </html>

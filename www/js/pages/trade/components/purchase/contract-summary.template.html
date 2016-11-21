@@ -24,7 +24,7 @@
         <div class="col center title" ng-if="vm.purchasedContract.result"> {{ 'trade.sell' | translate }} </div>
       </div>
       <div class="row">
-        <div class="col center">
+        <div class="col center {{vm.purchasedContract.result}}">
           <strong> {{ (vm.purchasedContract.result === 'loss' ? '0' : vm.purchasedContract.payout)  | currency:vm.proposal.currency:2 }} </strong>
         </div>
       </div>
@@ -40,7 +40,7 @@
         <div class="col center" ng-if="!vm.purchasedContract.result">
           <strong> {{ vm.purchasedContract.profit | currency:vm.proposal.currency:2 }} </strong>
         </div>
-        <div class="col center loss" ng-if="vm.purchasedContract.result === 'loss'">
+        <div class="col center lose" ng-if="vm.purchasedContract.result === 'loss'">
           <strong>{{ vm.purchasedContract.cost | currency:vm.proposal.currency:2 }} </strong>
         </div>
         <div class="col center win" ng-if="vm.purchasedContract.result === 'win'">

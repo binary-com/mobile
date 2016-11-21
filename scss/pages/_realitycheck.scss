@@ -1,36 +1,42 @@
 .realitycheck {
 	.popup {
-		background-color: $white;
+		background: $white;
 		width: 90vw;
 		padding: 0;
-		font-size: 4vw;
+		font-size: 1rem;
 		.button {
-			font-size: 4vw;
+			font-size: 1rem;
 		}
 		.button-secondary {
-			color: $black!important;
-			background: $lightgray!important;
+			color: $contentColor!important;
+			background: $fillColor!important;
 		}
 	}
-
 	.interval-input {
 		input {
-			border: 1px solid $gray;
+			border: 1px solid $borderColor;
 			border-radius: 4px;
 			padding-left: 5px;
+			font-size: 1rem;
 		}
 	}
 	.interval_error {
 		position: relative;
-		font-size: 4vw;
+		font-size: 1rem;
+		color: $negativeColor;
+	}
+	.popup-head{
+		.popup-title{
+			font-size: 1rem;
+		}
 	}
 	.popup-body {
-		background-color: $white;
+		background: $white;
 		padding: 5px;
 		.item {
-			font-size: 4vw;
+			font-size: 1rem;
 			padding: 5px;
-			background-color: $white;
+			background: $white;
 			.row {
 				white-space: normal;
 				&.realitycheck-text {
@@ -48,7 +54,7 @@
 			}
 			p {
 				white-space: normal;
-				color: $black;
+				color: $contentColor;
 			}
 		}
 	}
@@ -58,26 +64,20 @@
 		width: 40vw;
 	}
 }
-.getinterval, .result-popup {
+.getinterval,
+.result-popup {
 	.popup {
 		width: 40vw;
 	}
 }
-@media screen and (max-width: 960px){
-	.getinterval, .result-popup {
-		.popup {
-			width: 80vw!important;
-		}
-	}
-}
+
 @media screen and (max-width: 480px) {
 	.realitycheck .popup-body .item {
-		font-size: 4vw;
+		font-size: 1rem;
 	}
 	.realitycheck {
 		.popup-body {
 			.item {
-				font-size: 4vw;
 				.row {
 					padding: 0;
 					.interval-text {
@@ -87,7 +87,7 @@
 				}
 			}
 			p {
-				font-size: 4vw;
+				font-size: 1rem;
 			}
 		}
 	}
@@ -101,5 +101,13 @@
 			width: 90vw!important;
 		}
 	}
+}
 
+@media screen and (max-width: 960px) {
+	.getinterval,
+	.result-popup {
+		.popup {
+			width: 80vw!important;
+		}
+	}
 }
