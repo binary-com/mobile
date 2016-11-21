@@ -5,6 +5,17 @@
     .module('binary')
     .run(function($rootScope, $ionicPlatform, $state, alertService, appStateService) {
       $ionicPlatform.ready(function() {
+
+        if(window.cordova && window.cordova.plugins.backgroundMode){
+          cordova.plugins.backgroundMode.setDefaults({
+            title: 'Binary.com TickTrade',
+            text: '',
+            ticker: 'TickTrade is runing in background',
+            color: '#2A3052'
+          });
+          cordova.plugins.backgroundMode.enable();
+        }
+
         if(window.cordova && window.cordova.plugins.Keyboard) {
           // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
           // for form inputs)
