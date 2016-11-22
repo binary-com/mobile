@@ -165,7 +165,7 @@ input::-webkit-outer-spin-button {
 }
 
 
-@media only screen and (min-device-width: 960) {
+@media screen and (min-width: 960px) {
     .accounts,
     .help,
     .home,
@@ -176,7 +176,7 @@ input::-webkit-outer-spin-button {
         max-width: 768px;
         margin: auto;
     }
-    ion-view, ion-content {
+    .layout, ion-content {
         width: 80vw!important;
         margin: 0 auto;
         max-width: 768px;
