@@ -15,7 +15,7 @@
 
     Accounts.$inject = [
         '$scope', '$state', '$ionicSideMenuDelegate', 'accountService', 'appStateService',
-        'utilsService', 'websocketService'
+        'utilsService', 'websocketService', 'alertService'
     ];
 
     function Accounts(
@@ -25,7 +25,8 @@
         accountService,
         appStateService,
         utilsService,
-        websocketService
+        websocketService,
+        alertService
     ) {
         var vm = this;
 
@@ -45,6 +46,10 @@
         };
 
         init();
+
+        vm.buttoned = function(){
+          alertService.displayError('hello');
+        }
 
         vm.updateAccount = function(_selectedAccount) {
             accountService.setDefault(_selectedAccount);
