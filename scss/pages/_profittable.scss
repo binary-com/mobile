@@ -47,8 +47,10 @@
 			margin-left: 15px;
 			border: 1px solid $borderColor;
 			border-radius: 3px;
-			padding: 5px;
+			padding: 0 5px;
 			font-size: 1rem;
+			width: 150px;
+			display: inline;
 		}
 		input[type="date"]::-webkit-calendar-picker-indicator {
 			color: $secondaryContentColor;
@@ -57,12 +59,21 @@
 			margin-top: 80px;
 			.jump-to-date {
 				padding: 0;
-				width: 70%;
 				margin: 0 auto;
 				input {
 					background: $white;
+					display: table;
+					width: auto;
+					padding: 0 5px;
+					height: auto;
+					line-height: 1rem;
 				}
 			}
+		}
+		.jump-to-date-content{
+			margin: 0 auto;
+			width: auto;
+			display: block;
 		}
 	}
 	.first-spinner {
