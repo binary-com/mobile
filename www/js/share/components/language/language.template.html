@@ -3,7 +3,7 @@
     <!-- <div class="input-label">
         {{'signin.language' | translate }}
     </div> -->
-    <select class="language" tabindex="2" ng-model="vm.language" ng-change="vm.changeLanguage()">
+    <!-- <select class="language" tabindex="2" ng-model="vm.language" ng-change="vm.changeLanguage()">
       <option value="en" selected="selected">English</option>
         <option value="de">Deutsch</option>
         <option value="es">Español</option>
@@ -16,5 +16,9 @@
         <option value="vi">Vietnamese</option>
         <option value="zh_cn">简体中文</option>
         <option value="zh_tw">繁體中文</option>
+    </select> -->
+    <!-- <select class="language" tabindex="2" ng-model="vm.language" ng-options="language.id as language.title for language in vm.languages"></select> -->
+    <select class="language" tabindex="2" ng-model="vm.language" ng-options="language.id as language.title for language in vm.languages" ng-change="vm.changeLanguage(language.id)">
+      <!-- <option ng-repeat="language in vm.languages" ng-value="language.id">{{language.title}}</option> -->
     </select>
 </label>

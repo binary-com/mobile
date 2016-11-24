@@ -7,42 +7,41 @@
  * Application Header
  */
 
-(function(){
-  'use strict';
+(function() {
+    'use strict';
 
-  angular
-    .module('binary.share.components.language.controllers')
-    .controller('LanguageController', Language);
+    angular
+        .module('binary.share.components.language.controllers')
+        .controller('LanguageController', Language);
 
-  Language.$inject = ['languageService'];
+    Language.$inject = ['$scope', 'languageService', 'websocketService'];
 
-  function Language(languageService){
+    function Language($scope, languageService, websocketService) {
 
-    var vm = this;
+        var vm = this;
+        vm.languages = [];
+        vm.ios = ionic.Platform.isIOS();
+        vm.android = ionic.Platform.isAndroid();
+        websocketService.sendRequestFor.websiteStatus();
+        $scope.$on('website_status', function(e, website_status) {
+            vm.languagesList = website_status.supported_languages;
+            _.forEach(vm.languagesList, function(value) {
+                var LanguageCode = value.toLowerCase();
+                var languageNativeName = languageService.getLanguageNativeName(LanguageCode);
+                vm.languages.push({
+                    'id': LanguageCode,
+                    'title': languageNativeName
+                });
+            });
+            $scope.$apply();
 
-    vm.ios = ionic.Platform.isIOS();
-    vm.android = ionic.Platform.isAndroid();
+        });
 
-    vm.languages = [
-      { id: 'id', title: 'Bahasa Indonesia'},
-      { id: 'de', title: 'Deutsch'},
-      { id: 'en', title: 'English'},
-      { id: 'es', title: 'Español'},
-      { id: 'it', title: 'Italiano'},
-      { id: 'pl', title: 'Polish'},
-      { id: 'pt', title: 'Português'},
-      { id: 'th', title: 'ไทย'},
-      { id: 'zh_cn', title: '简体中文'},
-      { id: 'zh_tw', title: '繁體中文'},
-      { id: 'ru', title: 'Русский'},
-      { id: 'vi', title: 'Vietnamese'}
-    ];
+        vm.language = languageService.read();
 
-    vm.language = languageService.read();
-
-    vm.changeLanguage = function(language){
-      vm.language = language || vm.language;
-      languageService.update(vm.language);
+        vm.changeLanguage = function(language) {
+            vm.language = language || vm.language;
+            languageService.update(vm.language);
+        }
     }
-  }
 })();
