@@ -151,7 +151,7 @@
 
         <div class="row center" ng-show="!vm.showSignin && !vm.showTokenForm && !vm.showSignup && !vm.showvirtualws">
             <div class="col col-75">
-                <button class="button button-block button-possitive btn-signin" type="button" ng-click="vm.showSigninView()">
+                <button class="button button-block button-possitive btn-signin" type="button" ng-click="vm.showSigninView()" ng-disabled="vm.disableNextbutton">
                     {{ 'signin.next' | translate }}
                 </button>
             </div>

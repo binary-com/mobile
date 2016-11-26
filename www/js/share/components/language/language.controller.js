@@ -14,12 +14,13 @@
         .module('binary.share.components.language.controllers')
         .controller('LanguageController', Language);
 
-    Language.$inject = ['$scope', 'languageService', 'websocketService'];
+    Language.$inject = ['$scope', 'languageService', 'websocketService', 'appStateService'];
 
-    function Language($scope, languageService, websocketService) {
+    function Language($scope, languageService, websocketService, appStateService) {
 
         var vm = this;
         vm.languages = [];
+        vm.isLanguageReady = false;
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
         websocketService.sendRequestFor.websiteStatus();
@@ -33,6 +34,8 @@
                     'title': languageNativeName
                 });
             });
+            vm.isLanguageReady =  true;
+            appStateService.isLanguageReady = true;
             $scope.$apply();
 
         });
