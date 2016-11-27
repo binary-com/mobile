@@ -231,8 +231,11 @@
 
         $scope.$watch(
             () => { return appStateService.isLanguageReady } ,
-            () =>{ vm.disableNextbutton = !appStateService.isLanguageReady; }
+            (newValue, oldValue) =>{ vm.disableNextbutton = !newValue; }
             );
+
+
+
 
     }
 })();
