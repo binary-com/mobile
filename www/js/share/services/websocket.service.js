@@ -149,6 +149,12 @@ angular
             };
 
             websocketService.sendRequestFor = {
+              websiteStatus: function(){
+                var data = {
+                  "website_status": 1
+                };
+                sendMessage(data);
+              },
                 symbols: function() {
                     var data = {
                         active_symbols: "brief"
@@ -426,6 +432,9 @@ angular
                                 $rootScope.$broadcast('authorize', false, errorMessage);
                                 appStateService.isLoggedin = false;
                             }
+                            break;
+                        case 'website_status':
+                            $rootScope.$broadcast('website_status', message.website_status);
                             break;
                         case 'active_symbols':
                             var markets = message.active_symbols;

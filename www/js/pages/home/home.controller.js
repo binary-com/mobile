@@ -13,13 +13,12 @@
     .module('binary.pages.home.controllers')
     .controller('HomeController', Home);
 
-  Home.$inject = ['$scope', '$state', 'accountService', 'analyticsService', 'appStateService', 'languageService'];
+  Home.$inject = ['$scope', '$state', 'accountService', 'analyticsService', 'appStateService'];
 
-  function Home($scope, $state, accountService, analyticsService, appStateService, languageService){
+  function Home($scope, $state, accountService, analyticsService, appStateService){
 
     var vm  = this;
-    vm.language = languageService.read();
-    languageService.update(vm.language);
+
     /**
      * wait untile authorization and decide
      * to redirect user  to the proper page

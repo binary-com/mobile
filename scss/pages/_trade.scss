@@ -708,6 +708,12 @@
 			}
 		}
 	}
+	.trade #trade-container bg-payout, .trade #trade-container bg-barrier{
+		max-height: 50px;
+	}
+	.trade #trade-container bg-purchase .purchase .contract .row .col .button{
+		line-height: normal;
+	}
 }
 @media only screen and (min-device-height: 481px) and (max-device-height: 640px) {
 	.trade {
