@@ -45,7 +45,7 @@
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.to = to;
             vm.from = from;
-            if (vm.to.name == 'transactiondetail') {
+            if (['transactiondetail', 'language', 'profile', 'self-exclusion'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
             } else {
