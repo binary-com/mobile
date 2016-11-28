@@ -314,6 +314,11 @@ angular
                     };
                     sendMessage(data);
                 },
+                setAccountSettings: function(data){
+                  data.set_settings = 1;
+
+                  sendMessage(data);
+                },
                 landingCompanySend: function(company) {
                     var data = {
                         "landing_company": company
@@ -538,7 +543,12 @@ angular
                             }
                             break;
                         case 'get_settings':
-                            $rootScope.$broadcast('get_settings', message.get_settings);
+                            if(message.get_settings){
+                              $rootScope.$broadcast('get_settings', message.get_settings);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('get_settings:error', message.error.message);
+                            }
                             break;
                         case 'landing_company':
                             $rootScope.$broadcast('landing_company', message.landing_company);
@@ -581,6 +591,14 @@ angular
                             }
                             else if(message.error){
                               $rootScope.$broadcast('set-self-exclusion:error', message.error.message);
+                            }
+                            break;
+                        case 'set_settings':
+                            if(message.set_settings){
+                              $rootScope.$broadcast('set-settings', message.set_settings);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('set-settings:error', message.error.message);
                             }
                             break;
                         default:

@@ -1,0 +1,237 @@
+<ion-view class="profile" title="Profile">
+  <ion-content>
+    <form name="profileForm" ng-submit="vm.submit()">
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col title">
+              {{ 'profile.personal_details' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-if="vm.isVirtualAccount">
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.country_of_residence' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="country_of_residence"
+                       ng-value="vm.profile.country"
+                       readonly="readonly">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.email_address' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="email_address"
+                       ng-value="vm.profile.email"
+                       readonly="readonly">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div ng-if="!vm.isVirtualAccount">
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.name' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="name"
+                       ng-value="vm.profile.first_name +  ' ' + vm.profile.last_name"
+                       readonly="readonly"
+                       >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.date_of_birth' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="data_of_birth"
+                       ng-value="vm.profile.date_of_birth"
+                       readonly="redonly">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.country_of_residence' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="country_of_residence"
+                       ng-value="vm.profile.country"
+                       readonly="readonly">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.email_address' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="email_address"
+                       ng-value="vm.profile.email"
+                       readonly="readonly">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.first_line_of_home_address' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="first_line_address"
+                       ng-model="vm.profile.address_line_1"
+                       >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.second_line_of_home_address' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="second_line_address"
+                       ng-model="vm.profile.address_line_2"
+                       >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.town_city' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="town_city"
+                       ng-model="vm.profile.address_city"
+                       >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.state_province' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="state_province"
+                       ng-model="vm.profile.address_state"
+                       >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.posta_code_zip' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="postal_code_zip"
+                       ng-model="vm.profile.address_postcode"
+                       >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.telephone' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input name="telephone"
+                       ng-model="vm.profile.phone"
+                       >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col center">
+            <button class="button"
+                    type="submit"
+                    ng-disabled="profile_form.$valid || vm.disableUpdateButton"
+                    >
+                    {{ 'profile.update_profile' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+      {{ profile_form }}
+    </form>
+  </ion-content>
+</ion-view>

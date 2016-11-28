@@ -48,7 +48,8 @@
         'binary.pages.statement',
         'binary.pages.transaction-detail',
         'binary.pages.settings',
-        'binary.pages.self-exclusion'
+        'binary.pages.self-exclusion',
+        'binary.pages.profile'
     ]);
 
   String.prototype.capitalize = function() {
