@@ -55,8 +55,8 @@
 			flex-grow: 1;
 		}
 		bg-options {
-			height: 70px;
-			max-height: 140px;
+			height: 40px;
+			max-height: 70px;
 			margin-top: 40px;
 			.options {
 				max-height: 70px;
@@ -328,7 +328,7 @@
 		}
 		bg-longcode {
 			max-height: 75px;
-			margin-top: 35px;
+			margin-top: 30px;
 			display: flex;
 			flex-grow: 1;
 			font-size: 1rem;
@@ -464,7 +464,6 @@
 					flex-grow: 1;
 					display: block;
 					margin: 0 auto;
-					background: $primaryBrandColor;
 				}
 			}
 		}
@@ -708,6 +707,12 @@
 				}
 			}
 		}
+	}
+	.trade #trade-container bg-payout, .trade #trade-container bg-barrier{
+		max-height: 50px;
+	}
+	.trade #trade-container bg-purchase .purchase .contract .row .col .button{
+		line-height: normal;
 	}
 }
 @media only screen and (min-device-height: 481px) and (max-device-height: 640px) {

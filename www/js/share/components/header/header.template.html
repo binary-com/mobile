@@ -1,6 +1,6 @@
 <ion-header-bar align-title="center" class="bar bar-header bar-positive">
     <div ng-if="!vm.hideMenuButton">
-        <button ng-click="vm.toggleSideMenu()"
+        <button ng-click="vm.toggleSideMenu($event)"
                 ng-disabled="vm.disableMenuButton"
                 class="button button-icon icon ion-navicon"></button>
     </div>

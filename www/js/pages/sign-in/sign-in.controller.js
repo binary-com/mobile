@@ -38,6 +38,7 @@
         vm.passwordError = false;
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
+        vm.disableNextbutton = false;
 
         /**
          * On load:
@@ -227,6 +228,14 @@
                 vm.showSignin = true;
             });
         }
+
+        $scope.$watch(
+            () => { return appStateService.isLanguageReady } ,
+            (newValue, oldValue) =>{ vm.disableNextbutton = !newValue; }
+            );
+
+
+
 
     }
 })();
