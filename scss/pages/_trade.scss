@@ -55,7 +55,6 @@
 			flex-grow: 1;
 		}
 		bg-options {
-			height: 40px;
 			max-height: 70px;
 			margin-top: 40px;
 			.options {
@@ -257,6 +256,7 @@
 								margin: 0 auto;
 								max-height: none;
 								width: 100%;
+								background: $positiveColor;
 							}
 							.price-container {
 								display: inline-block;
@@ -267,6 +267,7 @@
 						&.basis-container {
 							height: auto;
 							align-items: center;
+							margin-bottom: 5px;
 							.contract-image-container {
 								text-align: center;
 								display: flex;
@@ -313,8 +314,8 @@
 						}
 						.error {
 							background-color: $noticeColor;
-							padding: 10px 0;
-							height: 70px;
+							padding: 5px 5px;
+							max-height: 70px;
 							p {
 								margin: 5px !important;
 								font-size: 1rem;
