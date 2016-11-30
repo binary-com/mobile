@@ -262,20 +262,19 @@
         vm.dateFilter = function() {
           vm.noTransaction = false;
             vm.dateChanged = true;
+            tableStateService.statementDateType = vm.data.dateType;
             if (vm.data.dateType == 'allTime') {
-                tableStateService.statementDateType = 'allTime';
+              $scope.$applyAsync(() => {
+                vm.jumpToDateInputShow = false;
+              });
                 tableStateService.statementCompletedGroup = true;
                 vm.firstCompleted = false;
                 vm.data.dateTo = '';
                 tableStateService.statementDateFrom = '';
                 tableStateService.statementDateTo = '';
-                $scope.$applyAsync(() => {
-                  vm.jumpToDateInputShow = false;
-                });
               vm.loadMore();
             }
             if (vm.data.dateType == 'jumpToDate') {
-              tableStateService.statementDateType = vm.data.dateType;
                 // vm.firstCompleted = false;
                 $scope.$applyAsync(() => {
                   vm.jumpToDateInputShow = true;
@@ -285,7 +284,6 @@
                 document.getElementById('statement-dateTo').value =  vm.nowDateInputLimit;
                 vm.jumpToDateFilter();
             }
-            tableStateService.statementDateType = vm.data.dateType;
         }
 
         vm.jumpToDateFilter = function() {
@@ -293,6 +291,7 @@
             $timeout.cancel(vm.timeoutJumpToDate);
           }
           vm.timeoutJumpToDate = function(){
+            if(tableStateService.statementDateType == 'jumpToDate'){
             $timeout(function() {
               tableStateService.statementCompletedGroup = true;
                   vm.noTransaction = false;
@@ -303,6 +302,7 @@
                   vm.loadMore();
               }, 500);
           }
+        }
           vm.timeoutJumpToDate();
         }
 
