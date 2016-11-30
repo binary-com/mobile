@@ -115,18 +115,18 @@
                 vm.resetParams();
                 vm.setParams();
                 vm.goTop();
-            } else if (appStateService.isStatementSet && vm.dateChanged == true) {
+            } else if (appStateService.isStatementSet && vm.dateChanged && tableStateService.statementCompletedGroup) {
                 vm.transactions = [];
                 vm.batchedTransaction = [];
                 vm.filteredTransactions = [];
                 vm.dateChanged = false;
                 tableStateService.statementCurrentPage = 0;
-                tableStateService.statementCompletedGroup = true;
                 tableStateService.statementBatchNum = 0;
                 tableStateService.statementBatchLimit = 0;
+                tableStateService.statementCompletedGroup = false;
                 vm.setParams();
                 vm.goTop();
-            } else if (appStateService.isStatementSet && tableStateService.statementCompletedGroup) {
+            } else if (appStateService.isStatementSet && !vm.dateChanged && tableStateService.statementCompletedGroup) {
                 vm.transactions = [];
                 tableStateService.statementCompletedGroup = false;
                 vm.setParams();
@@ -263,21 +263,27 @@
           vm.noTransaction = false;
             vm.dateChanged = true;
             if (vm.data.dateType == 'allTime') {
-                vm.firstCompleted = false;
                 tableStateService.statementDateType = 'allTime';
+                tableStateService.statementCompletedGroup = true;
+                vm.firstCompleted = false;
                 vm.data.dateTo = '';
                 tableStateService.statementDateFrom = '';
                 tableStateService.statementDateTo = '';
-                vm.jumpToDateInputShow = false;
-                vm.pageState();
+                $scope.$applyAsync(() => {
+                  vm.jumpToDateInputShow = false;
+                });
+              vm.loadMore();
             }
             if (vm.data.dateType == 'jumpToDate') {
               tableStateService.statementDateType = vm.data.dateType;
                 // vm.firstCompleted = false;
-                vm.jumpToDateInputShow = true;
+                $scope.$applyAsync(() => {
+                  vm.jumpToDateInputShow = true;
+                });
                 vm.nowDateInputLimit = $filter('date')(new Date(), 'yyyy-MM-dd');
                 document.getElementById('statement-dateTo').setAttribute('max', vm.nowDateInputLimit);
                 document.getElementById('statement-dateTo').value =  vm.nowDateInputLimit;
+                vm.jumpToDateFilter();
             }
             tableStateService.statementDateType = vm.data.dateType;
         }
@@ -288,13 +294,14 @@
           }
           vm.timeoutJumpToDate = function(){
             $timeout(function() {
+              tableStateService.statementCompletedGroup = true;
                   vm.noTransaction = false;
                   vm.firstCompleted = false;
                   vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
                   tableStateService.dateTo = vm.data.dateTo;
                   vm.dateChanged = true;
-                  vm.pageState();
-              }, 1000);
+                  vm.loadMore();
+              }, 500);
           }
           vm.timeoutJumpToDate();
         }
