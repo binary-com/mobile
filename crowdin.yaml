@@ -1,8 +1,7 @@
 files:
-  -
-    source: '/www/i18n/en.json'
-    translation: '/www/i18n/%two_letters_code%.json'
+  - source: /www/i18n/en.json
+    translation: /www/i18n/%two_letters_code%.json
     languages_mapping:
       two_letters_code:
-        'zh-Ch': 'zh_cn'
-        'zh-TW': 'zh_tw'
+        zh-CN: zh_cn
+        zh-TW: zh_tw
