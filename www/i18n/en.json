@@ -370,7 +370,7 @@
       "today": "Today",
 			"action_type": "Action",
 			"credit_debit": "Credit/Debit",
-			"balance": "Balance (USD)"
+			"balance": "Balance"
     },
     "menu": {
       "trade": "Trade",

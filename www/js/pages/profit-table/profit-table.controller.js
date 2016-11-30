@@ -37,8 +37,6 @@
         vm.hasError = false;
         vm.dateChanged = false;
 
-        vm.currency = sessionStorage.getItem('currency');
-
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
             vm.enteredNow = true;
@@ -99,10 +97,6 @@
             }
         }
 
-        $scope.$on('scroll.infiniteScrollComplete', () => {
-            // console.log('new data loaded');
-        });
-
         vm.pageState = function() {
             if (!appStateService.isProfitTableSet) {
                 appStateService.isProfitTableSet = true;
@@ -144,8 +138,6 @@
                         vm.noMore = false;
                     });
                 }
-
-
             }
             vm.sendRequest();
         }
@@ -270,37 +262,42 @@
             vm.dateChanged = true;
             vm.noTransaction = false;
             if (vm.data.dateType == 'allTime') {
-                vm.firstCompleted = false;
                 tableStateService.dateType = 'allTime';
+                vm.firstCompleted = false;
                 vm.data.dateTo = '';
                 tableStateService.dateFrom = '';
                 tableStateService.dateTo = '';
                 vm.jumpToDateInputShow = false;
                 vm.pageState();
-            }
-            if (vm.data.dateType == 'jumpToDate') {
+            } else if (vm.data.dateType == 'jumpToDate') {
+                tableStateService.dateType = vm.data.dateType;
                 // vm.firstCompleted = false;
                 vm.jumpToDateInputShow = true;
                 vm.nowDateInputLimit = $filter('date')(new Date(), 'yyyy-MM-dd');
                 document.getElementById('dateTo').setAttribute('max', vm.nowDateInputLimit);
                 document.getElementById('dateTo').value = vm.nowDateInputLimit;
-
             }
             tableStateService.dateType = vm.data.dateType;
-
         }
 
         vm.jumpToDateFilter = function() {
-          $timeout(function(){
-            vm.noTransaction = false;
-            vm.firstCompleted = false;
-            vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
-            tableStateService.dateTo = vm.data.dateTo;
-            vm.dateChanged = true;
-            vm.pageState();
-          }, 500);
+          if(vm.timeoutJumpToDate){
+            $timeout.cancel(vm.timeoutJumpToDate);
+          }
 
+          vm.timeoutJumpToDate = function(){
+            $timeout(function() {
+                  vm.noTransaction = false;
+                  vm.firstCompleted = false;
+                  vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
+                  tableStateService.dateTo = vm.data.dateTo;
+                  vm.dateChanged = true;
+                  vm.pageState();
+              }, 1000);
+          }
+          vm.timeoutJumpToDate();
         }
+
 
         vm.goTop = function() {
             $ionicScrollDelegate.scrollTop(true);
