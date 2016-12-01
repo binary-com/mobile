@@ -410,7 +410,8 @@
       "update-settings": "Update Settings",
       "please-enter-an-integer-value": "Please enter an integer value",
       "valid-range-hint": "Please enter a number between 0 and {{max}}",
-      "save-prompt": "Content saved successfully"
+      "save-prompt": "Content saved successfully",
+      "success": "Success"
     },
     "profile": {
       "personal_details": "Personal Details",
