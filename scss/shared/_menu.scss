@@ -7,9 +7,10 @@
   ion-content{
     overflow-y: hidden;
     width: 100%!important;
-    padding: 5px 0;
+    background-color: $primaryBrandColor;
     &.has-header{
-      top: 60px;
+      top: 65px;
+      border-top: 1px solid $borderColor!important;
     }
   }
   .bar-header {
