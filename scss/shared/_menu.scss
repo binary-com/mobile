@@ -1,8 +1,16 @@
 .menu {
   background-color: $primaryBrandColor;
+  .account-menu{
+    padding-top: 25px;
+    height: auto;
+  }
   ion-content{
     overflow-y: hidden;
     width: 100%!important;
+    padding: 5px 0;
+    &.has-header{
+      top: 60px;
+    }
   }
   .bar-header {
     border-bottom: 0px !important;
@@ -10,10 +18,7 @@
     background-color: $primaryBrandColor;
     align-items: center;
   }
-  .footer{
-    background: $primaryBrandColor;
-    padding: 0;
-  }
+
   .item-complex {
     .item-content {
       background-color: $primaryBrandColor;
@@ -23,51 +28,58 @@
     margin: 0;
       background-color: $primaryBrandColor;
   }
-  .options-account {
-    background-color: $primaryBrandColor;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    margin-left: 10px;
-    .manage-account {
-      text-align: right;
-      font-size: 1rem;
-    }
-    select {
-      color: $contentInverseColor;
+  bg-accounts{
+    width: calc(100% - 10px);
       background-color: $primaryBrandColor;
-      border-color: $primaryBrandColor;
+    .options-account {
+      background-color: $primaryBrandColor;
+      padding-top: 10px;
+      padding-bottom: 5px;
+      margin-left: 10px;
+      width: 100%;
+      .manage-account {
+        text-align: right;
+        font-size: 0.8rem;
+      }
+      select {
+        color: $contentInverseColor;
+        background-color: $primaryBrandColor;
+        border-color: $primaryBrandColor;
+        width: 100%;
+      }
     }
   }
+
   a.item-content{
     color: $contentInverseColor;
-    font-size: 1rem;
+    font-size: 0.8rem;
     &.activated{
       background: $primaryBrandColor;
 
     }
   }
-  .upgrade-link{
-    margin-left: 0;
-    background-color: #primaryBrandColor;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    a{
-      font-size: 12px;
-    }
-  }
+  // .upgrade-link{
+  //   margin-left: 0;
+  //   background-color: #primaryBrandColor;
+  //   padding-top: 10px;
+  //   padding-bottom: 5px;
+  //   a{
+  //     font-size: 12px;
+  //   }
+  // }
 }
 
-@media only screen and (min-device-width: 480px) {
-  .menu{
-    .upgrade-link{
-      a{
-        font-size: 12px;
-      }
-    }
-  }
-  .options-account{
-    .manage-account{
-      font-size: 12px;
-    }
-  }
-}
+// @media only screen and (min-device-width: 480px) {
+//   .menu{
+//     .upgrade-link{
+//       a{
+//         font-size: 12px;
+//       }
+//     }
+//   }
+//   .options-account{
+//     .manage-account{
+//       font-size: 12px;
+//     }
+//   }
+// }
