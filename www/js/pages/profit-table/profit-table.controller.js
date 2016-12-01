@@ -126,12 +126,7 @@
                 tableStateService.batchNum = 0;
                 tableStateService.batchLimit = 0;
                 tableStateService.completedGroup = false;
-                vm.data.appID = tableStateService.appID;
-                vm.data.dateFrom = tableStateService.dateFrom;
-                vm.data.dateTo = tableStateService.dateTo;
-                vm.data.currentPage = tableStateService.currentPage;
-                vm.itemsPerPage = 300;
-                vm.limit = vm.itemsPerPage + 1;
+                vm.setParams();
                 vm.goTop();
             } else if (appStateService.isProfitTableSet && !vm.dateChanged && tableStateService.completedGroup) {
                 vm.transactions = [];
@@ -296,7 +291,6 @@
 
           vm.timeoutJumpToDate = function(){
             if(tableStateService.dateType == 'jumpToDate'){
-
             $timeout(function() {
           tableStateService.completedGroup = true;
                   vm.noTransaction = false;
