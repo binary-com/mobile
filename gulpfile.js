@@ -80,7 +80,9 @@ gulp.task('deploy-translation', function(done){
   console.log('Adding Crowdin scripts ...');
   var config = '<script type="text/javascript">\n\t\tvar _jipt = [];\n\t\t' +
                "_jipt.push(['project', 'tick-trade']);\n\t\t" +
-               "localStorage.language = 'ach';\n\t</script>";
+               "localStorage.language = 'ach';\n\t</script>\n\t" +
+               '<script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>';
+
   sh.sed('-i', '<!-- CROWDIN SCRIPT -->', config, 'translation/index.html');
 
   console.log('Pushing changes to gh-pages ...');
