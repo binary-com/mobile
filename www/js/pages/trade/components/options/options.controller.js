@@ -107,7 +107,7 @@
         vm.closeModal = function(){
           vm.section1 = vm.SECTIONS.OVERVIEW1;
           vm.section2 = vm.SECTIONS.OVERVIEW2;
-          vm.modalCtrl.hide();
+          hideModal();
         }
 
         vm.setSection = function(id, section) {
@@ -148,7 +148,7 @@
             websocketService.sendRequestFor.contractsForSymbol(vm.options.underlying.symbol);
             vm.section1 = vm.SECTIONS.OVERVIEW1;
             updateProposal();
-            vm.modalCtrl.hide();
+            hideModal();
         }
 
         vm.selectUnderlying = function(underlying) {
@@ -156,7 +156,7 @@
             websocketService.sendRequestFor.contractsForSymbol(underlying.symbol);
             vm.section1 = vm.SECTIONS.OVERVIEW1;
             updateProposal();
-            vm.modalCtrl.hide();
+            hideModal();
         }
 
         vm.selectTradeType = function(tradeType) {
@@ -167,14 +167,14 @@
             vm.options.barrier = tradeType.barriers > 0 && !_.isEmpty(tradeType.barrier) ? vm.options.barrier || tradeType.barrier : null;
             vm.section2 = vm.SECTIONS.OVERVIEW2;
             updateProposal();
-            vm.modalCtrl.hide();
+            hideModal();
         }
 
         vm.selectTick = function(tick) {
             vm.options.tick = tick;
             vm.section2 = vm.SECTIONS.OVERVIEW2;
             updateProposal();
-            vm.modalCtrl.hide();
+            hideModal();
         }
 
         vm.selectDigit = function(digit) {
@@ -182,7 +182,7 @@
             vm.options.barrier = null;
             vm.section2 = vm.SECTIONS.OVERVIEW2;
             updateProposal();
-            vm.modalCtrl.hide();
+            hideModal();
         }
 
         function init() {
@@ -199,6 +199,12 @@
             $scope.$applyAsync(() => {
                 vm.proposal = proposalService.update(vm.options);
             });
+        }
+
+        function hideModal(){
+          if(vm.modalCtrl){
+            vm.modalCtrl.hide();
+          }
         }
 
         init();
