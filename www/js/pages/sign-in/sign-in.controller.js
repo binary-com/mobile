@@ -131,10 +131,7 @@
         });
 
         $scope.$on('residence_list', (e, residence_list) => {
-            if (!appStateService.hasGetResidence) {
                 vm.data.residenceList = residence_list;
-                appStateService.hasGetResidence = true;
-            }
         });
 
         // Hide & show password function
