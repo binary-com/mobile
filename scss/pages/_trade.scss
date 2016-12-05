@@ -8,8 +8,6 @@
 	ion-content {
 		width: 100vw;
 		&.trade-container {
-			// display: flex;
-			// height: 100vh!important;
 			padding-bottom: 40px;
 		}
 		.scroll {
@@ -18,13 +16,10 @@
 				display: flex;
 				height: 100%!important;
 				flex-direction: column;
-				//  padding-bottom: 40px;
 			}
 		}
 	}
 	.ionic-scroll {
-		// min-height: 30px;
-		// width: 100vw;
 		.scroll-bar-v {
 			display: none!important;
 		}
@@ -70,16 +65,11 @@
 					padding: 0;
 					&.options-row {
 						padding: 5px;
-						.col {
-							// border-bottom: 1px solid $borderColor;
-						}
 					}
 					.col {
 						padding: 0;
 						display: flex;
 						flex-grow: 1;
-						// flex-direction: column;
-						// flex-basis: 20px;
 						align-items: center;
 						flex-basis: inherit;
 						width: auto;
@@ -133,7 +123,6 @@
 			}
 		}
 		bg-chart {
-			// margin-top: 10px;
 			.contract-chart {
 				background: $white;
 				.chart-container {
@@ -217,7 +206,6 @@
 			padding: 0;
 			max-height: 400px;
 			flex-grow: 2;
-			// flex-basis: 240px;
 			margin-bottom: 10px;
 			.purchase {
 				display: flex;
@@ -251,7 +239,6 @@
 								font-size: 1rem;
 								white-space: nowrap;
 								min-height: 30px!important;
-								// line-height: inherit;
 								display: block;
 								margin: 0 auto;
 								max-height: none;
@@ -543,28 +530,6 @@
 					}
 				}
 			}
-			//
-			//
-			// .digit-result {
-			// 	border: 1px solid $borderColor;
-			// 	border-radius: 3px;
-			// 	background: $white;
-			// 	display: flex;
-			// 	flex-direction: column;
-			// 	color: $contentColor;
-			// 	.row {
-			// 		display: flex;
-			// 		flex-direction: row;
-			// 		flex-grow: 1;
-			// 		.col {
-			// 			display: flex;
-			// 			flex-direction: column;
-			// 			flex-grow: 1;
-			// 			font-size: 1rem;
-			// 			font-weight: bold;
-			// 		}
-			// 	}
-			// }
 		}
 	}
 }
@@ -587,9 +552,6 @@
 		}
 	}
 
-	// .button {
-	// 	color: $contentColor;
-	// }
 	bg-digits,
 	bg-markets,
 	bg-ticks,
@@ -640,9 +602,7 @@
 					flex-direction: column;
 					flex-basis: 40%!important;
 					max-width: 60vw;
-					// width: 70%;
 					margin: 0 auto;
-					// min-width: 50%;
 					align-items: center;
 					display: flex;
 					&:first-child {
