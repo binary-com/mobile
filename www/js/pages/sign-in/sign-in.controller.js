@@ -124,7 +124,12 @@
         });
 
         // virtual ws opening
-        websocketService.sendRequestFor.residenceListSend();
+        $scope.$watch('vm.showSignup', function(){
+          if(vm.showSignup){
+              websocketService.sendRequestFor.residenceListSend();
+          }
+        });
+
         $scope.$on('residence_list', (e, residence_list) => {
             if (!appStateService.hasGetResidence) {
                 vm.data.residenceList = residence_list;
