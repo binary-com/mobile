@@ -96,9 +96,9 @@
   "help":{
     "need_help":"Perlu Bantuan?",
     "generate_api":"Untuk mengakses aplikasi pihak ketiga, seperti mobile app, Anda diperlukan untuk membuat Token API.",
-    "visit":"Pastikan Anda sudah login kedalam akun Anda kemudian kunjungi",
+    "visit":"Mohon tunggu",
     "page":"halaman ini",
-    "copy_token":"dan buat token. Kemudian masukkan pada kotak dihalaman pertama tadi.",
+    "copy_token":"dan buat token. Kemudian copas pada box atas.",
     "email_cs":"Ada pertanyaan? Email customer support di ",
     "back":"Kembali"
   },
@@ -113,9 +113,9 @@
     "installed":"Pembaruan berhasil diinstal.",
     "up_to_date":"Aplikasi ini sudah diperbarui.",
     "error":"Terjadi error saat mengecek pembaruan",
-    "check_for_update":"Memeriksa pembaruan.",
+    "check_for_update":"Mengecek update.",
     "downloading":"Men-download...",
-    "installing":"Menginstal pembaruan"
+    "installing":"Menginstal update"
   },
   "realitycheck":{
     "title":"Pengecekan Realitas",
