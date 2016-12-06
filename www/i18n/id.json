@@ -68,7 +68,7 @@
     "digit_even_odd":"Digit Even/Odd",
     "digit_matches_differs":"Digit Matches/Differs",
     "up_down":"Up/Down",
-    "markets_are_closed":"Sorry, All markets are currently closed. Please try again later"
+    "markets_are_closed":"Maaf, semua pasar sedang ditutup. Silahkan coba kembali nanti"
   },
   "trade":{
     "payout":"Hasil",
@@ -90,7 +90,7 @@
     "lose":"Kontrak ini rugi",
     "transaction_id":"Referensi Transaksi",
     "buy_again":"Beli Lagi",
-    "sell":"Sell",
+    "sell":"Jual",
     "barrier":"Barrier offset"
   },
   "help":{
@@ -107,14 +107,14 @@
     "exit_confirmation":"Apa Anda yakin ingin keluar?",
     "connection_error_title":"Koneksi Error",
     "connection_error":"Tidak ada koneksi internet!",
-    "sign_out":"Sign out"
+    "sign_out":"Keluar"
   },
   "update":{
     "installed":"Pembaruan berhasil diinstal.",
     "up_to_date":"Aplikasi ini sudah diperbarui.",
     "error":"Terjadi error saat mengecek pembaruan",
     "check_for_update":"Memeriksa pembaruan.",
-    "downloading":"Downloading ...",
+    "downloading":"Men-download...",
     "installing":"Menginstal pembaruan"
   },
   "realitycheck":{
@@ -142,32 +142,32 @@
     "interval_error":"Silakan masukkan nomor antara 10 hingga 120."
   },
   "newvirtualaccount":{
-    "continue":"Continue",
-    "signup":"Sign up",
+    "continue":"Lanjutkan",
+    "signup":"Daftar",
     "email":"Email:",
-    "signup-question":"Don't have an account?",
-    "verification-code":"Verification Code:",
-    "password":"Password:",
-    "residence":"Residence:",
-    "select":"Select your country",
-    "isrequired":"(Requierd)",
-    "password_hint":"Password must be minimum of six lower and uppercase letters with numbers",
-    "code_hint":"Please check your email for the value of this token",
-    "hide_pass":"Hide password",
-    "show_pass":"Show password",
-    "enter-email":"Please enter your email",
-    "email-error":"Email is not valid",
-    "token-invalid":"Token is invalid",
-    "error_format":"Wrong format or length",
-    "residence-error":"Please choose your country"
+    "signup-question":"Belum memiliki akun?",
+    "verification-code":"Kode Verifikasi:",
+    "password":"Kata sandi:",
+    "residence":"Tempat tinggal:",
+    "select":"Pilih negara Anda",
+    "isrequired":"(Wajib)",
+    "password_hint":"Kata sandi harus terdiri dari minimal enam huruf kecil dan besar termasuk angka",
+    "code_hint":"Periksa email untuk memperoleh nilai token ini",
+    "hide_pass":"Sembunyikan kata sandi",
+    "show_pass":"Tampilkan kata sandi",
+    "enter-email":"Masukkan email Anda",
+    "email-error":"Email ini tidak valid",
+    "token-invalid":"Token tidak valid",
+    "error_format":"Format atau panjang salah",
+    "residence-error":"Silakan pilih negara Anda"
   },
   "newaccountmaltainvest":{
-    "open_financial":"Open a financial account",
-    "financial_account_opening":"Financial Account Opening",
-    "details":"Details",
-    "privacy":"Privacy",
-    "financial_information":"Financial information",
-    "salutation":"Title",
+    "open_financial":"Daftar akun finansial",
+    "financial_account_opening":"Pendaftaran Akun Finansial",
+    "details":"Rincian",
+    "privacy":"Privasi",
+    "financial_information":"Informasi finansial",
+    "salutation":"Gelar",
     "first_name":"First name",
     "last_name":"Family name",
     "date_of_birth":"Date of birth",
