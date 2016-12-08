@@ -301,13 +301,13 @@
   },
   "profittable":{
     "profit_table":"Profit table",
-    "all_apps":"All apps",
-    "tick_trade_app":"Tick-trade app",
-    "all_time":"Lifetime",
-    "jump_to_date":"Jump to date",
+    "all_apps":"Все приложения",
+    "tick_trade_app":"Приложение Tick-Trade",
+    "all_time":"За всё время",
+    "jump_to_date":"Перейти к дате",
     "from":"From",
     "to":"To",
-    "date":"Date",
+    "date":"Дата",
     "ref":"Reference",
     "potential_payout":"Potential payout",
     "purchase_price":"Purchase price",
@@ -320,7 +320,7 @@
     "next":"Next",
     "filter_by_app":"Choose app",
     "filter_by_date":"Choose date",
-    "no_transaction":"There is no transaction to show.",
+    "no_transaction":"Информация о контрактах отсутствует.",
     "today":"Today"
   },
   "transactiondetails":{
@@ -370,11 +370,11 @@
     "balance":"Balance"
   },
   "menu":{
-    "trade":"Trade",
-    "profit_table":"Profit Table",
-    "statement":"Statement",
+    "trade":"Торговля",
+    "profit_table":"Анализ счёта",
+    "statement":"История счёта",
     "language":"Language",
-    "settings":"Settings"
+    "settings":"Настройки"
   },
   "settings":{
     "settings":"Settings",
