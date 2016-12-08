@@ -90,7 +90,7 @@
     "lose":"Контракт проиграл",
     "transaction_id":"Ссылка на сделку",
     "buy_again":"Купить снова",
-    "sell":"Sell",
+    "sell":"Продать",
     "barrier":"Изменение барьера"
   },
   "help":{
@@ -300,7 +300,7 @@
     "isoptional":"(optional)"
   },
   "profittable":{
-    "profit_table":"Profit table",
+    "profit_table":"Анализ счёта",
     "all_apps":"Все приложения",
     "tick_trade_app":"Приложение Tick-Trade",
     "all_time":"За всё время",
@@ -308,12 +308,12 @@
     "from":"From",
     "to":"To",
     "date":"Дата",
-    "ref":"Reference",
+    "ref":"Номер",
     "potential_payout":"Potential payout",
     "purchase_price":"Purchase price",
     "sale_date":"Sale date",
     "sale_price":"Sale price",
-    "profit_loss":"Profit/loss",
+    "profit_loss":"Прибыль/убыток",
     "details":"Details",
     "view":"View",
     "prev":"Previous",
@@ -338,20 +338,20 @@
     "exit_spot":"Exit spot",
     "exit_spot_time":"Exit Spot Time",
     "current_time":"Current Time",
-    "sell_price":"Sell price",
-    "profit_loss":"Profit/Loss",
+    "sell_price":"Цена продажи",
+    "profit_loss":"Прибыль/убыток",
     "end_time":"End Time"
   },
   "statement":{
     "statement":"Statement",
-    "all_apps":"All apps",
-    "tick_trade_app":"Tick-trade app",
-    "all_time":"Lifetime",
-    "jump_to_date":"Jump to date",
+    "all_apps":"Все приложения",
+    "tick_trade_app":"Приложение Tick-Trade",
+    "all_time":"За всё время",
+    "jump_to_date":"Перейти к дате",
     "from":"From",
     "to":"To",
-    "date":"Date",
-    "ref":"Reference",
+    "date":"Дата",
+    "ref":"Номер",
     "potential_payout":"Potential payout",
     "purchase_price":"Purchase price",
     "sale_date":"Sale date",
@@ -365,19 +365,19 @@
     "filter_by_date":"Choose date",
     "no_transaction":"There is no transaction to show.",
     "today":"Today",
-    "action_type":"Action",
+    "action_type":"Действие",
     "credit_debit":"Credit/Debit",
-    "balance":"Balance"
+    "balance":"Баланс"
   },
   "menu":{
     "trade":"Торговля",
     "profit_table":"Анализ счёта",
     "statement":"История счёта",
-    "language":"Language",
+    "language":"Язык",
     "settings":"Настройки"
   },
   "settings":{
-    "settings":"Settings",
+    "settings":"Настройки",
     "security-and-limits":"Security & Limits",
     "self-exclusion":"Self Exclusion"
   },
@@ -411,11 +411,11 @@
     "success":"Success"
   },
   "profile":{
-    "personal_details":"Personal Details",
+    "personal_details":"Личные данные",
     "name":"Name",
     "date_of_birth":"Date of birth",
-    "country_of_residence":"Country of Residence",
-    "email_address":"Email address",
+    "country_of_residence":"Страна проживания",
+    "email_address":"Email",
     "first_line_of_home_address":"First line of home address",
     "second_line_of_home_address":"Second line of home address",
     "town_city":"Town/City",
