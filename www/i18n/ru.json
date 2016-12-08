@@ -91,7 +91,7 @@
     "transaction_id":"Ссылка на сделку",
     "buy_again":"Купить снова",
     "sell":"Sell",
-    "barrier":"Barrier offset"
+    "barrier":"Изменение барьера"
   },
   "help":{
     "need_help":"Нужна помощь?",
@@ -118,8 +118,8 @@
     "installing":"Установка обновления"
   },
   "realitycheck":{
-    "title":"Reality Check",
-    "about":"Options trading can become a real addiction, as can any other activity pushed to its limits. To avoid the danger of such an addiction, we provide a reality-check that gives you a summary of your trades and accounts on a regular basis.",
+    "title":"Проверка реальности",
+    "about":"Торговля бинарными опционами может перерасти в зависимость, как и любая другая деятельность, доведённая до крайности. Чтобы избежать опасности возникновения подобной зависимости, мы проводим проверку реальности и предоставляем регулярный отчёт о Ваших сделках и счетах.",
     "login_time":"Время входа:",
     "current_time":"Текущее время:",
     "session_duration":"Длительность сессии:",
@@ -129,17 +129,17 @@
     "currency":"Валюта",
     "buy_amount":"Объём покупок",
     "profit_loss":"Прибыль/убыток",
-    "buy_count":"Contracts bought",
-    "sell_count":"Contracts sold",
-    "open_contract_count":"Open contracts",
-    "potential_profit":"Potential profit",
-    "interval":"Reality Check Interval in minutes",
-    "continue":"Continue Trading",
-    "logout":"Logout",
-    "days":"days",
-    "hours":"hours",
-    "minutes":"minutes",
-    "interval_error":"Please enter a number between 10 to 120."
+    "buy_count":"Купленные контракты",
+    "sell_count":"Проданные контракты",
+    "open_contract_count":"Открытые контракты",
+    "potential_profit":"Потенциальная прибыль",
+    "interval":"Интервал для проверки реальности (в минутах)",
+    "continue":"Продолжить торговлю",
+    "logout":"Выход",
+    "days":"дн.",
+    "hours":"час.",
+    "minutes":"мин.",
+    "interval_error":"Пожалуйста, введите число от 10 до 120."
   },
   "newvirtualaccount":{
     "continue":"Continue",
