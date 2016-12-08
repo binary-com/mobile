@@ -68,7 +68,7 @@
     "digit_even_odd":"Чётная/Нечётная десятичная",
     "digit_matches_differs":"Совпадение/отличие десятичной",
     "up_down":"Вверх/Вниз",
-    "markets_are_closed":"Sorry, All markets are currently closed. Please try again later"
+    "markets_are_closed":"Извините, все рынки в данное время закрыты. Повторите попытку позже."
   },
   "trade":{
     "payout":"Выплата",
@@ -107,7 +107,7 @@
     "exit_confirmation":"Вы уверены, что хотите выйти?",
     "connection_error_title":"Ошибка при подключении",
     "connection_error":"Нет интернет-соединения!",
-    "sign_out":"Sign out"
+    "sign_out":"Выход"
   },
   "update":{
     "installed":"Обновление успешно установлено.",
@@ -143,20 +143,20 @@
   },
   "newvirtualaccount":{
     "continue":"Continue",
-    "signup":"Sign up",
+    "signup":"Регистрация",
     "email":"Email:",
-    "signup-question":"Don't have an account?",
+    "signup-question":"У Вас ещё нет счёта?",
     "verification-code":"Verification Code:",
-    "password":"Password:",
+    "password":"Пароль:",
     "residence":"Residence:",
-    "select":"Select your country",
-    "isrequired":"(Requierd)",
-    "password_hint":"Password must be minimum of six lower and uppercase letters with numbers",
-    "code_hint":"Please check your email for the value of this token",
-    "hide_pass":"Hide password",
-    "show_pass":"Show password",
-    "enter-email":"Please enter your email",
-    "email-error":"Email is not valid",
+    "select":"Выберите страну",
+    "isrequired":"(обязательное поле)",
+    "password_hint":"Пароль должен содержать минимум шесть знаков, включая заглавные, строчные буквы и цифры",
+    "code_hint":"Пожалуйста, проверьте свой email; Вам должен прийти ключ",
+    "hide_pass":"Скрыть пароль",
+    "show_pass":"Показать пароль",
+    "enter-email":"Пожалуйста, введите email",
+    "email-error":"Неправильный эл. адрес",
     "token-invalid":"Token is invalid",
     "error_format":"Wrong format or length",
     "residence-error":"Please choose your country"
