@@ -68,7 +68,7 @@
     "digit_even_odd":"數字偶/奇",
     "digit_matches_differs":"數字相符/差異",
     "up_down":"上漲/下跌",
-    "markets_are_closed":"Sorry, All markets are currently closed. Please try again later"
+    "markets_are_closed":"抱歉，所有市場現已關閉。請稍後重試。"
   },
   "trade":{
     "payout":"賠付額",
@@ -90,8 +90,8 @@
     "lose":"此合約虧損",
     "transaction_id":"交易參考號",
     "buy_again":"重購",
-    "sell":"Sell",
-    "barrier":"Barrier offset"
+    "sell":"賣出",
+    "barrier":"障礙位移"
   },
   "help":{
     "need_help":"需要幫助？",
@@ -107,7 +107,7 @@
     "exit_confirmation":"確認退出?",
     "connection_error_title":"連接錯誤",
     "connection_error":"沒有網際網路連接服務！",
-    "sign_out":"Sign out"
+    "sign_out":"登出"
   },
   "update":{
     "installed":"更新已成功安裝。",
@@ -142,14 +142,14 @@
     "interval_error":"請輸入10到120之間的數字。"
   },
   "newvirtualaccount":{
-    "continue":"Continue",
-    "signup":"Sign up",
-    "email":"Email:",
-    "signup-question":"Don't have an account?",
-    "verification-code":"Verification Code:",
-    "password":"Password:",
-    "residence":"Residence:",
-    "select":"Select your country",
+    "continue":"繼續",
+    "signup":"註冊",
+    "email":"電子郵件：",
+    "signup-question":"沒有帳戶？",
+    "verification-code":"驗證碼︰",
+    "password":"密碼︰",
+    "residence":"居住地︰",
+    "select":"選擇您的國家",
     "isrequired":"(Requierd)",
     "password_hint":"Password must be minimum of six lower and uppercase letters with numbers",
     "code_hint":"Please check your email for the value of this token",
