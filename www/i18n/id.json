@@ -98,8 +98,8 @@
     "generate_api":"Untuk mengakses aplikasi pihak ketiga, seperti mobile app, Anda diperlukan untuk membuat Token API.",
     "visit":"Kunjungi",
     "page":"halaman ini",
-    "copy_token":"dan buat token. Kemudian copas pada box atas.",
-    "email_cs":"Ada pertanyaan? Email customer support di ",
+    "copy_token":"dan buat token. Kemudian copas pada box di atas.",
+    "email_cs":"Memiliki pertanyaan? Email customer support di ",
     "back":"Kembali"
   },
   "app":{
@@ -120,14 +120,14 @@
   "realitycheck":{
     "title":"Pengecekan Realitas",
     "about":"Trading opsi dapat menyebabkan ketagihan, sama seperti aktifitas lain yang dilakukan secara berlebihan. Untuk menghindari bahaya tersebut, kami menyediakan pengecekan realitas berupa rangkuman trading secara berkala.",
-    "login_time":"Waktu login:",
+    "login_time":"Waktu masuk:",
     "current_time":"Waktu saat ini:",
     "session_duration":"Sesi durasi:",
     "statistics":"Statistik trading Anda sejak",
     "interval_question":"Tentukan interval pengecekan realitas Anda dalam hitungan menit:",
     "loginid":"Login ID",
     "currency":"Mata uang",
-    "buy_amount":"Turnover",
+    "buy_amount":"Pembelian",
     "profit_loss":"Untung/Rugi",
     "buy_count":"Kontrak yang dibeli",
     "sell_count":"Kontrak terjual",
