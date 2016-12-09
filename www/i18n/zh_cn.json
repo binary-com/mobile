@@ -68,7 +68,7 @@
     "digit_even_odd":"数字偶/奇",
     "digit_matches_differs":"数字匹配/差异",
     "up_down":"上涨/下跌",
-    "markets_are_closed":"Sorry, All markets are currently closed. Please try again later"
+    "markets_are_closed":"抱歉，所有市场现已关闭。请稍后重试。"
   },
   "trade":{
     "payout":"赔付额",
@@ -90,8 +90,8 @@
     "lose":"此合约亏损",
     "transaction_id":"交易参考号",
     "buy_again":"重购",
-    "sell":"Sell",
-    "barrier":"Barrier offset"
+    "sell":"卖出",
+    "barrier":"障碍位移"
   },
   "help":{
     "need_help":"需要帮助？",
@@ -107,7 +107,7 @@
     "exit_confirmation":"确认退出？",
     "connection_error_title":"连接错误",
     "connection_error":"无网络连接！",
-    "sign_out":"Sign out"
+    "sign_out":"注销"
   },
   "update":{
     "installed":"更新已成功安装。",
@@ -142,14 +142,14 @@
     "interval_error":"请输入10到120之间的数字。"
   },
   "newvirtualaccount":{
-    "continue":"Continue",
-    "signup":"Sign up",
-    "email":"Email:",
-    "signup-question":"Don't have an account?",
-    "verification-code":"Verification Code:",
-    "password":"Password:",
-    "residence":"Residence:",
-    "select":"Select your country",
+    "continue":"继续",
+    "signup":"注册",
+    "email":"电子邮件：",
+    "signup-question":"没有账户？",
+    "verification-code":"验证码︰",
+    "password":"密码︰",
+    "residence":"居住地︰",
+    "select":"选择您的国家",
     "isrequired":"(Requierd)",
     "password_hint":"Password must be minimum of six lower and uppercase letters with numbers",
     "code_hint":"Please check your email for the value of this token",
