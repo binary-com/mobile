@@ -367,29 +367,29 @@
     "today":"今天",
     "action_type":"操作",
     "credit_debit":"借方/贷方",
-    "balance":"Balance"
+    "balance":"余额"
   },
   "menu":{
-    "trade":"Trade",
-    "profit_table":"Profit Table",
-    "statement":"Statement",
-    "language":"Language",
-    "settings":"Settings"
+    "trade":"交易",
+    "profit_table":"利润表",
+    "statement":"账单",
+    "language":"语言",
+    "settings":"设置"
   },
   "settings":{
-    "settings":"Settings",
-    "security-and-limits":"Security & Limits",
-    "self-exclusion":"Self Exclusion"
+    "settings":"设置",
+    "security-and-limits":"安全与限制",
+    "self-exclusion":"自我禁止"
   },
   "self-exclusion":{
-    "self-exclusion":"Self Exclusion Facilities",
-    "maximum-account-cash-balance":"Maximun account cash balance",
-    "max-balance-hint":"Once this limit is reached, you may no longer deposit.",
-    "daily-turnover-limit":"Daily turnover limit",
-    "max-turnover-hint":"Maximum aggregate contract purchases per day.",
-    "daily-limit-on-losses":"Daily limit on losses",
-    "max-losses-hint":"Maximum aggregate loss per day.",
-    "7-day-turnover-limit":"7-day turnover limit",
+    "self-exclusion":"自我禁止设施",
+    "maximum-account-cash-balance":"最大账户现金余额",
+    "max-balance-hint":"一旦达到此限制时，您不可再存入资金。",
+    "daily-turnover-limit":"每日交易限额",
+    "max-turnover-hint":"每日最大累计合约买入量。",
+    "daily-limit-on-losses":"每日损失限额",
+    "max-losses-hint":"每日最大累计损失量。",
+    "7-day-turnover-limit":"7天期交易限额",
     "7-day-turnover-hint":"Maximum aggregate contract purchases over a 7-day period.",
     "7-day-limit-on-losses":"7-day limit on losses",
     "7-day-losses-hint":"Maximum aggregate loss over a 7-day period.",
