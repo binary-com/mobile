@@ -19,12 +19,16 @@
   function Profile($scope, $translate, alertService,
       appStateService, websocketService){
     var vm = this;
+    vm.states = [];
     vm.disableUpdateButton = true;
 
     $scope.$on('get_settings', (e, response) => {
       $scope.$applyAsync(()=>{
         vm.profile = response;
-        vm.disableUpdateButton = false;
+        if(vm.profile.date_of_birth){
+          vm.profile.date_of_birth = new Date(vm.profile.date_of_birth*1000).toISOString('yyyy-mm-dd').slice(0, 10);
+        }
+        websocketService.sendRequestFor.residenceListSend();
       });
     });
 
@@ -48,6 +52,24 @@
     $scope.$on('set-settings:error', (e, message) => {
       alertService.displayError(message);
       vm.disableUpdateButton = false;
+    });
+
+    $scope.$on('residence_list', (e, response) => {
+      if(response){
+        var country = _.find(response, ['text', vm.profile.country]);
+        if(country){
+          websocketService.sendRequestFor.statesListSend(country.value);
+        }
+      }
+    });
+
+    $scope.$on('states_list', (e, response) => {
+      if(response){
+        $scope.$applyAsync(()=>{
+          vm.states = response;
+          vm.disableUpdateButton = false;
+        });
+      }
     });
 
     $scope.$on('authorize', (e, response) => {

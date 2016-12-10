@@ -78,7 +78,7 @@
               <div class="col">
                 <input name="data_of_birth"
                        ng-value="vm.profile.date_of_birth"
-                       readonly="redonly">
+                       readonly="readonly">
               </div>
             </div>
           </div>
@@ -129,7 +129,18 @@
               <div class="col">
                 <input name="first_line_address"
                        ng-model="vm.profile.address_line_1"
+                       ng-maxlength="70"
+                       ng-required="true"
                        >
+              <ng-messages for="profileForm.first_line_address.$error" role="alert" class="error">
+                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="maxlength">
+                  {{ 'profile.maximum_length_should_be_70_characters' | translate }}
+                </ng-message>
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-message>
               </div>
             </div>
           </div>
@@ -146,7 +157,14 @@
               <div class="col">
                 <input name="second_line_address"
                        ng-model="vm.profile.address_line_2"
+                       ng-maxlength="70"
                        >
+              <ng-messages for="profileForm.second_line_address.$error" role="alert" class="error">
+                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="maxlength">
+                  {{ 'profile.maximum_length_should_be_70_characters' | translate }}
+                </ng-message>
+              </ng-message>
               </div>
             </div>
           </div>
@@ -163,7 +181,18 @@
               <div class="col">
                 <input name="town_city"
                        ng-model="vm.profile.address_city"
+                       ng-required="true"
+                       ng-maxlength="35"
                        >
+              <ng-messages for="profileForm.town_city.$error" role="alert" class="error">
+                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="maxlength">
+                  {{ 'profile.maximum_length_should_be_35_characters' | translate }}
+                </ng-message>
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-message>
               </div>
             </div>
           </div>
@@ -178,9 +207,20 @@
             </div>
             <div class="row">
               <div class="col">
-                <input name="state_province"
+                <select name="state_province"
                        ng-model="vm.profile.address_state"
+                       ng-select="vm.profile.address_state"
+                       ng-required="true"
                        >
+                       <option ng-repeat="s in vm.states"
+                               value="{{s.value}}"> {{ s.text }} </option>
+                </select>
+              <ng-messages for="profileForm.state_province.$error" role="alert" class="error">
+                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-message>
               </div>
             </div>
           </div>
@@ -197,7 +237,18 @@
               <div class="col">
                 <input name="postal_code_zip"
                        ng-model="vm.profile.address_postcode"
+                       ng-required="true"
+                       ng-maxlength="20"
                        >
+              <ng-messages for="profileForm.postal_code_zip.$error" role="alert" class="error">
+                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="maxlength">
+                  {{ 'profile.maximum_length_should_be_20_characters' | translate }}
+                </ng-message>
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-message>
               </div>
             </div>
           </div>
@@ -214,7 +265,22 @@
               <div class="col">
                 <input name="telephone"
                        ng-model="vm.profile.phone"
+                       ng-maxlength="35"
+                       ng-minlength="6"
+                       ng-required="true"
                        >
+              <ng-messages for="profileForm.telephone.$error" role="alert" class="error">
+                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="maxlength">
+                  {{ 'profile.maximum_length_should_be_20_characters' | translate }}
+                </ng-message>
+                <ng-message when="minlength">
+                  {{ 'profile.minimum_length_should_be_6_characters' | translate }}
+                </ng-message>
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-message>
               </div>
             </div>
           </div>
@@ -224,7 +290,7 @@
           <div class="col center">
             <button class="button"
                     type="submit"
-                    ng-disabled="profile_form.$valid || vm.disableUpdateButton"
+                    ng-disabled="!profileForm.$valid || vm.disableUpdateButton"
                     >
                     {{ 'profile.update_profile' | translate }}
             </button>
