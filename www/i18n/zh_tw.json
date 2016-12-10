@@ -406,12 +406,12 @@
     "exclude-me-hint":"請輸入日期，格式為年-月-日。",
     "update-settings":"更新設定",
     "please-enter-an-integer-value":"請輸入整數",
-    "valid-range-hint":"请输入整数",
-    "save-prompt":"Content saved successfully",
-    "success":"Success"
+    "valid-range-hint":"請輸入0和{{max}} 之間的數字。",
+    "save-prompt":"內容已成功儲存",
+    "success":"成功"
   },
   "profile":{
-    "personal_details":"Personal Details",
+    "personal_details":"個人詳細資訊",
     "name":"姓名",
     "date_of_birth":"出生日期",
     "country_of_residence":"居住國",
