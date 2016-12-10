@@ -425,6 +425,11 @@
     "update_profile":"Update Profile",
     "success":"Success",
     "success_message":"Your settings have been updated successfully.",
-    "error_message":"Failed to update your settings."
+    "error_message":"Failed to update your settings.",
+    "this_field_is_required":"This field is required.",
+    "maximum_length_should_be_70_characters":"Maximum length should be 70 characters",
+    "maximum_length_should_be_35_characters":"Maximum length should be 35 characters",
+    "maximum_length_should_be_20_characters":"Maximum length should be 20 characters",
+    "minimum_length_should_be_6_characters":"Minimum length should be 6 characters"
   }
 }
