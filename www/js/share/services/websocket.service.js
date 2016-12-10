@@ -325,9 +325,9 @@ angular
                     };
                     sendMessage(data);
                 },
-                statesListSend: function(company) {
+                statesListSend: function(countryCode) {
                     var data = {
-                        "states_list": company
+                        "states_list": countryCode
                     };
                     sendMessage(data);
                 },

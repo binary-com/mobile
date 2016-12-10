@@ -46,6 +46,10 @@
           border: 1px solid $borderColor;
           border-radius: 3px;
           background: $white;
+          &[readonly="readonly"] {
+            border: 0px !important;
+            font-weight: bold;
+          }
           &.checkbox {
             width: 20px;
             top: 2px;
