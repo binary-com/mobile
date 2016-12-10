@@ -425,6 +425,11 @@
     "update_profile":"crwdns18051:0crwdne18051:0",
     "success":"crwdns18052:0crwdne18052:0",
     "success_message":"crwdns18053:0crwdne18053:0",
-    "error_message":"crwdns18054:0crwdne18054:0"
+    "error_message":"crwdns18054:0crwdne18054:0",
+    "this_field_is_required":"crwdns18067:0crwdne18067:0",
+    "maximum_length_should_be_70_characters":"crwdns18068:0crwdne18068:0",
+    "maximum_length_should_be_35_characters":"crwdns18069:0crwdne18069:0",
+    "maximum_length_should_be_20_characters":"crwdns18070:0crwdne18070:0",
+    "minimum_length_should_be_6_characters":"crwdns18071:0crwdne18071:0"
   }
 }
