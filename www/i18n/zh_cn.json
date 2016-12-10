@@ -405,13 +405,13 @@
     "exclude-me-from-the-website-until":"禁止我访问本网站直到",
     "exclude-me-hint":"请输入日期，格式为年-月-日。",
     "update-settings":"更新设置",
-    "please-enter-an-integer-value":"Please enter an integer value",
-    "valid-range-hint":"Please enter a number between 0 and {{max}}",
-    "save-prompt":"Content saved successfully",
-    "success":"Success"
+    "please-enter-an-integer-value":"请输入整数",
+    "valid-range-hint":"请输入0和 {{max}} 之间的数字",
+    "save-prompt":"内容已成功保存",
+    "success":"成功"
   },
   "profile":{
-    "personal_details":"Personal Details",
+    "personal_details":"个人详细信息",
     "name":"姓名",
     "date_of_birth":"出生日期",
     "country_of_residence":"居住国",
