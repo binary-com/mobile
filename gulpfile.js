@@ -49,3 +49,77 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+gulp.task('deploy-translation', function(done){
+
+  sh.config.silent = true;
+
+  var remote = getRemoteName(process.argv);
+  var remoteUrl = getRemoteUrl(remote);
+
+  // remove last tmp directory if it exists
+  sh.rm('-rf', 'tmp');
+
+  //make a tmp directory
+  sh.mkdir('tmp');
+  if(sh.error()){
+    console.log(gutil.colors.red('Error: ' + sh.error()));
+    process.exit(1);
+  }
+
+  sh.cd('tmp');
+  console.log('Fetching gh-pages ...');
+  sh.config.silent = false;
+  sh.exec('git clone '+ remoteUrl +' -b gh-pages ./');
+  sh.config.silent = true;
+
+  console.log('Copying translation version ...');
+  sh.rm('-rf', 'translation');
+  sh.cp('-R', '../www/*','translation');
+
+  console.log('Adding Crowdin scripts ...');
+  var config = '<script type="text/javascript">\n\t\tvar _jipt = [];\n\t\t' +
+               "_jipt.push(['project', 'tick-trade-app']);\n\t\t" +
+               "localStorage.language = 'ach';\n\t</script>\n\t" +
+               '<script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>';
+
+  sh.sed('-i', '<!-- CROWDIN SCRIPT -->', config, 'translation/index.html');
+
+  console.log('Pushing changes to gh-pages ...');
+  sh.config.silent = false;
+  sh.exec('git add .');
+  sh.exec('git commit -m "Updated translation version"');
+  sh.exec('git push origin gh-pages:gh-pages');
+  sh.config.silent = true;
+
+  console.log('Cleaning workspace ...');
+  // remove tmp directory to clean workspace
+  sh.cd('../');
+  //sh.rm('-r', 'tmp');
+  done();
+});
+
+
+function getRemoteUrl(remote){
+  var result = sh.exec('git remote show '+ remote  +' -n | grep "Push  URL:"');
+  if(result && result.output){
+    var pushUrl = result.output.trim();
+    var regex = /^Push  URL: (\S+)$/;
+    regResult = regex.exec(pushUrl);
+    if(regResult != null){
+      return regResult[1];
+    }
+  }
+  else {
+    console.log("It's not a git repo!");
+    process.exit(-1);
+  }
+  return;
+}
+
+function getRemoteName(argv){
+  if((index = argv.indexOf('--remote')) > -1){
+    return argv[index+1] ? argv[index+1] : 'origin';
+  }
+  return 'origin';
+}

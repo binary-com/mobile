@@ -7,11 +7,7 @@
 
     <!-- Left menu -->
     <ion-side-menu side="left">
-      <header class="bar bar-header bar-stable">
-        <bg-accounts></bg-accounts>
-        <bg-real-account-opening></bg-real-account-opening>
-      </header>
-      <ion-content class="has-header">
+      <ion-content>
         <ion-list>
           <ion-item nav-clear menu-close ui-sref="trade" tabindex="1" href="#">
             <i class="ion-arrow-graph-up-right"></i>
@@ -25,10 +21,6 @@
             <i class="ion-android-list"></i>
             {{ 'menu.statement' | translate }}
           </ion-item>
-          <ion-item nav-clear menu-close ui-sref="language" href="#">
-            <i class="ion-ios-world-outline"></i>
-            {{ 'menu.language' | translate }}
-          </ion-item>
           <ion-item nav-clear menu-close ui-sref="settings" href="#">
             <i class="ion-ios-gear"></i>
             {{ 'menu.settings' | translate }}
@@ -39,6 +31,10 @@
 
         </ion-list>
       </ion-content>
+      <ion-footer-bar class="footer">
+        <bg-accounts></bg-accounts>
+        <bg-real-account-opening></bg-real-account-opening>
+      </ion-footer-bar>
     </ion-side-menu>
 
   </ion-side-menus>

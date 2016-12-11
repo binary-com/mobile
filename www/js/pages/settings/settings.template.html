@@ -7,13 +7,20 @@
     </div>
     <div class="list">
       <div ng-repeat="s in vm.settings">
-        <div class="item item-divider">
+        <a ng-if="!s.submenus && (vm.checkScope(s.scope) && vm.checkAccount(s.forRealAccount))"
+           href="#"
+           ui-sref="{{s.url}}"
+           class="item">
+          {{ s.name | translate }}
+        </a>
+        <div ng-if="s.submenus && s.submenus.length > 0"
+             class="item item-divider">
           {{ s.name | translate}}
         </div>
-        <a ng-repeat="m in s.submenus"
+        <a ng-if="s.submenus && s.submenus.length > 0 && (vm.checkScope(m.scope) && vm.checkAccount(m.forRealAccount))"
+           ng-repeat="m in s.submenus"
            href="#"
            ui-sref="{{m.url}}"
-           ng-if="vm.checkScope(m.scope) && vm.checkAccount(m.forRealAccount)"
            class="item">
           {{ m.name | translate }}
         </a>

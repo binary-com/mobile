@@ -3,6 +3,10 @@
 	color: $contentColor;
 	font-size: 1rem;
 	padding: 0 5px;
+	border-bottom: 1px solid $borderColor;
+	.row{
+		padding: 0;
+	}
 }
 .bar.bar-positive {
 	border-color: $borderColor;
@@ -14,6 +18,9 @@
 	// border-color: $primaryBrandColor;
 	background-color: $primaryBrandColor;
 	z-index: 12;
+}
+ion-subheader-bar.bar.bar-subheader.bar-positive{
+	background-color: $fillColor;
 }
 .bar-header {
 	background-color: $primaryBrandColor;

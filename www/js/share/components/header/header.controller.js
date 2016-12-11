@@ -31,8 +31,10 @@
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
 
-        vm.toggleSideMenu = function() {
+        vm.toggleSideMenu = function($event) {
           if(appStateService.tradeMode || !appStateService.purchaseMode){
+            // $event.stopPropagation();
+            $event.preventDefault();
             $ionicSideMenuDelegate.toggleLeft();
           }
         }
@@ -45,7 +47,7 @@
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.to = to;
             vm.from = from;
-            if (vm.to.name == 'transactiondetail') {
+            if (['transactiondetail', 'language', 'profile', 'self-exclusion'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
             } else {

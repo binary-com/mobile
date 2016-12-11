@@ -33,6 +33,7 @@ angular
                 factory.statementRefresh = false;
                 factory.virtuality = 0;
                 factory.newAccountAdded = false;
+                factory.isLanguageReady = false;
 
                 return factory;
             });

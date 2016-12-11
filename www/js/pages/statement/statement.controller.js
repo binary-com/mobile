@@ -288,12 +288,15 @@
         }
 
         vm.jumpToDateFilter = function() {
-          vm.noTransaction = false;
-            vm.firstCompleted = false;
-            vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
-            tableStateService.statementDateTo = vm.data.dateTo;
-            vm.dateChanged = true;
-            vm.pageState();
+          $timeout(function(){
+            vm.noTransaction = false;
+              vm.firstCompleted = false;
+              vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
+              tableStateService.statementDateTo = vm.data.dateTo;
+              vm.dateChanged = true;
+              vm.pageState();
+          }, 500);
+
         }
 
         vm.goTop = function() {
