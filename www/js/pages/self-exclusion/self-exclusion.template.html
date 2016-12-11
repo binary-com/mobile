@@ -21,7 +21,7 @@
             <div class="col">
               <input name="max_account_balance"
                      type="number"
-                     ng-pattern="/^\d{0,20}$/"
+                     bg-number
                      ng-model="vm.data.max_balance"
                      ng-max="vm.limits.max_balance"
                      ng-min="0"
@@ -29,8 +29,8 @@
               <div class="hint"> {{ 'self-exclusion.max-balance-hint' | translate }} </div>
               <ng-messages for="self_exclusion_form.max_account_balance.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
-                <ng-message when="max">
-                  {{ 'self-exclusion.valid-range-hint' | translate }}
+                <ng-message when="max, number">
+                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_balance} }}
                 </ng-message>
               </ng-message>
             </div>
@@ -49,16 +49,17 @@
             <div class="col">
               <input name="max_daily_turnover"
                      type="number"
+                     bg-number
                      ng-pattern="/^\d{0,20}$/"
-                     ng-model="vm.data.max_trunover"
+                     ng-model="vm.data.max_turnover"
                      ng-max="vm.limits.max_turnover"
                      ng-min="0"
                      >
               <div class="hint"> {{ 'self-exclusion.max-turnover-hint' | translate }} </div>
               <ng-messages for="self_exclusion_form.max_daily_turnover.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
-                <ng-message when="max">
-                  {{ 'self-exclusion.valid-range-hint' | translate }}
+                <ng-message when="max, number">
+                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_turnover} }}
                 </ng-message>
               </ng-messages>
             </div>
@@ -77,16 +78,17 @@
             <div class="col">
               <input name="daily_limit_on_losses"
                      type="number"
+                     bg-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_losses"
-                     ng-max="vm.limits.daily_limit_on_losses"
+                     ng-max="vm.limits.max_losses"
                      ng-min="0"
                      >
               <div class="hint"> {{ 'self-exclusion.max-losses-hint' | translate }} </div>
               <ng-messages for="self_exclusion_form.daily_limit_on_losses.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
-                <ng-message when="max">
-                  {{ 'self-exclusion.valid-range-hint' | translate }}
+                <ng-message when="max, number">
+                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_losses} }}
                 </ng-message>
               </ng-messages>
             </div>
@@ -105,6 +107,7 @@
             <div class="col">
               <input name="max_7_day_turnover_limit"
                      type="number"
+                     bg-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_7day_turnover"
                      ng-max="vm.limits.max_7day_turnover"
@@ -113,8 +116,8 @@
               <div class="hint"> {{ 'self-exclusion.7-day-turnover-hint' | translate }} </div>
               <ng-messages for="self_exclusion_form.max_7_day_turnover_limit.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
-                <ng-message when="max">
-                  {{ 'self-exclusion.valid-range-hint' | translate }}
+                <ng-message when="max, number">
+                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_7day_turnover} }}
                 </ng-message>
               </ng-messages>
             </div>
@@ -133,6 +136,7 @@
             <div class="col">
               <input name="max_7_day_limit_on_losses"
                      type="number"
+                     bg-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_7day_losses"
                      ng-max="vm.limits.max_7day_losses"
@@ -141,8 +145,8 @@
               <div class="hint"> {{ 'self-exclusion.7-day-losses-hint' | translate }} </div>
               <ng-messages for="self_exclusion_form.max_7_day_limit_on_losses.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
-                <ng-message when="max">
-                  {{ 'self-exclusion.valid-range-hint' | translate }}
+                <ng-message when="max, number">
+                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_7day_losses} }}
                 </ng-message>
               </ng-messages>
             </div>
@@ -161,6 +165,7 @@
             <div class="col">
               <input name="max_30_day_turnover_limit"
                      type="number"
+                     bg-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_30day_turnover"
                      ng-max="vm.limits.max_30day_turnover"
@@ -169,8 +174,8 @@
               <div class="hint"> {{ 'self-exclusion.30-day-turnover-hint' | translate }} </div>
               <ng-messages for="self_exclusion_form.max_30_day_turnover_limit.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
-                <ng-message when="max">
-                  {{ 'self-exclusion.valid-range-hint' | translate }}
+                <ng-message when="max, number">
+                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_30day_turnover} }}
                 </ng-message>
               </ng-messages>
             </div>
@@ -189,6 +194,7 @@
             <div class="col">
               <input name="max_30_day_limit_on_losses"
                      type="number"
+                     bg-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_30day_losses"
                      ng-max="vm.limits.max_30day_losses"
@@ -197,8 +203,8 @@
               <div class="hint"> {{ 'self-exclusion.30-day-losses-hint' | translate }} </div>
               <ng-messages for="self_exclusion_form.max_30_day_limit_on_losses.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
-                <ng-message when="max">
-                  {{ 'self-exclusion.valid-range-hint' | translate }}
+                <ng-message when="max, number">
+                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_30day_losses} }}
                 </ng-message>
               </ng-messages>
             </div>
@@ -217,6 +223,7 @@
             <div class="col">
               <input name="maximum_number_of_open_positions"
                      type="number"
+                     bg-number
                      ng-pattern="/^\d{0,4}$/"
                      ng-model="vm.data.max_open_bets"
                      ng-max="vm.limits.max_open_bets"
@@ -224,8 +231,8 @@
                      >
               <ng-messages for="self_exclusion_form.maximum_number_of_open_positions.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
-                <ng-message when="max">
-                  {{ 'self-exclusion.valid-range-hint' | translate }}
+                <ng-message when="max, number">
+                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_open_bets} }}
                 </ng-message>
               </ng-messages>
             </div>
@@ -244,16 +251,17 @@
             <div class="col">
               <input name="session_duration_limit"
                      type="number"
+                     maxlength="5"
+                     bg-number
                      ng-pattern="/^\d{0,5}$/"
                      ng-model="vm.data.session_duration_limit"
-                     ng-max="::vm.daata.session_duration_limit"
-                     ng-min="0"
+                     ng-max="vm.limits.session_duration_limit || (vm.limits.session_duration_limit = 60480)"
                      >
               <div class="hint"> {{ 'self-exclusion.session-duration-hint' | translate }} </div>
               <ng-messages for="self_exclusion_form.session_duration_limit.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
-                <ng-message when="max">
-                  {{ 'self-exclusion.valid-range-hint' | translate }}
+                <ng-message when="max, number">
+                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.session_duration_limit} }}
                 </ng-message>
               </ng-messages>
             </div>
