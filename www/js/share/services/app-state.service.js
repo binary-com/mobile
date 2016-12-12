@@ -19,6 +19,8 @@ angular
                 factory.scopes = [];
                 factory.invalidTokenRemoved = false;
                 factory.isChangedAccount = false;
+                factory.profitTableChangedAccount = false;
+                factory.statementChangedAccount = false;
                 factory.isRealityChecked = false;
                 factory.isPopupOpen = false;
                 factory.hasGetResidence = false;
