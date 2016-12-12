@@ -122,17 +122,11 @@
                 tableStateService.completedGroup = false;
                 vm.setParams();
                 vm.goTop();
-                console.log('4');
-
             } else if (appStateService.isProfitTableSet && !vm.dateChanged && tableStateService.completedGroup) {
                 vm.transactions = [];
                 tableStateService.completedGroup = false;
                 vm.setParams();
-                console.log('5');
-
             } else {
-              console.log('6');
-
                 if (!vm.dateChanged) {
                     vm.setParams();
                     $scope.$applyAsync(() => {
