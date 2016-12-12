@@ -99,25 +99,18 @@
         }
 
         vm.pageState = function() {
-            if (!appStateService.isProfitTableSet  && !appStateService.profitTableChangedAccount) {
+            if (!appStateService.isProfitTableSet) {
                 appStateService.isProfitTableSet = true;
                 tableStateService.dateType = 'allTime';
                 vm.jumpToDateInputShow = false;
                 vm.resetParams();
                 vm.setParams();
                 tableStateService.completedGroup = false;
+                vm.goTop();
             } else if (appStateService.isProfitTableSet && vm.enteredNow && vm.lastPage == 'transactiondetail') {
                 vm.enteredNow = false;
                 vm.lastPage = '';
                 vm.setParams();
-            } else if (!appStateService.isProfitTableSet && appStateService.profitTableChangedAccount) {
-                // if account is changed reset data attributes and send request again
-                appStateService.profitTableChangedAccount = false;
-                tableStateService.dateType = 'allTime';
-                vm.jumpToDateInputShow = false;
-                vm.resetParams();
-                vm.setParams();
-                vm.goTop();
             } else if (appStateService.isProfitTableSet && vm.dateChanged && tableStateService.completedGroup) {
                 vm.transactions = [];
                 vm.batchedTransaction = [];
