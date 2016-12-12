@@ -13,11 +13,18 @@
         .module('binary.pages.trade.components.payout.controllers')
         .controller('PayoutController', Payout);
 
-    Payout.$inject = ['proposalService'];
+    Payout.$inject = ['$scope', 'proposalService'];
 
-    function Payout(proposalService){
+    function Payout($scope, proposalService){
         var vm = this;
         vm.amount = vm.proposal.amount;
+
+        $scope.$watch(()=>vm.proposal.amount,
+            (newVal, oldVal)=>{
+              if(newVal != vm.amount){
+                vm.amount = newVal;
+              }
+            });
 
 
         vm.changePayoutType = function(){

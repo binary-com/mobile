@@ -25,12 +25,14 @@
 
     $scope.$on('authorize',
         (e, response, requestId, pathtrough) => {
-          vm.balance = {
-            currency: response.currency,
-            balance: response.balance,
-            loginid: response.loginid
-          };
-          changeProposalCurrency();
+          $scope.$applyAsync(()=>{
+            vm.balance = {
+              currency: response.currency,
+              balance: response.balance,
+              loginid: response.loginid
+            };
+            changeProposalCurrency();
+          });
         });
 
     $scope.$on('balance',
