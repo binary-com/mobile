@@ -51,6 +51,8 @@
             accountService.validate();
             updateSymbols();
             appStateService.isChangedAccount = true;
+            appStateService.profitTableChangedAccount = true;
+            appStateService.statementChangedAccount = true;
             appStateService.isCheckedAccountType = false;
             sessionStorage.removeItem('start');
             sessionStorage.removeItem('_interval');

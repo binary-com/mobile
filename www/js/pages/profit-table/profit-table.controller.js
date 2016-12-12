@@ -84,7 +84,7 @@
         }
 
         vm.delayedLoad = function() {
-            $timeout(vm.loadMore, 500);
+            $timeout(vm.loadMore, 50);
 
         }
 
@@ -110,7 +110,8 @@
                 vm.enteredNow = false;
                 vm.lastPage = '';
                 vm.setParams();
-            } else if (appStateService.isProfitTableSet && appStateService.isChangedAccount) {
+            } else if (appStateService.isProfitTableSet && appStateService.profitTableChangedAccount) {
+              appStateService.profitTableChangedAccount = false;
                 // if account is changed reset data attributes and send request again
                 tableStateService.dateType = 'allTime';
                 vm.jumpToDateInputShow = false;

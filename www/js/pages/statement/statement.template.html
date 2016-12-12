@@ -10,7 +10,7 @@
         </div>
         <div class="col col-50">
             <label class="item item-input item-select">
-                <select name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
+                <select id="statementdatetype" name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
                     <option value="allTime" selected="selected">{{'statement.all_time' | translate}}</option>
                     <option value="jumpToDate">{{'statement.jump_to_date' | translate}}</option>
                 </select>

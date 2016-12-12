@@ -83,7 +83,7 @@
         }
 
         vm.delayedLoad = function(){
-          $timeout(vm.loadMore, 500);
+          $timeout(vm.loadMore, 50);
         }
 
         vm.loadMore = function() {
@@ -108,7 +108,8 @@
                 vm.enteredNow = false;
                 vm.lastPage = '';
                 vm.setParams();
-            } else if (appStateService.isStatementSet && appStateService.isChangedAccount) {
+            } else if (appStateService.isStatementSet && appStateService.statementChangedAccount) {
+              appStateService.statementChangedAccount = false;
                 // if account is changed reset data attributes and send request again
                 tableStateService.statementDateType = 'allTime';
                 vm.jumpToDateInputShow = false;
@@ -283,6 +284,8 @@
                 document.getElementById('statement-dateTo').setAttribute('max', vm.nowDateInputLimit);
                 document.getElementById('statement-dateTo').value =  vm.nowDateInputLimit;
                 vm.jumpToDateFilter();
+                document.getElementById('statementdatetype').blur();
+
             }
         }
 
