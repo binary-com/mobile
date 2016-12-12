@@ -118,5 +118,6 @@ angular
 		        contractDisplayName: 1,
 		        contractFrom: 2,
 		        contractTo  : 3
-		}
+		},
+		'appSupportedLanguages': ['en', 'id', 'ru', 'zh_tw' , 'zh_cn' ]
 });

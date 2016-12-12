@@ -53,7 +53,8 @@
 
   a.item-content{
     color: $contentInverseColor;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    font-weight: normal;
     &.activated{
       background: $primaryBrandColor;
 
@@ -64,28 +65,4 @@
       padding: 15px;
     }
   }
-  // .upgrade-link{
-  //   margin-left: 0;
-  //   background-color: #primaryBrandColor;
-  //   padding-top: 10px;
-  //   padding-bottom: 5px;
-  //   a{
-  //     font-size: 12px;
-  //   }
-  // }
 }
-
-// @media only screen and (min-device-width: 480px) {
-//   .menu{
-//     .upgrade-link{
-//       a{
-//         font-size: 12px;
-//       }
-//     }
-//   }
-//   .options-account{
-//     .manage-account{
-//       font-size: 12px;
-//     }
-//   }
-// }
