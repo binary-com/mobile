@@ -97,14 +97,14 @@
         }
 
         vm.pageState = function() {
-            if (!appStateService.isStatementSet) {
+            if (!appStateService.isStatementSet && !appStateService.statementChangedAccount) {
                 appStateService.isStatementSet = true;
                 tableStateService.statementDateType = 'allTime';
                 vm.jumpToDateInputShow = false;
                 vm.resetParams();
                 vm.setParams();
                 tableStateService.statementCompletedGroup = false;
-            } else if (appStateService.isStatementSet && vm.enteredNow && vm.lastPage == 'transactiondetail') {
+            } else if (!appStateService.isStatementSet && vm.enteredNow && vm.lastPage == 'transactiondetail') {
                 vm.enteredNow = false;
                 vm.lastPage = '';
                 vm.setParams();

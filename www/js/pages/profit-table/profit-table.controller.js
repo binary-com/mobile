@@ -99,7 +99,7 @@
         }
 
         vm.pageState = function() {
-            if (!appStateService.isProfitTableSet) {
+            if (!appStateService.isProfitTableSet  && !appStateService.profitTableChangedAccount) {
                 appStateService.isProfitTableSet = true;
                 tableStateService.dateType = 'allTime';
                 vm.jumpToDateInputShow = false;
@@ -110,9 +110,9 @@
                 vm.enteredNow = false;
                 vm.lastPage = '';
                 vm.setParams();
-            } else if (appStateService.isProfitTableSet && appStateService.profitTableChangedAccount) {
-              appStateService.profitTableChangedAccount = false;
+            } else if (!appStateService.isProfitTableSet && appStateService.profitTableChangedAccount) {
                 // if account is changed reset data attributes and send request again
+                appStateService.profitTableChangedAccount = false;
                 tableStateService.dateType = 'allTime';
                 vm.jumpToDateInputShow = false;
                 vm.resetParams();
