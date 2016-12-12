@@ -109,6 +109,7 @@
                 vm.lastPage = '';
                 vm.setParams();
             } else if (appStateService.isStatementSet && appStateService.statementChangedAccount) {
+              appStateService.statementChangedAccount = false;
                 // if account is changed reset data attributes and send request again
                 tableStateService.statementDateType = 'allTime';
                 vm.jumpToDateInputShow = false;
