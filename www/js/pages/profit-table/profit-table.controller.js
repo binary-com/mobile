@@ -282,6 +282,7 @@
                 document.getElementById('dateTo').value = vm.nowDateInputLimit;
                 vm.jumpToDateFilter();
             }
+            document.getElementById('datetype').blur();
         }
 
         vm.jumpToDateFilter = function() {
