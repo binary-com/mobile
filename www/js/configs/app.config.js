@@ -119,5 +119,5 @@ angular
 		        contractFrom: 2,
 		        contractTo  : 3
 		},
-		'appSupportedLanguages': ['en', 'es']
+		'appSupportedLanguages': ['en', 'id', 'ru', 'zh_tw' , 'zh_cn' ]
 });
