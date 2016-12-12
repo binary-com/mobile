@@ -33,10 +33,11 @@
 				border-radius: 3px;
 				background: $white;
 				padding: 10px 5px;
+				font-size: 1rem;
 			}
 			select {
 				background: $white;
-				color: $secondaryContentColor;
+				color: $contentColor;
 				font-size: 1rem;
 				font-weight: 400;
 				text-transform: uppercase;
@@ -48,6 +49,7 @@
 				width: 100%;
 				padding: 10px 5px;
 				position: relative;
+				font-size: 1rem;
 			}
 			.help-block {
 				width: 100%;
@@ -67,10 +69,9 @@
 					}
 				}
 			}
-			label, input, select, textarea{
+			label, textarea{
 				font-size: 1rem;
 			}
-
 		}
 		.list {
 			label.item-input {

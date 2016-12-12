@@ -97,6 +97,13 @@ angular
         })
         .state('no-connection', {
           templateUrl: 'js/share/components/connectivity/connectivity.template.html'
+        })
+        .state('profile', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/profile/profile.template.html',
+          controller: 'ProfileController',
+          controllerAs: 'vm'
         });
 
 

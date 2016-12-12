@@ -19,7 +19,7 @@
     var vm = this;
 
     vm.settings = [
-      {
+      /*{
         name: "settings.security-and-limits",
         submenus: [
           {
@@ -29,6 +29,24 @@
             forRealAccount: true
           }
         ]
+      },*/
+      {
+        name: "profile.personal_details",
+        url: "profile",
+        scope: "read",
+        forRealAccount: false
+      },
+      {
+        name: "settings.self-exclusion",
+        url: "self-exclusion",
+        scope: "admin",
+        forRealAccount: true
+      },
+      {
+        name: "menu.language",
+        url: "language",
+        scope: "read",
+        forRealAccount: false
       }
     ];
 

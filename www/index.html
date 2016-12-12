@@ -5,7 +5,7 @@
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
 	<!-- Content Security Policy for cordova-plugin-whitelist -->
-	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' file: wss: ws: 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' file: wss: ws: data: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; media-src *">
 
   <!-- Disabling ios telephone number detection -->
   <meta name = "format-detection" content = "telephone=no">
@@ -27,6 +27,8 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta name="mobile-web-app-capable" content="yes">
+
+  <!-- CROWDIN SCRIPT -->
 
   <style id="antiClickjack">body{display:none !important;}</style>
   <script type="text/javascript">
@@ -71,25 +73,6 @@
         amplitude.init("bfba930e4adadaa35dfc5b68ac2c07ae");
     </script>
     <!-- END AMPLITUDE -->
-
-    <!-- Modify redirect url -->
-    <script>
-        var url = window.location.hash;
-
-        if(/#\/redirect\%23/.exec(url)){
-            url = url.replace("%23", "?");
-            window.location.href = url;
-        }
-
-        url = window.location.href;
-        if(/acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(#\/redirect)$/.exec(url)){
-            url = url.replace("#\/redirect", "");
-            var splits = url.split('?');
-            url = splits[0] + '#\/redirect?' + splits[1];
-            window.location.href = url;
-        }
-    </script>
-    <!-- END Modify -->
 
   </head>
   <body ng-app="binary" ng-cloak>
@@ -164,9 +147,6 @@
     <script src="js/share/components/language/language-list.directive.js"></script>
     <script src="js/share/components/language/language.controller.js"></script>
 
-    <script src="js/pages/settings/settings.module.js"></script>
-    <script src="js/pages/settings/settings.controller.js"></script>
-
     <script src="js/share/components/ping/ping.module.js"></script>
     <script src="js/share/components/ping/ping.directive.js"></script>
     <script src="js/share/components/ping/ping.controller.js"></script>
@@ -186,6 +166,9 @@
 
     <script src="js/share/components/regex-validate/regex-validate.module.js"></script>
     <script src="js/share/components/regex-validate/regex-validate.directive.js"></script>
+
+    <script src="js/share/components/number/number.module.js"></script>
+    <script src="js/share/components/number/number.directive.js"></script>
 
     <script src="js/pages/home/home.module.js"></script>
     <script src="js/pages/home/home.controller.js"></script>
@@ -281,5 +264,12 @@
 
     <script src="js/pages/self-exclusion/self-exclusion.module.js"></script>
     <script src="js/pages/self-exclusion/self-exclusion.controller.js"></script>
+
+    <script src="js/pages/settings/settings.module.js"></script>
+    <script src="js/pages/settings/settings.controller.js"></script>
+
+    <script src="js/pages/profile/profile.module.js"></script>
+    <script src="js/pages/profile/profile.controller.js"></script>
+
   </body>
 </html>

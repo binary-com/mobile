@@ -149,6 +149,12 @@ angular
             };
 
             websocketService.sendRequestFor = {
+              websiteStatus: function(){
+                var data = {
+                  "website_status": 1
+                };
+                sendMessage(data);
+              },
                 symbols: function() {
                     var data = {
                         active_symbols: "brief"
@@ -308,15 +314,20 @@ angular
                     };
                     sendMessage(data);
                 },
+                setAccountSettings: function(data){
+                  data.set_settings = 1;
+
+                  sendMessage(data);
+                },
                 landingCompanySend: function(company) {
                     var data = {
                         "landing_company": company
                     };
                     sendMessage(data);
                 },
-                statesListSend: function(company) {
+                statesListSend: function(countryCode) {
                     var data = {
-                        "states_list": company
+                        "states_list": countryCode
                     };
                     sendMessage(data);
                 },
@@ -428,6 +439,9 @@ angular
                                 appStateService.isLoggedin = false;
                             }
                             break;
+                        case 'website_status':
+                            $rootScope.$broadcast('website_status', message.website_status);
+                            break;
                         case 'active_symbols':
                             var markets = message.active_symbols;
                             var groupedMarkets = _.groupBy(markets, 'market');
@@ -530,7 +544,12 @@ angular
                             }
                             break;
                         case 'get_settings':
-                            $rootScope.$broadcast('get_settings', message.get_settings);
+                            if(message.get_settings){
+                              $rootScope.$broadcast('get_settings', message.get_settings);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('get_settings:error', message.error.message);
+                            }
                             break;
                         case 'landing_company':
                             $rootScope.$broadcast('landing_company', message.landing_company);
@@ -573,6 +592,14 @@ angular
                             }
                             else if(message.error){
                               $rootScope.$broadcast('set-self-exclusion:error', message.error.message);
+                            }
+                            break;
+                        case 'set_settings':
+                            if(message.set_settings){
+                              $rootScope.$broadcast('set-settings', message.set_settings);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('set-settings:error', message.error.message);
                             }
                             break;
                         default:

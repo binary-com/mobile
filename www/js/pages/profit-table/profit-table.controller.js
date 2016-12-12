@@ -14,12 +14,13 @@
         .controller('ProfitTableController', ProfitTable);
 
     ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', '$templateCache',
-                           '$ionicScrollDelegate','tableStateService',
-                           'websocketService', 'appStateService'];
+        '$ionicScrollDelegate', 'tableStateService',
+        'websocketService', 'appStateService'
+    ];
 
     function ProfitTable($scope, $filter, $timeout, $state, $templateCache,
-                         $ionicScrollDelegate, tableStateService,
-                         websocketService, appStateService) {
+        $ionicScrollDelegate, tableStateService,
+        websocketService, appStateService) {
         var vm = this;
         vm.data = {};
         vm.noTransaction = false;
@@ -84,8 +85,8 @@
             // }
         }
 
-        vm.delayedLoad = function(){
-          $timeout(vm.loadMore, 500);
+        vm.delayedLoad = function() {
+            $timeout(vm.loadMore, 500);
         }
 
         vm.loadMore = function() {
@@ -137,12 +138,12 @@
                 tableStateService.completedGroup = false;
                 vm.setParams();
             } else {
-              if(!vm.dateChanged){
-                vm.setParams();
-                $scope.$applyAsync(() => {
-                    vm.noMore = false;
-                });
-              }
+                if (!vm.dateChanged) {
+                    vm.setParams();
+                    $scope.$applyAsync(() => {
+                        vm.noMore = false;
+                    });
+                }
 
 
             }
@@ -223,12 +224,12 @@
             }
         });
 
-          $scope.$on('profit_table:error', (e, message) => {
+        $scope.$on('profit_table:error', (e, message) => {
             $scope.$applyAsync(() => {
-              vm.hasError = true;
-              vm.errorMessage = message;
+                vm.hasError = true;
+                vm.errorMessage = message;
             });
-          });
+        });
 
         vm.setBatch = function() {
             tableStateService.batchLimit = Math.ceil(vm.transactions.length / tableStateService.batchSize);
@@ -254,7 +255,7 @@
 
         vm.setFiltered = function() {
             $scope.$applyAsync(() => {
-              tableStateService.appID = vm.data.appID;
+                tableStateService.appID = vm.data.appID;
                 vm.filteredTransactions = $filter('DataFilter')(vm.batchedTransaction, tableStateService.appID);
                 if (vm.filteredTransactions.length == 0) {
                     vm.noTransaction = true;
@@ -266,8 +267,8 @@
         }
 
         vm.dateFilter = function() {
-          vm.dateChanged = true;
-          vm.noTransaction = false;
+            vm.dateChanged = true;
+            vm.noTransaction = false;
             if (vm.data.dateType == 'allTime') {
                 vm.firstCompleted = false;
                 tableStateService.dateType = 'allTime';
@@ -277,24 +278,28 @@
                 vm.jumpToDateInputShow = false;
                 vm.pageState();
             }
-            if (vm.data.dateType == 'jumpToDate'){
-              // vm.firstCompleted = false;
-              vm.jumpToDateInputShow = true;
-              vm.nowDateInputLimit = $filter('date')(new Date(), 'yyyy-MM-dd');
-              document.getElementById('dateTo').setAttribute('max', vm.nowDateInputLimit);
-              document.getElementById('dateTo').value =  vm.nowDateInputLimit;
+            if (vm.data.dateType == 'jumpToDate') {
+                // vm.firstCompleted = false;
+                vm.jumpToDateInputShow = true;
+                vm.nowDateInputLimit = $filter('date')(new Date(), 'yyyy-MM-dd');
+                document.getElementById('dateTo').setAttribute('max', vm.nowDateInputLimit);
+                document.getElementById('dateTo').value = vm.nowDateInputLimit;
+
             }
             tableStateService.dateType = vm.data.dateType;
 
         }
 
-        vm.jumpToDateFilter = function(){
-          vm.noTransaction = false;
-          vm.firstCompleted = false;
-          vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
-          tableStateService.dateTo = vm.data.dateTo;
-          vm.dateChanged = true;
-          vm.pageState();
+        vm.jumpToDateFilter = function() {
+          $timeout(function(){
+            vm.noTransaction = false;
+            vm.firstCompleted = false;
+            vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
+            tableStateService.dateTo = vm.data.dateTo;
+            vm.dateChanged = true;
+            vm.pageState();
+          }, 500);
+
         }
 
         vm.goTop = function() {
@@ -317,5 +322,6 @@
             sessionStorage.setItem('id', vm.id);
             $state.go('transactiondetail');
         }
+
     }
 })();
