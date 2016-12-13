@@ -1,7 +1,7 @@
 .menu {
   background-color: $primaryBrandColor;
   .account-menu{
-    padding-top: 30px;
+    margin-top: 30px;
     height: auto;
   }
   ion-content{
@@ -9,7 +9,7 @@
     width: 100%!important;
     background-color: $primaryBrandColor;
     &.has-header{
-      top: 75px;
+      margin-top: 30px;
     }
   }
   .bar-header {
