@@ -10,7 +10,7 @@
           cordova.plugins.backgroundMode.setDefaults({
             title: 'Binary.com TickTrade',
             text: '',
-            ticker: 'TickTrade is runing in background',
+            ticker: 'TickTrade is running in background',
             color: '#2A3052'
           });
           cordova.plugins.backgroundMode.enable();
