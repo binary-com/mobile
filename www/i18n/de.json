@@ -68,7 +68,7 @@
     "digit_even_odd":"Kommastelle gerade/ungerade",
     "digit_matches_differs":"Ziffer Gleich/Verschieden",
     "up_down":"Auf/Ab",
-    "markets_are_closed":"Sorry, All markets are currently closed. Please try again later"
+    "markets_are_closed":"Leider sind derzeit alle Märkte geschlossen. Bitte versuchen Sie es später erneut"
   },
   "trade":{
     "payout":"Auszahlung",
@@ -90,8 +90,8 @@
     "lose":"Dieser Kontrakt hat verloren",
     "transaction_id":"Transaktionsreferenz",
     "buy_again":"Nochmal kaufen",
-    "sell":"Sell",
-    "barrier":"Barrier offset"
+    "sell":"Verkaufen",
+    "barrier":"Schwellenverschiebung"
   },
   "help":{
     "need_help":"Brauchen Sie Hilfe?",
@@ -107,7 +107,7 @@
     "exit_confirmation":"Sind Sie sicher, dass Sie beenden möchten?",
     "connection_error_title":"Verbindungsfehler",
     "connection_error":"Keine Internetverbindung vorhanden!",
-    "sign_out":"Sign out"
+    "sign_out":"Abmelden"
   },
   "update":{
     "installed":"Das Update wurde erfolgreich installiert.",
@@ -125,7 +125,7 @@
     "session_duration":"Sitzungsdauer:",
     "statistics":"Ihre Handelsstatistiken seit",
     "interval_question":"Bitte geben Sie Ihren bevorzugten Realitätscheck Intervall ausdrücklich in Minuten an:",
-    "loginid":"Login ID",
+    "loginid":"Login-ID",
     "currency":"Währung",
     "buy_amount":"Umsatz",
     "profit_loss":"Profit/Verlust",
@@ -142,18 +142,18 @@
     "interval_error":"Bitte geben Sie eine Zahl zwischen 10 und 120 ein."
   },
   "newvirtualaccount":{
-    "continue":"Continue",
-    "signup":"Sign up",
-    "email":"Email:",
-    "signup-question":"Don't have an account?",
-    "verification-code":"Verification Code:",
-    "password":"Password:",
-    "residence":"Residence:",
-    "select":"Select your country",
-    "isrequired":"(Requierd)",
-    "password_hint":"Password must be minimum of six lower and uppercase letters with numbers",
-    "code_hint":"Please check your email for the value of this token",
-    "hide_pass":"Hide password",
+    "continue":"Weiter",
+    "signup":"Anmelden",
+    "email":"E-Mail:",
+    "signup-question":"Sie haben noch kein Konto?",
+    "verification-code":"Verifikationscode:",
+    "password":"Passwort:",
+    "residence":"Wohnort:",
+    "select":"Wählen Sie Ihr Land aus",
+    "isrequired":"(Erforderlich)",
+    "password_hint":"Das Passwort muss mindestens sechs Klein- und Großbuchstaben mit Zahlen haben",
+    "code_hint":"Für den Wert dieses Tokens, überprüfen Sie bitte Ihre E-Mail",
+    "hide_pass":"Passwort verbergen",
     "show_pass":"Show password",
     "enter-email":"Please enter your email",
     "email-error":"Email is not valid",
