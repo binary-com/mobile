@@ -16,6 +16,13 @@
           cordova.plugins.backgroundMode.enable();
         }
 
+        if(typeof(window.ga) != "undefined"){
+          window.ga.startTrackerWithId("UA-40877026-7");
+        }
+        else{
+          console.log('Google Analytics is unavailable');
+        }
+
         if(window.cordova && window.cordova.plugins.Keyboard) {
           // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
           // for form inputs)
