@@ -10,17 +10,24 @@
 angular
     .module('binary')
     .factory('analyticsService',
-            function(){
+            function(accountService){
                 var factory = {};
                 factory.google = {
+                    addUser: function(){
+                      var user = accountService.getDefault();
+                      var userId = user && user.id ? user.id : null;
+                      window.ga.setUserId(userId);
+                    },
                     trackView: function(_view){
-                        if(typeof(analytics) !== "undefined"){
-                            analytics.trackView(_view);
+                        if(typeof(ga) !== "undefined"){
+                            this.addUser();
+                            ga.trackView(_view);
                         }
                     },
                     trackEvent: function(id, symbole, contractType, payout){
-                        if(typeof(analytics) !== "undefined"){
-                            analytics.trackEvent(id, symbole, contractType, payout);
+                        if(typeof(ga) !== "undefined"){
+                            this.addUser();
+                            ga.trackEvent(id, symbole, contractType, payout);
                         }
                     }
                 };
