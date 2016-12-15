@@ -5,7 +5,6 @@
     }
     bg-new-account-maltainvest,
     bg-new-account-real {
-        width: 100vw;
         .new-real-account {
             .row {
                 margin: 0;
@@ -62,11 +61,11 @@
                     font-size: 0.8rem;
                     text-align: left;
                     color: $secondaryContentColor;
-                    position: absolute;
-                }
-                .error {
-                    color: $negativeColor;
-                    font-size: 0.8rem;
+                    position: relative;
+                    &.error {
+                        color: $negativeColor;
+                        font-size: 0.8rem;
+                    }
                 }
                 .info-container {
                     border-radius: 3px;

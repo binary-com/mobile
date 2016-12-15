@@ -14,9 +14,9 @@
         .module('binary.share.components.language.controllers')
         .controller('LanguageController', Language);
 
-    Language.$inject = ['$scope', 'languageService', 'websocketService', 'appStateService'];
+    Language.$inject = ['$scope', 'config', 'languageService', 'websocketService', 'appStateService'];
 
-    function Language($scope, languageService, websocketService, appStateService) {
+    function Language($scope, config, languageService, websocketService, appStateService) {
 
         var vm = this;
         vm.languages = [];
@@ -26,13 +26,17 @@
         websocketService.sendRequestFor.websiteStatus();
         $scope.$on('website_status', function(e, website_status) {
             vm.languagesList = website_status.supported_languages;
-            _.forEach(vm.languagesList, function(value) {
-                var LanguageCode = value.toLowerCase();
+            vm.appSupportedLanguages = config.appSupportedLanguages;
+            _.forEach(vm.appSupportedLanguages, function(value) {
+              vm.value = value.toUpperCase();
+              if(vm.languagesList.indexOf(vm.value) > -1){
+                var LanguageCode = vm.value.toLowerCase();
                 var languageNativeName = languageService.getLanguageNativeName(LanguageCode);
                 vm.languages.push({
                     'id': LanguageCode,
                     'title': languageNativeName
                 });
+              }
             });
             vm.isLanguageReady =  true;
             appStateService.isLanguageReady = true;

@@ -7,15 +7,9 @@
     <select class="language" tabindex="2" ng-model="vm.language" ng-options="language.id as language.title for language in vm.languages" ng-change="vm.changeLanguage(language.id)">
     </select>
 </label>
-<div class="row"
-     ng-show="!vm.isLanguageReady">
+<div class="row"  ng-show="!vm.isLanguageReady">
   <div class="col center">
-    <div class="barspinner dark">
-      <div class="rect1"></div>
-      <div class="rect2"></div>
-      <div class="rect3"></div>
-      <div class="rect4"></div>
-      <div class="rect5"></div>
-    </div>
+    <ion-spinner>
+    </ion-spinner>
   </div>
 </div>

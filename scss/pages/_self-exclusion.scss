@@ -8,19 +8,20 @@
         margin: 0;
         padding: 0 5px;
         .title {
-          font-size: 4vw;
-          color: $primaryBrandColor;
-          font-weight: bold;
+          font-size: 1.5rem;
+          color: $contentColor;
+          border-bottom: 2px solid $black;
           padding-top: 0;
           padding-bottom: 0;
+          padding: 0;
         }
         .input-title {
           text-align: left;
           white-space: normal;
-          font-size: 4vw;
+          font-size: 1rem;
           padding: 0 5px;
           span {
-            font-size: 4vw;
+            font-size: 1rem;
             color: $secondaryContentColor;
           }
           &.checkbox-container {
@@ -56,14 +57,14 @@
           }
         }
         .help-block {
-          font-size: 3vw;
+          font-size: 0.8rem;
           text-align: left;
           color: $secondaryContentColor;
           position: absolute;
         }
         .error {
           color: $negativeColor;
-          font-size: 3vw;
+          font-size: 0.8rem;
         }
         .info-container {
           border-radius: 3px;
@@ -74,7 +75,11 @@
         }
         .button {
           margin-top: 0;
+          font-size: 1rem;
         }
+      }
+      .hint{
+        font-size: 0.8rem;
       }
     }
   }

@@ -10,7 +10,7 @@
           cordova.plugins.backgroundMode.setDefaults({
             title: 'Binary.com TickTrade',
             text: '',
-            ticker: 'TickTrade is runing in background',
+            ticker: 'TickTrade is running in background',
             color: '#2A3052'
           });
           cordova.plugins.backgroundMode.enable();
@@ -26,7 +26,7 @@
         if(window.cordova && window.cordova.plugins.Keyboard) {
           // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
           // for form inputs)
-          cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+          cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
 
           // Don't remove this line unless you know what you are doing. It stops the viewport
           // from snapping when text inputs are focused. Ionic handles this internally for

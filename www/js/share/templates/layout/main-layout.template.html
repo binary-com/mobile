@@ -6,8 +6,12 @@
     </ion-side-menu-content>
 
     <!-- Left menu -->
-    <ion-side-menu side="left">
-      <ion-content>
+    <ion-side-menu side="left" class="side-menu">
+      <ion-header-bar class="header account-menu">
+        <bg-accounts></bg-accounts>
+      </ion-header-bar>
+      <ion-content class="has-header" scroll="false">
+        <bg-real-account-opening></bg-real-account-opening>
         <ion-list>
           <ion-item nav-clear menu-close ui-sref="trade" tabindex="1" href="#">
             <i class="ion-arrow-graph-up-right"></i>
@@ -31,10 +35,7 @@
 
         </ion-list>
       </ion-content>
-      <ion-footer-bar class="footer">
-        <bg-accounts></bg-accounts>
-        <bg-real-account-opening></bg-real-account-opening>
-      </ion-footer-bar>
+
     </ion-side-menu>
 
   </ion-side-menus>

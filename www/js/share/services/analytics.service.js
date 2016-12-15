@@ -19,14 +19,14 @@ angular
                       window.ga.setUserId(userId);
                     },
                     trackView: function(_view){
-                        this.addUser();
                         if(typeof(ga) !== "undefined"){
+                            this.addUser();
                             ga.trackView(_view);
                         }
                     },
                     trackEvent: function(id, symbole, contractType, payout){
-                        this.addUser();
                         if(typeof(ga) !== "undefined"){
+                            this.addUser();
                             ga.trackEvent(id, symbole, contractType, payout);
                         }
                     }
