@@ -33,6 +33,9 @@
         init();
 
         angular.element(document).ready(function() {
+            if (ionic.Platform.isIOS()) {
+                document.getElementById('trade-container').style.paddingBottom = '20px';
+            }
             window.addEventListener('native.keyboardshow', keyboardShowHandler);
             window.addEventListener('native.keyboardhide', keyboardHideHandler);
 
