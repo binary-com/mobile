@@ -431,5 +431,11 @@
     "maximum_length_should_be_35_characters":"crwdns18069:0crwdne18069:0",
     "maximum_length_should_be_20_characters":"crwdns18070:0crwdne18070:0",
     "minimum_length_should_be_6_characters":"crwdns18071:0crwdne18071:0"
+  },
+  "accept-terms-and-conditions":{
+    "has_updated_its":"crwdns18103:0crwdne18103:0",
+    "terms_and_conditions":"crwdns18104:0crwdne18104:0",
+    "confirm_phrase":"crwdns18105:0crwdne18105:0",
+    "ok":"crwdns18106:0crwdne18106:0"
   }
 }
