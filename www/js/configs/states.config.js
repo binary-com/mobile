@@ -98,7 +98,14 @@ angular
           templateUrl: 'js/pages/profile/profile.template.html',
           controller: 'ProfileController',
           controllerAs: 'vm'
-        });
+        })
+				.state('acceptTermsAndConditions', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/accept-terms-and-conditions/accept-terms-and-conditions.template.html',
+					controller: 'AcceptTermsAndConditionsController',
+					controllerAs: 'vm'
+				});
 
 
 				$urlRouterProvider.otherwise('/');

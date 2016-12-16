@@ -1,0 +1,23 @@
+<ion-view class="accept-terms-and-conditions">
+    <ion-content has-bouncing="false">
+        <div class="row">
+            <div class="col terms-and-conditions-phrase">
+                {{vm.data.landingCompanyName}}
+                has updated its
+                <a href="{{vm.data.linkToTermAndConditions}}">Terms & Conditions</a>. By clicking OK, you confirm that you have read and accepted the updated Terms & Conditions</a>.
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button type="button" name="button" class="button button-block" ng-click="vm.updateUserTermsAndConditions()">Ok</button>
+        </div>
+        <div class="col">
+            <button type="button" class="button button-block button-default" name="button">
+                <bg-logout></bg-logout>
+            </button>
+        </div>
+    </div>
+
+</ion-content>
+</ion-view>
