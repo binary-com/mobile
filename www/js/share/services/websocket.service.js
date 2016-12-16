@@ -391,6 +391,12 @@ angular
                 }
 
                 sendMessage(data);
+              },
+              TAndCApprovalSend: function(){
+                var data = {
+                  tnc_approval: 1
+                }
+                sendMessage(data);
               }
             };
 
@@ -418,6 +424,7 @@ angular
                                 window._trackJs.userId = message.authorize.loginid;
                                 appStateService.isLoggedin = true;
                                 appStateService.virtuality = message.authorize.is_virtual;
+                                localStorage.landingCompanyName = message.authorize.landing_company_fullname;
                                 appStateService.scopes = message.authorize.scopes;
                                 amplitude.setUserId(message.authorize.loginid);
 
@@ -440,6 +447,7 @@ angular
                             break;
                         case 'website_status':
                             $rootScope.$broadcast('website_status', message.website_status);
+                            localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
                             break;
                         case 'active_symbols':
                             var markets = message.active_symbols;
@@ -601,6 +609,13 @@ angular
                               $rootScope.$broadcast('set-settings:error', message.error.message);
                             }
                             break;
+                        case 'tnc_approval':
+                            if(message.tnc_approval){
+                              $rootScope.$broadcast('tnc_approval', message.tnc_approval);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('tnc_approval:error', message.error);
+                            }
                         default:
                     }
                 }

@@ -50,7 +50,9 @@
         'binary.pages.transaction-detail',
         'binary.pages.settings',
         'binary.pages.self-exclusion',
-        'binary.pages.profile'
+        'binary.pages.profile',
+        'binary.pages.terms-and-conditions',
+        'binary.pages.accept-terms-and-conditions'
     ]);
 
   String.prototype.capitalize = function() {

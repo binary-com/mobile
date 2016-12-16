@@ -15,13 +15,13 @@
         .controller('HeaderController', Header);
 
     Header.$inject = ['$scope', '$state',
-                      '$ionicHistory', '$ionicSideMenuDelegate',
-                      'appStateService',
-                    ];
+        '$ionicHistory', '$ionicSideMenuDelegate',
+        'appStateService',
+    ];
 
     function Header($scope, $state,
-                    $ionicHistory, $ionicSideMenuDelegate,
-                    appStateService) {
+        $ionicHistory, $ionicSideMenuDelegate,
+        appStateService) {
         var vm = this;
         vm.hideMenuButton = false;
         vm.disableMenuButton = false;
@@ -32,15 +32,19 @@
         vm.android = ionic.Platform.isAndroid();
 
         vm.toggleSideMenu = function() {
-          if(appStateService.tradeMode || !appStateService.purchaseMode){
-            $ionicSideMenuDelegate.toggleLeft();
-          }
+            if (appStateService.tradeMode || !appStateService.purchaseMode) {
+                $ionicSideMenuDelegate.toggleLeft();
+            }
         }
 
         $scope.$watch(
-            () => { return appStateService.purchaseMode } ,
-            () =>{ vm.disableMenuButton = appStateService.purchaseMode; }
-            );
+            () => {
+                return appStateService.purchaseMode
+            },
+            () => {
+                vm.disableMenuButton = appStateService.purchaseMode;
+            }
+        );
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.to = to;
@@ -48,6 +52,9 @@
             if (['transactiondetail', 'language', 'profile', 'self-exclusion'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
+            } else if (['acceptTermsAndConditions'].indexOf(vm.to.name) > -1) {
+                vm.hideMenuButton = true;
+                vm.showBack = false;
             } else {
                 vm.hideMenuButton = false;
                 vm.showBack = false;
