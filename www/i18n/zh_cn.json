@@ -433,9 +433,9 @@
     "minimum_length_should_be_6_characters":"最小长度是 6 个字符"
   },
   "accept-terms-and-conditions":{
-    "has_updated_its":"has updated its",
-    "terms_and_conditions":"Terms & Conditions",
-    "confirm_phrase":". By clicking OK, you confirm that you have read and accepted the updated Terms & Conditions",
-    "ok":"OK"
+    "has_updated_its":"已更新其",
+    "terms_and_conditions":"条款与条件",
+    "confirm_phrase":"。通过点击OK键，您确认已经阅读并接受更新的条款和条件",
+    "ok":"确定"
   }
 }
