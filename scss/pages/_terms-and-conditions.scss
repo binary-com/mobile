@@ -23,14 +23,23 @@
 				position: relative;
 				padding: 0 12px;
 				min-width: 52px;
-				min-height: 47px;
+				min-height: 45px;
 				border-radius: 4px;
 				vertical-align: top;
 				text-align: center;
 				text-overflow: ellipsis;
-				line-height: 42px;
+				line-height: 47px;
 				cursor: pointer;
 				font-weight: normal;
+				display: block;
+				clear: both;
+				text-transform: none;
+				outline-offset: 0;
+				outline-style: none;
+				outline-width: 0;
+				-webkit-font-smoothing: inherit;
+				outline: 0;
+				align-items: flex-start;
 			}
 		}
 	}
