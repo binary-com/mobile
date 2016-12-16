@@ -20,14 +20,9 @@
 				$scope.$on('get_settings', (e, get_settings) => {
 					vm.clientTncStatus = get_settings.client_tnc_status;
           vm.termsConditionsVersion = localStorage.getItem('termsConditionsVersion');
-          // vm.defaultAccount = accountService.getDefault();
-          // console.log(vm.defaultAccount);
           if(appStateService.virtuality && vm.clientTncStatus !== vm.termsConditionsVersion){
             $state.go('acceptTermsAndConditions');
           }
 				});
-
-
-
     }
 })();

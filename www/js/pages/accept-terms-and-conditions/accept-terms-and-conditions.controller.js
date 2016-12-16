@@ -34,8 +34,5 @@
         $scope.$on('tnc_approval:error', (e, error) => {
           alertService.displayError(error.message);
         });
-
-
-
     }
 })();
