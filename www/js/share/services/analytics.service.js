@@ -24,10 +24,10 @@ angular
                             ga.trackView(_view);
                         }
                     },
-                    trackEvent: function(id, symbole, contractType, payout){
+                    trackEvent: function(market, contractTypei, symbole, payout){
                         if(typeof(ga) !== "undefined"){
                             this.addUser();
-                            ga.trackEvent(id, symbole, contractType, payout);
+                            ga.trackEvent(market, contractType, symbole, payout);
                         }
                     }
                 };
