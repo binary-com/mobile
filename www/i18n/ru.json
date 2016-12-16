@@ -408,7 +408,7 @@
     "please-enter-an-integer-value":"Пожалуйста, введите целое число",
     "valid-range-hint":"Пожалуйста, введите число от 0 до {{max}}",
     "save-prompt":"Изменения успешно сохранены",
-    "success":"Success"
+    "success":"Готово"
   },
   "profile":{
     "personal_details":"Личные данные",
@@ -423,7 +423,7 @@
     "posta_code_zip":"Почтовый код/индекс",
     "telephone":"Телефон",
     "update_profile":"Обновить профайл",
-    "success":"Success",
+    "success":"Готово",
     "success_message":"Ваши настройки обновлены успешно.",
     "error_message":"Не удалось обновить настройки.",
     "this_field_is_required":"Данное поле является обязательным.",
@@ -435,7 +435,7 @@
   "accept-terms-and-conditions":{
     "has_updated_its":"обновил(а)",
     "terms_and_conditions":"Правила и условия",
-    "confirm_phrase":". By clicking OK, you confirm that you have read and accepted the updated Terms & Conditions",
+    "confirm_phrase":". Нажав OK, Вы подтвердите, что прочитали и приняли обновлённые Правила и условия",
     "ok":"OK"
   }
 }
