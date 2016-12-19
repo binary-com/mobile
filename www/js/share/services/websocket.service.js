@@ -138,6 +138,7 @@ angular
               appStateService.isLoggedin = false;
               sessionStorage.removeItem('start');
               sessionStorage.removeItem('_interval');
+              localStorage.removeItem('termsConditionsVersion');
               appStateService.profitTableRefresh = true;
               appStateService.statementRefresh = true;
               appStateService.isNewAccountReal = false;
