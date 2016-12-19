@@ -14,12 +14,12 @@
         .controller('ProfitTableController', ProfitTable);
 
     ProfitTable.$inject = ['$scope', '$filter', '$timeout', '$state', '$templateCache',
-        '$ionicScrollDelegate', 'tableStateService',
+        '$ionicScrollDelegate', 'config', 'tableStateService',
         'websocketService', 'appStateService'
     ];
 
     function ProfitTable($scope, $filter, $timeout, $state, $templateCache,
-        $ionicScrollDelegate, tableStateService,
+        $ionicScrollDelegate, config, tableStateService,
         websocketService, appStateService) {
         var vm = this;
         vm.data = {};
@@ -36,6 +36,7 @@
         vm.jumpToDateInputShow = false;
         vm.hasError = false;
         vm.dateChanged = false;
+        vm.appIdAllowed = config.app_id;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -242,7 +243,7 @@
         vm.setFiltered = function() {
             $scope.$applyAsync(() => {
                 tableStateService.appID = vm.data.appID;
-                vm.filteredTransactions = $filter('DataFilter')(vm.batchedTransaction, tableStateService.appID);
+                vm.filteredTransactions = $filter('DataFilter')(vm.batchedTransaction, tableStateService.appID, vm.appIdAllowed);
                 if (vm.filteredTransactions.length == 0) {
                     vm.noTransaction = true;
                 } else {
