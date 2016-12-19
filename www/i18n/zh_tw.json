@@ -437,5 +437,8 @@
     "terms_and_conditions":"條款與條件",
     "confirm_phrase":"。通過點選OK按鈕，您確定已經閱讀和接受此更新條款和條件",
     "ok":"確定"
+  },
+  "app-version":{
+    "version":"Version"
   }
 }
