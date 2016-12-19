@@ -32,7 +32,8 @@
         'binary.share.components.logout',
         'binary.share.components.connectivity',
         'binary.share.components.regex-validate',
-        'binary.share.components.number'
+        'binary.share.components.number',
+        'binary.share.components.app-version'
     ]);
 
   angular
