@@ -38,8 +38,5 @@
 															});
 									});
 
-									console.log(vm.appVersion);
-
-
 		    }
 		})();
