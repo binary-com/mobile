@@ -14,11 +14,11 @@
         .controller('StatementController', Statement);
 
     Statement.$inject = ['$scope', '$filter', '$timeout', '$state', '$templateCache',
-                         '$ionicScrollDelegate', 'tableStateService',
+                         '$ionicScrollDelegate', 'config', 'tableStateService',
                          'websocketService', 'appStateService'];
 
     function Statement($scope, $filter, $timeout, $state, $templateCache,
-                       $ionicScrollDelegate, tableStateService,
+                       $ionicScrollDelegate, config, tableStateService,
                        websocketService, appStateService) {
         var vm = this;
         vm.data = {};
@@ -35,6 +35,7 @@
         vm.jumpToDateInputShow = false;
         vm.hasError = false;
         vm.dateChanged = false;
+        vm.appIdAllowed = config.app_id;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -243,7 +244,7 @@
         vm.setFiltered = function() {
             $scope.$applyAsync(() => {
               tableStateService.statementAppID = vm.data.appID;
-                vm.filteredTransactions = $filter('StatementDataFilter')(vm.batchedTransaction, tableStateService.statementAppID);
+                vm.filteredTransactions = $filter('StatementDataFilter')(vm.batchedTransaction, tableStateService.statementAppID, vm.appIdAllowed);
                 if (vm.filteredTransactions.length == 0) {
                     vm.noTransaction = true;
                 } else {
