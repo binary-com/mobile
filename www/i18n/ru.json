@@ -437,5 +437,8 @@
     "terms_and_conditions":"Правила и условия",
     "confirm_phrase":". Нажав OK, Вы подтвердите, что прочитали и приняли обновлённые Правила и условия",
     "ok":"OK"
+  },
+  "app-version":{
+    "version":"Version"
   }
 }
