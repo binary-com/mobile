@@ -437,5 +437,8 @@
     "terms_and_conditions":"条款与条件",
     "confirm_phrase":"。通过点击OK键，您确认已经阅读并接受更新的条款和条件",
     "ok":"确定"
+  },
+  "app-version":{
+    "version":"Version"
   }
 }
