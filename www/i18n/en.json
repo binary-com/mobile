@@ -145,10 +145,10 @@
     "newvirtualaccount": {
         "continue": "Continue",
         "signup": "Sign up",
-        "email": "Email:",
+        "email": "Email",
         "signup-question": "Don't have an account?",
-        "verification-code": "Verification Code:",
-        "password": "Password:",
+        "verification-code": "Verification Code",
+        "password": "Password",
         "residence": "Residence:",
         "select": "Select your country",
         "isrequired": "(Requierd)",
