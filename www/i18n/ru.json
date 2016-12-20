@@ -144,10 +144,10 @@
   "newvirtualaccount":{
     "continue":"Продолжить",
     "signup":"Регистрация",
-    "email":"Email:",
+    "email":"Email",
     "signup-question":"У Вас ещё нет счёта?",
-    "verification-code":"Код подтверждения:",
-    "password":"Пароль:",
+    "verification-code":"Verification Code",
+    "password":"Password",
     "residence":"Страна проживания:",
     "select":"Выберите страну",
     "isrequired":"(обязательное поле)",
