@@ -144,10 +144,10 @@
   "newvirtualaccount":{
     "continue":"Weiter",
     "signup":"Anmelden",
-    "email":"E-Mail:",
+    "email":"Email",
     "signup-question":"Sie haben noch kein Konto?",
-    "verification-code":"Verifikationscode:",
-    "password":"Passwort:",
+    "verification-code":"Verification Code",
+    "password":"Password",
     "residence":"Wohnort:",
     "select":"Wählen Sie Ihr Land aus",
     "isrequired":"(Erforderlich)",
