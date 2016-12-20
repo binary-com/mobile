@@ -144,10 +144,10 @@
   "newvirtualaccount":{
     "continue":"继续",
     "signup":"注册",
-    "email":"电子邮件：",
+    "email":"Email",
     "signup-question":"没有账户？",
-    "verification-code":"验证码︰",
-    "password":"密码︰",
+    "verification-code":"Verification Code",
+    "password":"Password",
     "residence":"居住地︰",
     "select":"选择您的国家",
     "isrequired":"（必需）",
