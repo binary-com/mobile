@@ -437,5 +437,8 @@
     "terms_and_conditions":"Terms & Conditions",
     "confirm_phrase":". By clicking OK, you confirm that you have read and accepted the updated Terms & Conditions",
     "ok":"OK"
+  },
+  "app-version":{
+    "version":"Version"
   }
 }
