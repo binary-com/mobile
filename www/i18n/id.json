@@ -144,10 +144,10 @@
   "newvirtualaccount":{
     "continue":"Lanjutkan",
     "signup":"Daftar",
-    "email":"Email:",
+    "email":"Email",
     "signup-question":"Belum memiliki akun?",
-    "verification-code":"Kode Verifikasi:",
-    "password":"Kata sandi:",
+    "verification-code":"Verification Code",
+    "password":"Password",
     "residence":"Tempat tinggal:",
     "select":"Pilih negara Anda",
     "isrequired":"(Wajib)",
