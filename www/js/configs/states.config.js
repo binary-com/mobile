@@ -38,6 +38,7 @@ angular
           templateUrl: 'js/pages/trade/trade.template.html'
         })
         .state('signin', {
+					cache: false,
           templateUrl: 'js/pages/sign-in/sign-in.template.html',
           controller: 'SigninController',
           controllerAs: 'vm'

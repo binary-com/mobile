@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.ticktrade948425" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<?xml version="2.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.binary.ticktrade" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Tick Trade</name>
   <description>
     Enjoy fast-paced binary options trading with the Binary.com Tick Trade App. Trade Forex and more in seconds with our mobile application.
   </description>
-  <author email="morteza@binary.com" href="http://www.binary.com">
+    <author email="morteza@binary.com" href="http://www.binary.com">
     Morteza Tavanarad
   </author>
   <content src="index.html"/>
@@ -36,19 +36,20 @@
   <plugin name="cordova-plugin-whitelist" spec="~1.2.2"/>
   <plugin name="cordova-plugin-network-information" spec="~1.3.0"/>
   <plugin name="cordova-plugin-background-mode" spec="~0.6.5"/>
+  <plugin name="cordova-plugin-google-analytics" spec="~1.7.4" />
   <platform name="android">
-    <icon src="resources\android\icon\drawable-ldpi-icon.png" density="ldpi"/>
-    <icon src="resources\android\icon\drawable-mdpi-icon.png" density="mdpi"/>
-    <icon src="resources\android\icon\drawable-hdpi-icon.png" density="hdpi"/>
-    <icon src="resources\android\icon\drawable-xhdpi-icon.png" density="xhdpi"/>
-    <icon src="resources\android\icon\drawable-xxhdpi-icon.png" density="xxhdpi"/>
-    <icon src="resources\android\icon\drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
-    <splash src="resources\android\splash\drawable-port-ldpi-screen.png" density="port-ldpi"/>
-    <splash src="resources\android\splash\drawable-port-mdpi-screen.png" density="port-mdpi"/>
-    <splash src="resources\android\splash\drawable-port-hdpi-screen.png" density="port-hdpi"/>
-    <splash src="resources\android\splash\drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
-    <splash src="resources\android\splash\drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
-    <splash src="resources\android\splash\drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
+    <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
+    <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
+    <icon src="resources/android/icon/drawable-hdpi-icon.png" density="hdpi"/>
+    <icon src="resources/android/icon/drawable-xhdpi-icon.png" density="xhdpi"/>
+    <icon src="resources/android/icon/drawable-xxhdpi-icon.png" density="xxhdpi"/>
+    <icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
+    <splash src="resources/android/splash/drawable-port-ldpi-screen.png" density="port-ldpi"/>
+    <splash src="resources/android/splash/drawable-port-mdpi-screen.png" density="port-mdpi"/>
+    <splash src="resources/android/splash/drawable-port-hdpi-screen.png" density="port-hdpi"/>
+    <splash src="resources/android/splash/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
+    <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
+    <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
-  <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
+  <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
 </widget>

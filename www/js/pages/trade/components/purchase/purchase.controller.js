@@ -111,9 +111,9 @@
 
                 // Send statistic to Google Analytics
                 analyticsService.google.trackEvent(
-                    vm.user.id,
-                    proposal.underlying_symbol,
+                    proposal.market,
                     proposal.contract_type,
+                    proposal.underlying_symbol,
                     vm.purchasedContract.payout);
 
 
