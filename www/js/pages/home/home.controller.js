@@ -39,10 +39,12 @@
       analyticsService.google.trackView("Home");
 
       // Check that is saved any default account or not
-      if (!appStateService.isLoggedin && accountService.hasDefault()) {
+      if (accountService.hasDefault()) {
         // Login to the server if there is any default account
         if(!appStateService.isLoggedin){
           accountService.validate();
+        } else {
+          $state.go('trade');
         }
       } else {
         $state.go('signin');
