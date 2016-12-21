@@ -95,7 +95,7 @@ gulp.task('deploy-translation', function(done){
   console.log('Cleaning workspace ...');
   // remove tmp directory to clean workspace
   sh.cd('../');
-  //sh.rm('-r', 'tmp');
+  sh.rm('-rf', 'tmp');
   done();
 });
 

@@ -2,10 +2,10 @@
 <html>
   <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
 	<!-- Content Security Policy for cordova-plugin-whitelist -->
-	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' file: wss: ws: data: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; media-src *">
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' gap://ready file: wss: ws: data: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; media-src *">
 
   <!-- Disabling ios telephone number detection -->
   <meta name = "format-detection" content = "telephone=no">
@@ -47,7 +47,7 @@
 	<script type="text/javascript">
 		window._trackJs = {
 		    token: "346262e7ffef497d85874322fff3bbf8",
-		    application: "tick-trade-app",
+		    application: "tick-trade",
 		    onError: function(payload){
                 payload.customer.userId = window._trackJs.userId;
                 return !(window.location.hostname === "localhost");
@@ -76,6 +76,7 @@
 
   </head>
   <body ng-app="binary" ng-cloak>
+    <bg-connection-lost></bg-connection-lost>
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
     <bg-connectivity></bg-connectivity>
     <ping></ping>
@@ -163,6 +164,8 @@
     <script src="js/share/components/connectivity/connectivity.module.js"></script>
     <script src="js/share/components/connectivity/connectivity.directive.js"></script>
     <script src="js/share/components/connectivity/connectivity.controller.js"></script>
+    <script src="js/share/components/connectivity/connection-lost.directive.js"></script>
+    <script src="js/share/components/connectivity/connection-lost.controller.js"></script>
 
     <script src="js/share/components/regex-validate/regex-validate.module.js"></script>
     <script src="js/share/components/regex-validate/regex-validate.directive.js"></script>

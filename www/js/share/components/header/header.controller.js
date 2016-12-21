@@ -31,10 +31,8 @@
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
 
-        vm.toggleSideMenu = function($event) {
+        vm.toggleSideMenu = function() {
           if(appStateService.tradeMode || !appStateService.purchaseMode){
-            // $event.stopPropagation();
-            $event.preventDefault();
             $ionicSideMenuDelegate.toggleLeft();
           }
         }
