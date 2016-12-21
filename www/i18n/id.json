@@ -144,10 +144,10 @@
   "newvirtualaccount":{
     "continue":"Lanjutkan",
     "signup":"Daftar",
-    "email":"Email:",
+    "email":"Email",
     "signup-question":"Belum memiliki akun?",
-    "verification-code":"Kode Verifikasi:",
-    "password":"Kata sandi:",
+    "verification-code":"Kode Verifikasi",
+    "password":"Kata sandi",
     "residence":"Tempat tinggal:",
     "select":"Pilih negara Anda",
     "isrequired":"(Wajib)",
@@ -234,7 +234,7 @@
     "net_income_2":"$25,000 - $50,000",
     "net_income_3":"$50,001 - $100,000",
     "net_income_4":"$100,001 - $500,000",
-    "net_income_5":"Over $500,000",
+    "net_income_5":"Lebih dari $500,000",
     "estimated_worth_1":"Kurang dari $100.000",
     "estimated_worth_2":"$100.000 - $250.000",
     "estimated_worth_3":"$250.001 - $500.000",
@@ -426,19 +426,19 @@
     "success":"Sukses",
     "success_message":"Pengaturan telah berhasil diperbarui.",
     "error_message":"Gagal untuk memperbarui pengaturan Anda.",
-    "this_field_is_required":"This field is required.",
-    "maximum_length_should_be_70_characters":"Maximum length should be 70 characters",
-    "maximum_length_should_be_35_characters":"Maximum length should be 35 characters",
-    "maximum_length_should_be_20_characters":"Maximum length should be 20 characters",
-    "minimum_length_should_be_6_characters":"Minimum length should be 6 characters"
+    "this_field_is_required":"Bagian ini wajib diisi.",
+    "maximum_length_should_be_70_characters":"Panjang maksimum harus 70 karakter",
+    "maximum_length_should_be_35_characters":"Panjang maksimum harus 35 karakter",
+    "maximum_length_should_be_20_characters":"Panjang maksimum harus 20 karakter",
+    "minimum_length_should_be_6_characters":"Panjang minimum harus 6 karakter"
   },
   "accept-terms-and-conditions":{
-    "has_updated_its":"has updated its",
-    "terms_and_conditions":"Terms & Conditions",
-    "confirm_phrase":". By clicking OK, you confirm that you have read and accepted the updated Terms & Conditions",
+    "has_updated_its":"telah memperbarui",
+    "terms_and_conditions":"Syarat & Ketentuan",
+    "confirm_phrase":". Dengan mengklik OK, Anda mengkonfirmasi bahwa Anda telah membaca dan menerima Syarat & Ketentuan yang diperbarui",
     "ok":"OK"
   },
   "app-version":{
-    "version":"Version"
+    "version":"Versi"
   }
 }
