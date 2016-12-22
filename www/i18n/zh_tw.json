@@ -144,10 +144,10 @@
   "newvirtualaccount":{
     "continue":"繼續",
     "signup":"註冊",
-    "email":"Email",
+    "email":"電子郵件",
     "signup-question":"沒有帳戶？",
-    "verification-code":"Verification Code",
-    "password":"Password",
+    "verification-code":"驗證碼",
+    "password":"密碼",
     "residence":"居住地︰",
     "select":"選擇您的國家",
     "isrequired":"（必要）",
@@ -439,6 +439,6 @@
     "ok":"確定"
   },
   "app-version":{
-    "version":"Version"
+    "version":"版本"
   }
 }
