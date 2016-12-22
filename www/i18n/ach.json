@@ -321,7 +321,8 @@
     "filter_by_app":"crwdns17959:0crwdne17959:0",
     "filter_by_date":"crwdns17960:0crwdne17960:0",
     "no_transaction":"crwdns17961:0crwdne17961:0",
-    "today":"crwdns17962:0crwdne17962:0"
+    "today":"crwdns17962:0crwdne17962:0",
+    "go":"crwdns18727:0crwdne18727:0"
   },
   "transactiondetails":{
     "detail":"crwdns17963:0crwdne17963:0",
@@ -367,7 +368,8 @@
     "today":"crwdns18001:0crwdne18001:0",
     "action_type":"crwdns18002:0crwdne18002:0",
     "credit_debit":"crwdns18003:0crwdne18003:0",
-    "balance":"crwdns18004:0crwdne18004:0"
+    "balance":"crwdns18004:0crwdne18004:0",
+    "go":"crwdns18728:0crwdne18728:0"
   },
   "menu":{
     "trade":"crwdns18005:0crwdne18005:0",
