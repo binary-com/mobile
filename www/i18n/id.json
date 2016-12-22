@@ -321,7 +321,8 @@
     "filter_by_app":"Pilih aplikasi",
     "filter_by_date":"Pilih tanggal",
     "no_transaction":"Tidak terdapat transaksi yang dapat ditampilkan.",
-    "today":"Hari ini"
+    "today":"Hari ini",
+    "go":"Go"
   },
   "transactiondetails":{
     "detail":"Rincian transaksi",
@@ -367,7 +368,8 @@
     "today":"Hari ini",
     "action_type":"Aksi",
     "credit_debit":"Kredit/Debit",
-    "balance":"Saldo"
+    "balance":"Saldo",
+    "go":"Go"
   },
   "menu":{
     "trade":"Trading",
