@@ -233,7 +233,7 @@ angular
                     };
                     sendMessage(data);
                 },
-                profitTable: function(params) {
+                profitTable: function(params, req_id) {
                     var data = {
                         profit_table: 1
                     };
@@ -517,7 +517,7 @@ angular
                             break;
                         case 'profit_table':
                             if (message.profit_table) {
-                            $rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
+                            $rootScope.$broadcast('profit_table:update', message.profit_table, message.req_id);
                             } else if (message.error) {
                             $rootScope.$broadcast('profit_table:error', message.error.message);
                             }
@@ -581,7 +581,7 @@ angular
                             break;
                         case 'statement':
                             if (message.statement) {
-                            $rootScope.$broadcast('statement:update', message.statement, message.echo_req.passthrough);
+                            $rootScope.$broadcast('statement:update', message.statement, message.req_id);
                             } else if (message.error) {
                             $rootScope.$broadcast('statement:error', message.error.message);
                             }

@@ -86,7 +86,6 @@
 
         vm.delayedLoad = function() {
             $timeout(vm.loadMore, 50);
-
         }
 
         vm.loadMore = function() {
@@ -171,13 +170,17 @@
             if (vm.data.hasOwnProperty('dateTo') && vm.data.dateTo != "") {
                 vm.params.date_to = vm.data.dateTo + 8.64e+4;
             }
+            vm.params.req_id = vm.data.dateTo || (Math.round(new Date().getTime() / 1000)) ;
+            vm.reqId = vm.params.req_id;
             websocketService.sendRequestFor.profitTable(vm.params);
         }
 
-        $scope.$on('profit_table:update', (e, _profitTable, _passthrough) => {
+        $scope.$on('profit_table:update', (e, _profitTable, _req_id) => {
             vm.firstCompleted = true;
             vm.profitTable = _profitTable;
             vm.count = vm.profitTable.count;
+            vm.hasError = false;
+            if(vm.reqId == _req_id){
             if (vm.count == 0) {
                 vm.noTransaction = true;
                 $scope.$applyAsync(() => {
@@ -208,6 +211,7 @@
                     });
                     vm.setBatch();
                 }
+              }
             }
         });
 
@@ -258,9 +262,9 @@
             vm.dateChanged = true;
             vm.noTransaction = false;
             if (tableStateService.dateType == 'allTime') {
-              $scope.$applyAsync(() => {
-                vm.jumpToDateInputShow = false;
-              });
+                $scope.$applyAsync(() => {
+                    vm.jumpToDateInputShow = false;
+                });
                 tableStateService.completedGroup = true;
                 vm.firstCompleted = false;
                 vm.data.dateTo = '';
@@ -268,37 +272,29 @@
                 tableStateService.dateTo = '';
                 vm.loadMore();
             } else if (tableStateService.dateType == 'jumpToDate') {
-                // vm.firstCompleted = false;
                 $scope.$applyAsync(() => {
-                  vm.jumpToDateInputShow = true;
+                    vm.jumpToDateInputShow = true;
                 });
+                tableStateService.completedGroup = true;
+                vm.firstCompleted = false;
                 vm.nowDateInputLimit = $filter('date')(new Date(), 'yyyy-MM-dd');
                 document.getElementById('dateTo').setAttribute('max', vm.nowDateInputLimit);
                 document.getElementById('dateTo').value = vm.nowDateInputLimit;
                 vm.jumpToDateFilter();
             }
-            document.getElementById('datetype').blur();
         }
 
         vm.jumpToDateFilter = function() {
-          if(vm.timeoutJumpToDate){
-            $timeout.cancel(vm.timeoutJumpToDate);
-          }
-
-          vm.timeoutJumpToDate = function(){
-            if(tableStateService.dateType == 'jumpToDate'){
-            $timeout(function() {
-          tableStateService.completedGroup = true;
-                  vm.noTransaction = false;
-                  vm.firstCompleted = false;
-                  vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
-                  tableStateService.dateTo = vm.data.dateTo;
-                  vm.dateChanged = true;
-                  vm.loadMore();
-              }, 500);
+            if (tableStateService.dateType == 'jumpToDate') {
+                tableStateService.completedGroup = true;
+                vm.dateChanged = true;
+                vm.noTransaction = false;
+                vm.firstCompleted = false;
+                tableStateService.currentPage = 0;
+                vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
+                tableStateService.dateTo = vm.data.dateTo;
+                vm.loadMore();
             }
-          }
-          vm.timeoutJumpToDate();
         }
 
 

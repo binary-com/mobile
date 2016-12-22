@@ -18,13 +18,20 @@
         </div>
     </div>
     <div class="row filters jump-to-date-container" ng-show="vm.jumpToDateInputShow">
-      <div class="col list jump-to-date-content">
-            <label class="item item-input jump-to-date" for="dateTo">
+        <div class="col list jump-to-date-content">
+            <div class="row">
+                <div class="col input-container">
+                    <label class="item item-input jump-to-date" for="dateTo">
                 <span>
                     {{'statement.jump_to_date' | translate}}
                 </span>
-                <input type="date" id="statement-dateTo" name="dateTo" ng-model="vm.data.end" ng-change="vm.jumpToDateFilter()">
+                <input type="date" id="statement-dateTo" name="dateTo" ng-model="vm.data.end">
             </label>
+                </div>
+                <div class="col">
+                    <button type="button" class="button button-default" ng-click="vm.jumpToDateFilter()">{{'statement.go' | translate}}</button>
+                </div>
+            </div>
         </div>
     </div>
     <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
@@ -50,7 +57,7 @@
                             <div class="bold center statement-element" ng-bind="transaction.action_type"></div>
                             <div class="statement-element last-statement-element bold green right" ng-bind="transaction.balance_after | currency : vm.currency : 2"></div>
                         </li>
-                        <li class="list" ng-if="vm.noTransaction">
+                        <li class="list no-transaction" ng-if="vm.noTransaction">
                             {{'statement.no_transaction' | translate}}
                         </li>
                         <li class="list center has-error" ng-if="vm.hasError">
