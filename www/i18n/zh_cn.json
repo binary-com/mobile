@@ -144,10 +144,10 @@
   "newvirtualaccount":{
     "continue":"继续",
     "signup":"注册",
-    "email":"Email",
+    "email":"电子邮件",
     "signup-question":"没有账户？",
-    "verification-code":"Verification Code",
-    "password":"Password",
+    "verification-code":"验证码",
+    "password":"密码",
     "residence":"居住地︰",
     "select":"选择您的国家",
     "isrequired":"（必需）",
@@ -321,7 +321,8 @@
     "filter_by_app":"选择应用程序",
     "filter_by_date":"选择日期",
     "no_transaction":"没有可显示的交易。",
-    "today":"今天"
+    "today":"今天",
+    "go":"Go"
   },
   "transactiondetails":{
     "detail":"交易详情",
@@ -367,7 +368,8 @@
     "today":"今天",
     "action_type":"操作",
     "credit_debit":"借方/贷方",
-    "balance":"余额"
+    "balance":"余额",
+    "go":"Go"
   },
   "menu":{
     "trade":"交易",
@@ -439,6 +441,6 @@
     "ok":"确定"
   },
   "app-version":{
-    "version":"Version"
+    "version":"版本"
   }
 }
