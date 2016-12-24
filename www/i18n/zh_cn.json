@@ -74,7 +74,7 @@
     "payout":"赔付额",
     "stake":"投注金额",
     "price":"价格",
-    "buy":"Buy",
+    "buy":"购买",
     "net_profit":"净利",
     "potential_payout":"潜在赔付额",
     "total_cost":"成本总计",
@@ -322,7 +322,7 @@
     "filter_by_date":"选择日期",
     "no_transaction":"没有可显示的交易。",
     "today":"今天",
-    "go":"Go"
+    "go":"去"
   },
   "transactiondetails":{
     "detail":"交易详情",
@@ -369,7 +369,7 @@
     "action_type":"操作",
     "credit_debit":"借方/贷方",
     "balance":"余额",
-    "go":"Go"
+    "go":"去"
   },
   "menu":{
     "trade":"交易",
