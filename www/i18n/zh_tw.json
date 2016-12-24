@@ -74,7 +74,7 @@
     "payout":"賠付額",
     "stake":"投注金額",
     "price":"價格",
-    "buy":"Buy",
+    "buy":"購買",
     "net_profit":"淨利",
     "potential_payout":"潛在賠付額",
     "total_cost":"成本總計",
@@ -322,7 +322,7 @@
     "filter_by_date":"選擇日期",
     "no_transaction":"沒有可顯示的交易。",
     "today":"今天",
-    "go":"Go"
+    "go":"去"
   },
   "transactiondetails":{
     "detail":"交易詳細資訊",
@@ -369,7 +369,7 @@
     "action_type":"動作",
     "credit_debit":"借記/貸記",
     "balance":"餘額",
-    "go":"Go"
+    "go":"去"
   },
   "menu":{
     "trade":"交易",
