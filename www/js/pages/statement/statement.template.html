@@ -54,7 +54,14 @@
                         <li class="list" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
                             <div class="statement-element center" ng-bind="transaction.transaction_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></div>
                             <div class="center statement-element center" ng-bind="transaction.transaction_id"></div>
-                            <div class="bold center statement-element center" ng-bind="transaction.action_type"></div>
+                            <div class="bold center statement-element center">
+
+                                {{ ( (transaction.action_type == "buy") ? 'statement.buy' : ((transaction.action_type == "sell") ? 'statement.sell' : ((transaction.action_type == "deposit") ? 'statement.deposit' : ((transaction.action_type == "withdrawal") ? 'statement.withdrawal' :
+                                "-" ) ) ) ) | translate }}
+
+
+
+                            </div>
                             <div class="statement-element last-statement-element bold green center" ng-bind="transaction.balance_after | currency : vm.currency : 2"></div>
                         </li>
                         <li class="list no-transaction" ng-if="vm.noTransaction">
@@ -62,8 +69,7 @@
                         </li>
                         <li class="list center has-error" ng-if="vm.hasError">
                             <div class="col">
-                                <i class="icon ion-alert-circled"></i>
-                                {{vm.errorMessage}}
+                                <i class="icon ion-alert-circled"></i> {{vm.errorMessage}}
                             </div>
                         </li>
                     </ul>
