@@ -29,6 +29,12 @@
       vm.sessionLoginId = authorize.loginid;
       // check if user is not already authorized, account is real money account  & is not changed in app
       if (!appStateService.isRealityChecked && authorize.is_virtual == 0 && !appStateService.isChangedAccount) {
+        if(!_.isEmpty(sessionStorage.realityCheckStart)){
+          sessionStorage.removeItem('realityCheckStart');
+        }
+        if(!_.isEmpty(sessionStorage.start)){
+          sessionStorage.removeItem('start');
+        }
         landingCompanyName = authorize.landing_company_name;
         websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
       }
@@ -37,11 +43,38 @@
         $timeout.cancel(vm.realityCheckTimeout);
         appStateService.isChangedAccount = false;
         appStateService.isRealityChecked = true;
+        if(!_.isEmpty(sessionStorage.realityCheckStart)){
+          sessionStorage.removeItem('realityCheckStart');
+        }
+        if(!_.isEmpty(sessionStorage.start)){
+          sessionStorage.removeItem('start');
+        }
       }
       // check if account is changed and is real money account
       else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0) {
         if (vm.realityCheckTimeout) {
           $timeout.cancel(vm.realityCheckTimeout);
+        }
+        if(!_.isEmpty(sessionStorage.realityCheckStart)){
+          sessionStorage.removeItem('realityCheckStart');
+        }
+        if(!_.isEmpty(sessionStorage.start)){
+          sessionStorage.removeItem('start');
+        }
+        appStateService.isRealityChecked = false;
+        landingCompanyName = authorize.landing_company_name;
+        websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
+        appStateService.isChangedAccount = false;
+      }
+      else if(!appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0){
+        if (vm.realityCheckTimeout) {
+          $timeout.cancel(vm.realityCheckTimeout);
+        }
+        if(!_.isEmpty(sessionStorage.realityCheckStart)){
+          sessionStorage.removeItem('realityCheckStart');
+        }
+        if(!_.isEmpty(sessionStorage.start)){
+          sessionStorage.removeItem('start');
         }
         appStateService.isRealityChecked = false;
         landingCompanyName = authorize.landing_company_name;
@@ -222,12 +255,49 @@
                       e.preventDefault();
                     }
                   }
-                }, ]
+                }
+              //   ,
+              //   {
+              //    text: translation['statement.statement'],
+              //    type: 'button-positive',
+              //    onTap: function(e) {
+              //      $state.go('statement');
+              //      e.preventDefault();
+              //    }
+              //  }
+             ]
               );
             }
           )
       }
     }
+
+
+    // $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
+    //     vm.thisPage = to.name;
+    //     // check if state is changed from any state other than transactiondetail
+    //     // we do not refresh the state if it comes back from transactiondetail
+    //     if (vm.thispage == 'transactiondetail' || vm.thisPage == 'statement') {
+    //       document.getElementsByClassName('result-popup')[0].style.visibility = "hidden";
+    //       document.getElementsByClassName('backdrop')[0].className = "backdrop";
+    //       // $ionicPopup.hide();
+    //     }
+    //     else{
+    //       // if(document.getElementsByClassName('result-popup')[0].style.visibility == "hidden"){
+    //       //   // document.getElementsByClassName('result-popup')[0].style.visibility = "visible";
+    //       //   // document.getElementsByClassName('backdrop')[0].className = "backdrop visible active";
+    //       // }
+    //
+    //     }
+    //     // else {
+    //     //   if(vm.alertRealityCheck){
+    //     //     $ionicPopup.show();
+    //     //   }
+    //     //
+    //     // }
+    // });
+
+
 
     };
 	})();
