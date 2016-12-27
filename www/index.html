@@ -75,7 +75,7 @@
     <!-- END AMPLITUDE -->
 
   </head>
-  <body ng-app="binary" ng-cloak>
+  <body ng-app="binary" ng-controller="BodyController" id="{{getLanguage()}}" ng-cloak>
     <bg-connection-lost></bg-connection-lost>
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
     <bg-connectivity></bg-connectivity>
@@ -128,6 +128,8 @@
     <script src="js/share/services/analytics.service.js"></script>
     <script src="js/share/services/utils.service.js"></script>
     <script src="js/share/services/table-state.service.js"></script>
+
+    <script src="body.controller.js"></script>
 
 
     <script src="js/share/components/header/header.directive.js"></script>

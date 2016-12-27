@@ -38,3 +38,13 @@
 		}
 	}
 }
+
+body#ru .trade #trade-container bg-purchase .purchase .contract .row .col .button {
+	font-size: 0.7rem!important;
+}
+body#ru .trade #trade-container bg-longcode .longcode .row .col {
+	font-size: 0.8rem!important;
+}
+body#ru .trade #trade-container bg-longcode .longcode {
+	max-height: 100px;
+}
