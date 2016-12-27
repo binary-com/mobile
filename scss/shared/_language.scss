@@ -39,12 +39,16 @@
 	}
 }
 
-body#ru .trade #trade-container bg-purchase .purchase .contract .row .col .button {
-	font-size: 0.7rem!important;
+body#ru .trade #trade-container bg-purchase .purchase .contract .row .col .button ,
+body#de .trade #trade-container bg-purchase .purchase .contract .row .col .button {
+	font-size: 0.8rem!important;
+	white-space: wrap;
 }
-body#ru .trade #trade-container bg-longcode .longcode .row .col {
+body#ru .trade #trade-container bg-longcode .longcode .row .col ,
+body#de .trade #trade-container bg-longcode .longcode .row .col {
 	font-size: 0.8rem!important;
 }
-body#ru .trade #trade-container bg-longcode .longcode {
+body#ru .trade #trade-container bg-longcode .longcode ,
+body#de .trade #trade-container bg-longcode .longcode {
 	max-height: 100px;
 }
