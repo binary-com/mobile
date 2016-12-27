@@ -142,11 +142,11 @@ angular
 			};
 
 			this.confirmRemoveAllAccount = function(_callback) {
-				$translate(['alert.remove_all_tokens_title', 'alert.remove_all_tokens_content'])
+				$translate(['alert.remove_all_tokens_title', 'alert.remove_all_tokens_content', 'alert.ok', 'alert.cancel'])
 					.then(function(translation) {
 						displayConfirmation(
 							translation['alert.remove_all_tokens_title'],
-							translation['alert.remove_all_tokens_content'], ['Yes', 'No'],
+							translation['alert.remove_all_tokens_content'], (translation['alert.ok'], translation['alert.cancel']),
 							_callback
 						);
 					});
