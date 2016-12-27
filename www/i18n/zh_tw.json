@@ -35,7 +35,9 @@
     "no_underlying":"此市場沒有基礎交易。請試其他市場。",
     "required_field":"此為必填欄位。",
     "field_between":"必須在 0.70 和 100000 之間。",
-    "must_number":"須為數字。"
+    "must_number":"須為數字。",
+    "ok":"OK",
+    "cancel":"Cancel"
   },
   "options":{
     "account":"帳戶",
@@ -369,7 +371,11 @@
     "action_type":"動作",
     "credit_debit":"借記/貸記",
     "balance":"餘額",
-    "go":"去"
+    "go":"去",
+    "buy":"Buy",
+    "sell":"Sell",
+    "deposit":"Deposit",
+    "withdrawal":"Withdrawal"
   },
   "menu":{
     "trade":"交易",

@@ -35,7 +35,9 @@
     "no_underlying":"Không có công cụ tài chính cho thị trường này. Vui lòng thử lại với thị trường khác.",
     "required_field":"Lĩnh vực này là cần thiết.",
     "field_between":"Nó phải nằm giữa 0.70 và 100000.",
-    "must_number":"Nó phải là một số."
+    "must_number":"Nó phải là một số.",
+    "ok":"OK",
+    "cancel":"Cancel"
   },
   "options":{
     "account":"Tài khoản",
@@ -369,7 +371,11 @@
     "action_type":"Action",
     "credit_debit":"Credit/Debit",
     "balance":"Balance",
-    "go":"Go"
+    "go":"Go",
+    "buy":"Buy",
+    "sell":"Sell",
+    "deposit":"Deposit",
+    "withdrawal":"Withdrawal"
   },
   "menu":{
     "trade":"Trade",

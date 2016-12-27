@@ -35,7 +35,9 @@
     "no_underlying":"此市场没有基础交易。请试其他市场。",
     "required_field":"此为必填字段。",
     "field_between":"必须在 0.70 和 100000 之间。",
-    "must_number":"须为数字。"
+    "must_number":"须为数字。",
+    "ok":"OK",
+    "cancel":"Cancel"
   },
   "options":{
     "account":"账户",
@@ -369,7 +371,11 @@
     "action_type":"操作",
     "credit_debit":"借方/贷方",
     "balance":"余额",
-    "go":"去"
+    "go":"去",
+    "buy":"Buy",
+    "sell":"Sell",
+    "deposit":"Deposit",
+    "withdrawal":"Withdrawal"
   },
   "menu":{
     "trade":"交易",

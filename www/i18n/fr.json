@@ -35,7 +35,9 @@
     "no_underlying":"Il n'y a pas d'actif sous-jacent pour ce marché. Veuillez sélectionner un autre marché.",
     "required_field":"Ce champ est requis.",
     "field_between":"La saisie doit se situer entre 0,70 et 100000.",
-    "must_number":"La saisie doit être un nombre."
+    "must_number":"La saisie doit être un nombre.",
+    "ok":"OK",
+    "cancel":"Cancel"
   },
   "options":{
     "account":"Compte",
@@ -369,7 +371,11 @@
     "action_type":"Action",
     "credit_debit":"Credit/Debit",
     "balance":"Balance",
-    "go":"Go"
+    "go":"Go",
+    "buy":"Buy",
+    "sell":"Sell",
+    "deposit":"Deposit",
+    "withdrawal":"Withdrawal"
   },
   "menu":{
     "trade":"Trade",
