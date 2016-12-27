@@ -35,7 +35,9 @@
     "no_underlying":"No hay activos para este mercado. Por favor, intente otro mercado.",
     "required_field":"El campo es obligatorio.",
     "field_between":"Debe ser entre 0.70 y 100000.",
-    "must_number":"Debe ser un número."
+    "must_number":"Debe ser un número.",
+    "ok":"OK",
+    "cancel":"Cancel"
   },
   "options":{
     "account":"Cuenta",
@@ -369,7 +371,11 @@
     "action_type":"Action",
     "credit_debit":"Credit/Debit",
     "balance":"Balance",
-    "go":"Go"
+    "go":"Go",
+    "buy":"Buy",
+    "sell":"Sell",
+    "deposit":"Deposit",
+    "withdrawal":"Withdrawal"
   },
   "menu":{
     "trade":"Trade",
