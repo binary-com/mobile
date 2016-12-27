@@ -35,7 +35,9 @@
     "no_underlying":"crwdns17693:0crwdne17693:0",
     "required_field":"crwdns17694:0crwdne17694:0",
     "field_between":"crwdns17695:0crwdne17695:0",
-    "must_number":"crwdns17696:0crwdne17696:0"
+    "must_number":"crwdns17696:0crwdne17696:0",
+    "ok":"crwdns19062:0crwdne19062:0",
+    "cancel":"crwdns19063:0crwdne19063:0"
   },
   "options":{
     "account":"crwdns17697:0crwdne17697:0",
@@ -369,7 +371,11 @@
     "action_type":"crwdns18002:0crwdne18002:0",
     "credit_debit":"crwdns18003:0crwdne18003:0",
     "balance":"crwdns18004:0crwdne18004:0",
-    "go":"crwdns18728:0crwdne18728:0"
+    "go":"crwdns18728:0crwdne18728:0",
+    "buy":"crwdns19064:0crwdne19064:0",
+    "sell":"crwdns19065:0crwdne19065:0",
+    "deposit":"crwdns19066:0crwdne19066:0",
+    "withdrawal":"crwdns19067:0crwdne19067:0"
   },
   "menu":{
     "trade":"crwdns18005:0crwdne18005:0",
