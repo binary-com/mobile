@@ -35,7 +35,9 @@
     "no_underlying":"Tidak tersedia dasar untuk pasar ini. Silahkan pilih pasar lainnya.",
     "required_field":"Bagian ini wajib diisi.",
     "field_between":"Harus antara 0.70 dan 100000.",
-    "must_number":"Harus berupa angka."
+    "must_number":"Harus berupa angka.",
+    "ok":"OK",
+    "cancel":"Cancel"
   },
   "options":{
     "account":"Akun",
@@ -369,7 +371,11 @@
     "action_type":"Aksi",
     "credit_debit":"Kredit/Debit",
     "balance":"Saldo",
-    "go":"Lihat"
+    "go":"Lihat",
+    "buy":"Buy",
+    "sell":"Sell",
+    "deposit":"Deposit",
+    "withdrawal":"Withdrawal"
   },
   "menu":{
     "trade":"Trading",
