@@ -35,7 +35,9 @@
     "no_underlying":"Es gibt keine Anlage für diesen Markt. Versuchen Sie bitte einen anderen Markt.",
     "required_field":"Dieses Feld ist erforderlich.",
     "field_between":"Es muss zwischen 0,70 und 100000 sein.",
-    "must_number":"Es muss eine Zahl sein."
+    "must_number":"Es muss eine Zahl sein.",
+    "ok":"OK",
+    "cancel":"Cancel"
   },
   "options":{
     "account":"Konto",
@@ -369,7 +371,11 @@
     "action_type":"Aktion",
     "credit_debit":"Gutschrift/Lastschrift",
     "balance":"Guthaben",
-    "go":"Go"
+    "go":"Go",
+    "buy":"Buy",
+    "sell":"Sell",
+    "deposit":"Deposit",
+    "withdrawal":"Withdrawal"
   },
   "menu":{
     "trade":"Geschäft",
