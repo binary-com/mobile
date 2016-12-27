@@ -74,7 +74,7 @@
     "payout":"Hasil",
     "stake":"Modal",
     "price":"Harga",
-    "buy":"Buy",
+    "buy":"Beli",
     "net_profit":"Laba Bersih",
     "potential_payout":"Potensi Hasil",
     "total_cost":"Total Biaya",
@@ -322,7 +322,7 @@
     "filter_by_date":"Pilih tanggal",
     "no_transaction":"Tidak terdapat transaksi yang dapat ditampilkan.",
     "today":"Hari ini",
-    "go":"Go"
+    "go":"Lihat"
   },
   "transactiondetails":{
     "detail":"Rincian transaksi",
@@ -369,7 +369,7 @@
     "action_type":"Aksi",
     "credit_debit":"Kredit/Debit",
     "balance":"Saldo",
-    "go":"Go"
+    "go":"Lihat"
   },
   "menu":{
     "trade":"Trading",
