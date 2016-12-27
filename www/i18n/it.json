@@ -35,7 +35,9 @@
     "no_underlying":"Non ci sono asset sottostanti per questo mercato. Prova un altro mercato.",
     "required_field":"Questo campo è obbligatorio.",
     "field_between":"Deve essere tra 0.70 e 100000.",
-    "must_number":"Deve essere un numero."
+    "must_number":"Deve essere un numero.",
+    "ok":"OK",
+    "cancel":"Cancel"
   },
   "options":{
     "account":"Account",
@@ -369,7 +371,11 @@
     "action_type":"Action",
     "credit_debit":"Credit/Debit",
     "balance":"Balance",
-    "go":"Go"
+    "go":"Go",
+    "buy":"Buy",
+    "sell":"Sell",
+    "deposit":"Deposit",
+    "withdrawal":"Withdrawal"
   },
   "menu":{
     "trade":"Trade",
