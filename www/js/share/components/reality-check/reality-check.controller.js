@@ -255,49 +255,11 @@
                       e.preventDefault();
                     }
                   }
-                }
-              //   ,
-              //   {
-              //    text: translation['statement.statement'],
-              //    type: 'button-positive',
-              //    onTap: function(e) {
-              //      $state.go('statement');
-              //      e.preventDefault();
-              //    }
-              //  }
-             ]
+                }]
               );
             }
           )
       }
     }
-
-
-    // $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
-    //     vm.thisPage = to.name;
-    //     // check if state is changed from any state other than transactiondetail
-    //     // we do not refresh the state if it comes back from transactiondetail
-    //     if (vm.thispage == 'transactiondetail' || vm.thisPage == 'statement') {
-    //       document.getElementsByClassName('result-popup')[0].style.visibility = "hidden";
-    //       document.getElementsByClassName('backdrop')[0].className = "backdrop";
-    //       // $ionicPopup.hide();
-    //     }
-    //     else{
-    //       // if(document.getElementsByClassName('result-popup')[0].style.visibility == "hidden"){
-    //       //   // document.getElementsByClassName('result-popup')[0].style.visibility = "visible";
-    //       //   // document.getElementsByClassName('backdrop')[0].className = "backdrop visible active";
-    //       // }
-    //
-    //     }
-    //     // else {
-    //     //   if(vm.alertRealityCheck){
-    //     //     $ionicPopup.show();
-    //     //   }
-    //     //
-    //     // }
-    // });
-
-
-
     };
 	})();
