@@ -35,7 +35,9 @@
 		"no_underlying": "There is no underlying for this market. Please try another market.",
 		"required_field": "This field is required.",
 		"field_between": "It must be between 0.70 and 100000.",
-		"must_number": "It must be a number."
+		"must_number": "It must be a number.",
+		"ok": "OK",
+		"cancel": "Cancel"
 	},
 	"options": {
 		"account": "Account",
@@ -372,7 +374,11 @@
 			"action_type": "Action",
 			"credit_debit": "Credit/Debit",
 			"balance": "Balance",
-			"go": "Go"
+			"go": "Go",
+			"buy": "Buy",
+			"sell": "Sell",
+			"deposit": "Deposit",
+			"withdrawal": "Withdrawal"
     },
     "menu": {
       "trade": "Trade",

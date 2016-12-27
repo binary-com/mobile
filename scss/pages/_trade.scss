@@ -244,6 +244,8 @@
 								max-height: none;
 								width: 100%;
 								background: $positiveColor;
+								height: auto;
+								padding: 5px;
 							}
 							.price-container {
 								display: inline-block;
@@ -260,6 +262,7 @@
 								display: flex;
 								height: auto;
 								align-items: center;
+								padding: 10px 0;
 								img {
 									margin: 0 auto;
 								}

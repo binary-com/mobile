@@ -315,9 +315,11 @@
 
         // details functions
         vm.sendContractDetailRequest = function(id) {
+          if(id){
             vm.id = id;
             sessionStorage.setItem('id', vm.id);
             $state.go('transactiondetail');
+          }
         }
 
     }
