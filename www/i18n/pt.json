@@ -35,7 +35,9 @@
     "no_underlying":"Não existe nenhum ativo subjacente. Experimente outro mercado.",
     "required_field":"Este campo é obrigatório.",
     "field_between":"Deve ser entre 0,70 e 100000.",
-    "must_number":"Deve ser um número."
+    "must_number":"Deve ser um número.",
+    "ok":"OK",
+    "cancel":"Cancel"
   },
   "options":{
     "account":"Conta",
@@ -369,7 +371,11 @@
     "action_type":"Action",
     "credit_debit":"Credit/Debit",
     "balance":"Balance",
-    "go":"Go"
+    "go":"Go",
+    "buy":"Buy",
+    "sell":"Sell",
+    "deposit":"Deposit",
+    "withdrawal":"Withdrawal"
   },
   "menu":{
     "trade":"Trade",
