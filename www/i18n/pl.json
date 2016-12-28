@@ -37,7 +37,7 @@
     "field_between":"Liczba musi się mieścić w przedziale od 0,70 do 100 000.",
     "must_number":"To musi być liczba.",
     "ok":"OK",
-    "cancel":"Cancel"
+    "cancel":"Anuluj"
   },
   "options":{
     "account":"Konto",
@@ -70,13 +70,13 @@
     "digit_even_odd":"Cyfra parzysta/nieparzysta",
     "digit_matches_differs":"Cyfry zgadzają się/ różnią się",
     "up_down":"Góra/dół",
-    "markets_are_closed":"Sorry, All markets are currently closed. Please try again later"
+    "markets_are_closed":"Niestety wszystkie rynki są obecnie zamknięte. Spróbuj ponownie później"
   },
   "trade":{
     "payout":"Wypłata",
     "stake":"Stawka",
     "price":"Cena",
-    "buy":"Buy",
+    "buy":"Kup",
     "net_profit":"Zysk netto",
     "potential_payout":"Potencjalna wypłata",
     "total_cost":"Całkowity koszt",
@@ -92,8 +92,8 @@
     "lose":"Ten kontrakt przegrał",
     "transaction_id":"Numer referencyjny transakcji",
     "buy_again":"Kup ponownie",
-    "sell":"Sell",
-    "barrier":"Barrier offset"
+    "sell":"Sprzedaj",
+    "barrier":"Wyrównanie limitu"
   },
   "help":{
     "need_help":"Potrzebujesz pomocy?",
@@ -109,7 +109,7 @@
     "exit_confirmation":"Czy na pewno chcesz wyjść?",
     "connection_error_title":"Błąd połączenia",
     "connection_error":"Brak połączenia internetowego!",
-    "sign_out":"Sign out"
+    "sign_out":"Wyloguj się"
   },
   "update":{
     "installed":"Aktualizacje zostały zainstalowane.",
