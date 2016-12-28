@@ -32,8 +32,7 @@
         'binary.share.components.logout',
         'binary.share.components.connectivity',
         'binary.share.components.regex-validate',
-        'binary.share.components.number',
-        'binary.share.components.app-version'
+        'binary.share.components.number'
     ]);
 
   angular
@@ -51,9 +50,7 @@
         'binary.pages.transaction-detail',
         'binary.pages.settings',
         'binary.pages.self-exclusion',
-        'binary.pages.profile',
-        'binary.pages.terms-and-conditions',
-        'binary.pages.accept-terms-and-conditions'
+        'binary.pages.profile'
     ]);
 
   String.prototype.capitalize = function() {

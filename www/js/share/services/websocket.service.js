@@ -138,7 +138,6 @@ angular
               appStateService.isLoggedin = false;
               sessionStorage.removeItem('start');
               sessionStorage.removeItem('_interval');
-              localStorage.removeItem('termsConditionsVersion');
               appStateService.profitTableRefresh = true;
               appStateService.statementRefresh = true;
               appStateService.isNewAccountReal = false;
@@ -233,7 +232,7 @@ angular
                     };
                     sendMessage(data);
                 },
-                profitTable: function(params, req_id) {
+                profitTable: function(params) {
                     var data = {
                         profit_table: 1
                     };
@@ -392,12 +391,6 @@ angular
                 }
 
                 sendMessage(data);
-              },
-              TAndCApprovalSend: function(){
-                var data = {
-                  tnc_approval: 1
-                }
-                sendMessage(data);
               }
             };
 
@@ -425,7 +418,6 @@ angular
                                 window._trackJs.userId = message.authorize.loginid;
                                 appStateService.isLoggedin = true;
                                 appStateService.virtuality = message.authorize.is_virtual;
-                                localStorage.landingCompanyName = message.authorize.landing_company_fullname;
                                 appStateService.scopes = message.authorize.scopes;
                                 amplitude.setUserId(message.authorize.loginid);
 
@@ -448,7 +440,6 @@ angular
                             break;
                         case 'website_status':
                             $rootScope.$broadcast('website_status', message.website_status);
-                            localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
                             break;
                         case 'active_symbols':
                             var markets = message.active_symbols;
@@ -517,7 +508,7 @@ angular
                             break;
                         case 'profit_table':
                             if (message.profit_table) {
-                            $rootScope.$broadcast('profit_table:update', message.profit_table, message.req_id);
+                            $rootScope.$broadcast('profit_table:update', message.profit_table, message.echo_req.passthrough);
                             } else if (message.error) {
                             $rootScope.$broadcast('profit_table:error', message.error.message);
                             }
@@ -581,7 +572,7 @@ angular
                             break;
                         case 'statement':
                             if (message.statement) {
-                            $rootScope.$broadcast('statement:update', message.statement, message.req_id);
+                            $rootScope.$broadcast('statement:update', message.statement, message.echo_req.passthrough);
                             } else if (message.error) {
                             $rootScope.$broadcast('statement:error', message.error.message);
                             }
@@ -610,13 +601,6 @@ angular
                               $rootScope.$broadcast('set-settings:error', message.error.message);
                             }
                             break;
-                        case 'tnc_approval':
-                            if(message.tnc_approval){
-                              $rootScope.$broadcast('tnc_approval', message.tnc_approval);
-                            }
-                            else if(message.error){
-                              $rootScope.$broadcast('tnc_approval:error', message.error);
-                            }
                         default:
                     }
                 }

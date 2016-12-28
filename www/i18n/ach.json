@@ -74,7 +74,7 @@
     "payout":"crwdns17728:0crwdne17728:0",
     "stake":"crwdns17729:0crwdne17729:0",
     "price":"crwdns17730:0crwdne17730:0",
-    "buy":"crwdns18730:0crwdne18730:0",
+    "buy":"crwdns17731:0crwdne17731:0",
     "net_profit":"crwdns17732:0crwdne17732:0",
     "potential_payout":"crwdns17733:0crwdne17733:0",
     "total_cost":"crwdns17734:0crwdne17734:0",
@@ -144,10 +144,10 @@
   "newvirtualaccount":{
     "continue":"crwdns17789:0crwdne17789:0",
     "signup":"crwdns17790:0crwdne17790:0",
-    "email":"crwdns18176:0crwdne18176:0",
+    "email":"crwdns17791:0crwdne17791:0",
     "signup-question":"crwdns17792:0crwdne17792:0",
-    "verification-code":"crwdns18177:0crwdne18177:0",
-    "password":"crwdns18178:0crwdne18178:0",
+    "verification-code":"crwdns17793:0crwdne17793:0",
+    "password":"crwdns17794:0crwdne17794:0",
     "residence":"crwdns17795:0crwdne17795:0",
     "select":"crwdns17796:0crwdne17796:0",
     "isrequired":"crwdns17797:0crwdne17797:0",
@@ -321,8 +321,7 @@
     "filter_by_app":"crwdns17959:0crwdne17959:0",
     "filter_by_date":"crwdns17960:0crwdne17960:0",
     "no_transaction":"crwdns17961:0crwdne17961:0",
-    "today":"crwdns17962:0crwdne17962:0",
-    "go":"crwdns18727:0crwdne18727:0"
+    "today":"crwdns17962:0crwdne17962:0"
   },
   "transactiondetails":{
     "detail":"crwdns17963:0crwdne17963:0",
@@ -368,8 +367,7 @@
     "today":"crwdns18001:0crwdne18001:0",
     "action_type":"crwdns18002:0crwdne18002:0",
     "credit_debit":"crwdns18003:0crwdne18003:0",
-    "balance":"crwdns18004:0crwdne18004:0",
-    "go":"crwdns18728:0crwdne18728:0"
+    "balance":"crwdns18004:0crwdne18004:0"
   },
   "menu":{
     "trade":"crwdns18005:0crwdne18005:0",
@@ -433,14 +431,5 @@
     "maximum_length_should_be_35_characters":"crwdns18069:0crwdne18069:0",
     "maximum_length_should_be_20_characters":"crwdns18070:0crwdne18070:0",
     "minimum_length_should_be_6_characters":"crwdns18071:0crwdne18071:0"
-  },
-  "accept-terms-and-conditions":{
-    "has_updated_its":"crwdns18103:0crwdne18103:0",
-    "terms_and_conditions":"crwdns18104:0crwdne18104:0",
-    "confirm_phrase":"crwdns18105:0crwdne18105:0",
-    "ok":"crwdns18106:0crwdne18106:0"
-  },
-  "app-version":{
-    "version":"crwdns18149:0crwdne18149:0"
   }
 }

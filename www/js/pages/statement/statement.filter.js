@@ -18,16 +18,15 @@ angular
 
 	StatementDataFilter.$inject = ['$filter'];
 
-		function StatementDataFilter(transactions, appID, appIdAllowed) {
-			function DataChange(transactions, appID, appIdAllowed){
+		function StatementDataFilter(transactions, appID) {
+			function DataChange(transactions, appID){
 				var filtered = [],
 				appID = appID,
-				appIdAllowed = appIdAllowed,
 				transactions = transactions;
 				for (var i in transactions) {
 					var item = transactions[i];
 					var itemId = item.app_id;
-					if(appID == 'allApps' || ((appID == 'tickTradeApp') && itemId === appIdAllowed)){
+					if(appID == 'allApps' || ((appID == 'tickTradeApp') && itemId === '10')){
 						filtered.push(item);
 					}
 				};

@@ -74,7 +74,7 @@
     "payout":"赔付额",
     "stake":"投注金额",
     "price":"价格",
-    "buy":"Buy",
+    "buy":"购入",
     "net_profit":"净利",
     "potential_payout":"潜在赔付额",
     "total_cost":"成本总计",
@@ -144,10 +144,10 @@
   "newvirtualaccount":{
     "continue":"继续",
     "signup":"注册",
-    "email":"电子邮件",
+    "email":"电子邮件：",
     "signup-question":"没有账户？",
-    "verification-code":"验证码",
-    "password":"密码",
+    "verification-code":"验证码︰",
+    "password":"密码︰",
     "residence":"居住地︰",
     "select":"选择您的国家",
     "isrequired":"（必需）",
@@ -321,8 +321,7 @@
     "filter_by_app":"选择应用程序",
     "filter_by_date":"选择日期",
     "no_transaction":"没有可显示的交易。",
-    "today":"今天",
-    "go":"Go"
+    "today":"今天"
   },
   "transactiondetails":{
     "detail":"交易详情",
@@ -368,8 +367,7 @@
     "today":"今天",
     "action_type":"操作",
     "credit_debit":"借方/贷方",
-    "balance":"余额",
-    "go":"Go"
+    "balance":"余额"
   },
   "menu":{
     "trade":"交易",
@@ -433,14 +431,5 @@
     "maximum_length_should_be_35_characters":"最大长度是 35 个字符",
     "maximum_length_should_be_20_characters":"最大长度是 20 个字符",
     "minimum_length_should_be_6_characters":"最小长度是 6 个字符"
-  },
-  "accept-terms-and-conditions":{
-    "has_updated_its":"已更新其",
-    "terms_and_conditions":"条款与条件",
-    "confirm_phrase":"。通过点击OK键，您确认已经阅读并接受更新的条款和条件",
-    "ok":"确定"
-  },
-  "app-version":{
-    "version":"版本"
   }
 }

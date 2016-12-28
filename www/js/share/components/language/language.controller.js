@@ -20,15 +20,11 @@
 
         var vm = this;
         vm.languages = [];
-        vm.appSupportedLanguages = [];
-        vm.languagesList = [];
         vm.isLanguageReady = false;
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
         websocketService.sendRequestFor.websiteStatus();
         $scope.$on('website_status', function(e, website_status) {
-          if(!vm.isLanguageReady){
-          vm.languages = [];
             vm.languagesList = website_status.supported_languages;
             vm.appSupportedLanguages = config.appSupportedLanguages;
             _.forEach(vm.appSupportedLanguages, function(value) {
@@ -45,7 +41,7 @@
             vm.isLanguageReady =  true;
             appStateService.isLanguageReady = true;
             $scope.$apply();
-          }
+
         });
 
         vm.language = languageService.read();
