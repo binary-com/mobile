@@ -112,12 +112,8 @@
     "sign_out":"注销"
   },
   "update":{
-    "installed":"更新已成功安装。",
-    "up_to_date":"应用已更新。",
-    "error":"检查更新时发生错误",
-    "check_for_update":"检查更新中。",
-    "downloading":"下载中",
-    "installing":"更新安装中"
+    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
+    "what_is_new":"WHAT'S NEW"
   },
   "realitycheck":{
     "title":"实况调查",
