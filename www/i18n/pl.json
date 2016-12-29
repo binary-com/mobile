@@ -112,12 +112,8 @@
     "sign_out":"Wyloguj się"
   },
   "update":{
-    "installed":"Aktualizacje zostały zainstalowane.",
-    "up_to_date":"Korzystasz z aktualnej wersji aplikacji.",
-    "error":"Podczas sprawdzania dostępności aktualizacji wystąpił błąd",
-    "check_for_update":"Sprawdzanie dostępności aktualizacji.",
-    "downloading":"Pobieranie ...",
-    "installing":"Instalowanie aktualizacji"
+    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
+    "what_is_new":"WHAT'S NEW"
   },
   "realitycheck":{
     "title":"Bieżąca kontrola konta",
