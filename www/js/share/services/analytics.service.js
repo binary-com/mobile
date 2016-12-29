@@ -24,7 +24,7 @@ angular
                             ga.trackView(_view);
                         }
                     },
-                    trackEvent: function(market, contractTypei, symbole, payout){
+                    trackEvent: function(market, contractType, symbole, payout){
                         if(typeof(ga) !== "undefined"){
                             this.addUser();
                             ga.trackEvent(market, contractType, symbole, payout);

@@ -76,6 +76,7 @@
 
   </head>
   <body ng-app="binary" ng-controller="BodyController as vm" id="{{vm.getLanguage()}}" ng-cloak>
+    <bg-updater></bg-updater>
     <bg-connection-lost></bg-connection-lost>
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
     <bg-connectivity></bg-connectivity>
@@ -180,6 +181,10 @@
 
     <script src="js/share/components/number/number.module.js"></script>
     <script src="js/share/components/number/number.directive.js"></script>
+
+    <script src="js/share/components/updater/updater.module.js"></script>
+    <script src="js/share/components/updater/updater.directive.js"></script>
+    <script src="js/share/components/updater/updater.controller.js"></script>
 
     <script src="js/pages/home/home.module.js"></script>
     <script src="js/pages/home/home.controller.js"></script>
@@ -286,6 +291,9 @@
 
     <script src="js/pages/profile/profile.module.js"></script>
     <script src="js/pages/profile/profile.controller.js"></script>
+
+    <script src="js/pages/update/update.module.js"></script>
+    <script src="js/pages/update/update.controller.js"></script>
 
   </body>
 </html>

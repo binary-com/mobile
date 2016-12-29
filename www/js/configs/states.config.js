@@ -105,6 +105,13 @@ angular
 					templateUrl: 'js/pages/accept-terms-and-conditions/accept-terms-and-conditions.template.html',
 					controller: 'AcceptTermsAndConditionsController',
 					controllerAs: 'vm'
+				})
+				.state('update', {
+					url: '/update',
+					cache: false,
+					templateUrl: 'js/pages/update/update.template.html',
+					controller: 'UpdateController',
+					controllerAs: 'vm'
 				});
 
 

@@ -99,6 +99,46 @@ gulp.task('deploy-translation', function(done){
   done();
 });
 
+gulp.task('code-push', function(done){
+  if(!sh.which('code-push')){
+    console.log('  ' + gutil.colors.red('Code-Push is not installed.'));
+    process.exit(-1);
+  }
+
+  var app = getArgvBySwitchName("--app");
+
+  if(!app){
+    console.log('  ' + gutil.colors.red('Application name is not defined.'));
+    process.exit(-1);
+  }
+
+  var platform = getArgvBySwitchName("--platform");
+
+  if(!platform){
+    console.log('  ' + gutil.colors.red('Platform is not defined.'));
+    process.exit(-1);
+  }
+
+  var deployment = getArgvBySwitchName("--deployment");
+
+  if(!deployment){
+    console.log('  ' + gutil.colors.red('Deployment name is not defined.'));
+    process.exit(-1);
+  }
+
+  console.log('  ' + gutil.colors.blue('Preparing files ...'));
+  sh.sed('-i', ".otherwise('/')", ".otherwise('/update')", 'www/js/configs/states.config.js');
+
+  console.log('  ' + gutil.colors.blue('Run code-push ...'));
+  sh.exec('code-push release-cordova ' + app + ' ' + platform + ' --deploymentName ' + deployment + ' --mandatory');
+
+  console.log('  ' + gutil.colors.blue('Rolling back dump changes ...'));
+  sh.sed('-i', ".otherwise('/update')", ".otherwise('/')", 'www/js/configs/states.config.js');
+  sh.exec('ionic prepare');
+
+  done();
+});
+
 
 function getRemoteUrl(remote){
   var result = sh.exec('git remote show '+ remote  +' -n | grep "Push  URL:"');
@@ -122,4 +162,12 @@ function getRemoteName(argv){
     return argv[index+1] ? argv[index+1] : 'origin';
   }
   return 'origin';
+}
+
+function getArgvBySwitchName(name){
+  var argv = process.argv;
+  if((index = argv.indexOf(name)) > -1){
+    return argv[index+1] ? argv[index+1] : null;
+  }
+  return null;
 }

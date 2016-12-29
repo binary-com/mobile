@@ -43,7 +43,7 @@
                     return;
           }
           else {
-              if($state.current.name === "signin" || $state.current.name === "home" ){
+              if(["signin", "home", "update"].indexOf($state.current.name) > -1){
                   navigator.app.exitApp();
               }
               else if($state.current.name === "trade" && appStateService.purchaseMode){
