@@ -451,5 +451,9 @@
 		},
 		"app-version": {
 			"version": "Version"
-		}
+    },
+    "update": {
+      "your_version_is_out_of_date_please_update": "Your version of TickTrade is out of date, please update it.",
+      "what_is_new": "WHAT'S NEW"
+    }
 }

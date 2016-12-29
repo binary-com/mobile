@@ -37,6 +37,7 @@
   <plugin name="cordova-plugin-background-mode" spec="~0.6.5"/>
   <plugin name="cordova-plugin-google-analytics" spec="~1.7.4"/>
   <platform name="android">
+    <preference name="CodePushDeploymentKey" value="RsETRgKn7ZenvRAozwUYOcUwXEi6V1eFOQxYg"/>
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
     <icon src="resources/android/icon/drawable-hdpi-icon.png" density="hdpi"/>
@@ -51,6 +52,7 @@
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
   <platform name="ios">
+    <preference name="CodePushDeploymentKey" value="X3gSZxT757xTSCqLUXHMcR3oQE_iV1eFOQxYg"/>
     <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
     <icon src="resources/ios/icon/icon@2x.png" width="114" height="114"/>
     <icon src="resources/ios/icon/icon-40.png" width="40" height="40"/>
