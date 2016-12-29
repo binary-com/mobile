@@ -112,12 +112,8 @@
     "sign_out":"Sign out"
   },
   "update":{
-    "installed":"A atualização foi instalada com sucesso.",
-    "up_to_date":"O aplicativo está atualizado.",
-    "error":"Ocorreu um erro ao procurar atualizações",
-    "check_for_update":"Procurando atualização.",
-    "downloading":"Baixando ...",
-    "installing":"Instalando atualização"
+    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
+    "what_is_new":"WHAT'S NEW"
   },
   "realitycheck":{
     "title":"Balanço da realidade",
