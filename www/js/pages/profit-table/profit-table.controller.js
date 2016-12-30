@@ -170,7 +170,7 @@
             if (vm.data.hasOwnProperty('dateTo') && vm.data.dateTo != "") {
                 vm.params.date_to = vm.data.dateTo + 8.64e+4;
             }
-            vm.params.req_id = vm.data.dateTo || (Math.round(new Date().getTime() / 1000)) ;
+            vm.params.req_id = vm.data.dateTo || (Math.round(new Date().getTime() / 1000));
             vm.reqId = vm.params.req_id;
             websocketService.sendRequestFor.profitTable(vm.params);
         }
@@ -180,38 +180,38 @@
             vm.profitTable = _profitTable;
             vm.count = vm.profitTable.count;
             vm.hasError = false;
-            if(vm.reqId == _req_id){
-            if (vm.count == 0) {
-                vm.noTransaction = true;
-                $scope.$applyAsync(() => {
-                    vm.noMore = true;
-                });
-                vm.setBatch();
-            } else if (vm.count > 0) {
-                if (vm.count < vm.limit) {
-                    // has no more to load on next call
-                    vm.noTransaction = false;
-                    // $scope.$applyAsync(() => {
-                    vm.noMoreRequest = true;
-                    // });
-                    vm.profitTable.transactions.forEach(function(el, i) {
-                        vm.transactions.push(vm.profitTable.transactions[i]);
-                    });
-                    vm.setBatch();
-                } else if (vm.count == vm.limit) {
-                    // has at least one transaction on next call to show to user
-                    vm.noTransaction = false;
+            if (vm.reqId == _req_id) {
+                if (vm.count == 0) {
+                    vm.noTransaction = true;
                     $scope.$applyAsync(() => {
-                        vm.noMore = false;
-                    });
-                    vm.profitTable.transactions.forEach(function(el, i) {
-                        if (i < vm.count - 1) {
-                            vm.transactions.push(vm.profitTable.transactions[i]);
-                        }
+                        vm.noMore = true;
                     });
                     vm.setBatch();
+                } else if (vm.count > 0) {
+                    if (vm.count < vm.limit) {
+                        // has no more to load on next call
+                        vm.noTransaction = false;
+                        // $scope.$applyAsync(() => {
+                        vm.noMoreRequest = true;
+                        // });
+                        vm.profitTable.transactions.forEach(function(el, i) {
+                            vm.transactions.push(vm.profitTable.transactions[i]);
+                        });
+                        vm.setBatch();
+                    } else if (vm.count == vm.limit) {
+                        // has at least one transaction on next call to show to user
+                        vm.noTransaction = false;
+                        $scope.$applyAsync(() => {
+                            vm.noMore = false;
+                        });
+                        vm.profitTable.transactions.forEach(function(el, i) {
+                            if (i < vm.count - 1) {
+                                vm.transactions.push(vm.profitTable.transactions[i]);
+                            }
+                        });
+                        vm.setBatch();
+                    }
                 }
-              }
             }
         });
 
@@ -304,11 +304,13 @@
 
         vm.goToTopButtonCondition = function() {
             $scope.$applyAsync(() => {
-                if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
-                    vm.goToTopButton = true;
-                } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
-                    vm.goToTopButton = false;
-                }
+                $timeout(() => {
+                    if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
+                        vm.goToTopButton = true;
+                    } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
+                        vm.goToTopButton = false;
+                    }
+                }, 500);
             });
         }
 
