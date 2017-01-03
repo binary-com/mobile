@@ -29,9 +29,11 @@
         vm.counter = 0;
       }
 
+      var localContract = _.clone(contract);
+
       $scope.$applyAsync(()=>{
         vm.spots[vm.counter++] = {
-          result: contract.result,
+          result: localContract.result,
           value: lastPrice.toString().slice(-1)
         };
       });

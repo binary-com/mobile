@@ -310,6 +310,10 @@ angular
 					return broadcastable = false;
 				};
 
+        var getBroadcastable = function getBroadcastable(){
+          return broadcastable;
+        }
+
 				var isFinished = function isFinished(){
 					return utils.isDefined(contract.exitSpot);
 				};
@@ -441,7 +445,7 @@ angular
                 barrier = barrier.toFixed(utils.fractionalLength(tickPrice));
               }
 							utils.setObjValue(contract, 'barrier', barrier, !utils.digitTrade(contract));
-              utils.setObjValue(contract, 'entrySpotPrice', barrier, true);
+              utils.setObjValue(contract, 'entrySpotPrice', tickPrice, true);
 							utils.setObjValue(contract, 'entrySpotTime', tickTime, !hasEntrySpot());
 						} else if (isExitSpot(tickTime, index)) {
 							utils.setObjValue(contract, 'exitSpot', tickTime, !hasExitSpot());
@@ -488,12 +492,10 @@ angular
 				};
 
 				var addRegions = function addRegions(lastTime, lastPrice) {
-          if (hasEntrySpot()) {
+          if (hasEntrySpot() && broadcastable) {
 
             if(tickPriceList.length === 0){
-              if(contract.barrier){
-                tickPriceList.push(parseFloat(contract.barrier));
-              } else if(contract.entrySpotTime != lastTime && betweenExistingSpots(lastTime)){
+              if(contract.entrySpotTime != lastTime && betweenExistingSpots(lastTime)){
                 tickPriceList.push(parseFloat(contract.entrySpotPrice));
                 if (utils.conditions[contract.type](contract.barrier, contract.entrySpotPrice, tickPriceList)) {
                   contract.result = 'win';
@@ -528,12 +530,14 @@ angular
                 if ( broadcastable ) {
                   $rootScope.$broadcast("contract:finished", contract);
                 }
+                setNotBroadcastable();
               }
             }
           }
 				};
 
 				return {
+          getBroadcastable: getBroadcastable,
 					setNotBroadcastable: setNotBroadcastable,
 					isFinished: isFinished,
 					getContract: getContract,
