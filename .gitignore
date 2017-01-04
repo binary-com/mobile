@@ -22,3 +22,4 @@ www/css/ionic.app*.css
 res
 resources/android
 Thumbs.db
+.npmignore
