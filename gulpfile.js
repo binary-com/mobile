@@ -165,7 +165,7 @@ gulp.task('modify-index', function(done){
       .pipe(htmlreplace({
             js: 'js/main-min.js',
             customscript: {
-              src: "window.location.href.indexOf('translation') > -1 && localStorage.language == 'ach'? localStorage.language = 'en' : null;",
+              src: "window.location.href.indexOf('translation') < 0 && localStorage.language == 'ach'? localStorage.language = 'en' : null;",
               tpl: '<script> %s </script>'
             }
            }
@@ -191,15 +191,11 @@ gulp.task('build', ['clean', 'compress', 'modify-index', 'add-cname'], function(
       .pipe(gulp.dest('dist'));
 });
 
-gulp.task('deploy-master', ['build'], function(done){
-    gulp.src('dist/**/*')
+gulp.task('deploy', ['build'], function(){
+    return gulp.src('dist/**/*')
         .pipe(ghPagesDeploy());
-    return done();
 });
 
-gulp.task('deploy', ['deploy-master', 'deploy-translation'], function(done){
-  return done();
-});
 
 function getRemoteUrl(remote){
   var result = sh.exec('git remote show '+ remote  +' -n | grep "Push  URL:"');
