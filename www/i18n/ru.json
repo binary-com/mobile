@@ -37,7 +37,7 @@
     "field_between":"Число должно быть от 0.70 до 100000.",
     "must_number":"Здесь должны быть цифры.",
     "ok":"OK",
-    "cancel":"Cancel"
+    "cancel":"Отмена"
   },
   "options":{
     "account":"Счёт",
@@ -76,7 +76,7 @@
     "payout":"Выплата",
     "stake":"Ставка",
     "price":"Цена",
-    "buy":"Buy",
+    "buy":"Купить",
     "net_profit":"Чистая прибыль",
     "potential_payout":"Потенциальная выплата",
     "total_cost":"Общая стоимость",
@@ -112,12 +112,8 @@
     "sign_out":"Выход"
   },
   "update":{
-    "installed":"Обновление успешно установлено.",
-    "up_to_date":"Приложение соответствует последней версии.",
-    "error":"Произошла ошибка при проверке обновлений",
-    "check_for_update":"Проверка обновлений.",
-    "downloading":"Загрузка...",
-    "installing":"Установка обновления"
+    "your_version_is_out_of_date_please_update":"Ваша версия приложения Tick Trade устарела. Пожалуйста, обновите приложение.",
+    "what_is_new":"ЧТО НОВОГО"
   },
   "realitycheck":{
     "title":"Проверка реальности",
@@ -148,8 +144,8 @@
     "signup":"Регистрация",
     "email":"Email",
     "signup-question":"У Вас ещё нет счёта?",
-    "verification-code":"Verification Code",
-    "password":"Password",
+    "verification-code":"Код подтверждения",
+    "password":"Пароль",
     "residence":"Страна проживания:",
     "select":"Выберите страну",
     "isrequired":"(обязательное поле)",
@@ -324,7 +320,7 @@
     "filter_by_date":"Укажите дату",
     "no_transaction":"Информация о контрактах отсутствует.",
     "today":"Сегодня",
-    "go":"Go"
+    "go":"Перейти"
   },
   "transactiondetails":{
     "detail":"Детали транзакции",
@@ -371,11 +367,11 @@
     "action_type":"Действие",
     "credit_debit":"Кредит/Дебет",
     "balance":"Баланс",
-    "go":"Go",
-    "buy":"Buy",
-    "sell":"Sell",
-    "deposit":"Deposit",
-    "withdrawal":"Withdrawal"
+    "go":"Перейти",
+    "buy":"Купить",
+    "sell":"Продать",
+    "deposit":"Пополнить",
+    "withdrawal":"Вывод"
   },
   "menu":{
     "trade":"Торговля",
@@ -447,6 +443,6 @@
     "ok":"OK"
   },
   "app-version":{
-    "version":"Version"
+    "version":"Версия"
   }
 }

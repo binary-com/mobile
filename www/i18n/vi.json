@@ -112,12 +112,8 @@
     "sign_out":"Sign out"
   },
   "update":{
-    "installed":"Bản cập nhật đã được cài đặt thành công.",
-    "up_to_date":"Ứng dụng được cập nhật.",
-    "error":"Đã có lỗi xảy ra trong quá trình kiểm tra cập nhật",
-    "check_for_update":"Kiểm tra phiên bản mới.",
-    "downloading":"Đang tải xuống...",
-    "installing":"Đang cài đặt cập nhật"
+    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
+    "what_is_new":"WHAT'S NEW"
   },
   "realitycheck":{
     "title":"Reality Check",

@@ -23,3 +23,5 @@ res
 resources/android
 Thumbs.db
 CNAME
+.npmignore
+tmp

@@ -112,12 +112,8 @@
     "sign_out":"Keluar"
   },
   "update":{
-    "installed":"Pembaruan berhasil diinstal.",
-    "up_to_date":"Aplikasi ini sudah diperbarui.",
-    "error":"Terjadi error saat mengecek pembaruan",
-    "check_for_update":"Mengecek update.",
-    "downloading":"Men-download...",
-    "installing":"Menginstal update"
+    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
+    "what_is_new":"WHAT'S NEW"
   },
   "realitycheck":{
     "title":"Pengecekan Realitas",

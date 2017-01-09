@@ -112,12 +112,8 @@
     "sign_out":"crwdns17760:0crwdne17760:0"
   },
   "update":{
-    "installed":"crwdns17761:0crwdne17761:0",
-    "up_to_date":"crwdns17762:0crwdne17762:0",
-    "error":"crwdns17763:0crwdne17763:0",
-    "check_for_update":"crwdns17764:0crwdne17764:0",
-    "downloading":"crwdns17765:0crwdne17765:0",
-    "installing":"crwdns17766:0crwdne17766:0"
+    "your_version_is_out_of_date_please_update":"crwdns19069:0crwdne19069:0",
+    "what_is_new":"crwdns19070:0crwdne19070:0"
   },
   "realitycheck":{
     "title":"crwdns17767:0crwdne17767:0",
