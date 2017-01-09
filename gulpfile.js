@@ -148,6 +148,7 @@ gulp.task('code-push', function(done){
   done();
 });
 
+
 gulp.task('compress', function(done){
   gulp.src(['www/js/**/*.module.js', 'www/js/**/{*.js, !*.module.js}', 'www/*.js'])
       .pipe(babel({presets: ['es2015']}))
@@ -161,7 +162,15 @@ gulp.task('compress', function(done){
 
 gulp.task('modify-index', function(done){
   gulp.src('www/index.html')
-      .pipe(htmlreplace({js: 'js/main-min.js'}))
+      .pipe(htmlreplace({
+            js: 'js/main-min.js',
+            customscript: {
+              src: "window.location.href.indexOf('translation') > -1 && localStorage.language == 'ach'? localStorage.language = 'en' : null;",
+              tpl: '<script> %s </script>'
+            }
+           }
+         )
+      )
       .pipe(gulp.dest('dist'));
 
   return done();
@@ -172,7 +181,12 @@ gulp.task('clean', function(done){
     return done();
 });
 
-gulp.task('build', ['clean', 'compress', 'modify-index'], function(){
+gulp.task('add-cname', function(done){
+  sh.exec('echo "ticktrade.binary.com" >> dist/CNAME');
+  return done();
+});
+
+gulp.task('build', ['clean', 'compress', 'modify-index', 'add-cname'], function(){
   return gulp.src(['www/**/*', '!www/js/**/*.js', '!www/index.html'])
       .pipe(gulp.dest('dist'));
 });
