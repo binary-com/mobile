@@ -1,0 +1,43 @@
+<ion-view class="layout">
+  <ion-side-menus>
+    <ion-side-menu-content side-menu-content can-drag="false">
+      <bg-header></bg-header>
+      <ion-nav-view></ion-nav-view>
+    </ion-side-menu-content>
+
+    <!-- Left menu -->
+    <ion-side-menu side="left" class="side-menu">
+      <ion-header-bar class="header account-menu">
+        <bg-accounts></bg-accounts>
+      </ion-header-bar>
+      <ion-content class="has-header" scroll="false">
+        <bg-real-account-opening></bg-real-account-opening>
+        <ion-list>
+          <ion-item nav-clear menu-close ui-sref="trade" tabindex="1" href="#">
+            <i class="ion-arrow-graph-up-right"></i>
+            {{ 'menu.trade' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close ui-sref="profittable" href="#">
+            <i class="ion-social-usd"></i>
+            {{ 'menu.profit_table' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close ui-sref="statement" href="#">
+            <i class="ion-android-list"></i>
+            {{ 'menu.statement' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close ui-sref="settings" href="#">
+            <i class="ion-ios-gear"></i>
+            {{ 'menu.settings' | translate }}
+          </ion-item>
+          <ion-item class="side-item" nav-clear menu-close>
+            <bg-logout nav-clear menu-close></bg-logout>
+          </ion-item>
+
+        </ion-list>
+        <bg-app-version class="sidemenu-app-version"></bg-app-version>
+      </ion-content>
+
+    </ion-side-menu>
+
+  </ion-side-menus>
+</ion-view>
