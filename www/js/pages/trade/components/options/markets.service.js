@@ -39,8 +39,8 @@
     }
 
     factory.findTickMarkets = function(){
-      var activeSymbols = JSON.parse(sessionStorage.active_symbols);
-      assetIndex = JSON.parse(sessionStorage.asset_index);
+      var activeSymbols = JSON.parse(sessionStorage.active_symbols || null);
+      assetIndex = JSON.parse(sessionStorage.asset_index || null);
 
       var markets = {};
 
