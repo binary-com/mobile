@@ -390,7 +390,8 @@
     "settings": {
       "settings": "Settings",
       "security-and-limits": "Security & Limits",
-      "self-exclusion": "Self Exclusion"
+      "self-exclusion": "Self Exclusion",
+			"change-password": "Change Password"
     },
     "self-exclusion": {
       "self-exclusion": "Self Exclusion Facilities",
@@ -455,5 +456,17 @@
     "update": {
       "your_version_is_out_of_date_please_update": "Your version of Tick Trade is out of date. Please update your app to the latest version.",
       "what_is_new": "WHAT'S NEW"
-    }
+    },
+		"change-password": {
+			"change_password": "Change Password",
+			"current_password": "Current password",
+			"new_password": "New password",
+			"verify_new_password": "Verify new password",
+			"password_hint": "Minimum of six lower and uppercase letters with numbers",
+			"password_not_match": "The two passwords that you entered do not match.",
+			"required": "This field is required.",
+			"current_password_required": "Please enter your current password.",
+			"not_match_pattern": "Does not match the pattern",
+			"password_changed_text": "Your password has been changed. Please log in again."
+		}
 }

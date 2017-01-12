@@ -25,6 +25,7 @@
         var vm = this;
         vm.hideMenuButton = false;
         vm.disableMenuButton = false;
+        vm.disableBackButton = false;
         vm.showBack = false;
         $ionicSideMenuDelegate.canDragContent(false);
         $ionicHistory.backView(null);
@@ -46,10 +47,19 @@
             }
         );
 
+        $scope.$watch(
+            () => {
+                return appStateService.passwordChanged
+            },
+            () => {
+                vm.disableBackButton = appStateService.passwordChanged;
+            }
+        );
+
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.to = to;
             vm.from = from;
-            if (['transactiondetail', 'language', 'profile', 'self-exclusion'].indexOf(vm.to.name) > -1) {
+            if (['transactiondetail', 'language', 'profile', 'self-exclusion', 'change-password'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
             } else if (['acceptTermsAndConditions'].indexOf(vm.to.name) > -1) {
