@@ -146,6 +146,7 @@ angular
               appStateService.hasMLT = false;
               sessionStorage.removeItem('countryParams');
               websocketService.closeConnection();
+              appStateService.passwordChanged = false;
               $state.go('signin');
             };
 
@@ -398,6 +399,14 @@ angular
                   tnc_approval: 1
                 }
                 sendMessage(data);
+              },
+              changePassword: function(_oldPassword, _newPassword){
+                var data = {
+                  "change_password": "1",
+                  "old_password": _oldPassword,
+                  "new_password": _newPassword
+                }
+                sendMessage(data);
               }
             };
 
@@ -617,6 +626,15 @@ angular
                             else if(message.error){
                               $rootScope.$broadcast('tnc_approval:error', message.error);
                             }
+                            break;
+                        case 'change_password':
+                            if(message.change_password){
+                              $rootScope.$broadcast('change_password:success', message.change_password);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('change_password:error', message.error);
+                            }
+                            break;
                         default:
                     }
                 }
