@@ -202,7 +202,7 @@ input::-webkit-outer-spin-button {
 }
 input {
     width: 100%;
-    padding: 5px 3px;
+    padding: 5px;
     border: 1px solid $borderColor;
     border-radius: 3px;
     background: $white;
@@ -226,13 +226,16 @@ input[type=text] {
     padding: 10px 5px;
     font-size: 1rem;
 }
+.item-input{
+      padding: 6px 0 5px 0;
+}
 .item-select {
     border-radius: 3px;
     font-size: 1rem;
     select {
         position: relative;
         width: 100%;
-        padding: 5px 3px;
+        padding: 5px;
         border: 1px solid $borderColor;
         border-radius: 3px;
         background: $white;
@@ -246,7 +249,7 @@ input[type=text] {
 select {
     position: relative;
     width: 100%;
-    padding: 5px 3px;
+    padding: 5px;
     border: 1px solid $borderColor;
     border-radius: 3px;
     background: $white;
@@ -274,6 +277,13 @@ p {
 label,
 textarea {
     font-size: 1rem;
+  }
+
+.general-content{
+  padding-top: 40px !important;
+  margin-bottom: 40px !important;
+  width: 100vw;
+  font-size: 1rem;
 }
 // end new
 @media screen and (min-width: 960px) {

@@ -1,35 +1,16 @@
 .new-account {
-    ion-content {
-        padding-top: 40px;
-        margin-bottom: 40px;
-    }
     bg-new-account-maltainvest,
     bg-new-account-real {
         .new-real-account {
-
             .row {
                 margin: 0;
                 padding: 0 5px;
-                select {
-                    position: relative;
-                    width: 100%;
-                    padding: 5px 3px;
-                    border: 1px solid $borderColor;
-                    border-radius: 3px;
-                    background: $white;
-                    direction: ltr;
-                    option {
-                        width: 100%;
-                        text-align: left;
-                    }
-                }
                 .item {
-                  padding: 15px;
+                    padding: 15px;
                 }
                 .checkbox-container {
                     text-align: center;
                 }
-              
                 .button {
                     margin-top: 0;
                 }
