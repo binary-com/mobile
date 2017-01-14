@@ -36,8 +36,8 @@
     "required_field":"Dieses Feld ist erforderlich.",
     "field_between":"Es muss zwischen 0,70 und 100000 sein.",
     "must_number":"Es muss eine Zahl sein.",
-    "ok":"OK",
-    "cancel":"Cancel"
+    "ok":"Okay",
+    "cancel":"Abbrechen"
   },
   "options":{
     "account":"Konto",
@@ -76,7 +76,7 @@
     "payout":"Auszahlung",
     "stake":"Einsatz",
     "price":"Kurs",
-    "buy":"Buy",
+    "buy":"Kaufen",
     "net_profit":"Nettogewinn",
     "potential_payout":"Mögliche Auszahlung",
     "total_cost":"Gesamtkosten",
@@ -112,8 +112,8 @@
     "sign_out":"Abmelden"
   },
   "update":{
-    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
-    "what_is_new":"WHAT'S NEW"
+    "your_version_is_out_of_date_please_update":"Ihre Version von Tick Trade ist veraltet. Bitte aktualisieren Sie Ihre App auf die neueste Version.",
+    "what_is_new":"WAS GIBT ES NEUES"
   },
   "realitycheck":{
     "title":"Realitätscheck",
@@ -142,10 +142,10 @@
   "newvirtualaccount":{
     "continue":"Weiter",
     "signup":"Anmelden",
-    "email":"Email",
+    "email":"E-Mail",
     "signup-question":"Sie haben noch kein Konto?",
-    "verification-code":"Verification Code",
-    "password":"Password",
+    "verification-code":"Verifikationscode",
+    "password":"Passwort",
     "residence":"Wohnort:",
     "select":"Wählen Sie Ihr Land aus",
     "isrequired":"(Erforderlich)",
@@ -320,7 +320,7 @@
     "filter_by_date":"Wählen Sie ein Datum",
     "no_transaction":"Es gibt keine Transaktion anzuzeigen.",
     "today":"Heute",
-    "go":"Go"
+    "go":"Los"
   },
   "transactiondetails":{
     "detail":"Transaktionsdetail",
@@ -367,11 +367,11 @@
     "action_type":"Aktion",
     "credit_debit":"Gutschrift/Lastschrift",
     "balance":"Guthaben",
-    "go":"Go",
-    "buy":"Buy",
-    "sell":"Sell",
-    "deposit":"Deposit",
-    "withdrawal":"Withdrawal"
+    "go":"Los",
+    "buy":"Kaufen",
+    "sell":"Verkaufen",
+    "deposit":"Anzahlung",
+    "withdrawal":"Abhebung"
   },
   "menu":{
     "trade":"Geschäft",
@@ -384,7 +384,7 @@
     "settings":"Einstellungen",
     "security-and-limits":"Sicherheit & Grenzen",
     "self-exclusion":"Selbstausschluss",
-    "change-password":"Change Password"
+    "change-password":"Passwort ändern"
   },
   "self-exclusion":{
     "self-exclusion":"Selbstausschluss Einrichtungen",
@@ -447,15 +447,15 @@
     "version":"Version"
   },
   "change-password":{
-    "change_password":"Change Password",
-    "current_password":"Current password",
-    "new_password":"New password",
-    "verify_new_password":"Verify new password",
-    "password_hint":"Minimum of six lower and uppercase letters with numbers",
-    "password_not_match":"The two passwords that you entered do not match.",
-    "required":"This field is required.",
-    "current_password_required":"Please enter your current password.",
-    "not_match_pattern":"Does not match the pattern",
-    "password_changed_text":"Your password has been changed. Please log in again."
+    "change_password":"Passwort ändern",
+    "current_password":"Aktuelles Passwort",
+    "new_password":"Neues Passwort",
+    "verify_new_password":"Neues Passwort bestätigen",
+    "password_hint":"Mindestens aus sechs Groß- und Kleinbuchstaben mit Zahlen",
+    "password_not_match":"Die beiden Passwörter, die Sie eingegeben haben, stimmen nicht überein.",
+    "required":"Dieses Feld ist erforderlich.",
+    "current_password_required":"Bitte geben Sie Ihr aktuelles Passwort ein.",
+    "not_match_pattern":"Entspricht dem Muster nicht",
+    "password_changed_text":"Ihr Passwort wurde geändert. Bitte melden Sie sich erneut an."
   }
 }
