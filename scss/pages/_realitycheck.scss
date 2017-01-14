@@ -4,32 +4,16 @@
 		width: 90vw;
 		padding: 0;
 		font-size: 1rem;
-		.button {
-			font-size: 1rem;
-		}
-		.button-secondary {
-			color: $contentColor!important;
-			background: $fillColor!important;
-		}
+
+
 	}
-	.interval-input {
-		input {
-			border: 1px solid $borderColor;
-			border-radius: 4px;
-			padding-left: 5px;
-			font-size: 1rem;
-		}
-	}
+
 	.interval_error {
 		position: relative;
 		font-size: 1rem;
 		color: $negativeColor;
 	}
-	.popup-head{
-		.popup-title{
-			font-size: 1rem;
-		}
-	}
+
 	.popup-body {
 		background: $white;
 		padding: 5px;

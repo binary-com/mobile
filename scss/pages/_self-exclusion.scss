@@ -7,27 +7,7 @@
       .row {
         margin: 0;
         padding: 0 5px;
-        .title {
-          font-size: 1.5rem;
-          color: $contentColor;
-          border-bottom: 2px solid $black;
-          padding-top: 0;
-          padding-bottom: 0;
-          padding: 0;
-        }
-        .input-title {
-          text-align: left;
-          white-space: normal;
-          font-size: 1rem;
-          padding: 0 5px;
-          span {
-            font-size: 1rem;
-            color: $secondaryContentColor;
-          }
-          &.checkbox-container {
-            text-align: center;
-          }
-        }
+
         select {
           position: relative;
           width: 100%;
@@ -56,22 +36,9 @@
             background: $fillColor;
           }
         }
-        .help-block {
-          font-size: 0.8rem;
-          text-align: left;
-          color: $secondaryContentColor;
-          position: absolute;
-        }
-        .error {
-          color: $negativeColor;
-          font-size: 0.8rem;
-        }
-        .info-container {
-          border-radius: 3px;
-          background: $fillColor;
-          word-break: break-word;
-          padding: 0;
-          margin-top: 10px;
+
+        label{
+          padding: 5px 3px;
         }
         .button {
           margin-top: 0;

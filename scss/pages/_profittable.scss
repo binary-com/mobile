@@ -22,36 +22,8 @@
 		background: $white;
 		z-index: 10;
 
-		.item {
-			padding: 15px;
 
-			.input-title {
-				font-size: 1rem;
-			}
-		}
 
-		.item-select {
-			border: 1px solid $borderColor;
-			border-radius: 3px;
-			font-size: 1rem;
-
-			select {
-				width: 100%;
-				padding: 0 15px;
-				direction: ltr;
-				font-size: 1rem;
-			}
-		}
-
-		input {
-			border: 1px solid $borderColor;
-			border-radius: 3px;
-			font-size: 1rem;
-		}
-
-		input[type="date"]::-webkit-calendar-picker-indicator {
-			color: $secondaryContentColor;
-		}
 
 		&.jump-to-date-container {
 			margin-top: 80px;
