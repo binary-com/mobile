@@ -456,6 +456,6 @@
     "required":"Данное поле является обязательным.",
     "current_password_required":"Пожалуйста, введите текущий пароль.",
     "not_match_pattern":"Не соответствует шаблону",
-    "password_changed_text":"Your password has been changed. Please log in again."
+    "password_changed_text":"Ваш пароль изменён. Пожалуйста, войдите снова."
   }
 }
