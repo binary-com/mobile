@@ -64,9 +64,6 @@
 }
 @media only screen and (max-device-width: 480px) {
 	.sign-in {
-		.token-link {
-			text-decoration: underline;
-		}
 		::-webkit-input-placeholder {
 			color: $secondaryContentColor;
 		}
@@ -94,9 +91,6 @@
 					color: $darkPrimaryBrandColor;
 				}
 			}
-		}
-		.token-link {
-			color: $white;
 		}
 		::-webkit-input-placeholder {
 			color: $secondaryContentColor;

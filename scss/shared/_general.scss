@@ -158,6 +158,15 @@ button.button.button-default {
 .right {
     text-align: right;
 }
+.green {
+    color: $positiveColor;
+}
+.red {
+    color: $negativeColor!important;
+}
+.bold {
+    font-weight: bold;
+}
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
     /* display: none; <- Crashes Chrome on hover */
