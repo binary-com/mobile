@@ -116,7 +116,7 @@ button.button.button-default {
     text-decoration: underline;
 }
 .center {
-    text-align: center;
+    text-align: center!important;
     justify-content: center;
 }
 .item {
@@ -264,6 +264,7 @@ p {
     padding: 5px;
     color: $contentColor;
     font-weight: normal;
+    white-space: normal;
 }
 .button-secondary {
     color: $contentColor!important;
@@ -284,6 +285,9 @@ textarea {
   margin-bottom: 40px !important;
   width: 100vw;
   font-size: 1rem;
+}
+.hint{
+  font-size: 0.8rem;
 }
 // end new
 @media screen and (min-width: 960px) {

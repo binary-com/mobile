@@ -21,34 +21,24 @@
 	}
 	#emailform,
 	#virtualws {
-		.item-input {
-			width: 100%;
-			padding-left: 0 !important;
-		}
 		.email-title {
 			font-size: 1rem;
 			text-align: left;
 			color: $contentColor;
 		}
-		.help-block {
-			&.show-hide-password {
-				margin-top: 15px;
-				input#show-hide {
-					width: 20px;
-					top: 2px;
-					position: relative;
-				}
+		.show-hide-password {
+			margin-top: 15px;
+			input#show-hide {
+				width: 20px;
+				top: 2px;
+				position: relative;
 			}
 		}
 	}
 	.list {
 		label.item-input {
-			border-bottom: 1px solid $borderColor;
 			width: 80%;
 			margin: 0 auto;
-			height: 44px;
-			padding-left: 4px !important;
-			margin-bottom: 26px;
 			i {
 				font-size: 40px;
 				width: 40px;
@@ -57,63 +47,7 @@
 					font-size: 28px;
 				}
 			}
-			input[type=password],
-			input[type=text] {
-				color: $secondaryContentColor;
-				font-family: arial;
-				font-weight: 400;
-				font-size: 1rem;
-				line-height: 1.6;
-			}
-			&.error {
-				border-bottom-color: $negativeColor;
-				i {
-					color: $negativeColor;
-				}
-			}
 		}
-		label.item-select {
-			background: $white;
-			border-width: 0 0 1px 0;
-			i {
-				font-size: 40px;
-				width: 40px;
-				text-align: center;
-				&.icon-small {
-					font-size: 28px;
-				}
-			}
-			.input-label {
-				background: $white;
-				color: $contentColor;
-				font-family: arial;
-				font-weight: 400;
-				font-size: 1rem;
-				line-height: 1;
-				line-height: 1.6;
-			}
-			select {
-				background: $white;
-				color: $contentColor;
-				font-size: 1rem;
-				font-weight: 400;
-				text-transform: uppercase;
-				padding: 0;
-				right: initial;
-				direction: ltr;
-				width: 100%;
-				padding: 0 5px;
-			}
-		}
-	}
-	button.btn-signin {
-		font-size: 1.1rem;
-	}
-	.help {
-		text-decoration: underline;
-	}
-	.token-link {
-		text-decoration: underline;
 	}
 	::-webkit-input-placeholder {
 		color: $secondaryContentColor;

@@ -4,16 +4,7 @@
 		width: 90vw;
 		padding: 0;
 		font-size: 1rem;
-
-
 	}
-
-	.interval_error {
-		position: relative;
-		font-size: 1rem;
-		color: $negativeColor;
-	}
-
 	.popup-body {
 		background: $white;
 		padding: 5px;
@@ -21,6 +12,10 @@
 			font-size: 1rem;
 			padding: 5px;
 			background: $white;
+			p {
+				white-space: normal;
+				color: $contentColor;
+			}
 			.row {
 				white-space: normal;
 				&.realitycheck-text {
@@ -35,10 +30,6 @@
 			}
 			.interval-text {
 				padding: 10px 5px;
-			}
-			p {
-				white-space: normal;
-				color: $contentColor;
 			}
 		}
 	}
