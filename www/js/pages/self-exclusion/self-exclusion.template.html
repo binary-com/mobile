@@ -1,10 +1,10 @@
 <ion-view class="self-exclusion">
-  <ion-content>
+  <ion-content class="general-content">
     <form name="self_exclusion_form" ng-submit="vm.submit()">
       <div class="row">
         <div class="col">
           <div class="row">
-            <div class="col title">
+            <div class="col page-title">
               {{ 'self-exclusion.self-exclusion' | translate }}
             </div>
           </div>
@@ -277,12 +277,15 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col ">
+              <label class="item item-input">
               <input name="time_out_until"
                      type="datetime-local"
                      ng-model="vm.data.timeout_until"
                      >
+                     </label>
               <div class="hint"> {{ 'self-exclusion.time-out-hint' | translate }} </div>
+
             </div>
           </div>
         </div>

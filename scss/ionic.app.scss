@@ -28,7 +28,6 @@ $ionicons-font-path: "../lib/ionic/release/fonts" !default;
 @import "scss/core/forms";
 
 @import "scss/shared/general";
-@import "scss/shared/small";
 @import "scss/shared/header";
 @import "scss/shared/menu";
 @import "scss/shared/typography";
@@ -43,9 +42,7 @@ $ionicons-font-path: "../lib/ionic/release/fonts" !default;
 @import "scss/pages/newaccount";
 @import "scss/pages/connectivity";
 @import "scss/pages/settings";
-@import "scss/pages/self-exclusion";
 @import "scss/pages/profile";
 @import "scss/pages/terms-and-conditions";
-@import "scss/pages/change-password";
 
 @import "scss/shared/language";
