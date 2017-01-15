@@ -383,7 +383,8 @@
   "settings":{
     "settings":"Настройки",
     "security-and-limits":"Безопасность и ограничения",
-    "self-exclusion":"Самоограничение"
+    "self-exclusion":"Самоограничение",
+    "change-password":"Изменение пароля"
   },
   "self-exclusion":{
     "self-exclusion":"Услуги самоограничения",
@@ -444,5 +445,17 @@
   },
   "app-version":{
     "version":"Версия"
+  },
+  "change-password":{
+    "change_password":"Изменение пароля",
+    "current_password":"Текущий пароль",
+    "new_password":"Новый пароль",
+    "verify_new_password":"Подтвердите новый пароль",
+    "password_hint":"Минимум шесть заглавных и строчных букв с цифрами",
+    "password_not_match":"Введённые Вами пароли не совпадают.",
+    "required":"Данное поле является обязательным.",
+    "current_password_required":"Пожалуйста, введите текущий пароль.",
+    "not_match_pattern":"Не соответствует шаблону",
+    "password_changed_text":"Ваш пароль изменён. Пожалуйста, войдите снова."
   }
 }

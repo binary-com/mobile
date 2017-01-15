@@ -383,7 +383,8 @@
   "settings":{
     "settings":"crwdns18010:0crwdne18010:0",
     "security-and-limits":"crwdns18011:0crwdne18011:0",
-    "self-exclusion":"crwdns18012:0crwdne18012:0"
+    "self-exclusion":"crwdns18012:0crwdne18012:0",
+    "change-password":"crwdns19093:0crwdne19093:0"
   },
   "self-exclusion":{
     "self-exclusion":"crwdns18013:0crwdne18013:0",
@@ -444,5 +445,17 @@
   },
   "app-version":{
     "version":"crwdns18149:0crwdne18149:0"
+  },
+  "change-password":{
+    "change_password":"crwdns19094:0crwdne19094:0",
+    "current_password":"crwdns19095:0crwdne19095:0",
+    "new_password":"crwdns19096:0crwdne19096:0",
+    "verify_new_password":"crwdns19097:0crwdne19097:0",
+    "password_hint":"crwdns19098:0crwdne19098:0",
+    "password_not_match":"crwdns19099:0crwdne19099:0",
+    "required":"crwdns19100:0crwdne19100:0",
+    "current_password_required":"crwdns19101:0crwdne19101:0",
+    "not_match_pattern":"crwdns19102:0crwdne19102:0",
+    "password_changed_text":"crwdns19103:0crwdne19103:0"
   }
 }

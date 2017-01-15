@@ -34,6 +34,7 @@ angular
                 factory.virtuality = 0;
                 factory.newAccountAdded = false;
                 factory.isLanguageReady = false;
+                factory.passwordChanged = false;
 
                 return factory;
             });

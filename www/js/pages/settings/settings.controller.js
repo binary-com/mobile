@@ -47,6 +47,12 @@
         url: "language",
         scope: "read",
         forRealAccount: false
+      },
+      {
+        name: "settings.change-password",
+        url: "change-password",
+        scope: "admin",
+        forRealAccount: false
       }
     ];
 

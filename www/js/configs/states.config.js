@@ -112,6 +112,13 @@ angular
 					templateUrl: 'js/pages/update/update.template.html',
 					controller: 'UpdateController',
 					controllerAs: 'vm'
+				})
+				.state('change-password', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/change-password/change-password.template.html',
+					controller: 'ChangePasswordController',
+					controllerAs: 'vm'
 				});
 
 

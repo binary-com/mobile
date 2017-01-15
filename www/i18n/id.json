@@ -383,7 +383,8 @@
   "settings":{
     "settings":"Pengaturan",
     "security-and-limits":"Keamanan & Batasan",
-    "self-exclusion":"Pengecualian Diri"
+    "self-exclusion":"Pengecualian Diri",
+    "change-password":"Change Password"
   },
   "self-exclusion":{
     "self-exclusion":"Fasilitas Pengecualian Diri",
@@ -444,5 +445,17 @@
   },
   "app-version":{
     "version":"Versi"
+  },
+  "change-password":{
+    "change_password":"Change Password",
+    "current_password":"Current password",
+    "new_password":"New password",
+    "verify_new_password":"Verify new password",
+    "password_hint":"Minimum of six lower and uppercase letters with numbers",
+    "password_not_match":"The two passwords that you entered do not match.",
+    "required":"This field is required.",
+    "current_password_required":"Please enter your current password.",
+    "not_match_pattern":"Does not match the pattern",
+    "password_changed_text":"Your password has been changed. Please log in again."
   }
 }
