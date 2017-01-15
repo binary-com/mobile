@@ -26,7 +26,7 @@
       };
 
       function formatMoney (locale, currency, value) {
-        return IntlPolyfill.NumberFormat(locale,
+        return Intl.NumberFormat(locale,
             {
               style: 'currency',
               currency: currency || 'USD'
