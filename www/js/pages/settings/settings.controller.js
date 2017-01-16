@@ -53,6 +53,12 @@
         url: "change-password",
         scope: "admin",
         forRealAccount: false
+      },
+      {
+        name: "settings.financial-assessment",
+        url: "financial-assessment",
+        scope: "admin",
+        forRealAccount: true
       }
     ];
 

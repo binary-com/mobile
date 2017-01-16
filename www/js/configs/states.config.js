@@ -119,6 +119,13 @@ angular
 					templateUrl: 'js/pages/change-password/change-password.template.html',
 					controller: 'ChangePasswordController',
 					controllerAs: 'vm'
+				})
+				.state('financial-assessment', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/financial-assessment/financial-assessment.template.html',
+					controller: 'FinancialAssessmentController',
+					controllerAs: 'vm'
 				});
 
 

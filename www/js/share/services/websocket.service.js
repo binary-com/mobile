@@ -407,6 +407,12 @@ angular
                   "new_password": _newPassword
                 }
                 sendMessage(data);
+              },
+              getFinancialAssessment: function(){
+                var data = {
+                  "get_financial_assessment": 1
+                }
+                sendMessage(data);
               }
             };
 
@@ -633,6 +639,14 @@ angular
                             }
                             else if(message.error){
                               $rootScope.$broadcast('change_password:error', message.error);
+                            }
+                            break;
+                        case 'get_financial_assessment':
+                            if(message.get_financial_assessment){
+                              $rootScope.$broadcast('get_financial_assessment:success', message.get_financial_assessment);
+                            }
+                            else if(message.error) {
+                              $rootScope.$broadcast('get_financial_assessment:error', message.error);
                             }
                             break;
                         default:
