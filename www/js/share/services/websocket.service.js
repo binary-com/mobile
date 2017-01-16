@@ -413,9 +413,21 @@ angular
                   "get_financial_assessment": 1
                 }
                 sendMessage(data);
-              }
-            };
+              },
+              setFinancialAssessment: function(params){
+                var data = {
+                  "set_financial_assessment": 1
+                }
 
+                for( var key in params){
+                  if(params.hasOwnProperty(key)){
+                    data[key] = params[key];
+                  }
+                }
+
+                sendMessage(data);
+            }
+          }
             websocketService.closeConnection = function() {
                 if (dataStream) {
                     dataStream.close();
@@ -648,6 +660,9 @@ angular
                             else if(message.error) {
                               $rootScope.$broadcast('get_financial_assessment:error', message.error);
                             }
+                            break;
+                        case 'set_financial_assessment':
+                            $rootScope.$broadcast('set_financial_assessment:success', message.set_financial_assessment);
                             break;
                         default:
                     }

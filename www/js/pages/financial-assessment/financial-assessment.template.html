@@ -485,12 +485,18 @@
 
             <div class="row">
                 <div class="col">
-                    {{'financial-assessment.financial_assessment_info' | translate}}
+                    <p>
+                        {{'financial-assessment.financial_assessment_info' | translate}}
+                    </p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col center">
+                    <span class="help-block error center" ng-if="vm.notAnyChanges">{{'financial-assessment.no_change' | translate}}</span>
+                    <span class="center" ng-if="vm.updateSuccessful">
+                        <i class="ion-checkmark green"></i>
+                        {{'financial-assessment.updated_successfully' | translate}}</span>
                     <button class="button button-block" ng-click="vm.submitFinancialAssessment()" ng-disabled="vm.disableUpdate">
                         {{'financial-assessment.update' | translate}}
                     </button>
