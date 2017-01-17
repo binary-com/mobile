@@ -35,6 +35,8 @@ angular
                 factory.newAccountAdded = false;
                 factory.isLanguageReady = false;
                 factory.passwordChanged = false;
+                factory.hasToAcceptTandC = false;
+                factory.hasToFillFinancialAssessment = false;
 
                 return factory;
             });

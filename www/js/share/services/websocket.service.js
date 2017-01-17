@@ -426,6 +426,12 @@ angular
                 }
 
                 sendMessage(data);
+            },
+            getAccountStatus: function(){
+              var data = {
+                "get_account_status": 1
+              }
+              sendMessage(data);
             }
           }
             websocketService.closeConnection = function() {
@@ -663,6 +669,9 @@ angular
                             break;
                         case 'set_financial_assessment':
                             $rootScope.$broadcast('set_financial_assessment:success', message.set_financial_assessment);
+                            break;
+                        case 'get_account_status':
+                            $rootScope.$broadcast('get_account_status', message.get_account_status);
                             break;
                         default:
                     }

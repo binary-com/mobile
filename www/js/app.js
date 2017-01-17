@@ -34,7 +34,8 @@
         'binary.share.components.regex-validate',
         'binary.share.components.number',
         'binary.share.components.app-version',
-        'binary.share.components.updater'
+        'binary.share.components.updater',
+        'binary.share.components.check-financial-assessment'
     ]);
 
   angular

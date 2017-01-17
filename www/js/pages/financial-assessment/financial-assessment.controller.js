@@ -13,9 +13,9 @@
         .module('binary.pages.financial-assessment.controllers')
         .controller('FinancialAssessmentController', FinancialAssessment);
 
-    FinancialAssessment.$inject = ['$scope', 'websocketService'];
+    FinancialAssessment.$inject = ['$scope', '$state', '$timeout', 'websocketService', 'appStateService'];
 
-    function FinancialAssessment($scope, websocketService) {
+    function FinancialAssessment($scope, $state, $timeout, websocketService, appStateService) {
         var vm = this;
         vm.data = {};
         vm.disableUpdate = true;
@@ -95,9 +95,14 @@
           $scope.$applyAsync(() => {
             vm.updateSuccessful = true;
           });
+          if(appStateService.hasToFillFinancialAssessment) {
+            appStateService.hasToFillFinancialAssessment = false;
+            $timeout(() => {
+              $state.go('trade');
+            }, 2000);
+          }
 
         });
-
 
     }
 })();

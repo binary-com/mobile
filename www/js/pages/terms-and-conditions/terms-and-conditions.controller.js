@@ -22,6 +22,7 @@
           vm.termsConditionsVersion = localStorage.getItem('termsConditionsVersion');
           if(!appStateService.virtuality && vm.clientTncStatus !== vm.termsConditionsVersion){
             $state.go('acceptTermsAndConditions');
+            appStateService.hasToAcceptTandC = true;
           }
 				});
     }
