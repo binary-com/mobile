@@ -178,6 +178,7 @@ gulp.task('modify-index', function(done){
 
 gulp.task('clean', function(done){
     del.sync('dist/**');
+    sh.exec('mkdir dist');
     return done();
 });
 
