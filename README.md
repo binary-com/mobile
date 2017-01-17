@@ -1,1 +1,0 @@
-#TickTrade Web Version

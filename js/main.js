@@ -1,23 +1,6 @@
 'use strict';
 
 /**
- * @name Change Password module
- * @author Nazanin Reihani Haghighi
- * @contributors []
- * @since 01/11/2017
- * @copyright Binary Ltd
- */
-
-(function () {
-    'use strict';
-
-    angular.module('binary.pages.change-password', ['binary.pages.change-password.controllers']);
-
-    angular.module('binary.pages.change-password.controllers', []);
-})();
-'use strict';
-
-/**
  * @name accept terms and conditions module
  * @author Nazanin Reihani Haghighi
  * @contributors []
@@ -68,6 +51,23 @@
   angular.module('binary.pages.home', ['binary.pages.home.controllers']);
 
   angular.module('binary.pages.home.controllers', []);
+})();
+'use strict';
+
+/**
+ * @name Change Password module
+ * @author Nazanin Reihani Haghighi
+ * @contributors []
+ * @since 01/11/2017
+ * @copyright Binary Ltd
+ */
+
+(function () {
+    'use strict';
+
+    angular.module('binary.pages.change-password', ['binary.pages.change-password.controllers']);
+
+    angular.module('binary.pages.change-password.controllers', []);
 })();
 'use strict';
 
@@ -163,6 +163,25 @@
 'use strict';
 
 /**
+ * @name Singin Module
+ * @author Morteza Tavanarad
+ * @contributors []
+ * @since 8/10/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+  'use strict';
+
+  angular.module('binary.pages.signin', ['binary.pages.signin.components', 'binary.pages.signin.controllers']);
+
+  angular.module('binary.pages.signin.controllers', []);
+
+  angular.module('binary.pages.signin.components', ['binary.pages.signin.components.oauth']);
+})();
+'use strict';
+
+/**
  * @name statement module
  * @author Nazanin Reihani Haghighi
  * @contributors []
@@ -180,25 +199,6 @@
     angular.module('binary.pages.statement.directives', []);
 
     angular.module('binary.pages.statement.filters', []);
-})();
-'use strict';
-
-/**
- * @name Singin Module
- * @author Morteza Tavanarad
- * @contributors []
- * @since 8/10/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-  'use strict';
-
-  angular.module('binary.pages.signin', ['binary.pages.signin.components', 'binary.pages.signin.controllers']);
-
-  angular.module('binary.pages.signin.controllers', []);
-
-  angular.module('binary.pages.signin.components', ['binary.pages.signin.components.oauth']);
 })();
 'use strict';
 
@@ -541,19 +541,6 @@
 'use strict';
 
 /**
- * @name new-account-real module
- * @author Nazanin Reihani Haghighi
- * @contributors []
- * @since 08/14/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-  'use strict', angular.module('binary.pages.new-real-account-opening.components.new-account-real', []);
-})();
-'use strict';
-
-/**
  * @name new-account-maltainvest module
  * @author Nazanin Reihanib Haghighi
  * @contributors []
@@ -567,6 +554,19 @@
 'use strict';
 
 /**
+ * @name new-account-real module
+ * @author Nazanin Reihani Haghighi
+ * @contributors []
+ * @since 08/14/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+  'use strict', angular.module('binary.pages.new-real-account-opening.components.new-account-real', []);
+})();
+'use strict';
+
+/**
  * @name Oauth module
  * @author Morteza Tavanarad
  * @contributors []
@@ -576,25 +576,6 @@
 
 (function () {
   'use strict', angular.module('binary.pages.signin.components.oauth', []);
-})();
-'use strict';
-
-/**
- * @name longcode module
- * @author Morteza Tavnarad
- * @contributors []
- * @since 09/22/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-  'use strict';
-
-  angular.module('binary.pages.trade.components.longcode', ['binary.pages.trade.components.longcode.controllers', 'binary.pages.trade.components.longcode.directives']);
-
-  angular.module('binary.pages.trade.components.longcode.controllers', []);
-
-  angular.module('binary.pages.trade.components.longcode.directives', []);
 })();
 'use strict';
 
@@ -616,6 +597,25 @@
     angular.module('binary.pages.trade.components.chart.directives', []);
 
     angular.module('binary.pages.trade.components.chart.services', []);
+})();
+'use strict';
+
+/**
+ * @name longcode module
+ * @author Morteza Tavnarad
+ * @contributors []
+ * @since 09/22/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+  'use strict';
+
+  angular.module('binary.pages.trade.components.longcode', ['binary.pages.trade.components.longcode.controllers', 'binary.pages.trade.components.longcode.directives']);
+
+  angular.module('binary.pages.trade.components.longcode.controllers', []);
+
+  angular.module('binary.pages.trade.components.longcode.directives', []);
 })();
 'use strict';
 
@@ -1169,82 +1169,6 @@ angular.module('binary').config(['$translateProvider', function ($translateProvi
 'use strict';
 
 /**
- * @name Change Password controller
- * @author Nazanin Reihani Haghighi
- * @contributors []
- * @since 01/11/2017
- * @copyright Binary Ltd
- */
-
-(function () {
-  'use strict';
-
-  angular.module('binary.pages.change-password.controllers').controller('ChangePasswordController', ChangePassword);
-
-  ChangePassword.$inject = ['$scope', '$timeout', 'websocketService', 'appStateService', 'alertService'];
-
-  function ChangePassword($scope, $timeout, websocketService, appStateService, alertService) {
-    var vm = this;
-    vm.passwordEqual = false;
-    vm.newPasswordHasError = false;
-    vm.oldPasswordHasError = false;
-    vm.hideInput = false;
-    vm.hideChangedPasswordText = true;
-    vm.checkPassword = function () {
-      if (vm.newPassword === vm.repeatNewPassword) {
-        vm.passwordEqual = true;
-      } else {
-        vm.passwordEqual = false;
-      }
-    };
-
-    vm.changePass = function () {
-      websocketService.sendRequestFor.changePassword(vm.currentPassword, vm.newPassword);
-      vm.newPasswordHasError = false;
-      vm.oldPasswordHasError = false;
-    };
-
-    vm.disablePasswordChange = function () {
-      if (!vm.passwordEqual || _.isEmpty(vm.newPassword) || _.isEmpty(vm.currentPassword)) {
-        return true;
-      } else {
-        return false;
-      }
-    };
-
-    $scope.$on('change_password:success', function (e, change_password) {
-      appStateService.passwordChanged = true;
-      $scope.$applyAsync(function () {
-        vm.hideInput = true;
-        vm.hideChangedPasswordText = false;
-      });
-
-      $timeout(function () {
-        websocketService.logout();
-      }, 5000);
-    });
-
-    $scope.$on('change_password:error', function (e, error) {
-      if (error.hasOwnProperty('details')) {
-        if (error.details.hasOwnProperty('new_password')) {
-          $scope.$applyAsync(function () {
-            vm.newPasswordHasError = true;
-          });
-        }
-        if (error.details.hasOwnProperty('old_password')) {
-          $scope.$applyAsync(function () {
-            vm.oldPasswordHasError = true;
-          });
-        }
-      } else {
-        alertService.displayError(error.message);
-      }
-    });
-  }
-})();
-'use strict';
-
-/**
  * @name accept terms and conditions controller
  * @author Nazanin Reihani Haghighi
  * @contributors []
@@ -1401,6 +1325,82 @@ angular.module('binary').config(['$translateProvider', function ($translateProvi
     };
 
     vm.init();
+  }
+})();
+'use strict';
+
+/**
+ * @name Change Password controller
+ * @author Nazanin Reihani Haghighi
+ * @contributors []
+ * @since 01/11/2017
+ * @copyright Binary Ltd
+ */
+
+(function () {
+  'use strict';
+
+  angular.module('binary.pages.change-password.controllers').controller('ChangePasswordController', ChangePassword);
+
+  ChangePassword.$inject = ['$scope', '$timeout', 'websocketService', 'appStateService', 'alertService'];
+
+  function ChangePassword($scope, $timeout, websocketService, appStateService, alertService) {
+    var vm = this;
+    vm.passwordEqual = false;
+    vm.newPasswordHasError = false;
+    vm.oldPasswordHasError = false;
+    vm.hideInput = false;
+    vm.hideChangedPasswordText = true;
+    vm.checkPassword = function () {
+      if (vm.newPassword === vm.repeatNewPassword) {
+        vm.passwordEqual = true;
+      } else {
+        vm.passwordEqual = false;
+      }
+    };
+
+    vm.changePass = function () {
+      websocketService.sendRequestFor.changePassword(vm.currentPassword, vm.newPassword);
+      vm.newPasswordHasError = false;
+      vm.oldPasswordHasError = false;
+    };
+
+    vm.disablePasswordChange = function () {
+      if (!vm.passwordEqual || _.isEmpty(vm.newPassword) || _.isEmpty(vm.currentPassword)) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    $scope.$on('change_password:success', function (e, change_password) {
+      appStateService.passwordChanged = true;
+      $scope.$applyAsync(function () {
+        vm.hideInput = true;
+        vm.hideChangedPasswordText = false;
+      });
+
+      $timeout(function () {
+        websocketService.logout();
+      }, 5000);
+    });
+
+    $scope.$on('change_password:error', function (e, error) {
+      if (error.hasOwnProperty('details')) {
+        if (error.details.hasOwnProperty('new_password')) {
+          $scope.$applyAsync(function () {
+            vm.newPasswordHasError = true;
+          });
+        }
+        if (error.details.hasOwnProperty('old_password')) {
+          $scope.$applyAsync(function () {
+            vm.oldPasswordHasError = true;
+          });
+        }
+      } else {
+        alertService.displayError(error.message);
+      }
+    });
   }
 })();
 'use strict';
@@ -2072,6 +2072,228 @@ angular.module('binary').config(['$translateProvider', function ($translateProvi
 'use strict';
 
 /**
+ * @name Singin Controller
+ * @author Morteza Tavanarad
+ * @contributors []
+ * @since 8/10/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+    'use strict';
+
+    Signin.$inject = ["$scope", "$state", "$ionicLoading", "accountService", "languageService", "websocketService", "alertService", "appStateService"];
+    angular.module('binary.pages.signin.controllers').controller('SigninController', Signin);
+
+    Signin.$inejct = ['$scope', '$state', '$ionicLoading', 'accountService', 'languageService', 'websocketService', 'alertService', 'appStateService'];
+
+    function Signin($scope, $state, $ionicLoading, accountService, languageService, websocketService, alertService, appStateService) {
+        var vm = this;
+        vm.showTokenForm = false;
+        vm.showSignin = false;
+        vm.showSignup = false;
+        vm.showvirtualws = false;
+        vm.data = {};
+        vm.tokenError = false;
+        vm.passwordError = false;
+        vm.ios = ionic.Platform.isIOS();
+        vm.android = ionic.Platform.isAndroid();
+        vm.disableNextbutton = false;
+
+        /**
+         * On load:
+         * Open the websocket
+         * If default account is set, send it for validation
+         */
+        var init = function init() {
+            vm.language = languageService.read();
+        };
+
+        init();
+
+        $scope.$on('authorize', function (e, response, message) {
+
+            $ionicLoading.hide();
+
+            if (response) {
+                if (accountService.isUnique(response.loginid)) {
+                    accountService.add(response);
+                    accountService.setDefault(response.token);
+                    appStateService.virtuality = response.is_virtual;
+                }
+
+                vm.token = '';
+
+                $state.go('trade');
+            } else {
+                alertService.accountError.tokenNotAuthenticated(message);
+            }
+        });
+
+        /**
+         * SignIn button: event handler
+         * @param  {String} _token 15char token
+         */
+        vm.signIn = function () {
+            var _token = vm.token;
+
+            // Validate the token
+            if (_token && _token.length === 15) {
+
+                $ionicLoading.show();
+
+                websocketService.authenticate(_token);
+            } else {
+                alertService.accountError.tokenNotValid();
+            }
+        };
+
+        vm.changeLanguage = function () {
+            languageService.update(vm.language);
+        };
+
+        // sign up email verify
+        vm.verifyUserMail = function () {
+            vm.emailError = false;
+            if (vm.data.mail) {
+                var mail = vm.data.mail;
+            } else {
+                var mail = "";
+            }
+            websocketService.sendRequestFor.accountOpening(mail);
+        };
+        $scope.$on('verify_email', function (e, verify_email) {
+            vm.userMail = verify_email;
+            if (vm.userMail == 1) {
+                $scope.$applyAsync(function () {
+                    vm.emailError = false;
+                });
+                $scope.$applyAsync(function () {
+                    vm.showvirtualws = true;
+                    vm.showSignup = false;
+                });
+            }
+        });
+        $scope.$on('verify_email:error', function (e, details) {
+            $scope.$applyAsync(function () {
+                vm.emailError = true;
+                vm.emailErrorMessage = details.verify_email;
+            });
+        });
+
+        // virtual ws opening
+        $scope.$watch('vm.showSignup', function () {
+            if (vm.showSignup) {
+                websocketService.sendRequestFor.residenceListSend();
+            }
+        });
+
+        $scope.$on('residence_list', function (e, residence_list) {
+            vm.data.residenceList = residence_list;
+        });
+
+        // Hide & show password function
+        vm.data.inputType = 'password';
+        vm.hideShowPassword = function () {
+            if (vm.data.inputType == 'password') vm.data.inputType = 'text';else vm.data.inputType = 'password';
+        };
+
+        vm.createVirtualAccount = function () {
+            vm.tokenError = false;
+            vm.passwordError = false;
+            var verificationCode = vm.data.verificationCode;
+            var clientPassword = vm.data.clientPassword;
+            var residence = vm.data.residence;
+            websocketService.sendRequestFor.newAccountVirtual(verificationCode, clientPassword, residence);
+        };
+        $scope.$on('new_account_virtual', function (e, new_account_virtual) {
+            if (!appStateService.isLoggedin) {
+                var _token = new_account_virtual.oauth_token;
+                websocketService.authenticate(_token);
+                vm.showTokenForm = false;
+                vm.showSignin = false;
+                vm.showSignup = false;
+                vm.showvirtualws = false;
+            }
+        });
+        $scope.$on('new_account_virtual:error', function (e, error) {
+            $scope.$applyAsync(function () {
+                if (error) {
+                    if (error.hasOwnProperty('details') && error.details.hasOwnProperty('verification_code')) {
+                        vm.tokenError = true;
+                        vm.tokenErrorMessage = error.details.verification_code || error.code;
+                    }
+                    if (error.hasOwnProperty('code') && error.code == "InvalidToken") {
+                        vm.tokenError = true;
+                        vm.tokenErrorMessage = error.message;
+                    }
+                    if (error.hasOwnProperty('details') && error.details.hasOwnProperty('client_password')) {
+                        vm.passwordError = true;
+                        vm.passwordErrorMessage = error.details.client_password || error.code;
+                    }
+                    if (error.hasOwnProperty('code') && error.code == "PasswordError") {
+                        vm.passwordError = true;
+                        vm.passwordErrorMessage = error.message;
+                    }
+                }
+            });
+        });
+
+        // change different type of singing methods
+        vm.changeSigninView = function (_isBack) {
+            _isBack = _isBack || false;
+
+            $scope.$applyAsync(function () {
+                if (!vm.showSignin && !vm.showSignup && !vm.showvirtualws && vm.showTokenForm) {
+                    vm.showTokenForm = false;
+                    vm.showSignin = true;
+                } else if (!vm.showSignin && vm.showSignup && !vm.showTokenForm && !vm.showvirtualws) {
+                    vm.showSignup = false;
+                    vm.showSignin = true;
+                } else if (!vm.showSignin && !vm.showSignup && !vm.showTokenForm && vm.showvirtualws) {
+                    vm.showvirtualws = false;
+                    vm.showSignup = false;
+                    vm.showSignin = true;
+                } else if (!vm.showSignin && vm.showSignup && !vm.showTokenForm && !vm.showvirtualws) {
+                    vm.showvirtualws = false;
+                    vm.showSignup = false;
+                    vm.showSignin = true;
+                } else if (vm.showSignin && !vm.showSignup && !vm.showTokenForm && !vm.showvirtualws && _isBack) {
+                    vm.showSignin = false;
+                }
+            });
+        };
+
+        vm.changeSigninViewtoToken = function () {
+            if (vm.showSignin && !vm.showTokenForm) {
+                vm.showTokenForm = true;
+                vm.showSignin = false;
+            }
+        };
+
+        vm.changeSigninViewtoSignup = function () {
+            if (vm.showSignin && !vm.showSignup) {
+                vm.showSignup = true;
+                vm.showSignin = false;
+            }
+        };
+
+        vm.showSigninView = function () {
+            $scope.$applyAsync(function () {
+                vm.showSignin = true;
+            });
+        };
+
+        $scope.$watch(function () {
+            return appStateService.isLanguageReady;
+        }, function (newValue, oldValue) {
+            vm.disableNextbutton = !newValue;
+        });
+    }
+})();
+'use strict';
+
+/**
  * @name statement controller
  * @author Nazanin Reihani Haghighi
  * @contributors []
@@ -2453,228 +2675,6 @@ angular.module('binary').config(['$translateProvider', function ($translateProvi
 		return DataChange;
 	};
 	return StatementDataFilter;
-})();
-'use strict';
-
-/**
- * @name Singin Controller
- * @author Morteza Tavanarad
- * @contributors []
- * @since 8/10/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-    'use strict';
-
-    Signin.$inject = ["$scope", "$state", "$ionicLoading", "accountService", "languageService", "websocketService", "alertService", "appStateService"];
-    angular.module('binary.pages.signin.controllers').controller('SigninController', Signin);
-
-    Signin.$inejct = ['$scope', '$state', '$ionicLoading', 'accountService', 'languageService', 'websocketService', 'alertService', 'appStateService'];
-
-    function Signin($scope, $state, $ionicLoading, accountService, languageService, websocketService, alertService, appStateService) {
-        var vm = this;
-        vm.showTokenForm = false;
-        vm.showSignin = false;
-        vm.showSignup = false;
-        vm.showvirtualws = false;
-        vm.data = {};
-        vm.tokenError = false;
-        vm.passwordError = false;
-        vm.ios = ionic.Platform.isIOS();
-        vm.android = ionic.Platform.isAndroid();
-        vm.disableNextbutton = false;
-
-        /**
-         * On load:
-         * Open the websocket
-         * If default account is set, send it for validation
-         */
-        var init = function init() {
-            vm.language = languageService.read();
-        };
-
-        init();
-
-        $scope.$on('authorize', function (e, response, message) {
-
-            $ionicLoading.hide();
-
-            if (response) {
-                if (accountService.isUnique(response.loginid)) {
-                    accountService.add(response);
-                    accountService.setDefault(response.token);
-                    appStateService.virtuality = response.is_virtual;
-                }
-
-                vm.token = '';
-
-                $state.go('trade');
-            } else {
-                alertService.accountError.tokenNotAuthenticated(message);
-            }
-        });
-
-        /**
-         * SignIn button: event handler
-         * @param  {String} _token 15char token
-         */
-        vm.signIn = function () {
-            var _token = vm.token;
-
-            // Validate the token
-            if (_token && _token.length === 15) {
-
-                $ionicLoading.show();
-
-                websocketService.authenticate(_token);
-            } else {
-                alertService.accountError.tokenNotValid();
-            }
-        };
-
-        vm.changeLanguage = function () {
-            languageService.update(vm.language);
-        };
-
-        // sign up email verify
-        vm.verifyUserMail = function () {
-            vm.emailError = false;
-            if (vm.data.mail) {
-                var mail = vm.data.mail;
-            } else {
-                var mail = "";
-            }
-            websocketService.sendRequestFor.accountOpening(mail);
-        };
-        $scope.$on('verify_email', function (e, verify_email) {
-            vm.userMail = verify_email;
-            if (vm.userMail == 1) {
-                $scope.$applyAsync(function () {
-                    vm.emailError = false;
-                });
-                $scope.$applyAsync(function () {
-                    vm.showvirtualws = true;
-                    vm.showSignup = false;
-                });
-            }
-        });
-        $scope.$on('verify_email:error', function (e, details) {
-            $scope.$applyAsync(function () {
-                vm.emailError = true;
-                vm.emailErrorMessage = details.verify_email;
-            });
-        });
-
-        // virtual ws opening
-        $scope.$watch('vm.showSignup', function () {
-            if (vm.showSignup) {
-                websocketService.sendRequestFor.residenceListSend();
-            }
-        });
-
-        $scope.$on('residence_list', function (e, residence_list) {
-            vm.data.residenceList = residence_list;
-        });
-
-        // Hide & show password function
-        vm.data.inputType = 'password';
-        vm.hideShowPassword = function () {
-            if (vm.data.inputType == 'password') vm.data.inputType = 'text';else vm.data.inputType = 'password';
-        };
-
-        vm.createVirtualAccount = function () {
-            vm.tokenError = false;
-            vm.passwordError = false;
-            var verificationCode = vm.data.verificationCode;
-            var clientPassword = vm.data.clientPassword;
-            var residence = vm.data.residence;
-            websocketService.sendRequestFor.newAccountVirtual(verificationCode, clientPassword, residence);
-        };
-        $scope.$on('new_account_virtual', function (e, new_account_virtual) {
-            if (!appStateService.isLoggedin) {
-                var _token = new_account_virtual.oauth_token;
-                websocketService.authenticate(_token);
-                vm.showTokenForm = false;
-                vm.showSignin = false;
-                vm.showSignup = false;
-                vm.showvirtualws = false;
-            }
-        });
-        $scope.$on('new_account_virtual:error', function (e, error) {
-            $scope.$applyAsync(function () {
-                if (error) {
-                    if (error.hasOwnProperty('details') && error.details.hasOwnProperty('verification_code')) {
-                        vm.tokenError = true;
-                        vm.tokenErrorMessage = error.details.verification_code || error.code;
-                    }
-                    if (error.hasOwnProperty('code') && error.code == "InvalidToken") {
-                        vm.tokenError = true;
-                        vm.tokenErrorMessage = error.message;
-                    }
-                    if (error.hasOwnProperty('details') && error.details.hasOwnProperty('client_password')) {
-                        vm.passwordError = true;
-                        vm.passwordErrorMessage = error.details.client_password || error.code;
-                    }
-                    if (error.hasOwnProperty('code') && error.code == "PasswordError") {
-                        vm.passwordError = true;
-                        vm.passwordErrorMessage = error.message;
-                    }
-                }
-            });
-        });
-
-        // change different type of singing methods
-        vm.changeSigninView = function (_isBack) {
-            _isBack = _isBack || false;
-
-            $scope.$applyAsync(function () {
-                if (!vm.showSignin && !vm.showSignup && !vm.showvirtualws && vm.showTokenForm) {
-                    vm.showTokenForm = false;
-                    vm.showSignin = true;
-                } else if (!vm.showSignin && vm.showSignup && !vm.showTokenForm && !vm.showvirtualws) {
-                    vm.showSignup = false;
-                    vm.showSignin = true;
-                } else if (!vm.showSignin && !vm.showSignup && !vm.showTokenForm && vm.showvirtualws) {
-                    vm.showvirtualws = false;
-                    vm.showSignup = false;
-                    vm.showSignin = true;
-                } else if (!vm.showSignin && vm.showSignup && !vm.showTokenForm && !vm.showvirtualws) {
-                    vm.showvirtualws = false;
-                    vm.showSignup = false;
-                    vm.showSignin = true;
-                } else if (vm.showSignin && !vm.showSignup && !vm.showTokenForm && !vm.showvirtualws && _isBack) {
-                    vm.showSignin = false;
-                }
-            });
-        };
-
-        vm.changeSigninViewtoToken = function () {
-            if (vm.showSignin && !vm.showTokenForm) {
-                vm.showTokenForm = true;
-                vm.showSignin = false;
-            }
-        };
-
-        vm.changeSigninViewtoSignup = function () {
-            if (vm.showSignin && !vm.showSignup) {
-                vm.showSignup = true;
-                vm.showSignin = false;
-            }
-        };
-
-        vm.showSigninView = function () {
-            $scope.$applyAsync(function () {
-                vm.showSignin = true;
-            });
-        };
-
-        $scope.$watch(function () {
-            return appStateService.isLanguageReady;
-        }, function (newValue, oldValue) {
-            vm.disableNextbutton = !newValue;
-        });
-    }
 })();
 'use strict';
 
@@ -8332,223 +8332,6 @@ angular.module('binary').factory('websocketService', ["$rootScope", "localStorag
 'use strict';
 
 /**
- * @name new-account-real controller
- * @author Nazanin Reihani Haghighi
- * @contributors []
- * @since 08/14/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-  'use strict';
-
-  angular.module('binary.pages.new-real-account-opening.components.new-account-real').controller('NewAccountRealController', NewAccountReal);
-
-  NewAccountReal.$inject = ['$scope', '$state', '$rootScope', 'websocketService', 'appStateService', 'accountService', 'alertService'];
-
-  function NewAccountReal($scope, $state, $rootScope, websocketService, appStateService, accountService, alertService) {
-    var vm = this;
-    vm.data = {};
-    vm.salutationError = false;
-    vm.firstNameError = false;
-    vm.lastNameError = false;
-    vm.dateOfBirthError = false;
-    vm.countryError = false;
-    vm.addressLine1Error = false;
-    vm.addressLine2Error = false;
-    vm.addressCityError = false;
-    vm.addressStateError = false;
-    vm.addressPostcodeError = false;
-    vm.phoneError = false;
-    vm.secretQuestionError = false;
-    vm.secretAnswerError = false;
-
-    vm.data.salutation = "Mr";
-    vm.data.secretQuestion = "Mother's maiden name";
-    vm.countryParams = JSON.parse(sessionStorage.countryParams);
-    vm.data.countryCode = vm.countryParams.countryCode;
-    $scope.$applyAsync(function () {
-      vm.data.country = vm.countryParams.countryOfAccount;
-    });
-
-    websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
-    $scope.$on('states_list', function (e, states_list) {
-      vm.data.statesList = states_list;
-      vm.data.state = vm.data.statesList[0].value;
-    });
-
-    vm.findPhoneCode = function (country) {
-      return country.value == vm.data.countryCode;
-    };
-    websocketService.sendRequestFor.residenceListSend();
-    $scope.$on('residence_list', function (e, residence_list) {
-      vm.residenceList = residence_list;
-      vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
-      if (vm.phoneCodeObj.hasOwnProperty('phone_idd')) {
-        vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
-      }
-    });
-
-    vm.validateName = function (val) {
-      var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
-      return {
-        test: function test(val) {
-          var reg = regex.test(val);
-          if (reg == true) {
-            return false;
-          } else {
-            return true;
-          }
-        }
-      };
-    }();
-
-    vm.submitAccountOpening = function () {
-      vm.salutationError = false;
-      vm.firstNameError = false;
-      vm.lastNameError = false;
-      vm.dateOfBirthError = false;
-      vm.countryError = false;
-      vm.addressLine1Error = false;
-      vm.addressLine2Error = false;
-      vm.addressCityError = false;
-      vm.addressStateError = false;
-      vm.addressPostcodeError = false;
-      vm.phoneError = false;
-      vm.secretQuestionError = false;
-      vm.secretAnswerError = false;
-      if (vm.data.dateOfBirth) {
-        var birth = vm.data.dateOfBirth.toISOString().slice(0, 10);
-      }
-      if (_.isEmpty(vm.data.state)) {
-        vm.data.state = "";
-      }
-      if (_.isEmpty(vm.data.addressLine2)) {
-        vm.data.addressLine2 = "";
-      }
-      if (_.isEmpty(vm.data.addressPostcode)) {
-        vm.data.addressPostcode = "";
-      }
-      var params = {
-        "salutation": vm.data.salutation,
-        "first_name": vm.data.firstName,
-        "last_name": vm.data.lastName,
-        "date_of_birth": birth,
-        "residence": vm.data.countryCode,
-        "address_line_1": vm.data.addressLine1,
-        "address_line_2": vm.data.addressLine2,
-        "address_city": vm.data.addressCity,
-        "address_state": vm.data.state,
-        "address_postcode": vm.data.addressPostcode,
-        "phone": vm.data.phone,
-        "secret_question": vm.data.secretQuestion,
-        "secret_answer": vm.data.secretAnswer
-      };
-      websocketService.sendRequestFor.createRealAccountSend(params);
-    };
-
-    // error handling by backend errors under each input
-    $scope.$on('new_account_real:error', function (e, error) {
-      if (error.hasOwnProperty('details')) {
-        $scope.$applyAsync(function () {
-          if (error.details.hasOwnProperty('salutation')) {
-            vm.salutationError = true;
-            vm.salutationErrorMessage = error.details.salutation;
-          }
-          if (error.details.hasOwnProperty('first_name')) {
-            vm.firstNameError = true;
-            vm.firstNameErrorMessage = error.details.first_name;
-          }
-          if (error.details.hasOwnProperty('last_name')) {
-            vm.lastNameError = true;
-            vm.lastNameErrorMessage = error.details.last_name;
-          }
-          if (error.details.hasOwnProperty('date_of_birth')) {
-            vm.dateOfBirthError = true;
-            vm.dateOfBirthErrorMessage = error.details.date_of_birth;
-          }
-          if (error.details.hasOwnProperty('residence')) {
-            vm.countryError = true;
-            vm.countryErrorMessage = error.details.residence;
-          }
-          if (error.details.hasOwnProperty('address_line_1')) {
-            vm.addressLine1Error = true;
-            vm.addressLine1ErrorMessage = error.details.address_line_1;
-          }
-          if (error.details.hasOwnProperty('address_line_2')) {
-            vm.addressLine2Error = true;
-            vm.addressLine2ErrorMessage = error.details.address_line_2;
-          }
-          if (error.details.hasOwnProperty('address_city')) {
-            vm.addressCityError = true;
-            vm.addressCityErrorMessage = error.details.address_city;
-          }
-          if (error.details.hasOwnProperty('address_state')) {
-            vm.addressStateError = true;
-            vm.addressStateErrorMessage = error.details.address_state;
-          }
-          if (error.details.hasOwnProperty('address_postcode')) {
-            vm.addressPostcodeError = true;
-            vm.addressPostcodeErrorMessage = error.details.address_postcode;
-          }
-          if (error.details.hasOwnProperty('phone')) {
-            vm.phoneError = true;
-            vm.phoneErrorMessage = error.details.phone;
-          }
-          if (error.details.hasOwnProperty('secret_question')) {
-            vm.secretQuestionError = true;
-            vm.secretQuestionErrorMessage = error.details.secret_question;
-          }
-          if (error.details.hasOwnProperty('secret_answer')) {
-            vm.secretAnswerError = true;
-            vm.secretAnswerErrorMessage = error.details.secret_answer;
-          }
-        });
-      }
-      if (error.code) {
-        alertService.displayError(error.message);
-      }
-    });
-
-    $scope.$on('new_account_real', function (e, new_account_real) {
-      websocketService.authenticate(new_account_real.oauth_token);
-      vm.selectedAccount = new_account_real.oauth_token;
-      appStateService.newAccountAdded = true;
-      accountService.addedAccount = vm.selectedAccount;
-    });
-  }
-})();
-'use strict';
-
-/**
- * @name new-account-real directive
- * @author Nazanin Reihani Haghighi
- * @contributors []
- * @since 08/14/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-    'use strict';
-
-    angular.module('binary.pages.new-real-account-opening.components.new-account-real').directive('bgNewAccountReal', NewAccountReal);
-
-    function NewAccountReal() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/pages/new-real-account-opening/components/new-account-real/new-account-real.template.html',
-            controller: 'NewAccountRealController',
-            controllerAs: 'vm',
-            bindToController: true,
-            scope: {}
-
-        };
-        return directive;
-    }
-})();
-'use strict';
-
-/**
  * @name new-account-maltainvest controller
  * @author Nazanin Reihani Haghighi
  * @contributors []
@@ -8851,6 +8634,223 @@ angular.module('binary').factory('websocketService', ["$rootScope", "localStorag
 'use strict';
 
 /**
+ * @name new-account-real controller
+ * @author Nazanin Reihani Haghighi
+ * @contributors []
+ * @since 08/14/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+  'use strict';
+
+  angular.module('binary.pages.new-real-account-opening.components.new-account-real').controller('NewAccountRealController', NewAccountReal);
+
+  NewAccountReal.$inject = ['$scope', '$state', '$rootScope', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+
+  function NewAccountReal($scope, $state, $rootScope, websocketService, appStateService, accountService, alertService) {
+    var vm = this;
+    vm.data = {};
+    vm.salutationError = false;
+    vm.firstNameError = false;
+    vm.lastNameError = false;
+    vm.dateOfBirthError = false;
+    vm.countryError = false;
+    vm.addressLine1Error = false;
+    vm.addressLine2Error = false;
+    vm.addressCityError = false;
+    vm.addressStateError = false;
+    vm.addressPostcodeError = false;
+    vm.phoneError = false;
+    vm.secretQuestionError = false;
+    vm.secretAnswerError = false;
+
+    vm.data.salutation = "Mr";
+    vm.data.secretQuestion = "Mother's maiden name";
+    vm.countryParams = JSON.parse(sessionStorage.countryParams);
+    vm.data.countryCode = vm.countryParams.countryCode;
+    $scope.$applyAsync(function () {
+      vm.data.country = vm.countryParams.countryOfAccount;
+    });
+
+    websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
+    $scope.$on('states_list', function (e, states_list) {
+      vm.data.statesList = states_list;
+      vm.data.state = vm.data.statesList[0].value;
+    });
+
+    vm.findPhoneCode = function (country) {
+      return country.value == vm.data.countryCode;
+    };
+    websocketService.sendRequestFor.residenceListSend();
+    $scope.$on('residence_list', function (e, residence_list) {
+      vm.residenceList = residence_list;
+      vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
+      if (vm.phoneCodeObj.hasOwnProperty('phone_idd')) {
+        vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
+      }
+    });
+
+    vm.validateName = function (val) {
+      var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
+      return {
+        test: function test(val) {
+          var reg = regex.test(val);
+          if (reg == true) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+      };
+    }();
+
+    vm.submitAccountOpening = function () {
+      vm.salutationError = false;
+      vm.firstNameError = false;
+      vm.lastNameError = false;
+      vm.dateOfBirthError = false;
+      vm.countryError = false;
+      vm.addressLine1Error = false;
+      vm.addressLine2Error = false;
+      vm.addressCityError = false;
+      vm.addressStateError = false;
+      vm.addressPostcodeError = false;
+      vm.phoneError = false;
+      vm.secretQuestionError = false;
+      vm.secretAnswerError = false;
+      if (vm.data.dateOfBirth) {
+        var birth = vm.data.dateOfBirth.toISOString().slice(0, 10);
+      }
+      if (_.isEmpty(vm.data.state)) {
+        vm.data.state = "";
+      }
+      if (_.isEmpty(vm.data.addressLine2)) {
+        vm.data.addressLine2 = "";
+      }
+      if (_.isEmpty(vm.data.addressPostcode)) {
+        vm.data.addressPostcode = "";
+      }
+      var params = {
+        "salutation": vm.data.salutation,
+        "first_name": vm.data.firstName,
+        "last_name": vm.data.lastName,
+        "date_of_birth": birth,
+        "residence": vm.data.countryCode,
+        "address_line_1": vm.data.addressLine1,
+        "address_line_2": vm.data.addressLine2,
+        "address_city": vm.data.addressCity,
+        "address_state": vm.data.state,
+        "address_postcode": vm.data.addressPostcode,
+        "phone": vm.data.phone,
+        "secret_question": vm.data.secretQuestion,
+        "secret_answer": vm.data.secretAnswer
+      };
+      websocketService.sendRequestFor.createRealAccountSend(params);
+    };
+
+    // error handling by backend errors under each input
+    $scope.$on('new_account_real:error', function (e, error) {
+      if (error.hasOwnProperty('details')) {
+        $scope.$applyAsync(function () {
+          if (error.details.hasOwnProperty('salutation')) {
+            vm.salutationError = true;
+            vm.salutationErrorMessage = error.details.salutation;
+          }
+          if (error.details.hasOwnProperty('first_name')) {
+            vm.firstNameError = true;
+            vm.firstNameErrorMessage = error.details.first_name;
+          }
+          if (error.details.hasOwnProperty('last_name')) {
+            vm.lastNameError = true;
+            vm.lastNameErrorMessage = error.details.last_name;
+          }
+          if (error.details.hasOwnProperty('date_of_birth')) {
+            vm.dateOfBirthError = true;
+            vm.dateOfBirthErrorMessage = error.details.date_of_birth;
+          }
+          if (error.details.hasOwnProperty('residence')) {
+            vm.countryError = true;
+            vm.countryErrorMessage = error.details.residence;
+          }
+          if (error.details.hasOwnProperty('address_line_1')) {
+            vm.addressLine1Error = true;
+            vm.addressLine1ErrorMessage = error.details.address_line_1;
+          }
+          if (error.details.hasOwnProperty('address_line_2')) {
+            vm.addressLine2Error = true;
+            vm.addressLine2ErrorMessage = error.details.address_line_2;
+          }
+          if (error.details.hasOwnProperty('address_city')) {
+            vm.addressCityError = true;
+            vm.addressCityErrorMessage = error.details.address_city;
+          }
+          if (error.details.hasOwnProperty('address_state')) {
+            vm.addressStateError = true;
+            vm.addressStateErrorMessage = error.details.address_state;
+          }
+          if (error.details.hasOwnProperty('address_postcode')) {
+            vm.addressPostcodeError = true;
+            vm.addressPostcodeErrorMessage = error.details.address_postcode;
+          }
+          if (error.details.hasOwnProperty('phone')) {
+            vm.phoneError = true;
+            vm.phoneErrorMessage = error.details.phone;
+          }
+          if (error.details.hasOwnProperty('secret_question')) {
+            vm.secretQuestionError = true;
+            vm.secretQuestionErrorMessage = error.details.secret_question;
+          }
+          if (error.details.hasOwnProperty('secret_answer')) {
+            vm.secretAnswerError = true;
+            vm.secretAnswerErrorMessage = error.details.secret_answer;
+          }
+        });
+      }
+      if (error.code) {
+        alertService.displayError(error.message);
+      }
+    });
+
+    $scope.$on('new_account_real', function (e, new_account_real) {
+      websocketService.authenticate(new_account_real.oauth_token);
+      vm.selectedAccount = new_account_real.oauth_token;
+      appStateService.newAccountAdded = true;
+      accountService.addedAccount = vm.selectedAccount;
+    });
+  }
+})();
+'use strict';
+
+/**
+ * @name new-account-real directive
+ * @author Nazanin Reihani Haghighi
+ * @contributors []
+ * @since 08/14/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+    'use strict';
+
+    angular.module('binary.pages.new-real-account-opening.components.new-account-real').directive('bgNewAccountReal', NewAccountReal);
+
+    function NewAccountReal() {
+        var directive = {
+            restrict: 'E',
+            templateUrl: 'js/pages/new-real-account-opening/components/new-account-real/new-account-real.template.html',
+            controller: 'NewAccountRealController',
+            controllerAs: 'vm',
+            bindToController: true,
+            scope: {}
+
+        };
+        return directive;
+    }
+})();
+'use strict';
+
+/**
  * @name Oauth Controller
  * @author Morteza Tavanarad
  * @contributors []
@@ -8980,55 +8980,6 @@ angular.module('binary').factory('websocketService', ["$rootScope", "localStorag
     };
 
     return directive;
-  }
-})();
-'use strict';
-
-/**
- * @name longcode controller
- * @author Morteza Tavnarad
- * @contributors []
- * @since 09/27/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-  'use strict';
-
-  angular.module('binary.pages.trade.components.longcode.controllers').controller('LongcodeController', Longcode);
-
-  function Longcode() {
-    var vm = this;
-  }
-})();
-'use strict';
-
-/**
- * @name longcode direciive
- * @author Morteza Tavnarad
- * @contributors []
- * @since 09/27/2016
- * @copyright Binary Ltd
- */
-
-(function () {
-  'use strict';
-
-  angular.module('binary.pages.trade.components.longcode.directives').directive('bgLongcode', Longcode);
-
-  function Longcode() {
-    var direciive = {
-      restrict: 'E',
-      templateUrl: 'js/pages/trade/components/longcode/longcode.template.html',
-      controller: 'LongcodeController',
-      controllerAs: 'vm',
-      bindToController: true,
-      scope: {
-        purchasedContract: '='
-      }
-    };
-
-    return direciive;
   }
 })();
 'use strict';
@@ -9253,6 +9204,55 @@ angular.module('binary').factory('websocketService', ["$rootScope", "localStorag
     };
 
     return directive;
+  }
+})();
+'use strict';
+
+/**
+ * @name longcode controller
+ * @author Morteza Tavnarad
+ * @contributors []
+ * @since 09/27/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+  'use strict';
+
+  angular.module('binary.pages.trade.components.longcode.controllers').controller('LongcodeController', Longcode);
+
+  function Longcode() {
+    var vm = this;
+  }
+})();
+'use strict';
+
+/**
+ * @name longcode direciive
+ * @author Morteza Tavnarad
+ * @contributors []
+ * @since 09/27/2016
+ * @copyright Binary Ltd
+ */
+
+(function () {
+  'use strict';
+
+  angular.module('binary.pages.trade.components.longcode.directives').directive('bgLongcode', Longcode);
+
+  function Longcode() {
+    var direciive = {
+      restrict: 'E',
+      templateUrl: 'js/pages/trade/components/longcode/longcode.template.html',
+      controller: 'LongcodeController',
+      controllerAs: 'vm',
+      bindToController: true,
+      scope: {
+        purchasedContract: '='
+      }
+    };
+
+    return direciive;
   }
 })();
 'use strict';
