@@ -64,6 +64,9 @@
             sessionStorage.removeItem('countryParams');
             appStateService.isPopupOpen = false;
             $ionicSideMenuDelegate.toggleLeft();
+            appStateService.hasToAcceptTandC = false;
+            appStateService.hasToFillFinancialAssessment = false;
+            appStateService.redirectFromFinancialAssessment = true;
         };
 
         $scope.$on('authorize', (e, authorize) => {

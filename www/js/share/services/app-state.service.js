@@ -37,6 +37,7 @@ angular
                 factory.passwordChanged = false;
                 factory.hasToAcceptTandC = false;
                 factory.hasToFillFinancialAssessment = false;
+                factory.redirectFromFinancialAssessment = false;
 
                 return factory;
             });

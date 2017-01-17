@@ -147,6 +147,9 @@ angular
               sessionStorage.removeItem('countryParams');
               websocketService.closeConnection();
               appStateService.passwordChanged = false;
+              appStateService.hasToAcceptTandC = false;
+              appStateService.hasToFillFinancialAssessment = false;
+              appStateService.redirectFromFinancialAssessment = false;
               $state.go('signin');
             };
 

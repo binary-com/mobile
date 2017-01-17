@@ -23,6 +23,13 @@
         vm.changed = false;
         vm.notAnyChanges = false;
 
+        $scope.$on('authorize', () => {
+          if(appStateService.redirectFromFinancialAssessment){
+            appStateService.redirectFromFinancialAssessment = false;
+            $state.go('trade');
+          }
+        });
+
         websocketService.sendRequestFor.getFinancialAssessment();
         $scope.$on('get_financial_assessment:success', (e, financial_assessment) => {
             $scope.$applyAsync(() => {
@@ -63,44 +70,43 @@
         }
 
         vm.submitFinancialAssessment = function() {
-          if(vm.changed){
-            var params = {
-              "forex_trading_experience": vm.data.forexTradingExperience,
-              "forex_trading_frequency": vm.data.forexTradingFrequency,
-              "indices_trading_experience": vm.data.indicesTradingExperience,
-              "indices_trading_frequency": vm.data.indicesTradingFrequency,
-              "commodities_trading_experience": vm.data.commoditiesTradingExperience,
-              "commodities_trading_frequency": vm.data.commoditiesTradingFrequency,
-              "stocks_trading_experience": vm.data.stocksTradingExperience,
-              "stocks_trading_frequency": vm.data.stocksTradingFrequency,
-              "other_derivatives_trading_experience": vm.data.otherDerivativesTradingExperience,
-              "other_derivatives_trading_frequency": vm.data.otherDerivativesTradingFrequency,
-              "other_instruments_trading_experience": vm.data.otherInstrumentsTradingExperience,
-              "other_instruments_trading_frequency": vm.data.otherInstrumentsTradingFrequency,
-              "employment_industry": vm.data.employmentIndustry,
-              "education_level": vm.data.educationLevel,
-              "income_source": vm.data.incomeSource,
-              "net_income": vm.data.netIncome,
-              "estimated_worth": vm.data.estimatedWorth,
+            if (vm.changed) {
+                var params = {
+                    "forex_trading_experience": vm.data.forexTradingExperience,
+                    "forex_trading_frequency": vm.data.forexTradingFrequency,
+                    "indices_trading_experience": vm.data.indicesTradingExperience,
+                    "indices_trading_frequency": vm.data.indicesTradingFrequency,
+                    "commodities_trading_experience": vm.data.commoditiesTradingExperience,
+                    "commodities_trading_frequency": vm.data.commoditiesTradingFrequency,
+                    "stocks_trading_experience": vm.data.stocksTradingExperience,
+                    "stocks_trading_frequency": vm.data.stocksTradingFrequency,
+                    "other_derivatives_trading_experience": vm.data.otherDerivativesTradingExperience,
+                    "other_derivatives_trading_frequency": vm.data.otherDerivativesTradingFrequency,
+                    "other_instruments_trading_experience": vm.data.otherInstrumentsTradingExperience,
+                    "other_instruments_trading_frequency": vm.data.otherInstrumentsTradingFrequency,
+                    "employment_industry": vm.data.employmentIndustry,
+                    "education_level": vm.data.educationLevel,
+                    "income_source": vm.data.incomeSource,
+                    "net_income": vm.data.netIncome,
+                    "estimated_worth": vm.data.estimatedWorth,
+                }
+                websocketService.sendRequestFor.setFinancialAssessment(params);
+                vm.notAnyChanges = false;
+            } else {
+                vm.notAnyChanges = true;
             }
-            websocketService.sendRequestFor.setFinancialAssessment(params);
-            vm.notAnyChanges = false;
-          }
-          else{
-            vm.notAnyChanges = true;
-          }
         }
 
         $scope.$on('set_financial_assessment:success', (e, set_financial_assessment) => {
-          $scope.$applyAsync(() => {
-            vm.updateSuccessful = true;
-          });
-          if(appStateService.hasToFillFinancialAssessment) {
-            appStateService.hasToFillFinancialAssessment = false;
-            $timeout(() => {
-              $state.go('trade');
-            }, 2000);
-          }
+            $scope.$applyAsync(() => {
+                vm.updateSuccessful = true;
+            });
+            if (appStateService.hasToFillFinancialAssessment) {
+                appStateService.hasToFillFinancialAssessment = false;
+                $timeout(() => {
+                    $state.go('trade');
+                }, 2000);
+            }
 
         });
 
