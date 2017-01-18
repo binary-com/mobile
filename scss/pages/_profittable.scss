@@ -2,7 +2,6 @@
 	ion-content {
 		margin-top: 0 !important;
 		margin-bottom: 0 !important;
-
 		.profit-table-container {
 			margin-top: 75px;
 			padding-bottom: 75px;
@@ -10,52 +9,17 @@
 				padding-top: 45px !important;
 			}
 		}
-
 		.spinner {
 			margin-top: -50px;
 		}
 	}
-
 	.filters {
 		margin-top: 30px;
 		position: absolute;
 		background: $white;
 		z-index: 10;
-
-		.item {
-			padding: 15px;
-
-			.input-title {
-				font-size: 1rem;
-			}
-		}
-
-		.item-select {
-			border: 1px solid $borderColor;
-			border-radius: 3px;
-			font-size: 1rem;
-
-			select {
-				width: 100%;
-				padding: 0 15px;
-				direction: ltr;
-				font-size: 1rem;
-			}
-		}
-
-		input {
-			border: 1px solid $borderColor;
-			border-radius: 3px;
-			font-size: 1rem;
-		}
-
-		input[type="date"]::-webkit-calendar-picker-indicator {
-			color: $secondaryContentColor;
-		}
-
 		&.jump-to-date-container {
 			margin-top: 80px;
-
 			.jump-to-date-content {
 				.button {
 					right: 0;
@@ -64,13 +28,13 @@
 					min-height: 0!important;
 					float: right!important;
 				}
-				.row{
+				.row {
 					margin: 0;
 					padding: 0;
-					.col{
+					.col {
 						margin: 0;
 						padding: 0;
-						&.input-container{
+						&.input-container {
 							padding: 5px 0;
 						}
 					}
@@ -94,14 +58,12 @@
 			}
 		}
 	}
-
 	.first-spinner {
 		left: 1em;
 		right: 1em;
 		position: absolute;
 		text-align: center;
 	}
-
 	.float-button {
 		background: $darkPrimaryBrandColor;
 		opacity: 0.9;
@@ -116,7 +78,6 @@
 		z-index: 1000;
 		text-align: center;
 		line-height: 3em;
-
 		i {
 			position: relative;
 			background: inherit;
@@ -124,15 +85,13 @@
 			color: $white;
 		}
 	}
-
 	ul.statement-table {
 		display: table;
 		width: 100%;
-
 		li.list {
 			display: table-row;
 			width: 100%;
-			&.no-transaction{
+			&.no-transaction {
 				margin-top: 15px;
 				display: block;
 			}
@@ -140,119 +99,72 @@
 				display: table-cell;
 				padding: 5px;
 				font-size: 0.8rem;
-
 				&:nth-child(2) {
 					padding-top: 10px;
 				}
 			}
-
-			.right {
-				text-align: right;
-			}
-
-			.green {
-				color: $positiveColor;
-			}
-
-			.red {
-				color: $negativeColor!important;
-			}
-
-			.bold {
-				font-weight: bold;
-			}
-
 			&.list-title {
 				background: $fillColor;
 			}
 		}
-
 		.has-error {
 			font-size: 1.1rem;
 			color: $negativeColor;
 		}
 	}
 }
-
 .transaction-detail {
 	ion-content {
 		margin-bottom: 25px;
 	}
-
 	.list-item {
 		padding: 0 !important;
 		color: $contentColor;
 	}
-
 	.reference {
 		font-size: 1.5rem;
 		border-bottom: 2px solid $black;
 		padding: 5px 0;
 	}
-
 	.small-text {
 		font-size: 0.8rem;
 	}
-
 	.back {
 		button {
 			margin-top: 0 !important;
 		}
 	}
-
 	.title {
 		padding: 0 5px;
 		margin-top: 25px;
 	}
-
 	.longcode {
 		padding: 5px 0;
 		font-size: 1rem;
 		margin-bottom: 10px;
 	}
-
 	ul {
 		&.statement-list {
 			display: flex;
 			flex-direction: row;
 			padding: 3px 5px;
-
 			.statement-element {
 				display: flex;
 				flex-grow: 1;
 				padding: 0;
 				font-size: 1rem;
-
 				&.last-statement-element {
 					display: block;
 				}
 			}
 		}
-
 		.list {
 			padding: 0;
 			margin-bottom: 0;
-
 			.list-item {
 				font-size: 1rem;
 				padding: 10px 0;
 				color: $contentColor;
-			}
-
-			.right {
-				text-align: right;
-			}
-
-			.green {
-				color: $positiveColor;
-			}
-
-			.red {
-				color: $negativeColor!important;
-			}
-
-			.bold {
-				font-weight: bold;
 			}
 		}
 	}

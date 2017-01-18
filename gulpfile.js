@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 
 var gutil = require('gulp-util');
+var file = require('gulp-file');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
@@ -178,11 +179,13 @@ gulp.task('modify-index', function(done){
 
 gulp.task('clean', function(done){
     del.sync('dist/**');
+    sh.exec('mkdir dist');
     return done();
 });
 
 gulp.task('add-cname', function(done){
-  sh.exec('echo "ticktrade.binary.com" >> dist/CNAME');
+  file('CNAME', 'ticktrade.binary.com')
+  .pipe(gulp.dest('dist'));
   return done();
 });
 

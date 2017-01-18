@@ -1,18 +1,4 @@
 .accept-terms-and-conditions {
-	ion-content {
-		padding-top: 40px !important;
-		margin-bottom: 40px !important;
-		font-size: 1rem;
-		.terms-and-conditions-phrase {
-			font-size: 1rem;
-			padding: 10px;
-		}
-		button {
-			font-size: 1rem;
-			a {
-				font-weight: normal;
-			}
-		}
 		.logout {
 			a {
 				background: $fillColor;
@@ -42,5 +28,4 @@
 				align-items: flex-start;
 			}
 		}
-	}
 }
