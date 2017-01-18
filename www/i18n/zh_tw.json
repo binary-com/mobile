@@ -36,8 +36,8 @@
     "required_field":"此為必填欄位。",
     "field_between":"必須在 0.70 和 100000 之間。",
     "must_number":"須為數字。",
-    "ok":"OK",
-    "cancel":"Cancel"
+    "ok":"確定",
+    "cancel":"取消"
   },
   "options":{
     "account":"帳戶",
@@ -112,7 +112,7 @@
     "sign_out":"登出"
   },
   "update":{
-    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
+    "your_version_is_out_of_date_please_update":"您的跳動點交易版本已過時。請更新應用程式到最新版本。",
     "what_is_new":"WHAT'S NEW"
   },
   "realitycheck":{
