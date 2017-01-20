@@ -392,7 +392,8 @@
       "security-and-limits": "Security & Limits",
       "self-exclusion": "Self Exclusion",
 			"change-password": "Change Password",
-			"financial-assessment": "Financial Assessment"
+			"financial-assessment": "Financial Assessment",
+			"limits": "Limits"
     },
     "self-exclusion": {
       "self-exclusion": "Self Exclusion Facilities",
@@ -525,5 +526,30 @@
 			"financial_assessment_info": "The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.",
 			"updated_successfully": "Your settings have been updated successfully",
 			"no_change": "You did not change anything."
+		},
+		"limits": {
+			"trading_withdrawal_limits": "Trading and Withdrawal Limits",
+			"item": "Item",
+			"limit": "Limit",
+			"open_positions": "Maximum number of open positions",
+			"account_balance": "Maximum account cash balance",
+			"payouts": "Maximum aggregate payouts on open positions",
+			"payouts_per_symbol_and_contract_type": "Maximum aggregate payouts on open positions per symbol and contract type",
+			"maximum_daily_turnover": "Maximum daily turnover",
+			"commodities": "Commodities",
+			"forex": "Forex",
+			"smart_fx": "Smart FX",
+			"minor_pairs": "Minor Pairs",
+			"major_pairs": "Major Pairs",
+			"indices": "Indices",
+			"stocks": "Stocks",
+			"otc_stocks": "OTC Stocks",
+			"subject_to_change": "Stated limits are subject to change without prior notice.",
+			"trading_limits": "Trading Limits",
+			"withdrawal_limits": "Withdrawal Limits",
+			"your_withdrawal_limit": "Your withdrawal limit is",
+			"other_currency": "(or equivalent in other currency)",
+			"already_withdrawn": "You have already withdrawn the equivalent of",
+			"current_immediate_maximum_withdrawl": "Therefore your current immediate maximum withdrawal (subject to your account having sufficient funds) is"
 		}
 }

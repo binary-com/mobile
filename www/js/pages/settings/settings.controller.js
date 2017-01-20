@@ -59,6 +59,12 @@
         url: "financial-assessment",
         scope: "admin",
         forRealAccount: true
+      },
+      {
+        name: "settings.limits",
+        url: "limits",
+        scope: "admin",
+        forRealAccount: true
       }
     ];
 

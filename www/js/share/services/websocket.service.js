@@ -150,6 +150,7 @@ angular
               appStateService.hasToAcceptTandC = false;
               appStateService.hasToFillFinancialAssessment = false;
               appStateService.redirectFromFinancialAssessment = false;
+              appStateService.limitsChange = false;
               $state.go('signin');
             };
 
@@ -435,6 +436,12 @@ angular
                 "get_account_status": 1
               }
               sendMessage(data);
+            },
+            accountLimits: function(){
+              var data = {
+                "get_limits": 1
+              }
+              sendMessage(data);
             }
           }
             websocketService.closeConnection = function() {
@@ -675,6 +682,9 @@ angular
                             break;
                         case 'get_account_status':
                             $rootScope.$broadcast('get_account_status', message.get_account_status);
+                            break;
+                        case 'get_limits':
+                            $rootScope.$broadcast('get_limits', message.get_limits);
                             break;
                         default:
                     }

@@ -38,6 +38,7 @@ angular
                 factory.hasToAcceptTandC = false;
                 factory.hasToFillFinancialAssessment = false;
                 factory.redirectFromFinancialAssessment = false;
+                factory.limitsChange = false;
 
                 return factory;
             });

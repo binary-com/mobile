@@ -126,6 +126,13 @@ angular
 					templateUrl: 'js/pages/financial-assessment/financial-assessment.template.html',
 					controller: 'FinancialAssessmentController',
 					controllerAs: 'vm'
+				})
+				.state('limits', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/limits/limits.template.html',
+					controller: 'LimitsController',
+					controllerAs: 'vm'
 				});
 
 
