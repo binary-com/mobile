@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col">
           <div class="row">
-              <div class="col title">
+              <div class="col page-title">
             {{'newaccountreal.real_account_opening' | translate}}
               </div>
           </div>
@@ -114,12 +114,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col item-input">
+                <label class="col">
                     <input class="input-disabled" ng-model="vm.data.country" ng-readonly="true">
                     <div class="help-block error" ng-messages="vm.countryError" role="alert" ng-if='vm.countryError'>
                         <div>{{vm.dateOfBirthErrorMessage}}</div>
                     </div>
-                </div>
+                </label>
             </div>
 
         </div>

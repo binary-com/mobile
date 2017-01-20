@@ -17,7 +17,7 @@
 		<div class="col interval-input">
 			<form>
 				<input ng-model="vm.data.interval" type="number"/>
-				<div class="interval_error" ng-show="vm.data.interval<10 || vm.data.interval>120">
+				<div class="error" ng-show="vm.data.interval<10 || vm.data.interval>120">
 					{{'realitycheck.interval_error' | translate}}
 				</div>
 			</form>

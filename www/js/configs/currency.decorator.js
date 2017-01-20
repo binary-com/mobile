@@ -20,7 +20,7 @@
       var srcFilter = $delegate;
 
       var extendsFilter = function(){
-        var locale = (localStorage.language || "en").replace('_', '-');
+        var locale = (localStorage.language || "en").replace('_', '-').slice(0,2);
         var currency = arguments[1] || 'USD';
         return formatMoney(locale, currency, arguments[0]);
       };

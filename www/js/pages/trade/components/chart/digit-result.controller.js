@@ -24,7 +24,11 @@
 
     $scope.$on('contract:spot', (e, contract, lastPrice) => {
       if(vm.reset){
-        vm.spots = new Array(contract.duration+1).fill().map((e, i) => { return {}});
+        // vm.spots = new Array(contract.duration+1).fill().map((e, i) => { return {}});
+        vm.spots = new Array(contract.duration+1);
+        for(var i = 0; i < vm.spots.length; i++){
+          vm.spots[i] = {};
+        }
         vm.reset = false;
         vm.counter = 0;
       }

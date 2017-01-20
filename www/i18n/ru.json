@@ -37,7 +37,7 @@
     "field_between":"Число должно быть от 0.70 до 100000.",
     "must_number":"Здесь должны быть цифры.",
     "ok":"OK",
-    "cancel":"Cancel"
+    "cancel":"Отмена"
   },
   "options":{
     "account":"Счёт",
@@ -76,7 +76,7 @@
     "payout":"Выплата",
     "stake":"Ставка",
     "price":"Цена",
-    "buy":"Buy",
+    "buy":"Купить",
     "net_profit":"Чистая прибыль",
     "potential_payout":"Потенциальная выплата",
     "total_cost":"Общая стоимость",
@@ -112,8 +112,8 @@
     "sign_out":"Выход"
   },
   "update":{
-    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
-    "what_is_new":"WHAT'S NEW"
+    "your_version_is_out_of_date_please_update":"Ваша версия приложения Tick Trade устарела. Пожалуйста, обновите приложение.",
+    "what_is_new":"ЧТО НОВОГО"
   },
   "realitycheck":{
     "title":"Проверка реальности",
@@ -144,8 +144,8 @@
     "signup":"Регистрация",
     "email":"Email",
     "signup-question":"У Вас ещё нет счёта?",
-    "verification-code":"Verification Code",
-    "password":"Password",
+    "verification-code":"Код подтверждения",
+    "password":"Пароль",
     "residence":"Страна проживания:",
     "select":"Выберите страну",
     "isrequired":"(обязательное поле)",
@@ -320,7 +320,7 @@
     "filter_by_date":"Укажите дату",
     "no_transaction":"Информация о контрактах отсутствует.",
     "today":"Сегодня",
-    "go":"Go"
+    "go":"Перейти"
   },
   "transactiondetails":{
     "detail":"Детали транзакции",
@@ -367,11 +367,11 @@
     "action_type":"Действие",
     "credit_debit":"Кредит/Дебет",
     "balance":"Баланс",
-    "go":"Go",
-    "buy":"Buy",
-    "sell":"Sell",
-    "deposit":"Deposit",
-    "withdrawal":"Withdrawal"
+    "go":"Перейти",
+    "buy":"Купить",
+    "sell":"Продать",
+    "deposit":"Пополнить",
+    "withdrawal":"Вывод"
   },
   "menu":{
     "trade":"Торговля",
@@ -383,7 +383,8 @@
   "settings":{
     "settings":"Настройки",
     "security-and-limits":"Безопасность и ограничения",
-    "self-exclusion":"Самоограничение"
+    "self-exclusion":"Самоограничение",
+    "change-password":"Изменение пароля"
   },
   "self-exclusion":{
     "self-exclusion":"Услуги самоограничения",
@@ -443,6 +444,18 @@
     "ok":"OK"
   },
   "app-version":{
-    "version":"Version"
+    "version":"Версия"
+  },
+  "change-password":{
+    "change_password":"Изменение пароля",
+    "current_password":"Текущий пароль",
+    "new_password":"Новый пароль",
+    "verify_new_password":"Подтвердите новый пароль",
+    "password_hint":"Минимум шесть заглавных и строчных букв с цифрами",
+    "password_not_match":"Введённые Вами пароли не совпадают.",
+    "required":"Данное поле является обязательным.",
+    "current_password_required":"Пожалуйста, введите текущий пароль.",
+    "not_match_pattern":"Не соответствует шаблону",
+    "password_changed_text":"Ваш пароль изменён. Пожалуйста, войдите снова."
   }
 }
