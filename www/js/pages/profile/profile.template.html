@@ -3,11 +3,9 @@
     <form name="profileForm" ng-submit="vm.submit()">
       <div class="row">
         <div class="col">
-          <div class="row">
-            <div class="col page-title">
-              {{ 'profile.personal_details' | translate }}
-            </div>
-          </div>
+          <h1 class="page-title">
+                {{ 'profile.personal_details' | translate }}
+          </h1>
         </div>
       </div>
       <div ng-if="vm.isVirtualAccount">

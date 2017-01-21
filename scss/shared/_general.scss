@@ -186,7 +186,7 @@ input::-webkit-outer-spin-button {
     text-align: left;
     white-space: normal;
     font-size: 1rem;
-    padding: 5px 0;
+    padding: 5px;
     span {
         font-size: 1rem;
         color: $secondaryContentColor;
@@ -237,12 +237,12 @@ input[type=text] {
     font-size: 1rem;
 }
 .item-input {
-    padding: 6px 0 5px;
+    padding: 5px;
 }
 .item-select {
     border-radius: 3px;
     font-size: 1rem;
-    padding: 5px 0;
+    padding: 5px;
     select {
         position: relative;
         width: 100%;
