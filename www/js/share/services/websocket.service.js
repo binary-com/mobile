@@ -422,7 +422,7 @@ angular
                 if (message) {
                     if (message.error) {
                         if (message.error.code === 'InvalidToken') {
-                            localStorageService.manageInvalidToken();
+                            websocketService.logout();
                         }
                     }
 
