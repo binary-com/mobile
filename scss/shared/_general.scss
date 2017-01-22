@@ -34,8 +34,11 @@ ion-side-menu {
     height: inherit;
     width: 100%;
     background: $white;
+    position: relative;
+    top: 0;
     bg-balance {
         width: 100%;
+        position: relative;
     }
 }
 a {
@@ -291,8 +294,8 @@ textarea {
     font-size: 1rem;
 }
 .general-content {
-    padding-top: 40px !important;
-    margin-bottom: 40px !important;
+    // padding-top: 40px !important;
+    margin-bottom: 80px !important;
     width: 100vw;
     font-size: 1rem;
 }

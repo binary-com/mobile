@@ -8,7 +8,7 @@
 	ion-content {
 		width: 100vw;
 		&.trade-container {
-			padding-bottom: 40px;
+			padding-bottom: 80px;
 		}
 		.scroll {
 			height: 100%;
@@ -51,7 +51,6 @@
 		}
 		bg-options {
 			max-height: 70px;
-			margin-top: 40px;
 			.options {
 				max-height: 70px;
 				display: flex;
