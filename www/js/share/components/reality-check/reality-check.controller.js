@@ -154,7 +154,7 @@
                   text: translation['realitycheck.continue'],
                   type: 'button-positive',
                   onTap: function(e) {
-                    if (vm.data.interval <= 120 && vm.data.interval >= 10) {
+                    if (vm.data.interval <= 120 && vm.data.interval >= 1) {
                       vm.setInterval(vm.data.interval);
                       vm.data.start_interval = (new Date()).getTime();
                       vm.setStart(vm.data.start_interval);
@@ -226,7 +226,7 @@
         vm.data.interval = parseInt(vm.getInterval('_interval'));
         $timeout.cancel(vm.realityCheckTimeout);
         appStateService.isPopupOpen = true;
-        $translate(['realitycheck.title', 'realitycheck.continue', 'realitycheck.logout'])
+        $translate(['realitycheck.title', 'realitycheck.continue', 'realitycheck.logout', 'realitycheck.view_statement'])
           .then(
             function(translation) {
               alertService.displayRealityCheckResult(
@@ -240,10 +240,20 @@
                     vm.logout();
                   }
                 }, {
+                  text: translation['realitycheck.view_statement'],
+                  type: 'button-positive',
+                  onTap: function(e) {
+                    $state.go('statement');
+                    $('.popup-container').removeClass('popup-showing');
+                    $('body').removeClass('popup-open');
+                    $('.backdrop').removeClass('visible');
+                    e.preventDefault();
+                  }
+                }, {
                   text: translation['realitycheck.continue'],
                   type: 'button-positive',
                   onTap: function(e) {
-                    if (vm.data.interval <= 120 && vm.data.interval >= 10) {
+                    if (vm.data.interval <= 120 && vm.data.interval >= 1) {
                       if (vm.sessionLoginId == vm.realityCheckitems.loginid) {
                         vm.getLastInterval(vm.data.interval);
                         vm.data.start_interval = (new Date()).getTime();
