@@ -138,6 +138,7 @@ angular
               appStateService.isLoggedin = false;
               sessionStorage.removeItem('start');
               sessionStorage.removeItem('_interval');
+              sessionStorage.removeItem('realityCheckStart');
               localStorage.removeItem('termsConditionsVersion');
               appStateService.profitTableRefresh = true;
               appStateService.statementRefresh = true;
@@ -147,6 +148,7 @@ angular
               sessionStorage.removeItem('countryParams');
               websocketService.closeConnection();
               appStateService.passwordChanged = false;
+              appStateService.realityCheckLogin = false;
               $state.go('signin');
             };
 

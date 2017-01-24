@@ -35,6 +35,7 @@ angular
                 factory.newAccountAdded = false;
                 factory.isLanguageReady = false;
                 factory.passwordChanged = false;
+                factory.realityCheckLogin = false;
 
                 return factory;
             });
