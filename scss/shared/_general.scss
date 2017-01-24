@@ -185,6 +185,10 @@ input::-webkit-outer-spin-button {
     color: $contentColor;
     border-bottom: 2px solid $black;
 }
+.sub-title {
+  font-size: 1rem;
+	color: $primaryBrandColor;
+}
 .input-title {
     text-align: left;
     white-space: normal;
