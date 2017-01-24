@@ -15,7 +15,7 @@
       </div>
       <div class="row">
         <label class="col item-input">
-          <input type="date" id="date" name="trading-times-date" ng-model="vm.data.date" ng-change="vm.sendTradingTimes()"/>
+          <input type="date" id="date" name="trading-times-date" ng-model="vm.data.date" ng-change="vm.sendTradingTimes()" />
         </label>
       </div>
     </form>
@@ -33,6 +33,11 @@
         </div>
       </div>
     </form>
+    <div class="row">
+      <div class="col">
+          {{'trading-times.GMT_times' | translate}}
+      </div>
+    </div>
     <div ng-repeat="market in vm.data.markets" ng-show="market.name === vm.market">
       <div class="row">
         <div class="col">

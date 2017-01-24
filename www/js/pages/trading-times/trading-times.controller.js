@@ -18,10 +18,10 @@
     function TradingTimes($scope, $filter, websocketService) {
 			var vm = this;
       vm.data = {};
-      // document.getElementById('date').setAttribute('min', Math.round(new Date().getTime()));
+      vm.now = Math.round(new Date().getTime());
       angular.element(document).ready(function() {
-        vm.epochDate = Math.round(new Date().getTime());
-        document.getElementById('date').value = $filter('date')(vm.epochDate, 'yyyy-MM-dd');
+        document.getElementById('date').setAttribute('min', $filter('date')(vm.now, 'yyyy-MM-dd'));
+        document.getElementById('date').value = $filter('date')(vm.now, 'yyyy-MM-dd');
       });
 
       vm.sendTradingTimes = function() {

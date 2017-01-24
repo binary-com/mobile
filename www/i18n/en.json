@@ -481,6 +481,7 @@
 			"opens": "Opens",
 			"closes": "Closes",
 			"settles": "Settles",
-			"upcoming_events": "Upcoming Events"
+			"upcoming_events": "Upcoming Events",
+			"GMT_times": "All times are in GMT (Greenwich Mean Time)."
 		}
 }
