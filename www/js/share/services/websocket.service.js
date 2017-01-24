@@ -407,6 +407,12 @@ angular
                   "new_password": _newPassword
                 }
                 sendMessage(data);
+              },
+              tradingTimes: function(_date) {
+                var data = {
+                  "trading_times": _date
+                }
+                sendMessage(data);
               }
             };
 
@@ -633,6 +639,14 @@ angular
                             }
                             else if(message.error){
                               $rootScope.$broadcast('change_password:error', message.error);
+                            }
+                            break;
+                        case 'trading_times':
+                            if(message.trading_times){
+                              $rootScope.$broadcast('trading_times:success', message.trading_times);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('trading_times:error', message.error);
                             }
                             break;
                         default:

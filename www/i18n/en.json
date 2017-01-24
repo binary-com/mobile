@@ -385,7 +385,8 @@
       "profit_table": "Profit Table",
       "statement": "Statement",
       "language": "Language",
-      "settings": "Settings"
+      "settings": "Settings",
+			"resources": "Resources"
     },
     "settings": {
       "settings": "Settings",
@@ -468,5 +469,18 @@
 			"current_password_required": "Please enter your current password.",
 			"not_match_pattern": "Does not match the pattern",
 			"password_changed_text": "Your password has been changed. Please log in again."
+		},
+		"resources": {
+			"trading-times": "Trading Times"
+		},
+		"trading-times": {
+			"trading_times": "Trading Times",
+			"date": "Date",
+			"market": "Market",
+			"asset": "Asset",
+			"opens": "Opens",
+			"closes": "Closes",
+			"settles": "Settles",
+			"upcoming_events": "Upcoming Events"
 		}
 }
