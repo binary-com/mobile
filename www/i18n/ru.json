@@ -137,7 +137,9 @@
     "days":"дн.",
     "hours":"час.",
     "minutes":"мин.",
-    "interval_error":"Пожалуйста, введите число от 10 до 120."
+    "interval_error":"Пожалуйста, введите число от 10 до 120.",
+    "view_statement":"View Statement",
+    "integer_error":"Interval should be integer."
   },
   "newvirtualaccount":{
     "continue":"Продолжить",
