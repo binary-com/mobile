@@ -137,7 +137,9 @@
     "days":"dni",
     "hours":"godzin(y)",
     "minutes":"minut(y)",
-    "interval_error":"Proszę wpisać liczbę z przedziału od 10 do 120."
+    "interval_error":"Proszę wpisać liczbę z przedziału od 10 do 120.",
+    "view_statement":"View Statement",
+    "integer_error":"Interval should be integer."
   },
   "newvirtualaccount":{
     "continue":"Kontynuuj",
