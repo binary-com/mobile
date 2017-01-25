@@ -380,7 +380,8 @@
     "profit_table":"Анализ счёта",
     "statement":"История счёта",
     "language":"Язык",
-    "settings":"Настройки"
+    "settings":"Настройки",
+    "resources":"Resources"
   },
   "settings":{
     "settings":"Настройки",
@@ -459,5 +460,20 @@
     "current_password_required":"Пожалуйста, введите текущий пароль.",
     "not_match_pattern":"Не соответствует шаблону",
     "password_changed_text":"Ваш пароль изменён. Пожалуйста, войдите снова."
+  },
+  "resources":{
+    "resources":"Resources",
+    "trading-times":"Trading Times"
+  },
+  "trading-times":{
+    "trading_times":"Trading Times",
+    "date":"Date",
+    "market":"Market",
+    "asset":"Asset",
+    "opens":"Opens",
+    "closes":"Closes",
+    "settles":"Settles",
+    "upcoming_events":"Upcoming Events",
+    "GMT_times":"All times are in GMT (Greenwich Mean Time)."
   }
 }
