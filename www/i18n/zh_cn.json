@@ -137,7 +137,9 @@
     "days":"天",
     "hours":"小时",
     "minutes":"分钟",
-    "interval_error":"请输入10到120之间的数字。"
+    "interval_error":"请输入10到120之间的数字。",
+    "view_statement":"View Statement",
+    "integer_error":"Interval should be integer."
   },
   "newvirtualaccount":{
     "continue":"继续",
