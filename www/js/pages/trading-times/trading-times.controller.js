@@ -18,6 +18,7 @@
     function TradingTimes($scope, $filter, websocketService) {
 			var vm = this;
       vm.data = {};
+      vm.hasError = false;
       vm.now = Math.round(new Date().getTime());
       angular.element(document).ready(function() {
         document.getElementById('date').setAttribute('min', $filter('date')(vm.now, 'yyyy-MM-dd'));
@@ -27,7 +28,7 @@
       vm.sendTradingTimes = function() {
         vm.epochDate = vm.data.date || (Math.round(new Date().getTime()));
         vm.date = $filter('date')(vm.epochDate, 'yyyy-MM-dd');
-        websocketService.sendRequestFor.tradingTimes(vm.date);
+        websocketService.sendRequestFor.tradingTimes(22);
       }
 
       vm.sendTradingTimes();
@@ -35,10 +36,17 @@
       $scope.$on('trading_times:success', (e, trading_times) => {
         vm.tradingTimes = trading_times;
         $scope.$applyAsync(() => {
+          vm.hasError = false;
           vm.data.markets = vm.tradingTimes.markets;
           vm.market = vm.data.markets[0].name;
         });
+      });
 
+      $scope.$on('trading_times:error', (e, error) => {
+        $scope.$applyAsync(() => {
+          vm.hasError = true;
+          vm.error = error;
+        });
       });
 
     }

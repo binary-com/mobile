@@ -23,7 +23,8 @@
             </div>
             <div class="item-select">
               <select ng-model="vm.market">
-                <option ng-repeat="market in vm.data.markets" ng-value="market.name" ng-init="vm.data.markets[0]">{{market.name}}</option>
+                <option ng-if="vm.hasError" selected>-</option>
+                <option ng-repeat="market in vm.data.markets" ng-value="market.name" ng-init="vm.data.markets[0]" ng-if="!vm.hasError">{{market.name}}</option>
               </select>
           </div>
         </form>
@@ -67,6 +68,11 @@
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+    <div class="row" ng-if="vm.hasError">
+      <div class="col error">
+        {{vm.error.message}}
       </div>
     </div>
   </ion-content>
