@@ -475,5 +475,10 @@
     "settles":"Settles",
     "upcoming_events":"Upcoming Events",
     "GMT_times":"All times are in GMT (Greenwich Mean Time)."
+  },
+  "new-real-account":{
+    "select_country":"Select Country",
+    "select_country_text":"Please select your country of residence",
+    "continue":"Continue"
   }
 }
