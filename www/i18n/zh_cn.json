@@ -380,7 +380,8 @@
     "profit_table":"利润表",
     "statement":"账单",
     "language":"语言",
-    "settings":"设置"
+    "settings":"设置",
+    "resources":"Resources"
   },
   "settings":{
     "settings":"设置",
@@ -459,5 +460,20 @@
     "current_password_required":"请输入您的当前密码。",
     "not_match_pattern":"与模式不匹配",
     "password_changed_text":"您的密码已更改。请重新登录。"
+  },
+  "resources":{
+    "resources":"Resources",
+    "trading-times":"Trading Times"
+  },
+  "trading-times":{
+    "trading_times":"Trading Times",
+    "date":"Date",
+    "market":"Market",
+    "asset":"Asset",
+    "opens":"Opens",
+    "closes":"Closes",
+    "settles":"Settles",
+    "upcoming_events":"Upcoming Events",
+    "GMT_times":"All times are in GMT (Greenwich Mean Time)."
   }
 }
