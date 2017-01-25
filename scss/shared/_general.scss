@@ -34,8 +34,11 @@ ion-side-menu {
     height: inherit;
     width: 100%;
     background: $white;
+    position: relative;
+    top: 0;
     bg-balance {
         width: 100%;
+        position: relative;
     }
 }
 a {
@@ -182,11 +185,15 @@ input::-webkit-outer-spin-button {
     color: $contentColor;
     border-bottom: 2px solid $black;
 }
+.sub-title {
+  font-size: 1rem;
+	color: $primaryBrandColor;
+}
 .input-title {
     text-align: left;
     white-space: normal;
     font-size: 1rem;
-    padding: 0 5px;
+    padding: 5px;
     span {
         font-size: 1rem;
         color: $secondaryContentColor;
@@ -211,9 +218,9 @@ input::-webkit-outer-spin-button {
 }
 input {
     width: 100%;
-    padding: 5px;
+    padding: 5px!important;
     border: 1px solid $borderColor!important;
-    border-radius: 3px;
+    border-radius: 3px!important;
     background: $white;
     &.checkbox {
         width: 20px;
@@ -226,7 +233,7 @@ input {
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: $secondaryContentColor;
-    border: 1px solid $borderColor;
+    // border: 1px solid $borderColor;
 }
 input[type=password],
 input[type=text] {
@@ -237,11 +244,12 @@ input[type=text] {
     font-size: 1rem;
 }
 .item-input {
-    padding: 6px 0 5px;
+    padding: 5px;
 }
 .item-select {
     border-radius: 3px;
     font-size: 1rem;
+    padding: 5px;
     select {
         position: relative;
         width: 100%;
@@ -291,8 +299,8 @@ textarea {
     font-size: 1rem;
 }
 .general-content {
-    padding-top: 40px !important;
-    margin-bottom: 40px !important;
+    // padding-top: 40px !important;
+    margin-bottom: 80px !important;
     width: 100vw;
     font-size: 1rem;
 }

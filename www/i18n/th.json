@@ -137,7 +137,9 @@
     "days":"วัน",
     "hours":"ชั่วโมง",
     "minutes":"นาที",
-    "interval_error":"โปรดระบุจำนวนระหว่าง 10 ถึง 120"
+    "interval_error":"โปรดระบุจำนวนระหว่าง 10 ถึง 120",
+    "view_statement":"View Statement",
+    "integer_error":"Interval should be integer."
   },
   "newvirtualaccount":{
     "continue":"Continue",

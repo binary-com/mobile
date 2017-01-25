@@ -138,6 +138,7 @@ angular
               appStateService.isLoggedin = false;
               sessionStorage.removeItem('start');
               sessionStorage.removeItem('_interval');
+              sessionStorage.removeItem('realityCheckStart');
               localStorage.removeItem('termsConditionsVersion');
               appStateService.profitTableRefresh = true;
               appStateService.statementRefresh = true;
@@ -151,6 +152,8 @@ angular
               appStateService.hasToFillFinancialAssessment = false;
               appStateService.redirectFromFinancialAssessment = false;
               appStateService.limitsChange = false;
+
+              appStateService.realityCheckLogin = false;
               $state.go('signin');
             };
 
@@ -428,9 +431,14 @@ angular
                     data[key] = params[key];
                   }
                 }
-
                 sendMessage(data);
             },
+            tradingTimes: function(_date) {
+                var data = {
+                  "trading_times": _date
+                }
+                sendMessage(data);
+              },
             getAccountStatus: function(){
               var data = {
                 "get_account_status": 1
@@ -456,7 +464,7 @@ angular
                 if (message) {
                     if (message.error) {
                         if (message.error.code === 'InvalidToken') {
-                            localStorageService.manageInvalidToken();
+                            websocketService.logout();
                         }
                     }
 
@@ -685,6 +693,14 @@ angular
                             break;
                         case 'get_limits':
                             $rootScope.$broadcast('get_limits', message.get_limits);
+                            break;
+                        case 'trading_times':
+                            if(message.trading_times){
+                              $rootScope.$broadcast('trading_times:success', message.trading_times);
+                            }
+                            else if(message.error){
+                              $rootScope.$broadcast('trading_times:error', message.error);
+                            }
                             break;
                         default:
                     }

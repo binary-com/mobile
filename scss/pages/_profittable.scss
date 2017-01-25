@@ -1,25 +1,20 @@
 .profit-table {
 	ion-content {
-		margin-top: 0 !important;
-		margin-bottom: 0 !important;
-		.profit-table-container {
-			margin-top: 75px;
-			padding-bottom: 75px;
-			&.pull-down {
-				padding-top: 45px !important;
-			}
+		margin-top: 110px !important;
+		margin-bottom: 80px !important;
+		&.pull-down {
+			margin-top: 150px !important;
 		}
 		.spinner {
 			margin-top: -50px;
 		}
 	}
 	.filters {
-		margin-top: 30px;
 		position: absolute;
 		background: $white;
 		z-index: 10;
 		&.jump-to-date-container {
-			margin-top: 80px;
+			margin-top: 40px;
 			.jump-to-date-content {
 				.button {
 					right: 0;
@@ -114,9 +109,10 @@
 	}
 }
 .transaction-detail {
-	ion-content {
-		margin-bottom: 25px;
-	}
+	// ion-content {
+	// 	margin-top: 110px !important;
+	// 	margin-bottom: 80px !important;
+	// }
 	.list-item {
 		padding: 0 !important;
 		color: $contentColor;
@@ -134,12 +130,7 @@
 			margin-top: 0 !important;
 		}
 	}
-	.title {
-		padding: 0 5px;
-		margin-top: 25px;
-	}
 	.longcode {
-		padding: 5px 0;
 		font-size: 1rem;
 		margin-bottom: 10px;
 	}

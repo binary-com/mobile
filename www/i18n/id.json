@@ -137,7 +137,9 @@
     "days":"hari",
     "hours":"jam",
     "minutes":"menit",
-    "interval_error":"Silakan masukkan nomor antara 10 hingga 120."
+    "interval_error":"Silakan masukkan nomor antara 10 hingga 120.",
+    "view_statement":"View Statement",
+    "integer_error":"Interval should be integer."
   },
   "newvirtualaccount":{
     "continue":"Lanjutkan",

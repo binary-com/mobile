@@ -137,7 +137,9 @@
     "days":"crwdns17785:0crwdne17785:0",
     "hours":"crwdns17786:0crwdne17786:0",
     "minutes":"crwdns17787:0crwdne17787:0",
-    "interval_error":"crwdns17788:0crwdne17788:0"
+    "interval_error":"crwdns17788:0crwdne17788:0",
+    "view_statement":"crwdns19112:0crwdne19112:0",
+    "integer_error":"crwdns19113:0crwdne19113:0"
   },
   "newvirtualaccount":{
     "continue":"crwdns17789:0crwdne17789:0",

@@ -36,8 +36,8 @@
     "required_field":"此為必填欄位。",
     "field_between":"必須在 0.70 和 100000 之間。",
     "must_number":"須為數字。",
-    "ok":"OK",
-    "cancel":"Cancel"
+    "ok":"確定",
+    "cancel":"取消"
   },
   "options":{
     "account":"帳戶",
@@ -112,8 +112,8 @@
     "sign_out":"登出"
   },
   "update":{
-    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
-    "what_is_new":"WHAT'S NEW"
+    "your_version_is_out_of_date_please_update":"您的跳動點交易版本已過時。請更新應用程式到最新版本。",
+    "what_is_new":"最新動態"
   },
   "realitycheck":{
     "title":"實況調查",
@@ -137,7 +137,9 @@
     "days":"天",
     "hours":"小時",
     "minutes":"分鐘",
-    "interval_error":"請輸入10到120之間的數字。"
+    "interval_error":"請輸入10到120之間的數字。",
+    "view_statement":"View Statement",
+    "integer_error":"Interval should be integer."
   },
   "newvirtualaccount":{
     "continue":"繼續",
@@ -368,10 +370,10 @@
     "credit_debit":"借記/貸記",
     "balance":"餘額",
     "go":"去",
-    "buy":"Buy",
-    "sell":"Sell",
-    "deposit":"Deposit",
-    "withdrawal":"Withdrawal"
+    "buy":"購買",
+    "sell":"賣出",
+    "deposit":"存款",
+    "withdrawal":"提款"
   },
   "menu":{
     "trade":"交易",
@@ -384,7 +386,7 @@
     "settings":"設定",
     "security-and-limits":"安全與限制",
     "self-exclusion":"自我禁止",
-    "change-password":"Change Password"
+    "change-password":"更改密碼"
   },
   "self-exclusion":{
     "self-exclusion":"自我禁止設施",
@@ -447,15 +449,15 @@
     "version":"版本"
   },
   "change-password":{
-    "change_password":"Change Password",
-    "current_password":"Current password",
-    "new_password":"New password",
-    "verify_new_password":"Verify new password",
-    "password_hint":"Minimum of six lower and uppercase letters with numbers",
-    "password_not_match":"The two passwords that you entered do not match.",
-    "required":"This field is required.",
-    "current_password_required":"Please enter your current password.",
-    "not_match_pattern":"Does not match the pattern",
-    "password_changed_text":"Your password has been changed. Please log in again."
+    "change_password":"更改密碼",
+    "current_password":"目前密碼",
+    "new_password":"新密碼",
+    "verify_new_password":"新密碼驗證",
+    "password_hint":"至少六個大小寫字母和數字",
+    "password_not_match":"您輸入的兩個密碼不匹配。",
+    "required":"此為必填欄位。",
+    "current_password_required":"請輸入您的目前密碼。",
+    "not_match_pattern":"與模式不匹配",
+    "password_changed_text":"您的密碼已更改。請重新登入。"
   }
 }

@@ -142,7 +142,9 @@
 		"days": "days",
 		"hours": "hours",
 		"minutes": "minutes",
-		"interval_error": "Please enter a number between 10 to 120."
+		"interval_error": "Please enter a number between 10 to 120.",
+		"view_statement": "View Statement",
+		"integer_error": "Interval should be integer."
 	},
     "newvirtualaccount": {
         "continue": "Continue",
@@ -385,7 +387,8 @@
       "profit_table": "Profit Table",
       "statement": "Statement",
       "language": "Language",
-      "settings": "Settings"
+      "settings": "Settings",
+			"resources": "Resources"
     },
     "settings": {
       "settings": "Settings",
@@ -551,5 +554,24 @@
 			"other_currency": "(or equivalent in other currency)",
 			"already_withdrawn": "You have already withdrawn the equivalent of",
 			"current_immediate_maximum_withdrawl": "Therefore your current immediate maximum withdrawal (subject to your account having sufficient funds) is"
+		"resources": {
+			"resources": "Resources",
+			"trading-times": "Trading Times"
+		},
+		"trading-times": {
+			"trading_times": "Trading Times",
+			"date": "Date",
+			"market": "Market",
+			"asset": "Asset",
+			"opens": "Opens",
+			"closes": "Closes",
+			"settles": "Settles",
+			"upcoming_events": "Upcoming Events",
+			"GMT_times": "All times are in GMT (Greenwich Mean Time)."
+		},
+		"new-real-account": {
+			"select_country": "Select Country",
+			"select_country_text": "Please select your country of residence",
+			"continue": "Continue"
 		}
 }
