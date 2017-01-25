@@ -25,6 +25,8 @@
         accountService, alertService, languageService, proposalService) {
 			var vm = this;
     var landingCompanyName;
+    vm.integerError = false;
+
     $scope.$on('authorize', function(e, authorize) {
       vm.sessionLoginId = authorize.loginid;
       if(!appStateService.realityCheckLogin) {
@@ -152,7 +154,7 @@
                   text: translation['realitycheck.continue'],
                   type: 'button-positive',
                   onTap: function(e) {
-                    if (vm.data.interval <= 120 && vm.data.interval >= 1) {
+                    if (vm.data.interval <= 120 && vm.data.interval >= 10 && !vm.integerError) {
                       vm.setInterval(vm.data.interval);
                       vm.data.start_interval = (new Date()).getTime();
                       vm.setStart(vm.data.start_interval);
@@ -224,7 +226,7 @@
         vm.data.interval = parseInt(vm.getInterval('_interval'));
         $timeout.cancel(vm.realityCheckTimeout);
         appStateService.isPopupOpen = true;
-        $translate(['realitycheck.title', 'realitycheck.continue', 'realitycheck.logout'])
+        $translate(['realitycheck.title', 'realitycheck.continue', 'realitycheck.logout', 'realitycheck.view_statement'])
           .then(
             function(translation) {
               alertService.displayRealityCheckResult(
@@ -238,10 +240,21 @@
                     vm.logout();
                   }
                 }, {
+                  text: translation['realitycheck.view_statement'],
+                  type: 'button-positive',
+                  onTap: function(e) {
+                    $state.go('statement');
+                    $('.popup-container').removeClass('popup-showing');
+                    $('body').removeClass('popup-open');
+                    $('.backdrop').removeClass('visible');
+                    e.preventDefault();
+                  }
+                }, {
                   text: translation['realitycheck.continue'],
                   type: 'button-positive',
                   onTap: function(e) {
-                    if (vm.data.interval <= 120 && vm.data.interval >= 1) {
+
+                    if (vm.data.interval <= 120 && vm.data.interval >= 10 && !vm.integerError) {
                       if (vm.sessionLoginId == vm.realityCheckitems.loginid) {
                         vm.getLastInterval(vm.data.interval);
                         vm.data.start_interval = (new Date()).getTime();
@@ -259,5 +272,15 @@
           )
       }
     }
+
+    $scope.$watch('vm.data.interval', () => {
+      if(appStateService.isPopupOpen && !((Math.floor(vm.data.interval) === vm.data.interval) && $.isNumeric(vm.data.interval))) {
+        vm.integerError = true;
+      }
+      else {
+        vm.integerError = false;
+      }
+    });
+
     };
 	})();
