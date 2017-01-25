@@ -380,7 +380,8 @@
     "profit_table":"Gewinntabelle",
     "statement":"Erklärung",
     "language":"Sprache",
-    "settings":"Einstellungen"
+    "settings":"Einstellungen",
+    "resources":"Resources"
   },
   "settings":{
     "settings":"Einstellungen",
@@ -459,5 +460,20 @@
     "current_password_required":"Bitte geben Sie Ihr aktuelles Passwort ein.",
     "not_match_pattern":"Entspricht dem Muster nicht",
     "password_changed_text":"Ihr Passwort wurde geändert. Bitte melden Sie sich erneut an."
+  },
+  "resources":{
+    "resources":"Resources",
+    "trading-times":"Trading Times"
+  },
+  "trading-times":{
+    "trading_times":"Trading Times",
+    "date":"Date",
+    "market":"Market",
+    "asset":"Asset",
+    "opens":"Opens",
+    "closes":"Closes",
+    "settles":"Settles",
+    "upcoming_events":"Upcoming Events",
+    "GMT_times":"All times are in GMT (Greenwich Mean Time)."
   }
 }
