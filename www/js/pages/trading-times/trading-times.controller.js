@@ -28,7 +28,7 @@
       vm.sendTradingTimes = function() {
         vm.epochDate = vm.data.date || (Math.round(new Date().getTime()));
         vm.date = $filter('date')(vm.epochDate, 'yyyy-MM-dd');
-        websocketService.sendRequestFor.tradingTimes(22);
+        websocketService.sendRequestFor.tradingTimes(vm.date);
       }
 
       vm.sendTradingTimes();
