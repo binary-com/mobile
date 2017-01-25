@@ -471,6 +471,7 @@
 			"password_changed_text": "Your password has been changed. Please log in again."
 		},
 		"resources": {
+			"resources": "Resources",
 			"trading-times": "Trading Times"
 		},
 		"trading-times": {
