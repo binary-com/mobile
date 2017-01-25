@@ -56,7 +56,9 @@
         'binary.pages.terms-and-conditions',
         'binary.pages.accept-terms-and-conditions',
         'binary.pages.update',
-        'binary.pages.change-password'
+        'binary.pages.change-password',
+        'binary.pages.trading-times',
+        'binary.pages.resources'
     ]);
 
   String.prototype.capitalize = function() {

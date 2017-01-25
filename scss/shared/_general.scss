@@ -185,6 +185,10 @@ input::-webkit-outer-spin-button {
     color: $contentColor;
     border-bottom: 2px solid $black;
 }
+.sub-title {
+  font-size: 1rem;
+	color: $primaryBrandColor;
+}
 .input-title {
     text-align: left;
     white-space: normal;
@@ -214,9 +218,9 @@ input::-webkit-outer-spin-button {
 }
 input {
     width: 100%;
-    padding: 5px;
+    padding: 5px!important;
     border: 1px solid $borderColor!important;
-    border-radius: 3px;
+    border-radius: 3px!important;
     background: $white;
     &.checkbox {
         width: 20px;
@@ -229,7 +233,7 @@ input {
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: $secondaryContentColor;
-    border: 1px solid $borderColor;
+    // border: 1px solid $borderColor;
 }
 input[type=password],
 input[type=text] {
