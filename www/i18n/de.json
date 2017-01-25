@@ -137,7 +137,9 @@
     "days":"Tage",
     "hours":"Stunden",
     "minutes":"Minuten",
-    "interval_error":"Bitte geben Sie eine Zahl zwischen 10 und 120 ein."
+    "interval_error":"Bitte geben Sie eine Zahl zwischen 10 und 120 ein.",
+    "view_statement":"View Statement",
+    "integer_error":"Interval should be integer."
   },
   "newvirtualaccount":{
     "continue":"Weiter",
