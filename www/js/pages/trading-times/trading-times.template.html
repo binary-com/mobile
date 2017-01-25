@@ -1,5 +1,5 @@
 <ion-view>
-  <ion-content class="general-content">
+  <ion-content class="general-content trading-times">
 		<div class="row">
 			<div class="col">
 				<h1 class="page-title">
@@ -7,32 +7,29 @@
 				</h1>
 			</div>
 		</div>
-    <form name="trading-times">
-      <div class="row">
-        <div class="col input-title">
-          {{'trading-times.date' | translate}}
-        </div>
+    <div class="row">
+      <div class="col">
+        <form name="trading-times">
+            <div class="input-title">
+              {{'trading-times.date' | translate}}
+            </div>
+            <label class="item-input">
+              <input type="date" id="date" name="trading-times-date" ng-model="vm.data.date" ng-change="vm.sendTradingTimes()" />
+            </label>
+        </form>
+        <form name="market">
+            <div class="input-title">
+              {{'trading-times.market' | translate}}
+            </div>
+            <div class="item-select">
+              <select ng-model="vm.market">
+                <option ng-repeat="market in vm.data.markets" ng-value="market.name" ng-init="vm.data.markets[0]">{{market.name}}</option>
+              </select>
+          </div>
+        </form>
       </div>
-      <div class="row">
-        <label class="col item-input">
-          <input type="date" id="date" name="trading-times-date" ng-model="vm.data.date" ng-change="vm.sendTradingTimes()" />
-        </label>
-      </div>
-    </form>
-    <form name="market">
-      <div class="row">
-        <div class="col input-title">
-          {{'trading-times.market' | translate}}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col item-select">
-          <select ng-model="vm.market">
-            <option ng-repeat="market in vm.data.markets" ng-value="market.name" ng-init="vm.data.markets[0]">{{market.name}}</option>
-          </select>
-        </div>
-      </div>
-    </form>
+    </div>
+
     <div class="row">
       <div class="col">
           {{'trading-times.GMT_times' | translate}}
