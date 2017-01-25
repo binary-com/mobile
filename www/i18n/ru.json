@@ -138,8 +138,8 @@
     "hours":"час.",
     "minutes":"мин.",
     "interval_error":"Пожалуйста, введите число от 10 до 120.",
-    "view_statement":"View Statement",
-    "integer_error":"Interval should be integer."
+    "view_statement":"Обзор истории счёта",
+    "integer_error":"Интервал должен быть целым числом."
   },
   "newvirtualaccount":{
     "continue":"Продолжить",
