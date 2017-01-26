@@ -380,7 +380,8 @@
     "profit_table":"Tabela zysków",
     "statement":"Oświadczenie",
     "language":"Język",
-    "settings":"Ustawienia"
+    "settings":"Ustawienia",
+    "resources":"Resources"
   },
   "settings":{
     "settings":"Ustawienia",
@@ -459,5 +460,25 @@
     "current_password_required":"Please enter your current password.",
     "not_match_pattern":"Does not match the pattern",
     "password_changed_text":"Your password has been changed. Please log in again."
+  },
+  "resources":{
+    "resources":"Resources",
+    "trading-times":"Trading Times"
+  },
+  "trading-times":{
+    "trading_times":"Trading Times",
+    "date":"Date",
+    "market":"Market",
+    "asset":"Asset",
+    "opens":"Opens",
+    "closes":"Closes",
+    "settles":"Settles",
+    "upcoming_events":"Upcoming Events",
+    "GMT_times":"All times are in GMT (Greenwich Mean Time)."
+  },
+  "new-real-account":{
+    "select_country":"Select Country",
+    "select_country_text":"Please select your country of residence",
+    "continue":"Continue"
   }
 }

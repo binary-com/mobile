@@ -380,7 +380,8 @@
     "profit_table":"crwdns18006:0crwdne18006:0",
     "statement":"crwdns18007:0crwdne18007:0",
     "language":"crwdns18008:0crwdne18008:0",
-    "settings":"crwdns18009:0crwdne18009:0"
+    "settings":"crwdns18009:0crwdne18009:0",
+    "resources":"crwdns19114:0crwdne19114:0"
   },
   "settings":{
     "settings":"crwdns18010:0crwdne18010:0",
@@ -459,5 +460,25 @@
     "current_password_required":"crwdns19101:0crwdne19101:0",
     "not_match_pattern":"crwdns19102:0crwdne19102:0",
     "password_changed_text":"crwdns19103:0crwdne19103:0"
+  },
+  "resources":{
+    "resources":"crwdns19115:0crwdne19115:0",
+    "trading-times":"crwdns19116:0crwdne19116:0"
+  },
+  "trading-times":{
+    "trading_times":"crwdns19117:0crwdne19117:0",
+    "date":"crwdns19118:0crwdne19118:0",
+    "market":"crwdns19119:0crwdne19119:0",
+    "asset":"crwdns19120:0crwdne19120:0",
+    "opens":"crwdns19121:0crwdne19121:0",
+    "closes":"crwdns19122:0crwdne19122:0",
+    "settles":"crwdns19123:0crwdne19123:0",
+    "upcoming_events":"crwdns19124:0crwdne19124:0",
+    "GMT_times":"crwdns19125:0crwdne19125:0"
+  },
+  "new-real-account":{
+    "select_country":"crwdns19126:0crwdne19126:0",
+    "select_country_text":"crwdns19127:0crwdne19127:0",
+    "continue":"crwdns19128:0crwdne19128:0"
   }
 }
