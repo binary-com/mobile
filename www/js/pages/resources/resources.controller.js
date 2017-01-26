@@ -17,6 +17,8 @@
 
   function Resources(){
     var vm = this;
+    vm.ios = ionic.Platform.isIOS();
+    vm.android = ionic.Platform.isAndroid();
 
     vm.resources = [
 			{

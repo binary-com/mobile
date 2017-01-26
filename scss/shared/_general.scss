@@ -185,7 +185,6 @@ input::-webkit-outer-spin-button {
     margin: 0;
     /* <-- Apparently some margin are still there even though it's hidden */
 }
-// new
 .page-title {
     font-size: 1.5rem;
     font-weight: normal;
@@ -314,7 +313,10 @@ textarea {
 .hint {
     font-size: 0.8rem;
 }
-// end new
+.submenu-icon{
+  float: right;
+  // color: $darkPrimaryBrandColor;
+}
 @media screen and (min-width: 960px) {
     .accounts,
     .help,
