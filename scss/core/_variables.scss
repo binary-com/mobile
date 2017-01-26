@@ -1,3 +1,4 @@
+//  colors
 $black: #000;
 $white: #fff;
 $primaryBrandColor: #2A3052;
@@ -14,3 +15,24 @@ $negativeColor: #C03;
 $noticeColor: #FEF1CF;
 $chartColor: #6B8Fb9;
 $chartAreaColor: rgba(128,179,236,0.3);
+
+// Typography
+$FONT_SIZE_N: 18px;
+$FONT_SIZE_S: 13px;
+$FONT_SIZE_XS: 10px;
+
+.font-n{
+  font-size: $FONT_SIZE_N;
+}
+.font-s{
+  font-size: $FONT_SIZE_S;
+}
+.font-xs{
+  font-size: $FONT_SIZE_XS;
+}
+
+.hint {
+    font-size: $FONT_SIZE_S;
+    color: $black;
+    margin-top: 3px;
+}
