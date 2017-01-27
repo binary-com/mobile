@@ -470,15 +470,15 @@
     "date":"日期",
     "market":"市场",
     "asset":"资产",
-    "opens":"Opens",
-    "closes":"Closes",
-    "settles":"Settles",
-    "upcoming_events":"Upcoming Events",
-    "GMT_times":"All times are in GMT (Greenwich Mean Time)."
+    "opens":"开盘",
+    "closes":"收盘",
+    "settles":"结算",
+    "upcoming_events":"未来事件",
+    "GMT_times":"所有时间均采用格林威治标准时间（GMT）。"
   },
   "new-real-account":{
-    "select_country":"Select Country",
-    "select_country_text":"Please select your country of residence",
-    "continue":"Continue"
+    "select_country":"选择国家",
+    "select_country_text":"请选择您的居住国",
+    "continue":"继续"
   }
 }
