@@ -138,7 +138,7 @@
     "hours":"Stunden",
     "minutes":"Minuten",
     "interval_error":"Bitte geben Sie eine Zahl zwischen 10 und 120 ein.",
-    "view_statement":"View Statement",
+    "view_statement":"Statement ansehen",
     "integer_error":"Interval should be integer."
   },
   "newvirtualaccount":{
