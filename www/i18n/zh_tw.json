@@ -138,8 +138,8 @@
     "hours":"小時",
     "minutes":"分鐘",
     "interval_error":"請輸入10到120之間的數字。",
-    "view_statement":"View Statement",
-    "integer_error":"Interval should be integer."
+    "view_statement":"檢視帳單",
+    "integer_error":"時間間隔須為整數。"
   },
   "newvirtualaccount":{
     "continue":"繼續",
