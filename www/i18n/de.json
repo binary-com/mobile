@@ -139,7 +139,7 @@
     "minutes":"Minuten",
     "interval_error":"Bitte geben Sie eine Zahl zwischen 10 und 120 ein.",
     "view_statement":"Statement ansehen",
-    "integer_error":"Interval should be integer."
+    "integer_error":"Der Intervall sollte eine ganze Zahl sein."
   },
   "newvirtualaccount":{
     "continue":"Weiter",
@@ -381,7 +381,7 @@
     "statement":"Erklärung",
     "language":"Sprache",
     "settings":"Einstellungen",
-    "resources":"Resources"
+    "resources":"Ressourcen"
   },
   "settings":{
     "settings":"Einstellungen",
@@ -462,23 +462,23 @@
     "password_changed_text":"Ihr Passwort wurde geändert. Bitte melden Sie sich erneut an."
   },
   "resources":{
-    "resources":"Resources",
-    "trading-times":"Trading Times"
+    "resources":"Ressourcen",
+    "trading-times":"Handelszeiten"
   },
   "trading-times":{
-    "trading_times":"Trading Times",
-    "date":"Date",
-    "market":"Market",
-    "asset":"Asset",
-    "opens":"Opens",
-    "closes":"Closes",
-    "settles":"Settles",
-    "upcoming_events":"Upcoming Events",
-    "GMT_times":"All times are in GMT (Greenwich Mean Time)."
+    "trading_times":"Handelszeiten",
+    "date":"Datum",
+    "market":"Markt",
+    "asset":"Anlage",
+    "opens":"Öffnet",
+    "closes":"Schließt",
+    "settles":"Begleicht",
+    "upcoming_events":"Bevorstehende Veranstaltungen",
+    "GMT_times":"Alle Zeitangaben sind in GMT (Greenwich Mean Time)."
   },
   "new-real-account":{
-    "select_country":"Select Country",
-    "select_country_text":"Please select your country of residence",
-    "continue":"Continue"
+    "select_country":"Wählen Sie ein Land aus",
+    "select_country_text":"Bitte wählen Sie Ihr Wohnsitzland",
+    "continue":"Weiter"
   }
 }
