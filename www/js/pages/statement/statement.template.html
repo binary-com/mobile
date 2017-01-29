@@ -44,7 +44,7 @@
     <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
         <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
     </a>
-    <ion-content has-bouncing="false" class="profit-table-content" on-scroll="vm.goToTopButtonCondition()" delegate-handle="handler" ng-class="{'pull-down' : vm.jumpToDateInputShow}">
+    <ion-content has-bouncing="false" class="profit-table-content" delegate-handle="handler" on-scroll="vm.goToTopButtonCondition()" ng-class="{'pull-down' : vm.jumpToDateInputShow}">
 
         <div class="profit-table-container">
             <div class="row">
