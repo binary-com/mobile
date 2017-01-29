@@ -138,8 +138,8 @@
     "hours":"小时",
     "minutes":"分钟",
     "interval_error":"请输入10到120之间的数字。",
-    "view_statement":"View Statement",
-    "integer_error":"Interval should be integer."
+    "view_statement":"查看报表",
+    "integer_error":"时间间隔须为整数。"
   },
   "newvirtualaccount":{
     "continue":"继续",
@@ -381,7 +381,7 @@
     "statement":"账单",
     "language":"语言",
     "settings":"设置",
-    "resources":"Resources"
+    "resources":"资源"
   },
   "settings":{
     "settings":"设置",
@@ -462,23 +462,23 @@
     "password_changed_text":"您的密码已更改。请重新登录。"
   },
   "resources":{
-    "resources":"Resources",
-    "trading-times":"Trading Times"
+    "resources":"资源",
+    "trading-times":"交易时间"
   },
   "trading-times":{
-    "trading_times":"Trading Times",
-    "date":"Date",
-    "market":"Market",
-    "asset":"Asset",
-    "opens":"Opens",
-    "closes":"Closes",
-    "settles":"Settles",
-    "upcoming_events":"Upcoming Events",
-    "GMT_times":"All times are in GMT (Greenwich Mean Time)."
+    "trading_times":"交易时间",
+    "date":"日期",
+    "market":"市场",
+    "asset":"资产",
+    "opens":"开盘",
+    "closes":"收盘",
+    "settles":"结算",
+    "upcoming_events":"未来事件",
+    "GMT_times":"所有时间均采用格林威治标准时间（GMT）。"
   },
   "new-real-account":{
-    "select_country":"Select Country",
-    "select_country_text":"Please select your country of residence",
-    "continue":"Continue"
+    "select_country":"选择国家",
+    "select_country_text":"请选择您的居住国",
+    "continue":"继续"
   }
 }
