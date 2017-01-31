@@ -127,6 +127,20 @@ angular
 					controller: 'ChangePasswordController',
 					controllerAs: 'vm'
 				})
+				.state('financial-assessment', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/financial-assessment/financial-assessment.template.html',
+					controller: 'FinancialAssessmentController',
+					controllerAs: 'vm'
+				})
+				.state('limits', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/limits/limits.template.html',
+					controller: 'LimitsController',
+        	controllerAs: 'vm'
+				  })
 				.state('trading-times', {
 					parent: 'layout',
 					cache: false,

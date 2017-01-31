@@ -65,6 +65,9 @@
             } else if (['acceptTermsAndConditions'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = false;
+            } else if (['financial-assessment'].indexOf(vm.to.name) > -1 && appStateService.hasToFillFinancialAssessment) {
+                vm.hideMenuButton = true;
+                vm.showBack = false;
             } else {
               if(vm.from.name === 'statement' && vm.to.name !== 'transactiondetail' && document.getElementsByClassName('realitycheck')) {
                 $('.popup-container').addClass('popup-showing');

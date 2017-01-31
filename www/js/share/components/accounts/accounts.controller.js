@@ -66,6 +66,10 @@
             appStateService.isPopupOpen = false;
             appStateService.realityCheckLogin = false;
             $ionicSideMenuDelegate.toggleLeft();
+            appStateService.hasToAcceptTandC = false;
+            appStateService.hasToFillFinancialAssessment = false;
+            appStateService.redirectFromFinancialAssessment = true;
+            appStateService.limitsChange = true;
         };
 
         $scope.$on('authorize', (e, authorize) => {

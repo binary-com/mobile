@@ -21,22 +21,27 @@
         vm.data.landingCompanyName = localStorage.getItem('landingCompanyName');
         vm.data.linkToTermAndConditions = "https://www.binary.com/" + (localStorage.getItem('language') || "en") + "/terms-and-conditions.html";
 
-        vm.updateUserTermsAndConditions = function(){
-          websocketService.sendRequestFor.TAndCApprovalSend();
+        vm.updateUserTermsAndConditions = function() {
+            websocketService.sendRequestFor.TAndCApprovalSend();
         }
 
-        vm.openTermsAndConditions = function(){
-          window.open(vm.data.linkToTermAndConditions, '_blank');	
+        vm.openTermsAndConditions = function() {
+            window.open(vm.data.linkToTermAndConditions, '_blank');
         }
 
         $scope.$on('tnc_approval', (e, tnc_approval) => {
-          if(tnc_approval == 1){
-            $state.go('trade');
-          }
+            if (tnc_approval == 1) {
+                appStateService.hasToAcceptTandC = false;
+                if (appStateService.hasToFillFinancialAssessment) {
+                    $state.go('financial-assessment');
+                } else {
+                    $state.go('trade');
+                }
+            }
         });
 
         $scope.$on('tnc_approval:error', (e, error) => {
-          alertService.displayError(error.message);
+            alertService.displayError(error.message);
         });
     }
 })();
