@@ -21,6 +21,10 @@
 
 	.table-container {
 		overflow-x: scroll;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 
 	.asset-index-table {
