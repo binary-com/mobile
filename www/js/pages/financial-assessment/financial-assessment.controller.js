@@ -51,6 +51,7 @@
                     vm.data.otherInstrumentsTradingFrequency = financial_assessment.other_instruments_trading_frequency;
                     vm.data.stocksTradingExperience = financial_assessment.stocks_trading_experience;
                     vm.data.stocksTradingFrequency = financial_assessment.stocks_trading_frequency;
+                    vm.data.occupation = financial_assessment.occupation;
                     vm.disableUpdate = false;
                 }
             });

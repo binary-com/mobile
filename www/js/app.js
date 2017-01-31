@@ -59,7 +59,7 @@
         'binary.pages.update',
         'binary.pages.change-password',
         'binary.pages.financial-assessment',
-        'binary.pages.limits'
+        'binary.pages.limits',
         'binary.pages.trading-times',
         'binary.pages.resources'
     ]);
