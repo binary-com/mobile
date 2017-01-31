@@ -112,8 +112,7 @@
         }
         vm.getAssetIndexData(vm.assetIndex, vm.activeSymbols);
         var promise = $q((resolve) => {
-            vm.getMarketColumns();
-            resolve();
+          if(vm.getMarketColumns()) resolve();
         });
         promise.then(function() {
             vm.getSubmarketTable(vm.marketColumns, vm.assetIndex);
