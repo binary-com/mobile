@@ -480,6 +480,7 @@ angular
                             }
                             //if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
                             sessionStorage.active_symbols = JSON.stringify(openMarkets);
+                            sessionStorage.all_active_symbols = JSON.stringify(message.active_symbols);
                             $rootScope.$broadcast('symbols:updated', openMarkets);
                             //}
                             break;

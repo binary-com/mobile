@@ -474,7 +474,8 @@
 		},
 		"resources": {
 			"resources": "Resources",
-			"trading-times": "Trading Times"
+			"trading-times": "Trading Times",
+			"asset-index": "Asset Index"
 		},
 		"trading-times": {
 			"trading_times": "Trading Times",
@@ -491,5 +492,10 @@
 			"select_country": "Select Country",
 			"select_country_text": "Please select your country of residence",
 			"continue": "Continue"
+		},
+		"asset-index": {
+			"asset_index": "Asset Index",
+			"error": "Sorry, an error occurred while processing your request.",
+			"market": "Market"
 		}
 }

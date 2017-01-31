@@ -58,7 +58,8 @@
         'binary.pages.update',
         'binary.pages.change-password',
         'binary.pages.trading-times',
-        'binary.pages.resources'
+        'binary.pages.resources',
+        'binary.pages.asset-index'
     ]);
 
   String.prototype.capitalize = function() {
