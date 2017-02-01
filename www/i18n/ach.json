@@ -213,6 +213,19 @@
     "health":"crwdns17855:0crwdne17855:0",
     "tourism":"crwdns17856:0crwdne17856:0",
     "other":"crwdns17857:0crwdne17857:0",
+    "occupation":"crwdns19358:0crwdne19358:0",
+    "chief_executives":"crwdns19359:0crwdne19359:0",
+    "managers":"crwdns19360:0crwdne19360:0",
+    "professionals":"crwdns19361:0crwdne19361:0",
+    "clerks":"crwdns19362:0crwdne19362:0",
+    "personal_care":"crwdns19363:0crwdne19363:0",
+    "agricultural":"crwdns19364:0crwdne19364:0",
+    "craft":"crwdns19365:0crwdne19365:0",
+    "machine":"crwdns19366:0crwdne19366:0",
+    "helpers":"crwdns19367:0crwdne19367:0",
+    "mining":"crwdns19368:0crwdne19368:0",
+    "armed_forces":"crwdns19369:0crwdne19369:0",
+    "government_officers":"crwdns19370:0crwdne19370:0",
     "primary":"crwdns17858:0crwdne17858:0",
     "secondary":"crwdns17859:0crwdne17859:0",
     "tertiary":"crwdns17860:0crwdne17860:0",
@@ -559,7 +572,8 @@
   },
   "resources":{
     "resources":"crwdns19115:0crwdne19115:0",
-    "trading-times":"crwdns19116:0crwdne19116:0"
+    "trading-times":"crwdns19116:0crwdne19116:0",
+    "asset-index":"crwdns19371:0crwdne19371:0"
   },
   "trading-times":{
     "trading_times":"crwdns19117:0crwdne19117:0",
@@ -576,5 +590,10 @@
     "select_country":"crwdns19126:0crwdne19126:0",
     "select_country_text":"crwdns19127:0crwdne19127:0",
     "continue":"crwdns19128:0crwdne19128:0"
+  },
+  "asset-index":{
+    "asset_index":"crwdns19372:0crwdne19372:0",
+    "error":"crwdns19373:0crwdne19373:0",
+    "market":"crwdns19374:0crwdne19374:0"
   }
 }
