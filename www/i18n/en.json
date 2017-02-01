@@ -495,7 +495,6 @@
 		},
 		"asset-index": {
 			"asset_index": "Asset Index",
-			"error": "Sorry, an error occurred while processing your request.",
-			"market": "Market"
+			"error": "Sorry, an error occurred while processing your request."
 		}
 }
