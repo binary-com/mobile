@@ -213,6 +213,19 @@
     "health":"健康",
     "tourism":"旅遊",
     "other":"其他",
+    "occupation":"Occupation",
+    "chief_executives":"Chief Executives, Senior Officials and Legislators",
+    "managers":"Managers",
+    "professionals":"Professionals",
+    "clerks":"Clerks",
+    "personal_care":"Personal Care, Sales and Service Workers",
+    "agricultural":"Agricultural, Forestry and Fishery Workers",
+    "craft":"Craft, Metal, Electrical and Electronics Workers",
+    "machine":"Plant and Machine Operators and Assemblers",
+    "helpers":"Cleaners and Helpers",
+    "mining":"Mining, Construction, Manufacturing and Transport Workers",
+    "armed_forces":"Armed Forces",
+    "government_officers":"Government Officers",
     "primary":"主要",
     "secondary":"次要",
     "tertiary":"三級",
@@ -559,7 +572,8 @@
   },
   "resources":{
     "resources":"資源",
-    "trading-times":"交易時間"
+    "trading-times":"交易時間",
+    "asset-index":"Asset Index"
   },
   "trading-times":{
     "trading_times":"交易時間",
@@ -576,5 +590,10 @@
     "select_country":"請選擇您的居住國",
     "select_country_text":"請選擇您的居住國",
     "continue":"繼續"
+  },
+  "asset-index":{
+    "asset_index":"Asset Index",
+    "error":"Sorry, an error occurred while processing your request.",
+    "market":"Market"
   }
 }
