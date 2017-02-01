@@ -32,7 +32,11 @@
         };
 
         vm.getAssetIndexData = function(assetIndex, activeSymbols) {
-            if (!assetIndex || !activeSymbols) return;
+            if (!assetIndex || !activeSymbols) {
+            console.log('b');
+            return false;
+          };
+          console.log('c');
 
             vm.marketColumns = {};
 
@@ -86,7 +90,9 @@
         };
         vm.getMarketColumns = function() {
             $scope.$applyAsync(() => {
+              if(vm.marketColumns){
                 vm.selectedMarket = Object.getOwnPropertyNames(vm.marketColumns)[0];
+              }
             });
             vm.hasError = false;
             return vm.marketColumns;

@@ -15,9 +15,6 @@
      <div class="row" ng-if="!vm.hasError">
       <div class="col">
         <form name="market" ng-show="!vm.hasError && vm.selectedMarket">
-            <div class="input-title">
-              {{'asset-index.market' | translate}}
-            </div>
             <div class="item-select">
               <select ng-model="vm.selectedMarket">
                 <option ng-if="vm.hasError" selected>-</option>
