@@ -213,6 +213,19 @@
     "health":"Gesundheit",
     "tourism":"Tourismus",
     "other":"Andere",
+    "occupation":"Occupation",
+    "chief_executives":"Chief Executives, Senior Officials and Legislators",
+    "managers":"Managers",
+    "professionals":"Professionals",
+    "clerks":"Clerks",
+    "personal_care":"Personal Care, Sales and Service Workers",
+    "agricultural":"Agricultural, Forestry and Fishery Workers",
+    "craft":"Craft, Metal, Electrical and Electronics Workers",
+    "machine":"Plant and Machine Operators and Assemblers",
+    "helpers":"Cleaners and Helpers",
+    "mining":"Mining, Construction, Manufacturing and Transport Workers",
+    "armed_forces":"Armed Forces",
+    "government_officers":"Government Officers",
     "primary":"Primär",
     "secondary":"Sekundär",
     "tertiary":"Tertiär",
@@ -559,7 +572,8 @@
   },
   "resources":{
     "resources":"Ressourcen",
-    "trading-times":"Handelszeiten"
+    "trading-times":"Handelszeiten",
+    "asset-index":"Asset Index"
   },
   "trading-times":{
     "trading_times":"Handelszeiten",
@@ -576,5 +590,10 @@
     "select_country":"Wählen Sie ein Land aus",
     "select_country_text":"Bitte wählen Sie Ihr Wohnsitzland",
     "continue":"Weiter"
+  },
+  "asset-index":{
+    "asset_index":"Asset Index",
+    "error":"Sorry, an error occurred while processing your request.",
+    "market":"Market"
   }
 }
