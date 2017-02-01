@@ -593,7 +593,6 @@
   },
   "asset-index":{
     "asset_index":"Anlage-Index",
-    "error":"Leider ist während der Bearbeitung Ihrer Anfrage ein Fehler aufgetreten.",
-    "market":"Markt"
+    "error":"Leider ist während der Bearbeitung Ihrer Anfrage ein Fehler aufgetreten."
   }
 }
