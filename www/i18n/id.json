@@ -37,7 +37,7 @@
     "field_between":"Harus antara 0.70 dan 100000.",
     "must_number":"Harus berupa angka.",
     "ok":"OK",
-    "cancel":"Cancel"
+    "cancel":"Batal"
   },
   "options":{
     "account":"Akun",
@@ -112,8 +112,8 @@
     "sign_out":"Keluar"
   },
   "update":{
-    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
-    "what_is_new":"WHAT'S NEW"
+    "your_version_is_out_of_date_please_update":"Anda menggunakan versi trading tik lama. Silahkan update applikasi pada versi terbaru.",
+    "what_is_new":"BERITA TERBARU"
   },
   "realitycheck":{
     "title":"Pengecekan Realitas",
@@ -138,8 +138,8 @@
     "hours":"jam",
     "minutes":"menit",
     "interval_error":"Silakan masukkan nomor antara 10 hingga 120.",
-    "view_statement":"View Statement",
-    "integer_error":"Interval should be integer."
+    "view_statement":"Lihat Pernyataan",
+    "integer_error":"Interval harus berupa integer."
   },
   "newvirtualaccount":{
     "continue":"Lanjutkan",
@@ -213,7 +213,7 @@
     "health":"Kesehatan",
     "tourism":"Pariwisata",
     "other":"Lainnya",
-    "occupation":"Occupation",
+    "occupation":"Pekerjaan",
     "chief_executives":"Chief Executives, Senior Officials and Legislators",
     "managers":"Managers",
     "professionals":"Professionals",
