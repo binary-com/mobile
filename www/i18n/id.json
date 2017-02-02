@@ -402,7 +402,7 @@
     "self-exclusion":"Pengecualian Diri",
     "change-password":"Rubah Kata Sandi",
     "financial-assessment":"Penilaian Finansial",
-    "limits":"Batas"
+    "limits":"Batasan"
   },
   "self-exclusion":{
     "self-exclusion":"Fasilitas Pengecualian Diri",
@@ -466,7 +466,7 @@
   },
   "change-password":{
     "change_password":"Rubah Kata Sandi",
-    "current_password":"Kata Sandi Saat Ini",
+    "current_password":"Kata sandi saat ini",
     "new_password":"Kata sandi baru",
     "verify_new_password":"Sahkan kata sandi baru",
     "password_hint":"Minimal enam huruf kecil dan huruf besar dengan angka",
@@ -535,8 +535,8 @@
     "net_income_3":"$50,001 - $100,000",
     "net_income_4":"$100,001 - $500,000",
     "net_income_5":"Lebih dari $500,000",
-    "estimated_worth_1":"Kurang dari $100.000",
-    "estimated_worth_2":"$100.000 - $250.000",
+    "estimated_worth_1":"Kurang dari $100,000",
+    "estimated_worth_2":"$100,000 - $250,000",
     "estimated_worth_3":"$250.001 - $500.000",
     "estimated_worth_4":"$500.001 - $1.000.000",
     "estimated_worth_5":"Lebih dari $1.000.000",
