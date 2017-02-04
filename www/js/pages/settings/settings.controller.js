@@ -17,6 +17,8 @@
 
   function Settings(appStateService){
     var vm = this;
+    vm.ios = ionic.Platform.isIOS();
+    vm.android = ionic.Platform.isAndroid();
 
     vm.settings = [
       /*{
@@ -47,6 +49,24 @@
         url: "language",
         scope: "read",
         forRealAccount: false
+      },
+      {
+        name: "settings.change-password",
+        url: "change-password",
+        scope: "admin",
+        forRealAccount: false
+      },
+      {
+        name: "settings.financial-assessment",
+        url: "financial-assessment",
+        scope: "admin",
+        forRealAccount: true
+      },
+      {
+        name: "settings.limits",
+        url: "limits",
+        scope: "admin",
+        forRealAccount: true
       }
     ];
 

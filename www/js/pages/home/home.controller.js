@@ -13,11 +13,13 @@
     .module('binary.pages.home.controllers')
     .controller('HomeController', Home);
 
-  Home.$inject = ['$scope', '$state', 'accountService', 'analyticsService', 'appStateService'];
+  Home.$inject = ['$scope', '$state', 'accountService', 'analyticsService', 'appStateService', 'websocketService'];
 
-  function Home($scope, $state, accountService, analyticsService, appStateService){
+  function Home($scope, $state, accountService, analyticsService, appStateService, websocketService){
 
     var vm  = this;
+
+    websocketService.sendRequestFor.websiteStatus();
 
     /**
      * wait untile authorization and decide

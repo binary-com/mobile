@@ -5,14 +5,13 @@
                 class="button button-icon icon ion-navicon"></button>
     </div>
     <div ng-if="vm.showBack">
-        <button ng-click="vm.goToPrevPage()"
+        <button ng-click="vm.goToPrevPage()" ng-disabled="vm.disableBackButton"
                 class="button button-icon ion-android-arrow-back"
                 ng-class="{'ion-ios-arrow-back' : vm.ios}"></button>
     </div>
 
     <h1 class="title">
-        <bg-spinner-logo></bg-spinner-logo>
-        <img src="img/binary.svg" alt="Binary.com">
+        <img src="img/binary_logo_light.svg" alt="Binary.com">
     </h1>
 </ion-header-bar>
 <ion-subheader-bar align-title="center" class="bar bar-subheader bar-positive">

@@ -4,31 +4,6 @@
 		width: 90vw;
 		padding: 0;
 		font-size: 1rem;
-		.button {
-			font-size: 1rem;
-		}
-		.button-secondary {
-			color: $contentColor!important;
-			background: $fillColor!important;
-		}
-	}
-	.interval-input {
-		input {
-			border: 1px solid $borderColor;
-			border-radius: 4px;
-			padding-left: 5px;
-			font-size: 1rem;
-		}
-	}
-	.interval_error {
-		position: relative;
-		font-size: 1rem;
-		color: $negativeColor;
-	}
-	.popup-head{
-		.popup-title{
-			font-size: 1rem;
-		}
 	}
 	.popup-body {
 		background: $white;
@@ -37,6 +12,10 @@
 			font-size: 1rem;
 			padding: 5px;
 			background: $white;
+			p {
+				white-space: normal;
+				color: $contentColor;
+			}
 			.row {
 				white-space: normal;
 				&.realitycheck-text {
@@ -51,10 +30,6 @@
 			}
 			.interval-text {
 				padding: 10px 5px;
-			}
-			p {
-				white-space: normal;
-				color: $contentColor;
 			}
 		}
 	}
@@ -107,7 +82,7 @@
 	.getinterval,
 	.result-popup {
 		.popup {
-			width: 80vw!important;
+			width: 95vw!important;
 		}
 	}
 }

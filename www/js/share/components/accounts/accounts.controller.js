@@ -54,6 +54,7 @@
             appStateService.isCheckedAccountType = false;
             sessionStorage.removeItem('start');
             sessionStorage.removeItem('_interval');
+            sessionStorage.removeItem('realityCheckStart');
             appStateService.isProfitTableSet = false;
             appStateService.isStatementSet = false;
             appStateService.profitTableRefresh = true;
@@ -63,7 +64,12 @@
             appStateService.hasMLT = false;
             sessionStorage.removeItem('countryParams');
             appStateService.isPopupOpen = false;
+            appStateService.realityCheckLogin = false;
             $ionicSideMenuDelegate.toggleLeft();
+            appStateService.hasToAcceptTandC = false;
+            appStateService.hasToFillFinancialAssessment = false;
+            appStateService.redirectFromFinancialAssessment = true;
+            appStateService.limitsChange = true;
         };
 
         $scope.$on('authorize', (e, authorize) => {

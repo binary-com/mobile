@@ -1,0 +1,45 @@
+.new-account {
+    bg-new-account-maltainvest,
+    bg-new-account-real {
+        .new-real-account {
+            .row {
+                margin: 0;
+                padding: 0 5px;
+            }
+        }
+    }
+}
+
+.select-residence-popup{
+  .popup{
+    width: 90vw;
+  }
+  .popup-body {
+    background: $white;
+    padding: 5px;
+    .item {
+      font-size: 1rem;
+      padding: 5px;
+      background: $white;
+      p {
+        white-space: normal;
+        color: $contentColor;
+      }
+      .row {
+        white-space: normal;
+        &.realitycheck-text {
+          padding: 15px 0 0 !important;
+        }
+        .col:nth-child(2n) {
+          text-align: center;
+        }
+        &.interval {
+          padding: 10px 5px;
+        }
+      }
+      .interval-text {
+        padding: 10px 5px;
+      }
+    }
+  }
+}

@@ -14,7 +14,7 @@
             </div>
             <div class="row basis-container">
                 <div class="col center contract-image-container">
-                    <img src="{{vm.getImageUrl(contract.contract_type)}}"/>
+                    <img ng-src="{{vm.getImageUrl(contract.contract_type)}}"/>
                 </div>
                 <div class="col left basis-content">
                     <div class="basis-title">
@@ -30,7 +30,7 @@
                     <button class="button" ng-click="vm.purchase($index)"
                             ng-disabled="vm.inPurchaseMode">
                         {{ "trade.buy" | translate}}
-                        {{contract.contract_display.toUpperCase()}}
+                        {{contract.contract_display}}
                     </button>
                 </div>
                 </div>

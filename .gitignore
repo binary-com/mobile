@@ -19,3 +19,9 @@ dist/
 .editorconfig
 .io-config.json
 www/css/ionic.app*.css
+res
+resources/android
+Thumbs.db
+CNAME
+.npmignore
+tmp

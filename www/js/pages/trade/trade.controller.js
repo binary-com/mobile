@@ -36,16 +36,30 @@
             if (ionic.Platform.isIOS()) {
                 document.getElementById('trade-container').style.paddingBottom = '20px';
             }
+            if(!ionic.Platform.isWebView()) {
+              var tradeContainer = document.getElementById('trade-container');
+              if (tradeContainer !== undefined && tradeContainer !== null) {
+                  tradeContainer.className = "";
+              }
+            }
             window.addEventListener('native.keyboardshow', keyboardShowHandler);
             window.addEventListener('native.keyboardhide', keyboardHideHandler);
 
             function keyboardShowHandler(e) {
-                document.getElementById('trade-container').className = "";
+                var tradeContainer = document.getElementById('trade-container');
+                if (tradeContainer !== undefined && tradeContainer !== null) {
+                    tradeContainer.className = "";
+                }
+
             }
 
             function keyboardHideHandler(e) {
-                document.getElementById('trade-container').className = "flexed";
+                var tradeContainer = document.getElementById('trade-container');
+                if (tradeContainer !== undefined && tradeContainer !== null) {
+                    tradeContainer.className = "flexed";
+                }
             }
+
         });
 
 

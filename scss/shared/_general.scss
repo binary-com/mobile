@@ -1,28 +1,31 @@
-*
-{
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+::-webkit-input-placeholder {
+	color: $darkPrimaryBrandColor;
 }
 
-input
-{
--webkit-user-select: auto !important;
--khtml-user-select: auto !important;
--moz-user-select: auto !important;
--ms-user-select: auto !important;
-user-select: auto !important;
-}
 
-*{
--webkit-user-drag: none;
--moz-user-drag: none;
--ms-user-drag: none;
-user-drag: none;
+button {
+	border: none !important;
 }
-
+* {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+input {
+    -webkit-user-select: auto !important;
+    -khtml-user-select: auto !important;
+    -moz-user-select: auto !important;
+    -ms-user-select: auto !important;
+    user-select: auto !important;
+}
+* {
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -ms-user-drag: none;
+    user-drag: none;
+}
 ion-scroll[direction=x] {
     width: 100vw;
 }
@@ -39,8 +42,11 @@ ion-side-menu {
     height: inherit;
     width: 100%;
     background: $white;
+    position: relative;
+    top: 0;
     bg-balance {
         width: 100%;
+        position: relative;
     }
 }
 a {
@@ -66,8 +72,8 @@ a {
 .popup-buttons {
     background: $white;
     font-size: 1rem;
-    .button{
-      font-size: 1rem;
+    .button {
+        font-size: 1rem;
     }
 }
 button.button.button-default {
@@ -85,9 +91,16 @@ button.button.button-positive {
     border: none;
     background: $positiveColor;
     color: $white;
+    font-size: 1rem;
     :hover {
         color: $white !important;
         background: $darkPositiveColor;
+    }
+}
+button {
+    font-size: 1rem;
+    a {
+        font-weight: normal;
     }
 }
 button:hover {
@@ -114,7 +127,7 @@ button.button.button-default {
     text-decoration: underline;
 }
 .center {
-    text-align: center;
+    text-align: center!important;
     justify-content: center;
 }
 .item {
@@ -156,6 +169,15 @@ button.button.button-default {
 .right {
     text-align: right;
 }
+.green {
+    color: $positiveColor;
+}
+.red {
+    color: $negativeColor!important;
+}
+.bold {
+    font-weight: bold;
+}
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
     /* display: none; <- Crashes Chrome on hover */
@@ -163,8 +185,138 @@ input::-webkit-outer-spin-button {
     margin: 0;
     /* <-- Apparently some margin are still there even though it's hidden */
 }
-
-
+.page-title {
+    font-size: 1.5rem;
+    font-weight: normal;
+    padding: 5px;
+    color: $contentColor;
+    border-bottom: 2px solid $black;
+}
+.sub-title {
+  font-size: 1rem;
+	color: $primaryBrandColor;
+}
+.input-title {
+    text-align: left;
+    white-space: normal;
+    font-size: 1rem;
+    padding: 5px;
+    span {
+        font-size: 1rem;
+        color: $secondaryContentColor;
+    }
+}
+.help-block {
+    font-size: 0.8rem;
+    text-align: left;
+    color: $secondaryContentColor;
+    position: relative;
+}
+.error {
+    color: $negativeColor;
+    font-size: 0.8rem;
+}
+.info-container {
+    border-radius: 3px;
+    background: $fillColor;
+    word-break: break-word;
+    padding: 0;
+    margin-top: 10px;
+}
+input {
+    width: 100%;
+    padding: 5px!important;
+    border: 1px solid $borderColor!important;
+    border-radius: 3px!important;
+    background: $white;
+    &.checkbox {
+        width: 20px;
+        top: 2px;
+        position: relative;
+    }
+    &.input-disabled {
+        background: $fillColor;
+    }
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: $secondaryContentColor;
+    // border: 1px solid $borderColor;
+}
+input[type=password],
+input[type=text] {
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    background: $white;
+    padding: 10px 5px;
+    font-size: 1rem;
+}
+.item-input {
+    padding: 5px;
+}
+.item-select {
+    border-radius: 3px;
+    font-size: 1rem;
+    padding: 5px;
+    select {
+        position: relative;
+        width: 100%;
+        padding: 5px;
+        border: 1px solid $borderColor;
+        border-radius: 3px;
+        background: $white;
+        direction: ltr;
+        option {
+            width: 100%;
+            text-align: left;
+        }
+    }
+}
+select {
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    background: $white;
+    direction: ltr;
+    option {
+        width: 100%;
+        text-align: left;
+    }
+}
+p {
+    font-size: 1rem;
+    padding: 5px;
+    color: $contentColor;
+    font-weight: normal;
+    white-space: normal;
+    line-height: 1.4rem;
+}
+.button-secondary {
+    color: $contentColor!important;
+    background: $fillColor!important;
+}
+.popup-head {
+    .popup-title {
+        font-size: 1rem;
+    }
+}
+label,
+textarea {
+    font-size: 1rem;
+}
+.general-content {
+    margin-bottom: 80px !important;
+    width: 100vw;
+    font-size: 1rem;
+}
+.hint {
+    font-size: 0.8rem;
+}
+.submenu-icon{
+  float: right;
+  // color: $darkPrimaryBrandColor;
+}
 @media screen and (min-width: 960px) {
     .accounts,
     .help,
@@ -176,7 +328,8 @@ input::-webkit-outer-spin-button {
         max-width: 768px;
         margin: auto;
     }
-    .layout, ion-content {
+    .layout,
+    ion-content {
         width: 80vw!important;
         margin: 0 auto;
         max-width: 768px;
