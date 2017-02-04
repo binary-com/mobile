@@ -1,3 +1,11 @@
+::-webkit-input-placeholder {
+	color: $darkPrimaryBrandColor;
+}
+
+
+button {
+	border: none !important;
+}
 * {
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -34,8 +42,11 @@ ion-side-menu {
     height: inherit;
     width: 100%;
     background: $white;
+    position: relative;
+    top: 0;
     bg-balance {
         width: 100%;
+        position: relative;
     }
 }
 a {
@@ -174,7 +185,6 @@ input::-webkit-outer-spin-button {
     margin: 0;
     /* <-- Apparently some margin are still there even though it's hidden */
 }
-// new
 .page-title {
     font-size: 1.5rem;
     font-weight: normal;
@@ -182,11 +192,15 @@ input::-webkit-outer-spin-button {
     color: $contentColor;
     border-bottom: 2px solid $black;
 }
+.sub-title {
+  font-size: 1rem;
+	color: $primaryBrandColor;
+}
 .input-title {
     text-align: left;
     white-space: normal;
     font-size: 1rem;
-    padding: 0 5px;
+    padding: 5px;
     span {
         font-size: 1rem;
         color: $secondaryContentColor;
@@ -211,9 +225,9 @@ input::-webkit-outer-spin-button {
 }
 input {
     width: 100%;
-    padding: 5px;
+    padding: 5px!important;
     border: 1px solid $borderColor!important;
-    border-radius: 3px;
+    border-radius: 3px!important;
     background: $white;
     &.checkbox {
         width: 20px;
@@ -226,7 +240,7 @@ input {
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: $secondaryContentColor;
-    border: 1px solid $borderColor;
+    // border: 1px solid $borderColor;
 }
 input[type=password],
 input[type=text] {
@@ -237,11 +251,12 @@ input[type=text] {
     font-size: 1rem;
 }
 .item-input {
-    padding: 6px 0 5px;
+    padding: 5px;
 }
 .item-select {
     border-radius: 3px;
     font-size: 1rem;
+    padding: 5px;
     select {
         position: relative;
         width: 100%;
@@ -275,6 +290,7 @@ p {
     color: $contentColor;
     font-weight: normal;
     white-space: normal;
+    line-height: 1.4rem;
 }
 .button-secondary {
     color: $contentColor!important;
@@ -290,15 +306,17 @@ textarea {
     font-size: 1rem;
 }
 .general-content {
-    padding-top: 40px !important;
-    margin-bottom: 40px !important;
+    margin-bottom: 80px !important;
     width: 100vw;
     font-size: 1rem;
 }
 .hint {
     font-size: 0.8rem;
 }
-// end new
+.submenu-icon{
+  float: right;
+  // color: $darkPrimaryBrandColor;
+}
 @media screen and (min-width: 960px) {
     .accounts,
     .help,

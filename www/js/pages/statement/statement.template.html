@@ -1,4 +1,11 @@
 <ion-view class="profit-table">
+  <div class="row">
+    <div class="col">
+      <h1 class="page-title">
+        {{'statement.statement' | translate}}
+      </h1>
+    </div>
+  </div>
     <div class="row filters">
         <div class="col col-50">
             <label class="item item-input item-select">
@@ -37,9 +44,9 @@
     <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
         <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
     </a>
-    <ion-content has-bouncing="false" class="profit-table-content" on-scroll="vm.goToTopButtonCondition()" delegate-handle="handler">
+    <ion-content has-bouncing="false" class="profit-table-content" delegate-handle="handler" on-scroll="vm.goToTopButtonCondition()" ng-class="{'pull-down' : vm.jumpToDateInputShow}">
 
-        <div class="profit-table-container" ng-class="{'pull-down' : vm.jumpToDateInputShow}">
+        <div class="profit-table-container">
             <div class="row">
                 <div class="col">
                     <ul class="statement-table">

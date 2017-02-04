@@ -304,13 +304,11 @@
 
         vm.goToTopButtonCondition = function() {
             $scope.$applyAsync(() => {
-                $timeout(() => {
                     if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
                         vm.goToTopButton = true;
                     } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
                         vm.goToTopButton = false;
                     }
-                }, 500);
             });
         }
 

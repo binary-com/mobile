@@ -59,13 +59,21 @@
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.to = to;
             vm.from = from;
-            if (['transactiondetail', 'language', 'profile', 'self-exclusion', 'change-password'].indexOf(vm.to.name) > -1) {
+            if (['transactiondetail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
             } else if (['acceptTermsAndConditions'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = false;
+            } else if (['financial-assessment'].indexOf(vm.to.name) > -1 && appStateService.hasToFillFinancialAssessment) {
+                vm.hideMenuButton = true;
+                vm.showBack = false;
             } else {
+              if(vm.from.name === 'statement' && vm.to.name !== 'transactiondetail' && document.getElementsByClassName('realitycheck')) {
+                $('.popup-container').addClass('popup-showing');
+                $('body').addClass('popup-open');
+                $('.backdrop').addClass('visible');
+              }
                 vm.hideMenuButton = false;
                 vm.showBack = false;
                 if (vm.from.name == 'profittable') {
@@ -80,6 +88,7 @@
         // back button function
         vm.goToPrevPage = function() {
             $state.go(vm.from);
+
         };
 
 
