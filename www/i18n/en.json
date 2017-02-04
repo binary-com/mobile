@@ -428,7 +428,9 @@
       "date-can-not-be-greater-than": "Exclude time cannot be greater than {{max}}",
       "date-can-not-less-than": "Exclude time cannot be less than {{max}}",
       "save-prompt": "Content saved successfully",
-      "success": "Success"
+      "session-timeout-warning":"Your session duration limit will end in 10 seconds.",
+      "success": "Success",
+      "warning": "Warning"
     },
     "profile": {
       "personal_details": "Personal Details",

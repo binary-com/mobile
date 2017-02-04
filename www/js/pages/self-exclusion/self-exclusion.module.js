@@ -11,9 +11,13 @@
 
   angular
     .module('binary.pages.self-exclusion', [
-        'binary.pages.self-exclusion.controllers'
+        'binary.pages.self-exclusion.controllers',
+        'binary.pages.self-exclusion.directives'
     ]);
 
   angular
     .module('binary.pages.self-exclusion.controllers', []);
+
+  angular
+    .module('binary.pages.self-exclusion.directives', []);
 })();
