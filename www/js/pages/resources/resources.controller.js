@@ -24,6 +24,10 @@
 			{
         name: "resources.trading-times",
         url: "trading-times"
+      },
+      {
+        name: "resources.asset-index",
+        url: "asset-index"
       }
     ];
   }

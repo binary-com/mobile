@@ -46,6 +46,7 @@
         vm.data.otherInstrumentsTradingExperience = "0-1 year";
         vm.data.otherInstrumentsTradingFrequency = "0-5 transactions in the past 12 months";
         vm.data.employmentIndustry = "Construction";
+        vm.data.occupation = "Chief Executives, Senior Officials and Legislators";
         vm.data.educationLevel = "Primary";
         vm.data.incomeSource = "Salaried Employee";
         vm.data.netIncome = "Less than $25,000";
@@ -193,6 +194,7 @@
                 "other_instruments_trading_experience": vm.data.otherInstrumentsTradingExperience,
                 "other_instruments_trading_frequency": vm.data.otherInstrumentsTradingFrequency,
                 "employment_industry": vm.data.employmentIndustry,
+                "occupation": vm.data.occupation,
                 "education_level": vm.data.educationLevel,
                 "income_source": vm.data.incomeSource,
                 "net_income": vm.data.netIncome,

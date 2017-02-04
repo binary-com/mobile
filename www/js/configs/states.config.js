@@ -147,6 +147,13 @@ angular
 					templateUrl: 'js/pages/trading-times/trading-times.template.html',
 					controller: 'TradingTimesController',
 					controllerAs: 'vm'
+				})
+				.state('asset-index', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/asset-index/asset-index.template.html',
+					controller: 'AssetIndexController',
+					controllerAs: 'vm'
 				});
 
 

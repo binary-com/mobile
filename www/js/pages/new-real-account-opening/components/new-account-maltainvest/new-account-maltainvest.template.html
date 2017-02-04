@@ -566,6 +566,66 @@
     </div>
 
     <div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <div class="input-title">
+                    {{'newaccountmaltainvest.occupation' | translate}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col item-select">
+                <select name="occupation" ng-model="vm.data.occupation" required>
+                    <option value="Chief Executives, Senior Officials and Legislators">
+                      {{'newaccountmaltainvest.chief_executives' | translate}}
+                    </option>
+                    <option value="Managers">
+                      {{'newaccountmaltainvest.managers' | translate}}
+                    </option>
+                    <option value="Professionals">
+                      {{'newaccountmaltainvest.professionals' | translate}}
+                    </option>
+                    <option value="Clerks">
+                      {{'newaccountmaltainvest.clerks' | translate}}
+                    </option>
+                    <option value="Personal Care, Sales and Service Workers">
+                      {{'newaccountmaltainvest.personal_care' | translate}}
+                    </option>
+                    <option value="Agricultural, Forestry and Fishery Workers">
+                      {{'newaccountmaltainvest.agricultural' | translate}}
+                    </option>
+                    <option value="Craft, Metal, Electrical and Electronics Workers">
+                      {{'newaccountmaltainvest.craft' | translate}}
+                    </option>
+                    <option value="Plant and Machine Operators and Assemblers">
+                      {{'newaccountmaltainvest.machine' | translate}}
+                    </option>
+                    <option value="Cleaners and Helpers">
+                      {{'newaccountmaltainvest.helpers' | translate}}
+                    </option>
+                    <option value="Mining, Construction, Manufacturing and Transport Workers">
+                      {{'newaccountmaltainvest.mining' | translate}}
+                    </option>
+                    <option value="Armed Forces">
+                      {{'newaccountmaltainvest.armed_forces' | translate}}
+                    </option>
+                    <option value="Government Officers">
+                      {{'newaccountmaltainvest.government_officers' | translate}}
+                    </option>
+                    <option value="Other">
+                      {{'newaccountmaltainvest.other' | translate}}
+                    </option>
+                </select>
+                <span class="help-block error" ng-show="vm.occupationError">
+                    {{'newaccountmaltainvest.select_value_error' | translate}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="row">
         <div class="col">
             <div class="row">
                 <div class="col input-title">
