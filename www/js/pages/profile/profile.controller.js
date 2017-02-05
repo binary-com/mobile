@@ -21,6 +21,7 @@
     var vm = this;
     vm.states = [];
     vm.disableUpdateButton = true;
+    vm.isDataLoaded = false;
 
     $scope.$on('get_settings', (e, response) => {
       $scope.$applyAsync(()=>{
@@ -29,6 +30,7 @@
           vm.profile.date_of_birth = new Date(vm.profile.date_of_birth*1000).toISOString('yyyy-mm-dd').slice(0, 10);
         }
         websocketService.sendRequestFor.residenceListSend();
+        vm.isDataLoaded = true;
       });
     });
 

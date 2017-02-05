@@ -1,4 +1,4 @@
-<ion-view class="profile" title="Profile">
+<ion-view class="profile" title="Profile" ng-cloak>
   <ion-content class="general-content">
     <form name="profileForm" ng-submit="vm.submit()">
       <div class="row">
@@ -130,7 +130,7 @@
                        ng-maxlength="70"
                        ng-required="true"
                        >
-              <ng-messages for="profileForm.first_line_address.$error" role="alert" class="error">
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.first_line_address.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="maxlength">
                   {{ 'profile.maximum_length_should_be_70_characters' | translate }}
@@ -157,7 +157,7 @@
                        ng-model="vm.profile.address_line_2"
                        ng-maxlength="70"
                        >
-              <ng-messages for="profileForm.second_line_address.$error" role="alert" class="error">
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.second_line_address.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="maxlength">
                   {{ 'profile.maximum_length_should_be_70_characters' | translate }}
@@ -182,7 +182,7 @@
                        ng-required="true"
                        ng-maxlength="35"
                        >
-              <ng-messages for="profileForm.town_city.$error" role="alert" class="error">
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.town_city.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="maxlength">
                   {{ 'profile.maximum_length_should_be_35_characters' | translate }}
@@ -213,7 +213,7 @@
                        <option ng-repeat="s in vm.states"
                                value="{{s.value}}"> {{ s.text }} </option>
                 </select>
-              <ng-messages for="profileForm.state_province.$error" role="alert" class="error">
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.state_province.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="required">
                   {{ 'profile.this_field_is_required' | translate }}
@@ -238,7 +238,7 @@
                        ng-required="true"
                        ng-maxlength="20"
                        >
-              <ng-messages for="profileForm.postal_code_zip.$error" role="alert" class="error">
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.postal_code_zip.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="maxlength">
                   {{ 'profile.maximum_length_should_be_20_characters' | translate }}
@@ -262,13 +262,12 @@
             <div class="row">
               <div class="col item-input">
                 <input name="telephone"
-                       type="tel"
                        ng-model="vm.profile.phone"
                        ng-maxlength="35"
                        ng-minlength="6"
                        ng-required="true"
                        >
-              <ng-messages for="profileForm.telephone.$error" role="alert" class="error">
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.telephone.$error" role="alert" class="error">
                 <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="maxlength">
                   {{ 'profile.maximum_length_should_be_20_characters' | translate }}
