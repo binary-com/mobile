@@ -143,12 +143,14 @@
         }
 
         vm.selectMarket = function(market) {
+          if(market){
             vm.options.market = market;
             vm.options.underlying = !_.isEmpty(vm.options.underlying) && _.findIndex(market.underlying, ['symbol', vm.options.underlying.symbol]) > -1 ? vm.options.underlying : market.underlying[0];
             websocketService.sendRequestFor.contractsForSymbol(vm.options.underlying.symbol);
             vm.section1 = vm.SECTIONS.OVERVIEW1;
             updateProposal();
-            hideModal();
+          }
+          hideModal();
         }
 
         vm.selectUnderlying = function(underlying) {
