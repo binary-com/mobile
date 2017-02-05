@@ -1,0 +1,19 @@
+CACHE MANIFEST
+
+# Version 0.1
+
+NETWORK:
+*
+
+CACHE:
+css/ionic.app.css
+lib/ionic/js/ionic.bundle.js
+lib/jquery/dist/jquery.min.js
+lib/angular-translate/angular-translate.min.js
+lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js
+lib/lodash/lodash.min.js
+lib/Chart.js/Chart.min.js
+lib/hammerjs/hammer.min.js
+lib/AngularHammer/angular.hammer.min.js
+css/style.css
+js/app.js

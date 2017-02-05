@@ -1,14 +1,6 @@
 .language {
 	bg-language-list {
-		.title{
-			font-size: 1.5rem;
-			color: $contentColor;
-			border-bottom: 2px solid $black;
-			padding: 5px 0;
-			margin: 0;
-		}
 		ion-content {
-			padding-top: 40px !important;
 			.item-content {
 				font-size: 1rem;
 				background: $white;
@@ -37,4 +29,18 @@
 			}
 		}
 	}
+}
+
+body#ru .trade #trade-container bg-purchase .purchase .contract .row .col .button ,
+body#de .trade #trade-container bg-purchase .purchase .contract .row .col .button {
+	font-size: 0.8rem!important;
+	white-space: wrap;
+}
+body#ru .trade #trade-container bg-longcode .longcode .row .col ,
+body#de .trade #trade-container bg-longcode .longcode .row .col {
+	font-size: 0.8rem!important;
+}
+body#ru .trade #trade-container bg-longcode .longcode ,
+body#de .trade #trade-container bg-longcode .longcode {
+	max-height: 100px;
 }

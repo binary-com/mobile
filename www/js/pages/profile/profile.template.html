@@ -1,13 +1,11 @@
 <ion-view class="profile" title="Profile">
-  <ion-content>
+  <ion-content class="general-content">
     <form name="profileForm" ng-submit="vm.submit()">
       <div class="row">
         <div class="col">
-          <div class="row">
-            <div class="col title">
-              {{ 'profile.personal_details' | translate }}
-            </div>
-          </div>
+          <h1 class="page-title">
+                {{ 'profile.personal_details' | translate }}
+          </h1>
         </div>
       </div>
       <div ng-if="vm.isVirtualAccount">
@@ -20,7 +18,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="country_of_residence"
                        ng-value="vm.profile.country"
                        readonly="readonly">
@@ -37,7 +35,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="email_address"
                        ng-value="vm.profile.email"
                        readonly="readonly">
@@ -57,7 +55,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="name"
                        ng-value="vm.profile.first_name +  ' ' + vm.profile.last_name"
                        readonly="readonly"
@@ -75,7 +73,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="data_of_birth"
                        ng-value="vm.profile.date_of_birth"
                        readonly="readonly">
@@ -92,7 +90,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="country_of_residence"
                        ng-value="vm.profile.country"
                        readonly="readonly">
@@ -109,7 +107,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="email_address"
                        ng-value="vm.profile.email"
                        readonly="readonly">
@@ -126,7 +124,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="first_line_address"
                        ng-model="vm.profile.address_line_1"
                        ng-maxlength="70"
@@ -154,7 +152,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="second_line_address"
                        ng-model="vm.profile.address_line_2"
                        ng-maxlength="70"
@@ -178,7 +176,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="town_city"
                        ng-model="vm.profile.address_city"
                        ng-required="true"
@@ -206,7 +204,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-select">
                 <select name="state_province"
                        ng-model="vm.profile.address_state"
                        ng-select="vm.profile.address_state"
@@ -234,7 +232,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="postal_code_zip"
                        ng-model="vm.profile.address_postcode"
                        ng-required="true"
@@ -262,8 +260,9 @@
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col item-input">
                 <input name="telephone"
+                       type="tel"
                        ng-model="vm.profile.phone"
                        ng-maxlength="35"
                        ng-minlength="6"

@@ -29,11 +29,16 @@
             <i class="ion-ios-gear"></i>
             {{ 'menu.settings' | translate }}
           </ion-item>
+          <ion-item nav-clear menu-close ui-sref="resources" href="#">
+            <i class="ion-folder"></i>
+            {{ 'menu.resources' | translate }}
+          </ion-item>
           <ion-item class="side-item" nav-clear menu-close>
             <bg-logout nav-clear menu-close></bg-logout>
           </ion-item>
 
         </ion-list>
+        <bg-app-version class="sidemenu-app-version"></bg-app-version>
       </ion-content>
 
     </ion-side-menu>

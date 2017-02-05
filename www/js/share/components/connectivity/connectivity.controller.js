@@ -13,9 +13,9 @@
     .module('binary.share.components.connectivity.controllers')
     .controller('ConnectivityController', Connectivity);
 
-  Connectivity.$inject = ['$scope', '$state', '$cordovaNetwork'];
+  Connectivity.$inject = ['$scope', '$state', '$cordovaNetwork', '$ionicPlatform'];
 
-  function Connectivity($scope, $state, $cordovaNetwork){
+  function Connectivity($scope, $state, $cordovaNetwork, $ionicPlatform){
     var vm = this;
 
     vm.isOffline = function(){
@@ -61,12 +61,14 @@
       startWatchingNetwork();
     }
 
-    $scope.$on('$stateChangeSuccess', (e, current)=>{
+    $ionicPlatform.ready(() => {
+      init();
+
+      $scope.$on('$stateChangeSuccess', (e, current)=>{
         if(!vm.isOnline()){
           $state.go('no-connection');
         }
+      });
     });
-
-    init();
   }
 })();

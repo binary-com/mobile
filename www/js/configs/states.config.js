@@ -89,6 +89,13 @@ angular
           controller: 'SettingsController',
           controllerAs: 'vm'
         })
+				.state('resources', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/resources/resources.template.html',
+          controller: 'ResourcesController',
+          controllerAs: 'vm'
+        })
         .state('self-exclusion', {
           parent: 'layout',
           cache: false,
@@ -105,7 +112,56 @@ angular
           templateUrl: 'js/pages/profile/profile.template.html',
           controller: 'ProfileController',
           controllerAs: 'vm'
-        });
+        })
+				.state('acceptTermsAndConditions', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/accept-terms-and-conditions/accept-terms-and-conditions.template.html',
+					controller: 'AcceptTermsAndConditionsController',
+					controllerAs: 'vm'
+				})
+				.state('update', {
+					url: '/update',
+					cache: false,
+					templateUrl: 'js/pages/update/update.template.html',
+					controller: 'UpdateController',
+					controllerAs: 'vm'
+				})
+				.state('change-password', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/change-password/change-password.template.html',
+					controller: 'ChangePasswordController',
+					controllerAs: 'vm'
+				})
+				.state('financial-assessment', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/financial-assessment/financial-assessment.template.html',
+					controller: 'FinancialAssessmentController',
+					controllerAs: 'vm'
+				})
+				.state('limits', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/limits/limits.template.html',
+					controller: 'LimitsController',
+        	controllerAs: 'vm'
+				  })
+				.state('trading-times', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/trading-times/trading-times.template.html',
+					controller: 'TradingTimesController',
+					controllerAs: 'vm'
+				})
+				.state('asset-index', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/asset-index/asset-index.template.html',
+					controller: 'AssetIndexController',
+					controllerAs: 'vm'
+				});
 
 
 				$urlRouterProvider.otherwise('/');

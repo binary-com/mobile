@@ -32,7 +32,10 @@
         'binary.share.components.logout',
         'binary.share.components.connectivity',
         'binary.share.components.regex-validate',
-        'binary.share.components.number'
+        'binary.share.components.number',
+        'binary.share.components.app-version',
+        'binary.share.components.updater',
+        'binary.share.components.check-financial-assessment'
     ]);
 
   angular
@@ -51,7 +54,16 @@
         'binary.pages.qa-settings',
         'binary.pages.settings',
         'binary.pages.self-exclusion',
-        'binary.pages.profile'
+        'binary.pages.profile',
+        'binary.pages.terms-and-conditions',
+        'binary.pages.accept-terms-and-conditions',
+        'binary.pages.update',
+        'binary.pages.change-password',
+        'binary.pages.financial-assessment',
+        'binary.pages.limits',
+        'binary.pages.trading-times',
+        'binary.pages.resources',
+        'binary.pages.asset-index'
     ]);
 
   String.prototype.capitalize = function() {

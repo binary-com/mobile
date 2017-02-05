@@ -22,6 +22,11 @@
       alertService, websocketService) {
 
     var vm = this;
+    vm.today = new Date();
+    vm.minDate = vm.today.toISOString().slice(0, 10);
+    vm.minDateTime = vm.today.toISOString();
+    vm.nextSixWeeks = new Date(vm.today.getTime() + 7*6*24*60*60*1000).toISOString().slice(0, 10);
+    vm.nextSixMonths = new Date(vm.today.getTime() + 30*6*24*60*60*1000).toISOString().slice(0, 10);
     vm.disableUpdateButton = true;
     vm.data = {};
 
