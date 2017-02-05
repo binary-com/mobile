@@ -746,8 +746,47 @@ angular
 							padding = (valueWidth < 45) ? 0 : valueWidth - 45;
 						}
 						ctx.fillText(point.value, point.x - padding, point.y - 1);
+
 					}
 				};
+
+				var drawLastTickLabel = function(point, index){
+					if (index !== 0 && utils.isDefined(point.shown) && point.shown) {
+						var value = getLabelSize(ctx, point);
+						var marginX = 15,
+								marginY = 40,
+								padding = 10;
+						ctx.strokeStyle = "#000";
+						ctx.strokeRect(marginX - padding , canvas.offsetHeight -( marginY + value.height + padding), 2 * padding  + value.width,  2 * padding + value.height);
+						ctx.fillStyle = "#FFF";
+						ctx.fillRect(marginX - padding , canvas.offsetHeight -( marginY + value.height + padding), 2 * padding  + value.width,  2 * padding + value.height);
+						ctx.fillStyle = "#000";
+						ctx.fillText(point.value, marginX + value.width / 2, canvas.offsetHeight - marginY);
+					}
+				}
+
+				var drawLastTickRect = function(point, index){
+					//  if (index !== 0 && utils.isDefined(point.shown) && point.shown) {
+					// // 	var value = getLabelSize(ctx, point);
+					// // 	var padding = 10;
+					// var padding = 30;
+					//
+					//
+					//  }
+				}
+
+				// var drawLastTickLabel = function(point, index){
+				// 	if (index !== 0 && utils.isDefined(point.shown) && point.shown) {
+				// 		var value = getLabelSize(ctx, point);
+				// 		var padding = 10;
+				// 		ctx.fillStyle = '#ffffff';
+				//
+				// 		ctx.fillRect(padding ,  canvas.offsetHeight -  2 * (value.height + 2 * padding), value.width + 2 * padding, value.height +  padding);
+				// 		ctx.fillStyle = 'green';
+				//
+				// 		ctx.fillText(point.value, padding, canvas.offsetHeight -  2 * (value.height + 2 * padding));
+				// 	}
+				// }
 
 				var drawGridLine = function drawGridLine(thisChart, gridLine) {
 					var point = thisChart.datasets[0].points[gridLine.index];
@@ -937,6 +976,8 @@ angular
 						toShowLabels(dataset.points);
 						dataset.points.forEach(function (point, index) {
 							drawLabel(point, index);
+							drawLastTickLabel(point, index);
+							drawLastTickRect(point, index);
 						});
 
 						if (utils.isDefined(this.options.regions)) {
@@ -960,7 +1001,6 @@ angular
 							self.eachPoints(function (point) {
 								values.push(point.value);
 							});
-
 							return values;
 						};
 						var scaleOptions = {
