@@ -424,14 +424,19 @@
     "session-duration-limit-in-minutes":"Ограничение длительности сессии в минутах",
     "session-duration-hint":"Вы автоматически выйдете с сайта после этого периода.",
     "time-out-until":"Перерыв до",
-    "time-out-hint":"Пожалуйста, введите дату в формате ГГГГ-ММ-ДД ЧЧ:мм (по местному времени). ",
+    "time-out-hint":"Please enter date in the format MM/DD/YYYY HH:mm (local time). ",
     "exclude-me-from-the-website-until":"Закройте мне доступ к сайту до",
-    "exclude-me-hint":"Пожалуйста, введите дату в формате ГГГГ-ММ-ДД.",
+    "exclude-me-hint":"Please enter date in the format MM/DD/YYYY.",
     "update-settings":"Обновить настройки",
-    "please-enter-an-integer-value":"Пожалуйста, введите целое число",
+    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}",
     "valid-range-hint":"Пожалуйста, введите число от 0 до {{max}}",
+    "date-is-not-valid":"Exclude time must be after today",
+    "date-can-not-be-greater-than":"Exclude time cannot be greater than {{max}}",
+    "date-can-not-less-than":"Exclude time cannot be less than {{max}}",
     "save-prompt":"Изменения успешно сохранены",
-    "success":"Готово"
+    "session-timeout-warning":"Your session duration limit will end in 10 seconds.",
+    "success":"Готово",
+    "warning":"Warning"
   },
   "profile":{
     "personal_details":"Личные данные",
