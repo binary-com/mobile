@@ -424,14 +424,19 @@
     "session-duration-limit-in-minutes":"Sitzungsdauer-Limit, in Minuten",
     "session-duration-hint":"Sie werden nach dieser Zeit automatisch abgemeldet.",
     "time-out-until":"Auszeit bis",
-    "time-out-hint":"Bitte geben Sie das Datum im Format JJJJ-MM-TT HH: mm (Ortszeit) ein. ",
+    "time-out-hint":"Please enter date in the format MM/DD/YYYY HH:mm (local time). ",
     "exclude-me-from-the-website-until":"Schließen Sie mich von der Website aus, bis",
-    "exclude-me-hint":"Bitte geben Sie ein Datum im Format JJJJ-MM-TT ein.",
+    "exclude-me-hint":"Please enter date in the format MM/DD/YYYY.",
     "update-settings":"Einstellungen aktualisieren",
-    "please-enter-an-integer-value":"Bitte geben Sie einen ganzzahligen Wert ein",
+    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}",
     "valid-range-hint":"Bitte geben Sie eine Zahl zwischen 0 und {{max}} ein",
+    "date-is-not-valid":"Exclude time must be after today",
+    "date-can-not-be-greater-than":"Exclude time cannot be greater than {{max}}",
+    "date-can-not-less-than":"Exclude time cannot be less than {{max}}",
     "save-prompt":"Inhalt erfolgreich gespeichert",
-    "success":"Erfolg"
+    "session-timeout-warning":"Your session duration limit will end in 10 seconds.",
+    "success":"Erfolg",
+    "warning":"Warning"
   },
   "profile":{
     "personal_details":"Persönliche Angaben",

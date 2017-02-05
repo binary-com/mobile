@@ -424,14 +424,19 @@
     "session-duration-limit-in-minutes":"Batas sesi durasi, dalam menit",
     "session-duration-hint":"Anda akan keluar secara otomatis setelah waktu tersebut.",
     "time-out-until":"Time out hingga",
-    "time-out-hint":"Masukkan tanggal dalam format TTTT-BB-HH JJ: mm (waktu lokal). ",
+    "time-out-hint":"Please enter date in the format MM/DD/YYYY HH:mm (local time). ",
     "exclude-me-from-the-website-until":"Keluarkan saya dari situs hingga",
-    "exclude-me-hint":"Masukkan tanggal dalam format TTTT-BB-HH.",
+    "exclude-me-hint":"Please enter date in the format MM/DD/YYYY.",
     "update-settings":"Update Pengaturan",
-    "please-enter-an-integer-value":"Masukkan nilai integer",
+    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}",
     "valid-range-hint":"Masukkan angka antara 0 dan {{max}}",
+    "date-is-not-valid":"Exclude time must be after today",
+    "date-can-not-be-greater-than":"Exclude time cannot be greater than {{max}}",
+    "date-can-not-less-than":"Exclude time cannot be less than {{max}}",
     "save-prompt":"Konten yang berhasil disimpan",
-    "success":"Sukses"
+    "session-timeout-warning":"Your session duration limit will end in 10 seconds.",
+    "success":"Sukses",
+    "warning":"Warning"
   },
   "profile":{
     "personal_details":"Detail Pribadi",
