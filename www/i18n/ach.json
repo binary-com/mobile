@@ -424,14 +424,19 @@
     "session-duration-limit-in-minutes":"crwdns18029:0crwdne18029:0",
     "session-duration-hint":"crwdns18030:0crwdne18030:0",
     "time-out-until":"crwdns18031:0crwdne18031:0",
-    "time-out-hint":"crwdns18032:0crwdne18032:0",
+    "time-out-hint":"crwdns19398:0crwdne19398:0",
     "exclude-me-from-the-website-until":"crwdns18033:0crwdne18033:0",
-    "exclude-me-hint":"crwdns18034:0crwdne18034:0",
+    "exclude-me-hint":"crwdns19399:0crwdne19399:0",
     "update-settings":"crwdns18035:0crwdne18035:0",
-    "please-enter-an-integer-value":"crwdns18036:0crwdne18036:0",
+    "please-enter-an-integer-value":"crwdns19400:0{{max}}crwdne19400:0",
     "valid-range-hint":"crwdns18037:0{{max}}crwdne18037:0",
+    "date-is-not-valid":"crwdns19401:0crwdne19401:0",
+    "date-can-not-be-greater-than":"crwdns19402:0{{max}}crwdne19402:0",
+    "date-can-not-less-than":"crwdns19403:0{{max}}crwdne19403:0",
     "save-prompt":"crwdns18038:0crwdne18038:0",
-    "success":"crwdns18039:0crwdne18039:0"
+    "session-timeout-warning":"crwdns19404:0crwdne19404:0",
+    "success":"crwdns18039:0crwdne18039:0",
+    "warning":"crwdns19405:0crwdne19405:0"
   },
   "profile":{
     "personal_details":"crwdns18040:0crwdne18040:0",
