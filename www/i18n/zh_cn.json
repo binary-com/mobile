@@ -424,14 +424,19 @@
     "session-duration-limit-in-minutes":"交易期持续时间限制，以分钟为单位",
     "session-duration-hint":"在该时间后您将自动退出登录。",
     "time-out-until":"时间已过。下次开启时间为",
-    "time-out-hint":"请输入日期，格式为年-月-日 时：分（当地时间）。 ",
+    "time-out-hint":"Please enter date in the format MM/DD/YYYY HH:mm (local time). ",
     "exclude-me-from-the-website-until":"禁止我访问本网站直到",
-    "exclude-me-hint":"请输入日期，格式为年-月-日。",
+    "exclude-me-hint":"Please enter date in the format MM/DD/YYYY.",
     "update-settings":"更新设置",
-    "please-enter-an-integer-value":"请输入整数",
+    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}",
     "valid-range-hint":"请输入0和 {{max}} 之间的数字",
+    "date-is-not-valid":"Exclude time must be after today",
+    "date-can-not-be-greater-than":"Exclude time cannot be greater than {{max}}",
+    "date-can-not-less-than":"Exclude time cannot be less than {{max}}",
     "save-prompt":"内容已成功保存",
-    "success":"成功"
+    "session-timeout-warning":"Your session duration limit will end in 10 seconds.",
+    "success":"成功",
+    "warning":"Warning"
   },
   "profile":{
     "personal_details":"个人详细信息",
