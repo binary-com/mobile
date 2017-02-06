@@ -759,9 +759,7 @@ angular
 						ctx.font = ctx.font.replace(/\d+px/, fontSize+ "px");
 						var value = ctx.measureText(point.value);
 						value.height = fontSize ;
-						ctx.strokeStyle = "#000";
-						ctx.strokeRect(marginX - padding , canvas.offsetHeight -( marginY + value.height + padding), 2* padding  + value.width,  2* padding + value.height);
-						ctx.fillStyle = "#FFF";
+						ctx.fillStyle = "rgba(194, 194, 194, 0.4)";
 						ctx.fillRect(marginX - padding , canvas.offsetHeight -( marginY + value.height + padding), 2* padding  + value.width,  2* padding + value.height);
 						ctx.fillStyle = "#000";
 						ctx.fillText(point.value, marginX + value.width / 2, canvas.offsetHeight - marginY);
