@@ -50,6 +50,7 @@
 		    application: "tick-trade",
 		    onError: function(payload){
                 payload.customer.userId = window._trackJs.userId;
+                payload.customer.version = window._trackJs.version;
                 return !(window.location.hostname === "localhost");
             }
 		    // other configuration
