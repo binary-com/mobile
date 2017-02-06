@@ -752,10 +752,13 @@ angular
 
 				var drawLastTickLabel = function(point, index){
 					if (index !== 0 && utils.isDefined(point.shown) && point.shown) {
-						var value = getLabelSize(ctx, point);
 						var marginX = 15,
 								marginY = 40,
 								padding = 10;
+						var fontSize = 12;
+						ctx.font = ctx.font.replace(/\d+px/, fontSize+ "px");
+						var value = ctx.measureText(point.value);
+						value.height = fontSize ;
 						ctx.strokeStyle = "#000";
 						ctx.strokeRect(marginX - padding , canvas.offsetHeight -( marginY + value.height + padding), 2* padding  + value.width,  2* padding + value.height);
 						ctx.fillStyle = "#FFF";
