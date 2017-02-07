@@ -22,6 +22,7 @@
 																	if(window.cordova){
 																			cordova.getAppVersion(function(version){
 																					vm.appVersion = version;
+                                          window._trackJs.version = vm.appVersion;
 																			}, function(err){
 																					console.log(err);
 																			});
@@ -30,11 +31,14 @@
 																			appVersionService.getAppVersion()
 																					.success(function(data){
 																							vm.appVersion = data.version;
+                                              window._trackJs.version = vm.appVersion;
 																					})
 																					.error(function(data){
 																							vm.appVersion = "0.0.0"
+                                                window._trackJs.version = vm.appVersion;
 																					});
 																	}
+
 															});
 									});
 

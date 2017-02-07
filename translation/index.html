@@ -55,6 +55,7 @@
 		    application: "tick-trade",
 		    onError: function(payload){
                 payload.customer.userId = window._trackJs.userId;
+                payload.customer.version = window._trackJs.version;
                 return !(window.location.hostname === "localhost");
             }
 		    // other configuration
@@ -84,10 +85,11 @@
     <bg-updater></bg-updater>
     <bg-connection-lost></bg-connection-lost>
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
+    <bg-session-timeout></bg-session-timeout>
     <bg-connectivity></bg-connectivity>
     <ping></ping>
     <bg-terms-and-conditions></bg-terms-and-conditions>
-
+    <bg-check-financial-assessment></bg-check-financial-assessment>
     <bg-reality-check></bg-reality-check>
 
 
@@ -196,6 +198,10 @@
     <script src="js/share/components/updater/updater.directive.js"></script>
     <script src="js/share/components/updater/updater.controller.js"></script>
 
+    <script src="js/share/components/check-financial-assessment/check-financial-assessment.module.js"></script>
+    <script src="js/share/components/check-financial-assessment/check-financial-assessment.directive.js"></script>
+    <script src="js/share/components/check-financial-assessment/check-financial-assessment.controller.js"></script>
+
     <script src="js/pages/home/home.module.js"></script>
     <script src="js/pages/home/home.controller.js"></script>
 
@@ -295,6 +301,8 @@
 
     <script src="js/pages/self-exclusion/self-exclusion.module.js"></script>
     <script src="js/pages/self-exclusion/self-exclusion.controller.js"></script>
+    <script src="js/pages/self-exclusion/session-timeout.directive.js"></script>
+    <script src="js/pages/self-exclusion/session-timeout.controller.js"></script>
 
     <script src="js/pages/settings/settings.module.js"></script>
     <script src="js/pages/settings/settings.controller.js"></script>
@@ -307,6 +315,21 @@
 
     <script src="js/pages/change-password/change-password.module.js"></script>
     <script src="js/pages/change-password/change-password.controller.js"></script>
+
+    <script src="js/pages/financial-assessment/financial-assessment.module.js"></script>
+    <script src="js/pages/financial-assessment/financial-assessment.controller.js"></script>
+
+    <script src="js/pages/limits/limits.module.js"></script>
+    <script src="js/pages/limits/limits.controller.js"></script>
+
+    <script src="js/pages/resources/resources.module.js"></script>
+    <script src="js/pages/resources/resources.controller.js"></script>
+
+    <script src="js/pages/trading-times/trading-times.module.js"></script>
+    <script src="js/pages/trading-times/trading-times.controller.js"></script>
+
+    <script src="js/pages/asset-index/asset-index.module.js"></script>
+    <script src="js/pages/asset-index/asset-index.controller.js"></script>
 
     <!-- endbuild -->
 
