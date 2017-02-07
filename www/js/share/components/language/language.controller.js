@@ -27,25 +27,35 @@
         vm.android = ionic.Platform.isAndroid();
         websocketService.sendRequestFor.websiteStatus();
         $scope.$on('website_status', function(e, website_status) {
-          if(!vm.isLanguageReady){
-          vm.languages = [];
-            vm.languagesList = website_status.supported_languages;
-            vm.appSupportedLanguages = config.appSupportedLanguages;
-            _.forEach(vm.appSupportedLanguages, function(value) {
-              vm.value = value.toUpperCase();
-              if(vm.languagesList.indexOf(vm.value) > -1){
-                var LanguageCode = vm.value.toLowerCase();
-                var languageNativeName = languageService.getLanguageNativeName(LanguageCode);
-                vm.languages.push({
-                    'id': LanguageCode,
-                    'title': languageNativeName
+            if (!vm.isLanguageReady && website_status) {
+                vm.languages = [];
+                vm.languagesList = website_status.supported_languages;
+                vm.appSupportedLanguages = config.appSupportedLanguages;
+                _.forEach(vm.appSupportedLanguages, function(value) {
+                    vm.value = value.toUpperCase();
+                    if (vm.languagesList.indexOf(vm.value) > -1) {
+                        var LanguageCode = vm.value.toLowerCase();
+                        var languageNativeName = languageService.getLanguageNativeName(LanguageCode);
+                        vm.languages.push({
+                            'id': LanguageCode,
+                            'title': languageNativeName
+                        });
+                    }
                 });
-              }
-            });
-            vm.isLanguageReady =  true;
-            appStateService.isLanguageReady = true;
-            $scope.$apply();
-          }
+                vm.isLanguageReady = true;
+                appStateService.isLanguageReady = true;
+                $scope.$apply();
+            }
+            if (!vm.isLanguageReady && !website_status) {
+                vm.languages = [];
+                vm.languages.push({
+                    'id': 'en',
+                    'title': 'English'
+                });
+                vm.isLanguageReady = true;
+                appStateService.isLanguageReady = true;
+                $scope.$apply();
+            }
         });
 
         vm.language = languageService.read();
