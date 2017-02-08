@@ -65,7 +65,9 @@ function pack (plat, arch) {
     ' --out=' + outputPath +
     ((plat == 'linux') ? '' : ' --prune') +
     ((plat === 'win32') ? ' --asar=true' : '') +
-    ' --ignore="build|electron-packager"' +
+    ' --ignore="build|electron-packager|www|\.git|\.gitignore|gulpfile\.js|\.bowerrc' +
+    '|\.editorconfig|.*\.swp|.publish|bower\.json|config\.xml|crowdin\.yaml|electron-pkg\.json' +
+    '|hooks|ionic\.config\.json|node_modules|platforms|plugins|README\.md|resoucers|scss"' +
     ' --overwrite');
 
   for(var i in cmds){
