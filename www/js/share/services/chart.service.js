@@ -746,8 +746,25 @@ angular
 							padding = (valueWidth < 45) ? 0 : valueWidth - 45;
 						}
 						ctx.fillText(point.value, point.x - padding, point.y - 1);
+
 					}
 				};
+
+				var drawLastTickLabel = function(point, index){
+					if (index !== 0 && utils.isDefined(point.shown) && point.shown) {
+						var marginX = 15,
+								marginY = 40,
+								padding = 10;
+						var fontSize = 12;
+						ctx.font = ctx.font.replace(/\d+px/, fontSize+ "px");
+						var value = ctx.measureText(point.value);
+						value.height = fontSize ;
+						ctx.fillStyle = "rgba(194, 194, 194, 0.4)";
+						ctx.fillRect(marginX - padding , canvas.offsetHeight -( marginY + value.height + padding), 2* padding  + value.width,  2* padding + value.height);
+						ctx.fillStyle = "#000";
+						ctx.fillText(point.value, marginX + value.width / 2, canvas.offsetHeight - marginY);
+					}
+				}
 
 				var drawGridLine = function drawGridLine(thisChart, gridLine) {
 					var point = thisChart.datasets[0].points[gridLine.index];
@@ -937,6 +954,7 @@ angular
 						toShowLabels(dataset.points);
 						dataset.points.forEach(function (point, index) {
 							drawLabel(point, index);
+							drawLastTickLabel(point, index);
 						});
 
 						if (utils.isDefined(this.options.regions)) {
@@ -960,7 +978,6 @@ angular
 							self.eachPoints(function (point) {
 								values.push(point.value);
 							});
-
 							return values;
 						};
 						var scaleOptions = {
