@@ -1,5 +1,9 @@
 .menu {
     background-color: $primaryBrandColor;
+    .icon-wrapper {
+      width: 20px;
+      float: left;
+    }
     .account-menu {
         margin-top: 40px;
         height: auto;
@@ -9,7 +13,7 @@
         width: 100%!important;
         background-color: $primaryBrandColor;
         &.has-header {
-            margin-top: 42px;
+            margin-top: 45px;
         }
         .sidemenu-app-version {
             bottom: 5px;
