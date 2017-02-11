@@ -57,6 +57,7 @@ angular
 						showTooltips: false,
 						keepAspectRatio: false,
 						scaleShowLabels: false,
+						scaleFontSize: 10,
 						pointDotRadius: 3, //original 4
 						datasetStrokeWidth: 2, //original 2
 					}
@@ -618,6 +619,18 @@ angular
 					return color;
 				};
 
+				var getLabelFillColor = function getLabelFillColor(prevPoint, currentPoint) {
+					if(prevPoint.value < currentPoint.value) {
+						return "#29abe2";
+					}
+					else if(prevPoint.value > currentPoint.value) {
+						return "#C03";
+					}
+					else{
+						return "#F2F2F2";
+					}
+				};
+
 				var drawRegion = function drawRegion(thisChart, region) {
 					var height = thisChart.scale.endPoint - thisChart.scale.startPoint + 12, // + 12 to size up the region to the top
 						length,
@@ -755,14 +768,21 @@ angular
 						var marginX = 10,
 								marginY = 30,
 								padding = 5;
-						var fontSize = 10;
+						var fontSize = 12;
 						ctx.font = ctx.font.replace(/\d+px/, fontSize+ "px");
 						var value = ctx.measureText(point.value);
-						value.height = fontSize ;
-						ctx.fillStyle = "rgba(194, 194, 194, 0.3)";
-						ctx.fillRect(marginX - padding , canvas.offsetHeight -( marginY + value.height + padding), 2* padding  + value.width,  2* padding + value.height);
-						ctx.fillStyle = "#000";
-						ctx.fillText(point.value, marginX + value.width / 2, canvas.offsetHeight - marginY);
+						value.height = fontSize;
+						ctx.textAlign = "center";
+						ctx.textBaseline = "bottom";
+						ctx.fillStyle = point.labelFillColor.toString();
+						ctx.fillRect(canvas.offsetWidth - (marginX  + padding  + value.width) , canvas.offsetHeight -( marginY + value.height + padding), 2* padding  + value.width,  2* padding + value.height);
+						if(ctx.fillStyle === "#C2C2C2"){
+							ctx.fillStyle = "#000";
+						}
+						else{
+							ctx.fillStyle = "#FFF";
+						}
+						ctx.fillText(point.value, canvas.offsetWidth - (marginX + value.width / 2), canvas.offsetHeight - marginY);
 					}
 				}
 
@@ -952,8 +972,11 @@ angular
 
 						Chart.types.Line.prototype.draw.apply(this, arguments);
 						toShowLabels(dataset.points);
+						var prevPoint = dataset.points[dataset.points.length - 2];
+						var currentPoint = dataset.points[dataset.points.length - 1];
+						currentPoint.labelFillColor = getLabelFillColor(prevPoint, currentPoint);
 						dataset.points.forEach(function (point, index) {
-							drawLabel(point, index);
+							// drawLabel(point, index);
 							drawLastTickLabel(point, index);
 						});
 
