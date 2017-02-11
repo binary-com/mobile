@@ -303,13 +303,10 @@
         }
 
         vm.goToTopButtonCondition = function() {
-            $scope.$applyAsync(() => {
-                    if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
-                        vm.goToTopButton = true;
-                    } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
-                        vm.goToTopButton = false;
-                    }
-            });
+            $timeout(() => {
+                var position = $ionicScrollDelegate.$getByHandle('handler').getScrollPosition();
+                vm.goToTopButton = position.top >= 30 ? true : false;
+            }, 500);
         }
 
         // details functions
