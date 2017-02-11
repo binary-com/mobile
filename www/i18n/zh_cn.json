@@ -424,7 +424,7 @@
     "session-duration-limit-in-minutes":"交易期持续时间限制，以分钟为单位",
     "session-duration-hint":"在该时间后您将自动退出登录。",
     "time-out-until":"时间已过。下次开启时间为",
-    "time-out-hint":"Please enter date in the format MM/DD/YYYY HH:mm (local time). ",
+    "time-out-hint":"请输入日期，格式为月/日/年 时：分（当地时间）。 ",
     "exclude-me-from-the-website-until":"禁止我访问本网站直到",
     "exclude-me-hint":"Please enter date in the format MM/DD/YYYY.",
     "update-settings":"更新设置",
