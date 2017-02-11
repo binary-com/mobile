@@ -73,10 +73,9 @@
 					input {
 						background: $white;
 						font-size: 1rem;
-						line-height: 2rem;
+						line-height: 1.5rem;
 						padding: 0;
 						max-width: 150px;
-						line-height: 34px;
 						padding-left: 5px;
 						margin-left: 5px;
 					}
@@ -150,10 +149,6 @@
 }
 
 .transaction-detail {
-	// ion-content {
-	// 	margin-top: 110px !important;
-	// 	margin-bottom: 80px !important;
-	// }
 	.list-item {
 		padding: 0 !important;
 		color: $contentColor;
@@ -201,7 +196,6 @@
 		.list {
 			padding: 0;
 			margin-bottom: 0;
-
 			.list-item {
 				font-size: 1rem;
 				padding: 10px 0;
