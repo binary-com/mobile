@@ -3,6 +3,13 @@
     .icon-wrapper {
       width: 20px;
       float: left;
+      &.account-icon {
+        line-height: 1.42857;
+        padding: 5px 5px 0 5px;
+        font-size: 1rem;
+        color: $white;
+        position: relative;
+      }
     }
     .account-menu {
         margin-top: 40px;
@@ -56,8 +63,11 @@
                 color: $contentInverseColor;
                 background-color: $primaryBrandColor;
                 border-color: $primaryBrandColor;
-                width: 100%;
-                font-size: 0.9rem;
+                border: none;
+                width: 90%;
+                width: calc(100% - 30px);
+                font-size: 1rem;
+                padding: 5px 0;
             }
         }
     }
