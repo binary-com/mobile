@@ -312,6 +312,9 @@ textarea {
 }
 .hint {
     font-size: 0.8rem;
+		font-size: $FONT_SIZE_S;
+		color: $black;
+		margin-top: 3px;
 }
 .submenu-icon{
   float: right;
