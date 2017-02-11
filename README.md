@@ -66,7 +66,7 @@ npm install or npm update (may need sudo)
 gulp deploy
 ```
 
-##How to use code-push to push new version
+## How to use code-push to push new version
 
 ```shell
 1. Install code-push
@@ -75,3 +75,8 @@ gulp deploy
 
   `$gulp code-push --app <registered appName in code-push> --deployment <deploymentName> --platform <[android, ios]>`
 ```
+
+## How to build desktop version of TickTrade
+1. install electron globally `npm install -g electron electron-packager`
+2. use gulp to build `gulp build-desktop --platform=[win32|linux|darwin|mas] --arch=[x64|ia32]`
+
