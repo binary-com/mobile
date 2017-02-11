@@ -57,6 +57,7 @@ angular
 						showTooltips: false,
 						keepAspectRatio: false,
 						scaleShowLabels: false,
+						scaleFontSize: 10,
 						pointDotRadius: 3, //original 4
 						datasetStrokeWidth: 2, //original 2
 					}
