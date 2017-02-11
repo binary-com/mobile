@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+var _ = require('lodash');
+
 var os = require('os');
 var pkgjson = require('./package.json');
 var path = require('path');
@@ -12,32 +14,37 @@ var appVersion = pkgjson.version
 
 var archs = ['ia32', 'x64'];
 
-if(process.arch){
-  archs = [process.arch];
-}
+exports.build = function build(){
+  var inputPlatform = _.find(process.argv, (e) => { return e.indexOf('--platform') > -1;});
 
-if (process.argv[2] === '--all') {
 
-  // build for all platforms
-  var platforms = ['linux', 'darwin'];
+  if(process.arch){
+    archs = [process.arch];
+  }
 
-  // Only build for Windows when in Windows
-  if(process.platform === 'win32') platforms.push('win32');
+  if (_.find(process.argv, (e) => { return e.indexOf('--all') > -1;})) {
 
-  platforms.forEach(function (plat) {
+    // build for all platforms
+    var platforms = ['linux', 'darwin'];
+
+    // Only build for Windows when in Windows
+    if(process.platform === 'win32') platforms.push('win32');
+
+    platforms.forEach(function (plat) {
+      archs.forEach(function (arch) {
+        pack(plat, arch);
+      });
+    });
+
+  } else if (inputPlatform) {
     archs.forEach(function (arch) {
+      var plat = inputPlatform;
       pack(plat, arch);
     });
-  });
-
-} else if (typeof process.argv[2] !== 'undefined' && process.argv[2].indexOf('--platform') > -1) {
-  archs.forEach(function (arch) {
-    var plat = process.argv[2];
-    pack(plat, arch);
-  });
-} else {
-  // build for current platform only
-  pack(os.platform(), os.arch());
+  } else {
+    // build for current platform only
+    pack(os.platform(), os.arch());
+  }
 }
 
 function pack (plat, arch) {
@@ -81,3 +88,5 @@ function pack (plat, arch) {
   }
 
 }
+
+//exports.build();
