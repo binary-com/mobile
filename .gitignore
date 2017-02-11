@@ -26,3 +26,4 @@ CNAME
 .npmignore
 tmp
 build
+*.provisionprofile
