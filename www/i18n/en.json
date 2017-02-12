@@ -177,6 +177,7 @@
         "last_name": "Family name",
         "date_of_birth": "Date of birth",
         "residence": "Country of residence",
+				"place_of_birth": "Place of birth",
         "address": "Address",
         "addreess_line_1": "First line of home address",
         "addreess_line_2": "Second line of home address",
@@ -271,7 +272,8 @@
         "error_format": "Wrong format or length",
         "error_secretanswer": "This field must be within 4-50 characters.",
         "isrequired": "(required)",
-        "isoptional": "(optional)"
+        "isoptional": "(optional)",
+				"select": "Please select"
     },
     "newaccountreal": {
         "open_real": "Upgrade to a real account",

@@ -3,7 +3,7 @@
         <div class="col">
             <div class="row">
                 <div class="col">
-                  <h1 class="page-title">
+                    <h1 class="page-title">
                     {{'newaccountmaltainvest.financial_account_opening' | translate}}
                   </h1>
                 </div>
@@ -22,6 +22,8 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="salutation" ng-model="vm.data.salutation" ng-disabled="vm.isReadonly" ng-required="!vm.isReadonly">
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
+
                         <option value="Mr">
                             {{'newaccountmaltainvest.mr' | translate}}
                         </option>
@@ -124,12 +126,33 @@
                 <div class="col item-input">
                     <input name="country" ng-model="vm.data.country" ng-readonly="true">
                     <div class="help-block error" ng-messages="vm.countryError" role="alert" ng-if='vm.countryError'>
-                        <div>{{vm.dateOfBirthErrorMessage}}</div>
+                        <div>{{vm.countryErrorMessage}}</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col input-title">
+                    {{'newaccountmaltainvest.place_of_birth' | translate}}
+                    <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col item-input item-select">
+                      <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.data.residenceList track by residence.value" required ng-readonly="vm.hasPlaceOfbirth">
+                          <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
+                      </select>
+                  </label>
+                <div class="help-block error" ng-messages="vm.placeOfBirthError" role="alert" ng-if='vm.placeOfBirthError'>
+                    <div>{{vm.placeOfBirthErrorMessage}}</div>
+                </div>
+            </div>
+        </div>
+    </div> -->
 
     <div class="row">
         <div class="col">
@@ -207,7 +230,9 @@
             </div>
             <div class="row">
                 <div class="col item-select">
-                    <select name="state" ng-model="vm.data.state" ng-options="state.value as state.text for state in vm.data.statesList"></select>
+                    <select name="state" ng-model="vm.data.state" ng-options="state.value as state.text for state in vm.data.statesList">
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
+                    </select>
                     <div class="help-block error" ng-messages="vm.addressStateError" role="alert" ng-if='vm.addressStateError'>
                         <div>{{vm.addressStateErrorMessage}}</div>
                     </div>
@@ -271,6 +296,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="forexTradingExperience" ng-model="vm.data.forexTradingExperience" required>
+                        <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
                         <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
                         <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
@@ -291,6 +317,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="forexTradingFrequency" ng-model="vm.data.forexTradingFrequency" required>
+                        <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
                         <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
                         <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
@@ -311,6 +338,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="indicesTradingExperience" ng-model="vm.data.indicesTradingExperience" required>
+                        <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
                         <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
                         <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
@@ -331,6 +359,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="indicesTradingFrequency" ng-model="vm.data.indicesTradingFrequency" required>
+                        <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
                         <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
                         <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
@@ -351,6 +380,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="commoditiesTradingExperience" ng-model="vm.data.commoditiesTradingExperience" required>
+                        <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
                         <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
                         <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
@@ -371,6 +401,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="commoditiesTradingFrequency" ng-model="vm.data.commoditiesTradingFrequency" required>
+                        <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
                         <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
                         <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
@@ -391,6 +422,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="stocksTradingExperience" ng-model="vm.data.stocksTradingExperience" required>
+                        <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
                         <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
                         <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
@@ -411,6 +443,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="stocksTradingFrequency" ng-model="vm.data.stocksTradingFrequency" required>
+                        <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
                         <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
                         <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
@@ -431,6 +464,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="otherDerivativesTradingExperience" ng-model="vm.data.otherDerivativesTradingExperience" required>
+                        <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
                         <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
                         <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
@@ -451,6 +485,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="otherDerivativesTradingFrequency" ng-model="vm.data.otherDerivativesTradingFrequency" required>
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
                         <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
                         <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
@@ -471,6 +506,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="otherInstrumentsTradingExperience" ng-model="vm.data.otherInstrumentsTradingExperience" required>
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-1 year">{{'newaccountmaltainvest.under_1_year' | translate}}</option>
                         <option value="1-2 years">{{'newaccountmaltainvest.1_2_years' | translate}}</option>
                         <option value="Over 3 years">{{'newaccountmaltainvest.over_3_years' | translate}}</option>
@@ -491,6 +527,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="otherInstrumentsTradingFrequency" ng-model="vm.data.otherInstrumentsTradingFrequency" required>
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="0-5 transactions in the past 12 months">{{'newaccountmaltainvest.0_5_transactions' | translate}}</option>
                         <option value="6-10 transactions in the past 12 months">{{'newaccountmaltainvest.6_10_transactions' | translate}}</option>
                         <option value="40 transactions or more in the past 12 months">{{'newaccountmaltainvest.transactions_more' | translate}}</option>
@@ -511,6 +548,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="employmentIndustry" ng-model="vm.data.employmentIndustry" required>
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="Construction">{{'newaccountmaltainvest.construction' | translate}}</option>
                         <option value="Education">{{'newaccountmaltainvest.education' | translate}}</option>
                         <option value="Finance">{{'newaccountmaltainvest.finance' | translate}}</option>
@@ -534,6 +572,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="educationLevel" ng-model="vm.data.educationLevel" required>
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="Primary">{{'newaccountmaltainvest.primary' | translate}}</option>
                         <option value="Secondary">{{'newaccountmaltainvest.secondary' | translate}}</option>
                         <option value="Tertiary">{{'newaccountmaltainvest.tertiary' | translate}}</option>
@@ -554,6 +593,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="incomeSource" ng-model="vm.data.incomeSource" required>
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="Salaried Employee">{{'newaccountmaltainvest.salaried' | translate}}</option>
                         <option value="Self-Employed">{{'newaccountmaltainvest.self_employed' | translate}}</option>
                         <option value="Investments & Dividends">{{'newaccountmaltainvest.investment' | translate}}</option>
@@ -566,17 +606,18 @@
     </div>
 
     <div class="row">
-    <div class="col">
-        <div class="row">
-            <div class="col">
-                <div class="input-title">
-                    {{'newaccountmaltainvest.occupation' | translate}}
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="input-title">
+                        {{'newaccountmaltainvest.occupation' | translate}}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col item-select">
-                <select name="occupation" ng-model="vm.data.occupation" required>
+            <div class="row">
+                <div class="col item-select">
+                    <select name="occupation" ng-model="vm.data.occupation" required>
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                     <option value="Chief Executives, Senior Officials and Legislators">
                       {{'newaccountmaltainvest.chief_executives' | translate}}
                     </option>
@@ -617,13 +658,13 @@
                       {{'newaccountmaltainvest.other' | translate}}
                     </option>
                 </select>
-                <span class="help-block error" ng-show="vm.occupationError">
+                    <span class="help-block error" ng-show="vm.occupationError">
                     {{'newaccountmaltainvest.select_value_error' | translate}}
                 </span>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <div class="row">
         <div class="col">
@@ -636,6 +677,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="netIncome" ng-model="vm.data.netIncome" required>
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="Less than $25,000">{{'newaccountmaltainvest.net_income_1' | translate}}</option>
                         <option value="$25,000 - $50,000">{{'newaccountmaltainvest.net_income_2' | translate}}</option>
                         <option value="$50,001 - $100,000">{{'newaccountmaltainvest.net_income_3' | translate}}</option>
@@ -658,6 +700,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="estimatedWorth" ng-model="vm.data.estimatedWorth" required>
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                         <option value="Less than $100,000">{{'newaccountmaltainvest.estimated_worth_1' | translate}}</option>
                         <option value="$100,000 - $250,000">{{'newaccountmaltainvest.estimated_worth_2' | translate}}</option>
                         <option value="$250,001 - $500,000">{{'newaccountmaltainvest.estimated_worth_3' | translate}}</option>
@@ -680,6 +723,8 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="secretQuestion" ng-model="vm.data.secretQuestion" required>
+                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
+
                         <option value="Mother's maiden name">{{'newaccountmaltainvest.secret_question_1' | translate}}</option>
                         <option value="Name of your pet">{{'newaccountmaltainvest.secret_question_2' | translate}}</option>
                         <option value="Name of first love">{{'newaccountmaltainvest.secret_question_3' | translate}}</option>
