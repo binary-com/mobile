@@ -64,28 +64,14 @@
 
         vm.setCountry();
 
-        vm.firstToLowerCase = function(str) {
-            return str.substr(0, 1).toLowerCase() + str.substr(1);
-        }
-        vm.convertDataName = function(key) {
-            var str = key.replace(/_|-|\\. /g, ' ');
-            var dataName = str.replace(/\w\S*/g, function(txt) {
-                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            }).replace(/\s/g, '');
-            return vm.firstToLowerCase(dataName);
-        }
-
         vm.resetAllErrors = function() {
             _.forEach(vm.formData, (value, key) => {
-                var errorName = vm.convertDataName(value) + 'Error';
+                var errorName = _.camelCase(value) + 'Error';
                 vm[errorName] = false;
             });
         }
 
         vm.resetAllErrors();
-
-
-
 
         websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
         $scope.$on('states_list', (e, states_list) => {
@@ -104,11 +90,6 @@
             }
         });
 
-
-
-
-
-
         vm.validateName = (function(val) {
             var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
             return {
@@ -122,7 +103,6 @@
                 }
             }
         })();
-
 
         vm.submitAccountOpening = function() {
             vm.resetAllErrors();
@@ -150,8 +130,8 @@
                 $scope.$applyAsync(() => {
                     _.forEach(vm.requestData, (value, key) => {
                         if (error.details.hasOwnProperty(value)) {
-                            var errorName = vm.convertDataName(value) + 'Error';
-                            var errorMessageName = vm.convertDataName(value) + 'ErrorMessage';
+                            var errorName = _.camelCase(value) + 'Error';
+                            var errorMessageName = _.camelCase(value) + 'ErrorMessage';
                             vm[errorName] = true;
                             vm[errorMessageName] = error.details[value];
                         }
@@ -168,8 +148,6 @@
             appStateService.newAccountAdded = true;
             accountService.addedAccount = vm.selectedAccount;
         });
-
-
 
     }
 })();
