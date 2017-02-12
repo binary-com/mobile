@@ -37,6 +37,7 @@
         vm.hasError = false;
         vm.dateChanged = false;
         vm.appIdAllowed = config.app_id;
+        vm.isItemShown = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -297,6 +298,11 @@
             }
         }
 
+        vm.toggleItem = function(){
+            vm.isItemShown = !vm.isItemShown;
+            var content = document.getElementsByClassName('profit-table-expandable')[0];
+            content.id === 'profit - table - filter - active' ? content.id = '' : content.id = 'profit-table-filter-active';
+        }
 
         vm.goTop = function() {
             $ionicScrollDelegate.scrollTop(true);

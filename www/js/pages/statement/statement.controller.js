@@ -37,6 +37,7 @@
         vm.hasError = false;
         vm.dateChanged = false;
         vm.appIdAllowed = config.app_id;
+        vm.isItemShown = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -297,6 +298,12 @@
                 tableStateService.statementDateTo = vm.data.dateTo;
                 vm.loadMore();
             }
+        }
+
+        vm.toggleItem = function() {
+            vm.isItemShown = !vm.isItemShown;
+            var content = document.getElementsByClassName('statement-content-expandable')[0];
+            content.id === 'statement-filter-active' ? content.id = '' : content.id = 'statement-filter-active';
         }
 
         vm.goTop = function() {
