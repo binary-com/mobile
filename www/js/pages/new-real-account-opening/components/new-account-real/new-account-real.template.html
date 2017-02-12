@@ -133,6 +133,27 @@
         <div class="col">
             <div class="row">
                 <div class="col input-title">
+                    {{'newaccountreal.place_of_birth' | translate}}
+                    <span>{{'newaccountreal.isrequired' | translate}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col item-input item-select">
+                      <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text for residence in vm.residenceList track by residence.value" required ng-readonly="vm.hasPlaceOfbirth">
+                          <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
+                      </select>
+                  </label>
+                <div class="help-block error" ng-messages="vm.placeOfBirthError" role="alert" ng-if='vm.placeOfBirthError'>
+                    <div>{{vm.placeOfBirthErrorMessage}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col input-title">
                     {{'newaccountreal.addreess_line_1' | translate}}
                     <span>{{'newaccountreal.isrequired' | translate}}</span>
                 </div>
