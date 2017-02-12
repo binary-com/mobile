@@ -1,13 +1,13 @@
 <form name="newAccount" class="new-real-account" novalidate>
     <div class="row">
         <div class="col">
-          <div class="row">
-              <div class="col">
-                <h1 class="page-title">
+            <div class="row">
+                <div class="col">
+                    <h1 class="page-title">
                   {{'newaccountreal.real_account_opening' | translate}}
                 </h1>
-              </div>
-          </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -22,6 +22,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="salutation" ng-model="vm.data.salutation" ng-required="1==1">
+                      <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
                         <option value="Mr">
                             {{'newaccountreal.mr' | translate}}
                         </option>
@@ -88,24 +89,24 @@
         </div>
     </div>
 
-<div class="row">
-    <div class="col">
-        <div class="row">
-            <div class="col input-title">
-                {{'newaccountreal.date_of_birth' | translate}}
-                <span>{{'newaccountreal.isrequired' | translate}}</span>
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col input-title">
+                    {{'newaccountreal.date_of_birth' | translate}}
+                    <span>{{'newaccountreal.isrequired' | translate}}</span>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <label class="col item-input">
+            <div class="row">
+                <label class="col item-input">
                 <input type="date" class="date" ng-model="vm.data.dateOfBirth" name="date" required/>
                 <div class="help-block error" ng-messages="vm.dateOfBirthError" role="alert" ng-if='vm.dateOfBirthError'>
                     <div>{{vm.dateOfBirthErrorMessage}}</div>
                 </div>
             </label>
+            </div>
         </div>
     </div>
-</div>
 
     <div class="row">
         <div class="col">
@@ -116,14 +117,15 @@
                 </div>
             </div>
             <div class="row">
-                <label class="col item-input">
-                    <input class="input-disabled" ng-model="vm.data.country" ng-readonly="true">
-                    <div class="help-block error" ng-messages="vm.countryError" role="alert" ng-if='vm.countryError'>
-                        <div>{{vm.dateOfBirthErrorMessage}}</div>
-                    </div>
-                </label>
+                <label class="col item-input item-select">
+                  <select ng-model="vm.data.residence" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.residenceList" required ng-disabled="vm.hasResidence">
+                      <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
+                  </select>
+              </label>
+                <div class="help-block error" ng-messages="vm.residenceError" role="alert" ng-if='vm.residenceError'>
+                    <div>{{vm.residenceErrorMessage}}</div>
+                </div>
             </div>
-
         </div>
     </div>
 
@@ -146,9 +148,10 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
+
 
     <div class="row">
         <div class="col">
@@ -207,7 +210,9 @@
             </div>
             <div class="row">
                 <div class="col item-select">
-                    <select name="state" ng-model="vm.data.state" ng-options="state.value as state.text for state in vm.data.statesList"></select>
+                    <select name="state" ng-model="vm.data.state" ng-options="state.value as state.text for state in vm.data.statesList">
+                      <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
+                    </select>
                     <div class="help-block error" ng-messages="vm.addressStateError" role="alert" ng-if='vm.addressStateError'>
                         <div>{{vm.addressStateErrorMessage}}</div>
                     </div>
@@ -273,6 +278,7 @@
             <div class="row">
                 <div class="col item-select">
                     <select name="secretQuestion" ng-model="vm.data.secretQuestion" required>
+                      <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
                         <option value="Mother's maiden name" selected="selected">{{'newaccountreal.secret_question_1' | translate}}</option>
                         <option value="Name of your pet">{{'newaccountreal.secret_question_2' | translate}}</option>
                         <option value="Name of first love">{{'newaccountreal.secret_question_3' | translate}}</option>
@@ -317,7 +323,7 @@
         <div class="col">
             <div class="row">
                 <div class="col">
-                     <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-disabled="newAccount.$invalid" ng-class="{'button-default' : newAccount.$invalid}">{{'newaccountreal.open_account' | translate}}</button>
+                    <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-disabled="newAccount.$invalid" ng-class="{'button-default' : newAccount.$invalid}">{{'newaccountreal.open_account' | translate}}</button>
                 </div>
             </div>
         </div>

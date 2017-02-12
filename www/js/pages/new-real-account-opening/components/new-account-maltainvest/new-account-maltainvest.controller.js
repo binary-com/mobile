@@ -121,12 +121,16 @@
             }
         })();
 
+        vm.setCountry = function() {
+            if (sessionStorage.hasOwnProperty('countryParams')) {
+                vm.countryParams = JSON.parse(sessionStorage.countryParams);
+                vm.data.countryCode = vm.countryParams.countryCode;
+                vm.data.residence = vm.countryParams.countryCode;
+                vm.hasResidence = true;
+            }
+        }
 
-        vm.countryParams = JSON.parse(sessionStorage.countryParams);
-        vm.data.countryCode = vm.countryParams.countryCode;
-        $scope.$applyAsync(() => {
-            vm.data.country = vm.countryParams.countryOfAccount;
-        });
+        vm.setCountry();
         vm.findPhoneCode = function(country) {
             return country.value == vm.data.countryCode;
         }
@@ -182,6 +186,7 @@
                 }
                 else {
                   vm.data.birthDate = !appStateService.hasMLT ? vm.data.userDateOfBirth.toISOString().slice(0, 10) : vm.data.dateOfBirth;
+                  vm.params.date_of_birth = vm.data.birthDate;
                 }
               }
             });
