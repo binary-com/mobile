@@ -319,7 +319,8 @@
         "error_format": "Wrong format or length",
         "error_secretanswer": "This field must be within 4-50 characters.",
         "isrequired": "(required)",
-        "isoptional": "(optional)"
+        "isoptional": "(optional)",
+				"select": "Please select"
     },
     "profittable": {
         "profit_table": "Profit table",
