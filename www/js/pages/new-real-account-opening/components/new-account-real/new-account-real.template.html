@@ -231,7 +231,7 @@
             </div>
             <div class="row">
                 <div class="col item-select">
-                    <select name="state" ng-model="vm.data.state" ng-options="state.value as state.text for state in vm.data.statesList">
+                    <select name="state" ng-model="vm.data.state" ng-options="state.value as state.text for state in vm.statesList">
                       <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
                     </select>
                     <div class="help-block error" ng-messages="vm.addressStateError" role="alert" ng-if='vm.addressStateError'>

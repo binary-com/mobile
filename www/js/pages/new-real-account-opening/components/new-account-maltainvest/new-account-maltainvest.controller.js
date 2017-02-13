@@ -18,6 +18,7 @@
     function NewAccountMaltainvest($scope, $state, $rootScope, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
+
         vm.formData = [
             'salutation',
             'first_name',
@@ -69,7 +70,7 @@
             "estimated_worth",
             "accept_risk"
         ];
-
+        // set all errors to false
         vm.resetAllErrors = function() {
             _.forEach(vm.formData, (value, key) => {
                 var errorName = _.camelCase(value) + 'Error';
@@ -89,7 +90,7 @@
                 vm.isReadonly = true;
             }
         });
-
+        // regexp pattern for validating name input
         vm.validateName = (function(val) {
             var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
             return {
@@ -108,7 +109,7 @@
                 }
             }
         })();
-
+        // get user's country from sessionStorage if is existed
         vm.setCountry = function() {
             if (sessionStorage.hasOwnProperty('countryParams')) {
                 vm.countryParams = JSON.parse(sessionStorage.countryParams);
@@ -119,17 +120,19 @@
         }
 
         vm.setCountry();
+
+        // get phone code of user's country
         vm.findPhoneCode = function(country) {
             return country.value == vm.data.countryCode;
         }
 
         websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
         $scope.$on('states_list', (e, states_list) => {
-            vm.data.statesList = states_list;
-            vm.data.state = vm.data.statesList[0].value;
+            vm.statesList = states_list;
         });
-        websocketService.sendRequestFor.accountSetting();
 
+        // get some values which are set by user before
+        websocketService.sendRequestFor.accountSetting();
         $scope.$on('get_settings', (e, get_settings) => {
             $scope.$applyAsync(() => {
                 _.forEach(get_settings, (val, key) => {

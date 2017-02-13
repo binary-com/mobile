@@ -13,9 +13,9 @@
         .module('binary.pages.new-real-account-opening.components.new-account-real')
         .controller('NewAccountRealController', NewAccountReal);
 
-    NewAccountReal.$inject = ['$scope', '$state', '$rootScope', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    NewAccountReal.$inject = ['$scope', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function NewAccountReal($scope, $state, $rootScope, websocketService, appStateService, accountService, alertService) {
+    function NewAccountReal($scope, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
         vm.hasResidence = false;
@@ -53,7 +53,9 @@
         ];
 
 
-        vm.setCountry = function() {
+        vm.setUserCountry = function() {
+          // check if there are country and country code of user in sessionStorage
+          // some users from past don't have country chosen in signup
             if (sessionStorage.hasOwnProperty('countryParams')) {
                 vm.countryParams = JSON.parse(sessionStorage.countryParams);
                 vm.data.countryCode = vm.countryParams.countryCode;
@@ -62,8 +64,9 @@
             }
         }
 
-        vm.setCountry();
 
+
+        // set all fields errors to false
         vm.resetAllErrors = function() {
             _.forEach(vm.formData, (value, key) => {
                 var errorName = _.camelCase(value) + 'Error';
@@ -71,16 +74,20 @@
             });
         }
 
+        vm.setUserCountry();
         vm.resetAllErrors();
 
+        // get states of the user country
         websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
         $scope.$on('states_list', (e, states_list) => {
-            vm.data.statesList = states_list;
+            vm.statesList = states_list;
         });
 
+        // get phone code of the user country
         vm.findPhoneCode = function(country) {
             return country.value == vm.data.countryCode;
         }
+
         websocketService.sendRequestFor.residenceListSend();
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
@@ -90,6 +97,7 @@
             }
         });
 
+        // regexp pattern for name input (pattern in perl API doesn't work in javascript)
         vm.validateName = (function(val) {
             var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
             return {
