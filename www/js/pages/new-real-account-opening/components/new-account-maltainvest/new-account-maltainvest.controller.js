@@ -202,11 +202,7 @@
 
         vm.submitAccountOpening = function() {
             vm.resetAllErrors();
-            if (vm.data.accept == true) {
-                vm.data.acceptRisk = 1
-            } else {
-                vm.data.acceptRisk = 0
-            }
+            vm.data.acceptRisk = vm.data.accept === true ? 1 : 0;
 
             vm.params = {};
             _.forEach(vm.data, (value, key) => {

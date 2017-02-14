@@ -6,38 +6,9 @@
                 margin: 0;
                 padding: 0 5px;
             }
-            .tax-residence {
-                font-size: 14px;
-                color: #333;
-                .tax-residence-select {
-                    position: relative;
-                    width: 100%;
-                    padding: 5px;
-                    border: 1px solid #DEDEDE;
-                    border-radius: 3px;
-                    background: #fff;
-                    direction: ltr;
-                }
-            }
             .accept{
               font-size: 0.8rem;
             }
         }
-    }
-}
-
-.tax-residence-modal {
-    .item-checkbox {
-        font-size: 0.8rem;
-    }
-
-    .disabled {
-        color: $secondaryContentColor;
-    }
-
-    .checkbox input:checked + .checkbox-icon:before,
-    .checkbox input:checked:before {
-        background: $positiveColor;
-        border-color: $positiveColor;
     }
 }

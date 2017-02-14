@@ -1,0 +1,85 @@
+<ion-view>
+    <ion-content class="general-content">
+        <div class="row">
+            <div class="col">
+                <h1 class="page-title">
+					{{'tax-information.tax_information' | translate}}
+				</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col input-title">
+                                {{'tax-information.tax_residence' | translate}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col item-input item-select tax-residence" ng-click="vm.showTaxResidenceItems()">
+				                  <div class="tax-residence-select">
+				                    {{ vm.selectedTaxResidencesName || 'tax-information.select' | translate}}
+				                  </div>
+				                </label>
+                        </div>
+                        <div class="row">
+                            <div class="col help-block">
+                                {{'tax-information.tax_residence_hint' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col input-title">
+                                {{'tax-information.tax_identification_number' | translate}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col item-input">
+                                <input name="taxIdentificationNumber" ng-model="vm.data.taxIdentificationNumber" required />
+                                <div class="col help-block">
+                                    {{'tax-information.tax_identification_number_hint' | translate}}
+                                </div>
+                                <!-- <div class="help-block error" ng-messages="newAccountMaltainvestForm.taxIdentificationNumber.$error" role="alert" ng-if='newAccountMaltainvestForm.taxIdentificationNumber.$dirty' ng-hide="vm.taxIdentificationNumberError">
+				                         <div ng-message when="pattern">{{'tax-information.error_format' | translate}}</div>
+				                     </div> -->
+                                <div class="help-block error" ng-messages="vm.taxIdentificationNumberError" role="alert" ng-if='vm.taxIdentificationNumberError'>
+                                    <div>{{vm.taxIdentificationNumberErrorMessage}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <label class="col input-title accept">
+				                     <input type="checkbox" disabled ng-model="vm.data.taxAccept" class="checkbox" ng-checked="true"/>
+				                     {{'tax-information.tax_accept_info' | translate}}
+				                 </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col center">
+                                <span class="help-block error center" ng-if="vm.showNotChangedWarning">{{'tax-information.no_change' | translate}}</span>
+                                <span class="help-block error center" ng-if="vm.updated">{{'tax-information.updated_successfully' | translate}}</span>
+                                  <span class="help-block error center" ng-if="vm.updateError">{{vm.updateErrorMessage}}</span>
+                                <button class="button button-block" ng-click="vm.submitTaxInformation()">{{'tax-information.update' | translate}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -154,6 +154,13 @@ angular
 					templateUrl: 'js/pages/asset-index/asset-index.template.html',
 					controller: 'AssetIndexController',
 					controllerAs: 'vm'
+				})
+				.state('tax-information', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/tax-information/tax-information.template.html',
+					controller: 'TaxInformationController',
+					controllerAs: 'vm'
 				});
 
 
