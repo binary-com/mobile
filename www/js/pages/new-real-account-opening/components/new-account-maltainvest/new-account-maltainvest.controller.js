@@ -18,12 +18,13 @@
     function NewAccountMaltainvest($scope, $state, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
-
+        vm.hasPlaceOfbirth = false;
         vm.formData = [
             'salutation',
             'first_name',
             'last_name',
             'date_of_birth',
+            "place_of_birth",
             'country',
             'address_line_1',
             'address_line_2',
@@ -99,15 +100,16 @@
         }
 
         vm.setTaxResidence = function() {
-            vm.selectedTaxResidences = [];
+            vm.selectedTaxResidencesName = "";
             vm.data.taxResidence = "";
             _.forEach(vm.taxResidenceList, (value, key) => {
                 if (value.checked) {
-                    vm.selectedTaxResidences.push(value.value);
+                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName + value.text + ', ';
                     vm.data.taxResidence = vm.data.taxResidence + value.value + ',';
                 }
             });
             vm.data.taxResidence = _.trimEnd(vm.data.taxResidence, ",");
+            vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
             vm.closeModal();
         }
 
@@ -180,10 +182,13 @@
                 _.forEach(get_settings, (val, key) => {
                     if (vm.formData.indexOf(key) > -1) {
                         vm.convertedValue = _.camelCase(key);
-                        if (key !== 'date_of_birth') {
-                            vm.data[vm.convertedValue] = val;
+                        if (key === 'date_of_birth') {
+                          vm.data[vm.convertedValue] = new Date(val * 1000);
+                        } else if (key === 'place_of_birth' && val.length > 1) {
+                          vm.hasPlaceOfbirth = true;
+                          vm.data[vm.convertedValue] = val;
                         } else {
-                            vm.data[vm.convertedValue] = $filter('date')(val * 1000, 'yyyy-MM-dd');
+                          vm.data[vm.convertedValue] = val;
                         }
                     }
                 });
@@ -191,10 +196,6 @@
                 if (!get_settings.hasOwnProperty('phone')) {
                     vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
                     vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
-                }
-
-                if (get_settings.hasOwnProperty('place_of_birth') && !_.isEmpty(get_settings.place_of_birth)) {
-                    vm.hasPlaceOfbirth = true;
                 }
             });
         });
@@ -214,11 +215,10 @@
                     if (vm.dataName !== 'date_of_birth') {
                         vm.params[vm.dataName] = value;
                     } else {
-                        vm.params[vm.dataName] = !appStateService.hasMLT ? $filter('date')(value, 'yyyy-MM-dd') : value;
+                        vm.params[vm.dataName] =  $filter('date')(value, 'yyyy-MM-dd');
                     }
                 }
             });
-            console.log(vm.params);
             websocketService.sendRequestFor.createMaltainvestAccountSend(vm.params);
         };
 
