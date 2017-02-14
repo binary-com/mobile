@@ -13,9 +13,9 @@
         .module('binary.pages.new-real-account-opening.components.new-account-maltainvest')
         .controller('NewAccountMaltainvestController', NewAccountMaltainvest);
 
-    NewAccountMaltainvest.$inject = ['$scope', '$state', '$rootScope', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    NewAccountMaltainvest.$inject = ['$scope', '$state', '$filter', '$ionicModal', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function NewAccountMaltainvest($scope, $state, $rootScope, websocketService, appStateService, accountService, alertService) {
+    function NewAccountMaltainvest($scope, $state, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
 
@@ -33,6 +33,7 @@
             'phone',
             'secret_question',
             'secret_answer',
+            'tax_residence'
         ];
 
         vm.requestData = [
@@ -68,8 +69,48 @@
             "income_source",
             "net_income",
             "estimated_worth",
-            "accept_risk"
+            "accept_risk",
+            "tax_residence"
         ];
+
+
+        $ionicModal.fromTemplateUrl('js/pages/new-real-account-opening/components/new-account-maltainvest/tax-residence.modal.html', {
+            scope: $scope
+        }).then(function(modal) {
+            vm.modalCtrl = modal;
+        });
+
+        function hideModal() {
+            if (vm.modalCtrl) {
+                vm.modalCtrl.hide();
+            }
+        }
+
+        vm.closeModal = function() {
+            hideModal();
+        }
+
+        vm.residenceDisable = function(index, residence) {
+            return (residence.disabled === "DISABLED" ? true : false);
+        }
+
+        vm.showTaxResidenceItems = function() {
+            vm.modalCtrl.show();
+        }
+
+        vm.setTaxResidence = function() {
+            vm.selectedTaxResidences = [];
+            vm.data.taxResidence = "";
+            _.forEach(vm.taxResidenceList, (value, key) => {
+                if (value.checked) {
+                    vm.selectedTaxResidences.push(value.value);
+                    vm.data.taxResidence = vm.data.taxResidence + value.value + ',';
+                }
+            });
+            vm.data.taxResidence = _.trimEnd(vm.data.taxResidence, ",");
+            vm.closeModal();
+        }
+
         // set all errors to false
         vm.resetAllErrors = function() {
             _.forEach(vm.formData, (value, key) => {
@@ -83,6 +124,7 @@
         websocketService.sendRequestFor.residenceListSend();
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
+            vm.taxResidenceList = residence_list;
         });
 
         $scope.$applyAsync(() => {
@@ -137,12 +179,11 @@
             $scope.$applyAsync(() => {
                 _.forEach(get_settings, (val, key) => {
                     if (vm.formData.indexOf(key) > -1) {
-                        if (key != 'date_of_birth') {
-                            var dataName = _.camelCase(key);
-                            vm.data[dataName] = val;
+                        vm.convertedValue = _.camelCase(key);
+                        if (key !== 'date_of_birth') {
+                            vm.data[vm.convertedValue] = val;
                         } else {
-                            var birth = new Date(val);
-                            vm.data.dateOfBirth = birth.toISOString().slice(0, 10);
+                            vm.data[vm.convertedValue] = $filter('date')(val * 1000, 'yyyy-MM-dd');
                         }
                     }
                 });
@@ -168,19 +209,18 @@
 
             vm.params = {};
             _.forEach(vm.data, (value, key) => {
-                var dataName = _.snakeCase(key);
-                if (vm.requestData.indexOf(dataName) > -1) {
-                    if (dataName !== 'date_of_birth') {
-                        vm.params[dataName] = value;
+                vm.dataName = _.snakeCase(key);
+                if (vm.requestData.indexOf(vm.dataName) > -1) {
+                    if (vm.dataName !== 'date_of_birth') {
+                        vm.params[vm.dataName] = value;
                     } else {
-                        vm.data.birthDate = !appStateService.hasMLT ? vm.data.userDateOfBirth.toISOString().slice(0, 10) : vm.data.dateOfBirth;
-                        vm.params.date_of_birth = vm.data.birthDate;
+                        vm.params[vm.dataName] = !appStateService.hasMLT ? $filter('date')(value, 'yyyy-MM-dd') : value;
                     }
                 }
             });
+            console.log(vm.params);
             websocketService.sendRequestFor.createMaltainvestAccountSend(vm.params);
         };
-
 
         $scope.$on('new_account_maltainvest:error', (e, error) => {
             if (error.hasOwnProperty('details')) {

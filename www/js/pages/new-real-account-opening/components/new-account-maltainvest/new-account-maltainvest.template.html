@@ -98,14 +98,9 @@
                     <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
                 </div>
             </div>
-            <div class="row" ng-if="vm.isReadonly">
+            <div class="row">
                 <label class="col item-input">
-                    <input ng-model="vm.data.dateOfBirth" ng-readonly="vm.isReadonly" required="vm.isReadonly">
-                </label>
-            </div>
-            <div class="row" ng-if="!vm.isReadonly">
-                <label class="col item-input">
-                    <input name="dateOfBirth" ng-model="vm.data.userDateOfBirth" required"!vm.isReadonly" type="date">
+                    <input type="date" placeholder="yyyy-MM-dd" ng-model="vm.data.dateOfBirth" ng-readonly="vm.isReadonly" required />
                 </label>
             </div>
             <div class="help-block error" ng-messages="vm.dateOfBirthError" role="alert" ng-if='vm.dateOfBirthError'>
@@ -114,7 +109,27 @@
         </div>
     </div>
 
-    <!-- make it select box with vm.data.residence -->
+    <!-- multiselect -->
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col input-title">
+                    {{'newaccountmaltainvest.date_of_birth' | translate}}
+                    <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col item-input" ng-click="vm.showTaxResidenceItems()">
+                  <!-- <div ng-repeat="item in vm.data.taxResidence">
+                    {{ item.name }}
+                  </div> -->
+                  sfsdfdf
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- end multiselect -->
 
     <div class="row">
         <div class="col">
@@ -799,4 +814,5 @@
             </div>
         </div>
     </div>
+
 </form>
