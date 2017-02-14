@@ -65,15 +65,28 @@
             } else if (['acceptTermsAndConditions'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = false;
-            } else if (['financial-assessment'].indexOf(vm.to.name) > -1 && appStateService.hasToFillFinancialAssessment) {
-                vm.hideMenuButton = true;
-                vm.showBack = false;
+            } else if (['financial-assessment'].indexOf(vm.to.name) > -1) {
+                if (appStateService.hasToFillFinancialAssessment) {
+                    vm.hideMenuButton = true;
+                    vm.showBack = false;
+                } else {
+                    vm.hideMenuButton = true;
+                    vm.showBack = true;
+                }
+            } else if (['tax-information'].indexOf(vm.to.name) > -1) {
+                if (appStateService.hasToFillTaxInformation) {
+                    vm.hideMenuButton = true;
+                    vm.showBack = false;
+                } else {
+                    vm.hideMenuButton = true;
+                    vm.showBack = true;
+                }
             } else {
-              if(vm.from.name === 'statement' && vm.to.name !== 'transactiondetail' && document.getElementsByClassName('realitycheck').length > 0) {
-                $('.popup-container').addClass('popup-showing');
-                $('body').addClass('popup-open');
-                $('.backdrop').addClass('visible');
-              }
+                if (vm.from.name === 'statement' && vm.to.name !== 'transactiondetail' && document.getElementsByClassName('realitycheck').length > 0) {
+                    $('.popup-container').addClass('popup-showing');
+                    $('body').addClass('popup-open');
+                    $('.backdrop').addClass('visible');
+                }
                 vm.hideMenuButton = false;
                 vm.showBack = false;
                 if (vm.from.name == 'profittable') {
