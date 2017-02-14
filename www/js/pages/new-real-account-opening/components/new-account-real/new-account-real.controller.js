@@ -13,9 +13,9 @@
         .module('binary.pages.new-real-account-opening.components.new-account-real')
         .controller('NewAccountRealController', NewAccountReal);
 
-    NewAccountReal.$inject = ['$scope', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    NewAccountReal.$inject = ['$scope', '$filter', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function NewAccountReal($scope, websocketService, appStateService, accountService, alertService) {
+    function NewAccountReal($scope, $filter, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
         vm.hasResidence = false;
@@ -63,8 +63,6 @@
                 vm.hasResidence = true;
             }
         }
-
-
 
         // set all fields errors to false
         vm.resetAllErrors = function() {
@@ -114,18 +112,14 @@
 
         vm.submitAccountOpening = function() {
             vm.resetAllErrors();
-            if (vm.data.dateOfBirth) {
-                var birth = vm.data.dateOfBirth.toISOString().slice(0, 10);
-            }
             vm.params = {};
             _.forEach(vm.data, (value, key) => {
-                var dataName = _.snakeCase(key);
-                if (vm.requestData.indexOf(dataName) > -1) {
-                    if (dataName !== 'date_of_birth') {
-                        vm.params[dataName] = value;
+                vm.dataName = _.snakeCase(key);
+                if (vm.requestData.indexOf(vm.dataName) > -1) {
+                    if (vm.dataName !== 'date_of_birth') {
+                        vm.params[vm.dataName] = value;
                     } else {
-                        vm.data.birthDate = vm.data.dateOfBirth.toISOString().slice(0, 10);
-                        vm.params.date_of_birth = vm.data.birthDate;
+                        vm.params[vm.dataName] = $filter('date')(value, 'yyyy-MM-dd');
                     }
                 }
             });

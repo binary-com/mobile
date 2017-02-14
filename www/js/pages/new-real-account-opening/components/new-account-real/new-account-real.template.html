@@ -99,7 +99,7 @@
             </div>
             <div class="row">
                 <label class="col item-input">
-                <input type="date" class="date" ng-model="vm.data.dateOfBirth" name="date" required/>
+                <input type="date" placeholder="yyyy-MM-dd" class="date" ng-model="vm.data.dateOfBirth" name="date" required/>
                 <div class="help-block error" ng-messages="vm.dateOfBirthError" role="alert" ng-if='vm.dateOfBirthError'>
                     <div>{{vm.dateOfBirthErrorMessage}}</div>
                 </div>
@@ -349,5 +349,6 @@
             </div>
         </div>
     </div>
+
 
 </form>
