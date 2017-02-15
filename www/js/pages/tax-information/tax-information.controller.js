@@ -18,8 +18,8 @@
     function TaxInformation($scope, $ionicModal, websocketService) {
         var vm = this;
         vm.data = {};
-				vm.changed = false;
-				vm.showNotChangedWarning = false;
+        vm.changed = false;
+        vm.showNotChangedWarning = false;
         vm.requestData = [
             'tax_identification_number',
             'tax_residence',
@@ -38,36 +38,44 @@
 
         _.defer(() => {
             websocketService.sendRequestFor.accountSetting();
-        }, vm.taxResidenceList);
+        }, vm.residenceList);
 
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
-            vm.taxResidenceList = residence_list;
         });
 
         $scope.$on('get_settings', (e, get_settings) => {
-					vm.getSettings = get_settings;
-            _.forEach(get_settings, (value, key) => {
-                if (vm.requestData.indexOf(key) > -1) {
-                    vm.convertedValue = _.camelCase(key);
-                    vm.data[vm.convertedValue] = value;
-                }
-            });
             if (get_settings) {
-                vm.indexOfResidence = _.findKey(vm.taxResidenceList, (value, key) => {
-                    return value.value === get_settings.tax_residence;
-                });
-                $scope.$applyAsync(() => {
-                    if (vm.indexOfResidence > -1) {
-                        vm.selectedTaxResidencesName = vm.taxResidenceList[vm.indexOfResidence].text;
-                        vm.taxResidenceList[vm.indexOfResidence].checked = true;
-                    };
+                vm.getSettings = get_settings;
+
+                // set all information from get_setting to data array to pass to API later as params
+                _.forEach(vm.getSettings, (value, key) => {
+                    if (vm.requestData.indexOf(key) > -1) {
+                        vm.convertedValue = _.camelCase(key);
+                        vm.data[vm.convertedValue] = value;
+                    }
                 });
 
+                // make an array of tax residences in get_setting responce
+                if (vm.getSettings.tax_residence.length > 0) {
+                    vm.settingTaxResidence = _.words(vm.getSettings.tax_residence);
+                    // check the "checked" value to true for every residence in residence list which is in user tax residences
+                    vm.selectedTaxResidencesName = "";
+                    _.forEach(vm.residenceList, (value, key) => {
+                        vm.indexOfResidence = vm.settingTaxResidence.indexOf(value.value);
+                        if (vm.indexOfResidence > -1) {
+                            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName + vm.residenceList[vm.indexOfResidence].text + ', ';
+                            vm.residenceList[vm.indexOfResidence].checked = true;
+                        };
+                    });
+                    $scope.$applyAsync(() => {
+                      vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
+                    });
+                }
             }
         });
 
-        $ionicModal.fromTemplateUrl('js/pages/new-real-account-opening/components/new-account-maltainvest/tax-residence.modal.html', {
+        $ionicModal.fromTemplateUrl('js/pages/tax-information/tax-residence.modal.html', {
             scope: $scope
         }).then(function(modal) {
             vm.modalCtrl = modal;
@@ -94,7 +102,7 @@
         vm.setTaxResidence = function() {
             vm.selectedTaxResidencesName = "";
             vm.data.taxResidence = "";
-            _.forEach(vm.taxResidenceList, (value, key) => {
+            _.forEach(vm.residenceList, (value, key) => {
                 if (value.checked) {
                     vm.selectedTaxResidencesName = vm.selectedTaxResidencesName + value.text + ', ';
                     vm.data.taxResidence = vm.data.taxResidence + value.value + ',';
@@ -106,46 +114,43 @@
         }
 
         vm.submitTaxInformation = function() {
-					vm.changed = false;
-					vm.showNotChangedWarning = false;
-					vm.updated = false;
-					vm.updateError = false;
-					vm.updateErrorMessage = "";
+            vm.changed = false;
+            vm.showNotChangedWarning = false;
+            vm.updated = false;
+            vm.updateError = false;
+            vm.updateErrorMessage = "";
             vm.params = {};
             _.forEach(vm.data, (value, key) => {
                 vm.dataName = _.snakeCase(key);
-                if (vm.requestData.indexOf(vm.dataName) > -1) {
+                if (vm.requestData.indexOf(vm.dataName) > -1 && value != null) {
                     vm.params[vm.dataName] = value;
-										if(vm.params[vm.dataName] !== vm.getSettings[vm.dataName]){
-											vm.changed = true;
-										}
+                    if (vm.params[vm.dataName] !== vm.getSettings[vm.dataName]) {
+                        vm.changed = true;
+                    }
                 }
             });
-						if(vm.changed) {
-							vm.showNotChangedWarning = false;
-							websocketService.sendRequestFor.setAccountSettings(vm.params);
-						}
-						else {
-							vm.showNotChangedWarning = true;
-						}
+            if (vm.changed) {
+                vm.showNotChangedWarning = false;
+                websocketService.sendRequestFor.setAccountSettings(vm.params);
+            } else {
+                vm.showNotChangedWarning = true;
+            }
         }
 
-				$scope.$on('set-settings', (e, set_settings) => {
-					$scope.$applyAsync(() => {
-						vm.updated = true;
-						vm.updateError = false;
-					});
-				});
+        $scope.$on('set-settings', (e, set_settings) => {
+            $scope.$applyAsync(() => {
+                vm.updated = true;
+                vm.updateError = false;
+            });
+        });
 
-				$scope.$on('set-settings:error', (e, error) => {
-					$scope.$applyAsync(() => {
-						vm.updated = false;
-						vm.updateError = true;
-						vm.updateErrorMessage = error;
-					});
-				});
-
-
+        $scope.$on('set-settings:error', (e, error) => {
+            $scope.$applyAsync(() => {
+                vm.updated = false;
+                vm.updateError = true;
+                vm.updateErrorMessage = error;
+            });
+        });
 
     }
 })();

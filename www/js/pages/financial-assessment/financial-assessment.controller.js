@@ -102,13 +102,6 @@
             $scope.$applyAsync(() => {
                 vm.updateSuccessful = true;
             });
-            if (appStateService.hasToFillFinancialAssessment) {
-                appStateService.hasToFillFinancialAssessment = false;
-                $timeout(() => {
-                    $state.go('trade');
-                }, 2000);
-            }
-
         });
 
     }

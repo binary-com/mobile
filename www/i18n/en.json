@@ -625,6 +625,7 @@
 		},
 		"tax-information": {
 			"tax_information": "Tax information",
+			"select": "Please select",
 			"updated_successfully": "Your tax information have been updated successfully",
 			"no_change": "You did not change anything.",
 			"update": "Update",
