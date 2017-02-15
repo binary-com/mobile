@@ -79,4 +79,6 @@ gulp deploy
 ## How to build desktop version of TickTrade
 1. install electron globally `npm install -g electron electron-packager`
 2. use gulp to build `gulp build-desktop --platform=[win32|linux|darwin|mas] --arch=[x64|ia32]`
-
+3. sign the released app:
+  1. install electron-osx-sign globally `npm instal -g electron-osx-sign`
+  2. run `electron-osx-sign path/to/release/app`
