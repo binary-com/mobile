@@ -5,9 +5,9 @@
     "need_help":"Besoin d'aide ?",
     "paste_token":"Veuillez coller votre jeton d'authentification ici",
     "get_token":"Comment obtenir un jeton d'authentification ?",
-    "signin_with_binary_com":"Sign in",
-    "use_token":"Or sign in with a token",
-    "next":"Next"
+    "signin_with_binary_com":"Connexion",
+    "use_token":"Ou connectez-vous avec un jeton",
+    "next":"Suivant"
   },
   "accounts":{
     "my_accounts":"Gérer les comptes",
@@ -37,14 +37,14 @@
     "field_between":"La saisie doit se situer entre 0,70 et 100000.",
     "must_number":"La saisie doit être un nombre.",
     "ok":"OK",
-    "cancel":"Cancel"
+    "cancel":"Annuler"
   },
   "options":{
     "account":"Compte",
     "select_market":"Marchés",
     "forex":"Forex",
     "random":"Aléatoire",
-    "volidx":"Volatility Indices",
+    "volidx":"Indices de volatilité",
     "underlying":"Actif sous-jacent",
     "trade_type":"Types de transaction",
     "up":"Haut",
@@ -60,23 +60,23 @@
     "payout_type":"Type de paiement",
     "select_amount":"Sélectionner un montant",
     "payout":"Paiement",
-    "stake":"Stake",
+    "stake":"Investissement",
     "save":"ENREGISTRER",
     "lets_trade":"C'est parti !",
-    "asians_up":"Asians Up",
-    "asians_down":"Asians Down",
-    "asians":"Asians",
-    "digit_over_under":"Digit Over/Under",
-    "digit_even_odd":"Digit Even/Odd",
-    "digit_matches_differs":"Digit Matches/Differs",
-    "up_down":"Up/Down",
-    "markets_are_closed":"Sorry, All markets are currently closed. Please try again later"
+    "asians_up":"Asiatiques/hausse",
+    "asians_down":"Asiatiques/baisse",
+    "asians":"Asiatiques",
+    "digit_over_under":"Chiffre Au dessus/En dessous",
+    "digit_even_odd":"Chiffre Pair/Impair",
+    "digit_matches_differs":"Chiffre Égal/Différent",
+    "up_down":"Hausse/Baisse",
+    "markets_are_closed":"Désolé, tous les marchés sont actuellement fermés. Veuillez réessayer ultérieurement"
   },
   "trade":{
     "payout":"Paiement",
     "stake":"Investissement",
     "price":"Prix",
-    "buy":"Buy",
+    "buy":"Achat",
     "net_profit":"Bénéfice net",
     "potential_payout":"Paiement potentiel",
     "total_cost":"Coût total",
@@ -92,8 +92,8 @@
     "lose":"Ce contrat termine hors la monnaie",
     "transaction_id":"Référence de transaction",
     "buy_again":"Acheter à nouveau",
-    "sell":"Sell",
-    "barrier":"Barrier offset"
+    "sell":"Vente",
+    "barrier":"Marge de barrière"
   },
   "help":{
     "need_help":"Besoin d'aide ?",
@@ -109,7 +109,7 @@
     "exit_confirmation":"Voulez-vous vraiment quitter cette page ?",
     "connection_error_title":"Erreur de connexion",
     "connection_error":"Aucune connexion Internet !",
-    "sign_out":"Sign out"
+    "sign_out":"Déconnexion"
   },
   "update":{
     "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
