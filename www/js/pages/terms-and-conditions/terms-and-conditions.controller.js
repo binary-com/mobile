@@ -17,13 +17,15 @@
 
     function TermsAndConditions($scope, $state, websocketService, accountService, appStateService) {
         var vm = this;
-				$scope.$on('get_settings', (e, get_settings) => {
-					vm.clientTncStatus = get_settings.client_tnc_status;
-          vm.termsConditionsVersion = localStorage.getItem('termsConditionsVersion');
-          if(!appStateService.virtuality && vm.clientTncStatus !== vm.termsConditionsVersion){
-            $state.go('acceptTermsAndConditions');
-            appStateService.hasToAcceptTandC = true;
-          }
-				});
+        $scope.$on('get_settings', (e, get_settings) => {
+            if (get_settings) {
+                vm.clientTncStatus = get_settings.client_tnc_status;
+                vm.termsConditionsVersion = localStorage.getItem('termsConditionsVersion');
+                if (!appStateService.virtuality && vm.clientTncStatus !== vm.termsConditionsVersion) {
+                    $state.go('acceptTermsAndConditions');
+                    appStateService.hasToAcceptTandC = true;
+                }
+            }
+        });
     }
 })();

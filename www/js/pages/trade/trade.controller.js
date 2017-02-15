@@ -39,7 +39,7 @@
             if(!ionic.Platform.isWebView()) {
               var tradeContainer = document.getElementById('trade-container');
               if (tradeContainer !== undefined && tradeContainer !== null) {
-                  tradeContainer.className = "";
+                  tradeContainer.className = "web-view-trade";
               }
             }
             window.addEventListener('native.keyboardshow', keyboardShowHandler);

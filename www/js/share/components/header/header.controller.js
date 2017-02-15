@@ -69,7 +69,7 @@
                 vm.hideMenuButton = true;
                 vm.showBack = false;
             } else {
-              if(vm.from.name === 'statement' && vm.to.name !== 'transactiondetail' && document.getElementsByClassName('realitycheck')) {
+              if(vm.from.name === 'statement' && vm.to.name !== 'transactiondetail' && document.getElementsByClassName('realitycheck').length > 0) {
                 $('.popup-container').addClass('popup-showing');
                 $('body').addClass('popup-open');
                 $('.backdrop').addClass('visible');

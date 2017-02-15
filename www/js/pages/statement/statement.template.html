@@ -1,42 +1,47 @@
 <ion-view class="profit-table">
-  <div class="row">
-    <div class="col">
-      <h1 class="page-title">
-        {{'statement.statement' | translate}}
+    <div class="row title-container">
+        <div class="col">
+            <h1 class="page-title">
+        <span>{{'statement.statement' | translate}}</span>
+        <div ng-click="vm.toggleItem()" class="item-expand-footer right">
+          <i class="ion-funnel" ng-class="!vm.isItemShown ? 'icon-inactive' : 'icon-active'"></i>
+        </div>
       </h1>
+        </div>
     </div>
-  </div>
-    <div class="row filters">
-        <div class="col col-50">
-            <label class="item item-input item-select">
+    <div class="item-expand" ng-class="vm.isItemShown ? 'active' : 'inactive'">
+        <div class="row filters">
+            <div class="col col-50">
+                <label class="item item-input item-select">
                 <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFiltered()">
                     <option value="allApps" selected="selected">{{'statement.all_apps' | translate}}</option>
                     <option value="tickTradeApp">{{'statement.tick_trade_app' | translate}}</option>
                 </select>
             </label>
-        </div>
-        <div class="col col-50">
-            <label class="item item-input item-select">
+            </div>
+            <div class="col col-50">
+                <label class="item item-input item-select">
                 <select id="statementdatetype" name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
                     <option value="allTime" selected="selected">{{'statement.all_time' | translate}}</option>
                     <option value="jumpToDate">{{'statement.jump_to_date' | translate}}</option>
                 </select>
             </label>
+            </div>
         </div>
-    </div>
-    <div class="row filters jump-to-date-container" ng-show="vm.jumpToDateInputShow">
-        <div class="col list jump-to-date-content">
-            <div class="row">
-                <div class="col input-container">
-                    <label class="item item-input jump-to-date" for="dateTo">
+        <div class="row filters jump-to-date-container" ng-show="vm.jumpToDateInputShow">
+            <div class="col list jump-to-date-content">
+                <div class="row">
+                    <div class="col input-container">
+                        <label class="item item-input jump-to-date" for="dateTo">
                 <span>
                     {{'statement.jump_to_date' | translate}}
                 </span>
                 <input type="date" id="statement-dateTo" name="dateTo" ng-model="vm.data.end">
             </label>
-                </div>
-                <div class="col">
-                    <button type="button" class="button button-default" ng-click="vm.jumpToDateFilter()">{{'statement.go' | translate}}</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="button button-default" ng-click="vm.jumpToDateFilter()">{{'statement.go' | translate}}</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -44,7 +49,7 @@
     <a ng-click="vm.goTop()" class="float-button" ng-if="vm.transactions.length != 0 && vm.goToTopButton">
         <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
     </a>
-    <ion-content has-bouncing="false" class="profit-table-content" delegate-handle="handler" on-scroll="vm.goToTopButtonCondition()" ng-class="{'pull-down' : vm.jumpToDateInputShow}">
+    <ion-content has-bouncing="false" class="profit-table-content statement-content-expandable" delegate-handle="handler" on-scroll="vm.goToTopButtonCondition()" ng-class="{'pull-down' : (vm.jumpToDateInputShow && vm.isItemShown)}">
 
         <div class="profit-table-container">
             <div class="row">
