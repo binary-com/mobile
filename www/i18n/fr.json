@@ -112,20 +112,20 @@
     "sign_out":"Déconnexion"
   },
   "update":{
-    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
-    "what_is_new":"WHAT'S NEW"
+    "your_version_is_out_of_date_please_update":"Votre version de Tick Trade est obsolète. Veuillez mettre à jour votre application vers la dernière version.",
+    "what_is_new":"ACTUALITÉS"
   },
   "realitycheck":{
-    "title":"Reality Check",
-    "about":"Options trading can become a real addiction, as can any other activity pushed to its limits. To avoid the danger of such an addiction, we provide a reality-check that gives you a summary of your trades and accounts on a regular basis.",
-    "login_time":"Login time:",
-    "current_time":"Current time:",
-    "session_duration":"Session duration:",
-    "statistics":"Your trading statistics since",
-    "interval_question":"Please specify your preferred reality-check interval in minutes:",
-    "loginid":"Login ID",
-    "currency":"Currency",
-    "buy_amount":"Turnover",
+    "title":"Relevé d'activité",
+    "about":"Le trading d'options binaires peut devenir une véritable addiction, au même titre que toute autre activité pratiquée de façon trop intensive. Pour éviter le danger d'une telle addiction, nous mettons en œuvre suivi réaliste de votre situation en vous fournissant régulièrement un relevé de vos opérations et de vos comptes.",
+    "login_time":"Temps de connexion :",
+    "current_time":"Heure actuelle :",
+    "session_duration":"Durée de la session :",
+    "statistics":"Vos statistiques de trading depuis",
+    "interval_question":"Veuillez indiquer la périodicité souhaitée en minutes pour les relevés d'activité :",
+    "loginid":"Identifiant de connexion",
+    "currency":"Devise",
+    "buy_amount":"Volume des transactions",
     "profit_loss":"Profit/Loss",
     "buy_count":"Contracts bought",
     "sell_count":"Contracts sold",
