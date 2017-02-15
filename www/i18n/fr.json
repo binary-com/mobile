@@ -407,8 +407,8 @@
   "self-exclusion":{
     "self-exclusion":"Self Exclusion Facilities",
     "maximum-account-cash-balance":"Maximun account cash balance",
-    "max-balance-hint":"Once this limit is reached, you may no longer deposit.",
-    "daily-turnover-limit":"Daily turnover limit",
+    "max-balance-hint":"Une fois cette limite atteinte, vous ne pouvez plus effectuer de dépôts.",
+    "daily-turnover-limit":"Limite journalière du volume des transactions",
     "max-turnover-hint":"Maximum aggregate contract purchases per day.",
     "daily-limit-on-losses":"Daily limit on losses",
     "max-losses-hint":"Maximum aggregate loss per day.",
