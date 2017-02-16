@@ -57,7 +57,7 @@
                 });
 
                 // make an array of tax residences in get_setting responce
-                if (vm.getSettings.tax_residence.length > 0) {
+                if (vm.getSettings.tax_residence) {
                     vm.settingTaxResidence = _.words(vm.getSettings.tax_residence);
                     // check the "checked" value to true for every residence in residence list which is in user tax residences
                     vm.selectedTaxResidencesName = "";

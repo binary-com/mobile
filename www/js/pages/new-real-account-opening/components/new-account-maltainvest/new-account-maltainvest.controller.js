@@ -34,7 +34,8 @@
             'phone',
             'secret_question',
             'secret_answer',
-            'tax_residence'
+            'tax_residence',
+            'tax_identification_number'
         ];
 
         vm.requestData = [
@@ -71,7 +72,8 @@
             "net_income",
             "estimated_worth",
             "accept_risk",
-            "tax_residence"
+            "tax_residence",
+            "tax_identification_number"
         ];
 
 

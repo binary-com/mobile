@@ -13,9 +13,9 @@
         .module('binary.pages.new-real-account-opening.components.new-account-real')
         .controller('NewAccountRealController', NewAccountReal);
 
-    NewAccountReal.$inject = ['$scope', '$filter', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    NewAccountReal.$inject = ['$scope', '$filter', '$ionicModal', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function NewAccountReal($scope, $filter, websocketService, appStateService, accountService, alertService) {
+    function NewAccountReal($scope, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
         vm.hasResidence = false;
@@ -25,6 +25,7 @@
             'last_name',
             'date_of_birth',
             'residence',
+            "place_of_birth",
             'address_line_1',
             'address_line_2',
             'address_city',
@@ -32,7 +33,9 @@
             'address_postcode',
             'phone',
             'secret_question',
-            'secret_answer'
+            'secret_answer',
+            'tax_residence',
+            'tax_identification_number'
         ];
 
         vm.requestData = [
@@ -49,8 +52,50 @@
             "address_postcode",
             "phone",
             "secret_question",
-            "secret_answer"
+            "secret_answer",
+            'tax_residence',
+            'tax_identification_number'
         ];
+
+
+                $ionicModal.fromTemplateUrl('js/pages/new-real-account-opening/components/new-account-real/tax-residence.modal.html', {
+                    scope: $scope
+                }).then(function(modal) {
+                    vm.modalCtrl = modal;
+                });
+
+                function hideModal() {
+                    if (vm.modalCtrl) {
+                        vm.modalCtrl.hide();
+                    }
+                }
+
+                vm.closeModal = function() {
+                    hideModal();
+                }
+
+                vm.residenceDisable = function(index, residence) {
+                    return (residence.disabled === "DISABLED" ? true : false);
+                }
+
+                vm.showTaxResidenceItems = function() {
+                    vm.modalCtrl.show();
+                }
+
+                vm.setTaxResidence = function() {
+                    vm.selectedTaxResidencesName = "";
+                    vm.data.taxResidence = "";
+                    _.forEach(vm.taxResidenceList, (value, key) => {
+                        if (value.checked) {
+                            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName + value.text + ', ';
+                            vm.data.taxResidence = vm.data.taxResidence + value.value + ',';
+                        }
+                    });
+                    vm.data.taxResidence = _.trimEnd(vm.data.taxResidence, ",");
+                    vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
+                    vm.closeModal();
+                }
+
 
 
         vm.setUserCountry = function() {
@@ -89,6 +134,7 @@
         websocketService.sendRequestFor.residenceListSend();
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
+            vm.taxResidenceList = residence_list;
             vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
             if (vm.phoneCodeObj.hasOwnProperty('phone_idd')) {
                 vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;

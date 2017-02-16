@@ -67,12 +67,6 @@
         url: "limits",
         scope: "admin",
         forRealAccount: true
-      },
-      {
-        name: "settings.tax_information",
-        url: "tax-information",
-        scope: "admin",
-        forRealAccount: true
       }
     ];
 

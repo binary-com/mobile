@@ -134,28 +134,6 @@
         <div class="col">
             <div class="row">
                 <div class="col input-title">
-                    {{'newaccountmaltainvest.place_of_birth' | translate}}
-                    <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
-                </div>
-            </div>
-            <div class="row">
-                <label class="col item-input item-select">
-                      <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.residenceList" required ng-disabled="vm.hasPlaceOfbirth">
-                          <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
-                      </select>
-                  </label>
-                <div class="help-block error" ng-messages="vm.placeOfBirthError" role="alert" ng-if='vm.placeOfBirthError'>
-                    <div>{{vm.placeOfBirthErrorMessage}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col">
-            <div class="row">
-                <div class="col input-title">
                     {{'newaccountmaltainvest.addreess_line_1' | translate}}
                     <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
                 </div>
@@ -782,6 +760,28 @@
         </div>
     </div>
 
+
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col input-title">
+                        {{'newaccountmaltainvest.place_of_birth' | translate}}
+                        <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col item-input item-select">
+                          <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.residenceList" required>
+                              <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
+                          </select>
+                      </label>
+                    <div class="help-block error" ng-messages="vm.placeOfBirthError" role="alert" ng-if='vm.placeOfBirthError'>
+                        <div>{{vm.placeOfBirthErrorMessage}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <!-- multiselect -->
     <div class="row">
         <div class="col">
@@ -818,13 +818,13 @@
              </div>
              <div class="row">
                  <div class="col item-input">
-                     <input name="taxIdentificationNumber" ng-model="vm.data.taxIdentificationNumber" required />
+                     <input name="taxIdentificationNumber" ng-model="vm.data.taxIdentificationNumber" ng-pattern="/^[\w-]{0,20}$/" required />
                      <div class="col help-block">
                        {{'newaccountmaltainvest.tax_identification_number_hint' | translate}}
                      </div>
-                     <!-- <div class="help-block error" ng-messages="newAccountMaltainvestForm.taxIdentificationNumber.$error" role="alert" ng-if='newAccountMaltainvestForm.taxIdentificationNumber.$dirty' ng-hide="vm.taxIdentificationNumberError">
+                     <div class="help-block error" ng-messages="newAccountMaltainvestForm.taxIdentificationNumber.$error" role="alert" ng-if='newAccountMaltainvestForm.taxIdentificationNumber.$dirty' ng-hide="vm.taxIdentificationNumberError">
                          <div ng-message when="pattern">{{'newaccountmaltainvest.error_format' | translate}}</div>
-                     </div> -->
+                     </div>
                      <div class="help-block error" ng-messages="vm.taxIdentificationNumberError" role="alert" ng-if='vm.taxIdentificationNumberError'>
                          <div>{{vm.taxIdentificationNumberErrorMessage}}</div>
                      </div>
@@ -833,7 +833,7 @@
          </div>
      </div>
 
-     <div class="row">
+     <!-- <div class="row">
          <div class="col">
              <div class="row">
                  <label class="col input-title accept">
@@ -842,7 +842,7 @@
                  </label>
              </div>
          </div>
-     </div>
+     </div> -->
 
      <div class="row">
          <div class="col info-container">
@@ -860,6 +860,8 @@
                 <label class="col input-title center accept">
                     <input type="checkbox" ng-model="vm.data.accept" class="checkbox" required/>
                     {{'newaccountmaltainvest.accept_risk_question' | translate}}
+                    <a ng-click="vm.openTermsAndConditions()"> {{'newaccountmaltainvest.terms_and_conditions' | translate}} </a>
+                    {{'newaccountmaltainvest.site' | translate}}
                     <div class="help-block error" ng-messages="vm.acceptError" role="alert" ng-if='vm.acceptError'>
                         <div>{{vm.secretAnswerErrorMessage}}</div>
                     </div>
