@@ -59,7 +59,7 @@
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.to = to;
             vm.from = from;
-            if (['transactiondetail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index'].indexOf(vm.to.name) > -1) {
+            if (['transactiondetail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index', 'limits'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
             } else if (['terms-and-conditions'].indexOf(vm.to.name) > -1) {
