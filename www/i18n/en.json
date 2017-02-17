@@ -491,7 +491,8 @@
 			"tax_identification_number": "Tax Identification Number",
 			"tax_identification_number_hint": "For all stated jurisdictions",
 			"place_of_birth": "Place of birth",
-			"select": "Please select"
+			"select": "Please select",
+			"error_format": "Wrong format or length"
 		},
 		"accept-terms-and-conditions": {
 			"has_updated_its" : "has updated its",

@@ -23,6 +23,7 @@
         vm.states = [];
         vm.disableUpdateButton = true;
         vm.isDataLoaded = false;
+        vm.taxRequirement = false;
         vm.checkFinancial = function() {
             vm.account = accountService.getDefault();
             vm.isFinancial = _.startsWith(vm.account.id, "MF") ? true : false;
@@ -152,6 +153,7 @@
         }
 
         vm.setTaxResidence = function() {
+          vm.taxRequirement = true;
             vm.selectedTaxResidencesName = null;
             vm.profile.tax_residence = null;
             _.forEach(vm.residenceList, (value, key) => {
