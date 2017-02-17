@@ -78,8 +78,6 @@
                         vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
                         vm.residenceList[key].checked = true;
                       }
-                        // vm.indexOfResidence = vm.settingTaxResidence.indexOf(value.value);
-
                     });
                     $scope.$applyAsync(() => {
                         vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");

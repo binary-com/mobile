@@ -1,5 +1,6 @@
 <ion-view>
     <ion-content class="general-content">
+      <form name="taxInformationForm">
         <div class="row">
             <div class="col">
                 <h1 class="page-title">
@@ -22,6 +23,9 @@
                                     <option value="" disabled>{{'tax-information.select' | translate}}</option>
                                 </select>
                             </label>
+                            <div class="help-block error" ng-messages="taxInformationForm.placeOfBirth.$error" role="alert" ng-if='taxInformationForm.placeOfBirth.$dirty' ng-hide="vm.placeOfBirthError">
+                             <div ng-message when="required">{{'tax-information.required' | translate}}</div>
+                         </div>
                           <div class="help-block error" ng-messages="vm.placeOfBirthError" role="alert" ng-if='vm.placeOfBirthError'>
                               <div>{{vm.placeOfBirthErrorMessage}}</div>
                           </div>
@@ -47,6 +51,11 @@
                                 {{'tax-information.tax_residence_hint' | translate}}
                             </div>
                         </div>
+                        <div class="row">
+                          <div class="col help-block error" ng-if="vm.data.taxResidence  == null && vm.taxRequirement">
+                            {{ 'tax_information.required' | translate }}
+                          </div>
+                        </div>
                     </div>
                 </div>
 
@@ -63,8 +72,9 @@
                                 <div class="col help-block">
                                     {{'tax-information.tax_identification_number_hint' | translate}}
                                 </div>
-                                <div class="help-block error" ng-messages="newAccountMaltainvestForm.taxIdentificationNumber.$error" role="alert" ng-if='newAccountMaltainvestForm.taxIdentificationNumber.$dirty' ng-hide="vm.taxIdentificationNumberError">
+                                <div class="help-block error" ng-messages="taxInformationForm.taxIdentificationNumber.$error" role="alert" ng-if='taxInformationForm.taxIdentificationNumber.$dirty' ng-hide="vm.taxIdentificationNumberError">
 				                         <div ng-message when="pattern">{{'tax-information.error_format' | translate}}</div>
+                                 <div ng-message when="required">{{'tax-information.required' | translate}}</div>
 				                     </div>
                                 <div class="help-block error" ng-messages="vm.taxIdentificationNumberError" role="alert" ng-if='vm.taxIdentificationNumberError'>
                                     <div>{{vm.taxIdentificationNumberErrorMessage}}</div>
@@ -92,7 +102,7 @@
                                 <span class="help-block error center" ng-if="vm.showNotChangedWarning">{{'tax-information.no_change' | translate}}</span>
                                 <span class="help-block error center" ng-if="vm.updated">{{'tax-information.updated_successfully' | translate}}</span>
                                   <span class="help-block error center" ng-if="vm.updateError">{{vm.updateErrorMessage}}</span>
-                                <button class="button button-block" ng-click="vm.submitTaxInformation()">{{'tax-information.update' | translate}}</button>
+                                <button class="button button-block" ng-click="vm.submitTaxInformation()" ng-disabled="">{{'tax-information.update' | translate}}</button>
                             </div>
                         </div>
                     </div>
@@ -100,5 +110,6 @@
 
             </div>
         </div>
+        </form>
     </ion-content>
 </ion-view>

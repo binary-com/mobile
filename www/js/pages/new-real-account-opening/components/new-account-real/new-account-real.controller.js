@@ -83,16 +83,17 @@
                 }
 
                 vm.setTaxResidence = function() {
-                    vm.selectedTaxResidencesName = "";
-                    vm.data.taxResidence = "";
-                    _.forEach(vm.taxResidenceList, (value, key) => {
-                        if (value.checked) {
-                            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName + value.text + ', ';
-                            vm.data.taxResidence = vm.data.taxResidence + value.value + ',';
-                        }
-                    });
-                    vm.data.taxResidence = _.trimEnd(vm.data.taxResidence, ",");
-                    vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
+                  vm.selectedTaxResidencesName = null;
+                  vm.data.taxResidence = null;
+                  _.forEach(vm.taxResidenceList, (value, key) => {
+                      if (value.checked) {
+                        vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
+                        vm.data.taxResidence = vm.data.taxResidence ? (vm.data.taxResidence + value.value + ',') : (value.value + ',');
+                      }
+                  });
+
+                    vm.data.taxResidence = vm.data.taxResidence != null ? _.trimEnd(vm.data.taxResidence, ","): null;
+                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName != null ? _.trimEnd(vm.selectedTaxResidencesName, ", "): null;
                     vm.closeModal();
                 }
 
@@ -138,6 +139,20 @@
             vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
             if (vm.phoneCodeObj.hasOwnProperty('phone_idd')) {
                 vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
+            }
+            if (vm.data.taxResidence) {
+                vm.settingTaxResidence = _.words(vm.data.taxResidence);
+                // check the "checked" value to true for every residence in residence list which is in user tax residences
+                vm.selectedTaxResidencesName = null;
+                _.forEach(vm.residenceList, (value, key) => {
+                  if(vm.settingTaxResidence.indexOf(value.value) > -1){
+                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
+                    vm.residenceList[key].checked = true;
+                  }
+                });
+                $scope.$applyAsync(() => {
+                    vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
+                });
             }
         });
 

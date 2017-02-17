@@ -19,6 +19,7 @@
         var vm = this;
         vm.data = {};
         vm.hasPlaceOfbirth = false;
+        vm.taxRequirement = false;
         vm.formData = [
             'salutation',
             'first_name',
@@ -102,6 +103,7 @@
         }
 
         vm.setTaxResidence = function() {
+          vm.taxRequirement = true;
           vm.selectedTaxResidencesName = null;
           vm.data.taxResidence = null;
           _.forEach(vm.taxResidenceList, (value, key) => {
@@ -130,6 +132,20 @@
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
             vm.taxResidenceList = residence_list;
+            if (vm.data.taxResidence) {
+                vm.settingTaxResidence = _.words(vm.data.taxResidence);
+                // check the "checked" value to true for every residence in residence list which is in user tax residences
+                vm.selectedTaxResidencesName = null;
+                _.forEach(vm.residenceList, (value, key) => {
+                  if(vm.settingTaxResidence.indexOf(value.value) > -1){
+                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
+                    vm.residenceList[key].checked = true;
+                  }
+                });
+                $scope.$applyAsync(() => {
+                    vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
+                });
+            }
         });
 
         $scope.$applyAsync(() => {
