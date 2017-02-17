@@ -860,8 +860,6 @@
                 <label class="col input-title center accept">
                     <input type="checkbox" ng-model="vm.data.accept" class="checkbox" required/>
                     {{'newaccountmaltainvest.accept_risk_question' | translate}}
-                    <a ng-click="vm.openTermsAndConditions()"> {{'newaccountmaltainvest.terms_and_conditions' | translate}} </a>
-                    {{'newaccountmaltainvest.site' | translate}}
                     <div class="help-block error" ng-messages="vm.acceptError" role="alert" ng-if='vm.acceptError'>
                         <div>{{vm.secretAnswerErrorMessage}}</div>
                     </div>
@@ -873,7 +871,7 @@
     <div class="row">
         <div class="col">
             <div class="row">
-                <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid">{{'newaccountmaltainvest.open_account' | translate}}</button>
+                <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.taxResidence  == null">{{'newaccountmaltainvest.open_account' | translate}}</button>
             </div>
         </div>
     </div>

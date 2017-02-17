@@ -294,7 +294,7 @@
                         </div>
                         <div class="row">
                             <label class="col item-input item-select">
-                                  <select name="placeOfBirth" ng-model="vm.profile.place_of_birth" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.residenceList">
+                                  <select name="placeOfBirth" ng-model="vm.profile.place_of_birth" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.residenceList" ng-required="vm.isFinancial">
                                       <option value="" disabled>{{'profile.select' | translate}}</option>
                                   </select>
                               </label>
@@ -339,7 +339,7 @@
                      </div>
                      <div class="row">
                          <div class="col item-input">
-                             <input name="taxIdentificationNumber" ng-model="vm.profile.tax_identification_number" ng-pattern="/^[\w-]{0,20}$/" />
+                             <input name="taxIdentificationNumber" ng-model="vm.profile.tax_identification_number" ng-pattern="/^[\w-]{0,20}$/" ng-required="vm.isFinancial" />
                              <div class="col help-block">
                                {{'profile.tax_identification_number_hint' | translate}}
                              </div>
@@ -358,7 +358,7 @@
           <div class="col center">
             <button class="button"
                     type="submit"
-                    ng-disabled="!profileForm.$valid || vm.disableUpdateButton"
+                    ng-disabled="!profileForm.$valid || vm.disableUpdateButton  || (vm.isFinancial && vm.profile.tax_residence  == null)"
                     >
                     {{ 'profile.update_profile' | translate }}
             </button>

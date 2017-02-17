@@ -102,16 +102,17 @@
         }
 
         vm.setTaxResidence = function() {
-            vm.selectedTaxResidencesName = "";
-            vm.data.taxResidence = "";
-            _.forEach(vm.taxResidenceList, (value, key) => {
-                if (value.checked) {
-                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName + value.text + ', ';
-                    vm.data.taxResidence = vm.data.taxResidence + value.value + ',';
-                }
-            });
-            vm.data.taxResidence = _.trimEnd(vm.data.taxResidence, ",");
-            vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
+          vm.selectedTaxResidencesName = null;
+          vm.data.taxResidence = null;
+          _.forEach(vm.taxResidenceList, (value, key) => {
+              if (value.checked) {
+                vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
+                vm.data.taxResidence = vm.data.taxResidence ? (vm.data.taxResidence + value.value + ',') : (value.value + ',');
+              }
+          });
+
+            vm.data.taxResidence = vm.data.taxResidence != null ? _.trimEnd(vm.data.taxResidence, ","): null;
+            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName != null ? _.trimEnd(vm.selectedTaxResidencesName, ", "): null;
             vm.closeModal();
         }
 
@@ -186,7 +187,7 @@
                         vm.convertedValue = _.camelCase(key);
                         if (key === 'date_of_birth') {
                           vm.data[vm.convertedValue] = new Date(val * 1000);
-                        } else if (key === 'place_of_birth' && val.length > 1) {
+                        } else if (key === 'place_of_birth' && val) {
                           vm.hasPlaceOfbirth = true;
                           vm.data[vm.convertedValue] = val;
                         } else {
