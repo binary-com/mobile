@@ -131,7 +131,7 @@
                        ng-required="true"
                        >
               <ng-messages ng-if="vm.isDataLoaded" for="profileForm.first_line_address.$error" role="alert" class="error">
-                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="maxlength">
                   {{ 'profile.maximum_length_should_be_70_characters' | translate }}
                 </ng-message>
@@ -158,7 +158,7 @@
                        ng-maxlength="70"
                        >
               <ng-messages ng-if="vm.isDataLoaded" for="profileForm.second_line_address.$error" role="alert" class="error">
-                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="maxlength">
                   {{ 'profile.maximum_length_should_be_70_characters' | translate }}
                 </ng-message>
@@ -183,7 +183,7 @@
                        ng-maxlength="35"
                        >
               <ng-messages ng-if="vm.isDataLoaded" for="profileForm.town_city.$error" role="alert" class="error">
-                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="maxlength">
                   {{ 'profile.maximum_length_should_be_35_characters' | translate }}
                 </ng-message>
@@ -208,17 +208,17 @@
                 <select name="state_province"
                        ng-model="vm.profile.address_state"
                        ng-select="vm.profile.address_state"
-                       ng-required="true"
                        >
                        <option ng-repeat="s in vm.states"
                                value="{{s.value}}"> {{ s.text }} </option>
                 </select>
-              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.state_province.$error" role="alert" class="error">
-                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
-                <ng-message when="required">
-                  {{ 'profile.this_field_is_required' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.state_province.$error" role="alert" class="error">
+                  <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                 </ng-message>
-              </ng-message>
               </div>
             </div>
           </div>
@@ -235,16 +235,12 @@
               <div class="col item-input">
                 <input name="postal_code_zip"
                        ng-model="vm.profile.address_postcode"
-                       ng-required="true"
                        ng-maxlength="20"
                        >
               <ng-messages ng-if="vm.isDataLoaded" for="profileForm.postal_code_zip.$error" role="alert" class="error">
-                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="maxlength">
                   {{ 'profile.maximum_length_should_be_20_characters' | translate }}
-                </ng-message>
-                <ng-message when="required">
-                  {{ 'profile.this_field_is_required' | translate }}
                 </ng-message>
               </ng-message>
               </div>
@@ -268,7 +264,7 @@
                        ng-required="true"
                        >
               <ng-messages ng-if="vm.isDataLoaded" for="profileForm.telephone.$error" role="alert" class="error">
-                <ng-message when="pattern"> {{ 'self-exclusion.please-enter-an-integer-value' | translate}} </ng-message>
+                <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                 <ng-message when="maxlength">
                   {{ 'profile.maximum_length_should_be_20_characters' | translate }}
                 </ng-message>

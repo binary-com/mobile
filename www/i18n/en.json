@@ -492,7 +492,8 @@
 			"tax_identification_number_hint": "For all stated jurisdictions",
 			"place_of_birth": "Place of birth",
 			"select": "Please select",
-			"error_format": "Wrong format or length"
+			"error_format": "Wrong format or length",
+			"please-enter-an-integer-value": "Please enter an integer value with max length of {{max}}"
 		},
 		"accept-terms-and-conditions": {
 			"has_updated_its" : "has updated its",
