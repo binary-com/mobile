@@ -102,22 +102,6 @@
             vm.modalCtrl.show();
         }
 
-        vm.setTaxResidence = function() {
-          vm.taxRequirement = true;
-          vm.selectedTaxResidencesName = null;
-          vm.data.taxResidence = null;
-          _.forEach(vm.taxResidenceList, (value, key) => {
-              if (value.checked) {
-                vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
-                vm.data.taxResidence = vm.data.taxResidence ? (vm.data.taxResidence + value.value + ',') : (value.value + ',');
-              }
-          });
-
-            vm.data.taxResidence = vm.data.taxResidence != null ? _.trimEnd(vm.data.taxResidence, ","): null;
-            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName != null ? _.trimEnd(vm.selectedTaxResidencesName, ", "): null;
-            vm.closeModal();
-        }
-
         // set all errors to false
         vm.resetAllErrors = function() {
             _.forEach(vm.formData, (value, key) => {
@@ -132,20 +116,7 @@
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
             vm.taxResidenceList = residence_list;
-            if (vm.data.taxResidence) {
-                vm.settingTaxResidence = _.words(vm.data.taxResidence);
-                // check the "checked" value to true for every residence in residence list which is in user tax residences
-                vm.selectedTaxResidencesName = null;
-                _.forEach(vm.residenceList, (value, key) => {
-                  if(vm.settingTaxResidence.indexOf(value.value) > -1){
-                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
-                    vm.residenceList[key].checked = true;
-                  }
-                });
-                $scope.$applyAsync(() => {
-                    vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
-                });
-            }
+            websocketService.sendRequestFor.accountSetting();
         });
 
         $scope.$applyAsync(() => {
@@ -195,19 +166,18 @@
         });
 
         // get some values which are set by user before
-        websocketService.sendRequestFor.accountSetting();
         $scope.$on('get_settings', (e, get_settings) => {
             $scope.$applyAsync(() => {
                 _.forEach(get_settings, (val, key) => {
                     if (vm.formData.indexOf(key) > -1) {
                         vm.convertedValue = _.camelCase(key);
                         if (key === 'date_of_birth') {
-                          vm.data[vm.convertedValue] = new Date(val * 1000);
+                            vm.data[vm.convertedValue] = new Date(val * 1000);
                         } else if (key === 'place_of_birth' && val) {
-                          vm.hasPlaceOfbirth = true;
-                          vm.data[vm.convertedValue] = val;
+                            vm.hasPlaceOfbirth = true;
+                            vm.data[vm.convertedValue] = val;
                         } else {
-                          vm.data[vm.convertedValue] = val;
+                            vm.data[vm.convertedValue] = val;
                         }
                     }
                 });
@@ -216,8 +186,37 @@
                     vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
                     vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
                 }
+                if (vm.data.taxResidence) {
+                    vm.settingTaxResidence = _.words(vm.data.taxResidence);
+                    // check the "checked" value to true for every residence in residence list which is in user tax residences
+                    vm.selectedTaxResidencesName = null;
+                    _.forEach(vm.residenceList, (value, key) => {
+                        if (vm.settingTaxResidence.indexOf(value.value) > -1) {
+                            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
+                            vm.residenceList[key].checked = true;
+                        }
+                    });
+                    $scope.$applyAsync(() => {
+                        vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
+                    });
+                }
             });
         });
+
+        vm.setTaxResidence = function() {
+            vm.taxRequirement = true;
+            vm.selectedTaxResidencesName = null;
+            vm.data.taxResidence = null;
+            _.forEach(vm.taxResidenceList, (value, key) => {
+                if (value.checked) {
+                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
+                    vm.data.taxResidence = vm.data.taxResidence ? (vm.data.taxResidence + value.value + ',') : (value.value + ',');
+                }
+            });
+            vm.data.taxResidence = vm.data.taxResidence != null ? _.trimEnd(vm.data.taxResidence, ",") : null;
+            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName != null ? _.trimEnd(vm.selectedTaxResidencesName, ", ") : null;
+            vm.closeModal();
+        }
 
         vm.submitAccountOpening = function() {
             vm.resetAllErrors();
@@ -230,7 +229,7 @@
                     if (vm.dataName !== 'date_of_birth') {
                         vm.params[vm.dataName] = value;
                     } else {
-                        vm.params[vm.dataName] =  $filter('date')(value, 'yyyy-MM-dd');
+                        vm.params[vm.dataName] = $filter('date')(value, 'yyyy-MM-dd');
                     }
                 }
             });

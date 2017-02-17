@@ -58,50 +58,33 @@
         ];
 
 
-                $ionicModal.fromTemplateUrl('js/pages/new-real-account-opening/components/new-account-real/tax-residence.modal.html', {
-                    scope: $scope
-                }).then(function(modal) {
-                    vm.modalCtrl = modal;
-                });
+        $ionicModal.fromTemplateUrl('js/pages/new-real-account-opening/components/new-account-real/tax-residence.modal.html', {
+            scope: $scope
+        }).then(function(modal) {
+            vm.modalCtrl = modal;
+        });
 
-                function hideModal() {
-                    if (vm.modalCtrl) {
-                        vm.modalCtrl.hide();
-                    }
-                }
+        function hideModal() {
+            if (vm.modalCtrl) {
+                vm.modalCtrl.hide();
+            }
+        }
 
-                vm.closeModal = function() {
-                    hideModal();
-                }
+        vm.closeModal = function() {
+            hideModal();
+        }
 
-                vm.residenceDisable = function(index, residence) {
-                    return (residence.disabled === "DISABLED" ? true : false);
-                }
+        vm.residenceDisable = function(index, residence) {
+            return (residence.disabled === "DISABLED" ? true : false);
+        }
 
-                vm.showTaxResidenceItems = function() {
-                    vm.modalCtrl.show();
-                }
-
-                vm.setTaxResidence = function() {
-                  vm.selectedTaxResidencesName = null;
-                  vm.data.taxResidence = null;
-                  _.forEach(vm.taxResidenceList, (value, key) => {
-                      if (value.checked) {
-                        vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
-                        vm.data.taxResidence = vm.data.taxResidence ? (vm.data.taxResidence + value.value + ',') : (value.value + ',');
-                      }
-                  });
-
-                    vm.data.taxResidence = vm.data.taxResidence != null ? _.trimEnd(vm.data.taxResidence, ","): null;
-                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName != null ? _.trimEnd(vm.selectedTaxResidencesName, ", "): null;
-                    vm.closeModal();
-                }
-
-
+        vm.showTaxResidenceItems = function() {
+            vm.modalCtrl.show();
+        }
 
         vm.setUserCountry = function() {
-          // check if there are country and country code of user in sessionStorage
-          // some users from past don't have country chosen in signup
+            // check if there are country and country code of user in sessionStorage
+            // some users from past don't have country chosen in signup
             if (sessionStorage.hasOwnProperty('countryParams')) {
                 vm.countryParams = JSON.parse(sessionStorage.countryParams);
                 vm.data.countryCode = vm.countryParams.countryCode;
@@ -145,10 +128,10 @@
                 // check the "checked" value to true for every residence in residence list which is in user tax residences
                 vm.selectedTaxResidencesName = null;
                 _.forEach(vm.residenceList, (value, key) => {
-                  if(vm.settingTaxResidence.indexOf(value.value) > -1){
-                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
-                    vm.residenceList[key].checked = true;
-                  }
+                    if (vm.settingTaxResidence.indexOf(value.value) > -1) {
+                        vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
+                        vm.residenceList[key].checked = true;
+                    }
                 });
                 $scope.$applyAsync(() => {
                     vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
@@ -170,6 +153,22 @@
                 }
             }
         })();
+
+        vm.setTaxResidence = function() {
+            vm.selectedTaxResidencesName = null;
+            vm.data.taxResidence = null;
+            _.forEach(vm.taxResidenceList, (value, key) => {
+                if (value.checked) {
+                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
+                    vm.data.taxResidence = vm.data.taxResidence ? (vm.data.taxResidence + value.value + ',') : (value.value + ',');
+                }
+            });
+
+            vm.data.taxResidence = vm.data.taxResidence != null ? _.trimEnd(vm.data.taxResidence, ",") : null;
+            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName != null ? _.trimEnd(vm.selectedTaxResidencesName, ", ") : null;
+            vm.closeModal();
+        }
+
 
         vm.submitAccountOpening = function() {
             vm.resetAllErrors();
