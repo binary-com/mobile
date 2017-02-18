@@ -1,5 +1,5 @@
 /**
- * @name terms and conditions module
+ * @name accept terms and conditions module
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 12/14/2016

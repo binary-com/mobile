@@ -149,8 +149,8 @@ angular
               sessionStorage.removeItem('countryParams');
               websocketService.closeConnection();
               appStateService.passwordChanged = false;
-              appStateService.hasToAcceptTandC = false;
-              appStateService.hasToFillFinancialAssessment = false;
+              appStateService.hasToRedirectToTermsAndConditions = false;
+              appStateService.hasToRedirectToFinancialAssessment = false;
               appStateService.redirectFromFinancialAssessment = false;
               appStateService.limitsChange = false;
 

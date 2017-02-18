@@ -106,11 +106,11 @@ angular
           controller: 'ProfileController',
           controllerAs: 'vm'
         })
-				.state('acceptTermsAndConditions', {
+				.state('terms-and-conditions', {
 					parent: 'layout',
 					cache: false,
-					templateUrl: 'js/pages/accept-terms-and-conditions/accept-terms-and-conditions.template.html',
-					controller: 'AcceptTermsAndConditionsController',
+					templateUrl: 'js/pages/terms-and-conditions/terms-and-conditions.template.html',
+					controller: 'TermsAndConditionsController',
 					controllerAs: 'vm'
 				})
 				.state('update', {
@@ -153,6 +153,13 @@ angular
 					cache: false,
 					templateUrl: 'js/pages/asset-index/asset-index.template.html',
 					controller: 'AssetIndexController',
+					controllerAs: 'vm'
+				})
+				.state('tax-information', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/tax-information/tax-information.template.html',
+					controller: 'TaxInformationController',
 					controllerAs: 'vm'
 				});
 
