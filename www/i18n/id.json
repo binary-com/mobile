@@ -172,6 +172,14 @@
     "last_name":"Nama keluarga",
     "date_of_birth":"Tanggal lahir",
     "residence":"Negara tempat tinggal",
+    "tax_residence":"Residence for tax purposes",
+    "tax_residence_hint":"If you are resident in more than one jurisdiction please name all of them",
+    "tax_identification_number":"Tax Identification Number",
+    "tax_identification_number_hint":"For all stated jurisdictions",
+    "tax_info":"As a legal and regulatory requirement BIEL is obliged to collect certain information relating to CRS/FATCA compliance. We therefore kindly ask you to fill in the provided self-certification form before we can enable any further activity on your account, including closing of the account.",
+    "place_of_birth":"Place of birth",
+    "tax_warn":"*Please note that you might be considered resident for tax purposes in more than one jurisdictions. Binary.com does not take any responsibility for providing you with advice or information on how to determine your tax residence. If you are in any doubt regarding your tax residence kindly consult your tax advisor and make sure you provide us with the correct information.",
+    "tax_accept_info":"I hereby declare and confirm that the above given information is true and complete. Moreover, I undertake to inform Binary Investments (Europe) Ltd. about any changes therein without undue delay. Information can be edited by accessing your profile.",
     "address":"Alamat",
     "addreess_line_1":"Baris pertama alamat rumah",
     "addreess_line_2":"Baris kedua alamat rumah",
@@ -281,6 +289,7 @@
     "last_name":"Nama keluarga",
     "date_of_birth":"Tanggal lahir",
     "residence":"Negara tempat tinggal",
+    "place_of_birth":"Place of birth",
     "addreess_line_1":"Baris pertama dari alamat rumah",
     "addreess_line_2":"Baris kedua alamat rumah",
     "address_city":"Kota",
@@ -310,7 +319,14 @@
     "error_format":"Format atau panjang salah",
     "error_secretanswer":"Kolom ini harus diisi dengan 4-50 karakter panjang.",
     "isrequired":"(diperlukan)",
-    "isoptional":"(opsional)"
+    "isoptional":"(opsional)",
+    "tax_residence":"Residence for tax purposes",
+    "tax_residence_hint":"If you are resident in more than one jurisdiction please name all of them",
+    "tax_identification_number":"Tax Identification Number",
+    "tax_identification_number_hint":"For all stated jurisdictions",
+    "tax_info":"As a legal and regulatory requirement BIEL is obliged to collect certain information relating to CRS/FATCA compliance. We therefore kindly ask you to fill in the provided self-certification form before we can enable any further activity on your account, including closing of the account.",
+    "tax_warn":"*Please note that you might be considered resident for tax purposes in more than one jurisdictions. Binary.com does not take any responsibility for providing you with advice or information on how to determine your tax residence. If you are in any doubt regarding your tax residence kindly consult your tax advisor and make sure you provide us with the correct information.",
+    "tax_accept_info":"I hereby declare and confirm that the above given information is true and complete. Moreover, I undertake to inform Binary Investments (Europe) Ltd. about any changes therein without undue delay. Information can be edited by accessing your profile."
   },
   "profittable":{
     "profit_table":"Tabel Profit",
@@ -402,7 +418,8 @@
     "self-exclusion":"Pengecualian Diri",
     "change-password":"Rubah Kata Sandi",
     "financial-assessment":"Penilaian Finansial",
-    "limits":"Batasan"
+    "limits":"Batasan",
+    "tax_information":"Tax information"
   },
   "self-exclusion":{
     "self-exclusion":"Fasilitas Pengecualian Diri",
@@ -458,7 +475,15 @@
     "maximum_length_should_be_70_characters":"Panjang maksimum harus 70 karakter",
     "maximum_length_should_be_35_characters":"Panjang maksimum harus 35 karakter",
     "maximum_length_should_be_20_characters":"Panjang maksimum harus 20 karakter",
-    "minimum_length_should_be_6_characters":"Panjang minimum harus 6 karakter"
+    "minimum_length_should_be_6_characters":"Panjang minimum harus 6 karakter",
+    "tax_residence":"Residence for tax purposes",
+    "tax_residence_hint":"If you are resident in more than one jurisdiction please name all of them",
+    "tax_identification_number":"Tax Identification Number",
+    "tax_identification_number_hint":"For all stated jurisdictions",
+    "place_of_birth":"Place of birth",
+    "select":"Please select",
+    "error_format":"Wrong format or length",
+    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"telah memperbarui",
@@ -599,5 +624,23 @@
   "asset-index":{
     "asset_index":"Indeks Aset",
     "error":"Maaf, terjadi error saat memproses permintaan Anda."
+  },
+  "tax-information":{
+    "tax_information":"Tax information",
+    "select":"Please select",
+    "updated_successfully":"Your tax information have been updated successfully",
+    "no_change":"You did not change anything.",
+    "update":"Update",
+    "tax_accept_info":"I hereby declare and confirm that the above given information is true and complete. Moreover, I undertake to inform Binary Investments (Europe) Ltd. about any changes therein without undue delay. Information can be edited by accessing your profile.",
+    "tax_residence":"Residence for tax purposes",
+    "tax_residence_hint":"If you are resident in more than one jurisdiction please name all of them",
+    "tax_identification_number":"Tax Identification Number",
+    "tax_identification_number_hint":"For all stated jurisdictions",
+    "tax_info":"As a legal and regulatory requirement BIEL is obliged to collect certain information relating to CRS/FATCA compliance. We therefore kindly ask you to fill in the provided self-certification form before we can enable any further activity on your account, including closing of the account.",
+    "place_of_birth":"Place of birth",
+    "tax_warn":"*Please note that you might be considered resident for tax purposes in more than one jurisdictions. Binary.com does not take any responsibility for providing you with advice or information on how to determine your tax residence. If you are in any doubt regarding your tax residence kindly consult your tax advisor and make sure you provide us with the correct information.",
+    "isrequired":"(required)",
+    "error_format":"Wrong format or length",
+    "required":"This field is required."
   }
 }
