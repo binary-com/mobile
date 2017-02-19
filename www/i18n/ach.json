@@ -172,6 +172,9 @@
     "last_name":"crwdns17814:0crwdne17814:0",
     "date_of_birth":"crwdns17815:0crwdne17815:0",
     "residence":"crwdns17816:0crwdne17816:0",
+    "place_of_birth":"crwdns19411:0crwdne19411:0",
+    "tax_residence":"crwdns19447:0crwdne19447:0",
+    "tax_identification_number":"crwdns19408:0crwdne19408:0",
     "address":"crwdns17817:0crwdne17817:0",
     "addreess_line_1":"crwdns17818:0crwdne17818:0",
     "addreess_line_2":"crwdns17819:0crwdne17819:0",
@@ -281,6 +284,7 @@
     "last_name":"crwdns17908:0crwdne17908:0",
     "date_of_birth":"crwdns17909:0crwdne17909:0",
     "residence":"crwdns17910:0crwdne17910:0",
+    "place_of_birth":"crwdns19414:0crwdne19414:0",
     "addreess_line_1":"crwdns17911:0crwdne17911:0",
     "addreess_line_2":"crwdns17912:0crwdne17912:0",
     "address_city":"crwdns17913:0crwdne17913:0",
@@ -310,7 +314,9 @@
     "error_format":"crwdns17937:0crwdne17937:0",
     "error_secretanswer":"crwdns17938:0crwdne17938:0",
     "isrequired":"crwdns17939:0crwdne17939:0",
-    "isoptional":"crwdns17940:0crwdne17940:0"
+    "isoptional":"crwdns17940:0crwdne17940:0",
+    "tax_residence":"crwdns19448:0crwdne19448:0",
+    "tax_identification_number":"crwdns19417:0crwdne19417:0"
   },
   "profittable":{
     "profit_table":"crwdns17941:0crwdne17941:0",
@@ -424,14 +430,19 @@
     "session-duration-limit-in-minutes":"crwdns18029:0crwdne18029:0",
     "session-duration-hint":"crwdns18030:0crwdne18030:0",
     "time-out-until":"crwdns18031:0crwdne18031:0",
-    "time-out-hint":"crwdns18032:0crwdne18032:0",
+    "time-out-hint":"crwdns19398:0crwdne19398:0",
     "exclude-me-from-the-website-until":"crwdns18033:0crwdne18033:0",
-    "exclude-me-hint":"crwdns18034:0crwdne18034:0",
+    "exclude-me-hint":"crwdns19399:0crwdne19399:0",
     "update-settings":"crwdns18035:0crwdne18035:0",
-    "please-enter-an-integer-value":"crwdns18036:0crwdne18036:0",
+    "please-enter-an-integer-value":"crwdns19400:0{{max}}crwdne19400:0",
     "valid-range-hint":"crwdns18037:0{{max}}crwdne18037:0",
+    "date-is-not-valid":"crwdns19401:0crwdne19401:0",
+    "date-can-not-be-greater-than":"crwdns19402:0{{max}}crwdne19402:0",
+    "date-can-not-less-than":"crwdns19403:0{{max}}crwdne19403:0",
     "save-prompt":"crwdns18038:0crwdne18038:0",
-    "success":"crwdns18039:0crwdne18039:0"
+    "session-timeout-warning":"crwdns19404:0crwdne19404:0",
+    "success":"crwdns18039:0crwdne18039:0",
+    "warning":"crwdns19405:0crwdne19405:0"
   },
   "profile":{
     "personal_details":"crwdns18040:0crwdne18040:0",
@@ -453,7 +464,13 @@
     "maximum_length_should_be_70_characters":"crwdns18068:0crwdne18068:0",
     "maximum_length_should_be_35_characters":"crwdns18069:0crwdne18069:0",
     "maximum_length_should_be_20_characters":"crwdns18070:0crwdne18070:0",
-    "minimum_length_should_be_6_characters":"crwdns18071:0crwdne18071:0"
+    "minimum_length_should_be_6_characters":"crwdns18071:0crwdne18071:0",
+    "tax_residence":"crwdns19449:0crwdne19449:0",
+    "tax_identification_number":"crwdns19425:0crwdne19425:0",
+    "place_of_birth":"crwdns19427:0crwdne19427:0",
+    "select":"crwdns19428:0crwdne19428:0",
+    "error_format":"crwdns19429:0crwdne19429:0",
+    "please-enter-an-integer-value":"crwdns19430:0{{max}}crwdne19430:0"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"crwdns18103:0crwdne18103:0",
@@ -594,5 +611,18 @@
   "asset-index":{
     "asset_index":"crwdns19372:0crwdne19372:0",
     "error":"crwdns19373:0crwdne19373:0"
+  },
+  "tax-information":{
+    "tax_information":"crwdns19431:0crwdne19431:0",
+    "select":"crwdns19432:0crwdne19432:0",
+    "updated_successfully":"crwdns19433:0crwdne19433:0",
+    "no_change":"crwdns19434:0crwdne19434:0",
+    "update":"crwdns19435:0crwdne19435:0",
+    "tax_residence":"crwdns19450:0crwdne19450:0",
+    "tax_identification_number":"crwdns19439:0crwdne19439:0",
+    "place_of_birth":"crwdns19442:0crwdne19442:0",
+    "isrequired":"crwdns19444:0crwdne19444:0",
+    "error_format":"crwdns19445:0crwdne19445:0",
+    "required":"crwdns19446:0crwdne19446:0"
   }
 }

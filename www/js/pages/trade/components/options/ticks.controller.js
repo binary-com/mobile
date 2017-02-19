@@ -28,8 +28,8 @@
 
         function init(){
            var tradeType = JSON.parse(sessionStorage.tradeTypes)[vm.tradeType][0];
-           vm.min = Number.parseInt(getTickValue(tradeType.min_contract_duration));
-           vm.max = Number.parseInt(getTickValue(tradeType.max_contract_duration));
+           vm.min = parseInt(getTickValue(tradeType.min_contract_duration));
+           vm.max = parseInt(getTickValue(tradeType.max_contract_duration));
 
            vm.tickRange = _.range(vm.min, vm.max+1);
         }

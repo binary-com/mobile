@@ -222,6 +222,7 @@ input::-webkit-outer-spin-button {
     word-break: break-word;
     padding: 0;
     margin-top: 10px;
+		font-size: 0.8rem;
 }
 input {
     width: 100%;
@@ -312,6 +313,9 @@ textarea {
 }
 .hint {
     font-size: 0.8rem;
+		font-size: $FONT_SIZE_S;
+		color: $black;
+		margin-top: 3px;
 }
 .submenu-icon{
   float: right;
