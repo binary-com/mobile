@@ -1,0 +1,10 @@
+<ion-modal-view class="tax-residence-modal">
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">{{'newaccountmaltainvest.tax_residence' | translate}}</h1>
+    <button class="button button-clear button-primary ion-checkmark-round" ng-click="vm.setTaxResidence()" />
+  </ion-header-bar>
+
+  <ion-content>
+					<ion-checkbox ng-repeat="residence in vm.taxResidenceList" ng-model="residence.checked" ng-value="residence.value" ng-checked="residence.checked" ng-class="{'disabled' :vm.residenceDisable($index, residence)}"> {{ residence.text }}</ion-checkbox>
+  </ion-content>
+</ion-modal-view>

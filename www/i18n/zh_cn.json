@@ -172,6 +172,9 @@
     "last_name":"姓氏",
     "date_of_birth":"出生日期",
     "residence":"居住国",
+    "place_of_birth":"Place of birth",
+    "tax_residence":"Tax residence",
+    "tax_identification_number":"Tax Identification Number",
     "address":"地址",
     "addreess_line_1":"家庭地址第一行",
     "addreess_line_2":"家庭地址第二行",
@@ -281,6 +284,7 @@
     "last_name":"姓氏",
     "date_of_birth":"出生日期",
     "residence":"居住国",
+    "place_of_birth":"Place of birth",
     "addreess_line_1":"家庭地址第一行",
     "addreess_line_2":"家庭地址第二行",
     "address_city":"城镇/城市",
@@ -310,7 +314,9 @@
     "error_format":"格式或长度错误",
     "error_secretanswer":"此字段必须为 4-50 个字符以内。",
     "isrequired":"（必需）",
-    "isoptional":"（可选）"
+    "isoptional":"（可选）",
+    "tax_residence":"Tax residence",
+    "tax_identification_number":"Tax Identification Number"
   },
   "profittable":{
     "profit_table":"利润表",
@@ -458,7 +464,13 @@
     "maximum_length_should_be_70_characters":"最大长度是 70 个字符",
     "maximum_length_should_be_35_characters":"最大长度是 35 个字符",
     "maximum_length_should_be_20_characters":"最大长度是 20 个字符",
-    "minimum_length_should_be_6_characters":"最小长度是 6 个字符"
+    "minimum_length_should_be_6_characters":"最小长度是 6 个字符",
+    "tax_residence":"Tax residence",
+    "tax_identification_number":"Tax Identification Number",
+    "place_of_birth":"Place of birth",
+    "select":"Please select",
+    "error_format":"Wrong format or length",
+    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
@@ -599,5 +611,18 @@
   "asset-index":{
     "asset_index":"资产指数",
     "error":"对不起，处理您的请求时出错。"
+  },
+  "tax-information":{
+    "tax_information":"Tax information",
+    "select":"Please select",
+    "updated_successfully":"Your tax information have been updated successfully",
+    "no_change":"You did not change anything.",
+    "update":"Update",
+    "tax_residence":"Tax residence",
+    "tax_identification_number":"Tax Identification Number",
+    "place_of_birth":"Place of birth",
+    "isrequired":"(required)",
+    "error_format":"Wrong format or length",
+    "required":"This field is required."
   }
 }

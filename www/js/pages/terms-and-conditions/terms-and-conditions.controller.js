@@ -1,5 +1,5 @@
 /**
- * @name terms and conditions controller
+ * @name accept terms and conditions controller
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 12/14/2016
@@ -13,19 +13,24 @@
         .module('binary.pages.terms-and-conditions.controllers')
         .controller('TermsAndConditionsController', TermsAndConditions);
 
-    TermsAndConditions.$inject = ['$scope', '$state', 'websocketService', 'accountService', 'appStateService'];
+    TermsAndConditions.$inject = ['$scope', '$state', 'websocketService', 'alertService', 'appStateService'];
 
-    function TermsAndConditions($scope, $state, websocketService, accountService, appStateService) {
+    function TermsAndConditions($scope, $state, websocketService, alertService, appStateService) {
         var vm = this;
-        $scope.$on('get_settings', (e, get_settings) => {
-            if (get_settings) {
-                vm.clientTncStatus = get_settings.client_tnc_status;
-                vm.termsConditionsVersion = localStorage.getItem('termsConditionsVersion');
-                if (!appStateService.virtuality && vm.clientTncStatus !== vm.termsConditionsVersion) {
-                    $state.go('acceptTermsAndConditions');
-                    appStateService.hasToAcceptTandC = true;
-                }
-            }
+        vm.data = {};
+        vm.data.landingCompanyName = localStorage.getItem('landingCompanyName');
+        vm.data.linkToTermAndConditions = "https://www.binary.com/" + (localStorage.getItem('language') || "en") + "/terms-and-conditions.html";
+
+        vm.updateUserTermsAndConditions = function() {
+            websocketService.sendRequestFor.TAndCApprovalSend();
+        }
+
+        vm.openTermsAndConditions = function() {
+            window.open(vm.data.linkToTermAndConditions, '_blank');
+        }
+
+        $scope.$on('tnc_approval:error', (e, error) => {
+            alertService.displayError(error.message);
         });
     }
 })();

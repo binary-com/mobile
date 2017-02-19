@@ -1,5 +1,5 @@
 /**
- * @name terms and conditions directive
+ * @name accept terms and conditions directive
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 12/14/2016
