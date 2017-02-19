@@ -84,14 +84,8 @@
             vm.modalCtrl = modal;
         });
 
-        function hideModal() {
-            if (vm.modalCtrl) {
-                vm.modalCtrl.hide();
-            }
-        }
-
         vm.closeModal = function() {
-            hideModal();
+          if (vm.modalCtrl) vm.modalCtrl.hide();
         }
 
         vm.showTaxResidenceItems = function() {
