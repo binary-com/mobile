@@ -33,10 +33,8 @@
 
         vm.getAssetIndexData = function(assetIndex, activeSymbols) {
             if (!assetIndex || !activeSymbols) {
-            console.log('b');
             return false;
           };
-          console.log('c');
 
             vm.marketColumns = {};
 
