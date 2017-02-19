@@ -13,9 +13,9 @@
         .module('binary.pages.maltainvest-account-opening')
         .controller('MaltainvestAccountOpeningController', MaltainvestAccountOpening);
 
-    MaltainvestAccountOpening.$inject = ['$scope', '$state', '$filter', '$ionicModal', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    MaltainvestAccountOpening.$inject = ['$scope', '$filter', '$ionicModal', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function MaltainvestAccountOpening($scope, $state, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
+    function MaltainvestAccountOpening($scope, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
         vm.hasPlaceOfbirth = false;

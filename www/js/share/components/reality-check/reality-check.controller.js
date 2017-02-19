@@ -14,15 +14,12 @@
         .controller('RealityCheckController', RealityCheck);
 
     RealityCheck.$inject = [
-      '$scope', '$timeout', '$translate', '$location',
-      '$state', '$ionicPopup', 'websocketService',
-      'appStateService', 'accountService', 'alertService',
-      'languageService', 'proposalService'];
+      '$scope', '$timeout', '$translate',
+      '$state', 'websocketService',
+      'appStateService', 'alertService'];
 
     function RealityCheck(
-        $scope, $timeout, $translate, $location, $state,
-        $ionicPopup, websocketService, appStateService,
-        accountService, alertService, languageService, proposalService) {
+        $scope, $timeout, $translate, $state, websocketService, appStateService, alertService) {
 			var vm = this;
     var landingCompanyName;
     vm.integerError = false;

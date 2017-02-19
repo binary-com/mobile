@@ -13,9 +13,9 @@
         .module('binary.pages.asset-index.controllers')
         .controller('AssetIndexController', AssetIndex);
 
-    AssetIndex.$inject = ['$scope', '$q', 'websocketService'];
+    AssetIndex.$inject = ['$scope', '$q'];
 
-    function AssetIndex($scope, $q, websocketService) {
+    function AssetIndex($scope, $q) {
         var vm = this;
         vm.hasError = false;
         vm.marketColumns;

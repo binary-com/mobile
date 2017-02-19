@@ -13,10 +13,10 @@
         .module('binary.pages.transaction-detail.controllers')
         .controller('TransactionDetailController', TransactionDetail);
 
-    TransactionDetail.$inject = ['$scope', '$timeout', '$interval', '$state',
+    TransactionDetail.$inject = ['$scope', '$timeout', '$state',
                                  'appStateService', 'websocketService'];
 
-    function TransactionDetail($scope, $timeout, $interval, $state,
+    function TransactionDetail($scope, $timeout, $state,
                                appStateService, websocketService) {
         var vm = this;
 

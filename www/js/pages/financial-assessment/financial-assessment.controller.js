@@ -13,9 +13,9 @@
         .module('binary.pages.financial-assessment.controllers')
         .controller('FinancialAssessmentController', FinancialAssessment);
 
-    FinancialAssessment.$inject = ['$scope', '$state', '$timeout', 'websocketService', 'appStateService'];
+    FinancialAssessment.$inject = ['$scope', '$state', 'websocketService', 'appStateService'];
 
-    function FinancialAssessment($scope, $state, $timeout, websocketService, appStateService) {
+    function FinancialAssessment($scope, $state, websocketService, appStateService) {
         var vm = this;
         vm.data = {};
         vm.disableUpdate = true;

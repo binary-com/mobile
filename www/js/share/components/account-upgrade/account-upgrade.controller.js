@@ -13,9 +13,9 @@
         .module('binary.share.components.account-upgrade.controllers')
         .controller('AccountUpgradeController', AccountUpgrade);
 
-    AccountUpgrade.$inject = ['$scope', '$state', '$translate', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    AccountUpgrade.$inject = ['$scope', '$state', 'websocketService', 'appStateService'];
 
-    function AccountUpgrade($scope, $state, $translate, websocketService, appStateService, accountService, alertService) {
+    function AccountUpgrade($scope, $state, websocketService, appStateService) {
         var vm = this;
           vm.data = {};
           vm.countryParams = {};
