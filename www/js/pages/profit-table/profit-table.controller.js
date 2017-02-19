@@ -37,6 +37,7 @@
         vm.hasError = false;
         vm.dateChanged = false;
         vm.appIdAllowed = config.app_id;
+        vm.isItemShown = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
@@ -297,19 +298,21 @@
             }
         }
 
+        vm.toggleItem = function(){
+            vm.isItemShown = !vm.isItemShown;
+            var content = document.getElementsByClassName('profit-table-expandable')[0];
+            content.id === 'profit - table - filter - active' ? content.id = '' : content.id = 'profit-table-filter-active';
+        }
 
         vm.goTop = function() {
             $ionicScrollDelegate.scrollTop(true);
         }
 
         vm.goToTopButtonCondition = function() {
-            $scope.$applyAsync(() => {
-                    if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
-                        vm.goToTopButton = true;
-                    } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
-                        vm.goToTopButton = false;
-                    }
-            });
+            $timeout(() => {
+                var position = $ionicScrollDelegate.$getByHandle('handler').getScrollPosition();
+                vm.goToTopButton = position.top >= 30 ? true : false;
+            }, 500);
         }
 
         // details functions

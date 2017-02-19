@@ -35,9 +35,11 @@ angular
                 factory.newAccountAdded = false;
                 factory.isLanguageReady = false;
                 factory.passwordChanged = false;
-                factory.hasToAcceptTandC = false;
-                factory.hasToFillFinancialAssessment = false;
+                factory.hasToRedirectToTermsAndConditions = false;
+                factory.hasToRedirectToFinancialAssessment = false;
+                factory.hasHighRisk = false;
                 factory.redirectFromFinancialAssessment = false;
+                factory.hasToRedirectToTaxInformation = false;
                 factory.limitsChange = false;
                 factory.realityCheckLogin = false;
 

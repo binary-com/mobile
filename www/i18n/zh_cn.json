@@ -172,6 +172,9 @@
     "last_name":"姓氏",
     "date_of_birth":"出生日期",
     "residence":"居住国",
+    "place_of_birth":"Place of birth",
+    "tax_residence":"Tax residence",
+    "tax_identification_number":"Tax Identification Number",
     "address":"地址",
     "addreess_line_1":"家庭地址第一行",
     "addreess_line_2":"家庭地址第二行",
@@ -281,6 +284,7 @@
     "last_name":"姓氏",
     "date_of_birth":"出生日期",
     "residence":"居住国",
+    "place_of_birth":"Place of birth",
     "addreess_line_1":"家庭地址第一行",
     "addreess_line_2":"家庭地址第二行",
     "address_city":"城镇/城市",
@@ -310,7 +314,9 @@
     "error_format":"格式或长度错误",
     "error_secretanswer":"此字段必须为 4-50 个字符以内。",
     "isrequired":"（必需）",
-    "isoptional":"（可选）"
+    "isoptional":"（可选）",
+    "tax_residence":"Tax residence",
+    "tax_identification_number":"Tax Identification Number"
   },
   "profittable":{
     "profit_table":"利润表",
@@ -424,14 +430,19 @@
     "session-duration-limit-in-minutes":"交易期持续时间限制，以分钟为单位",
     "session-duration-hint":"在该时间后您将自动退出登录。",
     "time-out-until":"时间已过。下次开启时间为",
-    "time-out-hint":"请输入日期，格式为年-月-日 时：分（当地时间）。 ",
+    "time-out-hint":"请输入日期，格式为月/日/年 时：分（当地时间）。 ",
     "exclude-me-from-the-website-until":"禁止我访问本网站直到",
-    "exclude-me-hint":"请输入日期，格式为年-月-日。",
+    "exclude-me-hint":"请输入日期，格式为月/日/年。",
     "update-settings":"更新设置",
-    "please-enter-an-integer-value":"请输入整数",
+    "please-enter-an-integer-value":"请输入一个整数值，最大长度为 {{max}}",
     "valid-range-hint":"请输入0和 {{max}} 之间的数字",
+    "date-is-not-valid":"禁止时间必须在今日之后",
+    "date-can-not-be-greater-than":"禁止时间不能超过 {{max}}",
+    "date-can-not-less-than":"禁止时间不能少于 {{max}}",
     "save-prompt":"内容已成功保存",
-    "success":"成功"
+    "session-timeout-warning":"交易期持续时间限制将于10秒内结束。",
+    "success":"成功",
+    "warning":"警告"
   },
   "profile":{
     "personal_details":"个人详细信息",
@@ -453,7 +464,13 @@
     "maximum_length_should_be_70_characters":"最大长度是 70 个字符",
     "maximum_length_should_be_35_characters":"最大长度是 35 个字符",
     "maximum_length_should_be_20_characters":"最大长度是 20 个字符",
-    "minimum_length_should_be_6_characters":"最小长度是 6 个字符"
+    "minimum_length_should_be_6_characters":"最小长度是 6 个字符",
+    "tax_residence":"Tax residence",
+    "tax_identification_number":"Tax Identification Number",
+    "place_of_birth":"Place of birth",
+    "select":"Please select",
+    "error_format":"Wrong format or length",
+    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
@@ -594,5 +611,18 @@
   "asset-index":{
     "asset_index":"资产指数",
     "error":"对不起，处理您的请求时出错。"
+  },
+  "tax-information":{
+    "tax_information":"Tax information",
+    "select":"Please select",
+    "updated_successfully":"Your tax information have been updated successfully",
+    "no_change":"You did not change anything.",
+    "update":"Update",
+    "tax_residence":"Tax residence",
+    "tax_identification_number":"Tax Identification Number",
+    "place_of_birth":"Place of birth",
+    "isrequired":"(required)",
+    "error_format":"Wrong format or length",
+    "required":"This field is required."
   }
 }

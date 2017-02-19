@@ -127,6 +127,7 @@ angular
             };
 
             websocketService.logout = function(){
+              websocketService.sendRequestFor.logout();
 				      localStorage.removeItem('accounts');
               websocketService.sendRequestFor.forgetProposals();
               sessionStorage.active_symbols = null;
@@ -148,12 +149,13 @@ angular
               sessionStorage.removeItem('countryParams');
               websocketService.closeConnection();
               appStateService.passwordChanged = false;
-              appStateService.hasToAcceptTandC = false;
-              appStateService.hasToFillFinancialAssessment = false;
+              appStateService.hasToRedirectToTermsAndConditions = false;
+              appStateService.hasToRedirectToFinancialAssessment = false;
               appStateService.redirectFromFinancialAssessment = false;
               appStateService.limitsChange = false;
 
               appStateService.realityCheckLogin = false;
+
               $state.go('signin');
             };
 
@@ -164,223 +166,223 @@ angular
                 };
                 sendMessage(data);
               },
-                symbols: function() {
-                    var data = {
-                        active_symbols: "brief"
-                    };
-                    sendMessage(data);
-                },
-                assetIndex: function() {
-                    var data = {
-                        asset_index: 1
-                    };
-                    sendMessage(data);
-                },
-                currencies: function() {
-                    var data = {
-                        payout_currencies: 1
-                    };
-                    sendMessage(data);
-                },
-                contractsForSymbol: function(_symbol) {
-                    var data = {
-                        contracts_for: _symbol
-                    };
-                    sendMessage(data);
-                },
-                ticksForSymbol: function(_symbol) {
-                    var data = {
-                        ticks: _symbol
-                    };
-                    sendMessage(data);
-                },
-                forgetAll: function(_stream) {
-                    var data = {
-                        forget_all: _stream
-                    };
-                    sendMessage(data);
-                },
-                forgetStream: function(_id) {
-                    var data = {
-                        forget: _id
-                    };
-                    sendMessage(data);
-                },
-                forgetProposals: function() {
-                    var data = {
-                        forget_all: 'proposal'
-                    };
-                    sendMessage(data);
-                },
-                forgetTicks: function() {
-                    var data = {
-                        forget_all: 'ticks'
-                    };
-                    sendMessage(data);
-                },
-                proposal: function(_proposal) {
-                    sendMessage(_proposal);
-                },
-                purchase: function(_proposalId, price) {
-                    var data = {
-                        buy: _proposalId,
-                        price: price || 0
-                    };
-                    sendMessage(data);
-                },
-                balance: function() {
-                    var data = {
-                        balance: 1,
-                        subscribe: 1
-                    };
-                    sendMessage(data);
-                },
-                portfolio: function() {
-                    var data = {
-                        portfolio: 1
-                    };
-                    sendMessage(data);
-                },
-                profitTable: function(params, req_id) {
-                    var data = {
-                        profit_table: 1
-                    };
+              symbols: function() {
+                var data = {
+                  active_symbols: "brief"
+                };
+                sendMessage(data);
+              },
+              assetIndex: function() {
+                var data = {
+                  asset_index: 1
+                };
+                sendMessage(data);
+              },
+              currencies: function() {
+                var data = {
+                  payout_currencies: 1
+                };
+                sendMessage(data);
+              },
+              contractsForSymbol: function(_symbol) {
+                var data = {
+                  contracts_for: _symbol
+                };
+                sendMessage(data);
+              },
+              ticksForSymbol: function(_symbol) {
+                var data = {
+                  ticks: _symbol
+                };
+                sendMessage(data);
+              },
+              forgetAll: function(_stream) {
+                var data = {
+                  forget_all: _stream
+                };
+                sendMessage(data);
+              },
+              forgetStream: function(_id) {
+                var data = {
+                  forget: _id
+                };
+                sendMessage(data);
+              },
+              forgetProposals: function() {
+                var data = {
+                  forget_all: 'proposal'
+                };
+                sendMessage(data);
+              },
+              forgetTicks: function() {
+                var data = {
+                  forget_all: 'ticks'
+                };
+                sendMessage(data);
+              },
+              proposal: function(_proposal) {
+                sendMessage(_proposal);
+              },
+              purchase: function(_proposalId, price) {
+                var data = {
+                  buy: _proposalId,
+                  price: price || 0
+                };
+                sendMessage(data);
+              },
+              balance: function() {
+                var data = {
+                  balance: 1,
+                  subscribe: 1
+                };
+                sendMessage(data);
+              },
+              portfolio: function() {
+                var data = {
+                  portfolio: 1
+                };
+                sendMessage(data);
+              },
+              profitTable: function(params, req_id) {
+                var data = {
+                  profit_table: 1
+                };
 
-                    for (var key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            data[key] = params[key]
-                        }
-                    }
+                for (var key in params) {
+                  if (params.hasOwnProperty(key)) {
+                    data[key] = params[key]
+                  }
+                }
 
-                    sendMessage(data);
-                },
-                ticksHistory: function(data) {
-                    // data is the whole JSON convertable object parameter for the ticks_history API call
-                    if (data.ticks_history) {
-                        sendMessage(data);
-                    }
-                },
-                openContract: function(contractId, extraParams) {
-                    var data = {};
-                    data.proposal_open_contract = 1;
-
-                    if (contractId) {
-                        data.contract_id = contractId;
-                    }
-
-                    for (var key in extraParams) {
-                        if (extraParams.hasOwnProperty(key)) {
-                            data[key] = extraParams[key]
-                        }
-                    }
-
-                    sendMessage(data);
-                },
-                sellExpiredContract: function() {
-                    var data = {
-                        sell_expired: 1
-                    };
-
-                    sendMessage(data);
-                },
-                landingCompanyDetails: function(company) {
-                    var data = {
-                        landing_company_details: company
-                    };
-                    sendMessage(data);
-                },
-                realityCheck: function() {
-                    var data = {
-                        "reality_check": 1
-                    };
-                    sendMessage(data);
-                },
-                accountOpening: function(verifyEmail) {
-                    var data = {
-                        "verify_email": verifyEmail,
-                        "type": "account_opening"
-                    };
-                    sendMessage(data);
-                },
-                residenceListSend: function() {
-                    var data = {
-                        "residence_list": 1
-                    };
-                    sendMessage(data);
-                },
-                newAccountVirtual: function(verificationCode, clientPassword, residence) {
-                    var data = {
-                        "new_account_virtual": "1",
-                        "verification_code": verificationCode,
-                        "client_password": clientPassword,
-                        "residence": residence
-                    };
-                    sendMessage(data);
-                },
-                accountSetting: function() {
-                    var data = {
-                        "get_settings": 1
-                    };
-                    sendMessage(data);
-                },
-                setAccountSettings: function(data){
-                  data.set_settings = 1;
-
+                sendMessage(data);
+              },
+              ticksHistory: function(data) {
+                // data is the whole JSON convertable object parameter for the ticks_history API call
+                if (data.ticks_history) {
                   sendMessage(data);
-                },
-                landingCompanySend: function(company) {
-                    var data = {
-                        "landing_company": company
-                    };
-                    sendMessage(data);
-                },
-                statesListSend: function(countryCode) {
-                    var data = {
-                        "states_list": countryCode
-                    };
-                    sendMessage(data);
-                },
-                createRealAccountSend: function(params) {
-                    var data = {
-                        "new_account_real": "1"
-                    };
-                    for (var key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            data[key] = params[key]
-                        }
-                    };
-                    sendMessage(data);
-                },
-                createMaltainvestAccountSend: function(params) {
-                    var data = {
-                        "new_account_maltainvest": "1"
-                    };
-                    for (var key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            data[key] = params[key]
-                        }
-                    };
-                    sendMessage(data);
-                },
-                statement: function(params) {
-                    var data = {
-                        statement: 1
-                    };
+                }
+              },
+              openContract: function(contractId, extraParams) {
+                var data = {};
+                data.proposal_open_contract = 1;
 
-                    for (var key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            data[key] = params[key]
-                        }
-                    }
+                if (contractId) {
+                  data.contract_id = contractId;
+                }
 
-                    sendMessage(data);
-                },
-                ping: function() {
-                    var data = {
-                        ping: 1
-                    };
-                    sendMessage(data);
-                },
+                for (var key in extraParams) {
+                  if (extraParams.hasOwnProperty(key)) {
+                    data[key] = extraParams[key]
+                  }
+                }
+
+                sendMessage(data);
+              },
+              sellExpiredContract: function() {
+                var data = {
+                  sell_expired: 1
+                };
+
+                sendMessage(data);
+              },
+              landingCompanyDetails: function(company) {
+                var data = {
+                  landing_company_details: company
+                };
+                sendMessage(data);
+              },
+              realityCheck: function() {
+                var data = {
+                  "reality_check": 1
+                };
+                sendMessage(data);
+              },
+              accountOpening: function(verifyEmail) {
+                var data = {
+                  "verify_email": verifyEmail,
+                  "type": "account_opening"
+                };
+                sendMessage(data);
+              },
+              residenceListSend: function() {
+                var data = {
+                  "residence_list": 1
+                };
+                sendMessage(data);
+              },
+              newAccountVirtual: function(verificationCode, clientPassword, residence) {
+                var data = {
+                  "new_account_virtual": "1",
+                  "verification_code": verificationCode,
+                  "client_password": clientPassword,
+                  "residence": residence
+                };
+                sendMessage(data);
+              },
+              accountSetting: function() {
+                var data = {
+                  "get_settings": 1
+                };
+                sendMessage(data);
+              },
+              setAccountSettings: function(data){
+                data.set_settings = 1;
+
+                sendMessage(data);
+              },
+              landingCompanySend: function(company) {
+                var data = {
+                  "landing_company": company
+                };
+                sendMessage(data);
+              },
+              statesListSend: function(countryCode) {
+                var data = {
+                  "states_list": countryCode
+                };
+                sendMessage(data);
+              },
+              createRealAccountSend: function(params) {
+                var data = {
+                  "new_account_real": "1"
+                };
+                for (var key in params) {
+                  if (params.hasOwnProperty(key)) {
+                    data[key] = params[key]
+                  }
+                };
+                sendMessage(data);
+              },
+              createMaltainvestAccountSend: function(params) {
+                var data = {
+                  "new_account_maltainvest": "1"
+                };
+                for (var key in params) {
+                  if (params.hasOwnProperty(key)) {
+                    data[key] = params[key]
+                  }
+                };
+                sendMessage(data);
+              },
+              statement: function(params) {
+                var data = {
+                  statement: 1
+                };
+
+                for (var key in params) {
+                  if (params.hasOwnProperty(key)) {
+                    data[key] = params[key]
+                  }
+                }
+
+                sendMessage(data);
+              },
+              ping: function() {
+                var data = {
+                  ping: 1
+                };
+                sendMessage(data);
+              },
               setSelfExclusion: function(params){
                 var data = {
                   set_self_exclusion: 1
@@ -432,26 +434,33 @@ angular
                   }
                 }
                 sendMessage(data);
-            },
-            tradingTimes: function(_date) {
+              },
+              tradingTimes: function(_date) {
                 var data = {
                   "trading_times": _date
                 }
                 sendMessage(data);
               },
-            getAccountStatus: function(){
-              var data = {
-                "get_account_status": 1
+              getAccountStatus: function(){
+                var data = {
+                  "get_account_status": 1
+                }
+                sendMessage(data);
+              },
+              accountLimits: function(){
+                var data = {
+                  "get_limits": 1
+                }
+                sendMessage(data);
+              },
+              logout: function(){
+                var data = {
+                  "logout": 1
+                }
+
+                sendMessage(data);
               }
-              sendMessage(data);
-            },
-            accountLimits: function(){
-              var data = {
-                "get_limits": 1
-              }
-              sendMessage(data);
             }
-          }
             websocketService.closeConnection = function() {
                 appStateService.isLoggedin = false;
                 if (dataStream) {

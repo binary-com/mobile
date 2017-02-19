@@ -28,7 +28,6 @@
           vm.hasGamingNotVirtual = false;
           vm.hasFinancialAndMaltainvest = false;
           vm.idsFound = [];
-          vm.updateResidence = false;
 
           vm.reset = function(){
             vm.data = {};
@@ -47,8 +46,6 @@
             vm.hasGamingAndMaltainvest = false;
             vm.notMaltainvest = false;
             vm.hasGamingAndFinancialAndMaltainvest = false;
-            vm.updateResidence = false;
-            vm.selectedCountry = "";
           }
 
 
@@ -84,42 +81,12 @@
             }
         });
 
-        vm.setResidence = function() {
-          var params = {
-            "residence" : vm.selectedCountry
-          }
-          websocketService.sendRequestFor.setAccountSettings(params);
-          vm.updateResidence = true;
-        }
-
         $scope.$on('set-settings', (e, set_settings) => {
-          if(vm.updateResidence && set_settings === 1) {
-            vm.updateResidence = false;
+          if(set_settings === 1) {
             vm.reset();
             vm.getCompany();
           }
         });
-
-        vm.selectCountry = function() {
-          $translate(['new-real-account.select_country', 'new-real-account.continue'])
-            .then(function(translation) {
-                alertService.displaySelectResidence(
-                  translation['new-real-account.select_country'],
-                  'select-residence-popup',
-                  $scope,
-                  'js/share/components/real-account-opening/select-country.template.html', [{
-                    text: translation['new-real-account.continue'],
-                    type: 'button-positive',
-                    onTap: function(e) {
-                      if (vm.selectedCountry) {
-                        vm.setResidence();
-                      } else {
-                        e.preventDefault();
-                      }
-                    }
-                  }, ]);
-              });
-        }
 
 
         $scope.$on('get_settings', (e, get_settings) => {
@@ -129,19 +96,9 @@
             vm.countryParams.countryCode = vm.data.countryCode;
             vm.countryParams.countryOfAccount = vm.data.countryOfAccount;
             sessionStorage.countryParams = JSON.stringify(vm.countryParams);
-            if(vm.data.countryCode == null && vm.isVirtual) {
-              websocketService.sendRequestFor.residenceListSend();
-            }
-            else if (vm.data.countryCode !== "jp") {
+            if (vm.data.countryCode !== "jp") {
               websocketService.sendRequestFor.landingCompanySend(vm.data.countryCode);
             }
-        });
-
-        $scope.$on('residence_list', (e, residence_list) => {
-          if(vm.data.countryCode == null && vm.isVirtual) {
-            vm.residenceList = residence_list;
-            vm.selectCountry();
-          }
         });
 
         $scope.$on('landing_company', (e, landing_company) => {
