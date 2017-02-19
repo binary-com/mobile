@@ -20,21 +20,10 @@
         vm.isLoggedIn = false;
         vm.notUpdatedTaxInfo = false;
         vm.isFinancial = false;
+        vm.state = {};
         // write them based on priority please
         vm.redirectPriority = ['terms-and-conditions', 'financial-assessment', 'tax-information'];
 
-        // get terms and onditions
-        $scope.$on('get_settings', (e, get_settings) => {
-            if (get_settings) {
-                vm.clientTncStatus = get_settings.client_tnc_status;
-                vm.termsConditionsVersion = localStorage.getItem('termsConditionsVersion');
-                if (!appStateService.virtuality && vm.clientTncStatus !== vm.termsConditionsVersion) {
-                    appStateService.hasToRedirectToTermsAndConditions = true;
-                }
-            }
-        });
-
-        // redirect to Financial Assessment
         $scope.$on('authorize', () => {
             if (!vm.isLoggedIn) {
                 vm.isLoggedIn = true;
@@ -48,9 +37,15 @@
                 appStateService.hasHighRisk = true;
                 websocketService.sendRequestFor.getFinancialAssessment();
             }
+            else{
+              vm.state.financialAssessment = true;
+            }
             if (get_account_status.hasOwnProperty('status') && (get_account_status.status).indexOf('crs_tin_information') < 0) {
                 vm.notUpdatedTaxInfo = true;
                 vm.checkTaxInformation();
+            }
+            else{
+              vm.state.taxInformation = true;
             }
         });
 
@@ -58,6 +53,20 @@
         $scope.$on('get_financial_assessment:success', (e, get_financial_assessment) => {
             if (_.isEmpty(get_financial_assessment) && appStateService.hasHighRisk) {
                 appStateService.hasToRedirectToFinancialAssessment = true;
+            }
+            vm.state.financialAssessment = true;
+        });
+
+
+        // get terms and onditions
+        $scope.$on('get_settings', (e, get_settings) => {
+            if (get_settings) {
+                vm.clientTncStatus = get_settings.client_tnc_status;
+                vm.termsConditionsVersion = localStorage.getItem('termsConditionsVersion');
+                if (!appStateService.virtuality && vm.clientTncStatus !== vm.termsConditionsVersion) {
+                    appStateService.hasToRedirectToTermsAndConditions = true;
+                }
+                vm.state.termsAndConditions = true;
             }
         });
 
@@ -72,6 +81,7 @@
             if (vm.isFinancial && vm.notUpdatedTaxInfo) {
                 appStateService.hasToRedirectToTaxInformation = true;
             }
+            vm.state.taxInformation = true;
         }
 
 
@@ -93,9 +103,13 @@
 
         }
 
-        setTimeout(function() {
+        // callback
+        // check if all data are recieved and all redirect necesseries are ready
+        $scope.$watch('vm.state', () => {
+          if(_.size(vm.state) === vm.redirectPriority.length){
             vm.redirect();
-        }, 5000);
+          }
+        }, true);
 
         // successes
         $scope.$on('tnc_approval', (e, tnc_approval) => {

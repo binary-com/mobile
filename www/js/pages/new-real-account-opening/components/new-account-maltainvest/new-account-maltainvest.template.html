@@ -130,6 +130,79 @@
         </div>
     </div>
 
+
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col input-title">
+                    {{'newaccountmaltainvest.place_of_birth' | translate}}
+                    <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col item-input item-select">
+                              <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text for residence in vm.residenceList" required>
+                                  <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
+                              </select>
+                          </label>
+                <div class="help-block error" ng-messages="newAccountMaltainvestForm.placeOfBirth.$error" role="alert" ng-if='newAccountMaltainvestForm.placeOfBirth.$dirty' ng-hide="vm.placeOfBirthError">
+                    <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
+                </div>
+                <div class="help-block error" ng-messages="vm.placeOfBirthError" role="alert" ng-if='vm.placeOfBirthError'>
+                    <div>{{vm.placeOfBirthErrorMessage}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- multiselect -->
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col input-title">
+                    {{'newaccountmaltainvest.tax_residence' | translate}}
+                    <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col item-input item-select tax-residence" ng-click="vm.showTaxResidenceItems()">
+                      <div class="tax-residence-select">
+                        {{ vm.selectedTaxResidencesName || 'newaccountmaltainvest.select' | translate}}
+                      </div>
+                    </label>
+            </div>
+            <div class="row">
+                <div class="col help-block error" ng-if="vm.data.taxResidence  == null && vm.taxRequirement">
+                    {{ 'newaccountmaltainvest.required' | translate }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end multiselect -->
+
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col input-title">
+                    {{'newaccountmaltainvest.tax_identification_number' | translate}}
+                    <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col item-input">
+                    <input name="taxIdentificationNumber" ng-model="vm.data.taxIdentificationNumber" ng-pattern="/^[\w-]{0,20}$/" required />
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.taxIdentificationNumber.$error" role="alert" ng-if='newAccountMaltainvestForm.taxIdentificationNumber.$dirty' ng-hide="vm.taxIdentificationNumberError">
+                        <div ng-message when="pattern">{{'newaccountmaltainvest.error_format' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-messages="vm.taxIdentificationNumberError" role="alert" ng-if='vm.taxIdentificationNumberError'>
+                        <div>{{vm.taxIdentificationNumberErrorMessage}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col">
             <div class="row">
@@ -749,107 +822,6 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col info-container">
-            <div class="row">
-                <div class="col">
-                    {{'newaccountmaltainvest.tax_info' | translate}}
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-        <div class="row">
-            <div class="col">
-                <div class="row">
-                    <div class="col input-title">
-                        {{'newaccountmaltainvest.place_of_birth' | translate}}
-                        <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col item-input item-select">
-                          <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.residenceList" required>
-                              <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
-                          </select>
-                      </label>
-                      <div class="help-block error" ng-messages="newAccountMaltainvestForm.placeOfBirth.$error" role="alert" ng-if='newAccountMaltainvestForm.placeOfBirth.$dirty' ng-hide="vm.placeOfBirthError">
-                          <div ng-message="required">{{'newaccountmaltainvest.required' | translate}}</div>
-                      </div>
-                    <div class="help-block error" ng-messages="vm.placeOfBirthError" role="alert" ng-if='vm.placeOfBirthError'>
-                        <div>{{vm.placeOfBirthErrorMessage}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    <!-- multiselect -->
-    <div class="row">
-        <div class="col">
-            <div class="row">
-                <div class="col input-title">
-                    {{'newaccountmaltainvest.tax_residence' | translate}}
-                    <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
-                </div>
-            </div>
-            <div class="row">
-                <label class="col item-input item-select tax-residence" ng-click="vm.showTaxResidenceItems()">
-                  <div class="tax-residence-select">
-                    {{ vm.selectedTaxResidencesName || 'newaccountmaltainvest.select' | translate}}
-                  </div>
-                </label>
-            </div>
-            <div class="row">
-              <div class="col help-block">
-                {{'newaccountmaltainvest.tax_residence_hint' | translate}}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col help-block error" ng-if="vm.data.taxResidence  == null && vm.taxRequirement">
-                {{ 'newaccountmaltainvest.required' | translate }}
-              </div>
-            </div>
-        </div>
-    </div>
-
-     <!-- end multiselect -->
-
-     <div class="row">
-         <div class="col">
-             <div class="row">
-                 <div class="col input-title">
-                     {{'newaccountmaltainvest.tax_identification_number' | translate}}
-                     <span>{{'newaccountmaltainvest.isrequired' | translate}}</span>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col item-input">
-                     <input name="taxIdentificationNumber" ng-model="vm.data.taxIdentificationNumber" ng-pattern="/^[\w-]{0,20}$/" required />
-                     <div class="col help-block">
-                       {{'newaccountmaltainvest.tax_identification_number_hint' | translate}}
-                     </div>
-                     <div class="help-block error" ng-messages="newAccountMaltainvestForm.taxIdentificationNumber.$error" role="alert" ng-if='newAccountMaltainvestForm.taxIdentificationNumber.$dirty' ng-hide="vm.taxIdentificationNumberError">
-                         <div ng-message when="pattern">{{'newaccountmaltainvest.error_format' | translate}}</div>
-                     </div>
-                     <div class="help-block error" ng-messages="vm.taxIdentificationNumberError" role="alert" ng-if='vm.taxIdentificationNumberError'>
-                         <div>{{vm.taxIdentificationNumberErrorMessage}}</div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-
-     <div class="row">
-         <div class="col info-container">
-             <div class="row">
-                 <div class="col">
-                     {{'newaccountmaltainvest.tax_warn' | translate}}
-                 </div>
-             </div>
-         </div>
-     </div>
 
     <div class="row">
         <div class="col">

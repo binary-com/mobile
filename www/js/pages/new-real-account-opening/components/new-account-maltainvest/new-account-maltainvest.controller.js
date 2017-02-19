@@ -84,18 +84,8 @@
             vm.modalCtrl = modal;
         });
 
-        function hideModal() {
-            if (vm.modalCtrl) {
-                vm.modalCtrl.hide();
-            }
-        }
-
         vm.closeModal = function() {
-            hideModal();
-        }
-
-        vm.residenceDisable = function(index, residence) {
-            return (residence.disabled === "DISABLED" ? true : false);
+          if (vm.modalCtrl) vm.modalCtrl.hide();
         }
 
         vm.showTaxResidenceItems = function() {

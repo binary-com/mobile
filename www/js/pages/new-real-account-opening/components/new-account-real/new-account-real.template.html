@@ -133,6 +133,70 @@
         <div class="col">
             <div class="row">
                 <div class="col input-title">
+                    {{'newaccountreal.place_of_birth' | translate}}
+                    <span>{{'newaccountreal.isoptional' | translate}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col item-input item-select">
+                      <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text for residence in vm.residenceList">
+                          <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
+                      </select>
+                  </label>
+                <div class="help-block error" ng-messages="vm.placeOfBirthError" role="alert" ng-if='vm.placeOfBirthError'>
+                    <div>{{vm.placeOfBirthErrorMessage}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- multiselect -->
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col input-title">
+                    {{'newaccountreal.tax_residence' | translate}}
+                    <span>{{'newaccountreal.isoptional' | translate}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col item-input item-select tax-residence" ng-click="vm.showTaxResidenceItems()">
+              <div class="tax-residence-select">
+                {{ vm.selectedTaxResidencesName || 'newaccountreal.select' | translate}}
+              </div>
+            </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- end multiselect -->
+
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col input-title">
+                    {{'newaccountreal.tax_identification_number' | translate}}
+                    <span>{{'newaccountreal.isoptional' | translate}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col item-input">
+                    <input name="taxIdentificationNumber" ng-model="vm.data.taxIdentificationNumber" ng-pattern="/^[\w-]{0,20}$/" />
+                    <div class="help-block error" ng-messages="newAccountMaltainvestForm.taxIdentificationNumber.$error" role="alert" ng-if='newAccountMaltainvestForm.taxIdentificationNumber.$dirty' ng-hide="vm.taxIdentificationNumberError">
+                        <div ng-message when="pattern">{{'newaccountreal.error_format' | translate}}</div>
+                    </div>
+                    <div class="help-block error" ng-messages="vm.taxIdentificationNumberError" role="alert" ng-if='vm.taxIdentificationNumberError'>
+                        <div>{{vm.taxIdentificationNumberErrorMessage}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col input-title">
                     {{'newaccountreal.addreess_line_1' | translate}}
                     <span>{{'newaccountreal.isrequired' | translate}}</span>
                 </div>
@@ -265,99 +329,6 @@
             </div>
         </div>
     </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="row">
-                    <div class="col input-title">
-                        {{'newaccountreal.place_of_birth' | translate}}
-                        <span>{{'newaccountreal.isoptional' | translate}}</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col item-input item-select">
-                          <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.residenceList">
-                              <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
-                          </select>
-                      </label>
-                    <div class="help-block error" ng-messages="vm.placeOfBirthError" role="alert" ng-if='vm.placeOfBirthError'>
-                        <div>{{vm.placeOfBirthErrorMessage}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    <!-- multiselect -->
-    <div class="row">
-        <div class="col">
-            <div class="row">
-                <div class="col input-title">
-                    {{'newaccountreal.tax_residence' | translate}}
-                    <span>{{'newaccountreal.isoptional' | translate}}</span>
-                </div>
-            </div>
-            <div class="row">
-                <label class="col item-input item-select tax-residence" ng-click="vm.showTaxResidenceItems()">
-                  <div class="tax-residence-select">
-                    {{ vm.selectedTaxResidencesName || 'newaccountreal.select' | translate}}
-                  </div>
-                </label>
-            </div>
-            <div class="row">
-              <div class="col help-block">
-                {{'newaccountreal.tax_residence_hint' | translate}}
-              </div>
-            </div>
-        </div>
-    </div>
-
-     <!-- end multiselect -->
-
-     <div class="row">
-         <div class="col">
-             <div class="row">
-                 <div class="col input-title">
-                     {{'newaccountreal.tax_identification_number' | translate}}
-                     <span>{{'newaccountreal.isoptional' | translate}}</span>
-                 </div>
-             </div>
-             <div class="row">
-                 <div class="col item-input">
-                     <input name="taxIdentificationNumber" ng-model="vm.data.taxIdentificationNumber" ng-pattern="/^[\w-]{0,20}$/" />
-                     <div class="col help-block">
-                       {{'newaccountreal.tax_identification_number_hint' | translate}}
-                     </div>
-                     <div class="help-block error" ng-messages="newAccountMaltainvestForm.taxIdentificationNumber.$error" role="alert" ng-if='newAccountMaltainvestForm.taxIdentificationNumber.$dirty' ng-hide="vm.taxIdentificationNumberError">
-                         <div ng-message when="pattern">{{'newaccountreal.error_format' | translate}}</div>
-                     </div>
-                     <div class="help-block error" ng-messages="vm.taxIdentificationNumberError" role="alert" ng-if='vm.taxIdentificationNumberError'>
-                         <div>{{vm.taxIdentificationNumberErrorMessage}}</div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-
-     <!-- <div class="row">
-         <div class="col">
-             <div class="row">
-                 <label class="col input-title accept">
-                     <input type="checkbox" disabled ng-model="vm.data.taxAccept" class="checkbox" ng-checked="true"/>
-                     {{'newaccountreal.tax_accept_info' | translate}}
-                 </label>
-             </div>
-         </div>
-     </div> -->
-
-     <div class="row">
-         <div class="col info-container">
-             <div class="row">
-                 <div class="col">
-                     {{'newaccountreal.tax_warn' | translate}}
-                 </div>
-             </div>
-         </div>
-     </div>
 
     <div class="row">
         <div class="col">
