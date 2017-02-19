@@ -65,12 +65,10 @@
             } else if (['terms-and-conditions'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = false;
-                $ionicSideMenuDelegate.toggleLeft();
             } else if (['financial-assessment'].indexOf(vm.to.name) > -1) {
                 if (appStateService.hasToRedirectToFinancialAssessment) {
                     vm.hideMenuButton = true;
                     vm.showBack = false;
-                    $ionicSideMenuDelegate.toggleLeft();
                 } else {
                     vm.hideMenuButton = true;
                     vm.showBack = true;
@@ -79,7 +77,6 @@
                 if (appStateService.hasToRedirectToTaxInformation) {
                     vm.hideMenuButton = true;
                     vm.showBack = false;
-                    $ionicSideMenuDelegate.toggleLeft();
                 } else {
                     vm.hideMenuButton = true;
                     vm.showBack = true;

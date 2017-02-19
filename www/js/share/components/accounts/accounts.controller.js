@@ -68,6 +68,7 @@
             $ionicSideMenuDelegate.toggleLeft();
             appStateService.hasToRedirectToTermsAndConditions = false;
             appStateService.hasToRedirectToFinancialAssessment = false;
+            appStateService.hasToRedirectToTaxInformation = false;
             appStateService.redirectFromFinancialAssessment = true;
             appStateService.limitsChange = true;
         };

@@ -22,6 +22,27 @@
         vm.updateSuccessful = false;
         vm.changed = false;
         vm.notAnyChanges = false;
+        vm.selectBoxesError = [];
+        vm.requestData = [
+        'commodities_trading_experience',
+        'commodities_trading_frequency',
+        'education_level',
+        'employment_industry',
+        'estimated_worth',
+        'forex_trading_experience',
+        'forex_trading_frequency',
+        'income_source',
+        'indices_trading_experience',
+        'indices_trading_frequency',
+        'net_income',
+        'other_derivatives_trading_experience',
+        'other_derivatives_trading_frequency',
+        'other_instruments_trading_experience',
+        'other_instruments_trading_frequency',
+        'stocks_trading_experience',
+        'stocks_trading_frequency',
+        'occupation'
+        ];
 
         $scope.$on('authorize', () => {
           if(appStateService.redirectFromFinancialAssessment){
@@ -34,64 +55,29 @@
         $scope.$on('get_financial_assessment:success', (e, financial_assessment) => {
             $scope.$applyAsync(() => {
                 if (!_.isEmpty(financial_assessment)) {
-                    vm.data.commoditiesTradingExperience = financial_assessment.commodities_trading_experience;
-                    vm.data.commoditiesTradingFrequency = financial_assessment.commodities_trading_frequency;
-                    vm.data.educationLevel = financial_assessment.education_level;
-                    vm.data.employmentIndustry = financial_assessment.employment_industry;
-                    vm.data.estimatedWorth = financial_assessment.estimated_worth;
-                    vm.data.forexTradingExperience = financial_assessment.forex_trading_experience;
-                    vm.data.forexTradingFrequency = financial_assessment.forex_trading_frequency;
-                    vm.data.incomeSource = financial_assessment.income_source;
-                    vm.data.indicesTradingExperience = financial_assessment.indices_trading_experience;
-                    vm.data.indicesTradingFrequency = financial_assessment.indices_trading_frequency;
-                    vm.data.netIncome = financial_assessment.net_income;
-                    vm.data.otherDerivativesTradingExperience = financial_assessment.other_derivatives_trading_experience;
-                    vm.data.otherDerivativesTradingFrequency = financial_assessment.other_derivatives_trading_frequency;
-                    vm.data.otherInstrumentsTradingExperience = financial_assessment.other_instruments_trading_experience;
-                    vm.data.otherInstrumentsTradingFrequency = financial_assessment.other_instruments_trading_frequency;
-                    vm.data.stocksTradingExperience = financial_assessment.stocks_trading_experience;
-                    vm.data.stocksTradingFrequency = financial_assessment.stocks_trading_frequency;
-                    vm.data.occupation = financial_assessment.occupation;
+                  _.forEach(vm.requestData, (value, key) => {
+                    vm.data[_.camelCase(value)] = financial_assessment[value];
+                  });
                     vm.disableUpdate = false;
                 }
             });
         });
 
         vm.selectChanged = function() {
-            vm.selectBoxesError = [
-                vm.data.forexTradingExperience, vm.data.forexTradingFrequency, vm.data.indicesTradingExperience, vm.data.indicesTradingFrequency, vm.data.commoditiesTradingExperience, vm.data.commoditiesTradingFrequency,
-                vm.data.stocksTradingExperience, vm.data.stocksTradingFrequency,
-                vm.data.otherDerivativesTradingExperience, vm.data.otherDerivativesTradingFrequency,
-                vm.data.otherInstrumentsTradingExperience, vm.data.otherInstrumentsTradingFrequency,
-                vm.data.employmentIndustry, vm.data.educationLevel, vm.data.incomeSource,
-                vm.data.netIncome, vm.data.estimatedWorth
-            ];
+          _.forEach(vm.requestData, (value, key) => {
+            vm.selectBoxesError.push(_.camelCase(value));
+          });
             vm.disableUpdate = vm.selectBoxesError.some(element => !angular.isDefined(element)) ? true : false;
             vm.changed = true;
         }
 
         vm.submitFinancialAssessment = function() {
             if (vm.changed) {
-                var params = {
-                    "forex_trading_experience": vm.data.forexTradingExperience,
-                    "forex_trading_frequency": vm.data.forexTradingFrequency,
-                    "indices_trading_experience": vm.data.indicesTradingExperience,
-                    "indices_trading_frequency": vm.data.indicesTradingFrequency,
-                    "commodities_trading_experience": vm.data.commoditiesTradingExperience,
-                    "commodities_trading_frequency": vm.data.commoditiesTradingFrequency,
-                    "stocks_trading_experience": vm.data.stocksTradingExperience,
-                    "stocks_trading_frequency": vm.data.stocksTradingFrequency,
-                    "other_derivatives_trading_experience": vm.data.otherDerivativesTradingExperience,
-                    "other_derivatives_trading_frequency": vm.data.otherDerivativesTradingFrequency,
-                    "other_instruments_trading_experience": vm.data.otherInstrumentsTradingExperience,
-                    "other_instruments_trading_frequency": vm.data.otherInstrumentsTradingFrequency,
-                    "employment_industry": vm.data.employmentIndustry,
-                    "education_level": vm.data.educationLevel,
-                    "income_source": vm.data.incomeSource,
-                    "net_income": vm.data.netIncome,
-                    "estimated_worth": vm.data.estimatedWorth,
-                }
-                websocketService.sendRequestFor.setFinancialAssessment(params);
+              vm.params = {};
+              _.forEach(vm.data, (value, key) => {
+                vm.params[_.snakeCase(key)] = vm.data[key];
+              });
+                websocketService.sendRequestFor.setFinancialAssessment(vm.params);
                 vm.notAnyChanges = false;
             } else {
                 vm.notAnyChanges = true;
