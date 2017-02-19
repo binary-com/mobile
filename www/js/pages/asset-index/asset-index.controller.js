@@ -74,7 +74,7 @@
                     var col = vm.assetCells[j][idx.cellName];
                     values[col] = vm.assetCells[j][idx.cellFrom] + ' - ' + vm.assetCells[j][idx.cellTo];
                     var marketCols = vm.marketColumns[market];
-                    if (marketCols.columns.indexOf(col) === -1) {
+                    if (marketCols.columns.indexOf(col) < 0) {
                         marketCols.header.push(vm.assetCells[j][idx.cellDisplayName]);
                         marketCols.columns.push(col);
                     }

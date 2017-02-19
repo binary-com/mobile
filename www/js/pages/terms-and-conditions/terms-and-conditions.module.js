@@ -11,14 +11,10 @@
 
     angular
         .module('binary.pages.terms-and-conditions', [
-            'binary.pages.terms-and-conditions.controllers',
-            'binary.pages.terms-and-conditions.directives'
+            'binary.pages.terms-and-conditions.controllers'
         ]);
 
     angular
         .module('binary.pages.terms-and-conditions.controllers', []);
-
-    angular
-        .module('binary.pages.terms-and-conditions.directives', []);
 
 })();

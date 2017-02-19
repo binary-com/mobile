@@ -59,7 +59,7 @@
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.to = to;
             vm.from = from;
-            if (['transactiondetail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index', 'limits'].indexOf(vm.to.name) > -1) {
+            if (['transaction-detail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index', 'limits'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
             } else if (['terms-and-conditions'].indexOf(vm.to.name) > -1) {
@@ -89,10 +89,10 @@
                 }
                 vm.hideMenuButton = false;
                 vm.showBack = false;
-                if (vm.from.name == 'profittable') {
+                if (vm.from.name === 'profit-table') {
                     appStateService.isProfitTableSet = false;
                 }
-                if (vm.from.name == 'statement') {
+                if (vm.from.name === 'statement') {
                     appStateService.isStatementSet = false;
                 }
             }
@@ -101,9 +101,7 @@
         // back button function
         vm.goToPrevPage = function() {
             $state.go(vm.from);
-
         };
-
 
     }
 })();

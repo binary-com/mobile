@@ -10,12 +10,12 @@
     'use strict';
 
     angular
-        .module('binary.pages.new-real-account-opening.components.new-account-real')
-        .controller('NewAccountRealController', NewAccountReal);
+        .module('binary.pages.real-account-opening')
+        .controller('RealAccountOpeningController', RealAccountOpening);
 
-    NewAccountReal.$inject = ['$scope', '$filter', '$ionicModal', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    RealAccountOpening.$inject = ['$scope', '$filter', '$ionicModal', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function NewAccountReal($scope, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
+    function RealAccountOpening($scope, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
         vm.hasResidence = false;
@@ -58,7 +58,7 @@
         ];
 
 
-        $ionicModal.fromTemplateUrl('js/pages/new-real-account-opening/components/new-account-real/tax-residence.modal.html', {
+        $ionicModal.fromTemplateUrl('js/pages/real-account-opening/tax-residence.modal.html', {
             scope: $scope
         }).then(function(modal) {
             vm.modalCtrl = modal;

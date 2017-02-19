@@ -1,5 +1,5 @@
 /**
- * @name new-account-maltainvest controller
+ * @name maltainvest-account-opening controller
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 08/14/2016
@@ -10,12 +10,12 @@
     'use strict';
 
     angular
-        .module('binary.pages.new-real-account-opening.components.new-account-maltainvest')
-        .controller('NewAccountMaltainvestController', NewAccountMaltainvest);
+        .module('binary.pages.maltainvest-account-opening')
+        .controller('MaltainvestAccountOpeningController', MaltainvestAccountOpening);
 
-    NewAccountMaltainvest.$inject = ['$scope', '$state', '$filter', '$ionicModal', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    MaltainvestAccountOpening.$inject = ['$scope', '$state', '$filter', '$ionicModal', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function NewAccountMaltainvest($scope, $state, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
+    function MaltainvestAccountOpening($scope, $state, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
         vm.hasPlaceOfbirth = false;
@@ -78,7 +78,7 @@
         ];
 
 
-        $ionicModal.fromTemplateUrl('js/pages/new-real-account-opening/components/new-account-maltainvest/tax-residence.modal.html', {
+        $ionicModal.fromTemplateUrl('js/pages/maltainvest-account-opening/tax-residence.modal.html', {
             scope: $scope
         }).then(function(modal) {
             vm.modalCtrl = modal;

@@ -38,7 +38,7 @@
         $scope.$on('proposal:open-contract', (e, proposal_open_contract, req_id) => {
             vm.proposalOpenContract = proposal_open_contract;
             vm.data.reqId = req_id;
-            if (vm.data.reqId == vm.data.id) {
+            if (vm.data.reqId === vm.data.id) {
                 $scope.$applyAsync(() => {
                     vm.contract = vm.proposalOpenContract;
                 });
