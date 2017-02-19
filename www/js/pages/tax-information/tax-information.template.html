@@ -19,7 +19,7 @@
                             </div>
                             <div class="row">
                                 <label class="col item-input item-select">
-                                <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.residenceList" required ng-disabled="vm.hasPlaceOfbirth">
+                                <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text for residence in vm.residenceList" required ng-disabled="vm.hasPlaceOfbirth">
                                     <option value="" disabled>{{'tax-information.select' | translate}}</option>
                                 </select>
                             </label>

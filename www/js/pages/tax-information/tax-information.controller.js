@@ -88,10 +88,6 @@
             hideModal();
         }
 
-        vm.residenceDisable = function(index, residence) {
-            return (residence.disabled === "DISABLED" ? true : false);
-        }
-
         vm.showTaxResidenceItems = function() {
             vm.modalCtrl.show();
         }
