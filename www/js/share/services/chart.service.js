@@ -621,13 +621,13 @@ angular
 
 				var getLabelFillColor = function getLabelFillColor(prevPoint, currentPoint) {
 					if(prevPoint.value < currentPoint.value) {
-						return "#29abe2";
+						return "rgba(41, 171, 226, 0.6)";
 					}
 					else if(prevPoint.value > currentPoint.value) {
-						return "#C03";
+						return "rgba(204, 0, 51, 0.6)";
 					}
 					else{
-						return "#F2F2F2";
+						return "rgba(242, 242, 242, 0.6)";
 					}
 				};
 
