@@ -117,12 +117,11 @@
                 address_city: vm.profile.address_city,
                 address_state: vm.profile.address_state,
                 address_postcode: vm.profile.address_postcode,
-                phone: vm.profile.phone,
-                tax_residence: vm.profile.tax_residence,
-                tax_identification_number: vm.profile.tax_identification_number,
-                place_of_birth: vm.profile.place_of_birth
+                phone: vm.profile.phone
             };
-
+            if(vm.profile.tax_residence) params.tax_residence = vm.profile.tax_residence;
+            if(vm.profile.tax_identification_number) params.tax_identification_number = vm.profile.tax_identification_number;
+            if(vm.profile.place_of_birth) params.place_of_birth = vm.profile.place_of_birth;
             websocketService.sendRequestFor.setAccountSettings(params);
         }
 
