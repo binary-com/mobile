@@ -139,7 +139,7 @@
     "minutes":"minut(y)",
     "interval_error":"Proszę wpisać liczbę z przedziału od 10 do 120.",
     "view_statement":"View Statement",
-    "integer_error":"Interval should be integer."
+    "integer_error":"Odstęp czasu powinien być liczbą całkowitą."
   },
   "newvirtualaccount":{
     "continue":"Kontynuuj",
@@ -224,11 +224,11 @@
     "personal_care":"Pracownicy sektora opieki zdrowotnej, sprzedaży i sektora publicznego",
     "agricultural":"Rolnicy, robotnicy leśni i rybacy",
     "craft":"Pracownicy sektora rzemieślniczego, metalurgicznego, elektrycznego i elektronicznego",
-    "machine":"Plant and Machine Operators and Assemblers",
-    "helpers":"Cleaners and Helpers",
-    "mining":"Mining, Construction, Manufacturing and Transport Workers",
-    "armed_forces":"Armed Forces",
-    "government_officers":"Government Officers",
+    "machine":"Operatorzy i monterzy maszyn i urządzeń",
+    "helpers":"Pracownicy sprzątający i pomoc domowa",
+    "mining":"Pracownicy sektora wydobywczego, produkcyjnego i transportowego",
+    "armed_forces":"Wojskowi",
+    "government_officers":"Urzędnicy państwowi",
     "primary":"Podstawowe",
     "secondary":"Średnie",
     "tertiary":"Wyższe",
@@ -284,7 +284,7 @@
     "last_name":"Nazwisko",
     "date_of_birth":"Data urodzenia",
     "residence":"Kraj zamieszkania",
-    "place_of_birth":"Place of birth",
+    "place_of_birth":"Miejsce urodzenia",
     "addreess_line_1":"Pierwsza część adresu zamieszkania",
     "addreess_line_2":"Druga część adresu zamieszkania",
     "address_city":"Miasto",
@@ -315,8 +315,8 @@
     "error_secretanswer":"To pole musi liczyć 4-50 znaków.",
     "isrequired":"(obowiązkowe)",
     "isoptional":"(opcjonalne)",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number"
+    "tax_residence":"Rezydencja podatkowa",
+    "tax_identification_number":"Numer identyfikacji podatkowej"
   },
   "profittable":{
     "profit_table":"Tabela zysków",
@@ -400,15 +400,15 @@
     "statement":"Oświadczenie",
     "language":"Język",
     "settings":"Ustawienia",
-    "resources":"Resources"
+    "resources":"Zasoby"
   },
   "settings":{
     "settings":"Ustawienia",
     "security-and-limits":"Bezpieczeństwo i limity",
     "self-exclusion":"Samodzielne wyłączenie",
-    "change-password":"Change Password",
-    "financial-assessment":"Financial Assessment",
-    "limits":"Limits"
+    "change-password":"Zmień hasło",
+    "financial-assessment":"Ocena finansowa",
+    "limits":"Limity"
   },
   "self-exclusion":{
     "self-exclusion":"Udogodnienia samodzielnego wyłączenia",
@@ -430,11 +430,11 @@
     "session-duration-limit-in-minutes":"Limit czasu sesji, w minutach",
     "session-duration-hint":"Zostaniesz automatycznie wylogowany po tym czasie.",
     "time-out-until":"Przekroczono limit czasu do",
-    "time-out-hint":"Please enter date in the format MM/DD/YYYY HH:mm (local time). ",
+    "time-out-hint":"Wprowadź datę w formacie MM/DD/RRRR GG: mm (czasu lokalnego). ",
     "exclude-me-from-the-website-until":"Wyłącz mnie z portalu do dnia",
-    "exclude-me-hint":"Please enter date in the format MM/DD/YYYY.",
+    "exclude-me-hint":"Wprowadź datę w formacie MM/DD/RRRR.",
     "update-settings":"Uaktualnij ustawienia",
-    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}",
+    "please-enter-an-integer-value":"Wprowadź wartość całkowitą o max długości {{max}}",
     "valid-range-hint":"Proszę wpisać liczbę od 0 do {{max}}",
     "date-is-not-valid":"Exclude time must be after today",
     "date-can-not-be-greater-than":"Exclude time cannot be greater than {{max}}",
