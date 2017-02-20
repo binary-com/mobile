@@ -437,12 +437,12 @@
     "please-enter-an-integer-value":"Wprowadź wartość całkowitą o max długości {{max}}",
     "valid-range-hint":"Proszę wpisać liczbę od 0 do {{max}}",
     "date-is-not-valid":"Czas wyłączenia musi zaczynać się jutro lub później",
-    "date-can-not-be-greater-than":"Exclude time cannot be greater than {{max}}",
-    "date-can-not-less-than":"Exclude time cannot be less than {{max}}",
+    "date-can-not-be-greater-than":"Okres wyłączenia nie może przekraczać {{max}}",
+    "date-can-not-less-than":"Okres wyłączenia nie może być krótszy niż {{max}}",
     "save-prompt":"Treść zapisana pomyślnie",
-    "session-timeout-warning":"Your session duration limit will end in 10 seconds.",
+    "session-timeout-warning":"Limit czasu sesji zakończy się za 10 sek.",
     "success":"Sukces",
-    "warning":"Warning"
+    "warning":"Ostrzeżenie"
   },
   "profile":{
     "personal_details":"Dane osobowe",
@@ -465,12 +465,12 @@
     "maximum_length_should_be_35_characters":"Maksymalna długość powinna wynosić 35 znaków",
     "maximum_length_should_be_20_characters":"Maksymalna długość powinna wynosić 20 znaków",
     "minimum_length_should_be_6_characters":"Maksymalna długość powinna wynosić 6 znaków",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
-    "place_of_birth":"Place of birth",
-    "select":"Please select",
-    "error_format":"Wrong format or length",
-    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}"
+    "tax_residence":"Rezydencja podatkowa",
+    "tax_identification_number":"Numer identyfikacji podatkowej",
+    "place_of_birth":"Miejsce urodzenia",
+    "select":"Proszę wybrać",
+    "error_format":"Nieprawidłowy format lub długość",
+    "please-enter-an-integer-value":"Wprowadź wartość całkowitą o max długości {{max}}"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"zaktualizowało swój",
@@ -482,13 +482,13 @@
     "version":"Wersja"
   },
   "change-password":{
-    "change_password":"Change Password",
-    "current_password":"Current password",
-    "new_password":"New password",
-    "verify_new_password":"Verify new password",
-    "password_hint":"Minimum of six lower and uppercase letters with numbers",
-    "password_not_match":"The two passwords that you entered do not match.",
-    "required":"This field is required.",
+    "change_password":"Zmień hasło",
+    "current_password":"Obecne hasło",
+    "new_password":"Nowe hasło",
+    "verify_new_password":"Zweryfikuj nowe hasło",
+    "password_hint":"Co najmniej sześć znaków, w tym małych i wielkich liter oraz cyfr",
+    "password_not_match":"Wprowadzone hasła nie są zgodne.",
+    "required":"To pole jest obowiązkowe.",
     "current_password_required":"Please enter your current password.",
     "not_match_pattern":"Does not match the pattern",
     "password_changed_text":"Your password has been changed. Please log in again."
