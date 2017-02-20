@@ -14,8 +14,7 @@
         .controller('AccountsController', Accounts);
 
     Accounts.$inject = [
-        '$scope', '$state', '$ionicSideMenuDelegate', 'accountService', 'appStateService',
-        'utilsService', 'websocketService'
+        '$scope', '$state', '$ionicSideMenuDelegate', 'accountService', 'appStateService', 'websocketService'
     ];
 
     function Accounts(
@@ -24,7 +23,6 @@
         $ionicSideMenuDelegate,
         accountService,
         appStateService,
-        utilsService,
         websocketService
     ) {
         var vm = this;
@@ -68,6 +66,7 @@
             $ionicSideMenuDelegate.toggleLeft();
             appStateService.hasToRedirectToTermsAndConditions = false;
             appStateService.hasToRedirectToFinancialAssessment = false;
+            appStateService.hasToRedirectToTaxInformation = false;
             appStateService.redirectFromFinancialAssessment = true;
             appStateService.limitsChange = true;
         };

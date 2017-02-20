@@ -41,7 +41,7 @@ angular
           controller: 'HelpController',
           controllerAs: 'vm'
         })
-				.state('profittable',{
+				.state('profit-table',{
 					parent: 'layout',
 					cache: true,
 					templateUrl: 'js/pages/profit-table/profit-table.template.html',
@@ -55,7 +55,7 @@ angular
 					controller: 'StatementController',
 					controllerAs: 'vm'
 				})
-				.state('transactiondetail',{
+				.state('transaction-detail',{
 					parent: 'layout',
 					cache: false,
 					templateUrl: 'js/pages/transaction-detail/transaction-detail.template.html',
@@ -63,11 +63,18 @@ angular
 					controllerAs: 'vm',
 					reloadOnSearch: false
 				})
-				.state('realaccountopening',{
+				.state('real-account-opening',{
 					parent: 'layout',
 				  cache: false,
-					templateUrl: 'js/pages/new-real-account-opening/new-real-account-opening.template.html',
-					controller: 'NewRealAccountOpeningController',
+					templateUrl: 'js/pages/real-account-opening/real-account-opening.template.html',
+					controller: 'RealAccountOpeningController',
+					controllerAs: 'vm'
+				})
+				.state('maltainvest-account-opening',{
+					parent: 'layout',
+				  cache: false,
+					templateUrl: 'js/pages/maltainvest-account-opening/maltainvest-account-opening.template.html',
+					controller: 'MaltainvestAccountOpeningController',
 					controllerAs: 'vm'
 				})
         .state('language', {

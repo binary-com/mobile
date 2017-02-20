@@ -13,9 +13,9 @@
         .module('binary.share.components.check-user-status.controllers')
         .controller('CheckUserStatusController', CheckUserStatus);
 
-    CheckUserStatus.$inject = ['$scope', '$state', '$translate', 'websocketService', 'appStateService', 'alertService', 'accountService'];
+    CheckUserStatus.$inject = ['$scope', '$state', '$translate', '$ionicSideMenuDelegate', 'websocketService', 'appStateService', 'alertService', 'accountService'];
 
-    function CheckUserStatus($scope, $state, $translate, websocketService, appStateService, alertService, accountService) {
+    function CheckUserStatus($scope, $state, $translate, $ionicSideMenuDelegate, websocketService, appStateService, alertService, accountService) {
         var vm = this;
         vm.isLoggedIn = false;
         vm.notUpdatedTaxInfo = false;
@@ -94,6 +94,7 @@
                     vm.redirectPriority.shift();
                     if (appStateService['hasToRedirectTo' + _.camelCase(value)]) {
                         $state.go(value);
+                        $ionicSideMenuDelegate.toggleLeft();
                         break;
                     }
                 }

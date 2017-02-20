@@ -10,12 +10,12 @@
     'use strict';
 
     angular
-        .module('binary.pages.new-real-account-opening.components.new-account-real')
-        .controller('NewAccountRealController', NewAccountReal);
+        .module('binary.pages.real-account-opening')
+        .controller('RealAccountOpeningController', RealAccountOpening);
 
-    NewAccountReal.$inject = ['$scope', '$filter', '$ionicModal', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    RealAccountOpening.$inject = ['$scope', '$filter', '$ionicModal', 'websocketService', 'appStateService', 'accountService', 'alertService'];
 
-    function NewAccountReal($scope, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
+    function RealAccountOpening($scope, $filter, $ionicModal, websocketService, appStateService, accountService, alertService) {
         var vm = this;
         vm.data = {};
         vm.hasResidence = false;
@@ -58,7 +58,7 @@
         ];
 
 
-        $ionicModal.fromTemplateUrl('js/pages/new-real-account-opening/components/new-account-real/tax-residence.modal.html', {
+        $ionicModal.fromTemplateUrl('js/pages/real-account-opening/tax-residence.modal.html', {
             scope: $scope
         }).then(function(modal) {
             vm.modalCtrl = modal;
@@ -108,7 +108,6 @@
         websocketService.sendRequestFor.residenceListSend();
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
-            vm.taxResidenceList = residence_list;
             vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
             if (vm.phoneCodeObj.hasOwnProperty('phone_idd')) {
                 vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
@@ -147,7 +146,7 @@
         vm.setTaxResidence = function() {
             vm.selectedTaxResidencesName = null;
             vm.data.taxResidence = null;
-            _.forEach(vm.taxResidenceList, (value, key) => {
+            _.forEach(vm.residenceList, (value, key) => {
                 if (value.checked) {
                     vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
                     vm.data.taxResidence = vm.data.taxResidence ? (vm.data.taxResidence + value.value + ',') : (value.value + ',');

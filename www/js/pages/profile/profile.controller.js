@@ -13,11 +13,11 @@
         .module('binary.pages.profile.controllers')
         .controller('ProfileController', Profile);
 
-    Profile.$inject = ['$scope', '$translate', '$ionicModal', 'alertService',
+    Profile.$inject = ['$scope', '$translate', '$filter', '$ionicModal', 'alertService',
         'appStateService', 'websocketService', 'accountService'
     ];
 
-    function Profile($scope, $translate, $ionicModal, alertService,
+    function Profile($scope, $translate, $filter, $ionicModal, alertService,
         appStateService, websocketService, accountService) {
         var vm = this;
         vm.states = [];
@@ -34,7 +34,7 @@
             $scope.$applyAsync(() => {
                 vm.profile = response;
                 if (vm.profile.date_of_birth) {
-                    vm.profile.date_of_birth = new Date(vm.profile.date_of_birth * 1000).toISOString('yyyy-mm-dd').slice(0, 10);
+                    vm.profile.date_of_birth = $filter('date')(vm.profile.date_of_birth * 1000, 'yyyy-MM-dd');
                 }
                 websocketService.sendRequestFor.residenceListSend();
                 vm.isDataLoaded = true;
@@ -111,7 +111,7 @@
         }
 
         function updateProfile() {
-            var address = {
+            var params = {
                 address_line_1: vm.profile.address_line_1,
                 address_line_2: vm.profile.address_line_2,
                 address_city: vm.profile.address_city,
@@ -123,7 +123,7 @@
                 place_of_birth: vm.profile.place_of_birth
             };
 
-            websocketService.sendRequestFor.setAccountSettings(address);
+            websocketService.sendRequestFor.setAccountSettings(params);
         }
 
         $ionicModal.fromTemplateUrl('js/pages/profile/tax-residence.modal.html', {

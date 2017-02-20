@@ -23,12 +23,7 @@
       vm.hideInput = false;
       vm.hideChangedPasswordText = true;
       vm.checkPassword = function(){
-        if(vm.newPassword === vm.repeatNewPassword){
-          vm.passwordEqual = true;
-        }
-        else{
-          vm.passwordEqual = false;
-        }
+        vm.passwordEqual = vm.newPassword === vm.repeatNewPassword ? true : false;
       }
 
 			vm.changePass = function(){
@@ -38,12 +33,7 @@
       }
 
       vm.disablePasswordChange = function(){
-        if(!vm.passwordEqual || _.isEmpty(vm.newPassword) || _.isEmpty(vm.currentPassword)){
-          return true;
-        }
-        else{
-          return false;
-        }
+        return (!vm.passwordEqual || _.isEmpty(vm.newPassword) || _.isEmpty(vm.currentPassword)) ? true : false;
       }
 
       $scope.$on('change_password:success', (e, change_password) => {

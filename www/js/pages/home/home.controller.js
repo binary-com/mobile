@@ -26,11 +26,7 @@
      * to redirect user  to the proper page
      */
     $scope.$on('authorize', (e, response) => {
-      if (response) {
-          $state.go('trade');
-      } else {
-        $state.go('signin');
-      }
+      response ? $state.go('trade') : $state.go('signin');
     });
 
     vm.init = function() {

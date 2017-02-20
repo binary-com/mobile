@@ -26,7 +26,7 @@
 				});
 			});
 
-      vm.currency = (vm.loginId.search('MLT') > -1 || vm.loginId.search('MF') > -1 || vm.loginId.search('MX') > -1) ? 'EUR' : (sessionStorage.getItem('currency') || 'USD');
+      vm.currency = (_.startsWith(vm.loginId, "MLT") || _.startsWith(vm.loginId, "MF") || _.startsWith(vm.loginId, "MX")) ? 'EUR' : (sessionStorage.getItem('currency') || 'USD');
 
       $scope.$on('authorize', () => {
         if(appStateService.limitsChange) {

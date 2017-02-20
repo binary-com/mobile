@@ -1,5 +1,5 @@
 /**
- * @name real-account-opening controller
+ * @name account-upgrade controller
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 08/14/2016
@@ -10,12 +10,12 @@
     'use strict';
 
     angular
-        .module('binary.share.components.real-account-opening.controllers')
-        .controller('RealAccountOpeningController', RealAccountOpening);
+        .module('binary.share.components.account-upgrade.controllers')
+        .controller('AccountUpgradeController', AccountUpgrade);
 
-    RealAccountOpening.$inject = ['$scope', '$state', '$translate', 'websocketService', 'appStateService', 'accountService', 'alertService'];
+    AccountUpgrade.$inject = ['$scope', '$state', 'websocketService', 'appStateService'];
 
-    function RealAccountOpening($scope, $state, $translate, websocketService, appStateService, accountService, alertService) {
+    function AccountUpgrade($scope, $state, websocketService, appStateService) {
         var vm = this;
           vm.data = {};
           vm.countryParams = {};
@@ -116,14 +116,14 @@
                     vm.hasGamingAndVirtual = true;
                     vm.getToken();
                 } else {
-                    if (vm.data.landingCompany.hasOwnProperty('financial_company') && (vm.data.landingCompany.financial_company.shortcode == "maltainvest")) {
+                    if (vm.data.landingCompany.hasOwnProperty('financial_company') && (vm.data.landingCompany.financial_company.shortcode === "maltainvest")) {
                         vm.hasGamingNotVirtual = true;
                         vm.getToken();
                     }
                 }
             } else if (!vm.data.landingCompany.hasOwnProperty('gaming_company')) {
                 if (vm.isVirtual) {
-                    if (vm.data.landingCompany.hasOwnProperty('financial_company') && (vm.data.landingCompany.financial_company.shortcode == "maltainvest")) {
+                    if (vm.data.landingCompany.hasOwnProperty('financial_company') && (vm.data.landingCompany.financial_company.shortcode === "maltainvest")) {
                         vm.hasFinancialAndMaltainvest = true;
                         vm.getToken();
                     }
@@ -141,18 +141,18 @@
         }
 
         vm.findTokens = function() {
-            if (vm.hasGamingAndVirtual == true) {
+            if (vm.hasGamingAndVirtual) {
                 vm.idsFound = [];
                 vm.count = vm.accounts.length;
                 vm.accounts.forEach((el, i) => {
                         vm.val = vm.accounts[i]['id'];
-                        if (vm.val.search('VRTC') > -1) {
+                        if (_.startsWith(vm.val, 'VRTC')) {
                             vm.idsFound.push('VRTC');
-                        } else if (vm.val.search('MX') > -1) {
+                        } else if (_.startsWith(vm.val, 'MX')) {
                             vm.idsFound.push('MXorCRorMLT');
-                        } else if (vm.val.search('CR') > -1) {
+                        } else if (_.startsWith(vm.val, 'CR')) {
                             vm.idsFound.push('MXorCRorMLT');
-                        } else if (vm.val.search('MLT') > -1) {
+                        } else if (_.startsWith(vm.val, 'MLT')) {
                             vm.idsFound.push('MXorCRorMLT');
                         }
 
@@ -162,12 +162,12 @@
                     }
 
                 );
-            } else if (vm.hasGamingNotVirtual == true) {
+            } else if (vm.hasGamingNotVirtual) {
                 vm.idsFound = [];
                 vm.count = vm.accounts.length;
                 vm.accounts.forEach((el, i) => {
                     vm.val = vm.accounts[i]['id'];
-                    if (vm.val.search('MF') > -1) {
+                    if (_.startsWith(vm.val, 'MF')) {
                         vm.idsFound.push('MF');
                     }
 
@@ -175,12 +175,12 @@
                         vm.gamingAndFinancialAndMaltainvestStages();
                     }
                 });
-            } else if (vm.hasFinancialAndMaltainvest == true) {
+            } else if (vm.hasFinancialAndMaltainvest) {
                 vm.idsFound = [];
                 vm.count = vm.accounts.length;
                 vm.accounts.forEach((el, i) => {
                     vm.val = vm.accounts[i]['id'];
-                    if (vm.val.search('MF') > -1) {
+                    if (_.startsWith(vm.val, 'MF')) {
                         vm.idsFound.push('MF');
                     }
 
@@ -192,7 +192,7 @@
         }
 
         vm.gamingAndVirtualStages = function() {
-            if (vm.idsFound.indexOf('VRTC') > -1 && vm.idsFound.indexOf('MXorCRorMLT') == -1) {
+            if (vm.idsFound.indexOf('VRTC') > -1 && vm.idsFound.indexOf('MXorCRorMLT') < 0) {
                 // can upgrade to MX or CR
                 // use https://developers.binary.com/api/#new_account_real
                 vm.newAccountReal();
@@ -200,13 +200,13 @@
         }
 
         vm.gamingAndFinancialAndMaltainvestStages = function() {
-            if (vm.idsFound.indexOf('MF') == -1) {
+            if (vm.idsFound.indexOf('MF') < 0) {
                 appStateService.hasMLT = true;
                 vm.newAccountMaltainvest();
             }
         }
         vm.financialAndMaltainvestStages = function() {
-                if (vm.idsFound.indexOf('MF') == -1) {
+                if (vm.idsFound.indexOf('MF') < 0) {
                     vm.newAccountMaltainvest();
                 }
             }
@@ -235,7 +235,8 @@
 
         // link to forms page
         vm.navigateToUpgrade = function() {
-            $state.go('realaccountopening');
+          if(appStateService.isNewAccountReal) $state.go('real-account-opening');
+          else if(appStateService.isNewAccountMaltainvest) $state.go('maltainvest-account-opening');
         }
 
     }
