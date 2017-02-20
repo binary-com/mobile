@@ -159,7 +159,8 @@
     "email-error":"Email ini tidak valid",
     "token-invalid":"Token tidak valid",
     "error_format":"Format atau panjang salah",
-    "residence-error":"Silakan pilih negara Anda"
+    "residence-error":"Silakan pilih negara Anda",
+    "invalid_email":"Please submit a valid email address."
   },
   "newaccountmaltainvest":{
     "open_financial":"Daftar akun finansial",
@@ -315,8 +316,7 @@
     "error_secretanswer":"Kolom ini harus diisi dengan 4-50 karakter panjang.",
     "isrequired":"(diperlukan)",
     "isoptional":"(opsional)",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number"
+    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
   },
   "profittable":{
     "profit_table":"Tabel Profit",
