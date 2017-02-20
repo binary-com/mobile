@@ -25,7 +25,6 @@
             'last_name',
             'date_of_birth',
             'residence',
-            "place_of_birth",
             'address_line_1',
             'address_line_2',
             'address_city',
@@ -33,9 +32,7 @@
             'address_postcode',
             'phone',
             'secret_question',
-            'secret_answer',
-            'tax_residence',
-            'tax_identification_number'
+            'secret_answer'
         ];
 
         vm.requestData = [
@@ -44,7 +41,6 @@
             "last_name",
             "date_of_birth",
             "residence",
-            "place_of_birth",
             "address_line_1",
             "address_line_2",
             "address_city",
@@ -52,36 +48,8 @@
             "address_postcode",
             "phone",
             "secret_question",
-            "secret_answer",
-            'tax_residence',
-            'tax_identification_number'
+            "secret_answer"
         ];
-
-
-        $ionicModal.fromTemplateUrl('js/pages/real-account-opening/tax-residence.modal.html', {
-            scope: $scope
-        }).then(function(modal) {
-            vm.modalCtrl = modal;
-        });
-
-        vm.closeModal = function() {
-          if (vm.modalCtrl) vm.modalCtrl.hide();
-        }
-
-        vm.showTaxResidenceItems = function() {
-            vm.modalCtrl.show();
-        }
-
-        vm.setUserCountry = function() {
-            // check if there are country and country code of user in sessionStorage
-            // some users from past don't have country chosen in signup
-            if (sessionStorage.hasOwnProperty('countryParams')) {
-                vm.countryParams = JSON.parse(sessionStorage.countryParams);
-                vm.data.countryCode = vm.countryParams.countryCode;
-                vm.data.residence = vm.countryParams.countryCode;
-                vm.hasResidence = true;
-            }
-        }
 
         // set all fields errors to false
         vm.resetAllErrors = function() {
@@ -90,42 +58,43 @@
                 vm[errorName] = false;
             });
         }
-
-        vm.setUserCountry();
         vm.resetAllErrors();
-
-        // get states of the user country
-        websocketService.sendRequestFor.statesListSend(vm.data.countryCode);
-        $scope.$on('states_list', (e, states_list) => {
-            vm.statesList = states_list;
-        });
-
-        // get phone code of the user country
-        vm.findPhoneCode = function(country) {
-            return country.value == vm.data.countryCode;
-        }
 
         websocketService.sendRequestFor.residenceListSend();
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
-            vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
-            if (vm.phoneCodeObj.hasOwnProperty('phone_idd')) {
-                vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
+            vm.getUserCountry();
+        });
+
+        vm.getUserCountry = function() {
+            // check if there are country and country code of user in sessionStorage
+            // some users from past don't have country chosen in signup
+            if (sessionStorage.hasOwnProperty('countryParams')) {
+                vm.countryParams = JSON.parse(sessionStorage.countryParams);
+                vm.data.residence = vm.countryParams.countryCode;
+                vm.hasResidence = true;
             }
-            if (vm.data.taxResidence) {
-                vm.settingTaxResidence = _.words(vm.data.taxResidence);
-                // check the "checked" value to true for every residence in residence list which is in user tax residences
-                vm.selectedTaxResidencesName = null;
-                _.forEach(vm.residenceList, (value, key) => {
-                    if (vm.settingTaxResidence.indexOf(value.value) > -1) {
-                        vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
-                        vm.residenceList[key].checked = true;
-                    }
-                });
-                $scope.$applyAsync(() => {
-                    vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
-                });
+        }
+
+        vm.findPhoneCode = function(country) {
+            return country.value == vm.data.residence;
+        }
+
+        $scope.$watch('vm.data.residence', () => {
+          if(vm.data.residence){
+            vm.indexOfResidence = vm.residenceList[_.findIndex(vm.residenceList, (val) => {
+              return val.value === vm.data.residence;
+            })];
+            if(vm.indexOfResidence.phone_idd) {
+              vm.phoneCode = vm.indexOfResidence.phone_idd;
+              vm.data.phone = '+' + vm.phoneCode;
             }
+            websocketService.sendRequestFor.statesListSend(vm.data.residence);
+          }
+        });
+
+        $scope.$on('states_list', (e, states_list) => {
+            vm.statesList = states_list;
         });
 
         // regexp pattern for name input (pattern in perl API doesn't work in javascript)
@@ -142,22 +111,6 @@
                 }
             }
         })();
-
-        vm.setTaxResidence = function() {
-            vm.selectedTaxResidencesName = null;
-            vm.data.taxResidence = null;
-            _.forEach(vm.residenceList, (value, key) => {
-                if (value.checked) {
-                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
-                    vm.data.taxResidence = vm.data.taxResidence ? (vm.data.taxResidence + value.value + ',') : (value.value + ',');
-                }
-            });
-
-            vm.data.taxResidence = vm.data.taxResidence != null ? _.trimEnd(vm.data.taxResidence, ",") : null;
-            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName != null ? _.trimEnd(vm.selectedTaxResidencesName, ", ") : null;
-            vm.closeModal();
-        }
-
 
         vm.submitAccountOpening = function() {
             vm.resetAllErrors();

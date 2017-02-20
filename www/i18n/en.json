@@ -324,9 +324,7 @@
         "isrequired": "(required)",
         "isoptional": "(optional)",
 				"select": "Please select",
-				"tax_residence": "Tax residence",
-				"tax_identification_number": "Tax Identification Number",
-				"place_of_birth": "Place of birth"
+				"accept_risk_question": "I have read and agree to the terms and conditions of the site."
     },
     "profittable": {
         "profit_table": "Profit table",
