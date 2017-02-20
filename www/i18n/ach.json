@@ -159,7 +159,8 @@
     "email-error":"crwdns17803:0crwdne17803:0",
     "token-invalid":"crwdns17804:0crwdne17804:0",
     "error_format":"crwdns17805:0crwdne17805:0",
-    "residence-error":"crwdns17806:0crwdne17806:0"
+    "residence-error":"crwdns17806:0crwdne17806:0",
+    "invalid_email":"crwdns19451:0crwdne19451:0"
   },
   "newaccountmaltainvest":{
     "open_financial":"crwdns17807:0crwdne17807:0",
@@ -315,8 +316,7 @@
     "error_secretanswer":"crwdns17938:0crwdne17938:0",
     "isrequired":"crwdns17939:0crwdne17939:0",
     "isoptional":"crwdns17940:0crwdne17940:0",
-    "tax_residence":"crwdns19448:0crwdne19448:0",
-    "tax_identification_number":"crwdns19417:0crwdne19417:0"
+    "accept_risk_question":"crwdns19452:0crwdne19452:0"
   },
   "profittable":{
     "profit_table":"crwdns17941:0crwdne17941:0",
