@@ -202,7 +202,6 @@
     "net_income":"Чистый годовой доход",
     "estimated_worth":"Собственный капитал",
     "info":"Финансовые услуги, предоставляемые в рамках данного сайта, подходят лишь для клиентов, готовых нести ответственность за возможную потерю всех инвестированных средств, а также осознающих риск и имеющих опыт риска, связанного с приобретением финансовых контрактов. Заключение сделок на финансовых контрактах предполагает высокий уровень риска. Если приобретённые контракты истекут, не принеся прибыли, Вы потеряете всю сумму своей инвестиции в контракт.",
-    "accept_risk_question":"Я прочитал и принял правила и условия сайта.",
     "open_account":"Открыть счёт",
     "select":"Пожалуйста, выберите",
     "under_1_year":"0-1 год",
@@ -270,7 +269,10 @@
     "error_format":"Неправильный формат или длина",
     "error_secretanswer":"Запись в данном поле не должна превышать 4-50 знаков.",
     "isrequired":"(обязательно)",
-    "isoptional":"(опционально)"
+    "isoptional":"(опционально)",
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "newaccountreal":{
     "open_real":"Открыть реальный счет",
@@ -316,7 +318,9 @@
     "error_secretanswer":"Запись в данном поле не должна превышать 4-50 знаков.",
     "isrequired":"(обязательно)",
     "isoptional":"(опционально)",
-    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "profittable":{
     "profit_table":"Анализ счёта",
