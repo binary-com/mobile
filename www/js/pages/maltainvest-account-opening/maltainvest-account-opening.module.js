@@ -10,6 +10,9 @@
   'use strict',
 
   angular
-    .module('binary.pages.new-real-account-opening.components.new-account-maltainvest', []);
+    .module('binary.pages.maltainvest-account-opening', []);
+
+    angular
+      .module('binary.pages.maltainvest-account-opening.controllers', []);
 
 })();

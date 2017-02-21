@@ -13,9 +13,9 @@
         .module('binary.pages.asset-index.controllers')
         .controller('AssetIndexController', AssetIndex);
 
-    AssetIndex.$inject = ['$scope', '$q', 'websocketService'];
+    AssetIndex.$inject = ['$scope', '$q'];
 
-    function AssetIndex($scope, $q, websocketService) {
+    function AssetIndex($scope, $q) {
         var vm = this;
         vm.hasError = false;
         vm.marketColumns;
@@ -74,7 +74,7 @@
                     var col = vm.assetCells[j][idx.cellName];
                     values[col] = vm.assetCells[j][idx.cellFrom] + ' - ' + vm.assetCells[j][idx.cellTo];
                     var marketCols = vm.marketColumns[market];
-                    if (marketCols.columns.indexOf(col) === -1) {
+                    if (marketCols.columns.indexOf(col) < 0) {
                         marketCols.header.push(vm.assetCells[j][idx.cellDisplayName]);
                         marketCols.columns.push(col);
                     }

@@ -13,10 +13,10 @@
         .module('binary.pages.transaction-detail.controllers')
         .controller('TransactionDetailController', TransactionDetail);
 
-    TransactionDetail.$inject = ['$scope', '$timeout', '$interval', '$state',
+    TransactionDetail.$inject = ['$scope', '$timeout', '$state',
                                  'appStateService', 'websocketService'];
 
-    function TransactionDetail($scope, $timeout, $interval, $state,
+    function TransactionDetail($scope, $timeout, $state,
                                appStateService, websocketService) {
         var vm = this;
 
@@ -38,7 +38,7 @@
         $scope.$on('proposal:open-contract', (e, proposal_open_contract, req_id) => {
             vm.proposalOpenContract = proposal_open_contract;
             vm.data.reqId = req_id;
-            if (vm.data.reqId == vm.data.id) {
+            if (vm.data.reqId === vm.data.id) {
                 $scope.$applyAsync(() => {
                     vm.contract = vm.proposalOpenContract;
                 });

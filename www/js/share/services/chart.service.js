@@ -619,18 +619,6 @@ angular
 					return color;
 				};
 
-				var getLabelFillColor = function getLabelFillColor(prevPoint, currentPoint) {
-					if(prevPoint.value < currentPoint.value) {
-						return "#29abe2";
-					}
-					else if(prevPoint.value > currentPoint.value) {
-						return "#C03";
-					}
-					else{
-						return "#F2F2F2";
-					}
-				};
-
 				var drawRegion = function drawRegion(thisChart, region) {
 					var height = thisChart.scale.endPoint - thisChart.scale.startPoint + 12, // + 12 to size up the region to the top
 						length,
@@ -972,12 +960,8 @@ angular
 
 						Chart.types.Line.prototype.draw.apply(this, arguments);
 						toShowLabels(dataset.points);
-						var prevPoint = dataset.points[dataset.points.length - 2];
-						var currentPoint = dataset.points[dataset.points.length - 1];
-						currentPoint.labelFillColor = getLabelFillColor(prevPoint, currentPoint);
 						dataset.points.forEach(function (point, index) {
-							// drawLabel(point, index);
-							drawLastTickLabel(point, index);
+							drawLabel(point, index);
 						});
 
 						if (utils.isDefined(this.options.regions)) {
@@ -1054,14 +1038,16 @@ angular
 
 
 				var destroy = function destroy() {
-					chartGlobals.chartJS.destroy();
-					setChartGlobals();
-					canvas = null;
-					ctx = null;
-					dataIndex = 0;
-					dragging = false;
-					zooming = false;
-					stepper = null;
+					if(chartGlobals.chartJS){
+						chartGlobals.chartJS.destroy();
+						setChartGlobals();
+						canvas = null;
+						ctx = null;
+						dataIndex = 0;
+						dragging = false;
+						zooming = false;
+						stepper = null;
+					}
 				};
 
 				var drawChart = function drawChart(chartID) {

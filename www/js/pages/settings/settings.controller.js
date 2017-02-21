@@ -21,17 +21,6 @@
     vm.android = ionic.Platform.isAndroid();
 
     vm.settings = [
-      /*{
-        name: "settings.security-and-limits",
-        submenus: [
-          {
-            name: "settings.self-exclusion",
-            url: "self-exclusion",
-            scope: "admin",
-            forRealAccount: true
-          }
-        ]
-      },*/
       {
         name: "profile.personal_details",
         url: "profile",

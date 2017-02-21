@@ -13,9 +13,9 @@
     .module('binary.pages.trade.components.options.controllers')
     .controller('MarketsController', Markets);
 
-  Markets.$inject = ['$scope', 'marketsService', 'websocketService'];
+  Markets.$inject = ['$scope', 'websocketService'];
 
-  function Markets($scope, marketsService, websocketService){
+  function Markets($scope, websocketService){
     var vm = this;
     vm.markets = {};
 

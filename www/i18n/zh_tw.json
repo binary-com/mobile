@@ -159,7 +159,8 @@
     "email-error":"電子郵件無效",
     "token-invalid":"權杖無效",
     "error_format":"格式或長度錯誤",
-    "residence-error":"請選擇您的國家"
+    "residence-error":"請選擇您的國家",
+    "invalid_email":"Please submit a valid email address."
   },
   "newaccountmaltainvest":{
     "open_financial":"開立金融帳戶",
@@ -315,8 +316,7 @@
     "error_secretanswer":"此欄位必須為 4-50 個字元以內。",
     "isrequired":"（必需）",
     "isoptional":"（可選）",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number"
+    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
   },
   "profittable":{
     "profit_table":"利潤表",

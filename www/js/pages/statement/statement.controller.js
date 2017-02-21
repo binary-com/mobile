@@ -43,9 +43,9 @@
             vm.lastPage = from.name;
             vm.enteredNow = true;
             vm.thisPage = to.name;
-            // check if state is changed from any state other than transactiondetail
-            // we do not refresh the state if it comes back from transactiondetail
-            if (vm.lastPage != 'transactiondetail' && vm.thisPage == 'statement') {
+            // check if state is changed from any state other than transaction-detail
+            // we do not refresh the state if it comes back from transaction-detail
+            if (vm.lastPage != 'transaction-detail' && vm.thisPage == 'statement') {
                 vm.resetParams();
                 vm.firstCompleted = false;
                 vm.backFromMainPages = true;
@@ -108,7 +108,7 @@
                 vm.setParams();
                 tableStateService.statementCompletedGroup = false;
                 vm.goTop();
-            } else if (!appStateService.isStatementSet && vm.enteredNow && vm.lastPage == 'transactiondetail') {
+            } else if (!appStateService.isStatementSet && vm.enteredNow && vm.lastPage == 'transaction-detail') {
                 vm.enteredNow = false;
                 vm.lastPage = '';
                 vm.setParams();
@@ -322,7 +322,7 @@
             if (id) {
                 vm.id = id;
                 sessionStorage.setItem('id', vm.id);
-                $state.go('transactiondetail');
+                $state.go('transaction-detail');
             }
         }
 

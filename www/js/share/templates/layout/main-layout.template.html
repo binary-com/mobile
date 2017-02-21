@@ -11,7 +11,7 @@
                 <bg-accounts></bg-accounts>
             </ion-header-bar>
             <ion-content class="has-header" scroll="false">
-                <bg-real-account-opening></bg-real-account-opening>
+                <bg-account-upgrade></bg-account-upgrade>
                 <ion-list>
                     <ion-item nav-clear menu-close ui-sref="trade" tabindex="1" href="#">
                         <div class="icon-wrapper">
@@ -19,7 +19,7 @@
                         </div>
                         {{ 'menu.trade' | translate }}
                     </ion-item>
-                    <ion-item nav-clear menu-close ui-sref="profittable" href="#">
+                    <ion-item nav-clear menu-close ui-sref="profit-table" href="#">
                         <div class="icon-wrapper">
                             <i class="ion-social-usd"></i>
                         </div>
@@ -43,7 +43,10 @@
                         </div>
                         {{ 'menu.resources' | translate }}
                     </ion-item>
-                    <ion-item class="side-item" nav-clear menu-close>
+                    <ion-item nav-clear menu-close>
+                      <div class="icon-wrapper">
+                          <i class="ion-log-out"></i>
+                      </div>
                         <bg-logout nav-clear menu-close></bg-logout>
                     </ion-item>
 

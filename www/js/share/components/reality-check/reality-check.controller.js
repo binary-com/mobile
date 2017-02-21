@@ -14,15 +14,12 @@
         .controller('RealityCheckController', RealityCheck);
 
     RealityCheck.$inject = [
-      '$scope', '$timeout', '$translate', '$location',
-      '$state', '$ionicPopup', 'websocketService',
-      'appStateService', 'accountService', 'alertService',
-      'languageService', 'proposalService'];
+      '$scope', '$timeout', '$translate',
+      '$state', 'websocketService',
+      'appStateService', 'alertService'];
 
     function RealityCheck(
-        $scope, $timeout, $translate, $location, $state,
-        $ionicPopup, websocketService, appStateService,
-        accountService, alertService, languageService, proposalService) {
+        $scope, $timeout, $translate, $state, websocketService, appStateService, alertService) {
 			var vm = this;
     var landingCompanyName;
     vm.integerError = false;
@@ -32,12 +29,12 @@
       if(!appStateService.realityCheckLogin) {
         appStateService.realityCheckLogin = true;
         // check if user is not already authorized, account is real money account  & is not changed in app
-        if (!appStateService.isRealityChecked && authorize.is_virtual == 0 && !appStateService.isChangedAccount) {
+        if (!appStateService.isRealityChecked && authorize.is_virtual === 0 && !appStateService.isChangedAccount) {
           landingCompanyName = authorize.landing_company_name;
           websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
         }
         // check if user is already authorized, account changed and is virtual money account
-        else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 1) {
+        else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual === 1) {
           $timeout.cancel(vm.realityCheckTimeout);
           appStateService.isChangedAccount = false;
           appStateService.isRealityChecked = true;
@@ -49,7 +46,7 @@
           }
         }
         // check if account is changed and is real money account
-        else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0) {
+        else if (appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual === 0) {
           if (vm.realityCheckTimeout) {
             $timeout.cancel(vm.realityCheckTimeout);
           }
@@ -64,7 +61,7 @@
           websocketService.sendRequestFor.landingCompanyDetails(landingCompanyName);
           appStateService.isChangedAccount = false;
         }
-        else if(!appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual == 0){
+        else if(!appStateService.isRealityChecked && appStateService.isChangedAccount && authorize.is_virtual === 0){
           if (vm.realityCheckTimeout) {
             $timeout.cancel(vm.realityCheckTimeout);
           }
@@ -220,7 +217,7 @@
     vm.alertRealityCheck = function(reality_check) {
       vm.removeStart('start');
       vm.realityCheckitems = reality_check;
-      if (vm.sessionLoginId == vm.realityCheckitems.loginid && !appStateService.isPopupOpen) {
+      if (vm.sessionLoginId === vm.realityCheckitems.loginid && !appStateService.isPopupOpen) {
         vm.sessionTime(reality_check);
         vm.data = {};
         vm.data.interval = parseInt(vm.getInterval('_interval'));
@@ -255,7 +252,7 @@
                   onTap: function(e) {
 
                     if (vm.data.interval <= 120 && vm.data.interval >= 10 && !vm.integerError) {
-                      if (vm.sessionLoginId == vm.realityCheckitems.loginid) {
+                      if (vm.sessionLoginId === vm.realityCheckitems.loginid) {
                         vm.getLastInterval(vm.data.interval);
                         vm.data.start_interval = (new Date()).getTime();
                         vm.setStart(vm.data.start_interval);
