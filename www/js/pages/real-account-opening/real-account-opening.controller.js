@@ -19,6 +19,7 @@
         var vm = this;
         vm.data = {};
         vm.hasResidence = false;
+        vm.data.linkToTermAndConditions = "https://www.binary.com/" + (localStorage.getItem('language') || "en") + "/terms-and-conditions.html";
         vm.formData = [
             'salutation',
             'first_name',
@@ -152,6 +153,10 @@
             appStateService.newAccountAdded = true;
             accountService.addedAccount = vm.selectedAccount;
         });
+
+        vm.openTermsAndConditions = function() {
+            window.open(vm.data.linkToTermAndConditions, '_blank');
+        }
 
     }
 })();

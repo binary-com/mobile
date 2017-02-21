@@ -207,7 +207,6 @@
         "net_income": "Net Annual Income",
         "estimated_worth": "Estimated Net Worth",
         "info": "The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.",
-        "accept_risk_question": "I have read and agree to the terms and conditions of the site.",
         "open_account": "Open Account",
         "select": "Please select",
         "under_1_year": "0-1 year",
@@ -276,7 +275,10 @@
         "error_secretanswer": "This field must be within 4-50 characters.",
         "isrequired": "(required)",
         "isoptional": "(optional)",
-				"select": "Please select"
+				"select": "Please select",
+				"read_and_agreed_to": "I have read and agree to the ",
+				"terms_and_conditions": "terms and conditions ",
+				"of_the_site": "of the site."
     },
     "newaccountreal": {
         "open_real": "Upgrade to a real account",
@@ -325,7 +327,9 @@
         "isrequired": "(required)",
         "isoptional": "(optional)",
 				"select": "Please select",
-				"accept_risk_question": "I have read and agree to the terms and conditions of the site."
+				"read_and_agreed_to": "I have read and agree to the ",
+				"terms_and_conditions": "terms and conditions ",
+				"of_the_site": "of the site."
     },
     "profittable": {
         "profit_table": "Profit table",
