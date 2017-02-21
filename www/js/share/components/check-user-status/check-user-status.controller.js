@@ -63,7 +63,7 @@
             if (get_settings) {
                 vm.clientTncStatus = get_settings.client_tnc_status;
                 vm.termsConditionsVersion = localStorage.getItem('termsConditionsVersion');
-                if (!appStateService.virtuality && vm.clientTncStatus !== vm.termsConditionsVersion) {
+                if (!appStateService.virtuality && vm.clientTncStatus == vm.termsConditionsVersion) {
                     appStateService.hasToRedirectToTermsAndConditions = true;
                 }
                 vm.state.termsAndConditions = true;
@@ -91,11 +91,15 @@
             if (vm.redirectPriority.length > 0) {
                 for (var key = 0; key < vm.redirectPriority.length; key++) {
                     var value = vm.redirectPriority[key];
-                    vm.redirectPriority.shift();
-                    if (appStateService['hasToRedirectTo' + _.camelCase(value)]) {
+                    if (appStateService['hasToRedirectTo' + _.upperFirst(_.camelCase(value))]) {
+                      vm.redirectPriority.shift();
                         $state.go(value);
-                        $ionicSideMenuDelegate.toggleLeft();
+                        if($ionicSideMenuDelegate.isOpen()) $ionicSideMenuDelegate.toggleLeft();
                         break;
+                    }
+                    else{
+                      vm.redirectPriority.shift();
+                      vm.redirect();
                     }
                 }
             } else {

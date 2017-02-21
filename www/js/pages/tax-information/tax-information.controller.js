@@ -42,20 +42,6 @@
 
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
-            if (vm.getSettings.tax_residence) {
-                vm.settingTaxResidence = _.words(vm.getSettings.tax_residence);
-                // check the "checked" value to true for every residence in residence list which is in user tax residences
-                vm.selectedTaxResidencesName = null;
-                _.forEach(vm.residenceList, (value, key) => {
-                  if(vm.settingTaxResidence.indexOf(value.value) > -1){
-                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
-                    vm.residenceList[key].checked = true;
-                  }
-                });
-                $scope.$applyAsync(() => {
-                    vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
-                });
-            }
         });
 
         $scope.$on('get_settings', (e, get_settings) => {
@@ -65,8 +51,24 @@
                 // set all information from get_setting to data array to pass to API later as params
                 _.forEach(vm.getSettings, (value, key) => {
                     if (vm.requestData.indexOf(key) > -1) {
+                      if(key !== 'tax_residence'){
                         vm.convertedValue = _.camelCase(key);
                         vm.data[vm.convertedValue] = value;
+                      }
+                      else{
+                        vm.settingTaxResidence = _.words(vm.getSettings.tax_residence);
+                        // check the "checked" value to true for every residence in residence list which is in user tax residences
+                        vm.selectedTaxResidencesName = null;
+                        _.forEach(vm.residenceList, (value, key) => {
+                          if(vm.settingTaxResidence.indexOf(value.value) > -1){
+                            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
+                            vm.residenceList[key].checked = true;
+                          }
+                        });
+                        $scope.$applyAsync(() => {
+                            vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
+                        });
+                      }
                     }
                 });
             }
