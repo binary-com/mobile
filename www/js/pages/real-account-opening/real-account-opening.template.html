@@ -23,20 +23,20 @@
                     <div class="row">
                         <div class="col item-select">
                             <select name="salutation" ng-model="vm.data.salutation" ng-required="1==1">
-                      <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
-                        <option value="Mr">
-                            {{'newaccountreal.mr' | translate}}
-                        </option>
-                        <option value="Mrs">
-                            {{'newaccountreal.mrs' | translate}}
-                        </option>
-                        <option value="Miss">
-                            {{'newaccountreal.miss' | translate}}
-                        </option>
-                        <option value="Ms">
-                            {{'newaccountreal.ms' | translate}}
-                        </option>
-                    </select>
+                              <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
+                              <option value="Mr">
+                                {{'newaccountreal.mr' | translate}}
+                              </option>
+                              <option value="Mrs">
+                                {{'newaccountreal.mrs' | translate}}
+                              </option>
+                              <option value="Miss">
+                                {{'newaccountreal.miss' | translate}}
+                              </option>
+                              <option value="Ms">
+                                {{'newaccountreal.ms' | translate}}
+                              </option>
+                            </select>
                             <div class="help-block error" ng-messages="vm.salutationError" role="alert" ng-if='vm.salutationError'>
                                 <div>{{vm.salutationErrorMessage}}</div>
                             </div>
@@ -304,13 +304,15 @@
             <div class="row">
                 <div class="col">
                     <div class="row">
-                        <label class="col input-title center accept">
-                          <input type="checkbox" ng-model="vm.data.accept" class="checkbox" required/>
-                          {{'newaccountreal.accept_risk_question' | translate}}
-                          <div class="help-block error" ng-messages="vm.acceptError" role="alert" ng-if='vm.acceptError'>
-                            <div>{{vm.secretAnswerErrorMessage}}</div>
-                          </div>
-                        </label>
+                        <div class="col accept center">
+                            <input name="TnC" type="checkbox" ng-model="vm.data.accept" class="checkbox" required/>
+                            {{'newaccountreal.read_and_agreed_to' | translate}}
+                            <a ng-click="vm.openTermsAndConditions()">{{'newaccountreal.terms_and_conditions' | translate}}</a>
+                            {{'newaccountreal.of_the_site' | translate}}
+                            <div class="help-block error" ng-messages="vm.acceptError" role="alert" ng-if='vm.acceptError'>
+                              <div>{{vm.acceptRiskErrorMessage}}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
