@@ -202,7 +202,6 @@
     "net_income":"Pendapatan Bersih Tahunan",
     "estimated_worth":"Perkiraan Kekayaan",
     "info":"Layanan trading finansial situs ini hanya cocok bagi pelanggan yang dapat menanggung kerugian berupa kehilangan semua dana yang mereka investasikan dan yang memahami dan memiliki pengalaman pada berbagai risiko yang terlibat dalam akuisisi kontrak finansial. Transaksi pada kontrak finansial memiliki tingkat resiko yang tinggi. Jika kontrak dinyatakan rugi maka total kerugian adalah terbatas pada jumlah harga kontrak yang telah dibayarkan.",
-    "accept_risk_question":"Saya telah membaca dan menyetujui syarat dan ketentuan situs.",
     "open_account":"Daftar Akun",
     "select":"Silakan Pilih",
     "under_1_year":"0-1 tahun",
@@ -270,7 +269,10 @@
     "error_format":"Format atau panjang salah",
     "error_secretanswer":"Kolom ini harus berkisar 4-50 karakter.",
     "isrequired":"(diperlukan)",
-    "isoptional":"(opsional)"
+    "isoptional":"(opsional)",
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "newaccountreal":{
     "open_real":"Upgrade ke akun real",
@@ -316,7 +318,9 @@
     "error_secretanswer":"Kolom ini harus diisi dengan 4-50 karakter panjang.",
     "isrequired":"(diperlukan)",
     "isoptional":"(opsional)",
-    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "profittable":{
     "profit_table":"Tabel Profit",

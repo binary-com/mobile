@@ -202,7 +202,6 @@
     "net_income":"年净收入",
     "estimated_worth":"估计净值",
     "info":"本网站包含的金融交易服务仅适合这样的客户：能够承受全部投入资金亏损的风险，了解购买金融合约的风险并具有相关经验。金融合约交易有很高的风险。如果购买的合约到期时一文不值，您将损失全部投资，包括合约费用。",
-    "accept_risk_question":"我已经阅读并同意网站的条款和条件。",
     "open_account":"开立账户",
     "select":"请选择",
     "under_1_year":"0-1 年",
@@ -270,7 +269,10 @@
     "error_format":"格式或长度错误",
     "error_secretanswer":"此字段必须为 4-50 个字符以内。",
     "isrequired":"（必需）",
-    "isoptional":"（可选）"
+    "isoptional":"（可选）",
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "newaccountreal":{
     "open_real":"升级到真实账户",
@@ -316,7 +318,9 @@
     "error_secretanswer":"此字段必须为 4-50 个字符以内。",
     "isrequired":"（必需）",
     "isoptional":"（可选）",
-    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "profittable":{
     "profit_table":"利润表",

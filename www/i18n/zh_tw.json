@@ -202,7 +202,6 @@
     "net_income":"年淨收入",
     "estimated_worth":"估計淨值",
     "info":"本網站所涵蓋的金融交易服務僅適合這樣的客戶：能夠承受全部投入資金虧損的風險，了解購買金融合約所蘊含的風險並擁有相關的風險經歷。金融合約交易涉及很大的風險。如果所購買的合約到期時一文不值，您的投資將完全損失，其中還包括合約費用。",
-    "accept_risk_question":"我已經閱讀並同意網站的條款及條件。",
     "open_account":"開立帳戶",
     "select":"請選擇",
     "under_1_year":"0-1 年",
@@ -270,7 +269,10 @@
     "error_format":"格式或長度錯誤",
     "error_secretanswer":"此欄位必須為 4-50 個字元以內。",
     "isrequired":"（必需）",
-    "isoptional":"（可選）"
+    "isoptional":"（可選）",
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "newaccountreal":{
     "open_real":"升級到真實帳戶",
@@ -316,7 +318,9 @@
     "error_secretanswer":"此欄位必須為 4-50 個字元以內。",
     "isrequired":"（必需）",
     "isoptional":"（可選）",
-    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "profittable":{
     "profit_table":"利潤表",
