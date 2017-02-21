@@ -63,7 +63,7 @@
             if (get_settings) {
                 vm.clientTncStatus = get_settings.client_tnc_status;
                 vm.termsConditionsVersion = localStorage.getItem('termsConditionsVersion');
-                if (!appStateService.virtuality && vm.clientTncStatus == vm.termsConditionsVersion) {
+                if (!appStateService.virtuality && vm.clientTncStatus !== vm.termsConditionsVersion) {
                     appStateService.hasToRedirectToTermsAndConditions = true;
                 }
                 vm.state.termsAndConditions = true;
