@@ -160,7 +160,7 @@
     "token-invalid":"Token jest nieprawidłowy",
     "error_format":"Nieprawidłowy format lub długość",
     "residence-error":"Proszę wybrać swój kraj",
-    "invalid_email":"Please submit a valid email address."
+    "invalid_email":"Proszę podać prawidłowy adres e-mail."
   },
   "newaccountmaltainvest":{
     "open_financial":"Otwórz konto finansowe",
@@ -316,7 +316,7 @@
     "error_secretanswer":"To pole musi liczyć 4-50 znaków.",
     "isrequired":"(obowiązkowe)",
     "isoptional":"(opcjonalne)",
-    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
+    "accept_risk_question":"Zapoznałem się z regulaminem korzystania z tej strony i akceptuję go."
   },
   "profittable":{
     "profit_table":"Tabela zysków",
@@ -568,13 +568,13 @@
     "limit":"Limit",
     "open_positions":"Maksymalna dzienna liczba otwartych pozycji",
     "account_balance":"Maksymalne saldo na koncie",
-    "payouts":"Maximum aggregate payouts on open positions",
-    "payouts_per_symbol_and_contract_type":"Maximum aggregate payouts on open positions per symbol and contract type",
-    "maximum_daily_turnover":"Maximum daily turnover",
+    "payouts":"Maksymalne zagregowane wypłaty dla pozycji otwartych",
+    "payouts_per_symbol_and_contract_type":"Maksymalne zagregowane wypłaty dla pozycji otwartych przypadająca na symbol i rodzaj kontraktu",
+    "maximum_daily_turnover":"Maksymalny dzienny obrót",
     "commodities":"Towary",
     "forex":"Forex",
-    "smart_fx":"Smart FX",
-    "minor_pairs":"Minor Pairs",
+    "smart_fx":"Inteligentny forex",
+    "minor_pairs":"Pary drugorzędne",
     "major_pairs":"Pary główne",
     "indices":"Wskaźniki",
     "stocks":"Akcje",
