@@ -13,9 +13,9 @@
         .module('binary.pages.terms-and-conditions.controllers')
         .controller('TermsAndConditionsController', TermsAndConditions);
 
-    TermsAndConditions.$inject = ['$scope', '$state', 'websocketService', 'alertService', 'appStateService'];
+    TermsAndConditions.$inject = ['$scope', 'websocketService', 'alertService'];
 
-    function TermsAndConditions($scope, $state, websocketService, alertService, appStateService) {
+    function TermsAndConditions($scope, websocketService, alertService) {
         var vm = this;
         vm.data = {};
         vm.data.landingCompanyName = localStorage.getItem('landingCompanyName');

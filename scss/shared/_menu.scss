@@ -7,7 +7,7 @@
         line-height: 1.42857;
         padding: 5px 5px 0 5px;
         font-size: 1rem;
-        color: $white;
+        color: $white!important;
         position: relative;
       }
     }
@@ -45,6 +45,7 @@
     .item {
         margin: 0;
         background-color: $primaryBrandColor;
+        color: $white;
     }
     bg-accounts {
         width: 100%;

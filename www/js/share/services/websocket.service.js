@@ -153,6 +153,7 @@ angular
               appStateService.hasToRedirectToFinancialAssessment = false;
               appStateService.redirectFromFinancialAssessment = false;
               appStateService.limitsChange = false;
+              appStateService.hasToRedirectToTaxInformation = false;
 
               appStateService.realityCheckLogin = false;
 

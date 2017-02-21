@@ -159,7 +159,8 @@
     "email-error":"Неправильный эл. адрес",
     "token-invalid":"Неправильный ключ",
     "error_format":"Неправильный формат или длина",
-    "residence-error":"Пожалуйста, укажите страну"
+    "residence-error":"Пожалуйста, укажите страну",
+    "invalid_email":"Please submit a valid email address."
   },
   "newaccountmaltainvest":{
     "open_financial":"Открыть финансовый счёт",
@@ -229,9 +230,9 @@
     "mining":"Работники горнодобывающей промышленности, строительства, производства и транспорта",
     "armed_forces":"Вооруженные силы",
     "government_officers":"Гос. служащие",
-    "primary":"Первичный",
-    "secondary":"Вторичный",
-    "tertiary":"Третичный",
+    "primary":"Начальное",
+    "secondary":"Среднее",
+    "tertiary":"Высшее",
     "salaried":"Наёмный работник",
     "self_employed":"Частный предприниматель",
     "investment":"Инвестиции и дивиденды",
@@ -315,8 +316,7 @@
     "error_secretanswer":"Запись в данном поле не должна превышать 4-50 знаков.",
     "isrequired":"(обязательно)",
     "isoptional":"(опционально)",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number"
+    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
   },
   "profittable":{
     "profit_table":"Анализ счёта",
@@ -540,9 +540,9 @@
     "mining":"Работники горнодобывающей промышленности, строительства, производства и транспорта",
     "armed_forces":"Вооруженные силы",
     "government_officers":"Гос. служащие",
-    "primary":"Первичный",
-    "secondary":"Вторичный",
-    "tertiary":"Третичный",
+    "primary":"Начальное",
+    "secondary":"Среднее",
+    "tertiary":"Высшее",
     "salaried":"Наёмный работник",
     "self_employed":"Частный предприниматель",
     "investment":"Инвестиции и дивиденды",

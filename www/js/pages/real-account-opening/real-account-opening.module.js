@@ -10,6 +10,9 @@
   'use strict',
 
   angular
-    .module('binary.pages.new-real-account-opening.components.new-account-real', []);
+    .module('binary.pages.real-account-opening', []);
+
+    angular
+      .module('binary.pages.real-account-opening.controllers', []);
 
 })();

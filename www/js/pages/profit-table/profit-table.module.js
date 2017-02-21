@@ -12,15 +12,11 @@
     angular
         .module('binary.pages.profit-table', [
             'binary.pages.profit-table.controllers',
-            'binary.pages.profit-table.directives',
             'binary.pages.profit-table.filters'
         ]);
 
     angular
         .module('binary.pages.profit-table.controllers', []);
-
-    angular
-        .module('binary.pages.profit-table.directives', []);
 
     angular
         .module('binary.pages.profit-table.filters', []);

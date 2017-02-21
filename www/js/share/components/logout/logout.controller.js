@@ -14,19 +14,11 @@
     .controller('LogoutController', Logout);
 
   Logout.$inject = [
-		'$rootScope', '$state',
-    'accountService', 'appStateService',
-    'websocketService', 'alertService',
-    'proposalService'];
+    'websocketService', 'alertService'];
 
-  function Logout(
-			$rootScope,
-			$state,
-      accountService,
-      appStateService,
+  function Logout( 
       websocketService,
-      alertService,
-      proposalService
+      alertService
     ){
     var vm = this;
 		vm.logout = function(res) {

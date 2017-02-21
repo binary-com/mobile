@@ -1,5 +1,5 @@
 /**
- * @name profit-table directive
+ * @name account-upgrade directive
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 08/14/2016
@@ -10,14 +10,14 @@
     'use strict';
 
     angular
-        .module('binary.pages.profit-table.directives')
-        .directive('bgProfitTable', ProfitTable);
+        .module('binary.share.components.account-upgrade.directives')
+        .directive('bgAccountUpgrade', AccountUpgrade);
 
-    function ProfitTable() {
+    function AccountUpgrade() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'js/pages/profit-table/profit-table.template.html',
-            controller: 'ProfitTableController',
+            templateUrl: 'js/share/components/account-upgrade/account-upgrade.template.html',
+            controller: 'AccountUpgradeController',
             controllerAs: 'vm',
             bindToController: true,
             scope: {}

@@ -16,13 +16,13 @@
     Purchase.$inject = [
         '$scope', '$timeout', 'analyticsService',
         'accountService', 'appStateService',
-        'proposalService','tradeService',
+        'proposalService',
         'websocketService',
     ];
 
     function Purchase($scope, $timeout, analyticsService,
         accountService, appStateService,
-        proposalService, tradeService,
+        proposalService,
         websocketService) {
         var vm = this;
 

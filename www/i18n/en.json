@@ -164,7 +164,8 @@
         "email-error": "Email is not valid",
         "token-invalid": "Token is invalid",
         "error_format": "Wrong format or length",
-        "residence-error": "Please choose your country"
+        "residence-error": "Please choose your country",
+				"invalid_email": "Please submit a valid email address."
     },
     "newaccountmaltainvest": {
         "open_financial": "Open a financial account",
@@ -324,9 +325,7 @@
         "isrequired": "(required)",
         "isoptional": "(optional)",
 				"select": "Please select",
-				"tax_residence": "Tax residence",
-				"tax_identification_number": "Tax Identification Number",
-				"place_of_birth": "Place of birth"
+				"accept_risk_question": "I have read and agree to the terms and conditions of the site."
     },
     "profittable": {
         "profit_table": "Profit table",

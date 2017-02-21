@@ -159,7 +159,8 @@
     "email-error":"E-Mail Adresse ist nicht gültig",
     "token-invalid":"Token ist ungültig",
     "error_format":"Falsches Format oder falsche Länge",
-    "residence-error":"Bitte wählen Sie Ihr Land aus"
+    "residence-error":"Bitte wählen Sie Ihr Land aus",
+    "invalid_email":"Please submit a valid email address."
   },
   "newaccountmaltainvest":{
     "open_financial":"Eröffnen Sie ein Finanzkonto",
@@ -315,8 +316,7 @@
     "error_secretanswer":"Dieses Feld muss zwischen 4-50 Zeichen lang sein.",
     "isrequired":"(erforderlich)",
     "isoptional":"(optional)",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number"
+    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
   },
   "profittable":{
     "profit_table":"Gewinntabelle",

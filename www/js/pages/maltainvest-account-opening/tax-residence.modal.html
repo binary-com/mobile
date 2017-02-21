@@ -5,6 +5,6 @@
   </ion-header-bar>
 
   <ion-content>
-					<ion-checkbox ng-repeat="residence in vm.taxResidenceList" ng-model="residence.checked" ng-value="residence.value" ng-checked="residence.checked" ng-class="{'disabled' :vm.residenceDisable($index, residence)}"> {{ residence.text }}</ion-checkbox>
+					<ion-checkbox ng-repeat="residence in vm.residenceList" ng-model="residence.checked" ng-value="residence.value" ng-checked="residence.checked" ng-class="{'disabled' :vm.residenceDisable($index, residence)}"> {{ residence.text }}</ion-checkbox>
   </ion-content>
 </ion-modal-view>

@@ -159,7 +159,8 @@
     "email-error":"电子邮件无效",
     "token-invalid":"令牌无效",
     "error_format":"格式或长度错误",
-    "residence-error":"请选择您的国家"
+    "residence-error":"请选择您的国家",
+    "invalid_email":"Please submit a valid email address."
   },
   "newaccountmaltainvest":{
     "open_financial":"开立金融账户",
@@ -315,8 +316,7 @@
     "error_secretanswer":"此字段必须为 4-50 个字符以内。",
     "isrequired":"（必需）",
     "isoptional":"（可选）",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number"
+    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
   },
   "profittable":{
     "profit_table":"利润表",
