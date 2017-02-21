@@ -202,7 +202,6 @@
     "net_income":"crwdns17840:0crwdne17840:0",
     "estimated_worth":"crwdns17841:0crwdne17841:0",
     "info":"crwdns17842:0crwdne17842:0",
-    "accept_risk_question":"crwdns17843:0crwdne17843:0",
     "open_account":"crwdns17844:0crwdne17844:0",
     "select":"crwdns17845:0crwdne17845:0",
     "under_1_year":"crwdns17846:0crwdne17846:0",
@@ -270,7 +269,10 @@
     "error_format":"crwdns17895:0crwdne17895:0",
     "error_secretanswer":"crwdns17896:0crwdne17896:0",
     "isrequired":"crwdns17897:0crwdne17897:0",
-    "isoptional":"crwdns17898:0crwdne17898:0"
+    "isoptional":"crwdns17898:0crwdne17898:0",
+    "read_and_agreed_to":"crwdns19453:0crwdne19453:0",
+    "terms_and_conditions":"crwdns19454:0crwdne19454:0",
+    "of_the_site":"crwdns19455:0crwdne19455:0"
   },
   "newaccountreal":{
     "open_real":"crwdns17899:0crwdne17899:0",
@@ -316,7 +318,9 @@
     "error_secretanswer":"crwdns17938:0crwdne17938:0",
     "isrequired":"crwdns17939:0crwdne17939:0",
     "isoptional":"crwdns17940:0crwdne17940:0",
-    "accept_risk_question":"crwdns19452:0crwdne19452:0"
+    "read_and_agreed_to":"crwdns19456:0crwdne19456:0",
+    "terms_and_conditions":"crwdns19457:0crwdne19457:0",
+    "of_the_site":"crwdns19458:0crwdne19458:0"
   },
   "profittable":{
     "profit_table":"crwdns17941:0crwdne17941:0",
