@@ -669,7 +669,7 @@ angular
                               $rootScope.$broadcast('set-settings', message.set_settings);
                             }
                             else if(message.error){
-                              $rootScope.$broadcast('set-settings:error', message.error.message);
+                              $rootScope.$broadcast('set-settings:error', message.error);
                             }
                             break;
                         case 'tnc_approval':
