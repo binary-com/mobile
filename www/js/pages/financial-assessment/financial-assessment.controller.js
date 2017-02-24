@@ -18,10 +18,10 @@
     function FinancialAssessment($scope, $state, $translate, websocketService, appStateService, alertService) {
         var vm = this;
         vm.data = {};
-        vm.disableUpdate = true;
+        vm.disableUpdateButton = true;
         vm.changed = false;
         vm.notAnyChanges = false;
-        vm.disableUpdate = false;
+        vm.disableUpdateButton = false;
         vm.selectBoxesError = [];
         vm.requestData = [
             'commodities_trading_experience',
@@ -69,7 +69,7 @@
                     _.forEach(vm.requestData, (value, key) => {
                         vm.data[_.camelCase(value)] = vm.financialAssessment[value];
                     });
-                    vm.disableUpdate = false;
+                    vm.disableUpdateButton = false;
                 }
             });
         });
@@ -85,7 +85,7 @@
                 }
             });
             if (!vm.notAnyChanges) {
-              vm.disableUpdate = true;
+              vm.disableUpdateButton = true;
                 websocketService.sendRequestFor.setFinancialAssessment(vm.params);
             }
         }
@@ -101,10 +101,11 @@
               }
             });
             websocketService.sendRequestFor.getFinancialAssessment();
-            vm.disableUpdate = false;
+            vm.disableUpdateButton = false;
         });
 
         $scope.$on('set_financial_assessment:error', (e, error) => {
+          vm.disableUpdateButton = false;
             if (error.hasOwnProperty('details')) {
                 $scope.$applyAsync(() => {
                     _.forEach(vm.requestData, (value, key) => {
