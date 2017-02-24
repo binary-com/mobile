@@ -576,8 +576,9 @@
 			"estimated_worth_5": "Over $1,000,000",
 			"update": "Update",
 			"financial_assessment_info": "The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.",
-			"updated_successfully": "Your settings have been updated successfully",
-			"no_change": "You did not change anything."
+			"no_change": "You did not change anything.",
+			"success": "Success",
+      "success_message": "Your settings have been updated successfully."
 		},
 		"limits": {
 			"trading_withdrawal_limits": "Trading and Withdrawal Limits",
