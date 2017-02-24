@@ -160,7 +160,7 @@
     "token-invalid":"Token tidak valid",
     "error_format":"Format atau panjang salah",
     "residence-error":"Silakan pilih negara Anda",
-    "invalid_email":"Please submit a valid email address."
+    "invalid_email":"Silakan masukkan alamat email yang berlaku."
   },
   "newaccountmaltainvest":{
     "open_financial":"Daftar akun finansial",
@@ -173,9 +173,9 @@
     "last_name":"Nama keluarga",
     "date_of_birth":"Tanggal lahir",
     "residence":"Negara tempat tinggal",
-    "place_of_birth":"Place of birth",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
+    "place_of_birth":"Tempat lahir",
+    "tax_residence":"Pajak rumah",
+    "tax_identification_number":"Nomor Pokok Wajib Pajak",
     "address":"Alamat",
     "addreess_line_1":"Baris pertama alamat rumah",
     "addreess_line_2":"Baris kedua alamat rumah",
@@ -270,9 +270,9 @@
     "error_secretanswer":"Kolom ini harus berkisar 4-50 karakter.",
     "isrequired":"(diperlukan)",
     "isoptional":"(opsional)",
-    "read_and_agreed_to":"I have read and agree to the ",
-    "terms_and_conditions":"terms and conditions ",
-    "of_the_site":"of the site."
+    "read_and_agreed_to":"Saya telah membaca dan bersetuju dengan ",
+    "terms_and_conditions":"syarat dan ketentuan ",
+    "of_the_site":"situs."
   },
   "newaccountreal":{
     "open_real":"Upgrade ke akun real",
@@ -287,7 +287,7 @@
     "last_name":"Nama keluarga",
     "date_of_birth":"Tanggal lahir",
     "residence":"Negara tempat tinggal",
-    "place_of_birth":"Place of birth",
+    "place_of_birth":"Tempat lahir",
     "addreess_line_1":"Baris pertama dari alamat rumah",
     "addreess_line_2":"Baris kedua alamat rumah",
     "address_city":"Kota",
@@ -318,9 +318,9 @@
     "error_secretanswer":"Kolom ini harus diisi dengan 4-50 karakter panjang.",
     "isrequired":"(diperlukan)",
     "isoptional":"(opsional)",
-    "read_and_agreed_to":"I have read and agree to the ",
-    "terms_and_conditions":"terms and conditions ",
-    "of_the_site":"of the site."
+    "read_and_agreed_to":"Saya telah membaca dan bersetuju dengan ",
+    "terms_and_conditions":"syarat dan ketentuan ",
+    "of_the_site":"situs."
   },
   "profittable":{
     "profit_table":"Tabel Profit",
@@ -469,12 +469,12 @@
     "maximum_length_should_be_35_characters":"Panjang maksimum harus 35 karakter",
     "maximum_length_should_be_20_characters":"Panjang maksimum harus 20 karakter",
     "minimum_length_should_be_6_characters":"Panjang minimum harus 6 karakter",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
-    "place_of_birth":"Place of birth",
-    "select":"Please select",
-    "error_format":"Wrong format or length",
-    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}"
+    "tax_residence":"Pajak rumah",
+    "tax_identification_number":"Nomor Pokok Wajib Pajak",
+    "place_of_birth":"Tempat lahir",
+    "select":"Silakan pilih",
+    "error_format":"Format atau panjang salah",
+    "please-enter-an-integer-value":"Masukkan nilai integer dengan panjang maksimal {{max}}"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"telah memperbarui",
@@ -617,9 +617,9 @@
     "error":"Maaf, terjadi error saat memproses permintaan Anda."
   },
   "tax-information":{
-    "tax_information":"Tax information",
-    "select":"Please select",
-    "updated_successfully":"Your tax information have been updated successfully",
+    "tax_information":"Informasi pajak",
+    "select":"Silakan pilih",
+    "updated_successfully":"Informasi pajak Anda telah berhasil diperbarui",
     "no_change":"You did not change anything.",
     "update":"Update",
     "tax_residence":"Tax residence",
