@@ -620,13 +620,13 @@
     "tax_information":"Informasi pajak",
     "select":"Silakan pilih",
     "updated_successfully":"Informasi pajak Anda telah berhasil diperbarui",
-    "no_change":"You did not change anything.",
-    "update":"Update",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
-    "place_of_birth":"Place of birth",
-    "isrequired":"(required)",
-    "error_format":"Wrong format or length",
-    "required":"This field is required."
+    "no_change":"Anda tidak melakukan perubahan.",
+    "update":"Memperbarui",
+    "tax_residence":"Pajak rumah",
+    "tax_identification_number":"Nomor Pokok Wajib Pajak",
+    "place_of_birth":"Tempat lahir",
+    "isrequired":"(diperlukan)",
+    "error_format":"Format atau panjang salah",
+    "required":"Bagian ini wajib diisi."
   }
 }
