@@ -59,11 +59,18 @@
         });
 
         vm.setProfile = function(get_settings) {
-            vm.profile = Object.create(get_settings);
             vm.isDataLoaded = true;
-            if (!vm.isVirtualAccount) {
+
+            if (vm.isVirtualAccount) {
+                $scope.$applyAsync(() => {
+                    vm.profile = Object.create(get_settings);
+                });
+            } else {
+                vm.profile = Object.create(get_settings);
                 if (vm.profile.date_of_birth) {
-                    vm.profile.date_of_birth = $filter('date')(vm.profile.date_of_birth * 1000, 'yyyy-MM-dd');
+                    $scope.$applyAsync(() => {
+                        vm.profile.date_of_birth = $filter('date')(vm.profile.date_of_birth * 1000, 'yyyy-MM-dd');
+                    });
                 }
                 if (vm.profile.tax_residence) {
                     vm.settingTaxResidence = _.words(vm.profile.tax_residence);
@@ -105,6 +112,7 @@
                         alertService.displayAlert(translation['profile.success'],
                             translation['profile.success_message']);
                     });
+                vm.getProfile();
             }
         });
 
@@ -144,7 +152,6 @@
 
 
         vm.updateProfile = function() {
-            vm.disableUpdateButton = true;
             if (!vm.isVirtualAccount) {
                 vm.params = {};
                 vm.notAnyChanges = true;
@@ -154,7 +161,10 @@
                         if (vm.params[value] !== vm.getSettings[value]) vm.notAnyChanges = false;
                     }
                 });
-                if (!vm.notAnyChanges) websocketService.sendRequestFor.setAccountSettings(vm.params);
+                if (!vm.notAnyChanges) {
+                    vm.disableUpdateButton = true;
+                    websocketService.sendRequestFor.setAccountSettings(vm.params);
+                }
             }
         }
 
