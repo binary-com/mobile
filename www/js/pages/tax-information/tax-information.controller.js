@@ -22,8 +22,8 @@
         vm.showNotChangedWarning = false;
         vm.disableUpdateButton = false;
         vm.requestData = [
-            'tax_identification_number',
-            'tax_residence',
+            "tax_identification_number",
+            "tax_residence",
             "residence",
             'address_city',
             "place_of_birth",
