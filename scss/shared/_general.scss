@@ -230,6 +230,7 @@ input {
     border: 1px solid $borderColor!important;
     border-radius: 3px!important;
     background: $white;
+		font-size: 0.8rem!important;
     &.checkbox {
         width: 20px;
         top: 2px;
@@ -243,14 +244,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: $secondaryContentColor;
     // border: 1px solid $borderColor;
 }
-input[type=password],
-input[type=text] {
-    border: 1px solid $borderColor;
-    border-radius: 3px;
-    background: $white;
-    padding: 10px 5px;
-    font-size: 1rem;
-}
+
 .item-input {
     padding: 5px;
 }
@@ -266,6 +260,7 @@ input[type=text] {
         border-radius: 3px;
         background: $white;
         direction: ltr;
+				font-size: 0.8rem;
         option {
             width: 100%;
             text-align: left;
