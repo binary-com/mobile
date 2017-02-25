@@ -167,12 +167,7 @@
                 }
             }
         }
-
         vm.checkAccount();
         websocketService.sendRequestFor.residenceListSend();
-
-
-
-
     }
 })();
