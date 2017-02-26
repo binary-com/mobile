@@ -60,13 +60,10 @@
 
         vm.setProfile = function(get_settings) {
             vm.isDataLoaded = true;
-
             if (vm.isVirtualAccount) {
-                $scope.$applyAsync(() => {
-                    vm.profile = Object.create(get_settings);
-                });
+                    vm.profile = get_settings;
             } else {
-                vm.profile = Object.create(get_settings);
+                vm.profile = get_settings;
                 if (vm.profile.date_of_birth) {
                     $scope.$applyAsync(() => {
                         vm.profile.date_of_birth = $filter('date')(vm.profile.date_of_birth * 1000, 'yyyy-MM-dd');
@@ -93,7 +90,7 @@
         }
 
         $scope.$on('get_settings', (e, get_settings) => {
-            vm.getSettings = get_settings;
+            vm.getSettings = _.clone(get_settings);
             vm.setProfile(get_settings);
         });
 
@@ -117,6 +114,16 @@
         });
 
         $scope.$on('set-settings:error', (e, error) => {
+          if(!vm.isVirtualAccount && error.hasOwnProperty('details')) {
+            for(var key in error.details) {
+              var errorField = key;
+              var ErrorMessage = error.details[key];
+              if(vm.realAccountFields.indexOf(errorField) > -1) {
+                vm[errorField + 'Error'] = true;
+                vm[errorField + 'ErrorMessage'] = ErrorMessage;
+              }
+            }
+          }
             vm.disableUpdateButton = false;
             alertService.displayError(error.message);
         });
@@ -167,7 +174,13 @@
                 }
             }
         }
-        vm.checkAccount();
-        websocketService.sendRequestFor.residenceListSend();
+
+        vm.init = function(){
+          vm.checkAccount();
+          websocketService.sendRequestFor.residenceListSend();
+        }
+
+        vm.init();
+
     }
 })();

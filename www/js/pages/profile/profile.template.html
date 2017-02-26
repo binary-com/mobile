@@ -182,7 +182,7 @@
                         <div class="row">
                             <div class="col item-select">
                                 <select name="address_state" ng-model="vm.profile.address_state" ng-select="vm.profile.address_state" ng-disabled="!vm.states">
-                                  <option value="" disabled ng-if="!vm.profile.address_state">{{ profile.select }}</option>
+                                  <option value="" disabled ng-if="vm.profile.address_state == null">{{ profile.select }}</option>
                        <option ng-repeat="s in vm.states"
                                value="{{s.value}}"> {{ s.text }} </option>
                 </select>
