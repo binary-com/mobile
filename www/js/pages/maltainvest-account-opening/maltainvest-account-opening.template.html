@@ -96,10 +96,10 @@
                         <label class="col item-input">
                           <input type="date" ng-model="vm.data.date_of_birth" ng-readonly="vm.isReadonly"  required />
                         </label>
-                        <ng-messages class="help-block error" for="newAccountMaltainvestForm.date_of_birth.$error" role="alert" ng-if='newAccountMaltainvestForm.date_of_birth.$dirty' ng-hide="vm.date_of_birth_error">
-                            <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
-                        </ng-messages>
                     </div>
+                    <ng-messages class="help-block error" for="newAccountMaltainvestForm.date_of_birth.$error" role="alert" ng-if='newAccountMaltainvestForm.date_of_birth.$dirty' ng-hide="vm.date_of_birth_error">
+                        <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
+                    </ng-messages>
                     <div class="help-block error" ng-if='vm.date_of_birth_error'>
                         {{ vm.date_of_birth_error_message }}
                     </div>
@@ -268,8 +268,8 @@
                     <div class="row">
                         <div class="col item-select">
                             <select name="address_state" ng-model="vm.data.address_state" ng-options="state.value as state.text for state in vm.statesList">
-                      <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
-                    </select>
+                              <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
+                            </select>
                             <div class="help-block error" ng-if='vm.address_state_error'>
                               {{ vm.address_state_error_message }}
                             </div>

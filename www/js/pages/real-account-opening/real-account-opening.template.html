@@ -18,7 +18,7 @@
                     </div>
                     <div class="row">
                         <div class="col item-select">
-                            <select name="salutation" ng-model="vm.data.salutation" ng-required="1==1">
+                            <select name="salutation" ng-model="vm.data.salutation" required>
                               <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
                               <option value="Mr">
                                 {{'newaccountreal.mr' | translate}}
@@ -33,8 +33,8 @@
                                 {{'newaccountreal.ms' | translate}}
                               </option>
                             </select>
-                            <div class="help-block error" ng-messages="vm.salutation_error" role="alert" ng-if='vm.salutation_error'>
-                                <div>{{vm.salutation_error_message}}</div>
+                            <div class="help-block error" ng-if='vm.salutation_error'>
+                              {{ vm.salutation_error_message }}
                             </div>
                         </div>
                     </div>
@@ -50,12 +50,13 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="first_name" ng-model="vm.data.first_name" ng-pattern="validateName" ng-minlength="2" ng-maxlength="30" ng-required>
-                            <div class="help-block error" ng-messages="newAccount.first_name.$error" role="alert" ng-if='newAccount.first_name.$dirty' ng-hide="vm.first_name_error">
-                                <div ng-message="pattern && minlength && maxlength">{{'newaccountreal.error_format' | translate}}</div>
-                            </div>
-                            <div class="help-block error" ng-messages="vm.first_name_error" role="alert" ng-if='vm.first_name_error'>
-                                <div>{{vm.first_name_error_message}}</div>
+                            <input name="first_name" ng-model="vm.data.first_name" ng-pattern="validateName" ng-minlength="2" ng-maxlength="30" required>
+                            <ng-messages class="help-block error" for="newAccount.first_name.$error" role="alert" ng-if='newAccount.first_name.$dirty' ng-hide="vm.first_name_error">
+                                <ng-message when="pattern && minlength && maxlength">{{'newaccountreal.error_format' | translate}}</ng-message>
+                                <ng-message when="required">{{'newaccountreal.required' | translate}}</ng-message>
+                            </ng-messages>
+                            <div class="help-block error" ng-if='vm.first_name_error'>
+                              {{ vm.first_name_error_message }}
                             </div>
                         </div>
                     </div>
@@ -71,12 +72,13 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="last_name" ng-model="vm.data.last_name" ng-pattern="validateName" ng-minlength="2" ng-maxlength="30" ng-required>
-                            <div class="help-block error" ng-messages="newAccount.last_name.$error" role="alert" ng-if='newAccount.last_name.$dirty' ng-hide="vm.last_name_error">
-                                <div ng-message="pattern && minlength && maxlength">{{'newaccountreal.error_format' | translate}}</div>
-                            </div>
-                            <div class="help-block error" ng-messages="vm.last_name_error" role="alert" ng-if='vm.last_name_error'>
-                                <div>{{vm.last_name_error_message}}</div>
+                            <input name="last_name" ng-model="vm.data.last_name" ng-pattern="validateName" ng-minlength="2" ng-maxlength="30" required>
+                            <ng-messages class="help-block error" for="newAccount.last_name.$error" role="alert" ng-if='newAccount.last_name.$dirty' ng-hide="vm.last_name_error">
+                                <ng-message when="pattern && minlength && maxlength">{{'newaccountreal.error_format' | translate}}</ng-message>
+                                <ng-message when="required">{{'newaccountreal.required' | translate}}</ng-message>
+                            </ng-messages>
+                            <div class="help-block error" ng-if='vm.last_name_error'>
+                              {{ vm.last_name_error_message }}
                             </div>
                         </div>
                     </div>
@@ -93,10 +95,13 @@
                     <div class="row">
                         <label class="col item-input">
                           <input type="date" placeholder="yyyy-MM-dd" class="date" ng-model="vm.data.date_of_birth" name="date" required/>
-                          <div class="help-block error" ng-messages="vm.date_of_birth_error" role="alert" ng-if='vm.date_of_birth_error'>
-                            <div>{{vm.date_of_birth_error_message}}</div>
-                          </div>
                         </label>
+                    </div>
+                    <ng-messages class="help-block error" for="newAccount.date_of_birth.$error" role="alert" ng-if='newAccount.date_of_birth.$dirty' ng-hide="vm.date_of_birth_error">
+                        <ng-message when="required">{{'newaccountreal.required' | translate}}</ng-message>
+                    </ng-messages>
+                    <div class="help-block error" ng-if='vm.date_of_birth_error'>
+                      {{ vm.date_of_birth_error_message }}
                     </div>
                 </div>
             </div>
@@ -114,8 +119,8 @@
                             <option value="" disabled ng-if="!vm.hasResidence">{{'newaccountreal.select' | translate}}</option>
                           </select>
                         </label>
-                        <div class="help-block error" ng-messages="vm.residence_error" role="alert" ng-if='vm.residence_error'>
-                            <div>{{vm.residence_error_message}}</div>
+                        <div class="help-block error" ng-if='vm.residence_error'>
+                            {{ vm.residence_error_message }}
                         </div>
                     </div>
                 </div>
@@ -131,11 +136,12 @@
                     <div class="row">
                         <div class="col item-input">
                             <input name="address_line_1" ng-model="vm.data.address_line_1" ng-maxlength="70" required>
-                            <div class="help-block error" ng-messages="newAccount.address_line_1.$error" role="alert" ng-if='newAccount.address_line_1.$dirty' ng-hide="vm.address_line_1_error">
-                                <div ng-message="maxlength">{{'newaccountreal.maxlength_error_70' | translate}}</div>
-                            </div>
-                            <div class="help-block error" ng-messages="vm.address_line_1_error" role="alert" ng-if='vm.address_line_1_error'>
-                                <div>{{vm.address_line_1_error_message}}</div>
+                            <ng-messages class="help-block error" for="newAccount.address_line_1.$error" role="alert" ng-if='newAccount.address_line_1.$dirty' ng-hide="vm.address_line_1_error">
+                                <ng-message when="maxlength">{{'newaccountreal.maxlength_error_70' | translate}}</ng-message>
+                                  <ng-message when="required">{{'newaccountreal.required' | translate}}</ng-message>
+                            </ng-messages>
+                            <div class="help-block error" ng-if='vm.address_line_1_error'>
+                              {{ vm.address_line_1_error_message }}
                             </div>
                         </div>
                     </div>
@@ -153,11 +159,11 @@
                     <div class="row">
                         <div class="col item-input">
                             <input name="address_line_2" ng-model="vm.data.address_line_2" ng-maxlength="70">
-                            <div class="help-block error" ng-messages="newAccount.address_line_2.$error" role="alert" ng-if='newAccount.address_line_2.$dirty' ng-hide="vm.address_line_2_error">
-                                <div ng-message="maxlength">{{'newaccountreal.maxlength_error_70' | translate}}</div>
-                            </div>
-                            <div class="help-block error" ng-messages="vm.address_line_2_error" role="alert" ng-if='vm.address_line_2_error'>
-                                <div>{{vm.address_line_2_error_message}}</div>
+                            <ng-messages class="help-block error" for="newAccount.address_line_2.$error" role="alert" ng-if='newAccount.address_line_2.$dirty' ng-hide="vm.address_line_2_error">
+                                <ng-message when="maxlength">{{'newaccountreal.maxlength_error_70' | translate}}</ng-message>
+                            </ng-messages>
+                            <div class="help-block error" ng-if='vm.address_line_2_error'>
+                              {{ vm.address_line_2_error_message }}
                             </div>
                         </div>
                     </div>
@@ -174,11 +180,12 @@
                     <div class="row">
                         <div class="col item-input">
                             <input name="address_city" ng-model="vm.data.address_city" ng-maxlength="35" required>
-                            <div class="help-block error error" ng-messages="newAccount.address_city.$error" role="alert" ng-if='newAccount.address_city.$dirty' ng-hide="vm.address_city_error">
-                                <div ng-message="maxlength">{{'newaccountreal.maxlength_error_35' | translate}}</div>
-                            </div>
-                            <div class="help-block error" ng-messages="vm.address_city_error" role="alert" ng-if='vm.address_city_error'>
-                                <div>{{vm.address_city_error_message}}</div>
+                            <ng-messages class="help-block error error" for="newAccount.address_city.$error" role="alert" ng-if='newAccount.address_city.$dirty' ng-hide="vm.address_city_error">
+                                <ng-message when="maxlength">{{'newaccountreal.maxlength_error_35' | translate}}</ng-message>
+                                  <ng-message when="required">{{'newaccountreal.required' | translate}}</ng-message>
+                            </ng-messages>
+                            <div class="help-block error" ng-if='vm.address_city_error'>
+                              {{ vm.address_city_error_message }}
                             </div>
                         </div>
                     </div>
@@ -198,8 +205,8 @@
                             <select name="address_state" ng-model="vm.data.address_state" ng-options="state.value as state.text for state in vm.statesList" ng-disabled="!vm.data.residence">
                               <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
                             </select>
-                            <div class="help-block error" ng-messages="vm.address_state_error" role="alert" ng-if='vm.address_state_error'>
-                                <div>{{vm.address_state_error_message}}</div>
+                            <div class="help-block error" ng-if='vm.address_state_error'>
+                              {{ vm.address_state_error_message }}
                             </div>
                         </div>
                     </div>
@@ -216,11 +223,11 @@
                     <div class="row">
                         <div class="col item-input">
                             <input name="address_post_code" ng-model="vm.data.address_post_code" ng-pattern="/^[^+]{0,20}$/">
-                            <div class="help-block error" ng-messages="newAccount.address_post_code.$error" role="alert" ng-if='newAccount.address_post_code.$dirty' ng-hide="vm.address_post_code_error">
-                                <div ng-message="pattern">{{'newaccountreal.error_format' | translate}}</div>
-                            </div>
-                            <div class="help-block error" ng-messages="vm.address_post_code_error" role="alert" ng-if='vm.address_post_code_error'>
-                                <div>{{vm.address_post_code_error_message}}</div>
+                            <ng-messages class="help-block error" for="newAccount.address_post_code.$error" role="alert" ng-if='newAccount.address_post_code.$dirty' ng-hide="vm.address_post_code_error">
+                                <ng-message when="pattern">{{'newaccountreal.error_format' | translate}}</ng-message>
+                            </ng-messages>
+                            <div class="help-block error" ng-if='vm.address_post_code_error'>
+                              {{ vm.address_post_code_error_message }}
                             </div>
                         </div>
                     </div>
@@ -237,11 +244,12 @@
                     <div class="row">
                         <div class="col item-input">
                             <input name="phone" ng-model="vm.data.phone" ng-pattern="/^\+?[0-9\s]{6,35}$/" required>
-                            <div class="help-block error" ng-messages="newAccount.phone.$error" role="alert" ng-if='newAccount.phone.$dirty' ng-hide="vm.phone_error">
-                                <div ng-message="pattern">{{'newaccountreal.error_format' | translate}}</div>
-                            </div>
-                            <div class="help-block error" ng-messages="vm.phone_error" role="alert" ng-if='vm.phone_error'>
-                                <div>{{vm.phone_error_message}}</div>
+                            <ng-messages class="help-block error" for="newAccount.phone.$error" role="alert" ng-if='newAccount.phone.$dirty' ng-hide="vm.phone_error">
+                                <ng-message when="pattern">{{'newaccountreal.error_format' | translate}}</ng-message>
+                                  <ng-message when="required">{{'newaccountreal.required' | translate}}</ng-message>
+                            </ng-messages>
+                            <div class="help-block error" ng-if='vm.phone_error'>
+                              {{ vm.phone_error_message }}
                             </div>
                         </div>
                     </div>
@@ -268,8 +276,8 @@
                               <option value="Brand of first car">{{'newaccountreal.secret_question_7' | translate}}</option>
                               <option value="Favourite artist">{{'newaccountreal.secret_question_8' | translate}}</option>
                             </select>
-                            <div class="help-block error" ng-messages="vm.secret_question_error" role="alert" ng-if='vm.secret_question_error'>
-                                <div>{{vm.secret_question_error_message}}</div>
+                            <div class="help-block error" ng-if='vm.secret_question_error'>
+                              {{ vm.secret_question_error_message }}
                             </div>
                         </div>
                     </div>
@@ -286,11 +294,12 @@
                     <div class="row">
                         <div class="col item-input">
                             <input name="secret_answer" ng-model="vm.data.secret_answer" ng-minlength="4" ng-maxlength="50" required>
-                            <div class="help-block error" ng-messages="newAccount.secret_answer.$error" role="alert" ng-if='newAccount.secret_answer.$dirty' ng-hide="vm.secret_answer_error">
-                                <div ng-message="maxlength && minlength">{{'newaccountreal.error_secretanswer' | translate}}</div>
-                            </div>
-                            <div class="help-block error" ng-messages="vm.secret_answer_error" role="alert" ng-if='vm.secret_answer_error'>
-                                <div>{{vm.secret_answer_error_message}}</div>
+                            <ng-messages class="help-block error" for="newAccount.secret_answer.$error" role="alert" ng-if='newAccount.secret_answer.$dirty' ng-hide="vm.secret_answer_error">
+                                <ng-message when="maxlength && minlength">{{'newaccountreal.error_secretanswer' | translate}}</ng-message>
+                                  <ng-message when="required">{{'newaccountreal.required' | translate}}</ng-message>
+                            </ng-messages>
+                            <div class="help-block error" ng-if='vm.secret_answer_error'>
+                              {{ vm.secret_answer_error_message }}
                             </div>
                         </div>
                     </div>
@@ -305,9 +314,6 @@
                             {{'newaccountreal.read_and_agreed_to' | translate}}
                             <a ng-click="vm.openTermsAndConditions()">{{'newaccountreal.terms_and_conditions' | translate}}</a>
                             {{'newaccountreal.of_the_site' | translate}}
-                            <div class="help-block error" ng-messages="vm.accept_error" role="alert" ng-if='vm.accept_error'>
-                              <div>{{vm.acceptRisk_error_message}}</div>
-                            </div>
                         </div>
                     </div>
                 </div>
