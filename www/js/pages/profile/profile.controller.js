@@ -90,7 +90,7 @@
         }
 
         $scope.$on('get_settings', (e, get_settings) => {
-            vm.getSettings = _.clone(get_settings);
+            vm.getSettings = angular.copy(get_settings);
             vm.setProfile(get_settings);
         });
 
