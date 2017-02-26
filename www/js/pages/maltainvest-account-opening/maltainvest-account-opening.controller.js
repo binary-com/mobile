@@ -113,9 +113,10 @@
             return country.value === vm.data.residence;
         }
 
-        websocketService.sendRequestFor.statesListSend(vm.data.residence);
         $scope.$on('states_list', (e, states_list) => {
-            vm.statesList = states_list;
+            $scope.$applyAsync(() => {
+                vm.statesList = states_list;
+            });
         });
 
         // get some values which are set by user before
@@ -131,19 +132,19 @@
                         } else {
                             vm.data[key] = val;
                         }
-                    }
-                    else if(key === 'country_code') {
-                      vm.hasResidence = true;
-                      vm.data.residence = get_settings.country_code;
+                    } else if (key === 'country_code') {
+                        vm.hasResidence = true;
+                        vm.data.residence = get_settings.country_code;
+                        websocketService.sendRequestFor.statesListSend(vm.data.residence);
                     }
                 });
 
                 if (!get_settings.hasOwnProperty('phone')) {
                     vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
-                    if(vm.phoneCodeObj.hasOwnProperty('phone_idd')){
-                      $scope.$applyAsync(() => {
-                        vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
-                      });
+                    if (vm.phoneCodeObj.hasOwnProperty('phone_idd')) {
+                        $scope.$applyAsync(() => {
+                            vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
+                        });
                     }
                 }
                 if (vm.data.tax_residence) {

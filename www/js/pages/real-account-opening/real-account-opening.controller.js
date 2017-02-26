@@ -46,28 +46,25 @@
 
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
-            vm.getUserCountry();
+            websocketService.sendRequestFor.accountSetting();
         });
 
-        vm.getUserCountry = function() {
-          websocketService.sendRequestFor.accountSetting();
-        }
-
         $scope.$on('get_settings', (e, get_settings) => {
-          if(get_settings.hasOwnProperty('country_code')){
-            $scope.$applyAsync(() => {
-              vm.hasResidence = true;
-            });
-            vm.data.residence = get_settings.country_code;
-          }
-          if (!get_settings.hasOwnProperty('phone')) {
-              vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
-              if(vm.phoneCodeObj.hasOwnProperty('phone_idd')){
+            if (get_settings.hasOwnProperty('country_code')) {
                 $scope.$applyAsync(() => {
-                  vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
+                    vm.hasResidence = true;
                 });
-              }
-          }
+                vm.data.residence = get_settings.country_code;
+                websocketService.sendRequestFor.statesListSend(vm.data.residence);
+            }
+            if (!get_settings.hasOwnProperty('phone')) {
+                vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
+                if (vm.phoneCodeObj.hasOwnProperty('phone_idd')) {
+                    $scope.$applyAsync(() => {
+                        vm.data.phone = '+' + vm.phoneCodeObj.phone_idd;
+                    });
+                }
+            }
         });
 
         vm.findPhoneCode = function(country) {
@@ -94,7 +91,7 @@
         })();
 
         vm.submitAccountOpening = function() {
-          vm.disableUpdatebutton = true;
+            vm.disableUpdatebutton = true;
             vm.resetAllErrors();
             vm.params = {};
             _.forEach(vm.data, (value, key) => {
@@ -111,7 +108,7 @@
 
         // error handling by backend errors under each input
         $scope.$on('new_account_real:error', (e, error) => {
-          vm.disableUpdatebutton = false;
+            vm.disableUpdatebutton = false;
             if (error.hasOwnProperty('details')) {
                 $scope.$applyAsync(() => {
                     _.forEach(vm.requestData, (value, key) => {
@@ -127,7 +124,7 @@
         });
 
         $scope.$on('new_account_real', (e, new_account_real) => {
-          vm.disableUpdatebutton = false;
+            vm.disableUpdatebutton = false;
             websocketService.authenticate(new_account_real.oauth_token);
             vm.selectedAccount = new_account_real.oauth_token;
             appStateService.newAccountAdded = true;
