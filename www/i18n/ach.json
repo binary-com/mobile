@@ -177,8 +177,8 @@
     "tax_residence":"crwdns19447:0crwdne19447:0",
     "tax_identification_number":"crwdns19408:0crwdne19408:0",
     "address":"crwdns17817:0crwdne17817:0",
-    "addreess_line_1":"crwdns17818:0crwdne17818:0",
-    "addreess_line_2":"crwdns17819:0crwdne17819:0",
+    "address_line_1":"crwdns19459:0crwdne19459:0",
+    "address_line_2":"crwdns19460:0crwdne19460:0",
     "address_city":"crwdns17820:0crwdne17820:0",
     "address_state":"crwdns17821:0crwdne17821:0",
     "address_postcode":"crwdns17822:0crwdne17822:0",
@@ -288,8 +288,8 @@
     "date_of_birth":"crwdns17909:0crwdne17909:0",
     "residence":"crwdns17910:0crwdne17910:0",
     "place_of_birth":"crwdns19414:0crwdne19414:0",
-    "addreess_line_1":"crwdns17911:0crwdne17911:0",
-    "addreess_line_2":"crwdns17912:0crwdne17912:0",
+    "address_line_1":"crwdns19461:0crwdne19461:0",
+    "address_line_2":"crwdns19462:0crwdne19462:0",
     "address_city":"crwdns17913:0crwdne17913:0",
     "address_state":"crwdns17914:0crwdne17914:0",
     "address_postcode":"crwdns17915:0crwdne17915:0",
@@ -563,8 +563,9 @@
     "estimated_worth_5":"crwdns19330:0crwdne19330:0",
     "update":"crwdns19331:0crwdne19331:0",
     "financial_assessment_info":"crwdns19332:0crwdne19332:0",
-    "updated_successfully":"crwdns19333:0crwdne19333:0",
-    "no_change":"crwdns19334:0crwdne19334:0"
+    "no_change":"crwdns19334:0crwdne19334:0",
+    "success":"crwdns19463:0crwdne19463:0",
+    "success_message":"crwdns19464:0crwdne19464:0"
   },
   "limits":{
     "trading_withdrawal_limits":"crwdns19335:0crwdne19335:0",
@@ -627,6 +628,8 @@
     "place_of_birth":"crwdns19442:0crwdne19442:0",
     "isrequired":"crwdns19444:0crwdne19444:0",
     "error_format":"crwdns19445:0crwdne19445:0",
-    "required":"crwdns19446:0crwdne19446:0"
+    "required":"crwdns19446:0crwdne19446:0",
+    "success":"crwdns19465:0crwdne19465:0",
+    "success_message":"crwdns19466:0crwdne19466:0"
   }
 }
