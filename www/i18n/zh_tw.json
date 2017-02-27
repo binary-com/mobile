@@ -177,8 +177,8 @@
     "tax_residence":"Tax residence",
     "tax_identification_number":"Tax Identification Number",
     "address":"地址",
-    "addreess_line_1":"家庭地址第一行",
-    "addreess_line_2":"家庭地址第二行",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"城鎮/城市",
     "address_state":"州/省",
     "address_postcode":"郵遞區號",
@@ -288,8 +288,8 @@
     "date_of_birth":"出生日期",
     "residence":"居住國",
     "place_of_birth":"Place of birth",
-    "addreess_line_1":"家庭地址第一行",
-    "addreess_line_2":"家庭地址第二行",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"城鎮/城市",
     "address_state":"州/省",
     "address_postcode":"郵遞區號",
@@ -563,8 +563,9 @@
     "estimated_worth_5":"$1,000,000以上",
     "update":"更新",
     "financial_assessment_info":"本網站所涵蓋的金融交易服務僅適合這樣的客戶：能夠承受全部投入資金虧損的風險，了解購買金融合約所蘊含的風險並擁有相關的風險經歷。金融合約交易涉及很大的風險。如果所購買的合約到期時一文不值，您的投資將完全損失，其中還包括合約費用。",
-    "updated_successfully":"您的設定已成功更新",
-    "no_change":"您沒做任何更改。"
+    "no_change":"您沒做任何更改。",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   },
   "limits":{
     "trading_withdrawal_limits":"交易和提款限額",
@@ -627,6 +628,8 @@
     "place_of_birth":"Place of birth",
     "isrequired":"(required)",
     "error_format":"Wrong format or length",
-    "required":"This field is required."
+    "required":"This field is required.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   }
 }
