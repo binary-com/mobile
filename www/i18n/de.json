@@ -177,8 +177,8 @@
     "tax_residence":"Tax residence",
     "tax_identification_number":"Tax Identification Number",
     "address":"Adresse",
-    "addreess_line_1":"Erste Adresszeile",
-    "addreess_line_2":"Zweite Adresszeile",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"Ort/Stadt",
     "address_state":"Bundesland/Region",
     "address_postcode":"Postleitzahl/PLZ",
@@ -288,8 +288,8 @@
     "date_of_birth":"Geburtsdatum",
     "residence":"Wohnsitzland",
     "place_of_birth":"Place of birth",
-    "addreess_line_1":"Erste Adresszeile",
-    "addreess_line_2":"Zweite Adresszeile",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"Ort/Stadt",
     "address_state":"Bundesland/Region",
     "address_postcode":"Postleitzahl/PLZ",
@@ -563,8 +563,9 @@
     "estimated_worth_5":"Over $1,000,000",
     "update":"Update",
     "financial_assessment_info":"The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.",
-    "updated_successfully":"Your settings have been updated successfully",
-    "no_change":"You did not change anything."
+    "no_change":"You did not change anything.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   },
   "limits":{
     "trading_withdrawal_limits":"Trading and Withdrawal Limits",
@@ -627,6 +628,8 @@
     "place_of_birth":"Place of birth",
     "isrequired":"(required)",
     "error_format":"Wrong format or length",
-    "required":"This field is required."
+    "required":"This field is required.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   }
 }

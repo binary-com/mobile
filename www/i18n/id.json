@@ -177,8 +177,8 @@
     "tax_residence":"Pajak rumah",
     "tax_identification_number":"Nomor Pokok Wajib Pajak",
     "address":"Alamat",
-    "addreess_line_1":"Baris pertama alamat rumah",
-    "addreess_line_2":"Baris kedua alamat rumah",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"Kota",
     "address_state":"Negara Bagian/Propinsi",
     "address_postcode":"Kode pos",
@@ -288,8 +288,8 @@
     "date_of_birth":"Tanggal lahir",
     "residence":"Negara tempat tinggal",
     "place_of_birth":"Tempat lahir",
-    "addreess_line_1":"Baris pertama dari alamat rumah",
-    "addreess_line_2":"Baris kedua alamat rumah",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"Kota",
     "address_state":"Negara Bagian/Propinsi",
     "address_postcode":"Kode Pos",
@@ -563,8 +563,9 @@
     "estimated_worth_5":"Lebih dari $1.000.000",
     "update":"Memperbarui",
     "financial_assessment_info":"Layanan trading finansial situs ini hanya cocok bagi pelanggan yang dapat menanggung kerugian berupa kehilangan semua dana yang mereka investasikan dan yang memahami dan memiliki pengalaman pada berbagai risiko yang terlibat dalam akuisisi kontrak finansial. Transaksi pada kontrak finansial memiliki tingkat resiko yang tinggi. Jika kontrak dinyatakan rugi maka total kerugian adalah terbatas pada jumlah harga kontrak yang telah dibayarkan.",
-    "updated_successfully":"Pengaturan telah berhasil diperbarui",
-    "no_change":"Anda tidak melakukan perubahan."
+    "no_change":"Anda tidak melakukan perubahan.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   },
   "limits":{
     "trading_withdrawal_limits":"Trading dan batas penarikan",
@@ -627,6 +628,8 @@
     "place_of_birth":"Tempat lahir",
     "isrequired":"(diperlukan)",
     "error_format":"Format atau panjang salah",
-    "required":"Bagian ini wajib diisi."
+    "required":"Bagian ini wajib diisi.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   }
 }
