@@ -811,7 +811,7 @@
             <div class="row">
                 <div class="col">
                     <div class="row">
-                        <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.tax_residence  == null">{{'newaccountmaltainvest.open_account' | translate}}</button>
+                        <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.tax_residence  == null || vm.disableUpdatebutton">{{'newaccountmaltainvest.open_account' | translate}}</button>
                     </div>
                 </div>
             </div>
