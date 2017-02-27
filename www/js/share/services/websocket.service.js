@@ -669,7 +669,7 @@ angular
                               $rootScope.$broadcast('set-settings', message.set_settings);
                             }
                             else if(message.error){
-                              $rootScope.$broadcast('set-settings:error', message.error.message);
+                              $rootScope.$broadcast('set-settings:error', message.error);
                             }
                             break;
                         case 'tnc_approval':
@@ -697,7 +697,12 @@ angular
                             }
                             break;
                         case 'set_financial_assessment':
-                            $rootScope.$broadcast('set_financial_assessment:success', message.set_financial_assessment);
+                            if(message.set_financial_assessment) {
+                              $rootScope.$broadcast('set_financial_assessment:success', message.set_financial_assessment);
+                            }
+                            else if (message.error){
+                              $rootScope.$broadcast('set_financial_assessment:error', message.error);
+                            }
                             break;
                         case 'get_account_status':
                             $rootScope.$broadcast('get_account_status', message.get_account_status);

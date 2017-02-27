@@ -81,9 +81,7 @@
                             <div class="row">
                                 <div class="col center">
                                     <span class="help-block error center" ng-if="vm.showNotChangedWarning">{{'tax-information.no_change' | translate}}</span>
-                                    <span class="help-block error center" ng-if="vm.updated">{{'tax-information.updated_successfully' | translate}}</span>
-                                    <span class="help-block error center" ng-if="vm.updateError">{{vm.updateErrorMessage}}</span>
-                                    <button class="button button-block" ng-click="vm.submitTaxInformation()" ng-disabled="taxInformationForm.$invalid || vm.data.taxResidence  == null">{{'tax-information.update' | translate}}</button>
+                                    <button class="button button-block" ng-click="vm.submitTaxInformation()" ng-disabled="taxInformationForm.$invalid || vm.data.taxResidence == null || vm.disableUpdateButton">{{'tax-information.update' | translate}}</button>
                                 </div>
                             </div>
                         </div>

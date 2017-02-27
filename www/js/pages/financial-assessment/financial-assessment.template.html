@@ -7,14 +7,8 @@
                 </h1>
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="col">
-                {{'financial-assessment.financial_information' | translate}}
-            </div>
-        </div> -->
 
         <form name="financial-assessment">
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -25,8 +19,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="forexTradingExperience" ng-model="vm.data.forexTradingExperience" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="forexTradingExperience" ng-model="vm.data.forexTradingExperience" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -35,7 +29,7 @@
                                 <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.forexTradingExperienceError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                              {{vm.forexTradingExperienceErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -52,8 +46,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="forexTradingFrequency" ng-model="vm.data.forexTradingFrequency" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="forexTradingFrequency" ng-model="vm.data.forexTradingFrequency" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -62,7 +56,7 @@
                                 <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.forexTradingFrequencyError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.forexTradingFrequencyErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -79,8 +73,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="indicesTradingExperience" ng-model="vm.data.indicesTradingExperience" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="indicesTradingExperience" ng-model="vm.data.indicesTradingExperience" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -89,7 +83,7 @@
                                 <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.indicesTradingExperienceError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.indicesTradingExperienceErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -106,8 +100,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="indicesTradingFrequency" ng-model="vm.data.indicesTradingFrequency" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="indicesTradingFrequency" ng-model="vm.data.indicesTradingFrequency" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -116,7 +110,7 @@
                                 <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.indicesTradingFrequencyError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.indicesTradingFrequencyErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -133,8 +127,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="commoditiesTradingExperience" ng-model="vm.data.commoditiesTradingExperience" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="commoditiesTradingExperience" ng-model="vm.data.commoditiesTradingExperience" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -143,7 +137,7 @@
                                 <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.commoditiesTradingExperienceError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.commoditiesTradingExperienceErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -160,8 +154,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="commoditiesTradingFrequency" ng-model="vm.data.commoditiesTradingFrequency" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="commoditiesTradingFrequency" ng-model="vm.data.commoditiesTradingFrequency" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -170,7 +164,7 @@
                                 <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.commoditiesTradingFrequencyError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.commoditiesTradingFrequencyErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -187,8 +181,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="stocksTradingExperience" ng-model="vm.data.stocksTradingExperience" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="stocksTradingExperience" ng-model="vm.data.stocksTradingExperience" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -197,7 +191,7 @@
                                 <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.stocksTradingExperienceError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.stocksTradingExperienceErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -214,8 +208,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="stocksTradingFrequency" ng-model="vm.data.stocksTradingFrequency" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="stocksTradingFrequency" ng-model="vm.data.stocksTradingFrequency" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -224,7 +218,7 @@
                                 <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.stocksTradingFrequencyError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.stocksTradingFrequencyErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -241,8 +235,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="otherDerivativesTradingExperience" ng-model="vm.data.otherDerivativesTradingExperience" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="otherDerivativesTradingExperience" ng-model="vm.data.otherDerivativesTradingExperience" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -251,7 +245,7 @@
                                 <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.otherDerivativesTradingExperienceError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.otherDerivativesTradingExperienceErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -268,8 +262,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="otherDerivativesTradingFrequency" ng-model="vm.data.otherDerivativesTradingFrequency" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="otherDerivativesTradingFrequency" ng-model="vm.data.otherDerivativesTradingFrequency" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -278,7 +272,7 @@
                                 <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.otherDerivativesTradingFrequencyError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.otherDerivativesTradingFrequencyErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -295,8 +289,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="otherInstrumentsTradingExperience" ng-model="vm.data.otherInstrumentsTradingExperience" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="otherInstrumentsTradingExperience" ng-model="vm.data.otherInstrumentsTradingExperience" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -305,7 +299,7 @@
                                 <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.otherInstrumentsTradingExperienceError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.otherInstrumentsTradingExperienceErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -322,8 +316,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="otherInstrumentsTradingFrequency" ng-model="vm.data.otherInstrumentsTradingFrequency" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="otherInstrumentsTradingFrequency" ng-model="vm.data.otherInstrumentsTradingFrequency" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -332,7 +326,7 @@
                                 <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.otherInstrumentsTradingFrequencyError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.otherInstrumentsTradingFrequencyErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -349,8 +343,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="employmentIndustry" ng-model="vm.data.employmentIndustry" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="employmentIndustry" ng-model="vm.data.employmentIndustry" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -362,7 +356,7 @@
                                 <option value="Other">{{'financial-assessment.other' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.employmentIndustryError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.employmentIndustryErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -379,8 +373,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="occupation" ng-model="vm.data.occupation" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="occupation" ng-model="vm.data.occupation" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -425,7 +419,7 @@
                                 </option>
                             </select>
                             <span class="help-block error" ng-show="vm.occupationError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.occupationErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -442,8 +436,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="educationLevel" ng-model="vm.data.educationLevel" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="educationLevel" ng-model="vm.data.educationLevel" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -452,7 +446,7 @@
                                 <option value="Tertiary">{{'financial-assessment.tertiary' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.educationLevelError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.educationLevelErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -469,8 +463,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="incomeSource" ng-model="vm.data.incomeSource" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="incomeSource" ng-model="vm.data.incomeSource" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -481,7 +475,7 @@
                                 <option value="Other">{{'financial-assessment.other' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.incomeSourceError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.incomeSourceErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -498,8 +492,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="netIncome" ng-model="vm.data.netIncome" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="netIncome" ng-model="vm.data.netIncome" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -510,7 +504,7 @@
                                 <option value="Over $500,000">{{'financial-assessment.net_income_5' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.netIncomeError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.netIncomeErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -527,8 +521,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
-                            <select name="estimatedWorth" ng-model="vm.data.estimatedWorth" ng-change="vm.selectChanged()" required>
+                        <div class="col item-select">
+                            <select name="estimatedWorth" ng-model="vm.data.estimatedWorth" required>
                                 <option value="" disabled>
                                     {{'financial-assessment.select' | translate}}
                                 </option>
@@ -539,7 +533,7 @@
                                 <option value="Over $1,000,000">{{'financial-assessment.estimated_worth_5' | translate}}</option>
                             </select>
                             <span class="help-block error" ng-show="vm.estimatedWorthError">
-                                {{'financial-assessment.select_value_error' | translate}}
+                                {{vm.estimatedWorthErrorMessage}}
                             </span>
                         </div>
                     </div>
@@ -560,7 +554,7 @@
                     <span class="center" ng-if="vm.updateSuccessful">
                         <i class="ion-checkmark green"></i>
                         {{'financial-assessment.updated_successfully' | translate}}</span>
-                    <button class="button button-block" ng-click="vm.submitFinancialAssessment()" ng-disabled="vm.disableUpdate">
+                    <button class="button button-block" ng-click="vm.submitFinancialAssessment()" ng-disabled="financial-assessment.$invalid || vm.disableUpdateButton">
                         {{'financial-assessment.update' | translate}}
                     </button>
                 </div>
