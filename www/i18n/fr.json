@@ -177,8 +177,8 @@
     "tax_residence":"Résidence fiscale",
     "tax_identification_number":"Numéro d’Identification fiscale",
     "address":"Adresse",
-    "addreess_line_1":"Première ligne de l’adresse du domicile",
-    "addreess_line_2":"Deuxième ligne de l’adresse du domicile",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"Ville",
     "address_state":"Région/Département",
     "address_postcode":"Code postal",
@@ -288,8 +288,8 @@
     "date_of_birth":"Date de naissance",
     "residence":"Pays de résidence",
     "place_of_birth":"Lieu de naissance",
-    "addreess_line_1":"Première ligne de l’adresse du domicile",
-    "addreess_line_2":"Deuxième ligne de l’adresse du domicile",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"Ville",
     "address_state":"Région/Département",
     "address_postcode":"Code postal",
@@ -563,8 +563,9 @@
     "estimated_worth_5":"Plus de 1 000 000 $",
     "update":"Mise à jour",
     "financial_assessment_info":"Les services financiers disponibles sur ce site conviennent uniquement aux Clients capables d'assumer la perte de l'ensemble des fonds qu'ils investissent, et qui comprennent et ont l'expérience des risques liés à l'acquisition de contrats financiers. Les transactions sur contrats financiers impliquent un degré de risque élevé. Si les contrats achetés expirent hors la monnaie, vous perdrez la totalité de votre investissement, à savoir la prime de l'option.",
-    "updated_successfully":"Vos paramètres ont été mis à jour",
-    "no_change":"Vous n'avez effectué aucune modification."
+    "no_change":"Vous n'avez effectué aucune modification.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   },
   "limits":{
     "trading_withdrawal_limits":"Opérations de trading et limites de retrait",
@@ -627,6 +628,8 @@
     "place_of_birth":"Lieu de naissance",
     "isrequired":"(requis)",
     "error_format":"Format ou longueur erroné(e)",
-    "required":"Ce champ est requis."
+    "required":"Ce champ est requis.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   }
 }
