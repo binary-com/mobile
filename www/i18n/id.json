@@ -565,7 +565,7 @@
     "financial_assessment_info":"Layanan trading finansial situs ini hanya cocok bagi pelanggan yang dapat menanggung kerugian berupa kehilangan semua dana yang mereka investasikan dan yang memahami dan memiliki pengalaman pada berbagai risiko yang terlibat dalam akuisisi kontrak finansial. Transaksi pada kontrak finansial memiliki tingkat resiko yang tinggi. Jika kontrak dinyatakan rugi maka total kerugian adalah terbatas pada jumlah harga kontrak yang telah dibayarkan.",
     "no_change":"Anda tidak melakukan perubahan.",
     "success":"Sukses",
-    "success_message":"Your settings have been updated successfully."
+    "success_message":"Pengaturan telah berhasil diperbarui."
   },
   "limits":{
     "trading_withdrawal_limits":"Trading dan batas penarikan",
@@ -629,7 +629,7 @@
     "isrequired":"(diperlukan)",
     "error_format":"Format atau panjang salah",
     "required":"Bagian ini wajib diisi.",
-    "success":"Success",
-    "success_message":"Your settings have been updated successfully."
+    "success":"Sukses",
+    "success_message":"Pengaturan telah berhasil diperbarui."
   }
 }
