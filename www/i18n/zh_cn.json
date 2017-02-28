@@ -160,7 +160,7 @@
     "token-invalid":"令牌无效",
     "error_format":"格式或长度错误",
     "residence-error":"请选择您的国家",
-    "invalid_email":"Please submit a valid email address."
+    "invalid_email":"请提交有效的电子邮件地址。"
   },
   "newaccountmaltainvest":{
     "open_financial":"开立金融账户",
@@ -173,12 +173,12 @@
     "last_name":"姓氏",
     "date_of_birth":"出生日期",
     "residence":"居住国",
-    "place_of_birth":"Place of birth",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
+    "place_of_birth":"出生地",
+    "tax_residence":"纳税居住地",
+    "tax_identification_number":"税务识别号码",
     "address":"地址",
-    "address_line_1":"First line of home address",
-    "address_line_2":"Second line of home address",
+    "address_line_1":"家庭地址第一行",
+    "address_line_2":"家庭地址第二行",
     "address_city":"城镇/城市",
     "address_state":"州/省",
     "address_postcode":"邮编",
@@ -270,9 +270,9 @@
     "error_secretanswer":"此字段必须为 4-50 个字符以内。",
     "isrequired":"（必需）",
     "isoptional":"（可选）",
-    "read_and_agreed_to":"I have read and agree to the ",
-    "terms_and_conditions":"terms and conditions ",
-    "of_the_site":"of the site."
+    "read_and_agreed_to":"我已阅读并同意 ",
+    "terms_and_conditions":"条款与条件 ",
+    "of_the_site":"网站的。"
   },
   "newaccountreal":{
     "open_real":"升级到真实账户",
@@ -287,9 +287,9 @@
     "last_name":"姓氏",
     "date_of_birth":"出生日期",
     "residence":"居住国",
-    "place_of_birth":"Place of birth",
-    "address_line_1":"First line of home address",
-    "address_line_2":"Second line of home address",
+    "place_of_birth":"出生地",
+    "address_line_1":"家庭地址第一行",
+    "address_line_2":"家庭地址第二行",
     "address_city":"城镇/城市",
     "address_state":"州/省",
     "address_postcode":"邮编",
@@ -318,9 +318,9 @@
     "error_secretanswer":"此字段必须为 4-50 个字符以内。",
     "isrequired":"（必需）",
     "isoptional":"（可选）",
-    "read_and_agreed_to":"I have read and agree to the ",
-    "terms_and_conditions":"terms and conditions ",
-    "of_the_site":"of the site."
+    "read_and_agreed_to":"我已阅读并同意 ",
+    "terms_and_conditions":"条款与条件 ",
+    "of_the_site":"网站的。"
   },
   "profittable":{
     "profit_table":"利润表",
@@ -469,12 +469,12 @@
     "maximum_length_should_be_35_characters":"最大长度是 35 个字符",
     "maximum_length_should_be_20_characters":"最大长度是 20 个字符",
     "minimum_length_should_be_6_characters":"最小长度是 6 个字符",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
-    "place_of_birth":"Place of birth",
-    "select":"Please select",
-    "error_format":"Wrong format or length",
-    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}"
+    "tax_residence":"纳税居住地",
+    "tax_identification_number":"税务识别号码",
+    "place_of_birth":"出生地",
+    "select":"请选择",
+    "error_format":"格式或长度错误",
+    "please-enter-an-integer-value":"请输入一个整数值，最大长度为 {{max}}"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
@@ -564,8 +564,8 @@
     "update":"更新",
     "financial_assessment_info":"本网站包含的金融交易服务仅适合这样的客户：能够承受全部投入资金亏损的风险，了解购买金融合约的风险并具有相关经验。金融合约交易有很高的风险。如果购买的合约到期时一文不值，您将损失全部投资，包括合约费用。",
     "no_change":"您没作任何更改。",
-    "success":"Success",
-    "success_message":"Your settings have been updated successfully."
+    "success":"成功",
+    "success_message":"您的设置已成功更新。"
   },
   "limits":{
     "trading_withdrawal_limits":"交易和提款限额",
@@ -618,18 +618,18 @@
     "error":"对不起，处理您的请求时出错。"
   },
   "tax-information":{
-    "tax_information":"Tax information",
-    "select":"Please select",
-    "updated_successfully":"Your tax information have been updated successfully",
-    "no_change":"You did not change anything.",
-    "update":"Update",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
-    "place_of_birth":"Place of birth",
-    "isrequired":"(required)",
-    "error_format":"Wrong format or length",
-    "required":"This field is required.",
-    "success":"Success",
-    "success_message":"Your settings have been updated successfully."
+    "tax_information":"税务信息",
+    "select":"请选择",
+    "updated_successfully":"你的纳税信息已成功更新",
+    "no_change":"您没作任何更改。",
+    "update":"更新",
+    "tax_residence":"纳税居住地",
+    "tax_identification_number":"税务识别号码",
+    "place_of_birth":"出生地",
+    "isrequired":"（必需）",
+    "error_format":"格式或长度错误",
+    "required":"此为必填字段。",
+    "success":"成功",
+    "success_message":"您的设置已成功更新。"
   }
 }
