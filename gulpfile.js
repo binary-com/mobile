@@ -17,6 +17,10 @@ var del = require('del');
 var sh = require('shelljs');
 var bower = require('bower');
 
+var electronPkg = require('./electron-pkg.js');
+
+console.log(electronPkg.build);
+
 var paths = {
   sass: ['./scss/**/*.scss']
 };
@@ -197,6 +201,10 @@ gulp.task('build', ['clean', 'compress', 'modify-index', 'add-cname'], function(
 gulp.task('deploy', ['build'], function(){
     return gulp.src('dist/**/*')
         .pipe(ghPagesDeploy());
+});
+
+gulp.task('build-desktop', function(){
+  electronPkg.build();
 });
 
 

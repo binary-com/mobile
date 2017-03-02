@@ -41,7 +41,7 @@ angular
           controller: 'HelpController',
           controllerAs: 'vm'
         })
-				.state('profittable',{
+				.state('profit-table',{
 					parent: 'layout',
 					cache: true,
 					templateUrl: 'js/pages/profit-table/profit-table.template.html',
@@ -55,7 +55,7 @@ angular
 					controller: 'StatementController',
 					controllerAs: 'vm'
 				})
-				.state('transactiondetail',{
+				.state('transaction-detail',{
 					parent: 'layout',
 					cache: false,
 					templateUrl: 'js/pages/transaction-detail/transaction-detail.template.html',
@@ -63,11 +63,18 @@ angular
 					controllerAs: 'vm',
 					reloadOnSearch: false
 				})
-				.state('realaccountopening',{
+				.state('real-account-opening',{
 					parent: 'layout',
 				  cache: false,
-					templateUrl: 'js/pages/new-real-account-opening/new-real-account-opening.template.html',
-					controller: 'NewRealAccountOpeningController',
+					templateUrl: 'js/pages/real-account-opening/real-account-opening.template.html',
+					controller: 'RealAccountOpeningController',
+					controllerAs: 'vm'
+				})
+				.state('maltainvest-account-opening',{
+					parent: 'layout',
+				  cache: false,
+					templateUrl: 'js/pages/maltainvest-account-opening/maltainvest-account-opening.template.html',
+					controller: 'MaltainvestAccountOpeningController',
 					controllerAs: 'vm'
 				})
         .state('language', {
@@ -80,6 +87,13 @@ angular
           cache: false,
           templateUrl: 'js/pages/settings/settings.template.html',
           controller: 'SettingsController',
+          controllerAs: 'vm'
+        })
+				.state('resources', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/resources/resources.template.html',
+          controller: 'ResourcesController',
           controllerAs: 'vm'
         })
         .state('self-exclusion', {
@@ -99,11 +113,11 @@ angular
           controller: 'ProfileController',
           controllerAs: 'vm'
         })
-				.state('acceptTermsAndConditions', {
+				.state('terms-and-conditions', {
 					parent: 'layout',
 					cache: false,
-					templateUrl: 'js/pages/accept-terms-and-conditions/accept-terms-and-conditions.template.html',
-					controller: 'AcceptTermsAndConditionsController',
+					templateUrl: 'js/pages/terms-and-conditions/terms-and-conditions.template.html',
+					controller: 'TermsAndConditionsController',
 					controllerAs: 'vm'
 				})
 				.state('update', {
@@ -118,6 +132,41 @@ angular
 					cache: false,
 					templateUrl: 'js/pages/change-password/change-password.template.html',
 					controller: 'ChangePasswordController',
+					controllerAs: 'vm'
+				})
+				.state('financial-assessment', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/financial-assessment/financial-assessment.template.html',
+					controller: 'FinancialAssessmentController',
+					controllerAs: 'vm'
+				})
+				.state('limits', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/limits/limits.template.html',
+					controller: 'LimitsController',
+        	controllerAs: 'vm'
+				  })
+				.state('trading-times', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/trading-times/trading-times.template.html',
+					controller: 'TradingTimesController',
+					controllerAs: 'vm'
+				})
+				.state('asset-index', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/asset-index/asset-index.template.html',
+					controller: 'AssetIndexController',
+					controllerAs: 'vm'
+				})
+				.state('tax-information', {
+					parent: 'layout',
+					cache: false,
+					templateUrl: 'js/pages/tax-information/tax-information.template.html',
+					controller: 'TaxInformationController',
 					controllerAs: 'vm'
 				});
 

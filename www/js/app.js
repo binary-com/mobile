@@ -28,13 +28,14 @@
         'binary.share.components.balance',
         'binary.share.components.long-press',
         'binary.share.components.reality-check',
-        'binary.share.components.real-account-opening',
         'binary.share.components.logout',
         'binary.share.components.connectivity',
         'binary.share.components.regex-validate',
         'binary.share.components.number',
         'binary.share.components.app-version',
-        'binary.share.components.updater'
+        'binary.share.components.updater',
+        'binary.share.components.check-user-status',
+        'binary.share.components.account-upgrade'
     ]);
 
   angular
@@ -46,7 +47,8 @@
         'binary.pages.signin',
         'binary.pages.help',
         'binary.pages.trade',
-        'binary.pages.new-real-account-opening',
+        'binary.pages.real-account-opening',
+        'binary.pages.maltainvest-account-opening',
         'binary.pages.profit-table',
         'binary.pages.statement',
         'binary.pages.transaction-detail',
@@ -54,9 +56,14 @@
         'binary.pages.self-exclusion',
         'binary.pages.profile',
         'binary.pages.terms-and-conditions',
-        'binary.pages.accept-terms-and-conditions',
         'binary.pages.update',
-        'binary.pages.change-password'
+        'binary.pages.change-password',
+        'binary.pages.financial-assessment',
+        'binary.pages.limits',
+        'binary.pages.trading-times',
+        'binary.pages.resources',
+        'binary.pages.asset-index',
+        'binary.pages.tax-information'
     ]);
 
   String.prototype.capitalize = function() {

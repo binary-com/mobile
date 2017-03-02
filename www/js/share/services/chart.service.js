@@ -57,6 +57,7 @@ angular
 						showTooltips: false,
 						keepAspectRatio: false,
 						scaleShowLabels: false,
+						scaleFontSize: 10,
 						pointDotRadius: 3, //original 4
 						datasetStrokeWidth: 2, //original 2
 					}
@@ -746,8 +747,32 @@ angular
 							padding = (valueWidth < 45) ? 0 : valueWidth - 45;
 						}
 						ctx.fillText(point.value, point.x - padding, point.y - 1);
+
 					}
 				};
+
+				var drawLastTickLabel = function(point, index){
+					if (index !== 0 && utils.isDefined(point.shown) && point.shown) {
+						var marginX = 10,
+								marginY = 30,
+								padding = 5;
+						var fontSize = 12;
+						ctx.font = ctx.font.replace(/\d+px/, fontSize+ "px");
+						var value = ctx.measureText(point.value);
+						value.height = fontSize;
+						ctx.textAlign = "center";
+						ctx.textBaseline = "bottom";
+						ctx.fillStyle = point.labelFillColor.toString();
+						ctx.fillRect(canvas.offsetWidth - (marginX  + padding  + value.width) , canvas.offsetHeight -( marginY + value.height + padding), 2* padding  + value.width,  2* padding + value.height);
+						if(ctx.fillStyle === "#C2C2C2"){
+							ctx.fillStyle = "#000";
+						}
+						else{
+							ctx.fillStyle = "#FFF";
+						}
+						ctx.fillText(point.value, canvas.offsetWidth - (marginX + value.width / 2), canvas.offsetHeight - marginY);
+					}
+				}
 
 				var drawGridLine = function drawGridLine(thisChart, gridLine) {
 					var point = thisChart.datasets[0].points[gridLine.index];
@@ -960,7 +985,6 @@ angular
 							self.eachPoints(function (point) {
 								values.push(point.value);
 							});
-
 							return values;
 						};
 						var scaleOptions = {
@@ -1014,14 +1038,16 @@ angular
 
 
 				var destroy = function destroy() {
-					chartGlobals.chartJS.destroy();
-					setChartGlobals();
-					canvas = null;
-					ctx = null;
-					dataIndex = 0;
-					dragging = false;
-					zooming = false;
-					stepper = null;
+					if(chartGlobals.chartJS){
+						chartGlobals.chartJS.destroy();
+						setChartGlobals();
+						canvas = null;
+						ctx = null;
+						dataIndex = 0;
+						dragging = false;
+						zooming = false;
+						stepper = null;
+					}
 				};
 
 				var drawChart = function drawChart(chartID) {

@@ -8,7 +8,7 @@
 	ion-content {
 		width: 100vw;
 		&.trade-container {
-			padding-bottom: 40px;
+			padding-bottom: 80px;
 		}
 		.scroll {
 			height: 100%;
@@ -23,6 +23,9 @@
 		.scroll-bar-v {
 			display: none!important;
 		}
+	}
+	.web-view-trade {
+		padding-bottom: 76px;
 	}
 	#trade-container {
 		display: flex;
@@ -51,7 +54,6 @@
 		}
 		bg-options {
 			max-height: 70px;
-			margin-top: 40px;
 			.options {
 				max-height: 70px;
 				display: flex;
@@ -319,7 +321,6 @@
 		}
 		bg-longcode {
 			max-height: 75px;
-			margin-top: 30px;
 			display: flex;
 			flex-grow: 1;
 			font-size: 1rem;

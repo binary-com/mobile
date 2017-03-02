@@ -37,14 +37,15 @@
         vm.hasError = false;
         vm.dateChanged = false;
         vm.appIdAllowed = config.app_id;
+        vm.isItemShown = false;
 
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.lastPage = from.name;
             vm.enteredNow = true;
             vm.thisPage = to.name;
-            // check if state is changed from any state other than transactiondetail
-            // we do not refresh the state if it comes back from transactiondetail
-            if (vm.lastPage != 'transactiondetail' && vm.thisPage == 'statement') {
+            // check if state is changed from any state other than transaction-detail
+            // we do not refresh the state if it comes back from transaction-detail
+            if (vm.lastPage != 'transaction-detail' && vm.thisPage == 'statement') {
                 vm.resetParams();
                 vm.firstCompleted = false;
                 vm.backFromMainPages = true;
@@ -107,7 +108,7 @@
                 vm.setParams();
                 tableStateService.statementCompletedGroup = false;
                 vm.goTop();
-            } else if (!appStateService.isStatementSet && vm.enteredNow && vm.lastPage == 'transactiondetail') {
+            } else if (!appStateService.isStatementSet && vm.enteredNow && vm.lastPage == 'transaction-detail') {
                 vm.enteredNow = false;
                 vm.lastPage = '';
                 vm.setParams();
@@ -171,7 +172,7 @@
             if (vm.data.hasOwnProperty('dateTo') && vm.data.dateTo != "") {
                 vm.params.date_to = vm.data.dateTo + 8.64e+4;
             }
-            vm.params.req_id = vm.data.dateTo || (Math.round(new Date().getTime() / 1000)) ;
+            vm.params.req_id = vm.data.dateTo || (Math.round(new Date().getTime() / 1000));
             vm.reqId = vm.params.req_id;
             websocketService.sendRequestFor.statement(vm.params);
         }
@@ -181,39 +182,39 @@
             vm.statement = _statement;
             vm.count = vm.statement.count;
             vm.hasError = false;
-            if(vm.reqId == _req_id){
-            if (vm.count == 0) {
-                vm.noTransaction = true;
-                $scope.$applyAsync(() => {
-                    vm.noMore = true;
-                });
-                vm.setBatch();
-            } else if (vm.count > 0) {
-                if (vm.count < vm.limit) {
-                    // has no more to load on next call
-                    vm.noTransaction = false;
-                    // $scope.$applyAsync(() => {
-                    vm.noMoreRequest = true;
-                    // });
-                    vm.statement.transactions.forEach(function(el, i) {
-                        vm.transactions.push(vm.statement.transactions[i]);
-                    });
-                    vm.setBatch();
-                } else if (vm.count == vm.limit) {
-                    // has at least one transaction on next call to show to user
-                    vm.noTransaction = false;
+            if (vm.reqId == _req_id) {
+                if (vm.count == 0) {
+                    vm.noTransaction = true;
                     $scope.$applyAsync(() => {
-                        vm.noMore = false;
-                    });
-                    vm.statement.transactions.forEach(function(el, i) {
-                        if (i < vm.count - 1) {
-                            vm.transactions.push(vm.statement.transactions[i]);
-                        }
+                        vm.noMore = true;
                     });
                     vm.setBatch();
+                } else if (vm.count > 0) {
+                    if (vm.count < vm.limit) {
+                        // has no more to load on next call
+                        vm.noTransaction = false;
+                        // $scope.$applyAsync(() => {
+                        vm.noMoreRequest = true;
+                        // });
+                        vm.statement.transactions.forEach(function(el, i) {
+                            vm.transactions.push(vm.statement.transactions[i]);
+                        });
+                        vm.setBatch();
+                    } else if (vm.count == vm.limit) {
+                        // has at least one transaction on next call to show to user
+                        vm.noTransaction = false;
+                        $scope.$applyAsync(() => {
+                            vm.noMore = false;
+                        });
+                        vm.statement.transactions.forEach(function(el, i) {
+                            if (i < vm.count - 1) {
+                                vm.transactions.push(vm.statement.transactions[i]);
+                            }
+                        });
+                        vm.setBatch();
+                    }
                 }
             }
-          }
         });
 
         $scope.$on('statement:error', (e, message) => {
@@ -288,7 +289,7 @@
 
         vm.jumpToDateFilter = function() {
             if (tableStateService.statementDateType == 'jumpToDate') {
-              tableStateService.statementCompletedGroup = true;
+                tableStateService.statementCompletedGroup = true;
                 vm.dateChanged = true;
                 vm.noTransaction = false;
                 vm.firstCompleted = false;
@@ -299,29 +300,30 @@
             }
         }
 
+        vm.toggleItem = function() {
+            vm.isItemShown = !vm.isItemShown;
+            var content = document.getElementsByClassName('statement-content-expandable')[0];
+            content.id === 'statement-filter-active' ? content.id = '' : content.id = 'statement-filter-active';
+        }
+
         vm.goTop = function() {
             $ionicScrollDelegate.scrollTop(true);
         }
 
         vm.goToTopButtonCondition = function() {
-            $scope.$applyAsync(() => {
-              $timeout(() => {
-                if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top >= 30) {
-                    vm.goToTopButton = true;
-                } else if ($ionicScrollDelegate.$getByHandle('handler').getScrollPosition().top < 30) {
-                    vm.goToTopButton = false;
-                }
-              }, 500);
+            $timeout(() => {
+                var position = $ionicScrollDelegate.$getByHandle('handler').getScrollPosition();
+                vm.goToTopButton = position.top >= 30 ? true : false;
             });
         }
 
         // details functions
         vm.sendContractDetailRequest = function(id) {
-          if(id){
-            vm.id = id;
-            sessionStorage.setItem('id', vm.id);
-            $state.go('transactiondetail');
-          }
+            if (id) {
+                vm.id = id;
+                sessionStorage.setItem('id', vm.id);
+                $state.go('transaction-detail');
+            }
         }
 
     }

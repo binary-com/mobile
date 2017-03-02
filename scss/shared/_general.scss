@@ -1,3 +1,16 @@
+::-webkit-input-placeholder {
+	color: $darkPrimaryBrandColor;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+
+button {
+	border: none !important;
+}
 * {
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -34,8 +47,11 @@ ion-side-menu {
     height: inherit;
     width: 100%;
     background: $white;
+    position: relative;
+    top: 0;
     bg-balance {
         width: 100%;
+        position: relative;
     }
 }
 a {
@@ -174,19 +190,23 @@ input::-webkit-outer-spin-button {
     margin: 0;
     /* <-- Apparently some margin are still there even though it's hidden */
 }
-// new
 .page-title {
     font-size: 1.5rem;
     font-weight: normal;
     padding: 5px;
     color: $contentColor;
     border-bottom: 2px solid $black;
+		margin: 0;
+}
+.sub-title {
+  font-size: 1rem;
+	color: $primaryBrandColor;
 }
 .input-title {
     text-align: left;
     white-space: normal;
     font-size: 1rem;
-    padding: 0 5px;
+    padding: 5px;
     span {
         font-size: 1rem;
         color: $secondaryContentColor;
@@ -208,13 +228,16 @@ input::-webkit-outer-spin-button {
     word-break: break-word;
     padding: 0;
     margin-top: 10px;
+		font-size: 0.8rem;
 }
 input {
     width: 100%;
-    padding: 5px;
+    padding: 5px!important;
     border: 1px solid $borderColor!important;
-    border-radius: 3px;
+    border-radius: 3px!important;
     background: $white;
+		font-size: 0.8rem!important;
+		height: auto!important;
     &.checkbox {
         width: 20px;
         top: 2px;
@@ -226,22 +249,16 @@ input {
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: $secondaryContentColor;
-    border: 1px solid $borderColor;
+    // border: 1px solid $borderColor;
 }
-input[type=password],
-input[type=text] {
-    border: 1px solid $borderColor;
-    border-radius: 3px;
-    background: $white;
-    padding: 10px 5px;
-    font-size: 1rem;
-}
+
 .item-input {
-    padding: 6px 0 5px;
+    padding: 5px;
 }
 .item-select {
     border-radius: 3px;
     font-size: 1rem;
+    padding: 5px;
     select {
         position: relative;
         width: 100%;
@@ -250,6 +267,7 @@ input[type=text] {
         border-radius: 3px;
         background: $white;
         direction: ltr;
+				font-size: 0.8rem;
         option {
             width: 100%;
             text-align: left;
@@ -275,6 +293,7 @@ p {
     color: $contentColor;
     font-weight: normal;
     white-space: normal;
+    line-height: 1.4rem;
 }
 .button-secondary {
     color: $contentColor!important;
@@ -290,15 +309,20 @@ textarea {
     font-size: 1rem;
 }
 .general-content {
-    padding-top: 40px !important;
-    margin-bottom: 40px !important;
+    margin-bottom: 80px !important;
     width: 100vw;
     font-size: 1rem;
 }
 .hint {
     font-size: 0.8rem;
+		font-size: $FONT_SIZE_S;
+		color: $black;
+		margin-top: 3px;
 }
-// end new
+.submenu-icon{
+  float: right;
+  // color: $darkPrimaryBrandColor;
+}
 @media screen and (min-width: 960px) {
     .accounts,
     .help,

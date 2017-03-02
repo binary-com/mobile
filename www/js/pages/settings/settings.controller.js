@@ -17,19 +17,10 @@
 
   function Settings(appStateService){
     var vm = this;
+    vm.ios = ionic.Platform.isIOS();
+    vm.android = ionic.Platform.isAndroid();
 
     vm.settings = [
-      /*{
-        name: "settings.security-and-limits",
-        submenus: [
-          {
-            name: "settings.self-exclusion",
-            url: "self-exclusion",
-            scope: "admin",
-            forRealAccount: true
-          }
-        ]
-      },*/
       {
         name: "profile.personal_details",
         url: "profile",
@@ -53,6 +44,18 @@
         url: "change-password",
         scope: "admin",
         forRealAccount: false
+      },
+      {
+        name: "settings.financial-assessment",
+        url: "financial-assessment",
+        scope: "admin",
+        forRealAccount: true
+      },
+      {
+        name: "settings.limits",
+        url: "limits",
+        scope: "admin",
+        forRealAccount: true
       }
     ];
 

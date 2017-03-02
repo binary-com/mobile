@@ -1,0 +1,53 @@
+//  colors
+$black: #000;
+$white: #fff;
+$primaryBrandColor: #2A3052;
+$darkPrimaryBrandColor: #15212D;
+$secondaryBrandColor: #E98024;
+$contentColor: #000;
+$contentInverseColor: #FFF;
+$secondaryContentColor: #C2C2C2;
+$borderColor: #DEDEDE;
+$fillColor: #F2F2F2;
+$positiveColor: #2E8836;
+$darkPositiveColor: #14602B;
+$negativeColor: #C03;
+$noticeColor: #FEF1CF;
+$chartColor: #6B8Fb9;
+$chartAreaColor: rgba(128,179,236,0.3);
+
+// Typography
+$FONT_SIZE_N: 18px;
+$FONT_SIZE_S: 13px;
+$FONT_SIZE_XS: 10px;
+
+.font-n{
+  font-size: $FONT_SIZE_N;
+}
+.font-s{
+  font-size: $FONT_SIZE_S;
+}
+.font-xs{
+  font-size: $FONT_SIZE_XS;
+}
+
+@media only screen and (max-width: 480px) {
+  html, body{
+    font-size: 4vw;
+  }
+}
+@media only screen and (min-width: 480px) {
+  html, body{
+    font-size: 3vw;
+  }
+}
+@media only screen and (min-width: 780px) {
+  html, body{
+    font-size: 2vw;
+  }
+}
+@media only screen and (min-width: 960px) {
+  html, body{
+    font-size: 16px;
+  }
+}

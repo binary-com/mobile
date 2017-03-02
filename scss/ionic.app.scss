@@ -23,26 +23,28 @@ $ionicons-font-path: "../lib/ionic/release/fonts" !default;
 
 // Include all custom SCSS styles
 
-@import "scss/core/colors";
+@import "scss/core/variables";
 @import "scss/core/fonts";
-@import "scss/core/forms";
 
 @import "scss/shared/general";
 @import "scss/shared/header";
 @import "scss/shared/menu";
-@import "scss/shared/typography";
 @import "scss/shared/loading";
 
 @import "scss/pages/home";
 @import "scss/pages/signin";
 @import "scss/pages/trade";
 @import "scss/pages/help";
-@import "scss/pages/realitycheck";
-@import "scss/pages/profittable";
-@import "scss/pages/newaccount";
+@import "scss/pages/reality-check";
+@import "scss/pages/profit-table";
+@import "scss/pages/new-account";
 @import "scss/pages/connectivity";
 @import "scss/pages/settings";
 @import "scss/pages/profile";
 @import "scss/pages/terms-and-conditions";
+@import "scss/pages/limits";
+@import "scss/pages/trading-times";
+@import "scss/pages/asset-index";
+@import "scss/pages/tax-information";
 
 @import "scss/shared/language";

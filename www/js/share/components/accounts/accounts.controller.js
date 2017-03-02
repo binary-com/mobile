@@ -14,8 +14,7 @@
         .controller('AccountsController', Accounts);
 
     Accounts.$inject = [
-        '$scope', '$state', '$ionicSideMenuDelegate', 'accountService', 'appStateService',
-        'utilsService', 'websocketService'
+        '$scope', '$state', '$ionicSideMenuDelegate', 'accountService', 'appStateService', 'websocketService'
     ];
 
     function Accounts(
@@ -24,7 +23,6 @@
         $ionicSideMenuDelegate,
         accountService,
         appStateService,
-        utilsService,
         websocketService
     ) {
         var vm = this;
@@ -54,6 +52,7 @@
             appStateService.isCheckedAccountType = false;
             sessionStorage.removeItem('start');
             sessionStorage.removeItem('_interval');
+            sessionStorage.removeItem('realityCheckStart');
             appStateService.isProfitTableSet = false;
             appStateService.isStatementSet = false;
             appStateService.profitTableRefresh = true;
@@ -63,7 +62,13 @@
             appStateService.hasMLT = false;
             sessionStorage.removeItem('countryParams');
             appStateService.isPopupOpen = false;
+            appStateService.realityCheckLogin = false;
             $ionicSideMenuDelegate.toggleLeft();
+            appStateService.hasToRedirectToTermsAndConditions = false;
+            appStateService.hasToRedirectToFinancialAssessment = false;
+            appStateService.hasToRedirectToTaxInformation = false;
+            appStateService.redirectFromFinancialAssessment = true;
+            appStateService.limitsChange = true;
         };
 
         $scope.$on('authorize', (e, authorize) => {

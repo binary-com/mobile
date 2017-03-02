@@ -21,11 +21,6 @@
 	}
 	#emailform,
 	#virtualws {
-		.email-title {
-			font-size: 1rem;
-			text-align: left;
-			color: $contentColor;
-		}
 		.show-hide-password {
 			margin-top: 15px;
 			input#show-hide {
@@ -33,6 +28,9 @@
 				top: 2px;
 				position: relative;
 			}
+		}
+		.help-block{
+			padding: 0 5px;
 		}
 	}
 	.list {

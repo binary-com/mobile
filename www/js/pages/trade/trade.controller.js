@@ -14,12 +14,10 @@
         .controller('TradeController', Trade);
 
     Trade.$inject = [
-        '$scope', 'proposalService',
-        'tradeService', 'websocketService', 'alertService'
+        '$scope', 'proposalService'
     ];
 
-    function Trade($scope, proposalService,
-        tradeService, websocketService, alertService) {
+    function Trade($scope, proposalService) {
         var vm = this;
 
         vm.proposal = {};
@@ -35,6 +33,12 @@
         angular.element(document).ready(function() {
             if (ionic.Platform.isIOS()) {
                 document.getElementById('trade-container').style.paddingBottom = '20px';
+            }
+            if(!ionic.Platform.isWebView()) {
+              var tradeContainer = document.getElementById('trade-container');
+              if (tradeContainer !== undefined && tradeContainer !== null) {
+                  tradeContainer.className = "web-view-trade";
+              }
             }
             window.addEventListener('native.keyboardshow', keyboardShowHandler);
             window.addEventListener('native.keyboardhide', keyboardHideHandler);

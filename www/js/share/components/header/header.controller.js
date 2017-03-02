@@ -59,19 +59,40 @@
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.to = to;
             vm.from = from;
-            if (['transactiondetail', 'language', 'profile', 'self-exclusion', 'change-password'].indexOf(vm.to.name) > -1) {
+            if (['transaction-detail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index', 'limits'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
-            } else if (['acceptTermsAndConditions'].indexOf(vm.to.name) > -1) {
+            } else if (['terms-and-conditions'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = false;
+            } else if (['financial-assessment'].indexOf(vm.to.name) > -1) {
+                if (appStateService.hasToRedirectToFinancialAssessment) {
+                    vm.hideMenuButton = true;
+                    vm.showBack = false;
+                } else {
+                    vm.hideMenuButton = true;
+                    vm.showBack = true;
+                }
+            } else if (['tax-information'].indexOf(vm.to.name) > -1) {
+                if (appStateService.hasToRedirectToTaxInformation) {
+                    vm.hideMenuButton = true;
+                    vm.showBack = false;
+                } else {
+                    vm.hideMenuButton = true;
+                    vm.showBack = true;
+                }
             } else {
+                if (vm.from.name === 'statement' && vm.to.name !== 'transactiondetail' && document.getElementsByClassName('realitycheck').length > 0) {
+                    $('.popup-container').addClass('popup-showing');
+                    $('body').addClass('popup-open');
+                    $('.backdrop').addClass('visible');
+                }
                 vm.hideMenuButton = false;
                 vm.showBack = false;
-                if (vm.from.name == 'profittable') {
+                if (vm.from.name === 'profit-table') {
                     appStateService.isProfitTableSet = false;
                 }
-                if (vm.from.name == 'statement') {
+                if (vm.from.name === 'statement') {
                     appStateService.isStatementSet = false;
                 }
             }
@@ -81,7 +102,6 @@
         vm.goToPrevPage = function() {
             $state.go(vm.from);
         };
-
 
     }
 })();

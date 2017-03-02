@@ -50,6 +50,7 @@
 		    application: "tick-trade",
 		    onError: function(payload){
                 payload.customer.userId = window._trackJs.userId;
+                payload.customer.version = window._trackJs.version;
                 return !(window.location.hostname === "localhost");
             }
 		    // other configuration
@@ -79,11 +80,11 @@
     <bg-updater></bg-updater>
     <bg-connection-lost></bg-connection-lost>
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
+    <bg-session-timeout></bg-session-timeout>
     <bg-connectivity></bg-connectivity>
     <ping></ping>
-    <bg-terms-and-conditions></bg-terms-and-conditions>
-
     <bg-reality-check></bg-reality-check>
+    <bg-check-user-status></bg-check-user-status>
 
 
     <!-- ionic/angularjs js -->
@@ -191,6 +192,18 @@
     <script src="js/share/components/updater/updater.directive.js"></script>
     <script src="js/share/components/updater/updater.controller.js"></script>
 
+    <script src="js/share/components/reality-check/reality-check.module.js"></script>
+    <script src="js/share/components/reality-check/reality-check.controller.js"></script>
+    <script src="js/share/components/reality-check/reality-check.directive.js"></script>
+
+    <script src="js/share/components/account-upgrade/account-upgrade.module.js"></script>
+    <script src="js/share/components/account-upgrade/account-upgrade.controller.js"></script>
+    <script src="js/share/components/account-upgrade/account-upgrade.directive.js"></script>
+
+    <script src="js/share/components/check-user-status/check-user-status.module.js"></script>
+    <script src="js/share/components/check-user-status/check-user-status.controller.js"></script>
+    <script src="js/share/components/check-user-status/check-user-status.directive.js"></script>
+
     <script src="js/pages/home/home.module.js"></script>
     <script src="js/pages/home/home.controller.js"></script>
 
@@ -249,47 +262,28 @@
 
     <script src="js/pages/profit-table/profit-table.module.js"></script>
     <script src="js/pages/profit-table/profit-table.controller.js"></script>
-    <script src="js/pages/profit-table/profit-table.directive.js"></script>
     <script src="js/pages/profit-table/profit-table.filter.js"></script>
 
     <script src="js/pages/statement/statement.module.js"></script>
     <script src="js/pages/statement/statement.controller.js"></script>
-    <script src="js/pages/statement/statement.directive.js"></script>
     <script src="js/pages/statement/statement.filter.js"></script>
 
     <script src="js/pages/transaction-detail/transaction-detail.module.js"></script>
     <script src="js/pages/transaction-detail/transaction-detail.controller.js"></script>
-    <script src="js/pages/transaction-detail/transaction-detail.directive.js"></script>
 
     <script src="js/pages/terms-and-conditions/terms-and-conditions.module.js"></script>
     <script src="js/pages/terms-and-conditions/terms-and-conditions.controller.js"></script>
-    <script src="js/pages/terms-and-conditions/terms-and-conditions.directive.js"></script>
 
-    <script src="js/pages/accept-terms-and-conditions/accept-terms-and-conditions.module.js"></script>
-    <script src="js/pages/accept-terms-and-conditions/accept-terms-and-conditions.controller.js"></script>
-    <script src="js/pages/accept-terms-and-conditions/accept-terms-and-conditions.directive.js"></script>
+    <script src="js/pages/real-account-opening/real-account-opening.module.js"></script>
+    <script src="js/pages/real-account-opening/real-account-opening.controller.js"></script>
 
-    <script src="js/share/components/reality-check/reality-check.module.js"></script>
-    <script src="js/share/components/reality-check/reality-check.controller.js"></script>
-    <script src="js/share/components/reality-check/reality-check.directive.js"></script>
-
-    <script src="js/share/components/real-account-opening/real-account-opening.module.js"></script>
-    <script src="js/share/components/real-account-opening/real-account-opening.controller.js"></script>
-    <script src="js/share/components/real-account-opening/real-account-opening.directive.js"></script>
-
-    <script src="js/pages/new-real-account-opening/new-real-account-opening.module.js"></script>
-    <script src="js/pages/new-real-account-opening/new-real-account-opening.controller.js"></script>
-
-    <script src="js/pages/new-real-account-opening/components/new-account-real/new-account-real.module.js"></script>
-    <script src="js/pages/new-real-account-opening/components/new-account-real/new-account-real.directive.js"></script>
-    <script src="js/pages/new-real-account-opening/components/new-account-real/new-account-real.controller.js"></script>
-
-    <script src="js/pages/new-real-account-opening/components/new-account-maltainvest/new-account-maltainvest.module.js"></script>
-    <script src="js/pages/new-real-account-opening/components/new-account-maltainvest/new-account-maltainvest.directive.js"></script>
-    <script src="js/pages/new-real-account-opening/components/new-account-maltainvest/new-account-maltainvest.controller.js"></script>
+    <script src="js/pages/maltainvest-account-opening/maltainvest-account-opening.module.js"></script>
+    <script src="js/pages/maltainvest-account-opening/maltainvest-account-opening.controller.js"></script>
 
     <script src="js/pages/self-exclusion/self-exclusion.module.js"></script>
     <script src="js/pages/self-exclusion/self-exclusion.controller.js"></script>
+    <script src="js/pages/self-exclusion/session-timeout.directive.js"></script>
+    <script src="js/pages/self-exclusion/session-timeout.controller.js"></script>
 
     <script src="js/pages/settings/settings.module.js"></script>
     <script src="js/pages/settings/settings.controller.js"></script>
@@ -302,6 +296,24 @@
 
     <script src="js/pages/change-password/change-password.module.js"></script>
     <script src="js/pages/change-password/change-password.controller.js"></script>
+
+    <script src="js/pages/financial-assessment/financial-assessment.module.js"></script>
+    <script src="js/pages/financial-assessment/financial-assessment.controller.js"></script>
+
+    <script src="js/pages/limits/limits.module.js"></script>
+    <script src="js/pages/limits/limits.controller.js"></script>
+
+    <script src="js/pages/resources/resources.module.js"></script>
+    <script src="js/pages/resources/resources.controller.js"></script>
+
+    <script src="js/pages/trading-times/trading-times.module.js"></script>
+    <script src="js/pages/trading-times/trading-times.controller.js"></script>
+
+    <script src="js/pages/asset-index/asset-index.module.js"></script>
+    <script src="js/pages/asset-index/asset-index.controller.js"></script>
+
+    <script src="js/pages/tax-information/tax-information.module.js"></script>
+    <script src="js/pages/tax-information/tax-information.controller.js"></script>
 
     <!-- endbuild -->
 
