@@ -24,7 +24,7 @@
     "cheerio": "^0.22.0",
     "del": "^2.2.0",
     "electron-packager": "^8.5.1",
-    "fs-path": "0.0.23",
+    "fs-extra": "^2.0.0",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-file": "^0.2.0",

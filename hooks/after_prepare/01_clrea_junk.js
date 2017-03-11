@@ -4,7 +4,7 @@ var fs = require('fs');
 var cheerio = require('cheerio');
 var path = require('path');
 var sh = require('shelljs');
-var fsPath = require('fs-path');
+var fsExtra = require('fs-extra');
 
 var cwd = process.cwd();
 var rootDir = process.argv[2];
@@ -56,11 +56,11 @@ function run(){
     sh.mkdir(wwwPath, 'lib');
 
     files.forEach(function(file){
-      fsPath.copySync(path.join(rootDir, 'www', file), path.join(wwwPath, file));
+      fsExtra.copySync(path.join(rootDir, 'www', file), path.join(wwwPath, file));
     });
 
-    fsPath.copySync(path.join(rootDir, 'www', 'lib', 'ionic', 'release', 'fonts'), path.join(wwwPath, 'lib', 'ionic', 'release', 'fonts'));
-    fsPath.copySync(path.join(rootDir, 'www', 'lib', 'ionic', 'release', 'css'), path.join(wwwPath, 'lib', 'ionic', 'release', 'css'));
+    fsExtra.copySync(path.join(rootDir, 'www', 'lib', 'ionic', 'release', 'fonts'), path.join(wwwPath, 'lib', 'ionic', 'release', 'fonts'));
+    fsExtra.copySync(path.join(rootDir, 'www', 'lib', 'ionic', 'release', 'css'), path.join(wwwPath, 'lib', 'ionic', 'release', 'css'));
 
 
   });
