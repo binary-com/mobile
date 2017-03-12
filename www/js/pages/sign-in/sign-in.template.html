@@ -58,7 +58,7 @@
                 <div class="col col-75">
 
                     <label class="item-input">
-                        <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-pattern="/^\w{15,128}$/" required/>
+                        <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-pattern="/^\w{8,128}$/" required/>
                     </label>
                     <div class="help-block error" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty' ng-hide="vm.tokenError">
                         <div ng-message="pattern">{{'newvirtualaccount.token-invalid' | translate}}</div>
