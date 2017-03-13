@@ -25,6 +25,7 @@
         proposalService,
         websocketService) {
         var vm = this;
+        var forgetRequestId = 0;
 
         vm.contracts = [];
         vm.proposalResponses = [];
@@ -54,7 +55,7 @@
 
         $scope.$on('proposal:error', (e, error, reqId) => {
 
-            if ([1, 2].indexOf(reqId) > -1) {
+            if ([1, 2].indexOf(reqId) > -1 && error.code !== "AlreadySubscribed") {
                 $scope.$applyAsync(() => {
                     vm.proposalResponses[reqId - 1] = error;
                     vm.proposalResponses[reqId - 1].hasError = true;
@@ -137,6 +138,23 @@
             }
         });
 
+        $scope.$on('forget_all', (e, req_id) => {
+          if(req_id != forgetRequestId){
+            return;
+          }
+          var proposal1 = _.clone(vm.proposal);
+          proposal1.contract_type = vm.contracts[0].contract_type;
+          proposal1.req_id = 1;
+
+          var proposal2 = _.clone(vm.proposal);
+          proposal2.contract_type = vm.contracts[1].contract_type;
+          proposal2.req_id = 2;
+
+          proposalService.send(proposal1);
+          proposalService.send(proposal2);
+
+        });
+
         vm.getImageUrl = function(contractType) {
             return "img/trade-icon/" + contractType.toLowerCase() + ".svg";
         }
@@ -168,19 +186,13 @@
         }
 
         function sendProposal() {
+          forgetRequestId = new Date().getTime();
 
-            proposalService.forget();
+          proposalService.forget(forgetRequestId);
 
-            var proposal1 = _.clone(vm.proposal);
-            proposal1.contract_type = vm.contracts[0].contract_type;
-            proposal1.req_id = 1;
-
-            var proposal2 = _.clone(vm.proposal);
-            proposal2.contract_type = vm.contracts[1].contract_type;
-            proposal2.req_id = 2;
-
-            proposalService.send(proposal1);
-            proposalService.send(proposal2);
+          // Proposal will be sent when the result of proposal-forget received. Lines:141-156
+          // This changes has been done to prevent subscribtion issue
+          // `You're already subscribed`
         }
 
         function proposalUpdated() {

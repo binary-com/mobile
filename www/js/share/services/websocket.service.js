@@ -209,9 +209,10 @@ angular
                 };
                 sendMessage(data);
               },
-              forgetProposals: function() {
+              forgetProposals: function(reqId) {
                 var data = {
-                  forget_all: 'proposal'
+                  forget_all: 'proposal',
+                  req_id: reqId
                 };
                 sendMessage(data);
               },
@@ -718,6 +719,8 @@ angular
                               $rootScope.$broadcast('trading_times:error', message.error);
                             }
                             break;
+                        case 'forget_all':
+                            $rootScope.$broadcast('forget_all', message.req_id);
                         default:
                     }
                 }
