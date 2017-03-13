@@ -177,8 +177,8 @@
     "tax_residence":"Tax residence",
     "tax_identification_number":"Tax Identification Number",
     "address":"Adresse",
-    "addreess_line_1":"Erste Adresszeile",
-    "addreess_line_2":"Zweite Adresszeile",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"Ort/Stadt",
     "address_state":"Bundesland/Region",
     "address_postcode":"Postleitzahl/PLZ",
@@ -202,7 +202,6 @@
     "net_income":"Jahresnettoeinkommen",
     "estimated_worth":"Geschätztes Vermögen",
     "info":"Die Finanzhandelsdienste, die diese Site enthält, eignen sich nur für Kunden, die einen Verlust ihres gesamten, investierten Geldes verkraften können und die die Risiken erkennen, die mit dem Erwerb von Finanzverträgen im Zusammenhang stehen und damit Erfahrung haben. Transaktionen mit Finanzkontrakten beinhalten ein hohes Risiko. Wenn erworbene Kontrakte wertlos auslaufen, geht Ihre gesamte Investition, die aus der Kontraktprämie besteht, verloren.",
-    "accept_risk_question":"Ich habe die allgemeinen Geschäftsbedingungen der Site gelesen und verstanden.",
     "open_account":"Konto eröffnen",
     "select":"Bitte wählen Sie",
     "under_1_year":"0-1 Jahr",
@@ -270,7 +269,10 @@
     "error_format":"Falsches Format oder falsche Länge",
     "error_secretanswer":"Dieses Feld muss zwischen 4-50 Zeichen lang sein.",
     "isrequired":"(erforderlich)",
-    "isoptional":"(optional)"
+    "isoptional":"(optional)",
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "newaccountreal":{
     "open_real":"Erweitern Sie auf ein Echtgeldkonto",
@@ -286,8 +288,8 @@
     "date_of_birth":"Geburtsdatum",
     "residence":"Wohnsitzland",
     "place_of_birth":"Place of birth",
-    "addreess_line_1":"Erste Adresszeile",
-    "addreess_line_2":"Zweite Adresszeile",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"Ort/Stadt",
     "address_state":"Bundesland/Region",
     "address_postcode":"Postleitzahl/PLZ",
@@ -316,7 +318,9 @@
     "error_secretanswer":"Dieses Feld muss zwischen 4-50 Zeichen lang sein.",
     "isrequired":"(erforderlich)",
     "isoptional":"(optional)",
-    "accept_risk_question":"I have read and agree to the terms and conditions of the site."
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "profittable":{
     "profit_table":"Gewinntabelle",
@@ -559,8 +563,9 @@
     "estimated_worth_5":"Over $1,000,000",
     "update":"Update",
     "financial_assessment_info":"The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.",
-    "updated_successfully":"Your settings have been updated successfully",
-    "no_change":"You did not change anything."
+    "no_change":"You did not change anything.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   },
   "limits":{
     "trading_withdrawal_limits":"Trading and Withdrawal Limits",
@@ -623,6 +628,8 @@
     "place_of_birth":"Place of birth",
     "isrequired":"(required)",
     "error_format":"Wrong format or length",
-    "required":"This field is required."
+    "required":"This field is required.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   }
 }

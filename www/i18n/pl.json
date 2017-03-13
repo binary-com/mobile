@@ -177,8 +177,8 @@
     "tax_residence":"Rezydencja podatkowa",
     "tax_identification_number":"Numer identyfikacji podatkowej",
     "address":"Adres",
-    "addreess_line_1":"Pierwsza część adresu zamieszkania",
-    "addreess_line_2":"Druga część adresu zamieszkania",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"Miasto",
     "address_state":"Stan/prowincja",
     "address_postcode":"Kod pocztowy",
@@ -202,7 +202,6 @@
     "net_income":"Roczny dochód netto",
     "estimated_worth":"Szacowana wartość netto",
     "info":"Usługi zawierania transakcji finansowych oferowane na niniejszym portalu są odpowiednie tylko dla klientów, którzy są w stanie ponieść stratę wszystkich zainwestowanych pieniędzy i którzy rozumieją zagrożenia związane z nabywaniem kontraktów finansowych i mają doświadczenie w tym zakresie. Transakcje finansowe niosą ze sobą wysokie ryzyko. Jeśli zakupiony kontrakt zakończy się bez wartości, stracisz całą zainwestowaną sumę, na którą składać się będzie premia z kontraktu.",
-    "accept_risk_question":"Zapoznałem się z regulaminem korzystania z tej strony i akceptuję go.",
     "open_account":"Otwórz konto",
     "select":"Proszę wybrać",
     "under_1_year":"0-1 rok",
@@ -270,7 +269,10 @@
     "error_format":"Nieprawidłowy format lub długość",
     "error_secretanswer":"To pole musi liczyć 4-50 znaków.",
     "isrequired":"(obowiązkowe)",
-    "isoptional":"(opcjonalne)"
+    "isoptional":"(opcjonalne)",
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "newaccountreal":{
     "open_real":"Uaktualnij do konta z prawdziwymi pieniędzmi",
@@ -286,8 +288,8 @@
     "date_of_birth":"Data urodzenia",
     "residence":"Kraj zamieszkania",
     "place_of_birth":"Miejsce urodzenia",
-    "addreess_line_1":"Pierwsza część adresu zamieszkania",
-    "addreess_line_2":"Druga część adresu zamieszkania",
+    "address_line_1":"First line of home address",
+    "address_line_2":"Second line of home address",
     "address_city":"Miasto",
     "address_state":"Stan/prowincja",
     "address_postcode":"Kod pocztowy",
@@ -316,7 +318,9 @@
     "error_secretanswer":"To pole musi liczyć 4-50 znaków.",
     "isrequired":"(obowiązkowe)",
     "isoptional":"(opcjonalne)",
-    "accept_risk_question":"Zapoznałem się z regulaminem korzystania z tej strony i akceptuję go."
+    "read_and_agreed_to":"I have read and agree to the ",
+    "terms_and_conditions":"terms and conditions ",
+    "of_the_site":"of the site."
   },
   "profittable":{
     "profit_table":"Tabela zysków",
@@ -559,8 +563,9 @@
     "estimated_worth_5":"Ponad 1 000 000 $",
     "update":"Aktualizuj",
     "financial_assessment_info":"Usługi zawierania transakcji finansowych oferowane na niniejszym portalu są odpowiednie tylko dla klientów, którzy są w stanie ponieść stratę wszystkich zainwestowanych pieniędzy i którzy rozumieją zagrożenia związane z nabywaniem kontraktów finansowych i mają doświadczenie w tym zakresie. Transakcje finansowe niosą ze sobą wysokie ryzyko. Jeśli zakupiony kontrakt zakończy się bez wartości, stracisz całą zainwestowaną sumę, na którą składać się będzie premia z kontraktu.",
-    "updated_successfully":"Twoje ustawienia zostały pomyślnie zaktualizowane",
-    "no_change":"Niczego nie zmieniono."
+    "no_change":"Niczego nie zmieniono.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   },
   "limits":{
     "trading_withdrawal_limits":"Limity handlowania i wypłat",
@@ -623,6 +628,8 @@
     "place_of_birth":"Miejsce urodzenia",
     "isrequired":"(obowiązkowe)",
     "error_format":"Nieprawidłowy format lub długość",
-    "required":"To pole jest obowiązkowe."
+    "required":"To pole jest obowiązkowe.",
+    "success":"Success",
+    "success_message":"Your settings have been updated successfully."
   }
 }

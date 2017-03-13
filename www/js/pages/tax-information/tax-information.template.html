@@ -48,7 +48,7 @@
                             </div>
                             <div class="row">
                                 <div class="col help-block error" ng-if="vm.data.taxResidence  == null && vm.taxRequirement">
-                                    {{ 'tax_information.required' | translate }}
+                                    {{ 'tax-information.required' | translate }}
                                 </div>
                             </div>
                         </div>
@@ -79,27 +79,13 @@
                     <div class="row">
                         <div class="col">
                             <div class="row">
-                                <label class="col input-title accept">
-				                     <input type="checkbox" disabled ng-model="vm.data.taxAccept" class="checkbox" ng-checked="true"/>
-				                     {{'tax-information.tax_accept_info' | translate}}
-				                 </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
                                 <div class="col center">
                                     <span class="help-block error center" ng-if="vm.showNotChangedWarning">{{'tax-information.no_change' | translate}}</span>
-                                    <span class="help-block error center" ng-if="vm.updated">{{'tax-information.updated_successfully' | translate}}</span>
-                                    <span class="help-block error center" ng-if="vm.updateError">{{vm.updateErrorMessage}}</span>
-                                    <button class="button button-block" ng-click="vm.submitTaxInformation()" ng-disabled="">{{'tax-information.update' | translate}}</button>
+                                    <button class="button button-block" ng-click="vm.submitTaxInformation()" ng-disabled="taxInformationForm.$invalid || vm.data.taxResidence == null || vm.disableUpdateButton">{{'tax-information.update' | translate}}</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </form>

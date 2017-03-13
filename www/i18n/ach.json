@@ -177,8 +177,8 @@
     "tax_residence":"crwdns19447:0crwdne19447:0",
     "tax_identification_number":"crwdns19408:0crwdne19408:0",
     "address":"crwdns17817:0crwdne17817:0",
-    "addreess_line_1":"crwdns17818:0crwdne17818:0",
-    "addreess_line_2":"crwdns17819:0crwdne17819:0",
+    "address_line_1":"crwdns19459:0crwdne19459:0",
+    "address_line_2":"crwdns19460:0crwdne19460:0",
     "address_city":"crwdns17820:0crwdne17820:0",
     "address_state":"crwdns17821:0crwdne17821:0",
     "address_postcode":"crwdns17822:0crwdne17822:0",
@@ -202,7 +202,6 @@
     "net_income":"crwdns17840:0crwdne17840:0",
     "estimated_worth":"crwdns17841:0crwdne17841:0",
     "info":"crwdns17842:0crwdne17842:0",
-    "accept_risk_question":"crwdns17843:0crwdne17843:0",
     "open_account":"crwdns17844:0crwdne17844:0",
     "select":"crwdns17845:0crwdne17845:0",
     "under_1_year":"crwdns17846:0crwdne17846:0",
@@ -270,7 +269,10 @@
     "error_format":"crwdns17895:0crwdne17895:0",
     "error_secretanswer":"crwdns17896:0crwdne17896:0",
     "isrequired":"crwdns17897:0crwdne17897:0",
-    "isoptional":"crwdns17898:0crwdne17898:0"
+    "isoptional":"crwdns17898:0crwdne17898:0",
+    "read_and_agreed_to":"crwdns19453:0crwdne19453:0",
+    "terms_and_conditions":"crwdns19454:0crwdne19454:0",
+    "of_the_site":"crwdns19455:0crwdne19455:0"
   },
   "newaccountreal":{
     "open_real":"crwdns17899:0crwdne17899:0",
@@ -286,8 +288,8 @@
     "date_of_birth":"crwdns17909:0crwdne17909:0",
     "residence":"crwdns17910:0crwdne17910:0",
     "place_of_birth":"crwdns19414:0crwdne19414:0",
-    "addreess_line_1":"crwdns17911:0crwdne17911:0",
-    "addreess_line_2":"crwdns17912:0crwdne17912:0",
+    "address_line_1":"crwdns19461:0crwdne19461:0",
+    "address_line_2":"crwdns19462:0crwdne19462:0",
     "address_city":"crwdns17913:0crwdne17913:0",
     "address_state":"crwdns17914:0crwdne17914:0",
     "address_postcode":"crwdns17915:0crwdne17915:0",
@@ -316,7 +318,9 @@
     "error_secretanswer":"crwdns17938:0crwdne17938:0",
     "isrequired":"crwdns17939:0crwdne17939:0",
     "isoptional":"crwdns17940:0crwdne17940:0",
-    "accept_risk_question":"crwdns19452:0crwdne19452:0"
+    "read_and_agreed_to":"crwdns19456:0crwdne19456:0",
+    "terms_and_conditions":"crwdns19457:0crwdne19457:0",
+    "of_the_site":"crwdns19458:0crwdne19458:0"
   },
   "profittable":{
     "profit_table":"crwdns17941:0crwdne17941:0",
@@ -559,8 +563,9 @@
     "estimated_worth_5":"crwdns19330:0crwdne19330:0",
     "update":"crwdns19331:0crwdne19331:0",
     "financial_assessment_info":"crwdns19332:0crwdne19332:0",
-    "updated_successfully":"crwdns19333:0crwdne19333:0",
-    "no_change":"crwdns19334:0crwdne19334:0"
+    "no_change":"crwdns19334:0crwdne19334:0",
+    "success":"crwdns19463:0crwdne19463:0",
+    "success_message":"crwdns19464:0crwdne19464:0"
   },
   "limits":{
     "trading_withdrawal_limits":"crwdns19335:0crwdne19335:0",
@@ -623,6 +628,8 @@
     "place_of_birth":"crwdns19442:0crwdne19442:0",
     "isrequired":"crwdns19444:0crwdne19444:0",
     "error_format":"crwdns19445:0crwdne19445:0",
-    "required":"crwdns19446:0crwdne19446:0"
+    "required":"crwdns19446:0crwdne19446:0",
+    "success":"crwdns19465:0crwdne19465:0",
+    "success_message":"crwdns19466:0crwdne19466:0"
   }
 }

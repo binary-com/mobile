@@ -19,7 +19,7 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="country_of_residence" ng-value="vm.profile.country" readonly="readonly">
+                                <input name="country" ng-value="vm.profile.country" readonly="readonly">
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="email_address" ng-value="vm.profile.email" readonly="readonly">
+                                <input name="email" ng-value="vm.profile.email" readonly="readonly">
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="email_address" ng-value="vm.profile.email" readonly="readonly">
+                                <input name="email" ng-value="vm.profile.email" readonly="readonly">
                             </div>
                         </div>
                     </div>
@@ -112,8 +112,8 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="first_line_address" ng-model="vm.profile.address_line_1" ng-maxlength="70" ng-required="true">
-                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.first_line_address.$error" role="alert" class="error">
+                                <input name="address_line_1" ng-model="vm.profile.address_line_1" ng-maxlength="70" ng-required="true" />
+                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_line_1.$error" role="alert" class="error">
                                     <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                                     <ng-message when="maxlength">
                                         {{ 'profile.maximum_length_should_be_70_characters' | translate }}
@@ -136,8 +136,8 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="second_line_address" ng-model="vm.profile.address_line_2" ng-maxlength="70">
-                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.second_line_address.$error" role="alert" class="error">
+                                <input name="address_line_2" ng-model="vm.profile.address_line_2" ng-maxlength="70">
+                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_line_2.$error" role="alert" class="error">
                                     <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                                     <ng-message when="maxlength">
                                         {{ 'profile.maximum_length_should_be_70_characters' | translate }}
@@ -157,8 +157,8 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="town_city" ng-model="vm.profile.address_city" ng-required="true" ng-maxlength="35">
-                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.town_city.$error" role="alert" class="error">
+                                <input name="address_city" ng-model="vm.profile.address_city" ng-required="true" ng-maxlength="35">
+                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_city.$error" role="alert" class="error">
                                     <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                                     <ng-message when="maxlength">
                                         {{ 'profile.maximum_length_should_be_35_characters' | translate }}
@@ -181,7 +181,8 @@
                         </div>
                         <div class="row">
                             <div class="col item-select">
-                                <select name="state_province" ng-model="vm.profile.address_state" ng-select="vm.profile.address_state">
+                                <select name="address_state" ng-model="vm.profile.address_state" ng-select="vm.profile.address_state" ng-disabled="!vm.states">
+                                  <option value="" disabled ng-if="vm.profile.address_state == null">{{ profile.select }}</option>
                        <option ng-repeat="s in vm.states"
                                value="{{s.value}}"> {{ s.text }} </option>
                 </select>
@@ -189,7 +190,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.state_province.$error" role="alert" class="error">
+                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_state.$error" role="alert" class="error">
                                     <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                                     </ng-message>
                             </div>
@@ -206,8 +207,8 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="postal_code_zip" ng-model="vm.profile.address_postcode" ng-maxlength="20">
-                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.postal_code_zip.$error" role="alert" class="error">
+                                <input name="address_postcode" ng-model="vm.profile.address_postcode" ng-maxlength="20">
+                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_postcode.$error" role="alert" class="error">
                                     <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                                     <ng-message when="maxlength">
                                         {{ 'profile.maximum_length_should_be_20_characters' | translate }}
@@ -227,8 +228,8 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="telephone" ng-model="vm.profile.phone" ng-maxlength="35" ng-minlength="6" ng-required="true">
-                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.telephone.$error" role="alert" class="error">
+                                <input name="phone" ng-model="vm.profile.phone" ng-maxlength="35" ng-minlength="6" ng-required="true">
+                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.phone.$error" role="alert" class="error">
                                     <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                                     <ng-message when="maxlength">
                                         {{ 'profile.maximum_length_should_be_20_characters' | translate }}
@@ -255,11 +256,11 @@
                         </div>
                         <div class="row">
                             <label class="col item-input item-select">
-                                  <select name="placeOfBirth" ng-model="vm.profile.place_of_birth" ng-options="residence.value as residence.text for residence in vm.residenceList" ng-required="vm.isFinancial">
+                                  <select name="place_of_birth" ng-model="vm.profile.place_of_birth" ng-options="residence.value as residence.text for residence in vm.residenceList" ng-required="vm.isFinancial">
                                       <option value="" disabled>{{'profile.select' | translate}}</option>
                                   </select>
                               </label>
-                            <ng-messages ng-if="vm.isDataLoaded" for="profileForm.placeOfBirth.$error" role="alert" class="error">
+                            <ng-messages ng-if="vm.isDataLoaded" for="profileForm.place_of_birth.$error" role="alert" class="error">
                                 <ng-message when="required">
                                     {{ 'profile.this_field_is_required' | translate }}
                                 </ng-message>
@@ -302,8 +303,8 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="taxIdentificationNumber" ng-model="vm.profile.tax_identification_number" ng-pattern="/^[\w-]{0,20}$/" ng-required="vm.isFinancial" />
-                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.taxIdentificationNumber.$error" role="alert" class="error">
+                                <input name="tax_identification_number" ng-model="vm.profile.tax_identification_number" ng-pattern="/^[\w-]{0,20}$/" ng-required="vm.isFinancial" />
+                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.tax_identification_number.$error" role="alert" class="error">
                                     <ng-message when="required">
                                         {{ 'profile.this_field_is_required' | translate }}
                                     </ng-message>
@@ -316,7 +317,8 @@
 
                 <div class="row">
                     <div class="col center">
-                        <button class="button" type="submit" ng-disabled="!profileForm.$valid || vm.disableUpdateButton  || (vm.isFinancial && vm.profile.tax_residence  == null)">
+                        <span class="help-block error center" ng-if="vm.notAnyChanges">{{'financial-assessment.no_change' | translate}}</span>
+                        <button class="button button-block" ng-click="vm.updateProfile()" ng-disabled="!profileForm.$valid || vm.disableUpdateButton  || (vm.isFinancial && vm.profile.tax_residence  == null)">
                     {{ 'profile.update_profile' | translate }}
             </button>
                     </div>
