@@ -76,8 +76,8 @@
             }
         }
 
-        factory.forget = function(){
-            websocketService.sendRequestFor.forgetProposals();
+        factory.forget = function(reqId){
+            websocketService.sendRequestFor.forgetProposals(reqId);
         }
 
         factory.purchase = function(contract){
