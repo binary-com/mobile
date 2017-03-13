@@ -1,3 +1,6 @@
+.platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+  top: initial;
+}
 .balance {
 	background: $white;
 	color: $contentColor;

@@ -15,10 +15,10 @@
   },
   "dependencies": {
     "validate": "validate.js#^0.10.0",
-    "ngCordova": "^0.1.27-alpha",
-    "country-list": "^2.0.2"
+    "ngCordova": "^0.1.27-alpha"
   },
   "resolutions": {
-    "angular": ">=1.2.0"
+    "angular": ">=1.2.0",
+    "angular-translate": "2.15.1"
   }
 }

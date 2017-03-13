@@ -182,8 +182,8 @@
 				"tax_residence": "Tax residence",
 				"tax_identification_number": "Tax Identification Number",
         "address": "Address",
-        "addreess_line_1": "First line of home address",
-        "addreess_line_2": "Second line of home address",
+        "address_line_1": "First line of home address",
+        "address_line_2": "Second line of home address",
         "address_city": "Town/City",
         "address_state": "State/Province",
         "address_postcode": "Postal code/ZIP",
@@ -207,7 +207,6 @@
         "net_income": "Net Annual Income",
         "estimated_worth": "Estimated Net Worth",
         "info": "The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.",
-        "accept_risk_question": "I have read and agree to the terms and conditions of the site.",
         "open_account": "Open Account",
         "select": "Please select",
         "under_1_year": "0-1 year",
@@ -276,7 +275,10 @@
         "error_secretanswer": "This field must be within 4-50 characters.",
         "isrequired": "(required)",
         "isoptional": "(optional)",
-				"select": "Please select"
+				"select": "Please select",
+				"read_and_agreed_to": "I have read and agree to the ",
+				"terms_and_conditions": "terms and conditions ",
+				"of_the_site": "of the site."
     },
     "newaccountreal": {
         "open_real": "Upgrade to a real account",
@@ -293,8 +295,8 @@
         "residence": "Country of residence",
 				"place_of_birth": "Place of birth",
         "address": "Address",
-        "addreess_line_1": "First line of home address",
-        "addreess_line_2": "Second line of home address",
+        "address_line_1": "First line of home address",
+        "address_line_2": "Second line of home address",
         "address_city": "Town/City",
         "address_state": "State/Province",
         "address_postcode": "Postal code/ZIP",
@@ -325,7 +327,9 @@
         "isrequired": "(required)",
         "isoptional": "(optional)",
 				"select": "Please select",
-				"accept_risk_question": "I have read and agree to the terms and conditions of the site."
+				"read_and_agreed_to": "I have read and agree to the ",
+				"terms_and_conditions": "terms and conditions ",
+				"of_the_site": "of the site."
     },
     "profittable": {
         "profit_table": "Profit table",
@@ -479,7 +483,8 @@
 			"place_of_birth": "Place of birth",
 			"select": "Please select",
 			"error_format": "Wrong format or length",
-			"please-enter-an-integer-value": "Please enter an integer value with max length of {{max}}"
+			"please-enter-an-integer-value": "Please enter an integer value with max length of {{max}}",
+			"select": "Please select"
 		},
 		"accept-terms-and-conditions": {
 			"has_updated_its" : "has updated its",
@@ -572,8 +577,9 @@
 			"estimated_worth_5": "Over $1,000,000",
 			"update": "Update",
 			"financial_assessment_info": "The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.",
-			"updated_successfully": "Your settings have been updated successfully",
-			"no_change": "You did not change anything."
+			"no_change": "You did not change anything.",
+			"success": "Success",
+      "success_message": "Your settings have been updated successfully."
 		},
 		"limits": {
 			"trading_withdrawal_limits": "Trading and Withdrawal Limits",
@@ -637,6 +643,8 @@
 			"isrequired": "(required)",
 			"place_of_birth": "Place of birth",
 			"error_format": "Wrong format or length",
-			"required": "This field is required."
+			"required": "This field is required.",
+			"success": "Success",
+      "success_message": "Your settings have been updated successfully."
 		}
 }

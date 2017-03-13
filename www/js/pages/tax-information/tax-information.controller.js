@@ -13,16 +13,17 @@
         .module('binary.pages.tax-information.controllers')
         .controller('TaxInformationController', TaxInformation);
 
-    TaxInformation.$inject = ['$scope', '$ionicModal', 'websocketService'];
+    TaxInformation.$inject = ['$scope', '$translate', '$ionicModal', 'websocketService', 'alertService'];
 
-    function TaxInformation($scope, $ionicModal, websocketService) {
+    function TaxInformation($scope, $translate, $ionicModal, websocketService, alertService) {
         var vm = this;
         vm.data = {};
         vm.changed = false;
         vm.showNotChangedWarning = false;
+        vm.disableUpdateButton = false;
         vm.requestData = [
-            'tax_identification_number',
-            'tax_residence',
+            "tax_identification_number",
+            "tax_residence",
             "residence",
             'address_city',
             "place_of_birth",
@@ -42,20 +43,6 @@
 
         $scope.$on('residence_list', (e, residence_list) => {
             vm.residenceList = residence_list;
-            if (vm.getSettings.tax_residence) {
-                vm.settingTaxResidence = _.words(vm.getSettings.tax_residence);
-                // check the "checked" value to true for every residence in residence list which is in user tax residences
-                vm.selectedTaxResidencesName = null;
-                _.forEach(vm.residenceList, (value, key) => {
-                  if(vm.settingTaxResidence.indexOf(value.value) > -1){
-                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
-                    vm.residenceList[key].checked = true;
-                  }
-                });
-                $scope.$applyAsync(() => {
-                    vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
-                });
-            }
         });
 
         $scope.$on('get_settings', (e, get_settings) => {
@@ -65,8 +52,25 @@
                 // set all information from get_setting to data array to pass to API later as params
                 _.forEach(vm.getSettings, (value, key) => {
                     if (vm.requestData.indexOf(key) > -1) {
+                      if(key !== 'tax_residence'){
                         vm.convertedValue = _.camelCase(key);
                         vm.data[vm.convertedValue] = value;
+                      }
+                      else{
+                        vm.settingTaxResidence = _.words(vm.getSettings.tax_residence);
+                        vm.data.taxResidence = vm.getSettings.tax_residence;
+                        // check the "checked" value to true for every residence in residence list which is in user tax residences
+                        vm.selectedTaxResidencesName = null;
+                        _.forEach(vm.residenceList, (value, key) => {
+                          if(vm.settingTaxResidence.indexOf(value.value) > -1){
+                            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName ? (vm.selectedTaxResidencesName + value.text + ', ') : (value.text + ', ');
+                            vm.residenceList[key].checked = true;
+                          }
+                        });
+                        $scope.$applyAsync(() => {
+                            vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
+                        });
+                      }
                     }
                 });
             }
@@ -105,9 +109,6 @@
         vm.submitTaxInformation = function() {
             vm.changed = false;
             vm.showNotChangedWarning = false;
-            vm.updated = false;
-            vm.updateError = false;
-            vm.updateErrorMessage = "";
             vm.params = {};
             _.forEach(vm.data, (value, key) => {
                 vm.dataName = _.snakeCase(key);
@@ -120,6 +121,7 @@
             });
             if (vm.changed) {
                 vm.showNotChangedWarning = false;
+                vm.disableUpdateButton = true;
                 websocketService.sendRequestFor.setAccountSettings(vm.params);
             } else {
                 vm.showNotChangedWarning = true;
@@ -128,17 +130,33 @@
 
         $scope.$on('set-settings', (e, set_settings) => {
             $scope.$applyAsync(() => {
-                vm.updated = true;
-                vm.updateError = false;
+              vm.disableUpdateButton = false;
+                if (set_settings) {
+                    $translate(['tax-information.success', 'tax-information.success_message'])
+                        .then((translation) => {
+                            alertService.displayAlert(translation['tax-information.success'],
+                                translation['tax-information.success_message']);
+                        });
+                }
             });
         });
 
         $scope.$on('set-settings:error', (e, error) => {
-            $scope.$applyAsync(() => {
-                vm.updated = false;
-                vm.updateError = true;
-                vm.updateErrorMessage = error;
-            });
+          vm.disableUpdateButton = false;
+          if (error.hasOwnProperty('details')) {
+              $scope.$applyAsync(() => {
+                  _.forEach(vm.requestData, (value, key) => {
+                      if (error.details.hasOwnProperty(value)) {
+                          var errorName = _.camelCase(value) + 'Error';
+                          var errorMessageName = _.camelCase(value) + 'ErrorMessage';
+                          vm[errorName] = true;
+                          vm[errorMessageName] = error.details[value];
+                      }
+                  });
+              });
+          } else if (error.code) {
+              alertService.displayError(error.message);
+          }
         });
 
     }
