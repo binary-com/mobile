@@ -155,6 +155,10 @@
 
         });
 
+        $scope.$on('$destroy', (e) => {
+          proposalService.forget();
+        });
+
         vm.getImageUrl = function(contractType) {
             return "img/trade-icon/" + contractType.toLowerCase() + ".svg";
         }

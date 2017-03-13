@@ -20,6 +20,7 @@
         var vm = this;
 
         $scope.$on('$destroy', (e, value) => {
+            websocketService.sendRequestFor.forgetTicks();
             chartService.destroy();
         });
 
