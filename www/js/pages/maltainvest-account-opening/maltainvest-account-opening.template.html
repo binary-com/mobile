@@ -291,9 +291,9 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="address_postcode" ng-model="vm.data.address_postcode" ng-pattern="/^[^+]{0,20}$/">
-                            <ng-messages class="help-block error" for="newAccountMaltainvestForm.postcode.$error" role="alert" ng-if='newAccountMaltainvestForm.postcode.$dirty' ng-hide="vm.address_postcode_error">
-                                <ng-message when="pattern">{{'newaccountmaltainvest.error_postcode' | translate}}</ng-message>
+                            <input name="address_postcode" ng-model="vm.data.address_postcode" ng-pattern="/^([a-zA-Z\d-\s])*$/" ng-minlength="0" ng-maxlength="20" />
+                            <ng-messages class="help-block error" for="newAccountMaltainvestForm.address_postcode.$error" role="alert" ng-if='newAccountMaltainvestForm.address_postcode.$dirty' ng-hide="vm.address_postcode_error">
+                                <ng-message when="pattern, minLength, maxLength">{{'newaccountmaltainvest.error_postcode' | translate}}</ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if='vm.address_postcode_error'>
                               {{ vm.address_postcode_error_message }}

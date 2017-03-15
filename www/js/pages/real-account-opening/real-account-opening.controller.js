@@ -96,6 +96,16 @@
             }
         })();
 
+        vm.validateSecretAnswer = (function (val) {
+            var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><|]+/;
+            return {
+                test: function (val) {
+                    var reg = regex.test(val);
+                    return reg == true ? false : true;
+                }
+            }
+        })();
+
         vm.submitAccountOpening = function() {
             vm.disableUpdatebutton = true;
             vm.resetAllErrors();
