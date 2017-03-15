@@ -112,7 +112,7 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="address_line_1" ng-model="vm.profile.address_line_1" ng-maxlength="70" ng-required="true" />
+                                <input name="address_line_1" ng-model="vm.profile.address_line_1" ng-maxlength="70" ng-required="true" ng-pattern="vm.validateAddress" />
                                 <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_line_1.$error" role="alert" class="error">
                                     <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                                     <ng-message when="maxlength">
@@ -136,7 +136,7 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="address_line_2" ng-model="vm.profile.address_line_2" ng-maxlength="70">
+                                <input name="address_line_2" ng-model="vm.profile.address_line_2" ng-maxlength="70" ng-pattern="vm.validateAddress" />
                                 <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_line_2.$error" role="alert" class="error">
                                     <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                                     <ng-message when="maxlength">
@@ -207,7 +207,7 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="address_postcode" ng-model="vm.profile.address_postcode" ng-maxlength="20">
+                                <input name="address_postcode" ng-model="vm.profile.address_postcode" ng-maxlength="20" ng-pattern="/^([a-zA-Z\d-\s])*$/" />
                                 <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_postcode.$error" role="alert" class="error">
                                     <ng-message when="pattern"> {{ 'profile.please-enter-an-integer-value' | translate}} </ng-message>
                                     <ng-message when="maxlength">
