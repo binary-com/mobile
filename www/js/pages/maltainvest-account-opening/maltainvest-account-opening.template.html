@@ -8,7 +8,6 @@
                   </h1>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -40,7 +39,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -50,9 +48,10 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="first_name" ng-model="vm.data.first_name" ng-readonly="vm.isReadonly" ng-pattern="vm.validateName" ng-minlength="2" ng-maxlength="30" ng-required="!vm.isReadonly">
+                            <input name="first_name" ng-model="vm.data.first_name" ng-readonly="vm.isReadonly" ng-pattern="vm.validateGeneral" ng-minlength="2" ng-maxlength="30" ng-required="!vm.isReadonly">
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.first_name.$error" role="alert" ng-if='newAccountMaltainvestForm.first_name.$dirty' ng-hide="vm.first_name_error">
-                                <ng-message when="pattern && minlength && maxlength">{{'newaccountmaltainvest.error_format' | translate}}</ng-message>
+                                <ng-message when="pattern">{{'newaccountmaltainvest.general-pattern-error' | translate}}</ng-message>
+                                <ng-message when="minlength, maxlength">{{'newaccountmaltainvest.length-error-2-30' | translate}}</ng-message>
                                 <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if='vm.first_name_error'>
@@ -62,7 +61,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -72,9 +70,10 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="last_name" ng-model="vm.data.last_name" ng-readonly="vm.isReadonly" ng-pattern="vm.validateName" ng-required="!vm.isReadonly" ng-minlength="2" ng-maxlength="30">
+                            <input name="last_name" ng-model="vm.data.last_name" ng-readonly="vm.isReadonly" ng-pattern="vm.validateGeneral" ng-required="!vm.isReadonly" ng-minlength="2" ng-maxlength="30">
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.last_name.$error" role="alert" ng-if='newAccountMaltainvestForm.last_name.$dirty' ng-hide="vm.last_name_error">
-                                <ng-message when="pattern && minlength && maxlength">{{'newaccountmaltainvest.error_format' | translate}}</ng-message>
+                                <ng-message when="pattern">{{'newaccountmaltainvest.general-pattern-error' | translate}}</ng-message>
+                                <ng-message when="minlength, maxlength">{{'newaccountmaltainvest.length-error-2-30' | translate}}</ng-message>
                                 <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if='vm.last_name_error'>
@@ -84,7 +83,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -105,7 +103,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -125,8 +122,6 @@
                     </div>
                 </div>
             </div>
-
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -146,7 +141,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -168,7 +162,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -178,9 +171,10 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="tax_identification_number" ng-model="vm.data.tax_identification_number" ng-pattern="/^[\w-]{0,20}$/" required />
+                            <input name="tax_identification_number" ng-model="vm.data.tax_identification_number" ng-pattern="/^([a-zA-Z\d-\s])*$/" ng-minlength="0" ng-maxlength="20" required />
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.tax_identification_number.$error" role="alert" ng-if='newAccountMaltainvestForm.tax_identification_number.$dirty' ng-hide="vm.tax_identification_number_error">
-                                <ng-message when="pattern"> {{'newaccountmaltainvest.error_format' | translate}} </ng-message>
+                                <ng-message when="pattern"> {{'newaccountmaltainvest.tax-identification-number-pattern-error' | translate}} </ng-message>
+                                <ng-message when="minlength, maxlength"> {{'newaccountmaltainvest.maxlength_error_20' | translate}} </ng-message>
                                 <ng-message when="required"> {{'newaccountmaltainvest.required' | translate}} </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if='vm.tax_identification_number_error'>
@@ -190,7 +184,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -204,8 +197,7 @@
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.address_line_1.$error" role="alert" ng-if='newAccountMaltainvestForm.address_line_1.$dirty' ng-hide="vm.address_line_1_error">
                                 <ng-message when="maxlength">{{'newaccountmaltainvest.maxlength_error_70' | translate}}</ng-message>
                                 <ng-message when="required"> {{'newaccountmaltainvest.required' | translate}} </ng-message>
-                                <ng-message when="pattern">{{'newaccountmaltainvest.error_format' | translate}}</ng-message>
-
+                                <ng-message when="pattern">{{'newaccountmaltainvest.address-pattern-error' | translate}}</ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if='vm.address_line_1_error'>
                               {{ vm.address_line_1_error_message }}
@@ -214,7 +206,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -228,7 +219,7 @@
                             <input name="address_line_2" ng-model="vm.data.address_line_2" ng-maxlength="70" ng-pattern="vm.validateAddress" />
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.address_line_2.$error" role="alert" ng-if='newAccountMaltainvestForm.address_line_2.$dirty' ng-hide="vm.address_line_2_error">
                                 <ng-message when="maxlength">{{'newaccountmaltainvest.maxlength_error_70' | translate}}</ng-message>
-                                <ng-message when="pattern">{{'newaccountmaltainvest.error_format' | translate}}</ng-message>
+                                <ng-message when="pattern">{{'newaccountmaltainvest.address-pattern-error' | translate}}</ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if='vm.address_line_2_error'>
                               {{ vm.address_line_2_error_message }}
@@ -237,7 +228,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -247,9 +237,10 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="address_city" ng-model="vm.data.address_city" ng-maxlength="35" required>
+                            <input name="address_city" ng-model="vm.data.address_city" ng-maxlength="35" ng-pattern="vm.validateGeneral" required />
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.address_city.$error" role="alert" ng-if='newAccountMaltainvestForm.address_city.$dirty' ng-hide="vm.address_city_error">
                                 <ng-message when="maxlength">{{'newaccountmaltainvest.maxlength_error_35' | translate}}</ng-message>
+                                <ng-message when="pattern">{{'newaccountmaltainvest.general-pattern-error' | translate}}</ng-message>
                                 <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if='vm.address_city_error'>
@@ -259,7 +250,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -280,7 +270,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -293,7 +282,8 @@
                         <div class="col item-input">
                             <input name="address_postcode" ng-model="vm.data.address_postcode" ng-pattern="/^([a-zA-Z\d-\s])*$/" ng-minlength="0" ng-maxlength="20" />
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.address_postcode.$error" role="alert" ng-if='newAccountMaltainvestForm.address_postcode.$dirty' ng-hide="vm.address_postcode_error">
-                                <ng-message when="pattern, minLength, maxLength">{{'newaccountmaltainvest.error_postcode' | translate}}</ng-message>
+                                <ng-message when="pattern">{{'newaccountmaltainvest.postcode-pattern-error' | translate}}</ng-message>
+                                <ng-message when="minLength, maxLength">{{'newaccountmaltainvest.maxlength_error_20' | translate}}</ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if='vm.address_postcode_error'>
                               {{ vm.address_postcode_error_message }}
@@ -302,7 +292,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -312,9 +301,10 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="phone" ng-model="vm.data.phone" ng-pattern="/^\+?[0-9\s]{6,35}$/" required>
+                            <input name="phone" ng-model="vm.data.phone" ng-pattern="/^\+?[0-9\s]$/" ng-minlength="6" ng-maxlength="35" required />
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.phone.$error" role="alert" ng-if='newAccountMaltainvestForm.phone.$dirty' ng-hide="vm.phone_error">
-                                <ng-message when="pattern">{{'newaccountmaltainvest.error_format' | translate}}</ng-message>
+                                <ng-message when="pattern">{{'newaccountmaltainvest.phone-pattern-error' | translate}}</ng-message>
+                                <ng-message when="minlength, maxlength">{{'newaccountmaltainvest.length-error-6-35'}}</ng-message>
                                 <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if='vm.phone_error'>
@@ -324,7 +314,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -344,7 +333,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -364,7 +352,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -384,7 +371,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -404,7 +390,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -424,7 +409,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -444,7 +428,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -464,7 +447,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -484,7 +466,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -504,7 +485,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -524,7 +504,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -544,7 +523,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -564,7 +542,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -587,7 +564,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -607,7 +583,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -629,7 +604,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -690,7 +664,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -712,7 +685,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -734,7 +706,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -762,7 +733,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -774,7 +744,8 @@
                         <div class="col item-input">
                             <input name="secret_answer" ng-model="vm.data.secret_answer" ng-maxlength="50" ng-minlength="4" ng-pattern="vm.validateSecretAnswer" required />
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.secret_answer.$error" role="alert" ng-if='newAccountMaltainvestForm.secret_answer.$dirty' ng-hide="vm.secret_answer_error">
-                                <ng-message when="pattern, maxLength, minLength">{{'newaccountmaltainvest.error_secretanswer' | translate}}</ng-message>
+                                <ng-message when="pattern">{{'newaccountreal.secretanswer-pattern-error' | translate}}</ng-message>
+                                <ng-message when="maxlength, minlength">{{'newaccountreal.length-error-4-50' | translate}}</ng-message>
                                 <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if='vm.secret_answer_error'>
@@ -784,7 +755,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col info-container">
                     <div class="row">
@@ -794,7 +764,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -810,7 +779,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col">
                     <div class="row">

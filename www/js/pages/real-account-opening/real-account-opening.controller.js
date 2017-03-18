@@ -76,7 +76,7 @@
         });
 
         // regexp pattern for name input (pattern in perl API doesn't work in javascript)
-        vm.validateName = (function(val) {
+        vm.validateGeneral = (function(val) {
             var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
             return {
                 test: function(val) {

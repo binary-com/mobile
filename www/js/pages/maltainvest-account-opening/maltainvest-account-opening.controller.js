@@ -89,16 +89,12 @@
         });
 
         // regexp pattern for validating name input
-        vm.validateName = (function(val) {
+        vm.validateGeneral = (function(val) {
             var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
             return {
                 test: function(val) {
-                    if (!vm.isReadonly) {
                         var reg = regex.test(val);
                         return reg == true ? false : true;
-                    } else {
-                        return true;
-                    }
                 }
             }
         })();
