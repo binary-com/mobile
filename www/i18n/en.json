@@ -161,10 +161,12 @@
     "show_pass": "Show password",
     "enter-email": "Please enter your email",
     "email-error": "Email is not valid",
-    "token-invalid": "Token is invalid",
-    "error_format": "Wrong format or length",
+    "token-invalid": "Please submit a valid verification token.",
     "residence-error": "Please choose your country",
-    "invalid_email": "Please submit a valid email address."
+    "invalid_email": "Please submit a valid email address.",
+    "password-pattern-error": "Password should have lower and uppercase letters with numbers.",
+    "length-error-6-25": "This field must be within 6-25 characters.",
+    "required": "This field is required."
   },
   "newaccountmaltainvest": {
     "open_financial": "Open a financial account",
