@@ -301,7 +301,7 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="phone" ng-model="vm.data.phone" ng-pattern="/^\+?[0-9\s]$/" ng-minlength="6" ng-maxlength="35" required />
+                            <input name="phone" ng-model="vm.data.phone" ng-pattern="/^\+?[0-9\s]*$/" ng-minlength="6" ng-maxlength="35" required />
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.phone.$error" role="alert" ng-if='newAccountMaltainvestForm.phone.$dirty' ng-hide="vm.phone_error">
                                 <ng-message when="pattern">{{'newaccountmaltainvest.phone-pattern-error' | translate}}</ng-message>
                                 <ng-message when="minlength, maxlength">{{'newaccountmaltainvest.length-error-6-35'}}</ng-message>

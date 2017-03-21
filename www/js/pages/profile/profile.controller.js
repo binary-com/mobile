@@ -157,7 +157,6 @@
             vm.closeModal();
         }
 
-
         vm.updateProfile = function() {
             if (!vm.isVirtualAccount) {
                 vm.params = {};
@@ -178,6 +177,16 @@
                 }
             }
         }
+
+        vm.validateGeneral = (function(val) {
+            var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
+            return {
+                test: function(val) {
+                    var reg = regex.test(val);
+                    return reg == true ? false : true;
+                }
+            }
+        })();
 
         vm.validateAddress = (function (val) {
             var regex = /[`~!#$%^&*)(_=+\[}{\]\\";:\?><|]+/;
