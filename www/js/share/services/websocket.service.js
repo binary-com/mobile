@@ -547,6 +547,9 @@ angular
                             break;
                         case 'contracts_for':
                             var symbol = message.echo_req.contracts_for;
+                            if( message.error ){
+                              break;
+                            }
                             var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_category');
                             $rootScope.$broadcast('symbol', groupedSymbol);
                             break;

@@ -31,7 +31,7 @@
 
     factory.getMarketByIndex = function(index){
       if(!_.isEmpty(sessionStorage.markets)){
-        var markets = JSON.parse(sessionStorage.markets);
+        var markets = JSON.parse(sessionStorage.markets || null);
         var keys = Object.keys(markets);
         return markets[keys[index]];
       }
