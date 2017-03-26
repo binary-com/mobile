@@ -1,0 +1,93 @@
+<ion-view>
+    <ion-content class="general-content">
+        <form name="taxInformationForm">
+            <div class="row">
+                <div class="col">
+                    <h1 class="page-title">
+					{{'tax-information.tax_information' | translate}}
+				            </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col input-title">
+                                    {{'tax-information.place_of_birth' | translate}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col item-input item-select">
+                                <select name="placeOfBirth" ng-model="vm.data.placeOfBirth" ng-options="residence.value as residence.text for residence in vm.residenceList" required ng-disabled="vm.hasPlaceOfbirth">
+                                    <option value="" disabled>{{'tax-information.select' | translate}}</option>
+                                </select>
+                            </label>
+                                <div class="help-block error" ng-messages="taxInformationForm.placeOfBirth.$error" role="alert" ng-if='taxInformationForm.placeOfBirth.$dirty' ng-hide="vm.placeOfBirthError">
+                                    <div ng-message when="required">{{'tax-information.required' | translate}}</div>
+                                </div>
+                                <div class="help-block error" ng-messages="vm.placeOfBirthError" role="alert" ng-if='vm.placeOfBirthError'>
+                                    <div>{{vm.placeOfBirthErrorMessage}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col input-title">
+                                    {{'tax-information.tax_residence' | translate}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col item-input item-select tax-residence" ng-click="vm.showTaxResidenceItems()">
+				                  <div class="tax-residence-select">
+				                    {{ vm.selectedTaxResidencesName || 'tax-information.select' | translate}}
+				                  </div>
+				                </label>
+                            </div>
+                            <div class="row">
+                                <div class="col help-block error" ng-if="vm.data.taxResidence  == null && vm.taxRequirement">
+                                    {{ 'tax-information.required' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col input-title">
+                                    {{'tax-information.tax_identification_number' | translate}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col item-input">
+                                    <input name="taxIdentificationNumber" ng-model="vm.data.taxIdentificationNumber" ng-pattern="/^[\w-]{0,20}$/" required />
+                                    <div class="help-block error" ng-messages="taxInformationForm.taxIdentificationNumber.$error" role="alert" ng-if='taxInformationForm.taxIdentificationNumber.$dirty' ng-hide="vm.taxIdentificationNumberError">
+                                        <div ng-message when="pattern">{{'tax-information.error_format' | translate}}</div>
+                                        <div ng-message when="required">{{'tax-information.required' | translate}}</div>
+                                    </div>
+                                    <div class="help-block error" ng-messages="vm.taxIdentificationNumberError" role="alert" ng-if='vm.taxIdentificationNumberError'>
+                                        <div>{{vm.taxIdentificationNumberErrorMessage}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col center">
+                                    <span class="help-block error center" ng-if="vm.showNotChangedWarning">{{'tax-information.no_change' | translate}}</span>
+                                    <button class="button button-block" ng-click="vm.submitTaxInformation()" ng-disabled="taxInformationForm.$invalid || vm.data.taxResidence == null || vm.disableUpdateButton">{{'tax-information.update' | translate}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

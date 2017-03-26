@@ -50,6 +50,7 @@
 		    application: "tick-trade",
 		    onError: function(payload){
                 payload.customer.userId = window._trackJs.userId;
+                payload.customer.version = window._trackJs.version;
                 return !(window.location.hostname === "localhost");
             }
 		    // other configuration
@@ -79,11 +80,11 @@
     <bg-updater></bg-updater>
     <bg-connection-lost></bg-connection-lost>
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
+    <bg-session-timeout></bg-session-timeout>
     <bg-connectivity></bg-connectivity>
     <ping></ping>
-    <bg-terms-and-conditions></bg-terms-and-conditions>
-
     <bg-reality-check></bg-reality-check>
+    <bg-check-user-status></bg-check-user-status>
 
 
     <!-- ionic/angularjs js -->
