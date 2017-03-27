@@ -548,6 +548,7 @@ angular
                         case 'contracts_for':
                             var symbol = message.echo_req.contracts_for;
                             if( message.error ){
+                              trackJs.track(message.error.code + ": " + message.error.message + " - " + symbol);
                               break;
                             }
                             var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_category');
