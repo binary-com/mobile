@@ -13,9 +13,9 @@
     .module('binary.pages.trade.components.options.services')
     .factory('marketsService', Markets);
 
-  Markets.$inject = [];
+  Markets.$inject = ['sessionStorageService'];
 
-  function Markets(){
+  function Markets(sessionStorageService){
     var factory = {};
     var assetIndex = [];
 
@@ -31,7 +31,7 @@
 
     factory.getMarketByIndex = function(index){
       if(!_.isEmpty(sessionStorage.markets)){
-        var markets = JSON.parse(sessionStorage.markets);
+        var markets = JSON.parse(sessionStorage.markets || null);
         var keys = Object.keys(markets);
         return markets[keys[index]];
       }
@@ -39,8 +39,8 @@
     }
 
     factory.findTickMarkets = function(){
-      var activeSymbols = JSON.parse(sessionStorage.active_symbols || null);
-      assetIndex = JSON.parse(sessionStorage.asset_index || null);
+      var activeSymbols = JSON.parse(sessionStorageService.getItem('active_symbols'));
+      assetIndex = JSON.parse(sessionStorageService.getItem('asset_index'));
 
       var markets = {};
 
