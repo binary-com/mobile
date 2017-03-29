@@ -7,10 +7,10 @@
 [x-ng-click] {
     cursor: pointer;
 }
-
-ion-content {
-	background: $fillColor;
-}
+//
+// ion-content {
+// 	background: $fillColor;
+// }
 
 button {
 	border: none !important;
@@ -94,34 +94,36 @@ a {
         font-size: 1rem;
     }
 }
-button.button.button-default {
-    color: $contentColor!important;
-    background: $fillColor!important;
-}
-button.button.button-positive {
-    background: $positiveColor!important;
-    &:hover {
-        color: $white !important;
-        background: $darkPositiveColor!important;
-    }
-}
+
 .button {
     background: $positiveColor;
     color: $white;
 }
 
-.button-gray {
-    background: $fillColor;
-    color: $contentColor;
+button.button.button-positive {
+    background: $positiveColor!important;
     &:hover {
-        background: $secondaryContentColor!important;
-        color: $contentColor!important;
+      color: $white !important;
+      background: $darkPositiveColor!important;
     }
+		&[disabled="disabled"] {
+			color: $white !important;
+		}
 }
+
 button.button.button-default {
     color: $contentColor!important;
     background: $fillColor!important;
 }
+
+.bar-header {
+	button.button {
+		&[disabled="disabled"] {
+			background: transparent !important;
+		}
+	}
+}
+
 .side-item {
     background: inherit;
     color: $white;
@@ -190,7 +192,7 @@ input::-webkit-outer-spin-button {
     font-weight: normal;
     padding: 5px;
     color: $contentColor;
-    border-bottom: 2px solid $black;
+    border-bottom: 1px solid $black;
 		margin: 0;
 }
 .sub-title {
@@ -230,7 +232,7 @@ input[type="date"] {
 }
 
 .item-select {
-	padding-top: 15px;
+  	padding-top: 15px;
 }
 
 p {

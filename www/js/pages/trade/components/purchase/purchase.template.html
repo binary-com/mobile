@@ -4,7 +4,6 @@
             <div class="row">
                 <div class="col center">
                     <div class="price-container">
-
                         <span class="price-des">{{'trade.net_profit' | translate}}:</span>
                         <span class="price" ng-if="!getWaitForProposal()">
                             {{ (vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price)  | currency:vm.proposal.currency:2}}
@@ -27,7 +26,7 @@
             </div>
             <div class="row" ng-if="!vm.proposalResponses[$index].hasError">
                 <div class="col center">
-                    <button class="button button-block ink" ng-click="vm.purchase($index)"
+                    <button class="button button-block button-positive ink" ng-click="vm.purchase($index)"
                             ng-disabled="vm.inPurchaseMode">
                         {{ "trade.buy" | translate}}
                         {{contract.contract_display}}
@@ -71,7 +70,7 @@
             </div>
         </div>
         <div class="col center">
-            <button class="button" ng-disabled="vm.inPurchaseMode" ng-click="vm.purchase(vm.purchasedContractIndex)" disabled="disabled">
+            <button class="button button-positive ink" ng-disabled="vm.inPurchaseMode" ng-click="vm.purchase(vm.purchasedContractIndex)" disabled="disabled">
                 {{ 'trade.buy_again' | translate }}
             </button>
         </div>

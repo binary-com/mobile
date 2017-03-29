@@ -38,6 +38,21 @@
             }
         }
 
+        $scope.$watch(function () {
+          return $ionicSideMenuDelegate.isOpenLeft();
+        },
+        function (isOpen) {
+          if (isOpen){
+            vm.hideMenuButton = true;
+            vm.showBack = true;
+          }
+          else {
+            vm.hideMenuButton = false;
+            vm.showBack = false;
+          }
+
+   });
+
         $scope.$watch(
             () => {
                 return appStateService.purchaseMode
@@ -100,7 +115,12 @@
 
         // back button function
         vm.goToPrevPage = function() {
+          if ($ionicSideMenuDelegate.isOpen()) {
+            $ionicSideMenuDelegate.toggleLeft();
+          }
+          else {
             $state.go(vm.from);
+          }
         };
 
     }
