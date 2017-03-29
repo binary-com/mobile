@@ -51,6 +51,7 @@
 			display: flex;
 			flex-direction: column;
 			flex-grow: 1;
+			padding: 0 5px!important;
 		}
 		bg-options {
 			max-height: 70px;
@@ -224,9 +225,9 @@
 					background: $white;
 					border: 1px solid $borderColor;
 					border-radius: 3px;
-					padding: 5px 0;
-					margin-right: 5px;
-					margin-left: 5px;
+					padding: 5px;
+					margin-right: 10px;
+					margin-left: 10px;
 					.row {
 						display: flex;
 						min-height: inherit;
@@ -238,15 +239,15 @@
 							font-size: 1rem;
 							padding: 0;
 							.button {
-								font-size: 1rem;
-								white-space: nowrap;
-								min-height: 30px!important;
-								display: block;
-								margin: 0 auto;
-								max-height: none;
-								width: 100%;
-								background: $positiveColor;
-								height: auto;
+								// font-size: 1rem;
+								// white-space: nowrap;
+								// min-height: 30px!important;
+								// display: block;
+								// margin: 0 auto;
+								// max-height: none;
+								// width: 100%;
+								// background: $positiveColor;
+								// height: auto;
 								text-transform: capitalize;
 							}
 							.price-container {
@@ -643,10 +644,6 @@
 			width: 100% !important;
 			height: 100px!important;
 		}
-		bg-chart {
-			max-height: 120px;
-			min-height: 115px;
-		}
 	}
 	bg-purchase {
 		.purchase {
@@ -686,10 +683,6 @@
 			width: 100% !important;
 			height: 180px !important;
 		}
-		bg-chart {
-			max-height: 180px;
-			min-height: 175px;
-		}
 	}
 	bg-purchase {
 		.purchase {
@@ -721,29 +714,25 @@
 		#tradeChart {
 			width: 100% !important;
 			height: 230px !important;
-		}
-		bg-chart {
-			max-height: 240px;
-			min-height: 235px;
-		}
 	}
-	bg-purchase {
-		.purchase {
-			.contract {
-				.row {
-					&.basis-container {
-						.contract-image-container {
-							img {
-								width: 55px;
-								height: 55px;
+		bg-purchase {
+			.purchase {
+				.contract {
+					.row {
+						&.basis-container {
+							.contract-image-container {
+								img {
+									width: 55px;
+									height: 55px;
+								}
 							}
-						}
-						.basis-content {
-							.basis-title {
-								height: 30px;
-							}
-							.basis {
-								height: 30px;
+							.basis-content {
+								.basis-title {
+									height: 30px;
+								}
+								.basis {
+									height: 30px;
+								}
 							}
 						}
 					}

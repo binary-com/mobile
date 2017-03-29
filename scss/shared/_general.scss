@@ -8,6 +8,10 @@
     cursor: pointer;
 }
 
+ion-content {
+	background: $fillColor;
+}
+
 button {
 	border: none !important;
 }
@@ -24,6 +28,15 @@ input {
     -moz-user-select: auto !important;
     -ms-user-select: auto !important;
     user-select: auto !important;
+		-webkit-appearance:none !important;
+		-khtml-appearance: none !important;
+		-moz-appearance: none !important;
+    -ms-appearance: none !important;
+    appearance: none !important;
+		border-top: none !important;
+		border-left: none !important;
+		border-right: none !important;
+		border: none !important;
 }
 * {
     -webkit-user-drag: none;
@@ -93,25 +106,10 @@ button.button.button-positive {
     }
 }
 .button {
-    border: none;
     background: $positiveColor;
     color: $white;
-    font-size: 1rem;
-    :hover {
-        color: $white !important;
-        background: $darkPositiveColor;
-    }
 }
-button {
-    font-size: 1rem;
-    a {
-        font-weight: normal;
-    }
-}
-button:hover {
-    color: $white !important;
-    background: $darkPositiveColor;
-}
+
 .button-gray {
     background: $fillColor;
     color: $contentColor;
@@ -138,9 +136,6 @@ button.button.button-default {
 .item {
     border-width: 0;
     color: $contentColor;
-}
-.item-select select {
-    max-width: 100%;
 }
 .item-complex .item-content,
 .item-radio .item-content {
@@ -202,16 +197,6 @@ input::-webkit-outer-spin-button {
   font-size: 1rem;
 	color: $primaryBrandColor;
 }
-.input-title {
-    text-align: left;
-    white-space: normal;
-    font-size: 1rem;
-    padding: 5px;
-    span {
-        font-size: 1rem;
-        color: $secondaryContentColor;
-    }
-}
 .help-block {
     font-size: 0.8rem;
     text-align: left;
@@ -230,63 +215,24 @@ input::-webkit-outer-spin-button {
     margin-top: 10px;
 		font-size: 0.8rem;
 }
-input {
-    width: 100%;
-    padding: 5px!important;
-    border: 1px solid $borderColor!important;
-    border-radius: 3px!important;
-    background: $white;
-		font-size: 0.8rem!important;
-		height: auto!important;
-    &.checkbox {
-        width: 20px;
-        top: 2px;
-        position: relative;
-    }
-    &.input-disabled {
-        background: $fillColor;
-    }
-}
+
 input[type="date"]::-webkit-calendar-picker-indicator {
-    color: $secondaryContentColor;
+    color: #999;
+		height: 6px;
+		width: 10px;
     // border: 1px solid $borderColor;
 }
 
-.item-input {
-    padding: 5px;
+input[type="date"] {
+		width: auto !important;
+		text-align: right;
+		padding: 0 11px 0 16px !important;
 }
+
 .item-select {
-    border-radius: 3px;
-    font-size: 1rem;
-    padding: 5px;
-    select {
-        position: relative;
-        width: 100%;
-        padding: 5px;
-        border: 1px solid $borderColor;
-        border-radius: 3px;
-        background: $white;
-        direction: ltr;
-				font-size: 0.8rem;
-        option {
-            width: 100%;
-            text-align: left;
-        }
-    }
+	padding-top: 15px;
 }
-select {
-    position: relative;
-    width: 100%;
-    padding: 5px;
-    border: 1px solid $borderColor;
-    border-radius: 3px;
-    background: $white;
-    direction: ltr;
-    option {
-        width: 100%;
-        text-align: left;
-    }
-}
+
 p {
     font-size: 1rem;
     padding: 5px;
