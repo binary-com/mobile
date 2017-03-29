@@ -233,11 +233,5 @@
             });
         });
 
-        // link to forms page
-        vm.navigateToUpgrade = function() {
-          if(appStateService.isNewAccountReal) $state.go('real-account-opening');
-          else if(appStateService.isNewAccountMaltainvest) $state.go('maltainvest-account-opening');
-        }
-
     }
 })();
