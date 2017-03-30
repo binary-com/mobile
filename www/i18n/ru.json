@@ -160,7 +160,7 @@
     "token-invalid":"Неправильный ключ",
     "error_format":"Неправильный формат или длина",
     "residence-error":"Пожалуйста, укажите страну",
-    "invalid_email":"Please submit a valid email address."
+    "invalid_email":"Пожалуйста, укажите правильный email."
   },
   "newaccountmaltainvest":{
     "open_financial":"Открыть финансовый счёт",
@@ -173,12 +173,12 @@
     "last_name":"Фамилия",
     "date_of_birth":"Дата рождения",
     "residence":"Страна проживания",
-    "place_of_birth":"Place of birth",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
+    "place_of_birth":"Место рождения",
+    "tax_residence":"Место налоговой регистрации",
+    "tax_identification_number":"Номер налогоплательщика",
     "address":"Адрес",
-    "address_line_1":"First line of home address",
-    "address_line_2":"Second line of home address",
+    "address_line_1":"Первая строка адреса",
+    "address_line_2":"Вторая строка адреса",
     "address_city":"Город",
     "address_state":"Область/регион",
     "address_postcode":"Почтовый код/индекс",
@@ -270,9 +270,9 @@
     "error_secretanswer":"Запись в данном поле не должна превышать 4-50 знаков.",
     "isrequired":"(обязательно)",
     "isoptional":"(опционально)",
-    "read_and_agreed_to":"I have read and agree to the ",
-    "terms_and_conditions":"terms and conditions ",
-    "of_the_site":"of the site."
+    "read_and_agreed_to":"Я прочитал и согласен с ",
+    "terms_and_conditions":"правилами и условиями ",
+    "of_the_site":"сайта."
   },
   "newaccountreal":{
     "open_real":"Открыть реальный счет",
@@ -287,9 +287,9 @@
     "last_name":"Фамилия",
     "date_of_birth":"Дата рождения",
     "residence":"Страна проживания",
-    "place_of_birth":"Place of birth",
-    "address_line_1":"First line of home address",
-    "address_line_2":"Second line of home address",
+    "place_of_birth":"Место рождения",
+    "address_line_1":"Первая строка адреса",
+    "address_line_2":"Вторая строка адреса",
     "address_city":"Город",
     "address_state":"Область/регион",
     "address_postcode":"Почтовый код/индекс",
@@ -318,9 +318,9 @@
     "error_secretanswer":"Запись в данном поле не должна превышать 4-50 знаков.",
     "isrequired":"(обязательно)",
     "isoptional":"(опционально)",
-    "read_and_agreed_to":"I have read and agree to the ",
-    "terms_and_conditions":"terms and conditions ",
-    "of_the_site":"of the site."
+    "read_and_agreed_to":"Я прочитал и согласен с ",
+    "terms_and_conditions":"правилами и условиями ",
+    "of_the_site":"сайта."
   },
   "profittable":{
     "profit_table":"Анализ счёта",
@@ -469,12 +469,12 @@
     "maximum_length_should_be_35_characters":"Максимальная длина: 35 знаков",
     "maximum_length_should_be_20_characters":"Максимальная длина: 20 знаков",
     "minimum_length_should_be_6_characters":"Максимальная длина: 6 знаков",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
-    "place_of_birth":"Place of birth",
-    "select":"Please select",
-    "error_format":"Wrong format or length",
-    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}"
+    "tax_residence":"Место налоговой регистрации",
+    "tax_identification_number":"Номер налогоплательщика",
+    "place_of_birth":"Место рождения",
+    "select":"Пожалуйста, выберите",
+    "error_format":"Неправильный формат или длина",
+    "please-enter-an-integer-value":"Пожалуйста, введите целое число; максимальная длина: {{max}}"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"обновил(а)",
@@ -564,8 +564,8 @@
     "update":"Обновить",
     "financial_assessment_info":"Финансовые услуги, предоставляемые в рамках данного сайта, подходят лишь для клиентов, готовых нести ответственность за возможную потерю всех инвестированных средств, а также осознающих риск и имеющих опыт риска, связанного с покупкой финансовых контрактов. Заключение сделок на финансовых контрактах предполагает высокий уровень риска. Если приобретённые контракты истекут, не принеся прибыли, Вы потеряете всю сумму своей инвестиции в контракт.",
     "no_change":"Вы не внесли изменений.",
-    "success":"Success",
-    "success_message":"Your settings have been updated successfully."
+    "success":"Готово",
+    "success_message":"Ваши настройки обновлены успешно."
   },
   "limits":{
     "trading_withdrawal_limits":"Лимиты на торговлю и вывод",
@@ -618,18 +618,18 @@
     "error":"Извините, при обработке Вашего запроса возникла ошибка."
   },
   "tax-information":{
-    "tax_information":"Tax information",
-    "select":"Please select",
-    "updated_successfully":"Your tax information have been updated successfully",
-    "no_change":"You did not change anything.",
-    "update":"Update",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
-    "place_of_birth":"Place of birth",
-    "isrequired":"(required)",
-    "error_format":"Wrong format or length",
-    "required":"This field is required.",
-    "success":"Success",
-    "success_message":"Your settings have been updated successfully."
+    "tax_information":"Информация о налогах",
+    "select":"Пожалуйста, выберите",
+    "updated_successfully":"Ваша информация о налогах обновлена успешно",
+    "no_change":"Вы не внесли изменений.",
+    "update":"Обновить",
+    "tax_residence":"Место налоговой регистрации",
+    "tax_identification_number":"Номер налогоплательщика",
+    "place_of_birth":"Место рождения",
+    "isrequired":"(обязательно)",
+    "error_format":"Неправильный формат или длина",
+    "required":"Данное поле является обязательным.",
+    "success":"Готово",
+    "success_message":"Ваши настройки обновлены успешно."
   }
 }

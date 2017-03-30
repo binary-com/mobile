@@ -5,13 +5,13 @@
     .module('binary')
     .run(function($rootScope, $ionicPlatform, $state, alertService, appStateService) {
 
-      if (ionic.Platform.isIOS()){
-        setTimeout(function () {
-          navigator.splashscreen.hide();
-        }, 3000 - 1000);
-      }
-
       $ionicPlatform.ready(function() {
+
+        if (ionic.Platform.isIOS()){
+          setTimeout(function () {
+            navigator.splashscreen.hide();
+          }, 3000 - 1000);
+        }
 
         if(window.cordova && window.cordova.plugins.backgroundMode){
           cordova.plugins.backgroundMode.setDefaults({
