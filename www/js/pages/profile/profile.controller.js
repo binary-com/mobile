@@ -61,7 +61,9 @@
         vm.setProfile = function(get_settings) {
             vm.isDataLoaded = true;
             if (vm.isVirtualAccount) {
+              $scope.$applyAsync(()=>{
                     vm.profile = get_settings;
+              });
             } else {
                 vm.profile = get_settings;
                 if (vm.profile.date_of_birth) {
