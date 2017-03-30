@@ -159,6 +159,9 @@ angular
 			this.getDefault = function() {
 				var accountList = this.getAll();
 				var index = findIndex(accountList, 'is_default', true);
+        if(index == -1){
+          return null;
+        }
 				return accountList[index];
 			};
 
