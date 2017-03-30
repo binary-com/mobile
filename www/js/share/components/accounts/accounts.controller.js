@@ -29,7 +29,12 @@
 
         var init = function() {
             vm.accounts = accountService.getAll();
-            vm.selectedAccount = accountService.getDefault().token;
+            var defaultAccount = accountService.getDefault();
+            if (defaultAccount == null){
+              vm.selectedAccount = null;
+            } else {
+              vm.selectedAccount = accountService.getDefault().token;
+            }
         };
 
         var updateSymbols = function() {
