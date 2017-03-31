@@ -209,9 +209,10 @@ angular
                 };
                 sendMessage(data);
               },
-              forgetProposals: function() {
+              forgetProposals: function(reqId) {
                 var data = {
-                  forget_all: 'proposal'
+                  forget_all: 'proposal',
+                  req_id: reqId
                 };
                 sendMessage(data);
               },
@@ -546,6 +547,10 @@ angular
                             break;
                         case 'contracts_for':
                             var symbol = message.echo_req.contracts_for;
+                            if( message.error ){
+                              trackJs.track(message.error.code + ": " + message.error.message + " - " + symbol);
+                              break;
+                            }
                             var groupedSymbol = _.groupBy(message.contracts_for.available, 'contract_category');
                             $rootScope.$broadcast('symbol', groupedSymbol);
                             break;
@@ -718,6 +723,8 @@ angular
                               $rootScope.$broadcast('trading_times:error', message.error);
                             }
                             break;
+                        case 'forget_all':
+                            $rootScope.$broadcast('forget_all', message.req_id);
                         default:
                     }
                 }

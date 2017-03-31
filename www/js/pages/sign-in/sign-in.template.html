@@ -1,4 +1,4 @@
-<ion-view class="sign-in">
+<ion-view class="sign-in" xmlns="http://www.w3.org/1999/html">
     <ion-content class="signin-content" has-bouncing="false">
         <ion-header-bar align-title="center" class="bar bar-header bar-positive">
             <button class="button  icon-left button-clear ion-android-arrow-back" ng-class="{'ion-ios-arrow-back' : vm.ios}" ng-click="vm.changeSigninView(true)" ng-show="vm.showTokenForm || vm.showSignin || vm.showSignup || vm.showvirtualws"></button>
@@ -30,111 +30,79 @@
         <form name="emailForm" id="emailform" ng-show="vm.showSignup && !vm.showvirtualws" ng-submit="vm.verifyUserMail()">
             <div class="row center">
                 <div class="col col-75">
-                  <div class="input-title">
-                    {{'newvirtualaccount.enter-email' | translate}}
-                  </div>
+                    <div class="input-title">
+                        {{'newvirtualaccount.enter-email' | translate}}
+                    </div>
                     <label class="item-input">
                         <input autocomplete="off" name="email" placeholder="{{'newvirtualaccount.email' | translate}}" ng-model="vm.data.mail" required ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/"/>
                     </label>
-                    <div class="help-block error" ng-messages="emailForm.email.$error" role="alert" ng-if='emailForm.email.$dirty'>
-                        <div ng-message="pattern">{{'newvirtualaccount.invalid_email' | translate}}</div>
+                    <div ng-messages class="help-block error" for="emailForm.email.$error" role="alert" ng-if='emailForm.email.$dirty'>
+                        <ng-message when="pattern">{{'newvirtualaccount.invalid_email' | translate}}</ng-message>
                     </div>
                     <div class="help-block error" ng-if="vm.emailError">
                         {{vm.emailErrorMessage}}
                     </div>
-                </div>
-            </div>
-            <div class="row center">
-                <div class="col col-75">
-                    <button class="button button-block btn-signin" type="submit" ng-disabled="emailForm.$invalid">
+                    <button class="button button-block btn-signin" type="submit" ng-disabled="emailForm.$invalid || vm.isVerifyingEmail">
                         {{'newvirtualaccount.continue' | translate}}
                     </button>
                 </div>
             </div>
         </form>
-
         <form name="virtualws" id="virtualws" ng-show="vm.showvirtualws && !vm.showSignin && !vm.showTokenForm" ng-submit="vm.createVirtualAccount()">
             <div class="row center">
                 <div class="col col-75">
-
                     <label class="item-input">
-                        <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" value="" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-pattern="/^\w{15,128}$/" required/>
+                        <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" ng-pattern="/^\w{15,128}$/" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-required="true" />
                     </label>
-                    <div class="help-block error" ng-messages="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty' ng-hide="vm.tokenError">
-                        <div ng-message="pattern">{{'newvirtualaccount.token-invalid' | translate}}</div>
+                    <div class="help-block">
+                     {{'newvirtualaccount.code_hint' | translate}}
                     </div>
-                    <div class="help-block error" ng-show="vm.tokenError">
+                    <div ng-messages class="help-block error" for="virtualws.verificationCode.$error" role="alert" ng-if='virtualws.verificationCode.$dirty && !vm.tokenError'>
+                        <ng-message when="required">{{'newvirtualaccount.required' | translate}}</ng-message>
+                        <ng-message when="pattern">{{'newvirtualaccount.token-invalid' | translate}}</ng-message>
+                    </div>
+                    <div class="help-block error" ng-if="vm.tokenError">
                         <div>{{vm.tokenErrorMessage}}</div>
                     </div>
-                    <div class="help-block">
-                        {{'newvirtualaccount.code_hint' | translate}}
-                    </div>
-
-
-
-                </div>
-            </div>
-            <div class="row center">
-                <div class="col col-75">
                     <label class="item-input">
-                        <input name="password" id="password" ng-model="vm.data.clientPassword" type="{{vm.data.inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-pattern="/^[ -~]{6,25}$/" ng-pattern="/^[ -~]{6,25}$/" required/>
+                        <input name="password" id="password" ng-model="vm.data.clientPassword" type="{{vm.data.inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-minlength="6" ng-maxlength="25" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/" ng-required="true" />
                     </label>
-                    <div class="help-block error" ng-messages="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty' ng-hide="vm.passwordError">
-                        <div ng-message="pattern">{{'newvirtualaccount.error_format' | translate}}</div>
+                    <div class="help-block">
+                        {{'newvirtualaccount.password_hint' | translate}}
+                    </div>
+                    <div ng-messages class="help-block error" for="virtualws.password.$error" role="alert" ng-if='virtualws.password.$dirty' ng-hide="vm.passwordError">
+                        <ng-message when="required">{{'newvirtualaccount.required' | translate}}</ng-message>
+                        <ng-message when="minlength, maxlength">{{'newvirtualaccount.length-error-6-25' | translate}}</ng-message>
+                        <ng-message when="pattern">{{'newvirtualaccount.password-pattern-error' | translate}}</ng-message>
                     </div>
                     <div class="help-block error" ng-if="vm.passwordError">
                         <div>{{vm.passwordErrorMessage}}</div>
                     </div>
-                    <div class="help-block">
-                        {{'newvirtualaccount.password_hint' | translate}}
-                    </div>
-
-
-
                     <div class="help-block show-hide-password">
                         <input type="checkbox" id="show-hide" name="show-hide" ng-model="vm.passwordCheckbox" ng-click="vm.hideShowPassword()"/>
                         <label for="show-hide" ng-if="vm.passwordCheckbox">{{'newvirtualaccount.hide_pass' | translate }}</label>
                         <label for="show-hide" ng-if="!vm.passwordCheckbox">{{'newvirtualaccount.show_pass' | translate }}</label>
                     </div>
-                </div>
-            </div>
-
-            <div class="row center">
-                <div class="col col-75">
                     <label class="item-input item-select">
                         <select ng-model="vm.data.residence" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.data.residenceList track by residence.value" required>
                             <option value="" disabled>{{'newvirtualaccount.select' | translate}}</option>
                         </select>
                     </label>
-                </div>
-            </div>
-
-            <div class="row center">
-                <div class="col col-75">
                     <button class="button button-block btn-signin" type="submit" ng-disabled="virtualws.$invalid">
                         {{'newvirtualaccount.signup' | translate}}
                     </button>
                 </div>
             </div>
-
         </form>
 
-        <div class="row responsive-sm" ng-show="vm.showTokenForm">
-            <div class="col center">
-                <a href="#" class="help" ui-sref="help">
-                    {{'signin.get_token' | translate }}
-                </a>
-            </div>
+    <div class="row responsive-sm" ng-show="vm.showTokenForm">
+        <div class="col center">
+            <a href="#" class="help" ui-sref="help">
+                {{'signin.get_token' | translate }}
+            </a>
         </div>
-
-        <oauth ng-show="!vm.showTokenForm && vm.showSignin && !vm.showSignup"></oauth>
-
-        <div class="row center" ng-show="!vm.showTokenForm && vm.showSignin && !vm.showSignup">
-            <!-- <div class="col col-75">
-                <a href="" class="token-link" ng-click="vm.changeSigninViewtoToken()">{{ 'signin.use_token' | translate }}</a>
-            </div> -->
-        </div>
-
+    </div>
+    <oauth ng-show="!vm.showTokenForm && vm.showSignin && !vm.showSignup"></oauth>
         <!-- signup -->
         <div class="row center" ng-show="!vm.showTokenForm && !vm.showSignup && vm.showSignin">
             <div class="col col-75">
@@ -147,11 +115,9 @@
             </div>
         </div>
         <!-- end signup -->
-
         <div class="list">
             <language ng-show="!vm.showSignin && !vm.showTokenForm  && !vm.showSignup && !vm.showvirtualws"></language>
         </div>
-
         <div class="row center" ng-show="!vm.showSignin && !vm.showTokenForm && !vm.showSignup && !vm.showvirtualws">
             <div class="col col-75">
                 <button class="button button-block button-possitive btn-signin" type="button" ng-click="vm.showSigninView()" ng-disabled="vm.disableNextbutton">
@@ -159,7 +125,6 @@
                 </button>
             </div>
         </div>
-
         <div class="row responsive-sm">
             <div class="col center">
                 <bg-app-version class="appVersion"></bg-app-version>
