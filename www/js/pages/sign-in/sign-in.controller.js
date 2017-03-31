@@ -51,23 +51,18 @@
 
         init();
 
-
         $scope.$on('authorize', (e, response, message) => {
-
             $ionicLoading.hide();
-
             if (response) {
                 if (accountService.isUnique(response.loginid)) {
                     accountService.add(response);
                     accountService.setDefault(response.token);
                     appStateService.virtuality = response.is_virtual;
                 }
-
                 vm.token = '';
-
                 $state.go('trade');
             } else {
-              alertService.accountError.tokenNotAuthenticated(message);
+                alertService.accountError.tokenNotAuthenticated(message);
             }
         });
 
@@ -77,12 +72,9 @@
          */
         vm.signIn = function() {
             var _token = vm.token;
-
             // Validate the token
             if (_token && _token.length === 15) {
-
                 $ionicLoading.show();
-
                 websocketService.authenticate(_token);
             } else {
                 alertService.accountError.tokenNotValid();
@@ -95,31 +87,28 @@
 
         // sign up email verify
         vm.verifyUserMail = function() {
-          vm.emailError = false;
-          if(vm.data.mail){
-            var mail = vm.data.mail;
-          }
-          else{
-            var mail = "";
-          }
+            vm.emailError = false;
+            var mail = vm.data.mail ? vm.data.mail : "";
             websocketService.sendRequestFor.accountOpening(mail);
+            vm.isVerifyingEmail = true;
         }
+
         $scope.$on('verify_email', (e, verify_email) => {
-            vm.userMail = verify_email;
-            if (vm.userMail == 1) {
+            if (verify_email === 1) {
                 $scope.$applyAsync(() => {
                     vm.emailError = false;
-                });
-                $scope.$applyAsync(() => {
                     vm.showvirtualws = true;
                     vm.showSignup = false;
+                    vm.isVerifyingEmail = false;
                 });
             }
         });
+
         $scope.$on('verify_email:error', (e, details) => {
             $scope.$applyAsync(() => {
                 vm.emailError = true;
                 vm.emailErrorMessage = details.verify_email;
+                vm.isVerifyingEmail = false;
             });
         });
 
@@ -131,7 +120,7 @@
         });
 
         $scope.$on('residence_list', (e, residence_list) => {
-                vm.data.residenceList = residence_list;
+            vm.data.residenceList = residence_list;
         });
 
         // Hide & show password function
@@ -151,6 +140,7 @@
             var residence = vm.data.residence;
             websocketService.sendRequestFor.newAccountVirtual(verificationCode, clientPassword, residence);
         };
+
         $scope.$on('new_account_virtual', (e, new_account_virtual) => {
             if (!appStateService.isLoggedin) {
                 var _token = new_account_virtual.oauth_token;
@@ -161,27 +151,28 @@
                 vm.showvirtualws = false;
             }
         });
+
         $scope.$on('new_account_virtual:error', (e, error) => {
-          $scope.$applyAsync(() => {
-            if (error) {
-                if (error.hasOwnProperty('details') && error.details.hasOwnProperty('verification_code')) {
-                    vm.tokenError = true;
-                    vm.tokenErrorMessage = error.details.verification_code || error.code;
+            $scope.$applyAsync(() => {
+                if (error) {
+                    if (error.hasOwnProperty('details') && error.details.hasOwnProperty('verification_code')) {
+                        vm.tokenError = true;
+                        vm.tokenErrorMessage = error.details.verification_code || error.code;
+                    }
+                    if (error.hasOwnProperty('code') && error.code === "InvalidToken") {
+                        vm.tokenError = true;
+                        vm.tokenErrorMessage = error.message;
+                    }
+                    if (error.hasOwnProperty('details') && error.details.hasOwnProperty('client_password')) {
+                        vm.passwordError = true;
+                        vm.passwordErrorMessage = error.details.client_password || error.code;
+                    }
+                    if (error.hasOwnProperty('code') && error.code === "PasswordError") {
+                        vm.passwordError = true;
+                        vm.passwordErrorMessage = error.message;
+                    }
                 }
-                if (error.hasOwnProperty('code') && error.code == "InvalidToken"){
-                  vm.tokenError = true;
-                  vm.tokenErrorMessage = error.message;
-                }
-                if (error.hasOwnProperty('details') && error.details.hasOwnProperty('client_password')) {
-                  vm.passwordError = true;
-                  vm.passwordErrorMessage = error.details.client_password || error.code;
-                }
-                if (error.hasOwnProperty('code') && error.code == "PasswordError"){
-                  vm.passwordError = true;
-                  vm.passwordErrorMessage = error.message;
-                }
-            }
-          });
+            });
         });
 
         // change different type of singing methods
@@ -206,8 +197,6 @@
                 } else if (vm.showSignin && !vm.showSignup && !vm.showTokenForm && !vm.showvirtualws && _isBack) {
                     vm.showSignin = false;
                 }
-
-
             });
         }
 
@@ -234,10 +223,6 @@
         $scope.$watch(
             () => { return appStateService.isLanguageReady } ,
             (newValue, oldValue) =>{ vm.disableNextbutton = !newValue; }
-            );
-
-
-
-
+        );
     }
 })();

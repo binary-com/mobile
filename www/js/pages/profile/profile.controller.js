@@ -159,14 +159,17 @@
             vm.closeModal();
         }
 
-
         vm.updateProfile = function() {
             if (!vm.isVirtualAccount) {
                 vm.params = {};
                 vm.notAnyChanges = true;
                 _.forEach(vm.realAccountFields, (value, key) => {
                     if (vm.profile[value] != null && vm.profile[value] != undefined) {
-                        vm.params[value] = vm.profile[value];
+                        if (vm.profile[value] === "address_postcode") {
+                            vm.params[value] = (vm.profile[value]).trim();
+                        } else {
+                            vm.params[value] = vm.profile[value];
+                        }
                         if (vm.params[value] !== vm.getSettings[value]) vm.notAnyChanges = false;
                     }
                 });
@@ -176,6 +179,26 @@
                 }
             }
         }
+
+        vm.validateGeneral = (function(val) {
+            var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
+            return {
+                test: function(val) {
+                    var reg = regex.test(val);
+                    return reg == true ? false : true;
+                }
+            }
+        })();
+
+        vm.validateAddress = (function (val) {
+            var regex = /[`~!#$%^&*)(_=+\[}{\]\\";:\?><|]+/;
+            return {
+                test: function (val) {
+                    var reg = regex.test(val);
+                    return reg == true ? false : true;
+                }
+            }
+        })();
 
         vm.init = function(){
           vm.checkAccount();
