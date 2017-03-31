@@ -1,4 +1,4 @@
-<ion-view class="layout">
+<ion-view class="layout" ng-controller="MainLayoutController as vm">
     <ion-side-menus>
         <ion-side-menu-content side-menu-content can-drag="false">
             <bg-header></bg-header>
@@ -9,7 +9,8 @@
         <ion-side-menu side="left" class="side-menu menu menu-left">
             <ion-header-bar class="header expanded bar bar-header disable-user-behavior">
               <div class="menu-bottom">
-                <a class="account-select" ng-click="vm.showAccountSwitch = !vm.showAccountSwitch">ddd
+                <a class="account-select" ng-click="vm.showAccountSwitch = !vm.showAccountSwitch">
+                  {{vm.selectedAccount}}
                   <i class="ion-arrow-down-b" ng-class="{'ion-arrow-up-b': vm.showAccountSwitch}"></i>
                 </a>
               </div>
