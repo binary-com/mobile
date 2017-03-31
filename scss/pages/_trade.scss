@@ -18,6 +18,14 @@
 				flex-direction: column;
 			}
 		}
+        .account-status-message {
+            padding: 0;
+            background: $noticeColor;
+            .error {
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
 	}
 	.ionic-scroll {
 		.scroll-bar-v {
