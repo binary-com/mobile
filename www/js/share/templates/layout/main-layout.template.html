@@ -9,10 +9,19 @@
         <ion-side-menu side="left" class="side-menu menu menu-left">
             <ion-header-bar class="header expanded bar bar-header disable-user-behavior">
               <div class="menu-bottom">
-                <bg-accounts></bg-accounts>
+                <a class="account-select" ng-click="vm.showAccountSwitch = !vm.showAccountSwitch">ddd
+                  <i class="ion-arrow-down-b" ng-class="{'ion-arrow-up-b': vm.showAccountSwitch}"></i>
+                </a>
               </div>
             </ion-header-bar>
-            <ion-content class="stable-bg has-expanded-header scroll-content ionic-scroll has-header" scroll="false">
+            <ion-content  ng-show="vm.showAccountSwitch" class="stable-bg has-expanded-header scroll-content ionic-scroll has-header" scroll="false">
+              <ion-list class="disable-user-behavior">
+                <ion-item class="item item-complex">
+                  <bg-accounts></bg-accounts>
+                </ion-item>
+              </ion-list>
+            </ion-content>
+            <ion-content  ng-show="!vm.showAccountSwitch" class="stable-bg has-expanded-header scroll-content ionic-scroll has-header" scroll="false">
                 <ion-list class="disable-user-behavior">
                   <ion-item class="item item-complex" nav-clear menu-close>
                       <bg-account-upgrade></bg-account-upgrade>
@@ -54,8 +63,6 @@
                 </ion-list>
                 <bg-app-version class="sidemenu-app-version"></bg-app-version>
             </ion-content>
-
         </ion-side-menu>
-
     </ion-side-menus>
 </ion-view>

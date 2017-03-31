@@ -2,6 +2,13 @@
   .account-select {
     background: $primaryBrandColor;
     color: $white;
+    font-weight: normal;
+    font-size: 1rem;
+    float: left;
+    width: 100%;
+    i {
+      float: right;
+    }
   }
   .account-icon {
       line-height: 1.42857;
@@ -9,11 +16,6 @@
       font-size: 1rem;
       color: $white!important;
       position: relative;
-  }
-  .options-account {
-      label {
-        padding: 0;
-      }
   }
   .item {
     min-height: 0;
@@ -37,6 +39,15 @@
       color: $primaryBrandColor;
       background-color: #D9D9D9;
     }
+  }
+  .options-account {
+    .item-complex .item-content, .item-radio .item-content {
+      background-color: transparent !important;
+    }
+  }
+  .item .item-content.activated, .item .item-content.active, .item-complex.activated .item-content, .item-complex.active .item-content, .item.activated, .item.active {
+    color: $primaryBrandColor;
+    background-color: #D9D9D9;
   }
   .item.active.item-complex > .item-content, .item.activated.item-complex > .item-content, .item-complex.active .item-content.item-complex > .item-content, .item-complex.activated .item-content.item-complex > .item-content, .item .item-content.active.item-complex > .item-content, .item .item-content.activated.item-complex > .item-content {
     color: $primaryBrandColor;
