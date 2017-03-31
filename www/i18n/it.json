@@ -93,7 +93,9 @@
     "transaction_id":"Riferimento della transazione",
     "buy_again":"Acquista di nuovo",
     "sell":"Sell",
-    "barrier":"Barrier offset"
+    "barrier":"Barrier offset",
+    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
+    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
   },
   "help":{
     "need_help":"Hai bisogno di aiuto?",
