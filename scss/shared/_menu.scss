@@ -16,6 +16,7 @@
       }
   }
   .item {
+    min-height: 0;
     a {
       background: transparent;
       i {
@@ -39,6 +40,9 @@
   }
   .item.active.item-complex > .item-content, .item.activated.item-complex > .item-content, .item-complex.active .item-content.item-complex > .item-content, .item-complex.activated .item-content.item-complex > .item-content, .item .item-content.active.item-complex > .item-content, .item .item-content.activated.item-complex > .item-content {
     color: $primaryBrandColor;
+  }
+  ion-header-bar {
+    background: $primaryBrandColor;
   }
 }
 .menu-bottom {

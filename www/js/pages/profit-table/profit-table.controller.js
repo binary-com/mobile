@@ -298,11 +298,11 @@
             }
         }
 
-        vm.toggleItem = function(){
-            vm.isItemShown = !vm.isItemShown;
-            var content = document.getElementsByClassName('profit-table-expandable')[0];
-            content.id === 'profit-table-filter-active' ? content.id = '' : content.id = 'profit-table-filter-active';
-        }
+        // vm.toggleItem = function(){
+        //     vm.isItemShown = !vm.isItemShown;
+        //     // var content = document.getElementsByClassName('profit-table-expandable')[0];
+        //     // content.id === 'profit-table-filter-active' ? content.id = '' : content.id = 'profit-table-filter-active';
+        // }
 
         vm.goTop = function() {
             $ionicScrollDelegate.scrollTop(true);

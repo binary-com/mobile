@@ -1,13 +1,8 @@
 .profit-table {
 	.title-container {
 		z-index: 10;
-		background: $white;
+		background: transparent;
 		position: relative;
-
-		.page-title {
-			z-index: 11;
-			background: $white;
-		}
 
 		.icon-inactive {
 			color: $black;
@@ -18,12 +13,15 @@
 		}
 	}
 
-	ion-content {
-		margin-top: 70px;
-		margin-bottom: 80px;
-
-		&.pull-down {
-			margin-top: 160px !important;
+	.profit-table-content {
+		ion-item {
+			padding: 0 15px;
+			.row {
+				padding: 0;
+				.col {
+					padding: 0;
+				}
+			}
 		}
 	}
 
@@ -31,59 +29,37 @@
 		padding-top: 0;
 		background: $white;
 		z-index: 10;
-
+	  padding: 0;
 		.col {
-			padding-top: 0;
-			padding-bottom: 0;
+			padding: 0;
 		}
 
-		&.jump-to-date-container {
-			margin-top: 0;
+		label {
+			width: 50%;
+		}
 
-			.jump-to-date-content {
-				.button {
-					right: 0;
-					margin: auto;
-					padding: 0;
-					min-height: 0!important;
-					float: right!important;
-				}
-
-				.row {
-					margin: 0;
-					padding: 0;
-
-					.col {
-						margin: 0;
-						padding: 0;
-
-						&.input-container {
-							padding: 5px 0;
-						}
-					}
-				}
-
-				.jump-to-date {
-					padding: 0;
-					font-size: 1rem;
-
-					span {
-						padding: 0 5px;
-					}
-
-					input {
-						background: $white;
-						font-size: 1rem;
-						line-height: 1.5rem;
-						padding: 0;
-						max-width: 150px;
-						padding-left: 5px;
-						margin-left: 5px;
-					}
-				}
+		.item-radio {
+			float: right;
+			border-left: 1px solid $white;
+			border-right: none;
+			&:first-child {
+				float: left;
+				border-right: 1px solid $white;
+				border-left: none;
+			}
+			.item-content {
+				background: $fillColor;
+				color: $contentColor;
+				padding-right: 5px;
 			}
 		}
+
 	}
+
+
+.jump-to-date {
+	width: auto;
+}
 
 	.first-spinner {
 		left: 1em;
@@ -206,33 +182,11 @@
 	}
 }
 
-#profit-table-filter-active,
-#statement-filter-active {
-	margin-top: 120px;
-}
-
 .item-expand {
 	position: relative;
 	width: 100%;
-	max-height: 0;
 	transition: max-height 0.1s ease-out;
 	overflow: hidden;
-}
-
-.item-expand.inactive:after {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	height: 0;
-	width: 100%;
-	display: block;
-}
-
-.item-expand.active {
-	max-height: 200px;
-	transition: max-height 0.3s ease-out;
-	z-index: 10;
 }
 
 .item-expand-footer {

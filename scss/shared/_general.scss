@@ -191,8 +191,8 @@ input::-webkit-outer-spin-button {
     font-size: 1.5rem;
     font-weight: normal;
     padding: 5px;
-    color: $contentColor;
-    border-bottom: 1px solid $black;
+    color: $darkPrimaryBrandColor;
+    // border-bottom: 1px solid $black;
 		margin: 0;
 }
 .sub-title {
@@ -270,6 +270,12 @@ textarea {
 .submenu-icon{
   float: right;
   // color: $darkPrimaryBrandColor;
+}
+
+ion-side-menu-content {
+	ion-content {
+		background: $fillColor;
+	}
 }
 @media screen and (min-width: 960px) {
     .accounts,
