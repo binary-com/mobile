@@ -93,7 +93,9 @@
     "transaction_id":"Référence de transaction",
     "buy_again":"Acheter à nouveau",
     "sell":"Vente",
-    "barrier":"Marge de barrière"
+    "barrier":"Marge de barrière",
+    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
+    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
   },
   "help":{
     "need_help":"Besoin d'aide ?",
