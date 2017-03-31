@@ -93,7 +93,9 @@
     "transaction_id":"crwdns17745:0crwdne17745:0",
     "buy_again":"crwdns17746:0crwdne17746:0",
     "sell":"crwdns17747:0crwdne17747:0",
-    "barrier":"crwdns17748:0crwdne17748:0"
+    "barrier":"crwdns17748:0crwdne17748:0",
+    "please_authenticate":"crwdns19504:0crwdne19504:0",
+    "restricted_account":"crwdns19505:0crwdne19505:0"
   },
   "help":{
     "need_help":"crwdns17749:0crwdne17749:0",
