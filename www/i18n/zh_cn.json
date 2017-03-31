@@ -93,7 +93,9 @@
     "transaction_id":"交易参考号",
     "buy_again":"重购",
     "sell":"卖出",
-    "barrier":"障碍位移"
+    "barrier":"障碍位移",
+    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
+    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
   },
   "help":{
     "need_help":"需要帮助？",
