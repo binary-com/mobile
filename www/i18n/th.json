@@ -93,7 +93,9 @@
     "transaction_id":"ธุรกรรมอ้างอิง",
     "buy_again":"ซื้ออีกครั้ง",
     "sell":"Sell",
-    "barrier":"Barrier offset"
+    "barrier":"Barrier offset",
+    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
+    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
   },
   "help":{
     "need_help":"ต้องการความช่วยเหลือไหม?",
