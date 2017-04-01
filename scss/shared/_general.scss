@@ -74,19 +74,6 @@ ion-side-menu {
 	font-size: 1rem;
 }
 
-.bar-subheader {
-  padding: 0;
-  height: inherit;
-  width: 100%;
-  background: $white;
-  position: relative;
-  top: 0;
-  bg-balance {
-    width: 100%;
-    position: relative;
-  }
-}
-
 a {
   color: $primaryBrandColor;
   text-decoration: none;
@@ -160,14 +147,6 @@ button.button.button-default {
 .button-secondary {
   color: $contentColor!important;
   background: $fillColor!important;
-}
-
-.bar-header {
-	button.button {
-		&[disabled="disabled"] {
-			background: transparent !important;
-		}
-	}
 }
 
 .side-item {
