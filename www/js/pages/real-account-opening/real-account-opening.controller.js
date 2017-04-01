@@ -76,16 +76,32 @@
         });
 
         // regexp pattern for name input (pattern in perl API doesn't work in javascript)
-        vm.validateName = (function(val) {
+        vm.validateGeneral = (function(val) {
             var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
             return {
                 test: function(val) {
                     var reg = regex.test(val);
-                    if (reg == true) {
-                        return false;
-                    } else {
-                        return true;
-                    }
+                    return reg == true ? false : true;
+                }
+            }
+        })();
+
+        vm.validateAddress = (function (val) {
+            var regex = /[`~!#$%^&*)(_=+\[}{\]\\";:\?><|]+/;
+            return {
+                test: function (val) {
+                    var reg = regex.test(val);
+                    return reg == true ? false : true;
+                }
+            }
+        })();
+
+        vm.validateSecretAnswer = (function (val) {
+            var regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><|]+/;
+            return {
+                test: function (val) {
+                    var reg = regex.test(val);
+                    return reg == true ? false : true;
                 }
             }
         })();
@@ -96,10 +112,12 @@
             vm.params = {};
             _.forEach(vm.data, (value, key) => {
                 if (vm.requestData.indexOf(key) > -1) {
-                    if (key !== 'date_of_birth') {
-                        vm.params[key] = value;
-                    } else {
+                    if (key === 'date_of_birth') {
                         vm.params[key] = $filter('date')(value, 'yyyy-MM-dd');
+                    } else if (key === 'address_post_code') {
+                        vm.params[key] = value.trim();
+                    } else {
+                        vm.params[key] = value;
                     }
                 }
             });
