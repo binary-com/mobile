@@ -2,11 +2,11 @@
     <div ng-if="!vm.hideMenuButton">
         <button ng-click="vm.toggleSideMenu()"
                 ng-disabled="vm.disableMenuButton"
-                class="button button-icon icon ion-navicon"></button>
+                class="button button-icon button-clear icon ion-navicon"></button>
     </div>
     <div ng-if="vm.showBack">
         <button ng-click="vm.goToPrevPage()" ng-disabled="vm.disableBackButton"
-                class="button button-icon ion-android-arrow-back"
+                class="button button-icon button-clear ion-android-arrow-back"
                 ng-class="{'ion-ios-arrow-back' : vm.ios}"></button>
     </div>
 

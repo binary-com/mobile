@@ -11,7 +11,8 @@
     "AngularHammer": "ryanmullins-angular-hammer#~2.1.10",
     "Chart.js": "~1.0.2",
     "angular-messages": "~1.5.8",
-    "intl": "~1.2.5"
+    "intl": "~1.2.5",
+    "ionic-material": "~0.4.2"
   },
   "dependencies": {
     "validate": "validate.js#^0.10.0",
