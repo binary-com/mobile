@@ -1,18 +1,4 @@
 .profit-table {
-	.title-container {
-		z-index: 10;
-		background: transparent;
-		position: relative;
-
-		.icon-inactive {
-			color: $black;
-		}
-
-		.icon-active {
-			color: $primaryBrandColor;
-		}
-	}
-
 	.profit-table-content {
 		ion-item {
 			padding: 0 15px;
