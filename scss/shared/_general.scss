@@ -87,6 +87,9 @@ p {
   font-weight: normal;
   white-space: normal;
   line-height: 1.4rem;
+  &.normal {
+    white-space: normal;
+  }
 }
 
 .popup-head {

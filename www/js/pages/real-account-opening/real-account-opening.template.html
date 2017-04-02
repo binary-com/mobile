@@ -212,14 +212,12 @@
                 {{'newaccountreal.of_the_site' | translate}}
               </p>
             </div>
-
-            <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-disabled="newAccount.$invalid || vm.disableUpdatebutton" ng-class="{'button-default' : newAccount.$invalid}">
-              {{'newaccountreal.open_account' | translate}}
-            </button>
-
           </div>
         </div>
       </div>
     </form>
+    <button class="button button-block ink" ng-click="vm.submitAccountOpening()" ng-disabled="newAccount.$invalid || vm.disableUpdatebutton" ng-class="{'button-default' : newAccount.$invalid}">
+      {{'newaccountreal.open_account' | translate}}
+    </button>
   </ion-content>
 </ion-view>
