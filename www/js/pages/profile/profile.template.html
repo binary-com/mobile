@@ -1,220 +1,217 @@
 <ion-view class="profile" title="Profile" ng-cloak>
-    <ion-content has-bouncing="false"  class="general-content">
-          <div class="row">
-            <div class="col">
-              <h1 class="page-title">
-                <span>
-                  {{ 'profile.personal_details' | translate }}
-                </span>
-              </h1>
-            </div>
-          </div>
-          <form name="profileForm" ng-submit="vm.submit()" novalidate>
-
-            <div class="card" ng-if="vm.isVirtualAccount">
-              <div class="row">
-                <div class="col">
-                  <div class="list">
-                    <label class="item item-input item-floating-label">
-                      <span class="input-label">
-                        {{ 'profile.country_of_residence' | translate }}
-                      </span>
-                      <input placeholder="{{ 'profile.country_of_residence' | translate }}" name="country" ng-value="vm.profile.country" readonly="readonly" />
-                    </label>
-
-                    <label class="item item-input item-floating-label">
-                      <span class="input-label">
-                        {{ 'profile.email_address' | translate }}
-                      </span>
-                      <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-value="vm.profile.email" readonly="readonly" />
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card" ng-if="!vm.isVirtualAccount">
-              <div class="row">
-                <div class="col">
-                  <div class="list">
-                    <label class="item item-input item-floating-label">
-                      <span class="input-label">
-                        {{ 'profile.name' | translate }}
-                      </span>
-                      <input placeholder="{{ 'profile.name' | translate }}" name="name" ng-value="vm.profile.first_name +  ' ' + vm.profile.last_name" readonly="readonly" />
-                    </label>
-
-                    <label class="item item-input item-floating-label">
-                      <span class="input-label">
-                        {{ 'profile.email_address' | translate }}
-                      </span>
-                      <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-value="vm.profile.email" readonly="readonly" />
-                    </label>
-
-                    <label class="item item-input item-date">
-                      <span class="input-label">
-                        {{ 'profile.date_of_birth' | translate }}
-                      </span>
-                      <input type="date" placeholder="yyyy-MM-dd" class="date" name="data_of_birth" ng-value="vm.profile.date_of_birth" readonly="readonly" />
-                    </label>
-
-                    <label class="item item-input item-floating-label">
-                      <span class="input-label">
-                        {{ 'profile.country_of_residence' | translate }}
-                      </span>
-                      <input placeholder="{{ 'profile.country_of_residence' | translate }}" name="country_of_residence" ng-value="vm.profile.country" readonly="readonly" />
-                    </label>
-
-                    <label class="item item-input item-floating-label">
-                      <span class="input-label">
-                        {{ 'profile.email_address' | translate }}
-                      </span>
-                      <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-value="vm.profile.email" readonly="readonly" />
-                    </label>
-
-                    <label class="item item-input item-floating-label">
-                      <span class="input-label">
-                        {{ 'profile.first_line_of_home_address' | translate }}
-                      </span>
-                      <input placeholder="{{ 'profile.first_line_of_home_address' | translate }}" name="address_line_1" ng-model="vm.profile.address_line_1" ng-maxlength="70" ng-required="true" ng-pattern="vm.validateAddress" />
-                    </label>
-                    <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_line_1.$error" role="alert" class="help block error">
-                      <ng-message when="pattern"> {{ 'profile.address-pattern-error' | translate}} </ng-message>
-                      <ng-message when="maxlength">
-                        {{ 'profile.maxlength_error_70' | translate }}
-                      </ng-message>
-                      <ng-message when="required">
-                        {{ 'profile.this_field_is_required' | translate }}
-                      </ng-message>
-                     </ng-messages>
-
-                     <label class="item item-input item-floating-label">
-                       <span class="input-label">
-                         {{ 'profile.second_line_of_home_address' | translate }}
-                       </span>
-                       <input placeholder="{{ 'profile.second_line_of_home_address' | translate }}" name="address_line_2" ng-model="vm.profile.address_line_2" ng-maxlength="70" ng-pattern="vm.validateAddress" />
-                     </label>
-                     <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_line_2.$error" role="alert" class="error">
-                         <ng-message when="pattern"> {{ 'profile.address-pattern-error' | translate}} </ng-message>
-                         <ng-message when="maxlength">
-                             {{ 'profile.maxlength_error_70' | translate }}
-                         </ng-message>
-                     </ng-messages>
-
-                     <label class="item item-input item-floating-label">
-                       <span class="input-label">
-                         {{ 'profile.town_city' | translate }}
-                       </span>
-                       <input placeholder="{{ 'profile.town_city' | translate }}" name="address_city" ng-model="vm.profile.address_city" ng-required="true" ng-maxlength="35" ng-pattern="vm.validateGeneral" />
-                     </label>
-                     <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_city.$error" role="alert" class="error">
-                         <ng-message when="pattern"> {{ 'profile.general-pattern-error' | translate}} </ng-message>
-                         <ng-message when="maxlength">
-                             {{ 'profile.maxlength_error_35' | translate }}
-                         </ng-message>
-                         <ng-message when="required">
-                             {{ 'profile.this_field_is_required' | translate }}
-                         </ng-message>
-                     </ng-messages>
-
-                     <label class="item item-input item-select">
-                       <div class="input-label">
-                         {{ 'profile.state_province' | translate }}
-                       </div>
-                       <select name="address_state" ng-model="vm.profile.address_state" ng-select="vm.profile.address_state" ng-disabled="!vm.states">
-                         <option value="" disabled ng-if="vm.profile.address_state == null">{{ profile.select }}</option>
-                         <option ng-repeat="s in vm.states" value="{{s.value}}"> {{ s.text }} </option>
-                       </select>
-                     </label>
-
-                     <label class="item item-input item-floating-label">
-                       <span class="input-label">
-                         {{ 'profile.posta_code_zip' | translate }}
-                       </span>
-                       <input placeholder="{{ 'profile.posta_code_zip' | translate }}" name="address_postcode" ng-model="vm.profile.address_postcode" ng-maxlength="20" ng-pattern="/^([a-zA-Z\d-\s])*$/" />
-                     </label>
-                     <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_postcode.$error" role="alert" class="error">
-                         <ng-message when="pattern"> {{ 'profile.postcode-pattern-error' | translate}} </ng-message>
-                         <ng-message when="maxlength">
-                             {{ 'profile.maxlength_error_20' | translate }}
-                         </ng-message>
-                     </ng-messages>
-
-                     <label class="item item-input item-floating-label">
-                       <span class="input-label">
-                         {{ 'profile.telephone' | translate }}
-                       </span>
-                       <input placeholder="{{ 'profile.telephone' | translate }}" name="phone" ng-model="vm.profile.phone" ng-pattern="/^\+?[0-9\s]*$/" ng-maxlength="35" ng-minlength="6" ng-required="true" />
-                     </label>
-                     <ng-messages ng-if="vm.isDataLoaded" for="profileForm.phone.$error" role="alert" class="error">
-                       <ng-message when="pattern"> {{ 'profile.phone-pattern-error' | translate}} </ng-message>
-                       <ng-message when="minlength, maxlength">
-                         {{ 'profile.length-error-6-35' | translate }}
-                       </ng-message>
-                       <ng-message when="required">
-                         {{ 'profile.this_field_is_required' | translate }}
-                       </ng-message>
-                     </ng-messages>
-
-                     <label class="item item-input item-select">
-                       <div class="input-label">
-                         {{'profile.place_of_birth' | translate}}
-                       </div>
-                       <select name="place_of_birth" ng-model="vm.profile.place_of_birth" ng-options="residence.value as residence.text for residence in vm.residenceList" ng-required="vm.isFinancial">
-                           <option value="" disabled>{{'profile.select' | translate}}</option>
-                       </select>
-                     </label>
-                     <ng-messages ng-if="vm.isDataLoaded" for="profileForm.place_of_birth.$error" role="alert" class="error">
-                       <ng-message when="required">
-                         {{ 'profile.this_field_is_required' | translate }}
-                       </ng-message>
-                     </ng-messages>
-
-                     <label class="item item-input item-select" ng-click="vm.showTaxResidenceItems()">
-                       <div class="input-label">
-                         {{'profile.tax_residence' | translate}}
-                       </div>
-                       <div class="col item-input tax-residence">
-                         {{ vm.selectedTaxResidencesName || 'profile.select' | translate}}
-                       </div>
-                     </label>
-                     <div class="col help-block error"  ng-if="vm.isFinancial && vm.profile.tax_residence  == null && vm.taxRequirement">
-                       {{ 'profile.this_field_is_required' | translate }}
-                     </div>
-
-                     <label class="item item-input item-floating-label">
-                       <span class="input-label">
-                         {{'profile.tax_identification_number' | translate}}
-                       </span>
-                       <input placeholder="{{'profile.tax_identification_number' | translate}}" name="tax_identification_number" ng-model="vm.profile.tax_identification_number" ng-pattern="/^([a-zA-Z\d-\s])*$/" ng-minlength="0" ng-maxlength="20" ng-required="vm.isFinancial" />
-                     </label>
-                     <ng-messages ng-if="vm.isDataLoaded" for="profileForm.tax_identification_number.$error" role="alert" class="error">
-                       <ng-message when="minlength, maxlength">
-                         {{ 'profile.maxlength_error_20' | translate }}
-                       </ng-message>
-                       <ng-message when="pattern">
-                         {{ 'profile.tax-identification-number-pattern-error' | translate}}
-                       </ng-message>
-                       <ng-message when="required">
-                         {{ 'profile.this_field_is_required' | translate }}
-                       </ng-message>
-                     </ng-messages>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-        </form>
-
-        <div class="row" ng-if="!vm.isVirtualAccount">
+  <ion-content has-bouncing="false" class="general-content">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          <span>
+            {{ 'profile.personal_details' | translate }}
+          </span>
+        </h1>
+      </div>
+    </div>
+    <form name="profileForm" ng-submit="vm.submit()" novalidate>
+      <div class="card" ng-if="vm.isVirtualAccount">
+        <div class="row">
           <div class="col">
-            <span class="help-block error center" ng-if="vm.notAnyChanges">{{'financial-assessment.no_change' | translate}}</span>
-            <button class="button button-block ink" ng-click="vm.updateProfile()" ng-disabled="!profileForm.$valid || vm.disableUpdateButton  || (vm.isFinancial && vm.profile.tax_residence  == null)" angular-ripple>
-              {{ 'profile.update_profile' | translate }}
-            </button>
+            <div class="list">
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.country_of_residence' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.country_of_residence' | translate }}" name="country" ng-value="vm.profile.country" readonly="readonly" />
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.email_address' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-value="vm.profile.email" readonly="readonly" />
+              </label>
+            </div>
           </div>
         </div>
+      </div>
 
-        {{ profile_form }}
-    </ion-content>
+      <div class="card" ng-if="!vm.isVirtualAccount">
+        <div class="row">
+          <div class="col">
+            <div class="list">
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.name' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.name' | translate }}" name="name" ng-value="vm.profile.first_name +  ' ' + vm.profile.last_name" readonly="readonly" />
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.email_address' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-value="vm.profile.email" readonly="readonly" />
+              </label>
+
+              <label class="item item-input item-date">
+                <span class="input-label">
+                  {{ 'profile.date_of_birth' | translate }}
+                </span>
+                <input type="date" placeholder="yyyy-MM-dd" class="date" name="data_of_birth" ng-value="vm.profile.date_of_birth" readonly="readonly" />
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.country_of_residence' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.country_of_residence' | translate }}" name="country_of_residence" ng-value="vm.profile.country" readonly="readonly" />
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.email_address' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-value="vm.profile.email" readonly="readonly" />
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.first_line_of_home_address' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.first_line_of_home_address' | translate }}" name="address_line_1" ng-model="vm.profile.address_line_1" ng-maxlength="70" ng-required="true" ng-pattern="vm.validateAddress" />
+              </label>
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_line_1.$error" role="alert" class="help block error">
+                <ng-message when="pattern"> {{ 'profile.address-pattern-error' | translate}} </ng-message>
+                <ng-message when="maxlength">
+                  {{ 'profile.maxlength_error_70' | translate }}
+                </ng-message>
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-messages>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.second_line_of_home_address' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.second_line_of_home_address' | translate }}" name="address_line_2" ng-model="vm.profile.address_line_2" ng-maxlength="70" ng-pattern="vm.validateAddress" />
+              </label>
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_line_2.$error" role="alert" class="error">
+                <ng-message when="pattern"> {{ 'profile.address-pattern-error' | translate}} </ng-message>
+                <ng-message when="maxlength">
+                  {{ 'profile.maxlength_error_70' | translate }}
+                </ng-message>
+              </ng-messages>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.town_city' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.town_city' | translate }}" name="address_city" ng-model="vm.profile.address_city" ng-required="true" ng-maxlength="35" ng-pattern="vm.validateGeneral" />
+              </label>
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_city.$error" role="alert" class="error">
+                <ng-message when="pattern"> {{ 'profile.general-pattern-error' | translate}} </ng-message>
+                <ng-message when="maxlength">
+                  {{ 'profile.maxlength_error_35' | translate }}
+                </ng-message>
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-messages>
+
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  {{ 'profile.state_province' | translate }}
+                </div>
+                <select name="address_state" ng-model="vm.profile.address_state" ng-select="vm.profile.address_state" ng-disabled="!vm.states">
+                  <option value="" disabled ng-if="vm.profile.address_state == null">{{ profile.select }}</option>
+                  <option ng-repeat="s in vm.states" value="{{s.value}}"> {{ s.text }} </option>
+                </select>
+              </label>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.posta_code_zip' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.posta_code_zip' | translate }}" name="address_postcode" ng-model="vm.profile.address_postcode" ng-maxlength="20" ng-pattern="/^([a-zA-Z\d-\s])*$/" />
+              </label>
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.address_postcode.$error" role="alert" class="error">
+                <ng-message when="pattern"> {{ 'profile.postcode-pattern-error' | translate}} </ng-message>
+                <ng-message when="maxlength">
+                  {{ 'profile.maxlength_error_20' | translate }}
+                </ng-message>
+              </ng-messages>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{ 'profile.telephone' | translate }}
+                </span>
+                <input placeholder="{{ 'profile.telephone' | translate }}" name="phone" ng-model="vm.profile.phone" ng-pattern="/^\+?[0-9\s]*$/" ng-maxlength="35" ng-minlength="6" ng-required="true" />
+              </label>
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.phone.$error" role="alert" class="error">
+                <ng-message when="pattern"> {{ 'profile.phone-pattern-error' | translate}} </ng-message>
+                <ng-message when="minlength, maxlength">
+                  {{ 'profile.length-error-6-35' | translate }}
+                </ng-message>
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-messages>
+
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  {{'profile.place_of_birth' | translate}}
+                </div>
+                <select name="place_of_birth" ng-model="vm.profile.place_of_birth" ng-options="residence.value as residence.text for residence in vm.residenceList" ng-required="vm.isFinancial">
+                  <option value="" disabled>{{'profile.select' | translate}}</option>
+                </select>
+              </label>
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.place_of_birth.$error" role="alert" class="error">
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-messages>
+
+              <label class="item item-input item-select" ng-click="vm.showTaxResidenceItems()">
+                <div class="input-label">
+                  {{'profile.tax_residence' | translate}}
+                </div>
+                <div class="col item-input tax-residence">
+                  {{ vm.selectedTaxResidencesName || 'profile.select' | translate}}
+                </div>
+              </label>
+              <div class="col help-block error"  ng-if="vm.isFinancial && vm.profile.tax_residence  == null && vm.taxRequirement">
+                {{ 'profile.this_field_is_required' | translate }}
+              </div>
+
+              <label class="item item-input item-floating-label">
+                <span class="input-label">
+                  {{'profile.tax_identification_number' | translate}}
+                </span>
+                <input placeholder="{{'profile.tax_identification_number' | translate}}" name="tax_identification_number" ng-model="vm.profile.tax_identification_number" ng-pattern="/^([a-zA-Z\d-\s])*$/" ng-minlength="0" ng-maxlength="20" ng-required="vm.isFinancial" />
+              </label>
+              <ng-messages ng-if="vm.isDataLoaded" for="profileForm.tax_identification_number.$error" role="alert" class="error">
+                <ng-message when="minlength, maxlength">
+                  {{ 'profile.maxlength_error_20' | translate }}
+                </ng-message>
+                <ng-message when="pattern">
+                  {{ 'profile.tax-identification-number-pattern-error' | translate}}
+                </ng-message>
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-messages>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row" ng-if="!vm.isVirtualAccount">
+      <div class="col">
+        <span class="help-block error center" ng-if="vm.notAnyChanges">{{'financial-assessment.no_change' | translate}}
+        </span>
+        <button class="button button-block ink" ng-click="vm.updateProfile()" ng-disabled="!profileForm.$valid || vm.disableUpdateButton  || (vm.isFinancial && vm.profile.tax_residence  == null)" angular-ripple>
+            {{ 'profile.update_profile' | translate }}
+        </button>
+      </div>
+    </div>
+  </ion-content>
 </ion-view>
