@@ -54,127 +54,43 @@
 		text-align: center;
 	}
 
-	.float-button {
-		background: $darkPrimaryBrandColor;
-		opacity: 0.9;
-		color: $white;
-		border-radius: 50%;
-		width: 3em;
-		height: 3em;
-		font-size: 1rem;
-		position: fixed;
-		top: 75%;
-		right: 6%;
-		z-index: 1000;
-		text-align: center;
-		line-height: 3em;
-
-		i {
-			position: relative;
-			background: inherit;
-			text-align: center;
-			color: $white;
-		}
-	}
-
-	ul.statement-table {
-		display: table;
-		width: 100%;
-
-		li.list {
-			display: table-row;
-			width: 100%;
-
-			&.no-transaction {
-				display: block;
-			}
-
-			.statement-element {
-				display: table-cell;
-				padding: 5px;
-				font-size: 0.8rem;
-
-				&:nth-child(2) {
-					padding-top: 10px;
-				}
-			}
-
-			&.list-title {
-				background: $fillColor;
-			}
-		}
-
-		.has-error {
-			font-size: 1.1rem;
-			color: $negativeColor;
-		}
-	}
+	// .float-button {
+	// 	background: $darkPrimaryBrandColor;
+	// 	opacity: 0.9;
+	// 	color: $white;
+	// 	border-radius: 50%;
+	// 	width: 3em;
+	// 	height: 3em;
+	// 	font-size: 1rem;
+	// 	position: fixed;
+	// 	top: 75%;
+	// 	right: 6%;
+	// 	z-index: 1000;
+	// 	text-align: center;
+	// 	line-height: 3em;
+	//
+	// 	i {
+	// 		position: relative;
+	// 		background: inherit;
+	// 		text-align: center;
+	// 		color: $white;
+	// 	}
+	// }
 }
 
 .transaction-detail {
-	.list-item {
-		padding: 0 !important;
-		color: $contentColor;
-	}
-
-	.reference {
-		font-size: 1.5rem;
-		border-bottom: 2px solid $black;
-		padding: 5px 0;
-	}
-
-	.small-text {
-		font-size: 0.8rem;
-	}
-
-	.back {
-		button {
-			margin-top: 0 !important;
-		}
-	}
-
 	.longcode {
-		font-size: 1rem;
-		margin-bottom: 10px;
-	}
-
-	ul {
-		&.statement-list {
-			display: flex;
-			flex-direction: row;
-			padding: 3px 5px;
-
-			.statement-element {
-				display: flex;
-				flex-grow: 1;
-				padding: 0;
-				font-size: 1rem;
-
-				&.last-statement-element {
-					display: block;
-				}
-			}
+		p {
+			white-space: normal;
 		}
-
-		.list {
+	}
+	ion-item {
+		padding: 0 15px;
+		.row {
 			padding: 0;
-			margin-bottom: 0;
-			.list-item {
-				font-size: 1rem;
-				padding: 10px 0;
-				color: $contentColor;
+			.col {
+				padding: 0;
 			}
 		}
 	}
-}
-
-.item-expand {
-	position: relative;
-	width: 100%;
-	transition: max-height 0.1s ease-out;
-	overflow: hidden;
-}
-
-.item-expand-footer {
-	float: right;
 }

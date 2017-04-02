@@ -11,12 +11,10 @@
       </div>
     </div>
     <div class="card">
-      <div class="item-expand">
-        <div class="row filters">
-          <div class="col list">
-            <ion-radio ng-change="vm.setFiltered()" name="appID" ng-model="vm.data.appID" ng-value="'allApps'">{{'statement.all_apps' | translate}}</ion-radio>
-            <ion-radio ng-change="vm.setFiltered()" name="appID" ng-model="vm.data.appID" ng-value="'tickTradeApp'">{{'statement.tick_trade_app' | translate}}</ion-radio>
-          </div>
+      <div class="row filters">
+        <div class="col list">
+          <ion-radio ng-change="vm.setFiltered()" name="appID" ng-model="vm.data.appID" ng-value="'allApps'">{{'statement.all_apps' | translate}}</ion-radio>
+          <ion-radio ng-change="vm.setFiltered()" name="appID" ng-model="vm.data.appID" ng-value="'tickTradeApp'">{{'statement.tick_trade_app' | translate}}</ion-radio>
         </div>
       </div>
     </div>
