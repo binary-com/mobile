@@ -1,10 +1,3 @@
-<div class="options-account list">
-    <div class="icon-wrapper account-icon">
-        <i class="ion-ios-person"></i>
-    </div>
-    <select class="account-select" ng-change="vm.updateAccount(vm.selectedAccount)" ng-model="vm.selectedAccount">
-            <option ng-repeat="a in vm.accounts" value="{{a.token}}" ng-selected="{{a.token == vm.selectedAccount}}">
-                {{a.id}}
-            </option>
-    </select>
+<div class="list options-account">
+    <ion-radio ng-repeat="a in vm.accounts" value="{{a.token}}" ng-class="{'active': a.token == vm.selectedAccount}" ng-selected="{{a.token == vm.selectedAccount}}" ng-change="vm.updateAccount(vm.selectedAccount)" ng-model="vm.selectedAccount" name="account">{{a.id}}</ion-radio>
 </div>

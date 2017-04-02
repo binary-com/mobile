@@ -9,6 +9,7 @@
 
   angular.module('binary', [
       'ionic',
+      'ionic-material',
       'pascalprecht.translate',
       'hmTouchEvents',
       'ngIOS9UIWebViewPatch',
@@ -16,7 +17,8 @@
       'binary.share.services',
       'binary.pages',
       'ngMessages',
-      'ngCordova'
+      'ngCordova',
+      'angularRipple'
       ]);
 
   angular

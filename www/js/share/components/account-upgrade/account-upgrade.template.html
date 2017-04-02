@@ -1,4 +1,10 @@
-<div class="upgrade-link">
-	<a menu-close class="item-content" ng-if="vm.showUpgradeLink" ng-click="vm.navigateToUpgrade()">{{'newaccountreal.open_real' | translate}}</a>
-	<a menu-close class="item-content" ng-if="vm.showUpgradeLinkMaltainvest" ng-click="vm.navigateToUpgrade()">{{'newaccountmaltainvest.open_financial' | translate}}</a>
+<div class="upgrade-link" ui-sref-active="active">
+	<a menu-close class="item-content" ng-if="vm.showUpgradeLink" ui-sref="real-account-opening">
+		<i class="ion-star"></i>
+		{{'newaccountreal.open_real' | translate}}
+	</a>
+	<a menu-close class="item-content" ng-if="vm.showUpgradeLinkMaltainvest" ui-sref="maltainvest-account-opening">
+		<i class="ion-star"></i>
+		{{'newaccountmaltainvest.open_financial' | translate}}
+	</a>
 </div>

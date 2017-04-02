@@ -1,36 +1,19 @@
 .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
   top: initial;
 }
-.balance {
-	background: $white;
-	color: $contentColor;
-	font-size: 1rem;
-	padding: 0 5px;
-	border-bottom: 1px solid $borderColor;
-	.row{
-		padding: 0;
-	}
-}
-.bar.bar-positive {
-	border-color: $borderColor;
-	background-color: $primaryBrandColor;
-	background-image: none;
-	z-index: 10;
-}
-.bar-positive .button {
-	background-color: $primaryBrandColor;
-	z-index: 12;
-}
-ion-subheader-bar.bar.bar-subheader.bar-positive{
-	background-color: $fillColor;
-}
+
 .bar-header {
-	background-color: $primaryBrandColor;
+  background-color: $primaryBrandColor;
 	position: relative;
 	border-bottom: 3px solid $secondaryBrandColor!important;
 	button {
 		background-color: $primaryBrandColor;
 		color: $white;
+    &.button {
+  		&[disabled="disabled"] {
+  			background: transparent !important;
+  		}
+  	}
 	}
 	h1 {
 		img {
@@ -39,12 +22,53 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 		}
 	}
 }
+
+.bar-subheader {
+  padding: 0;
+  height: inherit;
+  width: 100%;
+  background: $white;
+  position: relative;
+  top: 0;
+  bg-balance {
+    width: 100%;
+    position: relative;
+    .balance {
+    	background: $white;
+    	color: $contentColor;
+    	font-size: 1rem;
+    	padding: 0 5px;
+    	border-bottom: 1px solid $borderColor;
+    	.row{
+    		padding: 0;
+    	}
+    }
+  }
+}
+
+.bar.bar-positive {
+	border-color: $borderColor;
+	background-color: $primaryBrandColor;
+	background-image: none;
+	z-index: 10;
+}
+
+.bar-positive .button {
+	background-color: $primaryBrandColor;
+	z-index: 12;
+}
+
+ion-subheader-bar.bar.bar-subheader.bar-positive{
+	background-color: $fillColor;
+}
+
 .bar .button.button-clear .icon:before,
 .bar .button.button-clear.icon-left:before,
 .bar .button.button-clear.icon-right:before,
 .bar .button.button-clear.icon:before {
 	font-size: 24px;
 }
+
 .update .spinner {
 	top: 0 !important;
 	left: 0;
@@ -58,12 +82,15 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 		storke: $white;
 	}
 }
+
 .update progress {
 	margin: 0 1px !important;
 }
+
 .update .icon {
 	font-size: 28px !important;
 }
+
 .logo-spinner {
 	-webkit-animation-name: spin;
 	-webkit-animation-duration: 1000ms;
@@ -84,6 +111,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 	transform-origin: 50% 65%;
 	display: inline-block;
 }
+
 @-ms-keyframes spin {
 	from {
 		-ms-transform: rotate(0deg);

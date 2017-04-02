@@ -1,11 +1,24 @@
 .new-account {
-    .new-real-account {
-        .row {
-            margin: 0;
-            padding: 0 5px;
-        }
-        .accept {
-            font-size: 0.8rem;
-        }
+  .new-real-account {
+    label {
+      padding: 5px 0;
+      .input-label {
+        word-break: break-word;
+        white-space: normal;
+      }
     }
+    .item-select {
+      margin: 11px 0 5px 0;
+    }
+    .item-date {
+      margin: 11px 0;
+    }
+    .row {
+      margin: 0;
+      padding: 0 5px;
+    }
+    .accept {
+      font-size: 0.8rem;
+    }
+  }
 }
