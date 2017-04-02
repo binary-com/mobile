@@ -232,7 +232,7 @@
                 $scope,
                 'js/share/components/reality-check/reality-check-result.template.html', [{
                   text: translation['realitycheck.logout'],
-                  type: 'button-secondary',
+                  type: 'button button-default',
                   onTap: function() {
                     vm.logout();
                   }

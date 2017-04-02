@@ -19,11 +19,9 @@
 		.col {
 			padding: 0;
 		}
-
 		label {
 			width: 50%;
 		}
-
 		.item-radio {
 			float: right;
 			border-left: 1px solid $white;
@@ -39,13 +37,11 @@
 				padding-right: 5px;
 			}
 		}
-
 	}
 
-
-.jump-to-date {
-	width: auto;
-}
+	.jump-to-date {
+		width: auto;
+	}
 
 	.first-spinner {
 		left: 1em;
@@ -53,29 +49,13 @@
 		position: absolute;
 		text-align: center;
 	}
+}
 
-	// .float-button {
-	// 	background: $darkPrimaryBrandColor;
-	// 	opacity: 0.9;
-	// 	color: $white;
-	// 	border-radius: 50%;
-	// 	width: 3em;
-	// 	height: 3em;
-	// 	font-size: 1rem;
-	// 	position: fixed;
-	// 	top: 75%;
-	// 	right: 6%;
-	// 	z-index: 1000;
-	// 	text-align: center;
-	// 	line-height: 3em;
-	//
-	// 	i {
-	// 		position: relative;
-	// 		background: inherit;
-	// 		text-align: center;
-	// 		color: $white;
-	// 	}
-	// }
+.float-button {
+	top: 75vh !important;
+	i {
+		font-size: 2rem !important;
+	}
 }
 
 .transaction-detail {

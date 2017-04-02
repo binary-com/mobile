@@ -124,10 +124,10 @@ button {
 	border: none !important;
 	&.button.button-positive {
 	  background: $positiveColor!important;
-	  &:hover {
-	    color: $white !important;
-	    background: $darkPositiveColor!important;
-	  }
+    &:hover {
+      background: $positiveColor!important;
+      color: $white !important;
+    }
 		&[disabled="disabled"] {
 			color: $white !important;
 		}
@@ -144,9 +144,28 @@ button.button.button-default {
   background: $fillColor!important;
 }
 
-.button-secondary {
-  color: $contentColor!important;
-  background: $fillColor!important;
+[angular-ripple] {
+  position: relative;
+  overflow: hidden;
+}
+
+.angular-ripple {
+  display: block;
+  position: absolute;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+.angular-ripple.animate {
+  animation: ripple 0.35s linear;
+}
+
+@keyframes ripple {
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
 }
 
 .side-item {

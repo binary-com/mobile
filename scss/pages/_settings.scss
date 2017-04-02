@@ -1,8 +1,7 @@
 .settings {
-  ion-content {
-    a{
-      font-size: 1rem;
-      font-weight: normal;
-    }
+  .item-content {
+    background: $white;
+    font-size: 1rem;
+    font-weight: normal;
   }
 }
