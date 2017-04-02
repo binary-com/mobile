@@ -8,8 +8,8 @@
       </div>
     </div>
 
-      <form name="newAccountMaltainvestForm" class="new-real-account" novalidate>
-        <div class="card">
+    <form name="newAccountMaltainvestForm" class="new-real-account" novalidate>
+      <div class="card">
         <div class="row">
           <div class="col">
             <div class="list">
@@ -105,7 +105,7 @@
                 </div>
               </label>
               <div class="col help-block error" ng-if="vm.data.tax_residence  == null && vm.taxRequirement">
-                  {{ 'newaccountmaltainvest.required' | translate }}
+                {{ 'newaccountmaltainvest.required' | translate }}
               </div>
 
               <label class="item item-input item-floating-label">
@@ -541,8 +541,13 @@
           </div>
         </div>
       </form>
-      <button class="button button-block ink" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.tax_residence  == null || vm.disableUpdatebutton" angular-ripple>
-        {{'newaccountmaltainvest.open_account' | translate}}
-      </button>
+
+      <div class="row">
+        <div class="col">
+          <button class="button button-block ink" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.tax_residence  == null || vm.disableUpdatebutton" angular-ripple>
+            {{'newaccountmaltainvest.open_account' | translate}}
+          </button>
+        </div>
+      </div>
     </ion-content>
 </ion-view>

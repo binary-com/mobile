@@ -216,8 +216,13 @@
         </div>
       </div>
     </form>
-    <button class="button button-block ink" ng-click="vm.submitAccountOpening()" ng-disabled="newAccount.$invalid || vm.disableUpdatebutton" ng-class="{'button-default' : newAccount.$invalid}">
-      {{'newaccountreal.open_account' | translate}}
-    </button>
+
+    <div class="row">
+      <div class="col">
+        <button class="button button-block ink" ng-click="vm.submitAccountOpening()" ng-disabled="newAccount.$invalid || vm.disableUpdatebutton" ng-class="{'button-default' : newAccount.$invalid}">
+          {{'newaccountreal.open_account' | translate}}
+        </button>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
