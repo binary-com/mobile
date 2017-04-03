@@ -94,8 +94,8 @@
     "buy_again":"重购",
     "sell":"卖出",
     "barrier":"障碍位移",
-    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
-    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
+    "please_authenticate":"请验证账户，以便提高取款和交易限额。",
+    "restricted_account":"您的账户已被限制。请联系客服部请求帮助。"
   },
   "help":{
     "need_help":"需要帮助？",
@@ -159,12 +159,12 @@
     "show_pass":"显示密码",
     "enter-email":"请输入您的电子邮件",
     "email-error":"电子邮件无效",
-    "token-invalid":"Please submit a valid verification token.",
+    "token-invalid":"请提交有效验证令牌。",
     "residence-error":"请选择您的国家",
     "invalid_email":"请提交有效的电子邮件地址。",
-    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
-    "length-error-6-25":"This field must be within 6-25 characters.",
-    "required":"This field is required."
+    "password-pattern-error":"密码必须有大小写字母和数字。",
+    "length-error-6-25":"此字段必须为 6-25 个字符以内。",
+    "required":"此为必填字段。"
   },
   "newaccountmaltainvest":{
     "open_financial":"开立金融账户",
@@ -272,9 +272,9 @@
     "read_and_agreed_to":"我已阅读并同意 ",
     "terms_and_conditions":"条款与条件 ",
     "of_the_site":"网站的。",
-    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-2-30":"This field must be within 2-30 characters.",
-    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "general-pattern-error":"只允许字母、空格、连字符、句号和省略号。",
+    "length-error-2-30":"此字段必须为 2-30 个字符以内。",
+    "address-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
     "maxlength_error_70":"此字段最多可以有 70 个字符长。",
     "maxlength_error_35":"此字段最多可以有 35 个字符长。",
     "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
