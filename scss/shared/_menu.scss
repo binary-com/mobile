@@ -10,13 +10,6 @@
       float: right;
     }
   }
-  .account-icon {
-      line-height: 1.42857;
-      padding: 5px 5px 0 5px;
-      font-size: 1rem;
-      color: $white!important;
-      position: relative;
-  }
   .item {
     min-height: 0;
     a {
@@ -55,7 +48,7 @@
   ion-header-bar {
     background: $primaryBrandColor;
   }
-}
-.menu-bottom {
-  bottom: 5px;
+  .menu-bottom {
+    bottom: 5px;
+  }
 }

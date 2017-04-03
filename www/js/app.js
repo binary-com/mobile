@@ -17,7 +17,8 @@
       'binary.share.services',
       'binary.pages',
       'ngMessages',
-      'ngCordova'
+      'ngCordova',
+      'angularRipple'
       ]);
 
   angular

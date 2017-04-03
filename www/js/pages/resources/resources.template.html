@@ -7,15 +7,13 @@
         </h1>
       </div>
     </div>
-    <div class="list">
-      <div ng-repeat="resource in vm.resources">
-        <a href="#"
-           ui-sref="{{resource.url}}"
-           class="item">
+    <ion-list class="card list">
+      <ion-item ng-repeat="resource in vm.resources" class="item item-complex">
+        <a ui-sref="{{resource.url}}" class="item-content">
           {{ resource.name | translate }}
           <i class="submenu-icon ion-android-arrow-dropright" ng-class="{'ion-ios-arrow-right' : vm.ios}"></i>
         </a>
-      </div>
-    </div>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
