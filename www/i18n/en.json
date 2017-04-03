@@ -665,5 +665,8 @@
     "required": "This field is required.",
     "success": "Success",
     "success_message": "Your settings have been updated successfully."
+  },
+  "language": {
+    "language": "Language"
   }
 }
