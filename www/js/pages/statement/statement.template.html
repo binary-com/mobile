@@ -36,8 +36,8 @@
         </div>
       </div>
     </div>
-    <ion-list class="list list-inset profit-table-content" type="list-inset" delegate-handle="handler" on-scroll="vm.goToTopButtonCondition()" ng-class="{'pull-down' : (vm.jumpToDateInputShow && vm.isItemShown)}" ng-show="vm.firstCompleted">
-      <ion-item class="item item-divider">
+    <div class="card list list-inset profit-table-content" delegate-handle="handler" on-scroll="vm.goToTopButtonCondition()" ng-class="{'pull-down' : (vm.jumpToDateInputShow && vm.isItemShown)}" ng-show="vm.firstCompleted">
+      <div class="item item-divider" ng-if="!vm.noTransaction && !vm.hasError">
         <div class="row">
           <div class="col left">{{'statement.date' | translate}}</div>
           <div class="col center">{{'statement.ref' | translate}}</div>
@@ -48,8 +48,8 @@
             {{'statement.balance' | translate}}
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+      </div>
+      <div class="item" ng-repeat="transaction in vm.filteredTransactions track by $index" id="{{transaction.contract_id}}" ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
         <div class="row">
           <div class="col left" ng-bind="transaction.transaction_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></div>
           <div class="col center" ng-bind="transaction.transaction_id"></div>
@@ -59,15 +59,15 @@
           </div>
           <div class="col right bold green" ng-bind="transaction.balance_after | currency : vm.currency : 2"></div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.noTransaction">
+      </div>
+      <div class="item" ng-if="vm.noTransaction">
         {{'statement.no_transaction' | translate}}
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.hasError">
+      </div>
+      <div class="item" ng-if="vm.hasError">
         <i class="icon ion-alert-circled"></i>
         {{vm.errorMessage}}
-      </ion-item>
-    </ion-list>
+      </div>
+    </div>
     <ion-infinite-scroll on-infinite="vm.delayedLoad()" distance="1%" ng-if="!vm.noMore && vm.firstCompleted && !vm.dateChanged"></ion-infinite-scroll>
     <ion-spinner class="first-spinner" ng-if="!vm.firstCompleted"></ion-spinner>
   </ion-content>
