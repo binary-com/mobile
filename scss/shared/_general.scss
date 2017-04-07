@@ -290,6 +290,35 @@ ion-side-menu-content {
 	}
 }
 
+.filters {
+  padding-top: 0;
+  background: $white;
+  z-index: 10;
+  padding: 0;
+  .col {
+    padding: 0;
+  }
+  label {
+    width: 50%;
+    float: left!important;
+  }
+  .item-radio {
+    float: right;
+    border-left: 1px solid $white;
+    border-right: none;
+    &:first-child {
+      float: left;
+      border-right: 1px solid $white;
+      border-left: none;
+    }
+    .item-content {
+      background: $fillColor;
+      color: $contentColor;
+      padding-right: 5px;
+    }
+  }
+}
+
 @media screen and (min-width: 960px) {
   .accounts,
   .help,
