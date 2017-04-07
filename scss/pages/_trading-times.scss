@@ -1,15 +1,32 @@
-.trading-times{
-	form {
-		display: inline-block;
-		width: 49%;
-		width: calc((100% - 10px) / 2);
-		select {
-			height: 34px;
+.trading-times {
+	.filters {
+		padding-top: 0;
+		background: $white;
+		z-index: 10;
+	  padding: 0;
+		.col {
+			padding: 0;
 		}
-		label, select{
-			line-height: inherit!important;
+		label {
+			width: 50%;
+		}
+		.item-radio {
+			float: right;
+			border-left: 1px solid $white;
+			border-right: none;
+			&:first-child {
+				float: left;
+				border-right: 1px solid $white;
+				border-left: none;
+			}
+			.item-content {
+				background: $fillColor;
+				color: $contentColor;
+				padding-right: 5px;
+			}
 		}
 	}
+	
 	.trading-times-table {
 		width: 100%;
 		font-size: 0.7rem;

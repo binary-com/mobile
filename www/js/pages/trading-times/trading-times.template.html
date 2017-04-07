@@ -1,33 +1,61 @@
-<ion-view>
-  <ion-content class="general-content trading-times">
-		<div class="row">
-			<div class="col">
-				<h1 class="page-title">
-					{{'trading-times.trading_times' | translate}}
-				</h1>
-			</div>
-		</div>
+<ion-view class="trading-times">
+  <ion-content has-bouncing="false" class="general-content">
     <div class="row">
       <div class="col">
-        <form name="trading-times">
+        <h1 class="page-title">
+          {{ 'trading-times.trading_times' | translate }}
+        </h1>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row filters">
+        <div class="col list">
+          <ion-radio ng-model="vm.market" ng-repeat="market in vm.data.markets" ng-value="market.name" ng-init="vm.data.markets[0]" ng-if="!vm.hasError">
+            {{ market.name }}
+          </ion-radio>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <div class="col list">
+          <label class="item item-input jump-to-date" for="dateTo">
+            <span>
+              {{'profittable.jump_to_date' | translate}}
+            </span>
+            <input type="date" id="date" name="trading-times-date" ng-model="vm.data.date" ng-change="vm.sendTradingTimes()" />
+          </label>
+          <button type="button" class="button button-default button-block ink" ng-click="vm.jumpToDateFilter()" angular-ripple>
+            {{'profittable.go' | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <!-- <form name="trading-times">
             <div class="input-title">
               {{'trading-times.date' | translate}}
             </div>
             <label class="item-input">
-              <input type="date" id="date" name="trading-times-date" ng-model="vm.data.date" ng-change="vm.sendTradingTimes()" />
+
             </label>
-        </form>
-        <form name="market">
+        </form> -->
+        <!-- <form name="market">
             <div class="input-title">
               {{'trading-times.market' | translate}}
             </div>
             <div class="item-select">
-              <select ng-model="vm.market">
+              <select >
                 <option ng-if="vm.hasError" selected>-</option>
-                <option ng-repeat="market in vm.data.markets" ng-value="market.name" ng-init="vm.data.markets[0]" ng-if="!vm.hasError">{{market.name}}</option>
+                <option ></option>
               </select>
           </div>
-        </form>
+        </form> -->
       </div>
     </div>
 
