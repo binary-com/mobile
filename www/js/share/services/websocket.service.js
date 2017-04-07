@@ -509,8 +509,10 @@ angular
                             }
                             break;
                         case 'website_status':
-                            $rootScope.$broadcast('website_status', message.website_status);
-                            localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
+                            if (message.hasOwnProperty('website_status')) {
+                              $rootScope.$broadcast('website_status', message.website_status);
+                              localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
+                            }
                             break;
                         case 'active_symbols':
                             var markets = message.active_symbols;
