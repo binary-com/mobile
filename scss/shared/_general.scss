@@ -74,6 +74,12 @@ ion-side-menu {
 	font-size: 1rem;
 }
 
+.card {
+  border: 1px solid #e6ecf0;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
 a {
   color: $primaryBrandColor;
   text-decoration: none;
@@ -122,10 +128,21 @@ p {
 
 button {
 	border: none !important;
+  border-radius: 3px;
 	&.button.button-positive {
 	  background: $positiveColor!important;
     &:hover {
       background: $positiveColor!important;
+      color: $white !important;
+    }
+		&[disabled="disabled"] {
+			color: $white !important;
+		}
+	}
+  &.button.button-secondary {
+	  background: $primaryBrandColor!important;
+    &:hover {
+      background: $primaryBrandColor!important;
       color: $white !important;
     }
 		&[disabled="disabled"] {

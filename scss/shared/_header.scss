@@ -5,7 +5,7 @@
 .bar-header {
   background-color: $primaryBrandColor;
 	position: relative;
-	border-bottom: 3px solid $secondaryBrandColor!important;
+	border-bottom: 2px solid $secondaryBrandColor!important;
 	button {
 		background-color: $primaryBrandColor;
 		color: $white;
@@ -38,7 +38,6 @@
     	color: $contentColor;
     	font-size: 1rem;
     	padding: 0 5px;
-    	border-bottom: 1px solid $borderColor;
     	.row{
     		padding: 0;
     	}
