@@ -1,5 +1,5 @@
 body * {
-  font-family: roboto, sans-serif !important;
+  font-family: RobotoDraft!important;
 }
 
 [ng-click],
@@ -180,6 +180,10 @@ button.button.button-default {
 .item {
   border-width: 0;
   color: $contentColor;
+  &.collapsed {
+    background: $fillColor;
+    border-bottom: 2px solid $primaryBrandColor;
+  }
 }
 
 .item-complex .item-content,

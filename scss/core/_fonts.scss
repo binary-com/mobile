@@ -1,17 +1,22 @@
-@font-face {
-    font-family: roboto;
-    src: url(../fonts/Roboto/Roboto-Thin.ttf);
-    font-weight: 100;
-}
+// @font-face {
+//     font-family: RobotoDraft;
+//     src: url(/lib/robotodraft/fonts/Medium/RobotoDraft-Medium.ttf);
+//     font-weight: 100;
+// }
+//
+// @font-face {
+//     font-family: roboto;
+//     src: url(../fonts/Roboto/Roboto-Regular.ttf);
+//     font-weight: 400;
+// }
+//
+// @font-face {
+//     font-family: roboto;
+//     src: url(../fonts/Roboto/Roboto-Bold.ttf);
+//     font-weight: 700;
+// }
+$RobotoDraftFontPath: "../../lib/robotodraft/fonts"; // REMINDER: edit as appropriate!
+$RobotoDraftFontName: "RobotoDraft";
+$RobotoDraftFontVersion: "1.0.0";
 
-@font-face {
-    font-family: roboto;
-    src: url(../fonts/Roboto/Roboto-Regular.ttf);
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: roboto;
-    src: url(../fonts/Roboto/Roboto-Bold.ttf);
-    font-weight: 700;
-}
+@import "www/lib/robotodraft/robotodraft.scss";
