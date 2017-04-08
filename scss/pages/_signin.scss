@@ -16,92 +16,13 @@
 			width: 60%;
 		}
 	}
-	.language {
-		border: none;
-	}
 	#emailform,
 	#virtualws {
 		.show-hide-password {
-			margin-top: 15px;
-			input#show-hide {
-				width: 20px;
-				top: 2px;
-				position: relative;
-			}
-		}
-		.help-block{
-			text-align: left;
-			padding: 0 5px 5px 5px;
-		}
-	}
-	.list {
-		label.item-input {
-			width: 80%;
-			margin: 0 auto;
+			float: left;
 			i {
-				font-size: 40px;
-				width: 40px;
-				text-align: center;
-				&.icon-small {
-					font-size: 28px;
-				}
+				margin-right: 5px;
 			}
-		}
-	}
-	::-webkit-input-placeholder {
-		color: $secondaryContentColor;
-	}
-	:-moz-placeholder {
-		color: $secondaryContentColor;
-	}
-	::-moz-placeholder {
-		color: $secondaryContentColor;
-	}
-	:-ms-input-placeholder {
-		color: $secondaryContentColor;
-	}
-}
-@media only screen and (max-device-width: 480px) {
-	.sign-in {
-		::-webkit-input-placeholder {
-			color: $secondaryContentColor;
-		}
-		:-moz-placeholder {
-			color: $secondaryContentColor;
-		}
-		::-moz-placeholder {
-			color: $secondaryContentColor;
-		}
-		:-ms-input-placeholder {
-			color: $secondaryContentColor;
-		}
-	}
-}
-@media only screen and (min-device-width: 480px) {
-	.sign-in {
-		.list {
-			label.item-input {
-				i {
-					color: $darkPrimaryBrandColor;
-				}
-			}
-			label.item-select {
-				i {
-					color: $darkPrimaryBrandColor;
-				}
-			}
-		}
-		::-webkit-input-placeholder {
-			color: $secondaryContentColor;
-		}
-		:-moz-placeholder {
-			color: $secondaryContentColor;
-		}
-		::-moz-placeholder {
-			color: $secondaryContentColor;
-		}
-		:-ms-input-placeholder {
-			color: $secondaryContentColor;
 		}
 	}
 }

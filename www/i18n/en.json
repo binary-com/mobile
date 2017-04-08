@@ -154,7 +154,7 @@
     "signup-question": "Don't have an account?",
     "verification-code": "Verification Code",
     "password": "Password",
-    "residence": "Residence:",
+    "residence": "Country of residence",
     "select": "Select your country",
     "isrequired": "(Requierd)",
     "password_hint": "Password must be minimum of six lower and uppercase letters with numbers",
