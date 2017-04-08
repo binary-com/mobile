@@ -76,7 +76,7 @@
           </div>
         </div>
 
-        <div class="item item-text-wrap" ng-repeat="symbol in submarket.symbols">
+        <div class="item item-text-wrap" ng-repeat-start="symbol in submarket.symbols" ng-click="symbol.open = !symbol.open">
           <div class="row">
             <div class="col left">
               {{ symbol.name }}
@@ -91,9 +91,14 @@
               {{ symbol.times.settlement }}
             </div>
             <div class="col right">
-              <span class="col" ng-repeat="event in symbol.events" ng-if="symbol.events.length > 0">{{event.descrip}} {{event.dates}}</span>
-              <span ng-if="symbol.events.length == 0">-</span>
+              <i class="ion-android-arrow-dropdown-circle" ng-class="{ 'ion-android-arrow-dropright-circle' : symbol.open }" ng-show="symbol.events.length > 0"></i>
             </div>
+
+          </div>
+        </div>
+        <div class="item collapsed" ng-repeat-end ng-show="symbol.open" ng-if="symbol.events.length > 0">
+          <div class="row center">
+            <span class="col left" ng-repeat="event in symbol.events">{{event.descrip}} {{event.dates}}</span>
           </div>
         </div>
 
@@ -107,6 +112,6 @@
       </div>
 
     </div>
-    
+
   </ion-content>
 </ion-view>
