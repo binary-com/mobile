@@ -513,6 +513,9 @@ angular
                               $rootScope.$broadcast('website_status', message.website_status);
                               localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
                             }
+                            else if (message.hasOwnProperty('error')) {
+                              trackJs.track(message.error.code + ": " + message.error.message);
+                            }
                             break;
                         case 'active_symbols':
                             var markets = message.active_symbols;
