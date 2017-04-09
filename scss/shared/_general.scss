@@ -136,7 +136,6 @@ button {
       color: $white !important;
     }
 		&[disabled="disabled"] {
-			color: $white !important;
 		}
 	}
   &.button.button-secondary {
@@ -210,6 +209,11 @@ button.button.button-default {
 
 .item-radio > input[disabled="disabled"] + div.item-content {
   opacity: 0.4;
+}
+
+.checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {
+  background: $positiveColor;
+  border: $positiveColor;
 }
 
 .scroll {
