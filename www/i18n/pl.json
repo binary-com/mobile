@@ -7,7 +7,8 @@
     "get_token":"Jak uzyskać token?",
     "signin_with_binary_com":"Zaloguj się",
     "use_token":"Lub zaloguj się przy użyciu tokenu",
-    "next":"Dalej"
+    "next":"Dalej",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"Zarządzaj kontami",
@@ -421,7 +422,8 @@
     "statement":"Oświadczenie",
     "language":"Język",
     "settings":"Ustawienia",
-    "resources":"Zasoby"
+    "resources":"Zasoby",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"Ustawienia",
