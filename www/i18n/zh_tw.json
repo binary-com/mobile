@@ -7,7 +7,8 @@
     "get_token":"如何獲取權杖?",
     "signin_with_binary_com":"登入",
     "use_token":"以權杖登入",
-    "next":"下一步"
+    "next":"下一步",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"帳戶管理",
@@ -421,7 +422,8 @@
     "statement":"帳單",
     "language":"語言",
     "settings":"設定",
-    "resources":"資源"
+    "resources":"資源",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"設定",
