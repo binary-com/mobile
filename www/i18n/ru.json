@@ -7,7 +7,8 @@
     "get_token":"Как получить ключ?",
     "signin_with_binary_com":"Войти",
     "use_token":"Войти через ключ",
-    "next":"Далее"
+    "next":"Далее",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"Управление счетами",
@@ -421,7 +422,8 @@
     "statement":"История счёта",
     "language":"Язык",
     "settings":"Настройки",
-    "resources":"Ресурсы"
+    "resources":"Ресурсы",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"Настройки",
