@@ -7,7 +7,8 @@
     "get_token":"crwdns17669:0crwdne17669:0",
     "signin_with_binary_com":"crwdns17670:0crwdne17670:0",
     "use_token":"crwdns17671:0crwdne17671:0",
-    "next":"crwdns17672:0crwdne17672:0"
+    "next":"crwdns17672:0crwdne17672:0",
+    "regulatory-information":"crwdns19506:0crwdne19506:0"
   },
   "accounts":{
     "my_accounts":"crwdns17673:0crwdne17673:0",
@@ -421,7 +422,8 @@
     "statement":"crwdns18007:0crwdne18007:0",
     "language":"crwdns18008:0crwdne18008:0",
     "settings":"crwdns18009:0crwdne18009:0",
-    "resources":"crwdns19114:0crwdne19114:0"
+    "resources":"crwdns19114:0crwdne19114:0",
+    "regulatory_information":"crwdns19507:0crwdne19507:0"
   },
   "settings":{
     "settings":"crwdns18010:0crwdne18010:0",

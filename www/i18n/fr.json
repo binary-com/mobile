@@ -7,7 +7,8 @@
     "get_token":"Comment obtenir un jeton d'authentification ?",
     "signin_with_binary_com":"Connexion",
     "use_token":"Ou connectez-vous avec un jeton",
-    "next":"Suivant"
+    "next":"Suivant",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"Gérer les comptes",
@@ -421,7 +422,8 @@
     "statement":"Relevé",
     "language":"Langue",
     "settings":"Paramètres",
-    "resources":"Ressources"
+    "resources":"Ressources",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"Paramètres",
