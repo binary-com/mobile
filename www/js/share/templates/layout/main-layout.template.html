@@ -1,4 +1,4 @@
-<ion-view class="layout">
+<ion-view class="layout" ng-controller="MainLayoutController as vm">
     <ion-side-menus>
         <ion-side-menu-content side-menu-content can-drag="false">
             <bg-header></bg-header>
@@ -42,6 +42,12 @@
                             <i class="ion-folder"></i>
                         </div>
                         {{ 'menu.resources' | translate }}
+                    </ion-item>
+                    <ion-item nav-clear ng-click="vm.goToRegulatory()">
+                        <div class="icon-wrapper">
+                            <i class="ion-information"></i>
+                        </div>
+                        {{ 'menu.regulatory_information' | translate }}
                     </ion-item>
                     <ion-item nav-clear menu-close>
                       <div class="icon-wrapper">

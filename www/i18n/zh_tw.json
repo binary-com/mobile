@@ -7,7 +7,8 @@
     "get_token":"如何獲取權杖?",
     "signin_with_binary_com":"登入",
     "use_token":"以權杖登入",
-    "next":"下一步"
+    "next":"下一步",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"帳戶管理",
@@ -93,7 +94,9 @@
     "transaction_id":"交易參考號",
     "buy_again":"重購",
     "sell":"賣出",
-    "barrier":"障礙位移"
+    "barrier":"障礙位移",
+    "please_authenticate":"請驗證帳戶，以便提高取款和交易限額。",
+    "restricted_account":"您的帳戶已被限制。請聯繫客服部請求幫助。"
   },
   "help":{
     "need_help":"需要幫助？",
@@ -157,10 +160,12 @@
     "show_pass":"顯示密碼",
     "enter-email":"請輸入您的電子郵件",
     "email-error":"電子郵件無效",
-    "token-invalid":"權杖無效",
-    "error_format":"格式或長度錯誤",
+    "token-invalid":"請提交有效驗證權杖。",
     "residence-error":"請選擇您的國家",
-    "invalid_email":"請提交有效的電子郵件地址。"
+    "invalid_email":"請提交有效的電子郵件地址。",
+    "password-pattern-error":"密碼必須有大小寫字母和數字。",
+    "length-error-6-25":"此欄位必須為 6-25 個字元以內。",
+    "required":"此為必填欄位。"
   },
   "newaccountmaltainvest":{
     "open_financial":"開立金融帳戶",
@@ -262,17 +267,24 @@
     "ms":"女士",
     "next_step":"下一步",
     "previous_step":"上一步",
-    "maxlength_error_70":"此欄位最多可以有 70 個字元長。",
-    "maxlength_error_35":"此欄位最多可以有 35 個字元長。",
     "required":"此為必填欄位。",
-    "error_postcode":"格式或長度錯誤",
-    "error_format":"格式或長度錯誤",
-    "error_secretanswer":"此欄位必須為 4-50 個字元以內。",
     "isrequired":"（必需）",
     "isoptional":"（可選）",
     "read_and_agreed_to":"我已閱讀並同意 ",
     "terms_and_conditions":"條款與條件 ",
-    "of_the_site":"網站的。"
+    "of_the_site":"網站的。",
+    "general-pattern-error":"只允許字母、空格、連字號、句號和所有格號。",
+    "length-error-2-30":"此欄位必須為 2-30 個字元以內。",
+    "address-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
+    "maxlength_error_70":"此欄位最多可以有 70 個字元長。",
+    "maxlength_error_35":"此欄位最多可以有 35 個字元長。",
+    "postcode-pattern-error":"只允許字母、數字和連字符。",
+    "maxlength_error_20":"此欄位最多可以有 20 個字元長。",
+    "phone-pattern-error":"只允许數字和空格。",
+    "length-error-6-35":"此欄位必須為 6-35 個字元以內。",
+    "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
+    "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
+    "tax-identification-number-pattern-error":"只允許字母、數字和連字符。"
   },
   "newaccountreal":{
     "open_real":"升級到真實帳戶",
@@ -310,17 +322,23 @@
     "secret_question_6":"最愛的菜餚",
     "secret_question_7":"第一輛車的品牌",
     "secret_question_8":"最愛的藝術家",
-    "maxlength_error_70":"此欄位最多可以有 70 個字元長。",
-    "maxlength_error_35":"此欄位最多可以有 35 個字元長。",
-    "required":"此為必填欄位。",
-    "error_postcode":"格式或長度錯誤",
-    "error_format":"格式或長度錯誤",
-    "error_secretanswer":"此欄位必須為 4-50 個字元以內。",
     "isrequired":"（必需）",
     "isoptional":"（可選）",
     "read_and_agreed_to":"我已閱讀並同意 ",
     "terms_and_conditions":"條款與條件 ",
-    "of_the_site":"網站的。"
+    "of_the_site":"網站的。",
+    "general-pattern-error":"只允許字母、空格、連字號、句號和所有格號。",
+    "length-error-2-30":"此欄位必須為 2-30 個字元以內。",
+    "address-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
+    "maxlength_error_70":"此欄位最多可以有 70 個字元長。",
+    "maxlength_error_35":"此欄位最多可以有 35 個字元長。",
+    "postcode-pattern-error":"只允許字母、數字和連字符。",
+    "maxlength_error_20":"此欄位最多可以有 20 個字元長。",
+    "phone-pattern-error":"只允许數字和空格。",
+    "length-error-6-35":"此欄位必須為 6-35 個字元以內。",
+    "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
+    "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
+    "required":"此為必填欄位。"
   },
   "profittable":{
     "profit_table":"利潤表",
@@ -404,7 +422,8 @@
     "statement":"帳單",
     "language":"語言",
     "settings":"設定",
-    "resources":"資源"
+    "resources":"資源",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"設定",
@@ -465,16 +484,22 @@
     "success_message":"已成功更新您的設置。",
     "error_message":"無法更新您的設置。",
     "this_field_is_required":"此為必填欄位。",
-    "maximum_length_should_be_70_characters":"最大長度是 70 個字元",
-    "maximum_length_should_be_35_characters":"最大長度是 35 個字元",
-    "maximum_length_should_be_20_characters":"最大長度是 20 個字元",
-    "minimum_length_should_be_6_characters":"最小長度是 6 個字元",
     "tax_residence":"納稅居住地",
     "tax_identification_number":"稅務識別號碼",
     "place_of_birth":"出生地",
     "select":"請選擇",
-    "error_format":"格式或長度錯誤",
-    "please-enter-an-integer-value":"請輸入一個整數值，最大長度為 {{max}}"
+    "general-pattern-error":"只允許字母、空格、連字號、句號和所有格號。",
+    "length-error-2-30":"此欄位必須為 2-30 個字元以內。",
+    "address-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
+    "maxlength_error_70":"此欄位最多可以有 70 個字元長。",
+    "maxlength_error_35":"此欄位最多可以有 35 個字元長。",
+    "postcode-pattern-error":"只允許字母、數字和連字符。",
+    "maxlength_error_20":"此欄位最多可以有 20 個字元長。",
+    "phone-pattern-error":"只允许數字和空格。",
+    "length-error-6-35":"此欄位必須為 6-35 個字元以內。",
+    "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
+    "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
+    "tax-identification-number-pattern-error":"只允許字母、數字和連字符。"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
@@ -494,8 +519,9 @@
     "password_not_match":"您輸入的兩個密碼不匹配。",
     "required":"此為必填欄位。",
     "current_password_required":"請輸入您的目前密碼。",
-    "not_match_pattern":"與模式不匹配",
-    "password_changed_text":"您的密碼已更改。請重新登入。"
+    "password_pattern_error":"密碼必須有大小寫字母和數字。",
+    "password_changed_text":"您的密碼已更改。請重新登入。",
+    "length-error-6-25":"此欄位必須為 6-25 個字元以內。"
   },
   "financial-assessment":{
     "financial_assessment":"財務評估",

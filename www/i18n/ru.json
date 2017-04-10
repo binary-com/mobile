@@ -7,7 +7,8 @@
     "get_token":"Как получить ключ?",
     "signin_with_binary_com":"Войти",
     "use_token":"Войти через ключ",
-    "next":"Далее"
+    "next":"Далее",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"Управление счетами",
@@ -93,7 +94,9 @@
     "transaction_id":"Ссылка на сделку",
     "buy_again":"Купить снова",
     "sell":"Продать",
-    "barrier":"Изменение барьера"
+    "barrier":"Изменение барьера",
+    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
+    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
   },
   "help":{
     "need_help":"Нужна помощь?",
@@ -157,10 +160,12 @@
     "show_pass":"Показать пароль",
     "enter-email":"Пожалуйста, введите email",
     "email-error":"Неправильный эл. адрес",
-    "token-invalid":"Неправильный ключ",
-    "error_format":"Неправильный формат или длина",
+    "token-invalid":"Please submit a valid verification token.",
     "residence-error":"Пожалуйста, укажите страну",
-    "invalid_email":"Пожалуйста, укажите правильный email."
+    "invalid_email":"Пожалуйста, укажите правильный email.",
+    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
+    "length-error-6-25":"This field must be within 6-25 characters.",
+    "required":"This field is required."
   },
   "newaccountmaltainvest":{
     "open_financial":"Открыть финансовый счёт",
@@ -262,17 +267,24 @@
     "ms":"Г-жа",
     "next_step":"Следующий шаг",
     "previous_step":"Предыдущий шаг",
-    "maxlength_error_70":"Данная запись должна содержать не более 70 знаков.",
-    "maxlength_error_35":"Данная запись не должна превышать 35 знаков.",
     "required":"Данное поле является обязательным.",
-    "error_postcode":"Неправильный формат или длина",
-    "error_format":"Неправильный формат или длина",
-    "error_secretanswer":"Запись в данном поле не должна превышать 4-50 знаков.",
     "isrequired":"(обязательно)",
     "isoptional":"(опционально)",
     "read_and_agreed_to":"Я прочитал и согласен с ",
     "terms_and_conditions":"правилами и условиями ",
-    "of_the_site":"сайта."
+    "of_the_site":"сайта.",
+    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-2-30":"This field must be within 2-30 characters.",
+    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "maxlength_error_70":"Данная запись должна содержать не более 70 знаков.",
+    "maxlength_error_35":"Данная запись не должна превышать 35 знаков.",
+    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "maxlength_error_20":"This field can be at most 20 characters long.",
+    "phone-pattern-error":"Only numbers and spaces are allowed.",
+    "length-error-6-35":"This field must be within 6-35 characters.",
+    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-4-50":"This field must be within 4-50 characters.",
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
   },
   "newaccountreal":{
     "open_real":"Открыть реальный счет",
@@ -310,17 +322,23 @@
     "secret_question_6":"Любимое блюдо",
     "secret_question_7":"Марка первой машины",
     "secret_question_8":"Любимый артист",
-    "maxlength_error_70":"Данное поле должно содержать не более 70 знаков.",
-    "maxlength_error_35":"Данное поле должно содержать не более 35 знаков.",
-    "required":"Данное поле является обязательным.",
-    "error_postcode":"Неправильный формат или длина",
-    "error_format":"Неправильный формат или длина",
-    "error_secretanswer":"Запись в данном поле не должна превышать 4-50 знаков.",
     "isrequired":"(обязательно)",
     "isoptional":"(опционально)",
     "read_and_agreed_to":"Я прочитал и согласен с ",
     "terms_and_conditions":"правилами и условиями ",
-    "of_the_site":"сайта."
+    "of_the_site":"сайта.",
+    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-2-30":"This field must be within 2-30 characters.",
+    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "maxlength_error_70":"Данное поле должно содержать не более 70 знаков.",
+    "maxlength_error_35":"Данное поле должно содержать не более 35 знаков.",
+    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "maxlength_error_20":"This field can be at most 20 characters long.",
+    "phone-pattern-error":"Only numbers and spaces are allowed.",
+    "length-error-6-35":"This field must be within 6-35 characters.",
+    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-4-50":"This field must be within 4-50 characters.",
+    "required":"Данное поле является обязательным."
   },
   "profittable":{
     "profit_table":"Анализ счёта",
@@ -404,7 +422,8 @@
     "statement":"История счёта",
     "language":"Язык",
     "settings":"Настройки",
-    "resources":"Ресурсы"
+    "resources":"Ресурсы",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"Настройки",
@@ -465,16 +484,22 @@
     "success_message":"Ваши настройки обновлены успешно.",
     "error_message":"Не удалось обновить настройки.",
     "this_field_is_required":"Данное поле является обязательным.",
-    "maximum_length_should_be_70_characters":"Максимальная длина: 70 знаков",
-    "maximum_length_should_be_35_characters":"Максимальная длина: 35 знаков",
-    "maximum_length_should_be_20_characters":"Максимальная длина: 20 знаков",
-    "minimum_length_should_be_6_characters":"Максимальная длина: 6 знаков",
     "tax_residence":"Место налоговой регистрации",
     "tax_identification_number":"Номер налогоплательщика",
     "place_of_birth":"Место рождения",
     "select":"Пожалуйста, выберите",
-    "error_format":"Неправильный формат или длина",
-    "please-enter-an-integer-value":"Пожалуйста, введите целое число; максимальная длина: {{max}}"
+    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-2-30":"This field must be within 2-30 characters.",
+    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "maxlength_error_70":"This field can be at most 70 characters long.",
+    "maxlength_error_35":"This field can be at most 35 characters long.",
+    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "maxlength_error_20":"This field can be at most 20 characters long.",
+    "phone-pattern-error":"Only numbers and spaces are allowed.",
+    "length-error-6-35":"This field must be within 6-35 characters.",
+    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-4-50":"This field must be within 4-50 characters.",
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"обновил(а)",
@@ -494,8 +519,9 @@
     "password_not_match":"Введённые Вами пароли не совпадают.",
     "required":"Данное поле является обязательным.",
     "current_password_required":"Пожалуйста, введите текущий пароль.",
-    "not_match_pattern":"Не соответствует шаблону",
-    "password_changed_text":"Ваш пароль изменён. Пожалуйста, войдите снова."
+    "password_pattern_error":"Password should have lower and uppercase letters with numbers.",
+    "password_changed_text":"Ваш пароль изменён. Пожалуйста, войдите снова.",
+    "length-error-6-25":"This field must be within 6-25 characters."
   },
   "financial-assessment":{
     "financial_assessment":"Финансовая оценка",
