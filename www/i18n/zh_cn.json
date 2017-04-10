@@ -7,7 +7,8 @@
     "get_token":"如何获取令牌？",
     "signin_with_binary_com":"登录",
     "use_token":"或以令牌登录",
-    "next":"下一步"
+    "next":"下一步",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"账户管理",
@@ -421,7 +422,8 @@
     "statement":"账单",
     "language":"语言",
     "settings":"设置",
-    "resources":"资源"
+    "resources":"资源",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"设置",
