@@ -9,19 +9,19 @@ body * {
 }
 
 * {
-	-webkit-user-select: none;
+  -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-	-webkit-user-drag: none;
+  -webkit-user-drag: none;
   -moz-user-drag: none;
   -ms-user-drag: none;
   user-drag: none;
 }
 
 ::-webkit-input-placeholder {
-	color: $darkPrimaryBrandColor;
+  color: $darkPrimaryBrandColor;
 }
 
 input {
@@ -30,15 +30,15 @@ input {
   -moz-user-select: auto !important;
   -ms-user-select: auto !important;
   user-select: auto !important;
-	-webkit-appearance:none !important;
-	-khtml-appearance: none !important;
-	-moz-appearance: none !important;
+  -webkit-appearance:none !important;
+  -khtml-appearance: none !important;
+  -moz-appearance: none !important;
   -ms-appearance: none !important;
   appearance: none !important;
-	border-top: none !important;
-	border-left: none !important;
-	border-right: none !important;
-	border: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border: none !important;
 }
 
 input::-webkit-inner-spin-button,
@@ -50,14 +50,14 @@ input::-webkit-outer-spin-button {
 }
 
 input[type="date"] {
-	width: auto !important;
-	text-align: right;
-	padding: 0 11px 0 16px !important;
-	&::-webkit-calendar-picker-indicator {
-		color: #999;
-		height: 6px;
-		width: 10px;
-	}
+  width: auto !important;
+  text-align: right;
+  padding: 0 11px 0 16px !important;
+  &::-webkit-calendar-picker-indicator {
+    color: #999;
+    height: 6px;
+    width: 10px;
+  }
 }
 
 label, textarea {
@@ -71,7 +71,7 @@ ion-side-menu {
 }
 
 .input-label {
-	font-size: 1rem;
+  font-size: 1rem;
 }
 
 .card {
@@ -127,27 +127,25 @@ p {
 }
 
 button {
-	border: none !important;
+  border: none !important;
   border-radius: 3px;
-	&.button.button-positive {
-	  background: $positiveColor!important;
+  &.button.button-positive {
+    background: $positiveColor!important;
     &:hover {
       background: $positiveColor!important;
       color: $white !important;
     }
-		&[disabled="disabled"] {
-		}
-	}
+  }
   &.button.button-secondary {
-	  background: $primaryBrandColor!important;
+    background: $primaryBrandColor!important;
     &:hover {
       background: $primaryBrandColor!important;
       color: $white !important;
     }
-		&[disabled="disabled"] {
-			color: $white !important;
-		}
-	}
+    &[disabled="disabled"] {
+      color: $white !important;
+    }
+  }
 }
 
 .button {
@@ -229,26 +227,26 @@ button.button.button-default {
 }
 
 .help-block {
-	font-size: 0.8rem;
-	text-align: left;
-	color: $secondaryContentColor;
-	position: relative;
+  font-size: 0.8rem;
+  text-align: left;
+  color: $secondaryContentColor;
+  position: relative;
 }
 
 .hint {
   font-size: 0.8rem;
-	font-size: $FONT_SIZE_S;
-	color: $black;
-	margin-top: 3px;
+  font-size: $FONT_SIZE_S;
+  color: $black;
+  margin-top: 3px;
 }
 
 .error {
   color: $negativeColor;
   font-size: 0.8rem;
-	p {
-		color: $negativeColor;
-	  font-size: 0.5rem;
-	}
+  p {
+    color: $negativeColor;
+    font-size: 0.5rem;
+  }
 }
 
 .center {
@@ -281,12 +279,12 @@ button.button.button-default {
   font-weight: normal;
   padding: 5px;
   color: $darkPrimaryBrandColor;
-	margin: 0;
+  margin: 0;
 }
 
 .sub-title {
   font-size: 1.25rem;
-	color: $secondaryBrandColor;
+  color: $secondaryBrandColor;
   padding: 5px 5px 0 5px;
 }
 
@@ -296,7 +294,7 @@ button.button.button-default {
   word-break: break-word;
   padding: 0;
   margin-top: 10px;
-	font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .general-content {
@@ -310,9 +308,9 @@ button.button.button-default {
 }
 
 ion-side-menu-content {
-	ion-content {
-		background: $fillColor;
-	}
+  ion-content {
+    background: $fillColor;
+  }
 }
 
 .filters {
