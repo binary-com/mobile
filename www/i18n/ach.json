@@ -7,7 +7,8 @@
     "get_token":"crwdns17669:0crwdne17669:0",
     "signin_with_binary_com":"crwdns17670:0crwdne17670:0",
     "use_token":"crwdns17671:0crwdne17671:0",
-    "next":"crwdns17672:0crwdne17672:0"
+    "next":"crwdns17672:0crwdne17672:0",
+    "regulatory-information":"crwdns19506:0crwdne19506:0"
   },
   "accounts":{
     "my_accounts":"crwdns17673:0crwdne17673:0",
@@ -93,7 +94,9 @@
     "transaction_id":"crwdns17745:0crwdne17745:0",
     "buy_again":"crwdns17746:0crwdne17746:0",
     "sell":"crwdns17747:0crwdne17747:0",
-    "barrier":"crwdns17748:0crwdne17748:0"
+    "barrier":"crwdns17748:0crwdne17748:0",
+    "please_authenticate":"crwdns19504:0crwdne19504:0",
+    "restricted_account":"crwdns19505:0crwdne19505:0"
   },
   "help":{
     "need_help":"crwdns17749:0crwdne17749:0",
@@ -157,10 +160,12 @@
     "show_pass":"crwdns17801:0crwdne17801:0",
     "enter-email":"crwdns17802:0crwdne17802:0",
     "email-error":"crwdns17803:0crwdne17803:0",
-    "token-invalid":"crwdns17804:0crwdne17804:0",
-    "error_format":"crwdns17805:0crwdne17805:0",
+    "token-invalid":"crwdns19467:0crwdne19467:0",
     "residence-error":"crwdns17806:0crwdne17806:0",
-    "invalid_email":"crwdns19451:0crwdne19451:0"
+    "invalid_email":"crwdns19451:0crwdne19451:0",
+    "password-pattern-error":"crwdns19468:0crwdne19468:0",
+    "length-error-6-25":"crwdns19469:0crwdne19469:0",
+    "required":"crwdns19470:0crwdne19470:0"
   },
   "newaccountmaltainvest":{
     "open_financial":"crwdns17807:0crwdne17807:0",
@@ -262,17 +267,24 @@
     "ms":"crwdns17888:0crwdne17888:0",
     "next_step":"crwdns17889:0crwdne17889:0",
     "previous_step":"crwdns17890:0crwdne17890:0",
-    "maxlength_error_70":"crwdns17891:0crwdne17891:0",
-    "maxlength_error_35":"crwdns17892:0crwdne17892:0",
     "required":"crwdns17893:0crwdne17893:0",
-    "error_postcode":"crwdns17894:0crwdne17894:0",
-    "error_format":"crwdns17895:0crwdne17895:0",
-    "error_secretanswer":"crwdns17896:0crwdne17896:0",
     "isrequired":"crwdns17897:0crwdne17897:0",
     "isoptional":"crwdns17898:0crwdne17898:0",
     "read_and_agreed_to":"crwdns19453:0crwdne19453:0",
     "terms_and_conditions":"crwdns19454:0crwdne19454:0",
-    "of_the_site":"crwdns19455:0crwdne19455:0"
+    "of_the_site":"crwdns19455:0crwdne19455:0",
+    "general-pattern-error":"crwdns19471:0crwdne19471:0",
+    "length-error-2-30":"crwdns19472:0crwdne19472:0",
+    "address-pattern-error":"crwdns19473:0crwdne19473:0",
+    "maxlength_error_70":"crwdns17891:0crwdne17891:0",
+    "maxlength_error_35":"crwdns17892:0crwdne17892:0",
+    "postcode-pattern-error":"crwdns19474:0crwdne19474:0",
+    "maxlength_error_20":"crwdns19475:0crwdne19475:0",
+    "phone-pattern-error":"crwdns19476:0crwdne19476:0",
+    "length-error-6-35":"crwdns19477:0crwdne19477:0",
+    "secretanswer-pattern-error":"crwdns19478:0crwdne19478:0",
+    "length-error-4-50":"crwdns19479:0crwdne19479:0",
+    "tax-identification-number-pattern-error":"crwdns19480:0crwdne19480:0"
   },
   "newaccountreal":{
     "open_real":"crwdns17899:0crwdne17899:0",
@@ -310,17 +322,23 @@
     "secret_question_6":"crwdns17930:0crwdne17930:0",
     "secret_question_7":"crwdns17931:0crwdne17931:0",
     "secret_question_8":"crwdns17932:0crwdne17932:0",
-    "maxlength_error_70":"crwdns17933:0crwdne17933:0",
-    "maxlength_error_35":"crwdns17934:0crwdne17934:0",
-    "required":"crwdns17935:0crwdne17935:0",
-    "error_postcode":"crwdns17936:0crwdne17936:0",
-    "error_format":"crwdns17937:0crwdne17937:0",
-    "error_secretanswer":"crwdns17938:0crwdne17938:0",
     "isrequired":"crwdns17939:0crwdne17939:0",
     "isoptional":"crwdns17940:0crwdne17940:0",
     "read_and_agreed_to":"crwdns19456:0crwdne19456:0",
     "terms_and_conditions":"crwdns19457:0crwdne19457:0",
-    "of_the_site":"crwdns19458:0crwdne19458:0"
+    "of_the_site":"crwdns19458:0crwdne19458:0",
+    "general-pattern-error":"crwdns19481:0crwdne19481:0",
+    "length-error-2-30":"crwdns19482:0crwdne19482:0",
+    "address-pattern-error":"crwdns19483:0crwdne19483:0",
+    "maxlength_error_70":"crwdns17933:0crwdne17933:0",
+    "maxlength_error_35":"crwdns17934:0crwdne17934:0",
+    "postcode-pattern-error":"crwdns19484:0crwdne19484:0",
+    "maxlength_error_20":"crwdns19485:0crwdne19485:0",
+    "phone-pattern-error":"crwdns19486:0crwdne19486:0",
+    "length-error-6-35":"crwdns19487:0crwdne19487:0",
+    "secretanswer-pattern-error":"crwdns19488:0crwdne19488:0",
+    "length-error-4-50":"crwdns19489:0crwdne19489:0",
+    "required":"crwdns17935:0crwdne17935:0"
   },
   "profittable":{
     "profit_table":"crwdns17941:0crwdne17941:0",
@@ -404,7 +422,8 @@
     "statement":"crwdns18007:0crwdne18007:0",
     "language":"crwdns18008:0crwdne18008:0",
     "settings":"crwdns18009:0crwdne18009:0",
-    "resources":"crwdns19114:0crwdne19114:0"
+    "resources":"crwdns19114:0crwdne19114:0",
+    "regulatory_information":"crwdns19507:0crwdne19507:0"
   },
   "settings":{
     "settings":"crwdns18010:0crwdne18010:0",
@@ -465,16 +484,22 @@
     "success_message":"crwdns18053:0crwdne18053:0",
     "error_message":"crwdns18054:0crwdne18054:0",
     "this_field_is_required":"crwdns18067:0crwdne18067:0",
-    "maximum_length_should_be_70_characters":"crwdns18068:0crwdne18068:0",
-    "maximum_length_should_be_35_characters":"crwdns18069:0crwdne18069:0",
-    "maximum_length_should_be_20_characters":"crwdns18070:0crwdne18070:0",
-    "minimum_length_should_be_6_characters":"crwdns18071:0crwdne18071:0",
     "tax_residence":"crwdns19449:0crwdne19449:0",
     "tax_identification_number":"crwdns19425:0crwdne19425:0",
     "place_of_birth":"crwdns19427:0crwdne19427:0",
     "select":"crwdns19428:0crwdne19428:0",
-    "error_format":"crwdns19429:0crwdne19429:0",
-    "please-enter-an-integer-value":"crwdns19430:0{{max}}crwdne19430:0"
+    "general-pattern-error":"crwdns19490:0crwdne19490:0",
+    "length-error-2-30":"crwdns19491:0crwdne19491:0",
+    "address-pattern-error":"crwdns19492:0crwdne19492:0",
+    "maxlength_error_70":"crwdns19493:0crwdne19493:0",
+    "maxlength_error_35":"crwdns19494:0crwdne19494:0",
+    "postcode-pattern-error":"crwdns19495:0crwdne19495:0",
+    "maxlength_error_20":"crwdns19496:0crwdne19496:0",
+    "phone-pattern-error":"crwdns19497:0crwdne19497:0",
+    "length-error-6-35":"crwdns19498:0crwdne19498:0",
+    "secretanswer-pattern-error":"crwdns19499:0crwdne19499:0",
+    "length-error-4-50":"crwdns19500:0crwdne19500:0",
+    "tax-identification-number-pattern-error":"crwdns19501:0crwdne19501:0"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"crwdns18103:0crwdne18103:0",
@@ -494,8 +519,9 @@
     "password_not_match":"crwdns19099:0crwdne19099:0",
     "required":"crwdns19100:0crwdne19100:0",
     "current_password_required":"crwdns19101:0crwdne19101:0",
-    "not_match_pattern":"crwdns19102:0crwdne19102:0",
-    "password_changed_text":"crwdns19103:0crwdne19103:0"
+    "password_pattern_error":"crwdns19502:0crwdne19502:0",
+    "password_changed_text":"crwdns19103:0crwdne19103:0",
+    "length-error-6-25":"crwdns19503:0crwdne19503:0"
   },
   "financial-assessment":{
     "financial_assessment":"crwdns19268:0crwdne19268:0",

@@ -7,7 +7,8 @@
     "get_token":"Làm thế nào để nhận mã Token?",
     "signin_with_binary_com":"Đăng nhập",
     "use_token":"Hoặc đăng nhập với chuỗi xác nhận",
-    "next":"Tiếp theo"
+    "next":"Tiếp theo",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"Quản lý tài khoản",
@@ -93,7 +94,9 @@
     "transaction_id":"Tham chiếu giao dịch",
     "buy_again":"Mua lại",
     "sell":"Sell",
-    "barrier":"Barrier offset"
+    "barrier":"Barrier offset",
+    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
+    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
   },
   "help":{
     "need_help":"Cần trợ giúp?",
@@ -157,10 +160,12 @@
     "show_pass":"Show password",
     "enter-email":"Please enter your email",
     "email-error":"Email is not valid",
-    "token-invalid":"Token is invalid",
-    "error_format":"Wrong format or length",
+    "token-invalid":"Please submit a valid verification token.",
     "residence-error":"Please choose your country",
-    "invalid_email":"Please submit a valid email address."
+    "invalid_email":"Please submit a valid email address.",
+    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
+    "length-error-6-25":"This field must be within 6-25 characters.",
+    "required":"This field is required."
   },
   "newaccountmaltainvest":{
     "open_financial":"Open a financial account",
@@ -262,17 +267,24 @@
     "ms":"Ms",
     "next_step":"Next step",
     "previous_step":"Previous step",
-    "maxlength_error_70":"This field can be at most 70 characters long.",
-    "maxlength_error_35":"This field can be at most 35 characters long.",
     "required":"This field is required.",
-    "error_postcode":"Wrong format or length",
-    "error_format":"Wrong format or length",
-    "error_secretanswer":"This field must be within 4-50 characters.",
     "isrequired":"(required)",
     "isoptional":"(optional)",
     "read_and_agreed_to":"I have read and agree to the ",
     "terms_and_conditions":"terms and conditions ",
-    "of_the_site":"of the site."
+    "of_the_site":"of the site.",
+    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-2-30":"This field must be within 2-30 characters.",
+    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "maxlength_error_70":"This field can be at most 70 characters long.",
+    "maxlength_error_35":"This field can be at most 35 characters long.",
+    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "maxlength_error_20":"This field can be at most 20 characters long.",
+    "phone-pattern-error":"Only numbers and spaces are allowed.",
+    "length-error-6-35":"This field must be within 6-35 characters.",
+    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-4-50":"This field must be within 4-50 characters.",
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
   },
   "newaccountreal":{
     "open_real":"Upgrade to a real account",
@@ -310,17 +322,23 @@
     "secret_question_6":"Favourite dish",
     "secret_question_7":"Brand of first car",
     "secret_question_8":"Favourite artist",
-    "maxlength_error_70":"This field can be at most 70 characters long.",
-    "maxlength_error_35":"This field can be at most 35 characters long.",
-    "required":"This field is required.",
-    "error_postcode":"Wrong format or length",
-    "error_format":"Wrong format or length",
-    "error_secretanswer":"This field must be within 4-50 characters.",
     "isrequired":"(required)",
     "isoptional":"(optional)",
     "read_and_agreed_to":"I have read and agree to the ",
     "terms_and_conditions":"terms and conditions ",
-    "of_the_site":"of the site."
+    "of_the_site":"of the site.",
+    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-2-30":"This field must be within 2-30 characters.",
+    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "maxlength_error_70":"This field can be at most 70 characters long.",
+    "maxlength_error_35":"This field can be at most 35 characters long.",
+    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "maxlength_error_20":"This field can be at most 20 characters long.",
+    "phone-pattern-error":"Only numbers and spaces are allowed.",
+    "length-error-6-35":"This field must be within 6-35 characters.",
+    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-4-50":"This field must be within 4-50 characters.",
+    "required":"This field is required."
   },
   "profittable":{
     "profit_table":"Profit table",
@@ -404,7 +422,8 @@
     "statement":"Statement",
     "language":"Language",
     "settings":"Settings",
-    "resources":"Resources"
+    "resources":"Resources",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"Settings",
@@ -465,16 +484,22 @@
     "success_message":"Your settings have been updated successfully.",
     "error_message":"Failed to update your settings.",
     "this_field_is_required":"This field is required.",
-    "maximum_length_should_be_70_characters":"Maximum length should be 70 characters",
-    "maximum_length_should_be_35_characters":"Maximum length should be 35 characters",
-    "maximum_length_should_be_20_characters":"Maximum length should be 20 characters",
-    "minimum_length_should_be_6_characters":"Minimum length should be 6 characters",
     "tax_residence":"Tax residence",
     "tax_identification_number":"Tax Identification Number",
     "place_of_birth":"Place of birth",
     "select":"Please select",
-    "error_format":"Wrong format or length",
-    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}"
+    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-2-30":"This field must be within 2-30 characters.",
+    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "maxlength_error_70":"This field can be at most 70 characters long.",
+    "maxlength_error_35":"This field can be at most 35 characters long.",
+    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "maxlength_error_20":"This field can be at most 20 characters long.",
+    "phone-pattern-error":"Only numbers and spaces are allowed.",
+    "length-error-6-35":"This field must be within 6-35 characters.",
+    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-4-50":"This field must be within 4-50 characters.",
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"has updated its",
@@ -494,8 +519,9 @@
     "password_not_match":"The two passwords that you entered do not match.",
     "required":"This field is required.",
     "current_password_required":"Please enter your current password.",
-    "not_match_pattern":"Does not match the pattern",
-    "password_changed_text":"Your password has been changed. Please log in again."
+    "password_pattern_error":"Password should have lower and uppercase letters with numbers.",
+    "password_changed_text":"Your password has been changed. Please log in again.",
+    "length-error-6-25":"This field must be within 6-25 characters."
   },
   "financial-assessment":{
     "financial_assessment":"Financial Assessment",

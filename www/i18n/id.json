@@ -7,7 +7,8 @@
     "get_token":"Bagaimanakah cara memperoleh Token?",
     "signin_with_binary_com":"Masuk",
     "use_token":"Atau masuk menggunakan token",
-    "next":"Berikutnya"
+    "next":"Berikutnya",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"Mengelola Akun",
@@ -93,7 +94,9 @@
     "transaction_id":"Referensi Transaksi",
     "buy_again":"Beli Lagi",
     "sell":"Jual",
-    "barrier":"Barrier offset"
+    "barrier":"Barrier offset",
+    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
+    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
   },
   "help":{
     "need_help":"Perlu Bantuan?",
@@ -157,10 +160,12 @@
     "show_pass":"Tampilkan kata sandi",
     "enter-email":"Masukkan email Anda",
     "email-error":"Email ini tidak valid",
-    "token-invalid":"Token tidak valid",
-    "error_format":"Format atau panjang salah",
+    "token-invalid":"Please submit a valid verification token.",
     "residence-error":"Silakan pilih negara Anda",
-    "invalid_email":"Silakan masukkan alamat email yang berlaku."
+    "invalid_email":"Silakan masukkan alamat email yang berlaku.",
+    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
+    "length-error-6-25":"This field must be within 6-25 characters.",
+    "required":"This field is required."
   },
   "newaccountmaltainvest":{
     "open_financial":"Daftar akun finansial",
@@ -262,17 +267,24 @@
     "ms":"Nona",
     "next_step":"Langkah berikutnya",
     "previous_step":"Langkah sebelumnya",
-    "maxlength_error_70":"Kolom ini dapat diisi dengan sepanjang 70 karakter.",
-    "maxlength_error_35":"Kolom ini dapat diisi dengan sepanjang 35 karakter.",
     "required":"Kolom ini wajib diisi.",
-    "error_postcode":"Format atau panjang salah",
-    "error_format":"Format atau panjang salah",
-    "error_secretanswer":"Kolom ini harus berkisar 4-50 karakter.",
     "isrequired":"(diperlukan)",
     "isoptional":"(opsional)",
     "read_and_agreed_to":"Saya telah membaca dan bersetuju dengan ",
     "terms_and_conditions":"syarat dan ketentuan ",
-    "of_the_site":"situs."
+    "of_the_site":"situs.",
+    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-2-30":"This field must be within 2-30 characters.",
+    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "maxlength_error_70":"Kolom ini dapat diisi dengan sepanjang 70 karakter.",
+    "maxlength_error_35":"Kolom ini dapat diisi dengan sepanjang 35 karakter.",
+    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "maxlength_error_20":"This field can be at most 20 characters long.",
+    "phone-pattern-error":"Only numbers and spaces are allowed.",
+    "length-error-6-35":"This field must be within 6-35 characters.",
+    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-4-50":"This field must be within 4-50 characters.",
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
   },
   "newaccountreal":{
     "open_real":"Upgrade ke akun real",
@@ -310,17 +322,23 @@
     "secret_question_6":"Makanan favorit",
     "secret_question_7":"Merek mobil pertama",
     "secret_question_8":"Artis favorit",
-    "maxlength_error_70":"Kolom ini dapat diisi dengan 70 karakter panjang.",
-    "maxlength_error_35":"Kolom ini dapat diisi dengan 35 karakter panjang.",
-    "required":"Bagian ini wajib diisi.",
-    "error_postcode":"Format atau panjang salah",
-    "error_format":"Format atau panjang salah",
-    "error_secretanswer":"Kolom ini harus diisi dengan 4-50 karakter panjang.",
     "isrequired":"(diperlukan)",
     "isoptional":"(opsional)",
     "read_and_agreed_to":"Saya telah membaca dan bersetuju dengan ",
     "terms_and_conditions":"syarat dan ketentuan ",
-    "of_the_site":"situs."
+    "of_the_site":"situs.",
+    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-2-30":"This field must be within 2-30 characters.",
+    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "maxlength_error_70":"Kolom ini dapat diisi dengan 70 karakter panjang.",
+    "maxlength_error_35":"Kolom ini dapat diisi dengan 35 karakter panjang.",
+    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "maxlength_error_20":"This field can be at most 20 characters long.",
+    "phone-pattern-error":"Only numbers and spaces are allowed.",
+    "length-error-6-35":"This field must be within 6-35 characters.",
+    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-4-50":"This field must be within 4-50 characters.",
+    "required":"Bagian ini wajib diisi."
   },
   "profittable":{
     "profit_table":"Tabel Profit",
@@ -404,7 +422,8 @@
     "statement":"Pernyataan",
     "language":"Bahasa",
     "settings":"Pengaturan",
-    "resources":"Sumber Daya"
+    "resources":"Sumber Daya",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"Pengaturan",
@@ -465,16 +484,22 @@
     "success_message":"Pengaturan telah berhasil diperbarui.",
     "error_message":"Gagal untuk memperbarui pengaturan Anda.",
     "this_field_is_required":"Bagian ini wajib diisi.",
-    "maximum_length_should_be_70_characters":"Panjang maksimum harus 70 karakter",
-    "maximum_length_should_be_35_characters":"Panjang maksimum harus 35 karakter",
-    "maximum_length_should_be_20_characters":"Panjang maksimum harus 20 karakter",
-    "minimum_length_should_be_6_characters":"Panjang minimum harus 6 karakter",
     "tax_residence":"Pajak rumah",
     "tax_identification_number":"Nomor Pokok Wajib Pajak",
     "place_of_birth":"Tempat lahir",
     "select":"Silakan pilih",
-    "error_format":"Format atau panjang salah",
-    "please-enter-an-integer-value":"Masukkan nilai integer dengan panjang maksimal {{max}}"
+    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-2-30":"This field must be within 2-30 characters.",
+    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "maxlength_error_70":"This field can be at most 70 characters long.",
+    "maxlength_error_35":"This field can be at most 35 characters long.",
+    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "maxlength_error_20":"This field can be at most 20 characters long.",
+    "phone-pattern-error":"Only numbers and spaces are allowed.",
+    "length-error-6-35":"This field must be within 6-35 characters.",
+    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-4-50":"This field must be within 4-50 characters.",
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"telah memperbarui",
@@ -494,8 +519,9 @@
     "password_not_match":"Kedua kata sandi yang Anda masukan tidak sama.",
     "required":"Bagian ini wajib diisi.",
     "current_password_required":"Masukan kata sandi Anda saat ini.",
-    "not_match_pattern":"Tidak cocok dengan pola",
-    "password_changed_text":"Kata sandi Anda telah dirubah. Silakan log in kembali."
+    "password_pattern_error":"Password should have lower and uppercase letters with numbers.",
+    "password_changed_text":"Kata sandi Anda telah dirubah. Silakan log in kembali.",
+    "length-error-6-25":"This field must be within 6-25 characters."
   },
   "financial-assessment":{
     "financial_assessment":"Penilaian Finansial",
