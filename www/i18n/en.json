@@ -70,7 +70,10 @@
     "digit_even_odd": "Digit Even/Odd",
     "digit_matches_differs": "Digit Matches/Differs",
     "up_down": "Up/Down",
-    "markets_are_closed": "Sorry, All markets are currently closed. Please try again later"
+    "markets_are_closed": "Sorry, All markets are currently closed. Please try again later",
+    "ticks": "ticks",
+    "tick": "tick",
+    "digit": "digit"
   },
   "trade": {
     "payout": "Payout",

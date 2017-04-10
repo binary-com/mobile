@@ -1,20 +1,20 @@
-<div class="options card"
+<!-- <div class="options card"
      ng-if="vm.showOptions">
   <div class="row options-row">
-      <div class= "col center">
+      <div class= "col col-50 center">
         <button class="button button-clear" ng-click="vm.setSection(1, vm.SECTIONS.MARKETS)">{{vm.options.market.displayName}}
          <i class="ion-arrow-down-b"></i></button>
       </div>
-      <div class= "col center">
+      <div class= "col col-50 center">
         <button class="button button-clear"  ng-click="vm.setSection(1, vm.SECTIONS.UNDERLYINGS)"> {{vm.options.underlying.display_name}}  <i class="ion-arrow-down-b"></i></button>
       </div>
   </div>
   <div class="row options-row">
-      <div class= "col center">
+      <div class= "col col-50 center">
         <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TRADETYPES)"> {{vm.options.tradeType}}
            <i class="ion-arrow-down-b"></i></button>
       </div>
-      <div class= "col center">
+      <div class= "col col-50 center">
         <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TICKS)"> {{vm.options.tick}} Ticks
          <i class="ion-arrow-down-b"></i></button>
       </div>
@@ -28,5 +28,28 @@
 <div class="row" ng-if="!vm.showOptions && vm.marketsClosed">
   <div class="col center wrap">
     {{ "options.markets_are_closed" | translate }}
+  </div>
+</div> -->
+<div class="options card">
+  <div class="row">
+    <div class="col">
+      <div class="list">
+        <div class="item">
+          <span> {{ vm.options.market.displayName }} </span><i class="ion-android-arrow-dropright"></i>
+          <span> {{ vm.options.underlying.display_name }} </span><i class="ion-android-arrow-dropright"></i>
+          <span> {{ vm.options.tradeType }} </span><i class="ion-android-arrow-dropright"></i>
+          <span> {{ vm.options.tick }} </span>
+          <span ng-if="vm.options.tick > 1">{{ "options.ticks" | translate}}</span>
+          <span ng-if="vm.options.tick == 1">{{ "options.tick" | translate}}</span>
+          <i class="ion-android-arrow-dropright" ng-if="vm.options.digit != null"></i>
+          <span ng-if="vm.options.digit != null"> {{ vm.options.tick }} </span>
+        </div>
+      </div>
+    </div>
+    <div class="col left">
+      <button class="button button-clear button-dark button-icon icon button-trade-setting" ng-click="vm.setSection(1, vm.SECTIONS.MARKETS)">
+        <i class="ion-gear-a"></i>
+      </button>
+    </div>
   </div>
 </div>

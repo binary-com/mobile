@@ -69,6 +69,7 @@
 				flex-grow: 1;
 				flex-direction: column;
 				background: $white;
+				margin-bottom: 0;
 				.row {
 					display: flex;
 					flex-direction: row;
@@ -84,6 +85,9 @@
 						align-items: center;
 						flex-basis: inherit;
 						width: auto;
+						&:first-child {
+							border-right: 1px solid $borderColor;
+						}
 						.button,
 						a {
 							max-height: none;
@@ -95,9 +99,18 @@
 							border-radius: 3px;
 							margin: 0;
 							padding: 0;
+							font-weight: normal;
 							&:hover {
 								color: $contentColor!important;
 							}
+							&.button-trade-setting {
+								float: right !important;
+								margin: 0 auto;
+							}
+						}
+						i {
+							margin-right: 5px;
+							margin-left: 5px;
 						}
 					}
 				}
@@ -136,6 +149,8 @@
 		bg-chart {
 			.contract-chart {
 				background: $white;
+				margin-top: 0;
+				border-top: none;
 				.chart-container {
 					background: $white;
 				}
@@ -556,6 +571,10 @@
 		button,
 		h1 {
 			color: $contentColor!important;
+			font-weight: normal;
+		}
+		.button {
+			top: 0 !important;
 		}
 	}
 	ion-content{
@@ -565,85 +584,85 @@
 		}
 	}
 
-	bg-digits,
-	bg-markets,
-	bg-ticks,
-	bg-tradetypes,
-	bg-underlyings {
-		min-height: 30px;
-		width: 100%;
-		display: flex;
-		flex-grow: 1;
-		align-items: center;
-		background: $white;
-		height: calc(100vh - 46px);
-		height: 100%;
-		display: flex;
-		align-items: center;
-		.ionic-scroll {
-			min-height: 30px;
-			.scroll {
-				min-height: 30px;
-			}
-		}
-		.digits,
-		.markets,
-		.ticks,
-		.trade-types,
-		.underlyings {
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			flex-grow: 1;
-			height: calc(90vh - 46px);
-			display: flex;
-			align-items: center;
-			height: 100%;
-			.row {
-				display: flex;
-				flex-grow: 1;
-				padding: 0 !important;
-				height: calc(90vh - 46px)!important;
-				height: 100%;
-				align-items: center!important;
-				flex-direction: row;
-				flex-wrap: wrap;
-				.col {
-					padding: 0;
-					display: flex;
-					flex-grow: 1;
-					flex-direction: column;
-					flex-basis: 40%!important;
-					max-width: 60vw;
-					margin: 0 auto;
-					align-items: center;
-					display: flex;
-					&:first-child {
-						border-top: none;
-					}
-					&:last-child {
-						border-bottom: none;
-					}
-					.button,
-					a {
-						max-height: none;
-						min-height: 20px!important;
-						font-size: 1rem;
-						color: $contentColor;
-						line-height: normal;
-						white-space: nowrap;
-						font-weight: normal;
-						border-radius: 0;
-						text-align: center;
-						padding: 10px 5px;
-						&:hover {
-							color: $contentColor!important;
-						}
-					}
-				}
-			}
-		}
-	}
+	//bg-digits,
+	//bg-markets,
+	//bg-ticks,
+	//bg-tradetypes,
+	//bg-underlyings {
+	//	min-height: 30px;
+	//	width: 100%;
+	//	display: flex;
+	//	flex-grow: 1;
+	//	align-items: center;
+	//	background: $white;
+	//	height: calc(100vh - 46px);
+	//	height: 100%;
+	//	display: flex;
+	//	align-items: center;
+	//	.ionic-scroll {
+	//		min-height: 30px;
+	//		.scroll {
+	//			min-height: 30px;
+	//		}
+	//	}
+	//	.digits,
+	//	.markets,
+	//	.ticks,
+	//	.trade-types,
+	//	.underlyings {
+	//		width: 100%;
+	//		display: flex;
+	//		flex-direction: column;
+	//		flex-grow: 1;
+	//		height: calc(90vh - 46px);
+	//		display: flex;
+	//		align-items: center;
+	//		height: 100%;
+	//		.row {
+	//			display: flex;
+	//			flex-grow: 1;
+	//			padding: 0 !important;
+	//			height: calc(90vh - 46px)!important;
+	//			height: 100%;
+	//			align-items: center!important;
+	//			flex-direction: row;
+	//			flex-wrap: wrap;
+	//			.col {
+	//				padding: 0;
+	//				display: flex;
+	//				flex-grow: 1;
+	//				flex-direction: column;
+	//				flex-basis: 40%!important;
+	//				max-width: 60vw;
+	//				margin: 0 auto;
+	//				align-items: center;
+	//				display: flex;
+	//				&:first-child {
+	//					border-top: none;
+	//				}
+	//				&:last-child {
+	//					border-bottom: none;
+	//				}
+	//				.button,
+	//				a {
+	//					max-height: none;
+	//					min-height: 20px!important;
+	//					font-size: 1rem;
+	//					color: $contentColor;
+	//					line-height: normal;
+	//					white-space: nowrap;
+	//					font-weight: normal;
+	//					border-radius: 0;
+	//					text-align: center;
+	//					padding: 10px 5px;
+	//					&:hover {
+	//						color: $contentColor!important;
+	//					}
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
 }
 
 @media only screen and (max-device-height: 480px) {
