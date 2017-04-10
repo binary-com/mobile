@@ -10447,7 +10447,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
       position: relative; }
   .sign-in #emailform .help-block,
   .sign-in #virtualws .help-block {
-    padding: 0 5px; }
+    text-align: left;
+    padding: 0 5px 5px 5px; }
   .sign-in .list label.item-input {
     width: 80%;
     margin: 0 auto; }
@@ -10506,6 +10507,12 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
         display: flex;
         height: 100% !important;
         flex-direction: column; }
+    .trade ion-content .account-status-message {
+      padding: 0;
+      background: #FEF1CF; }
+      .trade ion-content .account-status-message .error {
+        font-size: 1rem;
+        padding: 10px; }
   .trade .ionic-scroll .scroll-bar-v {
     display: none !important; }
   .trade .web-view-trade {
