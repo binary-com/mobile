@@ -39,6 +39,7 @@
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
         vm.disableNextbutton = false;
+        vm.linkToRegulatory = "https://www.binary.com/" + (localStorage.getItem('language') || "en") + "/regulation.html";
 
         /**
          * On load:
@@ -224,5 +225,9 @@
             () => { return appStateService.isLanguageReady } ,
             (newValue, oldValue) =>{ vm.disableNextbutton = !newValue; }
         );
+
+        vm.goToRegulatory = function() {
+          window.open(vm.linkToRegulatory, '_blank');
+        }
     }
 })();

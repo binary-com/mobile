@@ -115,6 +115,15 @@
             </div>
         </div>
         <!-- end signup -->
+        <div class="row center" ng-show="!vm.showTokenForm && !vm.showSignup && vm.showSignin">
+            <div class="col col-75">
+                <div>
+                    <a href ng-click="vm.goToRegulatory()">
+                        {{'signin.regulatory-information' | translate}}
+                    </a>
+                </div>
+            </div>
+        </div>
         <div class="list">
             <language ng-show="!vm.showSignin && !vm.showTokenForm  && !vm.showSignup && !vm.showvirtualws"></language>
         </div>
