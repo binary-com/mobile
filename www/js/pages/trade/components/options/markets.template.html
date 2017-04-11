@@ -6,9 +6,11 @@
   </div>
   <div class="row">
     <div class="col list center">
-      <ion-radio ng-repeat="(key, value) in vm.markets" ng-model="vm.data.market" ng-value="value" ng-change="vm.selectMarket(vm.data.market)" name="market">
-        {{ value.displayName }}
-      </ion-radio>
+      <div class="market-container">
+        <ion-radio ng-repeat="(key, value) in vm.markets" ng-model="vm.data.market" ng-value="value" ng-change="vm.selectMarket(vm.data.market)" name="market">
+          {{ value.displayName }}
+        </ion-radio>
+      </div>
     </div>
   </div>
 </div>
