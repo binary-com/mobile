@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"Счёт",
-    "select_market":"Рынки",
+    "select_market":"Select market",
     "forex":"Forex",
     "random":"Индексы Random",
     "volidx":"Индексы волатильности",
@@ -71,7 +71,12 @@
     "digit_even_odd":"Чётная/Нечётная десятичная",
     "digit_matches_differs":"Совпадение/отличие десятичной",
     "up_down":"Вверх/Вниз",
-    "markets_are_closed":"Извините, все рынки в данное время закрыты. Повторите попытку позже."
+    "markets_are_closed":"Извините, все рынки в данное время закрыты. Повторите попытку позже.",
+    "cancel":"Cancel",
+    "select_underlying":"Select Underlying",
+    "select_tradetype":"Select Tradetype",
+    "select_tick":"Select Tick",
+    "select_digit":"Select Digit"
   },
   "trade":{
     "payout":"Выплата",
@@ -284,7 +289,9 @@
     "length-error-6-35":"This field must be within 6-35 characters.",
     "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
     "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "continue":"Continue",
+    "cancel":"Cancel"
   },
   "newaccountreal":{
     "open_real":"Открыть реальный счет",
@@ -499,7 +506,9 @@
     "length-error-6-35":"This field must be within 6-35 characters.",
     "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
     "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "cancel":"Cancel",
+    "continue":"Continue"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"обновил(а)",
@@ -656,6 +665,8 @@
     "error_format":"Неправильный формат или длина",
     "required":"Данное поле является обязательным.",
     "success":"Готово",
-    "success_message":"Ваши настройки обновлены успешно."
+    "success_message":"Ваши настройки обновлены успешно.",
+    "continue":"Continue",
+    "cancel":"Cancel"
   }
 }
