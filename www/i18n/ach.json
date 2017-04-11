@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"crwdns17697:0crwdne17697:0",
-    "select_market":"crwdns17698:0crwdne17698:0",
+    "select_market":"crwdns19508:0crwdne19508:0",
     "forex":"crwdns17699:0crwdne17699:0",
     "random":"crwdns17700:0crwdne17700:0",
     "volidx":"crwdns17701:0crwdne17701:0",
@@ -71,7 +71,12 @@
     "digit_even_odd":"crwdns17724:0crwdne17724:0",
     "digit_matches_differs":"crwdns17725:0crwdne17725:0",
     "up_down":"crwdns17726:0crwdne17726:0",
-    "markets_are_closed":"crwdns17727:0crwdne17727:0"
+    "markets_are_closed":"crwdns17727:0crwdne17727:0",
+    "cancel":"crwdns19509:0crwdne19509:0",
+    "select_underlying":"crwdns19510:0crwdne19510:0",
+    "select_tradetype":"crwdns19511:0crwdne19511:0",
+    "select_tick":"crwdns19512:0crwdne19512:0",
+    "select_digit":"crwdns19513:0crwdne19513:0"
   },
   "trade":{
     "payout":"crwdns17728:0crwdne17728:0",
@@ -284,7 +289,9 @@
     "length-error-6-35":"crwdns19477:0crwdne19477:0",
     "secretanswer-pattern-error":"crwdns19478:0crwdne19478:0",
     "length-error-4-50":"crwdns19479:0crwdne19479:0",
-    "tax-identification-number-pattern-error":"crwdns19480:0crwdne19480:0"
+    "tax-identification-number-pattern-error":"crwdns19480:0crwdne19480:0",
+    "continue":"crwdns19514:0crwdne19514:0",
+    "cancel":"crwdns19515:0crwdne19515:0"
   },
   "newaccountreal":{
     "open_real":"crwdns17899:0crwdne17899:0",
@@ -499,7 +506,9 @@
     "length-error-6-35":"crwdns19498:0crwdne19498:0",
     "secretanswer-pattern-error":"crwdns19499:0crwdne19499:0",
     "length-error-4-50":"crwdns19500:0crwdne19500:0",
-    "tax-identification-number-pattern-error":"crwdns19501:0crwdne19501:0"
+    "tax-identification-number-pattern-error":"crwdns19501:0crwdne19501:0",
+    "cancel":"crwdns19516:0crwdne19516:0",
+    "continue":"crwdns19517:0crwdne19517:0"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"crwdns18103:0crwdne18103:0",
@@ -656,6 +665,8 @@
     "error_format":"crwdns19445:0crwdne19445:0",
     "required":"crwdns19446:0crwdne19446:0",
     "success":"crwdns19465:0crwdne19465:0",
-    "success_message":"crwdns19466:0crwdne19466:0"
+    "success_message":"crwdns19466:0crwdne19466:0",
+    "continue":"crwdns19518:0crwdne19518:0",
+    "cancel":"crwdns19519:0crwdne19519:0"
   }
 }
