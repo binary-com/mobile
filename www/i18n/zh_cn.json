@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"账户",
-    "select_market":"市场",
+    "select_market":"Select market",
     "forex":"外汇",
     "random":"随机",
     "volidx":"波动率指数",
@@ -71,7 +71,12 @@
     "digit_even_odd":"数字偶/奇",
     "digit_matches_differs":"数字匹配/差异",
     "up_down":"上涨/下跌",
-    "markets_are_closed":"抱歉，所有市场现已关闭。请稍后重试。"
+    "markets_are_closed":"抱歉，所有市场现已关闭。请稍后重试。",
+    "cancel":"Cancel",
+    "select_underlying":"Select Underlying",
+    "select_tradetype":"Select Tradetype",
+    "select_tick":"Select Tick",
+    "select_digit":"Select Digit"
   },
   "trade":{
     "payout":"赔付额",
@@ -284,7 +289,9 @@
     "length-error-6-35":"此字段必须为 6-35 个字符以内。",
     "secretanswer-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
     "length-error-4-50":"此字段必须为 4-50 个字符以内。",
-    "tax-identification-number-pattern-error":"只允许字母、数字和连字符。"
+    "tax-identification-number-pattern-error":"只允许字母、数字和连字符。",
+    "continue":"Continue",
+    "cancel":"Cancel"
   },
   "newaccountreal":{
     "open_real":"升级到真实账户",
@@ -499,7 +506,9 @@
     "length-error-6-35":"此字段必须为 6-35 个字符以内。",
     "secretanswer-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
     "length-error-4-50":"此字段必须为 4-50 个字符以内。",
-    "tax-identification-number-pattern-error":"只允许字母、数字和连字符。"
+    "tax-identification-number-pattern-error":"只允许字母、数字和连字符。",
+    "cancel":"Cancel",
+    "continue":"Continue"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
@@ -656,6 +665,8 @@
     "error_format":"格式或长度错误",
     "required":"此为必填字段。",
     "success":"成功",
-    "success_message":"您的设置已成功更新。"
+    "success_message":"您的设置已成功更新。",
+    "continue":"Continue",
+    "cancel":"Cancel"
   }
 }
