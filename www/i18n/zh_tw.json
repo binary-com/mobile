@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"帳戶",
-    "select_market":"市場",
+    "select_market":"Select market",
     "forex":"外匯",
     "random":"隨機",
     "volidx":"波動率指數",
@@ -71,7 +71,12 @@
     "digit_even_odd":"數字偶/奇",
     "digit_matches_differs":"數字相符/差異",
     "up_down":"上漲/下跌",
-    "markets_are_closed":"抱歉，所有市場現已關閉。請稍後重試。"
+    "markets_are_closed":"抱歉，所有市場現已關閉。請稍後重試。",
+    "cancel":"Cancel",
+    "select_underlying":"Select Underlying",
+    "select_tradetype":"Select Tradetype",
+    "select_tick":"Select Tick",
+    "select_digit":"Select Digit"
   },
   "trade":{
     "payout":"賠付額",
@@ -284,7 +289,9 @@
     "length-error-6-35":"此欄位必須為 6-35 個字元以內。",
     "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
     "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
-    "tax-identification-number-pattern-error":"只允許字母、數字和連字符。"
+    "tax-identification-number-pattern-error":"只允許字母、數字和連字符。",
+    "continue":"Continue",
+    "cancel":"Cancel"
   },
   "newaccountreal":{
     "open_real":"升級到真實帳戶",
@@ -499,7 +506,9 @@
     "length-error-6-35":"此欄位必須為 6-35 個字元以內。",
     "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
     "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
-    "tax-identification-number-pattern-error":"只允許字母、數字和連字符。"
+    "tax-identification-number-pattern-error":"只允許字母、數字和連字符。",
+    "cancel":"Cancel",
+    "continue":"Continue"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
@@ -656,6 +665,8 @@
     "error_format":"格式或長度錯誤",
     "required":"此為必填欄位。",
     "success":"成功",
-    "success_message":"您的設定已成功更新。"
+    "success_message":"您的設定已成功更新。",
+    "continue":"Continue",
+    "cancel":"Cancel"
   }
 }
