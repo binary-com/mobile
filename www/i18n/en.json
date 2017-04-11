@@ -71,7 +71,13 @@
     "digit_even_odd": "Digit Even/Odd",
     "digit_matches_differs": "Digit Matches/Differs",
     "up_down": "Up/Down",
-    "markets_are_closed": "Sorry, All markets are currently closed. Please try again later"
+    "markets_are_closed": "Sorry, All markets are currently closed. Please try again later",
+    "cancel": "Cancel",
+    "select_market": "Select market",
+    "select_underlying": "Select Underlying",
+    "select_tradetype": "Select Tradetype",
+    "select_tick": "Select Tick",
+    "select_digit": "Select Digit"
   },
   "trade": {
     "payout": "Payout",
@@ -504,7 +510,9 @@
     "length-error-6-35": "This field must be within 6-35 characters.",
     "secretanswer-pattern-error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
     "length-error-4-50": "This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error": "Only letters, numbers, and hyphen are allowed."
+    "tax-identification-number-pattern-error": "Only letters, numbers, and hyphen are allowed.",
+    "cancel": "Cancel",
+    "continue": "Continue"
   },
   "accept-terms-and-conditions": {
     "has_updated_its" : "has updated its",
