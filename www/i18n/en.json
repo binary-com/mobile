@@ -679,5 +679,8 @@
     "success_message": "Your settings have been updated successfully.",
     "continue": "Continue",
     "cancel": "Cancel"
+  },
+  "connectivity": {
+    "no_connection": "No Connection"
   }
 }
