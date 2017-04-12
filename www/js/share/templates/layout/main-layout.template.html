@@ -1,4 +1,4 @@
-<ion-view class="layout" ng-controller="MainLayoutController as vm">
+<ion-view class="layout">
     <ion-side-menus>
         <ion-side-menu-content side-menu-content can-drag="false">
             <bg-header></bg-header>
@@ -31,6 +31,12 @@
                         </div>
                         {{ 'menu.statement' | translate }}
                     </ion-item>
+                    <ion-item nav-clear menu-close onclick="window.open('https://trade.mql5.com/trade?servers=Binary.com-Server&trade_server=Binary.com-Server', '_self', 'location=no')" href="#">
+                        <div class="icon-wrapper">
+                            <i class="ion-folder"></i>
+                        </div>
+                        {{ 'menu.mt5' | translate }}
+                    </ion-item>
                     <ion-item nav-clear menu-close ui-sref="settings" href="#">
                         <div class="icon-wrapper">
                             <i class="ion-ios-gear"></i>
@@ -42,12 +48,6 @@
                             <i class="ion-folder"></i>
                         </div>
                         {{ 'menu.resources' | translate }}
-                    </ion-item>
-                    <ion-item nav-clear ng-click="vm.goToRegulatory()">
-                        <div class="icon-wrapper">
-                            <i class="ion-information"></i>
-                        </div>
-                        {{ 'menu.regulatory_information' | translate }}
                     </ion-item>
                     <ion-item nav-clear menu-close>
                       <div class="icon-wrapper">
