@@ -51,6 +51,7 @@
 
         vm.updateAccount = function(_selectedAccount) {
             accountService.setDefault(_selectedAccount);
+            appStateService.hasSetDefaultAccount = true;
             accountService.validate();
             updateSymbols();
             appStateService.isChangedAccount = true;
@@ -80,7 +81,9 @@
             if (authorize && appStateService.newAccountAdded) {
                 accountService.add(authorize);
                 accountService.setDefault(accountService.addedAccount);
-                appStateService.newAccountAdded = false;
+        appStateService.hasSetDefaultAccount = true;
+
+        appStateService.newAccountAdded = false;
                 vm.accounts = accountService.getAll();
                 vm.selectedAccount = accountService.getDefault().token;
                 vm.updateAccount(vm.selectedAccount);
