@@ -715,7 +715,11 @@ angular
                             }
                             break;
                         case 'get_account_status':
-                            $rootScope.$broadcast('get_account_status', message.get_account_status);
+                            if (message.get_account_status) {
+                              $rootScope.$broadcast('get_account_status', message.get_account_status);
+                            } else if (message.error) {
+                              trackJs.track(message.error.code + ": " + message.error.message);
+                            }
                             break;
                         case 'get_limits':
                             $rootScope.$broadcast('get_limits', message.get_limits);
