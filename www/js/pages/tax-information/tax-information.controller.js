@@ -21,6 +21,7 @@
       vm.changed = false;
       vm.showNotChangedWarning = false;
       vm.disableUpdateButton = false;
+      vm.settingTaxResidence = [];
       vm.requestData = [
         "tax_identification_number",
         "tax_residence",

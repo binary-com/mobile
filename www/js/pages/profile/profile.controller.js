@@ -24,6 +24,7 @@
         vm.isDataLoaded = false;
         vm.notAnyChanges = false;
         vm.disableUpdateButton = false;
+        vm.settingTaxResidence = [];
         vm.virtualAccountFields = [
           'email',
           'country'
