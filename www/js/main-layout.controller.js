@@ -3,14 +3,12 @@ angular
 	.controller('MainLayoutController',
     function($scope, $ionicSideMenuDelegate, accountService){
 			var vm = this;
-			vm.updateDefaultAccount = function() {
-				vm.selectedAccount = localStorage.defaultAccount;
+      vm.updateDefaultAccount = function() {
+        localStorage.defaultAccount = accountService.getDefault().id;
+        vm.selectedAccount = accountService.getDefault().id;
 			}
-			
-			$scope.$on('authorize', (e, authorize) => {
-				localStorage.defaultAccount = accountService.getDefault().id;
-				vm.updateDefaultAccount();
-			});
+
+      vm.updateDefaultAccount();
 
 			$scope.$watch(function () {
 				return $ionicSideMenuDelegate.isOpenLeft();
