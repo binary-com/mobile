@@ -1,13 +1,19 @@
 <div class="digits">
   <div class="row">
-    <div class="col list center">
-      select digit
-    </div>
-  </div>
-  <div class="row">
-    <div class="col list center">
-      <ion-radio ng-repeat="value in vm.digits" ng-model="vm.data.digit" ng-value="value" ng-change="vm.selectDigit(vm.data.digit)" name="digit">
-        {{ value }}
+    <div class="col">
+      <div class="list">
+        <div class="item item-divider">
+          select digit
+        </div>
+        <div class="item item-input item-select">
+          <span class="input-label">Digit</span>
+          <select name="digit" ng-model="vm.options.digit" ng-change="vm.selectDigit(vm.options.digit)">
+            <option ng-repeat="value in vm.digits" value="{{value}}">
+              {{ value }}
+            </option>
+          </select>
+        </div>
+      </div>
     </div>
   </div>
 </div>

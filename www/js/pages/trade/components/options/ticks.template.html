@@ -1,21 +1,18 @@
 <div class="ticks">
   <div class="row">
-    <div class="col list center">
-      select tick
-    </div>
-  </div>
-  <div class="row">
-    <div class="col list center">
-      <!--<ion-radio ng-repeat="value in vm.tickRange" ng-model="vm.tick" ng-value="value" ng-change="vm.selectTick(vm.tick)" name="tick">-->
-        <!--{{ value }}-->
-      <!--</ion-radio>-->
-      <div class="item item-input item-select">
-        <span class="input-label">tick</span>
-        <select name="tick" ng-model="vm.data.tick" ng-change="vm.selectTick(vm.data.tick)">
-          <option ng-repeat="value in vm.tickRange" ng-value="value">
-            {{ value }}
-          </option>
-        </select>
+    <div class="col">
+      <div class="list">
+        <div class="item item-divider">
+          select tick
+        </div>
+        <div class="item item-input item-select">
+          <span class="input-label">tick</span>
+          <select name="tick" ng-model="vm.options.tick" ng-change="vm.selectTick(vm.options.tick)">
+            <option ng-repeat="value in vm.tickRange" ng-value="{{value}}">
+              {{ value }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

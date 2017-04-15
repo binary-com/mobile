@@ -94,7 +94,6 @@
         }
 
         vm.setSection = function() {
-          vm.data = vm.options;
           vm.modalCtrl.show();
         }
 

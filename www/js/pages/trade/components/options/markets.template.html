@@ -1,15 +1,18 @@
 <div class="markets">
   <div class="row">
-    <div class="col list center">
-      Select Market
-    </div>
-  </div>
-  <div class="row">
-    <div class="col list center">
-      <div class="market-container">
-        <ion-radio ng-repeat="(key, value) in vm.markets" ng-model="vm.data.market" ng-value="value" ng-change="vm.selectMarket(vm.data.market)" name="market">
-          {{ value.displayName }}
-        </ion-radio>
+    <div class="col">
+      <div class="list">
+        <div class="item item-divider">
+          Select Market
+        </div>
+        <div class="item item-input item-select">
+          <span class="input-label">Market</span>
+          <select name="market" ng-model="market" ng-change="vm.selectMarket(value)">
+            <option ng-repeat="(key, value) in vm.markets" ng-value="{{value}}">
+              {{ value.displayName }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

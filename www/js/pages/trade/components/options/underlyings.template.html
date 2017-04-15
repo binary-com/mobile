@@ -1,22 +1,18 @@
 <div class="underlyings">
   <div class="row">
-    <div class="col list center">
-      Select underlying
-    </div>
-  </div>
-  <div class="row">
-    <div class="col list center">
-      <!--<ion-radio ng-repeat="underlying in vm.underlyings" ng-model="vm.underlying" ng-value="value" ng-click="vm.selectUnderlying(vm.underlying)" name="underlying">-->
-        <!--{{ underlying.display_name }}-->
-      <!--</ion-radio>-->
-
-      <div class="item item-input item-select">
-        <span class="input-label">underlying</span>
-        <select name="underlying" ng-model="vm.data.underlying" ng-change="vm.selectUnderlying(vm.data.underlying)">
-          <option ng-repeat="underlying in vm.underlyings" ng-value="underlying">
-            {{ underlying.display_name }}
-          </option>
-        </select>
+    <div class="col">
+      <div class="list">
+        <div class="item item-divider">
+          Select underlying
+        </div>
+        <div class="item item-input item-select">
+          <span class="input-label">underlying</span>
+          <select name="underlying" ng-model="vm.options.underlying" ng-change="vm.selectUnderlying(vm.options.underlying)">
+            <option ng-repeat="underlying in vm.underlyings" ng-value="{{underlying}}">
+              {{ underlying.display_name }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

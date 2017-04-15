@@ -1,21 +1,16 @@
 <div class="trade-types">
   <div class="row">
-    <div class="col list center">
-      Select Tradetype
-    </div>
-  </div>
-  <div class="row">
-    <div class="col list center" >
-      <!--<ion-radio ng-repeat="(key, value) in vm.tradeTypes" ng-model="vm.tradeType" ng-value="value" ng-change="vm.selectTradeType(vm.tradeType)" name="tradetype">-->
-        <!--{{ key }}-->
-      <!--</ion-radio>-->
-      <div class="item item-input item-select">
-        <span class="input-label">Tradetype</span>
-        <select name="tradetype" ng-model="vm.data.tradeType" ng-change="vm.selectTradeType(vm.data.tradeType)">
-          <option ng-repeat="(key, value) in vm.tradeTypes" ng-value="{{value}}">
-            {{ key }}
-          </option>
-        </select>
+    <div class="col">
+      <div class="list">
+        <div class="item item-divider">Select Tradetype</div>
+        <div class="item item-input item-select">
+          <span class="input-label">Tradetype</span>
+          <select name="tradetype" ng-model="vm.options.tradeType" ng-change="vm.selectTradeType(vm.options.tradeType)">
+            <option ng-repeat="(key, value) in vm.tradeTypes" ng-value="{{value}}">
+              {{ key }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
