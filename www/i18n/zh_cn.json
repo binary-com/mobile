@@ -290,8 +290,8 @@
     "secretanswer-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
     "length-error-4-50":"此字段必须为 4-50 个字符以内。",
     "tax-identification-number-pattern-error":"只允许字母、数字和连字符。",
-    "continue":"Continue",
-    "cancel":"Cancel"
+    "continue":"继续",
+    "cancel":"取消"
   },
   "newaccountreal":{
     "open_real":"升级到真实账户",
@@ -430,7 +430,7 @@
     "language":"语言",
     "settings":"设置",
     "resources":"资源",
-    "regulatory_information":"Regulatory information"
+    "regulatory_information":"法规信息"
   },
   "settings":{
     "settings":"设置",
@@ -507,8 +507,8 @@
     "secretanswer-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
     "length-error-4-50":"此字段必须为 4-50 个字符以内。",
     "tax-identification-number-pattern-error":"只允许字母、数字和连字符。",
-    "cancel":"Cancel",
-    "continue":"Continue"
+    "cancel":"取消",
+    "continue":"继续"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
@@ -666,7 +666,7 @@
     "required":"此为必填字段。",
     "success":"成功",
     "success_message":"您的设置已成功更新。",
-    "continue":"Continue",
-    "cancel":"Cancel"
+    "continue":"继续",
+    "cancel":"取消"
   }
 }
