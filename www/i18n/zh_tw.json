@@ -8,7 +8,7 @@
     "signin_with_binary_com":"登入",
     "use_token":"以權杖登入",
     "next":"下一步",
-    "regulatory-information":"Regulatory information"
+    "regulatory-information":"法規資訊"
   },
   "accounts":{
     "my_accounts":"帳戶管理",
@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"帳戶",
-    "select_market":"Select market",
+    "select_market":"選擇市場",
     "forex":"外匯",
     "random":"隨機",
     "volidx":"波動率指數",
@@ -72,11 +72,11 @@
     "digit_matches_differs":"數字相符/差異",
     "up_down":"上漲/下跌",
     "markets_are_closed":"抱歉，所有市場現已關閉。請稍後重試。",
-    "cancel":"Cancel",
-    "select_underlying":"Select Underlying",
-    "select_tradetype":"Select Tradetype",
-    "select_tick":"Select Tick",
-    "select_digit":"Select Digit"
+    "cancel":"取消",
+    "select_underlying":"選擇基礎",
+    "select_tradetype":"選擇交易類型",
+    "select_tick":"選擇跳動點",
+    "select_digit":"選擇位數"
   },
   "trade":{
     "payout":"賠付額",
@@ -290,8 +290,8 @@
     "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
     "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
     "tax-identification-number-pattern-error":"只允許字母、數字和連字符。",
-    "continue":"Continue",
-    "cancel":"Cancel"
+    "continue":"繼續",
+    "cancel":"取消"
   },
   "newaccountreal":{
     "open_real":"升級到真實帳戶",
@@ -430,7 +430,7 @@
     "language":"語言",
     "settings":"設定",
     "resources":"資源",
-    "regulatory_information":"Regulatory information"
+    "regulatory_information":"法規資訊"
   },
   "settings":{
     "settings":"設定",
@@ -507,8 +507,8 @@
     "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
     "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
     "tax-identification-number-pattern-error":"只允許字母、數字和連字符。",
-    "cancel":"Cancel",
-    "continue":"Continue"
+    "cancel":"取消",
+    "continue":"繼續"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
@@ -666,7 +666,7 @@
     "required":"此為必填欄位。",
     "success":"成功",
     "success_message":"您的設定已成功更新。",
-    "continue":"Continue",
-    "cancel":"Cancel"
+    "continue":"繼續",
+    "cancel":"取消"
   }
 }
