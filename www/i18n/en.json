@@ -643,5 +643,21 @@
 			"place_of_birth": "Place of birth",
 			"error_format": "Wrong format or length",
 			"required": "This field is required."
-		}
+		},
+    "mt": {
+      "you_do_not_have_mt5_account": "You don't have any accounts for MetaTrader, Please create one and try again.",
+      "create_account": "Create Account for MT5",
+      "feature_is_not_available": "Sorry, this feature is not available.",
+      "meta_trader_accounts": "Meta Trader Accounts",
+      "demo_account": "Demo Account",
+      "financial_account": "Financial Account",
+      "volatility_account": "Volatility Indices Account",
+      "upgrade_financial_account": "To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
+      "upgrade_volatility_account": "To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
+      "create_demo_account": "Create a Demo Account for MT5",
+      "login_id": "Login ID",
+      "balance": "Balance",
+      "name": "Name",
+      "start_trading_with_mt5": "Start Trading With MT5"
+    }
 }
