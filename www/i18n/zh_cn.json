@@ -291,7 +291,9 @@
     "length-error-4-50":"此字段必须为 4-50 个字符以内。",
     "tax-identification-number-pattern-error":"只允许字母、数字和连字符。",
     "continue":"继续",
-    "cancel":"取消"
+    "cancel":"取消",
+    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
+    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
   },
   "newaccountreal":{
     "open_real":"升级到真实账户",
@@ -345,7 +347,9 @@
     "length-error-6-35":"此字段必须为 6-35 个字符以内。",
     "secretanswer-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
     "length-error-4-50":"此字段必须为 4-50 个字符以内。",
-    "required":"此为必填字段。"
+    "required":"此为必填字段。",
+    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
+    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
   },
   "profittable":{
     "profit_table":"利润表",
@@ -430,7 +434,8 @@
     "language":"语言",
     "settings":"设置",
     "resources":"资源",
-    "regulatory_information":"法规信息"
+    "regulatory_information":"法规信息",
+    "mt5":"MetaTrader 5"
   },
   "settings":{
     "settings":"设置",
@@ -668,5 +673,24 @@
     "success_message":"您的设置已成功更新。",
     "continue":"继续",
     "cancel":"取消"
+  },
+  "connectivity":{
+    "no_connection":"No Connection"
+  },
+  "mt":{
+    "you_do_not_have_mt5_account":"You don't have any accounts for MetaTrader, Please create one and try again.",
+    "create_account":"Create Account for MT5",
+    "feature_is_not_available":"Sorry, this feature is not available.",
+    "meta_trader_accounts":"Meta Trader Accounts",
+    "demo_account":"Demo Account",
+    "financial_account":"Financial Account",
+    "volatility_account":"Volatility Indices Account",
+    "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
+    "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
+    "create_demo_account":"Create a Demo Account for MT5",
+    "login_id":"Login ID",
+    "balance":"Balance",
+    "name":"Name",
+    "start_trading_with_mt5":"Start Trading With MT5"
   }
 }
