@@ -291,7 +291,9 @@
     "length-error-4-50":"This field must be within 4-50 characters.",
     "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed.",
     "continue":"Continue",
-    "cancel":"Cancel"
+    "cancel":"Cancel",
+    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
+    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
   },
   "newaccountreal":{
     "open_real":"Uaktualnij do konta z prawdziwymi pieniędzmi",
@@ -345,7 +347,9 @@
     "length-error-6-35":"This field must be within 6-35 characters.",
     "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
     "length-error-4-50":"This field must be within 4-50 characters.",
-    "required":"To pole jest obowiązkowe."
+    "required":"To pole jest obowiązkowe.",
+    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
+    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
   },
   "profittable":{
     "profit_table":"Tabela zysków",
@@ -430,7 +434,8 @@
     "language":"Język",
     "settings":"Ustawienia",
     "resources":"Zasoby",
-    "regulatory_information":"Regulatory information"
+    "regulatory_information":"Regulatory information",
+    "mt5":"MetaTrader 5"
   },
   "settings":{
     "settings":"Ustawienia",
@@ -668,5 +673,24 @@
     "success_message":"Your settings have been updated successfully.",
     "continue":"Continue",
     "cancel":"Cancel"
+  },
+  "connectivity":{
+    "no_connection":"No Connection"
+  },
+  "mt":{
+    "you_do_not_have_mt5_account":"You don't have any accounts for MetaTrader, Please create one and try again.",
+    "create_account":"Create Account for MT5",
+    "feature_is_not_available":"Sorry, this feature is not available.",
+    "meta_trader_accounts":"Meta Trader Accounts",
+    "demo_account":"Demo Account",
+    "financial_account":"Financial Account",
+    "volatility_account":"Volatility Indices Account",
+    "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
+    "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
+    "create_demo_account":"Create a Demo Account for MT5",
+    "login_id":"Login ID",
+    "balance":"Balance",
+    "name":"Name",
+    "start_trading_with_mt5":"Start Trading With MT5"
   }
 }
