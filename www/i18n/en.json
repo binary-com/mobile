@@ -685,6 +685,9 @@
     "continue": "Continue",
     "cancel": "Cancel"
   },
+  "connectivity": {
+    "no_connection": "No Connection"
+  },
   "mt": {
     "you_do_not_have_mt5_account": "You don't have any accounts for MetaTrader, Please create one and try again.",
     "create_account": "Create Account for MT5",

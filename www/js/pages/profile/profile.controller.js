@@ -24,6 +24,7 @@
         vm.isDataLoaded = false;
         vm.notAnyChanges = false;
         vm.disableUpdateButton = false;
+        vm.settingTaxResidence = [];
         vm.virtualAccountFields = [
           'email',
           'country'
@@ -142,6 +143,7 @@
         }
 
         vm.showTaxResidenceItems = function() {
+          vm.settingTaxResidence = _.words(vm.data.tax_residence);
           _.forEach(vm.residenceList, (value, key) => {
             if (vm.settingTaxResidence.indexOf(value.value) > -1) {
               vm.residenceList[key].checked = true;
