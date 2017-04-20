@@ -7,8 +7,8 @@
         </div>
         <div class="item item-input item-select">
           <span class="input-label">Digit</span>
-          <select name="digit" ng-model="vm.options.digit" ng-change="vm.selectDigit(vm.options.digit)">
-            <option ng-repeat="value in vm.digits" value="{{value}}">
+          <select name="digit" ng-model="vm.options.digit" ng-change="vm.selectDigit()">
+            <option ng-repeat="value in vm.digits"">
               {{ value }}
             </option>
           </select>

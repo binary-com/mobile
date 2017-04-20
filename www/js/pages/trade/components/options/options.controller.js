@@ -56,9 +56,9 @@
         $scope.$on('assetIndex:updated', (e) => {
           var markets = marketsService.findTickMarkets();
           if (!_.isEmpty(vm.options.market) && _.find(markets, ['displayName', vm.options.market.displayName])) {
-            vm.selectMarket(vm.options.market);
+            vm.selectMarket();
           } else {
-            vm.selectMarket(marketsService.getMarketByIndex(0));
+            vm.options.market = marketsService.getMarketByIndex(0);
           }
         });
 
@@ -93,41 +93,40 @@
           hideModal();
         }
 
-        vm.setSection = function() {
+        vm.openOptions = function() {
+          var markets = JSON.parse(sessionStorage.markets || '{}');
+          var tradeTypes = JSON.parse(sessionStorage.tradeTypes || '{}');
           vm.modalCtrl.show();
         }
 
-        vm.selectMarket = function(market) {
-          if(market){
-            vm.options.market = market;
-            vm.options.underlying = !_.isEmpty(vm.options.underlying) && _.findIndex(market.underlying, ['symbol', vm.options.underlying.symbol]) > -1 ? vm.options.underlying : market.underlying[0];
-            websocketService.sendRequestFor.contractsForSymbol(vm.options.underlying.symbol);
-            updateProposal();
-          }
+        vm.selectMarket = function() {
+          var market = vm.options.market;
+          vm.options.underlying = !_.isEmpty(vm.options.underlying) && _.findIndex(market.underlying, ['symbol', vm.options.underlying.symbol]) > -1 ? vm.options.underlying : market.underlying[0];
+          websocketService.sendRequestFor.contractsForSymbol(vm.options.underlying.symbol);
+          updateProposal();
         }
 
-        vm.selectUnderlying = function(underlying) {
-          vm.options.underlying = underlying;
+        vm.selectUnderlying = function() {
+          var underlying = vm.options.underlying;
           websocketService.sendRequestFor.contractsForSymbol(underlying.symbol);
           updateProposal();
         }
 
-        vm.selectTradeType = function(tradeType) {
-          vm.options.tradeType = tradeType;
-          var tradeType = JSON.parse(sessionStorage.tradeTypes)[tradeType][0];
+        vm.selectTradeType = function() {
+          var tradeType = JSON.parse(sessionStorage.tradeTypes)[vm.options.tradeType][0];
           vm.options.tick = vm.options.tick || tradeType.min_contract_duration.slice(0, -1);
           vm.options.digit = tradeType.last_digit_range ? vm.options.digit || tradeType.last_digit_range[0] : null;
           vm.options.barrier = tradeType.barriers > 0 && !_.isEmpty(tradeType.barrier) ? vm.options.barrier || tradeType.barrier : null;
           updateProposal();
         }
 
-        vm.selectTick = function(tick) {
-          vm.options.tick = tick;
+        vm.selectTick = function() {
+          var tick = vm.options.tick;
           updateProposal();
         }
 
-        vm.selectDigit = function(digit) {
-          vm.options.digit = digit;
+        vm.selectDigit = function() {
+          var digit = vm.options.digit;
           vm.options.barrier = null;
           updateProposal();
         }

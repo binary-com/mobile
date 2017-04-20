@@ -7,8 +7,8 @@
         </div>
         <div class="item item-input item-select">
           <span class="input-label">underlying</span>
-          <select name="underlying" ng-model="vm.options.underlying" ng-change="vm.selectUnderlying(vm.options.underlying)">
-            <option ng-repeat="underlying in vm.underlyings" ng-value="{{underlying}}">
+          <select name="underlying" ng-model="vm.options.underlying" ng-change="vm.selectUnderlying()">
+            <option ng-repeat="underlying in vm.underlyings">
               {{ underlying.display_name }}
             </option>
           </select>

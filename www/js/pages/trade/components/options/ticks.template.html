@@ -7,8 +7,8 @@
         </div>
         <div class="item item-input item-select">
           <span class="input-label">tick</span>
-          <select name="tick" ng-model="vm.options.tick" ng-change="vm.selectTick(vm.options.tick)">
-            <option ng-repeat="value in vm.tickRange" ng-value="{{value}}">
+          <select name="tick" ng-model="vm.options.tick" ng-change="vm.selectTick()">
+            <option ng-repeat="value in vm.tickRange">
               {{ value }}
             </option>
           </select>

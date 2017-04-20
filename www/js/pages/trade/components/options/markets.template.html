@@ -7,8 +7,8 @@
         </div>
         <div class="item item-input item-select">
           <span class="input-label">Market</span>
-          <select name="market" ng-model="market" ng-change="vm.selectMarket(value)">
-            <option ng-repeat="(key, value) in vm.markets" ng-value="{{value}}">
+          <select name="market" ng-model="vm.options.market" ng-change="vm.selectMarket()">
+            <option ng-repeat="(key, value) in vm.markets">
               {{ value.displayName }}
             </option>
           </select>
