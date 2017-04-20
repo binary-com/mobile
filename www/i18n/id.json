@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"Akun",
-    "select_market":"Pasar",
+    "select_market":"Select market",
     "forex":"Forex",
     "random":"Random",
     "volidx":"Indeks Volatilitas",
@@ -71,7 +71,12 @@
     "digit_even_odd":"Digit Even/Odd",
     "digit_matches_differs":"Digit Matches/Differs",
     "up_down":"Up/Down",
-    "markets_are_closed":"Maaf, semua pasar sedang ditutup. Silahkan coba kembali nanti"
+    "markets_are_closed":"Maaf, semua pasar sedang ditutup. Silahkan coba kembali nanti",
+    "cancel":"Cancel",
+    "select_underlying":"Select Underlying",
+    "select_tradetype":"Select Tradetype",
+    "select_tick":"Select Tick",
+    "select_digit":"Select Digit"
   },
   "trade":{
     "payout":"Hasil",
@@ -284,7 +289,9 @@
     "length-error-6-35":"This field must be within 6-35 characters.",
     "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
     "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "continue":"Continue",
+    "cancel":"Cancel"
   },
   "newaccountreal":{
     "open_real":"Upgrade ke akun real",
@@ -499,7 +506,9 @@
     "length-error-6-35":"This field must be within 6-35 characters.",
     "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
     "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "cancel":"Cancel",
+    "continue":"Continue"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"telah memperbarui",
@@ -656,6 +665,8 @@
     "error_format":"Format atau panjang salah",
     "required":"Bagian ini wajib diisi.",
     "success":"Sukses",
-    "success_message":"Pengaturan telah berhasil diperbarui."
+    "success_message":"Pengaturan telah berhasil diperbarui.",
+    "continue":"Continue",
+    "cancel":"Cancel"
   }
 }

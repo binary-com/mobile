@@ -461,6 +461,21 @@ angular
                 }
 
                 sendMessage(data);
+              },
+              mt5LoginList: function(){
+                var data = {
+                  mt5_login_list: 1
+                };
+
+                sendMessage(data);
+              },
+              mt5GetSettings: function(login){
+                var data = {
+                  mt5_get_settings: 1,
+                  login: login
+                };
+
+                sendMessage(data);
               }
             }
             websocketService.closeConnection = function() {
@@ -734,6 +749,16 @@ angular
                             break;
                         case 'forget_all':
                             $rootScope.$broadcast('forget_all', message.req_id);
+                        case 'mt5_login_list':
+                            if(message.mt5_login_list){
+                              $rootScope.$broadcast('mt5_login_list:success', message.mt5_login_list);
+                            }
+                            break;
+                        case 'mt5_get_settings':
+                            if(message.mt5_get_settings){
+                              $rootScope.$broadcast('mt5_get_settings:success', message.mt5_get_settings);
+                            }
+                            break;
                         default:
                     }
                 }

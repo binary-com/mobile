@@ -98,6 +98,7 @@ angular
 					token: _account.token,
 					currency: _account.currency || 'USD',
 					email: _account.email,
+          country: _account.country,
 					is_default: false
 				};
 
