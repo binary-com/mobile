@@ -7,7 +7,8 @@
     "get_token":"¿Cómo obtener un token?",
     "signin_with_binary_com":"Iniciar sesión",
     "use_token":"O iniciar sesión con un token",
-    "next":"Siguiente"
+    "next":"Siguiente",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"Gestionar Cuentas",
@@ -421,7 +422,8 @@
     "statement":"Statement",
     "language":"Language",
     "settings":"Settings",
-    "resources":"Resources"
+    "resources":"Resources",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"Settings",

@@ -7,7 +7,8 @@
     "get_token":"จะมีโทเค่นได้อย่างไร?",
     "signin_with_binary_com":"เข้าสู่ระบบ",
     "use_token":"หรือ เข้าสู่ระบบด้วยโทเค่น",
-    "next":"ถัดไป"
+    "next":"ถัดไป",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"จัดการบัญชี",
@@ -421,7 +422,8 @@
     "statement":"Statement",
     "language":"Language",
     "settings":"Settings",
-    "resources":"Resources"
+    "resources":"Resources",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"Settings",

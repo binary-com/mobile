@@ -7,7 +7,8 @@
     "get_token":"如何获取令牌？",
     "signin_with_binary_com":"登录",
     "use_token":"或以令牌登录",
-    "next":"下一步"
+    "next":"下一步",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"账户管理",
@@ -94,8 +95,8 @@
     "buy_again":"重购",
     "sell":"卖出",
     "barrier":"障碍位移",
-    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
-    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
+    "please_authenticate":"请验证账户，以便提高取款和交易限额。",
+    "restricted_account":"您的账户已被限制。请联系客服部请求帮助。"
   },
   "help":{
     "need_help":"需要帮助？",
@@ -159,12 +160,12 @@
     "show_pass":"显示密码",
     "enter-email":"请输入您的电子邮件",
     "email-error":"电子邮件无效",
-    "token-invalid":"Please submit a valid verification token.",
+    "token-invalid":"请提交有效验证令牌。",
     "residence-error":"请选择您的国家",
     "invalid_email":"请提交有效的电子邮件地址。",
-    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
-    "length-error-6-25":"This field must be within 6-25 characters.",
-    "required":"This field is required."
+    "password-pattern-error":"密码必须有大小写字母和数字。",
+    "length-error-6-25":"此字段必须为 6-25 个字符以内。",
+    "required":"此为必填字段。"
   },
   "newaccountmaltainvest":{
     "open_financial":"开立金融账户",
@@ -272,18 +273,18 @@
     "read_and_agreed_to":"我已阅读并同意 ",
     "terms_and_conditions":"条款与条件 ",
     "of_the_site":"网站的。",
-    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-2-30":"This field must be within 2-30 characters.",
-    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "general-pattern-error":"只允许字母、空格、连字符、句号和省略号。",
+    "length-error-2-30":"此字段必须为 2-30 个字符以内。",
+    "address-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
     "maxlength_error_70":"此字段最多可以有 70 个字符长。",
     "maxlength_error_35":"此字段最多可以有 35 个字符长。",
-    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
-    "maxlength_error_20":"This field can be at most 20 characters long.",
-    "phone-pattern-error":"Only numbers and spaces are allowed.",
-    "length-error-6-35":"This field must be within 6-35 characters.",
-    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
+    "postcode-pattern-error":"只允许字母、数字和连字符。",
+    "maxlength_error_20":"此字段最多可以有 20 个字符长。",
+    "phone-pattern-error":"只允许数字和空格。",
+    "length-error-6-35":"此字段必须为 6-35 个字符以内。",
+    "secretanswer-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
+    "length-error-4-50":"此字段必须为 4-50 个字符以内。",
+    "tax-identification-number-pattern-error":"只允许字母、数字和连字符。"
   },
   "newaccountreal":{
     "open_real":"升级到真实账户",
@@ -326,17 +327,17 @@
     "read_and_agreed_to":"我已阅读并同意 ",
     "terms_and_conditions":"条款与条件 ",
     "of_the_site":"网站的。",
-    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-2-30":"This field must be within 2-30 characters.",
-    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "general-pattern-error":"只允许字母、空格、连字符、句号和省略号。",
+    "length-error-2-30":"此字段必须为 2-30 个字符以内。",
+    "address-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
     "maxlength_error_70":"此字段最多可以有 70 个字符长。",
     "maxlength_error_35":"此字段最多可以有 35 个字符长。",
-    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
-    "maxlength_error_20":"This field can be at most 20 characters long.",
-    "phone-pattern-error":"Only numbers and spaces are allowed.",
-    "length-error-6-35":"This field must be within 6-35 characters.",
-    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-4-50":"This field must be within 4-50 characters.",
+    "postcode-pattern-error":"只允许字母、数字和连字符。",
+    "maxlength_error_20":"此字段最多可以有 20 个字符长。",
+    "phone-pattern-error":"只允许数字和空格。",
+    "length-error-6-35":"此字段必须为 6-35 个字符以内。",
+    "secretanswer-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
+    "length-error-4-50":"此字段必须为 4-50 个字符以内。",
     "required":"此为必填字段。"
   },
   "profittable":{
@@ -421,7 +422,8 @@
     "statement":"账单",
     "language":"语言",
     "settings":"设置",
-    "resources":"资源"
+    "resources":"资源",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"设置",
@@ -486,18 +488,18 @@
     "tax_identification_number":"税务识别号码",
     "place_of_birth":"出生地",
     "select":"请选择",
-    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-2-30":"This field must be within 2-30 characters.",
-    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
-    "maxlength_error_70":"This field can be at most 70 characters long.",
-    "maxlength_error_35":"This field can be at most 35 characters long.",
-    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
-    "maxlength_error_20":"This field can be at most 20 characters long.",
-    "phone-pattern-error":"Only numbers and spaces are allowed.",
-    "length-error-6-35":"This field must be within 6-35 characters.",
-    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
+    "general-pattern-error":"只允许字母、空格、连字符、句号和省略号。",
+    "length-error-2-30":"此字段必须为 2-30 个字符以内。",
+    "address-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
+    "maxlength_error_70":"此字段最多可以有 70 个字符长。",
+    "maxlength_error_35":"此字段最多可以有 35 个字符长。",
+    "postcode-pattern-error":"只允许字母、数字和连字符。",
+    "maxlength_error_20":"此字段最多可以有 20 个字符长。",
+    "phone-pattern-error":"只允许数字和空格。",
+    "length-error-6-35":"此字段必须为 6-35 个字符以内。",
+    "secretanswer-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
+    "length-error-4-50":"此字段必须为 4-50 个字符以内。",
+    "tax-identification-number-pattern-error":"只允许字母、数字和连字符。"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
@@ -517,9 +519,9 @@
     "password_not_match":"您输入的两个密码不匹配。",
     "required":"此为必填字段。",
     "current_password_required":"请输入您的当前密码。",
-    "password_pattern_error":"Password should have lower and uppercase letters with numbers.",
+    "password_pattern_error":"密码必须有大小写字母和数字。",
     "password_changed_text":"您的密码已更改。请重新登录。",
-    "length-error-6-25":"This field must be within 6-25 characters."
+    "length-error-6-25":"此字段必须为 6-25 个字符以内。"
   },
   "financial-assessment":{
     "financial_assessment":"财务评估",

@@ -7,7 +7,8 @@
     "get_token":"Bagaimanakah cara memperoleh Token?",
     "signin_with_binary_com":"Masuk",
     "use_token":"Atau masuk menggunakan token",
-    "next":"Berikutnya"
+    "next":"Berikutnya",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"Mengelola Akun",
@@ -421,7 +422,8 @@
     "statement":"Pernyataan",
     "language":"Bahasa",
     "settings":"Pengaturan",
-    "resources":"Sumber Daya"
+    "resources":"Sumber Daya",
+    "regulatory_information":"Regulatory information"
   },
   "settings":{
     "settings":"Pengaturan",
