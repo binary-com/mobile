@@ -22,20 +22,25 @@
         &.has-header {
             margin-top: 45px;
         }
-        .sidemenu-app-version {
-            bottom: 5px;
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            color: $white;
-            font-size: 0.8rem;
-        }
     }
     .bar-header {
         border-bottom: 1px solid $borderColor!important;
         background: trasparent;
         background-color: $primaryBrandColor;
         align-items: center;
+    }
+    .bar-footer {
+        border-top: 1px solid $borderColor!important;
+        background: trasparent;
+        background-color: $primaryBrandColor;
+        .sidemenu-app-version {
+            top: -0.5px;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: $white;
+            font-size: 0.8rem;
+        }
     }
     .item-complex {
         .item-content {

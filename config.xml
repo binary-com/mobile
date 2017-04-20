@@ -52,6 +52,7 @@
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
   <platform name="ios">
+    <allow-navigation href="https://trade.mql5.com/*"/>
     <preference name="CodePushDeploymentKey" value="QAjHGecVHhWEbKf4xyvV1YCqI7p_V1eFOQxYg"/>
     <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
     <icon src="resources/ios/icon/icon@2x.png" width="114" height="114"/>
