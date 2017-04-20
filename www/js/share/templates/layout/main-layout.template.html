@@ -10,7 +10,7 @@
       <ion-header-bar class="header account-menu">
         <bg-accounts></bg-accounts>
       </ion-header-bar>
-      <ion-content class="has-header" scroll="false">
+      <ion-content class="has-header has-footer" scroll="true">
         <bg-account-upgrade></bg-account-upgrade>
         <ion-list>
           <ion-item nav-clear menu-close ui-sref="trade" tabindex="1" href="#">
@@ -31,7 +31,7 @@
             </div>
             {{ 'menu.statement' | translate }}
           </ion-item>
-          <ion-item nav-clear menu-close ui-sref="meta-trader" href="#">
+          <ion-item nav-clear ng-if="vm.hasMTAccess" menu-close ui-sref="mt5-web" href="#">
             <div class="icon-wrapper">
               <i class="ion-shuffle"></i>
             </div>
@@ -62,8 +62,10 @@
             <bg-logout nav-clear menu-close></bg-logout>
           </ion-item>
         </ion-list>
-        <bg-app-version class="sidemenu-app-version"></bg-app-version>
       </ion-content>
+      <ion-footer-bar align-title="center" class="center">
+        <bg-app-version class="sidemenu-app-version"></bg-app-version>
+      </ion-footer-bar>
     </ion-side-menu>
   </ion-side-menus>
 </ion-view>
