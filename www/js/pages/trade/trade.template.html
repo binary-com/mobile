@@ -2,10 +2,12 @@
     <ion-content has-bouncing="false" class="trade-container">
         <div class="flexed" id="trade-container">
             <div class="row account-status-message">
-                <div class="col center error" ng-if="vm.showAuthenticateMessage || vm.showAgeVerificationMessage">
+                <div class="col center error" ng-if="vm.authenticateMessage">
                     {{'trade.please_authenticate' | translate}}
                 </div>
-                <div class="col center error" ng-if="vm.showUnwelcomedMessage || vm.showCashierLockedMessage || vm.showWithdrawalLockedMessage">
+            </div>
+            <div class="row account-status-message">
+                <div class="col center error" ng-if="vm.restrictedMessage">
                     {{'trade.restricted_account' | translate}}
                 </div>
             </div>

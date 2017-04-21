@@ -80,32 +80,44 @@
 
       vm.authenticateStatus = function(status) {
         vm.authenticated = status.indexOf('authenticated') > -1 ? true : false;
-        vm.showAuthenticateMessage = !vm.authenticated && (vm.isFinancial || vm.isCR || vm.isMLT || vm.isMX) ? true : false;
+        if (!vm.authenticated && (vm.isFinancial || vm.isCR || vm.isMLT || vm.isMX)) {
+          appStateService.authenticateMessage = true;
+        }
       }
 
       vm.ageVerificationStatus = function(status) {
         vm.ageVerified = status.indexOf('age_verification') > -1 ? true : false;
-        vm.showAgeVerificationMessage = !vm.ageVerified && (vm.isFinancial || vm.isMLT || vm.isMX) ? true : false;
+        if (!vm.ageVerified && (vm.isFinancial || vm.isMLT || vm.isMX)) {
+          appStateService.authenticateMessage = true;
+        }
       }
 
       vm.ukgcStatus = function(status) {
         vm.ukgcAgreed = status.indexOf('ukgc_funds_protection') > -1 ? true : false;
-        vm.showUkgcMessage = !vm.ukgcAgreed && (vm.isMLT || vm.isMX) ? true : false;
+        if (!vm.ukgcAgreed && (vm.isMLT || vm.isMX)) {
+          appStateService.authenticateMessage = true;
+        }
       }
 
       vm.unwelcomeStatus = function(status) {
         vm.unwelcomed = status.indexOf('unwelcome') > -1 ? true : false;
-        vm.showUnwelcomedMessage = !vm.unwelcomed && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR) ? true : false;
+        if (vm.unwelcomed && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
+          appStateService.restrictedMessage = true;
+        }
       }
 
       vm.cashierStatus = function(status) {
         vm.cashierLocked = status.indexOf('cashier_locked') > -1 ? true : false;
-        vm.showCashierLockedMessage = !vm.cashierLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR) ? true : false;
+        if (vm.cashierLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
+          appStateService.restrictedMessage = true;
+        }
       }
 
       vm.withdrawalStatus = function(status) {
         vm.withdrawalLocked = status.indexOf('withdrawal_locked') > -1 ? true : false;
-        vm.showWithdrawalLockedMessage = !vm.withdrawalLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR) ? true : false;
+        if (vm.withdrawalLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
+          appStateService.restrictedMessage = true;
+        }
       }
 
         // check if user has high risk
