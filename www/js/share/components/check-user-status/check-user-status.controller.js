@@ -34,8 +34,8 @@
       }
 
       $scope.$on('authorize', () => {
-        if (!vm.isLoggedIn) {
-          vm.isLoggedIn = true;
+        if (!appStateService.checkedAccountStatus) {
+          appStateService.checkedAccountStatus = true;
           vm.init();
         }
       });

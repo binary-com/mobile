@@ -44,6 +44,7 @@ angular
                 factory.realityCheckLogin = false;
                 factory.authenticateMessage = false;
                 factory.restrictedMessage = false;
+                factory.checkedAccountStatus = false;
 
                 return factory;
             });

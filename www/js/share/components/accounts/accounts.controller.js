@@ -74,6 +74,9 @@
         appStateService.hasToRedirectToTaxInformation = false;
         appStateService.redirectFromFinancialAssessment = true;
         appStateService.limitsChange = true;
+        appStateService.authenticateMessage = false;
+        appStateService.restrictedMessage = false;
+        appStateService.checkedAccountStatus = false;
       };
 
       $scope.$on('authorize', (e, authorize) => {

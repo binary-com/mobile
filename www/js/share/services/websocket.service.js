@@ -154,8 +154,10 @@ angular
               appStateService.redirectFromFinancialAssessment = false;
               appStateService.limitsChange = false;
               appStateService.hasToRedirectToTaxInformation = false;
-
               appStateService.realityCheckLogin = false;
+              appStateService.authenticateMessage = false;
+              appStateService.restrictedMessage = false;
+              appStateService.checkedAccountStatus = false;
 
               $state.go('signin');
             };
