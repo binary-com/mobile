@@ -58,7 +58,8 @@
           "estimated_worth",
           "accept_risk",
           "tax_residence",
-          "tax_identification_number"
+          "tax_identification_number",
+          "account_turnover"
         ];
 
 
