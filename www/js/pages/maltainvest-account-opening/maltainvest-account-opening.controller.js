@@ -21,6 +21,7 @@
         vm.disableUpdatebutton = false;
         vm.hasPlaceOfbirth = false;
         vm.taxRequirement = false;
+      vm.settingTaxResidence = [];
         vm.data.linkToTermAndConditions = "https://www.binary.com/" + (localStorage.getItem('language') || "en") + "/terms-and-conditions.html";
         vm.requestData = [
           "salutation",
@@ -57,7 +58,8 @@
           "estimated_worth",
           "accept_risk",
           "tax_residence",
-          "tax_identification_number"
+          "tax_identification_number",
+          "account_turnover"
         ];
 
 
@@ -72,6 +74,7 @@
         }
 
         vm.showTaxResidenceItems = function() {
+          vm.settingTaxResidence = _.words(vm.data.tax_residence);
           _.forEach(vm.residenceList, (value, key) => {
             if (vm.settingTaxResidence.indexOf(value.value) > -1) {
               vm.residenceList[key].checked = true;

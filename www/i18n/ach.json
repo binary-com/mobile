@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"crwdns17697:0crwdne17697:0",
-    "select_market":"crwdns17698:0crwdne17698:0",
+    "select_market":"crwdns19508:0crwdne19508:0",
     "forex":"crwdns17699:0crwdne17699:0",
     "random":"crwdns17700:0crwdne17700:0",
     "volidx":"crwdns17701:0crwdne17701:0",
@@ -71,7 +71,12 @@
     "digit_even_odd":"crwdns17724:0crwdne17724:0",
     "digit_matches_differs":"crwdns17725:0crwdne17725:0",
     "up_down":"crwdns17726:0crwdne17726:0",
-    "markets_are_closed":"crwdns17727:0crwdne17727:0"
+    "markets_are_closed":"crwdns17727:0crwdne17727:0",
+    "cancel":"crwdns19509:0crwdne19509:0",
+    "select_underlying":"crwdns19510:0crwdne19510:0",
+    "select_tradetype":"crwdns19511:0crwdne19511:0",
+    "select_tick":"crwdns19512:0crwdne19512:0",
+    "select_digit":"crwdns19513:0crwdne19513:0"
   },
   "trade":{
     "payout":"crwdns17728:0crwdne17728:0",
@@ -284,7 +289,11 @@
     "length-error-6-35":"crwdns19477:0crwdne19477:0",
     "secretanswer-pattern-error":"crwdns19478:0crwdne19478:0",
     "length-error-4-50":"crwdns19479:0crwdne19479:0",
-    "tax-identification-number-pattern-error":"crwdns19480:0crwdne19480:0"
+    "tax-identification-number-pattern-error":"crwdns19480:0crwdne19480:0",
+    "continue":"crwdns19514:0crwdne19514:0",
+    "cancel":"crwdns19515:0crwdne19515:0",
+    "not-pep-verify":"crwdns19569:0crwdne19569:0",
+    "pep-info":"crwdns19570:0crwdne19570:0"
   },
   "newaccountreal":{
     "open_real":"crwdns17899:0crwdne17899:0",
@@ -338,7 +347,9 @@
     "length-error-6-35":"crwdns19487:0crwdne19487:0",
     "secretanswer-pattern-error":"crwdns19488:0crwdne19488:0",
     "length-error-4-50":"crwdns19489:0crwdne19489:0",
-    "required":"crwdns17935:0crwdne17935:0"
+    "required":"crwdns17935:0crwdne17935:0",
+    "not-pep-verify":"crwdns19571:0crwdne19571:0",
+    "pep-info":"crwdns19572:0crwdne19572:0"
   },
   "profittable":{
     "profit_table":"crwdns17941:0crwdne17941:0",
@@ -423,7 +434,8 @@
     "language":"crwdns18008:0crwdne18008:0",
     "settings":"crwdns18009:0crwdne18009:0",
     "resources":"crwdns19114:0crwdne19114:0",
-    "regulatory_information":"crwdns19507:0crwdne19507:0"
+    "regulatory_information":"crwdns19507:0crwdne19507:0",
+    "mt5":"crwdns19573:0crwdne19573:0"
   },
   "settings":{
     "settings":"crwdns18010:0crwdne18010:0",
@@ -499,7 +511,9 @@
     "length-error-6-35":"crwdns19498:0crwdne19498:0",
     "secretanswer-pattern-error":"crwdns19499:0crwdne19499:0",
     "length-error-4-50":"crwdns19500:0crwdne19500:0",
-    "tax-identification-number-pattern-error":"crwdns19501:0crwdne19501:0"
+    "tax-identification-number-pattern-error":"crwdns19501:0crwdne19501:0",
+    "cancel":"crwdns19516:0crwdne19516:0",
+    "continue":"crwdns19517:0crwdne19517:0"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"crwdns18103:0crwdne18103:0",
@@ -656,6 +670,27 @@
     "error_format":"crwdns19445:0crwdne19445:0",
     "required":"crwdns19446:0crwdne19446:0",
     "success":"crwdns19465:0crwdne19465:0",
-    "success_message":"crwdns19466:0crwdne19466:0"
+    "success_message":"crwdns19466:0crwdne19466:0",
+    "continue":"crwdns19518:0crwdne19518:0",
+    "cancel":"crwdns19519:0crwdne19519:0"
+  },
+  "connectivity":{
+    "no_connection":"crwdns19574:0crwdne19574:0"
+  },
+  "mt":{
+    "you_do_not_have_mt5_account":"crwdns19575:0crwdne19575:0",
+    "create_account":"crwdns19576:0crwdne19576:0",
+    "feature_is_not_available":"crwdns19577:0crwdne19577:0",
+    "meta_trader_accounts":"crwdns19578:0crwdne19578:0",
+    "demo_account":"crwdns19579:0crwdne19579:0",
+    "financial_account":"crwdns19580:0crwdne19580:0",
+    "volatility_account":"crwdns19581:0crwdne19581:0",
+    "upgrade_financial_account":"crwdns19582:0crwdne19582:0",
+    "upgrade_volatility_account":"crwdns19583:0crwdne19583:0",
+    "create_demo_account":"crwdns19584:0crwdne19584:0",
+    "login_id":"crwdns19585:0crwdne19585:0",
+    "balance":"crwdns19586:0crwdne19586:0",
+    "name":"crwdns19587:0crwdne19587:0",
+    "start_trading_with_mt5":"crwdns19588:0crwdne19588:0"
   }
 }

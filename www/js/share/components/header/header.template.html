@@ -19,3 +19,13 @@
                    ng-show="!vm.hideBalance">
   <bg-balance></bg-balance>
 </ion-subheader-bar>
+<div class="row account-status-message">
+    <div class="col center error" ng-if="vm.authenticateMessage">
+        {{'trade.please_authenticate' | translate}}
+    </div>
+</div>
+<div class="row account-status-message">
+    <div class="col center error" ng-if="vm.restrictedMessage && !vm.authenticateMessage">
+        {{'trade.restricted_account' | translate}}
+    </div>
+</div>
