@@ -296,7 +296,7 @@
     "pep-info":"PEP是被委托进行特出公众任务的个人。此身份包括了PEP的亲属和亲近的人。"
   },
   "newaccountreal":{
-    "open_real":"升级到真实账户",
+    "open_real":"升级为真实账户",
     "real_account_opening":"开立真实资金账户",
     "details":"详情",
     "address":"地址",
@@ -685,12 +685,12 @@
     "demo_account":"模拟账户",
     "financial_account":"金融账户",
     "volatility_account":"波动率指数账户",
-    "upgrade_financial_account":"如要开立MT5金融账户，请切换到Binary.com真实账户。",
-    "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
-    "create_demo_account":"Create a Demo Account for MT5",
-    "login_id":"Login ID",
-    "balance":"Balance",
-    "name":"Name",
-    "start_trading_with_mt5":"Start Trading With MT5"
+    "upgrade_financial_account":"如要开立MT5金融账户，请升级为Binary.com真实账户。",
+    "upgrade_volatility_account":"如要开立MT5波动率指数账户，请升级为Binary.com真实账户。",
+    "create_demo_account":"开立MT5模拟账户",
+    "login_id":"登录 ID",
+    "balance":"余额",
+    "name":"姓名",
+    "start_trading_with_mt5":"开始用 MT5 交易"
   }
 }
