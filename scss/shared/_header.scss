@@ -64,6 +64,14 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 .update .icon {
 	font-size: 28px !important;
 }
+.account-status-message {
+	padding: 0;
+	background: $noticeColor;
+	.error {
+		font-size: 0.8rem;
+		padding: 10px;
+	}
+}
 .logo-spinner {
 	-webkit-animation-name: spin;
 	-webkit-animation-duration: 1000ms;
