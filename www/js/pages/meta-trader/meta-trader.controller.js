@@ -19,6 +19,14 @@
     var vm = this;
     vm.hasMTAccess = null;
     vm.upgradeYourAccount = false;
+    vm.hasRealAccount = false;
+
+    vm.accountType = {
+      demo: 'demo\\binary_virtual',
+      volatility: 'real\\costarica',
+      financial: 'real\\vanuatu_cent'
+    };
+
 
     $scope.$on('landing_company', (e, landingCompany)=>{
       $scope.$applyAsync(()=>{
@@ -34,8 +42,8 @@
 
     $scope.$on('mt5_login_list:success', (e, list)=>{
       $scope.$applyAsync(()=>{
-        vm.list = list;
-        vm.loadAccount('demo');
+        vm.mt5LoginList = list;
+        vm.loadAccount(vm.accountType.demo);
       });
     });
 
@@ -45,13 +53,15 @@
       });
     });
 
-    vm.createMTAccount = function(){
-      window.open('https://mt.binary.com', '_system');
+    vm.createMTAccount = function(section){
+      window.open(
+          'https://mt.binary.com/en/user/settings/metatrader.html#' + section,
+          '_system');
     };
 
     vm.loadAccount = function(accountName){
-      if(vm.list.length > 0){
-        var account = _.find(vm.list, (o) => {
+      if(vm.mt5LoginList.length > 0){
+        var account = _.find(vm.mt5LoginList, (o) => {
           if(o.group){
             return o.group.indexOf(accountName) > -1;
           }
@@ -83,6 +93,9 @@
     init();
 
     function init(){
+      var accounts = accountService.getAll();
+      vm.hasRealAccount = _.find(accounts, obj => /(CR|MLT|MX)\d+/.test(obj.id)) ? true : false;
+
       var account = accountService.getDefault();
       if (account){
         websocketService.sendRequestFor.landingCompanySend(account.country);
