@@ -292,8 +292,8 @@
     "tax-identification-number-pattern-error":"只允許字母、數字和連字符。",
     "continue":"繼續",
     "cancel":"取消",
-    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
-    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
+    "not-pep-verify":"我聲明本人不是政治公眾人士(PEP)",
+    "pep-info":"PEP是被委託進行特出公眾任務的個人。此身份包括了PEP的親屬和親近的人。"
   },
   "newaccountreal":{
     "open_real":"升級到真實帳戶",
@@ -348,8 +348,8 @@
     "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
     "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
     "required":"此為必填欄位。",
-    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
-    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
+    "not-pep-verify":"我聲明本人不是政治公眾人士(PEP)。",
+    "pep-info":"PEP是被委託進行特出公眾任務的個人。此身份包括了PEP的親屬和親近的人。"
   },
   "profittable":{
     "profit_table":"利潤表",
@@ -675,22 +675,22 @@
     "cancel":"取消"
   },
   "connectivity":{
-    "no_connection":"No Connection"
+    "no_connection":"沒有連接"
   },
   "mt":{
-    "you_do_not_have_mt5_account":"You don't have any accounts for MetaTrader, Please create one and try again.",
-    "create_account":"Create Account for MT5",
-    "feature_is_not_available":"Sorry, this feature is not available.",
-    "meta_trader_accounts":"Meta Trader Accounts",
-    "demo_account":"Demo Account",
-    "financial_account":"Financial Account",
-    "volatility_account":"Volatility Indices Account",
-    "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
-    "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
-    "create_demo_account":"Create a Demo Account for MT5",
-    "login_id":"Login ID",
-    "balance":"Balance",
-    "name":"Name",
-    "start_trading_with_mt5":"Start Trading With MT5"
+    "you_do_not_have_mt5_account":"您沒有MetaTrader帳戶。請先開立帳戶，然後重試。",
+    "create_account":"開立MT5帳戶",
+    "feature_is_not_available":"對不起，此功能不可用。",
+    "meta_trader_accounts":"Meta Trader帳戶",
+    "demo_account":"模擬帳戶",
+    "financial_account":"金融帳戶",
+    "volatility_account":"波動率指數帳戶",
+    "upgrade_financial_account":"如要開立MT5金融帳戶，請升級為Binary.com真實帳戶。",
+    "upgrade_volatility_account":"如要開立MT5波動率指數帳戶，請升級為Binary.com真實帳戶。",
+    "create_demo_account":"開立MT5虛擬帳戶",
+    "login_id":"登入ID",
+    "balance":"餘額",
+    "name":"姓名",
+    "start_trading_with_mt5":"開始用 MT5 交易"
   }
 }

@@ -292,11 +292,11 @@
     "tax-identification-number-pattern-error":"只允许字母、数字和连字符。",
     "continue":"继续",
     "cancel":"取消",
-    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
-    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
+    "not-pep-verify":"我声明本人不是政治公众人士(PEP)。",
+    "pep-info":"PEP是被委托进行特出公众任务的个人。此身份包括了PEP的亲属和亲近的人。"
   },
   "newaccountreal":{
-    "open_real":"升级到真实账户",
+    "open_real":"升级为真实账户",
     "real_account_opening":"开立真实资金账户",
     "details":"详情",
     "address":"地址",
@@ -348,8 +348,8 @@
     "secretanswer-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
     "length-error-4-50":"此字段必须为 4-50 个字符以内。",
     "required":"此为必填字段。",
-    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
-    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
+    "not-pep-verify":"我声明本人不是政治公众人士(PEP)",
+    "pep-info":"PEP是被委托进行特出公众任务的个人。此身份包括了PEP的亲属和亲近的人。"
   },
   "profittable":{
     "profit_table":"利润表",
@@ -675,22 +675,22 @@
     "cancel":"取消"
   },
   "connectivity":{
-    "no_connection":"No Connection"
+    "no_connection":"没有连接"
   },
   "mt":{
-    "you_do_not_have_mt5_account":"You don't have any accounts for MetaTrader, Please create one and try again.",
-    "create_account":"Create Account for MT5",
-    "feature_is_not_available":"Sorry, this feature is not available.",
-    "meta_trader_accounts":"Meta Trader Accounts",
-    "demo_account":"Demo Account",
-    "financial_account":"Financial Account",
-    "volatility_account":"Volatility Indices Account",
-    "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
-    "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
-    "create_demo_account":"Create a Demo Account for MT5",
-    "login_id":"Login ID",
-    "balance":"Balance",
-    "name":"Name",
-    "start_trading_with_mt5":"Start Trading With MT5"
+    "you_do_not_have_mt5_account":"您没有MetaTrader账户。请先开立账户，然后重试。",
+    "create_account":"开立MT5账户",
+    "feature_is_not_available":"对不起，此功能不可用。",
+    "meta_trader_accounts":"Meta Trader账户",
+    "demo_account":"模拟账户",
+    "financial_account":"金融账户",
+    "volatility_account":"波动率指数账户",
+    "upgrade_financial_account":"如要开立MT5金融账户，请升级为Binary.com真实账户。",
+    "upgrade_volatility_account":"如要开立MT5波动率指数账户，请升级为Binary.com真实账户。",
+    "create_demo_account":"开立MT5模拟账户",
+    "login_id":"登录 ID",
+    "balance":"余额",
+    "name":"姓名",
+    "start_trading_with_mt5":"开始用 MT5 交易"
   }
 }
