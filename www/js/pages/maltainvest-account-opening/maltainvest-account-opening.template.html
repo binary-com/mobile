@@ -709,6 +709,31 @@
             <div class="row">
                 <div class="col">
                     <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.account_turnover' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="account_turnover" ng-model="vm.data.account_turnover" required>
+                                <option value="" disabled>
+                                    {{'newaccountmaltainvest.select' | translate}}
+                                </option>
+                                <option value="Less than $25,000">{{'newaccountmaltainvest.account_turnover_1' | translate}}</option>
+                                <option value="$25,000 - $50,000">{{'newaccountmaltainvest.account_turnover_2' | translate}}</option>
+                                <option value="$50,001 - $100,000">{{'newaccountmaltainvest.account_turnover_3' | translate}}</option>
+                                <option value="$100,001 - $500,000">{{'newaccountmaltainvest.account_turnover_4' | translate}}</option>
+                                <option value="Over $500,000">{{'newaccountmaltainvest.account_turnover_5' | translate}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
                         <div class="col input-title">
                             {{'newaccountmaltainvest.secret_question' | translate}}
                         </div>
