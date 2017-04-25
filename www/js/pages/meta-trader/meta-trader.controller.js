@@ -13,9 +13,11 @@
     .module('binary.pages.meta-trader.controllers')
     .controller('MetaTraderController', MetaTrader);
 
-  MetaTrader.$inject = ['$scope', 'accountService', 'websocketService'];
+  MetaTrader.$inject = ['$scope', '$state',
+                        'accountService', 'websocketService'];
 
-  function MetaTrader($scope, accountService, websocketService){
+  function MetaTrader($scope, $state,
+      accountService, websocketService){
     var vm = this;
     vm.hasMTAccess = null;
     vm.upgradeYourAccount = false;
@@ -85,9 +87,15 @@
     };
 
     vm.openMT5 = function(type){
+      type = type || '_blank';
+      if(['android', 'ios'].indexOf(ionic.Platform.platform()) > -1){
+        $state.go('mt5-web', {id: vm.settings.login});
+        return;
+      }
+
       var url = 'https://trade.mql5.com/trade?servers=Binary.com-Server&trade_server=Binary.com-Server&login=';
       url += vm.settings.login;
-      window.open(url, type, 'location=no');
+      window.open(url, type);
     };
 
     init();
