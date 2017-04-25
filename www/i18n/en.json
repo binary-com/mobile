@@ -710,6 +710,8 @@
     "volatility_account": "Volatility Indices Account",
     "upgrade_financial_account": "To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
     "upgrade_volatility_account": "To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
+    "create_financial_account": "Create a Financial Account for MT5",
+    "create_volatility_account": "Create a Volatility Account for MT5",
     "create_demo_account": "Create a Demo Account for MT5",
     "login_id": "Login ID",
     "balance": "Balance",
