@@ -293,7 +293,13 @@
     "continue":"crwdns19514:0crwdne19514:0",
     "cancel":"crwdns19515:0crwdne19515:0",
     "not-pep-verify":"crwdns19569:0crwdne19569:0",
-    "pep-info":"crwdns19570:0crwdne19570:0"
+    "pep-info":"crwdns19570:0crwdne19570:0",
+    "account_turnover":"crwdns19621:0crwdne19621:0",
+    "account_turnover_1":"crwdns19622:0crwdne19622:0",
+    "account_turnover_2":"crwdns19623:0crwdne19623:0",
+    "account_turnover_3":"crwdns19624:0crwdne19624:0",
+    "account_turnover_4":"crwdns19625:0crwdne19625:0",
+    "account_turnover_5":"crwdns19626:0crwdne19626:0"
   },
   "newaccountreal":{
     "open_real":"crwdns17899:0crwdne17899:0",
@@ -605,7 +611,13 @@
     "financial_assessment_info":"crwdns19332:0crwdne19332:0",
     "no_change":"crwdns19334:0crwdne19334:0",
     "success":"crwdns19463:0crwdne19463:0",
-    "success_message":"crwdns19464:0crwdne19464:0"
+    "success_message":"crwdns19464:0crwdne19464:0",
+    "account_turnover":"crwdns19627:0crwdne19627:0",
+    "account_turnover_1":"crwdns19628:0crwdne19628:0",
+    "account_turnover_2":"crwdns19629:0crwdne19629:0",
+    "account_turnover_3":"crwdns19630:0crwdne19630:0",
+    "account_turnover_4":"crwdns19631:0crwdne19631:0",
+    "account_turnover_5":"crwdns19632:0crwdne19632:0"
   },
   "limits":{
     "trading_withdrawal_limits":"crwdns19335:0crwdne19335:0",
