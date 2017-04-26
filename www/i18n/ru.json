@@ -8,7 +8,7 @@
     "signin_with_binary_com":"Войти",
     "use_token":"Войти через ключ",
     "next":"Далее",
-    "regulatory-information":"Regulatory information"
+    "regulatory-information":"Информация о регулировании"
   },
   "accounts":{
     "my_accounts":"Управление счетами",
@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"Счёт",
-    "select_market":"Select market",
+    "select_market":"Выберите рынок",
     "forex":"Forex",
     "random":"Индексы Random",
     "volidx":"Индексы волатильности",
@@ -72,10 +72,10 @@
     "digit_matches_differs":"Совпадение/отличие десятичной",
     "up_down":"Вверх/Вниз",
     "markets_are_closed":"Извините, все рынки в данное время закрыты. Повторите попытку позже.",
-    "cancel":"Cancel",
-    "select_underlying":"Select Underlying",
-    "select_tradetype":"Select Tradetype",
-    "select_tick":"Select Tick",
+    "cancel":"Отмена",
+    "select_underlying":"Выберите актив",
+    "select_tradetype":"Выберите тип контракта",
+    "select_tick":"Укажите тики",
     "select_digit":"Select Digit"
   },
   "trade":{
