@@ -75,8 +75,8 @@
     "cancel":"Отмена",
     "select_underlying":"Выберите актив",
     "select_tradetype":"Выберите тип контракта",
-    "select_tick":"Укажите тики",
-    "select_digit":"Select Digit"
+    "select_tick":"Выберите тик",
+    "select_digit":"Выберите цифру"
   },
   "trade":{
     "payout":"Выплата",
@@ -100,8 +100,8 @@
     "buy_again":"Купить снова",
     "sell":"Продать",
     "barrier":"Изменение барьера",
-    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
-    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
+    "please_authenticate":"Пожалуйста, пройдите аутентификацию счёта, чтобы снять лимит на вывод и торговые ограничения.",
+    "restricted_account":"Ваш счёт заблокирован. Пожалуйста, свяжитесь с нашей службой поддержки для получения помощи."
   },
   "help":{
     "need_help":"Нужна помощь?",
@@ -165,11 +165,11 @@
     "show_pass":"Показать пароль",
     "enter-email":"Пожалуйста, введите email",
     "email-error":"Неправильный эл. адрес",
-    "token-invalid":"Please submit a valid verification token.",
+    "token-invalid":"Пожалуйста, введите правильный проверочный ключ.",
     "residence-error":"Пожалуйста, укажите страну",
     "invalid_email":"Пожалуйста, укажите правильный email.",
-    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
-    "length-error-6-25":"This field must be within 6-25 characters.",
+    "password-pattern-error":"Пароль должен состоять из заглавных, строчных букв и цифр.",
+    "length-error-6-25":"Запись в данном поле не должна превышать 6-25 знаков.",
     "required":"This field is required."
   },
   "newaccountmaltainvest":{
