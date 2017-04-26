@@ -170,7 +170,7 @@
     "invalid_email":"Пожалуйста, укажите правильный email.",
     "password-pattern-error":"Пароль должен состоять из заглавных, строчных букв и цифр.",
     "length-error-6-25":"Запись в данном поле не должна превышать 6-25 знаков.",
-    "required":"This field is required."
+    "required":"Данное поле является обязательным."
   },
   "newaccountmaltainvest":{
     "open_financial":"Открыть финансовый счёт",
@@ -278,12 +278,12 @@
     "read_and_agreed_to":"Я прочитал и согласен с ",
     "terms_and_conditions":"правилами и условиями ",
     "of_the_site":"сайта.",
-    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-2-30":"This field must be within 2-30 characters.",
-    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "general-pattern-error":"Разрешены только буквы, пробелы, дефисы, точки и апострофы.",
+    "length-error-2-30":"Запись в данном поле не должна превышать 2-30 знаков.",
+    "address-pattern-error":"Допускаются только буквы, цифры, пробелы, дефисы, точки и апострофы.",
     "maxlength_error_70":"Данная запись должна содержать не более 70 знаков.",
     "maxlength_error_35":"Данная запись не должна превышать 35 знаков.",
-    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "postcode-pattern-error":"Допускаются только буквы, цифры и дефисы.",
     "maxlength_error_20":"This field can be at most 20 characters long.",
     "phone-pattern-error":"Only numbers and spaces are allowed.",
     "length-error-6-35":"This field must be within 6-35 characters.",
