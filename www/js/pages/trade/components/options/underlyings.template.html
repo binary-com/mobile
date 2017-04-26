@@ -1,19 +1,10 @@
 <div class="underlyings">
   <div class="row">
-    <div class="col">
-      <div class="list">
-        <div class="item item-divider">
-          Select underlying
-        </div>
-        <div class="item item-input item-select">
-          <span class="input-label">underlying</span>
-          <select name="underlying" ng-model="vm.options.underlying" ng-change="vm.selectUnderlying()">
-            <option ng-repeat="underlying in vm.underlyings">
-              {{ underlying.display_name }}
-            </option>
-          </select>
-        </div>
-      </div>
+    <div class="col center" ng-repeat="underlying in vm.underlyings">
+      <button class="button button-clear"
+              ng-click="vm.selectUnderlying(underlying)">
+        {{ underlying.display_name }}
+      </button>
     </div>
   </div>
 </div>

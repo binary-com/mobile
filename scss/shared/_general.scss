@@ -130,20 +130,20 @@ button {
   border: none !important;
   border-radius: 3px;
   &.button.button-positive {
-    background: $positiveColor!important;
+    background: $positiveColor;
     &:hover {
-      background: $positiveColor!important;
-      color: $white !important;
+      background: $positiveColor;
+      color: $white;
     }
   }
   &.button.button-secondary {
-    background: $primaryBrandColor!important;
+    background: $primaryBrandColor;
     &:hover {
-      background: $primaryBrandColor!important;
-      color: $white !important;
+      background: $primaryBrandColor;
+      color: $white;
     }
     &[disabled="disabled"] {
-      color: $white !important;
+      color: $white;
     }
   }
 }
@@ -346,7 +346,6 @@ ion-side-menu-content {
   .accounts,
   .help,
   .home,
-  .options,
   .sign-in,
   .trade {
     width: 100%;

@@ -22,8 +22,8 @@
                 </label>
             </div>
             <div class="row center">
-                <div class="col col-75">
-                    <button class="button button-positive button-block ink" type="submit" angular-ripple>
+                <div class="col col-50 center">
+                    <button class="button button-positive ink" type="submit" angular-ripple>
                         {{'signin.add_account' | translate }}
                     </button>
                 </div>
@@ -32,7 +32,7 @@
 
         <form name="emailForm" id="emailform" ng-show="vm.showSignup && !vm.showvirtualws" ng-submit="vm.verifyUserMail()">
             <div class="row center">
-                <div class="col col-75">
+                <div class="col col-75 center">
                   <div class="list">
                     <label class="item item-input item-floating-label">
                       <span class="input-label">
@@ -46,14 +46,17 @@
                     <div class="help-block error" ng-if="vm.emailError">
                         {{vm.emailErrorMessage}}
                     </div>
-                  </div>
-                  <div class="item">
-                    <button class="button button-positive button-block ink" type="submit" ng-disabled="emailForm.$invalid || vm.isVerifyingEmail" angular-ripple>
-                        {{'newvirtualaccount.continue' | translate}}
-                    </button>
-                  </div>
+                    <div class="item">
+                      <div class="row">
+                        <div class="col center">
+                          <button class="button button-positive ink" type="submit" ng-disabled="emailForm.$invalid || vm.isVerifyingEmail" angular-ripple>
+                            {{'newvirtualaccount.continue' | translate}}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
 
-
+                  </div>
                 </div>
             </div>
         </form>
@@ -118,9 +121,13 @@
                     </label>
 
                     <div class="item">
-                      <button class="button button-positive button-block ink" type="submit" ng-disabled="virtualws.$invalid" angular-ripple>
-                          {{'newvirtualaccount.signup' | translate}}
-                      </button>
+                      <div class="row">
+                        <div class="col center">
+                          <button class="button button-positive ink" type="submit" ng-disabled="virtualws.$invalid" angular-ripple>
+                            {{'newvirtualaccount.signup' | translate}}
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -148,13 +155,13 @@
         </div>
         <!-- end signup -->
         <div class="row center">
-          <div class="col col-75">
+          <div class="col col-50">
               <language ng-show="!vm.showSignin && !vm.showTokenForm  && !vm.showSignup && !vm.showvirtualws"></language>
           </div>
         </div>
 
         <div class="row center" ng-show="!vm.showSignin && !vm.showTokenForm && !vm.showSignup && !vm.showvirtualws">
-            <div class="col col-75">
+            <div class="col col-50">
                 <button class="button button-block button-positive ink" type="button" ng-click="vm.showSigninView()" ng-disabled="vm.disableNextbutton" angular-ripple>
                     {{ 'signin.next' | translate }}
                 </button>

@@ -365,14 +365,12 @@
               <div class="help-block error" ng-show="vm.estimatedWorthError">
                 {{ vm.estimatedWorthErrorMessage }}
               </div>
-
-
             </div>
           </div>
         </div>
       </div>
 
-      <div class="list card">
+      <div class="card">
         <div class="row">
           <ion-list class="col list">
             <ion-item class="item item-text-wrap">
@@ -389,7 +387,7 @@
             <span class="center" ng-if="vm.updateSuccessful">
                 <i class="ion-checkmark green"></i>
                 {{'financial-assessment.updated_successfully' | translate}}</span>
-            <button class="button button-block button-positive ink" ng-click="vm.submitFinancialAssessment()" ng-disabled="financial-assessment.$invalid || vm.disableUpdateButton" angular-ripple>
+            <button class="button button-positive ink" ng-click="vm.submitFinancialAssessment()" ng-disabled="financial-assessment.$invalid || vm.disableUpdateButton" angular-ripple>
                 {{'financial-assessment.update' | translate}}
             </button>
         </div>

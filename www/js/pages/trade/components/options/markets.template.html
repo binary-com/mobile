@@ -1,19 +1,7 @@
 <div class="markets">
   <div class="row">
-    <div class="col">
-      <div class="list">
-        <div class="item item-divider">
-          Select Market
-        </div>
-        <div class="item item-input item-select">
-          <span class="input-label">Market</span>
-          <select name="market" ng-model="vm.options.market" ng-change="vm.selectMarket()">
-            <option ng-repeat="(key, value) in vm.markets">
-              {{ value.displayName }}
-            </option>
-          </select>
-        </div>
-      </div>
+    <div class="col center" ng-repeat="(key, value) in vm.markets">
+      <button class="button button-clear" ng-click="vm.selectMarket(value)"> {{value.displayName}} </button>
     </div>
   </div>
 </div>

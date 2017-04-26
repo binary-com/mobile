@@ -7,26 +7,26 @@
  */
 
 (function(){
-    'use strict';
+  'use strict';
 
-    angular
-        .module('binary.pages.trade.components.options.controllers')
-        .controller('UnderlyingsController', Underlying);
+  angular
+    .module('binary.pages.trade.components.options.controllers')
+    .controller('UnderlyingsController', Underlying);
 
-    Underlying.$inject = [];
+  Underlying.$inject = [];
 
-    function Underlying(){
-        var vm = this;
-        vm.underlyings = [];
+  function Underlying(){
+    var vm = this;
+    vm.underlyings = [];
 
-        vm.selectUnderlying = function(underlying) {
-            vm.select()(underlying);
-        }
-
-        function init(){
-            vm.underlyings = vm.market.underlying;
-        }
-
-        init();
+    vm.selectUnderlying = function(underlying) {
+      vm.select()(underlying);
     }
+
+    function init(){
+      vm.underlyings = vm.market.underlying;
+    }
+
+    init();
+  }
 })();

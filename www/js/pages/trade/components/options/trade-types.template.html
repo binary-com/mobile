@@ -1,17 +1,10 @@
 <div class="trade-types">
   <div class="row">
-    <div class="col">
-      <div class="list">
-        <div class="item item-divider">Select Tradetype</div>
-        <div class="item item-input item-select">
-          <span class="input-label">Tradetype</span>
-          <select name="tradetype" ng-model="vm.options.tradeType" ng-change="vm.selectTradeType()">
-            <option ng-repeat="(key, value) in vm.tradeTypes">
-              {{ key }}
-            </option>
-          </select>
-        </div>
-      </div>
+    <div class="col center" ng-repeat="(key, value) in vm.tradeTypes">
+      <button class="button button-clear"
+              ng-click="vm.selectTradeType(key)">
+        {{key}}
+      </button>
     </div>
   </div>
 </div>

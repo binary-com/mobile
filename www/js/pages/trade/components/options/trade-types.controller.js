@@ -7,27 +7,27 @@
  */
 
 (function(){
-    'use strict';
+  'use strict';
 
-    angular
-        .module('binary.pages.trade.components.options.controllers')
-        .controller('TradeTypesController', TradeTypes);
+  angular
+    .module('binary.pages.trade.components.options.controllers')
+    .controller('TradeTypesController', TradeTypes);
 
-    TradeTypes.$inject = [];
+  TradeTypes.$inject = [];
 
-    function TradeTypes(){
-        var vm = this;
+  function TradeTypes(){
+    var vm = this;
 
-        vm.tradeTypes = {};
+    vm.tradeTypes = {};
 
-        vm.selectTradeType = function(tradeType){
-            vm.select()(tradeType);
-        }
-
-        function init(){
-            vm.tradeTypes = JSON.parse(sessionStorage.tradeTypes);
-        }
-
-        init();
+    vm.selectTradeType = function(tradeType){
+      vm.select()(tradeType);
     }
+
+    function init(){
+      vm.tradeTypes = JSON.parse(sessionStorage.tradeTypes);
+    }
+
+    init();
+  }
 })();

@@ -1,19 +1,10 @@
 <div class="digits">
   <div class="row">
-    <div class="col">
-      <div class="list">
-        <div class="item item-divider">
-          select digit
-        </div>
-        <div class="item item-input item-select">
-          <span class="input-label">Digit</span>
-          <select name="digit" ng-model="vm.options.digit" ng-change="vm.selectDigit()">
-            <option ng-repeat="value in vm.digits"">
-              {{ value }}
-            </option>
-          </select>
-        </div>
-      </div>
+    <div class="col center" ng-repeat="value in vm.digits">
+      <button class="button button-clear"
+              ng-click="vm.selectDigit(value)">
+        {{value}}
+      </button>
     </div>
   </div>
 </div>

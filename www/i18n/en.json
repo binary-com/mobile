@@ -73,7 +73,13 @@
     "markets_are_closed": "Sorry, All markets are currently closed. Please try again later",
     "ticks": "ticks",
     "tick": "tick",
-    "digit": "digit"
+    "digit": "digit",
+    "cancel": "Cancel",
+    "select_market": "Select market",
+    "select_underlying": "Select Underlying",
+    "select_tradetype": "Select Tradetype",
+    "select_tick": "Select Tick",
+    "select_digit": "Select Digit"
   },
   "trade": {
     "payout": "Payout",
