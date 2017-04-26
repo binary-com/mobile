@@ -175,7 +175,24 @@ angular
 					templateUrl: 'js/pages/tax-information/tax-information.template.html',
 					controller: 'TaxInformationController',
 					controllerAs: 'vm'
-				});
+				})
+        .state('meta-trader', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/meta-trader/meta-trader.template.html',
+          controller: 'MetaTraderController',
+          controllerAs: 'vm'
+        })
+        .state('mt5-web', {
+          parent: 'layout',
+          params: {
+            id: null
+          },
+          cache: false,
+          templateUrl: 'js/pages/meta-trader/mt5-web.template.html',
+          controller: 'MT5WebController',
+          controllerAs: 'vm'
+        });
 
 
 				$urlRouterProvider.otherwise('/');

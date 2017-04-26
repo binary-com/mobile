@@ -14,6 +14,18 @@
         <img src="img/binary_logo_light.svg" alt="Binary.com">
     </h1>
 </ion-header-bar>
-<ion-subheader-bar align-title="center" class="bar bar-subheader bar-positive">
+<ion-subheader-bar align-title="center"
+                   class="bar bar-subheader bar-positive"
+                   ng-show="!vm.hideBalance">
   <bg-balance></bg-balance>
 </ion-subheader-bar>
+<div class="row account-status-message">
+    <div class="col center error" ng-if="vm.authenticateMessage">
+        {{'trade.please_authenticate' | translate}}
+    </div>
+</div>
+<div class="row account-status-message">
+    <div class="col center error" ng-if="vm.restrictedMessage && !vm.authenticateMessage">
+        {{'trade.restricted_account' | translate}}
+    </div>
+</div>

@@ -1,30 +1,36 @@
 .home {
-	background-color: $fillColor;
-	.branding {
-		width: 80%;
-		max-width: 600px;
-		margin: 40% auto;
-		.logo {
-			display: block;
-			margin: 0 auto;
-			width: 40%;
-		}
-		.slogan {
-			display: block;
-			margin: 5% auto 0;
-			width: 60%;
-		}
-	}
-	.spinner {
-		svg {
-			display: block;
-			stroke: $primaryBrandColor;
-		}
-	}
-	span {
-		display: block;
-		margin: -50px auto 0;
-		color: $primaryBrandColor;
-		text-align: center;
-	}
+  background-color: $fillColor;
+  &.branding {
+    align-items: center;
+    display: flex;
+    font-size: 1.1rem;
+    justify-content: center;
+    .logo {
+      display: block;
+      margin: 0 auto;
+      width: 40%;
+    }
+    .slogan {
+      display: block;
+      margin: 5% auto 0;
+      width: 60%;
+    }
+  }
+
+  .spinner-container {
+    margin-top: 15px;
+  }
+
+  .spinner {
+    svg {
+      display: block;
+      stroke: $primaryBrandColor;
+    }
+  }
+  span {
+    display: block;
+    margin: -50px auto 0;
+    color: $primaryBrandColor;
+    text-align: center;
+  }
 }

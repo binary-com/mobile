@@ -14,10 +14,10 @@
         .controller('TradeController', Trade);
 
     Trade.$inject = [
-        '$scope', 'proposalService'
+        '$scope', 'proposalService', 'appStateService'
     ];
 
-    function Trade($scope, proposalService) {
+    function Trade($scope, proposalService, appStateService) {
         var vm = this;
 
         vm.proposal = {};
@@ -59,7 +59,6 @@
             }
 
         });
-
 
     }
 })();

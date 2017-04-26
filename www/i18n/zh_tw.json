@@ -8,7 +8,7 @@
     "signin_with_binary_com":"登入",
     "use_token":"以權杖登入",
     "next":"下一步",
-    "regulatory-information":"Regulatory information"
+    "regulatory-information":"法規資訊"
   },
   "accounts":{
     "my_accounts":"帳戶管理",
@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"帳戶",
-    "select_market":"市場",
+    "select_market":"選擇市場",
     "forex":"外匯",
     "random":"隨機",
     "volidx":"波動率指數",
@@ -71,7 +71,12 @@
     "digit_even_odd":"數字偶/奇",
     "digit_matches_differs":"數字相符/差異",
     "up_down":"上漲/下跌",
-    "markets_are_closed":"抱歉，所有市場現已關閉。請稍後重試。"
+    "markets_are_closed":"抱歉，所有市場現已關閉。請稍後重試。",
+    "cancel":"取消",
+    "select_underlying":"選擇基礎",
+    "select_tradetype":"選擇交易類型",
+    "select_tick":"選擇跳動點",
+    "select_digit":"選擇位數"
   },
   "trade":{
     "payout":"賠付額",
@@ -284,7 +289,17 @@
     "length-error-6-35":"此欄位必須為 6-35 個字元以內。",
     "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
     "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
-    "tax-identification-number-pattern-error":"只允許字母、數字和連字符。"
+    "tax-identification-number-pattern-error":"只允許字母、數字和連字符。",
+    "continue":"繼續",
+    "cancel":"取消",
+    "not-pep-verify":"我聲明本人不是政治公眾人士(PEP)",
+    "pep-info":"PEP是被委託進行特出公眾任務的個人。此身份包括了PEP的親屬和親近的人。",
+    "account_turnover":"Account turnover",
+    "account_turnover_1":"Less than $25,000",
+    "account_turnover_2":"$25,000 - $50,000",
+    "account_turnover_3":"$50,001 - $100,000",
+    "account_turnover_4":"$100,001 - $500,000",
+    "account_turnover_5":"Over $500,000"
   },
   "newaccountreal":{
     "open_real":"升級到真實帳戶",
@@ -338,7 +353,9 @@
     "length-error-6-35":"此欄位必須為 6-35 個字元以內。",
     "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
     "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
-    "required":"此為必填欄位。"
+    "required":"此為必填欄位。",
+    "not-pep-verify":"我聲明本人不是政治公眾人士(PEP)。",
+    "pep-info":"PEP是被委託進行特出公眾任務的個人。此身份包括了PEP的親屬和親近的人。"
   },
   "profittable":{
     "profit_table":"利潤表",
@@ -423,7 +440,8 @@
     "language":"語言",
     "settings":"設定",
     "resources":"資源",
-    "regulatory_information":"Regulatory information"
+    "regulatory_information":"法規資訊",
+    "mt5":"MetaTrader 5"
   },
   "settings":{
     "settings":"設定",
@@ -499,7 +517,9 @@
     "length-error-6-35":"此欄位必須為 6-35 個字元以內。",
     "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
     "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
-    "tax-identification-number-pattern-error":"只允許字母、數字和連字符。"
+    "tax-identification-number-pattern-error":"只允許字母、數字和連字符。",
+    "cancel":"取消",
+    "continue":"繼續"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
@@ -591,7 +611,13 @@
     "financial_assessment_info":"本網站所涵蓋的金融交易服務僅適合這樣的客戶：能夠承受全部投入資金虧損的風險，了解購買金融合約所蘊含的風險並擁有相關的風險經歷。金融合約交易涉及很大的風險。如果所購買的合約到期時一文不值，您的投資將完全損失，其中還包括合約費用。",
     "no_change":"您沒做任何更改。",
     "success":"成功",
-    "success_message":"您的設定已成功更新。"
+    "success_message":"您的設定已成功更新。",
+    "account_turnover":"Account turnover",
+    "account_turnover_1":"Less than $25,000",
+    "account_turnover_2":"$25,000 - $50,000",
+    "account_turnover_3":"$50,001 - $100,000",
+    "account_turnover_4":"$100,001 - $500,000",
+    "account_turnover_5":"Over $500,000"
   },
   "limits":{
     "trading_withdrawal_limits":"交易和提款限額",
@@ -656,6 +682,27 @@
     "error_format":"格式或長度錯誤",
     "required":"此為必填欄位。",
     "success":"成功",
-    "success_message":"您的設定已成功更新。"
+    "success_message":"您的設定已成功更新。",
+    "continue":"繼續",
+    "cancel":"取消"
+  },
+  "connectivity":{
+    "no_connection":"沒有連接"
+  },
+  "mt":{
+    "you_do_not_have_mt5_account":"您沒有MetaTrader帳戶。請先開立帳戶，然後重試。",
+    "create_account":"開立MT5帳戶",
+    "feature_is_not_available":"對不起，此功能不可用。",
+    "meta_trader_accounts":"Meta Trader帳戶",
+    "demo_account":"模擬帳戶",
+    "financial_account":"金融帳戶",
+    "volatility_account":"波動率指數帳戶",
+    "upgrade_financial_account":"如要開立MT5金融帳戶，請升級為Binary.com真實帳戶。",
+    "upgrade_volatility_account":"如要開立MT5波動率指數帳戶，請升級為Binary.com真實帳戶。",
+    "create_demo_account":"開立MT5虛擬帳戶",
+    "login_id":"登入ID",
+    "balance":"餘額",
+    "name":"姓名",
+    "start_trading_with_mt5":"開始用 MT5 交易"
   }
 }

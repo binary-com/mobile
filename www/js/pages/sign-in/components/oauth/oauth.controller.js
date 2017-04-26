@@ -57,6 +57,7 @@
           }
 
           accounts[a].email = response.email;
+          accounts[a].country = response.country;
           accountService.add(accounts[a]);
         }
       }
