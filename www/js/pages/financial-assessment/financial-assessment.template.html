@@ -542,6 +542,35 @@
 
             <div class="row">
                 <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.account_turnover' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="accountTurnover" ng-model="vm.data.accountTurnover" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="Less than $25,000">{{'financial-assessment.account_turnover_1' | translate}}</option>
+                                <option value="$25,000 - $50,000">{{'financial-assessment.account_turnover_2' | translate}}</option>
+                                <option value="$50,001 - $100,000">{{'financial-assessment.account_turnover_3' | translate}}</option>
+                                <option value="$100,001 - $500,000">{{'financial-assessment.account_turnover_4' | translate}}</option>
+                                <option value="Over $500,000">{{'financial-assessment.account_turnover_5' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.accountTurnoverError">
+                                {{vm.accountTurnoverErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
                     <p>
                         {{'financial-assessment.financial_assessment_info' | translate}}
                     </p>
