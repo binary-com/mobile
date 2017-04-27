@@ -73,16 +73,16 @@
     "up_down":"Acima/Abaixo",
     "markets_are_closed":"Lamentamos, todos os mercados estão encerrados. Tente novamente mais tarde",
     "cancel":"Cancelar",
-    "select_underlying":"Selecionar ativo subjacente",
-    "select_tradetype":"Select Tradetype",
-    "select_tick":"Select Tick",
-    "select_digit":"Select Digit"
+    "select_underlying":"Selecione ativo subjacente",
+    "select_tradetype":"Selecione TipoDeNegociação",
+    "select_tick":"Selecione tique-taque",
+    "select_digit":"Selecione dígito"
   },
   "trade":{
     "payout":"Pagamento",
     "stake":"Aposta",
     "price":"Preço",
-    "buy":"Buy",
+    "buy":"Comprar",
     "net_profit":"Lucro líquido",
     "potential_payout":"Pagamento potencial",
     "total_cost":"Custo total",
@@ -98,10 +98,10 @@
     "lose":"Este contrato perdeu",
     "transaction_id":"Referência de transação",
     "buy_again":"Comprar novamente",
-    "sell":"Sell",
-    "barrier":"Barrier offset",
-    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
-    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
+    "sell":"Vender",
+    "barrier":"Deslocamento da barreira",
+    "please_authenticate":"Autentique a sua conta para aumentar os seus limites de retirada e negociação.",
+    "restricted_account":"A sua conta está restrita. Por favor, contate o apoio ao cliente para assistência."
   },
   "help":{
     "need_help":"Precisa de ajuda?",
@@ -117,11 +117,11 @@
     "exit_confirmation":"Tem certeza que deseja sair?",
     "connection_error_title":"Erro de conexão",
     "connection_error":"Não há conexão com a internet!",
-    "sign_out":"Sign out"
+    "sign_out":"Sair"
   },
   "update":{
-    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
-    "what_is_new":"WHAT'S NEW"
+    "your_version_is_out_of_date_please_update":"A sua versão do Tick Trade está desatualizada. Atualize o seu aplicativo para a versão mais recente.",
+    "what_is_new":"NOVIDADES"
   },
   "realitycheck":{
     "title":"Balanço da realidade",
