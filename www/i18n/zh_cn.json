@@ -699,6 +699,8 @@
     "volatility_account":"波动率指数账户",
     "upgrade_financial_account":"如要开立MT5金融账户，请升级为Binary.com真实账户。",
     "upgrade_volatility_account":"如要开立MT5波动率指数账户，请升级为Binary.com真实账户。",
+    "create_financial_account":"Create a Financial Account for MT5",
+    "create_volatility_account":"Create a Volatility Account for MT5",
     "create_demo_account":"开立MT5模拟账户",
     "login_id":"登录 ID",
     "balance":"余额",
