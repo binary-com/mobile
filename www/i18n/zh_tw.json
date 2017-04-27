@@ -699,6 +699,8 @@
     "volatility_account":"波動率指數帳戶",
     "upgrade_financial_account":"如要開立MT5金融帳戶，請升級為Binary.com真實帳戶。",
     "upgrade_volatility_account":"如要開立MT5波動率指數帳戶，請升級為Binary.com真實帳戶。",
+    "create_financial_account":"Create a Financial Account for MT5",
+    "create_volatility_account":"Create a Volatility Account for MT5",
     "create_demo_account":"開立MT5虛擬帳戶",
     "login_id":"登入ID",
     "balance":"餘額",
