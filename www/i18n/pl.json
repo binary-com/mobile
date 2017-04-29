@@ -512,14 +512,14 @@
     "maxlength_error_70":"To pole może liczyć maksymalnie 70 znaków.",
     "maxlength_error_35":"To pole może liczyć maksymalnie 35 znaków.",
     "postcode-pattern-error":"Dozwolone są tylko litery, cyfry i myślnik.",
-    "maxlength_error_20":"This field can be at most 20 characters long.",
-    "phone-pattern-error":"Only numbers and spaces are allowed.",
-    "length-error-6-35":"This field must be within 6-35 characters.",
-    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed.",
-    "cancel":"Cancel",
-    "continue":"Continue"
+    "maxlength_error_20":"To pole może zawierać maksymalnie 20 znaków.",
+    "phone-pattern-error":"Dozwolone są tylko liczby i spacje.",
+    "length-error-6-35":"To pole musi zawierać od 6 do 35 znaków.",
+    "secretanswer-pattern-error":"Dozwolone są wyłącznie litery, cyfry, znak spacji, myślnik, kropka i apostrof.",
+    "length-error-4-50":"To pole musi zawierać od 4 do 50 znaków.",
+    "tax-identification-number-pattern-error":"Dozwolone są tylko litery, cyfry i myślnik.",
+    "cancel":"Anuluj",
+    "continue":"Kontynuuj"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"zaktualizowało swój",
@@ -539,9 +539,9 @@
     "password_not_match":"Wprowadzone hasła nie są zgodne.",
     "required":"To pole jest obowiązkowe.",
     "current_password_required":"Wprowadź swoje obecne hasło.",
-    "password_pattern_error":"Password should have lower and uppercase letters with numbers.",
+    "password_pattern_error":"Hasło powinno się składać z małych i wielkich liter oraz cyfr.",
     "password_changed_text":"Twoje hasło zostało zmienione. Zaloguj się ponownie.",
-    "length-error-6-25":"This field must be within 6-25 characters."
+    "length-error-6-25":"To pole musi zawierać od 6 do 25 znaków."
   },
   "financial-assessment":{
     "financial_assessment":"Ocena finansowa",
@@ -610,14 +610,14 @@
     "update":"Aktualizuj",
     "financial_assessment_info":"Usługi zawierania transakcji finansowych oferowane na niniejszym portalu są odpowiednie tylko dla klientów, którzy są w stanie ponieść stratę wszystkich zainwestowanych pieniędzy i którzy rozumieją zagrożenia związane z nabywaniem kontraktów finansowych i mają doświadczenie w tym zakresie. Transakcje finansowe niosą ze sobą wysokie ryzyko. Jeśli zakupiony kontrakt zakończy się bez wartości, stracisz całą zainwestowaną sumę, na którą składać się będzie premia z kontraktu.",
     "no_change":"Niczego nie zmieniono.",
-    "success":"Success",
-    "success_message":"Your settings have been updated successfully.",
-    "account_turnover":"Account turnover",
-    "account_turnover_1":"Less than $25,000",
-    "account_turnover_2":"$25,000 - $50,000",
-    "account_turnover_3":"$50,001 - $100,000",
-    "account_turnover_4":"$100,001 - $500,000",
-    "account_turnover_5":"Over $500,000"
+    "success":"Udało się",
+    "success_message":"Twoje ustawienia zostały pomyślnie zaktualizowane.",
+    "account_turnover":"Obrót na koncie",
+    "account_turnover_1":"Mniej niż 25 000 $",
+    "account_turnover_2":"25 000 $ - 50 000 $",
+    "account_turnover_3":"50 001 $ - 100 000 $",
+    "account_turnover_4":"100 001 $ - 500 000 $",
+    "account_turnover_5":"Ponad 500 000 $"
   },
   "limits":{
     "trading_withdrawal_limits":"Limity handlowania i wypłat",
@@ -681,20 +681,20 @@
     "isrequired":"(obowiązkowe)",
     "error_format":"Nieprawidłowy format lub długość",
     "required":"To pole jest obowiązkowe.",
-    "success":"Success",
-    "success_message":"Your settings have been updated successfully.",
-    "continue":"Continue",
-    "cancel":"Cancel"
+    "success":"Udało się",
+    "success_message":"Twoje ustawienia zostały pomyślnie zaktualizowane.",
+    "continue":"Kontynuuj",
+    "cancel":"Anuluj"
   },
   "connectivity":{
-    "no_connection":"No Connection"
+    "no_connection":"Brak połączenia"
   },
   "mt":{
     "you_do_not_have_mt5_account":"You don't have any accounts for MetaTrader, Please create one and try again.",
     "create_account":"Create Account for MT5",
-    "feature_is_not_available":"Sorry, this feature is not available.",
+    "feature_is_not_available":"Przepraszamy, ta funkcja jest niedostępna.",
     "meta_trader_accounts":"Meta Trader Accounts",
-    "demo_account":"Demo Account",
+    "demo_account":"Konto Demo",
     "financial_account":"Financial Account",
     "volatility_account":"Volatility Indices Account",
     "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
