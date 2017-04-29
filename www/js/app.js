@@ -65,7 +65,8 @@
         'binary.pages.asset-index',
         'binary.pages.tax-information',
         'binary.pages.meta-trader',
-        'binary.pages.authentication'
+        'binary.pages.authentication',
+        'binary.pages.contact'
     ]);
 
   String.prototype.capitalize = function() {
