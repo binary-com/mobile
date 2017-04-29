@@ -192,6 +192,13 @@ angular
           templateUrl: 'js/pages/authentication/authentication.template.html',
           controller: 'AuthenticationController',
           controllerAs: 'vm'
+        })
+        .state('contact', {
+          parent: 'layout',
+          cache: true,
+          templateUrl: 'js/pages/contact/contact.template.html',
+          controller: 'ContactController',
+          controllerAs: 'vm'
         });
 
 

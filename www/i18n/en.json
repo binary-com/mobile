@@ -445,7 +445,8 @@
     "settings": "Settings",
     "resources": "Resources",
     "regulatory_information": "Regulatory information",
-    "mt5": "MetaTrader 5"
+    "mt5": "MetaTrader 5",
+    "contact_us": "contact us"
   },
   "settings": {
     "settings": "Settings",
@@ -720,6 +721,22 @@
     "authentication": "Authentication",
     "please": "Please",
     "authenticate_your_account": "authenticate your account",
-    "lift": "to lift your withdrawal and trading limits."
+    "lift": "to lift your withdrawal and trading limits.",
+    "questions": "Got questions?",
+    "contact": "Contact us",
+    "help": "for help."
+  },
+  "contact": {
+    "contact_us": "Contact us",
+    "telephone": "Telephone",
+    "australia": "Australia",
+    "canada": "Canada",
+    "germany": "Germany",
+    "indonesia": "Indonesia",
+    "ireland": "Ireland",
+    "poland": "Poland",
+    "russia": "Russia",
+    "united_kingdom": "United Kingdom",
+    "toll_free": "(Toll Free)"
   }
 }
