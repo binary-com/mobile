@@ -100,9 +100,7 @@
     "transaction_id": "Transaction Reference",
     "buy_again": "Buy Again",
     "sell": "Sell",
-    "barrier": "Barrier offset",
-    "please_authenticate": "Please authenticate your account to lift your withdrawal and trading limits.",
-    "restricted_account": "Your account is restricted. Kindly contact customer support for assistance."
+    "barrier": "Barrier offset"
   },
   "help": {
     "need_help": "Need Help?",
@@ -717,5 +715,11 @@
     "balance": "Balance",
     "name": "Name",
     "start_trading_with_mt5": "Start Trading With MT5"
+  },
+  "authentication": {
+    "authentication": "Authentication",
+    "please": "Please",
+    "authenticate_your_account": "authenticate your account",
+    "lift": "to lift your withdrawal and trading limits."
   }
 }
