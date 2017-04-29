@@ -8,7 +8,7 @@
     "signin_with_binary_com":"Zaloguj się",
     "use_token":"Lub zaloguj się przy użyciu tokenu",
     "next":"Dalej",
-    "regulatory-information":"Regulatory information"
+    "regulatory-information":"Informacje o przepisach prawnych"
   },
   "accounts":{
     "my_accounts":"Zarządzaj kontami",
@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"Konto",
-    "select_market":"Select market",
+    "select_market":"Wybierz rynek",
     "forex":"Forex",
     "random":"Losowe",
     "volidx":"Wskaźniki zmienności",
@@ -72,11 +72,11 @@
     "digit_matches_differs":"Cyfry zgadzają się/ różnią się",
     "up_down":"Góra/dół",
     "markets_are_closed":"Niestety wszystkie rynki są obecnie zamknięte. Spróbuj ponownie później",
-    "cancel":"Cancel",
-    "select_underlying":"Select Underlying",
-    "select_tradetype":"Select Tradetype",
-    "select_tick":"Select Tick",
-    "select_digit":"Select Digit"
+    "cancel":"Anuluj",
+    "select_underlying":"Wybierz instrument bazowy",
+    "select_tradetype":"Wybierz rodzaj zakładu",
+    "select_tick":"Wybierz najmniejszą zmianę ceny",
+    "select_digit":"Wybierz cyfrę"
   },
   "trade":{
     "payout":"Wypłata",
@@ -170,7 +170,7 @@
     "invalid_email":"Proszę podać prawidłowy adres e-mail.",
     "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
     "length-error-6-25":"This field must be within 6-25 characters.",
-    "required":"This field is required."
+    "required":"To pole jest wymagane."
   },
   "newaccountmaltainvest":{
     "open_financial":"Otwórz konto finansowe",
@@ -187,8 +187,8 @@
     "tax_residence":"Rezydencja podatkowa",
     "tax_identification_number":"Numer identyfikacji podatkowej",
     "address":"Adres",
-    "address_line_1":"First line of home address",
-    "address_line_2":"Second line of home address",
+    "address_line_1":"Pierwsza część adresu zamieszkania",
+    "address_line_2":"Druga część adresu zamieszkania",
     "address_city":"Miasto",
     "address_state":"Stan/prowincja",
     "address_postcode":"Kod pocztowy",
@@ -275,12 +275,12 @@
     "required":"To pole jest obowiązkowe.",
     "isrequired":"(obowiązkowe)",
     "isoptional":"(opcjonalne)",
-    "read_and_agreed_to":"I have read and agree to the ",
-    "terms_and_conditions":"terms and conditions ",
-    "of_the_site":"of the site.",
-    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-2-30":"This field must be within 2-30 characters.",
-    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "read_and_agreed_to":"Przeczytałem/-am i akceptuję",
+    "terms_and_conditions":"regulamin ",
+    "of_the_site":"tego portalu.",
+    "general-pattern-error":"Dozwolone są tylko litery, spacja, myślniki, kropki i apostrof.",
+    "length-error-2-30":"To pole musi zawierać od 2 do 30 znaków.",
+    "address-pattern-error":"Dozwolone są wyłącznie litery, cyfry, znak spacji, myślnik, kropka i apostrof.",
     "maxlength_error_70":"To pole może liczyć maksymalnie 70 znaków.",
     "maxlength_error_35":"To pole może liczyć maksymalnie 35 znaków.",
     "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
