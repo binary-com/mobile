@@ -8,8 +8,7 @@ angular
 			vm.linkToRegulatory = "https://www.binary.com/" + (localStorage.getItem('language') || "en") + "/regulation.html";
 			vm.goToRegulatory = function() {
 				window.open(vm.linkToRegulatory, '_blank');
-				$ionicSideMenuDelegate.toggleLeft();
-			}
+      }
 
       $scope.$on('landing_company', (e, landingCompany)=>{
         $scope.$applyAsync(()=>{
