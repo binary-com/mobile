@@ -294,12 +294,12 @@
     "cancel":"取消",
     "not-pep-verify":"我声明本人不是政治公众人士(PEP)。",
     "pep-info":"PEP是被委托进行特出公众任务的个人。此身份包括了PEP的亲属和亲近的人。",
-    "account_turnover":"Account turnover",
-    "account_turnover_1":"Less than $25,000",
+    "account_turnover":"账户交易额",
+    "account_turnover_1":"少于$25,000",
     "account_turnover_2":"$25,000 - $50,000",
     "account_turnover_3":"$50,001 - $100,000",
     "account_turnover_4":"$100,001 - $500,000",
-    "account_turnover_5":"Over $500,000"
+    "account_turnover_5":"$500,000以上"
   },
   "newaccountreal":{
     "open_real":"升级为真实账户",
@@ -612,12 +612,12 @@
     "no_change":"您没作任何更改。",
     "success":"成功",
     "success_message":"您的设置已成功更新。",
-    "account_turnover":"Account turnover",
-    "account_turnover_1":"Less than $25,000",
+    "account_turnover":"账户交易额",
+    "account_turnover_1":"少于$25,000",
     "account_turnover_2":"$25,000 - $50,000",
     "account_turnover_3":"$50,001 - $100,000",
     "account_turnover_4":"$100,001 - $500,000",
-    "account_turnover_5":"Over $500,000"
+    "account_turnover_5":"$500,000以上"
   },
   "limits":{
     "trading_withdrawal_limits":"交易和提款限额",
@@ -699,8 +699,8 @@
     "volatility_account":"波动率指数账户",
     "upgrade_financial_account":"如要开立MT5金融账户，请升级为Binary.com真实账户。",
     "upgrade_volatility_account":"如要开立MT5波动率指数账户，请升级为Binary.com真实账户。",
-    "create_financial_account":"Create a Financial Account for MT5",
-    "create_volatility_account":"Create a Volatility Account for MT5",
+    "create_financial_account":"开立MT5金融账户",
+    "create_volatility_account":"开立MT5波动率账户",
     "create_demo_account":"开立MT5模拟账户",
     "login_id":"登录 ID",
     "balance":"余额",
