@@ -8,7 +8,7 @@
     "signin_with_binary_com":"Masuk",
     "use_token":"Atau masuk menggunakan token",
     "next":"Berikutnya",
-    "regulatory-information":"Regulatory information"
+    "regulatory-information":"Informasi pengaturan"
   },
   "accounts":{
     "my_accounts":"Mengelola Akun",
@@ -42,7 +42,7 @@
   },
   "options":{
     "account":"Akun",
-    "select_market":"Select market",
+    "select_market":"Pilih pasar",
     "forex":"Forex",
     "random":"Random",
     "volidx":"Indeks Volatilitas",
@@ -73,10 +73,10 @@
     "up_down":"Up/Down",
     "markets_are_closed":"Maaf, semua pasar sedang ditutup. Silahkan coba kembali nanti",
     "cancel":"Batal",
-    "select_underlying":"Select Underlying",
-    "select_tradetype":"Select Tradetype",
-    "select_tick":"Select Tick",
-    "select_digit":"Select Digit"
+    "select_underlying":"Pilih Dasar",
+    "select_tradetype":"Pilih jenis kontrak",
+    "select_tick":"Pilih Tik",
+    "select_digit":"Pilih Digit"
   },
   "trade":{
     "payout":"Hasil",
@@ -100,8 +100,8 @@
     "buy_again":"Beli Lagi",
     "sell":"Jual",
     "barrier":"Barrier offset",
-    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
-    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
+    "please_authenticate":"Silahkan otentikasi akun Anda untuk menghapus batasan penarikan dan trading.",
+    "restricted_account":"Akun Anda dibatasi. Silahkan hubungi customer support untuk bantuan lebih lanjut."
   },
   "help":{
     "need_help":"Perlu Bantuan?",
@@ -165,10 +165,10 @@
     "show_pass":"Tampilkan kata sandi",
     "enter-email":"Masukkan email Anda",
     "email-error":"Email ini tidak valid",
-    "token-invalid":"Please submit a valid verification token.",
+    "token-invalid":"Masukkan token verifikasi yang benar.",
     "residence-error":"Silakan pilih negara Anda",
     "invalid_email":"Silakan masukkan alamat email yang berlaku.",
-    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
+    "password-pattern-error":"Kata sandi harus terdiri dari huruf kecil dan besar beserta angka.",
     "length-error-6-25":"Kolom ini harus diisi dengan 6-25 karakter panjang.",
     "required":"Bagian ini wajib diisi."
   },
@@ -696,15 +696,15 @@
     "meta_trader_accounts":"Meta Trader Accounts",
     "demo_account":"Demo Account",
     "financial_account":"Financial Account",
-    "volatility_account":"Volatility Indices Account",
+    "volatility_account":"Akun Indeks Volatilitas",
     "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
     "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
     "create_financial_account":"Create a Financial Account for MT5",
     "create_volatility_account":"Create a Volatility Account for MT5",
     "create_demo_account":"Create a Demo Account for MT5",
     "login_id":"Login ID",
-    "balance":"Balance",
-    "name":"Name",
+    "balance":"Saldo",
+    "name":"Nama",
     "start_trading_with_mt5":"Start Trading With MT5"
   }
 }
