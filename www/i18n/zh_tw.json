@@ -101,7 +101,7 @@
     "sell":"賣出",
     "barrier":"障礙位移",
     "please_authenticate":"請驗證帳戶，以便提高取款和交易限額。",
-    "restricted_account":"您的帳戶已被限制。請聯繫客服部請求幫助。"
+    "restricted_account":"您的帳戶已被限制。請聯繫客服部為您提供幫助。"
   },
   "help":{
     "need_help":"需要幫助？",
@@ -184,7 +184,7 @@
     "date_of_birth":"出生日期",
     "residence":"居住國",
     "place_of_birth":"出生地",
-    "tax_residence":"納稅居住地",
+    "tax_residence":"納稅居留地",
     "tax_identification_number":"稅務識別號碼",
     "address":"地址",
     "address_line_1":"家庭地址第一行",
