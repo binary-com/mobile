@@ -160,7 +160,7 @@
     "select":"选择您的国家",
     "isrequired":"（必需）",
     "password_hint":"密码必须是至少6个大小写字母和数字",
-    "code_hint":"请检查您的电邮领取此令牌号",
+    "code_hint":"请检查您的电子邮件领取此令牌号",
     "hide_pass":"隐藏密码",
     "show_pass":"显示密码",
     "enter-email":"请输入您的电子邮件",
