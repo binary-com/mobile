@@ -449,12 +449,12 @@
     "self-exclusion":"自我禁止",
     "change-password":"更改密码",
     "financial-assessment":"财务评估",
-    "limits":"限额"
+    "limits":"限制"
   },
   "self-exclusion":{
     "self-exclusion":"自我禁止设施",
     "maximum-account-cash-balance":"最大账户现金余额",
-    "max-balance-hint":"一旦达到此限制时，您不可再存入资金。",
+    "max-balance-hint":"一旦达到此限制，您就不可再存入资金。",
     "daily-turnover-limit":"每日交易限额",
     "max-turnover-hint":"每日最大累计合约买入量。",
     "daily-limit-on-losses":"每日损失限额",
