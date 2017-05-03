@@ -514,9 +514,9 @@
     "postcode-pattern-error":"只允许字母、数字和连字符。",
     "maxlength_error_20":"此字段最多可以有 20 个字符长。",
     "phone-pattern-error":"只允许数字和空格。",
-    "length-error-6-35":"此字段必须为 6-35 个字符以内。",
+    "length-error-6-35":"此字段必须为 6-35 个字符。",
     "secretanswer-pattern-error":"只允许字母、数字、空格、连字符、句号和省略号。",
-    "length-error-4-50":"此字段必须为 4-50 个字符以内。",
+    "length-error-4-50":"此字段必须为 4-50 个字符。",
     "tax-identification-number-pattern-error":"只允许字母、数字和连字符。",
     "cancel":"取消",
     "continue":"继续"
