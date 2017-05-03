@@ -502,7 +502,7 @@
     "success_message":"已成功更新您的設置。",
     "error_message":"無法更新您的設置。",
     "this_field_is_required":"此為必填欄位。",
-    "tax_residence":"納稅居住地",
+    "tax_residence":"納稅居留地",
     "tax_identification_number":"稅務識別號碼",
     "place_of_birth":"出生地",
     "select":"請選擇",
