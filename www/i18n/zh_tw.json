@@ -438,13 +438,13 @@
     "profit_table":"利潤表",
     "statement":"帳單",
     "language":"語言",
-    "settings":"設定",
+    "settings":"設置",
     "resources":"資源",
     "regulatory_information":"法規資訊",
     "mt5":"MetaTrader 5"
   },
   "settings":{
-    "settings":"設定",
+    "settings":"設置",
     "security-and-limits":"安全與限制",
     "self-exclusion":"自我禁止",
     "change-password":"更改密碼",
@@ -454,7 +454,7 @@
   "self-exclusion":{
     "self-exclusion":"自我禁止設施",
     "maximum-account-cash-balance":"最大帳戶現金餘額",
-    "max-balance-hint":"一旦達到此限制時，您不可再存入資金。",
+    "max-balance-hint":"一旦達到此限制，您就不可再存入資金。",
     "daily-turnover-limit":"每日交易限額",
     "max-turnover-hint":"每日最大累計合約買入量。",
     "daily-limit-on-losses":"每日損失限額",
@@ -507,16 +507,16 @@
     "place_of_birth":"出生地",
     "select":"請選擇",
     "general-pattern-error":"只允許字母、空格、連字號、句號和所有格號。",
-    "length-error-2-30":"此欄位必須為 2-30 個字元以內。",
+    "length-error-2-30":"此欄位必須為 2-30 個字元。",
     "address-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
-    "maxlength_error_70":"此欄位最多可以有 70 個字元長。",
-    "maxlength_error_35":"此欄位最多可以有 35 個字元長。",
+    "maxlength_error_70":"此欄位最多可以有 70 個字元。",
+    "maxlength_error_35":"此欄位最多可以有 35 個字元。",
     "postcode-pattern-error":"只允許字母、數字和連字符。",
-    "maxlength_error_20":"此欄位最多可以有 20 個字元長。",
+    "maxlength_error_20":"此欄位最多可以有 20 個字元。",
     "phone-pattern-error":"只允许數字和空格。",
-    "length-error-6-35":"此欄位必須為 6-35 個字元以內。",
+    "length-error-6-35":"此欄位必須為 6-35 個字元。",
     "secretanswer-pattern-error":"只允許字母、數字、空格、連字號、句號和所有格號。",
-    "length-error-4-50":"此欄位必須為 4-50 個字元以內。",
+    "length-error-4-50":"此欄位必須為 4-50 個字元。",
     "tax-identification-number-pattern-error":"只允許字母、數字和連字符。",
     "cancel":"取消",
     "continue":"繼續"
@@ -524,7 +524,7 @@
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
     "terms_and_conditions":"條款與條件",
-    "confirm_phrase":"。通過點選OK按鈕，您確定已經閱讀和接受此更新條款和條件",
+    "confirm_phrase":"。通過點選確定按鈕，您確定已經閱讀和接受此更新條款和條件",
     "ok":"確定"
   },
   "app-version":{
@@ -540,7 +540,7 @@
     "required":"此為必填欄位。",
     "current_password_required":"請輸入您的目前密碼。",
     "password_pattern_error":"密碼必須有大小寫字母和數字。",
-    "password_changed_text":"您的密碼已更改。請重新登入。",
+    "password_changed_text":"您的密碼已更改。請重新登錄。",
     "length-error-6-25":"此欄位必須為 6-25 個字元。"
   },
   "financial-assessment":{
