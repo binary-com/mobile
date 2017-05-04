@@ -1,0 +1,37 @@
+<ion-view class="authentication">
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{'authentication.authentication' | translate}}
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="list">
+          <div class="item item-text-wrap">
+            Please send the following documents to support@binary.com in order to verify your identity and authenticate your account:
+          </div>
+          <div class="item item-text-wrap">
+            <i class="ion-checkmark"></i>
+              Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.
+          </div>
+          <div class="item item-text-wrap">
+            <i class="ion-checkmark"></i>
+            Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old.
+          </div>
+          <div class="item item-text-wrap">
+            <p>
+              {{'authentication.questions' | translate}}
+              <a ui-sref="contact">
+                {{'authentication.contact' | translate}}
+              </a>
+              {{'authentication.help' | translate}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

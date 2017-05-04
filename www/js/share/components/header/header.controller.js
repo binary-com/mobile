@@ -107,23 +107,5 @@
             $state.go(vm.from);
         };
 
-        $scope.$watch(
-            () => {
-                return appStateService.authenticateMessage
-            },
-            () => {
-                vm.authenticateMessage = appStateService.authenticateMessage;
-            }
-        );
-
-        $scope.$watch(
-            () => {
-                return appStateService.restrictedMessage
-            },
-            () => {
-                vm.restrictedMessage = appStateService.restrictedMessage;
-            }
-        );
-
     }
 })();
