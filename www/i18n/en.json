@@ -719,12 +719,15 @@
   },
   "authentication": {
     "authentication": "Authentication",
-    "please": "Please",
-    "authenticate_your_account": "authenticate your account",
-    "lift": "to lift your withdrawal and trading limits.",
+    "please_authenticate": "Please authenticate your account to lift your withdrawal and trading limits.",
     "questions": "Got questions?",
     "contact": "Contact us",
-    "help": "for help."
+    "help": "for help.",
+    "go_authentication": "Show authentication"
+  },
+  "restricted": {
+    "please_contact": "Your account is restricted. Kindly contact customer support for assistance.",
+    "go_restricted": "Go to contacts page"
   },
   "contact": {
     "contact_us": "Contact us",
@@ -753,5 +756,8 @@
     "kl_address": "Binary Group Services Sdn Bhd, 30-10, Q Sentral, Jalan Stesen Sentral 2, 50470 Kuala Lumpur",
     "isle_of_man": "Isle of Man",
     "isle_of_man_address": "Binary (IOM) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW"
+  },
+  "notifications": {
+    "notification": "Notification"
   }
 }

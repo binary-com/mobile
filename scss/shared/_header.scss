@@ -72,6 +72,23 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 		padding: 10px;
 	}
 }
+.notification-icon {
+	position: absolute;
+	right: 0;
+	span {
+		position: absolute;
+		top: 10px;
+		left: 0px;
+		background: #C03;
+		border-radius: 50px;
+		z-index: 15;
+		line-height: 12px;
+		min-width: 21px;
+		text-align: center;
+		font-size: 12px;
+		padding: 5px;
+	}
+}
 .logo-spinner {
 	-webkit-animation-name: spin;
 	-webkit-animation-duration: 1000ms;

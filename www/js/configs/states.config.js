@@ -199,6 +199,13 @@ angular
           templateUrl: 'js/pages/contact/contact.template.html',
           controller: 'ContactController',
           controllerAs: 'vm'
+        })
+        .state('notifications', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/notifications/notifications.template.html',
+          controller: 'NotificationsController',
+          controllerAs: 'vm'
         });
 
 
