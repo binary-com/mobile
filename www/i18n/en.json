@@ -720,6 +720,9 @@
   "authentication": {
     "authentication": "Authentication",
     "please_authenticate": "Please authenticate your account to lift your withdrawal and trading limits.",
+    "documents": "Please send the following documents to support@binary.com in order to verify your identity and authenticate your account:",
+    "proof_of_identity": "Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.",
+    "proof_of_address": "Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old.",
     "questions": "Got questions?",
     "contact": "Contact us",
     "help": "for help.",
