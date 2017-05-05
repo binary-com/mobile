@@ -11,7 +11,7 @@
       <ion-header-bar class="header account-menu">
         <bg-accounts></bg-accounts>
       </ion-header-bar>
-      <ion-content class="has-header has-footer" scroll="true">
+      <ion-content class="has-header has-footer" scroll="true" overflow-scroll="false">
         <bg-account-upgrade></bg-account-upgrade>
         <ion-list>
           <ion-item nav-clear menu-close ui-sref="trade" tabindex="1" href="#">
@@ -56,7 +56,7 @@
             </div>
             {{ 'menu.contact_us' | translate }}
           </ion-item>
-          <ion-item ng-click="vm.goToRegulatory()" href="#">
+          <ion-item nav-clear menu-close ng-click="vm.goToRegulatory()">
             <div class="icon-wrapper">
               <i class="ion-information"></i>
             </div>
