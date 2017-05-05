@@ -13,14 +13,31 @@
         .module('binary.share.components.check-user-status.controllers')
         .controller('CheckUserStatusController', CheckUserStatus);
 
-    CheckUserStatus.$inject = ['$scope', '$state', '$translate', '$timeout', '$ionicSideMenuDelegate', 'websocketService', 'appStateService', 'alertService', 'accountService'];
+    CheckUserStatus.$inject = ['$scope', '$state', '$translate', '$timeout', '$ionicSideMenuDelegate', 'websocketService', 'appStateService', 'alertService', 'accountService', 'notificationService'];
 
-    function CheckUserStatus($scope, $state, $translate, $timeout, $ionicSideMenuDelegate, websocketService, appStateService, alertService, accountService) {
+    function CheckUserStatus($scope, $state, $translate, $timeout, $ionicSideMenuDelegate, websocketService, appStateService, alertService, accountService, notificationService) {
       var vm = this;
       vm.isLoggedIn = false;
       vm.notUpdatedTaxInfo = false;
       vm.isFinancial = false;
       vm.state = {};
+      //authentication and restricted messages
+      $translate(['authentication.please_authenticate', 'restricted.please_contact', 'authentication.go_authentication',
+      'restricted.go_restricted']).then(
+        function (translation) {
+          vm.authenticateMessage = {
+            text: translation['authentication.please_authenticate'],
+            link: 'authentication',
+            linkText: translation['authentication.go_authentication']
+          };
+          vm.restrictedMessage = {
+            text: translation['restricted.please_contact'],
+            link: 'contact',
+            linkText: translation['restricted.go_restricted']
+          }
+        }
+      )
+
       // write them based on priority please
       vm.redirectPriority = ['terms-and-conditions', 'financial-assessment', 'tax-information'];
 
@@ -81,42 +98,60 @@
       vm.authenticateStatus = function(status) {
         vm.authenticated = status.indexOf('authenticated') > -1 ? true : false;
         if (!vm.authenticated && (vm.isFinancial || vm.isCR || vm.isMLT || vm.isMX)) {
-          appStateService.authenticateMessage = true;
+          if(!appStateService.authenticateMessage) {
+            appStateService.authenticateMessage = true;
+            notificationService.notices.push(vm.authenticateMessage);
+          }
         }
       }
 
       vm.ageVerificationStatus = function(status) {
         vm.ageVerified = status.indexOf('age_verification') > -1 ? true : false;
         if (!vm.ageVerified && (vm.isFinancial || vm.isMLT || vm.isMX)) {
-          appStateService.authenticateMessage = true;
+          if(!appStateService.authenticateMessage) {
+            appStateService.authenticateMessage = true;
+            notificationService.notices.push(vm.authenticateMessage);
+          }
         }
       }
 
       vm.ukgcStatus = function(status) {
         vm.ukgcAgreed = status.indexOf('ukgc_funds_protection') > -1 ? true : false;
         if (!vm.ukgcAgreed && (vm.isMLT || vm.isMX)) {
-          appStateService.authenticateMessage = true;
+          if(!appStateService.authenticateMessage) {
+            appStateService.authenticateMessage = true;
+            notificationService.notices.push(vm.authenticateMessage);
+          }
         }
       }
 
       vm.unwelcomeStatus = function(status) {
         vm.unwelcomed = status.indexOf('unwelcome') > -1 ? true : false;
         if (vm.unwelcomed && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
-          appStateService.restrictedMessage = true;
+          if(!appStateService.restrictedMessage) {
+            appStateService.restrictedMessage = true;
+            notificationService.notices.push(vm.restrictedMessage);
+          }
         }
       }
 
       vm.cashierStatus = function(status) {
         vm.cashierLocked = status.indexOf('cashier_locked') > -1 ? true : false;
         if (vm.cashierLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
-          appStateService.restrictedMessage = true;
+          if(!appStateService.restrictedMessage) {
+            appStateService.restrictedMessage = true;
+            notificationService.notices.push(vm.restrictedMessage);
+          }
         }
       }
 
       vm.withdrawalStatus = function(status) {
         vm.withdrawalLocked = status.indexOf('withdrawal_locked') > -1 ? true : false;
         if (vm.withdrawalLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
-          appStateService.restrictedMessage = true;
+          if(!appStateService.restrictedMessage) {
+            appStateService.restrictedMessage = true;
+            notificationService.notices.push(restrictedMessage);
+          }
         }
       }
 

@@ -185,6 +185,27 @@ angular
           templateUrl: 'js/pages/meta-trader/mt5-web.template.html',
           controller: 'MT5WebController',
           controllerAs: 'vm'
+        })
+        .state('authentication', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/authentication/authentication.template.html',
+          controller: 'AuthenticationController',
+          controllerAs: 'vm'
+        })
+        .state('contact', {
+          parent: 'layout',
+          cache: true,
+          templateUrl: 'js/pages/contact/contact.template.html',
+          controller: 'ContactController',
+          controllerAs: 'vm'
+        })
+        .state('notifications', {
+          parent: 'layout',
+          cache: false,
+          templateUrl: 'js/pages/notifications/notifications.template.html',
+          controller: 'NotificationsController',
+          controllerAs: 'vm'
         });
 
 
