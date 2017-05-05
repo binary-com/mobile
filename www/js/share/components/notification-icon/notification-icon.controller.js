@@ -17,7 +17,14 @@
 
   function NotificationIcon($scope, notificationService) {
     var vm = this;
-    vm.notices = notificationService.notices;
+    $scope.$watch(
+      () => {
+      return notificationService.notices
+    },
+      () => {
+      vm.notices = notificationService.notices;
+    }
+  );
 
   }
 })();

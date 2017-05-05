@@ -89,6 +89,13 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 		padding: 5px;
 	}
 }
+.notification-button {
+	span {
+		&:hover {
+			background: $negativeColor;
+		}
+	}
+}
 .logo-spinner {
 	-webkit-animation-name: spin;
 	-webkit-animation-duration: 1000ms;

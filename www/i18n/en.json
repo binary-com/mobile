@@ -761,6 +761,7 @@
     "isle_of_man_address": "Binary (IOM) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW"
   },
   "notifications": {
-    "notification": "Notification"
+    "notification": "Notification",
+    "no_notification": "There is no notification to show."
   }
 }
