@@ -99,9 +99,7 @@
     "transaction_id":"crwdns17745:0crwdne17745:0",
     "buy_again":"crwdns17746:0crwdne17746:0",
     "sell":"crwdns17747:0crwdne17747:0",
-    "barrier":"crwdns17748:0crwdne17748:0",
-    "please_authenticate":"crwdns19504:0crwdne19504:0",
-    "restricted_account":"crwdns19505:0crwdne19505:0"
+    "barrier":"crwdns17748:0crwdne17748:0"
   },
   "help":{
     "need_help":"crwdns17749:0crwdne17749:0",
@@ -441,7 +439,8 @@
     "settings":"crwdns18009:0crwdne18009:0",
     "resources":"crwdns19114:0crwdne19114:0",
     "regulatory_information":"crwdns19507:0crwdne19507:0",
-    "mt5":"crwdns19573:0crwdne19573:0"
+    "mt5":"crwdns19573:0crwdne19573:0",
+    "contact_us":"crwdns19679:0crwdne19679:0"
   },
   "settings":{
     "settings":"crwdns18010:0crwdne18010:0",
@@ -706,5 +705,51 @@
     "balance":"crwdns19586:0crwdne19586:0",
     "name":"crwdns19587:0crwdne19587:0",
     "start_trading_with_mt5":"crwdns19588:0crwdne19588:0"
+  },
+  "authentication":{
+    "authentication":"crwdns19680:0crwdne19680:0",
+    "please_authenticate":"crwdns19681:0crwdne19681:0",
+    "documents":"crwdns19682:0crwdne19682:0",
+    "proof_of_identity":"crwdns19683:0crwdne19683:0",
+    "proof_of_address":"crwdns19684:0crwdne19684:0",
+    "questions":"crwdns19685:0crwdne19685:0",
+    "contact":"crwdns19686:0crwdne19686:0",
+    "help":"crwdns19687:0crwdne19687:0",
+    "go_authentication":"crwdns19688:0crwdne19688:0"
+  },
+  "restricted":{
+    "please_contact":"crwdns19689:0crwdne19689:0",
+    "go_restricted":"crwdns19690:0crwdne19690:0"
+  },
+  "contact":{
+    "contact_us":"crwdns19691:0crwdne19691:0",
+    "telephone":"crwdns19692:0crwdne19692:0",
+    "australia":"crwdns19693:0crwdne19693:0",
+    "canada":"crwdns19694:0crwdne19694:0",
+    "germany":"crwdns19695:0crwdne19695:0",
+    "indonesia":"crwdns19696:0crwdne19696:0",
+    "ireland":"crwdns19697:0crwdne19697:0",
+    "poland":"crwdns19698:0crwdne19698:0",
+    "russia":"crwdns19699:0crwdne19699:0",
+    "united_kingdom":"crwdns19700:0crwdne19700:0",
+    "toll_free":"crwdns19701:0crwdne19701:0",
+    "calls":"crwdns19702:0crwdne19702:0",
+    "email":"crwdns19703:0crwdne19703:0",
+    "company_addresses":"crwdns19704:0crwdne19704:0",
+    "malta":"crwdns19705:0crwdne19705:0",
+    "malta_address":"crwdns19706:0crwdne19706:0",
+    "japan":"crwdns19707:0crwdne19707:0",
+    "japan_address":"crwdns19708:0crwdne19708:0",
+    "germany_address":"crwdns19709:0crwdne19709:0",
+    "malaysia":"crwdns19710:0crwdne19710:0",
+    "malaysia_address":"crwdns19711:0crwdne19711:0",
+    "cyberjaya_office":"crwdns19712:0crwdne19712:0",
+    "kl_office":"crwdns19713:0crwdne19713:0",
+    "kl_address":"crwdns19714:0crwdne19714:0",
+    "isle_of_man":"crwdns19715:0crwdne19715:0",
+    "isle_of_man_address":"crwdns19716:0crwdne19716:0"
+  },
+  "notifications":{
+    "notification":"crwdns19717:0crwdne19717:0"
   }
 }
