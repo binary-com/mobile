@@ -40,12 +40,15 @@
           'tax_residence',
           'place_of_birth'
         ];
-        vm.checkAccount = function() {
+
+        vm.init = function() {
           vm.isVirtualAccount = appStateService.virtuality ? true : false;
           if (!vm.isVirtualAccount) {
             vm.account = accountService.getDefault();
             vm.isFinancial = _.startsWith(vm.account.id, "MF") ? true : false;
+            websocketService.sendRequestFor.residenceListSend();
           }
+          vm.getProfile();
         }
 
         vm.getProfile = function() {
@@ -54,9 +57,6 @@
 
         $scope.$on('residence_list', (e, response) => {
           vm.residenceList = response;
-          if (response) {
-            vm.getProfile();
-          }
         });
 
         vm.setProfile = function(get_settings) {
@@ -143,7 +143,7 @@
         }
 
         vm.showTaxResidenceItems = function() {
-          vm.settingTaxResidence = _.words(vm.data.tax_residence);
+          vm.settingTaxResidence = _.words(vm.profile.tax_residence);
           _.forEach(vm.residenceList, (value, key) => {
             if (vm.settingTaxResidence.indexOf(value.value) > -1) {
               vm.residenceList[key].checked = true;
@@ -211,11 +211,6 @@
             }
           }
         })();
-
-        vm.init = function(){
-          vm.checkAccount();
-          websocketService.sendRequestFor.residenceListSend();
-        }
 
         vm.init();
 
