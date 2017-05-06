@@ -1,13 +1,49 @@
 <ion-view class="contact">
   <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{'notifications.notifications' | translate}}
+        </h1>
+      </div>
+    </div>
     <div class="list" ng-if="vm.notices.length > 0">
       <div class="item item-text-wrap card notification" ng-repeat="notice in vm.notices">
+        <div class="list">
+          <div class="item item-text-wrap item-divider">
+            {{notice.title}}
+          </div>
+          <div class="item item-text-wrap">
             <p>
               {{notice.text}}
-              <a ui-sref="{{notice.link}}">{{notice.linkText}}</a>
             </p>
+            <button class="button button-block" ui-sref="{{notice.link}}">
+              {{notice.linkText}}
+            </button>
+          </div>
         </div>
+          <!--<div class="row">-->
+          <!--<div class="col">-->
+            <!--{{notice.title}}-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<div class="col">-->
+            <!--<p>-->
+              <!--{{notice.text}}-->
+
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+          <!--<div class="col">-->
+            <!--<button class="button button-block" ui-sref="{{notice.link}}">-->
+              <!--{{notice.linkText}}-->
+            <!--</button>-->
+          <!--</div>-->
+        <!--</div>-->
       </div>
+    </div>
     <div class="list" ng-if="vm.notices.length < 1">
       <div class="item item-text-wrap notification">
         <p>
