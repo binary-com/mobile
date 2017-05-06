@@ -13,9 +13,9 @@
     .module('binary.share.components.notification-icon.controllers')
     .controller('NotificationIconController', NotificationIcon);
 
-  NotificationIcon.$inject = ['$scope', 'notificationService'];
+  NotificationIcon.$inject = ['$scope', '$state', '$ionicHistory', 'notificationService'];
 
-  function NotificationIcon($scope, notificationService) {
+  function NotificationIcon($scope, $state, $ionicHistory, notificationService) {
     var vm = this;
     $scope.$watch(
       () => {
@@ -25,6 +25,15 @@
       vm.notices = notificationService.notices;
     }
   );
+
+    vm.goToNotifications = function () {
+      if ($state.current.name == "notifications") {
+        $ionicHistory.goBack();
+      }
+      else {
+        $state.go('notifications');
+      }
+    }
 
   }
 })();
