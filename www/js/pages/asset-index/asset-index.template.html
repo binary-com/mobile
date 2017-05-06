@@ -1,16 +1,15 @@
 <ion-view class="asset-index">
-  <ion-content has-bouncing="false" class="general-content">
-		<div class="row">
-			<div class="col">
-				<h1 class="page-title">
-					{{'asset-index.asset_index' | translate}}
-				</h1>
-			</div>
-		</div>
+  <ion-content has-bouncing="false" class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{'asset-index.asset_index' | translate}}
+        </h1>
+      </div>
+    </div>
     <div class="center" ng-if="!vm.hasError && !vm.selectedMarket">
       <ion-spinner class="first-spinner center"></ion-spinner>
     </div>
-
     <div class="card" ng-if="!vm.hasError">
       <div class="row filters" ng-show="!vm.hasError && vm.selectedMarket">
         <div class="col list">
@@ -20,9 +19,7 @@
         </div>
       </div>
     </div>
-
     <div class="card" ng-repeat="(key, val) in ::vm.marketColumns" ng-if="!vm.hasError && key === vm.selectedMarket">
-
       <div class="list"  ng-repeat="sub in ::vm.marketColumns[key].sub">
         <div class="item item-text-wrap item-divider">
           {{::vm.submarketNames[sub]}}
@@ -30,52 +27,23 @@
         <div class="item item-text-wrap" >
           <div class="row">
             <div class="col center"></div>
-              <div class="col center" ng-repeat="(index, quant) in ::val.columns">
-                {{::val.header[index]}}
-              </div>
+            <div class="col center" ng-repeat="(index, quant) in ::val.columns">
+              {{::val.header[index]}}
             </div>
           </div>
-
-          <div class="item item-text-wrap">
-            <div class="row"  ng-repeat="asset in ::vm.assetIndex" ng-if="::asset[3].market === key && asset[3].submarket === sub">
-              <div class="col center">
-                {{::asset[1]}}
-              </div>
-              <div class="col center" ng-repeat="(index, quant) in ::val.columns">
-                {{::(asset[4][quant] || "-")}}
-              </div>
-            </div>
-          </div>
-
         </div>
-
+        <div class="item item-text-wrap">
+          <div class="row"  ng-repeat="asset in ::vm.assetIndex" ng-if="::asset[3].market === key && asset[3].submarket === sub">
+            <div class="col center">
+              {{::asset[1]}}
+            </div>
+            <div class="col center" ng-repeat="(index, quant) in ::val.columns">
+              {{::(asset[4][quant] || "-")}}
+            </div>
+          </div>
+        </div>
       </div>
-
-
-
-
-    <!--<div class="table-container" ng-repeat="(key, val) in ::vm.marketColumns" ng-if="key === vm.selectedMarket" ng-if="!vm.hasError">-->
-      <!--<div class="row">-->
-        <!--<div class="col">-->
-          <!--<table class="asset-index-table">-->
-            <!--<tbody ng-repeat="sub in ::vm.marketColumns[key].sub">-->
-              <!--<tr class="title-row">-->
-                <!--<td class="center" colspan="{{::val.columns.length + 1}}">{{::vm.submarketNames[sub]}}</td>-->
-              <!--</tr>-->
-              <!--<tr class="market-row">-->
-                <!--<td class="center"></td>-->
-                <!--<td class="center" ng-repeat="(index, quant) in ::val.columns">{{::val.header[index]}}</td>-->
-              <!--</tr>-->
-              <!--<tr ng-repeat="asset in ::vm.assetIndex" ng-if="::asset[3].market === key && asset[3].submarket === sub">-->
-                <!--<td class="center">{{::asset[1]}}</td>-->
-
-                <!--<td class="center" ng-repeat="(index, quant) in ::val.columns">{{::(asset[4][quant] || "-")}}</td>-->
-              <!--</tr>-->
-            <!--</tbody>-->
-          <!--</table>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
+    </div>
     <div class="row" ng-if="vm.hasError">
       <div class="col error">
         {{'asset-index.error' | translate}}

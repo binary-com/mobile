@@ -1,4 +1,5 @@
 <ion-view class="profile" title="Profile" ng-cloak>
+<<<<<<< HEAD
   <ion-content has-bouncing="false" class="general-content">
     <div class="row">
       <div class="col">
@@ -27,6 +28,16 @@
                 </span>
                 <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-model="vm.profile.email" ng-readonly="true" />
               </label>
+=======
+    <ion-content class="general-content has-header has-subheader">
+        <form name="profileForm" ng-submit="vm.submit()">
+            <div class="row">
+                <div class="col">
+                    <h1 class="page-title">
+                {{ 'profile.personal_details' | translate }}
+                    </h1>
+                </div>
+>>>>>>> design
             </div>
           </div>
         </div>

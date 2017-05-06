@@ -7,7 +7,8 @@
     "get_token":"crwdns17669:0crwdne17669:0",
     "signin_with_binary_com":"crwdns17670:0crwdne17670:0",
     "use_token":"crwdns17671:0crwdne17671:0",
-    "next":"crwdns17672:0crwdne17672:0"
+    "next":"crwdns17672:0crwdne17672:0",
+    "regulatory-information":"crwdns19506:0crwdne19506:0"
   },
   "accounts":{
     "my_accounts":"crwdns17673:0crwdne17673:0",
@@ -41,7 +42,7 @@
   },
   "options":{
     "account":"crwdns17697:0crwdne17697:0",
-    "select_market":"crwdns17698:0crwdne17698:0",
+    "select_market":"crwdns19508:0crwdne19508:0",
     "forex":"crwdns17699:0crwdne17699:0",
     "random":"crwdns17700:0crwdne17700:0",
     "volidx":"crwdns17701:0crwdne17701:0",
@@ -70,7 +71,12 @@
     "digit_even_odd":"crwdns17724:0crwdne17724:0",
     "digit_matches_differs":"crwdns17725:0crwdne17725:0",
     "up_down":"crwdns17726:0crwdne17726:0",
-    "markets_are_closed":"crwdns17727:0crwdne17727:0"
+    "markets_are_closed":"crwdns17727:0crwdne17727:0",
+    "cancel":"crwdns19509:0crwdne19509:0",
+    "select_underlying":"crwdns19510:0crwdne19510:0",
+    "select_tradetype":"crwdns19511:0crwdne19511:0",
+    "select_tick":"crwdns19512:0crwdne19512:0",
+    "select_digit":"crwdns19513:0crwdne19513:0"
   },
   "trade":{
     "payout":"crwdns17728:0crwdne17728:0",
@@ -93,9 +99,7 @@
     "transaction_id":"crwdns17745:0crwdne17745:0",
     "buy_again":"crwdns17746:0crwdne17746:0",
     "sell":"crwdns17747:0crwdne17747:0",
-    "barrier":"crwdns17748:0crwdne17748:0",
-    "please_authenticate":"crwdns19504:0crwdne19504:0",
-    "restricted_account":"crwdns19505:0crwdne19505:0"
+    "barrier":"crwdns17748:0crwdne17748:0"
   },
   "help":{
     "need_help":"crwdns17749:0crwdne17749:0",
@@ -283,7 +287,17 @@
     "length-error-6-35":"crwdns19477:0crwdne19477:0",
     "secretanswer-pattern-error":"crwdns19478:0crwdne19478:0",
     "length-error-4-50":"crwdns19479:0crwdne19479:0",
-    "tax-identification-number-pattern-error":"crwdns19480:0crwdne19480:0"
+    "tax-identification-number-pattern-error":"crwdns19480:0crwdne19480:0",
+    "continue":"crwdns19514:0crwdne19514:0",
+    "cancel":"crwdns19515:0crwdne19515:0",
+    "not-pep-verify":"crwdns19569:0crwdne19569:0",
+    "pep-info":"crwdns19570:0crwdne19570:0",
+    "account_turnover":"crwdns19621:0crwdne19621:0",
+    "account_turnover_1":"crwdns19622:0crwdne19622:0",
+    "account_turnover_2":"crwdns19623:0crwdne19623:0",
+    "account_turnover_3":"crwdns19624:0crwdne19624:0",
+    "account_turnover_4":"crwdns19625:0crwdne19625:0",
+    "account_turnover_5":"crwdns19626:0crwdne19626:0"
   },
   "newaccountreal":{
     "open_real":"crwdns17899:0crwdne17899:0",
@@ -337,7 +351,9 @@
     "length-error-6-35":"crwdns19487:0crwdne19487:0",
     "secretanswer-pattern-error":"crwdns19488:0crwdne19488:0",
     "length-error-4-50":"crwdns19489:0crwdne19489:0",
-    "required":"crwdns17935:0crwdne17935:0"
+    "required":"crwdns17935:0crwdne17935:0",
+    "not-pep-verify":"crwdns19571:0crwdne19571:0",
+    "pep-info":"crwdns19572:0crwdne19572:0"
   },
   "profittable":{
     "profit_table":"crwdns17941:0crwdne17941:0",
@@ -421,7 +437,10 @@
     "statement":"crwdns18007:0crwdne18007:0",
     "language":"crwdns18008:0crwdne18008:0",
     "settings":"crwdns18009:0crwdne18009:0",
-    "resources":"crwdns19114:0crwdne19114:0"
+    "resources":"crwdns19114:0crwdne19114:0",
+    "regulatory_information":"crwdns19507:0crwdne19507:0",
+    "mt5":"crwdns19573:0crwdne19573:0",
+    "contact_us":"crwdns19679:0crwdne19679:0"
   },
   "settings":{
     "settings":"crwdns18010:0crwdne18010:0",
@@ -497,7 +516,9 @@
     "length-error-6-35":"crwdns19498:0crwdne19498:0",
     "secretanswer-pattern-error":"crwdns19499:0crwdne19499:0",
     "length-error-4-50":"crwdns19500:0crwdne19500:0",
-    "tax-identification-number-pattern-error":"crwdns19501:0crwdne19501:0"
+    "tax-identification-number-pattern-error":"crwdns19501:0crwdne19501:0",
+    "cancel":"crwdns19516:0crwdne19516:0",
+    "continue":"crwdns19517:0crwdne19517:0"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"crwdns18103:0crwdne18103:0",
@@ -589,7 +610,13 @@
     "financial_assessment_info":"crwdns19332:0crwdne19332:0",
     "no_change":"crwdns19334:0crwdne19334:0",
     "success":"crwdns19463:0crwdne19463:0",
-    "success_message":"crwdns19464:0crwdne19464:0"
+    "success_message":"crwdns19464:0crwdne19464:0",
+    "account_turnover":"crwdns19627:0crwdne19627:0",
+    "account_turnover_1":"crwdns19628:0crwdne19628:0",
+    "account_turnover_2":"crwdns19629:0crwdne19629:0",
+    "account_turnover_3":"crwdns19630:0crwdne19630:0",
+    "account_turnover_4":"crwdns19631:0crwdne19631:0",
+    "account_turnover_5":"crwdns19632:0crwdne19632:0"
   },
   "limits":{
     "trading_withdrawal_limits":"crwdns19335:0crwdne19335:0",
@@ -654,6 +681,75 @@
     "error_format":"crwdns19445:0crwdne19445:0",
     "required":"crwdns19446:0crwdne19446:0",
     "success":"crwdns19465:0crwdne19465:0",
-    "success_message":"crwdns19466:0crwdne19466:0"
+    "success_message":"crwdns19466:0crwdne19466:0",
+    "continue":"crwdns19518:0crwdne19518:0",
+    "cancel":"crwdns19519:0crwdne19519:0"
+  },
+  "connectivity":{
+    "no_connection":"crwdns19574:0crwdne19574:0"
+  },
+  "mt":{
+    "you_do_not_have_mt5_account":"crwdns19575:0crwdne19575:0",
+    "create_account":"crwdns19576:0crwdne19576:0",
+    "feature_is_not_available":"crwdns19577:0crwdne19577:0",
+    "meta_trader_accounts":"crwdns19578:0crwdne19578:0",
+    "demo_account":"crwdns19579:0crwdne19579:0",
+    "financial_account":"crwdns19580:0crwdne19580:0",
+    "volatility_account":"crwdns19581:0crwdne19581:0",
+    "upgrade_financial_account":"crwdns19582:0crwdne19582:0",
+    "upgrade_volatility_account":"crwdns19583:0crwdne19583:0",
+    "create_financial_account":"crwdns19633:0crwdne19633:0",
+    "create_volatility_account":"crwdns19634:0crwdne19634:0",
+    "create_demo_account":"crwdns19584:0crwdne19584:0",
+    "login_id":"crwdns19585:0crwdne19585:0",
+    "balance":"crwdns19586:0crwdne19586:0",
+    "name":"crwdns19587:0crwdne19587:0",
+    "start_trading_with_mt5":"crwdns19588:0crwdne19588:0"
+  },
+  "authentication":{
+    "authentication":"crwdns19680:0crwdne19680:0",
+    "please_authenticate":"crwdns19681:0crwdne19681:0",
+    "documents":"crwdns19682:0crwdne19682:0",
+    "proof_of_identity":"crwdns19683:0crwdne19683:0",
+    "proof_of_address":"crwdns19684:0crwdne19684:0",
+    "questions":"crwdns19685:0crwdne19685:0",
+    "contact":"crwdns19686:0crwdne19686:0",
+    "help":"crwdns19687:0crwdne19687:0",
+    "go_authentication":"crwdns19688:0crwdne19688:0"
+  },
+  "restricted":{
+    "please_contact":"crwdns19689:0crwdne19689:0",
+    "go_restricted":"crwdns19690:0crwdne19690:0"
+  },
+  "contact":{
+    "contact_us":"crwdns19691:0crwdne19691:0",
+    "telephone":"crwdns19692:0crwdne19692:0",
+    "australia":"crwdns19693:0crwdne19693:0",
+    "canada":"crwdns19694:0crwdne19694:0",
+    "germany":"crwdns19695:0crwdne19695:0",
+    "indonesia":"crwdns19696:0crwdne19696:0",
+    "ireland":"crwdns19697:0crwdne19697:0",
+    "poland":"crwdns19698:0crwdne19698:0",
+    "russia":"crwdns19699:0crwdne19699:0",
+    "united_kingdom":"crwdns19700:0crwdne19700:0",
+    "toll_free":"crwdns19701:0crwdne19701:0",
+    "calls":"crwdns19702:0crwdne19702:0",
+    "email":"crwdns19703:0crwdne19703:0",
+    "company_addresses":"crwdns19704:0crwdne19704:0",
+    "malta":"crwdns19705:0crwdne19705:0",
+    "malta_address":"crwdns19706:0crwdne19706:0",
+    "japan":"crwdns19707:0crwdne19707:0",
+    "japan_address":"crwdns19708:0crwdne19708:0",
+    "germany_address":"crwdns19709:0crwdne19709:0",
+    "malaysia":"crwdns19710:0crwdne19710:0",
+    "malaysia_address":"crwdns19711:0crwdne19711:0",
+    "cyberjaya_office":"crwdns19712:0crwdne19712:0",
+    "kl_office":"crwdns19713:0crwdne19713:0",
+    "kl_address":"crwdns19714:0crwdne19714:0",
+    "isle_of_man":"crwdns19715:0crwdne19715:0",
+    "isle_of_man_address":"crwdns19716:0crwdne19716:0"
+  },
+  "notifications":{
+    "notification":"crwdns19717:0crwdne19717:0"
   }
 }

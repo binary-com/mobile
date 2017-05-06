@@ -41,7 +41,8 @@
             'other_instruments_trading_frequency',
             'stocks_trading_experience',
             'stocks_trading_frequency',
-            'occupation'
+            'occupation',
+            'account_turnover'
         ];
 
         // set all errors to false

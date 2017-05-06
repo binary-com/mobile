@@ -7,7 +7,8 @@
     "get_token":"Comment obtenir un jeton d'authentification ?",
     "signin_with_binary_com":"Connexion",
     "use_token":"Ou connectez-vous avec un jeton",
-    "next":"Suivant"
+    "next":"Suivant",
+    "regulatory-information":"Regulatory information"
   },
   "accounts":{
     "my_accounts":"Gérer les comptes",
@@ -41,7 +42,7 @@
   },
   "options":{
     "account":"Compte",
-    "select_market":"Marchés",
+    "select_market":"Select market",
     "forex":"Forex",
     "random":"Aléatoire",
     "volidx":"Indices de volatilité",
@@ -70,7 +71,12 @@
     "digit_even_odd":"Chiffre Pair/Impair",
     "digit_matches_differs":"Chiffre Égal/Différent",
     "up_down":"Hausse/Baisse",
-    "markets_are_closed":"Désolé, tous les marchés sont actuellement fermés. Veuillez réessayer ultérieurement"
+    "markets_are_closed":"Désolé, tous les marchés sont actuellement fermés. Veuillez réessayer ultérieurement",
+    "cancel":"Cancel",
+    "select_underlying":"Select Underlying",
+    "select_tradetype":"Select Tradetype",
+    "select_tick":"Select Tick",
+    "select_digit":"Select Digit"
   },
   "trade":{
     "payout":"Paiement",
@@ -93,9 +99,7 @@
     "transaction_id":"Référence de transaction",
     "buy_again":"Acheter à nouveau",
     "sell":"Vente",
-    "barrier":"Marge de barrière",
-    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
-    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
+    "barrier":"Marge de barrière"
   },
   "help":{
     "need_help":"Besoin d'aide ?",
@@ -283,7 +287,17 @@
     "length-error-6-35":"This field must be within 6-35 characters.",
     "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
     "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "continue":"Continue",
+    "cancel":"Cancel",
+    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
+    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates.",
+    "account_turnover":"Account turnover",
+    "account_turnover_1":"Less than $25,000",
+    "account_turnover_2":"$25,000 - $50,000",
+    "account_turnover_3":"$50,001 - $100,000",
+    "account_turnover_4":"$100,001 - $500,000",
+    "account_turnover_5":"Over $500,000"
   },
   "newaccountreal":{
     "open_real":"Ouvrir un compte réel",
@@ -337,7 +351,9 @@
     "length-error-6-35":"This field must be within 6-35 characters.",
     "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
     "length-error-4-50":"This field must be within 4-50 characters.",
-    "required":"Ce champ est requis."
+    "required":"Ce champ est requis.",
+    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
+    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
   },
   "profittable":{
     "profit_table":"Tableau des profits",
@@ -421,7 +437,10 @@
     "statement":"Relevé",
     "language":"Langue",
     "settings":"Paramètres",
-    "resources":"Ressources"
+    "resources":"Ressources",
+    "regulatory_information":"Regulatory information",
+    "mt5":"MetaTrader 5",
+    "contact_us":"contact us"
   },
   "settings":{
     "settings":"Paramètres",
@@ -497,7 +516,9 @@
     "length-error-6-35":"This field must be within 6-35 characters.",
     "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
     "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
+    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed.",
+    "cancel":"Cancel",
+    "continue":"Continue"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"a mis à jour ses",
@@ -589,7 +610,13 @@
     "financial_assessment_info":"Les services financiers disponibles sur ce site conviennent uniquement aux Clients capables d'assumer la perte de l'ensemble des fonds qu'ils investissent, et qui comprennent et ont l'expérience des risques liés à l'acquisition de contrats financiers. Les transactions sur contrats financiers impliquent un degré de risque élevé. Si les contrats achetés expirent hors la monnaie, vous perdrez la totalité de votre investissement, à savoir la prime de l'option.",
     "no_change":"Vous n'avez effectué aucune modification.",
     "success":"Success",
-    "success_message":"Your settings have been updated successfully."
+    "success_message":"Your settings have been updated successfully.",
+    "account_turnover":"Account turnover",
+    "account_turnover_1":"Less than $25,000",
+    "account_turnover_2":"$25,000 - $50,000",
+    "account_turnover_3":"$50,001 - $100,000",
+    "account_turnover_4":"$100,001 - $500,000",
+    "account_turnover_5":"Over $500,000"
   },
   "limits":{
     "trading_withdrawal_limits":"Opérations de trading et limites de retrait",
@@ -654,6 +681,75 @@
     "error_format":"Format ou longueur erroné(e)",
     "required":"Ce champ est requis.",
     "success":"Success",
-    "success_message":"Your settings have been updated successfully."
+    "success_message":"Your settings have been updated successfully.",
+    "continue":"Continue",
+    "cancel":"Cancel"
+  },
+  "connectivity":{
+    "no_connection":"No Connection"
+  },
+  "mt":{
+    "you_do_not_have_mt5_account":"You don't have any accounts for MetaTrader, Please create one and try again.",
+    "create_account":"Create Account for MT5",
+    "feature_is_not_available":"Sorry, this feature is not available.",
+    "meta_trader_accounts":"Meta Trader Accounts",
+    "demo_account":"Demo Account",
+    "financial_account":"Financial Account",
+    "volatility_account":"Volatility Indices Account",
+    "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
+    "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
+    "create_financial_account":"Create a Financial Account for MT5",
+    "create_volatility_account":"Create a Volatility Account for MT5",
+    "create_demo_account":"Create a Demo Account for MT5",
+    "login_id":"Login ID",
+    "balance":"Balance",
+    "name":"Name",
+    "start_trading_with_mt5":"Start Trading With MT5"
+  },
+  "authentication":{
+    "authentication":"Authentication",
+    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
+    "documents":"Please send the following documents to support@binary.com in order to verify your identity and authenticate your account:",
+    "proof_of_identity":"Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.",
+    "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old.",
+    "questions":"Got questions?",
+    "contact":"Contact us",
+    "help":"for help.",
+    "go_authentication":"Show authentication"
+  },
+  "restricted":{
+    "please_contact":"Your account is restricted. Kindly contact customer support for assistance.",
+    "go_restricted":"Go to contacts page"
+  },
+  "contact":{
+    "contact_us":"Contact us",
+    "telephone":"Telephone",
+    "australia":"Australia",
+    "canada":"Canada",
+    "germany":"Germany",
+    "indonesia":"Indonesia",
+    "ireland":"Ireland",
+    "poland":"Poland",
+    "russia":"Russia",
+    "united_kingdom":"United Kingdom",
+    "toll_free":"(Toll Free)",
+    "calls":"*All calls are recorded for training and monitoring purposes",
+    "email":"Email",
+    "company_addresses":"Company addresses",
+    "malta":"Malta",
+    "malta_address":"Binary (Europe) Ltd & Binary Investments (Europe) Ltd, Mompalao Building, Suite 2, Tower Road, Msida MSD1825",
+    "japan":"Japan",
+    "japan_address":"Binary KK, Hiroo Miyata Bldg 3F, 9-16, Hiroo 1-chome, Shibuya-ku, Tokyo 150-0012, Japan",
+    "germany_address":"Binary Group Services Sdn Bhd, Zweigstelle Berlin, Friedrichstraße 68, 10117 Berlin",
+    "malaysia":"Malaysia",
+    "malaysia_address":"Binary Group Services Sdn Bhd, C-13-02, iTech Tower, Jalan Impact, Cyber 6, 63000 Cyberjaya, Selangor Darul Ehsan",
+    "cyberjaya_office":"Cyberjaya Office",
+    "kl_office":"Kuala Lumpur Office",
+    "kl_address":"Binary Group Services Sdn Bhd, 30-10, Q Sentral, Jalan Stesen Sentral 2, 50470 Kuala Lumpur",
+    "isle_of_man":"Isle of Man",
+    "isle_of_man_address":"Binary (IOM) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW"
+  },
+  "notifications":{
+    "notification":"Notification"
   }
 }

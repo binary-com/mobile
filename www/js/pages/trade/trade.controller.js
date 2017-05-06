@@ -13,12 +13,13 @@
     .module('binary.pages.trade.controllers')
     .controller('TradeController', Trade);
 
-  Trade.$inject = [
-    '$scope', 'proposalService'
-  ];
 
-  function Trade($scope, proposalService) {
-    var vm = this;
+    Trade.$inject = [
+        '$scope', 'proposalService'
+    ];
+
+    function Trade($scope, proposalService) {
+        var vm = this;
 
     vm.proposal = {};
     vm.purchasedContract = {};
@@ -60,6 +61,5 @@
 
     });
 
-
-  }
+    }
 })();

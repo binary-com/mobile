@@ -1,28 +1,144 @@
 .signin-content {
-	height: calc(100vh - 15px)!important;
+  height: calc(100vh - 15px)!important;
 }
+
 .sign-in {
-	background-color: $white;
-	.branding {
-		margin: 10% auto;
-		.logo {
-			display: block;
-			margin: 0 auto;
-			width: 40%;
-		}
-		.slogan {
-			display: block;
-			margin: 5% auto 0;
-			width: 60%;
-		}
-	}
-	#emailform,
-	#virtualws {
-		.show-hide-password {
-			float: left;
-			i {
-				margin-right: 5px;
-			}
-		}
-	}
+  background-color: $white;
+  .branding {
+    margin: 30px auto;
+    .logo {
+      display: block;
+      margin: 0 auto;
+      width: 40%;
+    }
+    .slogan {
+      display: block;
+      margin: 5% auto 0;
+      width: 60%;
+    }
+  }
+
+  .language {
+    border: none;
+  }
+
+  .signin-page {
+    height: 90vh;
+    height: calc(100vh - 45px) !important;
+    .row, form, oauth {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      .col {
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .app-version {
+      display: flex;
+      flex-grow: 1;
+      align-items: flex-start;
+      justify-content: center;
+      .item {
+        padding-top: 0 !important;
+      }
+    }
+  }
+
+  .regulatory-information {
+    align-items: flex-end !important;
+    a {
+      font-weight: normal;
+    }
+  }
+
+  #emailform,
+  #virtualws {
+    .show-hide-password {
+      margin-top: 15px;
+      input#show-hide {
+        width: 20px;
+        top: 2px;
+        position: relative;
+      }
+    }
+    .help-block{
+      text-align: left;
+      padding: 0 5px 5px 5px;
+    }
+  }
+
+  .list {
+    label.item-input {
+      width: 75%;
+      margin: 0 auto;
+      i {
+        font-size: 40px;
+        width: 40px;
+        text-align: center;
+        &.icon-small {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    color: $secondaryContentColor;
+  }
+  :-moz-placeholder {
+    color: $secondaryContentColor;
+  }
+  ::-moz-placeholder {
+    color: $secondaryContentColor;
+  }
+  :-ms-input-placeholder {
+    color: $secondaryContentColor;
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+  .sign-in {
+    ::-webkit-input-placeholder {
+      color: $secondaryContentColor;
+    }
+    :-moz-placeholder {
+      color: $secondaryContentColor;
+    }
+    ::-moz-placeholder {
+      color: $secondaryContentColor;
+    }
+    :-ms-input-placeholder {
+      color: $secondaryContentColor;
+    }
+  }
+}
+@media only screen and (min-device-width: 480px) {
+  .sign-in {
+    .list {
+      label.item-input {
+        i {
+          color: $darkPrimaryBrandColor;
+        }
+      }
+      label.item-select {
+        i {
+          color: $darkPrimaryBrandColor;
+        }
+      }
+    }
+    ::-webkit-input-placeholder {
+      color: $secondaryContentColor;
+    }
+    :-moz-placeholder {
+      color: $secondaryContentColor;
+    }
+    ::-moz-placeholder {
+      color: $secondaryContentColor;
+    }
+    :-ms-input-placeholder {
+      color: $secondaryContentColor;
+    }
+  }
 }

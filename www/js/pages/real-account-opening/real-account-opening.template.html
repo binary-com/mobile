@@ -1,5 +1,6 @@
 <ion-view class="new-account">
-  <ion-content has-bouncing="false" class="general-content">
+<<<<<<< HEAD
+  <ion-content has-bouncing="false" class="general-content has-header has-subheader">
     <div class="row">
       <div class="col">
         <h1 class="page-title">
@@ -198,6 +199,21 @@
             </ng-messages>
             <div class="help-block error" ng-if='vm.secret_answer_error'>
               {{ vm.secret_answer_error_message }}
+            </div>
+
+            <div class="item item-checkbox">
+              <label class="checkbox">
+                <input name="pep" type="checkbox" ng-model="vm.data.pep" class="checkbox" required />
+              </label>
+              <p>
+                {{'newaccountreal.not-pep-verify' | translate}}
+              </p>
+            </div>
+
+            <div class="item item-text-wrap">
+              <p>
+                {{'newaccountreal.pep-info' | translate}}
+              </p>
             </div>
 
             <div class="item item-checkbox">

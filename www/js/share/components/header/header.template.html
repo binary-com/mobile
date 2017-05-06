@@ -1,19 +1,19 @@
 <ion-header-bar align-title="center" class="bar bar-header bar-positive">
-    <div ng-if="!vm.hideMenuButton">
-        <button ng-click="vm.toggleSideMenu()"
+    <button ng-click="vm.toggleSideMenu()"
+                ng-if="!vm.hideMenuButton"
                 ng-disabled="vm.disableMenuButton"
                 class="button button-icon button-clear icon ion-navicon"></button>
-    </div>
-    <div ng-if="vm.showBack">
-        <button ng-click="vm.goToPrevPage()" ng-disabled="vm.disableBackButton"
-                class="button button-icon button-clear ion-android-arrow-back"
+    <button ng-click="vm.goToPrevPage()" ng-disabled="vm.disableBackButton"  ng-if="vm.showBack"
+                class="button button-icon ion-android-arrow-back"
                 ng-class="{'ion-ios-arrow-back' : vm.ios}"></button>
-    </div>
-
-    <h1 class="title">
+    <h1 class="title center">
         <img src="img/binary_logo_light.svg" alt="Binary.com">
     </h1>
+    <bg-notification-icon class="notification-icon"></bg-notification-icon>
 </ion-header-bar>
-<ion-subheader-bar align-title="center" class="bar bar-subheader bar-positive">
+<ion-subheader-bar align-title="center"
+                   class="bar bar-subheader bar-positive"
+                   ng-show="!vm.hideBalance">
   <bg-balance></bg-balance>
 </ion-subheader-bar>
+
