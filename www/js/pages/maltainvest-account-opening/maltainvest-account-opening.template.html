@@ -514,13 +514,11 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="list card">
         <div class="row">
           <ion-list class="col list">
-            <ion-item class="item">
-              <p class="normal">
-                {{'newaccountmaltainvest.info' | translate}}
-              </p>
+            <ion-item class="item item-text-wrap">
+              {{'newaccountmaltainvest.info' | translate}}
             </ion-item>
           </ion-list>
         </div>
@@ -543,8 +541,8 @@
       </form>
 
       <div class="row">
-        <div class="col">
-          <button class="button button-block ink" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.tax_residence  == null || vm.disableUpdatebutton" angular-ripple>
+        <div class="col center">
+          <button class="button button-positive ink" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.tax_residence  == null || vm.disableUpdatebutton" angular-ripple>
             {{'newaccountmaltainvest.open_account' | translate}}
           </button>
         </div>

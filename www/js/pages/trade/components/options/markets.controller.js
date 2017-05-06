@@ -27,7 +27,7 @@
 
       $scope.$applyAsync(()=>{
         vm.markets = JSON.parse(sessionStorage.markets);
-      });
+    });
     }
 
     vm.selectMarket = function(market){

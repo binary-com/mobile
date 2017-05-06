@@ -1,79 +1,117 @@
-<ion-view>
-  <ion-content class="general-content trading-times">
-		<div class="row">
-			<div class="col">
-				<h1 class="page-title">
-					{{'trading-times.trading_times' | translate}}
-				</h1>
-			</div>
-		</div>
+<ion-view class="trading-times">
+  <ion-content has-bouncing="false" class="general-content">
     <div class="row">
       <div class="col">
-        <form name="trading-times">
-            <div class="input-title">
-              {{'trading-times.date' | translate}}
-            </div>
-            <label class="item-input">
-              <input type="date" id="date" name="trading-times-date" ng-model="vm.data.date" ng-change="vm.sendTradingTimes()" />
-            </label>
-        </form>
-        <form name="market">
-            <div class="input-title">
-              {{'trading-times.market' | translate}}
-            </div>
-            <div class="item-select">
-              <select ng-model="vm.market">
-                <option ng-if="vm.hasError" selected>-</option>
-                <option ng-repeat="market in vm.data.markets" ng-value="market.name" ng-init="vm.data.markets[0]" ng-if="!vm.hasError">{{market.name}}</option>
-              </select>
-          </div>
-        </form>
+        <h1 class="page-title">
+          {{ 'trading-times.trading_times' | translate }}
+        </h1>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
-          {{'trading-times.GMT_times' | translate}}
-      </div>
-    </div>
-    <div ng-repeat="market in vm.data.markets" ng-show="market.name === vm.market">
-      <div class="row">
-        <div class="col">
-          <table class="trading-times-table" border=1 ng-repeat="submarket in market.submarkets">
-            <thead>
-              <tr class="title-row">
-                <th class="center bold" colspan="5">{{submarket.name}}</th>
-              </tr>
-            </thead>
-            <thead>
-              <tr>
-                <th class="left bold">{{'trading-times.asset' | translate}}</th>
-                <th class="left bold">{{'trading-times.opens' | translate}}</th>
-                <th class="left bold">{{'trading-times.closes' | translate}}</th>
-                <th class="left bold">{{'trading-times.settles' | translate}}</th>
-                <th class="left bold">{{'trading-times.upcoming_events' | translate}}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="symbol in submarket.symbols">
-                <td class="left">{{symbol.name}}</td>
-                <td class="left">{{symbol.times.close[0]}}</td>
-                <td class="left">{{symbol.times.open[0]}}</td>
-                <td class="left">{{symbol.times.settlement}}</td>
-                <td class="left">
-                  <span class="col" ng-repeat="event in symbol.events" ng-if="symbol.events.length > 0">{{event.descrip}} {{event.dates}}</span>
-                  <span ng-if="symbol.events.length == 0">-</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="card">
+      <div class="row filters">
+        <div class="col list">
+          <ion-radio ng-model="vm.market" ng-repeat="market in vm.data.markets" ng-value="market.name" ng-init="vm.data.markets[0]" ng-if="!vm.hasError">
+            {{ market.name }}
+          </ion-radio>
         </div>
       </div>
     </div>
-    <div class="row" ng-if="vm.hasError">
-      <div class="col error">
-        {{vm.error.message}}
+
+    <div class="card">
+      <div class="row">
+        <div class="col list">
+          <label class="item item-input jump-to-date" for="dateTo">
+            <span>
+              {{'profittable.jump_to_date' | translate}}
+            </span>
+            <input type="date" id="date" name="trading-times-date" ng-model="vm.data.date" ng-change="vm.sendTradingTimes()" />
+          </label>
+          <button type="button" class="button button-default button-block ink" ng-click="vm.jumpToDateFilter()" angular-ripple>
+            {{'profittable.go' | translate}}
+          </button>
+        </div>
       </div>
     </div>
+
+    <div class="card" ng-repeat="market in vm.data.markets" ng-show="market.name === vm.market">
+
+      <div class="list">
+        <div class="item item-text-wrap">
+          <div class="row">
+            <div class="col">
+              {{ 'trading-times.GMT_times' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list" ng-repeat="submarket in market.submarkets">
+
+        <div class="item item-text-wrap item-divider">
+          <div class="row">
+            <div class="col">
+              {{ submarket.name }}
+            </div>
+          </div>
+        </div>
+
+        <div class="item item-text-wrap">
+          <div class="row">
+            <div class="col left">
+              {{ 'trading-times.asset' | translate }}
+            </div>
+            <div class="col center">
+              {{ 'trading-times.opens' | translate }}
+            </div>
+            <div class="col center">
+              {{ 'trading-times.closes' | translate }}
+            </div>
+            <div class="col center">
+              {{ 'trading-times.settles' | translate }}
+            </div>
+            <div class="col right">
+              {{ 'trading-times.upcoming_events' | translate }}
+            </div>
+          </div>
+        </div>
+
+        <div class="item item-text-wrap" ng-repeat-start="symbol in submarket.symbols" ng-click="symbol.open = !symbol.open">
+          <div class="row">
+            <div class="col left">
+              {{ symbol.name }}
+            </div>
+            <div class="col center">
+              {{ symbol.times.close[0] }}
+            </div>
+            <div class="col center">
+              {{ symbol.times.open[0] }}
+            </div>
+            <div class="col center">
+              {{ symbol.times.settlement }}
+            </div>
+            <div class="col right">
+              <i class="ion-android-arrow-dropdown-circle" ng-class="{ 'ion-android-arrow-dropright-circle' : symbol.open }" ng-show="symbol.events.length > 0"></i>
+            </div>
+
+          </div>
+        </div>
+        <div class="item collapsed" ng-repeat-end ng-show="symbol.open" ng-if="symbol.events.length > 0">
+          <div class="row center">
+            <span class="col left" ng-repeat="event in symbol.events">{{event.descrip}} {{event.dates}}</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="item item-text-wrap">
+        <div class="row" ng-if="vm.hasError">
+          <div class="col error">
+            {{vm.error.message}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </ion-content>
 </ion-view>

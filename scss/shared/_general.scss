@@ -1,5 +1,5 @@
 body * {
-  font-family: roboto, sans-serif !important;
+  font-family: RobotoDraft!important;
 }
 
 [ng-click],
@@ -9,19 +9,19 @@ body * {
 }
 
 * {
-	-webkit-user-select: none;
+  -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-	-webkit-user-drag: none;
+  -webkit-user-drag: none;
   -moz-user-drag: none;
   -ms-user-drag: none;
   user-drag: none;
 }
 
 ::-webkit-input-placeholder {
-	color: $darkPrimaryBrandColor;
+  color: $darkPrimaryBrandColor;
 }
 
 input {
@@ -30,15 +30,15 @@ input {
   -moz-user-select: auto !important;
   -ms-user-select: auto !important;
   user-select: auto !important;
-	-webkit-appearance:none !important;
-	-khtml-appearance: none !important;
-	-moz-appearance: none !important;
+  -webkit-appearance:none !important;
+  -khtml-appearance: none !important;
+  -moz-appearance: none !important;
   -ms-appearance: none !important;
   appearance: none !important;
-	border-top: none !important;
-	border-left: none !important;
-	border-right: none !important;
-	border: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border: none !important;
 }
 
 input::-webkit-inner-spin-button,
@@ -50,14 +50,14 @@ input::-webkit-outer-spin-button {
 }
 
 input[type="date"] {
-	width: auto !important;
-	text-align: right;
-	padding: 0 11px 0 16px !important;
-	&::-webkit-calendar-picker-indicator {
-		color: #999;
-		height: 6px;
-		width: 10px;
-	}
+  width: auto !important;
+  text-align: right;
+  padding: 0 11px 0 16px !important;
+  &::-webkit-calendar-picker-indicator {
+    color: #999;
+    height: 6px;
+    width: 10px;
+  }
 }
 
 label, textarea {
@@ -71,7 +71,13 @@ ion-side-menu {
 }
 
 .input-label {
-	font-size: 1rem;
+  font-size: 1rem;
+}
+
+.card {
+  border: 1px solid #e6ecf0;
+  border-radius: 5px;
+  box-shadow: none;
 }
 
 a {
@@ -87,9 +93,6 @@ p {
   font-weight: normal;
   white-space: normal;
   line-height: 1.4rem;
-  &.normal {
-    white-space: normal;
-  }
 }
 
 .popup-head {
@@ -124,17 +127,25 @@ p {
 }
 
 button {
-	border: none !important;
-	&.button.button-positive {
-	  background: $positiveColor!important;
+  border: none !important;
+  border-radius: 3px;
+  &.button.button-positive {
+    background: $positiveColor;
     &:hover {
-      background: $positiveColor!important;
-      color: $white !important;
+      background: $positiveColor;
+      color: $white;
     }
-		&[disabled="disabled"] {
-			color: $white !important;
-		}
-	}
+  }
+  &.button.button-secondary {
+    background: $primaryBrandColor;
+    &:hover {
+      background: $primaryBrandColor;
+      color: $white;
+    }
+    &[disabled="disabled"] {
+      color: $white;
+    }
+  }
 }
 
 .button {
@@ -183,6 +194,10 @@ button.button.button-default {
 .item {
   border-width: 0;
   color: $contentColor;
+  &.collapsed {
+    background: $fillColor;
+    border-bottom: 2px solid $primaryBrandColor;
+  }
 }
 
 .item-complex .item-content,
@@ -192,6 +207,11 @@ button.button.button-default {
 
 .item-radio > input[disabled="disabled"] + div.item-content {
   opacity: 0.4;
+}
+
+.checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {
+  background: $positiveColor;
+  border: $positiveColor;
 }
 
 .scroll {
@@ -207,26 +227,26 @@ button.button.button-default {
 }
 
 .help-block {
-	font-size: 0.8rem;
-	text-align: left;
-	color: $secondaryContentColor;
-	position: relative;
+  font-size: 0.8rem;
+  text-align: left;
+  color: $secondaryContentColor;
+  position: relative;
 }
 
 .hint {
   font-size: 0.8rem;
-	font-size: $FONT_SIZE_S;
-	color: $black;
-	margin-top: 3px;
+  font-size: $FONT_SIZE_S;
+  color: $black;
+  margin-top: 3px;
 }
 
 .error {
   color: $negativeColor;
   font-size: 0.8rem;
-	p {
-		color: $negativeColor;
-	  font-size: 0.5rem;
-	}
+  p {
+    color: $negativeColor;
+    font-size: 0.5rem;
+  }
 }
 
 .center {
@@ -259,12 +279,13 @@ button.button.button-default {
   font-weight: normal;
   padding: 5px;
   color: $darkPrimaryBrandColor;
-	margin: 0;
+  margin: 0;
 }
 
 .sub-title {
-  font-size: 1rem;
-	color: $primaryBrandColor;
+  font-size: 1.25rem;
+  color: $secondaryBrandColor;
+  padding: 5px 5px 0 5px;
 }
 
 .info-container {
@@ -273,7 +294,7 @@ button.button.button-default {
   word-break: break-word;
   padding: 0;
   margin-top: 10px;
-	font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .general-content {
@@ -287,16 +308,44 @@ button.button.button-default {
 }
 
 ion-side-menu-content {
-	ion-content {
-		background: $fillColor;
-	}
+  ion-content {
+    background: $fillColor;
+  }
+}
+
+.filters {
+  padding-top: 0;
+  background: $white;
+  z-index: 10;
+  padding: 0;
+  .col {
+    padding: 0;
+  }
+  label {
+    width: 50%;
+    float: left!important;
+  }
+  .item-radio {
+    float: right;
+    border-left: 1px solid $white;
+    border-right: none;
+    &:first-child {
+      float: left;
+      border-right: 1px solid $white;
+      border-left: none;
+    }
+    .item-content {
+      background: $fillColor;
+      color: $contentColor;
+      padding-right: 5px;
+    }
+  }
 }
 
 @media screen and (min-width: 960px) {
   .accounts,
   .help,
   .home,
-  .options,
   .sign-in,
   .trade {
     width: 100%;

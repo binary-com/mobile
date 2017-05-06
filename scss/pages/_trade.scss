@@ -1,754 +1,765 @@
 .trade {
-	background: $white;
-	.scroll-content {
-		margin-top: 0 !important;
-		padding-top: 0 !important;
-		margin-bottom: 0 !important;
-	}
-	ion-content {
-		width: 100vw;
-		&.trade-container {
-			padding-bottom: 80px;
-		}
-		.scroll {
-			height: 100%;
-			.flexed {
-				display: flex;
-				height: 100%!important;
-				flex-direction: column;
-			}
-		}
-        .account-status-message {
+  background: $white;
+  .scroll-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  ion-content {
+    width: 100vw;
+    &.trade-container {
+      padding-bottom: 80px;
+    }
+    .scroll {
+      height: 100%;
+      .flexed {
+        display: flex;
+        height: 100%!important;
+        flex-direction: column;
+      }
+    }
+    .account-status-message {
+      padding: 0;
+      background: $noticeColor;
+      .error {
+        font-size: 1rem;
+        padding: 10px;
+      }
+    }
+  }
+  .ionic-scroll {
+    .scroll-bar-v {
+      display: none!important;
+    }
+  }
+  .web-view-trade {
+    padding-bottom: 76px;
+  }
+  #trade-container {
+    display: flex;
+    flex-direction: column;
+    .scroll-bar-h {
+      bottom: -5px!important;
+      height: 1px;
+    }
+    .buy-again-container,
+    bg-barrier,
+    bg-chart,
+    bg-contract-summary,
+    bg-digits,
+    bg-longcode,
+    bg-markets,
+    bg-options,
+    bg-payout,
+    bg-purchase,
+    bg-ticks,
+    bg-tradetypes,
+    bg-underlyings {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    bg-options {
+      max-height: 70px;
+      .options {
+        max-height: 70px;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        background: $white;
+        .row {
+          display: flex;
+          flex-direction: row;
+          flex-grow: 1;
+          padding: 0;
+          &.options-row {
+            padding: 5px;
+          }
+          .col {
             padding: 0;
-            background: $noticeColor;
-            .error {
-                font-size: 1rem;
-                padding: 10px;
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            flex-basis: inherit;
+            width: auto;
+            .button,
+            a {
+              max-height: none;
+              min-height: 20px!important;
+              font-size: 1rem;
+              color: $contentColor;
+              line-height: normal;
+              white-space: nowrap;
+              border-radius: 3px;
+              margin: 0;
+              padding: 0;
+              &:hover {
+                color: $contentColor!important;
+              }
             }
+          }
         }
-	}
-	.ionic-scroll {
-		.scroll-bar-v {
-			display: none!important;
-		}
-	}
-	.web-view-trade {
-		padding-bottom: 76px;
-	}
-	#trade-container {
-		display: flex;
-		flex-direction: column;
-		.scroll-bar-h {
-			bottom: -5px!important;
-			height: 1px;
-		}
-		.buy-again-container,
-		bg-barrier,
-		bg-chart,
-		bg-contract-summary,
-		bg-digits,
-		bg-longcode,
-		bg-markets,
-		bg-options,
-		bg-payout,
-		bg-purchase,
-		bg-ticks,
-		bg-tradetypes,
-		bg-underlyings {
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			flex-grow: 1;
-			padding: 0 5px!important;
-		}
-		bg-options {
-			max-height: 70px;
-			.options {
-				max-height: 70px;
-				display: flex;
-				flex-grow: 1;
-				flex-direction: column;
-				background: $white;
-				.row {
-					display: flex;
-					flex-direction: row;
-					flex-grow: 1;
-					padding: 0;
-					&.options-row {
-						padding: 5px;
-					}
-					.col {
-						padding: 0;
-						display: flex;
-						flex-grow: 1;
-						align-items: center;
-						flex-basis: inherit;
-						width: auto;
-						.button,
-						a {
-							max-height: none;
-							min-height: 20px!important;
-							font-size: 1rem;
-							color: $contentColor;
-							line-height: normal;
-							white-space: nowrap;
-							border-radius: 3px;
-							margin: 0;
-							padding: 0;
-							&:hover {
-								color: $contentColor!important;
-							}
-						}
-					}
-				}
-				.row + .row {
-					margin-top: 0 !important;
-				}
-				ion-tab {
-					color: $contentColor;
-				}
-			}
-		}
-		bg-digits,
-		bg-ticks {
-			width: 100vw;
-			.digits,
-			.ticks {
-				width: 100vw;
-				display: flex;
-				.row {
-					display: flex;
-					flex-direction: row;
-					.col {
-						display: flex;
-						flex-grow: 1;
-						padding: 0;
-						margin: 0;
-						.button {
-							padding: 0;
-							margin: 0;
-							min-width: inherit;
-						}
-					}
-				}
-			}
-		}
-		bg-chart {
-			.contract-chart {
-				background: $white;
-				.chart-container {
-					background: $white;
-				}
-			}
-		}
-		bg-payout {
-			padding: 5px;
-			max-height: 75px;
-			.payout {
-				display: flex;
-				flex-grow: 1;
-				flex-direction: row;
-				max-height: 100px;
-				background: $white;
-				border: 1px solid $borderColor;
-				border-radius: 3px;
-				font-size: 1rem;
-				.payout-cell-container {
-					display: flex;
-					flex-grow: 1;
-					flex-direction: row;
-					.payout-cell {
-						display: flex;
-						flex-grow: 1;
-						flex-direction: column;
-						text-align: center;
-						a {
-							color: $contentColor;
-						}
-						input {
-							padding: 2px 3px;
-							border: 1px solid $borderColor;
-							background: $fillColor;
-							border-radius: 3px;
-						}
-						.payout-cell-link {
-							display: flex;
-							text-align: center;
-							.button {
-								max-height: none;
-								min-height: inherit!important;
-								line-height: normal;
-								white-space: nowrap;
-								margin: 0 auto;
-								color: $contentColor;
-								font-size: 1.5rem;
-								align-items: center;
-								display: flex;
-								&:hover {
-									color: $contentColor!important;
-								}
-							}
-						}
-						input {
-							max-width: 100px;
-							margin: 0 auto;
-							font-size: 1rem;
-						}
-						.button .icon:before,
-						.button.icon-left:before,
-						.button.icon-right:before,
-						.button.icon:before {
-							line-height: normal!important;
-						}
-						.button .icon:before,
-						.button .icon:before,
-						.button-icon.icon:before,
-						.button.icon-left:before,
-						.button.icon-right:before,
-						.button.icon:before,
-						.button.icon:before {
-							line-height: normal!important;
-						}
-					}
-				}
-			}
-		}
-		bg-purchase {
-			padding: 0;
-			max-height: 400px;
-			flex-grow: 2;
-			margin-bottom: 10px;
-			.purchase {
-				display: flex;
-				flex-grow: 1;
-				flex-direction: row;
-				max-height: 400px;
-				padding: 0;
-				.row {
-					flex-grow: 1;
-				}
-				.contract {
-					display: flex;
-					flex-direction: column;
-					background: $white;
-					border: 1px solid $borderColor;
-					border-radius: 3px;
-					padding: 5px;
-					margin-right: 10px;
-					margin-left: 10px;
-					.row {
-						display: flex;
-						min-height: inherit;
-						flex-grow: 1;
-						margin-top: 0;
-						align-items: center;
-						.col {
-							line-height: normal;
-							font-size: 1rem;
-							padding: 0;
-							.button {
-								// font-size: 1rem;
-								// white-space: nowrap;
-								// min-height: 30px!important;
-								// display: block;
-								// margin: 0 auto;
-								// max-height: none;
-								// width: 100%;
-								// background: $positiveColor;
-								// height: auto;
-								text-transform: capitalize;
-							}
-							.price-container {
-								display: inline-block;
-								vertical-align: middle;
-								line-height: normal;
-							}
-						}
-						&.basis-container {
-							height: auto;
-							align-items: center;
-							margin-bottom: 5px;
-							.contract-image-container {
-								text-align: center;
-								display: flex;
-								height: auto;
-								align-items: center;
-								padding: 10px 0;
-								img {
-									margin: 0 auto;
-								}
-							}
-							.basis-content {
-								height: auto;
-								margin: 0;
-								.basis-title {
-									font-weight: bold;
-									font-size: 1.1rem;
-									color: $contentColor;
-									vertical-align: middle;
-									line-height: normal;
-									width: 100%;
-									align-items: center;
-									display: flex;
-									span {
-										display: inline-block;
-										vertical-align: middle;
-										font-size: 1.1rem;
-										line-height: normal;
-									}
-								}
-								.basis {
-									font-size: 1.1rem;
-									display: inline-block;
-									vertical-align: middle;
-									width: 100%;
-									align-items: center;
-									display: flex;
-									span {
-										display: inline-block;
-										vertical-align: middle;
-										font-size: 1.1rem;
-										line-height: normal;
-									}
-								}
-							}
-						}
-						.error {
-							background-color: $noticeColor;
-							padding: 5px 5px;
-							max-height: 70px;
-							p {
-								margin: 5px !important;
-								font-size: 1rem;
-								color: $contentColor;
-								height: 70px;
-							}
-						}
-					}
-				}
-			}
-		}
-		bg-longcode {
-			max-height: 75px;
-			display: flex;
-			flex-grow: 1;
-			font-size: 1rem;
-			.longcode {
-				max-height: 75px;
-				display: flex;
-				flex-grow: 1;
-				flex-direction: column;
-				.row {
-					.col {
-						font-size: 1rem;
-						display: flex;
-						flex-grow: 1;
-						flex-direction: column;
-						color: $contentColor;
-					}
-				}
-			}
-		}
-		bg-contract-summary {
-			padding: 0 5px;
-			.contract-summary {
-				display: flex;
-				flex-grow: 1;
-				flex-direction: column;
-				.row {
-					display: flex;
-					flex-grow: 1;
-					flex-direction: row;
-					.col {
-						font-size: 1rem;
-						display: flex;
-						flex-grow: 1;
-						flex-direction: column;
-						&.ref {
-							color: $contentColor;
-						}
-						&.buy {
-							padding: 0;
-							.row {
-								color: $primaryBrandColor;
-							}
-							.title {
-								color: $contentColor;
-							}
-						}
-						&.sell {
-							padding: 0;
-							.loss {
-								color: $primaryBrandColor;
-							}
-							.win {
-								color: $primaryBrandColor !important;
-							}
-							.title {
-								color: $contentColor;
-							}
-						}
-						&.profit {
-							padding: 0;
-							.title {
-								color: $contentColor;
-							}
-						}
-						&.win {
-							color: $positiveColor !important;
-						}
-						&.lose {
-							color: $negativeColor !important;
-						}
-					}
-				}
-			}
-		}
-		.buy-again-container {
-			margin: 0 auto;
-			width: 100%;
-			padding: 0 5px;
-			display: flex;
-			flex-grow: 1;
-			.buy-again {
-				display: flex;
-				flex-grow: 1;
-				flex-direction: row;
-				background: $white;
-				border: 1px solid $borderColor;
-				border-radius: 3px;
-				margin-bottom: 10px;
-				.col {
-					flex-grow: 1;
-					display: flex;
-					flex-direction: column;
-					font-size: 1rem;
-					color: $contentColor;
-					padding: 0;
-					.row {
-						&:last-child {
-							font-weight: bold;
-						}
-					}
-					.button {
-						white-space: nowrap;
-						font-size: 1rem;
-						white-space: nowrap;
-						min-height: 30px!important;
-						max-height: 45px;
-						line-height: inherit;
-						flex-grow: 1;
-						display: block;
-						margin: 5px;
-					}
-				}
-			}
-		}
-		.contract-back-container {
-			margin: 0 auto;
-			width: 100%;
-			border-radius: 3px;
-			display: flex;
-			flex-grow: 1;
-			.col {
-				flex-grow: 1;
-				display: flex;
-				flex-direction: column;
-				font-size: 1rem;
-				.button {
-					white-space: nowrap;
-					font-size: 1rem;
-					white-space: nowrap;
-					min-height: 40px!important;
-					max-height: 45px;
-					line-height: inherit;
-					flex-grow: 1;
-					display: block;
-					margin: 0 auto;
-				}
-			}
-		}
-		bg-barrier {
-			padding: 5px;
-			max-height: 75px;
-			.barrier {
-				border: 1px solid $borderColor;
-				border-radius: 3px;
-				background: $white;
-				display: flex;
-				flex-direction: column;
-				color: $contentColor;
-				.row {
-					display: flex;
-					flex-direction: row;
-					flex-grow: 1;
-					.col {
-						display: flex;
-						flex-direction: column;
-						flex-grow: 1;
-						font-size: 1rem;
-						font-weight: bold;
-						input {
-							font-size: 1rem;
-							padding: 5px;
-						}
-					}
-				}
-			}
-		}
-		bg-digit-result {
-			padding: 5px;
-			max-height: 75px;
-			margin: 0 auto;
-			width: 100%;
-			.digit-result {
-				border: 1px solid $borderColor;
-				background: $white;
-				border-radius: 3px;
-				display: flex;
-				flex-direction: column;
-				color: $contentColor;
-				padding: 5px 0;
-				.col {
-					padding: 0 !important;
-				}
-				.numberCircle {
-					display: inline-block;
-					line-height: 0;
-					border-radius: 50%;
-					border: 2px solid;
-					font-size: 1rem;
-					span {
-						display: inline-block;
-						padding-top: 50%;
-						padding-bottom: 50%;
-						margin-left: 8px;
-						margin-right: 8px;
-					}
-					&.lose {
-						color: $negativeColor;
-						&.last {
-							color: $white !important;
-							background: $negativeColor !important;
-							border-color: $negativeColor !important;
-						}
-					}
-					&.win {
-						color: green;
-						&.last {
-							color: $white !important;
-							background: $positiveColor !important;
-							border-color: $positiveColor !important;
-						}
-					}
-				}
-			}
-		}
-	}
+        .row + .row {
+          margin-top: 0 !important;
+        }
+        ion-tab {
+          color: $contentColor;
+        }
+      }
+    }
+    bg-digits,
+    bg-ticks {
+      width: 100vw;
+      .digits,
+      .ticks {
+        width: 100vw;
+        display: flex;
+        .row {
+          display: flex;
+          flex-direction: row;
+          .col {
+            display: flex;
+            flex-grow: 1;
+            padding: 0;
+            margin: 0;
+            .button {
+              padding: 0;
+              margin: 0;
+              min-width: inherit;
+            }
+          }
+        }
+      }
+    }
+    bg-chart {
+      .contract-chart {
+        background: $white;
+        .chart-container {
+          background: $white;
+        }
+      }
+    }
+    bg-payout {
+      padding: 5px;
+      max-height: 75px;
+      .payout {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row;
+        max-height: 100px;
+        background: $white;
+        border: 1px solid $borderColor;
+        border-radius: 3px;
+        font-size: 1rem;
+        .payout-cell-container {
+          display: flex;
+          flex-grow: 1;
+          flex-direction: row;
+          .payout-cell {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            text-align: center;
+            a {
+              color: $contentColor;
+            }
+            input {
+              padding: 2px 3px;
+              border: 1px solid $borderColor;
+              background: $fillColor;
+              border-radius: 3px;
+            }
+            .payout-cell-link {
+              display: flex;
+              text-align: center;
+              .button {
+                max-height: none;
+                min-height: inherit!important;
+                line-height: normal;
+                white-space: nowrap;
+                margin: 0 auto;
+                color: $contentColor;
+                font-size: 1.5rem;
+                align-items: center;
+                display: flex;
+                &:hover {
+                  color: $contentColor!important;
+                }
+              }
+            }
+            input {
+              max-width: 100px;
+              margin: 0 auto;
+              font-size: 1rem;
+            }
+            .button .icon:before,
+            .button.icon-left:before,
+            .button.icon-right:before,
+            .button.icon:before {
+              line-height: normal!important;
+            }
+            .button .icon:before,
+            .button .icon:before,
+            .button-icon.icon:before,
+            .button.icon-left:before,
+            .button.icon-right:before,
+            .button.icon:before,
+            .button.icon:before {
+              line-height: normal!important;
+            }
+          }
+        }
+      }
+    }
+    bg-purchase {
+      padding: 0;
+      max-height: 400px;
+      flex-grow: 2;
+      margin-bottom: 10px;
+      .purchase {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row;
+        max-height: 400px;
+        padding: 0;
+        .row {
+          flex-grow: 1;
+        }
+        .contract {
+          display: flex;
+          flex-direction: column;
+          background: $white;
+          border: 1px solid $borderColor;
+          border-radius: 3px;
+          padding: 5px 0;
+          margin-right: 5px;
+          margin-left: 5px;
+          .row {
+            display: flex;
+            min-height: inherit;
+            flex-grow: 1;
+            margin-top: 0;
+            align-items: center;
+            .col {
+              line-height: normal;
+              font-size: 1rem;
+              padding: 0;
+              .button {
+                font-size: 1rem;
+                white-space: nowrap;
+                min-height: 30px!important;
+                display: block;
+                margin: 0 auto;
+                max-height: none;
+                width: 100%;
+                background: $positiveColor;
+                height: auto;
+                text-transform: capitalize;
+              }
+              .price-container {
+                display: inline-block;
+                vertical-align: middle;
+                line-height: normal;
+              }
+            }
+            &.basis-container {
+              height: auto;
+              align-items: center;
+              margin-bottom: 5px;
+              .contract-image-container {
+                text-align: center;
+                display: flex;
+                height: auto;
+                align-items: center;
+                padding: 10px 0;
+                img {
+                  margin: 0 auto;
+                }
+              }
+              .basis-content {
+                height: auto;
+                margin: 0;
+                .basis-title {
+                  font-weight: bold;
+                  font-size: 1.1rem;
+                  color: $contentColor;
+                  vertical-align: middle;
+                  line-height: normal;
+                  width: 100%;
+                  align-items: center;
+                  display: flex;
+                  span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 1.1rem;
+                    line-height: normal;
+                  }
+                }
+                .basis {
+                  font-size: 1.1rem;
+                  display: inline-block;
+                  vertical-align: middle;
+                  width: 100%;
+                  align-items: center;
+                  display: flex;
+                  span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 1.1rem;
+                    line-height: normal;
+                  }
+                }
+              }
+            }
+            .error {
+              background-color: $noticeColor;
+              padding: 5px 5px;
+              max-height: 70px;
+              p {
+                margin: 5px !important;
+                font-size: 1rem;
+                color: $contentColor;
+                height: 70px;
+              }
+            }
+          }
+        }
+      }
+    }
+    bg-longcode {
+      max-height: 75px;
+      display: flex;
+      flex-grow: 1;
+      font-size: 1rem;
+      .longcode {
+        max-height: 75px;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        .row {
+          .col {
+            font-size: 1rem;
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            color: $contentColor;
+          }
+        }
+      }
+    }
+    bg-contract-summary {
+      padding: 0 5px;
+      .contract-summary {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        .row {
+          display: flex;
+          flex-grow: 1;
+          flex-direction: row;
+          .col {
+            font-size: 1rem;
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            &.ref {
+              color: $contentColor;
+            }
+            &.buy {
+              padding: 0;
+              .row {
+                color: $primaryBrandColor;
+              }
+              .title {
+                color: $contentColor;
+              }
+            }
+            &.sell {
+              padding: 0;
+              .loss {
+                color: $primaryBrandColor;
+              }
+              .win {
+                color: $primaryBrandColor !important;
+              }
+              .title {
+                color: $contentColor;
+              }
+            }
+            &.profit {
+              padding: 0;
+              .title {
+                color: $contentColor;
+              }
+            }
+            &.win {
+              color: $positiveColor !important;
+            }
+            &.lose {
+              color: $negativeColor !important;
+            }
+          }
+        }
+      }
+    }
+    .buy-again-container {
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 5px;
+      display: flex;
+      flex-grow: 1;
+      .buy-again {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: row;
+        background: $white;
+        border: 1px solid $borderColor;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        .col {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          font-size: 1rem;
+          color: $contentColor;
+          padding: 0;
+          .row {
+            &:last-child {
+              font-weight: bold;
+            }
+          }
+          .button {
+            white-space: nowrap;
+            font-size: 1rem;
+            white-space: nowrap;
+            min-height: 30px!important;
+            max-height: 45px;
+            line-height: inherit;
+            flex-grow: 1;
+            display: block;
+            margin: 5px;
+          }
+        }
+      }
+    }
+    .contract-back-container {
+      margin: 0 auto;
+      width: 100%;
+      border-radius: 3px;
+      display: flex;
+      flex-grow: 1;
+      .col {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        .button {
+          white-space: nowrap;
+          font-size: 1rem;
+          white-space: nowrap;
+          min-height: 40px!important;
+          max-height: 45px;
+          line-height: inherit;
+          flex-grow: 1;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+    bg-barrier {
+      padding: 5px;
+      max-height: 75px;
+      .barrier {
+        border: 1px solid $borderColor;
+        border-radius: 3px;
+        background: $white;
+        display: flex;
+        flex-direction: column;
+        color: $contentColor;
+        .row {
+          display: flex;
+          flex-direction: row;
+          flex-grow: 1;
+          .col {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            font-size: 1rem;
+            font-weight: bold;
+            input {
+              font-size: 1rem;
+              padding: 5px;
+            }
+          }
+        }
+      }
+    }
+    bg-digit-result {
+      padding: 5px;
+      max-height: 75px;
+      margin: 0 auto;
+      width: 100%;
+      .digit-result {
+        border: 1px solid $borderColor;
+        background: $white;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        color: $contentColor;
+        padding: 5px 0;
+        .col {
+          padding: 0 !important;
+        }
+        .numberCircle {
+          display: inline-block;
+          line-height: 0;
+          border-radius: 50%;
+          border: 2px solid;
+          font-size: 1rem;
+          span {
+            display: inline-block;
+            padding-top: 50%;
+            padding-bottom: 50%;
+            margin-left: 8px;
+            margin-right: 8px;
+          }
+          &.lose {
+            color: $negativeColor;
+            &.last {
+              color: $white !important;
+              background: $negativeColor !important;
+              border-color: $negativeColor !important;
+            }
+          }
+          &.win {
+            color: green;
+            &.last {
+              color: $white !important;
+              background: $positiveColor !important;
+              border-color: $positiveColor !important;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 .modal {
-	opacity: 0.95;
-	background: $white;
-	.bar-header {
-		background: $white;
-		font-size: 1rem;
-		color: $contentColor;
-		button,
-		h1 {
-			color: $contentColor!important;
-		}
-	}
-	ion-content{
-		width: 100%!important;
-		.scroll{
-			height: 100%!important;
-		}
-	}
+  opacity: 0.95;
+  background: $white;
+  .bar-header {
+    background: $white;
+    font-size: 1rem;
+    color: $contentColor;
+    button,
+    h1 {
+      color: $contentColor!important;
+    }
+  }
+  ion-content{
+    width: 100%!important;
+    .scroll{
+      height: 100%!important;
+    }
+  }
 
-	bg-digits,
-	bg-markets,
-	bg-ticks,
-	bg-tradetypes,
-	bg-underlyings {
-		min-height: 30px;
-		width: 100%;
-		display: flex;
-		flex-grow: 1;
-		align-items: center;
-		background: $white;
-		height: calc(100vh - 46px);
-		height: 100%;
-		display: flex;
-		align-items: center;
-		.ionic-scroll {
-			min-height: 30px;
-			.scroll {
-				min-height: 30px;
-			}
-		}
-		.digits,
-		.markets,
-		.ticks,
-		.trade-types,
-		.underlyings {
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			flex-grow: 1;
-			height: calc(90vh - 46px);
-			display: flex;
-			align-items: center;
-			height: 100%;
-			.row {
-				display: flex;
-				flex-grow: 1;
-				padding: 0 !important;
-				height: calc(90vh - 46px)!important;
-				height: 100%;
-				align-items: center!important;
-				flex-direction: row;
-				flex-wrap: wrap;
-				.col {
-					padding: 0;
-					display: flex;
-					flex-grow: 1;
-					flex-direction: column;
-					flex-basis: 40%!important;
-					max-width: 60vw;
-					margin: 0 auto;
-					align-items: center;
-					display: flex;
-					&:first-child {
-						border-top: none;
-					}
-					&:last-child {
-						border-bottom: none;
-					}
-					.button,
-					a {
-						max-height: none;
-						min-height: 20px!important;
-						font-size: 1rem;
-						color: $contentColor;
-						line-height: normal;
-						white-space: nowrap;
-						font-weight: normal;
-						border-radius: 0;
-						text-align: center;
-						padding: 10px 5px;
-						&:hover {
-							color: $contentColor!important;
-						}
-					}
-				}
-			}
-		}
-	}
+  bg-digits,
+  bg-markets,
+  bg-ticks,
+  bg-tradetypes,
+  bg-underlyings {
+    min-height: 30px;
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    background: $white;
+    height: calc(100vh - 46px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    .ionic-scroll {
+      min-height: 30px;
+      .scroll {
+        min-height: 30px;
+      }
+    }
+    .digits,
+    .markets,
+    .ticks,
+    .trade-types,
+    .underlyings {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      height: calc(90vh - 46px);
+      display: flex;
+      align-items: center;
+      height: 100%;
+      .row {
+        display: flex;
+        flex-grow: 1;
+        padding: 0 !important;
+        height: calc(90vh - 46px)!important;
+        height: 100%;
+        align-items: center!important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .col {
+          padding: 0;
+          display: flex;
+          flex-grow: 1;
+          flex-direction: column;
+          flex-basis: 40%!important;
+          max-width: 60vw;
+          margin: 0 auto;
+          align-items: center;
+          display: flex;
+          &:first-child {
+            border-top: none;
+          }
+          &:last-child {
+            border-bottom: none;
+          }
+          .button,
+          a {
+            max-height: none;
+            min-height: 20px!important;
+            font-size: 1rem;
+            color: $contentColor;
+            line-height: normal;
+            white-space: nowrap;
+            font-weight: normal;
+            border-radius: 0;
+            text-align: center;
+            padding: 10px 5px;
+            &:hover {
+              color: $contentColor!important;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-device-height: 480px) {
-	.trade {
-		#tradeChart {
-			width: 100% !important;
-			height: 100px!important;
-		}
-	}
-	bg-purchase {
-		.purchase {
-			.contract {
-				.row {
-					&.basis-container {
-						.contract-image-container {
-							img {
-								width: 30px;
-								height: 30px;
-							}
-						}
-						.basis-content {
-							height: 40px;
-							.basis-title {
-								height: 20px;
-							}
-							.basis {
-								height: 20px;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	.trade #trade-container bg-payout, .trade #trade-container bg-barrier{
-		max-height: 50px;
-	}
-	.trade #trade-container bg-purchase .purchase .contract .row .col .button{
-		line-height: normal;
-	}
+  .trade {
+    #tradeChart {
+      width: 100% !important;
+      height: 100px!important;
+    }
+    bg-chart {
+      max-height: 130px;
+      min-height: 115px;
+    }
+  }
+  bg-purchase {
+    .purchase {
+      .contract {
+        .row {
+          &.basis-container {
+            .contract-image-container {
+              img {
+                width: 30px;
+                height: 30px;
+              }
+            }
+            .basis-content {
+              height: 40px;
+              .basis-title {
+                height: 20px;
+              }
+              .basis {
+                height: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .trade #trade-container bg-payout, .trade #trade-container bg-barrier{
+    max-height: 50px;
+  }
+  .trade #trade-container bg-purchase .purchase .contract .row .col .button{
+    line-height: normal;
+  }
 }
 @media only screen and (min-device-height: 481px) and (max-device-height: 640px) {
-	.trade {
-		#tradeChart {
-			width: 100% !important;
-			height: 180px !important;
-		}
-	}
-	bg-purchase {
-		.purchase {
-			.contract {
-				.row {
-					&.basis-container {
-						.contract-image-container {
-							img {
-								width: 40px;
-								height: 40px;
-							}
-						}
-						.basis-content {
-							.basis-title {
-								height: 25px;
-							}
-							.basis {
-								height: 25px;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+  .trade {
+    #tradeChart {
+      width: 100% !important;
+      height: 180px !important;
+    }
+    bg-chart {
+      max-height: 190px;
+      min-height: 175px;
+    }
+  }
+  bg-purchase {
+    .purchase {
+      .contract {
+        .row {
+          &.basis-container {
+            .contract-image-container {
+              img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+            .basis-content {
+              .basis-title {
+                height: 25px;
+              }
+              .basis {
+                height: 25px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 @media only screen and (min-device-height: 641px) {
-	.trade {
-		#tradeChart {
-			width: 100% !important;
-			height: 230px !important;
-	}
-		bg-purchase {
-			.purchase {
-				.contract {
-					.row {
-						&.basis-container {
-							.contract-image-container {
-								img {
-									width: 55px;
-									height: 55px;
-								}
-							}
-							.basis-content {
-								.basis-title {
-									height: 30px;
-								}
-								.basis {
-									height: 30px;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	.trade #trade-container bg-payout {
-		max-height: 130px;
-	}
+  .trade {
+    #tradeChart {
+      width: 100% !important;
+      height: 230px !important;
+    }
+    bg-chart {
+      max-height: 250px;
+      min-height: 235px;
+    }
+  }
+  bg-purchase {
+    .purchase {
+      .contract {
+        .row {
+          &.basis-container {
+            .contract-image-container {
+              img {
+                width: 55px;
+                height: 55px;
+              }
+            }
+            .basis-content {
+              .basis-title {
+                height: 30px;
+              }
+              .basis {
+                height: 30px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .trade #trade-container bg-payout {
+    max-height: 130px;
+  }
 }

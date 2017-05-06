@@ -3,25 +3,34 @@
     <div class="row">
       <div class="col">
         <h1 class="page-title">
-          {{'transactiondetails.contract_id' | translate}}
-          <span class="right" ng-if="vm.contract.contract_id">{{vm.contract.contract_id}}</span>
+          {{'transactiondetails.detail' | translate}}
         </h1>
+      </div>
+    </div>
+    <div class="card list">
+      <div class="item">
+        <div class="row">
+          <div class="col left">
+            {{'transactiondetails.contract_id' | translate}}
+          </div>
+          <div class="col right" ng-if="vm.contract.contract_id">
+            {{vm.contract.contract_id}}
+          </div>
+        </div>
       </div>
     </div>
     <div class="card" ng-if="vm.contract.longcode">
       <div class="row">
-        <ion-list class="col list">
-          <ion-item class="item">
-            <p class="normal">
-              {{vm.contract.longcode}}
-            </p>
-          </ion-item>
-        </ion-list>
+        <div class="col list">
+          <div class="item item-text-wrap">
+            {{vm.contract.longcode}}
+          </div>
+        </div>
       </div>
     </div>
 
-    <ion-list class="list list-inset"  type="list-inset">
-      <ion-item class="item item-divider" ng-if="vm.contract.transaction_ids.buy && vm.contract.transaction_ids.sell">
+    <div class="card list list-inset">
+      <div class="item" ng-if="vm.contract.transaction_ids.buy && vm.contract.transaction_ids.sell">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.ref' | translate}}
@@ -32,8 +41,8 @@
             <span ng-bind="vm.contract.transaction_ids.sell"></span>
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.contract.date_start">
+      </div>
+      <div class="item" ng-if="vm.contract.date_start">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.start_time' | translate}}
@@ -44,8 +53,8 @@
             GMT
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.contract.date_expiry">
+      </div>
+      <div class="item" ng-if="vm.contract.date_expiry">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.end_time' | translate}}
@@ -56,8 +65,8 @@
             GMT
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.contract.entry_spot">
+      </div>
+      <div class="item" ng-if="vm.contract.entry_spot">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.entry_spot' | translate}}
@@ -66,8 +75,8 @@
             {{vm.contract.entry_spot}}
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.contract.barrier">
+      </div>
+      <div class="item" ng-if="vm.contract.barrier">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.barrier' | translate}}
@@ -76,8 +85,8 @@
             {{vm.contract.barrier}}
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.contract.payout">
+      </div>
+      <div class="item" ng-if="vm.contract.payout">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.payout' | translate}}
@@ -86,8 +95,8 @@
             {{vm.contract.payout | currency : vm.currency : 2}}
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.contract.buy_price">
+      </div>
+      <div class="item" ng-if="vm.contract.buy_price">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.buy_price' | translate}}
@@ -96,8 +105,8 @@
             {{vm.contract.buy_price | currency : vm.currency : 2}}
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.contract.exit_tick">
+      </div>
+      <div class="item" ng-if="vm.contract.exit_tick">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.exit_spot' | translate}}
@@ -106,8 +115,8 @@
             {{vm.contract.exit_tick}}
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.contract.exit_tick_time">
+      </div>
+      <div class="item" ng-if="vm.contract.exit_tick_time">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.exit_spot_time' | translate}}
@@ -118,8 +127,8 @@
             GMT
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.contract.sell_price">
+      </div>
+      <div class="item" ng-if="vm.contract.sell_price">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.sell_price' | translate}}
@@ -128,8 +137,8 @@
             {{vm.contract.sell_price | currency : vm.currency : 2}}
           </div>
         </div>
-      </ion-item>
-      <ion-item class="item item-divider" ng-if="vm.contract.sell_price && vm.contract.buy_price">
+      </div>
+      <div class="item" ng-if="vm.contract.sell_price && vm.contract.buy_price">
         <div class="row">
           <div class="col left">
             {{'transactiondetails.profit_loss' | translate}}
@@ -141,7 +150,7 @@
             <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) == 0">({{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
           </div>
         </div>
-      </ion-item>
-    </ion-list>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

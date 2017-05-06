@@ -9,10 +9,6 @@
 												font-size: 1.5rem;
 												color: $secondaryBrandColor;
 								}
-								button {
-												background: $positiveColor !important;
-												font-size: 1.1rem;
-								}
 				}
 
 @media only screen and (min-device-width: 480px) {
@@ -21,9 +17,6 @@
 								h1 {
 												font-size: 1rem;
 												color: $white;
-								}
-								button {
-												font-size: 0.8rem;
 								}
 				}
 }

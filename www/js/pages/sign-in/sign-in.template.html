@@ -1,7 +1,7 @@
 <ion-view class="sign-in" xmlns="http://www.w3.org/1999/html">
     <ion-content class="signin-content" has-bouncing="false">
         <ion-header-bar align-title="center" class="bar bar-header bar-positive">
-            <button class="button  icon-left button-clear ion-android-arrow-back" ng-class="{'ion-ios-arrow-back' : vm.ios}" ng-click="vm.changeSigninView(true)" ng-show="vm.showTokenForm || vm.showSignin || vm.showSignup || vm.showvirtualws"></button>
+            <button class="button icon-left button-clear ion-android-arrow-back" ng-class="{'ion-ios-arrow-back' : vm.ios}" ng-click="vm.changeSigninView(true)" ng-show="vm.showTokenForm || vm.showSignin || vm.showSignup || vm.showvirtualws"></button>
             <h1 class="title"></h1>
         </ion-header-bar>
         <div class="row center">
@@ -13,14 +13,17 @@
         <form ng-submit="vm.signIn()" role="form" name="signin" ng-show="vm.showTokenForm">
             <div class="list">
                 <ion-spinner ng-show="vm.showSpinner"></ion-spinner>
-                <label class="item-input" ng-class="{'error': vm.tokenError}">
+                <label class="item item-input item-floating-label" ng-class="{'error': vm.tokenError}">
                     <i class="icon ion-android-lock placeholder-icon icon-small"></i>
+                    <span class="input-label">
+                      {{'signin.paste_token' | translate }}
+                    </span>
                     <input type="text" placeholder="{{'signin.paste_token' | translate }}" ng-model="vm.token" tabindex="1" ngRequired>
                 </label>
             </div>
             <div class="row center">
-                <div class="col col-75">
-                    <button class="button button-block btn-signin" type="submit">
+                <div class="col col-50 center">
+                    <button class="button button-positive ink" type="submit" angular-ripple>
                         {{'signin.add_account' | translate }}
                     </button>
                 </div>
@@ -29,12 +32,13 @@
 
         <form name="emailForm" id="emailform" ng-show="vm.showSignup && !vm.showvirtualws" ng-submit="vm.verifyUserMail()">
             <div class="row center">
-                <div class="col col-75">
-                    <div class="input-title">
-                        {{'newvirtualaccount.enter-email' | translate}}
-                    </div>
-                    <label class="item-input">
-                        <input autocomplete="off" name="email" placeholder="{{'newvirtualaccount.email' | translate}}" ng-model="vm.data.mail" required ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/"/>
+                <div class="col col-75 center">
+                  <div class="list">
+                    <label class="item item-input item-floating-label">
+                      <span class="input-label">
+                        {{'newvirtualaccount.email' | translate}}
+                      </span>
+                      <input autocomplete="off" name="email" placeholder="{{'newvirtualaccount.email' | translate}}" ng-model="vm.data.mail" required ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/"/>
                     </label>
                     <div ng-messages class="help-block error" for="emailForm.email.$error" role="alert" ng-if='emailForm.email.$dirty'>
                         <ng-message when="pattern">{{'newvirtualaccount.invalid_email' | translate}}</ng-message>
@@ -42,16 +46,28 @@
                     <div class="help-block error" ng-if="vm.emailError">
                         {{vm.emailErrorMessage}}
                     </div>
-                    <button class="button button-block btn-signin" type="submit" ng-disabled="emailForm.$invalid || vm.isVerifyingEmail">
-                        {{'newvirtualaccount.continue' | translate}}
-                    </button>
+                    <div class="item">
+                      <div class="row">
+                        <div class="col center">
+                          <button class="button button-positive ink" type="submit" ng-disabled="emailForm.$invalid || vm.isVerifyingEmail" angular-ripple>
+                            {{'newvirtualaccount.continue' | translate}}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
             </div>
         </form>
         <form name="virtualws" id="virtualws" ng-show="vm.showvirtualws && !vm.showSignin && !vm.showTokenForm" ng-submit="vm.createVirtualAccount()">
             <div class="row center">
                 <div class="col col-75">
-                    <label class="item-input">
+                  <div class="list">
+                    <label class="item item-input item-floating-label">
+                      <span class="input-label">
+                        {{'newvirtualaccount.verification-code' | translate }}
+                      </span>
                         <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" ng-pattern="/^\w{15,128}$/" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-required="true" />
                     </label>
                     <div class="help-block">
@@ -64,8 +80,12 @@
                     <div class="help-block error" ng-if="vm.tokenError">
                         <div>{{vm.tokenErrorMessage}}</div>
                     </div>
-                    <label class="item-input">
-                        <input name="password" id="password" ng-model="vm.data.clientPassword" type="{{vm.data.inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-minlength="6" ng-maxlength="25" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/" ng-required="true" />
+
+                    <label class="item item-input item-floating-label">
+                      <span class="input-label">
+                        {{'newvirtualaccount.password' | translate }}
+                      </span>
+                      <input name="password" id="password" ng-model="vm.data.clientPassword" type="{{vm.data.inputType}}" placeholder="{{'newvirtualaccount.password' | translate }}" ng-minlength="6" ng-maxlength="25" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/" ng-required="true" />
                     </label>
                     <div class="help-block">
                         {{'newvirtualaccount.password_hint' | translate}}
@@ -78,19 +98,38 @@
                     <div class="help-block error" ng-if="vm.passwordError">
                         <div>{{vm.passwordErrorMessage}}</div>
                     </div>
-                    <div class="help-block show-hide-password">
+
+                    <div class="show-hide-password">
                         <input type="checkbox" id="show-hide" name="show-hide" ng-model="vm.passwordCheckbox" ng-click="vm.hideShowPassword()"/>
-                        <label for="show-hide" ng-if="vm.passwordCheckbox">{{'newvirtualaccount.hide_pass' | translate }}</label>
-                        <label for="show-hide" ng-if="!vm.passwordCheckbox">{{'newvirtualaccount.show_pass' | translate }}</label>
+                        <label for="show-hide" ng-if="vm.passwordCheckbox">
+                          <i class="ion-ios-eye"></i>
+                          {{'newvirtualaccount.hide_pass' | translate }}
+                        </label>
+                        <label for="show-hide" ng-if="!vm.passwordCheckbox">
+                          <i class="ion-ios-eye-outline"></i>
+                          {{'newvirtualaccount.show_pass' | translate }}
+                        </label>
                     </div>
-                    <label class="item-input item-select">
-                        <select ng-model="vm.data.residence" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.data.residenceList track by residence.value" required>
-                            <option value="" disabled>{{'newvirtualaccount.select' | translate}}</option>
-                        </select>
+
+                    <label class="item item-input item-select">
+                      <div class="input-label">
+                        {{'newvirtualaccount.residence' | translate}}
+                      </div>
+                      <select ng-model="vm.data.residence" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.data.residenceList track by residence.value" required>
+                        <option value="" disabled>{{'newvirtualaccount.select' | translate}}</option>
+                      </select>
                     </label>
-                    <button class="button button-block btn-signin" type="submit" ng-disabled="virtualws.$invalid">
-                        {{'newvirtualaccount.signup' | translate}}
-                    </button>
+
+                    <div class="item">
+                      <div class="row">
+                        <div class="col center">
+                          <button class="button button-positive ink" type="submit" ng-disabled="virtualws.$invalid" angular-ripple>
+                            {{'newvirtualaccount.signup' | translate}}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
         </form>
@@ -115,12 +154,15 @@
             </div>
         </div>
         <!-- end signup -->
-        <div class="list">
-            <language ng-show="!vm.showSignin && !vm.showTokenForm  && !vm.showSignup && !vm.showvirtualws"></language>
+        <div class="row center">
+          <div class="col col-50">
+              <language ng-show="!vm.showSignin && !vm.showTokenForm  && !vm.showSignup && !vm.showvirtualws"></language>
+          </div>
         </div>
+
         <div class="row center" ng-show="!vm.showSignin && !vm.showTokenForm && !vm.showSignup && !vm.showvirtualws">
-            <div class="col col-75">
-                <button class="button button-block button-possitive btn-signin" type="button" ng-click="vm.showSigninView()" ng-disabled="vm.disableNextbutton">
+            <div class="col col-50">
+                <button class="button button-block button-positive ink" type="button" ng-click="vm.showSigninView()" ng-disabled="vm.disableNextbutton" angular-ripple>
                     {{ 'signin.next' | translate }}
                 </button>
             </div>

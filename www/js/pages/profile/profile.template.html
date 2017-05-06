@@ -18,14 +18,14 @@
                 <span class="input-label">
                   {{ 'profile.country_of_residence' | translate }}
                 </span>
-                <input placeholder="{{ 'profile.country_of_residence' | translate }}" name="country" ng-value="vm.profile.country" readonly="readonly" />
+                <input placeholder="{{ 'profile.country_of_residence' | translate }}" name="country" ng-model="vm.profile.country" ng-readonly="true" />
               </label>
 
               <label class="item item-input item-floating-label">
                 <span class="input-label">
                   {{ 'profile.email_address' | translate }}
                 </span>
-                <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-value="vm.profile.email" readonly="readonly" />
+                <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-model="vm.profile.email" ng-readonly="true" />
               </label>
             </div>
           </div>
@@ -40,35 +40,35 @@
                 <span class="input-label">
                   {{ 'profile.name' | translate }}
                 </span>
-                <input placeholder="{{ 'profile.name' | translate }}" name="name" ng-value="vm.profile.first_name +  ' ' + vm.profile.last_name" readonly="readonly" />
+                <input placeholder="{{ 'profile.name' | translate }}" name="name" ng-model="vm.profile.first_name +  ' ' + vm.profile.last_name" readonly="readonly" />
               </label>
 
               <label class="item item-input item-floating-label">
                 <span class="input-label">
                   {{ 'profile.email_address' | translate }}
                 </span>
-                <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-value="vm.profile.email" readonly="readonly" />
+                <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-model="vm.profile.email" readonly="readonly" />
               </label>
 
               <label class="item item-input item-date">
                 <span class="input-label">
                   {{ 'profile.date_of_birth' | translate }}
                 </span>
-                <input type="date" placeholder="yyyy-MM-dd" class="date" name="data_of_birth" ng-value="vm.profile.date_of_birth" readonly="readonly" />
+                <input type="date" placeholder="yyyy-MM-dd" class="date" name="data_of_birth" ng-model="vm.profile.date_of_birth" readonly="readonly" />
               </label>
 
               <label class="item item-input item-floating-label">
                 <span class="input-label">
                   {{ 'profile.country_of_residence' | translate }}
                 </span>
-                <input placeholder="{{ 'profile.country_of_residence' | translate }}" name="country_of_residence" ng-value="vm.profile.country" readonly="readonly" />
+                <input placeholder="{{ 'profile.country_of_residence' | translate }}" name="country_of_residence" ng-model="vm.profile.country" readonly="readonly" />
               </label>
 
               <label class="item item-input item-floating-label">
                 <span class="input-label">
                   {{ 'profile.email_address' | translate }}
                 </span>
-                <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-value="vm.profile.email" readonly="readonly" />
+                <input placeholder="{{ 'profile.email_address' | translate }}" name="email" ng-model="vm.profile.email" readonly="readonly" />
               </label>
 
               <label class="item item-input item-floating-label">
@@ -203,12 +203,16 @@
         </div>
       </div>
     </form>
+    <div class="row" ng-if="!vm.isVirtualAccount && vm.notAnyChanges">
+      <div class="col center">
+        <span class="help-block error center" >{{'financial-assessment.no_change' | translate}}
+        </span>
+      </div>
+    </div>
 
     <div class="row" ng-if="!vm.isVirtualAccount">
-      <div class="col">
-        <span class="help-block error center" ng-if="vm.notAnyChanges">{{'financial-assessment.no_change' | translate}}
-        </span>
-        <button class="button button-block ink" ng-click="vm.updateProfile()" ng-disabled="!profileForm.$valid || vm.disableUpdateButton  || (vm.isFinancial && vm.profile.tax_residence  == null)" angular-ripple>
+      <div class="col center">
+        <button class="button button-positive ink" ng-click="vm.updateProfile()" ng-disabled="!profileForm.$valid || vm.disableUpdateButton  || (vm.isFinancial && vm.profile.tax_residence  == null)" angular-ripple>
             {{ 'profile.update_profile' | translate }}
         </button>
       </div>

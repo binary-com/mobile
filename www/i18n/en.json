@@ -70,7 +70,16 @@
     "digit_even_odd": "Digit Even/Odd",
     "digit_matches_differs": "Digit Matches/Differs",
     "up_down": "Up/Down",
-    "markets_are_closed": "Sorry, All markets are currently closed. Please try again later"
+    "markets_are_closed": "Sorry, All markets are currently closed. Please try again later",
+    "ticks": "ticks",
+    "tick": "tick",
+    "digit": "digit",
+    "cancel": "Cancel",
+    "select_market": "Select market",
+    "select_underlying": "Select Underlying",
+    "select_tradetype": "Select Tradetype",
+    "select_tick": "Select Tick",
+    "select_digit": "Select Digit"
   },
   "trade": {
     "payout": "Payout",
@@ -154,7 +163,7 @@
     "signup-question": "Don't have an account?",
     "verification-code": "Verification Code",
     "password": "Password",
-    "residence": "Residence:",
+    "residence": "Country of residence",
     "select": "Select your country",
     "isrequired": "(Requierd)",
     "password_hint": "Password must be minimum of six lower and uppercase letters with numbers",
@@ -665,5 +674,8 @@
     "required": "This field is required.",
     "success": "Success",
     "success_message": "Your settings have been updated successfully."
+  },
+  "language": {
+    "language": "Language"
   }
 }

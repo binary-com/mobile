@@ -1,9 +1,10 @@
 <div class="purchase" ng-if="!vm.showSummary">
     <div class="row">
-        <div class="col center contract card" ng-repeat="contract in vm.contracts">
+        <div class="col center contract" ng-repeat="contract in vm.contracts">
             <div class="row">
                 <div class="col center">
                     <div class="price-container">
+
                         <span class="price-des">{{'trade.net_profit' | translate}}:</span>
                         <span class="price" ng-if="!getWaitForProposal()">
                             {{ (vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price)  | currency:vm.proposal.currency:2}}
@@ -26,14 +27,14 @@
             </div>
             <div class="row" ng-if="!vm.proposalResponses[$index].hasError">
                 <div class="col center">
-                    <button class="button button-block button-positive ink" ng-click="vm.purchase($index)"
-                            ng-disabled="vm.inPurchaseMode" angular-ripple>
+                    <button class="button button-positive" ng-click="vm.purchase($index)"
+                            ng-disabled="vm.inPurchaseMode">
                         {{ "trade.buy" | translate}}
                         {{contract.contract_display}}
                     </button>
                 </div>
-                </div>
-                  <div class="row" ng-if="vm.proposalResponses[$index].hasError">
+            </div>
+            <div class="row" ng-if="vm.proposalResponses[$index].hasError">
                 <div class="col center error resize">
                     {{ vm.proposalResponses[$index].message }}
                 </div>
@@ -44,7 +45,7 @@
 <bg-contract-summary ng-if="vm.showSummary" proposal="vm.proposal" purchased-contract="vm.purchasedContract"></bg-contract-summary>
 
 <div class="buy-again-container" ng-if="vm.showSummary">
-    <div class="buy-again row card">
+    <div class="buy-again row">
         <div class="col center">
             <div class="row">
                 <div class="col center">
@@ -70,14 +71,14 @@
             </div>
         </div>
         <div class="col center">
-            <button class="button button-positive ink" ng-disabled="vm.inPurchaseMode" ng-click="vm.purchase(vm.purchasedContractIndex)" disabled="disabled" angular-ripple>
+            <button class="button button-positive" ng-disabled="vm.inPurchaseMode" ng-click="vm.purchase(vm.purchasedContractIndex)" disabled="disabled">
                 {{ 'trade.buy_again' | translate }}
             </button>
         </div>
     </div>
     <div class="row contract-back-container">
         <div class="col center contract-back">
-            <button class="button button-default" ng-disabled="vm.inPurchaseMode" ng-click="vm.backToTrade()" disabled="disabled" angular-ripple>
+            <button class="button button-default" ng-disabled="vm.inPurchaseMode" ng-click="vm.backToTrade()" disabled="disabled">
                 {{ 'trade.back' | translate }}
             </button>
         </div>
