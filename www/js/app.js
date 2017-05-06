@@ -37,7 +37,8 @@
         'binary.share.components.app-version',
         'binary.share.components.updater',
         'binary.share.components.check-user-status',
-        'binary.share.components.account-upgrade'
+        'binary.share.components.account-upgrade',
+        'binary.share.components.notification-icon'
     ]);
 
   angular
@@ -65,7 +66,11 @@
         'binary.pages.trading-times',
         'binary.pages.resources',
         'binary.pages.asset-index',
-        'binary.pages.tax-information'
+        'binary.pages.tax-information',
+        'binary.pages.meta-trader',
+        'binary.pages.authentication',
+        'binary.pages.contact',
+        'binary.pages.notifications'
     ]);
 
   String.prototype.capitalize = function() {

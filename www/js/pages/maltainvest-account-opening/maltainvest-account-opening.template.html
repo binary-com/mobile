@@ -1,5 +1,5 @@
 <ion-view class="new-account">
-  <ion-content has-bouncing="false" class="general-content">
+  <ion-content has-bouncing="false" class="general-content has-header has-subheader">
     <div class="row">
       <div class="col">
         <h1 class="page-title">
@@ -36,12 +36,12 @@
                 <input name="first_name" placeholder="{{'newaccountmaltainvest.first_name' | translate}}" ng-model="vm.data.first_name" ng-pattern="vm.validateGeneral" ng-minlength="2" ng-maxlength="30" ng-readonly="vm.isReadonly" ng-required="!vm.isReadonly" />
               </label>
               <ng-messages class="help-block error" for="newAccountMaltainvestForm.first_name.$error" role="alert" ng-if='newAccountMaltainvestForm.first_name.$dirty' ng-hide="vm.first_name_error">
-                  <ng-message when="pattern">{{'newaccountmaltainvest.general-pattern-error' | translate}}</ng-message>
-                  <ng-message when="minlength, maxlength">{{'newaccountmaltainvest.length-error-2-30' | translate}}</ng-message>
-                  <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
+                <ng-message when="pattern">{{'newaccountmaltainvest.general-pattern-error' | translate}}</ng-message>
+                <ng-message when="minlength, maxlength">{{'newaccountmaltainvest.length-error-2-30' | translate}}</ng-message>
+                <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
               </ng-messages>
               <div class="help-block error" ng-if='vm.first_name_error'>
-                  {{ vm.first_name_error_message }}
+                {{ vm.first_name_error_message }}
               </div>
 
               <label class="item item-input item-floating-label">
@@ -205,7 +205,7 @@
               <ng-messages class="help-block error" for="newAccountMaltainvestForm.phone.$error" role="alert" ng-if='newAccountMaltainvestForm.phone.$dirty' ng-hide="vm.phone_error">
                 <ng-message when="pattern">{{'newaccountmaltainvest.phone-pattern-error' | translate}}</ng-message>
                 <ng-message when="minlength, maxlength">{{'newaccountmaltainvest.length-error-6-35'}}</ng-message>
-                  <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
+                <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
               </ng-messages>
               <div class="help-block error" ng-if='vm.phone_error'>
                 {{ vm.phone_error_message }}
@@ -477,6 +477,20 @@
 
               <label class="item item-input item-select">
                 <div class="input-label">
+                  {{'newaccountmaltainvest.account_turnover' | translate}}
+                </div>
+                <select name="account_turnover" ng-model="vm.data.account_turnover" required>
+                  <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
+                  <option value="Less than $25,000">{{'newaccountmaltainvest.account_turnover_1' | translate}}</option>
+                  <option value="$25,000 - $50,000">{{'newaccountmaltainvest.account_turnover_2' | translate}}</option>
+                  <option value="$50,001 - $100,000">{{'newaccountmaltainvest.account_turnover_3' | translate}}</option>
+                  <option value="$100,001 - $500,000">{{'newaccountmaltainvest.account_turnover_4' | translate}}</option>
+                  <option value="Over $500,000">{{'newaccountmaltainvest.account_turnover_5' | translate}}</option>
+                </select>
+              </label>
+
+              <label class="item item-input item-select">
+                <div class="input-label">
                   {{'newaccountmaltainvest.secret_question' | translate}}
                 </div>
                 <select name="secret_question" ng-model="vm.data.secret_question" required>
@@ -502,13 +516,33 @@
                 <input placeholder="{{'newaccountmaltainvest.secret_answer' | translate}}"  name="secret_answer" ng-model="vm.data.secret_answer" ng-maxlength="50" ng-minlength="4" ng-pattern="vm.validateSecretAnswer" required />
               </label>
               <ng-messages class="help-block error" for="newAccountMaltainvestForm.secret_answer.$error" role="alert" ng-if='newAccountMaltainvestForm.secret_answer.$dirty' ng-hide="vm.secret_answer_error">
-                  <ng-message when="pattern">{{'newaccountreal.secretanswer-pattern-error' | translate}}</ng-message>
-                  <ng-message when="maxlength, minlength">{{'newaccountreal.length-error-4-50' | translate}}</ng-message>
-                  <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
+                <ng-message when="pattern">{{'newaccountreal.secretanswer-pattern-error' | translate}}</ng-message>
+                <ng-message when="maxlength, minlength">{{'newaccountreal.length-error-4-50' | translate}}</ng-message>
+                <ng-message when="required">{{'newaccountmaltainvest.required' | translate}}</ng-message>
               </ng-messages>
               <div class="help-block error" ng-if='vm.secret_answer_error'>
                 {{ vm.secret_answer_error_message }}
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list card">
+        <div class="row">
+          <div class="col list">
+            <div class="item item-checkbox">
+              <label class="checkbox">
+                <input name="pep" type="checkbox" ng-model="vm.data.pep" class="checkbox" required />
+              </label>
+              <p>
+                {{'newaccountmaltainvest.not-pep-verify' | translate}}
+              </p>
+            </div>
+            <div class="item item-text-wrap">
+              <p>
+                {{'newaccountmaltainvest.pep-info' | translate}}
+              </p>
             </div>
           </div>
         </div>
@@ -531,21 +565,21 @@
             <a ng-click="vm.openTermsAndConditions()">
               {{'newaccountmaltainvest.terms_and_conditions' | translate}}
             </a>
-              {{'newaccountmaltainvest.of_the_site' | translate}}
+            {{'newaccountmaltainvest.of_the_site' | translate}}
           </p>
-          </div>
-          <div class="help-block error" ng-if='vm.accept_risk_error'>
-            {{ vm.accept_risk_error_message }}
-          </div>
         </div>
-      </form>
-
-      <div class="row">
-        <div class="col center">
-          <button class="button button-positive ink" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.tax_residence  == null || vm.disableUpdatebutton" angular-ripple>
-            {{'newaccountmaltainvest.open_account' | translate}}
-          </button>
+        <div class="help-block error" ng-if='vm.accept_risk_error'>
+          {{ vm.accept_risk_error_message }}
         </div>
       </div>
-    </ion-content>
+    </form>
+
+    <div class="row">
+      <div class="col center">
+        <button class="button button-positive ink" ng-click="vm.submitAccountOpening()" ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}" ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.tax_residence  == null || vm.disableUpdatebutton" angular-ripple>
+          {{'newaccountmaltainvest.open_account' | translate}}
+        </button>
+      </div>
+    </div>
+  </ion-content>
 </ion-view>

@@ -23,6 +23,7 @@
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
+  <access origin="mailto:*" launch-external="yes" />
   <plugin name="cordova-plugin-console" spec="~1.0.3"/>
   <plugin name="cordova-plugin-splashscreen" spec="~3.2.2"/>
   <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
@@ -52,6 +53,7 @@
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
   <platform name="ios">
+    <allow-navigation href="https://trade.mql5.com/*"/>
     <preference name="CodePushDeploymentKey" value="QAjHGecVHhWEbKf4xyvV1YCqI7p_V1eFOQxYg"/>
     <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
     <icon src="resources/ios/icon/icon@2x.png" width="114" height="114"/>

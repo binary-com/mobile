@@ -1,69 +1,90 @@
 <ion-view class="layout" ng-controller="MainLayoutController as vm">
-    <ion-side-menus>
-        <ion-side-menu-content side-menu-content can-drag="false">
-            <bg-header></bg-header>
-            <ion-nav-view></ion-nav-view>
-        </ion-side-menu-content>
+  <ion-side-menus>
+    <ion-side-menu-content side-menu-content can-drag="false">
+      <ion-nav-view>
+        <bg-header></bg-header>
+      </ion-nav-view>
+    </ion-side-menu-content>
 
-        <!-- Left menu -->
-        <ion-side-menu side="left" class="side-menu menu menu-left">
-            <ion-header-bar class="header expanded bar bar-header">
-              <div class="menu-bottom">
-                <a class="account-select" ng-click="vm.showAccountSwitch = !vm.showAccountSwitch">
-                  {{vm.selectedAccount}}
-                  <i class="ion-arrow-down-b" ng-class="{'ion-arrow-up-b': vm.showAccountSwitch}"></i>
-                </a>
-              </div>
-            </ion-header-bar>
-            <ion-content  ng-show="vm.showAccountSwitch" class="has-expanded-header scroll-content ionic-scroll has-header" scroll="false">
-              <ion-list>
-                <ion-item class="item item-complex">
-                  <bg-accounts></bg-accounts>
-                </ion-item>
-              </ion-list>
-            </ion-content>
-            <ion-content  ng-show="!vm.showAccountSwitch" class="has-expanded-header scroll-content ionic-scroll has-header" scroll="false">
-                <ion-list>
-                  <ion-item class="item item-complex" nav-clear menu-close>
-                      <bg-account-upgrade></bg-account-upgrade>
-                  </ion-item>
-                    <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
-                      <a ui-sref="trade" class="item-content">
-                        <i class="ion-arrow-graph-up-right"></i>
-                        {{ 'menu.trade' | translate }}
-                      </a>
-                    </ion-item>
-                    <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
-                      <a ui-sref="profit-table" class="item-content">
-                        <i class="ion-social-usd"></i>
-                        {{ 'menu.profit_table' | translate }}
-                      </a>
-                    </ion-item>
-                    <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
-                      <a ui-sref="statement" class="item-content">
-                        <i class="ion-android-list"></i>
-                        {{ 'menu.statement' | translate }}
-                      </a>
-                    </ion-item>
-                    <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
-                      <a ui-sref="settings" class="item-content">
-                        <i class="ion-ios-gear"></i>
-                        {{ 'menu.settings' | translate }}
-                      </a>
-                    </ion-item>
-                    <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
-                      <a ui-sref="resources" class="item-content">
-                        <i class="ion-folder"></i>
-                        {{ 'menu.resources' | translate }}
-                      </a>
-                    </ion-item>
-                    <ion-item class="item item-complex" nav-clear menu-close>
-                      <bg-logout nav-clear menu-close ui-sref-active="active"></bg-logout>
-                    </ion-item>
+    <!-- Left menu -->
+    <ion-side-menu side="left" class="side-menu menu menu-left">
+      <ion-header-bar class="header expanded bar bar-header">
+        <div class="menu-bottom">
+          <a class="account-select" ng-click="vm.showAccountSwitch = !vm.showAccountSwitch">
+            {{vm.selectedAccount}}
+            <i class="ion-arrow-down-b" ng-class="{'ion-arrow-up-b': vm.showAccountSwitch}"></i>
+          </a>
+        </div>
+      </ion-header-bar>
+      <ion-content  ng-show="vm.showAccountSwitch" class="has-expanded-header scroll-content ionic-scroll has-header" scroll="false">
+        <ion-list>
+          <ion-item class="item item-complex">
+            <bg-accounts></bg-accounts>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+      <ion-content  ng-show="!vm.showAccountSwitch" class="has-expanded-header has-header has-footer" scroll="true" overflow-scroll="false">
+        <ion-list>
+          <ion-item class="item item-complex" nav-clear menu-close>
+            <bg-account-upgrade></bg-account-upgrade>
+          </ion-item>
+          <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
+            <a ui-sref="trade" class="item-content">
+              <i class="ion-arrow-graph-up-right"></i>
+              {{ 'menu.trade' | translate }}
+            </a>
+          </ion-item>
+          <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
+            <a ui-sref="profit-table" class="item-content">
+              <i class="ion-social-usd"></i>
+              {{ 'menu.profit_table' | translate }}
+            </a>
+          </ion-item>
+          <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
+            <a ui-sref="statement" class="item-content">
+              <i class="ion-android-list"></i>
+              {{ 'menu.statement' | translate }}
+            </a>
+          </ion-item>
+          <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
+            <a ui-sref="meta-trader" class="item-content">
+              <i class="ion-shuffle"></i>
+              {{ 'menu.mt5' | translate }}
+            </a>
+          </ion-item>
+          <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
+            <a ui-sref="settings" class="item-content">
+              <i class="ion-ios-gear"></i>
+              {{ 'menu.settings' | translate }}
+            </a>
+          </ion-item>
+          <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
+            <a ui-sref="resources" class="item-content">
+              <i class="ion-folder"></i>
+              {{ 'menu.resources' | translate }}
+            </a>
+          </ion-item>
+          <ion-item class="item item-complex" nav-clear menu-close ui-sref-active="active">
+            <a ui-sref="contact" class="item-content">
+              <i class="ion-ios-email"></i>
+              {{ 'menu.contact_us' | translate }}
+            </a>
+          </ion-item>
+          <ion-item class="item item-complex" nav-clear menu-close ng-click="vm.goToRegulatory()">
+            <a class="item-content">
+              <i class="ion-information"></i>
+              {{ 'menu.regulatory_information' | translate }}
+            </a>
+          </ion-item>
+          <ion-item class="item item-complex" nav-clear menu-close>
+            <bg-logout nav-clear menu-close ui-sref-active="active"></bg-logout>
+          </ion-item>
 
-                </ion-list>
-                <bg-app-version class="sidemenu-app-version"></bg-app-version>
-            </ion-content>
-        </ion-side-menu>
-    </ion-side-menus>
+        </ion-list>
+      </ion-content>
+      <ion-footer-bar align-title="center">
+        <bg-app-version class="sidemenu-app-version center"></bg-app-version>
+      </ion-footer-bar>
+    </ion-side-menu>
+  </ion-side-menus>
 </ion-view>

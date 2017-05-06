@@ -1,14 +1,6 @@
 <ion-view class="trade" ng-cloak>
-    <ion-content has-bouncing="false" class="trade-container">
+    <ion-content has-bouncing="false" class="trade-container has-header has-subheader">
         <div class="flexed" id="trade-container">
-            <div class="row account-status-message">
-                <div class="col center error" ng-if="vm.showAuthenticateMessage || vm.showAgeVerificationMessage">
-                    {{'trade.please_authenticate' | translate}}
-                </div>
-                <div class="col center error" ng-if="vm.showUnwelcomedMessage || vm.showCashierLockedMessage || vm.showWithdrawalLockedMessage">
-                    {{'trade.restricted_account' | translate}}
-                </div>
-            </div>
             <bg-options proposal="vm.proposal" ng-show="!vm.inPurchaseMode"></bg-options>
             <bg-longcode purchased-contract="vm.purchasedContract"
                          ng-if="vm.inPurchaseMode"></bg-longcode>

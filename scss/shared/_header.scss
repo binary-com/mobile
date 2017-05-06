@@ -24,7 +24,7 @@
 }
 
 .bar-subheader {
-  padding: 0;
+  //padding: 0;
   height: inherit;
   width: 100%;
   background: $white;
@@ -39,9 +39,6 @@
     	font-size: 1rem;
     	padding: 0 5px;
     	border-bottom: 1px solid $borderColor;
-    	.row{
-    		padding: 0;
-    	}
     }
   }
 }
@@ -91,6 +88,33 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 	font-size: 28px !important;
 }
 
+.notification-icon {
+	position: absolute;
+	right: 0;
+	span {
+		position: absolute;
+		top: 12px;
+		left: 0px;
+		background: #C03;
+		border-radius: 50px;
+		z-index: 15;
+		line-height: 9px;
+		min-width: 18px;
+		text-align: center;
+		font-size: 9px;
+		padding: 5px;
+	}
+}
+.notification-button {
+	span {
+		&:hover {
+			background: $negativeColor;
+		}
+	}
+	&:before {
+		font-size: 28px!important;
+	}
+}
 .logo-spinner {
 	-webkit-animation-name: spin;
 	-webkit-animation-duration: 1000ms;

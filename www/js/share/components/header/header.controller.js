@@ -24,6 +24,7 @@
         appStateService) {
         var vm = this;
         vm.hideMenuButton = false;
+        vm.hideBalance = false;
         vm.disableMenuButton = false;
         vm.disableBackButton = false;
         vm.showBack = false;
@@ -74,6 +75,7 @@
         $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
             vm.to = to;
             vm.from = from;
+            vm.hideBalance = false;
             if (['transaction-detail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index', 'limits'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
@@ -96,6 +98,8 @@
                     vm.hideMenuButton = true;
                     vm.showBack = true;
                 }
+            } else if(['mt5-web'].indexOf(vm.to.name) > -1) {
+                vm.hideBalance = true;
             } else {
                 if (vm.from.name === 'statement' && vm.to.name !== 'transactiondetail' && document.getElementsByClassName('realitycheck').length > 0) {
                     $('.popup-container').addClass('popup-showing');

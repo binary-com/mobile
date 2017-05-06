@@ -20,6 +20,7 @@ body * {
   user-drag: none;
 }
 
+
 ::-webkit-input-placeholder {
   color: $darkPrimaryBrandColor;
 }
@@ -194,6 +195,7 @@ button.button.button-default {
 .item {
   border-width: 0;
   color: $contentColor;
+  font-size: 1rem;
   &.collapsed {
     background: $fillColor;
     border-bottom: 2px solid $primaryBrandColor;
@@ -298,7 +300,6 @@ button.button.button-default {
 }
 
 .general-content {
-  margin-bottom: 80px !important;
   width: 100vw;
   font-size: 1rem;
 }

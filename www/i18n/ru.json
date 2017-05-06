@@ -7,7 +7,8 @@
     "get_token":"Как получить ключ?",
     "signin_with_binary_com":"Войти",
     "use_token":"Войти через ключ",
-    "next":"Далее"
+    "next":"Далее",
+    "regulatory-information":"Информация о регулировании"
   },
   "accounts":{
     "my_accounts":"Управление счетами",
@@ -41,7 +42,7 @@
   },
   "options":{
     "account":"Счёт",
-    "select_market":"Рынки",
+    "select_market":"Выберите рынок",
     "forex":"Forex",
     "random":"Индексы Random",
     "volidx":"Индексы волатильности",
@@ -70,7 +71,12 @@
     "digit_even_odd":"Чётная/Нечётная десятичная",
     "digit_matches_differs":"Совпадение/отличие десятичной",
     "up_down":"Вверх/Вниз",
-    "markets_are_closed":"Извините, все рынки в данное время закрыты. Повторите попытку позже."
+    "markets_are_closed":"Извините, все рынки в данное время закрыты. Повторите попытку позже.",
+    "cancel":"Отмена",
+    "select_underlying":"Выберите актив",
+    "select_tradetype":"Выберите тип контракта",
+    "select_tick":"Выберите тик",
+    "select_digit":"Выберите цифру"
   },
   "trade":{
     "payout":"Выплата",
@@ -93,9 +99,7 @@
     "transaction_id":"Ссылка на сделку",
     "buy_again":"Купить снова",
     "sell":"Продать",
-    "barrier":"Изменение барьера",
-    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
-    "restricted_account":"Your account is restricted. Kindly contact customer support for assistance."
+    "barrier":"Изменение барьера"
   },
   "help":{
     "need_help":"Нужна помощь?",
@@ -159,12 +163,12 @@
     "show_pass":"Показать пароль",
     "enter-email":"Пожалуйста, введите email",
     "email-error":"Неправильный эл. адрес",
-    "token-invalid":"Please submit a valid verification token.",
+    "token-invalid":"Пожалуйста, введите правильный проверочный ключ.",
     "residence-error":"Пожалуйста, укажите страну",
     "invalid_email":"Пожалуйста, укажите правильный email.",
-    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
-    "length-error-6-25":"This field must be within 6-25 characters.",
-    "required":"This field is required."
+    "password-pattern-error":"Пароль должен состоять из заглавных, строчных букв и цифр.",
+    "length-error-6-25":"Запись в данном поле не должна превышать 6-25 знаков.",
+    "required":"Данное поле является обязательным."
   },
   "newaccountmaltainvest":{
     "open_financial":"Открыть финансовый счёт",
@@ -272,18 +276,28 @@
     "read_and_agreed_to":"Я прочитал и согласен с ",
     "terms_and_conditions":"правилами и условиями ",
     "of_the_site":"сайта.",
-    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-2-30":"This field must be within 2-30 characters.",
-    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "general-pattern-error":"Разрешены только буквы, пробелы, дефисы, точки и апострофы.",
+    "length-error-2-30":"Запись в данном поле не должна превышать 2-30 знаков.",
+    "address-pattern-error":"Допускаются только буквы, цифры, пробелы, дефисы, точки и апострофы.",
     "maxlength_error_70":"Данная запись должна содержать не более 70 знаков.",
     "maxlength_error_35":"Данная запись не должна превышать 35 знаков.",
-    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
-    "maxlength_error_20":"This field can be at most 20 characters long.",
-    "phone-pattern-error":"Only numbers and spaces are allowed.",
-    "length-error-6-35":"This field must be within 6-35 characters.",
-    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
+    "postcode-pattern-error":"Допускаются только буквы, цифры и дефисы.",
+    "maxlength_error_20":"Данное поле должно содержать не более 20 знаков.",
+    "phone-pattern-error":"Разрешены только цифры и пробелы.",
+    "length-error-6-35":"Запись в данном поле не должна превышать 6-35 знаков.",
+    "secretanswer-pattern-error":"Разрешены только буквы, цифры, пробелы, дефисы, точки и апострофы.",
+    "length-error-4-50":"Запись в данном поле не должна превышать 4-50 знаков.",
+    "tax-identification-number-pattern-error":"Допускаются только буквы, цифры и дефисы.",
+    "continue":"Продолжить",
+    "cancel":"Отмена",
+    "not-pep-verify":"Настоящим я заявляю, что не являюсь политически значимым лицом (ПЗЛ)",
+    "pep-info":"Политически значимое лицо (ПЗЛ) – это человек, который выполняет или в прошлом выполнял важную политическую роль. Данный статус распространяется на родственников и близких друзей ПЗЛ.",
+    "account_turnover":"Объём покупок на счету",
+    "account_turnover_1":"Менее $25 000",
+    "account_turnover_2":"$25 000 - $50 000",
+    "account_turnover_3":"$50 001 - $100 000",
+    "account_turnover_4":"$100 001 - $500 000",
+    "account_turnover_5":"Более $500 000"
   },
   "newaccountreal":{
     "open_real":"Открыть реальный счет",
@@ -326,18 +340,20 @@
     "read_and_agreed_to":"Я прочитал и согласен с ",
     "terms_and_conditions":"правилами и условиями ",
     "of_the_site":"сайта.",
-    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-2-30":"This field must be within 2-30 characters.",
-    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "general-pattern-error":"Разрешены только буквы, пробелы, дефисы, точки и апострофы.",
+    "length-error-2-30":"Запись в данном поле не должна превышать 2-30 знаков.",
+    "address-pattern-error":"Разрешены только буквы, цифры, пробелы, дефисы, точки и апострофы.",
     "maxlength_error_70":"Данное поле должно содержать не более 70 знаков.",
     "maxlength_error_35":"Данное поле должно содержать не более 35 знаков.",
-    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
-    "maxlength_error_20":"This field can be at most 20 characters long.",
-    "phone-pattern-error":"Only numbers and spaces are allowed.",
-    "length-error-6-35":"This field must be within 6-35 characters.",
-    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-4-50":"This field must be within 4-50 characters.",
-    "required":"Данное поле является обязательным."
+    "postcode-pattern-error":"Разрешены только буквы, цифры и дефисы.",
+    "maxlength_error_20":"Данное поле должно содержать не более 20 знаков.",
+    "phone-pattern-error":"Разрешены только цифры и пробелы.",
+    "length-error-6-35":"Запись в данном поле не должна превышать 6-35 знаков.",
+    "secretanswer-pattern-error":"Разрешены только буквы, цифры, пробелы, дефисы, точки и апострофы.",
+    "length-error-4-50":"Запись в данном поле не должна превышать 4-50 знаков.",
+    "required":"Данное поле является обязательным.",
+    "not-pep-verify":"Настоящим я заявляю, что не являюсь политически значимым лицом (ПЗЛ)",
+    "pep-info":"Политически значимое лицо (ПЗЛ) – это человек, который выполняет или в прошлом выполнял важную политическую роль. Данный статус распространяется на родственников и близких друзей ПЗЛ."
   },
   "profittable":{
     "profit_table":"Анализ счёта",
@@ -421,7 +437,10 @@
     "statement":"История счёта",
     "language":"Язык",
     "settings":"Настройки",
-    "resources":"Ресурсы"
+    "resources":"Ресурсы",
+    "regulatory_information":"Информация о регулировании",
+    "mt5":"MetaTrader 5",
+    "contact_us":"contact us"
   },
   "settings":{
     "settings":"Настройки",
@@ -486,18 +505,20 @@
     "tax_identification_number":"Номер налогоплательщика",
     "place_of_birth":"Место рождения",
     "select":"Пожалуйста, выберите",
-    "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-2-30":"This field must be within 2-30 characters.",
-    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
-    "maxlength_error_70":"This field can be at most 70 characters long.",
-    "maxlength_error_35":"This field can be at most 35 characters long.",
-    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
-    "maxlength_error_20":"This field can be at most 20 characters long.",
-    "phone-pattern-error":"Only numbers and spaces are allowed.",
-    "length-error-6-35":"This field must be within 6-35 characters.",
-    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-4-50":"This field must be within 4-50 characters.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed."
+    "general-pattern-error":"Разрешены только буквы, пробелы, дефисы, точки и апострофы.",
+    "length-error-2-30":"Запись в данном поле не должна превышать 2-30 знаков.",
+    "address-pattern-error":"Разрешены только буквы, цифры, пробелы, дефисы, точки и апострофы.",
+    "maxlength_error_70":"Данное поле должно содержать не более 70 знаков.",
+    "maxlength_error_35":"Данное поле должно содержать не более 35 знаков.",
+    "postcode-pattern-error":"Разрешены только буквы, цифры и дефисы.",
+    "maxlength_error_20":"Данное поле должно содержать не более 20 знаков.",
+    "phone-pattern-error":"Разрешены только цифры и пробелы.",
+    "length-error-6-35":"Запись в данном поле не должна превышать 6-35 знаков.",
+    "secretanswer-pattern-error":"Разрешены только буквы, цифры, пробелы, дефисы, точки и апострофы.",
+    "length-error-4-50":"Запись в данном поле не должна превышать 4-50 знаков.",
+    "tax-identification-number-pattern-error":"Разрешены только буквы, цифры и дефисы.",
+    "cancel":"Отмена",
+    "continue":"Продолжить"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"обновил(а)",
@@ -517,9 +538,9 @@
     "password_not_match":"Введённые Вами пароли не совпадают.",
     "required":"Данное поле является обязательным.",
     "current_password_required":"Пожалуйста, введите текущий пароль.",
-    "password_pattern_error":"Password should have lower and uppercase letters with numbers.",
+    "password_pattern_error":"Пароль должен состоять из заглавных, строчных букв и цифр.",
     "password_changed_text":"Ваш пароль изменён. Пожалуйста, войдите снова.",
-    "length-error-6-25":"This field must be within 6-25 characters."
+    "length-error-6-25":"Запись в данном поле не должна превышать 6-25 знаков."
   },
   "financial-assessment":{
     "financial_assessment":"Финансовая оценка",
@@ -589,7 +610,13 @@
     "financial_assessment_info":"Финансовые услуги, предоставляемые в рамках данного сайта, подходят лишь для клиентов, готовых нести ответственность за возможную потерю всех инвестированных средств, а также осознающих риск и имеющих опыт риска, связанного с покупкой финансовых контрактов. Заключение сделок на финансовых контрактах предполагает высокий уровень риска. Если приобретённые контракты истекут, не принеся прибыли, Вы потеряете всю сумму своей инвестиции в контракт.",
     "no_change":"Вы не внесли изменений.",
     "success":"Готово",
-    "success_message":"Ваши настройки обновлены успешно."
+    "success_message":"Ваши настройки обновлены успешно.",
+    "account_turnover":"Объём покупок на счету",
+    "account_turnover_1":"Менее $25 000",
+    "account_turnover_2":"$25 000 - $50 000",
+    "account_turnover_3":"$50 001 - $100 000",
+    "account_turnover_4":"$100 001 - $500 000",
+    "account_turnover_5":"Более $500 000"
   },
   "limits":{
     "trading_withdrawal_limits":"Лимиты на торговлю и вывод",
@@ -654,6 +681,75 @@
     "error_format":"Неправильный формат или длина",
     "required":"Данное поле является обязательным.",
     "success":"Готово",
-    "success_message":"Ваши настройки обновлены успешно."
+    "success_message":"Ваши настройки обновлены успешно.",
+    "continue":"Продолжить",
+    "cancel":"Отмена"
+  },
+  "connectivity":{
+    "no_connection":"Нет соединения"
+  },
+  "mt":{
+    "you_do_not_have_mt5_account":"У Вас нет счёта на MetaTrader. Откройте счёт и попробуйте ещё раз.",
+    "create_account":"Откройте счёт на MT5",
+    "feature_is_not_available":"Извините, данная функция недоступна.",
+    "meta_trader_accounts":"Счета Meta Trader",
+    "demo_account":"Демо-счёт",
+    "financial_account":"Финансовый счёт",
+    "volatility_account":"Счёт на индексах волатильности",
+    "upgrade_financial_account":"Чтобы открыть финансовый счёт на MT5, обновите свой счёт Binary.com на Реальный.",
+    "upgrade_volatility_account":"Чтобы открыть счёт на индексах волатильности на MT5, обновите свой счёт на Binary.com на Реальный.",
+    "create_financial_account":"Откройте Финансовый счёт на MT5",
+    "create_volatility_account":"Откройте Волатильный счёт на MT5",
+    "create_demo_account":"Откройте Демо-счёт на MT5",
+    "login_id":"Логин",
+    "balance":"Баланс",
+    "name":"Имя",
+    "start_trading_with_mt5":"Начните торговлю на MT5"
+  },
+  "authentication":{
+    "authentication":"Authentication",
+    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
+    "documents":"Please send the following documents to support@binary.com in order to verify your identity and authenticate your account:",
+    "proof_of_identity":"Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.",
+    "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old.",
+    "questions":"Got questions?",
+    "contact":"Contact us",
+    "help":"for help.",
+    "go_authentication":"Show authentication"
+  },
+  "restricted":{
+    "please_contact":"Your account is restricted. Kindly contact customer support for assistance.",
+    "go_restricted":"Go to contacts page"
+  },
+  "contact":{
+    "contact_us":"Contact us",
+    "telephone":"Telephone",
+    "australia":"Australia",
+    "canada":"Canada",
+    "germany":"Germany",
+    "indonesia":"Indonesia",
+    "ireland":"Ireland",
+    "poland":"Poland",
+    "russia":"Russia",
+    "united_kingdom":"United Kingdom",
+    "toll_free":"(Toll Free)",
+    "calls":"*All calls are recorded for training and monitoring purposes",
+    "email":"Email",
+    "company_addresses":"Company addresses",
+    "malta":"Malta",
+    "malta_address":"Binary (Europe) Ltd & Binary Investments (Europe) Ltd, Mompalao Building, Suite 2, Tower Road, Msida MSD1825",
+    "japan":"Japan",
+    "japan_address":"Binary KK, Hiroo Miyata Bldg 3F, 9-16, Hiroo 1-chome, Shibuya-ku, Tokyo 150-0012, Japan",
+    "germany_address":"Binary Group Services Sdn Bhd, Zweigstelle Berlin, Friedrichstraße 68, 10117 Berlin",
+    "malaysia":"Malaysia",
+    "malaysia_address":"Binary Group Services Sdn Bhd, C-13-02, iTech Tower, Jalan Impact, Cyber 6, 63000 Cyberjaya, Selangor Darul Ehsan",
+    "cyberjaya_office":"Cyberjaya Office",
+    "kl_office":"Kuala Lumpur Office",
+    "kl_address":"Binary Group Services Sdn Bhd, 30-10, Q Sentral, Jalan Stesen Sentral 2, 50470 Kuala Lumpur",
+    "isle_of_man":"Isle of Man",
+    "isle_of_man_address":"Binary (IOM) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW"
+  },
+  "notifications":{
+    "notification":"Notification"
   }
 }

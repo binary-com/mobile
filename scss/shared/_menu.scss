@@ -20,12 +20,17 @@
     }
   }
   .sidemenu-app-version {
-    bottom: 5px;
+    line-height: 0.8rem;
     position: absolute;
     width: 100%;
     text-align: center;
     color: $contentColor;
     font-size: 0.8rem;
+    .item {
+      border-top: 1px solid $borderColor;
+      margin: 0 auto;
+      width: 95%;
+    }
   }
   .upgrade-link {
     &.active {
