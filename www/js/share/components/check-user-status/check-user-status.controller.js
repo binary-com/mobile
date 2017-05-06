@@ -22,20 +22,17 @@
       vm.isFinancial = false;
       vm.state = {};
       //authentication and restricted messages
-      $translate(['authentication.account_authentication', 'restricted.account_restriction', 'authentication.please_authenticate', 'restricted.please_contact', 'authentication.go_authentication',
-      'restricted.go_restricted']).then(
+      $translate(['authentication.account_authentication', 'restricted.account_restriction', 'authentication.please_authenticate', 'restricted.please_contact']).then(
         function (translation) {
           vm.authenticateMessage = {
             title: translation['authentication.account_authentication'],
             text: translation['authentication.please_authenticate'],
-            link: 'authentication',
-            linkText: translation['authentication.go_authentication']
+            link: 'authentication'
           };
           vm.restrictedMessage = {
             title: translation['restricted.account_restriction'],
             text: translation['restricted.please_contact'],
-            link: 'contact',
-            linkText: translation['restricted.go_restricted']
+            link: 'contact'
           }
         }
       )
