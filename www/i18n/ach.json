@@ -715,12 +715,10 @@
     "questions":"crwdns19685:0crwdne19685:0",
     "contact":"crwdns19686:0crwdne19686:0",
     "help":"crwdns19687:0crwdne19687:0",
-    "go_authentication":"crwdns19718:0crwdne19718:0",
     "account_authentication":"crwdns19719:0crwdne19719:0"
   },
   "restricted":{
     "please_contact":"crwdns19689:0crwdne19689:0",
-    "go_restricted":"crwdns19720:0crwdne19720:0",
     "account_restriction":"crwdns19721:0crwdne19721:0"
   },
   "contact":{
