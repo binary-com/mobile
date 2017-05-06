@@ -77,15 +77,15 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 	right: 0;
 	span {
 		position: absolute;
-		top: 10px;
+		top: 12px;
 		left: 0px;
 		background: #C03;
 		border-radius: 50px;
 		z-index: 15;
-		line-height: 12px;
-		min-width: 21px;
+		line-height: 9px;
+		min-width: 18px;
 		text-align: center;
-		font-size: 12px;
+		font-size: 9px;
 		padding: 5px;
 	}
 }
@@ -94,6 +94,9 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 		&:hover {
 			background: $negativeColor;
 		}
+	}
+	&:before {
+		font-size: 28px!important;
 	}
 }
 .logo-spinner {
