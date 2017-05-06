@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="card list list-inset profit-table-content" delegate-handle="handler" on-scroll="vm.goToTopButtonCondition()" ng-class="{'pull-down' : (vm.jumpToDateInputShow && vm.isItemShown)}" ng-show="vm.firstCompleted">
+    <div class="card list profit-table-content" delegate-handle="handler" on-scroll="vm.goToTopButtonCondition()" ng-class="{'pull-down' : (vm.jumpToDateInputShow && vm.isItemShown)}" ng-show="vm.firstCompleted">
       <div class="item item-divider" ng-if="!vm.noTransaction && !vm.hasError">
         <div class="row">
           <div class="col left">{{'statement.date' | translate}}</div>
