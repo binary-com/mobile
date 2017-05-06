@@ -715,12 +715,10 @@
     "questions":"Got questions?",
     "contact":"Contact us",
     "help":"for help.",
-    "go_authentication":"Authenticate your account",
     "account_authentication":"Account authentication"
   },
   "restricted":{
     "please_contact":"Your account is restricted. Kindly contact customer support for assistance.",
-    "go_restricted":"Contact customer support",
     "account_restriction":"Account restriction"
   },
   "contact":{
