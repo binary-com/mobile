@@ -1,2 +1,3 @@
-<button class="button button-icon icon ion-android-notifications right-buttons" ui-sref="notifications"></button>
-<span>{{vm.notices.length}}</span>
+<button class="button button-icon icon ion-android-notifications right-buttons notification-button" ng-click="vm.goToNotifications()">
+  <span>{{vm.notices.length}}</span>
+</button>
