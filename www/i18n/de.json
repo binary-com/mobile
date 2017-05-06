@@ -715,11 +715,13 @@
     "questions":"Got questions?",
     "contact":"Contact us",
     "help":"for help.",
-    "go_authentication":"Show authentication"
+    "go_authentication":"Authenticate your account",
+    "account_authentication":"Account authentication"
   },
   "restricted":{
     "please_contact":"Your account is restricted. Kindly contact customer support for assistance.",
-    "go_restricted":"Go to contacts page"
+    "go_restricted":"Contact customer support",
+    "account_restriction":"Account restriction"
   },
   "contact":{
     "contact_us":"Contact us",
@@ -750,6 +752,7 @@
     "isle_of_man_address":"Binary (IOM) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW"
   },
   "notifications":{
-    "notification":"Notification"
+    "notifications":"Notifications",
+    "no_notification":"There is no notification to show."
   }
 }
