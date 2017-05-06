@@ -715,11 +715,13 @@
     "questions":"crwdns19685:0crwdne19685:0",
     "contact":"crwdns19686:0crwdne19686:0",
     "help":"crwdns19687:0crwdne19687:0",
-    "go_authentication":"crwdns19688:0crwdne19688:0"
+    "go_authentication":"crwdns19718:0crwdne19718:0",
+    "account_authentication":"crwdns19719:0crwdne19719:0"
   },
   "restricted":{
     "please_contact":"crwdns19689:0crwdne19689:0",
-    "go_restricted":"crwdns19690:0crwdne19690:0"
+    "go_restricted":"crwdns19720:0crwdne19720:0",
+    "account_restriction":"crwdns19721:0crwdne19721:0"
   },
   "contact":{
     "contact_us":"crwdns19691:0crwdne19691:0",
@@ -750,6 +752,7 @@
     "isle_of_man_address":"crwdns19716:0crwdne19716:0"
   },
   "notifications":{
-    "notification":"crwdns19717:0crwdne19717:0"
+    "notifications":"crwdns19722:0crwdne19722:0",
+    "no_notification":"crwdns19723:0crwdne19723:0"
   }
 }
