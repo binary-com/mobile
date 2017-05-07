@@ -47,7 +47,7 @@ angular
 					templateUrl: 'js/pages/profit-table/profit-table.template.html',
 					controller: 'ProfitTableController',
 					controllerAs: 'vm',
-          detailed: true
+					detailed: true
 				})
 				.state('statement',{
 					parent: 'layout',
@@ -55,7 +55,7 @@ angular
 					templateUrl: 'js/pages/statement/statement.template.html',
 					controller: 'StatementController',
 					controllerAs: 'vm',
-          detailed: true
+					detailed: true
 				})
 				.state('transaction-detail',{
 					parent: 'layout',
@@ -90,8 +90,7 @@ angular
           templateUrl: 'js/pages/settings/settings.template.html',
           controller: 'SettingsController',
           controllerAs: 'vm',
-          detailed: true,
-          detailed: true
+					detailed: true
         })
 				.state('resources', {
           parent: 'layout',
@@ -99,7 +98,7 @@ angular
           templateUrl: 'js/pages/resources/resources.template.html',
           controller: 'ResourcesController',
           controllerAs: 'vm',
-          detailed: true
+					detailed: true
         })
         .state('self-exclusion', {
           parent: 'layout',
