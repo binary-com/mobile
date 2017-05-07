@@ -23,8 +23,6 @@
   }
 
   .signin-page {
-    display: flex;
-    flex-direction: column;
     height: 90vh;
     height: calc(100vh - 45px) !important;
     .row, form, oauth {
