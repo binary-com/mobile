@@ -72,8 +72,12 @@
                   }
                 });
               }
-              else{
-                $state.goBack();
+              else {
+                if($state.current.detailed) {
+                  $state.go('trade');
+                } else {
+                  $state.goBack();
+                }
               }
           }
 
