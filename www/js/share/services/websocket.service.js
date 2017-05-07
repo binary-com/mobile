@@ -10,7 +10,7 @@
 angular
     .module('binary')
     .factory('websocketService',
-        function($rootScope, localStorageService, alertService, appStateService, $state, config) {
+        function($rootScope, localStorageService, alertService, appStateService, notificationService, $state, config) {
             var dataStream = '';
             var messageBuffer = [];
 
@@ -158,6 +158,7 @@ angular
               appStateService.authenticateMessage = false;
               appStateService.restrictedMessage = false;
               appStateService.checkedAccountStatus = false;
+              notificationService.notices = [];
 
               $state.go('signin');
             };

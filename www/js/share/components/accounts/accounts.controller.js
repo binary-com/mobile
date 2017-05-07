@@ -14,7 +14,7 @@
         .controller('AccountsController', Accounts);
 
     Accounts.$inject = [
-      '$scope', '$state', '$ionicSideMenuDelegate', 'accountService', 'appStateService', 'websocketService'
+      '$scope', '$state', '$ionicSideMenuDelegate', 'accountService', 'appStateService', 'websocketService', 'notificationService'
     ];
 
     function Accounts(
@@ -23,7 +23,8 @@
       $ionicSideMenuDelegate,
       accountService,
       appStateService,
-      websocketService
+      websocketService,
+      notificationService
     ) {
       var vm = this;
 
@@ -77,6 +78,7 @@
         appStateService.authenticateMessage = false;
         appStateService.restrictedMessage = false;
         appStateService.checkedAccountStatus = false;
+        notificationService.notices = [];
       };
 
       $scope.$on('authorize', (e, authorize) => {
