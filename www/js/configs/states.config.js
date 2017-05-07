@@ -46,14 +46,16 @@ angular
 					cache: true,
 					templateUrl: 'js/pages/profit-table/profit-table.template.html',
 					controller: 'ProfitTableController',
-					controllerAs: 'vm'
+					controllerAs: 'vm',
+          detailed: true
 				})
 				.state('statement',{
 					parent: 'layout',
 					cache: true,
 					templateUrl: 'js/pages/statement/statement.template.html',
 					controller: 'StatementController',
-					controllerAs: 'vm'
+					controllerAs: 'vm',
+          detailed: true
 				})
 				.state('transaction-detail',{
 					parent: 'layout',
@@ -87,14 +89,17 @@ angular
           cache: false,
           templateUrl: 'js/pages/settings/settings.template.html',
           controller: 'SettingsController',
-          controllerAs: 'vm'
+          controllerAs: 'vm',
+          detailed: true,
+          detailed: true
         })
 				.state('resources', {
           parent: 'layout',
           cache: false,
           templateUrl: 'js/pages/resources/resources.template.html',
           controller: 'ResourcesController',
-          controllerAs: 'vm'
+          controllerAs: 'vm',
+          detailed: true
         })
         .state('self-exclusion', {
           parent: 'layout',
@@ -133,21 +138,21 @@ angular
 					templateUrl: 'js/pages/change-password/change-password.template.html',
 					controller: 'ChangePasswordController',
 					controllerAs: 'vm'
-				})
+        })
 				.state('financial-assessment', {
 					parent: 'layout',
 					cache: false,
 					templateUrl: 'js/pages/financial-assessment/financial-assessment.template.html',
 					controller: 'FinancialAssessmentController',
 					controllerAs: 'vm'
-				})
+        })
 				.state('limits', {
 					parent: 'layout',
 					cache: false,
 					templateUrl: 'js/pages/limits/limits.template.html',
 					controller: 'LimitsController',
         	controllerAs: 'vm'
-				  })
+        })
 				.state('trading-times', {
 					parent: 'layout',
 					cache: false,
@@ -161,7 +166,7 @@ angular
 					templateUrl: 'js/pages/asset-index/asset-index.template.html',
 					controller: 'AssetIndexController',
 					controllerAs: 'vm'
-				})
+        })
 				.state('tax-information', {
 					parent: 'layout',
 					cache: false,
