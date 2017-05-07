@@ -1,8 +1,9 @@
 <ion-view class="layout" ng-controller="MainLayoutController as vm">
   <ion-side-menus>
     <ion-side-menu-content side-menu-content can-drag="false">
-      <bg-header></bg-header>
-      <ion-nav-view></ion-nav-view>
+      <ion-nav-view>
+        <bg-header></bg-header>
+      </ion-nav-view>
     </ion-side-menu-content>
 
     <!-- Left menu -->
@@ -49,7 +50,13 @@
             </div>
             {{ 'menu.resources' | translate }}
           </ion-item>
-          <ion-item ng-click="vm.goToRegulatory()" href="#">
+          <ion-item nav-clear menu-close ui-sref="contact" href="#">
+            <div class="icon-wrapper">
+              <i class="ion-ios-email"></i>
+            </div>
+            {{ 'menu.contact_us' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close ng-click="vm.goToRegulatory()">
             <div class="icon-wrapper">
               <i class="ion-information"></i>
             </div>

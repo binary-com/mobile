@@ -99,9 +99,7 @@
     "transaction_id":"Ссылка на сделку",
     "buy_again":"Купить снова",
     "sell":"Продать",
-    "barrier":"Изменение барьера",
-    "please_authenticate":"Пожалуйста, пройдите аутентификацию счёта, чтобы снять лимит на вывод и торговые ограничения.",
-    "restricted_account":"Ваш счёт заблокирован. Пожалуйста, свяжитесь с нашей службой поддержки для получения помощи."
+    "barrier":"Изменение барьера"
   },
   "help":{
     "need_help":"Нужна помощь?",
@@ -441,7 +439,8 @@
     "settings":"Настройки",
     "resources":"Ресурсы",
     "regulatory_information":"Информация о регулировании",
-    "mt5":"MetaTrader 5"
+    "mt5":"MetaTrader 5",
+    "contact_us":"contact us"
   },
   "settings":{
     "settings":"Настройки",
@@ -517,9 +516,9 @@
     "length-error-6-35":"Запись в данном поле не должна превышать 6-35 знаков.",
     "secretanswer-pattern-error":"Разрешены только буквы, цифры, пробелы, дефисы, точки и апострофы.",
     "length-error-4-50":"Запись в данном поле не должна превышать 4-50 знаков.",
-    "tax-identification-number-pattern-error":"Only letters, numbers, and hyphen are allowed.",
-    "cancel":"Cancel",
-    "continue":"Continue"
+    "tax-identification-number-pattern-error":"Разрешены только буквы, цифры и дефисы.",
+    "cancel":"Отмена",
+    "continue":"Продолжить"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"обновил(а)",
@@ -539,9 +538,9 @@
     "password_not_match":"Введённые Вами пароли не совпадают.",
     "required":"Данное поле является обязательным.",
     "current_password_required":"Пожалуйста, введите текущий пароль.",
-    "password_pattern_error":"Password should have lower and uppercase letters with numbers.",
+    "password_pattern_error":"Пароль должен состоять из заглавных, строчных букв и цифр.",
     "password_changed_text":"Ваш пароль изменён. Пожалуйста, войдите снова.",
-    "length-error-6-25":"This field must be within 6-25 characters."
+    "length-error-6-25":"Запись в данном поле не должна превышать 6-25 знаков."
   },
   "financial-assessment":{
     "financial_assessment":"Финансовая оценка",
@@ -612,12 +611,12 @@
     "no_change":"Вы не внесли изменений.",
     "success":"Готово",
     "success_message":"Ваши настройки обновлены успешно.",
-    "account_turnover":"Account turnover",
-    "account_turnover_1":"Less than $25,000",
-    "account_turnover_2":"$25,000 - $50,000",
-    "account_turnover_3":"$50,001 - $100,000",
-    "account_turnover_4":"$100,001 - $500,000",
-    "account_turnover_5":"Over $500,000"
+    "account_turnover":"Объём покупок на счету",
+    "account_turnover_1":"Менее $25 000",
+    "account_turnover_2":"$25 000 - $50 000",
+    "account_turnover_3":"$50 001 - $100 000",
+    "account_turnover_4":"$100 001 - $500 000",
+    "account_turnover_5":"Более $500 000"
   },
   "limits":{
     "trading_withdrawal_limits":"Лимиты на торговлю и вывод",
@@ -683,28 +682,75 @@
     "required":"Данное поле является обязательным.",
     "success":"Готово",
     "success_message":"Ваши настройки обновлены успешно.",
-    "continue":"Continue",
-    "cancel":"Cancel"
+    "continue":"Продолжить",
+    "cancel":"Отмена"
   },
   "connectivity":{
-    "no_connection":"No Connection"
+    "no_connection":"Нет соединения"
   },
   "mt":{
-    "you_do_not_have_mt5_account":"You don't have any accounts for MetaTrader, Please create one and try again.",
-    "create_account":"Create Account for MT5",
-    "feature_is_not_available":"Sorry, this feature is not available.",
-    "meta_trader_accounts":"Meta Trader Accounts",
-    "demo_account":"Demo Account",
-    "financial_account":"Financial Account",
-    "volatility_account":"Volatility Indices Account",
-    "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
-    "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
-    "create_financial_account":"Create a Financial Account for MT5",
-    "create_volatility_account":"Create a Volatility Account for MT5",
-    "create_demo_account":"Create a Demo Account for MT5",
-    "login_id":"Login ID",
-    "balance":"Balance",
-    "name":"Name",
-    "start_trading_with_mt5":"Start Trading With MT5"
+    "you_do_not_have_mt5_account":"У Вас нет счёта на MetaTrader. Откройте счёт и попробуйте ещё раз.",
+    "create_account":"Откройте счёт на MT5",
+    "feature_is_not_available":"Извините, данная функция недоступна.",
+    "meta_trader_accounts":"Счета Meta Trader",
+    "demo_account":"Демо-счёт",
+    "financial_account":"Финансовый счёт",
+    "volatility_account":"Счёт на индексах волатильности",
+    "upgrade_financial_account":"Чтобы открыть финансовый счёт на MT5, обновите свой счёт Binary.com на Реальный.",
+    "upgrade_volatility_account":"Чтобы открыть счёт на индексах волатильности на MT5, обновите свой счёт на Binary.com на Реальный.",
+    "create_financial_account":"Откройте Финансовый счёт на MT5",
+    "create_volatility_account":"Откройте Волатильный счёт на MT5",
+    "create_demo_account":"Откройте Демо-счёт на MT5",
+    "login_id":"Логин",
+    "balance":"Баланс",
+    "name":"Имя",
+    "start_trading_with_mt5":"Начните торговлю на MT5"
+  },
+  "authentication":{
+    "authentication":"Authentication",
+    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
+    "documents":"Please send the following documents to support@binary.com in order to verify your identity and authenticate your account:",
+    "proof_of_identity":"Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.",
+    "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old.",
+    "questions":"Got questions?",
+    "contact":"Contact us",
+    "help":"for help.",
+    "account_authentication":"Account authentication"
+  },
+  "restricted":{
+    "please_contact":"Your account is restricted. Kindly contact customer support for assistance.",
+    "account_restriction":"Account restriction"
+  },
+  "contact":{
+    "contact_us":"Contact us",
+    "telephone":"Telephone",
+    "australia":"Australia",
+    "canada":"Canada",
+    "germany":"Germany",
+    "indonesia":"Indonesia",
+    "ireland":"Ireland",
+    "poland":"Poland",
+    "russia":"Russia",
+    "united_kingdom":"United Kingdom",
+    "toll_free":"(Toll Free)",
+    "calls":"*All calls are recorded for training and monitoring purposes",
+    "email":"Email",
+    "company_addresses":"Company addresses",
+    "malta":"Malta",
+    "malta_address":"Binary (Europe) Ltd & Binary Investments (Europe) Ltd, Mompalao Building, Suite 2, Tower Road, Msida MSD1825",
+    "japan":"Japan",
+    "japan_address":"Binary KK, Hiroo Miyata Bldg 3F, 9-16, Hiroo 1-chome, Shibuya-ku, Tokyo 150-0012, Japan",
+    "germany_address":"Binary Group Services Sdn Bhd, Zweigstelle Berlin, Friedrichstraße 68, 10117 Berlin",
+    "malaysia":"Malaysia",
+    "malaysia_address":"Binary Group Services Sdn Bhd, C-13-02, iTech Tower, Jalan Impact, Cyber 6, 63000 Cyberjaya, Selangor Darul Ehsan",
+    "cyberjaya_office":"Cyberjaya Office",
+    "kl_office":"Kuala Lumpur Office",
+    "kl_address":"Binary Group Services Sdn Bhd, 30-10, Q Sentral, Jalan Stesen Sentral 2, 50470 Kuala Lumpur",
+    "isle_of_man":"Isle of Man",
+    "isle_of_man_address":"Binary (IOM) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW"
+  },
+  "notifications":{
+    "notifications":"Notifications",
+    "no_notification":"There is no notification to show."
   }
 }
