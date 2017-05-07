@@ -717,5 +717,8 @@
     "balance": "Balance",
     "name": "Name",
     "start_trading_with_mt5": "Start Trading With MT5"
+  },
+  "service_outage": {
+    "service_down": "Our system is currently undergoing maintenance"
   }
 }

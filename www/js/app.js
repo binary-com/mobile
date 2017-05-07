@@ -35,7 +35,8 @@
         'binary.share.components.app-version',
         'binary.share.components.updater',
         'binary.share.components.check-user-status',
-        'binary.share.components.account-upgrade'
+        'binary.share.components.account-upgrade',
+        'binary.share.components.service-outage'
     ]);
 
   angular

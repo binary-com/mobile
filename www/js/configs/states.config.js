@@ -185,6 +185,9 @@ angular
           templateUrl: 'js/pages/meta-trader/mt5-web.template.html',
           controller: 'MT5WebController',
           controllerAs: 'vm'
+        })
+        .state('outage', {
+          templateUrl: 'js/share/components/service-outage/service-outage.template.html'
         });
 
 

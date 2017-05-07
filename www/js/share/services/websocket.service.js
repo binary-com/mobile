@@ -163,9 +163,11 @@ angular
             };
 
             websocketService.sendRequestFor = {
-              websiteStatus: function(){
+              websiteStatus: function(subscribe){
+                subscribe = subscribe || false;
                 var data = {
-                  "website_status": 1
+                  "website_status": 1,
+                  "subscribe": subscribe ? 1 : 0
                 };
                 sendMessage(data);
               },
@@ -527,6 +529,7 @@ angular
                             break;
                         case 'website_status':
                             if (message.hasOwnProperty('website_status')) {
+                              appStateService.siteStatus = message.website_status.site_status;
                               $rootScope.$broadcast('website_status', message.website_status);
                               localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
                             }
