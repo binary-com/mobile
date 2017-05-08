@@ -20,37 +20,71 @@
       vm.isLoggedIn = false;
       vm.notUpdatedTaxInfo = false;
       vm.isFinancial = false;
-      vm.state = {};
       //authentication and restricted messages
-      $translate(['authentication.account_authentication', 'restricted.account_restriction', 'authentication.please_authenticate', 'restricted.please_contact']).then(
+      $translate(['notifications.account_authentication', 'notifications.please_authenticate', 'notifications.account_restriction', 'notifications.please_contact', 'notifications.set_country', 'notifications.account_country', 'notifications.financial_assessment_not_completed', 'notifications.complete_financial_assessment', 'notifications.tax_information', 'notifications.complete_profile', 'notifications.tnc', 'notifications.accept_tnc', 'notifications.max_turnover_limit', 'notifications.set_max_turnover_limit']).then(
         function (translation) {
           vm.authenticateMessage = {
-            title: translation['authentication.account_authentication'],
-            text: translation['authentication.please_authenticate'],
+            title: translation['notifications.account_authentication'],
+            text: translation['notifications.please_authenticate'],
             link: 'authentication'
           };
           vm.restrictedMessage = {
-            title: translation['restricted.account_restriction'],
-            text: translation['restricted.please_contact'],
+            title: translation['notifications.account_restriction'],
+            text: translation['notifications.please_contact'],
             link: 'contact'
+          };
+          vm.countryNotSetMessage = {
+            title: translation['notifications.account_country'],
+            text: translation['notifications.set_country'],
+            link: 'profile'
+          };
+          vm.financialAssessmentMessage = {
+            title: translation['notifications.financial_assessment_not_completed'],
+            text: translation['notifications.complete_financial_assessment'],
+            link: 'financial-assessment'
+          };
+          vm.taxInformationMessage = {
+            title: translation['notifications.tax_information'],
+            text: translation['notifications.complete_profile'],
+            link: 'profile'
+          };
+          vm.termsAndConditionsMessage = {
+            title: translation['notifications.tnc'],
+            text: translation['notifications.accept_tnc'],
+            link: 'terms-and-conditions'
+          };
+          vm.maxTurnoverLimitNotSetMessage = {
+            title: translation['notifications.max_turnover_limit'],
+            text: translation['notifications.set_max_turnover_limit'],
+            link: 'self-exclusion'
           }
+
         }
       )
 
-      // write them based on priority please
-      vm.redirectPriority = ['terms-and-conditions', 'financial-assessment', 'tax-information'];
+      // check type of account
+      vm.checkAccountType = function() {
+        vm.account = accountService.getDefault();
+        vm.isFinancial = _.startsWith(vm.account.id, "MF") ? true : false;
+        vm.isCR = _.startsWith(vm.account.id, "CR") ? true : false;
+        vm.isMLT = _.startsWith(vm.account.id, "MLT") ? true : false;
+        vm.isMX = _.startsWith(vm.account.id, "MX") ? true : false;
+      }
 
       vm.init = function () {
         if (localStorage.hasOwnProperty('accounts') && localStorage.accounts != null) {
           vm.checkAccountType();
           websocketService.sendRequestFor.getAccountStatus();
+          websocketService.sendRequestFor.accountLimits();
+          websocketService.sendRequestFor.getFinancialAssessment();
         } else {
           $timeout(vm.init, 1000);
         }
       }
 
-      $scope.$on('authorize', () => {
+      $scope.$on('authorize', (e, authorize) => {
         if (!appStateService.checkedAccountStatus) {
+          vm.balance = authorize.balance;
           appStateService.checkedAccountStatus = true;
           vm.init();
         }
@@ -58,29 +92,20 @@
 
       vm.riskStatus = function(get_account_status) {
         if (get_account_status.risk_classification === 'high' && !vm.isCR) {
-          appStateService.hasHighRisk = true;
-          websocketService.sendRequestFor.getFinancialAssessment();
-        }
-        else{
-          vm.state.financialAssessment = true;
-        }
-      }
-
-      vm.taxInformationStatus = function(status) {
-        if (status.indexOf('crs_tin_information') < 0) {
-          vm.notUpdatedTaxInfo = true;
-          vm.checkTaxInformation();
-        }
-        else{
-          vm.state.taxInformation = true;
+          websocketService.sendRequestfor.getFinancialAssessment();
         }
       }
 
       vm.financialAssessmentStatus = function(get_financial_assessment) {
         if (_.isEmpty(get_financial_assessment) && appStateService.hasHighRisk) {
-          appStateService.hasToRedirectToFinancialAssessment = true;
+          notificationService.notices.push(vm.financialAssessmentMessage);
         }
-        vm.state.financialAssessment = true;
+      }
+
+      vm.taxInformationStatus = function(status) {
+        if (vm.isFinancial && status.indexOf('crs_tin_information') < 0) {
+          notificationService.notices.push(vm.taxInformationMessage);
+        }
       }
 
       vm.termsAndConditionsStatus = function(get_settings) {
@@ -88,15 +113,14 @@
           vm.clientTncStatus = get_settings.client_tnc_status;
           vm.termsConditionsVersion = localStorage.getItem('termsConditionsVersion');
           if (!appStateService.virtuality && vm.clientTncStatus !== vm.termsConditionsVersion) {
-            appStateService.hasToRedirectToTermsAndConditions = true;
+            notificationService.notices.push(vm.termsAndConditionsMessage);
           }
-          vm.state.termsAndConditions = true;
         }
       }
 
       vm.authenticateStatus = function(status) {
         vm.authenticated = status.indexOf('authenticated') > -1 ? true : false;
-        if (!vm.authenticated && (vm.isFinancial || vm.isCR || vm.isMLT || vm.isMX)) {
+        if (!vm.authenticated && (vm.isFinancial || (vm.isCR && vm.balance > 200 && localStorage.mt5LoginList.length > 0) || vm.isMLT || vm.isMX)) {
           if(!appStateService.authenticateMessage) {
             appStateService.authenticateMessage = true;
             notificationService.notices.push(vm.authenticateMessage);
@@ -149,8 +173,15 @@
         if (vm.withdrawalLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
           if(!appStateService.restrictedMessage) {
             appStateService.restrictedMessage = true;
-            notificationService.notices.push(restrictedMessage);
+            notificationService.notices.push(vm.restrictedMessage);
           }
+        }
+      }
+      
+      vm.maxTurnoverLimitStatus = function (status) {
+        vm.maxTurnoverLimitNotSet = status.daily_turnover ? true : false;
+        if (vm.isMX && !vm.maxTurnoverLimitNotSet) {
+          notificationService.notices.push(vm.maxTurnoverLimitNotSetMessage);
         }
       }
 
@@ -158,7 +189,7 @@
       $scope.$on('get_account_status', (e, get_account_status) => {
         vm.riskStatus(get_account_status);
         if(get_account_status.hasOwnProperty('status')) {
-          vm.taxInformationStatus(get_account_status.status);
+          // vm.taxInformationStatus(get_account_status.status);
           vm.authenticateStatus(get_account_status.status);
           vm.ageVerificationStatus(get_account_status.status);
           vm.ukgcStatus(get_account_status.status);
@@ -173,123 +204,18 @@
         vm.financialAssessmentStatus(get_financial_assessment);
       });
 
+      $scope.$on('get_limits', (e, get_limits) => {
+        vm.maxTurnoverLimitStatus(get_limits);
+    });
+
       // get terms and onditions
       $scope.$on('get_settings', (e, get_settings) => {
         vm.termsAndConditionsStatus(get_settings);
-      });
-
-
-        // check for tax information
-      vm.checkAccountType = function() {
-        vm.account = accountService.getDefault();
-        vm.isFinancial = _.startsWith(vm.account.id, "MF") ? true : false;
-        vm.isCR = _.startsWith(vm.account.id, "CR") ? true : false;
-        vm.isMLT = _.startsWith(vm.account.id, "MLT") ? true : false;
-        vm.isMX = _.startsWith(vm.account.id, "MX") ? true : false;
-      }
-
-      vm.checkTaxInformation = function() {
-        if (vm.isFinancial && vm.notUpdatedTaxInfo) {
-          appStateService.hasToRedirectToTaxInformation = true;
-        }
-        vm.state.taxInformation = true;
-      }
-
-      // cases
-      vm.redirect = function() {
-        if (vm.redirectPriority.length > 0) {
-          for (var key = 0; key < vm.redirectPriority.length; key++) {
-            var value = vm.redirectPriority[key];
-            if (appStateService['hasToRedirectTo' + _.upperFirst(_.camelCase(value))]) {
-              vm.redirectPriority.shift();
-              $state.go(value);
-              if ($ionicSideMenuDelegate.isOpen()) $ionicSideMenuDelegate.toggleLeft();
-              break;
-            }
-            else {
-              vm.redirectPriority.shift();
-              vm.redirect();
-            }
-          }
-        } else {
-          $state.go('trade');
-        }
-      }
-
-      // callback
-      // check if all data are recieved and all redirect necesseries are ready
-      $scope.$watch('vm.state', () => {
-        if (_.size(vm.state) === vm.redirectPriority.length) {
-          vm.redirect();
-        }
-      }, true);
-
-      // successes
-      $scope.$on('tnc_approval', (e, tnc_approval) => {
-        if (tnc_approval == 1) {
-          appStateService.hasToRedirectToTermsAndConditions = false;
-          vm.redirect();
-        }
-      });
-
-      $scope.$on('set_financial_assessment:success', (e, set_financial_assessment) => {
-        if (appStateService.hasToRedirectToFinancialAssessment) {
-          appStateService.hasToRedirectToFinancialAssessment = false;
-          vm.redirect();
-        }
-      });
-
-      $scope.$on('set-settings', (e, set_settings) => {
-        if (appStateService.hasToRedirectToTaxInformation) {
-          appStateService.hasToRedirectToTaxInformation = false;
-          vm.redirect();
-        }
-      });
-
-      // select country popup
-      $scope.$on('get_settings', (e, get_settings) => {
         vm.countryCode = get_settings.country_code;
         if (vm.countryCode == null && appStateService.virtuality) {
-          websocketService.sendRequestFor.residenceListSend();
+          notificationService.notices.push(vm.countryNotSetMessage);
         }
       });
-
-      $scope.$on('residence_list', (e, residence_list) => {
-        if (vm.countryCode == null && appStateService.virtuality) {
-          vm.residenceList = residence_list;
-          vm.selectCountry();
-        }
-      });
-
-      vm.selectCountry = function() {
-        $translate(['new-real-account.select_country', 'new-real-account.continue'])
-          .then(function(translation) {
-            alertService.displaySelectResidence(
-              translation['new-real-account.select_country'],
-              'select-residence-popup',
-              $scope,
-              'js/share/templates/select-country/select-country.template.html', [{
-                text: translation['new-real-account.continue'],
-                type: 'button-positive',
-                onTap: function(e) {
-                  if (vm.selectedCountry) {
-                    vm.setResidence();
-                  } else {
-                    e.preventDefault();
-                  }
-                }
-              },]
-            );
-          });
-        }
-
-        vm.setResidence = function() {
-          var params = {
-            "residence": vm.selectedCountry
-          }
-          websocketService.sendRequestFor.setAccountSettings(params);
-          vm.updateResidence = true;
-        }
 
     }
 })();

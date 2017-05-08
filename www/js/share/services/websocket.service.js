@@ -755,6 +755,7 @@ angular
                         case 'mt5_login_list':
                             if(message.mt5_login_list){
                               $rootScope.$broadcast('mt5_login_list:success', message.mt5_login_list);
+                              localStorage.setItem('mt5LoginList', message.mt5_login_list);
                             }
                             break;
                         case 'mt5_get_settings':
