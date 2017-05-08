@@ -440,7 +440,7 @@
     "resources":"资源",
     "regulatory_information":"法规信息",
     "mt5":"MetaTrader 5",
-    "contact_us":"contact us"
+    "contact_us":"联系我们"
   },
   "settings":{
     "settings":"设置",
@@ -707,10 +707,10 @@
     "start_trading_with_mt5":"开始用 MT5 交易"
   },
   "authentication":{
-    "authentication":"Authentication",
-    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
-    "documents":"Please send the following documents to support@binary.com in order to verify your identity and authenticate your account:",
-    "proof_of_identity":"Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.",
+    "authentication":"验证",
+    "please_authenticate":"请验证账户，以便提高取款和交易限额。",
+    "documents":"请将下列文件发送到 support@binary.com 以验证您的身份，并验证您的帐户︰",
+    "proof_of_identity":"身份证明-显示您名字和出生日期的护照、驾照（临时或永久）或身份证的扫描件。",
     "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old.",
     "questions":"Got questions?",
     "contact":"Contact us",
