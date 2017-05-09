@@ -10,14 +10,19 @@ angular
 	.module('binary')
 	.service('alertService',
 		function($translate, $ionicPopup, $rootScope) {
-			var displayAlert = function(_title, _message) {
+			var displayAlert = function(_title, _message, _button, _callback) {
 				if (navigator.notification === undefined) {
 					var alertPopup = $ionicPopup.alert({
 						title: _title,
-						template: _message
+						template: _message,
+            buttons: [{
+              type: 'button-positive',
+              text: _button || 'OK'
+            }]
 					});
+          alertPopup.then(_callback);
 				} else {
-					navigator.notification.alert(_message, null, _title, 'OK');
+					navigator.notification.alert(_message, _callback, _title, _button || 'OK');
 				}
 			};
 
@@ -126,9 +131,7 @@ angular
 				}
 			};
 
-			this.displayAlert = function(_title, _message) {
-				displayAlert(_title, _message);
-			};
+			this.displayAlert =	displayAlert;
 
 			this.confirmAccountRemoval = function(_token) {
 				$translate(['alert.remove_token_title', 'alert.remove_token_content'])
