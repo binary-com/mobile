@@ -64,7 +64,6 @@
         'binary.pages.trading-times',
         'binary.pages.resources',
         'binary.pages.asset-index',
-        'binary.pages.tax-information',
         'binary.pages.meta-trader',
         'binary.pages.authentication',
         'binary.pages.contact',

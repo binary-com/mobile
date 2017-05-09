@@ -166,13 +166,6 @@ angular
 					controller: 'AssetIndexController',
 					controllerAs: 'vm'
         })
-				.state('tax-information', {
-					parent: 'layout',
-					cache: false,
-					templateUrl: 'js/pages/tax-information/tax-information.template.html',
-					controller: 'TaxInformationController',
-					controllerAs: 'vm'
-				})
         .state('meta-trader', {
           parent: 'layout',
           cache: false,

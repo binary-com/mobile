@@ -61,28 +61,9 @@
             vm.to = to;
             vm.from = from;
             vm.hideBalance = false;
-            if (['transaction-detail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index', 'limits'].indexOf(vm.to.name) > -1) {
+            if (['transaction-detail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index', 'limits', 'financial-assessment', 'terms-and-conditions'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
-            } else if (['terms-and-conditions'].indexOf(vm.to.name) > -1) {
-                vm.hideMenuButton = true;
-                vm.showBack = false;
-            } else if (['financial-assessment'].indexOf(vm.to.name) > -1) {
-                if (appStateService.hasToRedirectToFinancialAssessment) {
-                    vm.hideMenuButton = true;
-                    vm.showBack = false;
-                } else {
-                    vm.hideMenuButton = true;
-                    vm.showBack = true;
-                }
-            } else if (['tax-information'].indexOf(vm.to.name) > -1) {
-                if (appStateService.hasToRedirectToTaxInformation) {
-                    vm.hideMenuButton = true;
-                    vm.showBack = false;
-                } else {
-                    vm.hideMenuButton = true;
-                    vm.showBack = true;
-                }
             } else if(['mt5-web'].indexOf(vm.to.name) > -1) {
                 vm.hideBalance = true;
             } else {
