@@ -202,7 +202,8 @@ angular
           cache: false,
           templateUrl: 'js/pages/notifications/notifications.template.html',
           controller: 'NotificationsController',
-          controllerAs: 'vm'
+          controllerAs: 'vm',
+          detailed: true
         });
 
 
