@@ -38,7 +38,9 @@
     "field_between":"Nó phải nằm giữa 0.70 và 100000.",
     "must_number":"Nó phải là một số.",
     "ok":"OK",
-    "cancel":"Cancel"
+    "cancel":"Cancel",
+    "yes":"Yes",
+    "no":"No"
   },
   "options":{
     "account":"Tài khoản",
