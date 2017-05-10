@@ -19,7 +19,7 @@
     "add":"新增",
     "new_token":"新增權杖",
     "delete":"刪除",
-    "not_allowed_to_trade":"您沒有權限進行交易！"
+    "not_allowed_to_trade":"您沒有進行交易的權限！"
   },
   "alert":{
     "error":"錯誤！",
@@ -440,7 +440,7 @@
     "resources":"資源",
     "regulatory_information":"法規資訊",
     "mt5":"MetaTrader 5",
-    "contact_us":"contact us"
+    "contact_us":"聯繫我們"
   },
   "settings":{
     "settings":"設置",
@@ -707,50 +707,50 @@
     "start_trading_with_mt5":"開始用 MT5 交易"
   },
   "authentication":{
-    "authentication":"Authentication",
-    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
-    "documents":"Please send the following documents to support@binary.com in order to verify your identity and authenticate your account:",
-    "proof_of_identity":"Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.",
-    "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old.",
-    "questions":"Got questions?",
-    "contact":"Contact us",
-    "help":"for help.",
-    "account_authentication":"Account authentication"
+    "authentication":"驗證",
+    "please_authenticate":"請驗證帳戶，以便提高取款和交易限額。",
+    "documents":"請將下列文件發送到 support@binary.com 以驗證您的身份和帳戶︰",
+    "proof_of_identity":"身份證明-顯示您名字和出生日期的護照、駕照（臨時或永久）或身份證的掃描件。",
+    "proof_of_address":"地址證明-水電煤帳單或銀行月結單掃描件（日期不得超過3個月）。",
+    "questions":"有問題嗎？",
+    "contact":"聯繫我們",
+    "help":"尋求説明。",
+    "account_authentication":"帳戶驗證"
   },
   "restricted":{
-    "please_contact":"Your account is restricted. Kindly contact customer support for assistance.",
-    "account_restriction":"Account restriction"
+    "please_contact":"您的帳戶已被限制。請聯繫客服部為您提供幫助。",
+    "account_restriction":"帳戶限制"
   },
   "contact":{
-    "contact_us":"Contact us",
-    "telephone":"Telephone",
-    "australia":"Australia",
-    "canada":"Canada",
-    "germany":"Germany",
-    "indonesia":"Indonesia",
-    "ireland":"Ireland",
-    "poland":"Poland",
-    "russia":"Russia",
-    "united_kingdom":"United Kingdom",
-    "toll_free":"(Toll Free)",
-    "calls":"*All calls are recorded for training and monitoring purposes",
-    "email":"Email",
-    "company_addresses":"Company addresses",
-    "malta":"Malta",
+    "contact_us":"聯繫我們",
+    "telephone":"電話",
+    "australia":"澳大利亞",
+    "canada":"加拿大",
+    "germany":"德國",
+    "indonesia":"印尼",
+    "ireland":"愛爾蘭",
+    "poland":"波蘭",
+    "russia":"俄羅斯",
+    "united_kingdom":"英國",
+    "toll_free":"（免費電話）",
+    "calls":"*為了利於培訓和監控，所有通話將被錄音",
+    "email":"電子郵件",
+    "company_addresses":"公司地址",
+    "malta":"馬爾他",
     "malta_address":"Binary (Europe) Ltd & Binary Investments (Europe) Ltd, Mompalao Building, Suite 2, Tower Road, Msida MSD1825",
-    "japan":"Japan",
+    "japan":"日本",
     "japan_address":"Binary KK, Hiroo Miyata Bldg 3F, 9-16, Hiroo 1-chome, Shibuya-ku, Tokyo 150-0012, Japan",
     "germany_address":"Binary Group Services Sdn Bhd, Zweigstelle Berlin, Friedrichstraße 68, 10117 Berlin",
-    "malaysia":"Malaysia",
+    "malaysia":"馬來西亞",
     "malaysia_address":"Binary Group Services Sdn Bhd, C-13-02, iTech Tower, Jalan Impact, Cyber 6, 63000 Cyberjaya, Selangor Darul Ehsan",
-    "cyberjaya_office":"Cyberjaya Office",
-    "kl_office":"Kuala Lumpur Office",
+    "cyberjaya_office":"賽城辦公室",
+    "kl_office":"吉隆坡辦事處",
     "kl_address":"Binary Group Services Sdn Bhd, 30-10, Q Sentral, Jalan Stesen Sentral 2, 50470 Kuala Lumpur",
-    "isle_of_man":"Isle of Man",
+    "isle_of_man":"曼島",
     "isle_of_man_address":"Binary (IOM) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW"
   },
   "notifications":{
-    "notifications":"Notifications",
-    "no_notification":"There is no notification to show."
+    "notifications":"通知",
+    "no_notification":"沒有要顯示的通知。"
   }
 }
