@@ -38,7 +38,9 @@
     "field_between":"必須在 0.70 和 100000 之間。",
     "must_number":"須為數字。",
     "ok":"確定",
-    "cancel":"取消"
+    "cancel":"取消",
+    "yes":"Yes",
+    "no":"No"
   },
   "options":{
     "account":"帳戶",
