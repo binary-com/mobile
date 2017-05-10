@@ -38,7 +38,9 @@
     "field_between":"ค่าที่บันทึกต้องอยู่ระหว่าง 0.70 และ 100,000",
     "must_number":"ค่าที่ป้อนต้องเป็นตัวเลข",
     "ok":"OK",
-    "cancel":"Cancel"
+    "cancel":"Cancel",
+    "yes":"Yes",
+    "no":"No"
   },
   "options":{
     "account":"บัญชี",

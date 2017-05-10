@@ -38,7 +38,9 @@
     "field_between":"Harus antara 0.70 dan 100000.",
     "must_number":"Harus berupa angka.",
     "ok":"OK",
-    "cancel":"Batal"
+    "cancel":"Batal",
+    "yes":"Yes",
+    "no":"No"
   },
   "options":{
     "account":"Akun",
