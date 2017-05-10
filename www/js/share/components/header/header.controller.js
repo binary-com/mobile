@@ -67,7 +67,7 @@
             } else if(['mt5-web'].indexOf(vm.to.name) > -1) {
                 vm.hideBalance = true;
             } else if (['contact'].indexOf(vm.to.name) > -1) {
-                if (['authentication'].indexOf(vm.from.name) > -1) {
+                if (['authentication', 'notifications'].indexOf(vm.from.name) > -1) {
                   vm.hideMenuButton = true;
                   vm.showBack = true;
                 } else {
@@ -93,7 +93,12 @@
 
         // back button function
         vm.goToPrevPage = function() {
-            $state.go(vm.from);
+            if(vm.from.detailed) {
+              $state.go('trade');
+            }
+            else {
+              $state.go(vm.from);
+            }
         };
 
     }
