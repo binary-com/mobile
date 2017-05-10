@@ -67,7 +67,7 @@
 			{{'realitycheck.profit_loss' | translate}}
 		</div>
 		<div class="col">
-			{{vm.realityCheckitems.sell_amount - vm.realityCheckitems.buy_amount}}
+			{{vm.realityCheckitems.sell_amount - vm.realityCheckitems.buy_amount | currency : vm.currency : 2}}
 		</div>
 	</div>
 	<div class="row">
