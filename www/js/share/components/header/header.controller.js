@@ -61,11 +61,19 @@
             vm.to = to;
             vm.from = from;
             vm.hideBalance = false;
-            if (['transaction-detail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index', 'limits', 'financial-assessment', 'terms-and-conditions'].indexOf(vm.to.name) > -1) {
+            if (['transaction-detail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index', 'limits', 'financial-assessment', 'terms-and-conditions', 'authentication'].indexOf(vm.to.name) > -1) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
             } else if(['mt5-web'].indexOf(vm.to.name) > -1) {
                 vm.hideBalance = true;
+            } else if (['contact'].indexOf(vm.to.name) > -1) {
+                if (['authentication'].indexOf(vm.from.name) > -1) {
+                  vm.hideMenuButton = true;
+                  vm.showBack = true;
+                } else {
+                  vm.hideMenuButton = false;
+                  vm.showBack = false;
+                }
             } else {
                 if (vm.from.name === 'statement' && vm.to.name !== 'transactiondetail' && document.getElementsByClassName('realitycheck').length > 0) {
                     $('.popup-container').addClass('popup-showing');

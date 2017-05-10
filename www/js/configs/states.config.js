@@ -188,7 +188,8 @@ angular
           cache: false,
           templateUrl: 'js/pages/authentication/authentication.template.html',
           controller: 'AuthenticationController',
-          controllerAs: 'vm'
+          controllerAs: 'vm',
+					detailed: true
         })
         .state('contact', {
           parent: 'layout',
