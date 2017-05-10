@@ -19,8 +19,6 @@
 
     var vm  = this;
 
-    websocketService.sendRequestFor.websiteStatus();
-
     /**
      * wait untile authorization and decide
      * to redirect user  to the proper page

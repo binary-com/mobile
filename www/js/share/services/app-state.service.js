@@ -45,6 +45,7 @@ angular
                 factory.authenticateMessage = false;
                 factory.restrictedMessage = false;
                 factory.checkedAccountStatus = false;
+                factory.siteStatus = 'up';
 
                 return factory;
             });

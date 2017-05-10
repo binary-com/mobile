@@ -38,7 +38,9 @@
     "field_between": "It must be between 0.70 and 100000.",
     "must_number": "It must be a number.",
     "ok": "OK",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No"
   },
   "options": {
     "account": "Account",
@@ -763,5 +765,8 @@
   "notifications": {
     "notifications": "Notifications",
     "no_notification": "There is no notification to show."
+  },
+  "service_outage": {
+    "service_down": "Our system is currently undergoing maintenance"
   }
 }

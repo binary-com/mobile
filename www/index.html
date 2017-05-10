@@ -79,6 +79,7 @@
   <body ng-app="binary" ng-controller="BodyController as vm" id="{{vm.getLanguage()}}" ng-cloak>
     <bg-updater></bg-updater>
     <bg-connection-lost></bg-connection-lost>
+    <bg-service-outage></bg-service-outage>
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
     <bg-session-timeout></bg-session-timeout>
     <bg-connectivity></bg-connectivity>
@@ -207,6 +208,9 @@
     <script src="js/share/components/check-user-status/check-user-status.controller.js"></script>
     <script src="js/share/components/check-user-status/check-user-status.directive.js"></script>
 
+    <script src="js/share/components/service-outage/service-outage.module.js"></script>
+    <script src="js/share/components/service-outage/service-outage.directive.js"></script>
+    <script src="js/share/components/service-outage/service-outage.controller.js"></script>
 
     <script src="js/share/components/notification-icon/notification-icon.module.js"></script>
     <script src="js/share/components/notification-icon/notification-icon.controller.js"></script>
