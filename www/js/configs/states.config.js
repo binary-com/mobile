@@ -190,6 +190,14 @@ angular
           controller: 'MT5WebController',
           controllerAs: 'vm'
         })
+        .state('outage', {
+          params: {
+            message: null
+          },
+          controller: "ServiceOutagePageController",
+          controllerAs: 'vm',
+          templateUrl: 'js/share/components/service-outage/service-outage.template.html'
+        })
         .state('authentication', {
           parent: 'layout',
           cache: false,

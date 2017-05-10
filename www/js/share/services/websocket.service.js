@@ -10,7 +10,9 @@
 angular
     .module('binary')
     .factory('websocketService',
-        function($rootScope, localStorageService, alertService, appStateService, notificationService, $state, config) {
+        function($rootScope, $state, $translate,
+          alertService, appStateService, localStorageService,
+          config, notificationService) {
             var dataStream = '';
             var messageBuffer = [];
 
@@ -126,7 +128,7 @@ angular
                 sendMessage(data);
             };
 
-            websocketService.logout = function(){
+            websocketService.logout = function(error){
               websocketService.sendRequestFor.logout();
 				      localStorage.removeItem('accounts');
               websocketService.sendRequestFor.forgetProposals();
@@ -160,13 +162,26 @@ angular
               appStateService.checkedAccountStatus = false;
               notificationService.notices = [];
 
-              $state.go('signin');
+              if(error){
+                $translate(['alert.error', 'alert.ok'])
+                  .then((translation)=> {
+                    alertService.displayAlert(translation['alert.error'],
+                        error,
+                        translation['alert.ok'],
+                        ()=> { $state.go('signin')}
+                        );
+                  });
+              } else {
+                $state.go('signin')
+              }
             };
 
             websocketService.sendRequestFor = {
-              websiteStatus: function(){
+              websiteStatus: function(subscribe){
+                subscribe = subscribe || false;
                 var data = {
-                  "website_status": 1
+                  "website_status": 1,
+                  "subscribe": subscribe ? 1 : 0
                 };
                 sendMessage(data);
               },
@@ -492,8 +507,9 @@ angular
 
                 if (message) {
                     if (message.error) {
-                        if (message.error.code === 'InvalidToken') {
-                            websocketService.logout();
+                        if (['InvalidToken', 'AccountDisabled', 'DisabledClient'].indexOf(message.error.code) > -1) {
+                            websocketService.logout(message.error.message);
+                            return;
                         }
                     }
 
@@ -528,6 +544,7 @@ angular
                             break;
                         case 'website_status':
                             if (message.hasOwnProperty('website_status')) {
+                              appStateService.siteStatus = message.website_status.site_status;
                               $rootScope.$broadcast('website_status', message.website_status);
                               localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
                             }
