@@ -79,7 +79,6 @@
         appStateService.hasTaxInfoMessage = false;
         appStateService.hasFinancialAssessmentMessage = false;
         appStateService.checkedAccountStatus = false;
-        notificationService.notices = [];
       };
 
       $scope.$on('authorize', (e, authorize) => {

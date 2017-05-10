@@ -84,6 +84,7 @@
 
       $scope.$on('authorize', (e, authorize) => {
         if (!appStateService.checkedAccountStatus) {
+          notificationService.notices.length = 0;
           appStateService.checkedAccountStatus = true;
           vm.balance = authorize.balance;
           vm.init();
@@ -125,8 +126,8 @@
       vm.authenticateStatus = function(status) {
         vm.authenticated = status.indexOf('authenticated') > -1 ? true : false;
         if (!vm.authenticated && (vm.isFinancial || (vm.isCR && vm.balance > 200 && localStorage.mt5LoginList.length > 0) || vm.isMLT || vm.isMX)) {
-          if (!vm.hasAuthenticateMessage) {
-            vm.hasAuthenticateMessage = true;
+          if (!appStateService.hasAuthenticateMessage) {
+            appStateService.hasAuthenticateMessage = true;
             notificationService.notices.push(vm.authenticateMessage);
           }
         }
@@ -135,8 +136,8 @@
       vm.ageVerificationStatus = function(status) {
         vm.ageVerified = status.indexOf('age_verification') > -1 ? true : false;
         if (!vm.ageVerified && (vm.isFinancial || vm.isMLT || vm.isMX)) {
-          if (!vm.hasAuthenticateMessage) {
-            vm.hasAuthenticateMessage = true;
+          if (!appStateService.hasAuthenticateMessage) {
+            appStateService.hasAuthenticateMessage = true;
             notificationService.notices.push(vm.authenticateMessage);
           }
         }
@@ -145,8 +146,8 @@
       vm.unwelcomeStatus = function(status) {
         vm.unwelcomed = status.indexOf('unwelcome') > -1 ? true : false;
         if (vm.unwelcomed && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
-          if (!vm.hasRestrictedMessage) {
-            vm.hasRestrictedMessage = true;
+          if (!appStateService.hasRestrictedMessage) {
+            appStateService.hasRestrictedMessage = true;
             notificationService.notices.push(vm.restrictedMessage);
           }
         }
@@ -155,8 +156,8 @@
       vm.cashierStatus = function(status) {
         vm.cashierLocked = status.indexOf('cashier_locked') > -1 ? true : false;
         if (vm.cashierLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
-          if (!vm.hasRestrictedMessage) {
-            vm.hasRestrictedMessage = true;
+          if (!appStateService.hasRestrictedMessage) {
+            appStateService.hasRestrictedMessage = true;
             notificationService.notices.push(vm.restrictedMessage);
           }
         }
@@ -165,8 +166,8 @@
       vm.withdrawalStatus = function(status) {
         vm.withdrawalLocked = status.indexOf('withdrawal_locked') > -1 ? true : false;
         if (vm.withdrawalLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
-          if (!vm.hasRestrictedMessage) {
-            vm.hasRestrictedMessage = true;
+          if (!appStateService.hasRestrictedMessage) {
+            appStateService.hasRestrictedMessage = true;
             notificationService.notices.push(vm.restrictedMessage);
           }
         }

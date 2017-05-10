@@ -159,7 +159,6 @@ angular
               appStateService.hasTaxInfoMessage = false;
               appStateService.hasFinancialAssessmentMessage = false;
               appStateService.checkedAccountStatus = false;
-              notificationService.notices = [];
 
               $state.go('signin');
             };
