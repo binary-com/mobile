@@ -11,26 +11,30 @@ angular
 	.service('alertService',
 		function($translate, $ionicPopup, $rootScope) {
 			var displayAlert = function(_title, _message, _button, _callback) {
-				if (navigator.notification === undefined) {
-					var alertPopup = $ionicPopup.alert({
-						title: _title,
-						template: _message,
-            buttons: [{
-              type: 'button-positive',
-              text: _button || 'OK'
-            }]
-					});
-          alertPopup.then(_callback);
-				} else {
-					navigator.notification.alert(_message, _callback, _title, _button || 'OK');
-				}
+        $translate(['alert.ok'])
+          .then((translation) => {
+            if (navigator.notification === undefined) {
+              var alertPopup = $ionicPopup.alert({
+                title: _title,
+                template: _message,
+                buttons: [{
+                  type: 'button-positive',
+                  text: _button || translation['alert.ok']
+                }]
+              });
+              alertPopup.then(_callback);
+            } else {
+              navigator.notification.alert(_message, _callback, _title, _button || translation['alert.ok']);
+            }
+          });
 			};
 
 			var displayConfirmation = function(_title, _message, _buttons, _callback) {
 				if (navigator.notification === undefined) {
 					var confirmPopup = $ionicPopup.confirm({
 						title: _title,
-						template: _message
+						template: _message,
+            buttons: _buttons
 					});
 					confirmPopup.then(_callback);
 				} else {
@@ -155,22 +159,46 @@ angular
 			};
 
 			this.confirmRemoveAllAccount = function(_callback) {
-				$translate(['alert.remove_all_tokens_title', 'alert.remove_all_tokens_content'])
+				$translate(['alert.remove_all_tokens_title', 'alert.remove_all_tokens_content',
+            'alert.yes', 'alert.no'])
 					.then(function(translation) {
+            var buttons = null;
+            if(navigator.notification){
+              buttons = [translation['alert.yes'], translation['alert.no']];
+            } else {
+              buttons = [
+              {
+                text: translation['alert.no'],
+                onTap: () => {
+                  return false;
+                }
+              },
+              {
+                text: translation['alert.yes'],
+                type: 'button-positive',
+                onTap: () => {
+                  return true;
+                }
+              }
+              ]
+            }
 						displayConfirmation(
 							translation['alert.remove_all_tokens_title'],
-							translation['alert.remove_all_tokens_content'], ['Yes', 'No'],
+							translation['alert.remove_all_tokens_content'],
+              buttons,
 							_callback
 						);
 					});
 			}
 
 			this.confirmExit = function(_callback) {
-				$translate(['app.exit_title', 'app.exit_confirmation'])
+				$translate(['app.exit_title', 'app.exit_confirmation',
+            'alert.yes', 'alert.no'])
 					.then(function(translation) {
 						displayConfirmation(
 							translation['app.exit_title'],
-							translation['app.exit_confirmation'], ['Yes', 'No'],
+							translation['app.exit_confirmation'],
+              [translation['alert.yes'], translation['alert.no']],
 							_callback
 						);
 					});
