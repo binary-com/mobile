@@ -22,7 +22,7 @@
           && appStateService.siteStatus === 'down'){
         $state.go('trade');
       } else if(message.site_status && message.site_status === 'down') {
-        $state.go('outage');
+        $state.go('outage', {message: message.message});
       }
     });
 

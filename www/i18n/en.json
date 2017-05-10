@@ -765,8 +765,5 @@
   "notifications": {
     "notifications": "Notifications",
     "no_notification": "There is no notification to show."
-  },
-  "service_outage": {
-    "service_down": "Our system is currently undergoing maintenance"
   }
 }
