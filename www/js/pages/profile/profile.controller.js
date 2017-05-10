@@ -24,6 +24,7 @@
         vm.isDataLoaded = false;
         vm.notAnyChanges = false;
         vm.disableUpdateButton = false;
+        vm.hasResidence = false;
         vm.settingTaxResidence = [];
         vm.virtualAccountFields = [
           'email',
@@ -56,7 +57,9 @@
         }
 
         $scope.$on('residence_list', (e, response) => {
-          vm.residenceList = response;
+          $scope.$applyAsync( () => {
+            vm.residenceList = response;
+          });
         });
 
         vm.setProfile = function(get_settings) {
@@ -64,6 +67,13 @@
           if (vm.isVirtualAccount) {
             $scope.$applyAsync(()=>{
               vm.profile = get_settings;
+              if (get_settings.hasOwnProperty('country')) {
+                vm.hasResidence = true;
+              }
+              else {
+                websocketService.sendRequestFor.residenceListSend();
+                vm.hasResidence = false;
+              }
             });
           } else {
             vm.profile = get_settings;
@@ -189,6 +199,11 @@
               vm.disableUpdateButton = true;
               websocketService.sendRequestFor.setAccountSettings(vm.params);
             }
+          } else {
+            var params = {
+              "residence": vm.profile.country
+            }
+            websocketService.sendRequestFor.setAccountSettings(params);
           }
         }
 
