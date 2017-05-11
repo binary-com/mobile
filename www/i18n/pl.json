@@ -38,7 +38,9 @@
     "field_between":"Liczba musi się mieścić w przedziale od 0,70 do 100 000.",
     "must_number":"To musi być liczba.",
     "ok":"OK",
-    "cancel":"Anuluj"
+    "cancel":"Anuluj",
+    "yes":"Yes",
+    "no":"No"
   },
   "options":{
     "account":"Konto",

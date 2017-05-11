@@ -70,15 +70,15 @@
         appStateService.isPopupOpen = false;
         appStateService.realityCheckLogin = false;
         $ionicSideMenuDelegate.toggleLeft();
-        appStateService.hasToRedirectToTermsAndConditions = false;
-        appStateService.hasToRedirectToFinancialAssessment = false;
-        appStateService.hasToRedirectToTaxInformation = false;
-        appStateService.redirectFromFinancialAssessment = true;
         appStateService.limitsChange = true;
-        appStateService.authenticateMessage = false;
-        appStateService.restrictedMessage = false;
+        appStateService.hasAuthenticateMessage = false;
+        appStateService.hasRestrictedMessage = false;
+        appStateService.hasMaxTurnoverMessage = false;
+        appStateService.hasCountryMessage = false;
+        appStateService.hasTnCMessage = false;
+        appStateService.hasTaxInfoMessage = false;
+        appStateService.hasFinancialAssessmentMessage = false;
         appStateService.checkedAccountStatus = false;
-        notificationService.notices = [];
       };
 
       $scope.$on('authorize', (e, authorize) => {

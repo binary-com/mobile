@@ -25,7 +25,7 @@
         vm.isLanguageReady = false;
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
-        websocketService.sendRequestFor.websiteStatus();
+        websocketService.sendRequestFor.websiteStatus(true);
         $scope.$on('website_status', function(e, website_status) {
             if (!vm.isLanguageReady && website_status) {
                 vm.languages = [];

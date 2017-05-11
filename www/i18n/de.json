@@ -38,7 +38,9 @@
     "field_between":"Es muss zwischen 0,70 und 100000 sein.",
     "must_number":"Es muss eine Zahl sein.",
     "ok":"Okay",
-    "cancel":"Abbrechen"
+    "cancel":"Abbrechen",
+    "yes":"Yes",
+    "no":"No"
   },
   "options":{
     "account":"Konto",

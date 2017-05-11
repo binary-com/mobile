@@ -151,7 +151,7 @@
                   text: translation['realitycheck.continue'],
                   type: 'button-positive',
                   onTap: function(e) {
-                    if (vm.data.interval <= 120 && vm.data.interval >= 10 && !vm.integerError) {
+                    if (vm.data.interval <= 60 && vm.data.interval >= 10 && !vm.integerError) {
                       vm.setInterval(vm.data.interval);
                       vm.data.start_interval = (new Date()).getTime();
                       vm.setStart(vm.data.start_interval);
@@ -251,7 +251,7 @@
                   type: 'button-positive',
                   onTap: function(e) {
 
-                    if (vm.data.interval <= 120 && vm.data.interval >= 10 && !vm.integerError) {
+                    if (vm.data.interval <= 60 && vm.data.interval >= 10 && !vm.integerError) {
                       if (vm.sessionLoginId === vm.realityCheckitems.loginid) {
                         vm.getLastInterval(vm.data.interval);
                         vm.data.start_interval = (new Date()).getTime();
