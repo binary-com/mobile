@@ -38,7 +38,9 @@
     "field_between":"Число должно быть от 0.70 до 100000.",
     "must_number":"Здесь должны быть цифры.",
     "ok":"OK",
-    "cancel":"Отмена"
+    "cancel":"Отмена",
+    "yes":"Yes",
+    "no":"No"
   },
   "options":{
     "account":"Счёт",

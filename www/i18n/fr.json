@@ -38,7 +38,9 @@
     "field_between":"La saisie doit se situer entre 0,70 et 100000.",
     "must_number":"La saisie doit être un nombre.",
     "ok":"OK",
-    "cancel":"Annuler"
+    "cancel":"Annuler",
+    "yes":"Yes",
+    "no":"No"
   },
   "options":{
     "account":"Compte",

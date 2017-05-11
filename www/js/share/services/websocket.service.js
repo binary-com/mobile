@@ -151,16 +151,16 @@ angular
               sessionStorage.removeItem('countryParams');
               websocketService.closeConnection();
               appStateService.passwordChanged = false;
-              appStateService.hasToRedirectToTermsAndConditions = false;
-              appStateService.hasToRedirectToFinancialAssessment = false;
-              appStateService.redirectFromFinancialAssessment = false;
               appStateService.limitsChange = false;
-              appStateService.hasToRedirectToTaxInformation = false;
               appStateService.realityCheckLogin = false;
-              appStateService.authenticateMessage = false;
-              appStateService.restrictedMessage = false;
+              appStateService.hasAuthenticateMessage = false;
+              appStateService.hasRestrictedMessage = false;
+              appStateService.hasMaxTurnoverMessage = false;
+              appStateService.hasCountryMessage = false;
+              appStateService.hasTnCMessage = false;
+              appStateService.hasTaxInfoMessage = false;
+              appStateService.hasFinancialAssessmentMessage = false;
               appStateService.checkedAccountStatus = false;
-              notificationService.notices = [];
 
               if(error){
                 $translate(['alert.error', 'alert.ok'])
@@ -771,8 +771,9 @@ angular
                         case 'forget_all':
                             $rootScope.$broadcast('forget_all', message.req_id);
                         case 'mt5_login_list':
-                            if(message.mt5_login_list){
+                            if (message.mt5_login_list){
                               $rootScope.$broadcast('mt5_login_list:success', message.mt5_login_list);
+                              localStorage.setItem('mt5LoginList', message.mt5_login_list);
                             }
                             break;
                         case 'mt5_get_settings':

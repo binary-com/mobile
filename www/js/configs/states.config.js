@@ -173,13 +173,6 @@ angular
 					controller: 'AssetIndexController',
 					controllerAs: 'vm'
         })
-				.state('tax-information', {
-					parent: 'layout',
-					cache: false,
-					templateUrl: 'js/pages/tax-information/tax-information.template.html',
-					controller: 'TaxInformationController',
-					controllerAs: 'vm'
-				})
         .state('meta-trader', {
           parent: 'layout',
           cache: false,
@@ -210,7 +203,8 @@ angular
           cache: false,
           templateUrl: 'js/pages/authentication/authentication.template.html',
           controller: 'AuthenticationController',
-          controllerAs: 'vm'
+          controllerAs: 'vm',
+					detailed: true
         })
         .state('contact', {
           parent: 'layout',
@@ -224,7 +218,8 @@ angular
           cache: false,
           templateUrl: 'js/pages/notifications/notifications.template.html',
           controller: 'NotificationsController',
-          controllerAs: 'vm'
+          controllerAs: 'vm',
+          detailed: true
         });
 
 

@@ -38,7 +38,9 @@
     "field_between":"crwdns17695:0crwdne17695:0",
     "must_number":"crwdns17696:0crwdne17696:0",
     "ok":"crwdns19062:0crwdne19062:0",
-    "cancel":"crwdns19063:0crwdne19063:0"
+    "cancel":"crwdns19063:0crwdne19063:0",
+    "yes":"crwdns19724:0crwdne19724:0",
+    "no":"crwdns19725:0crwdne19725:0"
   },
   "options":{
     "account":"crwdns17697:0crwdne17697:0",

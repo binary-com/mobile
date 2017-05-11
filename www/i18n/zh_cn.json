@@ -38,7 +38,9 @@
     "field_between":"必须在 0.70 和 100000 之间。",
     "must_number":"须为数字。",
     "ok":"确定",
-    "cancel":"取消"
+    "cancel":"取消",
+    "yes":"Yes",
+    "no":"No"
   },
   "options":{
     "account":"账户",
