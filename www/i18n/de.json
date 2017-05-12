@@ -145,7 +145,7 @@
     "days":"Tage",
     "hours":"Stunden",
     "minutes":"Minuten",
-    "interval_error":"Bitte geben Sie eine Zahl zwischen 10 und 120 ein.",
+    "interval_error":"Please enter a number between 10 to 60.",
     "view_statement":"Statement ansehen",
     "integer_error":"Der Intervall sollte eine ganze Zahl sein."
   },
@@ -710,18 +710,12 @@
   },
   "authentication":{
     "authentication":"Authentication",
-    "please_authenticate":"Please authenticate your account to lift your withdrawal and trading limits.",
-    "documents":"Please send the following documents to support@binary.com in order to verify your identity and authenticate your account:",
+    "documents":"Authenticate your account now by verifying your identity and address. To proceed, simply send the following documents to",
     "proof_of_identity":"Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.",
-    "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old.",
+    "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old. Your proof of address must contain your name, address, date of issue, and the name of the issuing organisation.",
     "questions":"Got questions?",
     "contact":"Contact us",
-    "help":"for help.",
-    "account_authentication":"Account authentication"
-  },
-  "restricted":{
-    "please_contact":"Your account is restricted. Kindly contact customer support for assistance.",
-    "account_restriction":"Account restriction"
+    "help":"for help."
   },
   "contact":{
     "contact_us":"Contact us",
@@ -753,6 +747,20 @@
   },
   "notifications":{
     "notifications":"Notifications",
-    "no_notification":"There is no notification to show."
+    "no_notification":"There is no notification to show.",
+    "please_authenticate":"Authenticate your account now to take full advantage of all withdrawal options available.",
+    "account_authentication":"Account authentication",
+    "please_contact":"Your account is restricted. Kindly contact customer support for assistance.",
+    "account_restriction":"Account restriction",
+    "account_country":"Country of Residence",
+    "set_country":"Please set country of residence before upgrading to a real-money account.",
+    "complete_financial_assessment":"Please complete the financial assessment form to lift your withdrawal and trading limits.",
+    "financial_assessment_not_completed":"Financial Assessment is not completed",
+    "tax_information":"Tax information",
+    "complete_profile":"Please complete your account profile to lift your withdrawal and trading limits.",
+    "tnc":"Terms and conditions",
+    "accept_tnc":"Please accept the updated Terms and Conditions to lift your withdrawal and trading limits.",
+    "max_turnover_limit":"Account maximum turnover limit",
+    "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits."
   }
 }
