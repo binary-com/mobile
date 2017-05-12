@@ -145,7 +145,7 @@
     "days":"crwdns17785:0crwdne17785:0",
     "hours":"crwdns17786:0crwdne17786:0",
     "minutes":"crwdns17787:0crwdne17787:0",
-    "interval_error":"crwdns17788:0crwdne17788:0",
+    "interval_error":"crwdns19726:0crwdne19726:0",
     "view_statement":"crwdns19112:0crwdne19112:0",
     "integer_error":"crwdns19113:0crwdne19113:0"
   },
@@ -710,18 +710,12 @@
   },
   "authentication":{
     "authentication":"crwdns19680:0crwdne19680:0",
-    "please_authenticate":"crwdns19681:0crwdne19681:0",
-    "documents":"crwdns19682:0crwdne19682:0",
+    "documents":"crwdns19727:0crwdne19727:0",
     "proof_of_identity":"crwdns19683:0crwdne19683:0",
-    "proof_of_address":"crwdns19684:0crwdne19684:0",
+    "proof_of_address":"crwdns19728:0crwdne19728:0",
     "questions":"crwdns19685:0crwdne19685:0",
     "contact":"crwdns19686:0crwdne19686:0",
-    "help":"crwdns19687:0crwdne19687:0",
-    "account_authentication":"crwdns19719:0crwdne19719:0"
-  },
-  "restricted":{
-    "please_contact":"crwdns19689:0crwdne19689:0",
-    "account_restriction":"crwdns19721:0crwdne19721:0"
+    "help":"crwdns19687:0crwdne19687:0"
   },
   "contact":{
     "contact_us":"crwdns19691:0crwdne19691:0",
@@ -753,6 +747,20 @@
   },
   "notifications":{
     "notifications":"crwdns19722:0crwdne19722:0",
-    "no_notification":"crwdns19723:0crwdne19723:0"
+    "no_notification":"crwdns19723:0crwdne19723:0",
+    "please_authenticate":"crwdns19729:0crwdne19729:0",
+    "account_authentication":"crwdns19730:0crwdne19730:0",
+    "please_contact":"crwdns19731:0crwdne19731:0",
+    "account_restriction":"crwdns19732:0crwdne19732:0",
+    "account_country":"crwdns19733:0crwdne19733:0",
+    "set_country":"crwdns19734:0crwdne19734:0",
+    "complete_financial_assessment":"crwdns19735:0crwdne19735:0",
+    "financial_assessment_not_completed":"crwdns19736:0crwdne19736:0",
+    "tax_information":"crwdns19737:0crwdne19737:0",
+    "complete_profile":"crwdns19738:0crwdne19738:0",
+    "tnc":"crwdns19739:0crwdne19739:0",
+    "accept_tnc":"crwdns19740:0crwdne19740:0",
+    "max_turnover_limit":"crwdns19741:0crwdne19741:0",
+    "set_max_turnover_limit":"crwdns19742:0crwdne19742:0"
   }
 }
