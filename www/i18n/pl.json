@@ -39,8 +39,8 @@
     "must_number":"To musi być liczba.",
     "ok":"OK",
     "cancel":"Anuluj",
-    "yes":"Yes",
-    "no":"No"
+    "yes":"Tak",
+    "no":"Nie"
   },
   "options":{
     "account":"Konto",
@@ -145,7 +145,7 @@
     "days":"dni",
     "hours":"godzin(y)",
     "minutes":"minut(y)",
-    "interval_error":"Please enter a number between 10 to 60.",
+    "interval_error":"Proszę wpisać liczbę z przedziału od 10 do 60.",
     "view_statement":"Zobacz oświadczenie",
     "integer_error":"Odstęp czasu powinien być liczbą całkowitą."
   },
@@ -165,10 +165,10 @@
     "show_pass":"Pokaż hasło",
     "enter-email":"Wprowadź adres e-mail",
     "email-error":"Adres e-mail jest nieprawidłowy",
-    "token-invalid":"Please submit a valid verification token.",
+    "token-invalid":"Proszę podać prawidłowy token weryfikacyjny.",
     "residence-error":"Proszę wybrać swój kraj",
     "invalid_email":"Proszę podać prawidłowy adres e-mail.",
-    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
+    "password-pattern-error":"Hasło powinno się składać z małych i wielkich liter oraz cyfr.",
     "length-error-6-25":"To pole musi zawierać od 6 do 25 znaków.",
     "required":"To pole jest wymagane."
   },
@@ -292,7 +292,7 @@
     "tax-identification-number-pattern-error":"Dozwolone są tylko litery, cyfry i myślnik.",
     "continue":"Kontynuuj",
     "cancel":"Anuluj",
-    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
+    "not-pep-verify":"Oświadczam, że nie jestem osobą z zagranicy zajmującą eksponowane stanowisko polityczne (PEP)",
     "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates.",
     "account_turnover":"Obrót na koncie",
     "account_turnover_1":"Mniej niż 25 000 $",
@@ -354,7 +354,7 @@
     "secretanswer-pattern-error":"Dozwolone są wyłącznie litery, cyfry, znak spacji, myślnik, kropka i apostrof.",
     "length-error-4-50":"To pole musi zawierać od 4 do 50 znaków.",
     "required":"To pole jest obowiązkowe.",
-    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
+    "not-pep-verify":"Oświadczam, że nie jestem osobą z zagranicy zajmującą eksponowane stanowisko polityczne (PEP)",
     "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
   },
   "profittable":{
@@ -442,7 +442,7 @@
     "resources":"Zasoby",
     "regulatory_information":"Informacje o przepisach prawnych",
     "mt5":"MetaTrader 5",
-    "contact_us":"contact us"
+    "contact_us":"Skontaktuj się z nami"
   },
   "settings":{
     "settings":"Ustawienia",
@@ -692,11 +692,11 @@
   },
   "mt":{
     "you_do_not_have_mt5_account":"You don't have any accounts for MetaTrader, Please create one and try again.",
-    "create_account":"Create Account for MT5",
+    "create_account":"Utwórz konto do MT5",
     "feature_is_not_available":"Przepraszamy, ta funkcja jest niedostępna.",
-    "meta_trader_accounts":"Meta Trader Accounts",
+    "meta_trader_accounts":"Konta Meta Trader",
     "demo_account":"Konto Demo",
-    "financial_account":"Financial Account",
+    "financial_account":"Konto finansowe",
     "volatility_account":"Volatility Indices Account",
     "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
     "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
@@ -706,7 +706,7 @@
     "login_id":"Login",
     "balance":"Saldo",
     "name":"Imię",
-    "start_trading_with_mt5":"Start Trading With MT5"
+    "start_trading_with_mt5":"Rozpocznij handlowanie z MT5"
   },
   "authentication":{
     "authentication":"Authentication",
@@ -714,18 +714,18 @@
     "proof_of_identity":"Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.",
     "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old. Your proof of address must contain your name, address, date of issue, and the name of the issuing organisation.",
     "questions":"Got questions?",
-    "contact":"Contact us",
+    "contact":"Skontaktuj się z nami",
     "help":"for help."
   },
   "contact":{
-    "contact_us":"Contact us",
-    "telephone":"Telephone",
+    "contact_us":"Skontaktuj się z nami",
+    "telephone":"Telefon",
     "australia":"Australia",
-    "canada":"Canada",
-    "germany":"Germany",
-    "indonesia":"Indonesia",
-    "ireland":"Ireland",
-    "poland":"Poland",
+    "canada":"Kanada",
+    "germany":"Niemcy",
+    "indonesia":"Indonezja",
+    "ireland":"Irlandia",
+    "poland":"Polska",
     "russia":"Russia",
     "united_kingdom":"United Kingdom",
     "toll_free":"(Toll Free)",
