@@ -36,6 +36,16 @@
         $scope.$watch(() => {
             return vm.proposal
         }, (newValue, oldValue) => {
+            if(_.isEqual(newValue, oldValue) && vm.proposalResponses.length > 0){
+              return;
+            }
+
+            if(vm.proposalResponses.length > 0){
+              $scope.$applyAsync(() => {
+                vm.proposalResponses[0].isReceiving = true;
+                vm.proposalResponses[1].isReceiving = true;
+              });
+            }
             proposalUpdated();
         }, true);
 
@@ -48,6 +58,8 @@
                 $scope.$applyAsync(() => {
                     vm.proposalResponses[reqId - 1] = proposal;
                     vm.proposalResponses[reqId - 1].hasError = false;
+                    vm.proposalResponses[reqId - 1].isReceiving = false;
+
                 });
             }
 
@@ -150,9 +162,15 @@
           proposal2.contract_type = vm.contracts[1].contract_type;
           proposal2.req_id = 2;
 
-          proposalService.send(proposal1);
-          proposalService.send(proposal2);
-
+          if(vm.proposalResponses.length > 0){
+            $scope.$applyAsync(() => {
+              vm.proposalResponses[0].isReceiving = proposalService.send(proposal1);
+              vm.proposalResponses[1].isReceiving = proposalService.send(proposal2);
+            });
+          } else {
+            proposalService.send(proposal1);
+            proposalService.send(proposal2);
+          }
         });
 
         $scope.$on('$destroy', (e) => {
@@ -204,7 +222,7 @@
                 var tradeTypes = JSON.parse(sessionStorage.tradeTypes);
                 vm.contracts = tradeTypes[vm.proposal.tradeType];
 
-                if (!_.isEmpty(vm.contracts)) {
+                if (!_.isEmpty(vm.contracts) && vm.contracts[0].underlying_symbol == vm.proposal.symbol) {
                     sendProposal();
                 }
             } else {
