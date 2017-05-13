@@ -73,7 +73,9 @@
             delete proposal.tradeType;
             if(validate(proposal)){
                 websocketService.sendRequestFor.proposal(proposal);
+                return true;
             }
+            return false;
         }
 
         factory.forget = function(reqId){
