@@ -145,7 +145,7 @@
     "days":"天",
     "hours":"小時",
     "minutes":"分鐘",
-    "interval_error":"請輸入10到120之間的數字。",
+    "interval_error":"Please enter a number between 10 to 60.",
     "view_statement":"檢視帳單",
     "integer_error":"時間間隔須為整數。"
   },
@@ -710,18 +710,12 @@
   },
   "authentication":{
     "authentication":"驗證",
-    "please_authenticate":"請驗證帳戶，以便提高取款和交易限額。",
-    "documents":"請將下列文件發送到 support@binary.com 以驗證您的身份和帳戶︰",
+    "documents":"Authenticate your account now by verifying your identity and address. To proceed, simply send the following documents to",
     "proof_of_identity":"身份證明-顯示您名字和出生日期的護照、駕照（臨時或永久）或身份證的掃描件。",
-    "proof_of_address":"地址證明-水電煤帳單或銀行月結單掃描件（日期不得超過3個月）。",
+    "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old. Your proof of address must contain your name, address, date of issue, and the name of the issuing organisation.",
     "questions":"有問題嗎？",
     "contact":"聯繫我們",
-    "help":"尋求説明。",
-    "account_authentication":"帳戶驗證"
-  },
-  "restricted":{
-    "please_contact":"您的帳戶已被限制。請聯繫客服部為您提供幫助。",
-    "account_restriction":"帳戶限制"
+    "help":"尋求説明。"
   },
   "contact":{
     "contact_us":"聯繫我們",
@@ -753,6 +747,20 @@
   },
   "notifications":{
     "notifications":"通知",
-    "no_notification":"沒有要顯示的通知。"
+    "no_notification":"沒有要顯示的通知。",
+    "please_authenticate":"Authenticate your account now to take full advantage of all withdrawal options available.",
+    "account_authentication":"Account authentication",
+    "please_contact":"Your account is restricted. Kindly contact customer support for assistance.",
+    "account_restriction":"Account restriction",
+    "account_country":"Country of Residence",
+    "set_country":"Please set country of residence before upgrading to a real-money account.",
+    "complete_financial_assessment":"Please complete the financial assessment form to lift your withdrawal and trading limits.",
+    "financial_assessment_not_completed":"Financial Assessment is not completed",
+    "tax_information":"Tax information",
+    "complete_profile":"Please complete your account profile to lift your withdrawal and trading limits.",
+    "tnc":"Terms and conditions",
+    "accept_tnc":"Please accept the updated Terms and Conditions to lift your withdrawal and trading limits.",
+    "max_turnover_limit":"Account maximum turnover limit",
+    "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits."
   }
 }
