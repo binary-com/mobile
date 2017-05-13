@@ -28,7 +28,8 @@
             <div class="row" ng-if="!vm.proposalResponses[$index].hasError">
                 <div class="col center">
                     <button class="button" ng-click="vm.purchase($index)"
-                            ng-disabled="vm.inPurchaseMode">
+                                           ng-disabled="vm.inPurchaseMode || vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0"
+                            disabled>
                         {{ "trade.buy" | translate}}
                         {{contract.contract_display}}
                     </button>
