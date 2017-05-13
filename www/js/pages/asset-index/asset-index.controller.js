@@ -64,7 +64,8 @@
                     vm.marketColumns[market] = {
                         header: [],
                         columns: [],
-                        sub: []
+                        sub: [],
+                        displayName: vm.symbolInfo.market_display_name
                     };
                 }
 
