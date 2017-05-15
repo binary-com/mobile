@@ -74,20 +74,54 @@
 							</h1>
 					</div>
 			</div>
-      <div class="row">
+
+      <div class="row" ng-if="vm.fullyAuthenticated">
+        <div class="col">
+          {{ 'limits.fully_authenticated' | translate }}
+        </div>
+      </div>
+
+      <div class="row" ng-if="vm.otherAccount">
 					<div class="col">
             <p>
-              {{'limits.your_withdrawal_limit' | translate}} {{vm.currency}} {{(vm.limits.num_of_days_limit).toLocaleString("en")}} {{'limits.other_currency' | translate}}.
-
+              {{'limits.your_withdrawal_limit' | translate : {currency : vm.currency, limits: (vm.limits.num_of_days_limit).toLocaleString("en")} }}
             </p>
             <p>
-              {{'limits.already_withdrawn' | translate}} {{vm.currency}} {{vm.limits.withdrawal_since_inception_monetary}} {{'limits.other_currency' | translate}}.
+              {{'limits.already_withdrawn' | translate : {currency: vm.currency, limits: vm.limits.withdrawal_since_inception_monetary} }}
             </p>
             <p>
-              {{'limits.current_immediate_maximum_withdrawl' | translate}} {{vm.currency}} {{(vm.limits.remainder).toLocaleString("en")}} {{'limits.other_currency' | translate}}.
+              {{'limits.current_immediate_maximum_withdrawal' | translate : {currency: vm.currency, limits : (vm.limits.remainder).toLocaleString("en")} }}
             </p>
 					</div>
 			</div>
+
+      <div class="row" ng-if="vm.mxAccount">
+        <div class="col">
+          <p>
+            {{'limits.your_n_day_withdrawal_limit' | translate : {day: vm.limits.num_of_days, currency: vm.currency, limits: (vm.limits.num_of_days_limit).toLocaleString("en")} }}
+          </p>
+          <p>
+            {{'limits.already_withdrawn_days' | translate : {currency: vm.currency, limits: vm.limits.withdrawal_since_inception_monetary, day: vm.limits.num_of_days} }}
+          </p>
+          <p>
+            {{'limits.current_immediate_maximum_withdrawal' | translate : {currency: vm.currency, limits : (vm.limits.remainder).toLocaleString("en")} }}
+          </p>
+        </div>
+      </div>
+
+      <div class="row" ng-if="vm.crAccount">
+        <div class="col">
+          <p>
+            {{'limits.your_withdrawal' | translate : {currency: vm.currency, limits: (vm.limits.num_of_days_limit).toLocaleString("en")} }}
+          </p>
+          <p>
+            {{'limits.withdrawn' | translate : {currency: vm.currency, limits: vm.limits.withdrawal_since_inception_monetary} }}
+          </p>
+          <p>
+            {{'limits.current_immediate_maximum_withdrawal' | translate : {currency: vm.currency, limits: (vm.limits.remainder).toLocaleString("en")} }}
+          </p>
+        </div>
+      </div>
 
 
     </ion-content>
