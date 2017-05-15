@@ -650,10 +650,14 @@
     "subject_to_change": "Stated limits are subject to change without prior notice.",
     "trading_limits": "Trading Limits",
     "withdrawal_limits": "Withdrawal Limits",
-    "your_withdrawal_limit": "Your withdrawal limit is",
-    "other_currency": "(or equivalent in other currency)",
-    "already_withdrawn": "You have already withdrawn the equivalent of",
-    "current_immediate_maximum_withdrawl": "Therefore your current immediate maximum withdrawal (subject to your account having sufficient funds) is"
+    "your_withdrawal_limit": "Your withdrawal limit is {{currency}} {{limits}} (or equivalent in other currency).",
+    "already_withdrawn": "You have already withdrawn the equivalent of {{currency}} {{limits}} (or equivalent in other currency).",
+    "current_immediate_maximum_withdrawal": "Therefore your current immediate maximum withdrawal (subject to your account having sufficient funds) is {{currency}} {{limits}} (or equivalent in other currency).",
+    "fully_authenticated": "Your account is fully authenticated and your withdrawal limits have been lifted.",
+    "your_n_day_withdrawal_limit": "Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
+    "already_withdrawn_days": "You have already withdrawn the equivalent of {{currency}} {{limits}} in aggregate over the last {{day}} days.",
+    "your_withdrawal": "Your withdrawal limit is {{currency}} {{limits}}",
+    "withdrawn": "You have already withdrawn {{currency}} {{limits}}"
   },
   "resources": {
     "resources": "Resources",

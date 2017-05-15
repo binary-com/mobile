@@ -640,10 +640,14 @@
     "subject_to_change":"我们保留随时在没有预先通知的情况下更改所述限制的权利。",
     "trading_limits":"交易限制",
     "withdrawal_limits":"提款限额",
-    "your_withdrawal_limit":"您的提款限额是",
-    "other_currency":"（或其他等值货币）",
-    "already_withdrawn":"您已提取以下等值",
-    "current_immediate_maximum_withdrawl":"因此您当前的即时最高取款额（要求您的账户有充足资金）为"
+    "your_withdrawal_limit":"Your withdrawal limit is {{currency}} {{limits}} (or equivalent in other currency).",
+    "already_withdrawn":"You have already withdrawn the equivalent of {{currency}} {{limits}} (or equivalent in other currency).",
+    "current_immediate_maximum_withdrawal":"Therefore your current immediate maximum withdrawal (subject to your account having sufficient funds) is {{currency}} {{limits}} (or equivalent in other currency).",
+    "fully_authenticated":"Your account is fully authenticated and your withdrawal limits have been lifted.",
+    "your_n_day_withdrawal_limit":"Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
+    "already_withdrawn_days":"You have already withdrawn the equivalent of {{currency}} {{limits}} in aggregate over the last {{day}} days.",
+    "your_withdrawal":"Your withdrawal limit is {{currency}} {{limits}}",
+    "withdrawn":"You have already withdrawn {{currency}} {{limits}}"
   },
   "resources":{
     "resources":"资源",

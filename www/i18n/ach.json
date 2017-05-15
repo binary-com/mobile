@@ -640,10 +640,14 @@
     "subject_to_change":"crwdns19351:0crwdne19351:0",
     "trading_limits":"crwdns19352:0crwdne19352:0",
     "withdrawal_limits":"crwdns19353:0crwdne19353:0",
-    "your_withdrawal_limit":"crwdns19354:0crwdne19354:0",
-    "other_currency":"crwdns19355:0crwdne19355:0",
-    "already_withdrawn":"crwdns19356:0crwdne19356:0",
-    "current_immediate_maximum_withdrawl":"crwdns19357:0crwdne19357:0"
+    "your_withdrawal_limit":"crwdns19743:0{{currency}}crwdnd19743:0{{limits}}crwdne19743:0",
+    "already_withdrawn":"crwdns19744:0{{currency}}crwdnd19744:0{{limits}}crwdne19744:0",
+    "current_immediate_maximum_withdrawal":"crwdns19745:0{{currency}}crwdnd19745:0{{limits}}crwdne19745:0",
+    "fully_authenticated":"crwdns19746:0crwdne19746:0",
+    "your_n_day_withdrawal_limit":"crwdns19747:0{{day}}crwdnd19747:0{{currency}}crwdnd19747:0{{limits}}crwdne19747:0",
+    "already_withdrawn_days":"crwdns19748:0{{currency}}crwdnd19748:0{{limits}}crwdnd19748:0{{day}}crwdne19748:0",
+    "your_withdrawal":"crwdns19749:0{{currency}}crwdnd19749:0{{limits}}crwdne19749:0",
+    "withdrawn":"crwdns19750:0{{currency}}crwdnd19750:0{{limits}}crwdne19750:0"
   },
   "resources":{
     "resources":"crwdns19115:0crwdne19115:0",
