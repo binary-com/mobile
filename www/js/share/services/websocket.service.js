@@ -523,6 +523,7 @@ angular
                                 appStateService.isLoggedin = true;
                                 appStateService.virtuality = message.authorize.is_virtual;
                                 localStorage.landingCompanyName = message.authorize.landing_company_fullname;
+                                localStorage.landingCompany = message.authorize.landing_company_name;
                                 appStateService.scopes = message.authorize.scopes;
                                 amplitude.setUserId(message.authorize.loginid);
 
