@@ -640,10 +640,14 @@
     "subject_to_change":"Указанные лимиты могут быть изменены без предварительного уведомления.",
     "trading_limits":"Торговые лимиты",
     "withdrawal_limits":"Лимиты на вывод",
-    "your_withdrawal_limit":"Ваш лимит на вывод:",
-    "other_currency":"(или эквивалентная сумма в другой валюте)",
-    "already_withdrawn":"Вы уже вывели сумму, эквивалентную",
-    "current_immediate_maximum_withdrawl":"Таким образом, максимально возможная сумма к выводу на данный момент (если на счету достаточно средств) составляет"
+    "your_withdrawal_limit":"Your withdrawal limit is {{currency}} {{limits}} (or equivalent in other currency).",
+    "already_withdrawn":"You have already withdrawn the equivalent of {{currency}} {{limits}} (or equivalent in other currency).",
+    "current_immediate_maximum_withdrawal":"Therefore your current immediate maximum withdrawal (subject to your account having sufficient funds) is {{currency}} {{limits}} (or equivalent in other currency).",
+    "fully_authenticated":"Your account is fully authenticated and your withdrawal limits have been lifted.",
+    "your_n_day_withdrawal_limit":"Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
+    "already_withdrawn_days":"You have already withdrawn the equivalent of {{currency}} {{limits}} in aggregate over the last {{day}} days.",
+    "your_withdrawal":"Your withdrawal limit is {{currency}} {{limits}}",
+    "withdrawn":"You have already withdrawn {{currency}} {{limits}}"
   },
   "resources":{
     "resources":"Ресурсы",
