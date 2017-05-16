@@ -136,7 +136,7 @@
 
       vm.ageVerificationStatus = function(status) {
         vm.ageVerified = status.indexOf('age_verification') > -1 ? true : false;
-        if (!vm.ageVerified && (vm.isFinancial || vm.isMLT || vm.isMX || vm.isCR)) {
+        if (!vm.ageVerified && (vm.isFinancial || vm.isMLT || vm.isMX)) {
           if (!appStateService.hasAuthenticateMessage) {
             appStateService.hasAuthenticateMessage = true;
             notificationService.notices.push(vm.authenticateMessage);
