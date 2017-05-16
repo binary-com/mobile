@@ -77,6 +77,7 @@
           websocketService.sendRequestFor.getAccountStatus();
           websocketService.sendRequestFor.getFinancialAssessment();
           websocketService.sendRequestFor.mt5LoginList();
+          websocketService.sendRequestFor.getSelfExclusion();
         } else {
           $timeout(vm.init, 1000);
         }
