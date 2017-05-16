@@ -93,13 +93,13 @@
 
       vm.riskStatus = function(get_account_status) {
         if (get_account_status.risk_classification === 'high' && !vm.isCR) {
-          websocketService.sendRequestfor.getFinancialAssessment();
-          appStateService.hasHighRisk = true;
+          websocketService.sendRequestFor.getFinancialAssessment();
+          vm.hasHighRisk = true;
         }
       }
 
       vm.financialAssessmentStatus = function(get_financial_assessment) {
-        if (_.isEmpty(get_financial_assessment) && appStateService.hasHighRisk && !appStateService.hasFinancialAssessmentMessage) {
+        if (_.isEmpty(get_financial_assessment) && vm.hasHighRisk && !appStateService.hasFinancialAssessmentMessage) {
           appStateService.hasFinancialAssessmentMessage = true;
           notificationService.notices.push(vm.financialAssessmentMessage);
         }
