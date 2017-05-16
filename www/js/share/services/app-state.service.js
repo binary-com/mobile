@@ -35,7 +35,6 @@ angular
                 factory.newAccountAdded = false;
                 factory.isLanguageReady = false;
                 factory.passwordChanged = false;
-                factory.hasHighRisk = false;
                 factory.limitsChange = false;
                 factory.realityCheckLogin = false;
                 factory.hasAuthenticateMessage = false;

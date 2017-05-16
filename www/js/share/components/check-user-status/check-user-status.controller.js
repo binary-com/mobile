@@ -77,6 +77,7 @@
           websocketService.sendRequestFor.getAccountStatus();
           websocketService.sendRequestFor.getFinancialAssessment();
           websocketService.sendRequestFor.mt5LoginList();
+          websocketService.sendRequestFor.getSelfExclusion();
         } else {
           $timeout(vm.init, 1000);
         }
@@ -93,13 +94,13 @@
 
       vm.riskStatus = function(get_account_status) {
         if (get_account_status.risk_classification === 'high' && !vm.isCR) {
-          websocketService.sendRequestfor.getFinancialAssessment();
-          appStateService.hasHighRisk = true;
+          websocketService.sendRequestFor.getFinancialAssessment();
+          vm.hasHighRisk = true;
         }
       }
 
       vm.financialAssessmentStatus = function(get_financial_assessment) {
-        if (_.isEmpty(get_financial_assessment) && appStateService.hasHighRisk && !appStateService.hasFinancialAssessmentMessage) {
+        if (_.isEmpty(get_financial_assessment) && vm.hasHighRisk && !appStateService.hasFinancialAssessmentMessage) {
           appStateService.hasFinancialAssessmentMessage = true;
           notificationService.notices.push(vm.financialAssessmentMessage);
         }
@@ -125,7 +126,7 @@
 
       vm.authenticateStatus = function(status) {
         vm.authenticated = status.indexOf('authenticated') > -1 ? true : false;
-        if (!vm.authenticated && (vm.isFinancial || (vm.isCR && vm.balance > 200 && localStorage.mt5LoginList.length > 0) || vm.isMLT || vm.isMX)) {
+        if (!vm.authenticated && (vm.isFinancial || (vm.isCR && vm.balance > 200 || localStorage.mt5LoginList.length > 0) || vm.isMLT || vm.isMX)) {
           if (!appStateService.hasAuthenticateMessage) {
             appStateService.hasAuthenticateMessage = true;
             notificationService.notices.push(vm.authenticateMessage);
