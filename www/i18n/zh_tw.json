@@ -760,11 +760,11 @@
     "set_country":"升級到真實資金帳戶前請先設定居住國。",
     "complete_financial_assessment":"請完成財務評估表格，以便提升您的取款和交易限額。",
     "financial_assessment_not_completed":"未完成財務評估",
-    "tax_information":"Tax information",
-    "complete_profile":"Please complete your account profile to lift your withdrawal and trading limits.",
-    "tnc":"Terms and conditions",
-    "accept_tnc":"Please accept the updated Terms and Conditions to lift your withdrawal and trading limits.",
-    "max_turnover_limit":"Account maximum turnover limit",
-    "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits."
+    "tax_information":"稅務資訊",
+    "complete_profile":"請完成帳戶資料，以提高取款和交易限額。",
+    "tnc":"條款與條件",
+    "accept_tnc":"請接受條款和條件，以提高存取款限額。",
+    "max_turnover_limit":"帳戶最高交易額限制",
+    "set_max_turnover_limit":"請設定30天交易限額，以移除存款限額。"
   }
 }
