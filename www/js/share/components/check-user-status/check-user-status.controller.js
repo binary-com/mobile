@@ -21,12 +21,17 @@
       vm.notUpdatedTaxInfo = false;
       vm.isFinancial = false;
       //authentication and restricted messages
-      $translate(['notifications.account_authentication', 'notifications.please_authenticate', 'notifications.account_restriction', 'notifications.please_contact', 'notifications.set_country', 'notifications.account_country', 'notifications.financial_assessment_not_completed', 'notifications.complete_financial_assessment', 'notifications.tax_information', 'notifications.complete_profile', 'notifications.tnc', 'notifications.accept_tnc', 'notifications.max_turnover_limit', 'notifications.set_max_turnover_limit']).then(
+      $translate(['notifications.account_authentication', 'notifications.please_authenticate', 'notifications.account_age_verification', 'notifications.needs_age_verification', 'notifications.account_restriction', 'notifications.please_contact', 'notifications.set_country', 'notifications.account_country', 'notifications.financial_assessment_not_completed', 'notifications.complete_financial_assessment', 'notifications.tax_information', 'notifications.complete_profile', 'notifications.tnc', 'notifications.accept_tnc', 'notifications.max_turnover_limit', 'notifications.set_max_turnover_limit']).then(
         function (translation) {
           vm.authenticateMessage = {
             title: translation['notifications.account_authentication'],
             text: translation['notifications.please_authenticate'],
             link: 'authentication'
+          };
+          vm.ageVerificationMessage = {
+            title: translation['notifications.account_age_verification'],
+            text: translation['notifications.needs_age_verification'],
+            link: 'contact'
           };
           vm.restrictedMessage = {
             title: translation['notifications.account_restriction'],
@@ -137,9 +142,9 @@
       vm.ageVerificationStatus = function(status) {
         vm.ageVerified = status.indexOf('age_verification') > -1 ? true : false;
         if (!vm.ageVerified && (vm.isFinancial || vm.isMLT || vm.isMX)) {
-          if (!appStateService.hasAuthenticateMessage) {
-            appStateService.hasAuthenticateMessage = true;
-            notificationService.notices.push(vm.authenticateMessage);
+          if (!appStateService.hasAgeVerificationMessage) {
+            appStateService.hasAgeVerificationMessage = true;
+            notificationService.notices.push(vm.ageVerificationMessage);
           }
         }
       }
