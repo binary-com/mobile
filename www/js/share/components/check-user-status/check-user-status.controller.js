@@ -13,9 +13,9 @@
         .module('binary.share.components.check-user-status.controllers')
         .controller('CheckUserStatusController', CheckUserStatus);
 
-    CheckUserStatus.$inject = ['$scope', '$state', '$translate', '$timeout', '$ionicSideMenuDelegate', 'websocketService', 'appStateService', 'alertService', 'accountService', 'notificationService'];
+    CheckUserStatus.$inject = ['$scope', '$state', '$translate', '$timeout', 'websocketService', 'appStateService', 'accountService', 'notificationService'];
 
-    function CheckUserStatus($scope, $state, $translate, $timeout, $ionicSideMenuDelegate, websocketService, appStateService, alertService, accountService, notificationService) {
+    function CheckUserStatus($scope, $state, $translate, $timeout, websocketService, appStateService, accountService, notificationService) {
       var vm = this;
       vm.isLoggedIn = false;
       vm.notUpdatedTaxInfo = false;
@@ -185,6 +185,10 @@
           appStateService.hasMaxTurnoverMessage = true;
           notificationService.notices.push(vm.maxTurnoverLimitNotSetMessage);
         }
+        // in update of self exclusion
+        else if (vm.isMX && vm.maxTurnoverLimitSet && appStateService.hasMaxTurnoverMessage) {
+          vm.reload();
+        }
       }
 
       vm.residenceStatus = function (get_settings) {
@@ -221,6 +225,36 @@
       $scope.$on('get-self-exclusion', (e, get_self_exclusion) => {
         vm.maxTurnoverLimitStatus(get_self_exclusion);
       });
+
+
+    //  reload on update
+      $scope.$on('set-settings', (e, response) => {
+        vm.reload();
+      });
+
+      $scope.$on('tnc_approval', (e, tnc_approval) => {
+        if (tnc_approval == 1) {
+          vm.reload();
+        }
+      });
+
+      $scope.$on('set_financial_assessment:success', (e, set_financial_assessment) => {
+        vm.reload();
+      });
+
+      vm.reload = function () {
+        appStateService.hasAuthenticateMessage = false;
+        appStateService.hasRestrictedMessage = false;
+        appStateService.hasMaxTurnoverMessage = false;
+        appStateService.hasCountryMessage = false;
+        appStateService.hasTnCMessage = false;
+        appStateService.hasTaxInfoMessage = false;
+        appStateService.hasFinancialAssessmentMessage = false;
+        appStateService.hasAgeVerificationMessage = false;
+        appStateService.checkedAccountStatus = false;
+        notificationService.notices.length = 0;
+        vm.init();
+      }
 
     }
 })();
