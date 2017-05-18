@@ -13,9 +13,9 @@
     .module('binary.share.components.notification-icon.controllers')
     .controller('NotificationIconController', NotificationIcon);
 
-  NotificationIcon.$inject = ['$scope', '$state', '$ionicHistory', 'notificationService'];
+  NotificationIcon.$inject = ['$scope', '$state', '$ionicHistory', 'notificationService', 'appStateService'];
 
-  function NotificationIcon($scope, $state, $ionicHistory, notificationService) {
+  function NotificationIcon($scope, $state, $ionicHistory, notificationService, appStateService) {
     var vm = this;
     $scope.$watch(
       () => {
@@ -23,6 +23,15 @@
     },
       () => {
       vm.notices = notificationService.notices;
+    }
+  );
+
+    $scope.$watch(
+      () => {
+      return appStateService.purchaseMode
+    },
+      () => {
+      vm.disableMenuButton = appStateService.purchaseMode;
     }
   );
 

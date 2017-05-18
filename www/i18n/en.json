@@ -776,6 +776,8 @@
     "tnc": "Terms and conditions",
     "accept_tnc": "Please accept the updated Terms and Conditions to lift your withdrawal and trading limits.",
     "max_turnover_limit": "Account maximum turnover limit",
-    "set_max_turnover_limit": "Please set Self Exclusion 30-day turnover limit to lift your deposit limits."
+    "set_max_turnover_limit": "Please set Self Exclusion 30-day turnover limit to lift your deposit limits.",
+    "account_age_verification": "Age verification",
+    "needs_age_verification": "Account needs age verification, please contact customer support for more information."
   }
 }
