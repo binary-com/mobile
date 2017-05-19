@@ -93,10 +93,9 @@
 
         // back button function
         vm.goToPrevPage = function() {
-            if(vm.from.detailed) {
+            if(vm.to.detailed) {
               $state.go('trade');
-            }
-            else {
+            } else {
               $state.go(vm.from);
             }
         };

@@ -35,7 +35,6 @@ angular
                 factory.newAccountAdded = false;
                 factory.isLanguageReady = false;
                 factory.passwordChanged = false;
-                factory.hasHighRisk = false;
                 factory.limitsChange = false;
                 factory.realityCheckLogin = false;
                 factory.hasAuthenticateMessage = false;
@@ -45,6 +44,7 @@ angular
                 factory.hasTnCMessage = false;
                 factory.hasTaxInfoMessage = false;
                 factory.hasFinancialAssessmentMessage = false;
+                factory.hasAgeVerificationMessage = false;
                 factory.checkedAccountStatus = false;
                 factory.siteStatus = 'up';
 
