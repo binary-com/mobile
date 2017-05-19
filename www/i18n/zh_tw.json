@@ -39,8 +39,8 @@
     "must_number":"須為數字。",
     "ok":"確定",
     "cancel":"取消",
-    "yes":"Yes",
-    "no":"No"
+    "yes":"是",
+    "no":"不"
   },
   "options":{
     "account":"帳戶",
@@ -145,7 +145,7 @@
     "days":"天",
     "hours":"小時",
     "minutes":"分鐘",
-    "interval_error":"Please enter a number between 10 to 60.",
+    "interval_error":"請輸入10和60之間的數字。",
     "view_statement":"檢視帳單",
     "integer_error":"時間間隔須為整數。"
   },
@@ -442,7 +442,7 @@
     "resources":"資源",
     "regulatory_information":"法規資訊",
     "mt5":"MetaTrader 5",
-    "contact_us":"聯繫我們"
+    "contact_us":"Contact us"
   },
   "settings":{
     "settings":"設置",
@@ -640,14 +640,14 @@
     "subject_to_change":"我們保留隨時在沒有預先通知的情況下更改所述限制的權利。",
     "trading_limits":"交易限制",
     "withdrawal_limits":"提款限額",
-    "your_withdrawal_limit":"Your withdrawal limit is {{currency}} {{limits}} (or equivalent in other currency).",
-    "already_withdrawn":"You have already withdrawn the equivalent of {{currency}} {{limits}} (or equivalent in other currency).",
-    "current_immediate_maximum_withdrawal":"Therefore your current immediate maximum withdrawal (subject to your account having sufficient funds) is {{currency}} {{limits}} (or equivalent in other currency).",
-    "fully_authenticated":"Your account is fully authenticated and your withdrawal limits have been lifted.",
-    "your_n_day_withdrawal_limit":"Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
-    "already_withdrawn_days":"You have already withdrawn the equivalent of {{currency}} {{limits}} in aggregate over the last {{day}} days.",
-    "your_withdrawal":"Your withdrawal limit is {{currency}} {{limits}}",
-    "withdrawn":"You have already withdrawn {{currency}} {{limits}}"
+    "your_withdrawal_limit":"您的取款限額是 {{currency}} {{limits}} （或其他等值貨幣）。",
+    "already_withdrawn":"您已領取相等於 {{currency}} {{limits}} 的金額（或其他等值貨幣）。",
+    "current_immediate_maximum_withdrawal":"因此您目前的即時最高取款額（要求您的帳戶有充足資金）為 {{currency}} {{limits}} （或其他等值貨幣）。",
+    "fully_authenticated":"您的帳戶已經得到完全驗證，且您的取款限額已經取消。",
+    "your_n_day_withdrawal_limit":"您的 {{day}} 天取款限額目前為{{currency}} {{limits}}（或其他等值貨幣）。",
+    "already_withdrawn_days":"過去 {{day}} 天裡您已累計提取 {{currency}} {{limits}} 的等值。",
+    "your_withdrawal":"您的取款限額是 {{currency}} {{limits}}",
+    "withdrawn":"您已提取 {{currency}} {{limits}}"
   },
   "resources":{
     "resources":"資源",
@@ -714,9 +714,9 @@
   },
   "authentication":{
     "authentication":"驗證",
-    "documents":"Authenticate your account now by verifying your identity and address. To proceed, simply send the following documents to",
+    "documents":"請提交身份與地址證明，立刻進行帳戶驗證。繼續操作，請發送以下文件到",
     "proof_of_identity":"身份證明-顯示您名字和出生日期的護照、駕照（臨時或永久）或身份證的掃描件。",
-    "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old. Your proof of address must contain your name, address, date of issue, and the name of the issuing organisation.",
+    "proof_of_address":"地址證明 - 水電煤帳單或銀行月結單掃描件（日期不得超過3個月）。地址證明必須包括您的姓名、地址、簽發日期和發證機構名稱。",
     "questions":"有問題嗎？",
     "contact":"聯繫我們",
     "help":"尋求説明。"
@@ -752,19 +752,19 @@
   "notifications":{
     "notifications":"通知",
     "no_notification":"沒有要顯示的通知。",
-    "please_authenticate":"Authenticate your account now to take full advantage of all withdrawal options available.",
-    "account_authentication":"Account authentication",
-    "please_contact":"Your account is restricted. Kindly contact customer support for assistance.",
-    "account_restriction":"Account restriction",
-    "account_country":"Country of Residence",
-    "set_country":"Please set country of residence before upgrading to a real-money account.",
-    "complete_financial_assessment":"Please complete the financial assessment form to lift your withdrawal and trading limits.",
-    "financial_assessment_not_completed":"Financial Assessment is not completed",
-    "tax_information":"Tax information",
-    "complete_profile":"Please complete your account profile to lift your withdrawal and trading limits.",
-    "tnc":"Terms and conditions",
-    "accept_tnc":"Please accept the updated Terms and Conditions to lift your withdrawal and trading limits.",
-    "max_turnover_limit":"Account maximum turnover limit",
-    "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits."
+    "please_authenticate":"立刻進行帳戶驗證，以獲得取款選項的所有優惠。",
+    "account_authentication":"帳戶驗證",
+    "please_contact":"您的帳戶已被限制。請聯繫客服部為您提供幫助。",
+    "account_restriction":"帳戶限制",
+    "account_country":"居住國",
+    "set_country":"升級到真實資金帳戶前請先設定居住國。",
+    "complete_financial_assessment":"請完成財務評估表格，以便提升您的取款和交易限額。",
+    "financial_assessment_not_completed":"未完成財務評估",
+    "tax_information":"稅務資訊",
+    "complete_profile":"請完成帳戶資料，以提高取款和交易限額。",
+    "tnc":"條款與條件",
+    "accept_tnc":"請接受條款和條件，以提高存取款限額。",
+    "max_turnover_limit":"帳戶最高交易額限制",
+    "set_max_turnover_limit":"請設定30天交易限額，以移除存款限額。"
   }
 }

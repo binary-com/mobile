@@ -13,20 +13,25 @@
         .module('binary.share.components.check-user-status.controllers')
         .controller('CheckUserStatusController', CheckUserStatus);
 
-    CheckUserStatus.$inject = ['$scope', '$state', '$translate', '$timeout', '$ionicSideMenuDelegate', 'websocketService', 'appStateService', 'alertService', 'accountService', 'notificationService'];
+    CheckUserStatus.$inject = ['$scope', '$state', '$translate', '$timeout', 'websocketService', 'appStateService', 'accountService', 'notificationService'];
 
-    function CheckUserStatus($scope, $state, $translate, $timeout, $ionicSideMenuDelegate, websocketService, appStateService, alertService, accountService, notificationService) {
+    function CheckUserStatus($scope, $state, $translate, $timeout, websocketService, appStateService, accountService, notificationService) {
       var vm = this;
       vm.isLoggedIn = false;
       vm.notUpdatedTaxInfo = false;
       vm.isFinancial = false;
       //authentication and restricted messages
-      $translate(['notifications.account_authentication', 'notifications.please_authenticate', 'notifications.account_restriction', 'notifications.please_contact', 'notifications.set_country', 'notifications.account_country', 'notifications.financial_assessment_not_completed', 'notifications.complete_financial_assessment', 'notifications.tax_information', 'notifications.complete_profile', 'notifications.tnc', 'notifications.accept_tnc', 'notifications.max_turnover_limit', 'notifications.set_max_turnover_limit']).then(
+      $translate(['notifications.account_authentication', 'notifications.please_authenticate', 'notifications.account_age_verification', 'notifications.needs_age_verification', 'notifications.account_restriction', 'notifications.please_contact', 'notifications.set_country', 'notifications.account_country', 'notifications.financial_assessment_not_completed', 'notifications.complete_financial_assessment', 'notifications.tax_information', 'notifications.complete_profile', 'notifications.tnc', 'notifications.accept_tnc', 'notifications.max_turnover_limit', 'notifications.set_max_turnover_limit']).then(
         function (translation) {
           vm.authenticateMessage = {
             title: translation['notifications.account_authentication'],
             text: translation['notifications.please_authenticate'],
             link: 'authentication'
+          };
+          vm.ageVerificationMessage = {
+            title: translation['notifications.account_age_verification'],
+            text: translation['notifications.needs_age_verification'],
+            link: 'contact'
           };
           vm.restrictedMessage = {
             title: translation['notifications.account_restriction'],
@@ -77,6 +82,7 @@
           websocketService.sendRequestFor.getAccountStatus();
           websocketService.sendRequestFor.getFinancialAssessment();
           websocketService.sendRequestFor.mt5LoginList();
+          websocketService.sendRequestFor.getSelfExclusion();
         } else {
           $timeout(vm.init, 1000);
         }
@@ -93,13 +99,13 @@
 
       vm.riskStatus = function(get_account_status) {
         if (get_account_status.risk_classification === 'high' && !vm.isCR) {
-          websocketService.sendRequestfor.getFinancialAssessment();
-          appStateService.hasHighRisk = true;
+          websocketService.sendRequestFor.getFinancialAssessment();
+          vm.hasHighRisk = true;
         }
       }
 
       vm.financialAssessmentStatus = function(get_financial_assessment) {
-        if (_.isEmpty(get_financial_assessment) && appStateService.hasHighRisk && !appStateService.hasFinancialAssessmentMessage) {
+        if (_.isEmpty(get_financial_assessment) && vm.hasHighRisk && !appStateService.hasFinancialAssessmentMessage) {
           appStateService.hasFinancialAssessmentMessage = true;
           notificationService.notices.push(vm.financialAssessmentMessage);
         }
@@ -125,7 +131,7 @@
 
       vm.authenticateStatus = function(status) {
         vm.authenticated = status.indexOf('authenticated') > -1 ? true : false;
-        if (!vm.authenticated && (vm.isFinancial || (vm.isCR && vm.balance > 200 && localStorage.mt5LoginList.length > 0) || vm.isMLT || vm.isMX)) {
+        if (!vm.authenticated && (vm.isFinancial || (vm.isCR && vm.balance > 200 || localStorage.mt5LoginList.length > 0) || vm.isMLT || vm.isMX)) {
           if (!appStateService.hasAuthenticateMessage) {
             appStateService.hasAuthenticateMessage = true;
             notificationService.notices.push(vm.authenticateMessage);
@@ -136,9 +142,9 @@
       vm.ageVerificationStatus = function(status) {
         vm.ageVerified = status.indexOf('age_verification') > -1 ? true : false;
         if (!vm.ageVerified && (vm.isFinancial || vm.isMLT || vm.isMX)) {
-          if (!appStateService.hasAuthenticateMessage) {
-            appStateService.hasAuthenticateMessage = true;
-            notificationService.notices.push(vm.authenticateMessage);
+          if (!appStateService.hasAgeVerificationMessage) {
+            appStateService.hasAgeVerificationMessage = true;
+            notificationService.notices.push(vm.ageVerificationMessage);
           }
         }
       }
@@ -179,6 +185,10 @@
           appStateService.hasMaxTurnoverMessage = true;
           notificationService.notices.push(vm.maxTurnoverLimitNotSetMessage);
         }
+        // in update of self exclusion
+        else if (vm.isMX && vm.maxTurnoverLimitSet && appStateService.hasMaxTurnoverMessage) {
+          vm.reload();
+        }
       }
 
       vm.residenceStatus = function (get_settings) {
@@ -215,6 +225,36 @@
       $scope.$on('get-self-exclusion', (e, get_self_exclusion) => {
         vm.maxTurnoverLimitStatus(get_self_exclusion);
       });
+
+
+    //  reload on update
+      $scope.$on('set-settings', (e, response) => {
+        vm.reload();
+      });
+
+      $scope.$on('tnc_approval', (e, tnc_approval) => {
+        if (tnc_approval == 1) {
+          vm.reload();
+        }
+      });
+
+      $scope.$on('set_financial_assessment:success', (e, set_financial_assessment) => {
+        vm.reload();
+      });
+
+      vm.reload = function () {
+        appStateService.hasAuthenticateMessage = false;
+        appStateService.hasRestrictedMessage = false;
+        appStateService.hasMaxTurnoverMessage = false;
+        appStateService.hasCountryMessage = false;
+        appStateService.hasTnCMessage = false;
+        appStateService.hasTaxInfoMessage = false;
+        appStateService.hasFinancialAssessmentMessage = false;
+        appStateService.hasAgeVerificationMessage = false;
+        appStateService.checkedAccountStatus = false;
+        notificationService.notices.length = 0;
+        vm.init();
+      }
 
     }
 })();
