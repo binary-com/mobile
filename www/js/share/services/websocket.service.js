@@ -160,6 +160,7 @@ angular
               appStateService.hasTnCMessage = false;
               appStateService.hasTaxInfoMessage = false;
               appStateService.hasFinancialAssessmentMessage = false;
+              appStateService.hasAgeVerificationMessage = false;
               appStateService.checkedAccountStatus = false;
 
               if(error){
