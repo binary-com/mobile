@@ -442,7 +442,7 @@
     "resources":"资源",
     "regulatory_information":"法规信息",
     "mt5":"MetaTrader 5",
-    "contact_us":"Contact us"
+    "contact_us":"联系我们"
   },
   "settings":{
     "settings":"设置",
@@ -765,6 +765,8 @@
     "tnc":"条款与条件",
     "accept_tnc":"请接受更新条款和条件，以提高存取款限额。",
     "max_turnover_limit":"账户最高交易额限制",
-    "set_max_turnover_limit":"请设置30天交易限额，以移除存款限额。"
+    "set_max_turnover_limit":"请设置30天交易限额，以移除存款限额。",
+    "account_age_verification":"年龄验证",
+    "needs_age_verification":"Account needs age verification, please contact customer support for more information."
   }
 }
