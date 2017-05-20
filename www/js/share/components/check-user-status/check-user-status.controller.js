@@ -131,7 +131,7 @@
 
       vm.authenticateStatus = function(status) {
         vm.authenticated = status.indexOf('authenticated') > -1 ? true : false;
-        if (!vm.authenticated && (vm.isFinancial || (vm.isCR && vm.balance > 200 || localStorage.mt5LoginList.length > 0) || vm.isMLT || vm.isMX)) {
+        if (!vm.authenticated && (vm.isFinancial || (vm.isCR && vm.balance >= 200 || localStorage.mt5LoginList.length > 0) || vm.isMLT || vm.isMX)) {
           if (!appStateService.hasAuthenticateMessage) {
             appStateService.hasAuthenticateMessage = true;
             notificationService.notices.push(vm.authenticateMessage);
