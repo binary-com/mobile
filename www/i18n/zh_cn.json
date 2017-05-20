@@ -767,6 +767,6 @@
     "max_turnover_limit":"账户最高交易额限制",
     "set_max_turnover_limit":"请设置30天交易限额，以移除存款限额。",
     "account_age_verification":"年龄验证",
-    "needs_age_verification":"Account needs age verification, please contact customer support for more information."
+    "needs_age_verification":"账户需要通过年龄验证。欲知详情，请联系客服部。"
   }
 }
