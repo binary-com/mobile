@@ -765,6 +765,8 @@
     "tnc":"條款與條件",
     "accept_tnc":"請接受條款和條件，以提高存取款限額。",
     "max_turnover_limit":"帳戶最高交易額限制",
-    "set_max_turnover_limit":"請設定30天交易限額，以移除存款限額。"
+    "set_max_turnover_limit":"請設定30天交易限額，以移除存款限額。",
+    "account_age_verification":"Age verification",
+    "needs_age_verification":"Account needs age verification, please contact customer support for more information."
   }
 }
