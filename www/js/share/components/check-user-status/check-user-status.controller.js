@@ -20,6 +20,7 @@
       vm.isLoggedIn = false;
       vm.notUpdatedTaxInfo = false;
       vm.isFinancial = false;
+      vm.hasHighRisk = false;
       //authentication and restricted messages
       $translate(['notifications.account_authentication', 'notifications.please_authenticate', 'notifications.account_age_verification', 'notifications.needs_age_verification', 'notifications.account_restriction', 'notifications.please_contact', 'notifications.set_country', 'notifications.account_country', 'notifications.financial_assessment_not_completed', 'notifications.complete_financial_assessment', 'notifications.tax_information', 'notifications.complete_profile', 'notifications.tnc', 'notifications.accept_tnc', 'notifications.max_turnover_limit', 'notifications.set_max_turnover_limit']).then(
         function (translation) {
@@ -99,8 +100,10 @@
 
       vm.riskStatus = function(get_account_status) {
         if (get_account_status.risk_classification === 'high' && !vm.isCR) {
-          websocketService.sendRequestFor.getFinancialAssessment();
           vm.hasHighRisk = true;
+          websocketService.sendRequestFor.getFinancialAssessment();
+        } else {
+          vm.hasHighRisk = false;
         }
       }
 
