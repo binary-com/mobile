@@ -19,7 +19,8 @@
 
   function Balance(
       $scope,
-      websocketService) {
+      websocketService
+  ) {
     var vm = this;
     vm.balance = null;
 
@@ -31,7 +32,9 @@
               balance: response.balance,
               loginid: response.loginid
             };
-            changeProposalCurrency();
+          sessionStorage.setItem('balance', vm.balance.balance);
+
+          changeProposalCurrency();
           });
         });
 
