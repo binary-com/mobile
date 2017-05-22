@@ -19,7 +19,7 @@
         'marketsService',
         'optionsService',
         'proposalService', 'tradeService',
-        'tradeTypesService', 'websocketService'
+        'tradeTypesService', 'websocketService', 'appStateService'
     ];
 
     function Options($scope,
@@ -27,7 +27,7 @@
         marketsService,
         optionsService,
         proposalService, tradeService,
-        tradeTypesService, websocketService) {
+        tradeTypesService, websocketService, appStateService) {
         var vm = this;
 
         vm.showOptions = false;
@@ -140,6 +140,7 @@
             }
 
             vm.modalCtrl.show();
+            appStateService.modalIsOpen = true;
         }
 
         vm.selectMarket = function(market) {
@@ -208,6 +209,7 @@
         function hideModal(){
           if(vm.modalCtrl){
             vm.modalCtrl.hide();
+            appStateService.modalIsOpen = false;
           }
         }
 
