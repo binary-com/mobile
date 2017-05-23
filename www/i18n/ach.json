@@ -765,6 +765,8 @@
     "tnc":"crwdns19739:0crwdne19739:0",
     "accept_tnc":"crwdns19740:0crwdne19740:0",
     "max_turnover_limit":"crwdns19741:0crwdne19741:0",
-    "set_max_turnover_limit":"crwdns19742:0crwdne19742:0"
+    "set_max_turnover_limit":"crwdns19742:0crwdne19742:0",
+    "account_age_verification":"crwdns19785:0crwdne19785:0",
+    "needs_age_verification":"crwdns19786:0crwdne19786:0"
   }
 }

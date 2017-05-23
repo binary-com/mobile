@@ -149,7 +149,10 @@
         });
 
         vm.closeModal = function() {
-          if (vm.modalCtrl) vm.modalCtrl.hide();
+          if (vm.modalCtrl) {
+            vm.modalCtrl.hide();
+            appStateService.modalIsOpen = false;
+          }
         }
 
         vm.showTaxResidenceItems = function() {
@@ -163,6 +166,7 @@
             }
           });
           vm.modalCtrl.show();
+          appStateService.modalIsOpen = true;
         }
 
         vm.setTaxResidence = function() {
