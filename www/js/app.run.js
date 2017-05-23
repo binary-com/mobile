@@ -46,7 +46,7 @@
 
         // Handle the android's hardware button
         $ionicPlatform.registerBackButtonAction(function(){
-          if(appStateService.isPopupOpen){
+          if(appStateService.isPopupOpen || appStateService.modalIsOpen){
                     return;
           }
           else {

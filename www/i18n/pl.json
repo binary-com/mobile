@@ -765,6 +765,8 @@
     "tnc":"Regulamin",
     "accept_tnc":"Aby zwiększyć limity wypłat oraz limity handlowe, proszę zaakceptować zaktualizowany Regulamin.",
     "max_turnover_limit":"Maksymalny limit obrotów na koncie",
-    "set_max_turnover_limit":"Aby podnieść limity wpłat, proszę ustawić 30-dniowy maksymalny obrót w sekcji Samodzielnego wyłączenia."
+    "set_max_turnover_limit":"Aby podnieść limity wpłat, proszę ustawić 30-dniowy maksymalny obrót w sekcji Samodzielnego wyłączenia.",
+    "account_age_verification":"Age verification",
+    "needs_age_verification":"Account needs age verification, please contact customer support for more information."
   }
 }
