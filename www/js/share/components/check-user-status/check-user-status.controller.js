@@ -77,7 +77,7 @@
         vm.isMX = _.startsWith(vm.account.id, "MX") ? true : false;
       }
 
-      vm.init = function () {
+      vm.getAccountInfo = function () {
         if (localStorage.hasOwnProperty('accounts') && localStorage.accounts != null) {
           vm.checkAccountType();
           websocketService.sendRequestFor.getAccountStatus();
@@ -85,7 +85,7 @@
           websocketService.sendRequestFor.mt5LoginList();
           websocketService.sendRequestFor.getSelfExclusion();
         } else {
-          $timeout(vm.init, 1000);
+          $timeout(vm.getAccountInfo, 1000);
         }
       }
 
@@ -94,9 +94,21 @@
           notificationService.notices.length = 0;
           appStateService.checkedAccountStatus = true;
           vm.balance = authorize.balance;
-          vm.init();
+          vm.getAccountInfo();
         }
       });
+
+      // in case the authorize response is passed before the execution of this controller
+      vm.init = function () {
+        if (appStateService.isLoggedin && !appStateService.checkedAccountStatus) {
+          notificationService.notices.length = 0;
+          appStateService.checkedAccountStatus = true;
+          vm.balance = sessionStorage.getItem('balance');
+          vm.getAccountInfo();
+        }
+      }
+
+      vm.init();
 
       vm.riskStatus = function(get_account_status) {
         if (get_account_status.risk_classification === 'high' && !vm.isCR) {
@@ -256,7 +268,7 @@
         appStateService.hasAgeVerificationMessage = false;
         appStateService.checkedAccountStatus = false;
         notificationService.notices.length = 0;
-        vm.init();
+        vm.getAccountInfo();
       }
 
     }

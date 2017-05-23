@@ -47,6 +47,7 @@ angular
                 factory.hasAgeVerificationMessage = false;
                 factory.checkedAccountStatus = false;
                 factory.siteStatus = 'up';
+                factory.modalIsOpen = false;
 
                 return factory;
             });
