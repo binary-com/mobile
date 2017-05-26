@@ -767,6 +767,6 @@
     "max_turnover_limit":"Maksymalny limit obrotów na koncie",
     "set_max_turnover_limit":"Aby podnieść limity wpłat, proszę ustawić 30-dniowy maksymalny obrót w sekcji Samodzielnego wyłączenia.",
     "account_age_verification":"Weryfikacja wieku",
-    "needs_age_verification":"Account needs age verification, please contact customer support for more information."
+    "needs_age_verification":"W przypadku tego konta wymagana jest weryfikacja wieku, proszę skontaktować się z działem obsługi klienta, aby uzyskać więcej informacji."
   }
 }
