@@ -644,10 +644,10 @@
     "already_withdrawn":"Anda telah menarik dana setara {{currency}} {{limits}} (atau setara dalam mata uang lainnya).",
     "current_immediate_maximum_withdrawal":"Maka untuk saat ini Anda dapat langsung melakukan penarikan maksimal (tergantung pada saldo akun Anda) adalah {{currency}} {{limits}} (atau setara dalam mata uang lainnya).",
     "fully_authenticated":"Akun Anda telah terbukti dan batasan penarikan Anda telah dihapuskan.",
-    "your_n_day_withdrawal_limit":"Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
-    "already_withdrawn_days":"You have already withdrawn the equivalent of {{currency}} {{limits}} in aggregate over the last {{day}} days.",
-    "your_withdrawal":"Your withdrawal limit is {{currency}} {{limits}}",
-    "withdrawn":"You have already withdrawn {{currency}} {{limits}}"
+    "your_n_day_withdrawal_limit":"Batasan harian {{day}} Anda saat ini adalah {{currency}} {{limits}} (atau setara dalam mata uang lainnya).",
+    "already_withdrawn_days":"Anda telah menarik dana setara dengan {{currency}} {{limits}} secara keseluruhan selama periode {{day}} hari.",
+    "your_withdrawal":"Batasan penarikan Anda adalah {{currency}} {{limits}}",
+    "withdrawn":"Anda telah menarik dana sebesar {{currency}} {{limits}}"
   },
   "resources":{
     "resources":"Sumber Daya",
@@ -717,7 +717,7 @@
     "documents":"Otentikasi akun Anda sekarang dengan memverifikasi identitas dan alamat Anda. Untuk melanjutkan, cukup kirim dokumen-dokumen berikut ke",
     "proof_of_identity":"Bukti identitas - Scan Ktp, Sim, Paspor atau kartu identitas yang menunjukkan nama lengkap dan tanggal lahir.",
     "proof_of_address":"Bukti alamat - Salinan scan rekening koran atau tagihan utilitas tidak lebih dari tiga bulan setelah tanggal cetak. Bukti alamat harus menampilkan nama, alamat, tanggal cetak, dan nama organisasi pengeluar bukti alamat tersebut.",
-    "questions":"Got questions?",
+    "questions":"Punya pertanyaan?",
     "contact":"Hubungi kami",
     "help":"untuk bantuan."
   },
@@ -751,7 +751,7 @@
   },
   "notifications":{
     "notifications":"Pemberitahuan",
-    "no_notification":"There is no notification to show.",
+    "no_notification":"Tidak tersedia notif untuk ditunjukan.",
     "please_authenticate":"Otentikasi akun Anda sekarang untuk manfaat maksimal dari pilihan penarikan yang tersedia.",
     "account_authentication":"Pembuktian akun",
     "please_contact":"Akun Anda dibatasi. Silahkan hubungi customer support untuk bantuan lebih lanjut.",
