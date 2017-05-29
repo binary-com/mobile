@@ -78,7 +78,7 @@
       }
 
       vm.getAccountInfo = function () {
-        if (localStorage.hasOwnProperty('accounts') && localStorage.accounts != null) {
+        if (localStorage.hasOwnProperty('accounts') && !_.isEmpty(localStorage.accounts)) {
           vm.checkAccountType();
           websocketService.sendRequestFor.getAccountStatus();
           websocketService.sendRequestFor.getFinancialAssessment();
