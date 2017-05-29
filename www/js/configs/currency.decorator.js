@@ -26,11 +26,17 @@
       };
 
       function formatMoney (locale, currency, value) {
-        return Intl.NumberFormat(locale,
-            {
-              style: 'currency',
-              currency: currency || 'USD'
-            })
+        var options = {
+          style: 'currency',
+          currency: currency || 'USD'
+        };
+
+        if(/btc|xbt/i.test(currency)){
+          options.minimumFractionDigits = 2;
+          options.maximumFractionDigits = 8;
+        }
+
+        return Intl.NumberFormat(locale, options)
         .format(value);
       }
       var format_money = {
