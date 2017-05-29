@@ -641,7 +641,7 @@
     "trading_limits":"Batas Trading",
     "withdrawal_limits":"Batas Penarikan",
     "your_withdrawal_limit":"Batasan penarikan Anda adalah {{currency}} {{limits}} (atau setara dalam mata uang lainnya).",
-    "already_withdrawn":"You have already withdrawn the equivalent of {{currency}} {{limits}} (or equivalent in other currency).",
+    "already_withdrawn":"Anda telah menarik dana setara {{currency}} {{limits}} (atau setara dalam mata uang lainnya).",
     "current_immediate_maximum_withdrawal":"Therefore your current immediate maximum withdrawal (subject to your account having sufficient funds) is {{currency}} {{limits}} (or equivalent in other currency).",
     "fully_authenticated":"Akun Anda telah terbukti dan batasan penarikan Anda telah dihapuskan.",
     "your_n_day_withdrawal_limit":"Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
