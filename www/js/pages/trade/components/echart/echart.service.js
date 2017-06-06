@@ -48,6 +48,12 @@
         type: 'value',
         minInterval: 0.5,
         scale: true,
+        axisLine: {
+          show: false
+        },
+        axisLabel: {
+
+        },
         splitLine: {
           show: true
         }
@@ -129,6 +135,22 @@
           factory.chart.setOption({
             series: [
                 {
+                  markLine: {
+                    silent: true,
+                    label: {
+                      normal: {
+                        position: 'start',
+                        textStyle: {
+                          fontWeight: 'bolder'
+                        }
+                      }
+                    },
+                    data: [
+                      {
+                        yAxis: ticks[ticks.length - 1].value[1]
+                      }
+                    ]
+                  },
                   data: ticks
                 }
             ]
