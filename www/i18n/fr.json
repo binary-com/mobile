@@ -642,12 +642,12 @@
     "withdrawal_limits":"Limites de retrait",
     "your_withdrawal_limit":"Votre limite de retrait est {{currency}} {{limits}} (ou l’équivalent dans une autre devise).",
     "already_withdrawn":"Vous avez déjà retiré l’équivalent de {{currency}} {{limits}} (ou l’équivalent dans une autre devise).",
-    "current_immediate_maximum_withdrawal":"Therefore your current immediate maximum withdrawal (subject to your account having sufficient funds) is {{currency}} {{limits}} (or equivalent in other currency).",
-    "fully_authenticated":"Your account is fully authenticated and your withdrawal limits have been lifted.",
-    "your_n_day_withdrawal_limit":"Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
-    "already_withdrawn_days":"You have already withdrawn the equivalent of {{currency}} {{limits}} in aggregate over the last {{day}} days.",
-    "your_withdrawal":"Your withdrawal limit is {{currency}} {{limits}}",
-    "withdrawn":"You have already withdrawn {{currency}} {{limits}}"
+    "current_immediate_maximum_withdrawal":"Par conséquent, votre montant maximal de retrait immédiat (sous réserve de fonds suffisants disponibles sur votre compte) est de {{currency}} {{limits}} (ou équivalent dans une autre devise).",
+    "fully_authenticated":"Votre compte est entièrement authentifié et vos limites de retrait ont été levées.",
+    "your_n_day_withdrawal_limit":"Votre {{day}} limite de retrait jour est actuellement {{currency}} {{limits}} (ou l’équivalent dans une autre devise).",
+    "already_withdrawn_days":"Vous avez déjà retiré l’équivalent de {{currency}} {{limits}} dans leur ensemble ces derniers jours, {{day}}.",
+    "your_withdrawal":"Votre limite de retrait est {{currency}} {{limits}}",
+    "withdrawn":"Vous n’avez déjà retiré {{currency}} {{limits}}"
   },
   "resources":{
     "resources":"Ressources",
@@ -686,22 +686,22 @@
     "isrequired":"(requis)",
     "error_format":"Format ou longueur erroné(e)",
     "required":"Ce champ est requis.",
-    "success":"Success",
-    "success_message":"Your settings have been updated successfully.",
-    "continue":"Continue",
-    "cancel":"Cancel"
+    "success":"Succès",
+    "success_message":"Vos paramètres ont été actualisés avec succès.",
+    "continue":"Continuer",
+    "cancel":"Annuler"
   },
   "connectivity":{
-    "no_connection":"No Connection"
+    "no_connection":"Pas de connexion"
   },
   "mt":{
-    "you_do_not_have_mt5_account":"You don't have any accounts for MetaTrader, Please create one and try again.",
-    "create_account":"Create Account for MT5",
-    "feature_is_not_available":"Sorry, this feature is not available.",
-    "meta_trader_accounts":"Meta Trader Accounts",
-    "demo_account":"Demo Account",
-    "financial_account":"Financial Account",
-    "volatility_account":"Volatility Indices Account",
+    "you_do_not_have_mt5_account":"Vous n’avez aucun compte pour MetaTrader, veuillez en créer un et essayez à nouveau.",
+    "create_account":"Créer compte pour MT5",
+    "feature_is_not_available":"Désolé, cette fonctionnalité n’est pas disponible.",
+    "meta_trader_accounts":"Comptes Meta Trader",
+    "demo_account":"Compte démo",
+    "financial_account":"Compte financier",
+    "volatility_account":"Compte d’Indices de volatilité",
     "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
     "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
     "create_financial_account":"Create a Financial Account for MT5",
