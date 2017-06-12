@@ -702,14 +702,14 @@
     "demo_account":"Compte démo",
     "financial_account":"Compte financier",
     "volatility_account":"Compte d’Indices de volatilité",
-    "upgrade_financial_account":"To create a Financial Account for MT5, please upgrade to Binary.com Real Account.",
-    "upgrade_volatility_account":"To create a Volatility Indices Account for MT5, please upgrade to Binary.com Real Account.",
-    "create_financial_account":"Create a Financial Account for MT5",
-    "create_volatility_account":"Create a Volatility Account for MT5",
-    "create_demo_account":"Create a Demo Account for MT5",
-    "login_id":"Login ID",
-    "balance":"Balance",
-    "name":"Name",
+    "upgrade_financial_account":"Pour créer un compte financier pour MT5, s’il vous plaît passez à un compte réel Binary.com.",
+    "upgrade_volatility_account":"Pour créer un compte d'indice de volatilité pour MT5, s’il vous plaît passez à un compte réel Binary.com.",
+    "create_financial_account":"Créer un compte financier pour MT5",
+    "create_volatility_account":"Créez un compte de la volatilité pour MT5",
+    "create_demo_account":"Créer un compte démo pour MT5",
+    "login_id":"Identifiant de connexion",
+    "balance":"Solde",
+    "name":"Nom",
     "start_trading_with_mt5":"Start Trading With MT5"
   },
   "authentication":{
@@ -762,11 +762,11 @@
     "financial_assessment_not_completed":"Financial Assessment is not completed",
     "tax_information":"Tax information",
     "complete_profile":"Please complete your account profile to lift your withdrawal and trading limits.",
-    "tnc":"Terms and conditions",
-    "accept_tnc":"Please accept the updated Terms and Conditions to lift your withdrawal and trading limits.",
-    "max_turnover_limit":"Account maximum turnover limit",
-    "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits.",
-    "account_age_verification":"Age verification",
-    "needs_age_verification":"Account needs age verification, please contact customer support for more information."
+    "tnc":"Conditions générales",
+    "accept_tnc":"Veuillez accepter les Conditions Générales mises à jour pour supprimer vos limites de retrait et de trading.",
+    "max_turnover_limit":"Limite de chiffre d’affaires maximal de compte",
+    "set_max_turnover_limit":"S’il vous plaît choisissez limite de chiffre d’affaires de 30 jours d'Exclusion Personnelle afin de lever vos limites de dépôt.",
+    "account_age_verification":"Vérification de l’âge",
+    "needs_age_verification":"Le compte nécessite une vérification de l’âge, veuillez contacter le support client pour plus d’informations."
   }
 }
