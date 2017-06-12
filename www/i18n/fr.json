@@ -8,7 +8,7 @@
     "signin_with_binary_com":"Connexion",
     "use_token":"Ou connectez-vous avec un jeton",
     "next":"Suivant",
-    "regulatory-information":"Regulatory information"
+    "regulatory-information":"Informations réglementaires"
   },
   "accounts":{
     "my_accounts":"Gérer les comptes",
@@ -39,12 +39,12 @@
     "must_number":"La saisie doit être un nombre.",
     "ok":"OK",
     "cancel":"Annuler",
-    "yes":"Yes",
-    "no":"No"
+    "yes":"Oui",
+    "no":"Non"
   },
   "options":{
     "account":"Compte",
-    "select_market":"Select market",
+    "select_market":"Sélectionnez un marché",
     "forex":"Forex",
     "random":"Aléatoire",
     "volidx":"Indices de volatilité",
@@ -74,10 +74,10 @@
     "digit_matches_differs":"Chiffre Égal/Différent",
     "up_down":"Hausse/Baisse",
     "markets_are_closed":"Désolé, tous les marchés sont actuellement fermés. Veuillez réessayer ultérieurement",
-    "cancel":"Cancel",
-    "select_underlying":"Select Underlying",
-    "select_tradetype":"Select Tradetype",
-    "select_tick":"Select Tick",
+    "cancel":"Annuler",
+    "select_underlying":"Sélectionnez le sous-jacent",
+    "select_tradetype":"Sélectionnez le type de trade",
+    "select_tick":"Sélectionnez Tick",
     "select_digit":"Select Digit"
   },
   "trade":{
