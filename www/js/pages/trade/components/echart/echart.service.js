@@ -114,6 +114,10 @@
       updateDataSeries(data);
     }
 
+    factory.addContract = function(contract){
+      factory.contracts.push(contractService.init(contract));
+    }
+
     function updateDataSeries(data, notMerge){
       var options = factory.chart.getOption();
       var ticks = [];

@@ -37,6 +37,22 @@
       }
     });
 
+    $scope.$on('portfolio', (e, portfolio) => {
+      var contractId = vm.purchasedContract.contractId;
+
+      if (!_.isEmpty(contractId)) {
+        portfolio.contracts.forEach(function (contract) {
+          if (contract.contract_id == contractId) {
+            chartService.addContract({
+              startTime: contract.date_start + 1,
+              duration: parseInt(vm.proposal.duration),
+              type: vm.proposal.tradeType === "Higher/Lower" ? contract.contract_type + 'HL' : contract.contract_type,
+              barrier: vm.proposal.barrier
+            });
+          }
+        });
+      }
+    });
     $scope.$watch(()=>{ return vm.proposal.symbol },
         (newValue, oldValue) =>{
           if(vm.proposal.symbol){ //&& newValue !== oldValue){
@@ -70,8 +86,6 @@
         subscribe: 1
       });
     }
-
-
 
   }
 })();
