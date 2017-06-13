@@ -31,8 +31,8 @@
     "no_tick":"Veuillez sélectionner un autre actif sous-jacent. L'actif sous-jacent sélectionné n'est pas compatible avec les « ticks ».",
     "remove_token_title":"Suppression d'un jeton d'authentification",
     "remove_token_content":"Voulez-vous vraiment supprimer ce jeton d'authentification ?",
-    "remove_all_tokens_title":"Suppression de tous les jetons d'authentification",
-    "remove_all_tokens_content":"Voulez-vous vraiment supprimer tous les jetons d'authentification et vous déconnecter ?",
+    "remove_all_tokens_title":"Sortie",
+    "remove_all_tokens_content":"Êtes-vous sûr de vouloir quitter l’application ?",
     "no_underlying":"Il n'y a pas d'actif sous-jacent pour ce marché. Veuillez sélectionner un autre marché.",
     "required_field":"Ce champ est requis.",
     "field_between":"La saisie doit se situer entre 0,70 et 100000.",
@@ -120,12 +120,12 @@
     "sign_out":"Déconnexion"
   },
   "update":{
-    "your_version_is_out_of_date_please_update":"Votre version de Tick Trade est obsolète. Veuillez mettre à jour votre application vers la dernière version.",
+    "your_version_is_out_of_date_please_update":"Votre version de Tick Trade est obsolète. Veuillez mettre à jour votre application avec la dernière version.",
     "what_is_new":"ACTUALITÉS"
   },
   "realitycheck":{
     "title":"Relevé d'activité",
-    "about":"Le trading d'options binaires peut devenir une véritable addiction, au même titre que toute autre activité pratiquée de façon trop intensive. Pour éviter le danger d'une telle addiction, nous mettons en œuvre suivi réaliste de votre situation en vous fournissant régulièrement un relevé de vos opérations et de vos comptes.",
+    "about":"Le trading d'options binaires peut devenir une véritable addiction, au même titre que toute autre activité pratiquée de façon trop intensive. Pour éviter le danger d'une telle addiction, nous mettons en œuvre un suivi réaliste de votre situation en vous fournissant régulièrement un relevé de vos opérations et de vos comptes.",
     "login_time":"Temps de connexion :",
     "current_time":"Heure actuelle :",
     "session_duration":"Durée de la session :",
