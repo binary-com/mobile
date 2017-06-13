@@ -26,7 +26,7 @@
       if(ctrl){
 
         ctrl.$formatters.push(function(modelValue){
-          if(_.isEmpty(modelValue)){
+          if(angular.isDefined(modelValue) && _.isEmpty(modelValue.toString())){
             return null;
           }
           return modelValue;
