@@ -97,11 +97,11 @@
     "profit":"Bénéfice",
     "loss":"Perte",
     "win":"Gain",
-    "lose":"Ce contrat termine hors la monnaie",
+    "lose":"Ce contrat a été perdu",
     "transaction_id":"Référence de transaction",
     "buy_again":"Acheter à nouveau",
     "sell":"Vente",
-    "barrier":"Marge de barrière"
+    "barrier":"Compensation de barrière"
   },
   "help":{
     "need_help":"Besoin d'aide ?",
