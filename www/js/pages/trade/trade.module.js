@@ -19,7 +19,7 @@
   angular
     .module('binary.pages.trade.components', [
         'binary.pages.trade.components.options',
-        'binary.pages.trade.components.chart',
+        'binary.pages.trade.components.echart',
         'binary.pages.trade.components.payout',
         'binary.pages.trade.components.purchase',
         'binary.pages.trade.components.longcode'

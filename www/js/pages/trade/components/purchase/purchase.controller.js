@@ -90,7 +90,8 @@
                         transactionId: response.buy.transaction_id
                     };
                 });
-                websocketService.sendRequestFor.portfolio();
+                //websocketService.sendRequestFor.portfolio();
+                websocketService.sendRequestFor.openContract(response.buy.contract_id);
 
             }
         });
@@ -111,7 +112,7 @@
                     vm.purchasedContract.buyPrice = vm.purchasedContract.cost;
                     vm.purchasedContract.profit = vm.purchasedContract.profit;
                     vm.purchasedContract.finalPrice = vm.purchasedContract.buyPrice + vm.purchasedContract.profit;
-                    websocketService.sendRequestFor.openContract();
+//                    websocketService.sendRequestFor.openContract();
                 } else if (contract.result === "lose") {
                     vm.purchasedContract.buyPrice = vm.purchasedContract.cost;
                     vm.purchasedContract.loss = vm.purchasedContract.cost;
