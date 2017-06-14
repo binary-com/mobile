@@ -13,10 +13,11 @@
     .module('binary.pages.trade.components.echart.services')
     .factory('chartService', Chart);
 
-  Chart.$inject = [];
+  Chart.$inject = ['contractService'];
 
-  function Chart(){
+  function Chart(contractService){
     var factory = {};
+    factory.contracts = [];
 
     var options = {
       title: {
@@ -103,6 +104,8 @@
 
     factory.addTick = function(tick) {
       var timeString = new Date(tick.epoch * 1000).toISOString();
+      var contractRegions = [];
+      var contractBarriers = [];
       var data = {
         name: timeString,
         value: [
@@ -111,16 +114,50 @@
         ]
       };
 
-      updateDataSeries(data);
+
+      if(!_.isEmpty(factory.contracts)){
+        factory.contracts.forEach((contract)=> {
+          if(!contract.isFinished()){
+            contract.addSpot(tick);
+            var barrierLine = contract.getBarrierLine();
+            if(!_.isEmpty(barrierLine)){
+              contractBarriers.push(barrierLine);
+            }
+          }
+          var region = contract.getRegion();
+          if(!_.isEmpty(region)){
+            contractRegions.push(region);
+          }
+        });
+      }
+
+      updateDataSeries(data, false, contractRegions, contractBarriers);
     }
 
     factory.addContract = function(contract){
       factory.contracts.push(contractService.init(contract));
     }
 
-    function updateDataSeries(data, notMerge){
+    function updateDataSeries(data, notMerge, regions, barriers){
       var options = factory.chart.getOption();
       var ticks = [];
+      var markLine = {
+        silent: true,
+        symbol: ['none', 'none'],
+        label: {
+          normal: {
+            position: 'start',
+            textStyle: {
+              fontWeight: 'bolder'
+            }
+          }
+        },
+        data: []
+      };
+
+      if(!_.isEmpty(barriers)){
+        markLine.data = markLine.data.concat(barriers);
+      }
 
       if(notMerge){
         options.series[0].data = [];
@@ -134,26 +171,19 @@
           }
 
           ticks = ticks.concat(data);
+          markLine.data.push( {
+            yAxis: ticks[ticks.length - 1].value[1],
+            symbol: 'circle'
+          });
 
 
           factory.chart.setOption({
             series: [
                 {
-                  markLine: {
+                  markLine: markLine,
+                  markArea: {
                     silent: true,
-                    label: {
-                      normal: {
-                        position: 'start',
-                        textStyle: {
-                          fontWeight: 'bolder'
-                        }
-                      }
-                    },
-                    data: [
-                      {
-                        yAxis: ticks[ticks.length - 1].value[1]
-                      }
-                    ]
+                    data: regions
                   },
                   data: ticks
                 }
