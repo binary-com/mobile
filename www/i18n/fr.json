@@ -644,7 +644,7 @@
     "already_withdrawn":"Vous avez déjà retiré l’équivalent de {{currency}} {{limits}} (ou l’équivalent dans une autre devise).",
     "current_immediate_maximum_withdrawal":"Par conséquent, votre montant maximal de retrait immédiat (sous réserve de fonds suffisants disponibles sur votre compte) est de {{currency}} {{limits}} (ou équivalent dans une autre devise).",
     "fully_authenticated":"Votre compte est entièrement authentifié et vos limites de retrait ont été levées.",
-    "your_n_day_withdrawal_limit":"Votre {{day}} limite de retrait jour est actuellement {{currency}} {{limits}} (ou l’équivalent dans une autre devise).",
+    "your_n_day_withdrawal_limit":"Votre {{day}} limite de retrait journalière est actuellement {{currency}} {{limits}} (ou l’équivalent dans une autre devise).",
     "already_withdrawn_days":"Vous avez déjà retiré l’équivalent de {{currency}} {{limits}} dans leur ensemble ces derniers jours, {{day}}.",
     "your_withdrawal":"Votre limite de retrait est {{currency}} {{limits}}",
     "withdrawn":"Vous avez déjà retiré {{currency}} {{limits}}"
