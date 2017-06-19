@@ -59,7 +59,8 @@
           "accept_risk",
           "tax_residence",
           "tax_identification_number",
-          "account_turnover"
+          "account_turnover",
+          "account_opening_reason"
         ];
 
 

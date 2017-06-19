@@ -34,7 +34,8 @@
             "address_postcode",
             "phone",
             "secret_question",
-            "secret_answer"
+            "secret_answer",
+            "account_opening_reason"
         ];
 
         // set all fields errors to false
