@@ -343,19 +343,19 @@
     "terms_and_conditions":"allgemeine Bedingungen ",
     "of_the_site":"dieser Site.",
     "general-pattern-error":"Es sind nur Buchstaben, Leerzeichen, Bindestriche, Punkte und Apostrophe erlaubt.",
-    "length-error-2-30":"This field must be within 2-30 characters.",
-    "address-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "length-error-2-30":"Dieses Feld muss zwischen 2-30 Zeichen lang sein.",
+    "address-pattern-error":"Nur Buchstaben, Zahlen, Abstände, Bindestriche, Punkte, und Apostrophe sind erlaubt.",
     "maxlength_error_70":"Dieses Feld kann maximal 70 Zeichen lang sein.",
     "maxlength_error_35":"Dieses Feld kann maximal 35 Zeichen lang sein.",
-    "postcode-pattern-error":"Only letters, numbers, and hyphen are allowed.",
-    "maxlength_error_20":"This field can be at most 20 characters long.",
-    "phone-pattern-error":"Only numbers and spaces are allowed.",
-    "length-error-6-35":"This field must be within 6-35 characters.",
-    "secretanswer-pattern-error":"Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
-    "length-error-4-50":"This field must be within 4-50 characters.",
+    "postcode-pattern-error":"Es sind nur Buchstaben, Zahlen, und Bindestriche erlaubt.",
+    "maxlength_error_20":"Dieses Feld kann maximal 20 Zeichen lang sein.",
+    "phone-pattern-error":"Es sind nur Zahlen und Abstände erlaubt.",
+    "length-error-6-35":"Dieses Feld muss zwischen 6-35 Zeichen lang sein.",
+    "secretanswer-pattern-error":"Nur Buchstaben, Zahlen, Abstände, Bindestriche, Punkte, und Apostrophe sind erlaubt.",
+    "length-error-4-50":"Dieses Feld muss zwischen 4-50 Zeichen lang sein.",
     "required":"Dieses Feld ist erforderlich.",
-    "not-pep-verify":"I acknowledge that I am not a politically exposed person (PEP)",
-    "pep-info":"A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
+    "not-pep-verify":"Ich bestätige hiermit, dass ich keine politisch exponierte Person (PEP) bin",
+    "pep-info":"Eine PEP ist eine Einzelperson, die mit einem wichtigen, öffentlichen Amt betraut ist oder betraut war. Dieser Status weitet sich auf Verwandte und nahe Kollegen des PEPs aus."
   },
   "profittable":{
     "profit_table":"Gewinntabelle",
@@ -440,9 +440,9 @@
     "language":"Sprache",
     "settings":"Einstellungen",
     "resources":"Ressourcen",
-    "regulatory_information":"Regulatory information",
+    "regulatory_information":"Regulierungsinformationen",
     "mt5":"MetaTrader 5",
-    "contact_us":"Contact us"
+    "contact_us":"Kontaktieren Sie uns"
   },
   "settings":{
     "settings":"Einstellungen",
@@ -472,11 +472,11 @@
     "session-duration-limit-in-minutes":"Sitzungsdauer-Limit, in Minuten",
     "session-duration-hint":"Sie werden nach dieser Zeit automatisch abgemeldet.",
     "time-out-until":"Auszeit bis",
-    "time-out-hint":"Please enter date in the format MM/DD/YYYY HH:mm (local time). ",
+    "time-out-hint":"Bitte geben Sie das Datum im folgenden Format ein TT MM, JJJJ HH:mm (Ortszeit). ",
     "exclude-me-from-the-website-until":"Schließen Sie mich von der Website aus, bis",
-    "exclude-me-hint":"Please enter date in the format MM/DD/YYYY.",
+    "exclude-me-hint":"Bitte geben Sie das Datum im folgenden Format ein: TT MM, JJJJ.",
     "update-settings":"Einstellungen aktualisieren",
-    "please-enter-an-integer-value":"Please enter an integer value with max length of {{max}}",
+    "please-enter-an-integer-value":"Bitte geben Sie einen ganzzahligen Wert mit einer max. Länge von {{max}} ein",
     "valid-range-hint":"Bitte geben Sie eine Zahl zwischen 0 und {{max}} ein",
     "date-is-not-valid":"Exclude time must be after today",
     "date-can-not-be-greater-than":"Exclude time cannot be greater than {{max}}",
@@ -765,8 +765,8 @@
     "tnc":"Allgemeine Geschäftsbedingungen",
     "accept_tnc":"Bitte akzeptieren Sie die aktualisierten allgemeinen Geschäftsbedingungen, um Ihre Abhebe- und Handelslimits aufzuheben.",
     "max_turnover_limit":"Maximales Umsatzlimit des Kontos",
-    "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits.",
-    "account_age_verification":"Age verification",
-    "needs_age_verification":"Account needs age verification, please contact customer support for more information."
+    "set_max_turnover_limit":"Legen Sie bitte das Selbstausschluss 30-tägige Umsatzlimit fest, um Ihre Einzahlungslimits aufzuheben.",
+    "account_age_verification":"Altersverifikation",
+    "needs_age_verification":"Das Konto benötigt einen Altersnachweis, bitte kontaktieren Sie die Kundenbetreuung, um weitere Informationen zu erhalten."
   }
 }
