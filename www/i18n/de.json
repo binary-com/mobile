@@ -8,7 +8,7 @@
     "signin_with_binary_com":"Anmelden",
     "use_token":"Oder mit einem Token anmelden",
     "next":"Weiter",
-    "regulatory-information":"Regulatory information"
+    "regulatory-information":"Regulierungsinformationen"
   },
   "accounts":{
     "my_accounts":"Konten verwalten",
@@ -39,12 +39,12 @@
     "must_number":"Es muss eine Zahl sein.",
     "ok":"Okay",
     "cancel":"Abbrechen",
-    "yes":"Yes",
-    "no":"No"
+    "yes":"Ja",
+    "no":"Nein"
   },
   "options":{
     "account":"Konto",
-    "select_market":"Select market",
+    "select_market":"Wählen Sie den Markt",
     "forex":"Devisen",
     "random":"Random",
     "volidx":"Volatilität Indizes",
@@ -74,11 +74,11 @@
     "digit_matches_differs":"Ziffer Gleich/Verschieden",
     "up_down":"Auf/Ab",
     "markets_are_closed":"Leider sind derzeit alle Märkte geschlossen. Bitte versuchen Sie es später erneut",
-    "cancel":"Cancel",
-    "select_underlying":"Select Underlying",
-    "select_tradetype":"Select Tradetype",
-    "select_tick":"Select Tick",
-    "select_digit":"Select Digit"
+    "cancel":"Abbrechen",
+    "select_underlying":"Wählen Sie die zugrunde liegenden",
+    "select_tradetype":"Wählen Sie den Handelstyp",
+    "select_tick":"Wählen Sie den Tick",
+    "select_digit":"Wählen Sie die Ziffer"
   },
   "trade":{
     "payout":"Auszahlung",
@@ -145,7 +145,7 @@
     "days":"Tage",
     "hours":"Stunden",
     "minutes":"Minuten",
-    "interval_error":"Please enter a number between 10 to 60.",
+    "interval_error":"Bitte geben Sie eine Zahl zwischen 10 und 60 ein.",
     "view_statement":"Statement ansehen",
     "integer_error":"Der Intervall sollte eine ganze Zahl sein."
   },
@@ -165,12 +165,12 @@
     "show_pass":"Passwort anzeigen",
     "enter-email":"Bitte geben Sie Ihre E-Mail-Adresse ein",
     "email-error":"E-Mail Adresse ist nicht gültig",
-    "token-invalid":"Please submit a valid verification token.",
+    "token-invalid":"Bitte übermitteln Sie einen gültigen Verifikationstoken.",
     "residence-error":"Bitte wählen Sie Ihr Land aus",
-    "invalid_email":"Please submit a valid email address.",
-    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
-    "length-error-6-25":"This field must be within 6-25 characters.",
-    "required":"This field is required."
+    "invalid_email":"Bitte geben Sie eine gültige E-Mail Adresse an.",
+    "password-pattern-error":"Das Passwort muss Klein- und Großbuchstaben sowie Zahlen enthalten.",
+    "length-error-6-25":"Dieses Feld muss zwischen 6-25 Zeichen lang sein.",
+    "required":"Dieses Feld ist erforderlich."
   },
   "newaccountmaltainvest":{
     "open_financial":"Eröffnen Sie ein Finanzkonto",
@@ -183,12 +183,12 @@
     "last_name":"Familienname",
     "date_of_birth":"Geburtsdatum",
     "residence":"Wohnsitzland",
-    "place_of_birth":"Place of birth",
-    "tax_residence":"Tax residence",
-    "tax_identification_number":"Tax Identification Number",
+    "place_of_birth":"Geburtsort",
+    "tax_residence":"Steuerdomizil",
+    "tax_identification_number":"Steuer-Identifizierungsnummer",
     "address":"Adresse",
-    "address_line_1":"First line of home address",
-    "address_line_2":"Second line of home address",
+    "address_line_1":"Erste Adresszeile",
+    "address_line_2":"Zweite Adresszeile",
     "address_city":"Ort/Stadt",
     "address_state":"Bundesland/Region",
     "address_postcode":"Postleitzahl/PLZ",
@@ -275,7 +275,7 @@
     "required":"Dieses Feld ist erforderlich.",
     "isrequired":"(erforderlich)",
     "isoptional":"(optional)",
-    "read_and_agreed_to":"I have read and agree to the ",
+    "read_and_agreed_to":"Ich habe gelesen und akzeptiere die ",
     "terms_and_conditions":"terms and conditions ",
     "of_the_site":"of the site.",
     "general-pattern-error":"Only letters, space, hyphen, period, and apostrophe are allowed.",
