@@ -255,6 +255,29 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
+                            {{'newaccountreal.account_opening_reason' | translate}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="account_opening_reason" ng-model="vm.data.account_opening_reason" required>
+                                <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
+                                <option value="Speculative" selected="selected">{{'newaccountreal.speculative' | translate}}</option>
+                                <option value="Income Earning">{{'newaccountreal.income_earning' | translate}}</option>
+                                <option value="Assets Saving">{{'newaccountreal.assets_saving' | translate}}</option>
+                                <option value="Hedging">{{'newaccountreal.hedging' | translate}}</option>
+                            </select>
+                            <div class="help-block error" ng-if='vm.account_opening_reason_error'>
+                                {{ vm.account_opening_reason_error_message }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col input-title">
                             {{'newaccountreal.secret_question' | translate}}
                         </div>
                     </div>
