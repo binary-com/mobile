@@ -299,7 +299,12 @@
     "account_turnover_2":"$25 000 - $50 000",
     "account_turnover_3":"$50 001 - $100 000",
     "account_turnover_4":"$100 001 - $500 000",
-    "account_turnover_5":"Более $500 000"
+    "account_turnover_5":"Более $500 000",
+    "account_opening_reason":"Account opening reason",
+    "speculative":"Speculative",
+    "income_earning":"Income Earning",
+    "assets_saving":"Assets Saving",
+    "hedging":"Hedging"
   },
   "newaccountreal":{
     "open_real":"Открыть реальный счет",
@@ -355,7 +360,12 @@
     "length-error-4-50":"Запись в данном поле не должна превышать 4-50 знаков.",
     "required":"Данное поле является обязательным.",
     "not-pep-verify":"Настоящим я заявляю, что не являюсь политически значимым лицом (ПЗЛ)",
-    "pep-info":"Политически значимое лицо (ПЗЛ) – это человек, который выполняет или в прошлом выполнял важную политическую роль. Данный статус распространяется на родственников и близких друзей ПЗЛ."
+    "pep-info":"Политически значимое лицо (ПЗЛ) – это человек, который выполняет или в прошлом выполнял важную политическую роль. Данный статус распространяется на родственников и близких друзей ПЗЛ.",
+    "account_opening_reason":"Account opening reason",
+    "speculative":"Speculative",
+    "income_earning":"Income Earning",
+    "assets_saving":"Assets Saving",
+    "hedging":"Hedging"
   },
   "profittable":{
     "profit_table":"Анализ счёта",
