@@ -52,6 +52,11 @@
         }
       }
     });
+
+    $scope.$on('connection:ready', (e) => {
+      sendTickHistoryRequest();
+    });
+
     $scope.$watch(()=>{ return vm.proposal.symbol },
         (newValue, oldValue) =>{
           if(vm.proposal.symbol){ //&& newValue !== oldValue){
