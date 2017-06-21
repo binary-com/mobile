@@ -299,7 +299,12 @@
     "account_turnover_2":"$25.000 - $50.000",
     "account_turnover_3":"$50.001 - $100.000",
     "account_turnover_4":"$100.001 - $500.000",
-    "account_turnover_5":"Mais de $500.000"
+    "account_turnover_5":"Mais de $500.000",
+    "account_opening_reason":"Account opening reason",
+    "speculative":"Speculative",
+    "income_earning":"Income Earning",
+    "assets_saving":"Assets Saving",
+    "hedging":"Hedging"
   },
   "newaccountreal":{
     "open_real":"Atualize para uma conta real",
@@ -355,7 +360,12 @@
     "length-error-4-50":"Este campo de conter entre 4 a 50 caracteres.",
     "required":"Este campo é obrigatório.",
     "not-pep-verify":"Eu confirmo que não sou uma pessoa politicamente exposta (PPE)",
-    "pep-info":"Uma PPE é uma pessoa que desempenha ou que tenha desempenhado uma função pública proeminente. Este estatuto se estende aos familiares e pessoas de relação próxima do PPE."
+    "pep-info":"Uma PPE é uma pessoa que desempenha ou que tenha desempenhado uma função pública proeminente. Este estatuto se estende aos familiares e pessoas de relação próxima do PPE.",
+    "account_opening_reason":"Account opening reason",
+    "speculative":"Speculative",
+    "income_earning":"Income Earning",
+    "assets_saving":"Assets Saving",
+    "hedging":"Hedging"
   },
   "profittable":{
     "profit_table":"Tabela de lucro",
