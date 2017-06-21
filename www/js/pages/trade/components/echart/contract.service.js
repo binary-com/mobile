@@ -141,8 +141,7 @@
           startPoint.xAxis = utils.getISODate(contract.entrySpot.epoch);
           startPoint.itemStyle = {
             normal: {
-              color: contract.result === 'win' ? 'green' : 'red',
-              opacity: 0.5
+              color: contract.result === 'win' ? 'rgba(0, 255, 0, 0.1)' : 'rgba(255, 0, 0, 0.1)',
             }
           };
 

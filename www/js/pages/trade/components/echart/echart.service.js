@@ -25,38 +25,59 @@
       },
       grid: {
         top: 5,
-        bottom:70,
-        left: '17%',
+        bottom:20,
+        right: '5%',
+        left: '5%',
       },
       tooltip: {
-        trigger: 'axis',
         formatter: function (params) {
-          params = params[0];
+          //params = params[0];
           var date = new Date(params.name);
-          return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+          return params.value[0].slice(11, 19) + '<br/>' + params.value[1];
         },
         axisPointer: {
+          type: 'none',
           animation: false
         }
       },
       xAxis: {
         type: 'time',
+        scale: true,
         splitLine: {
-          show: false
+          show: true,
+          lineStyle: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          }
+        },
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          }
+        },
+        axisLabel: {
+          textStyle: {
+            color: 'black'
+          }
         }
       },
       yAxis: {
         type: 'value',
-        minInterval: 0.5,
+        minInterval: 0.05,
         scale: true,
         axisLine: {
-          show: false
+          show: false,
+          lineStyle: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          }
         },
         axisLabel: {
-
+          show: false
         },
         splitLine: {
-          show: true
+          show: true,
+          lineStyle: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          }
         }
       },
       dataZoom: [
@@ -65,16 +86,29 @@
           start: 97,
           end: 100
         },
-        {
+        /*{
           start: 97,
           end: 100
-        }
+        }*/
       ],
       series: [{
         name: 'ticks',
         type: 'line',
-        showSymbol: false,
+        symbol: 'circle',
+        symbolSize: 8,
+        showSymbol: true,
+        animation: false,
         hoverAnimation: false,
+        lineStyle: {
+          normal: {
+            color: '#7cb5ec'
+          }
+        },
+        itemStyle: {
+          normal: {
+            color: '#7cb5ec'
+          }
+        }
       }],
       useUTC: true
     };
@@ -161,6 +195,7 @@
 
       if(notMerge){
         options.series[0].data = [];
+        factory.contracts = [];
       }
 
       if(options && typeof options === 'object'){
@@ -170,11 +205,31 @@
             ticks = options.series[0].data;
           }
 
+          if(ticks.length > 0){
+            ticks[ticks.length - 1].label = {
+              normal: {
+                show: false
+              }
+            }
+          }
+
           ticks = ticks.concat(data);
-          markLine.data.push( {
+
+          ticks[ticks.length - 1].label = {
+            normal: {
+              show: true,
+              offset: [-5, 0],
+              position: 'insideRight',
+              textStyle: {
+                color: '#2E8836'
+              }
+            }
+          }
+
+          /*markLine.data.push( {
             yAxis: ticks[ticks.length - 1].value[1],
             symbol: 'circle'
-          });
+          });*/
 
 
           factory.chart.setOption({
@@ -192,6 +247,12 @@
         }
       }
     };
+
+    factory.destroy = function(){
+      factory.chart.clear();
+      factory.chart.dispose();
+      factory.contracts = null;
+    }
 
 
     return factory;
