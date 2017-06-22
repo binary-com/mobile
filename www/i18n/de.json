@@ -300,10 +300,10 @@
     "account_turnover_3":"50.001$ - 100.000$",
     "account_turnover_4":"100.001$ - 500.000$",
     "account_turnover_5":"Über 500.000$",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income Earning",
-    "assets_saving":"Assets Saving",
+    "account_opening_reason":"Kontoeröffnung-Grund",
+    "speculative":"Spekulativ",
+    "income_earning":"Einkommen",
+    "assets_saving":"Anlagen speichern",
     "hedging":"Hedging"
   },
   "newaccountreal":{
@@ -361,10 +361,10 @@
     "required":"Dieses Feld ist erforderlich.",
     "not-pep-verify":"Ich bestätige hiermit, dass ich keine politisch exponierte Person (PEP) bin",
     "pep-info":"Eine PEP ist eine Einzelperson, die mit einem wichtigen, öffentlichen Amt betraut ist oder betraut war. Dieser Status weitet sich auf Verwandte und nahe Kollegen des PEPs aus.",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income Earning",
-    "assets_saving":"Assets Saving",
+    "account_opening_reason":"Kontoeröffnung-Grund",
+    "speculative":"Spekulativ",
+    "income_earning":"Einkommen",
+    "assets_saving":"Anlagen speichern",
     "hedging":"Hedging"
   },
   "profittable":{
