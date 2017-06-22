@@ -281,6 +281,10 @@ angular
 
 				var addHistory = function addHistory(history) {
 					historyData = [];
+          contractCtrls.forEach((contract) => {
+            contract.removeRegion();
+          });
+          contractCtrls = [];
 					updateHistoryArray(historyData, history);
 				};
 
@@ -537,6 +541,10 @@ angular
           }
 				};
 
+        var removeRegion = function removeRegion(){
+          chartDrawer.removeRegion(contract.region);
+        };
+
 				return {
           getBroadcastable: getBroadcastable,
 					setNotBroadcastable: setNotBroadcastable,
@@ -547,6 +555,7 @@ angular
 					resetSpotShowing: resetSpotShowing,
 					addSpots: addSpots,
 					addRegions: addRegions,
+          removeRegion: removeRegion,
 					viewSpots: viewSpots,
 					viewRegions: viewRegions,
 					getEntrySpotPoint: getEntrySpotPoint,
