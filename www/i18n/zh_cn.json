@@ -300,11 +300,11 @@
     "account_turnover_3":"$50,001 - $100,000",
     "account_turnover_4":"$100,001 - $500,000",
     "account_turnover_5":"$500,000以上",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income Earning",
-    "assets_saving":"Assets Saving",
-    "hedging":"Hedging"
+    "account_opening_reason":"开立账户的原因",
+    "speculative":"投机",
+    "income_earning":"赚取收入",
+    "assets_saving":"资产保存",
+    "hedging":"对冲"
   },
   "newaccountreal":{
     "open_real":"升级到真实账户",
@@ -361,11 +361,11 @@
     "required":"此为必填字段。",
     "not-pep-verify":"我声明本人不是政治公众人士(PEP)",
     "pep-info":"PEP是被委托进行特出公众任务的个人。此身份包括了PEP的亲属和亲近的人。",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income Earning",
-    "assets_saving":"Assets Saving",
-    "hedging":"Hedging"
+    "account_opening_reason":"开立账户的原因",
+    "speculative":"投机",
+    "income_earning":"赚取收入",
+    "assets_saving":"资产保存",
+    "hedging":"对冲"
   },
   "profittable":{
     "profit_table":"利润表",
