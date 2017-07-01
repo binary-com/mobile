@@ -6,7 +6,7 @@
  * @copyright Binary Ltd
  */
 
-(function() {
+(function () {
     'use strict';
 
     angular
