@@ -6,34 +6,32 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary").config(StateDecorator);
 
-  angular
-    .module('binary')
-    .config(StateDecorator);
+    function StateDecorator($provide) {
+        $provide.decorator("$state", [
+            "$delegate",
+            "$rootScope",
+            function($delegate, $rootScope) {
+                const $state = $delegate;
+                $state.previous = undefined;
 
-  function StateDecorator($provide){
-    $provide.decorator('$state',  ['$delegate', '$rootScope', function($delegate, $rootScope){
-      var $state = $delegate;
-      $state.previous = undefined;
+                $state.goBack = function() {
+                    if ($state.previous) {
+                        $state.go($state.previous.name);
+                    }
+                };
 
-      $state.goBack = function(){
-        if($state.previous){
-          $state.go($state.previous.name);
-        }
-      }
+                $rootScope.$on("$stateChangeSuccess", (e, to, toParams, from, fromParams) => {
+                    $state.previous = {
+                        name  : from,
+                        params: fromParams
+                    };
+                });
 
-      $rootScope.$on('$stateChangeSuccess', function(e, to, toParams, from, fromParams){
-        $state.previous = {
-          name: from,
-          params: fromParams
-        };
-      });
-
-      return $state;
-    }]);
-  }
-
-
+                return $state;
+            }
+        ]);
+    }
 })();

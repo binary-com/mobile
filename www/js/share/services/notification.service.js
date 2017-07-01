@@ -6,9 +6,6 @@
  * @copyright Binary Ltd
  */
 
-angular
-  .module('binary')
-  .service('notificationService',
-    function() {
-      this.notices = new Array();
-    });
+angular.module("binary").service("notificationService", function() {
+    this.notices = new Array();
+});

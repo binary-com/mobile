@@ -6,18 +6,14 @@
  * @copyright Binary Ltd
  */
 
-angular
-	.module('binary')
-	.factory('appVersionService',
-            function($http){
-                var appVersion = {};
+angular.module("binary").factory("appVersionService", $http => {
+    const appVersion = {};
 
-                function getAppVersion(){
-                    return $http.get('js/config.json');
-                }
+    function getAppVersion() {
+        return $http.get("js/config.json");
+    }
 
-                appVersion.getAppVersion = getAppVersion;
+    appVersion.getAppVersion = getAppVersion;
 
-                return appVersion;
-
-            });
+    return appVersion;
+});

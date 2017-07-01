@@ -6,46 +6,41 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.chart.controllers").controller("DigitResultController", Result);
 
-  angular
-    .module('binary.pages.trade.components.chart.controllers')
-    .controller('DigitResultController', Result);
+    Result.$inject = ["$scope", "chartService"];
 
-  Result.$inject = ['$scope', 'chartService'];
+    function Result($scope, chartService) {
+        const vm = this;
 
-  function Result($scope, chartService){
-    var vm = this;
-
-    vm.spots = [];
-    vm.reset = true;
-    vm.counter = 0;
-
-    $scope.$on('contract:spot', (e, contract, lastPrice) => {
-      if(vm.reset){
-        // vm.spots = new Array(contract.duration+1).fill().map((e, i) => { return {}});
-        vm.spots = new Array(contract.duration+1);
-        for(var i = 0; i < vm.spots.length; i++){
-          vm.spots[i] = {};
-        }
-        vm.reset = false;
+        vm.spots = [];
+        vm.reset = true;
         vm.counter = 0;
-      }
 
-      var localContract = _.clone(contract);
+        $scope.$on("contract:spot", (e, contract, lastPrice) => {
+            if (vm.reset) {
+                // vm.spots = new Array(contract.duration+1).fill().map((e, i) => { return {}});
+                vm.spots = new Array(contract.duration + 1);
+                for (let i = 0; i < vm.spots.length; i++) {
+                    vm.spots[i] = {};
+                }
+                vm.reset = false;
+                vm.counter = 0;
+            }
 
-      $scope.$applyAsync(()=>{
-        vm.spots[vm.counter++] = {
-          result: localContract.result,
-          value: lastPrice.toString().slice(-1)
-        };
-      });
-    });
+            const localContract = _.clone(contract);
 
-    $scope.$on('contract:finished', (e, contract) => {
-      vm.reset = true;
-    });
+            $scope.$applyAsync(() => {
+                vm.spots[vm.counter++] = {
+                    result: localContract.result,
+                    value : lastPrice.toString().slice(-1)
+                };
+            });
+        });
 
-  }
+        $scope.$on("contract:finished", (e, contract) => {
+            vm.reset = true;
+        });
+    }
 })();

@@ -6,69 +6,70 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular
+        .module("binary.share.components.connectivity.controllers")
+        .controller("ConnectivityController", Connectivity);
 
-  angular
-    .module('binary.share.components.connectivity.controllers')
-    .controller('ConnectivityController', Connectivity);
+    Connectivity.$inject = ["$scope", "$state", "$cordovaNetwork", "$ionicPlatform"];
 
-  Connectivity.$inject = ['$scope', '$state', '$cordovaNetwork', '$ionicPlatform'];
+    function Connectivity($scope, $state, $cordovaNetwork, $ionicPlatform) {
+        const vm = this;
 
-  function Connectivity($scope, $state, $cordovaNetwork, $ionicPlatform){
-    var vm = this;
+        vm.isOffline = function() {
+            if (ionic.Platform.isWebView()) {
+                return !$cordovaNetwork.isOnline();
+            }
+            !navigator.onLine;
+        };
 
-    vm.isOffline = function(){
-      if(ionic.Platform.isWebView()){
-        return !$cordovaNetwork.isOnline();
-      }
-      else {
-        !navigator.onLine;
-      }
-    };
+        vm.isOnline = function() {
+            if (ionic.Platform.isWebView()) {
+                return $cordovaNetwork.isOnline();
+            }
+            return navigator.onLine;
+        };
 
-    vm.isOnline = function(){
-      if(ionic.Platform.isWebView()){
-        return $cordovaNetwork.isOnline();
-      }
-      else {
-        return navigator.onLine;
-      }
-    };
+        function startWatchingNetwork() {
+            if (ionic.Platform.isWebView()) {
+                $scope.$on("$cordovaNetwork:online", (e, networkState) => {
+                    $state.go("home");
+                });
 
-    function startWatchingNetwork(){
-      if(ionic.Platform.isWebView()){
-        $scope.$on('$cordovaNetwork:online', (e, networkState) => {
-          $state.go('home');
-        });
+                $scope.$on("$cordovaNetwork:offline", (e, netwrorkState) => {
+                    $state.go("no-connection");
+                });
+            } else {
+                window.addEventListener(
+                    "online",
+                    e => {
+                        $state.go("home");
+                    },
+                    false
+                );
 
-        $scope.$on('$cordovaNetwork:offline', (e, netwrorkState) => {
-          $state.go('no-connection');
-        });
-      }
-      else {
-        window.addEventListener('online', function(e){
-          $state.go('home');
-        }, false);
-
-        window.addEventListener('offline', function(e){
-          $state.go('no-connection');
-        }, false);
-      }
-    }
-
-    function init(){
-      startWatchingNetwork();
-    }
-
-    $ionicPlatform.ready(() => {
-      init();
-
-      $scope.$on('$stateChangeSuccess', (e, current)=>{
-        if(!vm.isOnline()){
-          $state.go('no-connection');
+                window.addEventListener(
+                    "offline",
+                    e => {
+                        $state.go("no-connection");
+                    },
+                    false
+                );
+            }
         }
-      });
-    });
-  }
+
+        function init() {
+            startWatchingNetwork();
+        }
+
+        $ionicPlatform.ready(() => {
+            init();
+
+            $scope.$on("$stateChangeSuccess", (e, current) => {
+                if (!vm.isOnline()) {
+                    $state.go("no-connection");
+                }
+            });
+        });
+    }
 })();

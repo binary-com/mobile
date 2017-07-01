@@ -7,93 +7,94 @@
  */
 
 (function() {
-    'use strict';
-
-    angular
-        .module('binary.share.components.accounts.controllers')
-        .controller('AccountsController', Accounts);
+    angular.module("binary.share.components.accounts.controllers").controller("AccountsController", Accounts);
 
     Accounts.$inject = [
-      '$scope', '$state', '$ionicSideMenuDelegate', 'accountService', 'appStateService', 'websocketService', 'notificationService'
+        "$scope",
+        "$state",
+        "$ionicSideMenuDelegate",
+        "accountService",
+        "appStateService",
+        "websocketService",
+        "notificationService"
     ];
 
     function Accounts(
-      $scope,
-      $state,
-      $ionicSideMenuDelegate,
-      accountService,
-      appStateService,
-      websocketService,
-      notificationService
+        $scope,
+        $state,
+        $ionicSideMenuDelegate,
+        accountService,
+        appStateService,
+        websocketService,
+        notificationService
     ) {
-      var vm = this;
+        const vm = this;
 
-      var init = function() {
-        vm.accounts = accountService.getAll();
-        var defaultAccount = accountService.getDefault();
-        if (defaultAccount == null){
-          vm.selectedAccount = null;
-        } else {
-          vm.selectedAccount = accountService.getDefault().token;
-        }
-      };
+        const init = function() {
+            vm.accounts = accountService.getAll();
+            const defaultAccount = accountService.getDefault();
+            if (defaultAccount == null) {
+                vm.selectedAccount = null;
+            } else {
+                vm.selectedAccount = accountService.getDefault().token;
+            }
+        };
 
-      var updateSymbols = function() {
-        // Wait untile the login progress is finished
-        if (!appStateService.isLoggedin) {
-          setTimeout(updateSymbols, 500);
-        } else {
-          websocketService.sendRequestFor.symbols();
-          websocketService.sendRequestFor.assetIndex();
-        }
-      };
+        var updateSymbols = function() {
+            // Wait untile the login progress is finished
+            if (!appStateService.isLoggedin) {
+                setTimeout(updateSymbols, 500);
+            } else {
+                websocketService.sendRequestFor.symbols();
+                websocketService.sendRequestFor.assetIndex();
+            }
+        };
 
-      init();
+        init();
 
-      vm.updateAccount = function(_selectedAccount) {
-        accountService.setDefault(_selectedAccount);
-        accountService.validate();
-        updateSymbols();
-        appStateService.isChangedAccount = true;
-        appStateService.isCheckedAccountType = false;
-        sessionStorage.removeItem('start');
-        sessionStorage.removeItem('_interval');
-        sessionStorage.removeItem('realityCheckStart');
-        appStateService.isProfitTableSet = false;
-        appStateService.isStatementSet = false;
-        appStateService.profitTableRefresh = true;
-        appStateService.statementRefresh = true;
-        appStateService.isNewAccountReal = false;
-        appStateService.isNewAccountMaltainvest = false;
-        appStateService.hasMLT = false;
-        sessionStorage.removeItem('countryParams');
-        appStateService.isPopupOpen = false;
-        appStateService.realityCheckLogin = false;
-        $ionicSideMenuDelegate.toggleLeft();
-        appStateService.limitsChange = true;
-        appStateService.hasAuthenticateMessage = false;
-        appStateService.hasRestrictedMessage = false;
-        appStateService.hasMaxTurnoverMessage = false;
-        appStateService.hasCountryMessage = false;
-        appStateService.hasTnCMessage = false;
-        appStateService.hasTaxInfoMessage = false;
-        appStateService.hasFinancialAssessmentMessage = false;
-        appStateService.hasAgeVerificationMessage = false;
-        appStateService.checkedAccountStatus = false;
-      };
+        vm.updateAccount = function(_selectedAccount) {
+            accountService.setDefault(_selectedAccount);
+            accountService.validate();
+            updateSymbols();
+            appStateService.isChangedAccount = true;
+            appStateService.isCheckedAccountType = false;
+            sessionStorage.removeItem("start");
+            sessionStorage.removeItem("_interval");
+            sessionStorage.removeItem("realityCheckStart");
+            appStateService.isProfitTableSet = false;
+            appStateService.isStatementSet = false;
+            appStateService.profitTableRefresh = true;
+            appStateService.statementRefresh = true;
+            appStateService.isNewAccountReal = false;
+            appStateService.isNewAccountMaltainvest = false;
+            appStateService.hasMLT = false;
+            sessionStorage.removeItem("countryParams");
+            appStateService.isPopupOpen = false;
+            appStateService.realityCheckLogin = false;
+            $ionicSideMenuDelegate.toggleLeft();
+            appStateService.limitsChange = true;
+            appStateService.hasAuthenticateMessage = false;
+            appStateService.hasRestrictedMessage = false;
+            appStateService.hasMaxTurnoverMessage = false;
+            appStateService.hasCountryMessage = false;
+            appStateService.hasTnCMessage = false;
+            appStateService.hasTaxInfoMessage = false;
+            appStateService.hasFinancialAssessmentMessage = false;
+            appStateService.hasAgeVerificationMessage = false;
+            appStateService.checkedAccountStatus = false;
+        };
 
-      $scope.$on('authorize', (e, authorize) => {
-        if (authorize && appStateService.newAccountAdded) {
-          accountService.add(authorize);
-          accountService.setDefault(accountService.addedAccount);
-          appStateService.newAccountAdded = false;
-          vm.accounts = accountService.getAll();
-          vm.selectedAccount = accountService.getDefault().token;
-          vm.updateAccount(vm.selectedAccount);
-          $state.go('trade');
-          accountService.addedAccount = '';
-        }
-      });
-
+        $scope.$on("authorize", (e, authorize) => {
+            if (authorize && appStateService.newAccountAdded) {
+                accountService.add(authorize);
+                accountService.setDefault(accountService.addedAccount);
+                appStateService.newAccountAdded = false;
+                vm.accounts = accountService.getAll();
+                vm.selectedAccount = accountService.getDefault().token;
+                vm.updateAccount(vm.selectedAccount);
+                $state.go("trade");
+                accountService.addedAccount = "";
+            }
+        });
     }
 })();

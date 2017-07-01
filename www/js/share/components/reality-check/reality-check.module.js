@@ -7,18 +7,12 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.share.components.reality-check", [
+        "binary.share.components.reality-check.controllers",
+        "binary.share.components.reality-check.directives"
+    ]);
 
-    angular
-        .module('binary.share.components.reality-check', [
-            'binary.share.components.reality-check.controllers',
-            'binary.share.components.reality-check.directives',
-        ]);
+    angular.module("binary.share.components.reality-check.controllers", []);
 
-    angular
-        .module('binary.share.components.reality-check.controllers', []);
-
-    angular
-        .module('binary.share.components.reality-check.directives', []);
-
+    angular.module("binary.share.components.reality-check.directives", []);
 })();

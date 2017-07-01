@@ -1,4 +1,4 @@
-		/**
+/**
 		 * @name app version controller
 		 * @author Nazanin Reihani Haghighi
 		 * @contributors []
@@ -6,41 +6,38 @@
 		 * @copyright Binary Ltd
 		 */
 
-		(function() {
-		    'use strict';
+(function() {
+    angular.module("binary.share.components.app-version.controllers").controller("AppVersionController", AppVersion);
 
-		    angular
-		        .module('binary.share.components.app-version.controllers')
-		        .controller('AppVersionController', AppVersion);
+    AppVersion.$inject = ["$scope", "$ionicPlatform", "appVersionService"];
 
-		    AppVersion.$inject = ['$scope', '$ionicPlatform', 'appVersionService'];
-
-		    function AppVersion($scope, $ionicPlatform, appVersionService) {
-		        var vm = this;
-							$ionicPlatform.ready(function(){
-															$scope.$applyAsync(function(){
-																	if(window.cordova){
-																			cordova.getAppVersion(function(version){
-																					vm.appVersion = version;
-                                          window._trackJs.version = vm.appVersion;
-																			}, function(err){
-																					console.log(err);
-																			});
-																	}
-																	else{
-																			appVersionService.getAppVersion()
-																					.success(function(data){
-																							vm.appVersion = data.version;
-                                              window._trackJs.version = vm.appVersion;
-																					})
-																					.error(function(data){
-																							vm.appVersion = "0.0.0"
-                                                window._trackJs.version = vm.appVersion;
-																					});
-																	}
-
-															});
-									});
-
-		    }
-		})();
+    function AppVersion($scope, $ionicPlatform, appVersionService) {
+        const vm = this;
+        $ionicPlatform.ready(() => {
+            $scope.$applyAsync(() => {
+                if (window.cordova) {
+                    cordova.getAppVersion(
+                        version => {
+                            vm.appVersion = version;
+                            window._trackJs.version = vm.appVersion;
+                        },
+                        err => {
+                            console.log(err);
+                        }
+                    );
+                } else {
+                    appVersionService
+                        .getAppVersion()
+                        .success(data => {
+                            vm.appVersion = data.version;
+                            window._trackJs.version = vm.appVersion;
+                        })
+                        .error(data => {
+                            vm.appVersion = "0.0.0";
+                            window._trackJs.version = vm.appVersion;
+                        });
+                }
+            });
+        });
+    }
+})();

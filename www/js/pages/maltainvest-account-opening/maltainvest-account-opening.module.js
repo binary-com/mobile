@@ -6,13 +6,8 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict',
+(function() {
+    "use strict", angular.module("binary.pages.maltainvest-account-opening", []);
 
-  angular
-    .module('binary.pages.maltainvest-account-opening', []);
-
-    angular
-      .module('binary.pages.maltainvest-account-opening.controllers', []);
-
+    angular.module("binary.pages.maltainvest-account-opening.controllers", []);
 })();

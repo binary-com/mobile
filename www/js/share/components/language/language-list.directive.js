@@ -7,22 +7,18 @@
  * Application Header
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.language.directives").directive("bgLanguageList", LanguageList);
 
-  angular
-    .module('binary.share.components.language.directives')
-    .directive('bgLanguageList', LanguageList);
+    function LanguageList() {
+        const directive = {
+            restrict    : "E",
+            templateUrl : "js/share/components/language/language-list.template.html",
+            controller  : "LanguageController",
+            controllerAs: "vm",
+            scope       : {}
+        };
 
-  function LanguageList(){
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'js/share/components/language/language-list.template.html',
-      controller: 'LanguageController',
-      controllerAs: 'vm',
-      scope: {}
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 })();

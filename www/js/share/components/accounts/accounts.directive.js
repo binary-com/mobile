@@ -6,23 +6,19 @@
  * @copyright Binary Ltd
  */
 
-(function (){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.accounts.directives").directive("bgAccounts", Accounts);
 
-  angular
-    .module('binary.share.components.accounts.directives')
-    .directive('bgAccounts', Accounts);
+    function Accounts() {
+        const directive = {
+            restrict       : "E",
+            templateUrl    : "js/share/components/accounts/accounts.template.html",
+            controller     : "AccountsController",
+            controllerAs   : "vm",
+            bindToContoller: true,
+            scope          : {}
+        };
 
-  function Accounts(){
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'js/share/components/accounts/accounts.template.html',
-      controller: 'AccountsController',
-      controllerAs: 'vm',
-      bindToContoller: true,
-      scope: {}
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 })();

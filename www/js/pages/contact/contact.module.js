@@ -7,14 +7,7 @@
  */
 
 (function() {
-  'use strict';
+    angular.module("binary.pages.contact", ["binary.pages.contact.controllers"]);
 
-  angular
-    .module('binary.pages.contact', [
-      'binary.pages.contact.controllers'
-    ]);
-
-  angular
-    .module('binary.pages.contact.controllers', []);
-
+    angular.module("binary.pages.contact.controllers", []);
 })();

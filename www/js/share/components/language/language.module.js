@@ -7,18 +7,13 @@
  * Application Header
  */
 
-(function(){
-  'use strict';
-
-  angular
-    .module('binary.share.components.language', [
-        'binary.share.components.language.directives',
-        'binary.share.components.language.controllers'
+(function() {
+    angular.module("binary.share.components.language", [
+        "binary.share.components.language.directives",
+        "binary.share.components.language.controllers"
     ]);
 
-  angular
-    .module('binary.share.components.language.directives', []);
+    angular.module("binary.share.components.language.directives", []);
 
-  angular
-    .module('binary.share.components.language.controllers', []);
+    angular.module("binary.share.components.language.controllers", []);
 })();

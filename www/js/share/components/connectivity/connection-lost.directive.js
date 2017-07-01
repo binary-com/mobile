@@ -6,22 +6,18 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.connectivity.directives").directive("bgConnectionLost", ConnectionLost);
 
-  angular
-    .module('binary.share.components.connectivity.directives')
-    .directive('bgConnectionLost', ConnectionLost);
+    function ConnectionLost() {
+        const directive = {
+            restrict    : "E",
+            templateUrl : "js/share/components/connectivity/connection-lost.template.html",
+            controller  : "ConnectionLostController",
+            controllerAs: "vm",
+            scope       : {}
+        };
 
-  function ConnectionLost(){
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'js/share/components/connectivity/connection-lost.template.html',
-      controller: 'ConnectionLostController',
-      controllerAs: 'vm',
-      scope: {}
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 });

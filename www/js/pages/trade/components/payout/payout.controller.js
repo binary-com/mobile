@@ -6,62 +6,57 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.payout.controllers").controller("PayoutController", Payout);
 
-    angular
-        .module('binary.pages.trade.components.payout.controllers')
-        .controller('PayoutController', Payout);
+    Payout.$inject = ["$scope", "proposalService"];
 
-    Payout.$inject = ['$scope', 'proposalService'];
-
-    function Payout($scope, proposalService){
-        var vm = this;
+    function Payout($scope, proposalService) {
+        const vm = this;
         vm.amount = vm.proposal.amount;
 
-        $scope.$watch(()=>vm.proposal.amount,
-            (newVal, oldVal)=>{
-              if(newVal != vm.amount){
-                vm.amount = newVal;
-              }
-            });
+        $scope.$watch(
+            () => vm.proposal.amount,
+            (newVal, oldVal) => {
+                if (newVal != vm.amount) {
+                    vm.amount = newVal;
+                }
+            }
+        );
 
-
-        vm.changePayoutType = function(){
-            if(vm.proposal.basis === "payout"){
+        vm.changePayoutType = function() {
+            if (vm.proposal.basis === "payout") {
                 vm.proposal.basis = "stake";
             } else {
                 vm.proposal.basis = "payout";
             }
-            proposalService.setPropertyValue('basis', vm.proposal.basis);
-        }
+            proposalService.setPropertyValue("basis", vm.proposal.basis);
+        };
 
-        vm.changeAmount = function(){
-          if(_.isEmpty(vm.amount) || vm.amount === 'NaN' || Number(vm.amount) == 0){
-            vm.proposal.amount = 0;
-          } else {
-            vm.proposal.amount = vm.amount;
-          }
-          proposalService.setPropertyValue('amount', vm.proposal.amount);
-        }
+        vm.changeAmount = function() {
+            if (_.isEmpty(vm.amount) || vm.amount === "NaN" || Number(vm.amount) == 0) {
+                vm.proposal.amount = 0;
+            } else {
+                vm.proposal.amount = vm.amount;
+            }
+            proposalService.setPropertyValue("amount", vm.proposal.amount);
+        };
 
-        vm.add = function(){
-           vm.amount = (Number(vm.amount) + 1) <= 10000 ? Number(vm.amount) + 1 : 100000;
-        }
+        vm.add = function() {
+            vm.amount = Number(vm.amount) + 1 <= 10000 ? Number(vm.amount) + 1 : 100000;
+        };
 
         vm.subtract = function() {
-            vm.amount = (Number(vm.amount) - 1) >= 1 ? Number(vm.amount) - 1 : 1;
-        }
+            vm.amount = Number(vm.amount) - 1 >= 1 ? Number(vm.amount) - 1 : 1;
+        };
 
-        vm.stopLongPress = function(){
-          vm.proposal.amount = vm.amount;
-          proposalService.setPropertyValue('amount', vm.proposal.amount);
-        }
+        vm.stopLongPress = function() {
+            vm.proposal.amount = vm.amount;
+            proposalService.setPropertyValue("amount", vm.proposal.amount);
+        };
 
-        function init(){
-        }
+        function init() {}
 
         init();
-
     }
 })();

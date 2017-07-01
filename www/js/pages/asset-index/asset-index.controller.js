@@ -7,23 +7,19 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.pages.asset-index.controllers").controller("AssetIndexController", AssetIndex);
 
-    angular
-        .module('binary.pages.asset-index.controllers')
-        .controller('AssetIndexController', AssetIndex);
-
-    AssetIndex.$inject = ['$scope', '$q'];
+    AssetIndex.$inject = ["$scope", "$q"];
 
     function AssetIndex($scope, $q) {
-        var vm = this;
+        const vm = this;
         vm.hasError = false;
         vm.marketColumns;
         vm.assetIndex = JSON.parse(sessionStorage.asset_index || null);
         vm.activeSymbols = JSON.parse(sessionStorage.all_active_symbols);
 
         vm.getSymbolInfo = function(qSymbol, activeSymbols) {
-            return activeSymbols.filter(function(sy, id) {
+            return activeSymbols.filter((sy, id) => {
                 if (sy.symbol === qSymbol) {
                     activeSymbols.splice(id, 1);
                     return true;
@@ -33,80 +29,78 @@
 
         vm.getAssetIndexData = function(assetIndex, activeSymbols) {
             if (!assetIndex || !activeSymbols) {
-            return false;
-          };
+                return false;
+            }
 
             vm.marketColumns = {};
 
-            var idx = {
-                symbol: 0,
-                displayName: 1,
-                cells: 2,
-                cellName: 0,
+            const idx = {
+                symbol         : 0,
+                displayName    : 1,
+                cells          : 2,
+                cellName       : 0,
                 cellDisplayName: 1,
-                cellFrom: 2,
-                cellTo: 3,
-                symInfo: 3,
-                values: 4
+                cellFrom       : 2,
+                cellTo         : 3,
+                symInfo        : 3,
+                values         : 4
             };
 
-            for (var i = 0; i < assetIndex.length; i++) {
+            for (let i = 0; i < assetIndex.length; i++) {
                 vm.assetItem = assetIndex[i];
                 vm.symbolInfo = vm.getSymbolInfo(vm.assetItem[idx.symbol], activeSymbols)[0];
                 if (!vm.symbolInfo) {
                     continue;
                 }
-                var market = vm.symbolInfo.market;
+                const market = vm.symbolInfo.market;
 
                 vm.assetItem.push(vm.symbolInfo);
 
                 if (!(market in vm.marketColumns)) {
                     vm.marketColumns[market] = {
-                        header: [],
-                        columns: [],
-                        sub: [],
+                        header     : [],
+                        columns    : [],
+                        sub        : [],
                         displayName: vm.symbolInfo.market_display_name
                     };
                 }
 
                 vm.assetCells = vm.assetItem[idx.cells];
-                    var values = {};
-                for (var j = 0; j < vm.assetCells.length; j++) {
-                    var col = vm.assetCells[j][idx.cellName];
-                    values[col] = vm.assetCells[j][idx.cellFrom] + ' - ' + vm.assetCells[j][idx.cellTo];
-                    var marketCols = vm.marketColumns[market];
+                const values = {};
+                for (let j = 0; j < vm.assetCells.length; j++) {
+                    const col = vm.assetCells[j][idx.cellName];
+                    values[col] = `${vm.assetCells[j][idx.cellFrom]} - ${vm.assetCells[j][idx.cellTo]}`;
+                    const marketCols = vm.marketColumns[market];
                     if (marketCols.columns.indexOf(col) < 0) {
                         marketCols.header.push(vm.assetCells[j][idx.cellDisplayName]);
                         marketCols.columns.push(col);
                     }
-
                 }
                 vm.assetItem.push(values);
-
             }
             vm.assetIndex = assetIndex;
             return vm.assetIndex;
         };
         vm.getMarketColumns = function() {
             $scope.$applyAsync(() => {
-              if(vm.marketColumns){
-                vm.selectedMarket = Object.getOwnPropertyNames(vm.marketColumns)[0];
-              }
+                if (vm.marketColumns) {
+                    vm.selectedMarket = Object.getOwnPropertyNames(vm.marketColumns)[0];
+                }
             });
             vm.hasError = false;
             return vm.marketColumns;
-        }
+        };
 
         vm.getSubmarketTable = function(marketColumns, assetIndex) {
             vm.submarketNames = {};
             if (assetIndex) {
-                for (var i = 0; i < assetIndex.length; i++) {
-                    var assetItem = assetIndex[i];
+                for (let i = 0; i < assetIndex.length; i++) {
+                    const assetItem = assetIndex[i];
                     if (assetItem[3]) {
-                        var symInfo = assetItem[3];
-                        var marketId = symInfo.market;
-                        var subMarketId = symInfo.submarket;
-                        var submarketDisplayName = symInfo.submarket_display_name;
+                        const symInfo = assetItem[3];
+                        const marketId = symInfo.market;
+                        const subMarketId = symInfo.submarket;
+                        const submarketDisplayName = symInfo.submarket_display_name;
                         if (marketColumns[marketId].sub.indexOf(subMarketId) < 0) {
                             marketColumns[marketId].sub.push(subMarketId);
                             vm.submarketNames[subMarketId] = submarketDisplayName;
@@ -114,14 +108,14 @@
                     }
                 }
             }
-        }
+        };
         vm.getAssetIndexData(vm.assetIndex, vm.activeSymbols);
-        var promise = $q((resolve) => {
-          if(vm.getMarketColumns()) resolve();
+        const promise = $q(resolve => {
+            if (vm.getMarketColumns()) resolve();
         });
-        promise.then(function() {
+        promise.then(() => {
             vm.getSubmarketTable(vm.marketColumns, vm.assetIndex);
             vm.hasError = false;
-        })
+        });
     }
 })();

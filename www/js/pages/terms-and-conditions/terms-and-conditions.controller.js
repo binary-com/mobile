@@ -7,35 +7,34 @@
  */
 
 (function() {
-    'use strict';
-
     angular
-        .module('binary.pages.terms-and-conditions.controllers')
-        .controller('TermsAndConditionsController', TermsAndConditions);
+        .module("binary.pages.terms-and-conditions.controllers")
+        .controller("TermsAndConditionsController", TermsAndConditions);
 
-    TermsAndConditions.$inject = ['$scope', '$state', 'websocketService', 'alertService'];
+    TermsAndConditions.$inject = ["$scope", "$state", "websocketService", "alertService"];
 
     function TermsAndConditions($scope, $state, websocketService, alertService) {
-        var vm = this;
+        const vm = this;
         vm.data = {};
-        vm.data.landingCompanyName = localStorage.getItem('landingCompanyName');
-        vm.data.linkToTermAndConditions = "https://www.binary.com/" + (localStorage.getItem('language') || "en") + "/terms-and-conditions.html";
+        vm.data.landingCompanyName = localStorage.getItem("landingCompanyName");
+        vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
+            "en"}/terms-and-conditions.html`;
 
         vm.updateUserTermsAndConditions = function() {
             websocketService.sendRequestFor.TAndCApprovalSend();
-        }
+        };
 
         vm.openTermsAndConditions = function() {
-            window.open(vm.data.linkToTermAndConditions, '_blank');
-        }
+            window.open(vm.data.linkToTermAndConditions, "_blank");
+        };
 
-      $scope.$on('tnc_approval', (e, tnc_approval) => {
-        if (tnc_approval == 1) {
-            $state.go('trade');
-      }
-    });
+        $scope.$on("tnc_approval", (e, tnc_approval) => {
+            if (tnc_approval == 1) {
+                $state.go("trade");
+            }
+        });
 
-        $scope.$on('tnc_approval:error', (e, error) => {
+        $scope.$on("tnc_approval:error", (e, error) => {
             alertService.displayError(error.message);
         });
     }

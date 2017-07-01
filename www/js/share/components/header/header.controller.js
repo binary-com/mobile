@@ -8,21 +8,12 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.share.components").controller("HeaderController", Header);
 
-    angular
-        .module('binary.share.components')
-        .controller('HeaderController', Header);
+    Header.$inject = ["$scope", "$state", "$ionicHistory", "$ionicSideMenuDelegate", "appStateService"];
 
-    Header.$inject = ['$scope', '$state',
-        '$ionicHistory', '$ionicSideMenuDelegate',
-        'appStateService',
-    ];
-
-    function Header($scope, $state,
-        $ionicHistory, $ionicSideMenuDelegate,
-        appStateService) {
-        var vm = this;
+    function Header($scope, $state, $ionicHistory, $ionicSideMenuDelegate, appStateService) {
+        const vm = this;
         vm.hideMenuButton = false;
         vm.hideBalance = false;
         vm.disableMenuButton = false;
@@ -37,55 +28,69 @@
             if (appStateService.tradeMode || !appStateService.purchaseMode) {
                 $ionicSideMenuDelegate.toggleLeft();
             }
-        }
+        };
 
         $scope.$watch(
-            () => {
-                return appStateService.purchaseMode
-            },
+            () => appStateService.purchaseMode,
             () => {
                 vm.disableMenuButton = appStateService.purchaseMode;
             }
         );
 
         $scope.$watch(
-            () => {
-                return appStateService.passwordChanged
-            },
+            () => appStateService.passwordChanged,
             () => {
                 vm.disableBackButton = appStateService.passwordChanged;
             }
         );
 
-        $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
+        $scope.$on("$stateChangeSuccess", (ev, to, toParams, from, fromParams) => {
             vm.to = to;
             vm.from = from;
             vm.hideBalance = false;
-            if (['transaction-detail', 'language', 'profile', 'self-exclusion', 'change-password', 'trading-times', 'asset-index', 'limits', 'financial-assessment', 'terms-and-conditions', 'authentication'].indexOf(vm.to.name) > -1) {
+            if (
+                [
+                    "transaction-detail",
+                    "language",
+                    "profile",
+                    "self-exclusion",
+                    "change-password",
+                    "trading-times",
+                    "asset-index",
+                    "limits",
+                    "financial-assessment",
+                    "terms-and-conditions",
+                    "authentication"
+                ].indexOf(vm.to.name) > -1
+            ) {
                 vm.hideMenuButton = true;
                 vm.showBack = true;
-            } else if(['mt5-web'].indexOf(vm.to.name) > -1) {
+            } else if (["mt5-web"].indexOf(vm.to.name) > -1) {
                 vm.hideBalance = true;
-            } else if (['contact'].indexOf(vm.to.name) > -1) {
-                if (['authentication', 'notifications'].indexOf(vm.from.name) > -1) {
-                  vm.hideMenuButton = true;
-                  vm.showBack = true;
+            } else if (["contact"].indexOf(vm.to.name) > -1) {
+                if (["authentication", "notifications"].indexOf(vm.from.name) > -1) {
+                    vm.hideMenuButton = true;
+                    vm.showBack = true;
                 } else {
-                  vm.hideMenuButton = false;
-                  vm.showBack = false;
+                    vm.hideMenuButton = false;
+                    vm.showBack = false;
                 }
             } else {
-                if (vm.from.name === 'statement' && vm.to.name !== 'transactiondetail' && document.getElementsByClassName('realitycheck').length > 0) {
-                    $('.popup-container').addClass('popup-showing');
-                    $('body').addClass('popup-open');
-                    $('.backdrop').addClass('visible');
+                if (
+                    vm.from.name === "statement" &&
+                    vm.to.name !== "transactiondetail" &&
+                    document.getElementsByClassName("realitycheck").length > 0
+                ) {
+                    $(".popup-container").addClass("popup-showing");
+                    $("body").addClass("popup-open");
+                    $(".backdrop").addClass("visible");
                 }
                 vm.hideMenuButton = false;
                 vm.showBack = false;
-                if (vm.from.name === 'profit-table') {
+                if (vm.from.name === "profit-table") {
                     appStateService.isProfitTableSet = false;
                 }
-                if (vm.from.name === 'statement') {
+                if (vm.from.name === "statement") {
                     appStateService.isStatementSet = false;
                 }
             }
@@ -93,12 +98,11 @@
 
         // back button function
         vm.goToPrevPage = function() {
-            if(vm.to.detailed) {
-              $state.go('trade');
+            if (vm.to.detailed) {
+                $state.go("trade");
             } else {
-              $state.go(vm.from);
+                $state.go(vm.from);
             }
         };
-
     }
 })();

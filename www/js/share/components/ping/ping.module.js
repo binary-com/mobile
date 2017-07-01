@@ -7,18 +7,13 @@
  * Application Header
  */
 
-(function(){
-  'use strict';
-
-  angular
-    .module('binary.share.components.ping', [
-        'binary.share.components.ping.controllers',
-        'binary.share.components.ping.directives'
+(function() {
+    angular.module("binary.share.components.ping", [
+        "binary.share.components.ping.controllers",
+        "binary.share.components.ping.directives"
     ]);
 
-  angular
-    .module('binary.share.components.ping.controllers', []);
+    angular.module("binary.share.components.ping.controllers", []);
 
-  angular
-    .module('binary.share.components.ping.directives', []);
+    angular.module("binary.share.components.ping.directives", []);
 })();

@@ -6,10 +6,6 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict',
-
-  angular
-    .module('binary.pages.signin.components.oauth', []);
-
+(function() {
+    "use strict", angular.module("binary.pages.signin.components.oauth", []);
 })();

@@ -6,15 +6,11 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
+(function() {
+    angular.module("binary.pages.trade.services").factory("tradeService", Trade);
 
-    angular
-        .module('binary.pages.trade.services')
-        .factory('tradeService', Trade);
-
-    function Trade(){
-        var factory = {};
+    function Trade() {
+        const factory = {};
 
         factory.proposalIsReady = false;
 

@@ -6,21 +6,17 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.self-exclusion.directives").directive("bgSessionTimeout", SessionTimeout);
 
-  angular
-    .module('binary.pages.self-exclusion.directives')
-    .directive('bgSessionTimeout', SessionTimeout);
+    function SessionTimeout() {
+        const directive = {
+            restrict    : "E",
+            scope       : {},
+            controller  : "SessionTimeoutController",
+            controllerAs: "vm"
+        };
 
-  function SessionTimeout(){
-    var directive = {
-      restrict: 'E',
-      scope: {},
-      controller: 'SessionTimeoutController',
-      controllerAs: 'vm'
+        return directive;
     }
-
-    return directive;
-  }
 })();

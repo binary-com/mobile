@@ -7,12 +7,8 @@
  *
  */
 
-angular
-	.module('binary')
-	.service('cleanupService',
-		function($translate, proposalService) {
-
-			this.run = function() {
-				proposalService.forget();
-			};
-	});
+angular.module("binary").service("cleanupService", function($translate, proposalService) {
+    this.run = function() {
+        proposalService.forget();
+    };
+});

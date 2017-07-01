@@ -6,40 +6,34 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular
+        .module("binary.share.components.service-outage.controllers")
+        .controller("ServiceOutageController", ServiceOutage);
 
-  angular
-    .module('binary.share.components.service-outage.controllers')
-    .controller('ServiceOutageController', ServiceOutage);
+    ServiceOutage.$inject = ["$scope", "$state", "appStateService", "websocketService"];
 
-  ServiceOutage.$inject = ['$scope', '$state', 'appStateService', 'websocketService'];
+    function ServiceOutage($scope, $state, appStateService, websocketService) {
+        $scope.$on("website_status", (e, message) => {
+            if (message.site_status && message.site_status === "up" && appStateService.siteStatus === "down") {
+                $state.go("trade");
+            } else if (message.site_status && message.site_status === "down") {
+                $state.go("outage", { message: message.message });
+            }
+        });
 
-  function ServiceOutage($scope, $state, appStateService, websocketService){
+        $scope.$on("$stateChangeStart", (e, toState, toParams, fromState, fromParams, options) => {
+            if (appStateService.siteStatus === "down") {
+                if (fromState.name == "outage" || toState.name !== "outage") {
+                    e.preventDefault();
+                }
+            }
+        });
 
-    $scope.$on('website_status', (e, message)=>{
-      if(message.site_status && message.site_status === 'up'
-          && appStateService.siteStatus === 'down'){
-        $state.go('trade');
-      } else if(message.site_status && message.site_status === 'down') {
-        $state.go('outage', {message: message.message});
-      }
-    });
+        init();
 
-    $scope.$on('$stateChangeStart', (e, toState, toParams, fromState, fromParams, options) => {
-      if(appStateService.siteStatus === 'down'){
-        if(fromState.name == 'outage' || toState.name !== 'outage'){
-          e.preventDefault();
+        function init() {
+            websocketService.sendRequestFor.websiteStatus(true);
         }
-      }
-    });
-
-
-    init();
-
-    function init(){
-      websocketService.sendRequestFor.websiteStatus(true);
     }
-  }
-
 })();

@@ -6,22 +6,16 @@
  * @copyright binary ltd
  */
 
-(function(){
-    'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.chart", [
+        "binary.pages.trade.components.chart.controllers",
+        "binary.pages.trade.components.chart.directives",
+        "binary.pages.trade.components.chart.services"
+    ]);
 
-    angular
-        .module('binary.pages.trade.components.chart', [
-                'binary.pages.trade.components.chart.controllers',
-                'binary.pages.trade.components.chart.directives',
-                'binary.pages.trade.components.chart.services'
-        ]);
+    angular.module("binary.pages.trade.components.chart.controllers", []);
 
-    angular
-        .module('binary.pages.trade.components.chart.controllers', []);
-    
-    angular
-        .module('binary.pages.trade.components.chart.directives', []);
+    angular.module("binary.pages.trade.components.chart.directives", []);
 
-    angular
-        .module('binary.pages.trade.components.chart.services', []);
+    angular.module("binary.pages.trade.components.chart.services", []);
 })();

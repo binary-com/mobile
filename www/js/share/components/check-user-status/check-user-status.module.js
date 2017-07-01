@@ -7,18 +7,12 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.share.components.check-user-status", [
+        "binary.share.components.check-user-status.controllers",
+        "binary.share.components.check-user-status.directives"
+    ]);
 
-    angular
-        .module('binary.share.components.check-user-status', [
-            'binary.share.components.check-user-status.controllers',
-            'binary.share.components.check-user-status.directives'
-        ]);
+    angular.module("binary.share.components.check-user-status.controllers", []);
 
-    angular
-        .module('binary.share.components.check-user-status.controllers', []);
-
-    angular
-        .module('binary.share.components.check-user-status.directives', []);
-
+    angular.module("binary.share.components.check-user-status.directives", []);
 })();

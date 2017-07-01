@@ -7,26 +7,22 @@
  */
 
 (function() {
-    'use strict';
-
     angular
-        .module('binary.pages.transaction-detail.controllers')
-        .controller('TransactionDetailController', TransactionDetail);
+        .module("binary.pages.transaction-detail.controllers")
+        .controller("TransactionDetailController", TransactionDetail);
 
-    TransactionDetail.$inject = ['$scope', '$timeout', '$state',
-                                 'appStateService', 'websocketService'];
+    TransactionDetail.$inject = ["$scope", "$timeout", "$state", "appStateService", "websocketService"];
 
-    function TransactionDetail($scope, $timeout, $state,
-                               appStateService, websocketService) {
-        var vm = this;
+    function TransactionDetail($scope, $timeout, $state, appStateService, websocketService) {
+        const vm = this;
 
-        vm.currency = sessionStorage.getItem('currency');
+        vm.currency = sessionStorage.getItem("currency");
 
         vm.data = {};
-        vm.data.id = sessionStorage.getItem('id');
+        vm.data.id = sessionStorage.getItem("id");
         vm.data.extraParams = {
-            'req_id': vm.data.id
-        }
+            req_id: vm.data.id
+        };
         vm.sendDetailsRequest = function() {
             if (appStateService.isLoggedin) {
                 websocketService.sendRequestFor.openContract(vm.data.id, vm.data.extraParams);
@@ -35,7 +31,7 @@
             }
         };
 
-        $scope.$on('proposal:open-contract', (e, proposal_open_contract, req_id) => {
+        $scope.$on("proposal:open-contract", (e, proposal_open_contract, req_id) => {
             vm.proposalOpenContract = proposal_open_contract;
             vm.data.reqId = req_id;
             if (vm.data.reqId === vm.data.id) {
@@ -46,6 +42,5 @@
         });
 
         vm.sendDetailsRequest();
-
     }
 })();

@@ -38,6 +38,7 @@
     "del": "^2.2.0",
     "electron-packager": "^8.5.1",
     "eslint": "^4.1.1",
+    "eslint-config-airbnb-base": "^11.2.0",
     "eslint-config-prettier": "^2.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-angular": "^3.0.0",
@@ -72,7 +73,7 @@
   ],
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install",
-    "format": "prettier-eslint \"www/js/**/*.js\""
+    "format": "prettier-eslint --write \"www/js/**/*.js\""
   },
   "cordova": {
     "plugins": {

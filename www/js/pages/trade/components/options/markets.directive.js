@@ -6,25 +6,21 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.options.directives").directive("bgMarkets", Markets);
 
-  angular
-    .module('binary.pages.trade.components.options.directives')
-    .directive('bgMarkets', Markets);
+    function Markets() {
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/pages/trade/components/options/markets.template.html",
+            controller      : "MarketsController",
+            controllerAs    : "vm",
+            bindToController: true,
+            scope           : {
+                select: "&"
+            }
+        };
 
-  function Markets(){
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'js/pages/trade/components/options/markets.template.html',
-      controller: 'MarketsController',
-      controllerAs: 'vm',
-      bindToController: true,
-      scope: {
-        select: "&"
-      }
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 })();
