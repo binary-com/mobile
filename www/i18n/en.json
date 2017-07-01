@@ -44,7 +44,7 @@
   },
   "options": {
     "account": "Account",
-    "select_market": "Markets",
+    "market": "Markets",
     "forex": "Forex",
     "random": "Random",
     "volidx": "Volatility Indices",
@@ -75,7 +75,7 @@
     "up_down": "Up/Down",
     "markets_are_closed": "Sorry, All markets are currently closed. Please try again later",
     "cancel": "Cancel",
-    "select_market": "Select market",
+    "select_market": "Select Market",
     "select_underlying": "Select Underlying",
     "select_tradetype": "Select Tradetype",
     "select_tick": "Select Tick",
