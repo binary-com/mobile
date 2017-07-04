@@ -176,10 +176,10 @@
                 limit      : vm.limit,
                 offset     : vm.itemsPerPage * vm.data.currentPage
             };
-            if (vm.data.hasOwnProperty("dateFrom") && vm.data.dateFrom != "") {
+            if (vm.data.hasOwnProperty("dateFrom") && vm.data.dateFrom !== "") {
                 vm.params.date_from = vm.data.dateFrom;
             }
-            if (vm.data.hasOwnProperty("dateTo") && vm.data.dateTo != "") {
+            if (vm.data.hasOwnProperty("dateTo") && vm.data.dateTo !== "") {
                 vm.params.date_to = vm.data.dateTo + 8.64e4;
             }
             vm.params.req_id = vm.data.dateTo || Math.round(new Date().getTime() / 1000);
@@ -319,9 +319,11 @@
         vm.toggleItem = function() {
             vm.isItemShown = !vm.isItemShown;
             const content = document.getElementsByClassName("profit-table-expandable")[0];
-            content.id === "profit-table-filter-active"
-                ? (content.id = "")
-                : (content.id = "profit-table-filter-active");
+            if (content.id === "profit-table-filter-active") {
+                content.id = "";
+            } else {
+                content.id = "profit-table-filter-active";
+            }
         };
 
         vm.goTop = function() {

@@ -20,4 +20,4 @@
 
         return directive;
     }
-});
+})();

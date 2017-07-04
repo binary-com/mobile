@@ -7,7 +7,7 @@
  */
 
 (function() {
-    "use strict", angular.module("binary.pages.maltainvest-account-opening", []);
+    angular.module("binary.pages.maltainvest-account-opening", []);
 
     angular.module("binary.pages.maltainvest-account-opening.controllers", []);
 })();

@@ -58,7 +58,7 @@
             vm.thisPage = to.name;
             // check if state is changed from any state other than transaction-detail
             // we do not refresh the state if it comes back from transaction-detail
-            if (vm.lastPage != "transaction-detail" && vm.thisPage == "statement") {
+            if (vm.lastPage !== "transaction-detail" && vm.thisPage === "statement") {
                 vm.resetParams();
                 vm.firstCompleted = false;
                 vm.backFromMainPages = true;
@@ -121,7 +121,7 @@
                 vm.setParams();
                 tableStateService.statementCompletedGroup = false;
                 vm.goTop();
-            } else if (!appStateService.isStatementSet && vm.enteredNow && vm.lastPage == "transaction-detail") {
+            } else if (!appStateService.isStatementSet && vm.enteredNow && vm.lastPage === "transaction-detail") {
                 vm.enteredNow = false;
                 vm.lastPage = "";
                 vm.setParams();
@@ -176,10 +176,10 @@
                 limit      : vm.limit,
                 offset     : vm.itemsPerPage * vm.data.statementCurrentPage
             };
-            if (vm.data.hasOwnProperty("dateFrom") && vm.data.dateFrom != "") {
+            if (vm.data.hasOwnProperty("dateFrom") && vm.data.dateFrom !== "") {
                 vm.params.date_from = vm.data.dateFrom;
             }
-            if (vm.data.hasOwnProperty("dateTo") && vm.data.dateTo != "") {
+            if (vm.data.hasOwnProperty("dateTo") && vm.data.dateTo !== "") {
                 vm.params.date_to = vm.data.dateTo + 8.64e4;
             }
             vm.params.req_id = vm.data.dateTo || Math.round(new Date().getTime() / 1000);
@@ -192,8 +192,8 @@
             vm.statement = _statement;
             vm.count = vm.statement.count;
             vm.hasError = false;
-            if (vm.reqId == _req_id) {
-                if (vm.count == 0) {
+            if (vm.reqId === _req_id) {
+                if (vm.count === 0) {
                     vm.noTransaction = true;
                     $scope.$applyAsync(() => {
                         vm.noMore = true;
@@ -210,7 +210,7 @@
                             vm.transactions.push(vm.statement.transactions[i]);
                         });
                         vm.setBatch();
-                    } else if (vm.count == vm.limit) {
+                    } else if (vm.count === vm.limit) {
                         // has at least one transaction on next call to show to user
                         vm.noTransaction = false;
                         $scope.$applyAsync(() => {
@@ -247,7 +247,7 @@
                 vm.batchedTransaction.push(vm.sliced[i]);
             });
             tableStateService.statementBatchNum += 1;
-            if (tableStateService.statementBatchNum == tableStateService.statementBatchLimit) {
+            if (tableStateService.statementBatchNum === tableStateService.statementBatchLimit) {
                 tableStateService.statementBatchLimit = 0;
                 tableStateService.statementBatchNum = 0;
                 tableStateService.statementCompletedGroup = true;
@@ -269,7 +269,7 @@
                     tableStateService.statementAppID,
                     vm.appIdAllowed
                 );
-                if (vm.filteredTransactions.length == 0) {
+                if (vm.filteredTransactions.length === 0) {
                     vm.noTransaction = true;
                 } else {
                     vm.noTransaction = false;
@@ -282,7 +282,7 @@
             vm.noTransaction = false;
             vm.dateChanged = true;
             tableStateService.statementDateType = vm.data.dateType;
-            if (vm.data.dateType == "allTime") {
+            if (vm.data.dateType === "allTime") {
                 $scope.$applyAsync(() => {
                     vm.jumpToDateInputShow = false;
                 });
@@ -293,7 +293,7 @@
                 tableStateService.statementDateTo = "";
                 vm.loadMore();
             }
-            if (vm.data.dateType == "jumpToDate") {
+            if (vm.data.dateType === "jumpToDate") {
                 $scope.$applyAsync(() => {
                     vm.jumpToDateInputShow = true;
                 });
@@ -307,7 +307,7 @@
         };
 
         vm.jumpToDateFilter = function() {
-            if (tableStateService.statementDateType == "jumpToDate") {
+            if (tableStateService.statementDateType === "jumpToDate") {
                 tableStateService.statementCompletedGroup = true;
                 vm.dateChanged = true;
                 vm.noTransaction = false;
@@ -322,7 +322,7 @@
         vm.toggleItem = function() {
             vm.isItemShown = !vm.isItemShown;
             const content = document.getElementsByClassName("statement-content-expandable")[0];
-            content.id === "statement-filter-active" ? (content.id = "") : (content.id = "statement-filter-active");
+            content.id = content.id === "statement-filter-active" ? "" : "statement-filter-active";
         };
 
         vm.goTop = function() {

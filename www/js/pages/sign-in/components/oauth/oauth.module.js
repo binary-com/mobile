@@ -7,5 +7,5 @@
  */
 
 (function() {
-    "use strict", angular.module("binary.pages.signin.components.oauth", []);
+    angular.module("binary.pages.signin.components.oauth", []);
 })();

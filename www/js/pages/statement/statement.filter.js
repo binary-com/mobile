@@ -13,17 +13,15 @@
 
     function StatementDataFilter(transactions, appID, appIdAllowed) {
         function DataChange(transactions, appID, appIdAllowed) {
-            var filtered = [],
-                appID = appID,
-                appIdAllowed = appIdAllowed,
-                transactions = transactions;
-            for (const i in transactions) {
+            const filtered = [];
+
+            transactions.forEach((value, i) => {
                 const item = transactions[i];
                 const itemId = item.app_id;
-                if (appID == "allApps" || (appID == "tickTradeApp" && itemId === appIdAllowed)) {
+                if (appID === "allApps" || (appID === "tickTradeApp" && itemId === appIdAllowed)) {
                     filtered.push(item);
                 }
-            }
+            });
             return filtered;
         }
         return DataChange;

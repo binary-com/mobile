@@ -153,7 +153,7 @@
         });
 
         $scope.$on("forget_all", (e, req_id) => {
-            if (req_id != forgetRequestId) {
+            if (req_id !== forgetRequestId) {
                 return;
             }
             const proposal1 = _.clone(vm.proposal);
@@ -223,7 +223,7 @@
                 const tradeTypes = JSON.parse(sessionStorage.tradeTypes);
                 vm.contracts = tradeTypes[vm.proposal.tradeType];
 
-                if (!_.isEmpty(vm.contracts) && vm.contracts[0].underlying_symbol == vm.proposal.symbol) {
+                if (!_.isEmpty(vm.contracts) && vm.contracts[0].underlying_symbol === vm.proposal.symbol) {
                     sendProposal();
                 }
             } else {
@@ -231,24 +231,24 @@
             }
         }
 
-        vm.autoSizeText = function() {
-            let el, elements, _i, _len, _results;
-            elements = document.getElementsByClassName("resize");
+        vm.autoSizeText = () => {
+            let el;
+            let _i;
+            let _len;
+            const _results = [];
+            const elements = document.getElementsByClassName("resize");
             if (elements.length < 0) {
-                return;
+                return null;
             }
-            _results = [];
             for (_i = 0, _len = elements.length; _i < _len; _i++) {
                 el = elements[_i];
                 _results.push(
-                    (function(el) {
-                        let resizeText, _results1;
-                        resizeText = function() {
-                            let elNewFontSize;
-                            elNewFontSize = `${parseInt($(el).css("font-size").slice(0, -2)) - 1}px`;
+                    ((el) => {
+                        const _results1 = [];
+                        const resizeText = function() {
+                            const elNewFontSize = `${parseInt($(el).css("font-size").slice(0, -2)) - 1}px`;
                             return $(el).css("font-size", elNewFontSize);
                         };
-                        _results1 = [];
                         while (el.scrollHeight > el.offsetHeight) {
                             _results1.push(resizeText());
                         }

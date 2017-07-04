@@ -124,29 +124,34 @@
 
         vm.setSection = function(id, section) {
             switch (section) {
-                case vm.SECTIONS.MARKETS:
-                    var markets = JSON.parse(sessionStorage.markets || "{}");
+                case vm.SECTIONS.MARKETS: {
+                    const markets = JSON.parse(sessionStorage.markets || "{}");
                     if (Object.keys(markets).length <= 1) {
                         return;
                     }
                     break;
-                case vm.SECTIONS.UNDERLYINGS:
+                }
+                case vm.SECTIONS.UNDERLYINGS: {
                     if (vm.options.market.underlying.length <= 1) {
                         return;
                     }
                     break;
-                case vm.SECTIONS.TRADETYPES:
-                    var tradeTypes = JSON.parse(sessionStorage.tradeTypes || "{}");
+                }
+                case vm.SECTIONS.TRADETYPES: {
+                    const tradeTypes = JSON.parse(sessionStorage.tradeTypes || "{}");
                     if (Object.keys(tradeTypes).length <= 1) {
                         return;
                     }
                     break;
+                }
+                default:
+                    break;
             }
 
-            if (id == 1) {
+            if (id === 1) {
                 vm.section2 = vm.SECTIONS.OVERVIEW2;
                 vm.section1 = section;
-            } else if (id == 2) {
+            } else if (id === 2) {
                 vm.section1 = vm.SECTIONS.OVERVIEW1;
                 vm.section2 = section;
             }
@@ -182,7 +187,7 @@
 
         vm.selectTradeType = function(tradeType) {
             vm.options.tradeType = tradeType;
-            var tradeType = JSON.parse(sessionStorage.tradeTypes)[tradeType][0];
+            tradeType = JSON.parse(sessionStorage.tradeTypes)[tradeType][0];
             vm.options.tick = vm.options.tick || tradeType.min_contract_duration.slice(0, -1);
             vm.options.digit = tradeType.last_digit_range ? vm.options.digit || tradeType.last_digit_range[0] : null;
             vm.options.barrier =

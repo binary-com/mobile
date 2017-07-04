@@ -22,7 +22,7 @@
                             window._trackJs.version = vm.appVersion;
                         },
                         err => {
-                            console.log(err);
+                            // console.log(err);
                         }
                     );
                 } else {

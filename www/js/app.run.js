@@ -20,6 +20,7 @@
             if (typeof window.ga !== "undefined") {
                 window.ga.startTrackerWithId("UA-40877026-7");
             } else {
+                // eslint-disable-next-line
                 console.log("Google Analytics is unavailable");
             }
 
@@ -34,15 +35,17 @@
                 cordova.plugins.Keyboard.disableScroll(true);
             }
             if (window.StatusBar) {
-                StatusBar.styleDefault();
+                window.StatusBar.styleDefault();
             }
 
             // Handle the android's hardware button
             $ionicPlatform.registerBackButtonAction(() => {
                 if (appStateService.isPopupOpen || appStateService.modalIsOpen) {
+                    // Do nothing
                 } else if (["signin", "home", "update"].indexOf($state.current.name) > -1) {
                     navigator.app.exitApp();
                 } else if ($state.current.name === "trade" && appStateService.purchaseMode) {
+                    // Do nothing
                 } else if (
                     $state.current.name === "trade" &&
                     !appStateService.purchaseMode &&
@@ -55,7 +58,7 @@
                     }
                 } else if (["trade", "profittable", "statement"].indexOf($state.current.name) > -1) {
                     alertService.confirmExit(res => {
-                        if (res == 1) {
+                        if (res === 1) {
                             sessionStorage.removeItem("start");
                             sessionStorage.removeItem("_interval");
                             navigator.app.exitApp();

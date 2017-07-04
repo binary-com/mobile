@@ -13,7 +13,7 @@ angular
             $scope.$applyAsync(() => {
                 if (
                     landingCompany.hasOwnProperty("mt_financial_company") &&
-                    landingCompany.mt_financial_company.shortcode == "vanuatu"
+                    landingCompany.mt_financial_company.shortcode === "vanuatu"
                 ) {
                     vm.hasMTAccess = true;
                 }

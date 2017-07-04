@@ -93,7 +93,11 @@
             ) {
                 if (vm.data.landingCompany.hasOwnProperty("gaming_company")) {
                     //  check if has MLT then to MF, if not to MLT
-                    vm.isVirtual ? (vm.toReal = true) : (vm.toMaltainvest = true);
+                    if( vm.isVirtual ) {
+                        vm.toReal = true;
+                    } else {
+                        vm.toMaltainvest = true;
+                    }
                     appStateService.hasMLT = !!vm.toMaltainvest;
                     vm.getToken();
                 } else {

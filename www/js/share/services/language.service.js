@@ -23,10 +23,10 @@ angular.module("binary").service("languageService", function($rootScope, $transl
 			 * if exists update the app's language
 			 */
     this.set = function(_language) {
-        if (!_language) {
-            var language = localStorage.language || "en";
-        } else {
-            var language = _language;
+        let language = localStorage.language || "en";
+
+        if (_language) {
+            language = _language;
         }
         cleanupService.run();
         $rootScope.$broadcast("language:updated");

@@ -16,7 +16,7 @@
         vm.logout = function(res) {
             alertService.confirmRemoveAllAccount(res => {
                 if (typeof res !== "boolean") {
-                    if (res == 1) res = true;
+                    if (res === 1) res = true;
                     else res = false;
                 }
 

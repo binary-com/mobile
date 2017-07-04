@@ -14,7 +14,6 @@
     function AssetIndex($scope, $q) {
         const vm = this;
         vm.hasError = false;
-        vm.marketColumns;
         vm.assetIndex = JSON.parse(sessionStorage.asset_index || null);
         vm.activeSymbols = JSON.parse(sessionStorage.all_active_symbols);
 
@@ -24,6 +23,7 @@
                     activeSymbols.splice(id, 1);
                     return true;
                 }
+                return false;
             });
         };
 
@@ -49,34 +49,33 @@
             for (let i = 0; i < assetIndex.length; i++) {
                 vm.assetItem = assetIndex[i];
                 vm.symbolInfo = vm.getSymbolInfo(vm.assetItem[idx.symbol], activeSymbols)[0];
-                if (!vm.symbolInfo) {
-                    continue;
-                }
-                const market = vm.symbolInfo.market;
+                if (vm.symbolInfo) {
+                    const market = vm.symbolInfo.market;
 
-                vm.assetItem.push(vm.symbolInfo);
+                    vm.assetItem.push(vm.symbolInfo);
 
-                if (!(market in vm.marketColumns)) {
-                    vm.marketColumns[market] = {
-                        header     : [],
-                        columns    : [],
-                        sub        : [],
-                        displayName: vm.symbolInfo.market_display_name
-                    };
-                }
-
-                vm.assetCells = vm.assetItem[idx.cells];
-                const values = {};
-                for (let j = 0; j < vm.assetCells.length; j++) {
-                    const col = vm.assetCells[j][idx.cellName];
-                    values[col] = `${vm.assetCells[j][idx.cellFrom]} - ${vm.assetCells[j][idx.cellTo]}`;
-                    const marketCols = vm.marketColumns[market];
-                    if (marketCols.columns.indexOf(col) < 0) {
-                        marketCols.header.push(vm.assetCells[j][idx.cellDisplayName]);
-                        marketCols.columns.push(col);
+                    if (!(market in vm.marketColumns)) {
+                        vm.marketColumns[market] = {
+                            header     : [],
+                            columns    : [],
+                            sub        : [],
+                            displayName: vm.symbolInfo.market_display_name
+                        };
                     }
+
+                    vm.assetCells = vm.assetItem[idx.cells];
+                    const values = {};
+                    for (let j = 0; j < vm.assetCells.length; j++) {
+                        const col = vm.assetCells[j][idx.cellName];
+                        values[col] = `${vm.assetCells[j][idx.cellFrom]} - ${vm.assetCells[j][idx.cellTo]}`;
+                        const marketCols = vm.marketColumns[market];
+                        if (marketCols.columns.indexOf(col) < 0) {
+                            marketCols.header.push(vm.assetCells[j][idx.cellDisplayName]);
+                            marketCols.columns.push(col);
+                        }
+                    }
+                    vm.assetItem.push(values);
                 }
-                vm.assetItem.push(values);
             }
             vm.assetIndex = assetIndex;
             return vm.assetIndex;

@@ -24,7 +24,22 @@ angular
             let dataStream = "";
             const messageBuffer = [];
 
-            var waitForConnection = function(callback, isAuthonticationRequest) {
+            const addExtraParams = function(data, extraParams){
+                if(_.isEmpty(extraParams)){
+                    return data;
+                }
+
+                Object.keys(extraParams).forEach((key, index) => {
+                    if (extraParams.hasOwnProperty(key)) {
+                        data[key] = extraParams[key];
+                    }
+                });
+
+                return data;
+
+            };
+
+            const waitForConnection = function(callback, isAuthonticationRequest) {
                 if (dataStream.readyState === 3) {
                     init();
                     if (!isAuthonticationRequest) {
@@ -55,7 +70,7 @@ angular
                 }, _data.hasOwnProperty("authorize") && token);
             };
 
-            var init = function(forced) {
+            const init = function(forced) {
                 forced = forced || false;
                 const language = localStorage.language || "en";
 
@@ -84,7 +99,7 @@ angular
                         sendMessage(data);
                     }
 
-                    console.log("socket is opened");
+                    console.log("socket is opened"); // eslint-disable-line
                     $rootScope.$broadcast("connection:ready");
                 };
 
@@ -93,15 +108,15 @@ angular
                 };
 
                 dataStream.onclose = function(e) {
-                    console.log("socket is closed ", e);
+                    console.log("socket is closed ", e); // eslint-disable-line
                     init();
-                    console.log("socket is reopened");
+                    console.log("socket is reopened"); // eslint-disable-line
                     appStateService.isLoggedin = false;
                     $rootScope.$broadcast("connection:reopened");
                 };
 
                 dataStream.onerror = function(e) {
-                    if (e.target.readyState == 3) {
+                    if (e.target.readyState === 3) {
                         $rootScope.$broadcast("connection:error");
                     }
                     appStateService.isLoggedin = false;
@@ -121,11 +136,7 @@ angular
                     authorize: _token
                 };
 
-                for (key in extraParams) {
-                    if (extraParams.hasOwnProperty(key)) {
-                        data[key] = extraParams[key];
-                    }
-                }
+                addExtraParams(data, extraParams);
 
                 sendMessage(data);
             };
@@ -268,11 +279,7 @@ angular
                         profit_table: 1
                     };
 
-                    for (const key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            data[key] = params[key];
-                        }
-                    }
+                    addExtraParams(data, params);
 
                     sendMessage(data);
                 },
@@ -290,11 +297,7 @@ angular
                         data.contract_id = contractId;
                     }
 
-                    for (const key in extraParams) {
-                        if (extraParams.hasOwnProperty(key)) {
-                            data[key] = extraParams[key];
-                        }
-                    }
+                    addExtraParams(data, extraParams);
 
                     sendMessage(data);
                 },
@@ -366,22 +369,14 @@ angular
                     const data = {
                         new_account_real: "1"
                     };
-                    for (const key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            data[key] = params[key];
-                        }
-                    }
+                    addExtraParams(data, params);
                     sendMessage(data);
                 },
                 createMaltainvestAccountSend(params) {
                     const data = {
                         new_account_maltainvest: "1"
                     };
-                    for (const key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            data[key] = params[key];
-                        }
-                    }
+                    addExtraParams(data, params);
                     sendMessage(data);
                 },
                 statement(params) {
@@ -389,11 +384,7 @@ angular
                         statement: 1
                     };
 
-                    for (const key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            data[key] = params[key];
-                        }
-                    }
+                    addExtraParams(data, params);
 
                     sendMessage(data);
                 },
@@ -408,11 +399,7 @@ angular
                         set_self_exclusion: 1
                     };
 
-                    for (const key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            data[key] = params[key];
-                        }
-                    }
+                    addExtraParams(data, params);
 
                     sendMessage(data);
                 },
@@ -448,11 +435,7 @@ angular
                         set_financial_assessment: 1
                     };
 
-                    for (const key in params) {
-                        if (params.hasOwnProperty(key)) {
-                            data[key] = params[key];
-                        }
-                    }
+                    addExtraParams(data, params);
                     sendMessage(data);
                 },
                 tradingTimes(_date) {
@@ -502,7 +485,7 @@ angular
                 }
             };
 
-            var receiveMessage = function(_response) {
+            const receiveMessage = function(_response) {
                 const message = JSON.parse(_response.data);
 
                 if (message) {
@@ -557,23 +540,24 @@ angular
                                 trackJs.track(`${message.error.code}: ${message.error.message}`);
                             }
                             break;
-                        case "active_symbols":
-                            var markets = message.active_symbols;
-                            var groupedMarkets = _.groupBy(markets, "market");
-                            var openMarkets = {};
-                            for (const key in groupedMarkets) {
+                        case "active_symbols": {
+                            const markets = message.active_symbols;
+                            const groupedMarkets = _.groupBy(markets, "market");
+                            const openMarkets = {};
+                            Object.keys(groupedMarkets).forEach((key, index) => {
                                 if (groupedMarkets.hasOwnProperty(key)) {
-                                    if (groupedMarkets[key][0].exchange_is_open == 1) {
+                                    if (groupedMarkets[key][0].exchange_is_open === 1) {
                                         openMarkets[key] = groupedMarkets[key];
                                     }
                                 }
-                            }
+                            });
                             // if ( !sessionStorage.hasOwnProperty('active_symbols') || sessionStorage.active_symbols != JSON.stringify(openMarkets) ) {
                             sessionStorage.active_symbols = JSON.stringify(openMarkets);
                             sessionStorage.all_active_symbols = JSON.stringify(message.active_symbols);
                             $rootScope.$broadcast("symbols:updated", openMarkets);
                             // }
                             break;
+                        }
                         case "asset_index":
                             // if ( !sessionStorage.hasOwnProperty('asset_index') || sessionStorage.asset_index != JSON.stringify(message.asset_index) ) {
                             sessionStorage.asset_index = JSON.stringify(message.asset_index);
@@ -590,15 +574,16 @@ angular
                                 $rootScope.$broadcast("proposal:error", message.error, message.req_id);
                             }
                             break;
-                        case "contracts_for":
-                            var symbol = message.echo_req.contracts_for;
+                        case "contracts_for": {
+                            const symbol = message.echo_req.contracts_for;
                             if (message.error) {
                                 trackJs.track(`${message.error.code}: ${message.error.message} - ${symbol}`);
                                 break;
                             }
-                            var groupedSymbol = _.groupBy(message.contracts_for.available, "contract_category");
+                            const groupedSymbol = _.groupBy(message.contracts_for.available, "contract_category");
                             $rootScope.$broadcast("symbol", groupedSymbol);
                             break;
+                        }
                         case "buy":
                             if (message.error) {
                                 $rootScope.$broadcast("purchase:error", message.error);
@@ -775,6 +760,7 @@ angular
                             break;
                         case "forget_all":
                             $rootScope.$broadcast("forget_all", message.req_id);
+                            break;
                         case "mt5_login_list":
                             if (message.mt5_login_list) {
                                 $rootScope.$broadcast("mt5_login_list:success", message.mt5_login_list);

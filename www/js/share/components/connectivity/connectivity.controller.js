@@ -20,7 +20,7 @@
             if (ionic.Platform.isWebView()) {
                 return !$cordovaNetwork.isOnline();
             }
-            !navigator.onLine;
+            return !navigator.onLine;
         };
 
         vm.isOnline = function() {

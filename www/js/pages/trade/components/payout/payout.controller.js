@@ -18,7 +18,7 @@
         $scope.$watch(
             () => vm.proposal.amount,
             (newVal, oldVal) => {
-                if (newVal != vm.amount) {
+                if (newVal !== vm.amount) {
                     vm.amount = newVal;
                 }
             }
@@ -34,7 +34,7 @@
         };
 
         vm.changeAmount = function() {
-            if (_.isEmpty(vm.amount) || vm.amount === "NaN" || Number(vm.amount) == 0) {
+            if (_.isEmpty(vm.amount) || vm.amount === "NaN" || Number(vm.amount) === 0) {
                 vm.proposal.amount = 0;
             } else {
                 vm.proposal.amount = vm.amount;

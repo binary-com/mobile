@@ -29,7 +29,7 @@
         };
 
         $scope.$on("tnc_approval", (e, tnc_approval) => {
-            if (tnc_approval == 1) {
+            if (tnc_approval === 1) {
                 $state.go("trade");
             }
         });

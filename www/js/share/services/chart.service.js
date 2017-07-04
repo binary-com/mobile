@@ -7,9 +7,9 @@
  */
 
 angular.module("binary").factory("chartService", $rootScope => {
-    let localHistory,
-        chartDrawer,
-        contractCtrls = [];
+    let localHistory;
+    let chartDrawer;
+    let contractCtrls = [];
 
     /* Define ChartJS Options */
     const reversedIndex = function reversedIndex(i) {
@@ -63,7 +63,7 @@ angular.module("binary").factory("chartService", $rootScope => {
     setChartGlobals();
     /* End of Define ChartJS Options */
 
-    var utils = {
+    const utils = {
         zeroPad: function zeroPad(num) {
             if (num < 10) {
                 return `0${num}`;
@@ -94,8 +94,8 @@ angular.module("binary").factory("chartService", $rootScope => {
             }
         },
         fractionalLength: function fractionalLength(floatNumber) {
-            let stringNumber = floatNumber.toString(),
-                decimalLength = stringNumber.indexOf(".");
+            const stringNumber = floatNumber.toString();
+            const decimalLength = stringNumber.indexOf(".");
             return stringNumber.length - decimalLength - 1;
         },
         maxFractionalLength: function maxFractionalLength(floatNumbers) {
@@ -187,11 +187,11 @@ angular.module("binary").factory("chartService", $rootScope => {
     };
 
     const Stepper = function Stepper() {
-        let tickDistance = 0,
-            startingPosition = 0,
-            startingDataIndex = 0,
-            started = false,
-            previousTime = 0;
+        let tickDistance = 0;
+        let startingPosition = 0;
+        let startingDataIndex = 0;
+        let started = false;
+        let previousTime = 0;
 
         const setStartPosition = function setStartPosition(dataIndex, position) {
             startingPosition = position;
@@ -252,11 +252,11 @@ angular.module("binary").factory("chartService", $rootScope => {
         };
 
         const updateHistoryArray = function updateHistoryArray(historyArray, history) {
-            let times = history.times,
-                prices = history.prices;
+            const times = history.times;
+            const prices = history.prices;
             const compare = function compare(a, b) {
-                let timea = parseInt(a.time),
-                    timeb = parseInt(b.time);
+                const timea = parseInt(a.time);
+                const timeb = parseInt(b.time);
                 if (timea < timeb) {
                     return -1;
                 } else if (timea > timeb) {
@@ -287,8 +287,8 @@ angular.module("binary").factory("chartService", $rootScope => {
         };
 
         const getHistory = function getHistory(dataIndex, count, callback) {
-            let end = capacity - dataIndex,
-                start = end - count;
+            const end = capacity - dataIndex;
+            const start = end - count;
             if (start >= 0) {
                 callback(historyData.slice(start, end));
             } else {
@@ -486,7 +486,7 @@ angular.module("binary").factory("chartService", $rootScope => {
         const addRegions = function addRegions(lastTime, lastPrice) {
             if (hasEntrySpot() && broadcastable) {
                 if (tickPriceList.length === 0) {
-                    if (contract.entrySpotTime != lastTime && betweenExistingSpots(lastTime)) {
+                    if (contract.entrySpotTime !== lastTime && betweenExistingSpots(lastTime)) {
                         tickPriceList.push(parseFloat(contract.entrySpotPrice));
                         if (utils.conditions[contract.type](contract.barrier, contract.entrySpotPrice, tickPriceList)) {
                             contract.result = "win";
@@ -550,12 +550,12 @@ angular.module("binary").factory("chartService", $rootScope => {
     };
 
     const ChartDrawer = function ChartDrawer() {
-        let dataIndex = 0,
-            canvas,
-            ctx,
-            dragging = false,
-            zooming = false,
-            stepper = Stepper();
+        let dataIndex = 0;
+        let canvas;
+        let ctx;
+        let dragging = false;
+        let zooming = false;
+        let stepper = Stepper();
 
         const isLastPoint = function isLastPoint(i) {
             if (reversedIndex(i) === 0) {
@@ -610,12 +610,10 @@ angular.module("binary").factory("chartService", $rootScope => {
         };
 
         const drawRegion = function drawRegion(thisChart, region) {
-            let height = thisChart.scale.endPoint - thisChart.scale.startPoint + 12, // + 12 to size up the region to the top
-                length,
-                end,
-                start;
+            const height = thisChart.scale.endPoint - thisChart.scale.startPoint + 12; // + 12 to size up the region to the top
+            let end;
 
-            start = thisChart.datasets[0].points[region.start].x;
+            const start = thisChart.datasets[0].points[region.start].x;
             if (utils.isDefined(region.end)) {
                 end = thisChart.datasets[0].points[region.end].x;
             } else {
@@ -624,7 +622,7 @@ angular.module("binary").factory("chartService", $rootScope => {
             if (end <= start) {
                 return;
             }
-            length = end - start;
+            const length = end - start;
             ctx.fillStyle = region.color;
             ctx.fillRect(start, thisChart.scale.startPoint - 12, length, height); // begin the region from the top
         };
@@ -667,12 +665,11 @@ angular.module("binary").factory("chartService", $rootScope => {
         };
 
         const findSpots = function findSpots(points) {
-            let entries = [],
-                exits = [];
+            const entries = [];
+            const exits = [];
             contractCtrls.forEach(contract => {
-                let entry, exit;
-                entry = contract.getEntrySpotPoint(points);
-                exit = contract.getExitSpotPoint(points);
+                const entry = contract.getEntrySpotPoint(points);
+                const exit = contract.getExitSpotPoint(points);
                 if (utils.isDefined(entry)) {
                     entries.push(entry);
                 }
@@ -745,9 +742,9 @@ angular.module("binary").factory("chartService", $rootScope => {
 
         const drawLastTickLabel = function(point, index) {
             if (index !== 0 && utils.isDefined(point.shown) && point.shown) {
-                let marginX = 10,
-                    marginY = 30,
-                    padding = 5;
+                const marginX = 10;
+                const marginY = 30;
+                const padding = 5;
                 const fontSize = 12;
                 ctx.font = ctx.font.replace(/\d+px/, `${fontSize}px`);
                 const value = ctx.measureText(point.value);
@@ -844,17 +841,17 @@ angular.module("binary").factory("chartService", $rootScope => {
                 const helpers = Chart.helpers;
                 const each = helpers.each;
                 const aliasPixel = helpers.aliasPixel;
-                let ctx = this.ctx,
-                    yLabelGap = (this.endPoint - this.startPoint) / this.steps,
-                    xStart = Math.round(this.xScalePaddingLeft);
+                const ctx = this.ctx;
+                const yLabelGap = (this.endPoint - this.startPoint) / this.steps;
+                const xStart = Math.round(this.xScalePaddingLeft);
                 if (this.display) {
                     ctx.fillStyle = this.textColor;
                     ctx.font = this.font;
                     each(
                         this.yLabels,
                         function(labelString, index) {
-                            let yLabelCenter = this.endPoint - yLabelGap * index,
-                                linePositionY = Math.round(yLabelCenter);
+                            const yLabelCenter = this.endPoint - yLabelGap * index;
+                            let linePositionY = Math.round(yLabelCenter);
 
                             ctx.textAlign = "right";
                             ctx.textBaseline = "middle";
@@ -895,10 +892,9 @@ angular.module("binary").factory("chartService", $rootScope => {
                             if (typeof this.labelsFilter === "function" && this.labelsFilter(index)) {
                                 filtered = true;
                             }
-                            let xPos = this.calculateX(index) + aliasPixel(this.lineWidth),
-                                linePos =
-                                    this.calculateX(index - (this.offsetGridLines ? 0.5 : 0)) +
-                                    aliasPixel(this.lineWidth);
+                            const xPos = this.calculateX(index) + aliasPixel(this.lineWidth);
+                            const linePos = this.calculateX(index - (this.offsetGridLines ? 0.5 : 0)) +
+                            aliasPixel(this.lineWidth);
 
                             ctx.beginPath();
 
@@ -1032,7 +1028,8 @@ angular.module("binary").factory("chartService", $rootScope => {
                         steps          : this.options.scaleSteps,
                         stepValue      : this.options.scaleStepWidth,
                         min            : this.options.scaleStartValue,
-                        max            : this.options.scaleStartValue + this.options.scaleSteps * this.options.scaleStepWidth
+                        max            : this.options.scaleStartValue
+                                          + this.options.scaleSteps * this.options.scaleStepWidth
                     });
                 }
 
@@ -1137,8 +1134,8 @@ angular.module("binary").factory("chartService", $rootScope => {
             contractCtrls.forEach(contract => {
                 contract.resetSpotShowing();
             });
-            let times = [],
-                prices = [];
+            const times = [];
+            const prices = [];
 
             ticks.forEach((tick, index) => {
                 const tickTime = parseInt(tick.time);
@@ -1157,7 +1154,8 @@ angular.module("binary").factory("chartService", $rootScope => {
         };
 
         const updateContracts = function updateContracts(ticks) {
-            let lastTime, lastPrice;
+            let lastTime;
+            let lastPrice;
 
             ticks.forEach((tick, index) => {
                 const tickTime = parseInt(tick.time);
@@ -1226,7 +1224,7 @@ angular.module("binary").factory("chartService", $rootScope => {
             zoom("in");
         };
 
-        var move = function move(steps, update) {
+        const move = function move(steps, update) {
             if (steps === 0) {
                 return;
             }

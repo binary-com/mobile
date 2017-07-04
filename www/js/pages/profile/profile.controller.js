@@ -135,14 +135,14 @@
 
         $scope.$on("set-settings:error", (e, error) => {
             if (!vm.isVirtualAccount && error.hasOwnProperty("details")) {
-                for (const key in error.details) {
+                Object.keys(error.details).forEach((key, index) => {
                     const errorField = key;
                     const ErrorMessage = error.details[key];
                     if (vm.realAccountFields.indexOf(errorField) > -1) {
                         vm[`${errorField}Error`] = true;
                         vm[`${errorField}ErrorMessage`] = ErrorMessage;
                     }
-                }
+                });
             }
             vm.disableUpdateButton = false;
             alertService.displayError(error.message);
@@ -202,7 +202,7 @@
                 vm.params = {};
                 vm.notAnyChanges = true;
                 _.forEach(vm.realAccountFields, (value, key) => {
-                    if (vm.profile[value] != null && vm.profile[value] != undefined) {
+                    if (vm.profile[value] != null && vm.profile[value] !== undefined) {
                         if (vm.profile[value] === "address_postcode") {
                             vm.params[value] = vm.profile[value].trim();
                         } else {
@@ -226,21 +226,21 @@
         };
 
         vm.validateGeneral = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
+            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
-                    return reg != true;
+                    return reg !== true;
                 }
             };
         })();
 
         vm.validateAddress = (function(val) {
-            const regex = /[`~!#$%^&*)(_=+\[}{\]\\";:\?><|]+/;
+            const regex = /[`~!#$%^&*)(_=+[}{\]\\";:?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
-                    return reg != true;
+                    return reg !== true;
                 }
             };
         })();

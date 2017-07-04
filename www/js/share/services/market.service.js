@@ -17,22 +17,21 @@ angular.module("binary").service("marketService", function(websocketService, pro
             YANGYIN  : ["RDYANG", "RDYIN"]
         };
 
-        let result = [],
-            itemIndices = [];
+        let result = [];
+        const itemIndices = [];
         Object.keys(groups).forEach(key => {
-            let tmp = [],
-                first = -1;
+            const tmp = [];
+            let first = -1;
             symbols.forEach((item, index) => {
-                if (item.symbol == groups[key][0]) {
+                if (item.symbol === groups[key][0]) {
                     first = index;
                 }
             });
-            if (first < 0) {
-            } else {
+            if (first >= 0) {
                 groups[key].forEach((item, index) => {
                     let itemIndex = -1;
                     symbols.forEach((item, i) => {
-                        if (item.symbol == groups[key][index]) {
+                        if (item.symbol === groups[key][index]) {
                             itemIndex = i;
                         }
                     });
@@ -88,10 +87,11 @@ angular.module("binary").service("marketService", function(websocketService, pro
             return Object.keys(data);
         }
 
-        console.log(data);
+        console.log(data); // eslint-disable-line
         return [];
     };
 
+    // TODO Remove getAllSymbolsForAMarket: This function is not used anymore
     this.getAllSymbolsForAMarket = function(_market) {
         if (!_market || !sessionStorage.active_symbols || !sessionStorage.asset_index) {
             return [];
@@ -102,8 +102,8 @@ angular.module("binary").service("marketService", function(websocketService, pro
         const indexes = config.assetIndexes;
         const result = [];
 
-        activeSymbols.map(market => {
-            for (var i = 0; i < assetIndex.length; i++) {
+        activeSymbols.forEach( (market) => {
+            for (let i = 0; i < assetIndex.length; i++) {
                 if (market.symbol === assetIndex[i][indexes.symbol]) {
                     const assetContracts = assetIndex[i][indexes.contracts];
                     for (let c = 0; c < assetContracts.length; c++) {
@@ -116,7 +116,7 @@ angular.module("binary").service("marketService", function(websocketService, pro
                     break; // do not loop through remained assets, since the related asset_index has been found but is not supporting ticks
                 }
             }
-            assetIndex.splice(i, 1); // to shorten the list for the next loop
+            // assetIndex.splice(i, 1); // to shorten the list for the next loop
         });
 
         return result;
@@ -156,7 +156,7 @@ angular.module("binary").service("marketService", function(websocketService, pro
                 proposal.passthrough &&
                 proposal.passthrough.market &&
                 proposal.symbol &&
-                proposal.passthrough.market == _market
+                proposal.passthrough.market === _market
             ) {
                 return proposal.symbol;
             }
@@ -172,7 +172,7 @@ angular.module("binary").service("marketService", function(websocketService, pro
             const contractType = proposal.contract_type;
             let selectedTradeType = _tradeTypes[0].value;
             _tradeTypes.forEach((el, i) => {
-                if (el.value == contractType) {
+                if (el.value === contractType) {
                     selectedTradeType = contractType;
                 }
             });
@@ -208,7 +208,7 @@ angular.module("binary").service("marketService", function(websocketService, pro
         const finalTradeTypes = [];
 
         tradeTypes.forEach((el, i) => {
-            for (const key in _symbol) {
+            Object.keys(_symbol).forEach((key, index) => {
                 if (_symbol.hasOwnProperty(key)) {
                     // Find the tradeType in _symbol list
                     if (el.value === key) {
@@ -225,7 +225,7 @@ angular.module("binary").service("marketService", function(websocketService, pro
                         }
                     }
                 }
-            }
+            });
         });
 
         return finalTradeTypes;

@@ -157,7 +157,7 @@ angular.module("binary").service("accountService", function(websocketService, ap
     this.getDefault = function() {
         const accountList = this.getAll();
         const index = findIndex(accountList, "is_default", true);
-        if (index == -1) {
+        if (index === -1) {
             return null;
         }
         return accountList[index];
@@ -181,12 +181,13 @@ angular.module("binary").service("accountService", function(websocketService, ap
 
         if (appStateService.isLoggedin && !_.isEmpty(appStateService.scopes)) {
             result = true;
-            for (const s in scopes) {
-                if (appStateService.scopes.indexOf(scopes[s].toLowerCase()) < 0) {
+            scopes.some((value, index) => {
+                if (appStateService.scopes.indexOf(value.toLowerCase()) < 0) {
                     result = false;
-                    break;
+                    return true;
                 }
-            }
+                return false;
+            });
         }
         return result;
     };

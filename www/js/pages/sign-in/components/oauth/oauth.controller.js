@@ -26,7 +26,7 @@
 
         const authenticate = function(_token) {
             // Validate the token
-            if (_token && _token.length == 32) {
+            if (_token && _token.length === 32) {
                 $ionicLoading.show();
                 websocketService.authenticate(_token);
             } else {
@@ -45,15 +45,13 @@
 
         $scope.$on("authorize", (e, response) => {
             if (response) {
-                for (const a in accounts) {
-                    if (a == 0) {
-                        continue;
+                accounts.forEach((value, index) => {
+                    if (index > 0) {
+                        accounts[index].email = response.email;
+                        accounts[index].country = response.country;
+                        accountService.add(accounts[index]);
                     }
-
-                    accounts[a].email = response.email;
-                    accounts[a].country = response.country;
-                    accountService.add(accounts[a]);
-                }
+                });
             }
             $ionicLoading.hide();
         });
@@ -87,14 +85,17 @@
             let result = null;
             const accounts = [];
 
-            while ((result = regex.exec(_url))) {
-                accounts.push({
-                    loginid   : result[1],
-                    token     : result[2],
-                    email     : "",
-                    is_default: false
-                });
-            }
+            do {
+                result = regex.exec(_url);
+                if(result){
+                    accounts.push({
+                        loginid   : result[1],
+                        token     : result[2],
+                        email     : "",
+                        is_default: false
+                    });
+                }
+            } while (result)
 
             return accounts;
         }
@@ -104,9 +105,12 @@
             let result = null;
             const error = [];
 
-            while ((result = regex.exec(_url))) {
-                error.push(result[1]);
-            }
+            do {
+                result = regex.exec(_url);
+                if (result) {
+                    error.push(result[1]);
+                }
+            } while (result)
 
             return error;
         }

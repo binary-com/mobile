@@ -24,7 +24,7 @@
 
         $scope.$on("$stateChangeStart", (e, toState, toParams, fromState, fromParams, options) => {
             if (appStateService.siteStatus === "down") {
-                if (fromState.name == "outage" || toState.name !== "outage") {
+                if (fromState.name === "outage" || toState.name !== "outage") {
                     e.preventDefault();
                 }
             }

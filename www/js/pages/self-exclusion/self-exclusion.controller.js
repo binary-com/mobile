@@ -77,7 +77,7 @@
 
             // Convert all numbers to string for supporting number with more than 15 digits
             let stringify = JSON.stringify(data);
-            stringify = stringify.replace(/:(\d+)([,\}])/g, ':"$1"$2');
+            stringify = stringify.replace(/:(\d+)([,}])/g, ':"$1"$2');
             websocketService.sendRequestFor.setSelfExclusion(JSON.parse(stringify));
         }
 

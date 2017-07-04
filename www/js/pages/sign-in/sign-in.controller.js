@@ -129,7 +129,7 @@
         // Hide & show password function
         vm.data.inputType = "password";
         vm.hideShowPassword = function() {
-            if (vm.data.inputType == "password") vm.data.inputType = "text";
+            if (vm.data.inputType === "password") vm.data.inputType = "text";
             else vm.data.inputType = "password";
         };
 

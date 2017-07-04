@@ -123,7 +123,7 @@
 
         vm.hasRealityCheck = function() {
             // if not asked the interval from user and the start time of reality check popups are not set in sessionStorage
-            if (!appStateService.isRealityChecked && _.isEmpty(sessionStorage._interval) == true) {
+            if (!appStateService.isRealityChecked && _.isEmpty(sessionStorage._interval) === true) {
                 vm.realityCheck();
             } else if (!appStateService.isRealityChecked && !_.isEmpty(sessionStorage.start)) {
                 // if not asked the interval from user and the start time of reality check popups are set in sessionStorage
@@ -134,15 +134,12 @@
                 const thisTime = new Date().getTime();
                 // if the difference above is smaller than the interval set the period for popup timeout to remained time
                 if (vm.getInterval("_interval") * 60000 - (thisTime - timeGap) > 0) {
-                    var period = vm.getInterval("_interval") * 60000 - (thisTime - timeGap);
+                    const period = vm.getInterval("_interval") * 60000 - (thisTime - timeGap);
                     vm.realityCheckTimeout = $timeout(vm.getRealityCheck, period);
                 }
-            } else {
-                // if user did not refresh the app and the interval is set
-                if (_.isEmpty(sessionStorage._interval) == false) {
-                    var period = vm.getInterval("_interval") * 60000;
-                    vm.realityCheckTimeout = $timeout(vm.getRealityCheck, period);
-                }
+            } else if (_.isEmpty(sessionStorage._interval) === false) { // if user did not refresh the app and the interval is set
+                const period = vm.getInterval("_interval") * 60000;
+                vm.realityCheckTimeout = $timeout(vm.getRealityCheck, period);
             }
         };
 
@@ -207,7 +204,7 @@
         vm.logout = function() {
             alertService.confirmRemoveAllAccount(res => {
                 if (typeof res !== "boolean") {
-                    if (res == 1) res = true;
+                    if (res === 1) res = true;
                     else res = false;
                 }
 

@@ -7,5 +7,5 @@
  */
 
 angular.module("binary").service("notificationService", function() {
-    this.notices = new Array();
+    this.notices = [];
 });

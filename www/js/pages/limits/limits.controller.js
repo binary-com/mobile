@@ -55,7 +55,11 @@
 
         $scope.$on("authorize", () => {
             if (appStateService.limitsChange) {
-                appStateService.virtuality ? $state.go("trade") : $state.reload();
+                if(appStateService.virtuality) {
+                    $state.go("trade");
+                } else {
+                    $state.reload();
+                }
                 appStateService.limitsChange = false;
             }
         });

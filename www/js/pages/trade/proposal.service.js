@@ -14,6 +14,56 @@
     function Proposal($rootScope, websocketService) {
         const factory = {};
 
+        const proposalSchema = {
+            amount: {
+                presence: true,
+                format  : {
+                    pattern: /^(\d+\.?\d{0,2}|\.\d{1,2})$/
+                }
+            },
+            basis: {
+                persence: true,
+                format  : {
+                    pattern: /^payout|stake$/
+                }
+            },
+            contract_type: {
+                persence: true,
+                format  : {
+                    pattern: /^\w{2,30}$/
+                }
+            },
+            currency: {
+                persence: true,
+                format  : {
+                    pattern: /^[A-Z]{3}$/
+                }
+            },
+            duration: {
+                persence: true,
+                format  : {
+                    pattern: /^\d+$/
+                }
+            },
+            duration_unit: {
+                persence: true,
+                format  : {
+                    pattern: /^d|m|s|h|t$/
+                }
+            },
+            symbol: {
+                persence: true,
+                format  : {
+                    pattern: /^\w{2,30}$/
+                }
+            },
+            barrier: {
+                persence: false,
+                format  : {
+                    pattern: /^[+-]?\d+\.?\d*$/
+                }
+            }
+        };
         factory.get = function() {
             if (_.isEmpty(localStorage.options)) {
                 return create();
@@ -118,56 +168,6 @@
             return isValidate;
         }
 
-        var proposalSchema = {
-            amount: {
-                presence: true,
-                format  : {
-                    pattern: /^(\d+\.?\d{0,2}|\.\d{1,2})$/
-                }
-            },
-            basis: {
-                persence: true,
-                format  : {
-                    pattern: /^payout|stake$/
-                }
-            },
-            contract_type: {
-                persence: true,
-                format  : {
-                    pattern: /^\w{2,30}$/
-                }
-            },
-            currency: {
-                persence: true,
-                format  : {
-                    pattern: /^[A-Z]{3}$/
-                }
-            },
-            duration: {
-                persence: true,
-                format  : {
-                    pattern: /^\d+$/
-                }
-            },
-            duration_unit: {
-                persence: true,
-                format  : {
-                    pattern: /^d|m|s|h|t$/
-                }
-            },
-            symbol: {
-                persence: true,
-                format  : {
-                    pattern: /^\w{2,30}$/
-                }
-            },
-            barrier: {
-                persence: false,
-                format  : {
-                    pattern: /^[+-]?\d+\.?\d*$/
-                }
-            }
-        };
 
         return factory;
     }

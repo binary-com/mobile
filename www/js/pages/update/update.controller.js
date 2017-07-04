@@ -46,7 +46,6 @@
                 },
                 error => {
                     vm.versions = null;
-                    console.log(error);
                 }
             );
         }

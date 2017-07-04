@@ -17,11 +17,11 @@
             _.forEach(contracts, (value, key) => {
                 const contracts = [];
 
-                for (const i in value) {
+                value.forEach((v, i) => {
                     if (value[i].expiry_type === "tick") {
                         contracts.push(value[i]);
                     }
-                }
+                });
 
                 if (contracts.length > 0) {
                     tradeTypes[key] = contracts;
@@ -30,7 +30,7 @@
 
             const groupedTradeTypes = {};
             _.forEach(tradeTypes, (value, key) => {
-                if (value.length == 2) {
+                if (value.length === 2) {
                     groupedTradeTypes[value[0].contract_category_display] = value;
                 } else {
                     for (let i = 0; i < value.length; i += 2) {

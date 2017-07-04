@@ -117,31 +117,31 @@
 
         // regexp pattern for validating name input
         vm.validateGeneral = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/;
+            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
-                    return reg != true;
+                    return reg !== true;
                 }
             };
         })();
 
         vm.validateAddress = (function(val) {
-            const regex = /[`~!#$%^&*)(_=+\[}{\]\\";:\?><|]+/;
+            const regex = /[`~!#$%^&*)(_=+[}{\]\\";:?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
-                    return reg != true;
+                    return reg !== true;
                 }
             };
         })();
 
         vm.validateSecretAnswer = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><|]+/;
+            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
-                    return reg != true;
+                    return reg !== true;
                 }
             };
         })();
@@ -188,7 +188,7 @@
                     vm.settingTaxResidence = _.words(vm.data.tax_residence);
                     // check the "checked" value to true for every residence in residence list which is in user tax residences
                     vm.selectedTaxResidencesName = null;
-                    for (var index = vm.settingTaxResidence.length; index--; ) {
+                    for (let index = vm.settingTaxResidence.length; index--; ) {
                         const taxResidence = _.find(vm.residenceList, (value, key) => {
                             if (vm.settingTaxResidence[index] === vm.residenceList[key].value) {
                                 vm.residenceList[key].checked = true;

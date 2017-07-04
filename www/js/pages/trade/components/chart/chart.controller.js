@@ -24,7 +24,7 @@
 
             if (!_.isEmpty(contractId)) {
                 portfolio.contracts.forEach(contract => {
-                    if (contract.contract_id == contractId) {
+                    if (contract.contract_id.toString() === contractId) {
                         chartService.addContract({
                             startTime: contract.date_start + 1,
                             duration : parseInt(vm.proposal.duration),

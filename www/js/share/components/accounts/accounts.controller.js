@@ -40,7 +40,7 @@
             }
         };
 
-        var updateSymbols = function() {
+        const updateSymbols = function() {
             // Wait untile the login progress is finished
             if (!appStateService.isLoggedin) {
                 setTimeout(updateSymbols, 500);

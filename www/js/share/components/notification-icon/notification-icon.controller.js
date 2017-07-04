@@ -30,7 +30,7 @@
         );
 
         vm.goToNotifications = function() {
-            if ($state.current.name == "notifications") {
+            if ($state.current.name === "notifications") {
                 $ionicHistory.goBack();
             } else {
                 $state.go("notifications");

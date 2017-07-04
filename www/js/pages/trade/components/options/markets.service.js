@@ -43,11 +43,11 @@
             _.forEach(activeSymbols, (value, key) => {
                 const underlying = [];
 
-                for (const i in value) {
+                value.forEach((v, i) => {
                     if (isSupportTick(value[i].symbol)) {
                         underlying.push(value[i]);
                     }
-                }
+                });
 
                 if (underlying.length > 0) {
                     markets[key] = {
