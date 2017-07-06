@@ -6,22 +6,18 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.payout.directives").directive("bgPayout", Payout);
 
-    angular
-        .module('binary.pages.trade.components.payout.directives')
-        .directive('bgPayout', Payout);
-
-    function Payout(){
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/pages/trade/components/payout/payout.template.html',
-            controller: 'PayoutController',
-            controllerAs: 'vm',
+    function Payout() {
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/pages/trade/components/payout/payout.template.html",
+            controller      : "PayoutController",
+            controllerAs    : "vm",
             bindToController: true,
-            scope: {
-                proposal: '='
+            scope           : {
+                proposal: "="
             }
         };
 

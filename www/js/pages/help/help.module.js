@@ -7,14 +7,8 @@
  * Application Header
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.help", ["binary.pages.help.controllers"]);
 
-  angular
-    .module('binary.pages.help', [
-        'binary.pages.help.controllers'
-    ]);
-
-  angular
-    .module('binary.pages.help.controllers', []);
+    angular.module("binary.pages.help.controllers", []);
 })();

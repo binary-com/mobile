@@ -6,15 +6,8 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.home", ["binary.pages.home.controllers"]);
 
-  angular
-    .module('binary.pages.home', [
-        'binary.pages.home.controllers'
-    ]);
-
-  angular
-    .module('binary.pages.home.controllers', []);
+    angular.module("binary.pages.home.controllers", []);
 })();
-

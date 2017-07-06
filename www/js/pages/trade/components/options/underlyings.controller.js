@@ -6,24 +6,20 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
-
-    angular
-        .module('binary.pages.trade.components.options.controllers')
-        .controller('UnderlyingsController', Underlying);
+(function() {
+    angular.module("binary.pages.trade.components.options.controllers").controller("UnderlyingsController", Underlying);
 
     Underlying.$inject = [];
 
-    function Underlying(){
-        var vm = this;
+    function Underlying() {
+        const vm = this;
         vm.underlyings = [];
 
         vm.selectUnderlying = function(underlying) {
             vm.select()(underlying);
-        }
+        };
 
-        function init(){
+        function init() {
             vm.underlyings = vm.market.underlying;
         }
 

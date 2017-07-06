@@ -7,21 +7,17 @@
  * Application Header
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.ping.directives").directive("ping", Ping);
 
-  angular
-    .module('binary.share.components.ping.directives')
-    .directive('ping', Ping);
+    function Ping() {
+        const directive = {
+            restrict    : "E",
+            controller  : "PingController",
+            controllerAs: "vm",
+            scope       : {}
+        };
 
-  function Ping(){
-    var directive = {
-      restrict: 'E',
-      controller: 'PingController',
-      controllerAs: 'vm',
-      scope: {}
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 })();

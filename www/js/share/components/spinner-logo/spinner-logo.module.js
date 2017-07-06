@@ -6,19 +6,13 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
-
-  angular
-    .module('binary.share.components.spinner-logo', [
-        'binary.share.components.spinner-logo.directives',
-        'binary.share.components.spinner-logo.controllers'
+(function() {
+    angular.module("binary.share.components.spinner-logo", [
+        "binary.share.components.spinner-logo.directives",
+        "binary.share.components.spinner-logo.controllers"
     ]);
 
-  angular
-    .module('binary.share.components.spinner-logo.directives', []);
+    angular.module("binary.share.components.spinner-logo.directives", []);
 
-  angular
-    .module('binary.share.components.spinner-logo.controllers', []);
+    angular.module("binary.share.components.spinner-logo.controllers", []);
 })();
-

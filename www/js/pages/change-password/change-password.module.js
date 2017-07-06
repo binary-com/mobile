@@ -7,14 +7,7 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.pages.change-password", ["binary.pages.change-password.controllers"]);
 
-    angular
-        .module('binary.pages.change-password', [
-            'binary.pages.change-password.controllers'
-        ]);
-
-    angular
-        .module('binary.pages.change-password.controllers', []);
-
+    angular.module("binary.pages.change-password.controllers", []);
 })();

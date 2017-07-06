@@ -6,26 +6,21 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.longcode.directives").directive("bgLongcode", Longcode);
 
-  angular
-    .module('binary.pages.trade.components.longcode.directives')
-    .directive('bgLongcode', Longcode);
+    function Longcode() {
+        const direciive = {
+            restrict        : "E",
+            templateUrl     : "js/pages/trade/components/longcode/longcode.template.html",
+            controller      : "LongcodeController",
+            controllerAs    : "vm",
+            bindToController: true,
+            scope           : {
+                purchasedContract: "="
+            }
+        };
 
-  function Longcode(){
-    var direciive = {
-      restrict: 'E',
-      templateUrl: 'js/pages/trade/components/longcode/longcode.template.html',
-      controller: 'LongcodeController',
-      controllerAs: 'vm',
-      bindToController: true,
-      scope: {
-        purchasedContract: '='
-      }
-    };
-
-    return direciive;
-  }
-
+        return direciive;
+    }
 })();

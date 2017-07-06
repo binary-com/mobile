@@ -7,23 +7,17 @@
  */
 
 (function() {
-  'use strict';
+    angular.module("binary.pages.notifications.controllers").controller("NotificationsController", Notifications);
 
-  angular
-    .module('binary.pages.notifications.controllers')
-    .controller('NotificationsController', Notifications);
+    Notifications.$inject = ["$scope", "appStateService", "notificationService"];
 
-  Notifications.$inject = ['$scope', 'appStateService', 'notificationService'];
-
-  function Notifications($scope, appStateService, notificationService) {
-    var vm = this;
-    $scope.$watch(
-      () => {
-      return notificationService.notices
-    },
-      () => {
-      vm.notices = notificationService.notices;
+    function Notifications($scope, appStateService, notificationService) {
+        const vm = this;
+        $scope.$watch(
+            () => notificationService.notices,
+            () => {
+                vm.notices = notificationService.notices;
+            }
+        );
     }
-  );
-  }
 })();

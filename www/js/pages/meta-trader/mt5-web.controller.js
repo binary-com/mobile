@@ -6,21 +6,17 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.meta-trader.controllers").controller("MT5WebController", MTWeb);
 
-  angular
-    .module('binary.pages.meta-trader.controllers')
-    .controller('MT5WebController', MTWeb);
+    MTWeb.$inject = ["$sce", "$stateParams"];
 
-  MTWeb.$inject = ['$sce', '$stateParams'];
+    function MTWeb($sce, $stateParams) {
+        const vm = this;
+        vm.url = "https://trade.mql5.com/trade?servers=Binary.com-Server&trade_server=Binary.com-Server&login=";
 
-  function MTWeb($sce, $stateParams){
-    var vm = this;
-    vm.url = 'https://trade.mql5.com/trade?servers=Binary.com-Server&trade_server=Binary.com-Server&login=';
+        vm.url += $stateParams.id;
 
-    vm.url += $stateParams.id;
-
-    vm.url = $sce.trustAsResourceUrl(vm.url);
-  }
+        vm.url = $sce.trustAsResourceUrl(vm.url);
+    }
 })();

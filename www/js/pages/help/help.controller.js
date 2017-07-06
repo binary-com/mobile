@@ -7,29 +7,25 @@
  * Application Header
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.help.controllers").controller("HelpController", Help);
 
-  angular
-    .module('binary.pages.help.controllers')
-    .controller('HelpController', Help);
+    Help.$inject = ["$state", "analyticsService", "languageService"];
 
-  Help.$inject = ['$state', 'analyticsService', 'languageService'];
+    function Help($state, analyticsService, languageService) {
+        const vm = this;
+        const language = languageService.read();
+        vm.tokenUrl = `https://www.binary.com/${language.toLowerCase()}/user/settings/api_tokenws.html`;
 
-  function Help($state, analyticsService, languageService){
-    var vm = this;
-    var language = languageService.read();
-    vm.tokenUrl = "https://www.binary.com/" + language.toLowerCase() +"/user/settings/api_tokenws.html";
+        analyticsService.google.trackView("Help");
 
-    analyticsService.google.trackView("Help");
+        vm.backToSignInPage = function() {
+            $state.go("signin");
+        };
 
-    vm.backToSignInPage = function() {
-      $state.go('signin');
-    };
-
-    vm.openExternal = function($event){
-      window.open($event.currentTarget.href, "_system");
-      return false;
+        vm.openExternal = function($event) {
+            window.open($event.currentTarget.href, "_system");
+            return false;
+        };
     }
-  }
 })();
