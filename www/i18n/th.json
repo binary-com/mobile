@@ -44,7 +44,7 @@
   },
   "options":{
     "account":"บัญชี",
-    "select_market":"Select market",
+    "market":"Markets",
     "forex":"ฟอเร็กซ์",
     "random":"สุ่ม",
     "volidx":"ดัชนีผันผวน",
@@ -75,6 +75,7 @@
     "up_down":"ขึ้น/ลง",
     "markets_are_closed":"Sorry, All markets are currently closed. Please try again later",
     "cancel":"Cancel",
+    "select_market":"Select Market",
     "select_underlying":"Select Underlying",
     "select_tradetype":"Select Tradetype",
     "select_tick":"Select Tick",
