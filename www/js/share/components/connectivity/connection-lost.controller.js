@@ -6,30 +6,28 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular
+        .module("binary.share.components.connectivity.controllers")
+        .controller("ConnectionLostController", ConnectionLost);
 
-  angular
-    .module('binary.share.components.connectivity.controllers')
-    .controller('ConnectionLostController', ConnectionLost);
+    ConnectionLost.$inject = ["$scope"];
 
-  ConnectionLost.$inject = ['$scope'];
+    function ConnectionLost($scope) {
+        const vm = this;
 
-  function ConnectionLost($scope){
-    var vm = this;
-
-    vm.showMessage = false;
-
-    $scope.$on('connection:ready', (e)=>{
-      $scope.$applyAsync(()=>{
         vm.showMessage = false;
-      });
-    });
 
-    $scope.$on('connection:error', (e)=>{
-      $scope.$applyAsync(()=>{
-        vm.showMessage = true;
-      });
-    });
-  }
+        $scope.$on("connection:ready", e => {
+            $scope.$applyAsync(() => {
+                vm.showMessage = false;
+            });
+        });
+
+        $scope.$on("connection:error", e => {
+            $scope.$applyAsync(() => {
+                vm.showMessage = true;
+            });
+        });
+    }
 })();

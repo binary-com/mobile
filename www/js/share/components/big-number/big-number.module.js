@@ -6,14 +6,8 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.big-number", ["binary.share.components.big-number.directives"]);
 
-  angular
-    .module('binary.share.components.big-number', [
-        'binary.share.components.big-number.directives'
-    ]);
-
-  angular
-    .module('binary.share.components.big-number.directives', []);
+    angular.module("binary.share.components.big-number.directives", []);
 })();

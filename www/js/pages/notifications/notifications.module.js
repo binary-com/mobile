@@ -7,14 +7,7 @@
  */
 
 (function() {
-  'use strict';
+    angular.module("binary.pages.notifications", ["binary.pages.notifications.controllers"]);
 
-  angular
-    .module('binary.pages.notifications', [
-      'binary.pages.notifications.controllers'
-    ]);
-
-  angular
-    .module('binary.pages.notifications.controllers', []);
-
+    angular.module("binary.pages.notifications.controllers", []);
 })();

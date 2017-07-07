@@ -6,29 +6,25 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.resources.controllers").controller("ResourcesController", Resources);
 
-  angular
-    .module('binary.pages.resources.controllers')
-    .controller('ResourcesController', Resources);
+    Resources.$inject = [];
 
-  Resources.$inject = [];
+    function Resources() {
+        const vm = this;
+        vm.ios = ionic.Platform.isIOS();
+        vm.android = ionic.Platform.isAndroid();
 
-  function Resources(){
-    var vm = this;
-    vm.ios = ionic.Platform.isIOS();
-    vm.android = ionic.Platform.isAndroid();
-
-    vm.resources = [
-			{
-        name: "resources.trading-times",
-        url: "trading-times"
-      },
-      {
-        name: "resources.asset-index",
-        url: "asset-index"
-      }
-    ];
-  }
+        vm.resources = [
+            {
+                name: "resources.trading-times",
+                url : "trading-times"
+            },
+            {
+                name: "resources.asset-index",
+                url : "asset-index"
+            }
+        ];
+    }
 })();

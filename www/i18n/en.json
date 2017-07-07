@@ -44,7 +44,7 @@
   },
   "options": {
     "account": "Account",
-    "select_market": "Markets",
+    "market": "Markets",
     "forex": "Forex",
     "random": "Random",
     "volidx": "Volatility Indices",
@@ -75,7 +75,7 @@
     "up_down": "Up/Down",
     "markets_are_closed": "Sorry, All markets are currently closed. Please try again later",
     "cancel": "Cancel",
-    "select_market": "Select market",
+    "select_market": "Select Market",
     "select_underlying": "Select Underlying",
     "select_tradetype": "Select Tradetype",
     "select_tick": "Select Tick",
@@ -305,7 +305,12 @@
     "account_turnover_2": "$25,000 - $50,000",
     "account_turnover_3": "$50,001 - $100,000",
     "account_turnover_4": "$100,001 - $500,000",
-    "account_turnover_5": "Over $500,000"
+    "account_turnover_5": "Over $500,000",
+    "account_opening_reason": "Account opening reason",
+    "speculative": "Speculative",
+    "income_earning": "Income Earning",
+    "assets_saving": "Assets Saving",
+    "hedging": "Hedging"
   },
   "newaccountreal": {
     "open_real":"Upgrade to a real account",
@@ -361,7 +366,12 @@
     "length-error-4-50": "This field must be within 4-50 characters.",
     "required":"This field is required.",
     "not-pep-verify": "I acknowledge that I am not a politically exposed person (PEP)",
-    "pep-info": "A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates."
+    "pep-info": "A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates.",
+    "account_opening_reason": "Account opening reason",
+    "speculative": "Speculative",
+    "income_earning": "Income Earning",
+    "assets_saving": "Assets Saving",
+    "hedging": "Hedging"
   },
   "profittable": {
     "profit_table": "Profit table",

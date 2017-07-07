@@ -299,7 +299,12 @@
     "account_turnover_2":"$25.000 - $50.000",
     "account_turnover_3":"$50.001 - $100.000",
     "account_turnover_4":"$100.001 - $500.000",
-    "account_turnover_5":"Lebih dari $500.000"
+    "account_turnover_5":"Lebih dari $500.000",
+    "account_opening_reason":"Alasan pedaftaran akun",
+    "speculative":"Spekulatif",
+    "income_earning":"Hasil Pendapatan",
+    "assets_saving":"Simpanan Aset",
+    "hedging":"Hedging"
   },
   "newaccountreal":{
     "open_real":"Upgrade ke akun real",
@@ -355,7 +360,12 @@
     "length-error-4-50":"Kolom ini harus diisi dengan 4-50 karakter panjang.",
     "required":"Bagian ini wajib diisi.",
     "not-pep-verify":"Saya mengakui bahwa saya bukan orang yang terjun di dunia politik (PEP)",
-    "pep-info":"PEP adalah individu yang atau telah dipercayakan dengan fungsi publik terkemuka. Status ini diperluas hingga ke kerabat seorang PEP dan rekan dekat."
+    "pep-info":"PEP adalah individu yang atau telah dipercayakan dengan fungsi publik terkemuka. Status ini diperluas hingga ke kerabat seorang PEP dan rekan dekat.",
+    "account_opening_reason":"Alasan pedaftaran akun",
+    "speculative":"Spekulatif",
+    "income_earning":"Hasil Pendapatan",
+    "assets_saving":"Simpanan Aset",
+    "hedging":"Hedging"
   },
   "profittable":{
     "profit_table":"Tabel Profit",

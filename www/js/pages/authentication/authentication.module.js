@@ -7,14 +7,7 @@
  */
 
 (function() {
-  'use strict';
+    angular.module("binary.pages.authentication", ["binary.pages.authentication.controllers"]);
 
-  angular
-    .module('binary.pages.authentication', [
-      'binary.pages.authentication.controllers'
-    ]);
-
-  angular
-    .module('binary.pages.authentication.controllers', []);
-
+    angular.module("binary.pages.authentication.controllers", []);
 })();

@@ -6,14 +6,8 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.update", ["binary.pages.update.controllers"]);
 
-  angular
-    .module('binary.pages.update', [
-        'binary.pages.update.controllers'
-    ]);
-
-  angular.
-    module('binary.pages.update.controllers', []);
+    angular.module("binary.pages.update.controllers", []);
 })();

@@ -7,18 +7,15 @@
  */
 
 (function() {
-  'use strict';
+    angular
+        .module("binary.share.components.service-outage.controllers")
+        .controller("ServiceOutagePageController", ServiceOutage);
 
-  angular
-    .module('binary.share.components.service-outage.controllers')
-    .controller('ServiceOutagePageController', ServiceOutage);
+    ServiceOutage.$inject = ["$stateParams"];
 
-  ServiceOutage.$inject = ['$stateParams'];
+    function ServiceOutage($stateParams) {
+        const vm = this;
 
-  function ServiceOutage($stateParams){
-    var vm = this;
-
-    vm.message = $stateParams.message;
-  }
-
+        vm.message = $stateParams.message;
+    }
 })();

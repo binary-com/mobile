@@ -6,49 +6,40 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.regex-validate.directives").directive("bgRegexValidate", Validate);
 
-  angular
-    .module('binary.share.components.regex-validate.directives')
-    .directive('bgRegexValidate', Validate);
+    function Validate() {
+        const directive = {
+            restrict: "A",
+            link,
+            require : "ngModel",
+            scope   : {
+                regex: "@bgRegexValidate"
+            }
+        };
 
-  function Validate(){
-    var directive = {
-      restrict: 'A',
-      link: link,
-      require: 'ngModel',
-      scope:{
-        regex: '@bgRegexValidate'
-      }
-    };
+        return directive;
 
-    return directive;
+        function link(scope, elements, attrs, ngModel) {
+            scope.$watch(
+                () => ngModel.$viewValue,
+                (newVal, oldVal) => {
+                    if (_.isEmpty(scope.regex) || _.isEmpty(ngModel.$viewValue)) {
+                        return;
+                    }
 
-    function link(scope, elements, attrs, ngModel){
+                    const regex = RegExp(scope.regex);
 
-      scope.$watch(() => { return ngModel.$viewValue; }, (newVal, oldVal) => {
-        if(_.isEmpty(scope.regex) || _.isEmpty(ngModel.$viewValue)){
-          return;
+                    if (!regex.test(ngModel.$viewValue)) {
+                        ngModel.$setViewValue(oldVal);
+                        ngModel.$render();
+                    } else {
+                        ngModel.$setViewValue(regex.exec(ngModel.$viewValue)[0]);
+                        ngModel.$render();
+                    }
+                }
+            );
         }
-
-        var regex = RegExp(scope.regex);
-
-
-        if(!regex.test(ngModel.$viewValue))
-        {
-          ngModel.$setViewValue(oldVal);
-          ngModel.$render();
-        }
-        else {
-          ngModel.$setViewValue(regex.exec(ngModel.$viewValue)[0]);
-          ngModel.$render();
-        }
-
-        return;
-
-      });
-
     }
-  }
 })();

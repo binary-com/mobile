@@ -6,14 +6,8 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.number", ["binary.share.components.number.directives"]);
 
-  angular
-    .module('binary.share.components.number',[
-        'binary.share.components.number.directives'
-    ]);
-
-  angular
-    .module('binary.share.components.number.directives', []);
+    angular.module("binary.share.components.number.directives", []);
 })();

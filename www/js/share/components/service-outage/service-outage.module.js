@@ -6,18 +6,13 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
-
-  angular
-    .module('binary.share.components.service-outage',[
-        'binary.share.components.service-outage.controllers',
-        'binary.share.components.service-outage.directives'
+(function() {
+    angular.module("binary.share.components.service-outage", [
+        "binary.share.components.service-outage.controllers",
+        "binary.share.components.service-outage.directives"
     ]);
 
-  angular
-    .module('binary.share.components.service-outage.controllers', []);
+    angular.module("binary.share.components.service-outage.controllers", []);
 
-  angular
-    .module('binary.share.components.service-outage.directives', []);
+    angular.module("binary.share.components.service-outage.directives", []);
 })();

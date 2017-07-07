@@ -6,23 +6,23 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.services").factory("utilsService", Utils);
 
-  angular
-    .module('binary.share.services')
-    .factory('utilsService', Utils);
+    Utils.$inject = ["$rootScope"];
 
-  Utils.$inject = ['$rootScope'];
+    function Utils($rootScope) {
+        const factory = {};
 
- function Utils ($rootScope){
-   var factory = {};
+        factory.spinnerLogo = {
+            start: () => {
+                $rootScope.$broadcast("spinner-logo:start");
+            },
+            stop: () => {
+                $rootScope.$broadcast("spinner-logo:stop");
+            }
+        };
 
-   factory.spinnerLogo = {
-     start: () => { $rootScope.$broadcast('spinner-logo:start'); },
-     stop: () => { $rootScope.$broadcast('spinner-logo:stop'); }
-   }
-
-   return factory;
- }
+        return factory;
+    }
 })();

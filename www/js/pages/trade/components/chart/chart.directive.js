@@ -6,26 +6,22 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
-    angular
-        .module('binary.pages.trade.components.chart.directives')
-        .directive('bgChart', Chart);
+(function() {
+    angular.module("binary.pages.trade.components.chart.directives").directive("bgChart", Chart);
 
-    function Chart(){
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/pages/trade/components/chart/chart.template.html',
-            controller: 'ChartController',
-            controllerAs: 'vm',
+    function Chart() {
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/pages/trade/components/chart/chart.template.html",
+            controller      : "ChartController",
+            controllerAs    : "vm",
             bindToController: true,
-            scope: {
-                proposal: '=',
-                purchasedContract: '='
+            scope           : {
+                proposal         : "=",
+                purchasedContract: "="
             }
         };
 
         return directive;
     }
-
 })();

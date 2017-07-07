@@ -7,14 +7,7 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.pages.transaction-detail", ["binary.pages.transaction-detail.controllers"]);
 
-    angular
-        .module('binary.pages.transaction-detail', [
-            'binary.pages.transaction-detail.controllers'
-        ]);
-
-    angular
-        .module('binary.pages.transaction-detail.controllers', []);
-        
+    angular.module("binary.pages.transaction-detail.controllers", []);
 })();

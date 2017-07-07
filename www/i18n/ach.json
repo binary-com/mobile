@@ -299,7 +299,12 @@
     "account_turnover_2":"crwdns19623:0crwdne19623:0",
     "account_turnover_3":"crwdns19624:0crwdne19624:0",
     "account_turnover_4":"crwdns19625:0crwdne19625:0",
-    "account_turnover_5":"crwdns19626:0crwdne19626:0"
+    "account_turnover_5":"crwdns19626:0crwdne19626:0",
+    "account_opening_reason":"crwdns24305:0crwdne24305:0",
+    "speculative":"crwdns24306:0crwdne24306:0",
+    "income_earning":"crwdns24307:0crwdne24307:0",
+    "assets_saving":"crwdns24308:0crwdne24308:0",
+    "hedging":"crwdns24309:0crwdne24309:0"
   },
   "newaccountreal":{
     "open_real":"crwdns17899:0crwdne17899:0",
@@ -355,7 +360,12 @@
     "length-error-4-50":"crwdns19489:0crwdne19489:0",
     "required":"crwdns17935:0crwdne17935:0",
     "not-pep-verify":"crwdns19571:0crwdne19571:0",
-    "pep-info":"crwdns19572:0crwdne19572:0"
+    "pep-info":"crwdns19572:0crwdne19572:0",
+    "account_opening_reason":"crwdns24310:0crwdne24310:0",
+    "speculative":"crwdns24311:0crwdne24311:0",
+    "income_earning":"crwdns24312:0crwdne24312:0",
+    "assets_saving":"crwdns24313:0crwdne24313:0",
+    "hedging":"crwdns24314:0crwdne24314:0"
   },
   "profittable":{
     "profit_table":"crwdns17941:0crwdne17941:0",

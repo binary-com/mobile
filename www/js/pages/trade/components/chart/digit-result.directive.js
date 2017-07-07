@@ -6,23 +6,19 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.chart.directives").directive("bgDigitResult", Result);
 
-  angular
-    .module('binary.pages.trade.components.chart.directives')
-    .directive('bgDigitResult', Result);
+    function Result() {
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/pages/trade/components/chart/digit-result.template.html",
+            controller      : "DigitResultController",
+            controllerAs    : "vm",
+            bindToController: true,
+            scope           : {}
+        };
 
-  function Result(){
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'js/pages/trade/components/chart/digit-result.template.html',
-      controller: 'DigitResultController',
-      controllerAs: 'vm',
-      bindToController: true,
-      scope: {}
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 })();

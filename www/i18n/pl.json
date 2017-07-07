@@ -299,7 +299,12 @@
     "account_turnover_2":"25 000 $ - 50 000 $",
     "account_turnover_3":"50 001 $ - 100 000 $",
     "account_turnover_4":"100 001 $ - 500 000 $",
-    "account_turnover_5":"Ponad 500 000 $"
+    "account_turnover_5":"Ponad 500 000 $",
+    "account_opening_reason":"Powód otwarcia konta",
+    "speculative":"Spekulacja",
+    "income_earning":"Uzyskanie dochodu",
+    "assets_saving":"Oszczędność zasobów",
+    "hedging":"Hedging"
   },
   "newaccountreal":{
     "open_real":"Uaktualnij do konta z prawdziwymi pieniędzmi",
@@ -355,7 +360,12 @@
     "length-error-4-50":"To pole musi zawierać od 4 do 50 znaków.",
     "required":"To pole jest obowiązkowe.",
     "not-pep-verify":"Oświadczam, że nie jestem osobą zajmującą eksponowane stanowisko polityczne (PEP)",
-    "pep-info":"PEP to osoba, która wykonuje lub wykonywała znaczącą funkcję publiczną. Status odnosi się również do członków rodziny takiej osoby i jej bliskich współpracowników."
+    "pep-info":"PEP to osoba, która wykonuje lub wykonywała znaczącą funkcję publiczną. Status odnosi się również do członków rodziny takiej osoby i jej bliskich współpracowników.",
+    "account_opening_reason":"Powód otwarcia konta",
+    "speculative":"Spekulacja",
+    "income_earning":"Uzyskanie dochodu",
+    "assets_saving":"Oszczędność zasobów",
+    "hedging":"Hedging"
   },
   "profittable":{
     "profit_table":"Tabela zysków",

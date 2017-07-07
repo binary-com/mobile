@@ -6,23 +6,19 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.options.directives").directive("bgUnderlyings", Underlying);
 
-    angular
-        .module('binary.pages.trade.components.options.directives')
-        .directive('bgUnderlyings', Underlying);
-
-    function Underlying(){
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/pages/trade/components/options/underlyings.template.html',
-            controller: 'UnderlyingsController',
-            controllerAs: 'vm',
+    function Underlying() {
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/pages/trade/components/options/underlyings.template.html",
+            controller      : "UnderlyingsController",
+            controllerAs    : "vm",
             bindToController: true,
-            scope: {
-                market: '=',
-                select: '&'
+            scope           : {
+                market: "=",
+                select: "&"
             }
         };
 

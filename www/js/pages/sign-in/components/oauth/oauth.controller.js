@@ -6,117 +6,113 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.signin.components.oauth").controller("OauthController", Oauth);
 
-  angular
-    .module('binary.pages.signin.components.oauth')
-    .controller('OauthController', Oauth);
+    Oauth.$inject = [
+        "$scope",
+        "$ionicLoading",
+        "config",
+        "websocketService",
+        "alertService",
+        "accountService",
+        "languageService"
+    ];
 
-  Oauth.$inject = [
-    '$scope',
-    '$ionicLoading',
-    'config',
-    'websocketService',
-    'alertService',
-    'accountService',
-    'languageService',
-  ];
+    function Oauth($scope, $ionicLoading, config, websocketService, alertService, accountService, languageService) {
+        const vm = this;
 
-  function Oauth($scope, $ionicLoading, config, websocketService,
-      alertService, accountService, languageService){
+        let accounts = [];
 
-    var vm = this;
-
-    var accounts = [];
-
-    var authenticate = function(_token){
-      // Validate the token
-      if(_token && _token.length == 32) {
-        $ionicLoading.show();
-        websocketService.authenticate(_token);
-      } else {
-        alertService.accountError.tokenNotValid();
-      }
-    }
-
-    window.onmessage = function(_message){
-      if(_message.data && _message.data.url){
-        accounts = getAccountsFromUrl(_message.data.url);
-        if(accounts.length > 0){
-          authenticate(accounts[0].token);
-        }
-      }
-    }
-
-    $scope.$on('authorize', (e, response) => {
-      if(response){
-        for(var a in accounts){
-          if (a == 0){
-            continue;
-          }
-
-          accounts[a].email = response.email;
-          accounts[a].country = response.country;
-          accountService.add(accounts[a]);
-        }
-      }
-      $ionicLoading.hide();
-    });
-
-    vm.signin = function(){
-      var authWindow = window.open(config.oauthUrl + '?app_id=' + config.app_id + '&l=' + languageService.read(),
-          "_blank",
-          "location=no,toolbar=no");
-
-      $(authWindow).on('loadstart',
-          function(e){
-            var url = e.originalEvent.url;
-
-            if(getErrorFromUrl(url).length > 0){
-              authWindow.close();
-              return;
+        const authenticate = function(_token) {
+            // Validate the token
+            if (_token && _token.length === 32) {
+                $ionicLoading.show();
+                websocketService.authenticate(_token);
+            } else {
+                alertService.accountError.tokenNotValid();
             }
+        };
 
-            accounts = getAccountsFromUrl(url);
-            if(accounts && accounts.length){
-              authWindow.close();
-
-              authenticate(accounts[0].token);
+        window.onmessage = function(_message) {
+            if (_message.data && _message.data.url) {
+                accounts = getAccountsFromUrl(_message.data.url);
+                if (accounts.length > 0) {
+                    authenticate(accounts[0].token);
+                }
             }
-          });
-    }
+        };
 
-
-    function getAccountsFromUrl(_url){
-      var regex = /acct\d+=(\w+)&token\d+=(\w{2}-\w{29})/g;
-      var result = null;
-      var accounts = [];
-
-      while(result=regex.exec(_url)){
-        accounts.push({
-          loginid: result[1],
-          token: result[2],
-          email: "",
-          is_default: false
+        $scope.$on("authorize", (e, response) => {
+            if (response) {
+                accounts.forEach((value, index) => {
+                    if (index > 0) {
+                        accounts[index].email = response.email;
+                        accounts[index].country = response.country;
+                        accountService.add(accounts[index]);
+                    }
+                });
+            }
+            $ionicLoading.hide();
         });
-      }
 
-      return accounts;
+        vm.signin = function() {
+            const authWindow = window.open(
+                `${config.oauthUrl}?app_id=${config.app_id}&l=${languageService.read()}`,
+                "_blank",
+                "location=no,toolbar=no"
+            );
 
+            $(authWindow).on("loadstart", e => {
+                const url = e.originalEvent.url;
+
+                if (getErrorFromUrl(url).length > 0) {
+                    authWindow.close();
+                    return;
+                }
+
+                accounts = getAccountsFromUrl(url);
+                if (accounts && accounts.length) {
+                    authWindow.close();
+
+                    authenticate(accounts[0].token);
+                }
+            });
+        };
+
+        function getAccountsFromUrl(_url) {
+            const regex = /acct\d+=(\w+)&token\d+=(\w{2}-\w{29})/g;
+            let result = null;
+            const accounts = [];
+
+            do {
+                result = regex.exec(_url);
+                if(result){
+                    accounts.push({
+                        loginid   : result[1],
+                        token     : result[2],
+                        email     : "",
+                        is_default: false
+                    });
+                }
+            } while (result)
+
+            return accounts;
+        }
+
+        function getErrorFromUrl(_url) {
+            const regex = /error=(\w+)/g;
+            let result = null;
+            const error = [];
+
+            do {
+                result = regex.exec(_url);
+                if (result) {
+                    error.push(result[1]);
+                }
+            } while (result)
+
+            return error;
+        }
     }
-
-    function getErrorFromUrl(_url){
-      var regex = /error=(\w+)/g;
-      var result = null;
-      var error = [];
-
-      while(result = regex.exec(_url)){
-        error.push(result[1]);
-      }
-
-      return error;
-    }
-
-  }
 })();

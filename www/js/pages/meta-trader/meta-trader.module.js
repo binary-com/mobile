@@ -6,18 +6,13 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
-
-  angular
-    .module('binary.pages.meta-trader', [
-        'binary.pages.meta-trader.controllers',
-        'binary.pages.meta-trader.directives'
+(function() {
+    angular.module("binary.pages.meta-trader", [
+        "binary.pages.meta-trader.controllers",
+        "binary.pages.meta-trader.directives"
     ]);
 
-  angular
-    .module('binary.pages.meta-trader.controllers', []);
+    angular.module("binary.pages.meta-trader.controllers", []);
 
-  angular
-    .module('binary.pages.meta-trader.directives', []);
+    angular.module("binary.pages.meta-trader.directives", []);
 })();
