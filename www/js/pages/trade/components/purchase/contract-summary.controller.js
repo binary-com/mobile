@@ -6,18 +6,14 @@
  * @copyright binary ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular
+        .module("binary.pages.trade.components.purchase.controllers")
+        .controller("ContractSummaryController", Summary);
 
-  angular
-    .module('binary.pages.trade.components.purchase.controllers')
-    .controller('ContractSummaryController', Summary);
+    Summary.$inject = [];
 
-  Summary.$inject = [];
-
-  function Summary(){
-    var vm = this;
-
-
-  }
+    function Summary() {
+        const vm = this;
+    }
 })();

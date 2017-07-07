@@ -7,21 +7,18 @@
  */
 
 (function() {
-    'use strict';
-
     angular
-        .module('binary.share.components.check-user-status.directives')
-        .directive('bgCheckUserStatus', CheckUserStatus);
+        .module("binary.share.components.check-user-status.directives")
+        .directive("bgCheckUserStatus", CheckUserStatus);
 
     function CheckUserStatus() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/share/components/check-user-status/check-user-status.template.html',
-            controller: 'CheckUserStatusController',
-            controllerAs: 'vm',
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/share/components/check-user-status/check-user-status.template.html",
+            controller      : "CheckUserStatusController",
+            controllerAs    : "vm",
             bindToController: true,
-            scope: {}
-
+            scope           : {}
         };
         return directive;
     }

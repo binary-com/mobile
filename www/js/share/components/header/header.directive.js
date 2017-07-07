@@ -7,28 +7,24 @@
  * Application Header
  */
 
-(function(){
-  'use strict';
-  angular
-    .module('binary.share.components')
-    .directive('bgHeader', Header);
+(function() {
+    angular.module("binary.share.components").directive("bgHeader", Header);
 
-    function Header(){
-      var directive = {
-        link: link,
-        templateUrl: 'js/share/components/header/header.template.html',
-        retrict: 'A',
-        controller: 'HeaderController',
-        controllerAs: 'vm',
-        bindToController: true,
-        scope: {
-          spinLogo: '='
-        }
-      }
+    function Header() {
+        const directive = {
+            link,
+            templateUrl     : "js/share/components/header/header.template.html",
+            retrict         : "A",
+            controller      : "HeaderController",
+            controllerAs    : "vm",
+            bindToController: true,
+            scope           : {
+                spinLogo: "="
+            }
+        };
 
-      function link (){
-      }
+        function link() {}
 
-      return directive;
+        return directive;
     }
 })();

@@ -7,16 +7,11 @@
  */
 
 (function() {
-  'use strict';
+    angular.module("binary.pages.authentication.controllers").controller("AuthenticationController", Authentication);
 
-  angular
-    .module('binary.pages.authentication.controllers')
-    .controller('AuthenticationController', Authentication);
+    Authentication.$inject = ["$scope"];
 
-  Authentication.$inject = ['$scope'];
-
-  function Authentication($scope) {
-    var vm = this;
-
-  }
+    function Authentication($scope) {
+        const vm = this;
+    }
 })();

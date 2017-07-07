@@ -7,14 +7,7 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.pages.trading-times", ["binary.pages.trading-times.controllers"]);
 
-    angular
-        .module('binary.pages.trading-times', [
-            'binary.pages.trading-times.controllers'
-        ]);
-
-    angular
-        .module('binary.pages.trading-times.controllers', []);
-
+    angular.module("binary.pages.trading-times.controllers", []);
 })();

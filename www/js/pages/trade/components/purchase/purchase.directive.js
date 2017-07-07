@@ -6,24 +6,20 @@
  * @copyright binary ltd
  */
 
-(function(){
-    'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.purchase.directives").directive("bgPurchase", Purchase);
 
-    angular
-        .module('binary.pages.trade.components.purchase.directives')
-        .directive('bgPurchase', Purchase);
-
-    function Purchase(){
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/pages/trade/components/purchase/purchase.template.html',
-            controller: 'PurchaseController',
-            controllerAs: 'vm',
+    function Purchase() {
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/pages/trade/components/purchase/purchase.template.html",
+            controller      : "PurchaseController",
+            controllerAs    : "vm",
             bindToController: true,
-            scope: {
-                proposal: '=',
-                purchasedContract: '=',
-                showSummary: '=inPurchaseMode'
+            scope           : {
+                proposal         : "=",
+                purchasedContract: "=",
+                showSummary      : "=inPurchaseMode"
             }
         };
 

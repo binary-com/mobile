@@ -6,20 +6,16 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.service-outage.directives").directive("bgServiceOutage", ServiceOutage);
 
-  angular
-    .module('binary.share.components.service-outage.directives')
-    .directive('bgServiceOutage', ServiceOutage);
+    function ServiceOutage() {
+        const directive = {
+            restrict  : "E",
+            scope     : {},
+            controller: "ServiceOutageController"
+        };
 
-  function ServiceOutage(){
-    var directive = {
-      restrict: 'E',
-      scope: {},
-      controller: 'ServiceOutageController',
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 })();

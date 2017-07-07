@@ -6,18 +6,13 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
-
-  angular
-    .module('binary.pages.trade.components.longcode', [
-        'binary.pages.trade.components.longcode.controllers',
-        'binary.pages.trade.components.longcode.directives'
+(function() {
+    angular.module("binary.pages.trade.components.longcode", [
+        "binary.pages.trade.components.longcode.controllers",
+        "binary.pages.trade.components.longcode.directives"
     ]);
 
-  angular
-    .module('binary.pages.trade.components.longcode.controllers', []);
+    angular.module("binary.pages.trade.components.longcode.controllers", []);
 
-  angular
-    .module('binary.pages.trade.components.longcode.directives', []);
+    angular.module("binary.pages.trade.components.longcode.directives", []);
 })();

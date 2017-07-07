@@ -6,39 +6,34 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.number.directives").directive("bgNumber", BgNumber);
 
-  angular
-    .module('binary.share.components.number.directives')
-    .directive('bgNumber', BgNumber);
+    function BgNumber() {
+        const directive = {
+            restrict: "A",
+            require : "?ngModel",
+            link
+        };
 
-  function BgNumber(){
-    var directive = {
-      restrict: 'A',
-      require: '?ngModel',
-      link: link
-    };
+        function link(scope, element, attrs, ngModel) {
+            if (ngModel) {
+                ngModel.$formatters.push(modelValue => {
+                    if (!modelValue) {
+                        return modelValue;
+                    }
+                    return Number(modelValue);
+                });
 
-    function link(scope, element, attrs, ngModel){
+                ngModel.$parsers.push(viewValue => {
+                    if (!viewValue) {
+                        return viewValue;
+                    }
+                    return Number(viewValue);
+                });
+            }
+        }
 
-      if(ngModel){
-        ngModel.$formatters.push(function(modelValue){
-          if(!modelValue){
-            return modelValue;
-          }
-          return Number(modelValue);
-        });
-
-        ngModel.$parsers.push(function(viewValue){
-          if(!viewValue){
-            return viewValue;
-          }
-          return Number(viewValue);
-        });
-      }
+        return directive;
     }
-
-    return directive;
-  }
 })();

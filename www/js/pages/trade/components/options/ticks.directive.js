@@ -6,23 +6,19 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.options.directives").directive("bgTicks", Ticks);
 
-    angular
-        .module('binary.pages.trade.components.options.directives')
-        .directive('bgTicks', Ticks);
-
-    function Ticks(){
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/pages/trade/components/options/ticks.template.html',
-            controller: 'TicksController',
-            controllerAs: 'vm',
+    function Ticks() {
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/pages/trade/components/options/ticks.template.html",
+            controller      : "TicksController",
+            controllerAs    : "vm",
             bindToController: true,
-            scope: {
-                select: '&',
-                tradeType: '='
+            scope           : {
+                select   : "&",
+                tradeType: "="
             }
         };
 

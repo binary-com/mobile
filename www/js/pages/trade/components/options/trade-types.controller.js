@@ -6,25 +6,21 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
-
-    angular
-        .module('binary.pages.trade.components.options.controllers')
-        .controller('TradeTypesController', TradeTypes);
+(function() {
+    angular.module("binary.pages.trade.components.options.controllers").controller("TradeTypesController", TradeTypes);
 
     TradeTypes.$inject = [];
 
-    function TradeTypes(){
-        var vm = this;
+    function TradeTypes() {
+        const vm = this;
 
         vm.tradeTypes = {};
 
-        vm.selectTradeType = function(tradeType){
+        vm.selectTradeType = function(tradeType) {
             vm.select()(tradeType);
-        }
+        };
 
-        function init(){
+        function init() {
             vm.tradeTypes = JSON.parse(sessionStorage.tradeTypes);
         }
 

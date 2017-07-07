@@ -7,21 +7,16 @@
  */
 
 (function() {
-    'use strict';
-
-    angular
-        .module('binary.share.components.account-upgrade.directives')
-        .directive('bgAccountUpgrade', AccountUpgrade);
+    angular.module("binary.share.components.account-upgrade.directives").directive("bgAccountUpgrade", AccountUpgrade);
 
     function AccountUpgrade() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/share/components/account-upgrade/account-upgrade.template.html',
-            controller: 'AccountUpgradeController',
-            controllerAs: 'vm',
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/share/components/account-upgrade/account-upgrade.template.html",
+            controller      : "AccountUpgradeController",
+            controllerAs    : "vm",
             bindToController: true,
-            scope: {}
-
+            scope           : {}
         };
         return directive;
     }

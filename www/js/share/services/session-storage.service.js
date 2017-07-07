@@ -7,25 +7,20 @@
  *
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary").factory("sessionStorageService", SessionStorage);
 
-  angular
-    .module('binary')
-    .factory('sessionStorageService', SessionStorage);
+    function SessionStorage() {
+        const factory = {};
 
-  function SessionStorage(){
-    var factory = {};
+        factory.getItem = function(itemName) {
+            const item = sessionStorage.getItem(itemName);
+            if (_.isEmpty(item) || item === "undefined") {
+                return null;
+            }
+            return item;
+        };
 
-    factory.getItem = function(itemName){
-
-      var item = sessionStorage.getItem(itemName);
-      if(_.isEmpty(item) || item === "undefined"){
-        return null;
-      }
-      return item;
-    };
-
-    return factory;
-  }
+        return factory;
+    }
 })();

@@ -299,7 +299,12 @@
     "account_turnover_2":"$25,000 - $50,000",
     "account_turnover_3":"$50,001 - $100,000",
     "account_turnover_4":"$100,001 - $500,000",
-    "account_turnover_5":"$500,000以上"
+    "account_turnover_5":"$500,000以上",
+    "account_opening_reason":"開立帳戶的原因",
+    "speculative":"投機",
+    "income_earning":"賺取收入",
+    "assets_saving":"資產保存",
+    "hedging":"對沖"
   },
   "newaccountreal":{
     "open_real":"升級到真實帳戶",
@@ -355,7 +360,12 @@
     "length-error-4-50":"此欄位必須為 4-50 個字元。",
     "required":"此為必填欄位。",
     "not-pep-verify":"我聲明本人不是政治公眾人士(PEP)。",
-    "pep-info":"PEP是被委託進行特出公眾任務的個人。此身份包括了PEP的親屬和親近的人。"
+    "pep-info":"PEP是被委託進行特出公眾任務的個人。此身份包括了PEP的親屬和親近的人。",
+    "account_opening_reason":"開立帳戶的原因",
+    "speculative":"投機",
+    "income_earning":"賺取收入",
+    "assets_saving":"資產保存",
+    "hedging":"對沖"
   },
   "profittable":{
     "profit_table":"利潤表",

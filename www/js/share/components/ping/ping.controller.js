@@ -7,30 +7,24 @@
  * Application Header
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.ping.controllers").controller("PingController", Ping);
 
-  angular
-    .module('binary.share.components.ping.controllers')
-    .controller('PingController', Ping);
+    Ping.$inject = ["$timeout", "appStateService", "websocketService"];
 
-  Ping.$inject = ['$timeout', 'appStateService', 'websocketService']
+    function Ping($timeout, appStateService, websocketService) {
+        function init() {
+            ping();
+        }
 
-  function Ping($timeout, appStateService, websocketService){
+        function ping() {
+            if (appStateService.isLoggedin) {
+                websocketService.sendRequestFor.ping();
+            }
 
-    function init(){
-      ping();
+            $timeout(ping, 60000);
+        }
+
+        init();
     }
-
-    function ping(){
-      if(appStateService.isLoggedin){
-        websocketService.sendRequestFor.ping();
-      }
-
-      $timeout(ping, 60000);
-    }
-
-    init();
-
-  }
 })();
