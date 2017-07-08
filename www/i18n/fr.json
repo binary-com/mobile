@@ -44,7 +44,7 @@
   },
   "options":{
     "account":"Compte",
-    "market":"Markets",
+    "market":"Marchés",
     "forex":"Forex",
     "random":"Aléatoire",
     "volidx":"Indices de volatilité",
@@ -75,7 +75,7 @@
     "up_down":"Hausse/Baisse",
     "markets_are_closed":"Désolé, tous les marchés sont actuellement fermés. Veuillez réessayer ultérieurement",
     "cancel":"Annuler",
-    "select_market":"Select Market",
+    "select_market":"Sélectionnez un marché",
     "select_underlying":"Sélectionnez le sous-jacent",
     "select_tradetype":"Sélectionnez le type de trade",
     "select_tick":"Sélectionnez Tick",
@@ -301,11 +301,11 @@
     "account_turnover_3":"50,000 $ - 100,000 $",
     "account_turnover_4":"100,001 $ - 500,000 $",
     "account_turnover_5":"Plus de 500 000 $",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income Earning",
-    "assets_saving":"Assets Saving",
-    "hedging":"Hedging"
+    "account_opening_reason":"Motif d’ouverture de compte",
+    "speculative":"Spéculative",
+    "income_earning":"Gagner des revenus",
+    "assets_saving":"Sauvegarde de vos actifs",
+    "hedging":"Couverture"
   },
   "newaccountreal":{
     "open_real":"Ouvrir un compte réel",
@@ -362,11 +362,11 @@
     "required":"Ce champ est requis.",
     "not-pep-verify":"Je reconnais que je ne suis pas une personne politiquement exposée (PEP)",
     "pep-info":"Un PEP est un individu qui est ou a été en charge d'une fonction publique importante. Ce statut s'étend à la famille et proches associés du PEP.",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income Earning",
-    "assets_saving":"Assets Saving",
-    "hedging":"Hedging"
+    "account_opening_reason":"Motif d’ouverture de compte",
+    "speculative":"Spéculative",
+    "income_earning":"Gagner des revenus",
+    "assets_saving":"Sauvegarde de vos actifs",
+    "hedging":"Couverture"
   },
   "profittable":{
     "profit_table":"Tableau des profits",
