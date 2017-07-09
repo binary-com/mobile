@@ -101,10 +101,10 @@
         // check type of account
         vm.checkAccountType = function() {
             vm.account = accountService.getDefault();
-            vm.isFinancial = !!_.startsWith(vm.account.id, "MF");
-            vm.isCR = !!_.startsWith(vm.account.id, "CR");
-            vm.isMLT = !!_.startsWith(vm.account.id, "MLT");
-            vm.isMX = !!_.startsWith(vm.account.id, "MX");
+            vm.isFinancial = _.startsWith(vm.account.id, "MF");
+            vm.isCR = _.startsWith(vm.account.id, "CR");
+            vm.isMLT = _.startsWith(vm.account.id, "MLT");
+            vm.isMX = _.startsWith(vm.account.id, "MX");
         };
 
         vm.getAccountInfo = function() {
