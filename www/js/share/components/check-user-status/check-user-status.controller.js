@@ -147,7 +147,7 @@
         };
 
         vm.financialAssessmentStatus = function(get_financial_assessment) {
-	        if (
+	          if (
                 _.isEmpty(get_financial_assessment) &&
                 vm.hasHighRisk &&
                 !appStateService.hasFinancialAssessmentMessage
