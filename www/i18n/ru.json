@@ -44,7 +44,7 @@
   },
   "options":{
     "account":"Счёт",
-    "select_market":"Выберите рынок",
+    "market":"Markets",
     "forex":"Forex",
     "random":"Индексы Random",
     "volidx":"Индексы волатильности",
@@ -75,6 +75,7 @@
     "up_down":"Вверх/Вниз",
     "markets_are_closed":"Извините, все рынки в данное время закрыты. Повторите попытку позже.",
     "cancel":"Отмена",
+    "select_market":"Select Market",
     "select_underlying":"Выберите актив",
     "select_tradetype":"Выберите тип контракта",
     "select_tick":"Выберите тик",
