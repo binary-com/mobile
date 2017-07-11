@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.notifications.controllers").controller("NotificationsController", Notifications);
 
-    Notifications.$inject = ["$scope", "appStateService", "notificationService"];
+    Notifications.$inject = ["$scope", "notificationService"];
 
-    function Notifications($scope, appStateService, notificationService) {
+    function Notifications($scope, notificationService) {
         const vm = this;
         $scope.$watch(
             () => notificationService.notices,

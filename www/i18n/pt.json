@@ -44,7 +44,7 @@
   },
   "options":{
     "account":"Conta",
-    "select_market":"Selecionar mercado",
+    "market":"Markets",
     "forex":"Forex",
     "random":"Random (Aleatório)",
     "volidx":"Índices Volatility",
@@ -75,6 +75,7 @@
     "up_down":"Acima/Abaixo",
     "markets_are_closed":"Lamentamos, todos os mercados estão encerrados. Tente novamente mais tarde",
     "cancel":"Cancelar",
+    "select_market":"Select Market",
     "select_underlying":"Selecione ativo subjacente",
     "select_tradetype":"Selecione TipoDeNegociação",
     "select_tick":"Selecione tique-taque",

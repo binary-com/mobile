@@ -44,7 +44,7 @@
   },
   "options":{
     "account":"crwdns17697:0crwdne17697:0",
-    "select_market":"crwdns19508:0crwdne19508:0",
+    "market":"crwdns29652:0crwdne29652:0",
     "forex":"crwdns17699:0crwdne17699:0",
     "random":"crwdns17700:0crwdne17700:0",
     "volidx":"crwdns17701:0crwdne17701:0",
@@ -75,6 +75,7 @@
     "up_down":"crwdns17726:0crwdne17726:0",
     "markets_are_closed":"crwdns17727:0crwdne17727:0",
     "cancel":"crwdns19509:0crwdne19509:0",
+    "select_market":"crwdns29653:0crwdne29653:0",
     "select_underlying":"crwdns19510:0crwdne19510:0",
     "select_tradetype":"crwdns19511:0crwdne19511:0",
     "select_tick":"crwdns19512:0crwdne19512:0",

@@ -44,7 +44,7 @@
   },
   "options":{
     "account":"Konto",
-    "select_market":"Wählen Sie den Markt",
+    "market":"Märkte",
     "forex":"Devisen",
     "random":"Random",
     "volidx":"Volatilität Indizes",
@@ -75,6 +75,7 @@
     "up_down":"Auf/Ab",
     "markets_are_closed":"Leider sind derzeit alle Märkte geschlossen. Bitte versuchen Sie es später erneut",
     "cancel":"Abbrechen",
+    "select_market":"Wählen Sie den Markt",
     "select_underlying":"Wählen Sie die zugrunde liegenden",
     "select_tradetype":"Wählen Sie den Handelstyp",
     "select_tick":"Wählen Sie den Tick",

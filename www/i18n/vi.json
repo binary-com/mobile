@@ -44,7 +44,7 @@
   },
   "options":{
     "account":"Tài khoản",
-    "select_market":"Select market",
+    "market":"Markets",
     "forex":"Ngoại hối",
     "random":"Ngẫu nhiên",
     "volidx":"Chỉ số biến động",
@@ -75,6 +75,7 @@
     "up_down":"Lên/Xuống",
     "markets_are_closed":"Sorry, All markets are currently closed. Please try again later",
     "cancel":"Cancel",
+    "select_market":"Select Market",
     "select_underlying":"Select Underlying",
     "select_tradetype":"Select Tradetype",
     "select_tick":"Select Tick",
