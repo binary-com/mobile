@@ -1,5 +1,8 @@
 .profit-table {
 	margin-top: 75px;
+  &.ios-margin-top {
+    margin-top: 85px;
+  }
 	.title-container {
 		z-index: 10;
 		background: $white;
