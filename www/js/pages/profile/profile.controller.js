@@ -51,10 +51,10 @@
         ];
 
         vm.init = function() {
-            vm.isVirtualAccount = !!appStateService.virtuality;
+            vm.isVirtualAccount = appStateService.virtuality;
             if (!vm.isVirtualAccount) {
                 vm.account = accountService.getDefault();
-                vm.isFinancial = !!_.startsWith(vm.account.id, "MF");
+                vm.isFinancial = _.startsWith(vm.account.id, "MF");
                 websocketService.sendRequestFor.residenceListSend();
             }
             vm.getProfile();
