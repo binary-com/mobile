@@ -13,7 +13,6 @@
 
     CheckUserStatus.$inject = [
         "$scope",
-        "$state",
         "$translate",
         "$timeout",
         "websocketService",
@@ -24,7 +23,6 @@
 
     function CheckUserStatus(
         $scope,
-        $state,
         $translate,
         $timeout,
         websocketService,
@@ -111,7 +109,6 @@
             if (localStorage.hasOwnProperty("accounts") && !_.isEmpty(localStorage.accounts)) {
                 vm.checkAccountType();
                 websocketService.sendRequestFor.getAccountStatus();
-                websocketService.sendRequestFor.getFinancialAssessment();
                 websocketService.sendRequestFor.mt5LoginList();
                 websocketService.sendRequestFor.getSelfExclusion();
             } else {
@@ -150,7 +147,7 @@
         };
 
         vm.financialAssessmentStatus = function(get_financial_assessment) {
-            if (
+	          if (
                 _.isEmpty(get_financial_assessment) &&
                 vm.hasHighRisk &&
                 !appStateService.hasFinancialAssessmentMessage
@@ -239,7 +236,7 @@
         };
 
         vm.maxTurnoverLimitStatus = function(get_self_exclusion) {
-            vm.maxTurnoverLimitSet = !!get_self_exclusion.hasOwnProperty("max_30day_turnover");
+            vm.maxTurnoverLimitSet = get_self_exclusion.hasOwnProperty("max_30day_turnover");
             if (vm.isMX && !vm.maxTurnoverLimitSet && !appStateService.hasMaxTurnoverMessage) {
                 appStateService.hasMaxTurnoverMessage = true;
                 notificationService.notices.push(vm.maxTurnoverLimitNotSetMessage);
