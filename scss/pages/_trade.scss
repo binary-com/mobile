@@ -644,6 +644,10 @@
 			max-height: 120px;
 			min-height: 115px;
 		}
+    .row + .row {
+      margin-top: 0 !important;
+      padding-top: 5px !important;
+    }
 	}
 	bg-purchase {
 		.purchase {
@@ -687,6 +691,10 @@
 			max-height: 180px;
 			min-height: 175px;
 		}
+    .row + .row {
+      margin-top: 0 !important;
+      padding-top: 5px !important;
+    }
 	}
 	bg-purchase {
 		.purchase {
