@@ -44,7 +44,7 @@
   },
   "options":{
     "account":"Akun",
-    "market":"Markets",
+    "market":"Pasar",
     "forex":"Forex",
     "random":"Random",
     "volidx":"Indeks Volatilitas",
@@ -75,7 +75,7 @@
     "up_down":"Up/Down",
     "markets_are_closed":"Maaf, semua pasar sedang ditutup. Silahkan coba kembali nanti",
     "cancel":"Batal",
-    "select_market":"Select Market",
+    "select_market":"Pilih Pasar",
     "select_underlying":"Pilih Dasar",
     "select_tradetype":"Pilih jenis kontrak",
     "select_tick":"Pilih Tik",
