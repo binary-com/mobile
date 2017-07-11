@@ -44,7 +44,7 @@
   },
   "options":{
     "account":"账户",
-    "select_market":"选择市场",
+    "market":"Markets",
     "forex":"外汇",
     "random":"随机",
     "volidx":"波动率指数",
@@ -75,6 +75,7 @@
     "up_down":"上涨/下跌",
     "markets_are_closed":"抱歉，所有市场现已关闭。请稍后重试。",
     "cancel":"取消",
+    "select_market":"Select Market",
     "select_underlying":"选择基础",
     "select_tradetype":"选择交易类型",
     "select_tick":"选择跳动点",

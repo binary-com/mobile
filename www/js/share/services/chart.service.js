@@ -1084,16 +1084,20 @@ angular.module("binary").factory("chartService", $rootScope => {
         };
 
         const dragStart = function dragStart(e) {
-            stepper.setStartPosition(dataIndex, e.center.x);
-            dragging = true;
+            if (!_.isEmpty(stepper)) {
+                stepper.setStartPosition(dataIndex, e.center.x);
+                dragging = true;
+            }
         };
 
         const dragEnd = function dragEnd(e) {
-            if (!zooming) {
-                move(stepper.stepCount(dataIndex, e.center.x));
+            if (!_.isEmpty(stepper)) {
+                if (!zooming) {
+                    move(stepper.stepCount(dataIndex, e.center.x));
+                }
+                stepper.stop();
+                dragging = false;
             }
-            stepper.stop();
-            dragging = false;
         };
 
         const zoomStart = function zoomStart() {
@@ -1245,8 +1249,10 @@ angular.module("binary").factory("chartService", $rootScope => {
         };
 
         const drag = function drag(e) {
-            if (!zooming && stepper.isStep(e, chartGlobals.tickCount)) {
-                move(stepper.stepCount(dataIndex, e.center.x));
+            if (!_.isEmpty(stepper)) {
+                if (!zooming && stepper.isStep(e, chartGlobals.tickCount)) {
+                    move(stepper.stepCount(dataIndex, e.center.x));
+                }
             }
         };
 
