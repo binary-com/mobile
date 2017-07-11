@@ -21,7 +21,7 @@
                         <span>{{ (vm.proposal.basis === 'payout' ? "options.stake" : "options.payout") | translate }}</span>
                     </div>
                     <div class="basis">
-                        <span>{{ (vm.proposal.basis === "payout" ? vm.proposalResponses[$index].ask_price || 0 : vm.proposalResponses[$index].payout || 0) | currency:vm.proposal.currency:2 }}</span>
+                        <span>{{ (vm.proposal.basis === "payout" ? vm.proposalResponses[$index].ask_price || vm.proposalResponses[$index].details.display_value || 0 : vm.proposalResponses[$index].payout || vm.proposalResponses[$index].details.payout || 0) | currency:vm.proposal.currency:2 }}</span>
                     </div>
                 </div>
             </div>
