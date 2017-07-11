@@ -98,7 +98,7 @@
                     } else {
                         vm.toMaltainvest = true;
                     }
-                    appStateService.hasMLT = !!vm.toMaltainvest;
+                    appStateService.hasMLT = vm.toMaltainvest;
                     vm.getToken();
                 } else {
                     //  to MF

@@ -95,7 +95,7 @@
 
         function init() {
             const accounts = accountService.getAll();
-            vm.hasRealAccount = !!_.find(accounts, obj => /(CR|MLT|MX)\d+/.test(obj.id));
+            vm.hasRealAccount = _.find(accounts, obj => /(CR|MLT|MX)\d+/.test(obj.id));
 
             const account = accountService.getDefault();
             if (account) {

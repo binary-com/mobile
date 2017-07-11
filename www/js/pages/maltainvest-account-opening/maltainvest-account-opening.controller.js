@@ -280,7 +280,7 @@
             vm.resetAllErrors();
             websocketService.sendRequestFor.residenceListSend();
             $scope.$applyAsync(() => {
-                vm.isReadonly = !!appStateService.hasMLT;
+                vm.isReadonly = appStateService.hasMLT;
             });
         };
 
