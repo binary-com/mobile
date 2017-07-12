@@ -38,13 +38,13 @@
     "field_between":"Deve essere tra 0.70 e 100000.",
     "must_number":"Deve essere un numero.",
     "ok":"OK",
-    "cancel":"Cancel",
-    "yes":"Yes",
+    "cancel":"Annulla",
+    "yes":"Sì",
     "no":"No"
   },
   "options":{
     "account":"Account",
-    "market":"Markets",
+    "market":"Mercati",
     "forex":"Forex",
     "random":"Random",
     "volidx":"Indici di volatilità",
@@ -67,25 +67,25 @@
     "save":"SALVA",
     "lets_trade":"Facciamo trading!",
     "asians_up":"Asian Up",
-    "asians_down":"Asians Down",
+    "asians_down":"Asian Down",
     "asians":"Asiatiche",
     "digit_over_under":"Cifra superiore/inferiore",
     "digit_even_odd":"Cifra pari/dispari",
     "digit_matches_differs":"Combacia/Differisce",
     "up_down":"Up/Down",
-    "markets_are_closed":"Sorry, All markets are currently closed. Please try again later",
-    "cancel":"Cancel",
-    "select_market":"Select Market",
-    "select_underlying":"Select Underlying",
-    "select_tradetype":"Select Tradetype",
-    "select_tick":"Select Tick",
-    "select_digit":"Select Digit"
+    "markets_are_closed":"Siamo spiacenti, tutti i mercati sono attualmente chiusi. Si prega di riprovare più tardi",
+    "cancel":"Annulla",
+    "select_market":"Seleziona il mercato",
+    "select_underlying":"Seleziona l'asset sottostante",
+    "select_tradetype":"Seleziona il tipo di trade",
+    "select_tick":"Seleziona il tick",
+    "select_digit":"Seleziona la cifra"
   },
   "trade":{
     "payout":"Payout",
     "stake":"Puntata",
     "price":"Prezzo",
-    "buy":"Buy",
+    "buy":"Acquista",
     "net_profit":"Profitto netto",
     "potential_payout":"Payout potenziale",
     "total_cost":"Costo totale",
@@ -101,8 +101,8 @@
     "lose":"Questo contratto ha perso",
     "transaction_id":"Riferimento della transazione",
     "buy_again":"Acquista di nuovo",
-    "sell":"Sell",
-    "barrier":"Barrier offset"
+    "sell":"Vendi",
+    "barrier":"Correzione della barriera"
   },
   "help":{
     "need_help":"Hai bisogno di aiuto?",
@@ -118,7 +118,7 @@
     "exit_confirmation":"Sei sicuro di voler uscire?",
     "connection_error_title":"Errore di connessione",
     "connection_error":"Nessuna connessione internet!",
-    "sign_out":"Sign out"
+    "sign_out":"Esci"
   },
   "update":{
     "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
@@ -146,16 +146,16 @@
     "days":"giorni",
     "hours":"ore",
     "minutes":"minuti",
-    "interval_error":"Please enter a number between 10 to 60.",
-    "view_statement":"View Statement",
-    "integer_error":"Interval should be integer."
+    "interval_error":"Inserire un numero compreso tra 10 e 60.",
+    "view_statement":"Mostra l'estratto",
+    "integer_error":"L'intervallo deve essere un numero intero."
   },
   "newvirtualaccount":{
-    "continue":"Continue",
-    "signup":"Sign up",
+    "continue":"Continua",
+    "signup":"Registrati",
     "email":"Email",
-    "signup-question":"Don't have an account?",
-    "verification-code":"Verification Code",
+    "signup-question":"Non hai un account?",
+    "verification-code":"Codice di verifica",
     "password":"Password",
     "residence":"Residence:",
     "select":"Select your country",
