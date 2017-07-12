@@ -182,7 +182,7 @@
             if (
                 !vm.authenticated &&
                 (vm.isFinancial ||
-                    ((vm.isCR && vm.balance >= 200) || localStorage.mt5LoginList.length > 0) ||
+                    (vm.isCR && (vm.balance >= 200 || vm.mt5LoginList.length > 0)) ||
                     vm.isMLT ||
                     vm.isMX)
             ) {
