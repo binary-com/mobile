@@ -34,7 +34,9 @@
         vm.isLoggedIn = false;
         vm.notUpdatedTaxInfo = false;
         vm.isFinancial = false;
-        vm.hasHighRisk = false;
+	      vm.isCR = false;
+	      vm.isMLT = false;
+	      vm.isMX = false;
         // authentication and restricted messages
         $translate([
             "notifications.account_authentication",
@@ -109,12 +111,17 @@
             if (localStorage.hasOwnProperty("accounts") && !_.isEmpty(localStorage.accounts)) {
                 vm.checkAccountType();
                 websocketService.sendRequestFor.getAccountStatus();
-                websocketService.sendRequestFor.mt5LoginList();
                 websocketService.sendRequestFor.getSelfExclusion();
             } else {
                 $timeout(vm.getAccountInfo, 1000);
             }
         };
+
+        $scope.$on('mt5_login_list:success', (e, mt5_login_list) => {
+            vm.mt5LoginList = mt5_login_list;
+	          vm.financialAssessmentStatus(vm.status);
+	          vm.authenticateStatus(vm.status);
+        });
 
         $scope.$on("authorize", (e, authorize) => {
             if (!appStateService.checkedAccountStatus) {
@@ -137,19 +144,10 @@
 
         vm.init();
 
-        vm.riskStatus = function(get_account_status) {
-            if (get_account_status.risk_classification === "high" && !vm.isCR) {
-                vm.hasHighRisk = true;
-                websocketService.sendRequestFor.getFinancialAssessment();
-            } else {
-                vm.hasHighRisk = false;
-            }
-        };
-
-        vm.financialAssessmentStatus = function(get_financial_assessment) {
+        vm.financialAssessmentStatus = function(status) {
 	          if (
-                _.isEmpty(get_financial_assessment) &&
-                vm.hasHighRisk &&
+                (status.risk_classification === "high" || vm.isFinancial || vm.mt5LoginList.length > 0) &&
+                status.indexOf("financial_assessment_not_complete") > -1 &&
                 !appStateService.hasFinancialAssessmentMessage
             ) {
                 appStateService.hasFinancialAssessmentMessage = true;
@@ -255,20 +253,15 @@
         };
 
         $scope.$on("get_account_status", (e, get_account_status) => {
-            vm.riskStatus(get_account_status);
             if (get_account_status.hasOwnProperty("status")) {
-                vm.taxInformationStatus(get_account_status.status);
-                vm.authenticateStatus(get_account_status.status);
-                vm.ageVerificationStatus(get_account_status.status);
-                vm.unwelcomeStatus(get_account_status.status);
-                vm.cashierStatus(get_account_status.status);
-                vm.withdrawalStatus(get_account_status.status);
+                vm.status = get_account_status.status;
+                vm.taxInformationStatus(vm.status);
+                vm.ageVerificationStatus(vm.status);
+                vm.unwelcomeStatus(vm.status);
+                vm.cashierStatus(vm.status);
+                vm.withdrawalStatus(vm.status);
+                websocketService.sendRequestFor.mt5LoginList();
             }
-        });
-
-        // get the financial Assessment of user to check if is empty and user has high risk so must set them
-        $scope.$on("get_financial_assessment:success", (e, get_financial_assessment) => {
-            vm.financialAssessmentStatus(get_financial_assessment);
         });
 
         // get terms and onditions
