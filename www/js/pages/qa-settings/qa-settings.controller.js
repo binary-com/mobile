@@ -24,7 +24,7 @@
     vm.saveSettings = function(){
       var settings = {};
       config.wsUrl = settings.wsUrl = vm.wsUrl;
-      config.app_id = settings.appId = vm.appId;
+      config.app_id = settings.appId = vm.appId.toString();
       config.oauthUrl = settings.oauthUrl = vm.oauthUrl;
 
       localStorage.qaSettings = JSON.stringify(settings);
