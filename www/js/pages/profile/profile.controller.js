@@ -56,8 +56,9 @@
                 vm.account = accountService.getDefault();
                 vm.isFinancial = !!_.startsWith(vm.account.id, "MF");
                 websocketService.sendRequestFor.residenceListSend();
+            } else {
+                vm.getProfile();
             }
-            vm.getProfile();
         };
 
         vm.getProfile = function() {
@@ -67,6 +68,7 @@
         $scope.$on("residence_list", (e, response) => {
             $scope.$applyAsync(() => {
                 vm.residenceList = response;
+                vm.getProfile();
             });
         });
 
