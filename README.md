@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/binary-com/mobile.svg?branch=dev)](https://travis-ci.org/binary-com/mobile)
 
 # Tick Trade Mobile Application
 
