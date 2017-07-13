@@ -73,7 +73,8 @@
   ],
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install",
-    "format": "prettier-eslint --write \"www/js/**/*.js\""
+    "format": "prettier-eslint --write \"www/js/**/*.js\"",
+    "test": "eslint www/js/"
   },
   "cordova": {
     "plugins": {
