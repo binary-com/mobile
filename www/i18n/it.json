@@ -395,7 +395,7 @@
   },
   "transactiondetails":{
     "detail":"Dettagli della transazione",
-    "back":"Back",
+    "back":"Indietro",
     "ok":"OK",
     "contract_id":"Contract ID:",
     "ref":"Reference ID",
