@@ -37,7 +37,7 @@
     "cheerio": "^0.22.0",
     "del": "^2.2.0",
     "electron-packager": "^8.5.1",
-    "eslint": "^4.1.1",
+    "eslint": "^4.2.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-config-prettier": "^2.3.0",
     "eslint-config-standard": "^10.2.1",
@@ -72,7 +72,6 @@
     "android"
   ],
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install",
     "format": "prettier-eslint --write \"www/js/**/*.js\"",
     "test": "eslint www/js/"
   },
