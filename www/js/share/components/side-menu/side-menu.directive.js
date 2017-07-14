@@ -7,24 +7,19 @@
  * Application Side Menu
  */
 
-(function(){
-  'use strict';
-  angular
-    .module('binary.share.components')
-    .directive('bgSideMenu', SideMenu);
+(function() {
+    angular.module("binary.share.components").directive("bgSideMenu", SideMenu);
 
-    function SideMenu(){
-      var directive = {
-        link: link,
-        templateUrl: 'js/share/components/side-menu/side-menu.template.html',
-        retrict: 'A',
-        scope: {}
-      }
+    function SideMenu() {
+        const directive = {
+            link,
+            templateUrl: "js/share/components/side-menu/side-menu.template.html",
+            retrict    : "A",
+            scope      : {}
+        };
 
-      function link (){
-      }
+        function link() {}
 
-      return directive;
+        return directive;
     }
 })();
-

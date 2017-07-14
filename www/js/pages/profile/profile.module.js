@@ -6,14 +6,8 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.profile", ["binary.pages.profile.controllers"]);
 
-  angular
-    .module('binary.pages.profile', [
-        'binary.pages.profile.controllers'
-    ]);
-
-  angular
-    .module('binary.pages.profile.controllers', []);
+    angular.module("binary.pages.profile.controllers", []);
 })();

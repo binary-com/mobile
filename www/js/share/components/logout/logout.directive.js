@@ -7,21 +7,16 @@
  */
 
 (function() {
-    'use strict';
-
-    angular
-        .module('binary.share.components.logout.directives')
-        .directive('bgLogout', Logout);
+    angular.module("binary.share.components.logout.directives").directive("bgLogout", Logout);
 
     function Logout() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/share/components/logout/logout.template.html',
-            controller: 'LogoutController',
-            controllerAs: 'vm',
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/share/components/logout/logout.template.html",
+            controller      : "LogoutController",
+            controllerAs    : "vm",
             bindToController: true,
-            scope: {}
-
+            scope           : {}
         };
         return directive;
     }

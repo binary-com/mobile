@@ -6,60 +6,55 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.options.services").factory("tradeTypesService", TradeTypes);
 
-    angular
-        .module('binary.pages.trade.components.options.services')
-        .factory('tradeTypesService', TradeTypes);
+    function TradeTypes() {
+        const directive = {};
 
-    function TradeTypes(){
-        var directive = {};
-
-        directive.findTickContracts = function(contracts){
-            var tradeTypes = {};
+        directive.findTickContracts = function(contracts) {
+            const tradeTypes = {};
             _.forEach(contracts, (value, key) => {
-                var contracts = [];
+                const contracts = [];
 
-                for(var i in value){
-                    if(value[i].expiry_type === 'tick'){
+                value.forEach((v, i) => {
+                    if (value[i].expiry_type === "tick") {
                         contracts.push(value[i]);
                     }
-                }
+                });
 
-                if(contracts.length > 0){
+                if (contracts.length > 0) {
                     tradeTypes[key] = contracts;
                 }
             });
 
-
-            var groupedTradeTypes = {};
+            const groupedTradeTypes = {};
             _.forEach(tradeTypes, (value, key) => {
-                if(value.length == 2){
+                if (value.length === 2) {
                     groupedTradeTypes[value[0].contract_category_display] = value;
                 } else {
-                    for(var i=0; i < value.length; i = i+2){
-                        var name = value[i].contract_category_display;
-                        if(value[i].contract_category === 'callput'){
-                            if(_.isEmpty(value[i].barrier)){
+                    for (let i = 0; i < value.length; i += 2) {
+                        let name = value[i].contract_category_display;
+                        if (value[i].contract_category === "callput") {
+                            if (_.isEmpty(value[i].barrier)) {
                                 name = "Rise/Fall";
                             } else {
                                 name = "Higher/Lower";
                             }
                         } else {
-                        name += " " + 
-                            value[i].contract_display.capitalize() + "/" +
-                            value[i+1].contract_display.capitalize();
+                            name += ` ${value[i].contract_display.capitalize()}/${value[
+                                i + 1
+                            ].contract_display.capitalize()}`;
                         }
 
-                        groupedTradeTypes[name] = [value[i], value[i+1]];
+                        groupedTradeTypes[name] = [value[i], value[i + 1]];
                     }
                 }
             });
 
             sessionStorage.tradeTypes = JSON.stringify(groupedTradeTypes);
             return groupedTradeTypes;
-        }
+        };
 
         return directive;
     }

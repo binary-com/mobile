@@ -6,33 +6,29 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.options.services").factory("optionsService", Options);
 
-  angular
-    .module('binary.pages.trade.components.options.services')
-    .factory('optionsService', Options);
+    function Options() {
+        const factory = {};
 
-  function Options(){
-    var factory = {};
+        factory.get = function() {
+            if (_.isEmpty(localStorage.options)) {
+                return null;
+            }
 
-    factory.get = function(){
-      if(_.isEmpty(localStorage.options)){
-        return null;
-      }
+            return JSON.parse(localStorage.options);
+        };
 
-      return JSON.parse(localStorage.options);
+        factory.set = function(options) {
+            if (!_.isEmpty(options)) {
+                localStorage.options = JSON.stringify(options);
+                return true;
+            }
+
+            return false;
+        };
+
+        return factory;
     }
-
-    factory.set = function(options){
-      if(!_.isEmpty(options)){
-        localStorage.options = JSON.stringify(options);
-        return true;
-      }
-
-      return false;
-    }
-
-    return factory;
-  }
 })();

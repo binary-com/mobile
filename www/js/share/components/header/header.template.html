@@ -4,17 +4,18 @@
                 ng-disabled="vm.disableMenuButton"
                 class="button button-icon icon ion-navicon"></button>
     </div>
-    <div ng-if="vm.showBack">
-        <button ng-click="vm.goToPrevPage()"
+    <button ng-click="vm.goToPrevPage()" ng-disabled="vm.disableBackButton"  ng-if="vm.showBack"
                 class="button button-icon ion-android-arrow-back"
                 ng-class="{'ion-ios-arrow-back' : vm.ios}"></button>
-    </div>
 
     <h1 class="title">
-        <bg-spinner-logo></bg-spinner-logo>
-        <img src="img/binary.svg" alt="Binary.com">
+        <img src="img/binary_logo_light.svg" alt="Binary.com">
     </h1>
+    <bg-notification-icon class="notification-icon"></bg-notification-icon>
 </ion-header-bar>
-<ion-subheader-bar align-title="center" class="bar bar-subheader bar-positive">
+<ion-subheader-bar align-title="center"
+                   class="bar bar-subheader bar-positive"
+                   ng-show="!vm.hideBalance">
   <bg-balance></bg-balance>
 </ion-subheader-bar>
+

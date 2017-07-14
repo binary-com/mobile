@@ -6,17 +6,13 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.options.controllers").controller("BarrierController", Barrier);
 
-  angular
-    .module('binary.pages.trade.components.options.controllers')
-    .controller('BarrierController', Barrier);
+    Barrier.$inject = [];
 
-  Barrier.$inject = [];
-
-  function Barrier(){
-    var vm = this;
-    var pattern = /^[\+-]\d+(\.\d{1,5})?|\d+(\.\d{1,5})?/;
-  }
+    function Barrier() {
+        const vm = this;
+        const pattern = /^[+-]\d+(\.\d{1,5})?|\d+(\.\d{1,5})?/;
+    }
 })();

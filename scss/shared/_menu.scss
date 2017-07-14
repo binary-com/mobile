@@ -1,92 +1,94 @@
 .menu {
-  background-color: $primaryBrandColor;
-  .account-menu{
-    padding-top: 30px;
-    height: auto;
-  }
-  ion-content{
-    overflow-y: hidden;
-    width: 100%!important;
     background-color: $primaryBrandColor;
-    &.has-header{
-      top: 75px;
-      border-top: 1px solid $borderColor!important;
-    }
-  }
-  .bar-header {
-    border-bottom: 0px !important;
-    background: trasparent;
-    background-color: $primaryBrandColor;
-    align-items: center;
-  }
-
-  .item-complex {
-    .item-content {
-      background-color: $primaryBrandColor;
-    }
-  }
-  .item{
-    margin: 0;
-      background-color: $primaryBrandColor;
-  }
-  bg-accounts{
-    width: calc(100% - 10px);
-      background-color: $primaryBrandColor;
-    .options-account {
-      background-color: $primaryBrandColor;
-      padding-top: 10px;
-      padding-bottom: 5px;
-      margin-left: 10px;
-      width: 100%;
-      .manage-account {
-        text-align: right;
-        font-size: 0.8rem;
+    .icon-wrapper {
+      width: 20px;
+      float: left;
+      &.account-icon {
+        line-height: 1.42857;
+        padding: 5px 5px 0 5px;
+        font-size: 1rem;
+        color: $white!important;
+        position: relative;
       }
-      select {
-        color: $contentInverseColor;
+    }
+    .account-menu {
+        margin-top: 40px;
+        height: auto;
+    }
+    ion-content {
+        overflow-y: hidden;
+        width: 100%!important;
         background-color: $primaryBrandColor;
-        border-color: $primaryBrandColor;
+        &.has-header {
+            margin-top: 45px;
+        }
+    }
+    .bar-header {
+        border-bottom: 1px solid $borderColor!important;
+        background: trasparent;
+        background-color: $primaryBrandColor;
+        align-items: center;
+    }
+    .bar-footer {
+        border-top: 1px solid $borderColor!important;
+        background: trasparent;
+        background-color: $primaryBrandColor;
+        .sidemenu-app-version {
+            top: -0.5px;
+            right: 0px;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            color: $white;
+            font-size: 0.8rem;
+        }
+    }
+    .item-complex {
+        .item-content {
+            background-color: $primaryBrandColor;
+        }
+    }
+    .item {
+        margin: 0;
+        background-color: $primaryBrandColor;
+        color: $white;
+    }
+    bg-accounts {
         width: 100%;
-        font-size: 0.9rem
-      }
+        background-color: $primaryBrandColor;
+        .options-account {
+            background-color: $primaryBrandColor;
+            padding-top: 0;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            width: calc(100% - 10px);
+            .manage-account {
+                text-align: right;
+                font-size: 0.8rem;
+            }
+            select {
+                color: $contentInverseColor;
+                background-color: $primaryBrandColor;
+                border-color: $primaryBrandColor;
+                border: none;
+                width: 90%;
+                width: calc(100% - 30px);
+                font-size: 1rem;
+                padding: 5px 0;
+            }
+        }
     }
-  }
-
-  a.item-content{
-    color: $contentInverseColor;
-    font-size: 0.8rem;
-    &.activated{
-      background: $primaryBrandColor;
-
+    a.item-content {
+        color: $contentInverseColor;
+        font-size: 1rem;
+        font-weight: normal;
+        &.activated {
+            background: $primaryBrandColor;
+        }
     }
-  }
-  .upgrade-link{
-    a{
-      padding: 15px;
+    .upgrade-link {
+        a {
+            padding: 15px;
+        }
     }
-  }
-  // .upgrade-link{
-  //   margin-left: 0;
-  //   background-color: #primaryBrandColor;
-  //   padding-top: 10px;
-  //   padding-bottom: 5px;
-  //   a{
-  //     font-size: 12px;
-  //   }
-  // }
 }
-
-// @media only screen and (min-device-width: 480px) {
-//   .menu{
-//     .upgrade-link{
-//       a{
-//         font-size: 12px;
-//       }
-//     }
-//   }
-//   .options-account{
-//     .manage-account{
-//       font-size: 12px;
-//     }
-//   }
-// }

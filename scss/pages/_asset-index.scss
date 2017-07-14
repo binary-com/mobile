@@ -1,0 +1,67 @@
+.asset-index {
+	form {
+		display: inline-block;
+		width: 49%;
+		width: calc((100% - 10px) / 2);
+
+		select {
+			height: 34px;
+			text-transform: capitalize;
+
+			option {
+				text-transform: capitalize;
+			}
+		}
+
+		label,
+		select {
+			line-height: inherit!important;
+		}
+	}
+
+	.table-container {
+		overflow-x: scroll;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	.asset-index-table {
+		width: 100%;
+		font-size: 0.7rem;
+
+		tbody {
+			tr {
+				border-bottom: 1px solid $borderColor;
+
+				td {
+					padding: 5px;
+					font-size: 0.8rem;
+				}
+
+				&.title-row {
+					padding-left: 15px;
+					border-top: 1px solid $black;
+					border-bottom: 1px solid $black;
+					background: $secondaryContentColor;
+				}
+
+				&.market-row {
+					background: $fillColor;
+					font-size: 0.8rem;
+
+					&.limits-by-market {
+						margin-top: 20px;
+					}
+
+					tr {
+						th {
+							padding: 5px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

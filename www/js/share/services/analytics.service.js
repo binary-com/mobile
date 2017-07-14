@@ -7,32 +7,35 @@
  * Send information to all analytics services
  */
 
-angular
-    .module('binary')
-    .factory('analyticsService',
-            function(){
-                var factory = {};
-                factory.google = {
-                    trackView: function(_view){
-                        if(typeof(analytics) !== "undefined"){
-                            analytics.trackView(_view);
-                        }
-                    },
-                    trackEvent: function(id, symbole, contractType, payout){
-                        if(typeof(analytics) !== "undefined"){
-                            analytics.trackEvent(id, symbole, contractType, payout);
-                        }
-                    }
-                };
+angular.module("binary").factory("analyticsService", accountService => {
+    const factory = {};
+    factory.google = {
+        addUser() {
+            const user = accountService.getDefault();
+            const userId = user && user.id ? user.id : null;
+            window.ga.setUserId(userId);
+        },
+        trackView(_view) {
+            if (typeof ga !== "undefined") {
+                this.addUser();
+                ga.trackView(_view);
+            }
+        },
+        trackEvent(market, contractType, symbole, payout) {
+            if (typeof ga !== "undefined") {
+                this.addUser();
+                ga.trackEvent(market, contractType, symbole, payout);
+            }
+        }
+    };
 
-                factory.amplitude = {
-                    logEvent: function(title, data){
-                        if(amplitude !== "undefined"){
-                            amplitude.logEvent(title, data);
-                        }
-                    }
-                }
+    factory.amplitude = {
+        logEvent(title, data) {
+            if (amplitude !== "undefined") {
+                amplitude.logEvent(title, data);
+            }
+        }
+    };
 
-                return factory;
-            });
-
+    return factory;
+});

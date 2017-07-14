@@ -6,56 +6,49 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.balance.controllers").controller("BalanceController", Balance);
 
-  angular
-    .module('binary.share.components.balance.controllers')
-    .controller('BalanceController', Balance);
+    Balance.$inject = ["$scope", "websocketService"];
 
-  Balance.$inject = [
-    '$scope', 'websocketService'
-  ]
+    function Balance($scope, websocketService) {
+        const vm = this;
+        vm.balance = null;
 
-  function Balance(
-      $scope,
-      websocketService) {
-    var vm = this;
-    vm.balance = null;
+        $scope.$on("authorize", (e, response, requestId, pathtrough) => {
+            $scope.$applyAsync(() => {
+                vm.balance = {
+                    currency: response.currency,
+                    balance : response.balance,
+                    loginid : response.loginid
+                };
+                sessionStorage.setItem("balance", vm.balance.balance);
 
-    $scope.$on('authorize',
-        (e, response, requestId, pathtrough) => {
-          vm.balance = {
-            currency: response.currency,
-            balance: response.balance,
-            loginid: response.loginid
-          };
-          changeProposalCurrency();
+                changeProposalCurrency();
+            });
         });
 
-    $scope.$on('balance',
-        (e, response) => {
-          $scope.$applyAsync(() => {
-            vm.balance = response;
-            changeProposalCurrency();
-          });
+        $scope.$on("balance", (e, response) => {
+            $scope.$applyAsync(() => {
+                vm.balance = response;
+                changeProposalCurrency();
+            });
         });
 
-    $scope.$on('language:updated',
-        (e) => {
-          websocketService.sendRequestFor.forgetAll('balance');
-          vm.balance = null;
-          getBalance();
+        $scope.$on("language:updated", e => {
+            websocketService.sendRequestFor.forgetAll("balance");
+            vm.balance = null;
+            getBalance();
         });
 
-    function getBalance() {
-      websocketService.sendRequestFor.balance();
+        function getBalance() {
+            websocketService.sendRequestFor.balance();
+        }
+
+        function changeProposalCurrency() {
+            $scope.$broadcast("currency:changed", vm.balance.currency);
+        }
+
+        getBalance();
     }
-
-    function changeProposalCurrency(){
-      $scope.$broadcast('currency:changed', vm.balance.currency);
-    }
-
-    getBalance();
-  }
 })();

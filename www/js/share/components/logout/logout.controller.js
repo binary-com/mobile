@@ -6,44 +6,24 @@
  * @copyright Binary Ltd
  */
 
-(function (){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.logout.controllers").controller("LogoutController", Logout);
 
-  angular
-    .module('binary.share.components.logout.controllers')
-    .controller('LogoutController', Logout);
+    Logout.$inject = ["websocketService", "alertService"];
 
-  Logout.$inject = [
-		'$rootScope', '$state',
-    'accountService', 'appStateService',
-    'websocketService', 'alertService',
-    'proposalService'];
+    function Logout(websocketService, alertService) {
+        const vm = this;
+        vm.logout = function(res) {
+            alertService.confirmRemoveAllAccount(res => {
+                if (typeof res !== "boolean") {
+                    if (res === 1) res = true;
+                    else res = false;
+                }
 
-  function Logout(
-			$rootScope,
-			$state,
-      accountService,
-      appStateService,
-      websocketService,
-      alertService,
-      proposalService
-    ){
-    var vm = this;
-		vm.logout = function(res) {
-				alertService.confirmRemoveAllAccount(
-					function(res){
-						if(typeof(res) !== "boolean"){
-							if(res == 1)
-								res = true;
-							else
-								res = false;
-						}
-
-						if(res){
-              websocketService.logout();
-						}
-					}
-				);
-			};
-	}
+                if (res) {
+                    websocketService.logout();
+                }
+            });
+        };
+    }
 })();

@@ -1,9 +1,11 @@
 <ion-view class="settings">
-  <ion-content>
-    <div class="bar bar-header bar-light">
-      <h1 class="title">
-        {{ 'settings.settings' | translate }}
-      </h1>
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{ 'settings.settings' | translate }}
+        </h1>
+      </div>
     </div>
     <div class="list">
       <div ng-repeat="s in vm.settings">
@@ -12,6 +14,7 @@
            ui-sref="{{s.url}}"
            class="item">
           {{ s.name | translate }}
+          <i class="submenu-icon ion-android-arrow-dropright" ng-class="{'ion-ios-arrow-right' : vm.ios}"></i>
         </a>
         <div ng-if="s.submenus && s.submenus.length > 0"
              class="item item-divider">

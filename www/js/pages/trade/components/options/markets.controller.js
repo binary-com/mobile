@@ -6,34 +6,30 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.options.controllers").controller("MarketsController", Markets);
 
-  angular
-    .module('binary.pages.trade.components.options.controllers')
-    .controller('MarketsController', Markets);
+    Markets.$inject = ["$scope", "websocketService"];
 
-  Markets.$inject = ['$scope', 'marketsService', 'websocketService'];
+    function Markets($scope, websocketService) {
+        const vm = this;
+        vm.markets = {};
 
-  function Markets($scope, marketsService, websocketService){
-    var vm = this;
-    vm.markets = {};
+        function init() {
+            if (_.isEmpty(sessionStorage.markets)) {
+                setTimeout(init, 500);
+                return;
+            }
 
-    function init(){
-      if(_.isEmpty(sessionStorage.markets)){
-        setTimeout(init, 500);
-        return;
-      }
+            $scope.$applyAsync(() => {
+                vm.markets = JSON.parse(sessionStorage.markets);
+            });
+        }
 
-      $scope.$applyAsync(()=>{
-        vm.markets = JSON.parse(sessionStorage.markets);
-      });
+        vm.selectMarket = function(market) {
+            vm.select()(market);
+        };
+
+        init();
     }
-
-    vm.selectMarket = function(market){
-      vm.select()(market);
-    }
-
-    init();
-  }
 })();

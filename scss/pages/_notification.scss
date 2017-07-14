@@ -1,0 +1,7 @@
+.notification {
+  padding: 5px 10px;
+  box-shadow: none;
+  .bordered {
+    border-bottom: 1px solid $borderColor;
+  }
+}
