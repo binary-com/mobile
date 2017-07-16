@@ -39,12 +39,12 @@
     "must_number":"Здесь должны быть цифры.",
     "ok":"OK",
     "cancel":"Отмена",
-    "yes":"Yes",
-    "no":"No"
+    "yes":"Да",
+    "no":"Нет"
   },
   "options":{
     "account":"Счёт",
-    "market":"Markets",
+    "market":"Рынки",
     "forex":"Forex",
     "random":"Индексы Random",
     "volidx":"Индексы волатильности",
@@ -75,7 +75,7 @@
     "up_down":"Вверх/Вниз",
     "markets_are_closed":"Извините, все рынки в данное время закрыты. Повторите попытку позже.",
     "cancel":"Отмена",
-    "select_market":"Select Market",
+    "select_market":"Выберите рынок",
     "select_underlying":"Выберите актив",
     "select_tradetype":"Выберите тип контракта",
     "select_tick":"Выберите тик",
@@ -227,7 +227,7 @@
     "health":"Здравоохранение",
     "tourism":"Туризм",
     "other":"Другое",
-    "others":"Others",
+    "others":"Другое",
     "occupation":"Вид деятельности",
     "chief_executives":"Руководители, высокопоставленные чиновники и работники законодательных органов",
     "managers":"Менеджеры",
@@ -303,10 +303,10 @@
     "account_turnover_4":"$100 001 - $500 000",
     "account_turnover_5":"Более $500 000",
     "account_opening_reason":"Причина открытия счёта",
-    "speculative":"Speculative",
-    "income_earning":"Income Earning",
-    "assets_saving":"Assets Saving",
-    "hedging":"Hedging"
+    "speculative":"Спекуляции",
+    "income_earning":"Заработок",
+    "assets_saving":"Приумножение активов",
+    "hedging":"Хеджирование"
   },
   "newaccountreal":{
     "open_real":"Открыть реальный счет",
@@ -364,10 +364,10 @@
     "not-pep-verify":"Настоящим я заявляю, что не являюсь политически значимым лицом (ПЗЛ)",
     "pep-info":"Политически значимое лицо (ПЗЛ) – это человек, который выполняет или в прошлом выполнял важную политическую роль. Данный статус распространяется на родственников и близких друзей ПЗЛ.",
     "account_opening_reason":"Причина открытия счёта",
-    "speculative":"Speculative",
-    "income_earning":"Income Earning",
-    "assets_saving":"Assets Saving",
-    "hedging":"Hedging"
+    "speculative":"Спекуляции",
+    "income_earning":"Заработок",
+    "assets_saving":"Приумножение активов",
+    "hedging":"Хеджирование"
   },
   "profittable":{
     "profit_table":"Анализ счёта",
@@ -590,7 +590,7 @@
     "health":"Здравоохранение",
     "tourism":"Туризм",
     "other":"Другое",
-    "others":"Others",
+    "others":"Другое",
     "occupation":"Вид деятельности",
     "chief_executives":"Руководители, высокопоставленные чиновники и работники законодательных органов",
     "managers":"Менеджеры",
