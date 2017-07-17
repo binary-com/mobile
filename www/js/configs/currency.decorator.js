@@ -22,7 +22,7 @@
                     const currency = arguments[1] || "USD";
 
                     if (isNaN(arguments[0])) {
-                      return '--';
+                        return '--';
                     }
                     return formatMoney(locale, currency, arguments[0]);
                 };
