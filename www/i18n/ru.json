@@ -654,7 +654,7 @@
     "trading_limits":"Торговые лимиты",
     "withdrawal_limits":"Лимиты на вывод",
     "your_withdrawal_limit":"Ваш лимит на вывод составляет {{currency}} {{limits}} (или эквивалентную сумму в другой валюте).",
-    "already_withdrawn":"You have already withdrawn the equivalent of {{currency}} {{limits}} (or equivalent in other currency).",
+    "already_withdrawn":"Вы уже вывели сумму, равную {{currency}} {{limits}} (или её эквивалент в другой валюте).",
     "current_immediate_maximum_withdrawal":"Поэтому максимально возможная сумма к выводу на данный момент (если на счету есть средства) составляет {{currency}} {{limits}} (или эквивалентную сумму в другой валюте).",
     "fully_authenticated":"Ваш счет полностью авторизован, и лимит на вывод был снят.",
     "your_n_day_withdrawal_limit":"Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
