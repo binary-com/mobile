@@ -20,6 +20,10 @@
                 const extendsFilter = function() {
                     const locale = (localStorage.language || "en").replace("_", "-").slice(0, 2);
                     const currency = arguments[1] || "USD";
+
+                    if (isNaN(arguments[0])) {
+                      return '--';
+                    }
                     return formatMoney(locale, currency, arguments[0]);
                 };
 
