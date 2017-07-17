@@ -657,10 +657,10 @@
     "already_withdrawn":"Вы уже вывели сумму, равную {{currency}} {{limits}} (или её эквивалент в другой валюте).",
     "current_immediate_maximum_withdrawal":"Поэтому максимально возможная сумма к выводу на данный момент (если на счету есть средства) составляет {{currency}} {{limits}} (или эквивалентную сумму в другой валюте).",
     "fully_authenticated":"Ваш счет полностью авторизован, и лимит на вывод был снят.",
-    "your_n_day_withdrawal_limit":"Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
-    "already_withdrawn_days":"You have already withdrawn the equivalent of {{currency}} {{limits}} in aggregate over the last {{day}} days.",
-    "your_withdrawal":"Your withdrawal limit is {{currency}} {{limits}}",
-    "withdrawn":"You have already withdrawn {{currency}} {{limits}}"
+    "your_n_day_withdrawal_limit":"Ваш лимит на вывод за {{day}} дней в настоящее время составляет {{currency}} {{limits}} (или эквивалентную сумму в другой валюте).",
+    "already_withdrawn_days":"Вы уже вывели сумму, эквивалентную {{currency}} {{limits}} за последние {{day}} дней.",
+    "your_withdrawal":"Ваш лимит на вывод: {{currency}} {{limits}}",
+    "withdrawn":"Вы уже вывели {{currency}} {{limits}}"
   },
   "resources":{
     "resources":"Ресурсы",
@@ -730,9 +730,9 @@
     "documents":"Пройдите аутентификацию счёта сейчас, подтвердив Вашу личность и адрес. Для начала, просто отправьте нам копии следующих документов по адресу",
     "proof_of_identity":"Подтверждение личности: отсканированная копия Вашего паспорта, водительских прав (временных или постоянных) или любого удостоверения личности, содержащего Ваше имя и дату рождения.",
     "proof_of_address":"Подтверждение адреса: отсканированный счёт за коммунальные услуги или выписка с Вашего банковского счёта (датированные не позднее, чем за 3 месяца до текущей даты). Документ, подтверждающий адрес, должен содержать Ваше имя, адрес, дату, а также название выдавшей его организации.",
-    "questions":"Got questions?",
+    "questions":"У Вас есть вопросы?",
     "contact":"Свяжитесь с нами",
-    "help":"for help."
+    "help":"для помощи."
   },
   "contact":{
     "contact_us":"Свяжитесь с нами",
@@ -768,17 +768,17 @@
     "please_authenticate":"Пройдите аутентификацию счёта, чтобы снять торговые лимиты и ограничения на вывод.",
     "account_authentication":"Аутентификация счёта",
     "please_contact":"Ваш счёт заблокирован. Пожалуйста, свяжитесь с нашей службой поддержки для получения помощи.",
-    "account_restriction":"Account restriction",
+    "account_restriction":"Ограничения на счету",
     "account_country":"Страна проживания",
     "set_country":"Пожалуйста, укажите страну проживания до перехода на реальный счёт.",
     "complete_financial_assessment":"Пожалуйста, заполните форму финансовой оценки, чтобы снять торговые лимиты и ограничения на вывод.",
-    "financial_assessment_not_completed":"Financial Assessment is not completed",
+    "financial_assessment_not_completed":"Финансовая оценка не окончена",
     "tax_information":"Информация о налогах",
     "complete_profile":"Пожалуйста, заполните свой профайл, чтобы снять торговые лимиты и ограничения на вывод.",
     "tnc":"Правила и условия",
     "accept_tnc":"Пожалуйста, примите Правила и условия, чтобы снять ограничения на торговлю и вывод средств.",
-    "max_turnover_limit":"Account maximum turnover limit",
-    "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits.",
+    "max_turnover_limit":"Максимальный лимит на объём покупок на счету",
+    "set_max_turnover_limit":"Пожалуйста, установите 30-дневный лимит на объём покупок для самоограничения, чтобы изменить лимиты на депозит.",
     "account_age_verification":"Проверка возраста",
     "needs_age_verification":"Необходима проверка возраста. Пожалуйста, свяжитесь с отделом поддержки клиентов для получения дополнительной информации."
   }
