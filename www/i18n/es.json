@@ -85,7 +85,7 @@
     "payout":"Pago",
     "stake":"Apuesta",
     "price":"Precio",
-    "buy":"Buy",
+    "buy":"Comprar",
     "net_profit":"Beneficio neto",
     "potential_payout":"Pago Potencial",
     "total_cost":"Coste Total",
@@ -101,8 +101,8 @@
     "lose":"Este contrato perdió",
     "transaction_id":"Referencia de la Transacción",
     "buy_again":"Comprar de nuevo",
-    "sell":"Sell",
-    "barrier":"Barrier offset"
+    "sell":"Vender",
+    "barrier":"Desplazamiento de barrera"
   },
   "help":{
     "need_help":"¿Necesita ayuda?",
@@ -118,11 +118,11 @@
     "exit_confirmation":"¿Está seguro que quiere salir?",
     "connection_error_title":"Error de conexión",
     "connection_error":"¡No hay conexión a Internet!",
-    "sign_out":"Sign out"
+    "sign_out":"Cerrar sesión"
   },
   "update":{
-    "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
-    "what_is_new":"WHAT'S NEW"
+    "your_version_is_out_of_date_please_update":"Su versión de Tick Trade está desactualizada. Por favor, actualice la aplicación a la versión más reciente.",
+    "what_is_new":"QUÉ HAY DE NUEVO"
   },
   "realitycheck":{
     "title":"Comprobación de realidad",
@@ -146,37 +146,37 @@
     "days":"días",
     "hours":"horas",
     "minutes":"minutos",
-    "interval_error":"Please enter a number between 10 to 60.",
+    "interval_error":"Por favor, introduzca un número entre 10 y 60.",
     "view_statement":"View Statement",
-    "integer_error":"Interval should be integer."
+    "integer_error":"El intervalo debe ser entero."
   },
   "newvirtualaccount":{
-    "continue":"Continue",
-    "signup":"Sign up",
-    "email":"Email",
-    "signup-question":"Don't have an account?",
-    "verification-code":"Verification Code",
-    "password":"Password",
-    "residence":"Residence:",
-    "select":"Select your country",
-    "isrequired":"(Requierd)",
-    "password_hint":"Password must be minimum of six lower and uppercase letters with numbers",
-    "code_hint":"Please check your email for the value of this token",
-    "hide_pass":"Hide password",
-    "show_pass":"Show password",
-    "enter-email":"Please enter your email",
-    "email-error":"Email is not valid",
-    "token-invalid":"Please submit a valid verification token.",
-    "residence-error":"Please choose your country",
-    "invalid_email":"Please submit a valid email address.",
-    "password-pattern-error":"Password should have lower and uppercase letters with numbers.",
-    "length-error-6-25":"This field must be within 6-25 characters.",
-    "required":"This field is required."
+    "continue":"Continuar",
+    "signup":"Iniciar sesión",
+    "email":"Correo electrónico",
+    "signup-question":"¿Aún no tiene una cuenta?",
+    "verification-code":"Código de verificación",
+    "password":"Contraseña",
+    "residence":"Lugar de residencia:",
+    "select":"Seleccione su país",
+    "isrequired":"(Obligatorio)",
+    "password_hint":"La contraseña debe tener un mínimo de seis letras minúsculas y mayúsculas con números",
+    "code_hint":"Por favor, verifique su correo electrónico para ver el valor de este token",
+    "hide_pass":"Ocultar contraseña",
+    "show_pass":"Mostrar contraseña",
+    "enter-email":"Por favor, introduzca su correo electrónico",
+    "email-error":"Dirección de correo electrónico no válida",
+    "token-invalid":"Por favor, envíe un token de verificación válido.",
+    "residence-error":"Por favor, elija su país",
+    "invalid_email":"Por favor, envíe una dirección de correo electrónico válida.",
+    "password-pattern-error":"La contraseña debe tener letras minúsculas y mayúsculas con números.",
+    "length-error-6-25":"Este campo debe contener entre 6 y 25 caracteres.",
+    "required":"Campo obligatorio."
   },
   "newaccountmaltainvest":{
-    "open_financial":"Open a financial account",
-    "financial_account_opening":"Financial Account Opening",
-    "details":"Details",
+    "open_financial":"Abrir una cuenta financiera",
+    "financial_account_opening":"Abrir cuenta financiera",
+    "details":"Detalles",
     "privacy":"Privacy",
     "financial_information":"Financial information",
     "salutation":"Title",
