@@ -685,15 +685,23 @@
 	.trade {
 		#tradeChart {
 			width: 100% !important;
-			height: 180px !important;
+			height: 165px !important;
 		}
 		bg-chart {
-			max-height: 180px;
-			min-height: 175px;
+			max-height: 170px;
+			min-height: 160px;
 		}
     .row + .row {
       margin-top: 0 !important;
       padding-top: 5px !important;
+    }
+    .longcode {
+      .row {
+        padding: 0 !important;
+      }
+    }
+    .has-subheader {
+      top: 75px !important;
     }
 	}
 	bg-purchase {
