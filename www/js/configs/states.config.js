@@ -10,11 +10,11 @@ angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfi
     $ionicConfigProvider.views.swipeBackEnabled(false);
     $stateProvider
         .state("qa-settings", {
-          url: "/",
-          cache: false,
-          templateUrl: "js/pages/qa-settings/qa-settings.template.html",
-          controller: "QASettingsController",
-          controllerAs: "vm"
+            url         : "/",
+            cache       : false,
+            templateUrl : "js/pages/qa-settings/qa-settings.template.html",
+            controller  : "QASettingsController",
+            controllerAs: "vm"
         })
         .state("home", {
             url        : "/",

@@ -8,17 +8,17 @@
  */
 
 (function(){
-  'use strict';
+    
 
-  angular
-    .module('binary.pages.qa-settings', [
-        'binary.pages.qa-settings.controllers',
-        'binary.pages.qa-settings.directives'
-    ]);
+    angular
+        .module('binary.pages.qa-settings', [
+            'binary.pages.qa-settings.controllers',
+            'binary.pages.qa-settings.directives'
+        ]);
 
-  angular
-    .module('binary.pages.qa-settings.controllers', []);
+    angular
+        .module('binary.pages.qa-settings.controllers', []);
 
-  angular
-    .module('binary.pages.qa-settings.directives', []);
+    angular
+        .module('binary.pages.qa-settings.directives', []);
 })();

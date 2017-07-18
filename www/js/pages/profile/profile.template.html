@@ -1,6 +1,11 @@
 <ion-view class="profile" title="Profile" ng-cloak>
     <ion-content class="general-content has-header has-subheader">
-        <form name="profileForm" ng-submit="vm.submit()">
+        <div class="row" ng-if="!vm.isDataLoaded">
+            <div class="col center">
+                <ion-spinner></ion-spinner>
+            </div>
+        </div>
+        <form name="profileForm" ng-submit="vm.submit()" ng-if="vm.isDataLoaded">
             <div class="row">
                 <div class="col">
                     <h1 class="page-title">
@@ -316,7 +321,10 @@
             <div class="row">
                 <div class="col center">
                     <span class="help-block error center" ng-if="vm.notAnyChanges">{{'financial-assessment.no_change' | translate}}</span>
-                    <button class="button button-block" ng-click="vm.updateProfile()" ng-disabled="!profileForm.$valid || vm.disableUpdateButton  || (vm.isFinancial && vm.profile.tax_residence  == null) ">
+                    <button class="button button-block"
+                            ng-if="(vm.isVirtualAccount && !vm.hasResidence) || !vm.isVirtualAccount"
+                            ng-click="vm.updateProfile()"
+                            ng-disabled="!profileForm.$valid || vm.disableUpdateButton  || (vm.isFinancial && vm.profile.tax_residence  == null) ">
                         {{ 'profile.update_profile' | translate }}
                     </button>
                 </div>
