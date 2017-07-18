@@ -8,43 +8,46 @@
  */
 
 (function(){
-  'use strict';
 
-  angular
-    .module('binary.pages.qa-settings.controllers')
-    .controller('QASettingsController', QASettings);
 
-  QASettings.$inject = ['$state', 'appStateService',
-                        'config', 'websocketService'];
+    angular
+        .module('binary.pages.qa-settings.controllers')
+        .controller('QASettingsController', QASettings);
 
-  function QASettings($state, appStateService,
-                      config, websocketService){
-    var vm = this;
+    QASettings.$inject = ['$state', 'appStateService',
+        'config', 'websocketService'];
 
-    vm.saveSettings = function(){
-      var settings = {};
-      config.wsUrl = settings.wsUrl = vm.wsUrl;
-      config.app_id = settings.appId = vm.appId.toString();
-      config.oauthUrl = settings.oauthUrl = vm.oauthUrl;
+    function QASettings($state, appStateService,
+        config, websocketService){
+        const vm = this;
 
-      localStorage.qaSettings = JSON.stringify(settings);
+        vm.saveSettings = function(){
+            const settings = {};
+            config.wsUrl = vm.wsUrl;
+            settings.wsUrl = vm.wsUrl;
+            config.app_id = vm.appId.toString();
+            settings.appId = vm.appId.toString();
+            config.oauthUrl = vm.oauthUrl;
+            settings.oauthUrl = vm.oauthUrl;
 
-      websocketService.closeConnection();
-      $state.go('home');
+            localStorage.qaSettings = JSON.stringify(settings);
+
+            websocketService.closeConnection();
+            $state.go('home');
+        }
+
+        function init(){
+            let settings = {};
+            if(!_.isEmpty(localStorage.qaSettings)){
+                settings = JSON.parse(localStorage.qaSettings);
+            }
+
+            vm.wsUrl = settings.wsUrl || config.wsUrl;
+            vm.oauthUrl = settings.oauthUrl || config.oauthUrl;
+            vm.appId = Number(settings.appId) || Number(config.app_id);
+        }
+
+        init();
     }
-
-    function init(){
-      var settings = {};
-      if(!_.isEmpty(localStorage.qaSettings)){
-        settings = JSON.parse(localStorage.qaSettings);
-      }
-
-      vm.wsUrl = settings.wsUrl || config.wsUrl;
-      vm.oauthUrl = settings.oauthUrl || config.oauthUrl;
-      vm.appId = Number(settings.appId) || Number(config.app_id);
-    }
-
-    init();
-  }
 })();
 
