@@ -771,15 +771,15 @@
     "account_restriction":"Restricción de cuenta",
     "account_country":"País de residencia",
     "set_country":"Por favor seleccione el país de residencia antes de actualizar a una cuenta de dinero real.",
-    "complete_financial_assessment":"Please complete the financial assessment form to lift your withdrawal and trading limits.",
-    "financial_assessment_not_completed":"Financial Assessment is not completed",
-    "tax_information":"Tax information",
-    "complete_profile":"Please complete your account profile to lift your withdrawal and trading limits.",
-    "tnc":"Terms and conditions",
-    "accept_tnc":"Please accept the updated Terms and Conditions to lift your withdrawal and trading limits.",
+    "complete_financial_assessment":"Por favor complete el formulario de evaluación financiera para aumentar el límite de retiro y negociación de su cuenta.",
+    "financial_assessment_not_completed":"No se ha completado la evaluación financiera",
+    "tax_information":"Información tributaria",
+    "complete_profile":"Por favor complete su perfil para aumentar el límite de retiro y negociación de su cuenta.",
+    "tnc":"Términos y condiciones",
+    "accept_tnc":"Por favor acepte los términos y condiciones actualizados para aumentar el límite de retiro y negociación de su cuenta.",
     "max_turnover_limit":"Account maximum turnover limit",
     "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits.",
-    "account_age_verification":"Age verification",
+    "account_age_verification":"Verificación de edad",
     "needs_age_verification":"Account needs age verification, please contact customer support for more information."
   }
 }
