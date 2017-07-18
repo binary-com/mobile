@@ -37,6 +37,7 @@
 	      vm.isCR = false;
 	      vm.isMLT = false;
 	      vm.isMX = false;
+        vm.isVirtual = false;
         // authentication and restricted messages
         $translate([
             "notifications.account_authentication",
@@ -105,6 +106,7 @@
             vm.isCR = _.startsWith(vm.account.id, "CR");
             vm.isMLT = _.startsWith(vm.account.id, "MLT");
             vm.isMX = _.startsWith(vm.account.id, "MX");
+            vm.isVirtual = !!appStateService.virtuality;
         };
 
         vm.getAccountInfo = function() {
@@ -148,7 +150,7 @@
 	          if (
                 (status.risk_classification === "high" || vm.isFinancial || vm.mt5LoginList.length > 0) &&
                 status.indexOf("financial_assessment_not_complete") > -1 &&
-                !appStateService.hasFinancialAssessmentMessage
+                !appStateService.hasFinancialAssessmentMessage && !vm.isVirtual
             ) {
                 appStateService.hasFinancialAssessmentMessage = true;
                 notificationService.notices.push(vm.financialAssessmentMessage);
