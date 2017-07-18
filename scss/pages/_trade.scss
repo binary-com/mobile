@@ -682,26 +682,46 @@
 	}
 }
 @media only screen and (min-device-height: 481px) and (max-device-height: 640px) {
+  .platform-android {
+    &.platform-cordova {
+      &.platform-webview {
+        .trade {
+          #tradeChart {
+            width: 100% !important;
+            height: 165px !important;
+          }
+          bg-chart {
+            max-height: 170px;
+            min-height: 160px;
+          }
+          .row + .row {
+            margin-top: 0 !important;
+            padding-top: 5px !important;
+          }
+          .longcode {
+            .row {
+              padding: 0 !important;
+            }
+          }
+          .has-subheader {
+            top: 75px !important;
+          }
+        }
+      }
+    }
+  }
 	.trade {
 		#tradeChart {
 			width: 100% !important;
-			height: 165px !important;
+			height: 180px !important;
 		}
 		bg-chart {
-			max-height: 170px;
-			min-height: 160px;
+			max-height: 180px;
+			min-height: 175px;
 		}
     .row + .row {
       margin-top: 0 !important;
       padding-top: 5px !important;
-    }
-    .longcode {
-      .row {
-        padding: 0 !important;
-      }
-    }
-    .has-subheader {
-      top: 75px !important;
     }
 	}
 	bg-purchase {
