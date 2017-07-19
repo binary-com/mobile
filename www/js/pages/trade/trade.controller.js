@@ -24,9 +24,9 @@
         init();
 
         angular.element(document).ready(() => {
-            if (ionic.Platform.isIOS()) {
-                document.getElementById("trade-container").style.paddingBottom = "20px";
-            }
+            // if (ionic.Platform.isIOS()) {
+            //     document.getElementById("trade-container").style.paddingBottom = "20px";
+            // }
             if (!ionic.Platform.isWebView()) {
                 const tradeContainer = document.getElementById("trade-container");
                 if (tradeContainer !== undefined && tradeContainer !== null) {
