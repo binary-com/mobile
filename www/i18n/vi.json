@@ -8,7 +8,7 @@
     "signin_with_binary_com":"Đăng nhập",
     "use_token":"Hoặc đăng nhập với chuỗi xác nhận",
     "next":"Tiếp theo",
-    "regulatory-information":"Regulatory information"
+    "regulatory-information":"Thông tin pháp lý"
   },
   "accounts":{
     "my_accounts":"Quản lý tài khoản",
@@ -37,14 +37,14 @@
     "required_field":"Lĩnh vực này là cần thiết.",
     "field_between":"Nó phải nằm giữa 0.70 và 100000.",
     "must_number":"Nó phải là một số.",
-    "ok":"OK",
-    "cancel":"Cancel",
-    "yes":"Yes",
-    "no":"No"
+    "ok":"Ok",
+    "cancel":"Hủy bỏ",
+    "yes":"Có",
+    "no":"Không"
   },
   "options":{
     "account":"Tài khoản",
-    "market":"Markets",
+    "market":"Thị trường",
     "forex":"Ngoại hối",
     "random":"Ngẫu nhiên",
     "volidx":"Chỉ số biến động",
@@ -73,11 +73,11 @@
     "digit_even_odd":"Số Chẵn/Lẻ",
     "digit_matches_differs":"Chữ số khớp/khác nhau",
     "up_down":"Lên/Xuống",
-    "markets_are_closed":"Sorry, All markets are currently closed. Please try again later",
-    "cancel":"Cancel",
-    "select_market":"Select Market",
-    "select_underlying":"Select Underlying",
-    "select_tradetype":"Select Tradetype",
+    "markets_are_closed":"Rất tiếc, Tất cả các thị trường hiện đã đóng. Vui lòng thử lại sau",
+    "cancel":"Hủy bỏ",
+    "select_market":"Chọn thị trường",
+    "select_underlying":"Chọn mục được gạch chân",
+    "select_tradetype":"Chọn loại giao dịch",
     "select_tick":"Select Tick",
     "select_digit":"Select Digit"
   },
