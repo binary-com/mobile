@@ -78,14 +78,14 @@
     "select_market":"Chọn thị trường",
     "select_underlying":"Chọn mục được gạch chân",
     "select_tradetype":"Chọn loại giao dịch",
-    "select_tick":"Select Tick",
-    "select_digit":"Select Digit"
+    "select_tick":"Chọn Tick",
+    "select_digit":"Chọn Digit"
   },
   "trade":{
     "payout":"Thanh toán",
     "stake":"Cổ phần",
     "price":"Giá",
-    "buy":"Buy",
+    "buy":"Mua",
     "net_profit":"Lợi nhuận ròng",
     "potential_payout":"Khả năng thanh toán",
     "total_cost":"Tổng chi phí",
@@ -101,8 +101,8 @@
     "lose":"Hợp đồng này đã thất bại",
     "transaction_id":"Tham chiếu giao dịch",
     "buy_again":"Mua lại",
-    "sell":"Sell",
-    "barrier":"Barrier offset"
+    "sell":"Bán",
+    "barrier":"Rào cản bù đắp"
   },
   "help":{
     "need_help":"Cần trợ giúp?",
@@ -118,7 +118,7 @@
     "exit_confirmation":"Bạn có chắc chắn muốn thoát?",
     "connection_error_title":"Lỗi kết nối",
     "connection_error":"Không có không kết nối internet!",
-    "sign_out":"Sign out"
+    "sign_out":"Đăng xuất"
   },
   "update":{
     "your_version_is_out_of_date_please_update":"Your version of Tick Trade is out of date. Please update your app to the latest version.",
