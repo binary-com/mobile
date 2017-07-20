@@ -19,7 +19,7 @@
     "add":"新增",
     "new_token":"新增權杖",
     "delete":"刪除",
-    "not_allowed_to_trade":"您沒有進行交易的權限！"
+    "not_allowed_to_trade":"您沒有權限進行交易！"
   },
   "alert":{
     "error":"錯誤！",
