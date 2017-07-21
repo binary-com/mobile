@@ -77,9 +77,9 @@
     "cancel":"Cancelar",
     "select_market":"Seleccione mercado",
     "select_underlying":"Select Underlying",
-    "select_tradetype":"Select Tradetype",
+    "select_tradetype":"Seleccione el tipo de operación",
     "select_tick":"Select Tick",
-    "select_digit":"Select Digit"
+    "select_digit":"Seleccione el dígito"
   },
   "trade":{
     "payout":"Pago",
@@ -177,7 +177,7 @@
     "open_financial":"Abrir una cuenta financiera",
     "financial_account_opening":"Abrir cuenta financiera",
     "details":"Detalles",
-    "privacy":"Privacy",
+    "privacy":"Privacidad",
     "financial_information":"Información financiera",
     "salutation":"Título",
     "first_name":"Nombre",
@@ -419,10 +419,10 @@
     "tick_trade_app":"Tick-trade app",
     "all_time":"Lifetime",
     "jump_to_date":"Jump to date",
-    "from":"From",
-    "to":"To",
+    "from":"De",
+    "to":"A",
     "date":"Fecha",
-    "ref":"Reference",
+    "ref":"Referencia",
     "potential_payout":"Pago Potencial",
     "purchase_price":"Precio de compra",
     "sale_date":"Fecha de venta",
@@ -465,7 +465,7 @@
     "limits":"Límites"
   },
   "self-exclusion":{
-    "self-exclusion":"Self Exclusion Facilities",
+    "self-exclusion":"Características de autoexclusión",
     "maximum-account-cash-balance":"Saldo máximo de la cuenta",
     "max-balance-hint":"Una vez que se alcanza este límite, ya no puede depositar.",
     "daily-turnover-limit":"Daily turnover limit",
