@@ -72,7 +72,9 @@
             </div>
         </div>
         <div class="col center">
-            <button class="button" ng-disabled="vm.inPurchaseMode" ng-click="vm.purchase(vm.purchasedContractIndex)" disabled="disabled">
+            <button class="button"
+                    ng-disabled="vm.inPurchaseMode || vm.proposalResponses[vm.purchasedContractIndex].isReceiving || vm.proposalResponses.length == 0"
+                    ng-click="vm.purchase(vm.purchasedContractIndex)" disabled="disabled">
                 {{ 'trade.buy_again' | translate }}
             </button>
         </div>

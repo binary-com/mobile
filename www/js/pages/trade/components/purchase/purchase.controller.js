@@ -66,6 +66,8 @@
                     vm.proposalResponses[reqId - 1].hasError = false;
                     vm.proposalResponses[reqId - 1].isReceiving = false;
                 });
+                // Unlock view to navigate
+                vm.inPurchaseMode = false;
             }
         });
 
@@ -147,7 +149,6 @@
                 sendProposal();
 
                 // Unlock view to navigate
-                vm.inPurchaseMode = false;
                 appStateService.purchaseMode = false;
             }
         });
