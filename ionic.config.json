@@ -4,5 +4,9 @@
   "gulpStartupTasks": [
     "sass",
     "watch"
+  ],
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*"
   ]
 }
