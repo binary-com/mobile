@@ -6,43 +6,59 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.self-exclusion.controllers").controller("SessionTimeoutController", SessionTimeout);
 
-  angular
-    .module('binary.pages.self-exclusion.controllers')
-    .controller('SessionTimeoutController', SessionTimeout);
+    SessionTimeout.$inject = ["$scope", "$translate", "alertService", "websocketService"];
 
-  SessionTimeout.$inject = ['$scope', '$translate',
-                            'alertService', 'websocketService'];
+    function SessionTimeout($scope, $translate, alertService, websocketService) {
+        const vm = this;
+        let timeoutHasSet = false;
+        let loginTime = 0;
+        let sessionLimit = null;
 
-  function SessionTimeout($scope, $translate,
-      alertService, websocketService){
-    var vm = this;
-    var timeoutHasSet = false;
+        $scope.$on("authorize", (e, response) => {
+            loginTime = new Date().getTime();
+            websocketService.sendRequestFor.getSelfExclusion();
+            timeoutHasSet = false;
+        });
 
-    $scope.$on('authorize', (e, response) => {
-      websocketService.sendRequestFor.getSelfExclusion();
-      timeoutHasSet = false;
-    });
+        $scope.$on("get-self-exclusion", (e, response) => {
+            if (response.session_duration_limit && !timeoutHasSet) {
+                timeoutHasSet = true;
+                sessionLimit = response.session_duration_limit * 60 * 1000;
+                checkSessionDuration();
+            }
+        });
 
-    $scope.$on('get-self-exclusion', (e, response) => {
-      if(response.session_duration_limit && !timeoutHasSet){
-        setTimeout(()=>{
+        function checkSessionDuration() {
+            const now = new Date().getTime();
+            let remained = loginTime + sessionLimit - now;
+            const maxLimit = Math.pow(2, 31) - 1;
+            const warning = 10 * 1000;
 
-          $translate(['self-exclusion.warning', 'self-exclusion.session-timeout-warning'])
-            .then((translation) => {
-              alertService.displayAlert(translation['self-exclusion.warning'],
-                  translation['self-exclusion.session-timeout-warning']);
-            });
-          setTimeout(()=>{
-            websocketService.logout();
-          }, 10 * 1000);
-        }, response.session_duration_limit * 60 * 1000);
+            if (remained < 0) {
+                remained = warning;
+            }
 
-        timeoutHasSet = true;
-      }
-    });
+            const logout = () => {
+                $translate(["self-exclusion.warning", "self-exclusion.session-timeout-warning"]).then(translation => {
+                    alertService.displayAlert(
+                        translation["self-exclusion.warning"],
+                        translation["self-exclusion.session-timeout-warning"]
+                    );
+                });
+                setTimeout(() => {
+                    websocketService.logout();
+                }, warning);
+            };
 
-  }
+            if (remained > maxLimit) {
+                remained %= maxLimit;
+                setTimeout(checkSessionDuration, remained);
+            } else {
+                setTimeout(logout, remained - warning);
+            }
+        }
+    }
 })();

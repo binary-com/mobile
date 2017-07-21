@@ -7,21 +7,16 @@
  */
 
 (function() {
-    'use strict';
-
-    angular
-        .module('binary.share.components.reality-check.directives')
-        .directive('bgRealityCheck', RealityCheck);
+    angular.module("binary.share.components.reality-check.directives").directive("bgRealityCheck", RealityCheck);
 
     function RealityCheck() {
-        var directive = {
-            restrict: 'E',
-            templateUrl: 'js/share/components/reality-check/reality-check.template.html',
-            controller: 'RealityCheckController',
-            controllerAs: 'vm',
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/share/components/reality-check/reality-check.template.html",
+            controller      : "RealityCheckController",
+            controllerAs    : "vm",
             bindToController: true,
-            scope: {}
-
+            scope           : {}
         };
         return directive;
     }

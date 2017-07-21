@@ -1,5 +1,5 @@
 <ion-view>
-  <ion-content class="general-content asset-index">
+  <ion-content class="general-content asset-index has-header has-subheader">
 		<div class="row">
 			<div class="col">
 				<h1 class="page-title">
@@ -16,9 +16,7 @@
       <div class="col">
         <form name="market" ng-show="!vm.hasError && vm.selectedMarket">
             <div class="item-select">
-              <select ng-model="vm.selectedMarket">
-                <option ng-if="vm.hasError" selected>-</option>
-                <option ng-repeat="(k, val) in ::vm.marketColumns" ng-value="k" ng-if="!vm.hasError">{{ ::k }}</option>
+              <select ng-if="!vm.hasError" ng-model="vm.selectedMarket" ng-options="k as val.displayName for (k, val) in vm.marketColumns">
               </select>
           </div>
         </form>

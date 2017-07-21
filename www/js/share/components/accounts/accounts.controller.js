@@ -7,14 +7,16 @@
  */
 
 (function() {
-    'use strict';
-
-    angular
-        .module('binary.share.components.accounts.controllers')
-        .controller('AccountsController', Accounts);
+    angular.module("binary.share.components.accounts.controllers").controller("AccountsController", Accounts);
 
     Accounts.$inject = [
-        '$scope', '$state', '$ionicSideMenuDelegate', 'accountService', 'appStateService', 'websocketService'
+        "$scope",
+        "$state",
+        "$ionicSideMenuDelegate",
+        "accountService",
+        "appStateService",
+        "websocketService",
+        "notificationService"
     ];
 
     function Accounts(
@@ -23,21 +25,22 @@
         $ionicSideMenuDelegate,
         accountService,
         appStateService,
-        websocketService
+        websocketService,
+        notificationService
     ) {
-        var vm = this;
+        const vm = this;
 
-        var init = function() {
+        const init = function() {
             vm.accounts = accountService.getAll();
-            var defaultAccount = accountService.getDefault();
-            if (defaultAccount == null){
-              vm.selectedAccount = null;
+            const defaultAccount = accountService.getDefault();
+            if (defaultAccount == null) {
+                vm.selectedAccount = null;
             } else {
-              vm.selectedAccount = accountService.getDefault().token;
+                vm.selectedAccount = accountService.getDefault().token;
             }
         };
 
-        var updateSymbols = function() {
+        const updateSymbols = function() {
             // Wait untile the login progress is finished
             if (!appStateService.isLoggedin) {
                 setTimeout(updateSymbols, 500);
@@ -55,9 +58,9 @@
             updateSymbols();
             appStateService.isChangedAccount = true;
             appStateService.isCheckedAccountType = false;
-            sessionStorage.removeItem('start');
-            sessionStorage.removeItem('_interval');
-            sessionStorage.removeItem('realityCheckStart');
+            sessionStorage.removeItem("start");
+            sessionStorage.removeItem("_interval");
+            sessionStorage.removeItem("realityCheckStart");
             appStateService.isProfitTableSet = false;
             appStateService.isStatementSet = false;
             appStateService.profitTableRefresh = true;
@@ -65,18 +68,23 @@
             appStateService.isNewAccountReal = false;
             appStateService.isNewAccountMaltainvest = false;
             appStateService.hasMLT = false;
-            sessionStorage.removeItem('countryParams');
+            sessionStorage.removeItem("countryParams");
             appStateService.isPopupOpen = false;
             appStateService.realityCheckLogin = false;
             $ionicSideMenuDelegate.toggleLeft();
-            appStateService.hasToRedirectToTermsAndConditions = false;
-            appStateService.hasToRedirectToFinancialAssessment = false;
-            appStateService.hasToRedirectToTaxInformation = false;
-            appStateService.redirectFromFinancialAssessment = true;
             appStateService.limitsChange = true;
+            appStateService.hasAuthenticateMessage = false;
+            appStateService.hasRestrictedMessage = false;
+            appStateService.hasMaxTurnoverMessage = false;
+            appStateService.hasCountryMessage = false;
+            appStateService.hasTnCMessage = false;
+            appStateService.hasTaxInfoMessage = false;
+            appStateService.hasFinancialAssessmentMessage = false;
+            appStateService.hasAgeVerificationMessage = false;
+            appStateService.checkedAccountStatus = false;
         };
 
-        $scope.$on('authorize', (e, authorize) => {
+        $scope.$on("authorize", (e, authorize) => {
             if (authorize && appStateService.newAccountAdded) {
                 accountService.add(authorize);
                 accountService.setDefault(accountService.addedAccount);
@@ -84,11 +92,9 @@
                 vm.accounts = accountService.getAll();
                 vm.selectedAccount = accountService.getDefault().token;
                 vm.updateAccount(vm.selectedAccount);
-                $state.go('trade');
-                accountService.addedAccount = '';
+                $state.go("trade");
+                accountService.addedAccount = "";
             }
         });
-
-
     }
 })();

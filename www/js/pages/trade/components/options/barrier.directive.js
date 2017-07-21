@@ -6,25 +6,21 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.options.directives").directive("bgBarrier", Barrier);
 
-  angular
-    .module('binary.pages.trade.components.options.directives')
-    .directive('bgBarrier', Barrier);
+    function Barrier() {
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/pages/trade/components/options/barrier.template.html",
+            controller      : "BarrierController",
+            controllerAs    : "vm",
+            bindToController: true,
+            scope           : {
+                proposal: "="
+            }
+        };
 
-  function Barrier(){
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'js/pages/trade/components/options/barrier.template.html',
-      controller: 'BarrierController',
-      controllerAs: 'vm',
-      bindToController: true,
-      scope: {
-        proposal: '='
-      }
-    };
-
-      return directive;
-  }
+        return directive;
+    }
 })();

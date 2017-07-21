@@ -7,14 +7,7 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.pages.limits", ["binary.pages.limits.controllers"]);
 
-    angular
-        .module('binary.pages.limits', [
-            'binary.pages.limits.controllers'
-        ]);
-
-    angular
-        .module('binary.pages.limits.controllers', []);
-
+    angular.module("binary.pages.limits.controllers", []);
 })();

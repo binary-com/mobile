@@ -6,18 +6,13 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
-
-  angular
-    .module('binary.share.components.balance', [
-        'binary.share.components.balance.directives',
-        'binary.share.components.balance.controllers'
+(function() {
+    angular.module("binary.share.components.balance", [
+        "binary.share.components.balance.directives",
+        "binary.share.components.balance.controllers"
     ]);
 
-  angular
-    .module('binary.share.components.balance.controllers', []);
+    angular.module("binary.share.components.balance.controllers", []);
 
-  angular
-    .module('binary.share.components.balance.directives', []);
+    angular.module("binary.share.components.balance.directives", []);
 })();

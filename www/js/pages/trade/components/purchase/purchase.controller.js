@@ -7,25 +7,29 @@
  */
 
 (function() {
-    'use strict';
-
-    angular
-        .module('binary.pages.trade.components.purchase.controllers')
-        .controller('PurchaseController', Purchase);
+    angular.module("binary.pages.trade.components.purchase.controllers").controller("PurchaseController", Purchase);
 
     Purchase.$inject = [
-        '$scope', '$timeout', 'analyticsService',
-        'accountService', 'appStateService',
-        'proposalService',
-        'websocketService',
+        "$scope",
+        "$timeout",
+        "analyticsService",
+        "accountService",
+        "appStateService",
+        "proposalService",
+        "websocketService"
     ];
 
-    function Purchase($scope, $timeout, analyticsService,
-        accountService, appStateService,
+    function Purchase(
+        $scope,
+        $timeout,
+        analyticsService,
+        accountService,
+        appStateService,
         proposalService,
-        websocketService) {
-        var vm = this;
-        var forgetRequestId = 0;
+        websocketService
+    ) {
+        const vm = this;
+        let forgetRequestId = 0;
 
         vm.contracts = [];
         vm.proposalResponses = [];
@@ -33,28 +37,41 @@
         vm.showSummary = false;
         vm.purchasedContractIndex = -1;
 
-        $scope.$watch(() => {
-            return vm.proposal
-        }, (newValue, oldValue) => {
-            proposalUpdated();
-        }, true);
+        $scope.$watch(
+            () => vm.proposal,
+            (newValue, oldValue) => {
+                if (_.isEqual(newValue, oldValue) && vm.proposalResponses.length > 0) {
+                    return;
+                }
 
-        $scope.$on('appState:tradeMode', (e) => {
-          vm.showSummary = !appStateService.tradeMode;
+                if (vm.proposalResponses.length > 0) {
+                    $scope.$applyAsync(() => {
+                        vm.proposalResponses[0].isReceiving = true;
+                        vm.proposalResponses[1].isReceiving = true;
+                    });
+                }
+                proposalUpdated();
+            },
+            true
+        );
+
+        $scope.$on("appState:tradeMode", e => {
+            vm.showSummary = !appStateService.tradeMode;
         });
 
-        $scope.$on('proposal', (e, proposal, reqId) => {
+        $scope.$on("proposal", (e, proposal, reqId) => {
             if ([1, 2].indexOf(reqId) > -1) {
                 $scope.$applyAsync(() => {
                     vm.proposalResponses[reqId - 1] = proposal;
                     vm.proposalResponses[reqId - 1].hasError = false;
+                    vm.proposalResponses[reqId - 1].isReceiving = false;
                 });
+                // Unlock view to navigate
+                vm.inPurchaseMode = false;
             }
-
         });
 
-        $scope.$on('proposal:error', (e, error, reqId) => {
-
+        $scope.$on("proposal:error", (e, error, reqId) => {
             if ([1, 2].indexOf(reqId) > -1 && error.code !== "AlreadySubscribed") {
                 $scope.$applyAsync(() => {
                     vm.proposalResponses[reqId - 1] = error;
@@ -64,26 +81,27 @@
             }
         });
 
-        $scope.$on('purchase', (e, response) => {
+        $scope.$on("purchase", (e, response) => {
             if (!_.isEmpty(response.buy)) {
                 vm.showSummary = true;
                 $scope.$applyAsync(() => {
                     vm.purchasedContract = {
                         contractId: response.buy.contract_id,
-                        longcode: response.buy.longcode,
-                        payout: vm.proposalResponses[vm.purchasedContractIndex].payout,
-                        cost: response.buy.buy_price,
-                        profit: parseFloat(vm.proposalResponses[vm.purchasedContractIndex].payout) - parseFloat(response.buy.buy_price),
-                        balance: response.buy.balance_after,
+                        longcode  : response.buy.longcode,
+                        payout    : vm.proposalResponses[vm.purchasedContractIndex].payout,
+                        cost      : response.buy.buy_price,
+                        profit    :
+                            parseFloat(vm.proposalResponses[vm.purchasedContractIndex].payout) -
+                            parseFloat(response.buy.buy_price),
+                        balance      : response.buy.balance_after,
                         transactionId: response.buy.transaction_id
                     };
                 });
                 websocketService.sendRequestFor.portfolio();
-
             }
         });
 
-        $scope.$on('purchase:error', (e, error) => {
+        $scope.$on("purchase:error", (e, error) => {
             vm.inPurchaseMode = false;
             vm.showSummary = false;
             appStateService.tradeMode = true;
@@ -92,8 +110,7 @@
             sendProposal();
         });
 
-        $scope.$on('contract:finished', (e, contract) => {
-
+        $scope.$on("contract:finished", (e, contract) => {
             if (contract.exitSpot) {
                 if (contract.result === "win") {
                     vm.purchasedContract.buyPrice = vm.purchasedContract.cost;
@@ -105,63 +122,67 @@
                     vm.purchasedContract.loss = vm.purchasedContract.cost;
                     vm.purchasedContract.finalPrice = vm.purchasedContract.buyPrice + vm.purchasedContract.loss;
                 }
-                vm.purchasedContract.result = (contract.result === 'lose' ? 'loss' : contract.result);
+                vm.purchasedContract.result = contract.result === "lose" ? "loss" : contract.result;
 
-
-                var proposal = vm.contracts[vm.purchasedContractIndex];
+                const proposal = vm.contracts[vm.purchasedContractIndex];
 
                 // Send statistic to Google Analytics
                 analyticsService.google.trackEvent(
                     proposal.market,
                     proposal.contract_type,
                     proposal.underlying_symbol,
-                    vm.purchasedContract.payout);
+                    vm.purchasedContract.payout
+                );
 
-
-                var ampEventProperties = {
-                        Symbol: proposal.underlying_symbol,
-                        TradeType: proposal.contract_type,
-                        Stake: vm.purchasedContract.buyPrice,
-                        Market: proposal.market,
-                        Duration: vm.proposal.duration,
-                        DurationUnit: vm.proposal.duration_unit,
-                        result: contract.result === "lose" ? "Lost" : "Won"
-                    }
-                    // Send statistic to Amplitude
+                const ampEventProperties = {
+                    Symbol      : proposal.underlying_symbol,
+                    TradeType   : proposal.contract_type,
+                    Stake       : vm.purchasedContract.buyPrice,
+                    Market      : proposal.market,
+                    Duration    : vm.proposal.duration,
+                    DurationUnit: vm.proposal.duration_unit,
+                    result      : contract.result === "lose" ? "Lost" : "Won"
+                };
+                // Send statistic to Amplitude
                 analyticsService.amplitude.logEvent("Purchase", ampEventProperties);
 
                 sendProposal();
 
                 // Unlock view to navigate
-                vm.inPurchaseMode = false;
                 appStateService.purchaseMode = false;
             }
         });
 
-        $scope.$on('forget_all', (e, req_id) => {
-          if(req_id != forgetRequestId){
-            return;
-          }
-          var proposal1 = _.clone(vm.proposal);
-          proposal1.contract_type = vm.contracts[0].contract_type;
-          proposal1.req_id = 1;
+        $scope.$on("forget_all", (e, req_id) => {
+            if (req_id !== forgetRequestId) {
+                return;
+            }
+            const proposal1 = _.clone(vm.proposal);
+            proposal1.contract_type = vm.contracts[0].contract_type;
+            proposal1.req_id = 1;
 
-          var proposal2 = _.clone(vm.proposal);
-          proposal2.contract_type = vm.contracts[1].contract_type;
-          proposal2.req_id = 2;
+            const proposal2 = _.clone(vm.proposal);
+            proposal2.contract_type = vm.contracts[1].contract_type;
+            proposal2.req_id = 2;
 
-          proposalService.send(proposal1);
-          proposalService.send(proposal2);
-
+            if (vm.proposalResponses.length > 0) {
+                $scope.$applyAsync(() => {
+                    vm.proposalResponses[0].isReceiving = proposalService.send(proposal1);
+                    vm.proposalResponses[1].isReceiving = proposalService.send(proposal2);
+                });
+            } else {
+                proposalService.send(proposal1);
+                proposalService.send(proposal2);
+            }
         });
 
-        $scope.$on('$destroy', (e) => {
-          proposalService.forget();
+        $scope.$on("$destroy", e => {
+            proposalService.forget();
         });
 
         vm.getImageUrl = function(contractType) {
-            return "img/trade-icon/" + contractType.toLowerCase() + ".svg";
-        }
+            return `img/trade-icon/${contractType.toLowerCase()}.svg`;
+        };
 
         vm.purchase = function(contractIndex) {
             $scope.$applyAsync(() => {
@@ -171,40 +192,39 @@
                 appStateService.tradeMode = false;
             });
             proposalService.purchase(vm.proposalResponses[contractIndex]);
-        }
+        };
 
         vm.backToTrade = function() {
             vm.showSummary = false;
             appStateService.tradeMode = true;
             appStateService.purchaseMode = false;
             vm.purchasedContractIndex = -1;
-        }
+        };
 
         function init() {
             vm.user = accountService.getDefault();
             if (_.isEmpty(vm.contracts)) {
                 setTimeout(init, 500);
-                return;
             }
-            //sendProposal();
+            // sendProposal();
         }
 
         function sendProposal() {
-          forgetRequestId = new Date().getTime();
+            forgetRequestId = new Date().getTime();
 
-          proposalService.forget(forgetRequestId);
+            proposalService.forget(forgetRequestId);
 
-          // Proposal will be sent when the result of proposal-forget received. Lines:141-156
-          // This changes has been done to prevent subscribtion issue
-          // `You're already subscribed`
+            // Proposal will be sent when the result of proposal-forget received. Lines:141-156
+            // This changes has been done to prevent subscribtion issue
+            // `You're already subscribed`
         }
 
         function proposalUpdated() {
             if (!_.isEmpty(sessionStorage.tradeTypes)) {
-                var tradeTypes = JSON.parse(sessionStorage.tradeTypes);
+                const tradeTypes = JSON.parse(sessionStorage.tradeTypes);
                 vm.contracts = tradeTypes[vm.proposal.tradeType];
 
-                if (!_.isEmpty(vm.contracts)) {
+                if (!_.isEmpty(vm.contracts) && vm.contracts[0].underlying_symbol === vm.proposal.symbol) {
                     sendProposal();
                 }
             } else {
@@ -212,35 +232,34 @@
             }
         }
 
-
-        vm.autoSizeText = function() {
-            var el, elements, _i, _len, _results;
-            elements = document.getElementsByClassName('resize');
+        vm.autoSizeText = () => {
+            let el;
+            let _i;
+            let _len;
+            const _results = [];
+            const elements = document.getElementsByClassName("resize");
             if (elements.length < 0) {
-                return;
+                return null;
             }
-            _results = [];
             for (_i = 0, _len = elements.length; _i < _len; _i++) {
                 el = elements[_i];
-                _results.push((function(el) {
-                    var resizeText, _results1;
-                    resizeText = function() {
-                        var elNewFontSize;
-                        elNewFontSize = (parseInt($(el).css('font-size').slice(0, -2)) - 1) + 'px';
-                        return $(el).css('font-size', elNewFontSize);
-                    };
-                    _results1 = [];
-                    while (el.scrollHeight > el.offsetHeight) {
-                        _results1.push(resizeText());
-                    }
-                    return _results1;
-                })(el));
+                _results.push(
+                    ((el) => {
+                        const _results1 = [];
+                        const resizeText = function() {
+                            const elNewFontSize = `${parseInt($(el).css("font-size").slice(0, -2)) - 1}px`;
+                            return $(el).css("font-size", elNewFontSize);
+                        };
+                        while (el.scrollHeight > el.offsetHeight) {
+                            _results1.push(resizeText());
+                        }
+                        return _results1;
+                    })(el)
+                );
             }
             return _results;
         };
 
-
         init();
-
     }
 })();

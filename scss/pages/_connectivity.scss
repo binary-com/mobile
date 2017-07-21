@@ -1,6 +1,11 @@
 .connectivity{
-  margin: 40% auto;
+  align-items: center;
+  display: flex;
   font-size: 1.1rem;
+  justify-content: center;
+  .no-connection {
+    margin-top: 15px;
+  }
   .logo {
     display: block;
     margin: 0 auto;

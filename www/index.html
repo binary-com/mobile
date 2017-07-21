@@ -79,6 +79,7 @@
   <body ng-app="binary" ng-controller="BodyController as vm" id="{{vm.getLanguage()}}" ng-cloak>
     <bg-updater></bg-updater>
     <bg-connection-lost></bg-connection-lost>
+    <bg-service-outage></bg-service-outage>
 	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
     <bg-session-timeout></bg-session-timeout>
     <bg-connectivity></bg-connectivity>
@@ -123,6 +124,7 @@
     <script src="js/configs/angular-ios9-uiwebview.patch.js"></script>
 
     <script src="js/body.controller.js"></script>
+    <script src="js/main-layout.controller.js"></script>
 
     <script src="js/share/services/websocket.service.js"></script>
     <script src="js/share/services/language.service.js"></script>
@@ -139,6 +141,7 @@
     <script src="js/share/services/analytics.service.js"></script>
     <script src="js/share/services/utils.service.js"></script>
     <script src="js/share/services/table-state.service.js"></script>
+    <script src="js/share/services/notification.service.js"></script>
 
     <script src="js/share/components/header/header.directive.js"></script>
     <script src="js/share/components/header/header.controller.js"></script>
@@ -205,8 +208,20 @@
     <script src="js/share/components/check-user-status/check-user-status.controller.js"></script>
     <script src="js/share/components/check-user-status/check-user-status.directive.js"></script>
 
+    <script src="js/share/components/service-outage/service-outage.module.js"></script>
+    <script src="js/share/components/service-outage/service-outage.directive.js"></script>
+    <script src="js/share/components/service-outage/service-outage.controller.js"></script>
+    <script src="js/share/components/service-outage/service-outage-page.controller.js"></script>
+
+    <script src="js/share/components/notification-icon/notification-icon.module.js"></script>
+    <script src="js/share/components/notification-icon/notification-icon.controller.js"></script>
+    <script src="js/share/components/notification-icon/notification-icon.directive.js"></script>
+
     <script src="js/pages/home/home.module.js"></script>
     <script src="js/pages/home/home.controller.js"></script>
+
+    <script src="js/share/components/big-number/big-number.module.js"></script>
+    <script src="js/share/components/big-number/big-number.directive.js"></script>
 
     <script src="js/pages/sign-in/sign-in.module.js"></script>
     <script src="js/pages/sign-in/components/oauth/oauth.module.js"></script>
@@ -313,8 +328,18 @@
     <script src="js/pages/asset-index/asset-index.module.js"></script>
     <script src="js/pages/asset-index/asset-index.controller.js"></script>
 
-    <script src="js/pages/tax-information/tax-information.module.js"></script>
-    <script src="js/pages/tax-information/tax-information.controller.js"></script>
+    <script src="js/pages/meta-trader/meta-trader.module.js"></script>
+    <script src="js/pages/meta-trader/meta-trader.controller.js"></script>
+    <script src="js/pages/meta-trader/mt5-web.controller.js"></script>
+
+    <script src="js/pages/authentication/authentication.module.js"></script>
+    <script src="js/pages/authentication/authentication.controller.js"></script>
+
+    <script src="js/pages/contact/contact.module.js"></script>
+    <script src="js/pages/contact/contact.controller.js"></script>
+
+    <script src="js/pages/notifications/notifications.module.js"></script>
+    <script src="js/pages/notifications/notifications.controller.js"></script>
 
     <!-- endbuild -->
 

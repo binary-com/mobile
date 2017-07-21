@@ -1,5 +1,5 @@
 <ion-view class="transaction-detail">
-    <ion-content has-bouncing="false" class="general-content">
+    <ion-content has-bouncing="false" class="general-content has-header has-subheader">
         <div class="row">
             <div class="col">
                 <div class="list">
@@ -97,7 +97,7 @@
                             <li class="statement-element last-statement-element right green" ng-class="{red : (vm.contract.sell_price - vm.contract.buy_price) < 0}">
                                 <span ng-bind="(vm.contract.sell_price - vm.contract.buy_price) | currency : vm.currency : 2"></span>
                                 <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) > 0">(+{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
-                                <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) < 0">(-{{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
+                                <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) < 0">({{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
                                 <span class="small-text" ng-if="(vm.contract.sell_price - vm.contract.buy_price) == 0">({{((vm.contract.sell_price - vm.contract.buy_price) * 100 / vm.contract.buy_price).toFixed(2)}}%)</span>
                             </li>
                         </ul>

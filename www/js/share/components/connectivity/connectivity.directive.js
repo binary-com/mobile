@@ -6,23 +6,18 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.connectivity.directives").directive("bgConnectivity", Connectivity);
 
-  angular
-    .module('binary.share.components.connectivity.directives')
-    .directive('bgConnectivity', Connectivity);
+    function Connectivity() {
+        const directive = {
+            restrict        : "E",
+            controller      : "ConnectivityController",
+            controllerAs    : "vm",
+            bindToController: true,
+            scope           : {}
+        };
 
-
-  function Connectivity(){
-    var directive = {
-      restrict: 'E',
-      controller: 'ConnectivityController',
-      controllerAs: 'vm',
-      bindToController: true,
-      scope: {}
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 })();

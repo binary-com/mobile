@@ -6,18 +6,13 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.purchase", [
+        "binary.pages.trade.components.purchase.controllers",
+        "binary.pages.trade.components.purchase.directives"
+    ]);
 
-    angular
-        .module('binary.pages.trade.components.purchase', [
-                'binary.pages.trade.components.purchase.controllers',
-                'binary.pages.trade.components.purchase.directives'
-        ]);
+    angular.module("binary.pages.trade.components.purchase.controllers", []);
 
-    angular
-        .module('binary.pages.trade.components.purchase.controllers', []);
-
-    angular
-        .module('binary.pages.trade.components.purchase.directives', []);
+    angular.module("binary.pages.trade.components.purchase.directives", []);
 })();

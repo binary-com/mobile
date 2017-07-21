@@ -7,14 +7,7 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.pages.asset-index", ["binary.pages.asset-index.controllers"]);
 
-    angular
-        .module('binary.pages.asset-index', [
-            'binary.pages.asset-index.controllers'
-        ]);
-
-    angular
-        .module('binary.pages.asset-index.controllers', []);
-
+    angular.module("binary.pages.asset-index.controllers", []);
 })();

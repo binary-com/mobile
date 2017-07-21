@@ -6,41 +6,51 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary").config(Currency);
 
-  angular
-    .module('binary')
-    .config(Currency);
+    Currency.$inject = ["$provide"];
 
-  Currency.$inject = ['$provide'];
+    function Currency($provide) {
+        $provide.decorator("currencyFilter", [
+            "$delegate",
+            function(/* $delegate */) {
+                // const srcFilter = $delegate;
 
-  function Currency($provide){
-    $provide.decorator('currencyFilter', ['$delegate', function($delegate){
-      var srcFilter = $delegate;
+                const extendsFilter = function() {
+                    const locale = (localStorage.language || "en").replace("_", "-").slice(0, 2);
+                    const currency = arguments[1] || "USD";
 
-      var extendsFilter = function(){
-        var locale = (localStorage.language || "en").replace('_', '-').slice(0,2);
-        var currency = arguments[1] || 'USD';
-        return formatMoney(locale, currency, arguments[0]);
-      };
+                    if (isNaN(arguments[0])) {
+                        return '--';
+                    }
+                    return formatMoney(locale, currency, arguments[0]);
+                };
 
-      function formatMoney (locale, currency, value) {
-        return Intl.NumberFormat(locale,
-            {
-              style: 'currency',
-              currency: currency || 'USD'
-            })
-        .format(value);
-      }
-      var format_money = {
-        "USD": "$",
-        "GBP": "£",
-        "AUD": "A$",
-        "EUR": "€",
-        "JPY": "¥",
-      };
-      return extendsFilter;
-    }]);
-  }
+                function formatMoney(locale, currency, value) {
+                    const options = {
+                        style   : "currency",
+                        currency: currency || "USD"
+                    };
+
+                    if (/btc|xbt/i.test(currency)) {
+                        options.minimumFractionDigits = 2;
+                        options.maximumFractionDigits = 8;
+                    }
+
+                    return Intl.NumberFormat(locale, options).format(value);
+                }
+                /*
+                const moneySigns = {
+                    USD: "$",
+                    GBP: "£",
+                    AUD: "A$",
+                    EUR: "€",
+                    JPY: "¥"
+                };
+                */
+                return extendsFilter;
+            }
+        ]);
+    }
 })();

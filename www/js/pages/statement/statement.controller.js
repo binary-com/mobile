@@ -7,21 +7,34 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.pages.statement.controllers").controller("StatementController", Statement);
 
-    angular
-        .module('binary.pages.statement.controllers')
-        .controller('StatementController', Statement);
-
-    Statement.$inject = ['$scope', '$filter', '$timeout', '$state', '$templateCache',
-        '$ionicScrollDelegate', 'config', 'tableStateService',
-        'websocketService', 'appStateService'
+    Statement.$inject = [
+        "$scope",
+        "$filter",
+        "$timeout",
+        "$state",
+        "$templateCache",
+        "$ionicScrollDelegate",
+        "config",
+        "tableStateService",
+        "websocketService",
+        "appStateService"
     ];
 
-    function Statement($scope, $filter, $timeout, $state, $templateCache,
-        $ionicScrollDelegate, config, tableStateService,
-        websocketService, appStateService) {
-        var vm = this;
+    function Statement(
+        $scope,
+        $filter,
+        $timeout,
+        $state,
+        $templateCache,
+        $ionicScrollDelegate,
+        config,
+        tableStateService,
+        websocketService,
+        appStateService
+    ) {
+        const vm = this;
         vm.data = {};
         vm.noTransaction = false;
         vm.noMore = false;
@@ -39,13 +52,13 @@
         vm.appIdAllowed = config.app_id;
         vm.isItemShown = false;
 
-        $scope.$on('$stateChangeSuccess', function(ev, to, toParams, from, fromParams) {
+        $scope.$on("$stateChangeSuccess", (ev, to, toParams, from, fromParams) => {
             vm.lastPage = from.name;
             vm.enteredNow = true;
             vm.thisPage = to.name;
             // check if state is changed from any state other than transaction-detail
             // we do not refresh the state if it comes back from transaction-detail
-            if (vm.lastPage != 'transaction-detail' && vm.thisPage == 'statement') {
+            if (vm.lastPage !== "transaction-detail" && vm.thisPage === "statement") {
                 vm.resetParams();
                 vm.firstCompleted = false;
                 vm.backFromMainPages = true;
@@ -54,7 +67,7 @@
             }
         });
 
-        $scope.$on('authorize', (e, response) => {
+        $scope.$on("authorize", (e, response) => {
             if (appStateService.statementRefresh) {
                 vm.notAuthorizeYet();
             }
@@ -83,11 +96,11 @@
             // else{
             //    wait for authorize
             // }
-        }
+        };
 
         vm.delayedLoad = function() {
             $timeout(vm.loadMore, 50);
-        }
+        };
 
         vm.loadMore = function() {
             if (!tableStateService.statementCompletedGroup) {
@@ -97,20 +110,20 @@
                 tableStateService.statementCurrentPage += 1;
                 vm.pageState();
             }
-        }
+        };
 
         vm.pageState = function() {
             if (!appStateService.isStatementSet) {
                 appStateService.isStatementSet = true;
-                tableStateService.statementDateType = 'allTime';
+                tableStateService.statementDateType = "allTime";
                 vm.jumpToDateInputShow = false;
                 vm.resetParams();
                 vm.setParams();
                 tableStateService.statementCompletedGroup = false;
                 vm.goTop();
-            } else if (!appStateService.isStatementSet && vm.enteredNow && vm.lastPage == 'transaction-detail') {
+            } else if (!appStateService.isStatementSet && vm.enteredNow && vm.lastPage === "transaction-detail") {
                 vm.enteredNow = false;
-                vm.lastPage = '';
+                vm.lastPage = "";
                 vm.setParams();
             } else if (appStateService.isStatementSet && vm.dateChanged && tableStateService.statementCompletedGroup) {
                 vm.transactions = [];
@@ -127,17 +140,14 @@
                 vm.transactions = [];
                 tableStateService.statementCompletedGroup = false;
                 vm.setParams();
-            } else {
-                if (!vm.dateChanged) {
-                    vm.setParams();
-                    $scope.$applyAsync(() => {
-                        vm.noMore = false;
-                    });
-                }
-
+            } else if (!vm.dateChanged) {
+                vm.setParams();
+                $scope.$applyAsync(() => {
+                    vm.noMore = false;
+                });
             }
             vm.sendRequest();
-        }
+        };
 
         vm.setParams = function() {
             vm.data.appID = tableStateService.statementAppID;
@@ -147,43 +157,43 @@
             vm.data.statementCurrentPage = tableStateService.statementCurrentPage;
             vm.itemsPerPage = 300;
             vm.limit = vm.itemsPerPage + 1;
-        }
+        };
         vm.resetParams = function() {
-            tableStateService.statementAppID = 'allApps';
-            tableStateService.statementDateFrom = '';
-            tableStateService.statementDateTo = '';
+            tableStateService.statementAppID = "allApps";
+            tableStateService.statementDateFrom = "";
+            tableStateService.statementDateTo = "";
             tableStateService.statementCurrentPage = 0;
             vm.transactions = [];
             vm.batchedTransaction = [];
             tableStateService.statementCompletedGroup = true;
             tableStateService.statementBatchNum = 0;
             tableStateService.statementBatchLimit = 0;
-        }
+        };
 
         vm.sendRequest = function() {
             vm.params = {
-                "description": 1,
-                "limit": vm.limit,
-                "offset": vm.itemsPerPage * vm.data.statementCurrentPage
-            }
-            if (vm.data.hasOwnProperty('dateFrom') && vm.data.dateFrom != "") {
+                description: 1,
+                limit      : vm.limit,
+                offset     : vm.itemsPerPage * vm.data.statementCurrentPage
+            };
+            if (vm.data.hasOwnProperty("dateFrom") && vm.data.dateFrom !== "") {
                 vm.params.date_from = vm.data.dateFrom;
             }
-            if (vm.data.hasOwnProperty('dateTo') && vm.data.dateTo != "") {
-                vm.params.date_to = vm.data.dateTo + 8.64e+4;
+            if (vm.data.hasOwnProperty("dateTo") && vm.data.dateTo !== "") {
+                vm.params.date_to = vm.data.dateTo + 8.64e4;
             }
-            vm.params.req_id = vm.data.dateTo || (Math.round(new Date().getTime() / 1000));
+            vm.params.req_id = vm.data.dateTo || Math.round(new Date().getTime() / 1000);
             vm.reqId = vm.params.req_id;
             websocketService.sendRequestFor.statement(vm.params);
-        }
+        };
 
-        $scope.$on('statement:update', (e, _statement, _req_id) => {
+        $scope.$on("statement:update", (e, _statement, _req_id) => {
             vm.firstCompleted = true;
             vm.statement = _statement;
             vm.count = vm.statement.count;
             vm.hasError = false;
-            if (vm.reqId == _req_id) {
-                if (vm.count == 0) {
+            if (vm.reqId === _req_id) {
+                if (vm.count === 0) {
                     vm.noTransaction = true;
                     $scope.$applyAsync(() => {
                         vm.noMore = true;
@@ -196,17 +206,17 @@
                         // $scope.$applyAsync(() => {
                         vm.noMoreRequest = true;
                         // });
-                        vm.statement.transactions.forEach(function(el, i) {
+                        vm.statement.transactions.forEach((el, i) => {
                             vm.transactions.push(vm.statement.transactions[i]);
                         });
                         vm.setBatch();
-                    } else if (vm.count == vm.limit) {
+                    } else if (vm.count === vm.limit) {
                         // has at least one transaction on next call to show to user
                         vm.noTransaction = false;
                         $scope.$applyAsync(() => {
                             vm.noMore = false;
                         });
-                        vm.statement.transactions.forEach(function(el, i) {
+                        vm.statement.transactions.forEach((el, i) => {
                             if (i < vm.count - 1) {
                                 vm.transactions.push(vm.statement.transactions[i]);
                             }
@@ -217,7 +227,7 @@
             }
         });
 
-        $scope.$on('statement:error', (e, message) => {
+        $scope.$on("statement:error", (e, message) => {
             $scope.$applyAsync(() => {
                 vm.hasError = true;
                 vm.errorMessage = message;
@@ -225,14 +235,19 @@
         });
 
         vm.setBatch = function() {
-            tableStateService.statementBatchLimit = Math.ceil(vm.transactions.length / tableStateService.statementBatchSize);
+            tableStateService.statementBatchLimit = Math.ceil(
+                vm.transactions.length / tableStateService.statementBatchSize
+            );
             vm.sliced = [];
-            vm.sliced = vm.transactions.slice(tableStateService.statementBatchNum * tableStateService.statementBatchSize, (tableStateService.statementBatchNum + 1) * tableStateService.statementBatchSize);
-            vm.sliced.forEach(function(el, i) {
+            vm.sliced = vm.transactions.slice(
+                tableStateService.statementBatchNum * tableStateService.statementBatchSize,
+                (tableStateService.statementBatchNum + 1) * tableStateService.statementBatchSize
+            );
+            vm.sliced.forEach((el, i) => {
                 vm.batchedTransaction.push(vm.sliced[i]);
             });
-            tableStateService.statementBatchNum = tableStateService.statementBatchNum + 1;
-            if (tableStateService.statementBatchNum == tableStateService.statementBatchLimit) {
+            tableStateService.statementBatchNum += 1;
+            if (tableStateService.statementBatchNum === tableStateService.statementBatchLimit) {
                 tableStateService.statementBatchLimit = 0;
                 tableStateService.statementBatchNum = 0;
                 tableStateService.statementCompletedGroup = true;
@@ -244,87 +259,90 @@
             }
 
             vm.setFiltered();
-        }
+        };
 
         vm.setFiltered = function() {
             $scope.$applyAsync(() => {
                 tableStateService.statementAppID = vm.data.appID;
-                vm.filteredTransactions = $filter('StatementDataFilter')(vm.batchedTransaction, tableStateService.statementAppID, vm.appIdAllowed);
-                if (vm.filteredTransactions.length == 0) {
+                vm.filteredTransactions = $filter("StatementDataFilter")(
+                    vm.batchedTransaction,
+                    tableStateService.statementAppID,
+                    vm.appIdAllowed
+                );
+                if (vm.filteredTransactions.length === 0) {
                     vm.noTransaction = true;
                 } else {
                     vm.noTransaction = false;
                 }
-                $scope.$broadcast('scroll.infiniteScrollComplete');
+                $scope.$broadcast("scroll.infiniteScrollComplete");
             });
-        }
+        };
 
         vm.dateFilter = function() {
             vm.noTransaction = false;
             vm.dateChanged = true;
             tableStateService.statementDateType = vm.data.dateType;
-            if (vm.data.dateType == 'allTime') {
+            if (vm.data.dateType === "allTime") {
                 $scope.$applyAsync(() => {
                     vm.jumpToDateInputShow = false;
                 });
                 tableStateService.statementCompletedGroup = true;
                 vm.firstCompleted = false;
-                vm.data.dateTo = '';
-                tableStateService.statementDateFrom = '';
-                tableStateService.statementDateTo = '';
+                vm.data.dateTo = "";
+                tableStateService.statementDateFrom = "";
+                tableStateService.statementDateTo = "";
                 vm.loadMore();
             }
-            if (vm.data.dateType == 'jumpToDate') {
+            if (vm.data.dateType === "jumpToDate") {
                 $scope.$applyAsync(() => {
                     vm.jumpToDateInputShow = true;
                 });
                 tableStateService.statementCompletedGroup = true;
                 vm.firstCompleted = false;
-                vm.nowDateInputLimit = $filter('date')(new Date(), 'yyyy-MM-dd');
-                document.getElementById('statement-dateTo').setAttribute('max', vm.nowDateInputLimit);
-                document.getElementById('statement-dateTo').value = vm.nowDateInputLimit;
+                vm.nowDateInputLimit = $filter("date")(new Date(), "yyyy-MM-dd");
+                document.getElementById("statement-dateTo").setAttribute("max", vm.nowDateInputLimit);
+                document.getElementById("statement-dateTo").value = vm.nowDateInputLimit;
                 vm.jumpToDateFilter();
             }
-        }
+        };
 
         vm.jumpToDateFilter = function() {
-            if (tableStateService.statementDateType == 'jumpToDate') {
+            if (tableStateService.statementDateType === "jumpToDate") {
                 tableStateService.statementCompletedGroup = true;
                 vm.dateChanged = true;
                 vm.noTransaction = false;
                 vm.firstCompleted = false;
                 tableStateService.statementCurrentPage = 0;
-                vm.data.dateTo = (new Date(vm.data.end).getTime()) / 1000 || "";
+                vm.data.dateTo = new Date(vm.data.end).getTime() / 1000 || "";
                 tableStateService.statementDateTo = vm.data.dateTo;
                 vm.loadMore();
             }
-        }
+        };
 
         vm.toggleItem = function() {
             vm.isItemShown = !vm.isItemShown;
-            var content = document.getElementsByClassName('statement-content-expandable')[0];
-            content.id === 'statement-filter-active' ? content.id = '' : content.id = 'statement-filter-active';
-        }
+            const content = document.getElementsByClassName("statement-content-expandable")[0];
+            content.id = content.id === "statement-filter-active" ? "" : "statement-filter-active";
+        };
 
         vm.goTop = function() {
             $ionicScrollDelegate.scrollTop(true);
-        }
+        };
 
         vm.goToTopButtonCondition = function() {
             $timeout(() => {
-                var position = $ionicScrollDelegate.$getByHandle('handler').getScrollPosition();
-                vm.goToTopButton = position.top >= 30 ? true : false;
+                const position = $ionicScrollDelegate.$getByHandle("handler").getScrollPosition();
+                vm.goToTopButton = position.top >= 30;
             });
-        }
+        };
 
         // details functions
         vm.sendContractDetailRequest = function(id) {
             if (id) {
                 vm.id = id;
-                sessionStorage.setItem('id', vm.id);
-                $state.go('transaction-detail');
+                sessionStorage.setItem("id", vm.id);
+                $state.go("transaction-detail");
             }
-        }
-
+        };
     }
 })();

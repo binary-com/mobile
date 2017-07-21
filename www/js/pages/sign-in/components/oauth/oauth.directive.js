@@ -6,23 +6,19 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.signin.components.oauth").directive("oauth", Oauth);
 
-  angular
-    .module('binary.pages.signin.components.oauth')
-    .directive('oauth', Oauth);
+    function Oauth() {
+        const directive = {
+            restrict        : "E",
+            scope           : {},
+            templateUrl     : "js/pages/sign-in/components/oauth/oauth.template.html",
+            controller      : "OauthController",
+            controllerAs    : "vm",
+            bindToController: true
+        };
 
-  function Oauth(){
-    var directive = {
-      restrict: 'E',
-      scope: {},
-      templateUrl: 'js/pages/sign-in/components/oauth/oauth.template.html',
-      controller: "OauthController",
-      controllerAs: "vm",
-      bindToController: true
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 })();

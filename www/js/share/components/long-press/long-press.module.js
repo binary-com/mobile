@@ -6,14 +6,8 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.long-press", ["binary.share.components.long-press.directives"]);
 
-  angular
-    .module('binary.share.components.long-press', [
-        'binary.share.components.long-press.directives'
-    ]);
-
-  angular
-    .module('binary.share.components.long-press.directives', []);
+    angular.module("binary.share.components.long-press.directives", []);
 })();

@@ -6,25 +6,20 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.spinner-logo.directives").directive("bgSpinnerLogo", SpinnerLogo);
 
-  angular
-    .module('binary.share.components.spinner-logo.directives')
-    .directive('bgSpinnerLogo', SpinnerLogo);
+    function SpinnerLogo() {
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/share/components/spinner-logo/spinner-logo.template.html",
+            replace         : true,
+            controller      : "SpinnerLogoController",
+            controllerAs    : "vm",
+            bindToController: true,
+            scope           : {}
+        };
 
-  function SpinnerLogo(){
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'js/share/components/spinner-logo/spinner-logo.template.html',
-      replace: true,
-      controller: 'SpinnerLogoController',
-      controllerAs: 'vm',
-      bindToController: true,
-      scope: {
-      }
+        return directive;
     }
-
-    return directive;
-  }
 })();

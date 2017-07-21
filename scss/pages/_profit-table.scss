@@ -1,4 +1,8 @@
 .profit-table {
+	margin-top: 75px;
+  &.ios-margin-top {
+    margin-top: 85px;
+  }
 	.title-container {
 		z-index: 10;
 		background: $white;
@@ -19,7 +23,7 @@
 	}
 
 	ion-content {
-		margin-top: 70px;
+		margin-top: 50px;
 		margin-bottom: 80px;
 
 		&.pull-down {
@@ -208,7 +212,7 @@
 
 #profit-table-filter-active,
 #statement-filter-active {
-	margin-top: 120px;
+	margin-top: 90px;
 }
 
 .item-expand {

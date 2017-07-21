@@ -6,21 +6,16 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.updater.controllers").controller("UpdaterController", Updater);
 
-  angular
-    .module('binary.share.components.updater.controllers')
-    .controller('UpdaterController', Updater);
+    Updater.$inject = ["$ionicPlatform"];
 
-  Updater.$inject = ['$ionicPlatform'];
-
-  function Updater($ionicPlatform){
-
-    $ionicPlatform.ready(()=>{
-      if(window.codePush){
-        window.codePush.sync();
-      }
-    });
-  }
+    function Updater($ionicPlatform) {
+        $ionicPlatform.ready(() => {
+            if (window.codePush) {
+                window.codePush.sync();
+            }
+        });
+    }
 })();

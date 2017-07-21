@@ -6,15 +6,14 @@
  * @copyright Binary Ltd
  */
 
-angular
-	.module('binary')
-	.config(['$translateProvider',
-		function($translateProvider) {
-            var language = localStorage['language'] || 'en';
-			$translateProvider.preferredLanguage(language);
-			$translateProvider.useStaticFilesLoader({
-				prefix: 'i18n/',
-				suffix: '.json'
-			});
-		}
-	]);
+angular.module("binary").config([
+    "$translateProvider",
+    function($translateProvider) {
+        const language = localStorage.language || "en";
+        $translateProvider.preferredLanguage(language);
+        $translateProvider.useStaticFilesLoader({
+            prefix: "i18n/",
+            suffix: ".json"
+        });
+    }
+]);

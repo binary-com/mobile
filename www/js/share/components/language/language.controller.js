@@ -8,37 +8,32 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.share.components.language.controllers").controller("LanguageController", Language);
 
-    angular
-        .module('binary.share.components.language.controllers')
-        .controller('LanguageController', Language);
-
-    Language.$inject = ['$scope', 'config', 'languageService', 'websocketService', 'appStateService'];
+    Language.$inject = ["$scope", "config", "languageService", "websocketService", "appStateService"];
 
     function Language($scope, config, languageService, websocketService, appStateService) {
-
-        var vm = this;
+        const vm = this;
         vm.languages = [];
         vm.appSupportedLanguages = [];
         vm.languagesList = [];
         vm.isLanguageReady = false;
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
-        websocketService.sendRequestFor.websiteStatus();
-        $scope.$on('website_status', function(e, website_status) {
+        websocketService.sendRequestFor.websiteStatus(true);
+        $scope.$on("website_status", (e, website_status) => {
             if (!vm.isLanguageReady && website_status) {
                 vm.languages = [];
                 vm.languagesList = website_status.supported_languages;
                 vm.appSupportedLanguages = config.appSupportedLanguages;
-                _.forEach(vm.appSupportedLanguages, function(value) {
+                _.forEach(vm.appSupportedLanguages, value => {
                     vm.value = value.toUpperCase();
                     if (vm.languagesList.indexOf(vm.value) > -1) {
-                        var LanguageCode = vm.value.toLowerCase();
-                        var languageNativeName = languageService.getLanguageNativeName(LanguageCode);
+                        const LanguageCode = vm.value.toLowerCase();
+                        const languageNativeName = languageService.getLanguageNativeName(LanguageCode);
                         vm.languages.push({
-                            'id': LanguageCode,
-                            'title': languageNativeName
+                            id   : LanguageCode,
+                            title: languageNativeName
                         });
                     }
                 });
@@ -49,8 +44,8 @@
             if (!vm.isLanguageReady && !website_status) {
                 vm.languages = [];
                 vm.languages.push({
-                    'id': 'en',
-                    'title': 'English'
+                    id   : "en",
+                    title: "English"
                 });
                 vm.isLanguageReady = true;
                 appStateService.isLanguageReady = true;
@@ -63,6 +58,6 @@
         vm.changeLanguage = function(language) {
             vm.language = language || vm.language;
             languageService.update(vm.language);
-        }
+        };
     }
 })();

@@ -7,19 +7,12 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.share.components.app-version", [
+        "binary.share.components.app-version.controllers",
+        "binary.share.components.app-version.directives"
+    ]);
 
-    angular
-        .module('binary.share.components.app-version', [
-            'binary.share.components.app-version.controllers',
-            'binary.share.components.app-version.directives',
-        ]);
+    angular.module("binary.share.components.app-version.controllers", []);
 
-    angular
-        .module('binary.share.components.app-version.controllers', []);
-
-    angular
-        .module('binary.share.components.app-version.directives', []);
-
-
+    angular.module("binary.share.components.app-version.directives", []);
 })();

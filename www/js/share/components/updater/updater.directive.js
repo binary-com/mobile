@@ -6,21 +6,17 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.share.components.updater.directives").directive("bgUpdater", Updater);
 
-  angular
-    .module('binary.share.components.updater.directives')
-    .directive('bgUpdater', Updater);
+    function Updater() {
+        const directive = {
+            restrict    : "E",
+            controller  : "UpdaterController",
+            controllerAs: "vm",
+            scope       : {}
+        };
 
-  function Updater(){
-    var directive = {
-      restrict: 'E',
-      controller: 'UpdaterController',
-      controllerAs: 'vm',
-      scope: {}
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 })();

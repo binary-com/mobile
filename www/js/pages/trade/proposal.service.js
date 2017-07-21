@@ -6,60 +6,104 @@
  * @copyright Binary Ltd
  */
 
-(function(){
-    'use strict';
+(function() {
+    angular.module("binary.pages.trade.services").factory("proposalService", Proposal);
 
-    angular
-        .module('binary.pages.trade.services')
-        .factory('proposalService', Proposal);
+    Proposal.$inject = ["$rootScope", "websocketService"];
 
-    Proposal.$inject = ['$rootScope', 'websocketService'];
+    function Proposal($rootScope, websocketService) {
+        const factory = {};
 
-    function Proposal($rootScope, websocketService){
-        var factory = {};
-
-        factory.get = function(){
-            if(_.isEmpty(localStorage.options)){
+        const proposalSchema = {
+            amount: {
+                presence: true,
+                format  : {
+                    pattern: /^(\d+\.?\d{0,2}|\.\d{1,2})$/
+                }
+            },
+            basis: {
+                persence: true,
+                format  : {
+                    pattern: /^payout|stake$/
+                }
+            },
+            contract_type: {
+                persence: true,
+                format  : {
+                    pattern: /^\w{2,30}$/
+                }
+            },
+            currency: {
+                persence: true,
+                format  : {
+                    pattern: /^[A-Z]{3}$/
+                }
+            },
+            duration: {
+                persence: true,
+                format  : {
+                    pattern: /^\d+$/
+                }
+            },
+            duration_unit: {
+                persence: true,
+                format  : {
+                    pattern: /^d|m|s|h|t$/
+                }
+            },
+            symbol: {
+                persence: true,
+                format  : {
+                    pattern: /^\w{2,30}$/
+                }
+            },
+            barrier: {
+                persence: false,
+                format  : {
+                    pattern: /^[+-]?\d+\.?\d*$/
+                }
+            }
+        };
+        factory.get = function() {
+            if (_.isEmpty(localStorage.options)) {
                 return create();
             }
-            var options = JSON.parse(localStorage.options);
-            var proposal = create();
+            const options = JSON.parse(localStorage.options);
+            const proposal = create();
             proposal.symbol = options.underlying.symbol;
             proposal.duration = options.tick;
-            if(options.tradeType === 'Higher/Lower'){
-              proposal.barrier = _.isEmpty(options.barrier) ? "" : options.barrier;
-            }
-            else{
-              proposal.barrier = options.digit;
+            if (options.tradeType === "Higher/Lower") {
+                proposal.barrier = _.isEmpty(options.barrier) ? "" : options.barrier;
+            } else {
+                proposal.barrier = options.digit;
             }
             proposal.tradeType = options.tradeType;
             proposal.amount = options.amount || proposal.amount;
             proposal.basis = options.basis || proposal.basis;
-            proposal.currency = sessionStorage.currency || 'USD';
+            proposal.currency = sessionStorage.currency || "USD";
             return proposal;
-        }
+        };
 
-        factory.save = function(options){
+        factory.save = function(options) {
             localStorage.options = JSON.stringify(options);
-        }
+        };
 
-        factory.setPropertyValue = function(propertyName, value){
-          var options = JSON.parse(localStorage.options);
-          options[propertyName] = value;
-          localStorage.options = JSON.stringify(options);
-          $rootScope.$broadcast('options:updated', options);
-        }
+        factory.setPropertyValue = function(propertyName, value) {
+            const options = JSON.parse(localStorage.options);
+            options[propertyName] = value;
+            localStorage.options = JSON.stringify(options);
+            $rootScope.$broadcast("options:updated", options);
+        };
 
-        factory.update = function(options){
-            var proposal = factory.get();
+        factory.update = function(options) {
+            const proposal = factory.get();
 
             proposal.symbol = options.underlying.symbol;
             proposal.duration = options.tick;
-            if(options.tradeType === 'Higher/Lower'){
-              proposal.barrier = _.isEmpty(options.barrier) ? "" : options.barrier;
-            }
-            else{
-              proposal.barrier = options.digit;
+            if (options.tradeType === "Higher/Lower") {
+                proposal.barrier = _.isEmpty(options.barrier) ? "" : options.barrier;
+            } else {
+                proposal.barrier = options.digit;
             }
             proposal.tradeType = options.tradeType;
             proposal.amount = options.amount || proposal.amount;
@@ -67,108 +111,63 @@
 
             factory.save(options);
             return proposal;
-        }
+        };
 
-        factory.send = function(proposal){
+        factory.send = function(proposal) {
             delete proposal.tradeType;
-            if(validate(proposal)){
+            if (validate(proposal)) {
                 websocketService.sendRequestFor.proposal(proposal);
+                return true;
             }
-        }
+            return false;
+        };
 
-        factory.forget = function(reqId){
+        factory.forget = function(reqId) {
             websocketService.sendRequestFor.forgetProposals(reqId);
-        }
+        };
 
-        factory.purchase = function(contract){
+        factory.purchase = function(contract) {
             websocketService.sendRequestFor.purchase(contract.id, contract.ask_price);
             factory.forget();
-        }
+        };
 
         function create() {
-            var proposal = {
-                subscribe:1,
-                proposal: 1,
-                symbol: null,
+            const proposal = {
+                subscribe    : 1,
+                proposal     : 1,
+                symbol       : null,
                 contract_type: null,
-                duration: null,
-                basis: 'payout',
-                currency: sessionStorage.currency || 'USD',
-                amount: 5,
-                duration_unit: 't',
-                passthrough: null
+                duration     : null,
+                basis        : "payout",
+                currency     : sessionStorage.currency || "USD",
+                amount       : 5,
+                duration_unit: "t",
+                passthrough  : null
             };
 
             return proposal;
         }
 
-        function validate(proposal){
+        function validate(proposal) {
+            let isValidate = true;
             _.forEach(proposal, (value, key) => {
-                if(value == null){
+                if (value == null || value === "") {
                     delete proposal[key];
                 }
             });
-            return true;
 
-            var contraints = {
-                amount: {
-                    presence: true,
-                    format: {
-                        pattern: /^(\d+\.?\d{0,2}|\.\d{1,2})$/
-
+            _.forEach(proposalSchema, (value, key) => {
+                if (proposal[key]) {
+                    if (!value.format.pattern.test(proposal[key])) {
+                        isValidate = false;
                     }
-                },
-                basis: {
-                    persence: true,
-                    format: {
-                        pattern: /^payout|stake$/
-                    }
-                },
-                contract_type: {
-                    persence: true,
-                    format: {
-                        pattern: /^\w{2,30}$/
-                    }
-                },
-                currency: {
-                    persence: true,
-                    format: {
-                        pattern: /^[A-Z]{3}$/
-                    }
-                },
-                duration: {
-                    persence: true,
-                    format: {
-                        pattern: /^\d+$/
-                    }
-                },
-                duration_unit: {
-                    persence: true,
-                    format: {
-                        pattern: /^d|m|s|h|t$/
-                    }
-                },
-                symbol: {
-                    persence: true,
-                    format: {
-                        pattern: /^\w{2,30}$/
-                    }
-                },
-                barrier: {
-                    persence: false,
-                    format: {
-                        pattern: /^[+-]?\d+\.?\d*$/
-                    }
+                } else if (proposal[key] === undefined && value.persence) {
+                    isValidate = false;
                 }
-
-            }
-
-            if(_.isEmpty(validate(proposal, contraints))){
-                return true;
-            }
-
-            return false;
+            });
+            return isValidate;
         }
+
 
         return factory;
     }

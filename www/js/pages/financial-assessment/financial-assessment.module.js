@@ -7,14 +7,7 @@
  */
 
 (function() {
-    'use strict';
+    angular.module("binary.pages.financial-assessment", ["binary.pages.financial-assessment.controllers"]);
 
-    angular
-        .module('binary.pages.financial-assessment', [
-            'binary.pages.financial-assessment.controllers'
-        ]);
-
-    angular
-        .module('binary.pages.financial-assessment.controllers', []);
-
+    angular.module("binary.pages.financial-assessment.controllers", []);
 })();

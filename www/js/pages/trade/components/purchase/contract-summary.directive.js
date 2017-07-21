@@ -6,26 +6,22 @@
  * @copyright binary ltd
  */
 
-(function(){
-  'use strict';
+(function() {
+    angular.module("binary.pages.trade.components.purchase.directives").directive("bgContractSummary", Summary);
 
-  angular
-    .module('binary.pages.trade.components.purchase.directives')
-    .directive('bgContractSummary', Summary);
+    function Summary() {
+        const directive = {
+            restrict        : "E",
+            templateUrl     : "js/pages/trade/components/purchase/contract-summary.template.html",
+            controller      : "ContractSummaryController",
+            controllerAs    : "vm",
+            bindToController: true,
+            scope           : {
+                proposal         : "=",
+                purchasedContract: "="
+            }
+        };
 
-  function Summary(){
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'js/pages/trade/components/purchase/contract-summary.template.html',
-      controller: 'ContractSummaryController',
-      controllerAs: 'vm',
-      bindToController: true,
-      scope: {
-        proposal: '=',
-        purchasedContract: '='
-      }
-    };
-
-    return directive;
-  }
+        return directive;
+    }
 })();
