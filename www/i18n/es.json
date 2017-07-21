@@ -708,26 +708,26 @@
     "no_connection":"No hay conexión"
   },
   "mt":{
-    "you_do_not_have_mt5_account":"Usted no posee ninguna cuenta de MetaTrader, por favor cree una e inténtelo nuevamente.",
-    "create_account":"Crear cuenta para MT5",
+    "you_do_not_have_mt5_account":"Usted no posee ninguna cuenta en MetaTrader, por favor cree una e inténtelo nuevamente.",
+    "create_account":"Crear cuenta en MT5",
     "feature_is_not_available":"Lo sentimos, esta función no está disponible.",
-    "meta_trader_accounts":"Cuentas Meta Trader",
+    "meta_trader_accounts":"Cuentas en Meta Trader",
     "demo_account":"Cuenta de prueba",
     "financial_account":"Cuenta financiera",
     "volatility_account":"Cuenta de índices de volatilidad",
-    "upgrade_financial_account":"Para crear una cuenta financiera de MT5, por favor actualice a una cuenta real de Binary.com.",
-    "upgrade_volatility_account":"Para crear una cuenta de índices de volatilidad de MT5, por favor actualice a una cuenta real de Binary.com.",
-    "create_financial_account":"Crear una cuenta financiera para MT5",
-    "create_volatility_account":"Create a Volatility Account for MT5",
-    "create_demo_account":"Create a Demo Account for MT5",
-    "login_id":"Login ID",
-    "balance":"Balance",
-    "name":"Name",
-    "start_trading_with_mt5":"Start Trading With MT5"
+    "upgrade_financial_account":"Para crear una cuenta financiera en MT5, por favor actualice a una cuenta real de Binary.com.",
+    "upgrade_volatility_account":"Para crear una cuenta de índices en volatilidad de MT5, por favor actualice a una cuenta real de Binary.com.",
+    "create_financial_account":"Crear una cuenta financiera en MT5",
+    "create_volatility_account":"Crear una cuenta de volatilidad en MT5",
+    "create_demo_account":"Crear una cuenta de prueba en MT5",
+    "login_id":"Nombre de usuario",
+    "balance":"Saldo",
+    "name":"Nombre",
+    "start_trading_with_mt5":"Comenzar a operar con MT5"
   },
   "authentication":{
-    "authentication":"Authentication",
-    "documents":"Authenticate your account now by verifying your identity and address. To proceed, simply send the following documents to",
+    "authentication":"Autenticación",
+    "documents":"Autenticar su cuenta ahora por medio verificando su identidad y dirección. Para proceder, simplemente envíe los siguientes documentos a",
     "proof_of_identity":"Prueba de identidad - Una copia escaneada de su pasaporte, licencia de conducir (provisional o definitiva), o cédula de identidad que muestre su nombre completo y fecha de nacimiento.",
     "proof_of_address":"Prueba de domicilio - Una copia escaneada de una factura de servicios básicos o estado de cuenta bancaria que no tenga más de tres meses de antigüedad. Su prueba de domicilio debe contener su nombre, dirección, fecha de emisión y el nombre del organismo emisor.",
     "questions":"¿Tiene preguntas?",
@@ -780,6 +780,6 @@
     "max_turnover_limit":"Account maximum turnover limit",
     "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits.",
     "account_age_verification":"Verificación de edad",
-    "needs_age_verification":"Account needs age verification, please contact customer support for more information."
+    "needs_age_verification":"Es necesario verificar su edad. Por favor, póngase en contacto con nuestro servicio de atención al cliente para obtener más información."
   }
 }
