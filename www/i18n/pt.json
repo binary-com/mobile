@@ -39,12 +39,12 @@
     "must_number":"Deve ser um número.",
     "ok":"OK",
     "cancel":"Cancelar",
-    "yes":"Yes",
-    "no":"No"
+    "yes":"Sim",
+    "no":"Não"
   },
   "options":{
     "account":"Conta",
-    "market":"Markets",
+    "market":"Mercados",
     "forex":"Forex",
     "random":"Random (Aleatório)",
     "volidx":"Índices Volatility",
