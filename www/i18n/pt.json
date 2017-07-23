@@ -75,7 +75,7 @@
     "up_down":"Acima/Abaixo",
     "markets_are_closed":"Lamentamos, todos os mercados estão encerrados. Tente novamente mais tarde",
     "cancel":"Cancelar",
-    "select_market":"Select Market",
+    "select_market":"Selecionar mercado",
     "select_underlying":"Selecione ativo subjacente",
     "select_tradetype":"Selecione TipoDeNegociação",
     "select_tick":"Selecione tique-taque",
@@ -146,7 +146,7 @@
     "days":"dias",
     "hours":"horas",
     "minutes":"minutos",
-    "interval_error":"Please enter a number between 10 to 60.",
+    "interval_error":"Insira um número entre 10 e 60.",
     "view_statement":"Ver declaração",
     "integer_error":"O intervalo deve ser um número inteiro."
   },
@@ -302,11 +302,11 @@
     "account_turnover_3":"$50.001 - $100.000",
     "account_turnover_4":"$100.001 - $500.000",
     "account_turnover_5":"Mais de $500.000",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income Earning",
-    "assets_saving":"Assets Saving",
-    "hedging":"Hedging"
+    "account_opening_reason":"Motivo de abertura de conta",
+    "speculative":"Especulativo",
+    "income_earning":"Ganho de rendimentos",
+    "assets_saving":"Poupança de ativos",
+    "hedging":"Cobertura de risco"
   },
   "newaccountreal":{
     "open_real":"Atualize para uma conta real",
