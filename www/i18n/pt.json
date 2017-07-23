@@ -651,31 +651,31 @@
     "stocks":"Ações",
     "otc_stocks":"Ações OTC",
     "subject_to_change":"Os limites mencionados estão sujeitos a alterações sem aviso prévio.",
-    "trading_limits":"Trading Limits",
-    "withdrawal_limits":"Withdrawal Limits",
-    "your_withdrawal_limit":"Your withdrawal limit is {{currency}} {{limits}} (or equivalent in other currency).",
-    "already_withdrawn":"You have already withdrawn the equivalent of {{currency}} {{limits}} (or equivalent in other currency).",
-    "current_immediate_maximum_withdrawal":"Therefore your current immediate maximum withdrawal (subject to your account having sufficient funds) is {{currency}} {{limits}} (or equivalent in other currency).",
-    "fully_authenticated":"Your account is fully authenticated and your withdrawal limits have been lifted.",
-    "your_n_day_withdrawal_limit":"Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
-    "already_withdrawn_days":"You have already withdrawn the equivalent of {{currency}} {{limits}} in aggregate over the last {{day}} days.",
-    "your_withdrawal":"Your withdrawal limit is {{currency}} {{limits}}",
-    "withdrawn":"You have already withdrawn {{currency}} {{limits}}"
+    "trading_limits":"Limites de negociação",
+    "withdrawal_limits":"Limites de retirada",
+    "your_withdrawal_limit":"O seu limite de retirada é {{currency}} {{limits}} (ou equivalente em outra moeda).",
+    "already_withdrawn":"Você já levantou o equivalente de {{currency}} {{limits}} (ou equivalent em outra moeda).",
+    "current_immediate_maximum_withdrawal":"Portanto, a sua retirada máxima imediata atual (sujeita à existência de fundos suficientes na sua conta) é {{currency}} {{limits}} (ou equivalente em outra moeda).",
+    "fully_authenticated":"A sua conta está totalmente autenticada e os seus limites de retirada de fundos foram aumentados.",
+    "your_n_day_withdrawal_limit":"O seu limite de retiradas de {{day}} dias é atualmente {{currency}} {{limits}} (ou equivalente em outra moeda).",
+    "already_withdrawn_days":"Você já retirou o equivalente de {{currency}} {{limits}} em agregado durante os últimos {{day}} dias.",
+    "your_withdrawal":"O seu limite de retiradas é {{currency}} {{limits}}",
+    "withdrawn":"Você já retirou {{currency}} {{limits}}"
   },
   "resources":{
-    "resources":"Resources",
-    "trading-times":"Trading Times",
-    "asset-index":"Asset Index"
+    "resources":"Recursos",
+    "trading-times":"Horas de negociação",
+    "asset-index":"Índice de ativos"
   },
   "trading-times":{
-    "trading_times":"Trading Times",
-    "date":"Date",
-    "market":"Market",
-    "asset":"Asset",
-    "opens":"Opens",
-    "closes":"Closes",
-    "settles":"Settles",
-    "upcoming_events":"Upcoming Events",
+    "trading_times":"Horas de negociação",
+    "date":"Data",
+    "market":"Mercado",
+    "asset":"Ativo",
+    "opens":"Abre",
+    "closes":"Fecha",
+    "settles":"Liquida",
+    "upcoming_events":"Próximos eventos",
     "GMT_times":"All times are in GMT (Greenwich Mean Time)."
   },
   "new-real-account":{
@@ -776,10 +776,10 @@
     "tax_information":"Informações fiscais",
     "complete_profile":"Por favor complete o perfil de conta para aumentar os seus limites de retirada e negociação.",
     "tnc":"Termos e condições",
-    "accept_tnc":"Please accept the updated Terms and Conditions to lift your withdrawal and trading limits.",
-    "max_turnover_limit":"Account maximum turnover limit",
-    "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits.",
-    "account_age_verification":"Age verification",
+    "accept_tnc":"Por favor aceite os termos e condições atualizados para aumentar os seus limites de retirada e negociação.",
+    "max_turnover_limit":"Limite máximo de volume de negócios da conta",
+    "set_max_turnover_limit":"Defina um limite de volume de negócios de 30 dias de auto-exclusão para aumentar os seus limites de depósito.",
+    "account_age_verification":"Verificação de idade",
     "needs_age_verification":"Account needs age verification, please contact customer support for more information."
   }
 }
