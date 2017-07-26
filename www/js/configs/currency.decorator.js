@@ -13,17 +13,21 @@
 
     function Currency($provide) {
         $provide.decorator("currencyFilter", [
-            "$delegate",
-            function(/* $delegate */) {
+            "accountService",
+            function(accountService) {
                 // const srcFilter = $delegate;
 
                 const extendsFilter = function() {
                     const locale = (localStorage.language || "en").replace("_", "-").slice(0, 2);
-                    const currency = arguments[1] || "USD";
+                    const currency = arguments[1] || accountService.getDefault().currency;
 
                     if (isNaN(arguments[0])) {
                         return '--';
                     }
+                    if(_.isEmpty(currency)){
+                        return "";
+                    }
+
                     return formatMoney(locale, currency, arguments[0]);
                 };
 
