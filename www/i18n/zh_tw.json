@@ -532,7 +532,12 @@
     "length-error-4-50":"此欄位必須為 4-50 個字元。",
     "tax-identification-number-pattern-error":"只允許字母、數字和連字符。",
     "cancel":"取消",
-    "continue":"繼續"
+    "continue":"繼續",
+    "account_opening_reason":"Account opening reason",
+    "speculative":"Speculative",
+    "income_earning":"Income earning",
+    "assets_saving":"Assets saving",
+    "hedging":"Hedging"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
