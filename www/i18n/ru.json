@@ -532,7 +532,12 @@
     "length-error-4-50":"Запись в данном поле не должна превышать 4-50 знаков.",
     "tax-identification-number-pattern-error":"Разрешены только буквы, цифры и дефисы.",
     "cancel":"Отмена",
-    "continue":"Продолжить"
+    "continue":"Продолжить",
+    "account_opening_reason":"Account opening reason",
+    "speculative":"Speculative",
+    "income_earning":"Income earning",
+    "assets_saving":"Assets saving",
+    "hedging":"Hedging"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"обновил(а)",
