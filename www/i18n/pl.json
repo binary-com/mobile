@@ -532,7 +532,12 @@
     "length-error-4-50":"To pole musi zawierać od 4 do 50 znaków.",
     "tax-identification-number-pattern-error":"Dozwolone są tylko litery, cyfry i myślnik.",
     "cancel":"Anuluj",
-    "continue":"Kontynuuj"
+    "continue":"Kontynuuj",
+    "account_opening_reason":"Account opening reason",
+    "speculative":"Speculative",
+    "income_earning":"Income earning",
+    "assets_saving":"Assets saving",
+    "hedging":"Hedging"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"zaktualizowało swój",
