@@ -9,11 +9,13 @@
 (function() {
     angular.module("binary.pages.trade.components.payout.controllers").controller("PayoutController", Payout);
 
-    Payout.$inject = ["$scope", "proposalService"];
+    Payout.$inject = ["$scope", "appStateService", "proposalService"];
 
-    function Payout($scope, proposalService) {
+    function Payout($scope, appStateService, proposalService) {
         const vm = this;
         vm.amount = vm.proposal.amount;
+
+        setCurrecyPattern();
 
         $scope.$watch(
             () => vm.proposal.amount,
@@ -23,6 +25,10 @@
                 }
             }
         );
+
+        $scope.$on("authorize", (e, account) => {
+            setCurrecyPattern(account.currency);
+        });
 
         vm.changePayoutType = function() {
             if (vm.proposal.basis === "payout") {
@@ -35,8 +41,11 @@
 
         vm.changeAmount = function() {
             if (_.isEmpty(vm.amount) || vm.amount === "NaN" || Number(vm.amount) === 0) {
-                vm.proposal.amount = 0;
+                vm.proposal.amount = vm.amount;
             } else {
+                if (/^.\d+$/.test(vm.amount)){
+                    vm.amount = `0${vm.amount}`;
+                }
                 vm.proposal.amount = vm.amount;
             }
             proposalService.setPropertyValue("amount", vm.proposal.amount);
@@ -56,6 +65,18 @@
         };
 
         function init() {}
+
+        function setCurrecyPattern(currency) {
+            if(_.isEmpty(currency)){
+                currency = sessionStorage.currency;
+            }
+            const currencyConfig = appStateService.currenciesConfig[currency];
+            $scope.$applyAsync(() => {
+                vm.regex = `^(\\d*\\.?\\d{0,${currencyConfig ? currencyConfig.fractional_digits : 2}})`;
+                vm.amount =  new RegExp(vm.regex).exec(vm.amount)[0];
+            });
+            return vm.regex;
+        }
 
         init();
     }

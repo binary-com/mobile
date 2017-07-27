@@ -284,6 +284,9 @@
 										font-size: 1.1rem;
 										line-height: normal;
 									}
+                  &.crypto {
+                    justify-content: center !important;
+                  }
 								}
 								.basis {
 									font-size: 1.1rem;
@@ -298,6 +301,9 @@
 										font-size: 1.1rem;
 										line-height: normal;
 									}
+                  .crypto {
+                    font-size: 0.9rem !important;
+                  }
 								}
 							}
 						}

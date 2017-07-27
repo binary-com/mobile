@@ -36,6 +36,7 @@
         vm.notAnyChanges = false;
         vm.disableUpdateButton = false;
         vm.hasResidence = false;
+        vm.hasAccountOpeningReason = false;
         vm.settingTaxResidence = [];
         vm.virtualAccountFields = ["email", "country"];
         vm.realAccountFields = [
@@ -47,7 +48,14 @@
             "phone",
             "tax_identification_number",
             "tax_residence",
-            "place_of_birth"
+            "place_of_birth",
+            "account_opening_reason"
+        ];
+        vm.accountOpeningReasonsEnum = [
+            {id: 'speculative', value: "Speculative"},
+            {id: 'income_earning', value: "Income Earning"},
+            {id: 'assets_saving', value: "Assets Saving"},
+            {id: 'hedging', value: "Hedging"}
         ];
 
         vm.init = function() {
@@ -83,9 +91,19 @@
                         websocketService.sendRequestFor.residenceListSend();
                         vm.hasResidence = false;
                     }
+
                 });
             } else {
                 vm.profile = get_settings;
+                if(!_.isEmpty(get_settings.account_opening_reason)){
+                    $scope.$applyAsync(() => {
+                        vm.hasAccountOpeningReason = true;
+                    });
+                } else {
+                    $scope.$applyAsync(() => {
+                        vm.hasAccountOpeningReason = false;
+                    });
+                }
                 if (vm.profile.date_of_birth) {
                     $scope.$applyAsync(() => {
                         vm.profile.date_of_birth = $filter("date")(vm.profile.date_of_birth * 1000, "yyyy-MM-dd");
