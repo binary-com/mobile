@@ -45,6 +45,7 @@ angular.module("binary").factory("appStateService", () => {
     factory.checkedAccountStatus = false;
     factory.siteStatus = "up";
     factory.modalIsOpen = false;
+    factory.currenciesConfig = {};
 
     return factory;
 });

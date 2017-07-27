@@ -721,7 +721,9 @@ angular.module("binary").factory("chartService", $rootScope => {
                 }
             }
             toShow.forEach((toShowPoint, index) => {
-                toShowPoint.shown = true;
+                if(!_.isEmpty(toShowPoint)){
+                    toShowPoint.shown = true;
+                }
             });
         };
 
