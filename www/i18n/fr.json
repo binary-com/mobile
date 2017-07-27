@@ -532,7 +532,12 @@
     "length-error-4-50":"Ce champ doit contenir entre 4 et 50 caractères.",
     "tax-identification-number-pattern-error":"Seuls les lettres, les chiffres et trait d'union sont autorisés.",
     "cancel":"Annuler",
-    "continue":"Continuer"
+    "continue":"Continuer",
+    "account_opening_reason":"Account opening reason",
+    "speculative":"Speculative",
+    "income_earning":"Income earning",
+    "assets_saving":"Assets saving",
+    "hedging":"Hedging"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"a mis à jour ses",
