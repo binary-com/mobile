@@ -533,11 +533,11 @@
     "tax-identification-number-pattern-error":"Apenas letras, números e hífenes são permitidos.",
     "cancel":"Cancelar",
     "continue":"Continuar",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income earning",
-    "assets_saving":"Assets saving",
-    "hedging":"Hedging"
+    "account_opening_reason":"Motivo de abertura de conta",
+    "speculative":"Especulativo",
+    "income_earning":"Ganho de rendimentos",
+    "assets_saving":"Poupança de ativos",
+    "hedging":"Cobertura de risco"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"has updated its",
