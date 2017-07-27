@@ -81,7 +81,7 @@
         };
 
         function getAccountsFromUrl(_url) {
-            const regex = /acct\d+=(\w+)&token\d+=(\w{2}-\w{29})/g;
+            const regex = /acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(&cur\d+=(\w{2,3}))?/g;
             let result = null;
             const accounts = [];
 
@@ -91,6 +91,7 @@
                     accounts.push({
                         loginid   : result[1],
                         token     : result[2],
+                        currency  : result[4] ? result[4] : null,
                         email     : "",
                         is_default: false
                     });

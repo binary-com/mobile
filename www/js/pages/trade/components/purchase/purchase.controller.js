@@ -36,6 +36,7 @@
         vm.inPurchaseMode = false;
         vm.showSummary = false;
         vm.purchasedContractIndex = -1;
+        vm.currencyType = "fiat";
 
         $scope.$watch(
             () => vm.proposal,
@@ -50,6 +51,12 @@
                         vm.proposalResponses[1].isReceiving = true;
                     });
                 }
+
+                const currencyConfig = appStateService.currenciesConfig[vm.proposal.currency];
+                if (currencyConfig) {
+                    vm.currencyType = currencyConfig.type;
+                }
+
                 proposalUpdated();
             },
             true

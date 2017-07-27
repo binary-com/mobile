@@ -7,10 +7,9 @@
             <input type="tel"
                    id="payout"
                    require
-                   step="0.01"
                    ng-model="vm.amount"
                    ng-change = "vm.changeAmount()"
-                   bg-regex-validate = "^(\d*\.?\d{0,2})"
+                   bg-regex-validate = "vm.regex"
                    ng-pattern = "null"/>
         </div>
         <div class="col payout-cell center">

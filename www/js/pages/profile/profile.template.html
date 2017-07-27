@@ -119,6 +119,38 @@
                     <div class="col">
                         <div class="row">
                             <div class="col input-title">
+                                {{ 'profile.account_opening_reason' | translate }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col item-input" ng-if="vm.hasAccountOpeningReason">
+                                <input name="account_opening_reason" ng-value="vm.profile.account_opening_reason" readonly="readonly">
+                            </div>
+                            <div class="col item-input" ng-if="!vm.hasAccountOpeningReason">
+                                <select name="account_opening_reason"
+                                        ng-model="vm.profile.account_opening_reason"
+                                        required>
+                                    <option value="" disabled>{{'profile.select' | translate}}</option>
+                                    <option ng-repeat="reason in vm.accountOpeningReasonsEnum"
+                                            value="{{ reason.value }}">
+                                      {{ ('profile.'+ reason.id) | translate }}
+                                    </option>
+                                </select>
+                                <ng-messages ng-if="vm.isDataLoaded" for="profileForm.account_opening_reason.$error" role="alert" class="help block error">
+                                    <ng-message when="required">
+                                        {{ 'profile.this_field_is_required' | translate }}
+                                    </ng-message>
+                                 </ng-messages>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col input-title">
                                 {{ 'profile.first_line_of_home_address' | translate }}
                             </div>
                         </div>
