@@ -15,7 +15,7 @@
             link,
             require : "ngModel",
             scope   : {
-                regex: "@bgRegexValidate"
+                regex: "=bgRegexValidate"
             }
         };
 

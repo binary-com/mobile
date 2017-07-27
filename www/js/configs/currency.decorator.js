@@ -19,7 +19,8 @@
 
                 const extendsFilter = function() {
                     const locale = (localStorage.language || "en").replace("_", "-").slice(0, 2);
-                    const currency = arguments[1] || accountService.getDefault().currency;
+                    const currency = arguments[1] ||
+                        (accountService.getDefault() ? accountService.getDefault().currency : null);
 
                     if (isNaN(arguments[0])) {
                         return '--';
