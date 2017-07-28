@@ -533,11 +533,11 @@
     "tax-identification-number-pattern-error":"Разрешены только буквы, цифры и дефисы.",
     "cancel":"Отмена",
     "continue":"Продолжить",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income earning",
+    "account_opening_reason":"Причина открытия счёта",
+    "speculative":"Спекуляции",
+    "income_earning":"Заработок",
     "assets_saving":"Assets saving",
-    "hedging":"Hedging"
+    "hedging":"Хеджирование"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"обновил(а)",
