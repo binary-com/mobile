@@ -533,11 +533,11 @@
     "tax-identification-number-pattern-error":"只允许字母、数字和连字符。",
     "cancel":"取消",
     "continue":"继续",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income earning",
-    "assets_saving":"Assets saving",
-    "hedging":"Hedging"
+    "account_opening_reason":"开立账户的原因",
+    "speculative":"投机",
+    "income_earning":"赚取收入",
+    "assets_saving":"资产保存",
+    "hedging":"对冲"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"已更新其",
