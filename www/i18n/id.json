@@ -533,10 +533,10 @@
     "tax-identification-number-pattern-error":"Hanya huruf, angka, dan tanda hubung yang diperbolehkan.",
     "cancel":"Batal",
     "continue":"Lanjutkan",
-    "account_opening_reason":"Account opening reason",
-    "speculative":"Speculative",
-    "income_earning":"Income earning",
-    "assets_saving":"Assets saving",
+    "account_opening_reason":"Alasan pedaftaran akun",
+    "speculative":"Spekulatif",
+    "income_earning":"Hasil pendapatan",
+    "assets_saving":"Simpanan aset",
     "hedging":"Hedging"
   },
   "accept-terms-and-conditions":{
