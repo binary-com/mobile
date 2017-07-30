@@ -495,7 +495,7 @@
     "date-can-not-less-than":"Okres wyłączenia nie może być krótszy niż {{max}}",
     "save-prompt":"Treść zapisana pomyślnie",
     "session-timeout-warning":"Limit czasu sesji zakończy się za 10 sek.",
-    "success":"Sukces",
+    "success":"Udało się",
     "warning":"Ostrzeżenie"
   },
   "profile":{
@@ -511,7 +511,7 @@
     "posta_code_zip":"Kod pocztowy",
     "telephone":"Telefon",
     "update_profile":"Zaktualizuj profil",
-    "success":"Sukces",
+    "success":"Udało się",
     "success_message":"Twoje ustawienia zostały pomyślnie zaktualizowane.",
     "error_message":"Nie udało się zaktualizować ustawień.",
     "this_field_is_required":"To pole jest obowiązkowe.",
@@ -659,13 +659,13 @@
     "trading_limits":"Limity handlowe",
     "withdrawal_limits":"Limity wypłat",
     "your_withdrawal_limit":"Twój limit wypłat to {{limits}} {{currency}} (lub jego równowartość w innej walucie).",
-    "already_withdrawn":"Już wypłaciłeś/aś ekwiwalent {{currency}} {{limits}} (lub jego równowartość w innej walucie).",
-    "current_immediate_maximum_withdrawal":"Dlatego w chwili obecnej Twoja maksymalna natychmiastowa wypłata (o ile posiadasz na koncie wystarczające środki) wynosi {{currency}} {{limits}} (lub równowartość tej kwoty w innej walucie).",
+    "already_withdrawn":"Już wypłaciłeś/aś ekwiwalent {{limits}} {{currency}} (lub jego równowartość w innej walucie).",
+    "current_immediate_maximum_withdrawal":"Dlatego w chwili obecnej kwota Twojej maksymalnej natychmiastowej wypłaty (o ile posiadasz na koncie wystarczające środki) wynosi {{limits}} {{currency}} (lub równowartość tej kwoty w innej walucie).",
     "fully_authenticated":"Twoje konto jest w pełni zweryfikowane, a Twój limit wypłat został zwiększony.",
-    "your_n_day_withdrawal_limit":"Twój {{day}}-dniowy limit wypłat wynosi obecnie {{currency}} {{limits}} (lub jego równowartość w innej walucie).",
-    "already_withdrawn_days":"Łączny ekwiwalent {{currency}} {{limits}} został już wypłacony w ciągu ostatnich {{day}} dni.",
-    "your_withdrawal":"Twój limit wypłat wynosi {{currency}} {{limits}}",
-    "withdrawn":"Wypłacono już {{currency}} {{limits}}"
+    "your_n_day_withdrawal_limit":"Twój {{day}}-dniowy limit wypłat wynosi obecnie {{limits}} {{currency}} (lub jego równowartość w innej walucie).",
+    "already_withdrawn_days":"Łączna równowartość {{limits}} {{currency}} została już wypłacona w ciągu ostatnich {{day}} dni.",
+    "your_withdrawal":"Twój limit wypłat wynosi {{limits}} {{currency}}",
+    "withdrawn":"Wypłacono już {{limits}} {{currency}}"
   },
   "resources":{
     "resources":"Zasoby",
@@ -781,7 +781,7 @@
     "tax_information":"Informacje podatkowe",
     "complete_profile":"Aby podnieść limity wypłat i limity handlowe, proszę uzupełnić wszystkie dane profilowe.",
     "tnc":"Regulamin",
-    "accept_tnc":"Aby zwiększyć limity wypłat oraz limity handlowe, proszę zaakceptować zaktualizowany Regulamin.",
+    "accept_tnc":"Aby zwiększyć limity wypłat oraz limity handlowe, proszę zaakceptować zaktualizowany regulamin.",
     "max_turnover_limit":"Maksymalny limit obrotów na koncie",
     "set_max_turnover_limit":"Aby podnieść limity wpłat, proszę ustawić 30-dniowy maksymalny obrót w sekcji Samodzielnego wyłączenia.",
     "account_age_verification":"Weryfikacja wieku",
