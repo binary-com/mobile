@@ -410,7 +410,7 @@
     "exit_spot_time":"Czas punktu wyjściowego",
     "current_time":"Obecny czas",
     "sell_price":"Cena sprzedaży",
-    "profit_loss":"Zysk/Strata",
+    "profit_loss":"Zysk/strata",
     "end_time":"Czas zakończenia"
   },
   "statement":{
@@ -488,9 +488,9 @@
     "exclude-me-from-the-website-until":"Wyłącz mnie z portalu do dnia",
     "exclude-me-hint":"Wprowadź datę w formacie MM/DD/RRRR.",
     "update-settings":"Uaktualnij ustawienia",
-    "please-enter-an-integer-value":"Wprowadź wartość całkowitą o max długości {{max}}",
+    "please-enter-an-integer-value":"Wprowadź wartość całkowitą o maksymalnej długości {{max}}",
     "valid-range-hint":"Proszę wpisać liczbę od 0 do {{max}}",
-    "date-is-not-valid":"Czas wyłączenia musi zaczynać się jutro lub później",
+    "date-is-not-valid":"Okres wyłączenia musi zaczynać się jutro lub później",
     "date-can-not-be-greater-than":"Okres wyłączenia nie może przekraczać {{max}}",
     "date-can-not-less-than":"Okres wyłączenia nie może być krótszy niż {{max}}",
     "save-prompt":"Treść zapisana pomyślnie",
