@@ -212,7 +212,7 @@
     "income_source":"Źródło dochodu",
     "net_income":"Roczny dochód netto",
     "estimated_worth":"Szacowana wartość netto",
-    "info":"Usługi zawierania transakcji finansowych oferowane na niniejszym portalu są odpowiednie tylko dla klientów, którzy są w stanie ponieść stratę wszystkich zainwestowanych pieniędzy i którzy rozumieją zagrożenia związane z nabywaniem kontraktów finansowych i mają doświadczenie w tym zakresie. Transakcje finansowe niosą ze sobą wysokie ryzyko. Jeśli zakupiony kontrakt zakończy się bez wartości, stracisz całą zainwestowaną sumę, na którą składać się będzie premia z kontraktu.",
+    "info":"Usługi zawierania transakcji finansowych oferowane na niniejszym portalu są odpowiednie tylko dla klientów, którzy są w stanie ponieść stratę wszystkich zainwestowanych pieniędzy i którzy rozumieją zagrożenia związane z nabywaniem kontraktów finansowych i mają doświadczenie w tym zakresie. Takie transakcje finansowe niosą ze sobą wysokie ryzyko. Jeśli zakupiony kontrakt zakończy się bez wartości, stracisz całą zainwestowaną sumę, na którą składać się będzie premia z kontraktu.",
     "open_account":"Otwórz konto",
     "select":"Proszę wybrać",
     "under_1_year":"0-1 rok",
@@ -542,7 +542,7 @@
   "accept-terms-and-conditions":{
     "has_updated_its":"zaktualizowało swój",
     "terms_and_conditions":"Regulamin",
-    "confirm_phrase":"Kliknięcie OK oznacza, że zapoznałeś/aś się z zaktualizowanym Regulaminem i wyrażasz zgodę na jego postanowienia",
+    "confirm_phrase":"Kliknięcie OK jest równoznaczne z zapoznaniem się z zaktualizowanym regulaminem i wyrażeniem zgody na jego postanowienia",
     "ok":"OK"
   },
   "app-version":{
@@ -627,7 +627,7 @@
     "estimated_worth_4":"500 001 $ - 1 000 000 $",
     "estimated_worth_5":"Ponad 1 000 000 $",
     "update":"Aktualizuj",
-    "financial_assessment_info":"Usługi zawierania transakcji finansowych oferowane na niniejszym portalu są odpowiednie tylko dla klientów, którzy są w stanie ponieść stratę wszystkich zainwestowanych pieniędzy i którzy rozumieją zagrożenia związane z nabywaniem kontraktów finansowych i mają doświadczenie w tym zakresie. Transakcje finansowe niosą ze sobą wysokie ryzyko. Jeśli zakupiony kontrakt zakończy się bez wartości, stracisz całą zainwestowaną sumę, na którą składać się będzie premia z kontraktu.",
+    "financial_assessment_info":"Usługi zawierania transakcji finansowych oferowane na niniejszym portalu są odpowiednie tylko dla klientów, którzy są w stanie ponieść stratę wszystkich zainwestowanych pieniędzy i którzy rozumieją zagrożenia związane z nabywaniem kontraktów finansowych i mają doświadczenie w tym zakresie. Takie transakcje finansowe niosą ze sobą wysokie ryzyko. Jeśli zakupiony kontrakt zakończy się bez wartości, stracisz całą zainwestowaną sumę, na którą składać się będzie premia z kontraktu.",
     "no_change":"Niczego nie zmieniono.",
     "success":"Udało się",
     "success_message":"Twoje ustawienia zostały pomyślnie zaktualizowane.",
