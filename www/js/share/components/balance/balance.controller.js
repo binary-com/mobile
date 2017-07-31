@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.share.components.balance.controllers").controller("BalanceController", Balance);
 
-    Balance.$inject = ["$scope", "websocketService"];
+    Balance.$inject = ["$scope", "appStateService", "websocketService"];
 
-    function Balance($scope, websocketService) {
+    function Balance($scope, appStateService, websocketService) {
         const vm = this;
         vm.balance = null;
 
@@ -24,6 +24,7 @@
                 };
                 sessionStorage.setItem("balance", vm.balance.balance);
 
+                getBalance();
                 changeProposalCurrency();
             });
         });
@@ -31,6 +32,7 @@
         $scope.$on("balance", (e, response) => {
             $scope.$applyAsync(() => {
                 vm.balance = response;
+                appStateService.balanceSubscribtionId = response.id || null;
                 changeProposalCurrency();
             });
         });

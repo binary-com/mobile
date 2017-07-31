@@ -56,6 +56,7 @@
             accountService.setDefault(_selectedAccount);
             accountService.validate();
             updateSymbols();
+            websocketService.sendRequestFor.forgetStream(appStateService.balanceSubscribtionId);
             appStateService.isChangedAccount = true;
             appStateService.isCheckedAccountType = false;
             sessionStorage.removeItem("start");
