@@ -532,7 +532,12 @@
     "length-error-4-50":"crwdns19500:0crwdne19500:0",
     "tax-identification-number-pattern-error":"crwdns19501:0crwdne19501:0",
     "cancel":"crwdns19516:0crwdne19516:0",
-    "continue":"crwdns19517:0crwdne19517:0"
+    "continue":"crwdns19517:0crwdne19517:0",
+    "account_opening_reason":"crwdns33336:0crwdne33336:0",
+    "speculative":"crwdns33337:0crwdne33337:0",
+    "income_earning":"crwdns33338:0crwdne33338:0",
+    "assets_saving":"crwdns33339:0crwdne33339:0",
+    "hedging":"crwdns33340:0crwdne33340:0"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"crwdns18103:0crwdne18103:0",

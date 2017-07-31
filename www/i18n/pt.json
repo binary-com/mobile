@@ -227,7 +227,7 @@
     "health":"Saúde",
     "tourism":"Turismo",
     "other":"Outro",
-    "others":"Others",
+    "others":"Outros",
     "occupation":"Profissão",
     "chief_executives":"Directores executivos, dirigentes superiores e membros dos corpos legislativos",
     "managers":"Gestores",
@@ -532,7 +532,12 @@
     "length-error-4-50":"Este campo de conter entre 4 a 50 caracteres.",
     "tax-identification-number-pattern-error":"Apenas letras, números e hífenes são permitidos.",
     "cancel":"Cancelar",
-    "continue":"Continuar"
+    "continue":"Continuar",
+    "account_opening_reason":"Motivo de abertura de conta",
+    "speculative":"Especulativo",
+    "income_earning":"Ganho de rendimentos",
+    "assets_saving":"Poupança de ativos",
+    "hedging":"Cobertura de risco"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"has updated its",
@@ -590,7 +595,7 @@
     "health":"Saúde",
     "tourism":"Turismo",
     "other":"Other",
-    "others":"Others",
+    "others":"Outros",
     "occupation":"Profissão",
     "chief_executives":"Directores executivos, dirigentes superiores e membros dos corpos legislativos",
     "managers":"Gestores",

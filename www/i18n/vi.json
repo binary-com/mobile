@@ -532,7 +532,12 @@
     "length-error-4-50":"Mục này phải nằm trong khoảng 4-50 ký tự.",
     "tax-identification-number-pattern-error":"Chỉ các chữ cái, số và dấu nối là được phép.",
     "cancel":"Hủy bỏ",
-    "continue":"Tiếp tục"
+    "continue":"Tiếp tục",
+    "account_opening_reason":"Account opening reason",
+    "speculative":"Speculative",
+    "income_earning":"Income earning",
+    "assets_saving":"Assets saving",
+    "hedging":"Hedging"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"đã cập nhập của nó",

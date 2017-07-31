@@ -532,7 +532,12 @@
     "length-error-4-50":"Kolom ini harus diisi dengan 4-50 karakter panjang.",
     "tax-identification-number-pattern-error":"Hanya huruf, angka, dan tanda hubung yang diperbolehkan.",
     "cancel":"Batal",
-    "continue":"Lanjutkan"
+    "continue":"Lanjutkan",
+    "account_opening_reason":"Alasan pedaftaran akun",
+    "speculative":"Spekulatif",
+    "income_earning":"Hasil pendapatan",
+    "assets_saving":"Simpanan aset",
+    "hedging":"Hedging"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"telah memperbarui",

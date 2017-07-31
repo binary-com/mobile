@@ -532,7 +532,12 @@
     "length-error-4-50":"Dieses Feld muss zwischen 4-50 Zeichen lang sein.",
     "tax-identification-number-pattern-error":"Es sind nur Buchstaben, Zahlen, und Bindestriche erlaubt.",
     "cancel":"Abbrechen",
-    "continue":"Weiter"
+    "continue":"Weiter",
+    "account_opening_reason":"Account opening reason",
+    "speculative":"Speculative",
+    "income_earning":"Income earning",
+    "assets_saving":"Assets saving",
+    "hedging":"Hedging"
   },
   "accept-terms-and-conditions":{
     "has_updated_its":"hat seine",
