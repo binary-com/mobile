@@ -46,6 +46,7 @@ angular.module("binary").factory("appStateService", () => {
     factory.siteStatus = "up";
     factory.modalIsOpen = false;
     factory.currenciesConfig = {};
+    factory.balanceSubscribtionId = null;
 
     return factory;
 });
