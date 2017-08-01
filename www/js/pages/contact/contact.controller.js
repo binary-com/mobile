@@ -35,13 +35,6 @@
                     }
                 }
             },
-            germany: {
-                phone: {
-                    phone_1: {
-                        num: "+49 3025 5553844"
-                    }
-                }
-            },
             indonesia: {
                 phone: {
                     phone_1: {
