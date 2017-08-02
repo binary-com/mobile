@@ -1,0 +1,594 @@
+<ion-view class="change-password">
+    <ion-content class="general-content has-header has-subheader">
+        <div class="row">
+            <div class="col">
+                <h1 class="page-title">
+                    {{'financial-assessment.financial_assessment' | translate}}
+                </h1>
+            </div>
+        </div>
+
+        <form name="financial-assessment">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.forex_trading_experience' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="forexTradingExperience" ng-model="vm.data.forexTradingExperience" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-1 year">{{'financial-assessment.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'financial-assessment.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.forexTradingExperienceError">
+                              {{vm.forexTradingExperienceErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.forex_trading_frequency' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="forexTradingFrequency" ng-model="vm.data.forexTradingFrequency" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-5 transactions in the past 12 months">{{'financial-assessment.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'financial-assessment.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.forexTradingFrequencyError">
+                                {{vm.forexTradingFrequencyErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.indices_trading_experience' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="indicesTradingExperience" ng-model="vm.data.indicesTradingExperience" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-1 year">{{'financial-assessment.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'financial-assessment.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.indicesTradingExperienceError">
+                                {{vm.indicesTradingExperienceErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.indices_trading_frequency' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="indicesTradingFrequency" ng-model="vm.data.indicesTradingFrequency" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-5 transactions in the past 12 months">{{'financial-assessment.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'financial-assessment.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.indicesTradingFrequencyError">
+                                {{vm.indicesTradingFrequencyErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.commodities_trading_experience' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="commoditiesTradingExperience" ng-model="vm.data.commoditiesTradingExperience" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-1 year">{{'financial-assessment.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'financial-assessment.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.commoditiesTradingExperienceError">
+                                {{vm.commoditiesTradingExperienceErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.commodities_trading_frequency' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="commoditiesTradingFrequency" ng-model="vm.data.commoditiesTradingFrequency" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-5 transactions in the past 12 months">{{'financial-assessment.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'financial-assessment.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.commoditiesTradingFrequencyError">
+                                {{vm.commoditiesTradingFrequencyErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.stocks_trading_experience' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="stocksTradingExperience" ng-model="vm.data.stocksTradingExperience" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-1 year">{{'financial-assessment.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'financial-assessment.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.stocksTradingExperienceError">
+                                {{vm.stocksTradingExperienceErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.stocks_trading_frequency' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="stocksTradingFrequency" ng-model="vm.data.stocksTradingFrequency" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-5 transactions in the past 12 months">{{'financial-assessment.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'financial-assessment.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.stocksTradingFrequencyError">
+                                {{vm.stocksTradingFrequencyErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.other_derivatives_trading_experience' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="otherDerivativesTradingExperience" ng-model="vm.data.otherDerivativesTradingExperience" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-1 year">{{'financial-assessment.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'financial-assessment.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.otherDerivativesTradingExperienceError">
+                                {{vm.otherDerivativesTradingExperienceErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.other_derivatives_trading_frequency' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="otherDerivativesTradingFrequency" ng-model="vm.data.otherDerivativesTradingFrequency" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-5 transactions in the past 12 months">{{'financial-assessment.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'financial-assessment.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.otherDerivativesTradingFrequencyError">
+                                {{vm.otherDerivativesTradingFrequencyErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.other_instruments_trading_experience' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="otherInstrumentsTradingExperience" ng-model="vm.data.otherInstrumentsTradingExperience" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-1 year">{{'financial-assessment.under_1_year' | translate}}</option>
+                                <option value="1-2 years">{{'financial-assessment.1_2_years' | translate}}</option>
+                                <option value="Over 3 years">{{'financial-assessment.over_3_years' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.otherInstrumentsTradingExperienceError">
+                                {{vm.otherInstrumentsTradingExperienceErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.other_instruments_trading_frequency' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="otherInstrumentsTradingFrequency" ng-model="vm.data.otherInstrumentsTradingFrequency" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="0-5 transactions in the past 12 months">{{'financial-assessment.0_5_transactions' | translate}}</option>
+                                <option value="6-10 transactions in the past 12 months">{{'financial-assessment.6_10_transactions' | translate}}</option>
+                                <option value="40 transactions or more in the past 12 months">{{'financial-assessment.transactions_more' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.otherInstrumentsTradingFrequencyError">
+                                {{vm.otherInstrumentsTradingFrequencyErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.employment_industry' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="employmentIndustry" ng-model="vm.data.employmentIndustry" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="Construction">{{'financial-assessment.construction' | translate}}</option>
+                                <option value="Education">{{'financial-assessment.education' | translate}}</option>
+                                <option value="Finance">{{'financial-assessment.finance' | translate}}</option>
+                                <option value="Health">{{'financial-assessment.health' | translate}}</option>
+                                <option value="Tourism">{{'financial-assessment.tourism' | translate}}</option>
+                                <option value="Other">{{'financial-assessment.other' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.employmentIndustryError">
+                                {{vm.employmentIndustryErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.occupation' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="occupation" ng-model="vm.data.occupation" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="Chief Executives, Senior Officials and Legislators">
+                                  {{'financial-assessment.chief_executives' | translate}}
+                                </option>
+                                <option value="Managers">
+                                  {{'financial-assessment.managers' | translate}}
+                                </option>
+                                <option value="Professionals">
+                                  {{'financial-assessment.professionals' | translate}}
+                                </option>
+                                <option value="Clerks">
+                                  {{'financial-assessment.clerks' | translate}}
+                                </option>
+                                <option value="Personal Care, Sales and Service Workers">
+                                  {{'financial-assessment.personal_care' | translate}}
+                                </option>
+                                <option value="Agricultural, Forestry and Fishery Workers">
+                                  {{'financial-assessment.agricultural' | translate}}
+                                </option>
+                                <option value="Craft, Metal, Electrical and Electronics Workers">
+                                  {{'financial-assessment.craft' | translate}}
+                                </option>
+                                <option value="Plant and Machine Operators and Assemblers">
+                                  {{'financial-assessment.machine' | translate}}
+                                </option>
+                                <option value="Cleaners and Helpers">
+                                  {{'financial-assessment.helpers' | translate}}
+                                </option>
+                                <option value="Mining, Construction, Manufacturing and Transport Workers">
+                                  {{'financial-assessment.mining' | translate}}
+                                </option>
+                                <option value="Armed Forces">
+                                  {{'financial-assessment.armed_forces' | translate}}
+                                </option>
+                                <option value="Government Officers">
+                                  {{'financial-assessment.government_officers' | translate}}
+                                </option>
+                                <option value="Others">
+                                  {{'financial-assessment.others' | translate}}
+                                </option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.occupationError">
+                                {{vm.occupationErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.education_level' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="educationLevel" ng-model="vm.data.educationLevel" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="Primary">{{'financial-assessment.primary' | translate}}</option>
+                                <option value="Secondary">{{'financial-assessment.secondary' | translate}}</option>
+                                <option value="Tertiary">{{'financial-assessment.tertiary' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.educationLevelError">
+                                {{vm.educationLevelErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.income_source' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="incomeSource" ng-model="vm.data.incomeSource" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="Salaried Employee">{{'financial-assessment.salaried' | translate}}</option>
+                                <option value="Self-Employed">{{'financial-assessment.self_employed' | translate}}</option>
+                                <option value="Investments & Dividends">{{'financial-assessment.investment' | translate}}</option>
+                                <option value="Pension">{{'financial-assessment.pension' | translate}}</option>
+                                <option value="Other">{{'financial-assessment.other' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.incomeSourceError">
+                                {{vm.incomeSourceErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.net_income' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="netIncome" ng-model="vm.data.netIncome" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="Less than $25,000">{{'financial-assessment.net_income_1' | translate}}</option>
+                                <option value="$25,000 - $50,000">{{'financial-assessment.net_income_2' | translate}}</option>
+                                <option value="$50,001 - $100,000">{{'financial-assessment.net_income_3' | translate}}</option>
+                                <option value="$100,001 - $500,000">{{'financial-assessment.net_income_4' | translate}}</option>
+                                <option value="Over $500,000">{{'financial-assessment.net_income_5' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.netIncomeError">
+                                {{vm.netIncomeErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.estimated_worth' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="estimatedWorth" ng-model="vm.data.estimatedWorth" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="Less than $100,000">{{'financial-assessment.estimated_worth_1' | translate}}</option>
+                                <option value="$100,000 - $250,000">{{'financial-assessment.estimated_worth_2' | translate}}</option>
+                                <option value="$250,001 - $500,000">{{'financial-assessment.estimated_worth_3' | translate}}</option>
+                                <option value="$500,001 - $1,000,000">{{'financial-assessment.estimated_worth_4' | translate}}</option>
+                                <option value="Over $1,000,000">{{'financial-assessment.estimated_worth_5' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.estimatedWorthError">
+                                {{vm.estimatedWorthErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.account_turnover' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="accountTurnover" ng-model="vm.data.accountTurnover" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="Less than $25,000">{{'financial-assessment.account_turnover_1' | translate}}</option>
+                                <option value="$25,000 - $50,000">{{'financial-assessment.account_turnover_2' | translate}}</option>
+                                <option value="$50,001 - $100,000">{{'financial-assessment.account_turnover_3' | translate}}</option>
+                                <option value="$100,001 - $500,000">{{'financial-assessment.account_turnover_4' | translate}}</option>
+                                <option value="Over $500,000">{{'financial-assessment.account_turnover_5' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.accountTurnoverError">
+                                {{vm.accountTurnoverErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>
+                        {{'financial-assessment.financial_assessment_info' | translate}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col center">
+                    <span class="help-block error center" ng-if="vm.notAnyChanges">{{'financial-assessment.no_change' | translate}}</span>
+                    <span class="center" ng-if="vm.updateSuccessful">
+                        <i class="ion-checkmark green"></i>
+                        {{'financial-assessment.updated_successfully' | translate}}</span>
+                    <button class="button button-block" ng-click="vm.submitFinancialAssessment()" ng-disabled="financial-assessment.$invalid || vm.disableUpdateButton">
+                        {{'financial-assessment.update' | translate}}
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </ion-content>
+</ion-view>
