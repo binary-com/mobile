@@ -9983,7 +9983,8 @@ button.button.button-default {
 
 .item {
   border-width: 0;
-  color: #000; }
+  color: #000;
+  font-size: 1rem; }
 
 .item-select select {
   max-width: 100%; }
@@ -10002,7 +10003,7 @@ button.button.button-default {
   color: #C03;
   font-size: 0.5rem; }
 
-.appVersion {
+.app-version {
   color: #2A3052;
   opacity: 0.5;
   font-size: 0.8rem;
@@ -10072,7 +10073,6 @@ input::-webkit-outer-spin-button {
   background: #F2F2F2;
   word-break: break-word;
   padding: 0;
-  margin-top: 10px;
   font-size: 0.8rem; }
 
 input {
@@ -10145,7 +10145,6 @@ textarea {
   font-size: 1rem; }
 
 .general-content {
-  margin-bottom: 80px !important;
   width: 100vw;
   font-size: 1rem; }
 
@@ -10234,6 +10233,35 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
 .update .icon {
   font-size: 28px !important; }
 
+.account-status-message {
+  padding: 0;
+  background: #FEF1CF; }
+  .account-status-message .error {
+    font-size: 0.8rem;
+    padding: 10px; }
+
+.notification-icon {
+  position: absolute;
+  right: 0; }
+  .notification-icon span {
+    position: absolute;
+    top: 12px;
+    left: 0px;
+    background: #C03;
+    border-radius: 50px;
+    z-index: 15;
+    line-height: 9px;
+    min-width: 18px;
+    text-align: center;
+    font-size: 9px;
+    padding: 5px; }
+
+.notification-button span:hover {
+  background: #C03; }
+
+.notification-button:before {
+  font-size: 28px !important; }
+
 .logo-spinner {
   -webkit-animation-name: spin;
   -webkit-animation-duration: 1000ms;
@@ -10298,18 +10326,23 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     background-color: #2A3052; }
     .menu ion-content.has-header {
       margin-top: 45px; }
-    .menu ion-content .sidemenu-app-version {
-      bottom: 5px;
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      color: #fff;
-      font-size: 0.8rem; }
   .menu .bar-header {
     border-bottom: 1px solid #DEDEDE !important;
     background: trasparent;
     background-color: #2A3052;
     align-items: center; }
+  .menu .bar-footer {
+    border-top: 1px solid #DEDEDE !important;
+    background: trasparent;
+    background-color: #2A3052; }
+    .menu .bar-footer .sidemenu-app-version {
+      top: -0.5px;
+      right: 0px;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 0.8rem; }
   .menu .item-complex .item-content {
     background-color: #2A3052; }
   .menu .item {
@@ -10399,18 +10432,21 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
 
 .home {
   background-color: #F2F2F2; }
-  .home .branding {
-    width: 80%;
-    max-width: 600px;
-    margin: 40% auto; }
-    .home .branding .logo {
+  .home.branding {
+    align-items: center;
+    display: flex;
+    font-size: 1.1rem;
+    justify-content: center; }
+    .home.branding .logo {
       display: block;
       margin: 0 auto;
       width: 40%; }
-    .home .branding .slogan {
+    .home.branding .slogan {
       display: block;
       margin: 5% auto 0;
       width: 60%; }
+  .home .spinner-container {
+    margin-top: 15px; }
   .home .spinner svg {
     display: block;
     stroke: #2A3052; }
@@ -10426,7 +10462,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
 .sign-in {
   background-color: #fff; }
   .sign-in .branding {
-    margin: 10% auto; }
+    margin: 30px auto; }
     .sign-in .branding .logo {
       display: block;
       margin: 0 auto;
@@ -10437,6 +10473,28 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
       width: 60%; }
   .sign-in .language {
     border: none; }
+  .sign-in .signin-page {
+    height: 90vh;
+    height: calc(100vh - 45px) !important; }
+    .sign-in .signin-page .row, .sign-in .signin-page form, .sign-in .signin-page oauth {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center; }
+      .sign-in .signin-page .row .col, .sign-in .signin-page form .col, .sign-in .signin-page oauth .col {
+        align-items: center;
+        justify-content: center; }
+    .sign-in .signin-page .app-version {
+      display: flex;
+      flex-grow: 1;
+      align-items: flex-start;
+      justify-content: center; }
+      .sign-in .signin-page .app-version .item {
+        padding-top: 0 !important; }
+  .sign-in .regulatory-information {
+    align-items: flex-end !important; }
+    .sign-in .regulatory-information a {
+      font-weight: normal; }
   .sign-in #emailform .show-hide-password,
   .sign-in #virtualws .show-hide-password {
     margin-top: 15px; }
@@ -10450,7 +10508,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     text-align: left;
     padding: 0 5px 5px 5px; }
   .sign-in .list label.item-input {
-    width: 80%;
+    width: 75%;
     margin: 0 auto; }
     .sign-in .list label.item-input i {
       font-size: 40px;
@@ -10499,20 +10557,12 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     margin-bottom: 0 !important; }
   .trade ion-content {
     width: 100vw; }
-    .trade ion-content.trade-container {
-      padding-bottom: 80px; }
     .trade ion-content .scroll {
       height: 100%; }
       .trade ion-content .scroll .flexed {
         display: flex;
         height: 100% !important;
         flex-direction: column; }
-    .trade ion-content .account-status-message {
-      padding: 0;
-      background: #FEF1CF; }
-      .trade ion-content .account-status-message .error {
-        font-size: 1rem;
-        padding: 10px; }
   .trade .ionic-scroll .scroll-bar-v {
     display: none !important; }
   .trade .web-view-trade {
@@ -10750,6 +10800,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                     vertical-align: middle;
                     font-size: 1.1rem;
                     line-height: normal; }
+                  .trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content .basis-title.crypto {
+                    justify-content: center !important; }
                 .trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content .basis {
                   font-size: 1.1rem;
                   display: inline-block;
@@ -10762,6 +10814,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                     vertical-align: middle;
                     font-size: 1.1rem;
                     line-height: normal; }
+                  .trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content .basis .crypto {
+                    font-size: 0.9rem !important; }
             .trade #trade-container bg-purchase .purchase .contract .row .error {
               background-color: #FEF1CF;
               padding: 5px 5px;
@@ -11255,6 +11309,9 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .trade bg-chart {
     max-height: 120px;
     min-height: 115px; }
+  .trade .row + .row {
+    margin-top: 0 !important;
+    padding-top: 5px !important; }
   bg-purchase .purchase .contract .row.basis-container .contract-image-container img {
     width: 30px;
     height: 30px; }
@@ -11270,12 +11327,28 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     line-height: normal; } }
 
 @media only screen and (min-device-height: 481px) and (max-device-height: 640px) {
+  .platform-android.platform-cordova.platform-webview .trade #tradeChart {
+    width: 100% !important;
+    height: 165px !important; }
+  .platform-android.platform-cordova.platform-webview .trade bg-chart {
+    max-height: 170px;
+    min-height: 160px; }
+  .platform-android.platform-cordova.platform-webview .trade .row + .row {
+    margin-top: 0 !important;
+    padding-top: 5px !important; }
+  .platform-android.platform-cordova.platform-webview .trade .longcode .row {
+    padding: 0 !important; }
+  .platform-android.platform-cordova.platform-webview .trade .has-subheader {
+    top: 75px !important; }
   .trade #tradeChart {
     width: 100% !important;
     height: 180px !important; }
   .trade bg-chart {
     max-height: 180px;
     min-height: 175px; }
+  .trade .row + .row {
+    margin-top: 0 !important;
+    padding-top: 5px !important; }
   bg-purchase .purchase .contract .row.basis-container .contract-image-container img {
     width: 40px;
     height: 40px; }
@@ -11378,106 +11451,105 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .result-popup .popup {
     width: 95vw !important; } }
 
-.profit-table .title-container {
-  z-index: 10;
-  background: #fff;
-  position: relative; }
-  .profit-table .title-container .page-title {
-    z-index: 11;
-    background: #fff; }
-  .profit-table .title-container .icon-inactive {
-    color: #000; }
-  .profit-table .title-container .icon-active {
-    color: #2A3052; }
-
-.profit-table ion-content {
-  margin-top: 70px;
-  margin-bottom: 80px; }
-  .profit-table ion-content.pull-down {
-    margin-top: 160px !important; }
-
-.profit-table .filters {
-  padding-top: 0;
-  background: #fff;
-  z-index: 10; }
-  .profit-table .filters .col {
+.profit-table {
+  margin-top: 75px; }
+  .profit-table.ios-margin-top {
+    margin-top: 85px; }
+  .profit-table .title-container {
+    z-index: 10;
+    background: #fff;
+    position: relative; }
+    .profit-table .title-container .page-title {
+      z-index: 11;
+      background: #fff; }
+    .profit-table .title-container .icon-inactive {
+      color: #000; }
+    .profit-table .title-container .icon-active {
+      color: #2A3052; }
+  .profit-table ion-content {
+    margin-top: 50px;
+    margin-bottom: 80px; }
+    .profit-table ion-content.pull-down {
+      margin-top: 160px !important; }
+  .profit-table .filters {
     padding-top: 0;
-    padding-bottom: 0; }
-  .profit-table .filters.jump-to-date-container {
-    margin-top: 0; }
-    .profit-table .filters.jump-to-date-container .jump-to-date-content .button {
-      right: 0;
-      margin: auto;
-      padding: 0;
-      min-height: 0 !important;
-      float: right !important; }
-    .profit-table .filters.jump-to-date-container .jump-to-date-content .row {
-      margin: 0;
-      padding: 0; }
-      .profit-table .filters.jump-to-date-container .jump-to-date-content .row .col {
+    background: #fff;
+    z-index: 10; }
+    .profit-table .filters .col {
+      padding-top: 0;
+      padding-bottom: 0; }
+    .profit-table .filters.jump-to-date-container {
+      margin-top: 0; }
+      .profit-table .filters.jump-to-date-container .jump-to-date-content .button {
+        right: 0;
+        margin: auto;
+        padding: 0;
+        min-height: 0 !important;
+        float: right !important; }
+      .profit-table .filters.jump-to-date-container .jump-to-date-content .row {
         margin: 0;
         padding: 0; }
-        .profit-table .filters.jump-to-date-container .jump-to-date-content .row .col.input-container {
-          padding: 5px 0; }
-    .profit-table .filters.jump-to-date-container .jump-to-date-content .jump-to-date {
-      padding: 0;
-      font-size: 1rem; }
-      .profit-table .filters.jump-to-date-container .jump-to-date-content .jump-to-date span {
-        padding: 0 5px; }
-      .profit-table .filters.jump-to-date-container .jump-to-date-content .jump-to-date input {
-        background: #fff;
-        font-size: 1rem;
-        line-height: 1.5rem;
+        .profit-table .filters.jump-to-date-container .jump-to-date-content .row .col {
+          margin: 0;
+          padding: 0; }
+          .profit-table .filters.jump-to-date-container .jump-to-date-content .row .col.input-container {
+            padding: 5px 0; }
+      .profit-table .filters.jump-to-date-container .jump-to-date-content .jump-to-date {
         padding: 0;
-        max-width: 150px;
-        padding-left: 5px;
-        margin-left: 5px; }
-
-.profit-table .first-spinner {
-  left: 1em;
-  right: 1em;
-  position: absolute;
-  text-align: center; }
-
-.profit-table .float-button {
-  background: #15212D;
-  opacity: 0.9;
-  color: #fff;
-  border-radius: 50%;
-  width: 3em;
-  height: 3em;
-  font-size: 1rem;
-  position: fixed;
-  top: 75%;
-  right: 6%;
-  z-index: 1000;
-  text-align: center;
-  line-height: 3em; }
-  .profit-table .float-button i {
-    position: relative;
-    background: inherit;
+        font-size: 1rem; }
+        .profit-table .filters.jump-to-date-container .jump-to-date-content .jump-to-date span {
+          padding: 0 5px; }
+        .profit-table .filters.jump-to-date-container .jump-to-date-content .jump-to-date input {
+          background: #fff;
+          font-size: 1rem;
+          line-height: 1.5rem;
+          padding: 0;
+          max-width: 150px;
+          padding-left: 5px;
+          margin-left: 5px; }
+  .profit-table .first-spinner {
+    left: 1em;
+    right: 1em;
+    position: absolute;
+    text-align: center; }
+  .profit-table .float-button {
+    background: #15212D;
+    opacity: 0.9;
+    color: #fff;
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    font-size: 1rem;
+    position: fixed;
+    top: 75%;
+    right: 6%;
+    z-index: 1000;
     text-align: center;
-    color: #fff; }
-
-.profit-table ul.statement-table {
-  display: table;
-  width: 100%; }
-  .profit-table ul.statement-table li.list {
-    display: table-row;
+    line-height: 3em; }
+    .profit-table .float-button i {
+      position: relative;
+      background: inherit;
+      text-align: center;
+      color: #fff; }
+  .profit-table ul.statement-table {
+    display: table;
     width: 100%; }
-    .profit-table ul.statement-table li.list.no-transaction {
-      display: block; }
-    .profit-table ul.statement-table li.list .statement-element {
-      display: table-cell;
-      padding: 5px;
-      font-size: 0.8rem; }
-      .profit-table ul.statement-table li.list .statement-element:nth-child(2) {
-        padding-top: 10px; }
-    .profit-table ul.statement-table li.list.list-title {
-      background: #F2F2F2; }
-  .profit-table ul.statement-table .has-error {
-    font-size: 1.1rem;
-    color: #C03; }
+    .profit-table ul.statement-table li.list {
+      display: table-row;
+      width: 100%; }
+      .profit-table ul.statement-table li.list.no-transaction {
+        display: block; }
+      .profit-table ul.statement-table li.list .statement-element {
+        display: table-cell;
+        padding: 5px;
+        font-size: 0.8rem; }
+        .profit-table ul.statement-table li.list .statement-element:nth-child(2) {
+          padding-top: 10px; }
+      .profit-table ul.statement-table li.list.list-title {
+        background: #F2F2F2; }
+    .profit-table ul.statement-table .has-error {
+      font-size: 1.1rem;
+      color: #C03; }
 
 .transaction-detail .list-item {
   padding: 0 !important;
@@ -11520,7 +11592,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
 
 #profit-table-filter-active,
 #statement-filter-active {
-  margin-top: 120px; }
+  margin-top: 90px; }
 
 .item-expand {
   position: relative;
@@ -11554,8 +11626,12 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   font-size: 0.8rem; }
 
 .connectivity {
-  margin: 40% auto;
-  font-size: 1.1rem; }
+  align-items: center;
+  display: flex;
+  font-size: 1.1rem;
+  justify-content: center; }
+  .connectivity .no-connection {
+    margin-top: 15px; }
   .connectivity .logo {
     display: block;
     margin: 0 auto;
@@ -11722,6 +11798,18 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     background: #fff;
     direction: ltr;
     font-size: 0.8rem; }
+
+.mt5-web ion-content {
+  height: 93%; }
+  .mt5-web ion-content iframe {
+    width: 100%;
+    height: 100%; }
+
+.notification {
+  padding: 5px 10px;
+  box-shadow: none; }
+  .notification .bordered {
+    border-bottom: 1px solid #DEDEDE; }
 
 .language bg-language-list ion-content .item-content {
   font-size: 1rem;

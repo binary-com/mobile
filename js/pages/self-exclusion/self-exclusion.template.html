@@ -1,5 +1,5 @@
 <ion-view class="self-exclusion">
-  <ion-content class="general-content">
+  <ion-content class="general-content has-header has-subheader">
     <form name="self_exclusion_form" ng-submit="vm.submit()">
       <div class="row">
         <div class="col">
@@ -18,8 +18,8 @@
           <div class="row">
             <div class="col item-input">
               <input name="max_account_balance"
-                     type="number"
-                     bg-number
+                     type="tel"
+                     bg-big-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_balance"
                      ng-max="vm.limits.max_balance"
@@ -50,8 +50,8 @@
           <div class="row">
             <div class="col item-input">
               <input name="max_daily_turnover"
-                     type="number"
-                     bg-number
+                     type="tel"
+                     bg-big-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_turnover"
                      ng-max="vm.limits.max_turnover"
@@ -82,8 +82,8 @@
           <div class="row">
             <div class="col item-input">
               <input name="daily_limit_on_losses"
-                     type="number"
-                     bg-number
+                     type="tel"
+                     bg-big-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_losses"
                      ng-max="vm.limits.max_losses"
@@ -114,8 +114,8 @@
           <div class="row">
             <div class="col item-input">
               <input name="max_7_day_turnover_limit"
-                     type="number"
-                     bg-number
+                     type="tel"
+                     bg-big-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_7day_turnover"
                      ng-max="vm.limits.max_7day_turnover"
@@ -146,8 +146,8 @@
           <div class="row">
             <div class="col item-input">
               <input name="max_7_day_limit_on_losses"
-                     type="number"
-                     bg-number
+                     type="tel"
+                     bg-big-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_7day_losses"
                      ng-max="vm.limits.max_7day_losses"
@@ -178,8 +178,8 @@
           <div class="row">
             <div class="col item-input">
               <input name="max_30_day_turnover_limit"
-                     type="number"
-                     bg-number
+                     type="tel"
+                     bg-big-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_30day_turnover"
                      ng-max="vm.limits.max_30day_turnover"
@@ -210,8 +210,8 @@
           <div class="row">
             <div class="col item-input">
               <input name="max_30_day_limit_on_losses"
-                     type="number"
-                     bg-number
+                     type="tel"
+                     bg-big-number
                      ng-pattern="/^\d{0,20}$/"
                      ng-model="vm.data.max_30day_losses"
                      ng-max="vm.limits.max_30day_losses"
@@ -242,8 +242,8 @@
           <div class="row">
             <div class="col item-input">
               <input name="maximum_number_of_open_positions"
-                     type="number"
-                     bg-number
+                     type="tel"
+                     bg-big-number
                      ng-pattern="/^\d{0,4}$/"
                      ng-model="vm.data.max_open_bets"
                      ng-max="vm.limits.max_open_bets"
@@ -273,11 +273,11 @@
           <div class="row">
             <div class="col item-input">
               <input name="session_duration_limit"
-                     type="number"
-                     bg-number
+                     type="tel"
+                     bg-big-number
                      ng-pattern="/^\d{0,5}$/"
                      ng-model="vm.data.session_duration_limit"
-                     ng-max="vm.limits.session_duration_limit || (vm.limits.session_duration_limit = 60480)"
+                     ng-max="vm.limits.session_duration_limit || 60480"
                      ng-min="1",
                      ng-required="vm.limits.session_duration_limit ? true : false"
                      step="1"
@@ -287,7 +287,7 @@
               <ng-messages for="self_exclusion_form.session_duration_limit.$error" role="alert" class="error">
                 <ng-message when="pattern, number"> {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max: "5"} }} </ng-message>
                 <ng-message when="min, max, required">
-                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.session_duration_limit} }}
+                  {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.session_duration_limit || 60480} }}
                 </ng-message>
               </ng-messages>
             </div>

@@ -17,18 +17,19 @@
                     <img ng-src="{{vm.getImageUrl(contract.contract_type)}}"/>
                 </div>
                 <div class="col left basis-content">
-                    <div class="basis-title">
+                    <div class="basis-title {{vm.currencyType}}">
                         <span>{{ (vm.proposal.basis === 'payout' ? "options.stake" : "options.payout") | translate }}</span>
                     </div>
-                    <div class="basis">
-                        <span>{{ (vm.proposal.basis === "payout" ? vm.proposalResponses[$index].ask_price || 0 : vm.proposalResponses[$index].payout || 0) | currency:vm.proposal.currency:2 }}</span>
+                    <div class="basis {{vm.currencyType}}">
+                      <span class="{{vm.currencyType}}">{{ (vm.proposal.basis === "payout" ? vm.proposalResponses[$index].ask_price || vm.proposalResponses[$index].details.display_value || '--' : vm.proposalResponses[$index].payout || vm.proposalResponses[$index].details.payout || '--') | currency:vm.proposal.currency:2 }}</span>
                     </div>
                 </div>
             </div>
             <div class="row" ng-if="!vm.proposalResponses[$index].hasError">
                 <div class="col center">
                     <button class="button" ng-click="vm.purchase($index)"
-                            ng-disabled="vm.inPurchaseMode">
+                                           ng-disabled="vm.inPurchaseMode || vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0"
+                            disabled>
                         {{ "trade.buy" | translate}}
                         {{contract.contract_display}}
                     </button>
@@ -71,7 +72,9 @@
             </div>
         </div>
         <div class="col center">
-            <button class="button" ng-disabled="vm.inPurchaseMode" ng-click="vm.purchase(vm.purchasedContractIndex)" disabled="disabled">
+            <button class="button"
+                    ng-disabled="vm.inPurchaseMode || vm.proposalResponses[vm.purchasedContractIndex].isReceiving || vm.proposalResponses.length == 0"
+                    ng-click="vm.purchase(vm.purchasedContractIndex)" disabled="disabled">
                 {{ 'trade.buy_again' | translate }}
             </button>
         </div>

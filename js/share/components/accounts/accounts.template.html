@@ -4,7 +4,7 @@
     </div>
     <select class="account-select" ng-change="vm.updateAccount(vm.selectedAccount)" ng-model="vm.selectedAccount">
             <option ng-repeat="a in vm.accounts" value="{{a.token}}" ng-selected="{{a.token == vm.selectedAccount}}">
-                {{a.id}}
+            {{a.id}} {{!a.currency ? "" : "(" + a.currency + ")"}}
             </option>
     </select>
 </div>
