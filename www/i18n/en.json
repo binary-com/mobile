@@ -645,7 +645,20 @@
     "account_turnover_2": "$25,000 - $50,000",
     "account_turnover_3": "$50,001 - $100,000",
     "account_turnover_4": "$100,001 - $500,000",
-    "account_turnover_5": "Over $500,000"
+    "account_turnover_5": "Over $500,000",
+    "employment_status": "Employment Status",
+    "employed": "Employed",
+    "pensioner": "Pensioner",
+    "student": "Student",
+    "unemployed": "Unemployed",
+    "source_of_wealth": "Source of Wealth",
+    "accumulation_of_income_savings": "Accumulation of Income/Savings",
+    "cash_business": "Cash Business",
+    "company_ownership": "Company Ownership",
+    "divorce_settlement": "Divorce Settlement",
+    "inheritance": "Inheritance",
+    "investment_income": "Investment Income",
+    "sale_of_property": "Sale of Property"
   },
   "limits": {
     "trading_withdrawal_limits": "Trading and Withdrawal Limits",
