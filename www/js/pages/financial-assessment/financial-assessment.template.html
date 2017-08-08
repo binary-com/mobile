@@ -431,6 +431,54 @@
                     <div class="row">
                         <div class="col">
                             <div class="input-title">
+                                {{'financial-assessment.source_of_wealth' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="sourceOfWealth" ng-model="vm.data.sourceOfWealth" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="Accumulation of Income/Savings">
+                                    {{'financial-assessment.accumulation_of_income_savings' | translate}}
+                                </option>
+                                <option value="Cash Business">
+                                    {{'financial-assessment.cash_business' | translate}}
+                                </option>
+                                <option value="Company Ownership">
+                                    {{'financial-assessment.company_ownership' | translate}}
+                                </option>
+                                <option value="Divorce Settlement">
+                                    {{'financial-assessment.divorce_settlement' | translate}}
+                                </option>
+                                <option value="Inheritance">
+                                    {{'financial-assessment.inheritance' | translate}}
+                                </option>
+                                <option value="Investment Income">
+                                    {{'financial-assessment.investment_income' | translate}}
+                                </option>
+                                <option value="Sale of Property">
+                                    {{'financial-assessment.sale_of_property' | translate}}
+                                </option>
+                                <option value="Other">
+                                    {{'financial-assessment.other' | translate}}
+                                </option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.sourceOfWealthError">
+                                {{vm.sourceOfWealthErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
                                 {{'financial-assessment.education_level' | translate}}
                             </div>
                         </div>
@@ -476,6 +524,35 @@
                             </select>
                             <span class="help-block error" ng-show="vm.incomeSourceError">
                                 {{vm.incomeSourceErrorMessage}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'financial-assessment.employment_status' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="employmentStatus" ng-model="vm.data.employmentStatus" required>
+                                <option value="" disabled>
+                                    {{'financial-assessment.select' | translate}}
+                                </option>
+                                <option value="Employed">{{'financial-assessment.employed' | translate}}</option>
+                                <option value="Pensioner">{{'financial-assessment.pensioner' | translate}}</option>
+                                <option value="Self-Employed">{{'financial-assessment.self_employed' | translate}}</option>
+                                <option value="Student">{{'financial-assessment.student' | translate}}</option>
+                                <option value="Unemployed">{{'financial-assessment.unemployed' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.employmentStatusError">
+                                {{vm.employmentStatusErrorMessage}}
                             </span>
                         </div>
                     </div>
