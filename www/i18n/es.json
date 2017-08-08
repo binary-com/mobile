@@ -152,7 +152,7 @@
   },
   "newvirtualaccount":{
     "continue":"Continuar",
-    "signup":"Iniciar sesión",
+    "signup":"Crear cuenta",
     "email":"Correo electrónico",
     "signup-question":"¿Aún no tiene una cuenta?",
     "verification-code":"Código de verificación",
