@@ -91,7 +91,7 @@
                 vm.data.landingCompany.hasOwnProperty("financial_company") &&
                 vm.data.landingCompany.financial_company.shortcode === "maltainvest"
             ) {
-                if (vm.data.landingCompany.hasOwnProperty("gaming_company")) {
+                if (vm.data.landingCompany.hasOwnProperty("gaming_company") && vm.data.landingCompany.gaming_company.shortcode === "malta") {
                     //  check if has MLT then to MF, if not to MLT
                     if( vm.isVirtual ) {
                         vm.toReal = true;
