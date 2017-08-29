@@ -621,12 +621,12 @@
     "helpers":"Cleaners and Helpers",
     "mining":"Mining, Construction, Manufacturing and Transport Workers",
     "armed_forces":"Forze armate",
-    "government_officers":"Government Officers",
+    "government_officers":"Funzionari governativi",
     "primary":"Primario",
     "secondary":"Secondario",
     "tertiary":"Terziario",
     "salaried":"Lavoratore dipendente",
-    "self_employed":"Self_Employed",
+    "self_employed":"Lavoratore autonomo",
     "investment":"Investimenti e dividendi",
     "pension":"Pensione",
     "net_income_1":"Meno di $25.000",
@@ -644,25 +644,25 @@
     "no_change":"Non hai modificato nulla.",
     "success":"Successo",
     "success_message":"Le tue impostazioni sono state aggiornate con successo.",
-    "account_turnover":"Anticipated account turnover",
+    "account_turnover":"Fatturato previsto sull'account",
     "account_turnover_1":"Meno di $25.000",
     "account_turnover_2":"$25.000 - $50.000",
     "account_turnover_3":"$50.001 - $100.000",
     "account_turnover_4":"$100.001 - $500.000",
     "account_turnover_5":"Più di $500.000",
-    "employment_status":"Employment Status",
-    "employed":"Employed",
-    "pensioner":"Pensioner",
-    "student":"Student",
-    "unemployed":"Unemployed",
-    "source_of_wealth":"Source of Wealth",
-    "accumulation_of_income_savings":"Accumulation of Income/Savings",
-    "cash_business":"Cash Business",
-    "company_ownership":"Company Ownership",
-    "divorce_settlement":"Divorce Settlement",
-    "inheritance":"Inheritance",
-    "investment_income":"Investment Income",
-    "sale_of_property":"Sale of Property"
+    "employment_status":"Stato di occupazione",
+    "employed":"Impiegato",
+    "pensioner":"Pensionato",
+    "student":"Studente",
+    "unemployed":"Disoccupato",
+    "source_of_wealth":"Fonte di ricchezza",
+    "accumulation_of_income_savings":"Accumulo di reddito/risparmi",
+    "cash_business":"Lavoro pagato in contanti",
+    "company_ownership":"Proprietà della società",
+    "divorce_settlement":"Accordo di divorzio",
+    "inheritance":"Eredità",
+    "investment_income":"Redditi da capitale",
+    "sale_of_property":"Vendita dei beni"
   },
   "limits":{
     "trading_withdrawal_limits":"Limiti di trading e dei prelievi",
@@ -736,7 +736,7 @@
     "cancel":"Annulla"
   },
   "connectivity":{
-    "no_connection":"No Connection"
+    "no_connection":"Nessuna connessione"
   },
   "mt":{
     "you_do_not_have_mt5_account":"You don't have any accounts for MetaTrader, Please create one and try again.",
@@ -809,7 +809,7 @@
     "tnc":"Termini e condizioni",
     "accept_tnc":"Per aumentare il limite dei prelievi e del trading, accetta i Termini e condizioni aggiornati.",
     "max_turnover_limit":"Limite di fatturato massimo dell'account",
-    "set_max_turnover_limit":"Please set Self Exclusion 30-day turnover limit to lift your deposit limits.",
+    "set_max_turnover_limit":"Per aumentare il limite dei prelievi e del trading, imposta il limite di fatturato di 30 giorni dell'Auto esclusione.",
     "account_age_verification":"Verifica dell'età",
     "needs_age_verification":"L'account ha bisogno della verifica dell'età, per ulteriori informazioni contatta l'assistenza clienti."
   }
