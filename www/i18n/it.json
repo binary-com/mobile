@@ -760,10 +760,10 @@
     "authentication":"Convalida",
     "documents":"Authenticate your account now by verifying your identity and address. To proceed, simply send the following documents to",
     "proof_of_identity":"Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.",
-    "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old. Your proof of address must contain your name, address, date of issue, and the name of the issuing organisation.",
+    "proof_of_address":"Attestazione dell'indirizzo: una copia scannerizzata di una bolletta o di un estratto conto bancario emessi negli ultimi tre mesi. L'attestazione del tuo indirizzo deve contenere il tuo nome, indirizzo, data di emissione e nome dell'organizzazione emittente.",
     "questions":"Hai delle domande?",
     "contact":"Contattaci",
-    "help":"for help."
+    "help":"per assistenza."
   },
   "contact":{
     "contact_us":"Contattaci",
@@ -778,8 +778,8 @@
     "toll_free":"(Numero verde)",
     "calls":"*Tutte le chiamate vengono registrate a fini formativi e di monitoraggio",
     "email":"Email",
-    "payment_email":"For payments-related queries",
-    "support_email":"For general support",
+    "payment_email":"Per le richieste legate ai pagamenti",
+    "support_email":"Per l'assistenza generale",
     "company_addresses":"Indirizzi della società",
     "malta":"Malta",
     "malta_address":"Binary (Europe) Ltd & Binary Investments (Europe) Ltd, Mompalao Building, Suite 2, Tower Road, Msida MSD1825",
