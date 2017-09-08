@@ -19,7 +19,7 @@
     "add":"Aggiungi",
     "new_token":"Aggiungi un nuovo token",
     "delete":"Cancella",
-    "not_allowed_to_trade":"Non hai il permesso per negoziare!"
+    "not_allowed_to_trade":"Non hai il permesso per fare trading!"
   },
   "alert":{
     "error":"Errore!",
@@ -71,10 +71,10 @@
     "asians":"Asiatiche",
     "digit_over_under":"Cifra superiore/inferiore",
     "digit_even_odd":"Cifra pari/dispari",
-    "digit_matches_differs":"Combacia/Differisce",
+    "digit_matches_differs":"La cifra combacia/differisce",
     "up_down":"Up/Down",
     "markets_are_closed":"Siamo spiacenti, tutti i mercati sono attualmente chiusi. Si prega di riprovare più tardi",
-    "cancel":"Annulla",
+    "cancel":"Cancella",
     "select_market":"Seleziona il mercato",
     "select_underlying":"Seleziona l'asset sottostante",
     "select_tradetype":"Seleziona il tipo di trade",
@@ -131,7 +131,7 @@
     "current_time":"Orario attuale:",
     "session_duration":"Durata della sessione:",
     "statistics":"Le tue statistiche di trading dal",
-    "interval_question":"Specifica l'intervallo di verifica preferito in minuti:",
+    "interval_question":"Indica l'intervallo di tempo preferito, espresso in minuti, per il controllo della situazione:",
     "loginid":"ID d'accesso",
     "currency":"Valuta",
     "buy_amount":"Turnover",
@@ -146,7 +146,7 @@
     "days":"giorni",
     "hours":"ore",
     "minutes":"minuti",
-    "interval_error":"Inserire un numero compreso tra 10 e 60.",
+    "interval_error":"Inserisci un numero compreso tra 10 e 60.",
     "view_statement":"Mostra l'estratto",
     "integer_error":"L'intervallo deve essere un numero intero."
   },
