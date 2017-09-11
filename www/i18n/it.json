@@ -688,8 +688,8 @@
     "already_withdrawn":"Hai già prelevato l'equivalente di {{currency}}{{limits}} (o equivalente in altra valuta).",
     "current_immediate_maximum_withdrawal":"Pertanto il tuo attuale prelievo massimo immediato (soggetto alla disponibilità di fondi sufficienti nell'account) è pari a {{currency}} {{limits}} (o equivalente in un'altra valuta).",
     "fully_authenticated":"Il tuo account è stato completamente convalidato e sono stati rimossi i tuoi limiti di prelievo.",
-    "your_n_day_withdrawal_limit":"Il tuo limite di prelievo per {{day}} giorni è di {{currency}} {{limits}} (o equivalente in altra valuta).",
-    "already_withdrawn_days":"Hai già prelevato l'equivalente di {{currency}} {{limits}} negli ultimi {{day}} giorni.",
+    "your_n_day_withdrawal_limit":"Il tuo limite di prelievo per {{day}} giorni è attualmente {{currency}} {{limits}} (o equivalente in un'altra valuta).",
+    "already_withdrawn_days":"Hai già prelevato l'equivalente complessivo di {{currency}} {{limits}} negli ultimi {{day}} giorni.",
     "your_withdrawal":"Il tuo limite di prelievo è pari a {{currency}} {{limits}}",
     "withdrawn":"Hai già prelevato {{currency}} {{limits}}"
   },
