@@ -107,5 +107,5 @@ angular.module("binary").constant("config", {
         contractFrom       : 2,
         contractTo         : 3
     },
-    appSupportedLanguages: ["en", "id", "ru", "zh_tw", "zh_cn", "de", "fr", "pl"]
+    appSupportedLanguages: ["en", "id", "ru", "zh_tw", "zh_cn", "de", "fr", "pl", "it"]
 });
