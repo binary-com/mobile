@@ -20,6 +20,10 @@
             vm.select()(tradeType);
         };
 
+        vm.getLanguageId = function (title) {
+            return 'options.' + title.replace(/[\s,/]/g, '_').toLowerCase();
+        }
+
         function init() {
             vm.tradeTypes = JSON.parse(sessionStorage.tradeTypes);
         }
