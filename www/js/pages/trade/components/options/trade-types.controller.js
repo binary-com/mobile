@@ -21,7 +21,7 @@
         };
 
         vm.getLanguageId = function (title) {
-            return 'options.' + title.replace(/[\s,/]/g, '_').toLowerCase();
+            return `options.${title.replace(/[\s,/]/g, '_').toLowerCase()}`;
         }
 
         function init() {
