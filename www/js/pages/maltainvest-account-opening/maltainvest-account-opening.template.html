@@ -607,6 +607,30 @@
             <div class="row">
                 <div class="col">
                     <div class="row">
+                        <div class="col input-title">
+                            {{'newaccountmaltainvest.employment_status' | translate}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="employment_status" ng-model="vm.data.employment_status" required>
+                                <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
+                                <option value="Employed">{{'newaccountmaltainvest.employed' | translate}}</option>
+                                <option value="Pensioner">{{'newaccountmaltainvest.pensioner' | translate}}</option>
+                                <option value="Self-Employed">{{'newaccountmaltainvest.self_employed' | translate}}</option>
+                                <option value="Student">{{'newaccountmaltainvest.student' | translate}}</option>
+                                <option value="Unemployed">{{'newaccountmaltainvest.unemployed' | translate}}</option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.employment_status_error">
+                              {{'newaccountmaltainvest.employment_status_error' | translate}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
                         <div class="col">
                             <div class="input-title">
                                 {{'newaccountmaltainvest.occupation' | translate}}
@@ -659,6 +683,51 @@
                             </select>
                             <span class="help-block error" ng-show="vm.occupation_error">
                               {{'newaccountmaltainvest.select_value_error' | translate}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-title">
+                                {{'newaccountmaltainvest.source_of_wealth' | translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-select">
+                            <select name="source_of_wealth" ng-model="vm.data.source_of_wealth" required>
+                                <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
+                                <option value="Accumulation of Income/Savings">
+                                    {{'newaccountmaltainvest.accumulation_of_income_savings' | translate}}
+                                </option>
+                                <option value="Cash Business">
+                                    {{'newaccountmaltainvest.cash_business' | translate}}
+                                </option>
+                                <option value="Company Ownership">
+                                    {{'newaccountmaltainvest.company_ownership' | translate}}
+                                </option>
+                                <option value="Divorce Settlement">
+                                    {{'newaccountmaltainvest.divorce_settlement' | translate}}
+                                </option>
+                                <option value="Inheritance">
+                                    {{'newaccountmaltainvest.inheritance' | translate}}
+                                </option>
+                                <option value="Investment Income">
+                                    {{'newaccountmaltainvest.investment_income' | translate}}
+                                </option>
+                                <option value="Sale of Property">
+                                    {{'newaccountmaltainvest.sale_of_property' | translate}}
+                                </option>
+                                <option value="Other">
+                                    {{'newaccountmaltainvest.other' | translate}}
+                                </option>
+                            </select>
+                            <span class="help-block error" ng-show="vm.source_of_wealth_error">
+                              {{'newaccountmaltainvest.source_of_wealth_error' | translate}}
                             </span>
                         </div>
                     </div>
