@@ -693,7 +693,9 @@
     "your_n_day_withdrawal_limit":"{{day}} ngày giới hạn rút tiền của bạn hiện nay là {{currency}} {{limits}} (hoặc tương đương trong các loại tiền tệ khác).",
     "already_withdrawn_days":"Bạn đã có rút tương đương với {{currency}} {{limits}} trong tổng hợp trong {{day}} ngày qua.",
     "your_withdrawal":"Giới hạn rút tiền của bạn là {{currency}} {{limits}}",
-    "withdrawn":"Bạn đã rút {{currency}} {{limits}}"
+    "withdrawn":"Bạn đã rút {{currency}} {{limits}}",
+    "volidx":"Volidx",
+    "volatility_indices":"Volatility Indices"
   },
   "resources":{
     "resources":"Tài nguyên",
