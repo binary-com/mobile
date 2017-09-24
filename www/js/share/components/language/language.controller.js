@@ -18,6 +18,7 @@
         vm.appSupportedLanguages = [];
         vm.languagesList = [];
         vm.isLanguageReady = false;
+        vm.showSpinner = false;
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
         websocketService.sendRequestFor.websiteStatus(true);
@@ -53,11 +54,16 @@
             }
         });
 
+        $scope.$on('authorize', (e, authorize) => {
+            vm.showSpinner = false;
+        });
+
         vm.language = languageService.read();
 
         vm.changeLanguage = function(language) {
             vm.language = language || vm.language;
             languageService.update(vm.language);
+            vm.showSpinner = true;
         };
     }
 })();
