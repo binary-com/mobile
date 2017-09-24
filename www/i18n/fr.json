@@ -693,7 +693,9 @@
     "your_n_day_withdrawal_limit":"Votre {{day}} limite de retrait journalière est actuellement {{currency}} {{limits}} (ou l’équivalent dans une autre devise).",
     "already_withdrawn_days":"Vous avez déjà retiré l’équivalent de {{currency}} {{limits}} dans leur ensemble ces derniers jours, {{day}}.",
     "your_withdrawal":"Votre limite de retrait est {{currency}} {{limits}}",
-    "withdrawn":"Vous avez déjà retiré {{currency}} {{limits}}"
+    "withdrawn":"Vous avez déjà retiré {{currency}} {{limits}}",
+    "volidx":"Volidx",
+    "volatility_indices":"Volatility Indices"
   },
   "resources":{
     "resources":"Ressources",
