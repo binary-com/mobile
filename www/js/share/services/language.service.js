@@ -230,7 +230,7 @@ angular.module("binary").service("languageService", function($rootScope, $transl
         },
         fr: {
             name      : "French",
-            nativeName: "français, langue française"
+            nativeName: "Français"
         },
         ff: {
             name      : "Fula; Fulah; Pulaar; Pular",
@@ -294,7 +294,7 @@ angular.module("binary").service("languageService", function($rootScope, $transl
         },
         id: {
             name      : "Indonesian",
-            nativeName: "Bahasa Indonesia"
+            nativeName: "Indonesia"
         },
         ie: {
             name      : "Interlingue",
@@ -546,7 +546,7 @@ angular.module("binary").service("languageService", function($rootScope, $transl
         },
         pl: {
             name      : "Polish",
-            nativeName: "polski"
+            nativeName: "Polish"
         },
         ps: {
             name      : "Pashto, Pushto",
@@ -574,7 +574,7 @@ angular.module("binary").service("languageService", function($rootScope, $transl
         },
         ru: {
             name      : "Russian",
-            nativeName: "русский язык"
+            nativeName: "Русский"
         },
         sa: {
             name      : "Sanskrit (Saṁskṛta)",
