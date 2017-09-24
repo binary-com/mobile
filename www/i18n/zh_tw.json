@@ -693,7 +693,9 @@
     "your_n_day_withdrawal_limit":"您的 {{day}} 天取款限額目前為{{currency}} {{limits}}（或其他等值貨幣）。",
     "already_withdrawn_days":"過去 {{day}} 天裡您已累計提取 {{currency}} {{limits}} 的等值。",
     "your_withdrawal":"您的取款限額是 {{currency}} {{limits}}",
-    "withdrawn":"您已提取 {{currency}} {{limits}}"
+    "withdrawn":"您已提取 {{currency}} {{limits}}",
+    "volidx":"Volidx",
+    "volatility_indices":"Volatility Indices"
   },
   "resources":{
     "resources":"資源",
