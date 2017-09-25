@@ -61,7 +61,9 @@
                 <td class="left">{{symbol.times.open[0]}}</td>
                 <td class="left">{{symbol.times.settlement}}</td>
                 <td class="left">
-                  <span class="col" ng-repeat="event in symbol.events" ng-if="symbol.events.length > 0">{{event.descrip}} {{event.dates}}</span>
+                  <span class="col" ng-repeat="event in symbol.events" ng-if="symbol.events.length > 0">
+                    {{vm.getTranslationId(event.descrip) | translate}} {{ vm.getTranslationId(event.dates) | translate}}
+                  </span>
                   <span ng-if="symbol.events.length == 0">-</span>
                 </td>
               </tr>
