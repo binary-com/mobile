@@ -695,7 +695,7 @@
     "your_withdrawal":"Ihre Abhebungslimit ist {{currency}} {{limits}}",
     "withdrawn":"Sie haben bereits {{currency}} {{limits}} abgehoben",
     "volidx":"Volidx",
-    "volatility_indices":"Volatility Indices"
+    "volatility_indices":"Volatilität Indizes"
   },
   "resources":{
     "resources":"Ressourcen",
