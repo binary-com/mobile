@@ -43,7 +43,7 @@
             if (_.isEmpty(vm.amount) || vm.amount === "NaN" || Number(vm.amount) === 0) {
                 vm.proposal.amount = vm.amount;
             } else {
-                if (/^.\d+$/.test(vm.amount)){
+                if (/^\.\d+$/.test(vm.amount)){
                     vm.amount = `0${vm.amount}`;
                 }
                 vm.proposal.amount = vm.amount;
