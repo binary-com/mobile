@@ -25,6 +25,13 @@
             scope.$watch(
                 () => ngModel.$viewValue,
                 (newVal, oldVal) => {
+                    // set the old value if the new view value is empty
+                    if (!_.isEmpty(oldVal) && _.isEmpty(ngModel.$viewValue)) {
+                        ngModel.$setViewValue(oldVal);
+                        ngModel.$render();
+                        return;
+                    }
+
                     if (_.isEmpty(scope.regex) || _.isEmpty(ngModel.$viewValue)) {
                         return;
                     }

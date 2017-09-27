@@ -4,8 +4,9 @@
             <a ng-click="vm.changePayoutType()"> {{ 'options.' + vm.proposal.basis | translate }} </a>
         </div>
         <div class="col payout-cell center">
-            <input type="tel"
+            <input type="number"
                    id="payout"
+                   bg-number
                    require
                    ng-model="vm.amount"
                    ng-change = "vm.changeAmount()"
