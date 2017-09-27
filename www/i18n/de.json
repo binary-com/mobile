@@ -711,7 +711,10 @@
     "closes":"Schließt",
     "settles":"Begleicht",
     "upcoming_events":"Bevorstehende Veranstaltungen",
-    "GMT_times":"Alle Zeitangaben sind in GMT (Greenwich Mean Time)."
+    "GMT_times":"Alle Zeitangaben sind in GMT (Greenwich Mean Time).",
+    "closes_early_(at_21:00)":"Closes early (at 21:00)",
+    "closes_early_(at_18:00)":"Closes early (at 18:00)",
+    "fridays":"Fridays"
   },
   "new-real-account":{
     "select_country":"Wählen Sie ein Land aus",
