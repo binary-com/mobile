@@ -711,7 +711,10 @@
     "closes":"Kết thúc",
     "settles":"Cài đặt",
     "upcoming_events":"Sự kiện sắp tới",
-    "GMT_times":"Tất cả thời gian ở GMT (Greenwich Mean Time)."
+    "GMT_times":"Tất cả thời gian ở GMT (Greenwich Mean Time).",
+    "closes_early_(at_21:00)":"Closes early (at 21:00)",
+    "closes_early_(at_18:00)":"Closes early (at 18:00)",
+    "fridays":"Fridays"
   },
   "new-real-account":{
     "select_country":"Chọn quốc gia",
