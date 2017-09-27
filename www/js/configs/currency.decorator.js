@@ -38,8 +38,8 @@
                         currency: currency || "USD"
                     };
 
-                    if (/btc|xbt/i.test(currency)) {
-                        options.minimumFractionDigits = 2;
+                    if (/btc|xbt|ltc/i.test(currency)) {
+                        options.minimumFractionDigits = 8;
                         options.maximumFractionDigits = 8;
                     }
 
