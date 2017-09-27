@@ -69,12 +69,12 @@
     "asians_up":"Asiatiques à la hausse",
     "asians_down":"Asiatiques à la baisse",
     "asians":"Asiatiques",
-    "digits_over_under":"Digits Over/Under",
-    "digits_odd_even":"Digits Odd/Even",
-    "digits_matches_differs":"Digits Matches/Differs",
+    "digits_over_under":"Chiffres Au dessus/En dessous",
+    "digits_odd_even":"Chiffres Impair/Pair",
+    "digits_matches_differs":"Les Chiffres Coïncident/Diffèrent",
     "up_down":"Hausse/Baisse",
-    "higher_lower":"Higher/Lower",
-    "rise_fall":"Rise/Fall",
+    "higher_lower":"Plus Haut/Plus Bas",
+    "rise_fall":"Hausse/Baisse",
     "markets_are_closed":"Désolé, tous les marchés sont actuellement fermés. Veuillez réessayer ultérieurement",
     "cancel":"Annuler",
     "select_market":"Sélectionnez un marché",
@@ -693,7 +693,9 @@
     "your_n_day_withdrawal_limit":"Votre {{day}} limite de retrait journalière est actuellement {{currency}} {{limits}} (ou l’équivalent dans une autre devise).",
     "already_withdrawn_days":"Vous avez déjà retiré l’équivalent de {{currency}} {{limits}} dans leur ensemble ces derniers jours, {{day}}.",
     "your_withdrawal":"Votre limite de retrait est {{currency}} {{limits}}",
-    "withdrawn":"Vous avez déjà retiré {{currency}} {{limits}}"
+    "withdrawn":"Vous avez déjà retiré {{currency}} {{limits}}",
+    "volidx":"Volidx",
+    "volatility_indices":"Volatility Indices"
   },
   "resources":{
     "resources":"Ressources",

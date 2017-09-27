@@ -44,5 +44,13 @@
                 vm.error = error;
             });
         });
+
+        vm.getTranslationId = function (title) {
+            if( title === "Closes early (at 21:00)" || title === "Closes early (at 18:00)") {
+                return `trading-times.${title.replace(/[\s]/g, '_').toLowerCase()}`;
+            }
+            return title;
+        }
+
     }
 })();

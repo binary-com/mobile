@@ -693,7 +693,9 @@
     "your_n_day_withdrawal_limit":"Ihr {{day}} tägliches Auszahlungslimit beträgt derzeit {{currency}} {{limits}} (oder Gegenwert in anderer Währung).",
     "already_withdrawn_days":"Sie haben bereits den Gegenwert von {{currency}} {{limits}} abgehoben, der sich in den letzten {{day}} Tagen angesammelt hat.",
     "your_withdrawal":"Ihre Abhebungslimit ist {{currency}} {{limits}}",
-    "withdrawn":"Sie haben bereits {{currency}} {{limits}} abgehoben"
+    "withdrawn":"Sie haben bereits {{currency}} {{limits}} abgehoben",
+    "volidx":"Volidx",
+    "volatility_indices":"Volatilität Indizes"
   },
   "resources":{
     "resources":"Ressourcen",

@@ -63,5 +63,10 @@
                 appStateService.limitsChange = false;
             }
         });
+
+        vm.getLanguageId = function (title) {
+            return `limits.${title.replace(/[\s]/g, '_').toLowerCase()}`;
+        }
+
     }
 })();

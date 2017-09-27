@@ -702,7 +702,9 @@
     "your_n_day_withdrawal_limit": "Your {{day}} day withdrawal limit is currently {{currency}} {{limits}} (or equivalent in other currency).",
     "already_withdrawn_days": "You have already withdrawn the equivalent of {{currency}} {{limits}} in aggregate over the last {{day}} days.",
     "your_withdrawal": "Your withdrawal limit is {{currency}} {{limits}}",
-    "withdrawn": "You have already withdrawn {{currency}} {{limits}}"
+    "withdrawn": "You have already withdrawn {{currency}} {{limits}}",
+    "volidx": "Volidx",
+    "volatility_indices": "Volatility Indices"
   },
   "resources": {
     "resources": "Resources",
@@ -718,7 +720,10 @@
     "closes": "Closes",
     "settles": "Settles",
     "upcoming_events": "Upcoming Events",
-    "GMT_times": "All times are in GMT (Greenwich Mean Time)."
+    "GMT_times": "All times are in GMT (Greenwich Mean Time).",
+    "closes_early_(at_21:00)": "Closes early (at 21:00)",
+    "closes_early_(at_18:00)": "Closes early (at 18:00)",
+    "fridays": "Fridays"
   },
   "new-real-account": {
     "select_country": "Select Country",

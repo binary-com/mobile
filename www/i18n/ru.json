@@ -693,7 +693,9 @@
     "your_n_day_withdrawal_limit":"Ваш лимит на вывод за {{day}} дней в настоящее время составляет {{currency}} {{limits}} (или эквивалентную сумму в другой валюте).",
     "already_withdrawn_days":"Вы уже вывели сумму, эквивалентную {{currency}} {{limits}} за последние {{day}} дней.",
     "your_withdrawal":"Ваш лимит на вывод: {{currency}} {{limits}}",
-    "withdrawn":"Вы уже вывели {{currency}} {{limits}}"
+    "withdrawn":"Вы уже вывели {{currency}} {{limits}}",
+    "volidx":"Volidx",
+    "volatility_indices":"Volatility Indices"
   },
   "resources":{
     "resources":"Ресурсы",
