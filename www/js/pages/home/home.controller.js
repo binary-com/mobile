@@ -41,6 +41,7 @@
                     $state.go("trade");
                 }
             } else {
+                accountService.removeAll();
                 $state.go("signin");
             }
         };
