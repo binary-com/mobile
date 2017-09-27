@@ -693,7 +693,9 @@
     "your_n_day_withdrawal_limit":"Twój {{day}}-dniowy limit wypłat wynosi obecnie {{limits}} {{currency}} (lub jego równowartość w innej walucie).",
     "already_withdrawn_days":"Łączna równowartość {{limits}} {{currency}} została już wypłacona w ciągu ostatnich {{day}} dni.",
     "your_withdrawal":"Twój limit wypłat wynosi {{limits}} {{currency}}",
-    "withdrawn":"Wypłacono już {{limits}} {{currency}}"
+    "withdrawn":"Wypłacono już {{limits}} {{currency}}",
+    "volidx":"Volidx",
+    "volatility_indices":"Volatility Indices"
   },
   "resources":{
     "resources":"Zasoby",

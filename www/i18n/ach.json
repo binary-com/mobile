@@ -693,7 +693,9 @@
     "your_n_day_withdrawal_limit":"crwdns19747:0{{day}}crwdnd19747:0{{currency}}crwdnd19747:0{{limits}}crwdne19747:0",
     "already_withdrawn_days":"crwdns19748:0{{currency}}crwdnd19748:0{{limits}}crwdnd19748:0{{day}}crwdne19748:0",
     "your_withdrawal":"crwdns19749:0{{currency}}crwdnd19749:0{{limits}}crwdne19749:0",
-    "withdrawn":"crwdns19750:0{{currency}}crwdnd19750:0{{limits}}crwdne19750:0"
+    "withdrawn":"crwdns19750:0{{currency}}crwdnd19750:0{{limits}}crwdne19750:0",
+    "volidx":"crwdns33590:0crwdne33590:0",
+    "volatility_indices":"crwdns33591:0crwdne33591:0"
   },
   "resources":{
     "resources":"crwdns19115:0crwdne19115:0",

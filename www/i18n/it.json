@@ -693,7 +693,9 @@
     "your_n_day_withdrawal_limit":"Il tuo limite di prelievo per {{day}} giorni è attualmente {{currency}} {{limits}} (o equivalente in un'altra valuta).",
     "already_withdrawn_days":"Hai già prelevato l'equivalente complessivo di {{currency}} {{limits}} negli ultimi {{day}} giorni.",
     "your_withdrawal":"Il tuo limite di prelievo è pari a {{currency}} {{limits}}",
-    "withdrawn":"Hai già prelevato {{currency}} {{limits}}"
+    "withdrawn":"Hai già prelevato {{currency}} {{limits}}",
+    "volidx":"Volidx",
+    "volatility_indices":"Volatility Indices"
   },
   "resources":{
     "resources":"Risorse",

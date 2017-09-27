@@ -693,7 +693,9 @@
     "your_n_day_withdrawal_limit":"Batasan harian {{day}} Anda saat ini adalah {{currency}} {{limits}} (atau setara dalam mata uang lainnya).",
     "already_withdrawn_days":"Anda telah menarik dana setara dengan {{currency}} {{limits}} secara keseluruhan selama periode {{day}} hari.",
     "your_withdrawal":"Batasan penarikan Anda adalah {{currency}} {{limits}}",
-    "withdrawn":"Anda telah menarik dana sebesar {{currency}} {{limits}}"
+    "withdrawn":"Anda telah menarik dana sebesar {{currency}} {{limits}}",
+    "volidx":"Volidx",
+    "volatility_indices":"Volatility Indices"
   },
   "resources":{
     "resources":"Sumber Daya",
