@@ -711,7 +711,10 @@
     "closes":"crwdns19122:0crwdne19122:0",
     "settles":"crwdns19123:0crwdne19123:0",
     "upcoming_events":"crwdns19124:0crwdne19124:0",
-    "GMT_times":"crwdns19125:0crwdne19125:0"
+    "GMT_times":"crwdns19125:0crwdne19125:0",
+    "closes_early_(at_21:00)":"crwdns33596:0crwdne33596:0",
+    "closes_early_(at_18:00)":"crwdns33597:0crwdne33597:0",
+    "fridays":"crwdns33598:0crwdne33598:0"
   },
   "new-real-account":{
     "select_country":"crwdns19126:0crwdne19126:0",
