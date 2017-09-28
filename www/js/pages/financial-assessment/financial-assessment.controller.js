@@ -37,6 +37,7 @@
             "forex_trading_experience",
             "forex_trading_frequency",
             "income_source",
+            "employment_status",
             "indices_trading_experience",
             "indices_trading_frequency",
             "net_income",
@@ -47,6 +48,7 @@
             "stocks_trading_experience",
             "stocks_trading_frequency",
             "occupation",
+            "source_of_wealth",
             "account_turnover"
         ];
 

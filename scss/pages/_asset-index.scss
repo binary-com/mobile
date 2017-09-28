@@ -30,6 +30,7 @@
 	.asset-index-table {
 		width: 100%;
 		font-size: 0.7rem;
+		table-layout: fixed;
 
 		tbody {
 			tr {
@@ -38,6 +39,8 @@
 				td {
 					padding: 5px;
 					font-size: 0.8rem;
+					vertical-align:top;
+					word-break:break-word;
 				}
 
 				&.title-row {
@@ -58,6 +61,11 @@
 					tr {
 						th {
 							padding: 5px;
+
+							td {
+								vertical-align:top;
+								word-break:break-word;
+							}
 						}
 					}
 				}

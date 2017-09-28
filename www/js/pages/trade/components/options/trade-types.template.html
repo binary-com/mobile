@@ -3,7 +3,7 @@
       <div class="col center" ng-repeat="(key, value) in vm.tradeTypes">
         <button class="button button-clear"
                 ng-click="vm.selectTradeType(key)">
-          {{key}}
+          {{ vm.getLanguageId(key) | translate }}
         </button>
       </div>
     </div>

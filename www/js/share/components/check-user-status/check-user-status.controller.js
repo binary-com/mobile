@@ -122,7 +122,6 @@
         $scope.$on('mt5_login_list:success', (e, mt5_login_list) => {
             vm.mt5LoginList = mt5_login_list;
 	          vm.financialAssessmentStatus(vm.status);
-	          vm.authenticateStatus(vm.status);
         });
 
         $scope.$on("authorize", (e, authorize) => {
@@ -179,19 +178,10 @@
             }
         };
 
-        vm.authenticateStatus = function(status) {
-            vm.authenticated = status.indexOf("authenticated") > -1;
-            if (
-                !vm.authenticated &&
-                (vm.isFinancial ||
-                    (vm.isCR && (vm.balance >= 200 || vm.mt5LoginList.length > 0)) ||
-                    vm.isMLT ||
-                    vm.isMX)
-            ) {
-                if (!appStateService.hasAuthenticateMessage) {
-                    appStateService.hasAuthenticateMessage = true;
-                    notificationService.notices.push(vm.authenticateMessage);
-                }
+        vm.authenticateStatus = function(promptClientToAuthenticate) {
+            if (promptClientToAuthenticate === 1 && !appStateService.hasAuthenticateMessage) {
+	            appStateService.hasAuthenticateMessage = true;
+	            notificationService.notices.push(vm.authenticateMessage);
             }
         };
 
@@ -257,6 +247,7 @@
         $scope.$on("get_account_status", (e, get_account_status) => {
             if (get_account_status.hasOwnProperty("status")) {
                 vm.status = get_account_status.status;
+                vm.authenticateStatus(get_account_status.prompt_client_to_authenticate);
                 vm.taxInformationStatus(vm.status);
                 vm.ageVerificationStatus(vm.status);
                 vm.unwelcomeStatus(vm.status);

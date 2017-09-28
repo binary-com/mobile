@@ -13,6 +13,7 @@
 
     function Barrier() {
         const vm = this;
-        const pattern = /^[+-]\d+(\.\d{1,5})?|\d+(\.\d{1,5})?/;
+        const pattern = /[+,-]\d+(\.\d{1,5})?|\d+(\.\d{1,5})?/;
+        vm.regex = "^([+,-]?(\\d+)?(\\.)?\\d*)$";
     }
 })();

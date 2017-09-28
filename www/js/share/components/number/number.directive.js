@@ -18,18 +18,22 @@
 
         function link(scope, element, attrs, ngModel) {
             if (ngModel) {
+                // remove all default angular's validator for input[number]
+                ngModel.$formatters = [];
+                ngModel.$parsers = [];
+
                 ngModel.$formatters.push(modelValue => {
-                    if (!modelValue) {
-                        return modelValue;
+                    if(ngModel.$isEmpty(modelValue)) {
+                        return null;
                     }
-                    return Number(modelValue);
+                    return modelValue;
                 });
 
                 ngModel.$parsers.push(viewValue => {
-                    if (!viewValue) {
-                        return viewValue;
+                    if(ngModel.$isEmpty(viewValue)) {
+                        return null;
                     }
-                    return Number(viewValue);
+                    return viewValue;
                 });
             }
         }

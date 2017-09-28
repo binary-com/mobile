@@ -125,6 +125,12 @@ angular
 
             $rootScope.$on("language:updated", () => {
                 init(true);
+
+                // Fetch asset_indes and active_symbols in order to update text in selected language.
+                sessionStorage.removeItem('asset_index');
+                sessionStorage.removeItem('active_symbols');
+                websocketService.sendRequestFor.assetIndex();
+                websocketService.sendRequestFor.symbols();
             });
 
             const websocketService = {};

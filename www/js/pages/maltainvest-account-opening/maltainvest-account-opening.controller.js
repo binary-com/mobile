@@ -75,7 +75,9 @@
             "tax_residence",
             "tax_identification_number",
             "account_turnover",
-            "account_opening_reason"
+            "account_opening_reason",
+            "source_of_wealth",
+            "employment_status"
         ];
 
         $ionicModal
