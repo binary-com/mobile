@@ -69,9 +69,9 @@
     "asians_up":"Asians Up",
     "asians_down":"Asians Down",
     "asians":"Asians",
-    "digits_over_under":"Digits Over/Under",
-    "digits_odd_even":"Digits Odd/Even",
-    "digits_matches_differs":"Digits Matches/Differs",
+    "digits_over_under":"Digit Over/Under",
+    "digits_odd_even":"Digit Odd/Even",
+    "digits_matches_differs":"Digit Match/Differ",
     "up_down":"Up/Down",
     "higher_lower":"Higher/Lower",
     "rise_fall":"Rise/Fall",
@@ -695,7 +695,7 @@
     "your_withdrawal":"Batasan penarikan Anda adalah {{currency}} {{limits}}",
     "withdrawn":"Anda telah menarik dana sebesar {{currency}} {{limits}}",
     "volidx":"Volidx",
-    "volatility_indices":"Volatility Indices"
+    "volatility_indices":"Indeks Volatilitas"
   },
   "resources":{
     "resources":"Sumber Daya",
@@ -711,7 +711,10 @@
     "closes":"Penutupan",
     "settles":"Penyelesaian",
     "upcoming_events":"Acara Mendatang",
-    "GMT_times":"Semua waktu dalam GMT (Greenwich Mean Time)."
+    "GMT_times":"Semua waktu dalam GMT (Greenwich Mean Time).",
+    "closes_early_(at_21:00)":"Ditutup awal (pada 21:00)",
+    "closes_early_(at_18:00)":"Ditutup awal (pada 18:00)",
+    "fridays":"Jumat"
   },
   "new-real-account":{
     "select_country":"Pilih Negara",

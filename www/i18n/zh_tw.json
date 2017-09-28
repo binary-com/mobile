@@ -711,7 +711,10 @@
     "closes":"收盤",
     "settles":"結算",
     "upcoming_events":"未來事件",
-    "GMT_times":"所有時間均採用格林威治標準時間（GMT）。"
+    "GMT_times":"所有時間均採用格林威治標準時間（GMT）。",
+    "closes_early_(at_21:00)":"Closes early (at 21:00)",
+    "closes_early_(at_18:00)":"Closes early (at 18:00)",
+    "fridays":"Fridays"
   },
   "new-real-account":{
     "select_country":"請選擇您的居住國",

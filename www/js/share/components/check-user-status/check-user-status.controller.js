@@ -179,7 +179,7 @@
         };
 
         vm.authenticateStatus = function(promptClientToAuthenticate) {
-            if (promptClientToAuthenticate && !appStateService.hasAuthenticateMessage) {
+            if (promptClientToAuthenticate === 1 && !appStateService.hasAuthenticateMessage) {
 	            appStateService.hasAuthenticateMessage = true;
 	            notificationService.notices.push(vm.authenticateMessage);
             }
@@ -247,7 +247,7 @@
         $scope.$on("get_account_status", (e, get_account_status) => {
             if (get_account_status.hasOwnProperty("status")) {
                 vm.status = get_account_status.status;
-                vm.authenticateStatus(!!get_account_status.prompt_client_to_authenticate);
+                vm.authenticateStatus(get_account_status.prompt_client_to_authenticate);
                 vm.taxInformationStatus(vm.status);
                 vm.ageVerificationStatus(vm.status);
                 vm.unwelcomeStatus(vm.status);

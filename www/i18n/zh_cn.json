@@ -711,7 +711,10 @@
     "closes":"收盘",
     "settles":"结算",
     "upcoming_events":"未来事件",
-    "GMT_times":"所有时间均采用格林威治标准时间（GMT）。"
+    "GMT_times":"所有时间均采用格林威治标准时间（GMT）。",
+    "closes_early_(at_21:00)":"Closes early (at 21:00)",
+    "closes_early_(at_18:00)":"Closes early (at 18:00)",
+    "fridays":"Fridays"
   },
   "new-real-account":{
     "select_country":"选择国家",
