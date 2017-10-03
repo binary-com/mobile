@@ -251,6 +251,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: $secondaryContentColor;
   // border: 1px solid $borderColor;
 }
+input[type="date"] {
+  height: 30px!important;
+}
+
 
 .item-input {
   padding: 5px;
