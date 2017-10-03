@@ -69,12 +69,12 @@
     "asians_up":"亚洲上涨",
     "asians_down":"亚洲下跌",
     "asians":"亚洲",
-    "digits_over_under":"Digits Over/Under",
-    "digits_odd_even":"Digits Odd/Even",
-    "digits_matches_differs":"Digits Matches/Differs",
+    "digits_over_under":"数字高于/低于",
+    "digits_odd_even":"数字奇/偶",
+    "digits_matches_differs":"数字匹配/差异",
     "up_down":"上涨/下跌",
-    "higher_lower":"Higher/Lower",
-    "rise_fall":"Rise/Fall",
+    "higher_lower":"\"高于/低于\"",
+    "rise_fall":"上涨/下跌",
     "markets_are_closed":"抱歉，所有市场现已关闭。请稍后重试。",
     "cancel":"取消",
     "select_market":"选择市场",
@@ -695,7 +695,7 @@
     "your_withdrawal":"您的取款限额是 {{currency}} {{limits}}",
     "withdrawn":"您已提取 {{currency}} {{limits}}",
     "volidx":"Volidx",
-    "volatility_indices":"Volatility Indices"
+    "volatility_indices":"波动率指数"
   },
   "resources":{
     "resources":"资源",
@@ -712,9 +712,9 @@
     "settles":"结算",
     "upcoming_events":"未来事件",
     "GMT_times":"所有时间均采用格林威治标准时间（GMT）。",
-    "closes_early_(at_21:00)":"Closes early (at 21:00)",
-    "closes_early_(at_18:00)":"Closes early (at 18:00)",
-    "fridays":"Fridays"
+    "closes_early_(at_21:00)":"收盘提前（至21:00）",
+    "closes_early_(at_18:00)":"收盘提前（至18:00）",
+    "fridays":"星期五"
   },
   "new-real-account":{
     "select_country":"选择国家",
