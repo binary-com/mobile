@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.trading-times.controllers").controller("TradingTimesController", TradingTimes);
 
-    TradingTimes.$inject = ["$scope", "$filter", "websocketService", "marketService"];
+    TradingTimes.$inject = ["$scope", "$filter", "websocketService"];
 
-    function TradingTimes($scope, $filter, websocketService, marketService) {
+    function TradingTimes($scope, $filter, websocketService) {
         const vm = this;
         vm.data = {};
         vm.hasError = false;
