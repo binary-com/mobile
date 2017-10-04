@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.trading-times.controllers").controller("TradingTimesController", TradingTimes);
 
-    TradingTimes.$inject = ["$scope", "$filter", "websocketService"];
+    TradingTimes.$inject = ["$scope", "$filter", "websocketService", "marketService"];
 
-    function TradingTimes($scope, $filter, websocketService) {
+    function TradingTimes($scope, $filter, websocketService, marketService) {
         const vm = this;
         vm.data = {};
         vm.hasError = false;
@@ -31,9 +31,16 @@
 
         $scope.$on("trading_times:success", (e, trading_times) => {
             vm.tradingTimes = trading_times;
+            vm.marketDisplayNames = [];
+            vm.activeSymbols = JSON.parse(sessionStorage.getItem('active_symbols'));
+            Object.values(vm.activeSymbols).forEach((market, j) => {
+                if (!vm.marketDisplayNames.market) vm.marketDisplayNames.push(market[0].market_display_name);
+            });
             $scope.$applyAsync(() => {
                 vm.hasError = false;
-                vm.data.markets = vm.tradingTimes.markets;
+	              vm.data.markets = vm.tradingTimes.markets.filter((market) => {
+	                  return vm.marketDisplayNames.includes(market.name);
+                });
                 vm.market = vm.data.markets[0].name;
             });
         });
