@@ -312,7 +312,6 @@
     "account_opening_reason": "Account opening reason",
     "speculative": "Speculative",
     "income_earning": "Income Earning",
-    "assets_saving": "Assets Saving",
     "hedging": "Hedging",
     "employment_status": "Employment Status",
     "employed": "Employed",
@@ -386,7 +385,6 @@
     "account_opening_reason": "Account opening reason",
     "speculative": "Speculative",
     "income_earning": "Income Earning",
-    "assets_saving": "Assets Saving",
     "hedging": "Hedging"
   },
   "profittable": {
