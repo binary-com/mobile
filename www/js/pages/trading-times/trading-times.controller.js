@@ -38,9 +38,9 @@
             });
             $scope.$applyAsync(() => {
                 vm.hasError = false;
-	              vm.data.markets = vm.tradingTimes.markets.filter((market) => {
-	                  return vm.marketDisplayNames.includes(market.name);
-                });
+	              vm.data.markets = vm.tradingTimes.markets.filter(market =>
+                    vm.marketDisplayNames.includes(market.name)
+	              );
                 vm.market = vm.data.markets[0].name;
             });
         });
