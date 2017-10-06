@@ -307,7 +307,6 @@
     "account_opening_reason":"Motif d’ouverture de compte",
     "speculative":"Spéculative",
     "income_earning":"Gagner des revenus",
-    "assets_saving":"Sauvegarde de vos actifs",
     "hedging":"Couverture",
     "employment_status":"Statut d’emploi",
     "employed":"Employé",
@@ -381,7 +380,6 @@
     "account_opening_reason":"Motif d’ouverture de compte",
     "speculative":"Spéculative",
     "income_earning":"Gagner des revenus",
-    "assets_saving":"Sauvegarde de vos actifs",
     "hedging":"Couverture"
   },
   "profittable":{
