@@ -307,7 +307,6 @@
     "account_opening_reason":"Kontoeröffnung-Grund",
     "speculative":"Spekulativ",
     "income_earning":"Einkommen",
-    "assets_saving":"Anlagen speichern",
     "hedging":"Hedging",
     "employment_status":"Beschäftigungsstatus",
     "employed":"Beschäftigt",
@@ -381,7 +380,6 @@
     "account_opening_reason":"Kontoeröffnung-Grund",
     "speculative":"Spekulativ",
     "income_earning":"Einkommen",
-    "assets_saving":"Anlagen speichern",
     "hedging":"Hedging"
   },
   "profittable":{
