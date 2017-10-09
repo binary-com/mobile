@@ -307,7 +307,6 @@
     "account_opening_reason":"开立账户的原因",
     "speculative":"投机",
     "income_earning":"赚取收入",
-    "assets_saving":"资产保存",
     "hedging":"对冲",
     "employment_status":"就业状况",
     "employed":"就业",
@@ -381,7 +380,6 @@
     "account_opening_reason":"开立账户的原因",
     "speculative":"投机",
     "income_earning":"赚取收入",
-    "assets_saving":"资产保存",
     "hedging":"对冲"
   },
   "profittable":{

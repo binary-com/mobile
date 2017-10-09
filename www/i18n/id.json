@@ -307,7 +307,6 @@
     "account_opening_reason":"Alasan pedaftaran akun",
     "speculative":"Spekulatif",
     "income_earning":"Hasil Pendapatan",
-    "assets_saving":"Simpanan Aset",
     "hedging":"Hedging",
     "employment_status":"Status Pekerjaan",
     "employed":"Bekerja",
@@ -381,7 +380,6 @@
     "account_opening_reason":"Alasan pedaftaran akun",
     "speculative":"Spekulatif",
     "income_earning":"Hasil Pendapatan",
-    "assets_saving":"Simpanan Aset",
     "hedging":"Hedging"
   },
   "profittable":{

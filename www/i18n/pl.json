@@ -307,7 +307,6 @@
     "account_opening_reason":"Powód otwarcia konta",
     "speculative":"Spekulacja",
     "income_earning":"Uzyskanie dochodu",
-    "assets_saving":"Oszczędność zasobów",
     "hedging":"Hedging",
     "employment_status":"Status zatrudnienia",
     "employed":"Osoba zatrudniona",
@@ -381,7 +380,6 @@
     "account_opening_reason":"Powód otwarcia konta",
     "speculative":"Spekulacja",
     "income_earning":"Uzyskanie dochodu",
-    "assets_saving":"Oszczędność zasobów",
     "hedging":"Hedging"
   },
   "profittable":{

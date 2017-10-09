@@ -307,7 +307,6 @@
     "account_opening_reason":"Account opening reason",
     "speculative":"Speculative",
     "income_earning":"การรับรายได้",
-    "assets_saving":"Assets Saving",
     "hedging":"การป้องกันความเสี่ยง",
     "employment_status":"สถานะทางอาชีพ",
     "employed":"มีการประกอบอาชีพ",
@@ -381,7 +380,6 @@
     "account_opening_reason":"Account opening reason",
     "speculative":"Speculative",
     "income_earning":"Income Earning",
-    "assets_saving":"Assets Saving",
     "hedging":"Hedging"
   },
   "profittable":{
