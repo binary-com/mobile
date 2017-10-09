@@ -9,6 +9,7 @@
 
     angular.module("binary", [
         "ionic",
+        "ionic.native",
         "pascalprecht.translate",
         "hmTouchEvents",
         "ngIOS9UIWebViewPatch",

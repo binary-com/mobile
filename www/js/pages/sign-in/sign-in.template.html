@@ -85,7 +85,11 @@
               <label for="show-hide" ng-if="!vm.passwordCheckbox">{{'newvirtualaccount.show_pass' | translate }}</label>
             </div>
             <label class="item-input item-select">
-              <select ng-model="vm.data.residence" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.data.residenceList track by residence.value" required>
+              <ion-spinner ng-show="!vm.data.residenceList"></ion-spinner>
+              <select ng-show="vm.data.residenceList"
+                      ng-model="vm.data.residence"
+                      ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.data.residenceList track by residence.value"
+                      required>
                 <option value="" disabled>{{'newvirtualaccount.select' | translate}}</option>
               </select>
             </label>
