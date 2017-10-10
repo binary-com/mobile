@@ -674,7 +674,7 @@
     "payouts_per_symbol_and_contract_type":"Maximum aggregate payouts on open positions per symbol and contract type",
     "maximum_daily_turnover":"Maximum daily turnover",
     "commodities":"สินค้าโภคภัณฑ์",
-    "forex":"Forex",
+    "forex":"ฟอเร็กซ์",
     "smart_fx":"Smart FX",
     "minor_pairs":"Minor Pairs",
     "major_pairs":"Major Pairs",
@@ -708,16 +708,16 @@
     "opens":"Opens",
     "closes":"Closes",
     "settles":"Settles",
-    "upcoming_events":"Upcoming Events",
-    "GMT_times":"All times are in GMT (Greenwich Mean Time).",
-    "closes_early_(at_21:00)":"Closes early (at 21:00)",
-    "closes_early_(at_18:00)":"Closes early (at 18:00)",
-    "fridays":"Fridays"
+    "upcoming_events":"กิจกรรมในอนาคต",
+    "GMT_times":"เวลาที่ใช้อ้างอิง คือ GMT (Greenwich Mean Time) เวลามาตรฐานเมืองกรีนิช",
+    "closes_early_(at_21:00)":"ปิดก่อนเวลา (เมื่อเวลา 21.00 น.)",
+    "closes_early_(at_18:00)":"ปิดก่อนเวลา (เมื่อเวลา 18.00 น.)",
+    "fridays":"วันศุกร์"
   },
   "new-real-account":{
-    "select_country":"Select Country",
-    "select_country_text":"Please select your country of residence",
-    "continue":"Continue"
+    "select_country":"ระบุประเทศ",
+    "select_country_text":"โปรดเลือกประเทศที่ท่านอยู่",
+    "continue":"ดำเนินการต่อ"
   },
   "asset-index":{
     "asset_index":"Asset Index",
@@ -756,9 +756,9 @@
     "create_financial_account":"Create a Financial Account for MT5",
     "create_volatility_account":"Create a Volatility Account for MT5",
     "create_demo_account":"Create a Demo Account for MT5",
-    "login_id":"Login ID",
-    "balance":"Balance",
-    "name":"Name",
+    "login_id":"รหัสผู้ใช้งาน",
+    "balance":"ยอดคงเหลือ",
+    "name":"ชื่อ",
     "start_trading_with_mt5":"Start Trading With MT5"
   },
   "authentication":{
@@ -767,7 +767,7 @@
     "proof_of_identity":"Proof of identity - A scanned copy of your passport, driving license (either provisional or full), or identity card that shows your full name and date of birth.",
     "proof_of_address":"Proof of address - A scanned copy of a utility bill or bank statement that's not more than three months old. Your proof of address must contain your name, address, date of issue, and the name of the issuing organisation.",
     "questions":"Got questions?",
-    "contact":"Contact us",
+    "contact":"ติดต่อเรา",
     "help":"for help."
   },
   "contact":{
