@@ -307,7 +307,6 @@
     "account_opening_reason":"Motivo de abertura de conta",
     "speculative":"Especulativo",
     "income_earning":"Ganho de rendimentos",
-    "assets_saving":"Poupança de ativos",
     "hedging":"Cobertura de risco",
     "employment_status":"Estado profissional",
     "employed":"Empregado",
@@ -381,7 +380,6 @@
     "account_opening_reason":"Motivo de abertura de conta",
     "speculative":"Especulativo",
     "income_earning":"Ganho de rendimentos",
-    "assets_saving":"Poupança de ativos",
     "hedging":"Cobertura de risco"
   },
   "profittable":{

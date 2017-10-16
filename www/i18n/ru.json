@@ -307,7 +307,6 @@
     "account_opening_reason":"Причина открытия счёта",
     "speculative":"Спекуляции",
     "income_earning":"Заработок",
-    "assets_saving":"Приумножение активов",
     "hedging":"Хеджирование",
     "employment_status":"Статус занятости",
     "employed":"Работающий",
@@ -381,7 +380,6 @@
     "account_opening_reason":"Причина открытия счёта",
     "speculative":"Спекуляции",
     "income_earning":"Заработок",
-    "assets_saving":"Приумножение активов",
     "hedging":"Хеджирование"
   },
   "profittable":{

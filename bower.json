@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "validate": "validate.js#^0.10.0",
-    "ngCordova": "^0.1.27-alpha"
+    "ngCordova": "^0.1.27-alpha",
+    "ionic-native": "^2.0.3"
   },
   "resolutions": {
     "angular": ">=1.2.0",

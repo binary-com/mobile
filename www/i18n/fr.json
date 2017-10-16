@@ -307,7 +307,6 @@
     "account_opening_reason":"Motif d’ouverture de compte",
     "speculative":"Spéculative",
     "income_earning":"Gagner des revenus",
-    "assets_saving":"Sauvegarde de vos actifs",
     "hedging":"Couverture",
     "employment_status":"Statut d’emploi",
     "employed":"Employé",
@@ -381,7 +380,6 @@
     "account_opening_reason":"Motif d’ouverture de compte",
     "speculative":"Spéculative",
     "income_earning":"Gagner des revenus",
-    "assets_saving":"Sauvegarde de vos actifs",
     "hedging":"Couverture"
   },
   "profittable":{
@@ -695,7 +693,7 @@
     "your_withdrawal":"Votre limite de retrait est {{currency}} {{limits}}",
     "withdrawn":"Vous avez déjà retiré {{currency}} {{limits}}",
     "volidx":"Volidx",
-    "volatility_indices":"Volatility Indices"
+    "volatility_indices":"Indices de volatilité"
   },
   "resources":{
     "resources":"Ressources",
@@ -712,9 +710,9 @@
     "settles":"Règlements",
     "upcoming_events":"Événements à venir",
     "GMT_times":"Tous les horaires sont indiqués en GMT (Greenwich Mean Time).",
-    "closes_early_(at_21:00)":"Closes early (at 21:00)",
-    "closes_early_(at_18:00)":"Closes early (at 18:00)",
-    "fridays":"Fridays"
+    "closes_early_(at_21:00)":"Ferme tôt (à 21h)",
+    "closes_early_(at_18:00)":"Ferme tôt (à 18h)",
+    "fridays":"Vendredis"
   },
   "new-real-account":{
     "select_country":"Sélectionner un pays",

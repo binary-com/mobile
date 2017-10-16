@@ -307,7 +307,6 @@
     "account_opening_reason":"Lý do mở tài khoản",
     "speculative":"Suy đoán",
     "income_earning":"Thu nhập thu nhập",
-    "assets_saving":"Tiết kiệm tài sản ",
     "hedging":"Bảo hiểm rủi ro",
     "employment_status":"Employment Status",
     "employed":"Employed",
@@ -381,7 +380,6 @@
     "account_opening_reason":"Lý do mở tài khoản",
     "speculative":"Suy đoán",
     "income_earning":"Thu nhập thu nhập",
-    "assets_saving":"Tiết kiệm tài sản",
     "hedging":"Bảo hiểm rủi ro"
   },
   "profittable":{

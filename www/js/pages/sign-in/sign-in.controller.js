@@ -12,6 +12,7 @@
     Signin.$inejct = [
         "$scope",
         "$state",
+        "$stateParams",
         "$ionicLoading",
         "accountService",
         "languageService",
@@ -23,6 +24,7 @@
     function Signin(
         $scope,
         $state,
+        $stateParams,
         $ionicLoading,
         accountService,
         languageService,
@@ -50,6 +52,12 @@
          */
         const init = function() {
             vm.language = languageService.read();
+
+            if (!_.isEmpty($stateParams.verificationCode)) {
+                vm.showvirtualws = true;
+                vm.data.verificationCode = $stateParams.verificationCode;
+                websocketService.sendRequestFor.residenceListSend();
+            }
         };
 
         init();
