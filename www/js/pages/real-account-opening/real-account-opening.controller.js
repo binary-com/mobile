@@ -91,7 +91,7 @@
 
         // regexp pattern for name input (pattern in perl API doesn't work in javascript)
         vm.validateGeneral = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/;
+            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
@@ -101,7 +101,7 @@
         })();
 
         vm.validateAddress = (function(val) {
-            const regex = /[`~!#$%^&*)(_=+[}{\]\\";:?><|]+/;
+            const regex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
