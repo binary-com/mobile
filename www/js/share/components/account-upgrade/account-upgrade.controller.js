@@ -87,31 +87,34 @@
         // check 3 states combining of Maltainvest shortcode, gaming company and financial company
         vm.accountStates = function(landing_company) {
             vm.data.landingCompany = landing_company;
-            if (
-                vm.data.landingCompany.hasOwnProperty("financial_company") &&
-                vm.data.landingCompany.financial_company.shortcode === "maltainvest"
+            if ((vm.data.landingCompany.hasOwnProperty('financial_company') &&
+	            !vm.data.landingCompany.financial_company.shortcode === "maltainvest") ||
+	            !vm.data.landingCompany.hasOwnProperty('financial_company')
             ) {
-                if (vm.data.landingCompany.hasOwnProperty("gaming_company") && vm.data.landingCompany.gaming_company.shortcode === "malta") {
-                    //  check if has MLT then to MF, if not to MLT
-                    if( vm.isVirtual ) {
-                        vm.toReal = true;
-                    } else {
-                        vm.toMaltainvest = true;
-                    }
-                    appStateService.hasMLT = !!vm.toMaltainvest;
-                    vm.getToken();
-                } else {
-                    //  to MF
-                    vm.toMaltainvest = true;
-                }
-                vm.getToken();
-            } else if (
-                vm.data.landingCompany.hasOwnProperty("financial_company") &&
-                vm.data.landingCompany.financial_company.shortcode !== "maltainvest"
+	            if( vm.isVirtual ) {
+		            vm.toReal = true;
+		            vm.getToken();
+	            }
+            } else if (vm.data.landingCompany.hasOwnProperty('financial_company') &&
+              vm.data.landingCompany.financial_company.shortcode === "maltainvest" &&
+              vm.data.landingCompany.hasOwnProperty('gaming_company') &&
+                vm.data.landingCompany.gaming_company.shortcode === "malta"
             ) {
-                // if no MLT MX CR to them
+	             // check if has MLT then to MF, if not to MLT
+              if( vm.isVirtual ) {
                 vm.toReal = true;
-                vm.getToken();
+              } else {
+                vm.toMaltainvest = true;
+              }
+              appStateService.hasMLT = !!vm.toMaltainvest;
+              vm.getToken();
+            } else if (vm.data.landingCompany.hasOwnProperty('financial_company') &&
+	            vm.data.landingCompany.financial_company.shortcode === "maltainvest" &&
+	            !vm.data.landingCompany.hasOwnProperty('gaming_company')
+            ) {
+	            //  to MF
+	            vm.toMaltainvest = true;
+	            vm.getToken();
             }
         };
 
