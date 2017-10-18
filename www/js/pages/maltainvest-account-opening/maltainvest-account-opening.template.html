@@ -171,7 +171,7 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="tax_identification_number" ng-model="vm.data.tax_identification_number" ng-pattern="/^([a-zA-Z\d-\s])*$/" ng-minlength="0" ng-maxlength="20" required />
+                            <input name="tax_identification_number" ng-model="vm.data.tax_identification_number" ng-pattern="/^[\w-]{0,20}$/" ng-minlength="0" ng-maxlength="20" required />
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.tax_identification_number.$error" role="alert" ng-if='newAccountMaltainvestForm.tax_identification_number.$dirty' ng-hide="vm.tax_identification_number_error">
                                 <ng-message when="pattern"> {{'newaccountmaltainvest.tax-identification-number-pattern-error' | translate}} </ng-message>
                                 <ng-message when="minlength, maxlength"> {{'newaccountmaltainvest.maxlength_error_20' | translate}} </ng-message>

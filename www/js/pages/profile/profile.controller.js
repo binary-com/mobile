@@ -245,7 +245,7 @@
         };
 
         vm.validateGeneral = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/;
+            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
@@ -255,7 +255,7 @@
         })();
 
         vm.validateAddress = (function(val) {
-            const regex = /[`~!#$%^&*)(_=+[}{\]\\";:?><|]+/;
+            const regex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
