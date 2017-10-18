@@ -14,6 +14,7 @@
     function Payout($scope, appStateService, proposalService) {
         const vm = this;
         vm.amount = vm.proposal.amount;
+        vm.isIOS = ionic.Platform.isIOS();
 
         setCurrecyPattern();
 
