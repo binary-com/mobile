@@ -67,7 +67,8 @@
         "binary.pages.meta-trader",
         "binary.pages.authentication",
         "binary.pages.contact",
-        "binary.pages.notifications"
+        "binary.pages.notifications",
+        "binary.pages.set-currency"
     ]);
 
     String.prototype.capitalize = function() {

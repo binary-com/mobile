@@ -82,7 +82,9 @@
             appStateService.hasTaxInfoMessage = false;
             appStateService.hasFinancialAssessmentMessage = false;
             appStateService.hasAgeVerificationMessage = false;
+            appStateService.hasCurrencyMessage = false;
             appStateService.checkedAccountStatus = false;
+	          notificationService.emptyNotices();
         };
 
         $scope.$on("authorize", (e, authorize) => {

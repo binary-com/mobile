@@ -180,7 +180,10 @@ angular
                 appStateService.hasTaxInfoMessage = false;
                 appStateService.hasFinancialAssessmentMessage = false;
                 appStateService.hasAgeVerificationMessage = false;
+                appStateService.hasCountryMessage = false;
+                appStateService.hasCurrencyMessage = false;
                 appStateService.checkedAccountStatus = false;
+                notificationService.emptyNotices();
 
                 if (error) {
                     $translate(["alert.error", "alert.ok"]).then(translation => {
