@@ -13,6 +13,7 @@
 
 	function SetCurrency() {
 		const vm = this;
+		vm.selectedCurrency;
 
 	}
 })();

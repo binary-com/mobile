@@ -38,7 +38,8 @@
         "binary.share.components.account-upgrade",
         "binary.share.components.service-outage",
         "binary.share.components.notification-icon",
-        "binary.share.components.big-number"
+        "binary.share.components.big-number",
+        "binary.share.components.fiat-currency"
     ]);
 
     angular.module("binary.share.services", []);
