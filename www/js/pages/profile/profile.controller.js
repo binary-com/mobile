@@ -54,7 +54,6 @@
         vm.accountOpeningReasonsEnum = [
             {id: 'speculative', value: "Speculative"},
             {id: 'income_earning', value: "Income Earning"},
-            {id: 'assets_saving', value: "Assets Saving"},
             {id: 'hedging', value: "Hedging"}
         ];
 
