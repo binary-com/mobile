@@ -88,7 +88,7 @@
         vm.accountStates = function(landing_company) {
             vm.data.landingCompany = landing_company;
             if ((vm.data.landingCompany.hasOwnProperty('financial_company') &&
-	            !vm.data.landingCompany.financial_company.shortcode === "maltainvest") ||
+	            vm.data.landingCompany.financial_company.shortcode !== "maltainvest") ||
 	            !vm.data.landingCompany.hasOwnProperty('financial_company')
             ) {
 	            if( vm.isVirtual ) {
@@ -98,7 +98,7 @@
             } else if (vm.data.landingCompany.hasOwnProperty('financial_company') &&
               vm.data.landingCompany.financial_company.shortcode === "maltainvest" &&
               vm.data.landingCompany.hasOwnProperty('gaming_company') &&
-                vm.data.landingCompany.gaming_company.shortcode === "malta"
+              vm.data.landingCompany.gaming_company.shortcode === "malta"
             ) {
 	             // check if has MLT then to MF, if not to MLT
                 if( vm.isVirtual ) {
