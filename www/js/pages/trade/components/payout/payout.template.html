@@ -6,12 +6,22 @@
         <div class="col payout-cell center">
             <input type="number"
                    id="payout"
+                   ng-if="!vm.isIOS"
                    bg-number
                    require
+                   pattern="\d*"
                    ng-model="vm.amount"
                    ng-change = "vm.changeAmount()"
-                   bg-regex-validate = "vm.regex"
-                   ng-pattern = "null"/>
+                   bg-regex-validate = "vm.regex"/>
+            <input type="text"
+                   id="payout"
+                   ng-if="vm.isIOS"
+                   bg-number
+                   require
+                   pattern="[\d\.]*"
+                   ng-model="vm.amount"
+                   ng-change = "vm.changeAmount()"
+                   bg-regex-validate = "vm.regex"/>
         </div>
         <div class="col payout-cell center">
             <div class="payout-cell-link">

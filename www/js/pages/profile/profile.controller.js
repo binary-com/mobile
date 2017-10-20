@@ -54,7 +54,6 @@
         vm.accountOpeningReasonsEnum = [
             {id: 'speculative', value: "Speculative"},
             {id: 'income_earning', value: "Income Earning"},
-            {id: 'assets_saving', value: "Assets Saving"},
             {id: 'hedging', value: "Hedging"}
         ];
 
@@ -246,7 +245,7 @@
         };
 
         vm.validateGeneral = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/;
+            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
@@ -256,7 +255,7 @@
         })();
 
         vm.validateAddress = (function(val) {
-            const regex = /[`~!#$%^&*)(_=+[}{\]\\";:?><|]+/;
+            const regex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
