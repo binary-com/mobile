@@ -539,7 +539,6 @@ angular
                             break;
                         case "website_status":
                             if (message.hasOwnProperty("website_status")) {
-                                appStateService.siteStatus = message.website_status.site_status;
                                 appStateService.currenciesConfig = message.website_status.currencies_config;
                                 $rootScope.$broadcast("website_status", message.website_status);
                                 localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
