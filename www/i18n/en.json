@@ -830,6 +830,19 @@
     "account_currency": "Account currency"
   },
   "set-currency": {
-    "select_currency": "Select currency"
+    "select_currency": "Select currency",
+    "select_currency_text": "Please select the currency of this account:"
+  },
+  "cryptocurrencies": {
+    "bitcoin": "Bitcoin",
+    "bitcoin_cash": "Bitcoin Cash",
+    "ether": "Ether",
+    "ether_classic": "Ether Classic",
+    "litecoin": "Litecoin"
+  },
+  "select-currency": {
+    "fiat_currency": "Fiat Currency",
+    "cryptocurrency": "Cryptocurrency",
+    "confirm": "Confirm"
   }
 }

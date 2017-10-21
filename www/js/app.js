@@ -39,7 +39,7 @@
         "binary.share.components.service-outage",
         "binary.share.components.notification-icon",
         "binary.share.components.big-number",
-        "binary.share.components.fiat-currency"
+        "binary.share.components.select-currency"
     ]);
 
     angular.module("binary.share.services", []);

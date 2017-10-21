@@ -7,7 +7,7 @@
  */
 
 (function() {
-	angular.module("binary.pages.set-currency", ["binary.pages.set-currency.controllers"]);
+    angular.module("binary.pages.set-currency", ["binary.pages.set-currency.controllers"]);
 
-	angular.module("binary.pages.set-currency.controllers", []);
+    angular.module("binary.pages.set-currency.controllers", []);
 })();

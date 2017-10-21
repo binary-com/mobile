@@ -7,13 +7,11 @@
  */
 
 (function() {
-	angular.module("binary.pages.set-currency.controllers").controller("SetCurrencyController", SetCurrency);
+    angular.module("binary.pages.set-currency.controllers").controller("SetCurrencyController", SetCurrency);
 
-	SetCurrency.$inject = [];
+    SetCurrency.$inject = [];
 
-	function SetCurrency() {
-		const vm = this;
-		vm.selectedCurrency;
-
-	}
+    function SetCurrency() {
+        const vm = this;
+    }
 })();

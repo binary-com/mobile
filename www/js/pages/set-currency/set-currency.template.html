@@ -1,5 +1,5 @@
 <ion-view class="set-currency">
-  <ion-content class="general-content has-header has-subheader">
+  <ion-content has-bouncing="false" class="general-content has-header has-subheader">
     <div class="row">
       <div class="col">
         <h1 class="page-title">
@@ -9,8 +9,14 @@
     </div>
     <div class="row">
       <div class="col">
-        <bg-fiat-currency selectedcurrency="vm.selectedCurrency"></bg-fiat-currency>
-        <bg-crypto-currency></bg-crypto-currency>
+        <p>
+          {{ 'set-currency.select_currency_text' | translate }}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <bg-select-currency></bg-select-currency>
       </div>
     </div>
   </ion-content>

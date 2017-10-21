@@ -486,6 +486,13 @@ angular
                     };
 
                     sendMessage(data);
+                },
+                setAccountCurrency(currency) {
+                    const data = {
+	                     set_account_currency: currency
+                    };
+
+                    sendMessage(data);
                 }
             };
             websocketService.closeConnection = function() {
@@ -576,6 +583,7 @@ angular
                             break;
                         case "payout_currencies":
                             $rootScope.$broadcast("currencies", message.payout_currencies);
+                            appStateService.payoutCurrencies = message.payout_currencies;
                             break;
                         case "proposal":
                             if (message.proposal) {
@@ -780,6 +788,13 @@ angular
                         case "mt5_get_settings":
                             if (message.mt5_get_settings) {
                                 $rootScope.$broadcast("mt5_get_settings:success", message.mt5_get_settings);
+                            }
+                            break;
+                        case "set_account_currency":
+                            if (message.set_account_currency && message.set_account_currency === 1) {
+                                $rootScope.$broadcast("set_account_currency:success", message.echo_req.set_account_currency);
+                            } else if (message.error) {
+	                            $rootScope.$broadcast("trading_times:error", message.error);
                             }
                             break;
                         default:
