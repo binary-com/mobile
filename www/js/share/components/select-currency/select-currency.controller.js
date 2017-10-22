@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.share.components.select-currency.controllers").controller("SelectCurrencyController", SelectCurrency);
 
-    SelectCurrency.$inject = ['$scope', '$state', '$translate', 'appStateService', 'websocketService', 'localStorageService', ];
+    SelectCurrency.$inject = ['$scope', '$rootScope', '$state', '$translate', 'appStateService', 'websocketService', 'localStorageService', ];
 
-    function SelectCurrency($scope, $state, $translate, appStateService, websocketService, localStorageService) {
+    function SelectCurrency($scope, $rootScope, $state, $translate, appStateService, websocketService, localStorageService) {
         const vm = this;
         vm.currenciesOptions = [];
         const currencyConfig = appStateService.currenciesConfig;
@@ -73,6 +73,7 @@
             }
             localStorage.setItem("accounts", JSON.stringify(accounts));
             appStateService.accountCurrencyChanged = true;
+            $rootScope.$broadcast("currency:changed", currency);
             $state.go("trade");
         });
 
