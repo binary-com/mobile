@@ -11,7 +11,13 @@
 
     SelectCurrency.$inject = ['$scope', '$rootScope', '$state', '$translate', 'appStateService', 'websocketService', 'localStorageService', ];
 
-    function SelectCurrency($scope, $rootScope, $state, $translate, appStateService, websocketService, localStorageService) {
+    function SelectCurrency($scope,
+        $rootScope,
+        $state,
+        $translate,
+        appStateService,
+        websocketService,
+        localStorageService) {
         const vm = this;
         vm.currenciesOptions = [];
         const currencyConfig = appStateService.currenciesConfig;
@@ -34,7 +40,7 @@
         }).then(() => {
             init();
         });
-      
+
         const getCurrenciesOptions = () => {
             payoutCurrencies.forEach(curr => {
                 const	currency = currencyConfig[curr];
