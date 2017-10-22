@@ -144,7 +144,7 @@
         vm.createVirtualAccount = function() {
             vm.tokenError = false;
             vm.passwordError = false;
-            const verificationCode = vm.data.verificationCode;
+            const verificationCode = vm.data.signupToken;
             const clientPassword = vm.data.clientPassword;
             const residence = vm.data.residence;
             websocketService.sendRequestFor.newAccountVirtual(verificationCode, clientPassword, residence);
