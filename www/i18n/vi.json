@@ -24,8 +24,6 @@
   "alert":{
     "error":"Lỗi!",
     "warning":"Cảnh báo",
-    "info":"Info",
-    "congratulation":"Congratulation",
     "not_valid":"Vui lòng nhập một mã token hợp lệ.",
     "not_auth":"Xin lỗi, chúng tôi không thể xác thực bạn.",
     "not_unique":"Bạn đã thêm tài khoản này.",
@@ -175,8 +173,7 @@
     "invalid_email":"Xin vui lòng gửi một địa chỉ email hợp lệ.",
     "password-pattern-error":"Mật khẩu nên bao gồm cả chữ hoa, chữ thường và con số.",
     "length-error-6-25":"Mục này phải nằm trong khoảng 6-25 ký tự.",
-    "required":"Trường này là bắt buộc.",
-    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
+    "required":"Trường này là bắt buộc."
   },
   "newaccountmaltainvest":{
     "open_financial":"Mở một tài khoản tài chính",
