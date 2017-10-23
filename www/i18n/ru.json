@@ -24,6 +24,8 @@
   "alert":{
     "error":"Ошибка!",
     "warning":"Предупреждение",
+    "info":"Info",
+    "congratulation":"Congratulation",
     "not_valid":"Пожалуйста, введите действующий ключ.",
     "not_auth":"Извините, мы не смогли Вас идентифицировать.",
     "not_unique":"Вы уже добавили этот счёт.",
@@ -173,7 +175,8 @@
     "invalid_email":"Пожалуйста, укажите правильный email.",
     "password-pattern-error":"Пароль должен состоять из заглавных, строчных букв и цифр.",
     "length-error-6-25":"Запись в данном поле не должна превышать 6-25 знаков.",
-    "required":"Данное поле является обязательным."
+    "required":"Данное поле является обязательным.",
+    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
   },
   "newaccountmaltainvest":{
     "open_financial":"Открыть финансовый счёт",
@@ -815,6 +818,24 @@
     "max_turnover_limit":"Максимальный лимит на объём покупок на счету",
     "set_max_turnover_limit":"Пожалуйста, установите 30-дневный лимит на объём покупок для самоограничения, чтобы изменить лимиты на депозит.",
     "account_age_verification":"Проверка возраста",
-    "needs_age_verification":"Необходима проверка возраста. Пожалуйста, свяжитесь с отделом поддержки клиентов для получения дополнительной информации."
+    "needs_age_verification":"Необходима проверка возраста. Пожалуйста, свяжитесь с отделом поддержки клиентов для получения дополнительной информации.",
+    "choose_account_currency":"Please set the currency of your account.",
+    "account_currency":"Account currency"
+  },
+  "set-currency":{
+    "select_currency":"Select currency",
+    "select_currency_text":"Please select the currency of this account:"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"Bitcoin",
+    "bitcoin_cash":"Bitcoin Cash",
+    "ether":"Ether",
+    "ether_classic":"Ether Classic",
+    "litecoin":"Litecoin"
+  },
+  "select-currency":{
+    "fiat_currency":"Fiat Currency",
+    "cryptocurrency":"Cryptocurrency",
+    "confirm":"Confirm"
   }
 }

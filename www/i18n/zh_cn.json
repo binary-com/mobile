@@ -24,6 +24,8 @@
   "alert":{
     "error":"错误！",
     "warning":"警告",
+    "info":"Info",
+    "congratulation":"Congratulation",
     "not_valid":"请输入有效令牌。",
     "not_auth":"对不起，我们无法验证您的身份。",
     "not_unique":"您已添加此账户。",
@@ -173,7 +175,8 @@
     "invalid_email":"请提交有效的电子邮件地址。",
     "password-pattern-error":"密码必须有大小写字母和数字。",
     "length-error-6-25":"此字段必须为 6-25 个字符。",
-    "required":"此为必填字段。"
+    "required":"此为必填字段。",
+    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
   },
   "newaccountmaltainvest":{
     "open_financial":"开立金融账户",
@@ -815,6 +818,24 @@
     "max_turnover_limit":"账户最高交易额限制",
     "set_max_turnover_limit":"请设置30天交易限额，以移除存款限额。",
     "account_age_verification":"年龄验证",
-    "needs_age_verification":"账户需要通过年龄验证。欲知详情，请联系客服部。"
+    "needs_age_verification":"账户需要通过年龄验证。欲知详情，请联系客服部。",
+    "choose_account_currency":"Please set the currency of your account.",
+    "account_currency":"Account currency"
+  },
+  "set-currency":{
+    "select_currency":"Select currency",
+    "select_currency_text":"Please select the currency of this account:"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"Bitcoin",
+    "bitcoin_cash":"Bitcoin Cash",
+    "ether":"Ether",
+    "ether_classic":"Ether Classic",
+    "litecoin":"Litecoin"
+  },
+  "select-currency":{
+    "fiat_currency":"Fiat Currency",
+    "cryptocurrency":"Cryptocurrency",
+    "confirm":"Confirm"
   }
 }
