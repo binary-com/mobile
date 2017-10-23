@@ -24,8 +24,6 @@
   "alert":{
     "error":"crwdns17682:0crwdne17682:0",
     "warning":"crwdns17683:0crwdne17683:0",
-    "info":"crwdns41549:0crwdne41549:0",
-    "congratulation":"crwdns41550:0crwdne41550:0",
     "not_valid":"crwdns17684:0crwdne17684:0",
     "not_auth":"crwdns17685:0crwdne17685:0",
     "not_unique":"crwdns17686:0crwdne17686:0",
@@ -175,8 +173,7 @@
     "invalid_email":"crwdns19451:0crwdne19451:0",
     "password-pattern-error":"crwdns19468:0crwdne19468:0",
     "length-error-6-25":"crwdns19469:0crwdne19469:0",
-    "required":"crwdns19470:0crwdne19470:0",
-    "check_your_email":"crwdns41551:0crwdne41551:0"
+    "required":"crwdns19470:0crwdne19470:0"
   },
   "newaccountmaltainvest":{
     "open_financial":"crwdns17807:0crwdne17807:0",
