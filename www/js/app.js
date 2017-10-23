@@ -38,7 +38,8 @@
         "binary.share.components.account-upgrade",
         "binary.share.components.service-outage",
         "binary.share.components.notification-icon",
-        "binary.share.components.big-number"
+        "binary.share.components.big-number",
+        "binary.share.components.select-currency"
     ]);
 
     angular.module("binary.share.services", []);
@@ -68,7 +69,8 @@
         "binary.pages.meta-trader",
         "binary.pages.authentication",
         "binary.pages.contact",
-        "binary.pages.notifications"
+        "binary.pages.notifications",
+        "binary.pages.set-currency"
     ]);
 
     String.prototype.capitalize = function() {

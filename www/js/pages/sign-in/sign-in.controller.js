@@ -108,9 +108,11 @@
             if (verify_email === 1) {
                 $scope.$applyAsync(() => {
                     vm.emailError = false;
-                    vm.showvirtualws = true;
+                    vm.showvirtualws = false;
                     vm.showSignup = false;
                     vm.isVerifyingEmail = false;
+                    vm.showSignin = true;
+                    alertService.displayCongratulation("newvirtualaccount.check_your_email");
                 });
             }
         });
@@ -144,7 +146,7 @@
         vm.createVirtualAccount = function() {
             vm.tokenError = false;
             vm.passwordError = false;
-            const verificationCode = vm.data.verificationCode;
+            const verificationCode = vm.data.signupToken;
             const clientPassword = vm.data.clientPassword;
             const residence = vm.data.residence;
             websocketService.sendRequestFor.newAccountVirtual(verificationCode, clientPassword, residence);
@@ -194,6 +196,7 @@
                     vm.showSignin = true;
                 } else if (!vm.showSignin && vm.showSignup && !vm.showTokenForm && !vm.showvirtualws) {
                     vm.showSignup = false;
+                    vm.data.mail = null;
                     vm.showSignin = true;
                 } else if (!vm.showSignin && !vm.showSignup && !vm.showTokenForm && vm.showvirtualws) {
                     vm.showvirtualws = false;

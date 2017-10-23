@@ -16,10 +16,13 @@
     function ServiceOutage($scope, $state, appStateService, websocketService) {
         $scope.$on("website_status", (e, message) => {
             if (message.site_status && message.site_status === "up" && appStateService.siteStatus === "down") {
+                appStateService.siteStatus = message.site_status;
                 $state.go("trade");
             } else if (message.site_status && message.site_status === "down") {
+                appStateService.siteStatus = message.site_status;
                 $state.go("outage", { message: message.message });
             }
+
         });
 
         $scope.$on("$stateChangeStart", (e, toState, toParams, fromState, fromParams, options) => {

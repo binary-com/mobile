@@ -79,6 +79,18 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
         });
     };
 
+    this.displayInfo = function(_message) {
+        $translate(["alert.info", _message]).then(translation => {
+            displayAlert(translation["alert.info"], translation[_message]);
+        });
+    };
+
+    this.displayCongratulation = function(_message) {
+        $translate(["alert.congratulation", _message]).then(translation => {
+            displayAlert(translation["alert.congratulation"], translation[_message]);
+        });
+    };
+
     this.displaySymbolWarning = function(_message, _callback) {
         $translate(["alert.warning", _message]).then(translation => {
             displayAlert(translation["alert.warning"], translation[_message]);
