@@ -24,6 +24,8 @@
   "alert":{
     "error":"Error!",
     "warning":"Peringatan",
+    "info":"Info",
+    "congratulation":"Congratulation",
     "not_valid":"Masukkan token yang berlaku.",
     "not_auth":"Maaf, kami tidak dapat mengotentikasi Anda.",
     "not_unique":"Anda telah menambahkan akun ini.",
@@ -173,7 +175,8 @@
     "invalid_email":"Silakan masukkan alamat email yang berlaku.",
     "password-pattern-error":"Kata sandi harus terdiri dari huruf kecil dan besar beserta angka.",
     "length-error-6-25":"Kolom ini harus diisi dengan 6-25 karakter panjang.",
-    "required":"Bagian ini wajib diisi."
+    "required":"Bagian ini wajib diisi.",
+    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
   },
   "newaccountmaltainvest":{
     "open_financial":"Daftar akun finansial",
@@ -815,6 +818,24 @@
     "max_turnover_limit":"Batasan maksimal total pembelian akun",
     "set_max_turnover_limit":"Silahkan tentukan batasan 30-hari Pengecualian Diri untuk meningkatkan batas deposit Anda.",
     "account_age_verification":"Verifikasi umur",
-    "needs_age_verification":"Akun membutuhkan verifikasi umur, hubungi customer support untuk informasi lebih lanjut."
+    "needs_age_verification":"Akun membutuhkan verifikasi umur, hubungi customer support untuk informasi lebih lanjut.",
+    "choose_account_currency":"Please set the currency of your account.",
+    "account_currency":"Account currency"
+  },
+  "set-currency":{
+    "select_currency":"Select currency",
+    "select_currency_text":"Please select the currency of this account:"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"Bitcoin",
+    "bitcoin_cash":"Bitcoin Cash",
+    "ether":"Ether",
+    "ether_classic":"Ether Classic",
+    "litecoin":"Litecoin"
+  },
+  "select-currency":{
+    "fiat_currency":"Fiat Currency",
+    "cryptocurrency":"Cryptocurrency",
+    "confirm":"Confirm"
   }
 }
