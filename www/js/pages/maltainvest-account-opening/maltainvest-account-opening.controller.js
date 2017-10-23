@@ -242,6 +242,10 @@
                         vm.params[key] = $filter("date")(value, "yyyy-MM-dd");
                     } else if (key === "address_post_code") {
                         vm.params[key] = value.trim();
+                    } else if (key === "secret_question" || key === "secret_answer") {
+                        if (!vm.hasMLTAccount) {
+	                        vm.params[key] = value;
+                        }
                     } else {
                         vm.params[key] = value;
                     }
@@ -282,7 +286,7 @@
             vm.resetAllErrors();
             websocketService.sendRequestFor.residenceListSend();
             $scope.$applyAsync(() => {
-                vm.isReadonly = !!appStateService.hasMLT;
+                vm.hasMLTAccount = !!appStateService.hasMLT;
             });
         };
 
