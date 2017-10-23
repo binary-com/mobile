@@ -24,8 +24,6 @@
   "alert":{
     "error":"Erro!",
     "warning":"Aviso",
-    "info":"Info",
-    "congratulation":"Congratulation",
     "not_valid":"Insira um token válido.",
     "not_auth":"Lamentamos, não foi possível autenticá-lo.",
     "not_unique":"Você já adicionou esta conta.",
@@ -175,8 +173,7 @@
     "invalid_email":"Envie um endereço de e-mail válido.",
     "password-pattern-error":"A senha deve conter letras minúsculas e maiúsculas com números.",
     "length-error-6-25":"Este campo deve conter entre 6 e 25 caracteres.",
-    "required":"Este campo é obrigatório.",
-    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
+    "required":"Este campo é obrigatório."
   },
   "newaccountmaltainvest":{
     "open_financial":"Abra uma conta financeira",
