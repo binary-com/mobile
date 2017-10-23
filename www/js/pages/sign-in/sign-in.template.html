@@ -53,7 +53,7 @@
         <div class="row center">
           <div class="col col-75">
             <label class="item-input">
-              <input name="verificationCode" ng-model="vm.data.verificationCode" type="text" ng-pattern="/^\w{8,128}$/" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-required="true" />
+              <input ng-model="vm.data.signupToken" type="text" ng-pattern="/^\w{8,128}$/" placeholder="{{'newvirtualaccount.verification-code' | translate }}" ng-required="true" />
             </label>
             <div class="help-block">
               {{'newvirtualaccount.code_hint' | translate}}
