@@ -24,8 +24,6 @@
   "alert": {
     "error": "Error!",
     "warning": "Warning",
-    "info": "Info",
-    "congratulation": "Congratulation",
     "not_valid": "Please enter a valid token.",
     "not_auth": "Sorry, we couldn't authenticate you.",
     "not_unique": "You've already added this account.",
@@ -179,8 +177,7 @@
     "invalid_email": "Please submit a valid email address.",
     "password-pattern-error": "Password should have lower and uppercase letters with numbers.",
     "length-error-6-25": "This field must be within 6-25 characters.",
-    "required": "This field is required.",
-    "check_your_email": "Thank you for signing up! Please check your email to complete the registration process."
+    "required": "This field is required."
   },
   "newaccountmaltainvest": {
     "open_financial": "Open a financial account",
