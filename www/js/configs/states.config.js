@@ -213,7 +213,15 @@ angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfi
             controller  : "NotificationsController",
             controllerAs: "vm",
             detailed    : true
-        });
+        })
+        .state("set-currency", {
+            parent      : "layout",
+            cache       : false,
+            templateUrl : "js/pages/set-currency/set-currency.template.html",
+            controller  : "SetCurrencyController",
+            controllerAs: "vm"
+	      });
+
 
     $urlRouterProvider.otherwise("/");
 });

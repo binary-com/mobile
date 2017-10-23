@@ -55,7 +55,9 @@
             "notifications.tnc",
             "notifications.accept_tnc",
             "notifications.max_turnover_limit",
-            "notifications.set_max_turnover_limit"
+            "notifications.set_max_turnover_limit",
+            "notifications.choose_account_currency",
+            "notifications.account_currency",
         ]).then(translation => {
             vm.authenticateMessage = {
                 title: translation["notifications.account_authentication"],
@@ -97,6 +99,11 @@
                 text : translation["notifications.set_max_turnover_limit"],
                 link : "self-exclusion"
             };
+            vm.currencyNotSetMessage = {
+                title: translation["notifications.account_currency"],
+                text : translation["notifications.choose_account_currency"],
+                link : "set-currency"
+            };
         });
 
         // check type of account
@@ -125,8 +132,9 @@
         });
 
         $scope.$on("authorize", (e, authorize) => {
+	          const currency = authorize.currency;
+	          vm.currencyStatus(currency);
             if (!appStateService.checkedAccountStatus) {
-                notificationService.notices.length = 0;
                 appStateService.checkedAccountStatus = true;
                 vm.balance = authorize.balance;
                 vm.getAccountInfo();
@@ -136,7 +144,6 @@
         // in case the authorize response is passed before the execution of this controller
         vm.init = function() {
             if (appStateService.isLoggedin && !appStateService.checkedAccountStatus) {
-                notificationService.notices.length = 0;
                 appStateService.checkedAccountStatus = true;
                 vm.balance = sessionStorage.getItem("balance");
                 vm.getAccountInfo();
@@ -244,6 +251,16 @@
             }
         };
 
+        vm.currencyStatus = function(currency) {
+            if (currency === "" || currency === null || _.trim(currency).length === 0) {
+            //    user has no currency
+	            if (!appStateService.hasCurrencyMessage) {
+		            appStateService.hasCurrencyMessage = true;
+		            notificationService.notices.push(vm.currencyNotSetMessage);
+	            }
+            }
+        };
+
         $scope.$on("get_account_status", (e, get_account_status) => {
             if (get_account_status.hasOwnProperty("status")) {
                 vm.status = get_account_status.status;
@@ -291,8 +308,9 @@
             appStateService.hasTaxInfoMessage = false;
             appStateService.hasFinancialAssessmentMessage = false;
             appStateService.hasAgeVerificationMessage = false;
+            appStateService.hasCurrencyMessage = false;
             appStateService.checkedAccountStatus = false;
-            notificationService.notices.length = 0;
+	          notificationService.emptyNotices();
             vm.getAccountInfo();
         };
     }

@@ -40,6 +40,16 @@
             }
         };
 
+        $scope.$watch(
+            () => appStateService.accountCurrencyChanged,
+            () => {
+                if (appStateService.accountCurrencyChanged === true) {
+                    vm.accounts = accountService.getAll();
+                    appStateService.accountCurrencyChanged = false;
+                }
+            }
+        );
+
         const updateSymbols = function() {
             // Wait untile the login progress is finished
             if (!appStateService.isLoggedin) {
@@ -82,7 +92,9 @@
             appStateService.hasTaxInfoMessage = false;
             appStateService.hasFinancialAssessmentMessage = false;
             appStateService.hasAgeVerificationMessage = false;
+            appStateService.hasCurrencyMessage = false;
             appStateService.checkedAccountStatus = false;
+	          notificationService.emptyNotices();
         };
 
         $scope.$on("authorize", (e, authorize) => {

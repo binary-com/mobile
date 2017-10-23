@@ -825,6 +825,24 @@
     "max_turnover_limit": "Account maximum turnover limit",
     "set_max_turnover_limit": "Please set Self Exclusion 30-day turnover limit to lift your deposit limits.",
     "account_age_verification": "Age verification",
-    "needs_age_verification": "Account needs age verification, please contact customer support for more information."
+    "needs_age_verification": "Account needs age verification, please contact customer support for more information.",
+    "choose_account_currency": "Please set the currency of your account.",
+    "account_currency": "Account currency"
+  },
+  "set-currency": {
+    "select_currency": "Select currency",
+    "select_currency_text": "Please select the currency of this account:"
+  },
+  "cryptocurrencies": {
+    "bitcoin": "Bitcoin",
+    "bitcoin_cash": "Bitcoin Cash",
+    "ether": "Ether",
+    "ether_classic": "Ether Classic",
+    "litecoin": "Litecoin"
+  },
+  "select-currency": {
+    "fiat_currency": "Fiat Currency",
+    "cryptocurrency": "Cryptocurrency",
+    "confirm": "Confirm"
   }
 }

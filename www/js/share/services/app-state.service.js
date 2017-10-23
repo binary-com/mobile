@@ -42,11 +42,14 @@ angular.module("binary").factory("appStateService", () => {
     factory.hasTaxInfoMessage = false;
     factory.hasFinancialAssessmentMessage = false;
     factory.hasAgeVerificationMessage = false;
+    factory.hasCurrencyMessage = false;
     factory.checkedAccountStatus = false;
     factory.siteStatus = "up";
     factory.modalIsOpen = false;
     factory.currenciesConfig = {};
+    factory.payoutCurrencies = {};
     factory.balanceSubscribtionId = null;
+    factory.accountCurrencyChanged = false;
 
     return factory;
 });
