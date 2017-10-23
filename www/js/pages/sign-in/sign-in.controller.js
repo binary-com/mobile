@@ -108,11 +108,9 @@
             if (verify_email === 1) {
                 $scope.$applyAsync(() => {
                     vm.emailError = false;
-                    vm.showvirtualws = false;
+                    vm.showvirtualws = true;
                     vm.showSignup = false;
                     vm.isVerifyingEmail = false;
-                    vm.showSignin = true;
-                    alertService.displayCongratulation("newvirtualaccount.check_your_email");
                 });
             }
         });
@@ -196,7 +194,6 @@
                     vm.showSignin = true;
                 } else if (!vm.showSignin && vm.showSignup && !vm.showTokenForm && !vm.showvirtualws) {
                     vm.showSignup = false;
-                    vm.data.mail = null;
                     vm.showSignin = true;
                 } else if (!vm.showSignin && !vm.showSignup && !vm.showTokenForm && vm.showvirtualws) {
                     vm.showvirtualws = false;
