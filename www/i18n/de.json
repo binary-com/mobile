@@ -24,6 +24,8 @@
   "alert":{
     "error":"Fehler!",
     "warning":"Achtung",
+    "info":"Info",
+    "congratulation":"Congratulation",
     "not_valid":"Bitte geben Sie einen gültigen Token ein.",
     "not_auth":"Leider können wir Sie nicht authentifizieren.",
     "not_unique":"Sie haben dieses Konto schon hinzugefügt.",
@@ -173,7 +175,8 @@
     "invalid_email":"Bitte geben Sie eine gültige E-Mail Adresse an.",
     "password-pattern-error":"Das Passwort muss Klein- und Großbuchstaben sowie Zahlen enthalten.",
     "length-error-6-25":"Dieses Feld muss zwischen 6-25 Zeichen lang sein.",
-    "required":"Dieses Feld ist erforderlich."
+    "required":"Dieses Feld ist erforderlich.",
+    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
   },
   "newaccountmaltainvest":{
     "open_financial":"Eröffnen Sie ein Finanzkonto",
@@ -815,6 +818,24 @@
     "max_turnover_limit":"Maximales Umsatzlimit des Kontos",
     "set_max_turnover_limit":"Legen Sie bitte das Selbstausschluss 30-tägige Umsatzlimit fest, um Ihre Einzahlungslimits aufzuheben.",
     "account_age_verification":"Altersverifikation",
-    "needs_age_verification":"Das Konto benötigt einen Altersnachweis, bitte kontaktieren Sie die Kundenbetreuung, um weitere Informationen zu erhalten."
+    "needs_age_verification":"Das Konto benötigt einen Altersnachweis, bitte kontaktieren Sie die Kundenbetreuung, um weitere Informationen zu erhalten.",
+    "choose_account_currency":"Please set the currency of your account.",
+    "account_currency":"Account currency"
+  },
+  "set-currency":{
+    "select_currency":"Select currency",
+    "select_currency_text":"Please select the currency of this account:"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"Bitcoin",
+    "bitcoin_cash":"Bitcoin Cash",
+    "ether":"Ether",
+    "ether_classic":"Ether Classic",
+    "litecoin":"Litecoin"
+  },
+  "select-currency":{
+    "fiat_currency":"Fiat Currency",
+    "cryptocurrency":"Cryptocurrency",
+    "confirm":"Confirm"
   }
 }
