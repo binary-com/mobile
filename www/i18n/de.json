@@ -816,23 +816,23 @@
     "set_max_turnover_limit":"Legen Sie bitte das Selbstausschluss 30-tägige Umsatzlimit fest, um Ihre Einzahlungslimits aufzuheben.",
     "account_age_verification":"Altersverifikation",
     "needs_age_verification":"Das Konto benötigt einen Altersnachweis, bitte kontaktieren Sie die Kundenbetreuung, um weitere Informationen zu erhalten.",
-    "choose_account_currency":"Please set the currency of your account.",
-    "account_currency":"Account currency"
+    "choose_account_currency":"Bitte legen Sie die Währung für Ihr Konto fest.",
+    "account_currency":"Kontowährung"
   },
   "set-currency":{
-    "select_currency":"Select currency",
-    "select_currency_text":"Please select the currency of this account:"
+    "select_currency":"Währung auswählen",
+    "select_currency_text":"Bitte wählen Sie die Währung für dieses Konto:"
   },
   "cryptocurrencies":{
     "bitcoin":"Bitcoin",
-    "bitcoin_cash":"Bitcoin Cash",
+    "bitcoin_cash":"Bitcoin-Cash",
     "ether":"Ether",
-    "ether_classic":"Ether Classic",
+    "ether_classic":"Ether-Classic",
     "litecoin":"Litecoin"
   },
   "select-currency":{
-    "fiat_currency":"Fiat Currency",
-    "cryptocurrency":"Cryptocurrency",
-    "confirm":"Confirm"
+    "fiat_currency":"Fiat-Währung",
+    "cryptocurrency":"Kryptowährung",
+    "confirm":"Bestätigen"
   }
 }
