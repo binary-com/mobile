@@ -299,6 +299,10 @@
             vm.reload();
         });
 
+        $scope.$on("set_account_currency:success", (e, set_account_currency) => {
+            vm.reload();
+        });
+
         vm.reload = function() {
             appStateService.hasAuthenticateMessage = false;
             appStateService.hasRestrictedMessage = false;
