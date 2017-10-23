@@ -24,6 +24,8 @@
   "alert":{
     "error":"Erro!",
     "warning":"Aviso",
+    "info":"Info",
+    "congratulation":"Congratulation",
     "not_valid":"Insira um token válido.",
     "not_auth":"Lamentamos, não foi possível autenticá-lo.",
     "not_unique":"Você já adicionou esta conta.",
@@ -173,7 +175,8 @@
     "invalid_email":"Envie um endereço de e-mail válido.",
     "password-pattern-error":"A senha deve conter letras minúsculas e maiúsculas com números.",
     "length-error-6-25":"Este campo deve conter entre 6 e 25 caracteres.",
-    "required":"Este campo é obrigatório."
+    "required":"Este campo é obrigatório.",
+    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
   },
   "newaccountmaltainvest":{
     "open_financial":"Abra uma conta financeira",
@@ -815,6 +818,24 @@
     "max_turnover_limit":"Limite máximo de volume de negócios da conta",
     "set_max_turnover_limit":"Defina um limite de volume de negócios de 30 dias de auto-exclusão para aumentar os seus limites de depósito.",
     "account_age_verification":"Verificação de idade",
-    "needs_age_verification":"A conta precisa de verificação de idade, por favor contate o apoio ao cliente para mais informações."
+    "needs_age_verification":"A conta precisa de verificação de idade, por favor contate o apoio ao cliente para mais informações.",
+    "choose_account_currency":"Please set the currency of your account.",
+    "account_currency":"Account currency"
+  },
+  "set-currency":{
+    "select_currency":"Select currency",
+    "select_currency_text":"Please select the currency of this account:"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"Bitcoin",
+    "bitcoin_cash":"Bitcoin Cash",
+    "ether":"Ether",
+    "ether_classic":"Ether Classic",
+    "litecoin":"Litecoin"
+  },
+  "select-currency":{
+    "fiat_currency":"Fiat Currency",
+    "cryptocurrency":"Cryptocurrency",
+    "confirm":"Confirm"
   }
 }
