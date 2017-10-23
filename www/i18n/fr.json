@@ -24,6 +24,8 @@
   "alert":{
     "error":"Erreur !",
     "warning":"Avertissement",
+    "info":"Info",
+    "congratulation":"Congratulation",
     "not_valid":"Veuillez saisir un jeton d'authentification valide.",
     "not_auth":"Désolé, nous n'avons pas pu vous authentifier.",
     "not_unique":"Vous avez déjà ajouté ce compte.",
@@ -173,7 +175,8 @@
     "invalid_email":"Veuillez saisir une adresse e-mail valide.",
     "password-pattern-error":"Le mot de passe doit être composé de majuscules, de minuscules et de chiffres.",
     "length-error-6-25":"Ce champ doit contenir entre 6 et 25 caractères.",
-    "required":"Ce champ est requis."
+    "required":"Ce champ est requis.",
+    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
   },
   "newaccountmaltainvest":{
     "open_financial":"Ouvrir un compte financier",
@@ -815,6 +818,24 @@
     "max_turnover_limit":"Limite de chiffre d’affaires maximal de compte",
     "set_max_turnover_limit":"S’il vous plaît choisissez la limite de chiffre d’affaires de 30 jours d'Auto-Exclusion afin de lever vos limites de dépôt.",
     "account_age_verification":"Vérification de l’âge",
-    "needs_age_verification":"Le compte nécessite une vérification de l’âge, veuillez contacter le support client pour plus d’informations."
+    "needs_age_verification":"Le compte nécessite une vérification de l’âge, veuillez contacter le support client pour plus d’informations.",
+    "choose_account_currency":"Please set the currency of your account.",
+    "account_currency":"Account currency"
+  },
+  "set-currency":{
+    "select_currency":"Select currency",
+    "select_currency_text":"Please select the currency of this account:"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"Bitcoin",
+    "bitcoin_cash":"Bitcoin Cash",
+    "ether":"Ether",
+    "ether_classic":"Ether Classic",
+    "litecoin":"Litecoin"
+  },
+  "select-currency":{
+    "fiat_currency":"Fiat Currency",
+    "cryptocurrency":"Cryptocurrency",
+    "confirm":"Confirm"
   }
 }
