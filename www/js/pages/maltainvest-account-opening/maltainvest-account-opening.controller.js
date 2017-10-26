@@ -243,11 +243,6 @@
                     } else {
                         vm.params[key] = _.trim(value);
                     }
-                    // else if (key === "address_post_code") {
-                    //     vm.params[key] = value.trim();
-                    // } else {
-                    //     vm.params[key] = _.trim(value);
-                    // }
                 }
             });
             websocketService.sendRequestFor.createMaltainvestAccountSend(vm.params);
