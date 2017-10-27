@@ -815,6 +815,24 @@
     "max_turnover_limit":"Максимальный лимит на объём покупок на счету",
     "set_max_turnover_limit":"Пожалуйста, установите 30-дневный лимит на объём покупок для самоограничения, чтобы изменить лимиты на депозит.",
     "account_age_verification":"Проверка возраста",
-    "needs_age_verification":"Необходима проверка возраста. Пожалуйста, свяжитесь с отделом поддержки клиентов для получения дополнительной информации."
+    "needs_age_verification":"Необходима проверка возраста. Пожалуйста, свяжитесь с отделом поддержки клиентов для получения дополнительной информации.",
+    "choose_account_currency":"Please set the currency of your account.",
+    "account_currency":"Account currency"
+  },
+  "set-currency":{
+    "select_currency":"Select currency",
+    "select_currency_text":"Please select the currency of this account:"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"Bitcoin",
+    "bitcoin_cash":"Bitcoin Cash",
+    "ether":"Ether",
+    "ether_classic":"Ether Classic",
+    "litecoin":"Litecoin"
+  },
+  "select-currency":{
+    "fiat_currency":"Fiat Currency",
+    "cryptocurrency":"Cryptocurrency",
+    "confirm":"Confirm"
   }
 }

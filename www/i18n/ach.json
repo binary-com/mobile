@@ -815,6 +815,24 @@
     "max_turnover_limit":"crwdns19741:0crwdne19741:0",
     "set_max_turnover_limit":"crwdns19742:0crwdne19742:0",
     "account_age_verification":"crwdns19785:0crwdne19785:0",
-    "needs_age_verification":"crwdns19786:0crwdne19786:0"
+    "needs_age_verification":"crwdns19786:0crwdne19786:0",
+    "choose_account_currency":"crwdns41552:0crwdne41552:0",
+    "account_currency":"crwdns41553:0crwdne41553:0"
+  },
+  "set-currency":{
+    "select_currency":"crwdns41554:0crwdne41554:0",
+    "select_currency_text":"crwdns41555:0crwdne41555:0"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"crwdns41556:0crwdne41556:0",
+    "bitcoin_cash":"crwdns41557:0crwdne41557:0",
+    "ether":"crwdns41558:0crwdne41558:0",
+    "ether_classic":"crwdns41559:0crwdne41559:0",
+    "litecoin":"crwdns41560:0crwdne41560:0"
+  },
+  "select-currency":{
+    "fiat_currency":"crwdns41561:0crwdne41561:0",
+    "cryptocurrency":"crwdns41562:0crwdne41562:0",
+    "confirm":"crwdns41563:0crwdne41563:0"
   }
 }

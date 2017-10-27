@@ -815,6 +815,24 @@
     "max_turnover_limit":"Batasan maksimal total pembelian akun",
     "set_max_turnover_limit":"Silahkan tentukan batasan 30-hari Pengecualian Diri untuk meningkatkan batas deposit Anda.",
     "account_age_verification":"Verifikasi umur",
-    "needs_age_verification":"Akun membutuhkan verifikasi umur, hubungi customer support untuk informasi lebih lanjut."
+    "needs_age_verification":"Akun membutuhkan verifikasi umur, hubungi customer support untuk informasi lebih lanjut.",
+    "choose_account_currency":"Please set the currency of your account.",
+    "account_currency":"Account currency"
+  },
+  "set-currency":{
+    "select_currency":"Select currency",
+    "select_currency_text":"Please select the currency of this account:"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"Bitcoin",
+    "bitcoin_cash":"Bitcoin Cash",
+    "ether":"Ether",
+    "ether_classic":"Ether Classic",
+    "litecoin":"Litecoin"
+  },
+  "select-currency":{
+    "fiat_currency":"Fiat Currency",
+    "cryptocurrency":"Cryptocurrency",
+    "confirm":"Confirm"
   }
 }

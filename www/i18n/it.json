@@ -815,6 +815,24 @@
     "max_turnover_limit":"Limite di fatturato massimo dell'account",
     "set_max_turnover_limit":"Per aumentare il limite dei prelievi e del trading, imposta il limite di fatturato di 30 giorni dell'Auto esclusione.",
     "account_age_verification":"Verifica dell'età",
-    "needs_age_verification":"L'account ha bisogno della verifica dell'età, per ulteriori informazioni contatta l'assistenza clienti."
+    "needs_age_verification":"L'account ha bisogno della verifica dell'età, per ulteriori informazioni contatta l'assistenza clienti.",
+    "choose_account_currency":"Please set the currency of your account.",
+    "account_currency":"Account currency"
+  },
+  "set-currency":{
+    "select_currency":"Select currency",
+    "select_currency_text":"Please select the currency of this account:"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"Bitcoin",
+    "bitcoin_cash":"Bitcoin Cash",
+    "ether":"Ether",
+    "ether_classic":"Ether Classic",
+    "litecoin":"Litecoin"
+  },
+  "select-currency":{
+    "fiat_currency":"Fiat Currency",
+    "cryptocurrency":"Cryptocurrency",
+    "confirm":"Confirm"
   }
 }

@@ -815,6 +815,24 @@
     "max_turnover_limit":"Giới hạn tối đa doanh thu tài khoản",
     "set_max_turnover_limit":"Xin vui lòng thiết lập tự loại trừ giới hạn doanh thu 30 ngày để nâng giới hạn tiền gửi của bạn.",
     "account_age_verification":"Xác minh tuổi",
-    "needs_age_verification":"Tài khoản cần xác minh tuổi, xin vui lòng liên hệ với hỗ trợ khách hàng để biết thêm thông tin."
+    "needs_age_verification":"Tài khoản cần xác minh tuổi, xin vui lòng liên hệ với hỗ trợ khách hàng để biết thêm thông tin.",
+    "choose_account_currency":"Please set the currency of your account.",
+    "account_currency":"Account currency"
+  },
+  "set-currency":{
+    "select_currency":"Select currency",
+    "select_currency_text":"Please select the currency of this account:"
+  },
+  "cryptocurrencies":{
+    "bitcoin":"Bitcoin",
+    "bitcoin_cash":"Bitcoin Cash",
+    "ether":"Ether",
+    "ether_classic":"Ether Classic",
+    "litecoin":"Litecoin"
+  },
+  "select-currency":{
+    "fiat_currency":"Fiat Currency",
+    "cryptocurrency":"Cryptocurrency",
+    "confirm":"Confirm"
   }
 }

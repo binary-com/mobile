@@ -38,73 +38,7 @@
 	      vm.isMLT = false;
 	      vm.isMX = false;
         vm.isVirtual = false;
-        // authentication and restricted messages
-        $translate([
-            "notifications.account_authentication",
-            "notifications.please_authenticate",
-            "notifications.account_age_verification",
-            "notifications.needs_age_verification",
-            "notifications.account_restriction",
-            "notifications.please_contact",
-            "notifications.set_country",
-            "notifications.account_country",
-            "notifications.financial_assessment_not_completed",
-            "notifications.complete_financial_assessment",
-            "notifications.tax_information",
-            "notifications.complete_profile",
-            "notifications.tnc",
-            "notifications.accept_tnc",
-            "notifications.max_turnover_limit",
-            "notifications.set_max_turnover_limit",
-            "notifications.choose_account_currency",
-            "notifications.account_currency",
-        ]).then(translation => {
-            vm.authenticateMessage = {
-                title: translation["notifications.account_authentication"],
-                text : translation["notifications.please_authenticate"],
-                link : "authentication"
-            };
-            vm.ageVerificationMessage = {
-                title: translation["notifications.account_age_verification"],
-                text : translation["notifications.needs_age_verification"],
-                link : "contact"
-            };
-            vm.restrictedMessage = {
-                title: translation["notifications.account_restriction"],
-                text : translation["notifications.please_contact"],
-                link : "contact"
-            };
-            vm.countryNotSetMessage = {
-                title: translation["notifications.account_country"],
-                text : translation["notifications.set_country"],
-                link : "profile"
-            };
-            vm.financialAssessmentMessage = {
-                title: translation["notifications.financial_assessment_not_completed"],
-                text : translation["notifications.complete_financial_assessment"],
-                link : "financial-assessment"
-            };
-            vm.taxInformationMessage = {
-                title: translation["notifications.tax_information"],
-                text : translation["notifications.complete_profile"],
-                link : "profile"
-            };
-            vm.termsAndConditionsMessage = {
-                title: translation["notifications.tnc"],
-                text : translation["notifications.accept_tnc"],
-                link : "terms-and-conditions"
-            };
-            vm.maxTurnoverLimitNotSetMessage = {
-                title: translation["notifications.max_turnover_limit"],
-                text : translation["notifications.set_max_turnover_limit"],
-                link : "self-exclusion"
-            };
-            vm.currencyNotSetMessage = {
-                title: translation["notifications.account_currency"],
-                text : translation["notifications.choose_account_currency"],
-                link : "set-currency"
-            };
-        });
+        vm.notificationMessages = notificationService.messages;
 
         // check type of account
         vm.checkAccountType = function() {
@@ -159,14 +93,14 @@
                 !appStateService.hasFinancialAssessmentMessage && !vm.isVirtual
             ) {
                 appStateService.hasFinancialAssessmentMessage = true;
-                notificationService.notices.push(vm.financialAssessmentMessage);
+                notificationService.notices.push(vm.notificationMessages.financialAssessmentMessage);
             }
         };
 
         vm.taxInformationStatus = function(status) {
             if (vm.isFinancial && status.indexOf("crs_tin_information") < 0 && !appStateService.hasTaxInfoMessage) {
                 appStateService.hasTaxInfoMessage = true;
-                notificationService.notices.push(vm.taxInformationMessage);
+                notificationService.notices.push(vm.notificationMessages.taxInformationMessage);
             }
         };
 
@@ -180,7 +114,7 @@
                     !appStateService.hasTnCMessage
                 ) {
                     appStateService.hasTnCMessage = true;
-                    notificationService.notices.push(vm.termsAndConditionsMessage);
+                    notificationService.notices.push(vm.notificationMessages.termsAndConditionsMessage);
                 }
             }
         };
@@ -188,7 +122,7 @@
         vm.authenticateStatus = function(promptClientToAuthenticate) {
             if (promptClientToAuthenticate === 1 && !appStateService.hasAuthenticateMessage) {
 	            appStateService.hasAuthenticateMessage = true;
-	            notificationService.notices.push(vm.authenticateMessage);
+	            notificationService.notices.push(vm.notificationMessages.authenticateMessage);
             }
         };
 
@@ -197,7 +131,7 @@
             if (!vm.ageVerified && (vm.isFinancial || vm.isMLT || vm.isMX)) {
                 if (!appStateService.hasAgeVerificationMessage) {
                     appStateService.hasAgeVerificationMessage = true;
-                    notificationService.notices.push(vm.ageVerificationMessage);
+                    notificationService.notices.push(vm.notificationMessages.ageVerificationMessage);
                 }
             }
         };
@@ -207,7 +141,7 @@
             if (vm.unwelcomed && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
                 if (!appStateService.hasRestrictedMessage) {
                     appStateService.hasRestrictedMessage = true;
-                    notificationService.notices.push(vm.restrictedMessage);
+                    notificationService.notices.push(vm.notificationMessages.restrictedMessage);
                 }
             }
         };
@@ -217,7 +151,7 @@
             if (vm.cashierLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
                 if (!appStateService.hasRestrictedMessage) {
                     appStateService.hasRestrictedMessage = true;
-                    notificationService.notices.push(vm.restrictedMessage);
+                    notificationService.notices.push(vm.notificationMessages.restrictedMessage);
                 }
             }
         };
@@ -227,7 +161,7 @@
             if (vm.withdrawalLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
                 if (!appStateService.hasRestrictedMessage) {
                     appStateService.hasRestrictedMessage = true;
-                    notificationService.notices.push(vm.restrictedMessage);
+                    notificationService.notices.push(vm.notificationMessages.restrictedMessage);
                 }
             }
         };
@@ -236,7 +170,7 @@
             vm.maxTurnoverLimitSet = get_self_exclusion.hasOwnProperty("max_30day_turnover");
             if (vm.isMX && !vm.maxTurnoverLimitSet && !appStateService.hasMaxTurnoverMessage) {
                 appStateService.hasMaxTurnoverMessage = true;
-                notificationService.notices.push(vm.maxTurnoverLimitNotSetMessage);
+                notificationService.notices.push(vm.notificationMessages.maxTurnoverLimitNotSetMessage);
             } else if (vm.isMX && vm.maxTurnoverLimitSet && appStateService.hasMaxTurnoverMessage) {
                 // in update of self exclusion
                 vm.reload();
@@ -247,7 +181,7 @@
             vm.countryCode = get_settings.country_code;
             if (vm.countryCode == null && appStateService.virtuality && !appStateService.hasCountryMessage) {
                 appStateService.hasCountryMessage = true;
-                notificationService.notices.push(vm.countryNotSetMessage);
+                notificationService.notices.push(vm.notificationMessages.countryNotSetMessage);
             }
         };
 
@@ -256,7 +190,7 @@
             //    user has no currency
 	            if (!appStateService.hasCurrencyMessage) {
 		            appStateService.hasCurrencyMessage = true;
-		            notificationService.notices.push(vm.currencyNotSetMessage);
+		            notificationService.notices.push(vm.notificationMessages.currencyNotSetMessage);
 	            }
             }
         };
@@ -296,6 +230,10 @@
         });
 
         $scope.$on("set_financial_assessment:success", (e, set_financial_assessment) => {
+            vm.reload();
+        });
+
+        $scope.$on("set_account_currency:success", (e, set_account_currency) => {
             vm.reload();
         });
 

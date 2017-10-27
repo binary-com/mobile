@@ -12,6 +12,7 @@ angular
         $scope.$on("landing_company", (e, landingCompany) => {
             $scope.$applyAsync(() => {
                 if (
+                    landingCompany &&
                     landingCompany.hasOwnProperty("mt_financial_company") &&
                     landingCompany.mt_financial_company.shortcode === "vanuatu"
                 ) {

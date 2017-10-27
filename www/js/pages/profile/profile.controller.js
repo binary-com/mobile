@@ -222,11 +222,7 @@
                 vm.notAnyChanges = true;
                 _.forEach(vm.realAccountFields, (value, key) => {
                     if (vm.profile[value] != null && vm.profile[value] !== undefined) {
-                        if (vm.profile[value] === "address_postcode") {
-                            vm.params[value] = vm.profile[value].trim();
-                        } else {
-                            vm.params[value] = vm.profile[value];
-                        }
+                        vm.params[value] = _.trim(vm.profile[value]);
                         if (vm.params[value] !== vm.getSettings[value]) {
                             vm.notAnyChanges = false;
                         }
