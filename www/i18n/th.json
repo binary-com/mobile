@@ -24,8 +24,6 @@
   "alert":{
     "error":"ผิดพลาด!",
     "warning":"คำเตือน",
-    "info":"Info",
-    "congratulation":"Congratulation",
     "not_valid":"โปรดป้อนโทเค่นที่ถูกต้อง",
     "not_auth":"ขออภัย เราไม่สามารถพิสูจน์ตัวตนท่านได้",
     "not_unique":"ท่านได้เพิ่มบัญชีนี้แล้ว",
@@ -175,8 +173,7 @@
     "invalid_email":"โปรดใช้อีเมล์ที่ถูกต้อง",
     "password-pattern-error":"รหัสผ่านควรประกอบด้วยอักษรตัวเล็ก อักษรตัวใหญ่ และตัวเลข",
     "length-error-6-25":"ข้อมูลช่องนี้ต้องการ 6-25 อักขระ",
-    "required":"ข้อมูลนี้ต้องระบุ ไม่สามารถเป็นค่าว่าง",
-    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
+    "required":"ข้อมูลนี้ต้องระบุ ไม่สามารถเป็นค่าว่าง"
   },
   "newaccountmaltainvest":{
     "open_financial":"เปิดบัญชีทางการเงิน 1 บัญชี",
