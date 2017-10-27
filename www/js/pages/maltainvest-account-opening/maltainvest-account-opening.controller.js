@@ -240,10 +240,8 @@
                 if (vm.requestData.indexOf(key) > -1) {
                     if (key === "date_of_birth") {
                         vm.params[key] = $filter("date")(value, "yyyy-MM-dd");
-                    } else if (key === "address_post_code") {
-                        vm.params[key] = value.trim();
                     } else {
-                        vm.params[key] = value;
+                        vm.params[key] = _.trim(value);
                     }
                 }
             });
