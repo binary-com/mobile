@@ -24,8 +24,6 @@
   "alert":{
     "error":"錯誤！",
     "warning":"警告",
-    "info":"Info",
-    "congratulation":"Congratulation",
     "not_valid":"請輸入有效權杖。",
     "not_auth":"對不起，我們無法驗證您的身份。",
     "not_unique":"您已添加此帳戶。",
@@ -175,8 +173,7 @@
     "invalid_email":"請提交有效的電子郵件地址。",
     "password-pattern-error":"密碼必須有大小寫字母和數字。",
     "length-error-6-25":"此欄位必須為 6-25 個字元。",
-    "required":"此為必填欄位。",
-    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
+    "required":"此為必填欄位。"
   },
   "newaccountmaltainvest":{
     "open_financial":"開立金融帳戶",

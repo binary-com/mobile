@@ -22,32 +22,21 @@
         vm.currenciesOptions = [];
         const currencyConfig = appStateService.currenciesConfig;
         const payoutCurrencies = appStateService.payoutCurrencies;
+        vm.cryptoConfig = {
+            BTC: { name: 'bitcoin' },
+            BCH: { name: 'bitcoin_cash' },
+            ETH: { name: 'ether' },
+            ETC: { name: 'ether_classic' },
+            LTC: { name: 'litecoin' },
+        };
 
-        $translate([
-            "cryptocurrencies.bitcoin",
-            "cryptocurrencies.bitcoin_cash",
-            "cryptocurrencies.ether",
-            "cryptocurrencies.ether_classic",
-            "cryptocurrencies.litecoin",
-        ]).then(translation => {
-            vm.cryptoConfig = {
-                BTC: { name: translation["cryptocurrencies.bitcoin"] },
-                BCH: { name: translation["cryptocurrencies.bitcoin_cash"] },
-                ETH: { name: translation["cryptocurrencies.ether"] },
-                ETC: { name: translation["cryptocurrencies.ether_classic"] },
-                LTC: { name: translation["cryptocurrencies.litecoin"] },
-            };
-        }).then(() => {
-            init();
-        });
-
-        const getCurrenciesOptions = () => {
+        vm.getCurrenciesOptions = () => {
             payoutCurrencies.forEach(curr => {
                 const	currency = currencyConfig[curr];
                 const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
                 currency.symb = curr;
                 currency.isCryptoCurrency = isCryptoCurrency;
-                currency.img = `../../../img/currency/${curr.toLowerCase()}.svg`;
+                currency.img = `/img/currency/${curr.toLowerCase()}.svg`;
                 if (isCryptoCurrency) {
                     currency.name = vm.cryptoConfig[curr].name;
                 }
@@ -82,9 +71,10 @@
         });
 
         async function init () {
-            const options = await getCurrenciesOptions();
+            const options = await vm.getCurrenciesOptions();
             hasCurrency(options);
         };
 
+        init();
     }
 })();

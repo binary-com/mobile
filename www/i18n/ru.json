@@ -24,8 +24,6 @@
   "alert":{
     "error":"Ошибка!",
     "warning":"Предупреждение",
-    "info":"Info",
-    "congratulation":"Congratulation",
     "not_valid":"Пожалуйста, введите действующий ключ.",
     "not_auth":"Извините, мы не смогли Вас идентифицировать.",
     "not_unique":"Вы уже добавили этот счёт.",
@@ -175,8 +173,7 @@
     "invalid_email":"Пожалуйста, укажите правильный email.",
     "password-pattern-error":"Пароль должен состоять из заглавных, строчных букв и цифр.",
     "length-error-6-25":"Запись в данном поле не должна превышать 6-25 знаков.",
-    "required":"Данное поле является обязательным.",
-    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
+    "required":"Данное поле является обязательным."
   },
   "newaccountmaltainvest":{
     "open_financial":"Открыть финансовый счёт",
