@@ -16,7 +16,8 @@
         'appStateService',
         'websocketService',
         'localStorageService',
-        'accountService'];
+        'accountService',
+        'currencyService'];
 
     function SetCurrency($scope,
         $rootScope,
@@ -25,42 +26,64 @@
         appStateService,
         websocketService,
         localStorageService,
-        accountService) {
+        accountService,
+        currencyService) {
         const vm = this;
         const cryptoConfig = config.cryptoConfig;
         const currencyConfig = appStateService.currenciesConfig;
         const payoutCurrencies = appStateService.payoutCurrencies;
         const accounts = accountService.getAll();
         const currentAccount = accountService.getDefault();
+        vm.isCRAccount = currentAccount.id.startsWith('CR');
         vm.currenciesOptions = [];
 
-
-
         vm.getCurrenciesOptions = () => {
-
-
-
-
-
-
-            // payoutCurrencies.forEach(curr => {
-            //     const	currency = currencyConfig[curr];
-            //     const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
-            //     currency.symb = curr;
-            //     currency.isCryptoCurrency = isCryptoCurrency;
-            //     currency.img = `/img/currency/${curr.toLowerCase()}.svg`;
-            //     if (isCryptoCurrency) {
-            //         currency.name = cryptoConfig[curr].name;
-            //     }
-            //     vm.currenciesOptions.push(currencyConfig[curr]);
-            // });
-            // return vm.currenciesOptions;
+            const legalAllowedCurrencies = currencyService.getLandingCompanyProperty(currentAccount.id, 'legal_allowed_currencies');
+            if (vm.isCRAccount) {
+                const existingCurrencies = currencyService.getExistingCurrencies(accounts);
+                if (existingCurrencies.length) {
+                    const dividedExistingCurrencies = currencyService.dividedCurrencies(existingCurrencies);
+                    const hasFiat = dividedExistingCurrencies.fiatCurrencies.length > 0;
+                    if (hasFiat) {
+                        const legalAllowedCryptoCurrencies = currencyService.dividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
+                        const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
+                        return _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
+                    } else {
+                        return _.difference(legalAllowedCurrencies, existingCurrencies);
+                    }
+                } else {
+	                return legalAllowedCurrencies;
+                }
+            } else {
+                console.log(legalAllowedCurrencies);
+                // for all accounts except CR accounts
+                return legalAllowedCurrencies;
+            }
         };
+
+        const populateOptions = (options) => {
+            options.forEach(curr => {
+                const	currency = currencyConfig[curr];
+                const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
+                currency.symb = curr;
+                currency.isCryptoCurrency = isCryptoCurrency;
+                currency.img = `/img/currency/${curr.toLowerCase()}.svg`;
+                if (isCryptoCurrency) {
+                    currency.name = cryptoConfig[curr].name;
+                }
+                vm.currenciesOptions.push(currencyConfig[curr]);
+            });
+        };
+
+
+
+
+        console.log(vm.getCurrenciesOptions());
 
         const hasCurrency = (options) => {
             $scope.$applyAsync(() => {
-                vm.hasCrypto = _.findIndex(options, 'isCryptoCurrency') > -1;
-                vm.hasFiat = _.findIndex(options, ['isCryptoCurrency', false]) > -1;
+                vm.hasCryptoOption = _.findIndex(options, 'isCryptoCurrency') > -1;
+                vm.hasFiatOption = _.findIndex(options, ['isCryptoCurrency', false]) > -1;
             });
         };
 
@@ -84,6 +107,7 @@
 
         async function init () {
             const options = await vm.getCurrenciesOptions();
+            populateOptions(options);
             hasCurrency(options);
         };
 

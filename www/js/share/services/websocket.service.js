@@ -677,7 +677,12 @@ angular
                             }
                             break;
                         case "landing_company":
-                            $rootScope.$broadcast("landing_company", message.landing_company);
+                            if (message.landing_company) {
+                                localStorage.setItem('landingCompanyObject', JSON.stringify(message.landing_company));
+                                $rootScope.$broadcast("landing_company", message.landing_company);
+                            } else if (message.error) {
+                                $rootScope.$broadcast("landing_company:error", message.error.message);
+                            }
                             break;
                         case "states_list":
                             $rootScope.$broadcast("states_list", message.states_list);
