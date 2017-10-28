@@ -107,5 +107,12 @@ angular.module("binary").constant("config", {
         contractFrom       : 2,
         contractTo         : 3
     },
+    cryptoConfig: {
+        BTC: { name: 'bitcoin' },
+        BCH: { name: 'bitcoin_cash' },
+        ETH: { name: 'ether' },
+        ETC: { name: 'ether_classic' },
+        LTC: { name: 'litecoin' },
+    },
     appSupportedLanguages: ["en", "id", "ru", "zh_tw", "zh_cn", "de", "fr", "pl", "it"]
 });

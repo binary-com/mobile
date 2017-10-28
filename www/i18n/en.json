@@ -831,7 +831,10 @@
   },
   "set-currency": {
     "select_currency": "Select currency",
-    "select_currency_text": "Please select the currency of this account:"
+    "select_currency_text": "Please select the currency of this account:",
+    "fiat_currency": "Fiat Currency",
+    "cryptocurrency": "Cryptocurrency",
+    "confirm": "Confirm"
   },
   "cryptocurrencies": {
     "bitcoin": "Bitcoin",
@@ -839,10 +842,5 @@
     "ether": "Ether",
     "ether_classic": "Ether Classic",
     "litecoin": "Litecoin"
-  },
-  "select-currency": {
-    "fiat_currency": "Fiat Currency",
-    "cryptocurrency": "Cryptocurrency",
-    "confirm": "Confirm"
   }
 }
