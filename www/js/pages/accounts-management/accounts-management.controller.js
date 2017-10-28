@@ -29,12 +29,11 @@
 
         vm.accountType = id => currencyService.getAccountType(id);
         vm.getAvailableMarkets = (id) => {
-            let availableMarketsArray = currencyService.getLandingCompanyProperty(id, 'legal_allowed_markets');
+            let availableMarketsArray = currencyService.landingCompanyValue(id, 'legal_allowed_markets');
             if (Array.isArray(availableMarketsArray) && availableMarketsArray.length) {
                 availableMarkets = _.join(availableMarketsArray, ', ');
             }
             return availableMarkets;
         }
-
     }
 })();

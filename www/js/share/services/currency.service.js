@@ -39,16 +39,13 @@ angular.module("binary").service("currencyService", function(appStateService) {
                 landingCompanyOfAccount = landingCompanyObject.financial_company;
             }
         } else {
-            const financial_company = (landingCompanyObject.financial_company || {})[key] || [];
-            const gaming_company    = (landingCompanyObject.gaming_company || {})[key] || [];
-            landingCompanyOfAccount  = financial_company.concat(gaming_company);
+            const financialCompany = (landingCompanyObject.financial_company || {})[key] || [];
+            const gamingCompany    = (landingCompanyObject.gaming_company || {})[key] || [];
+            landingCompanyOfAccount  = financialCompany.concat(gamingCompany);
             return landingCompanyOfAccount;
         }
-        return landingCompanyOfAccount;
+        return (landingCompanyOfAccount || {})[key];
     }
-
-    // to get legal allowed currencies and legal allowed markets
-    this.getLandingCompanyProperty = (loginid, prop) => this.landingCompanyValue(loginid)[prop] || this.landingCompanyValue(loginid, prop);
 
     // ignore virtual account currency in existing currencies
     this.getExistingCurrencies = (accounts) => {

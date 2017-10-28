@@ -38,7 +38,7 @@
         vm.currenciesOptions = [];
 
         vm.getCurrenciesOptions = () => {
-            const legalAllowedCurrencies = currencyService.getLandingCompanyProperty(currentAccount.id, 'legal_allowed_currencies');
+            const legalAllowedCurrencies = currencyService.landingCompanyValue(currentAccount.id, 'legal_allowed_currencies');
             if (vm.isCRAccount) {
                 const existingCurrencies = currencyService.getExistingCurrencies(accounts);
                 if (existingCurrencies.length) {
