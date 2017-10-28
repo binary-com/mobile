@@ -259,7 +259,7 @@
         };
 
         vm.navigateToCreateNewAccount = () => {
-            $state.go("create-new-account");
+            $state.go("accounts-management");
         }
 
         vm.init();

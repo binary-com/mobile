@@ -842,5 +842,14 @@
     "ether": "Ether",
     "ether_classic": "Ether Classic",
     "litecoin": "Litecoin"
+  },
+  "accounts-management": {
+    "create_account": "Create Account",
+    "real": "Real",
+    "virtual": "Virtual",
+    "gaming": "Gaming",
+    "financial": "Investment",
+    "account_real": "Real account",
+    "account_financial": "Financial Account"
   }
 }

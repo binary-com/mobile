@@ -68,7 +68,8 @@
         "binary.pages.authentication",
         "binary.pages.contact",
         "binary.pages.notifications",
-        "binary.pages.set-currency"
+        "binary.pages.set-currency",
+        "binary.pages.accounts-management"
     ]);
 
     String.prototype.capitalize = function() {

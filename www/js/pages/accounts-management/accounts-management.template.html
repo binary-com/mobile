@@ -1,0 +1,29 @@
+<ion-view class="accounts-management">
+    <ion-content class="general-content has-header has-subheader">
+        <div class="row">
+            <div class="col">
+                <h1 class="sub-title">
+                    Create New Account
+                </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h1 class="sub-title">
+                    Your Existing accounts
+                </h1>
+            </div>
+        </div>
+        <div class="row list" ng-repeat="account in vm.accounts">
+            <div class="col item">
+                {{ account.id }}
+            </div>
+            <div class="col item" translate="{{ 'accounts-management.' + vm.accountType(account.id)}}">
+            </div>
+            <div class="col item" ng-bind="vm.getAvailableMarkets(account.id)">
+            </div>
+            <div class="col item" ng-if="account.currency">{{ account.currency }}</div>
+        </div>
+    </ion-content>
+</ion-view>

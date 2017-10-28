@@ -8,7 +8,7 @@
 
 angular.module("binary").service("currencyService", function(appStateService) {
 
-    const getAccountType = (loginid) => {
+    this.getAccountType = (loginid) => {
         let account_type;
         if (loginid.startsWith('VR'))  account_type = 'virtual';
         else if (loginid.startsWith('MF'))  account_type = 'financial';
@@ -18,7 +18,7 @@ angular.module("binary").service("currencyService", function(appStateService) {
     };
 
     const isAccountOfType = (type, loginid) => {
-        const accountType = getAccountType(loginid);
+        const accountType = this.getAccountType(loginid);
         return (
             (type === 'virtual' && accountType === 'virtual') ||
             (type === 'real'    && accountType !== 'virtual') ||
@@ -27,7 +27,7 @@ angular.module("binary").service("currencyService", function(appStateService) {
 
     const isCryptocurrency = (currencyConfig, curr) => /crypto/i.test(currencyConfig[curr].type)
 
-    this.landingCompanyValue = (loginid) => {
+    this.landingCompanyValue = (loginid, key) => {
         let landingCompanyOfAccount;
         const landingCompanyObject = JSON.parse(localStorage.getItem('landingCompanyObject'));
         if (isAccountOfType('financial', loginid)) {
@@ -38,12 +38,17 @@ angular.module("binary").service("currencyService", function(appStateService) {
             if (!landingCompanyOfAccount) {
                 landingCompanyOfAccount = landingCompanyObject.financial_company;
             }
+        } else {
+            const financial_company = (landingCompanyObject.financial_company || {})[key] || [];
+            const gaming_company    = (landingCompanyObject.gaming_company || {})[key] || [];
+            landingCompanyOfAccount  = financial_company.concat(gaming_company);
+            return landingCompanyOfAccount;
         }
         return landingCompanyOfAccount;
     }
 
     // to get legal allowed currencies and legal allowed markets
-    this.getLandingCompanyProperty = (loginid, prop) => this.landingCompanyValue(loginid)[prop];
+    this.getLandingCompanyProperty = (loginid, prop) => this.landingCompanyValue(loginid)[prop] || this.landingCompanyValue(loginid, prop);
 
     // ignore virtual account currency in existing currencies
     this.getExistingCurrencies = (accounts) => {
