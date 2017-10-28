@@ -240,6 +240,10 @@
                 if (vm.requestData.indexOf(key) > -1) {
                     if (key === "date_of_birth") {
                         vm.params[key] = $filter("date")(value, "yyyy-MM-dd");
+                    } else if (key === "secret_question" || key === "secret_answer") {
+                        if (!vm.hasMLTAccount) {
+	                        vm.params[key] = _.trim(value);
+                        }
                     } else {
                         vm.params[key] = _.trim(value);
                     }
@@ -280,7 +284,7 @@
             vm.resetAllErrors();
             websocketService.sendRequestFor.residenceListSend();
             $scope.$applyAsync(() => {
-                vm.isReadonly = !!appStateService.hasMLT;
+                vm.hasMLTAccount = !!appStateService.hasMLT;
             });
         };
 
