@@ -63,7 +63,7 @@
 
         const populateOptions = (options) => {
             options.forEach(curr => {
-                const	currency = currencyConfig[curr];
+                const currency = currencyConfig[curr];
                 const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
                 currency.symb = curr;
                 currency.isCryptoCurrency = isCryptoCurrency;

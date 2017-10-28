@@ -6,7 +6,7 @@
  * @copyright Binary Ltd
  */
 
-angular.module("binary").service("currencyService", function(config) {
+angular.module("binary").service("currencyService", function(appStateService) {
 
     const getAccountType = (loginid) => {
         let account_type;
@@ -39,12 +39,6 @@ angular.module("binary").service("currencyService", function(config) {
                 landingCompanyOfAccount = landingCompanyObject.financial_company;
             }
         }
-        // else {
-        //     const financial_company = (landingCompanyObject.financial_company || {})[key] || [];
-        //     const gaming_company    = (landingCompanyObject.gaming_company || {})[key] || [];
-        //     landingCompanyOfAccount  = financial_company.concat(gaming_company);
-        //     return landingCompanyOfAccount;
-        // }
         return landingCompanyOfAccount;
     }
 
@@ -63,12 +57,12 @@ angular.module("binary").service("currencyService", function(config) {
     }
 
     this.dividedCurrencies = (currencies) => {
-		    const currencyConfig = config.currencyconfig;
+		    const currencyConfig = appStateService.currenciesConfig;
 		    const cryptoCurrencies = [];
 		    const fiatCurrencies = [];
         _.forEach(currencies, curr => {
-            const	currency = currencyConfig[curr];
-            const isCryptoCurrency = isCryptoCurrency(currencyConfig, currency);
+            const currency = currencyConfig[curr];
+            const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
             if (isCryptoCurrency) {
                 cryptoCurrencies.push(curr);
             } else {

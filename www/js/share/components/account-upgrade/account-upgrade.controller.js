@@ -11,9 +11,9 @@
         .module("binary.share.components.account-upgrade.controllers")
         .controller("AccountUpgradeController", AccountUpgrade);
 
-    AccountUpgrade.$inject = ["$scope", "$state", "websocketService", "appStateService"];
+    AccountUpgrade.$inject = ["$scope", "$state", "config", "websocketService", "appStateService", "accountService", "currencyService"];
 
-    function AccountUpgrade($scope, $state, websocketService, appStateService) {
+    function AccountUpgrade($scope, $state, config, websocketService, appStateService, accountService, currencyService) {
         const vm = this;
         vm.reset = function() {
             vm.data = {};
@@ -91,17 +91,26 @@
 	            vm.data.landingCompany.financial_company.shortcode !== "maltainvest") ||
 	            !vm.data.landingCompany.hasOwnProperty('financial_company')
             ) {
-	            if( vm.isVirtual ) {
-		            vm.toReal = true;
-		            vm.getToken();
-	            }
+                if (vm.data.landingCompany.hasOwnProperty('financial_company') && vm.data.landingCompany.financial_company.shortcode === 'costarica') {
+                    if (vm.isVirtual) {
+                        vm.toReal = true;
+                        vm.getToken();
+                    } else {
+                        vm.checkMultiAccountOpening();
+                    }
+                } else {
+                    if( vm.isVirtual ) {
+                        vm.toReal = true;
+                        vm.getToken();
+                    }
+                }
             } else if (vm.data.landingCompany.hasOwnProperty('financial_company') &&
               vm.data.landingCompany.financial_company.shortcode === "maltainvest" &&
               vm.data.landingCompany.hasOwnProperty('gaming_company') &&
               vm.data.landingCompany.gaming_company.shortcode === "malta"
             ) {
 	             // check if has MLT then to MF, if not to MLT
-                if( vm.isVirtual ) {
+                if ( vm.isVirtual ) {
                     vm.toReal = true;
                 } else {
                     vm.toMaltainvest = true;
@@ -118,10 +127,46 @@
             }
         };
 
+        vm.checkMultiAccountOpening = () => {
+            let getCurrencyOptions = {};
+            const accounts = accountService.getAll();
+            const currencyConfig = config.currencyConfig;
+            const currentAccount = accountService.getDefault();
+            const legalAllowedCurrencies = vm.data.landingCompany.financial_company.legal_allowed_currencies
+            const existingCurrencies = currencyService.getExistingCurrencies(accounts);
+            if (existingCurrencies.length) {
+                const dividedExistingCurrencies = currencyService.dividedCurrencies(existingCurrencies);
+                const hasFiat = dividedExistingCurrencies.fiatCurrencies.length > 0;
+                if (hasFiat) {
+                    const legalAllowedCryptoCurrencies = currencyService.dividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
+                    const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
+                    getCurrencyOptions = _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
+                    if (_.keys(getCurrencyOptions).length > 0) {
+                        vm.toMultiAccount = true;
+                        appStateService.isMultiAccountOpening = true;
+                        appStateService.currencyOptions = getCurrencyOptions;
+                        appStateService.legalAllowedMarkets = vm.data.landingCompany.financial_company.legal_allowed_markets;
+                    }
+                } else {
+                    vm.toMultiAccount = true;
+                    appStateService.isMultiAccountOpening = true;
+                    getCurrencyOptions = _.difference(legalAllowedCurrencies, existingCurrencies);
+                    appStateService.currencyOptions = getCurrencyOptions;
+                    appStateService.legalAllowedMarkets = vm.data.landingCompany.financial_company.legal_allowed_markets;
+                }
+            } else {
+                vm.toMultiAccount = true;
+                appStateService.isMultiAccountOpening = true;
+                getCurrencyOptions = legalAllowedCurrencies;
+                appStateService.currencyOptions = getCurrencyOptions;
+                appStateService.legalAllowedMarkets = vm.data.landingCompany.financial_company.legal_allowed_markets;
+            }
+        };
+
         // get tokens from localStorage
         vm.getToken = function() {
             if (localStorage.hasOwnProperty("accounts")) {
-                vm.accounts = JSON.parse(localStorage.accounts);
+                vm.accounts = accountService.getAll();
                 vm.findTokens();
             }
         };
@@ -166,12 +211,16 @@
             if (vm.idsFound.indexOf("VRTC") > -1 && vm.idsFound.indexOf("MXorCRorMLT") < 0) {
                 // can upgrade to MX or CR
                 // use https://developers.binary.com/api/#new_account_real
+                appStateService.currencyOptions = vm.data.landingCompany.gaming_company.legal_allowed_currencies;
+                appStateService.legalAllowedMarkets = vm.data.landingCompany.gaming_company.legal_allowed_markets;
                 vm.newAccountReal();
             }
         };
 
         vm.toMaltainvestStages = function() {
             if (vm.idsFound.indexOf("MF") < 0) {
+                appStateService.currencyOptions = vm.data.landingCompany.financial_company.legal_allowed_currencies;
+                appStateService.legalAllowedMarkets = vm.data.landingCompany.financial_company.legal_allowed_markets;
                 vm.newAccountMaltainvest();
             }
         };
@@ -208,6 +257,10 @@
                 $state.go("maltainvest-account-opening");
             }
         };
+
+        vm.navigateToCreateNewAccount = () => {
+            $state.go("create-new-account");
+        }
 
         vm.init();
     }

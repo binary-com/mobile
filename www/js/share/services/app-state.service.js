@@ -50,6 +50,8 @@ angular.module("binary").factory("appStateService", () => {
     factory.payoutCurrencies = {};
     factory.balanceSubscribtionId = null;
     factory.accountCurrencyChanged = false;
+    factory.isMultiAccountOpening = false;
+    factory.currencyOptions = {};
 
     return factory;
 });
