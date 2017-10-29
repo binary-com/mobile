@@ -45,20 +45,17 @@
                     const dividedExistingCurrencies = currencyService.dividedCurrencies(existingCurrencies);
                     const hasFiat = dividedExistingCurrencies.fiatCurrencies.length > 0;
                     if (hasFiat) {
-                        const legalAllowedCryptoCurrencies = currencyService.dividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
+                        const legalAllowedCryptoCurrencies =
+                            currencyService.dividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
                         const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
                         return _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
-                    } else {
-                        return _.difference(legalAllowedCurrencies, existingCurrencies);
                     }
-                } else {
-	                return legalAllowedCurrencies;
+                    return _.difference(legalAllowedCurrencies, existingCurrencies);
                 }
-            } else {
-                console.log(legalAllowedCurrencies);
-                // for all accounts except CR accounts
                 return legalAllowedCurrencies;
             }
+            // for all accounts except CR accounts
+            return legalAllowedCurrencies;
         };
 
         const populateOptions = (options) => {
@@ -74,11 +71,6 @@
                 vm.currenciesOptions.push(currencyConfig[curr]);
             });
         };
-
-
-
-
-        console.log(vm.getCurrenciesOptions());
 
         const hasCurrency = (options) => {
             $scope.$applyAsync(() => {

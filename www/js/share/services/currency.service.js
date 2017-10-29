@@ -32,7 +32,6 @@ angular.module("binary").service("currencyService", function(appStateService) {
         const landingCompanyObject = JSON.parse(localStorage.getItem('landingCompanyObject'));
         if (isAccountOfType('financial', loginid)) {
             landingCompanyOfAccount = landingCompanyObject.financial_company;
-            console.log(landingCompanyOfAccount);
         } else if (isAccountOfType('real', loginid)) {
             landingCompanyOfAccount = landingCompanyObject.gaming_company;
             if (!landingCompanyOfAccount) {
@@ -72,8 +71,8 @@ angular.module("binary").service("currencyService", function(appStateService) {
             }
         });
         return {
-            cryptoCurrencies: cryptoCurrencies,
-            fiatCurrencies: fiatCurrencies
+            cryptoCurrencies,
+            fiatCurrencies
         };
     }
 

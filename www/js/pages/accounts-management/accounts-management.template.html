@@ -15,15 +15,26 @@
                 </h1>
             </div>
         </div>
-        <div class="row list" ng-repeat="account in vm.accounts">
+        <div class="row list" ng-repeat="account in vm.existingAccounts track by $index">
             <div class="col item">
                 {{ account.id }}
             </div>
-            <div class="col item" translate="{{ 'accounts-management.' + vm.accountType(account.id)}}">
+            <div class="col item"  translate="{{ 'accounts-management.' + account.type }}">
             </div>
-            <div class="col item" ng-bind="vm.getAvailableMarkets(account.id)">
+            <div class="col item">
+                {{ account.availableMarkets }}
             </div>
-            <div class="col item" ng-if="account.currency">{{ account.currency }}</div>
+            <div class="col item" ng-if="account.currency && account.currency !== ''">
+                {{ account.currency }}
+            </div>
+            <div
+              class="col item"
+              ng-if="account.currency === '' && vm.currentAccount.id === account.id"
+              ng-click="vm.redirectToSetCurrency()">
+                <button class="button default-button">
+                    set currency
+                </button>
+            </div>
         </div>
     </ion-content>
 </ion-view>
