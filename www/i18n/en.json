@@ -844,14 +844,33 @@
     "litecoin": "Litecoin"
   },
   "accounts-management": {
-    "create_account": "Create Account",
+    "create_account": "Create account",
     "real": "Real",
     "virtual": "Virtual",
     "gaming": "Gaming",
     "financial": "Investment",
     "account_real": "Real account",
-    "account_financial": "Financial Account",
+    "account_financial": "Financial account",
     "fiat_currencies": "Fiat currency",
-    "crypto_currencies": "Cryptocurrency"
+    "crypto_currencies": "Cryptocurrency",
+    "please_select_currency" : "Please set the currency for your existing account {{loginid}}, in order to create more accounts.",
+    "set_currency": "Set currency",
+    "existing_accounts": "Your existing accounts",
+    "create_new": "Create new account",
+    "create": "Create",
+    "account": "Account",
+    "available_markets": "Available markets",
+    "available_currencies": "Available currencies",
+    "action": "Action",
+    "type": "Type",
+    "currency": "Currency",
+    "accounts_list": "Accounts list",
+    "no_more_account": "You have created all accounts available to you.",
+    "commodities": "Commodities",
+    "forex": "Forex",
+    "smarties": "Smarties",
+    "indices": "Indices",
+    "stocks": "Stocks",
+    "volidx": "Volatility Indices"
   }
 }

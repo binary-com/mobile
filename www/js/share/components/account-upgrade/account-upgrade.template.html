@@ -18,13 +18,13 @@
       class="item-content"
       ng-if="vm.showUpgradeLink || vm.showUpgradeLinkMaltainvest || vm.toMultiAccount"
       ng-click="vm.navigateToCreateNewAccount()">
-        Create New Account
+        {{ 'accounts-management.create_account' | translate }}
     </a>
     <a
       menu-close
       class="item-content"
       ng-if="!vm.showUpgradeLink && !vm.showUpgradeLinkMaltainvest && !vm.toMultiAccount"
       ng-click="vm.navigateToCreateNewAccount()">
-        Accounts list
+        {{ 'accounts-management.accounts_list' | translate }}
     </a>
 </div>

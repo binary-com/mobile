@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col">
                 <h1 class="sub-title">
-                    Create New Account
+                    {{ 'accounts-management.create_new' | translate }}
                 </h1>
             </div>
         </div>
@@ -19,14 +19,24 @@
                         ng-options="currency.name as currency.name group by currency.currencyGroup | translate for currency in vm.newAccountCurrencyOptions"></select>
             </div>
             <div class="col">
-
+                <button class="button default-button" ng-click="vm.redirectToAccountOpening()">
+                    {{ 'accounts-management.create' | translate }}
+                </button>
+                <span ng-if="vm.selectCurrencyError">
+                    {{ 'accounts-management.please_select_currency' | translate : { loginid: vm.currentAccount.id } }}
+                </span>
+            </div>
+        </div>
+        <div class="row" ng-if="!vm.isNewAccountReal && !vm.isNewAccountMaltainvest && !vm.isMultiAccountOpening">
+            <div class="col">
+                {{ 'accounts-management.no_more_account' | translate }}
             </div>
         </div>
 
         <div class="row">
             <div class="col">
                 <h1 class="sub-title">
-                    Your Existing accounts
+                    {{ 'accounts-management.existing_accounts' | translate }}
                 </h1>
             </div>
         </div>
@@ -47,7 +57,7 @@
               ng-if="account.currency === '' && vm.currentAccount.id === account.id"
               ng-click="vm.redirectToSetCurrency()">
                 <button class="button default-button">
-                    set currency
+                    {{ 'account-management.set_currency' | translate }}
                 </button>
             </div>
         </div>

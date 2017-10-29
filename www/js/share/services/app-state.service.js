@@ -53,6 +53,7 @@ angular.module("binary").factory("appStateService", () => {
     factory.isMultiAccountOpening = false;
     factory.currencyOptions = {};
     factory.legalAllowedMarkets = {};
+    factory.selectedCurrency = false;
 
     return factory;
 });

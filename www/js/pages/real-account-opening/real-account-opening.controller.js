@@ -30,6 +30,7 @@
     ) {
         const vm = this;
         vm.data = {};
+        vm.isReadonly = appStateService.isMultiAccountOpening;
         vm.hasResidence = false;
         vm.disableUpdatebutton = false;
         vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
@@ -64,13 +65,23 @@
         });
 
         $scope.$on("get_settings", (e, get_settings) => {
-            if (get_settings.hasOwnProperty("country_code")) {
-                $scope.$applyAsync(() => {
+            _.forEach(get_settings, (val, key) => {
+                if (vm.requestData.indexOf(key) > -1) {
+                    if (key === "date_of_birth") {
+                        vm.data[key] = new Date(val * 1000);
+                    } else if (key === "place_of_birth" && val) {
+                        vm.hasPlaceOfbirth = true;
+                        vm.data[key] = val;
+                    } else {
+                        vm.data[key] = val;
+                    }
+                } else if (key === "country_code") {
                     vm.hasResidence = true;
-                });
-                vm.data.residence = get_settings.country_code;
-                websocketService.sendRequestFor.statesListSend(vm.data.residence);
-            }
+                    vm.data.residence = get_settings.country_code;
+                    websocketService.sendRequestFor.statesListSend(vm.data.residence);
+                }
+            });
+
             if (!get_settings.hasOwnProperty("phone")) {
                 vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
                 if (vm.phoneCodeObj.hasOwnProperty("phone_idd")) {
@@ -130,6 +141,10 @@
                         vm.params[key] = $filter("date")(value, "yyyy-MM-dd");
                     } else if (key === "address_post_code") {
                         vm.params[key] = value.trim();
+                    } else if (key === "secret_question" || key === "secret_answer") {
+                        if (!vm.isReadonly) {
+                            vm.params[key] = _.trim(value);
+                        }
                     } else {
                         vm.params[key] = value;
                     }

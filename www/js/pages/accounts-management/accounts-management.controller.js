@@ -21,6 +21,7 @@
 
     function AccountsManagement($scope, $state, appStateService, accountService, currencyService) {
         const vm = this;
+        vm.selectCurrencyError = false;
         vm.isMultiAccountOpening = appStateService.isMultiAccountOpening;
         vm.isNewAccountMaltainvest = appStateService.isNewAccountMaltainvest;
         vm.isNewAccountReal = appStateService.isNewAccountReal;
@@ -108,7 +109,9 @@
         const init = () => {
             vm.typeOfNextAccount = getNextAccountType();
             vm.newAccountCurrencyOptions = getCurrenciesForNewAccount();
-            vm.selectedCurrency = vm.newAccountCurrencyOptions[0].name;
+            if (vm.newAccountCurrencyOptions.length) {
+                vm.selectedCurrency = vm.newAccountCurrencyOptions[0].name;
+            }
             vm.existingAccounts = getExistingAccounts();
         };
 
@@ -116,6 +119,20 @@
         vm.redirectToSetCurrency = () => {
             $state.go('set-currency');
         };
+
+        vm.redirectToAccountOpening = () => {
+            if (vm.currentAccount.currency && vm.currentAccount.currency !== '') {
+                appStateService.selectedCurrency = vm.selectedCurrency;
+                if (vm.isMultiAccountOpening || vm.isNewAccountReal) {
+                    $state.go('real-account-opening');
+                } else if (vm.isNewAccountMaltainvest) {
+                    $state.go('maltainvest-account-opening');
+                }
+            } else {
+                vm.selectCurrencyError = true;
+            }
+
+        }
 
         init();
 
