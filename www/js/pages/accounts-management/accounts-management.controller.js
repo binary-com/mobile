@@ -24,8 +24,39 @@
         vm.isMultiAccountOpening = appStateService.isMultiAccountOpening;
         vm.isNewAccountMaltainvest = appStateService.isNewAccountMaltainvest;
         vm.isNewAccountReal = appStateService.isNewAccountReal;
+        vm.currencyOptions = appStateService.currencyOptions;
+        vm.legalAllowedMarkets = _.join(appStateService.legalAllowedMarkets, ', ');
         const accounts = accountService.getAll();
         vm.currentAccount = accountService.getDefault();
+
+        const isCryptocurrency = (currencyConfig, curr) => /crypto/i.test(currencyConfig[curr].type);
+
+        const getNextAccountType = () => {
+            let nextAccount;
+            if (vm.isMultiAccountOpening || vm.isNewAccountReal) {
+                nextAccount = 'real';
+            } else if (isNewAccountMaltainvest) {
+                nextAccount = 'financial';
+            }
+            return nextAccount;
+        };
+
+        const getCurrenciesForNewAccount = () => {
+            const currencyConfig = appStateService.currenciesConfig;
+            const currenciesLength = vm.currencyOptions.length;
+            const currencyOptions = [];
+            for (var i = 0; i < currenciesLength; i++ ) {
+                let currencyObject = {};
+                const curr = vm.currencyOptions[i];
+                currencyObject.name = curr;
+                // adding translate labels to currencies
+                currencyObject.currencyGroup = /crypto/i.test(currencyConfig[curr].type) ?
+                    'accounts-management.crypto_currencies' :
+                    'accounts-management.fiat_currencies';
+                currencyOptions.push(currencyObject);
+            }
+            return currencyOptions;
+        }
 
         const accountType = id => currencyService.getAccountType(id);
         const getAvailableMarkets = (id) => {
@@ -74,11 +105,19 @@
             return existingAccounts;
         };
 
-        vm.existingAccounts = getExistingAccounts();
+        const init = () => {
+            vm.typeOfNextAccount = getNextAccountType();
+            vm.newAccountCurrencyOptions = getCurrenciesForNewAccount();
+            vm.selectedCurrency = vm.newAccountCurrencyOptions[0].name;
+            vm.existingAccounts = getExistingAccounts();
+        };
+
 
         vm.redirectToSetCurrency = () => {
             $state.go('set-currency');
-        }
+        };
+
+        init();
 
     }
 })();

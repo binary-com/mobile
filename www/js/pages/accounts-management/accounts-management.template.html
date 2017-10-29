@@ -7,6 +7,21 @@
                 </h1>
             </div>
         </div>
+        <div class="row" ng-if="vm.isNewAccountReal || vm.isNewAccountMaltainvest || vm.isMultiAccountOpening">
+            <div class="col">
+                {{ vm.typeOfNextAccount }}
+            </div>
+            <div class="col">
+                {{ vm.legalAllowedMarkets }}
+            </div>
+            <div class="col select-item">
+                <select ng-model="vm.selectedCurrency"
+                        ng-options="currency.name as currency.name group by currency.currencyGroup | translate for currency in vm.newAccountCurrencyOptions"></select>
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
 
         <div class="row">
             <div class="col">

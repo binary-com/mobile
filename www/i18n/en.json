@@ -850,6 +850,8 @@
     "gaming": "Gaming",
     "financial": "Investment",
     "account_real": "Real account",
-    "account_financial": "Financial Account"
+    "account_financial": "Financial Account",
+    "fiat_currencies": "Fiat currency",
+    "crypto_currencies": "Cryptocurrency"
   }
 }
