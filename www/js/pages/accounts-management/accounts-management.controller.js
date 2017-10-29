@@ -35,7 +35,7 @@
             let nextAccount;
             if (vm.isMultiAccountOpening || vm.isNewAccountReal) {
                 nextAccount = 'real';
-            } else if (isNewAccountMaltainvest) {
+            } else if (vm.isNewAccountMaltainvest) {
                 nextAccount = 'financial';
             }
             return nextAccount;
@@ -45,8 +45,8 @@
             const currencyConfig = appStateService.currenciesConfig;
             const currenciesLength = vm.currencyOptions.length;
             const currencyOptions = [];
-            for (var i = 0; i < currenciesLength; i++ ) {
-                let currencyObject = {};
+            for (let i = 0; i < currenciesLength; i++ ) {
+                const currencyObject = {};
                 const curr = vm.currencyOptions[i];
                 currencyObject.name = curr;
                 // adding translate labels to currencies
