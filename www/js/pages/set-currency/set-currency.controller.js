@@ -94,7 +94,16 @@
             localStorage.setItem("accounts", JSON.stringify(accounts));
             appStateService.accountCurrencyChanged = true;
             $rootScope.$broadcast("currency:changed", currency);
-            $state.go("trade");
+            // if user is redirected here from accounts-management page redirect him/her to account-management page
+            if (vm.from === 'accounts-management') {
+                $state.go("accounts-management");
+            } else {
+                $state.go("trade");
+            }
+        });
+
+        $scope.$on('$stateChangeSuccess', (ev, to, toParams, from, fromParams) => {
+            vm.from = from.name;
         });
 
         async function init () {
