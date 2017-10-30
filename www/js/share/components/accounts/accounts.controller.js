@@ -96,7 +96,13 @@
             appStateService.hasAgeVerificationMessage = false;
             appStateService.hasCurrencyMessage = false;
             appStateService.checkedAccountStatus = false;
-	          notificationService.emptyNotices();
+            appStateService.accountCurrencyChanged = false;
+            appStateService.isMultiAccountOpening = false;
+            appStateService.currencyOptions = {};
+            appStateService.legalAllowedMarkets = {};
+            appStateService.selectedCurrency = false;
+            notificationService.emptyNotices();
+            notificationService.emptyNotices();
         };
 
         $scope.$on("authorize", (e, authorize) => {

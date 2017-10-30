@@ -183,6 +183,11 @@ angular
                 appStateService.hasCountryMessage = false;
                 appStateService.hasCurrencyMessage = false;
                 appStateService.checkedAccountStatus = false;
+                appStateService.accountCurrencyChanged = false;
+                appStateService.isMultiAccountOpening = false;
+                appStateService.currencyOptions = {};
+                appStateService.legalAllowedMarkets = {};
+                appStateService.selectedCurrency = false;
                 notificationService.emptyNotices();
 
                 if (error) {

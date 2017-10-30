@@ -16,7 +16,7 @@
             </div>
             <div class="col select-item">
                 <select ng-model="vm.selectedCurrency"
-                        ng-options="currency.name as currency.name group by currency.currencyGroup | translate for currency in vm.newAccountCurrencyOptions"></select>
+                        ng-options="currency.name as currency.name group by currency.currencyGroup for currency in vm.newAccountCurrencyOptions"></select>
             </div>
             <div class="col">
                 <button class="button default-button" ng-click="vm.redirectToAccountOpening()">
@@ -32,7 +32,6 @@
                 {{ 'accounts-management.no_more_account' | translate }}
             </div>
         </div>
-
         <div class="row">
             <div class="col">
                 <h1 class="sub-title">

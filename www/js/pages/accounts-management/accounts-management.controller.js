@@ -14,30 +14,49 @@
     AccountsManagement.$inject = [
         "$scope",
         "$state",
+        "$translate",
         "appStateService",
         "accountService",
         "currencyService"
     ];
 
-    function AccountsManagement($scope, $state, appStateService, accountService, currencyService) {
+    function AccountsManagement($scope, $state, $translate, appStateService, accountService, currencyService) {
         const vm = this;
         vm.selectCurrencyError = false;
         vm.isMultiAccountOpening = appStateService.isMultiAccountOpening;
         vm.isNewAccountMaltainvest = appStateService.isNewAccountMaltainvest;
         vm.isNewAccountReal = appStateService.isNewAccountReal;
         vm.currencyOptions = appStateService.currencyOptions;
-        vm.legalAllowedMarkets = _.join(appStateService.legalAllowedMarkets, ', ');
         const accounts = accountService.getAll();
         vm.currentAccount = accountService.getDefault();
+        const activeMarkets = {
+            commodities: $translate.instant('accounts-management.commodities'),
+            forex      : $translate.instant('accounts-management.forex'),
+            indices    : $translate.instant('accounts-management.indices'),
+            stocks     : $translate.instant('accounts-management.stocks'),
+            volidx     : $translate.instant('accounts-management.volidx')
+        };
+
+        const filterMarkets = (markets) => {
+            const availableMarkets = [];
+            _.forEach(markets, (market) => {
+                if (market in activeMarkets) {
+                    availableMarkets.push(activeMarkets[market]);
+                }
+            });
+            return availableMarkets;
+        };
+        // legal allowed markets for new account
+        vm.legalAllowedMarkets = _.join(filterMarkets(appStateService.legalAllowedMarkets), ', ');
 
         const isCryptocurrency = (currencyConfig, curr) => /crypto/i.test(currencyConfig[curr].type);
 
         const getNextAccountType = () => {
             let nextAccount;
             if (vm.isMultiAccountOpening || vm.isNewAccountReal) {
-                nextAccount = 'real';
+                nextAccount = $translate.instant('accounts-management.account_real');
             } else if (vm.isNewAccountMaltainvest) {
-                nextAccount = 'financial';
+                nextAccount = $translate.instant('accounts-management.account_financial');
             }
             return nextAccount;
         };
@@ -52,18 +71,20 @@
                 currencyObject.name = curr;
                 // adding translate labels to currencies
                 currencyObject.currencyGroup = /crypto/i.test(currencyConfig[curr].type) ?
-                    'accounts-management.crypto_currencies' :
-                    'accounts-management.fiat_currencies';
+                    $translate.instant('accounts-management.crypto_currencies') :
+                    $translate.instant('accounts-management.fiat_currencies');
                 currencyOptions.push(currencyObject);
             }
             return currencyOptions;
         }
 
         const accountType = id => currencyService.getAccountType(id);
+
         const getAvailableMarkets = (id) => {
-            let availableMarkets = currencyService.landingCompanyValue(id, 'legal_allowed_markets');
-            if (Array.isArray(availableMarkets) && availableMarkets.length) {
-                availableMarkets = _.join(availableMarkets, ', ');
+            const legalAllowedMarkets = currencyService.landingCompanyValue(id, 'legal_allowed_markets');
+            let availableMarkets = [];
+            if (Array.isArray(legalAllowedMarkets) && legalAllowedMarkets.length) {
+                availableMarkets = _.join(filterMarkets(legalAllowedMarkets), ', ');
             }
             return availableMarkets;
         };

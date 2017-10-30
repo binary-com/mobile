@@ -58,9 +58,9 @@ angular.module("binary").service("currencyService", function(appStateService) {
     }
 
     this.dividedCurrencies = (currencies) => {
-		    const currencyConfig = appStateService.currenciesConfig;
-		    const cryptoCurrencies = [];
-		    const fiatCurrencies = [];
+        const currencyConfig = appStateService.currenciesConfig;
+        const cryptoCurrencies = [];
+        const fiatCurrencies = [];
         _.forEach(currencies, curr => {
             const currency = currencyConfig[curr];
             const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
