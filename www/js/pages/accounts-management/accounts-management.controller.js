@@ -152,8 +152,13 @@
             } else {
                 vm.selectCurrencyError = true;
             }
+        };
 
-        }
+        $scope.$on('authorize', (e, authorize) => {
+            if (vm.currentAccount !== authorize.loginid) {
+                $state.reload();
+            }
+        });
 
         init();
 

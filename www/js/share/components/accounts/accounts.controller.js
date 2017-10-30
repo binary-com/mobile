@@ -102,7 +102,6 @@
             appStateService.legalAllowedMarkets = {};
             appStateService.selectedCurrency = false;
             notificationService.emptyNotices();
-            notificationService.emptyNotices();
         };
 
         $scope.$on("authorize", (e, authorize) => {
