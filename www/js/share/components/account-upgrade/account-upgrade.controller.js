@@ -39,6 +39,7 @@
             vm.idsFound = [];
             appStateService.isNewAccountReal = false;
             appStateService.isNewAccountMaltainvest = false;
+            appStateService.isMultiAccountOpening = false;
             appStateService.isCheckedAccountType = false;
         };
 

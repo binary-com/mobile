@@ -40,7 +40,7 @@
         const filterMarkets = (markets) => {
             const availableMarkets = [];
             _.forEach(markets, (market) => {
-                if (market in activeMarkets) {
+                if (market in activeMarkets && _.indexOf(availableMarkets, activeMarkets[market]) < 0) {
                     availableMarkets.push(activeMarkets[market]);
                 }
             });
@@ -155,8 +155,8 @@
         };
 
         $scope.$on('authorize', (e, authorize) => {
-            if (vm.currentAccount !== authorize.loginid) {
-                $state.reload();
+            if (vm.currentAccount.id !== authorize.loginid) {
+                $state.go('trade');
             }
         });
 

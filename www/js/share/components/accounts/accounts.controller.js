@@ -80,6 +80,7 @@
             appStateService.statementRefresh = true;
             appStateService.isNewAccountReal = false;
             appStateService.isNewAccountMaltainvest = false;
+            appStateService.isMultiAccountOpening = false;
             appStateService.hasMLT = false;
             sessionStorage.removeItem("countryParams");
             appStateService.isPopupOpen = false;
@@ -96,11 +97,6 @@
             appStateService.hasAgeVerificationMessage = false;
             appStateService.hasCurrencyMessage = false;
             appStateService.checkedAccountStatus = false;
-            appStateService.accountCurrencyChanged = false;
-            appStateService.isMultiAccountOpening = false;
-            appStateService.currencyOptions = {};
-            appStateService.legalAllowedMarkets = {};
-            appStateService.selectedCurrency = false;
             notificationService.emptyNotices();
         };
 
