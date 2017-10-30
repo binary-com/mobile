@@ -1,28 +1,19 @@
 .accounts-management {
-  ul.statement-table {
+  ul {
     display: table;
     width: 100%;
 
-    li.list {
+    li {
       display: table-row;
       width: 100%;
-
-      &.no-transaction {
-        display: block;
+      &.list-title {
+        background: $fillColor;
       }
-
-      .statement-element {
+      .list-element {
         display: table-cell;
         padding: 5px;
         font-size: 0.8rem;
-
-        &:nth-child(2) {
-          padding-top: 10px;
-        }
-      }
-
-      &.list-title {
-        background: $fillColor;
+        vertical-align: middle;
       }
     }
   }

@@ -13,18 +13,25 @@
       ng-click="vm.navigateToUpgrade()">
         {{'newaccountmaltainvest.open_financial' | translate}}
     </a>
-    <a
-      menu-close
-      class="item-content"
-      ng-if="vm.showUpgradeLink || vm.showUpgradeLinkMaltainvest || vm.toMultiAccount"
-      ng-click="vm.navigateToCreateNewAccount()">
+    <ion-item
+        nav-clear
+        menu-close
+        ui-sref="accounts-management"
+        tabindex="1"
+        href="#"
+        ng-if="vm.showUpgradeLink || vm.showUpgradeLinkMaltainvest || vm.toMultiAccount">
+        <div class="icon-wrapper">
+            <i class="ion-plus-round"></i>
+        </div>
         {{ 'accounts-management.create_account' | translate }}
-    </a>
-    <a
-      menu-close
-      class="item-content"
-      ng-if="!vm.showUpgradeLink && !vm.showUpgradeLinkMaltainvest && !vm.toMultiAccount"
-      ng-click="vm.navigateToCreateNewAccount()">
+    </ion-item>
+    <ion-item
+            nav-clear
+            menu-close
+            ui-sref="accounts-management"
+            tabindex="1"
+            href="#"
+            ng-if="!vm.showUpgradeLink && !vm.showUpgradeLinkMaltainvest && !vm.toMultiAccount">
         {{ 'accounts-management.accounts_list' | translate }}
-    </a>
+    </ion-item>
 </div>
