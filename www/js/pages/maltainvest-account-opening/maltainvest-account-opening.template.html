@@ -17,7 +17,7 @@
                     </div>
                     <div class="row">
                         <div class="col item-select">
-                            <select name="salutation" ng-model="vm.data.salutation" ng-disabled="vm.isReadonly" ng-required="!vm.isReadonly">
+                            <select name="salutation" ng-model="vm.data.salutation" ng-disabled="vm.hasMLTAccount" ng-required="!vm.hasMLTAccount">
                               <option value="" disabled>{{'newaccountmaltainvest.select' | translate}}</option>
                               <option value="Mr">
                                 {{'newaccountmaltainvest.mr' | translate}}
@@ -48,7 +48,7 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="first_name" ng-model="vm.data.first_name" ng-readonly="vm.isReadonly" ng-pattern="vm.validateGeneral" ng-minlength="2" ng-maxlength="30" ng-required="!vm.isReadonly">
+                            <input name="first_name" ng-model="vm.data.first_name" ng-readonly="vm.hasMLTAccount" ng-pattern="vm.validateGeneral" ng-minlength="2" ng-maxlength="30" ng-required="!vm.hasMLTAccount">
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.first_name.$error" role="alert" ng-if='newAccountMaltainvestForm.first_name.$dirty' ng-hide="vm.first_name_error">
                                 <ng-message when="pattern">{{'newaccountmaltainvest.general-pattern-error' | translate}}</ng-message>
                                 <ng-message when="minlength, maxlength">{{'newaccountmaltainvest.length-error-2-30' | translate}}</ng-message>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="last_name" ng-model="vm.data.last_name" ng-readonly="vm.isReadonly" ng-pattern="vm.validateGeneral" ng-required="!vm.isReadonly" ng-minlength="2" ng-maxlength="30">
+                            <input name="last_name" ng-model="vm.data.last_name" ng-readonly="vm.hasMLTAccount" ng-pattern="vm.validateGeneral" ng-required="!vm.hasMLTAccount" ng-minlength="2" ng-maxlength="30">
                             <ng-messages class="help-block error" for="newAccountMaltainvestForm.last_name.$error" role="alert" ng-if='newAccountMaltainvestForm.last_name.$dirty' ng-hide="vm.last_name_error">
                                 <ng-message when="pattern">{{'newaccountmaltainvest.general-pattern-error' | translate}}</ng-message>
                                 <ng-message when="minlength, maxlength">{{'newaccountmaltainvest.length-error-2-30' | translate}}</ng-message>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="row">
                         <label class="col item-input">
-                          <input type="date" ng-model="vm.data.date_of_birth" ng-readonly="vm.isReadonly"  required />
+                          <input type="date" ng-model="vm.data.date_of_birth" ng-readonly="vm.hasMLTAccount"  required />
                         </label>
                     </div>
                     <ng-messages class="help-block error" for="newAccountMaltainvestForm.date_of_birth.$error" role="alert" ng-if='newAccountMaltainvestForm.date_of_birth.$dirty' ng-hide="vm.date_of_birth_error">
@@ -822,7 +822,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-if="vm.!hasMLTAccount">
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
@@ -849,7 +849,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-if="!vm.hasMLTAccount">
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">

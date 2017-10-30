@@ -24,8 +24,6 @@
   "alert":{
     "error":"Error!",
     "warning":"Peringatan",
-    "info":"Info",
-    "congratulation":"Congratulation",
     "not_valid":"Masukkan token yang berlaku.",
     "not_auth":"Maaf, kami tidak dapat mengotentikasi Anda.",
     "not_unique":"Anda telah menambahkan akun ini.",
@@ -175,8 +173,7 @@
     "invalid_email":"Silakan masukkan alamat email yang berlaku.",
     "password-pattern-error":"Kata sandi harus terdiri dari huruf kecil dan besar beserta angka.",
     "length-error-6-25":"Kolom ini harus diisi dengan 6-25 karakter panjang.",
-    "required":"Bagian ini wajib diisi.",
-    "check_your_email":"Thank you for signing up! Please check your email to complete the registration process."
+    "required":"Bagian ini wajib diisi."
   },
   "newaccountmaltainvest":{
     "open_financial":"Daftar akun finansial",
