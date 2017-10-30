@@ -14,16 +14,16 @@
                         <ul>
                             <li class="list list-title">
                                 <div class="list-element center">
-                                    Account
+                                    {{ 'accounts-management.account' | translate }}
                                 </div>
                                 <div class="list-element center">
-                                    Available Markets
+                                    {{ 'accounts-management.available_markets' | translate }}
                                 </div>
                                 <div class="list-element center">
-                                    Available Currencies
+                                    {{ 'accounts-management.available_currencies' | translate }}
                                 </div>
                                 <div class="list-element center">
-                                    Action
+                                    {{ 'accounts-management.action' | translate }}
                                 </div>
                             </li>
                             <li class="list">
@@ -83,10 +83,18 @@
                     <div class="col">
                         <ul>
                             <li class="list list-title">
-                                <div class="list-element center">Account</div>
-                                <div class="list-element center">Type</div>
-                                <div class="list-element center">Available Markets</div>
-                                <div class="list-element center">Currency</div>
+                                <div class="list-element center">
+                                    {{ 'accounts-management.account' | translate }}
+                                </div>
+                                <div class="list-element center">
+                                    {{ 'accounts-management.type' | translate }}
+                                </div>
+                                <div class="list-element center">
+                                    {{ 'accounts-management.available_markets' | translate }}
+                                </div>
+                                <div class="list-element center">
+                                    {{ 'accounts-management.currency' | translate }}
+                                </div>
                             </li>
                             <li class="list" ng-repeat="account in vm.existingAccounts track by $index">
                                 <div class="list-element center">
