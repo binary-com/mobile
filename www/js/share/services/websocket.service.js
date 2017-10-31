@@ -803,7 +803,7 @@ angular
                             if (message.set_account_currency && message.set_account_currency === 1) {
                                 $rootScope.$broadcast("set_account_currency:success", message.echo_req.set_account_currency);
                             } else if (message.error) {
-	                            $rootScope.$broadcast("trading_times:error", message.error);
+	                            $rootScope.$broadcast("set_account_currency:error", message.error);
                             }
                             break;
                         default:

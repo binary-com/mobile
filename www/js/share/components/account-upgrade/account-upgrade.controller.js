@@ -41,6 +41,7 @@
             appStateService.isNewAccountMaltainvest = false;
             appStateService.isMultiAccountOpening = false;
             appStateService.isCheckedAccountType = false;
+            appStateService.currencyOptions = {};
         };
 
         vm.reset();
