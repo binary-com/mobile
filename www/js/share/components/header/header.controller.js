@@ -75,6 +75,11 @@
                     vm.hideMenuButton = false;
                     vm.showBack = false;
                 }
+            } else if (["real-account-opening", "maltainvest-account-opening"].indexOf(vm.to.name) > -1) {
+                if (["accounts-management"].indexOf(vm.from.name) > -1) {
+                    vm.hideMenuButton = true;
+                    vm.showBack = true;
+                }
             } else {
                 if (
                     vm.from.name === "statement" &&

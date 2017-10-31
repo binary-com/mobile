@@ -220,7 +220,14 @@ angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfi
             templateUrl : "js/pages/set-currency/set-currency.template.html",
             controller  : "SetCurrencyController",
             controllerAs: "vm"
-	      });
+        })
+        .state("accounts-management", {
+            parent      : "layout",
+            cache       : false,
+            templateUrl : "js/pages/accounts-management/accounts-management.template.html",
+            controller  : "AccountsManagementController",
+            controllerAs: "vm"
+        });
 
 
     $urlRouterProvider.otherwise("/");

@@ -166,6 +166,7 @@ angular
                 appStateService.statementRefresh = true;
                 appStateService.isNewAccountReal = false;
                 appStateService.isNewAccountMaltainvest = false;
+                appStateService.isMultiAccountOpening = false;
                 appStateService.hasMLT = false;
                 sessionStorage.removeItem("countryParams");
                 websocketService.closeConnection();
@@ -183,6 +184,10 @@ angular
                 appStateService.hasCountryMessage = false;
                 appStateService.hasCurrencyMessage = false;
                 appStateService.checkedAccountStatus = false;
+                appStateService.accountCurrencyChanged = false;
+                appStateService.currencyOptions = {};
+                appStateService.legalAllowedMarkets = {};
+                appStateService.selectedCurrency = false;
                 notificationService.emptyNotices();
 
                 if (error) {
@@ -677,7 +682,12 @@ angular
                             }
                             break;
                         case "landing_company":
-                            $rootScope.$broadcast("landing_company", message.landing_company);
+                            if (message.landing_company) {
+                                localStorage.setItem('landingCompanyObject', JSON.stringify(message.landing_company));
+                                $rootScope.$broadcast("landing_company", message.landing_company);
+                            } else if (message.error) {
+                                $rootScope.$broadcast("landing_company:error", message.error.message);
+                            }
                             break;
                         case "states_list":
                             $rootScope.$broadcast("states_list", message.states_list);
