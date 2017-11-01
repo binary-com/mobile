@@ -17,7 +17,7 @@ angular.module("binary").service("currencyService", function(appStateService) {
         return account_type;
     };
 
-    const isAccountOfType = (type, loginid) => {
+    this.isAccountOfType = (type, loginid) => {
         const accountType = this.getAccountType(loginid);
         return (
             (type === 'virtual' && accountType === 'virtual') ||
@@ -30,9 +30,9 @@ angular.module("binary").service("currencyService", function(appStateService) {
     this.landingCompanyValue = (loginid, key) => {
         let landingCompanyOfAccount;
         const landingCompanyObject = JSON.parse(localStorage.getItem('landingCompanyObject'));
-        if (isAccountOfType('financial', loginid)) {
+        if (this.isAccountOfType('financial', loginid)) {
             landingCompanyOfAccount = landingCompanyObject.financial_company;
-        } else if (isAccountOfType('real', loginid)) {
+        } else if (this.isAccountOfType('real', loginid)) {
             landingCompanyOfAccount = landingCompanyObject.gaming_company;
             if (!landingCompanyOfAccount) {
                 landingCompanyOfAccount = landingCompanyObject.financial_company;
