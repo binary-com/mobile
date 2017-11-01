@@ -27,9 +27,9 @@ angular.module("binary").service("currencyService", function(appStateService) {
 
     const isCryptocurrency = (currencyConfig, curr) => /crypto/i.test(currencyConfig[curr].type)
 
-    this.landingCompanyValue = (loginid, key) => {
+    this.landingCompanyValue = (loginid, key, landingCompany) => {
         let landingCompanyOfAccount;
-        const landingCompanyObject = JSON.parse(localStorage.getItem('landingCompanyObject'));
+        const landingCompanyObject = landingCompany || JSON.parse(localStorage.getItem('landingCompanyObject'));
         if (this.isAccountOfType('financial', loginid)) {
             landingCompanyOfAccount = landingCompanyObject.financial_company;
         } else if (this.isAccountOfType('real', loginid)) {
