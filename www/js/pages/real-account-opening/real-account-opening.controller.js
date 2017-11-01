@@ -30,7 +30,8 @@
     ) {
         const vm = this;
         vm.data = {};
-        vm.isReadonly = appStateService.isMultiAccountOpening;
+        const currentAccount = accountService.getDefault();
+        vm.isReadonly = !currentAccount.id.startsWith('VR');
         vm.hasResidence = false;
         vm.disableUpdatebutton = false;
         vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||

@@ -39,9 +39,9 @@ angular
         const canUpgradeMultiAccount = data =>  (hasShortCode(data.financial_company, 'costarica'));
 
         const getLegalAllowedCurrencies = (loginid, landingCompany) =>
-        currencyService.landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
+            currencyService.landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
         const getLegalAllowedMarkets = (loginid, landingCompany) =>
-        currencyService.landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
+            currencyService.landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
 
         const getExistingCurrencies = accounts => currencyService.getExistingCurrencies(accounts);
 
@@ -91,7 +91,8 @@ angular
                     if (existingCurrencies.length) {
                         const dividedExistingCurrencies = getDividedCurrencies(existingCurrencies);
                         if (dividedExistingCurrencies.fiatCurrencies.length) {
-                            const legalAllowedCryptoCurrencies = getDividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
+                            const legalAllowedCryptoCurrencies =
+                                getDividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
                             const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
                             currencyOptions = _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
                             if (currencyOptions.length) {
