@@ -50,7 +50,7 @@ angular.module("binary").service("currencyService", function(appStateService) {
     this.getExistingCurrencies = (accounts) => {
         const currencies = [];
         _.forIn(accounts, (account, key) => {
-            if (!account.id.startsWith('VRTC') && account.currency.length > 0) {
+            if (!account.id.startsWith('VR') && account.currency.length > 0) {
                 currencies.push(account.currency);
             }
         });
