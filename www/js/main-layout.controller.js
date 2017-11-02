@@ -15,7 +15,9 @@ angular
             vm.accounts = accountService.getAll();
             this.currentAccount = accountService.getDefault();
             const country = this.currentAccount.country;
-            websocketService.sendRequestFor.landingCompanySend(country);
+            if (country !== 'jp') {
+                websocketService.sendRequestFor.landingCompanySend(country);
+            }
         };
 
         const getAllLoginids = _accounts => accountService.getAllloginids(_accounts);
