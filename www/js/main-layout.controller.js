@@ -12,7 +12,6 @@ angular
 
         const getAccountInfo = () => {
             vm.upgrade = {};
-            vm.multiAccountopening = {};
             vm.accounts = accountService.getAll();
             this.currentAccount = accountService.getDefault();
             const country = this.currentAccount.country;
@@ -53,6 +52,7 @@ angular
             let canUpgrade = false;
             let currencyOptions = landingCompany.gaming_company.legal_allowed_currencies;
             let allowedMarkets = {};
+            let multi = false;
             if (isAccountOfType('virtual', id)) {
                 if (canUpgradeVirtualToFinancial(landingCompany)) {
                     typeOfNextAccount = 'financial';
@@ -67,55 +67,41 @@ angular
                 canUpgrade = !hasAccountOfType('financial');
                 currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
                 allowedMarkets = getLegalAllowedMarkets(id, landingCompany);
-            }
+            } else if (canUpgradeMultiAccount(landingCompany)) {
+                allowedMarkets = getLegalAllowedMarkets(id, landingCompany);
+                const legalAllowedCurrencies = getLegalAllowedCurrencies(id, landingCompany);
+                const existingCurrencies = getExistingCurrencies(vm.accounts);
+                if (existingCurrencies.length) {
+                    const dividedExistingCurrencies = getDividedCurrencies(existingCurrencies);
+                    if (dividedExistingCurrencies.fiatCurrencies.length) {
+                        const legalAllowedCryptoCurrencies =
+                            getDividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
+                            const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
+                            currencyOptions = _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
+                            if (currencyOptions.length) {
+                                canUpgrade = true;
+                                multi = true;
+                            }
+                    } else {
+                        canUpgrade = true;
+                        multi = true;
+                        currencyOptions = _.difference(legalAllowedCurrencies, existingCurrencies);
+                    }
+                } else {
+                    canUpgrade = true;
+                    multi = true;
+                    currencyOptions = legalAllowedCurrencies;
+                }
+            };
             return {
                 typeOfNextAccount,
                 upgradeLink,
                 canUpgrade,
                 currencyOptions,
-                allowedMarkets
+                allowedMarkets,
+                multi
             }
         };
-
-        const getMultiAccountInfo = (landingCompany, id) => {
-            let canUpgrade = false;
-            let currencyOptions = {};
-            let allowedMarkets = {};
-            const typeOfNextAccount = 'real';
-            const upgradeLink = 'real-account-opening';
-            if (!isAccountOfType('virtual', id)) {
-                allowedMarkets = getLegalAllowedMarkets(id, landingCompany);
-                if (canUpgradeMultiAccount(landingCompany)) {
-                    const legalAllowedCurrencies = getLegalAllowedCurrencies(id, landingCompany);
-                    const existingCurrencies = getExistingCurrencies(vm.accounts);
-                    if (existingCurrencies.length) {
-                        const dividedExistingCurrencies = getDividedCurrencies(existingCurrencies);
-                        if (dividedExistingCurrencies.fiatCurrencies.length) {
-                            const legalAllowedCryptoCurrencies =
-                                getDividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
-                            const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
-                            currencyOptions = _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
-                            if (currencyOptions.length) {
-                                canUpgrade = true;
-                            }
-                        } else {
-                            canUpgrade = true;
-                            currencyOptions = _.difference(legalAllowedCurrencies, existingCurrencies);
-                        }
-                    } else {
-                        canUpgrade = true;
-                        currencyOptions = legalAllowedCurrencies;
-                    }
-                }
-            };
-            return {
-                canUpgrade,
-                upgradeLink,
-                currencyOptions,
-                allowedMarkets,
-                typeOfNextAccount
-            }
-        }
 
         $scope.$on('authorize', (e, authorize) => {
             if (this.currentAccount.id !== authorize.loginid) {
@@ -131,11 +117,8 @@ angular
             const landingCompany = landing_company;
             vm.hasMTAccess = hasMTfinancialCompany(landingCompany);
             vm.upgrade = getUpgradeInfo(landingCompany, this.currentAccount.id);
-            vm.multiAccountopening = getMultiAccountInfo(landingCompany, this.currentAccount.id);
             if (vm.upgrade.canUpgrade) {
                 appStateService.upgrade = vm.upgrade;
-            } else if (vm.multiAccountopening.canUpgrade) {
-                appStateService.upgrade = vm.multiAccountopening;
             } else {
                 appStateService.upgrade = {};
             }
