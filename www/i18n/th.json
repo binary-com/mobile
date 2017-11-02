@@ -859,9 +859,9 @@
     "commodities": "สินค้าโภคภัณฑ์",
     "forex": "ฟอเร็กซ์",
     "smarties": "Smarties",
-    "indices": "Indices",
-    "stocks": "Stocks",
-    "volidx": "Volatility Indices",
+    "indices": "ดัชนี",
+    "stocks": "หลักทรัพย์",
+    "volidx": "ดัชนีผันผวน",
     "note": "Note: You can only have one fiat currency account and one of each cryptocurrency account."
   }
 }
