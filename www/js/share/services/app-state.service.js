@@ -49,6 +49,7 @@ angular.module("binary").factory("appStateService", () => {
     factory.accountCurrencyChanged = false;
     factory.selectedCurrency = false;
     factory.upgrade = {};
+    factory.redirectedFromAccountsManagemenet = false;
 
     return factory;
 });

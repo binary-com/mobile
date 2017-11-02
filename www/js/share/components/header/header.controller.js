@@ -75,7 +75,8 @@
                     vm.hideMenuButton = false;
                     vm.showBack = false;
                 }
-            } else if (["real-account-opening", "maltainvest-account-opening"].indexOf(vm.to.name) > -1) {
+            } else if (["real-account-opening", "maltainvest-account-opening"].indexOf(vm.to.name) > -1 &&
+                appStateService.redirectedFromAccountsManagemenet) {
                 if (["accounts-management"].indexOf(vm.from.name) > -1) {
                     vm.hideMenuButton = true;
                     vm.showBack = true;
@@ -109,6 +110,7 @@
                 $state.go(vm.from);
                 if (vm.to.name === 'real-account-opening' || vm.to.name === 'maltainvest-account-opening') {
                     appStateService.selectedCurrency = false;
+                    appStateService.redirectedFromAccountsManagemenet = false;
                 }
             }
         };

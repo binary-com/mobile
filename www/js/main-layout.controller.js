@@ -76,12 +76,12 @@ angular
                     if (dividedExistingCurrencies.fiatCurrencies.length) {
                         const legalAllowedCryptoCurrencies =
                             getDividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
-                            const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
-                            currencyOptions = _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
-                            if (currencyOptions.length) {
-                                canUpgrade = true;
-                                multi = true;
-                            }
+                        const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
+                        currencyOptions = _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
+                        if (currencyOptions.length) {
+                            canUpgrade = true;
+                            multi = true;
+                        }
                     } else {
                         canUpgrade = true;
                         multi = true;
