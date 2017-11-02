@@ -16,7 +16,7 @@
           <ion-item
                   nav-clear
                   menu-close
-                  ng-if="vm.upgrade.canUpgrade"
+                  ng-if="vm.upgrade.canUpgrade && !vm.upgrade.multi"
                   ui-sref="{{vm.upgrade.upgradeLink}}"
                   tabindex="1"
                   href="#">
@@ -75,10 +75,10 @@
             <div class="icon-wrapper">
               <i class="ion-plus-round"></i>
             </div>
-            <span ng-if="vm.upgrade.canUpgrade || vm.multiAccountopening.canUpgrade">
+            <span ng-if="vm.upgrade.canUpgrade">
                 {{ 'menu.create_account' | translate }}
             </span>
-            <span ng-if="!vm.upgrade.canUpgrade && !vm.multiAccountopening.canUpgrade">
+            <span ng-if="!vm.upgrade.canUpgrade">
                 {{ 'menu.accounts_list' | translate }}
             </span>
           </ion-item>

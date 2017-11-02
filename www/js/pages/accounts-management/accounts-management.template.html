@@ -61,7 +61,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="row" ng-if="vm.isMultiAccountOpening">
+                <!--to do: make it shown for Cr acoounts-->
+                <div class="row" ng-if="vm.currentAccount.id.startsWith('CR')">
                     <div class="col item item-text-wrap">
                         <p>{{ 'accounts-management.note' | translate }}</p>
                     </div>

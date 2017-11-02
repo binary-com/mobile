@@ -156,7 +156,6 @@ angular
                 appStateService.isRealityChecked = false;
                 appStateService.isChangedAccount = false;
                 appStateService.isPopupOpen = false;
-                appStateService.isCheckedAccountType = false;
                 appStateService.isLoggedin = false;
                 sessionStorage.removeItem("start");
                 sessionStorage.removeItem("_interval");
@@ -164,9 +163,6 @@ angular
                 localStorage.removeItem("termsConditionsVersion");
                 appStateService.profitTableRefresh = true;
                 appStateService.statementRefresh = true;
-                appStateService.isNewAccountReal = false;
-                appStateService.isNewAccountMaltainvest = false;
-                appStateService.isMultiAccountOpening = false;
                 appStateService.hasMLT = false;
                 sessionStorage.removeItem("countryParams");
                 websocketService.closeConnection();
@@ -185,8 +181,6 @@ angular
                 appStateService.hasCurrencyMessage = false;
                 appStateService.checkedAccountStatus = false;
                 appStateService.accountCurrencyChanged = false;
-                appStateService.currencyOptions = {};
-                appStateService.legalAllowedMarkets = {};
                 appStateService.selectedCurrency = false;
                 notificationService.emptyNotices();
 

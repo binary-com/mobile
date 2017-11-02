@@ -70,7 +70,6 @@
             updateSymbols();
             websocketService.sendRequestFor.forgetStream(appStateService.balanceSubscribtionId);
             appStateService.isChangedAccount = true;
-            appStateService.isCheckedAccountType = false;
             sessionStorage.removeItem("start");
             sessionStorage.removeItem("_interval");
             sessionStorage.removeItem("realityCheckStart");
@@ -78,9 +77,6 @@
             appStateService.isStatementSet = false;
             appStateService.profitTableRefresh = true;
             appStateService.statementRefresh = true;
-            appStateService.isNewAccountReal = false;
-            appStateService.isNewAccountMaltainvest = false;
-            appStateService.isMultiAccountOpening = false;
             appStateService.hasMLT = false;
             sessionStorage.removeItem("countryParams");
             appStateService.isPopupOpen = false;

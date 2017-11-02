@@ -20,7 +20,6 @@ angular.module("binary").factory("appStateService", () => {
     factory.isPopupOpen = false;
     factory.hasGetResidence = false;
     factory.showForm = false;
-    factory.isCheckedAccountType = false;
     factory.hasMLT = false;
     factory.isProfitTableSet = false;
     factory.profitTableRefresh = false;
