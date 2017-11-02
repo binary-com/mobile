@@ -21,7 +21,13 @@
         "currencyService"
     ];
 
-    function AccountsManagement($scope, $state, $timeout, $translate, appStateService, accountService, currencyService) {
+    function AccountsManagement($scope,
+        $state,
+        $timeout,
+        $translate,
+        appStateService,
+        accountService,
+        currencyService) {
         const vm = this;
         const activeMarkets = {
             commodities: $translate.instant('accounts-management.commodities'),
