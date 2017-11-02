@@ -107,6 +107,9 @@
                 $state.go("trade");
             } else {
                 $state.go(vm.from);
+                if (vm.to.name === 'real-account-opening' || vm.to.name === 'maltainvest-account-opening') {
+                    appStateService.selectedCurrency = false;
+                }
             }
         };
     }
