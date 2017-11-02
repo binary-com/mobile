@@ -124,6 +124,7 @@ angular
             } else {
                 appStateService.upgrade = {};
             }
+            appStateService.checkingUpgradeDone = true;
         });
 
         getAccountInfo();

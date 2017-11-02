@@ -183,6 +183,7 @@ angular
                 appStateService.accountCurrencyChanged = false;
                 appStateService.selectedCurrency = false;
                 notificationService.emptyNotices();
+                appStateService.checkingUpgradeDone = false;
 
                 if (error) {
                     $translate(["alert.error", "alert.ok"]).then(translation => {

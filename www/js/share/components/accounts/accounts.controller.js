@@ -94,6 +94,7 @@
             appStateService.hasCurrencyMessage = false;
             appStateService.checkedAccountStatus = false;
             notificationService.emptyNotices();
+            appStateService.checkingUpgradeDone = false;
         };
 
         $scope.$on("authorize", (e, authorize) => {

@@ -14,13 +14,14 @@
     AccountsManagement.$inject = [
         "$scope",
         "$state",
+        "$timeout",
         "$translate",
         "appStateService",
         "accountService",
         "currencyService"
     ];
 
-    function AccountsManagement($scope, $state, $translate, appStateService, accountService, currencyService) {
+    function AccountsManagement($scope, $state, $timeout, $translate, appStateService, accountService, currencyService) {
         const vm = this;
         const activeMarkets = {
             commodities: $translate.instant('accounts-management.commodities'),
@@ -29,10 +30,6 @@
             stocks     : $translate.instant('accounts-management.stocks'),
             volidx     : $translate.instant('accounts-management.volidx')
         };
-
-        vm.accounts = accountService.getAll();
-        vm.currentAccount = accountService.getDefault();
-        vm.selectCurrencyError = false;
 
         const filterMarkets = (markets) => {
             const availableMarkets = [];
@@ -115,6 +112,9 @@
         };
 
         const init = () => {
+            vm.accounts = accountService.getAll();
+            vm.currentAccount = accountService.getDefault();
+            vm.selectCurrencyError = false;
             getAvailableAccounts();
             vm.existingAccounts = getExistingAccounts();
         };
@@ -137,9 +137,17 @@
             }
         };
 
+        const reInitAfterChangeAccount = () => {
+            if (appStateService.checkingUpgradeDone) {
+                init();
+            } else {
+                $timeout(reInitAfterChangeAccount, 500);
+            }
+        }
+
         $scope.$on('authorize', (e, authorize) => {
             if (vm.currentAccount.id !== authorize.loginid) {
-                $state.go('trade');
+                reInitAfterChangeAccount();
             }
         });
 
