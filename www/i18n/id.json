@@ -176,7 +176,6 @@
     "required": "Bagian ini wajib diisi."
   },
   "newaccountmaltainvest": {
-    "open_financial": "Daftar akun finansial",
     "financial_account_opening": "Pendaftaran Akun Finansial",
     "details": "Rincian",
     "privacy": "Privasi",
@@ -323,7 +322,6 @@
     "sale_of_property": "Penjualan Properti"
   },
   "newaccountreal": {
-    "open_real": "Upgrade ke akun real",
     "real_account_opening": "Pendaftaran Akun Uang Riil",
     "details": "Rincian",
     "address": "Alamat",
@@ -467,7 +465,11 @@
     "resources": "Sumber Daya",
     "regulatory_information": "Informasi pengaturan",
     "mt5": "MetaTrader 5",
-    "contact_us": "Hubungi kami"
+    "contact_us": "Hubungi kami",
+    "open_real": "Upgrade to a real account",
+    "open_financial": "Open a financial account",
+    "create_account": "Create account",
+    "accounts_list": "Accounts list"
   },
   "settings": {
     "settings": "Pengaturan",
@@ -835,6 +837,7 @@
   },
   "accounts-management": {
     "create_account": "Create account",
+    "accounts_list": "Accounts list",
     "real": "Real",
     "virtual": "Virtual",
     "gaming": "Gaming",
@@ -854,7 +857,6 @@
     "action": "Action",
     "type": "Type",
     "currency": "Currency",
-    "accounts_list": "Accounts list",
     "no_more_account": "You have created all accounts available to you.",
     "commodities": "Commodities",
     "forex": "Forex",
