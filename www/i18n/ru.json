@@ -176,7 +176,6 @@
     "required": "Данное поле является обязательным."
   },
   "newaccountmaltainvest": {
-    "open_financial": "Открыть финансовый счёт",
     "financial_account_opening": "Открытие финансового счёта",
     "details": "Детали",
     "privacy": "Конфиденциальность",
@@ -323,7 +322,6 @@
     "sale_of_property": "Продажа имущества"
   },
   "newaccountreal": {
-    "open_real": "Открыть реальный счет",
     "real_account_opening": "Открытие реального счёта",
     "details": "Детали",
     "address": "Адрес",
@@ -467,7 +465,11 @@
     "resources": "Ресурсы",
     "regulatory_information": "Информация о регулировании",
     "mt5": "MetaTrader 5",
-    "contact_us": "Свяжитесь с нами"
+    "contact_us": "Свяжитесь с нами",
+    "open_real": "Upgrade to a real account",
+    "open_financial": "Open a financial account",
+    "create_account": "Create account",
+    "accounts_list": "Accounts list"
   },
   "settings": {
     "settings": "Настройки",
@@ -835,6 +837,7 @@
   },
   "accounts-management": {
     "create_account": "Create account",
+    "accounts_list": "Accounts list",
     "real": "Real",
     "virtual": "Virtual",
     "gaming": "Gaming",
@@ -854,7 +857,6 @@
     "action": "Action",
     "type": "Type",
     "currency": "Currency",
-    "accounts_list": "Accounts list",
     "no_more_account": "You have created all accounts available to you.",
     "commodities": "Commodities",
     "forex": "Forex",
