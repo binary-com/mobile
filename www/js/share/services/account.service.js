@@ -209,4 +209,13 @@ angular.module("binary").service("accountService", function(websocketService, ap
         }
         return result;
     };
+
+    this.getAllloginids = (_accounts) => {
+        const allLoginids = [];
+        const accounts = _accounts || this.getAll();
+        accounts.forEach((account) => {
+            allLoginids.push(account.id);
+        });
+        return allLoginids;
+    }
 });

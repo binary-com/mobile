@@ -156,7 +156,6 @@ angular
                 appStateService.isRealityChecked = false;
                 appStateService.isChangedAccount = false;
                 appStateService.isPopupOpen = false;
-                appStateService.isCheckedAccountType = false;
                 appStateService.isLoggedin = false;
                 sessionStorage.removeItem("start");
                 sessionStorage.removeItem("_interval");
@@ -164,9 +163,6 @@ angular
                 localStorage.removeItem("termsConditionsVersion");
                 appStateService.profitTableRefresh = true;
                 appStateService.statementRefresh = true;
-                appStateService.isNewAccountReal = false;
-                appStateService.isNewAccountMaltainvest = false;
-                appStateService.isMultiAccountOpening = false;
                 appStateService.hasMLT = false;
                 sessionStorage.removeItem("countryParams");
                 websocketService.closeConnection();
@@ -185,10 +181,9 @@ angular
                 appStateService.hasCurrencyMessage = false;
                 appStateService.checkedAccountStatus = false;
                 appStateService.accountCurrencyChanged = false;
-                appStateService.currencyOptions = {};
-                appStateService.legalAllowedMarkets = {};
                 appStateService.selectedCurrency = false;
                 notificationService.emptyNotices();
+                appStateService.checkingUpgradeDone = false;
 
                 if (error) {
                     $translate(["alert.error", "alert.ok"]).then(translation => {
@@ -803,7 +798,7 @@ angular
                             if (message.set_account_currency && message.set_account_currency === 1) {
                                 $rootScope.$broadcast("set_account_currency:success", message.echo_req.set_account_currency);
                             } else if (message.error) {
-	                            $rootScope.$broadcast("trading_times:error", message.error);
+	                            $rootScope.$broadcast("set_account_currency:error", message.error);
                             }
                             break;
                         default:

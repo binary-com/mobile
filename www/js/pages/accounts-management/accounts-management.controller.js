@@ -14,21 +14,21 @@
     AccountsManagement.$inject = [
         "$scope",
         "$state",
+        "$timeout",
         "$translate",
         "appStateService",
         "accountService",
         "currencyService"
     ];
 
-    function AccountsManagement($scope, $state, $translate, appStateService, accountService, currencyService) {
+    function AccountsManagement($scope,
+        $state,
+        $timeout,
+        $translate,
+        appStateService,
+        accountService,
+        currencyService) {
         const vm = this;
-        vm.selectCurrencyError = false;
-        vm.isMultiAccountOpening = appStateService.isMultiAccountOpening;
-        vm.isNewAccountMaltainvest = appStateService.isNewAccountMaltainvest;
-        vm.isNewAccountReal = appStateService.isNewAccountReal;
-        vm.currencyOptions = appStateService.currencyOptions;
-        const accounts = accountService.getAll();
-        vm.currentAccount = accountService.getDefault();
         const activeMarkets = {
             commodities: $translate.instant('accounts-management.commodities'),
             forex      : $translate.instant('accounts-management.forex'),
@@ -46,28 +46,27 @@
             });
             return availableMarkets;
         };
-        // legal allowed markets for new account
-        vm.legalAllowedMarkets = _.join(filterMarkets(appStateService.legalAllowedMarkets), ', ');
+
 
         const isCryptocurrency = (currencyConfig, curr) => /crypto/i.test(currencyConfig[curr].type);
 
-        const getNextAccountType = () => {
+        const getNextAccountTitle = (typeOfNextAccount) => {
             let nextAccount;
-            if (vm.isMultiAccountOpening || vm.isNewAccountReal) {
+            if (typeOfNextAccount === 'real') {
                 nextAccount = $translate.instant('accounts-management.account_real');
-            } else if (vm.isNewAccountMaltainvest) {
+            } else if (typeOfNextAccount === 'financial') {
                 nextAccount = $translate.instant('accounts-management.account_financial');
             }
             return nextAccount;
         };
 
-        const getCurrenciesForNewAccount = () => {
+        const getCurrenciesForNewAccount = (currencies) => {
             const currencyConfig = appStateService.currenciesConfig;
-            const currenciesLength = vm.currencyOptions.length;
+            const currenciesLength = currencies.length;
             const currencyOptions = [];
             for (let i = 0; i < currenciesLength; i++ ) {
                 const currencyObject = {};
-                const curr = vm.currencyOptions[i];
+                const curr = currencies[i];
                 currencyObject.name = curr;
                 // adding translate labels to currencies
                 currencyObject.currencyGroup = /crypto/i.test(currencyConfig[curr].type) ?
@@ -89,30 +88,9 @@
             return availableMarkets;
         };
 
-        const getCurrenciesOptions = () => {
-            const legalAllowedCurrencies = currencyService.landingCompanyValue(vm.currentAccount.id, 'legal_allowed_currencies');
-            if (vm.currentAccount.id.startsWith('CR')) {
-                const existingCurrencies = currencyService.getExistingCurrencies(accounts);
-                if (existingCurrencies.length) {
-                    const dividedExistingCurrencies = currencyService.dividedCurrencies(existingCurrencies);
-                    const hasFiat = dividedExistingCurrencies.fiatCurrencies.length > 0;
-                    if (hasFiat) {
-                        const legalAllowedCryptoCurrencies =
-                            currencyService.dividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
-                        const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
-                        return _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
-                    }
-                    return _.difference(legalAllowedCurrencies, existingCurrencies);
-                }
-                return legalAllowedCurrencies;
-            }
-            // for all accounts except CR accounts
-            return legalAllowedCurrencies;
-        };
-
         const getExistingAccounts = () => {
             const existingAccounts = [];
-            _.forEach(accounts, (acc) => {
+            _.forEach(vm.accounts, (acc) => {
                 const account = {};
                 account.id = acc.id;
                 account.availableMarkets = getAvailableMarkets(account.id);
@@ -127,15 +105,25 @@
             return existingAccounts;
         };
 
-        const init = () => {
-            vm.typeOfNextAccount = getNextAccountType();
-            vm.newAccountCurrencyOptions = getCurrenciesForNewAccount();
-            if (vm.newAccountCurrencyOptions.length) {
-                vm.selectedCurrency = vm.newAccountCurrencyOptions[0].name;
+        const getAvailableAccounts = () => {
+            vm.upgrade = appStateService.upgrade;
+            if (vm.upgrade.canUpgrade) {
+                vm.legalAllowedMarkets = _.join(filterMarkets(vm.upgrade.allowedMarkets), ', ');
+                vm.titleOfNextAccount = getNextAccountTitle(vm.upgrade.typeOfNextAccount);
+                vm.newAccountCurrencyOptions = getCurrenciesForNewAccount(vm.upgrade.currencyOptions);
+                if (vm.newAccountCurrencyOptions.length) {
+                    vm.selectedCurrency = vm.newAccountCurrencyOptions[0].name;
+                }
             }
-            vm.existingAccounts = getExistingAccounts();
         };
 
+        const init = () => {
+            vm.accounts = accountService.getAll();
+            vm.currentAccount = accountService.getDefault();
+            vm.selectCurrencyError = false;
+            getAvailableAccounts();
+            vm.existingAccounts = getExistingAccounts();
+        };
 
         vm.redirectToSetCurrency = () => {
             $state.go('set-currency');
@@ -144,9 +132,10 @@
         vm.redirectToAccountOpening = () => {
             if (vm.currentAccount.currency && vm.currentAccount.currency !== '') {
                 appStateService.selectedCurrency = vm.selectedCurrency;
-                if (vm.isMultiAccountOpening || vm.isNewAccountReal) {
+                appStateService.redirectedFromAccountsManagemenet = true;
+                if (vm.upgrade.typeOfNextAccount === 'real') {
                     $state.go('real-account-opening');
-                } else if (vm.isNewAccountMaltainvest) {
+                } else if (vm.upgrade.typeOfNextAccount === 'financial') {
                     $state.go('maltainvest-account-opening');
                 }
             } else {
@@ -154,9 +143,17 @@
             }
         };
 
+        const reInitAfterChangeAccount = () => {
+            if (appStateService.checkingUpgradeDone) {
+                init();
+            } else {
+                $timeout(reInitAfterChangeAccount, 500);
+            }
+        }
+
         $scope.$on('authorize', (e, authorize) => {
             if (vm.currentAccount.id !== authorize.loginid) {
-                $state.go('trade');
+                reInitAfterChangeAccount();
             }
         });
 

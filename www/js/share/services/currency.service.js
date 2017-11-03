@@ -17,7 +17,7 @@ angular.module("binary").service("currencyService", function(appStateService) {
         return account_type;
     };
 
-    const isAccountOfType = (type, loginid) => {
+    this.isAccountOfType = (type, loginid) => {
         const accountType = this.getAccountType(loginid);
         return (
             (type === 'virtual' && accountType === 'virtual') ||
@@ -27,12 +27,12 @@ angular.module("binary").service("currencyService", function(appStateService) {
 
     const isCryptocurrency = (currencyConfig, curr) => /crypto/i.test(currencyConfig[curr].type)
 
-    this.landingCompanyValue = (loginid, key) => {
+    this.landingCompanyValue = (loginid, key, landingCompany) => {
         let landingCompanyOfAccount;
-        const landingCompanyObject = JSON.parse(localStorage.getItem('landingCompanyObject'));
-        if (isAccountOfType('financial', loginid)) {
+        const landingCompanyObject = landingCompany || JSON.parse(localStorage.getItem('landingCompanyObject'));
+        if (this.isAccountOfType('financial', loginid)) {
             landingCompanyOfAccount = landingCompanyObject.financial_company;
-        } else if (isAccountOfType('real', loginid)) {
+        } else if (this.isAccountOfType('real', loginid)) {
             landingCompanyOfAccount = landingCompanyObject.gaming_company;
             if (!landingCompanyOfAccount) {
                 landingCompanyOfAccount = landingCompanyObject.financial_company;
@@ -50,7 +50,7 @@ angular.module("binary").service("currencyService", function(appStateService) {
     this.getExistingCurrencies = (accounts) => {
         const currencies = [];
         _.forIn(accounts, (account, key) => {
-            if (!account.id.startsWith('VRTC') && account.currency.length > 0) {
+            if (!account.id.startsWith('VR') && account.currency.length > 0) {
                 currencies.push(account.currency);
             }
         });
