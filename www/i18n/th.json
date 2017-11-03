@@ -176,7 +176,6 @@
     "required": "ข้อมูลนี้ต้องระบุ ไม่สามารถเป็นค่าว่าง"
   },
   "newaccountmaltainvest": {
-    "open_financial": "เปิดบัญชีทางการเงิน 1 บัญชี",
     "financial_account_opening": "การเปิดบัญชีทางการเงิน",
     "details": "รายละเอียด",
     "privacy": "ความเป็นส่วนตัว",
@@ -323,7 +322,6 @@
     "sale_of_property": "การขายทรัพย์สิน"
   },
   "newaccountreal": {
-    "open_real": "อัพเกรดเป็นบัญชีจริง",
     "real_account_opening": "Real Money Account Opening",
     "details": "รายละเอียด",
     "address": "ที่อยู่",
@@ -467,7 +465,11 @@
     "resources": "แหล่งข้อมูล",
     "regulatory_information": "ข้อมูลเกี่ยวกับกฎระเบียบ",
     "mt5": "MetaTrader 5",
-    "contact_us": "ติดต่อเรา"
+    "contact_us": "ติดต่อเรา",
+    "open_real": "Upgrade to a real account",
+    "open_financial": "Open a financial account",
+    "create_account": "Create account",
+    "accounts_list": "Accounts list"
   },
   "settings": {
     "settings": "การตั้งค่า",
@@ -835,6 +837,7 @@
   },
   "accounts-management": {
     "create_account": "สร้างบัญชี",
+    "accounts_list": "รายการบัญชี",
     "real": "จริง",
     "virtual": "เสมือน",
     "gaming": "การพนัน",
@@ -854,7 +857,6 @@
     "action": "การดำเนินการ",
     "type": "ประเภท",
     "currency": "สกุลเงิน",
-    "accounts_list": "รายการบัญชี",
     "no_more_account": "You have created all accounts available to you.",
     "commodities": "สินค้าโภคภัณฑ์",
     "forex": "ฟอเร็กซ์",
