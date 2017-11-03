@@ -816,12 +816,12 @@
     "set_max_turnover_limit": "請設定30天交易限額，以移除存款限額。",
     "account_age_verification": "年齡驗證",
     "needs_age_verification": "帳戶需要通過年齡驗證。欲知詳細資訊，請聯繫客服部。",
-    "choose_account_currency": "Please set the currency of your account.",
-    "account_currency": "Account currency"
+    "choose_account_currency": "請設定帳戶的幣種。",
+    "account_currency": "帳戶幣種"
   },
   "set-currency": {
-    "select_currency": "Select currency",
-    "select_currency_text": "Please select the currency of this account:",
+    "select_currency": "選擇貨幣",
+    "select_currency_text": "請選擇此帳戶的幣種：",
     "fiat_currency": "Fiat Currency",
     "cryptocurrency": "Cryptocurrency",
     "confirm": "Confirm"
