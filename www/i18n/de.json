@@ -466,10 +466,10 @@
     "regulatory_information": "Regulierungsinformationen",
     "mt5": "MetaTrader 5",
     "contact_us": "Kontaktieren Sie uns",
-    "open_real": "Upgrade to a real account",
-    "open_financial": "Open a financial account",
-    "create_account": "Create account",
-    "accounts_list": "Accounts list"
+    "open_real": "Erweitern Sie auf ein Echtgeldkonto",
+    "open_financial": "Eröffnen Sie ein Finanzkonto",
+    "create_account": "Konto einrichten",
+    "accounts_list": "Kontenliste"
   },
   "settings": {
     "settings": "Einstellungen",
