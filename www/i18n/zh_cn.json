@@ -466,10 +466,10 @@
     "regulatory_information": "法规信息",
     "mt5": "MetaTrader 5",
     "contact_us": "联系我们",
-    "open_real": "Upgrade to a real account",
-    "open_financial": "Open a financial account",
-    "create_account": "Create account",
-    "accounts_list": "Accounts list"
+    "open_real": "升级为真实账户",
+    "open_financial": "开立金融账户",
+    "create_account": "开立账户",
+    "accounts_list": "账户列表"
   },
   "settings": {
     "settings": "设置",
