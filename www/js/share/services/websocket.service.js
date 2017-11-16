@@ -70,6 +70,17 @@ angular
                 }, _data.hasOwnProperty("authorize") && token);
             };
 
+            const getAppId = () => window.localStorage.getItem('config.app_id') || config.app_id;
+
+            const getSocketURL = () => {
+                let server_url = window.localStorage.getItem('config.server_url');
+                if (server_url) {
+                    return `wss://${server_url}/websockets/v3`;
+                } else if (!server_url) {
+                    return config.wsUrl;
+                }
+            };
+
             const init = function(forced) {
                 forced = forced || false;
                 const language = localStorage.language || "en";
@@ -84,7 +95,11 @@ angular
 
                 appStateService.isLoggedin = false;
 
-                dataStream = new WebSocket(`${config.wsUrl}?app_id=${config.app_id}&l=${language}`);
+
+
+                const appId = getAppId();
+                const wsUrl = getSocketURL();
+                dataStream = new WebSocket(`${wsUrl}?app_id=${appId}&l=${language}`);
 
                 dataStream.onopen = function() {
                     // Authorize the default token if it's exist
