@@ -73,12 +73,10 @@ angular
             const getAppId = () => window.localStorage.getItem('config.app_id') || config.app_id;
 
             const getSocketURL = () => {
-                let server_url = window.localStorage.getItem('config.server_url');
-                if (server_url) {
-                    return `wss://${server_url}/websockets/v3`;
-                } else if (!server_url) {
-                    return config.wsUrl;
-                }
+                let wsUrl;
+                const server_url = window.localStorage.getItem('config.server_url');
+                wsUrl = server_url ? `wss://${server_url}/websockets/v3` : config.wsUrl;
+                return wsUrl;
             };
 
             const init = function(forced) {
