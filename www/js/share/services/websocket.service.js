@@ -74,7 +74,7 @@ angular
 
             const getSocketURL = () => {
                 const server_url = window.localStorage.getItem('config.server_url');
-                const wsUrl = server_url ? `wss://${server_url}/websockets/v3` : config.wsUrl;
+                const wsUrl = server_url ? `wss://${server_url}.binaryws.com/websockets/v3` : config.wsUrl;
                 return wsUrl;
             };
 
