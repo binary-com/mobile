@@ -106,8 +106,8 @@
             vm.from = from.name;
         });
 
-        async function init () {
-            const options = await vm.getCurrenciesOptions();
+        const init = () => {
+            const options = vm.getCurrenciesOptions();
             populateOptions(options);
             hasCurrency(options);
         };
