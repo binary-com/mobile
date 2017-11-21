@@ -176,7 +176,6 @@
     "required": "Questo campo è obbligatorio."
   },
   "newaccountmaltainvest": {
-    "open_financial": "Apri un account finanziario",
     "financial_account_opening": "Apertura account finanziario",
     "details": "Dettagli",
     "privacy": "Privacy",
@@ -323,7 +322,6 @@
     "sale_of_property": "Vendita dei beni"
   },
   "newaccountreal": {
-    "open_real": "Passa a un account reale",
     "real_account_opening": "Apertura di un account reale",
     "details": "Dettagli",
     "address": "Indirizzo",
@@ -467,7 +465,11 @@
     "resources": "Risorse",
     "regulatory_information": "Informazioni regolamentari",
     "mt5": "MetaTrader 5",
-    "contact_us": "Contattaci"
+    "contact_us": "Contattaci",
+    "open_real": "Upgrade to a real account",
+    "open_financial": "Apri un account finanziario",
+    "create_account": "Crea un account",
+    "accounts_list": "Elenco degli account"
   },
   "settings": {
     "settings": "Impostazioni",
@@ -692,7 +694,7 @@
     "your_withdrawal": "Il tuo limite di prelievo è pari a {{currency}} {{limits}}",
     "withdrawn": "Hai già prelevato {{currency}} {{limits}}",
     "volidx": "Volidx",
-    "volatility_indices": "Volatility Indices"
+    "volatility_indices": "Indici di volatilità"
   },
   "resources": {
     "resources": "Risorse",
@@ -709,9 +711,9 @@
     "settles": "Liquida",
     "upcoming_events": "Prossimi eventi",
     "GMT_times": "Tutti gli orari sono espressi in GMT (Greenwich Mean Time).",
-    "closes_early_(at_21:00)": "Closes early (at 21:00)",
-    "closes_early_(at_18:00)": "Closes early (at 18:00)",
-    "fridays": "Fridays"
+    "closes_early_(at_21:00)": "Chiude in anticipo (alle 21:00)",
+    "closes_early_(at_18:00)": "Chiude in anticipo (alle 18:00)",
+    "fridays": "Venerdì"
   },
   "new-real-account": {
     "select_country": "Seleziona il paese",
@@ -816,15 +818,15 @@
     "set_max_turnover_limit": "Per aumentare il limite dei prelievi e del trading, imposta il limite di fatturato di 30 giorni dell'Auto esclusione.",
     "account_age_verification": "Verifica dell'età",
     "needs_age_verification": "L'account ha bisogno della verifica dell'età, per ulteriori informazioni contatta l'assistenza clienti.",
-    "choose_account_currency": "Please set the currency of your account.",
-    "account_currency": "Account currency"
+    "choose_account_currency": "Imposta la valuta del tuo account.",
+    "account_currency": "Valuta dell'account"
   },
   "set-currency": {
-    "select_currency": "Select currency",
-    "select_currency_text": "Please select the currency of this account:",
-    "fiat_currency": "Fiat Currency",
-    "cryptocurrency": "Cryptocurrency",
-    "confirm": "Confirm"
+    "select_currency": "Seleziona la valuta",
+    "select_currency_text": "Seleziona la valuta di questo account:",
+    "fiat_currency": "Moneta Fiat",
+    "cryptocurrency": "Criptovaluta",
+    "confirm": "Conferma"
   },
   "cryptocurrencies": {
     "bitcoin": "Bitcoin",
@@ -834,32 +836,32 @@
     "litecoin": "Litecoin"
   },
   "accounts-management": {
-    "create_account": "Create account",
+    "create_account": "Crea un account",
+    "accounts_list": "Elenco degli account",
     "real": "Real",
-    "virtual": "Virtual",
+    "virtual": "Virtuale",
     "gaming": "Gaming",
-    "financial": "Investment",
-    "account_real": "Real account",
-    "account_financial": "Financial account",
-    "fiat_currencies": "Fiat currency",
-    "crypto_currencies": "Cryptocurrency",
+    "financial": "Investimento",
+    "account_real": "Account reale",
+    "account_financial": "Account finanziario",
+    "fiat_currencies": "Moneta Fiat",
+    "crypto_currencies": "Criptovaluta",
     "please_select_currency": "Please set the currency for your existing account {{loginid}}, in order to create more accounts.",
-    "set_currency": "Set currency",
+    "set_currency": "Imposta la valuta",
     "existing_accounts": "Your existing accounts",
-    "create_new": "Create new account",
-    "create": "Create",
+    "create_new": "Crea un nuovo account",
+    "create": "Crea",
     "account": "Account",
-    "available_markets": "Available markets",
-    "available_currencies": "Available currencies",
-    "action": "Action",
-    "type": "Type",
-    "currency": "Currency",
-    "accounts_list": "Accounts list",
+    "available_markets": "Mercati disponibili",
+    "available_currencies": "Valute disponibili",
+    "action": "Azione",
+    "type": "Tipologia",
+    "currency": "Valuta",
     "no_more_account": "You have created all accounts available to you.",
-    "commodities": "Commodities",
+    "commodities": "Materie prime",
     "forex": "Forex",
     "smarties": "Smarties",
-    "indices": "Indices",
+    "indices": "Indici",
     "stocks": "Stocks",
     "volidx": "Volatility Indices",
     "note": "Note: You can only have one fiat currency account and one of each cryptocurrency account."

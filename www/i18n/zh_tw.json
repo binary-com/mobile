@@ -176,7 +176,6 @@
     "required": "此為必填欄位。"
   },
   "newaccountmaltainvest": {
-    "open_financial": "開立金融帳戶",
     "financial_account_opening": "開立金融帳戶",
     "details": "詳細資訊",
     "privacy": "隱私",
@@ -323,7 +322,6 @@
     "sale_of_property": "財產出售"
   },
   "newaccountreal": {
-    "open_real": "升級到真實帳戶",
     "real_account_opening": "開立真實資金帳戶",
     "details": "詳細資訊",
     "address": "地址",
@@ -467,7 +465,11 @@
     "resources": "資源",
     "regulatory_information": "法規資訊",
     "mt5": "MetaTrader 5",
-    "contact_us": "聯繫我們"
+    "contact_us": "聯繫我們",
+    "open_real": "升級為真實帳戶",
+    "open_financial": "開立金融帳戶",
+    "create_account": "開立帳戶",
+    "accounts_list": "帳戶清單"
   },
   "settings": {
     "settings": "設置",
@@ -835,6 +837,7 @@
   },
   "accounts-management": {
     "create_account": "開立帳戶",
+    "accounts_list": "帳戶清單",
     "real": "真實",
     "virtual": "虛擬",
     "gaming": "遊戲",
@@ -854,7 +857,6 @@
     "action": "動作",
     "type": "類型",
     "currency": "貨幣",
-    "accounts_list": "帳戶清單",
     "no_more_account": "您已開立所有可用的帳戶。",
     "commodities": "大宗商品",
     "forex": "外匯",

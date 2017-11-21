@@ -176,7 +176,6 @@
     "required": "crwdns19470:0crwdne19470:0"
   },
   "newaccountmaltainvest": {
-    "open_financial": "crwdns17807:0crwdne17807:0",
     "financial_account_opening": "crwdns17808:0crwdne17808:0",
     "details": "crwdns17809:0crwdne17809:0",
     "privacy": "crwdns17810:0crwdne17810:0",
@@ -323,7 +322,6 @@
     "sale_of_property": "crwdns33384:0crwdne33384:0"
   },
   "newaccountreal": {
-    "open_real": "crwdns17899:0crwdne17899:0",
     "real_account_opening": "crwdns17900:0crwdne17900:0",
     "details": "crwdns17901:0crwdne17901:0",
     "address": "crwdns17902:0crwdne17902:0",
@@ -467,7 +465,11 @@
     "resources": "crwdns19114:0crwdne19114:0",
     "regulatory_information": "crwdns19507:0crwdne19507:0",
     "mt5": "crwdns19573:0crwdne19573:0",
-    "contact_us": "crwdns19784:0crwdne19784:0"
+    "contact_us": "crwdns19784:0crwdne19784:0",
+    "open_real": "crwdns41791:0crwdne41791:0",
+    "open_financial": "crwdns41792:0crwdne41792:0",
+    "create_account": "crwdns41793:0crwdne41793:0",
+    "accounts_list": "crwdns41794:0crwdne41794:0"
   },
   "settings": {
     "settings": "crwdns18010:0crwdne18010:0",
@@ -835,6 +837,7 @@
   },
   "accounts-management": {
     "create_account": "crwdns41708:0crwdne41708:0",
+    "accounts_list": "crwdns41728:0crwdne41728:0",
     "real": "crwdns41709:0crwdne41709:0",
     "virtual": "crwdns41710:0crwdne41710:0",
     "gaming": "crwdns41711:0crwdne41711:0",
@@ -854,7 +857,6 @@
     "action": "crwdns41725:0crwdne41725:0",
     "type": "crwdns41726:0crwdne41726:0",
     "currency": "crwdns41727:0crwdne41727:0",
-    "accounts_list": "crwdns41728:0crwdne41728:0",
     "no_more_account": "crwdns41729:0crwdne41729:0",
     "commodities": "crwdns41730:0crwdne41730:0",
     "forex": "crwdns41731:0crwdne41731:0",

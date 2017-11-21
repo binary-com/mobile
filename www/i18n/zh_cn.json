@@ -176,7 +176,6 @@
     "required": "此为必填字段。"
   },
   "newaccountmaltainvest": {
-    "open_financial": "开立金融账户",
     "financial_account_opening": "开立金融账户",
     "details": "详细信息",
     "privacy": "隐私",
@@ -323,7 +322,6 @@
     "sale_of_property": "财产出售"
   },
   "newaccountreal": {
-    "open_real": "升级到真实账户",
     "real_account_opening": "开立真实资金账户",
     "details": "详情",
     "address": "地址",
@@ -467,7 +465,11 @@
     "resources": "资源",
     "regulatory_information": "法规信息",
     "mt5": "MetaTrader 5",
-    "contact_us": "联系我们"
+    "contact_us": "联系我们",
+    "open_real": "升级为真实账户",
+    "open_financial": "开立金融账户",
+    "create_account": "开立账户",
+    "accounts_list": "账户列表"
   },
   "settings": {
     "settings": "设置",
@@ -835,6 +837,7 @@
   },
   "accounts-management": {
     "create_account": "开立账户",
+    "accounts_list": "账户列表",
     "real": "真实",
     "virtual": "虚拟",
     "gaming": "游戏",
@@ -854,7 +857,6 @@
     "action": "操作",
     "type": "类型",
     "currency": "货币",
-    "accounts_list": "账户列表",
     "no_more_account": "您已开立所有可用的账户。",
     "commodities": "大宗商品",
     "forex": "外汇",

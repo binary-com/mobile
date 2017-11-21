@@ -176,7 +176,6 @@
     "required": "Trường này là bắt buộc."
   },
   "newaccountmaltainvest": {
-    "open_financial": "Mở một tài khoản tài chính",
     "financial_account_opening": "Mở Tài khoản Tài chính",
     "details": "Chi tiết",
     "privacy": "Sự riêng tư",
@@ -323,7 +322,6 @@
     "sale_of_property": "Sale of Property"
   },
   "newaccountreal": {
-    "open_real": "Nâng cấp lên tài khoản Thực",
     "real_account_opening": "Mở Tài khoản Tiền Thực",
     "details": "Chi tiết",
     "address": "Địa chỉ",
@@ -467,7 +465,11 @@
     "resources": "Tài nguyên",
     "regulatory_information": "Thông tin pháp lý",
     "mt5": "MetaTrader 5",
-    "contact_us": "Liên hệ với chúng tôi"
+    "contact_us": "Liên hệ với chúng tôi",
+    "open_real": "Upgrade to a real account",
+    "open_financial": "Open a financial account",
+    "create_account": "Create account",
+    "accounts_list": "Accounts list"
   },
   "settings": {
     "settings": "Cài đặt",
@@ -835,6 +837,7 @@
   },
   "accounts-management": {
     "create_account": "Create account",
+    "accounts_list": "Accounts list",
     "real": "Real",
     "virtual": "Virtual",
     "gaming": "Gaming",
@@ -854,7 +857,6 @@
     "action": "Action",
     "type": "Type",
     "currency": "Currency",
-    "accounts_list": "Accounts list",
     "no_more_account": "You have created all accounts available to you.",
     "commodities": "Commodities",
     "forex": "Forex",

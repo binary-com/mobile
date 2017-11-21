@@ -176,7 +176,6 @@
     "required": "Ce champ est requis."
   },
   "newaccountmaltainvest": {
-    "open_financial": "Ouvrir un compte financier",
     "financial_account_opening": "Ouverture de compte financier",
     "details": "Détails",
     "privacy": "Vie privée",
@@ -323,7 +322,6 @@
     "sale_of_property": "Vente d’un bien"
   },
   "newaccountreal": {
-    "open_real": "Ouvrir un compte réel",
     "real_account_opening": "Ouverture d'un compte réel",
     "details": "Détails",
     "address": "Adresse",
@@ -467,7 +465,11 @@
     "resources": "Ressources",
     "regulatory_information": "Informations réglementaires",
     "mt5": "MetaTrader 5",
-    "contact_us": "Contactez-nous"
+    "contact_us": "Contactez-nous",
+    "open_real": "Upgrade to a real account",
+    "open_financial": "Open a financial account",
+    "create_account": "Create account",
+    "accounts_list": "Accounts list"
   },
   "settings": {
     "settings": "Paramètres",
@@ -835,6 +837,7 @@
   },
   "accounts-management": {
     "create_account": "Create account",
+    "accounts_list": "Accounts list",
     "real": "Real",
     "virtual": "Virtual",
     "gaming": "Gaming",
@@ -854,7 +857,6 @@
     "action": "Action",
     "type": "Type",
     "currency": "Currency",
-    "accounts_list": "Accounts list",
     "no_more_account": "You have created all accounts available to you.",
     "commodities": "Commodities",
     "forex": "Forex",
