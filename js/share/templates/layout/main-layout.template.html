@@ -12,8 +12,24 @@
         <bg-accounts></bg-accounts>
       </ion-header-bar>
       <ion-content class="has-header has-footer" scroll="true" overflow-scroll="false">
-        <bg-account-upgrade></bg-account-upgrade>
         <ion-list>
+          <ion-item
+                  nav-clear
+                  menu-close
+                  ng-if="vm.upgrade.canUpgrade && !vm.upgrade.multi"
+                  ui-sref="{{vm.upgrade.upgradeLink}}"
+                  tabindex="1"
+                  href="#">
+            <div class="icon-wrapper">
+              <i class="ion-plus-round"></i>
+            </div>
+            <span ng-if="vm.upgrade.typeOfNextAccount === 'real'">
+                {{'menu.open_real' | translate}}
+            </span>
+            <span ng-if="vm.upgrade.typeOfNextAccount === 'financial'">
+                {{'menu.open_financial' | translate}}
+            </span>
+          </ion-item>
           <ion-item nav-clear menu-close ui-sref="trade" tabindex="1" href="#">
             <div class="icon-wrapper">
               <i class="ion-arrow-graph-up-right"></i>
@@ -49,6 +65,22 @@
               <i class="ion-folder"></i>
             </div>
             {{ 'menu.resources' | translate }}
+          </ion-item>
+          <ion-item
+                  nav-clear
+                  menu-close
+                  ui-sref="accounts-management"
+                  tabindex="1"
+                  href="#">
+            <div class="icon-wrapper">
+              <i class="ion-plus-round"></i>
+            </div>
+            <span ng-if="vm.upgrade.canUpgrade">
+                {{ 'menu.create_account' | translate }}
+            </span>
+            <span ng-if="!vm.upgrade.canUpgrade">
+                {{ 'menu.accounts_list' | translate }}
+            </span>
           </ion-item>
           <ion-item nav-clear menu-close ui-sref="contact" href="#">
             <div class="icon-wrapper">

@@ -10093,6 +10093,9 @@ input {
 input[type="date"]::-webkit-calendar-picker-indicator {
   color: #C2C2C2; }
 
+input[type="date"] {
+  min-height: 30px !important; }
+
 .item-input {
   padding: 5px; }
 
@@ -11717,14 +11720,17 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
 
 .trading-times .trading-times-table {
   width: 100%;
-  font-size: 0.7rem; }
+  font-size: 0.7rem;
+  table-layout: fixed; }
   .trading-times .trading-times-table thead {
     background: #F2F2F2;
     font-size: 0.8rem; }
     .trading-times .trading-times-table thead.limits-by-market {
       margin-top: 20px; }
     .trading-times .trading-times-table thead tr th {
-      padding: 5px; }
+      padding: 5px;
+      vertical-align: top;
+      word-break: break-word; }
     .trading-times .trading-times-table thead tr.title-row {
       padding-left: 15px;
       border-top: 1px solid #000;
@@ -11734,7 +11740,9 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     border-bottom: 1px solid #DEDEDE; }
     .trading-times .trading-times-table tbody tr td {
       padding: 5px;
-      font-size: 0.8rem; }
+      font-size: 0.8rem;
+      vertical-align: top;
+      word-break: break-word; }
 
 .asset-index form {
   display: inline-block;
@@ -11756,12 +11764,15 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
 
 .asset-index .asset-index-table {
   width: 100%;
-  font-size: 0.7rem; }
+  font-size: 0.7rem;
+  table-layout: fixed; }
   .asset-index .asset-index-table tbody tr {
     border-bottom: 1px solid #DEDEDE; }
     .asset-index .asset-index-table tbody tr td {
       padding: 5px;
-      font-size: 0.8rem; }
+      font-size: 0.8rem;
+      vertical-align: top;
+      word-break: break-word; }
     .asset-index .asset-index-table tbody tr.title-row {
       padding-left: 15px;
       border-top: 1px solid #000;
@@ -11774,6 +11785,9 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
         margin-top: 20px; }
       .asset-index .asset-index-table tbody tr.market-row tr th {
         padding: 5px; }
+        .asset-index .asset-index-table tbody tr.market-row tr th td {
+          vertical-align: top;
+          word-break: break-word; }
 
 .tax-residence-modal .item-checkbox {
   font-size: 0.8rem; }
@@ -11810,6 +11824,20 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   box-shadow: none; }
   .notification .bordered {
     border-bottom: 1px solid #DEDEDE; }
+
+.accounts-management ul {
+  display: table;
+  width: 100%; }
+  .accounts-management ul li {
+    display: table-row;
+    width: 100%; }
+    .accounts-management ul li.list-title {
+      background: #F2F2F2; }
+    .accounts-management ul li .list-element {
+      display: table-cell;
+      padding: 5px;
+      font-size: 0.8rem;
+      vertical-align: middle; }
 
 .language bg-language-list ion-content .item-content {
   font-size: 1rem;

@@ -17,7 +17,7 @@
                     </div>
                     <div class="row">
                         <div class="col item-select">
-                            <select name="salutation" ng-model="vm.data.salutation" required>
+                            <select name="salutation" ng-model="vm.data.salutation" ng-disabled="vm.isReadonly" ng-required="!vm.isReadonly">
                               <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
                               <option value="Mr">
                                 {{'newaccountreal.mr' | translate}}
@@ -48,7 +48,7 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="first_name" ng-model="vm.data.first_name" ng-pattern="vm.validateGeneral" ng-minlength="2" ng-maxlength="30" required>
+                            <input name="first_name" ng-model="vm.data.first_name" ng-pattern="vm.validateGeneral" ng-minlength="2" ng-maxlength="30" ng-disabled="vm.isReadonly" ng-required="!vm.isReadonly">
                             <ng-messages class="help-block error" for="newAccount.first_name.$error" role="alert" ng-if='newAccount.first_name.$dirty' ng-hide="vm.first_name_error">
                                 <ng-message when="pattern">{{'newaccountreal.general-pattern-error' | translate}}</ng-message>
                                 <ng-message when="minlength, maxlength">{{'newaccountreal.length-error-2-30' | translate}}</ng-message>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="last_name" ng-model="vm.data.last_name" ng-pattern="vm.validateGeneral" ng-minlength="2" ng-maxlength="30" required>
+                            <input name="last_name" ng-model="vm.data.last_name" ng-pattern="vm.validateGeneral" ng-minlength="2" ng-maxlength="30" ng-disabled="vm.isReadonly" ng-required="!vm.isReadonly">
                             <ng-messages class="help-block error" for="newAccount.last_name.$error" role="alert" ng-if='newAccount.last_name.$dirty' ng-hide="vm.last_name_error">
                                 <ng-message when="pattern">{{'newaccountreal.general-pattern-error' | translate}}</ng-message>
                                 <ng-message when="minlength, maxlength">{{'newaccountreal.length-error-2-30' | translate}}</ng-message>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="row">
                         <label class="col item-input">
-                          <input type="date" placeholder="yyyy-MM-dd" class="date" ng-model="vm.data.date_of_birth" name="date" required/>
+                          <input type="date" placeholder="yyyy-MM-dd" class="date" ng-model="vm.data.date_of_birth" name="date" ng-disabled="vm.isReadonly" required/>
                         </label>
                     </div>
                     <ng-messages class="help-block error" for="newAccount.date_of_birth.$error" role="alert" ng-if='newAccount.date_of_birth.$dirty' ng-hide="vm.date_of_birth_error">
@@ -260,11 +260,10 @@
                     </div>
                     <div class="row">
                         <div class="col item-select">
-                            <select name="account_opening_reason" ng-model="vm.data.account_opening_reason" required>
+                            <select name="account_opening_reason" ng-model="vm.data.account_opening_reason" ng-disabled="vm.isReadonly" required>
                                 <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
                                 <option value="Speculative" selected="selected">{{'newaccountreal.speculative' | translate}}</option>
                                 <option value="Income Earning">{{'newaccountreal.income_earning' | translate}}</option>
-                                <option value="Assets Saving">{{'newaccountreal.assets_saving' | translate}}</option>
                                 <option value="Hedging">{{'newaccountreal.hedging' | translate}}</option>
                             </select>
                             <div class="help-block error" ng-if='vm.account_opening_reason_error'>
@@ -274,7 +273,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-if="!vm.isReadonly">
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
@@ -301,7 +300,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-if="!vm.isReadonly">
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">

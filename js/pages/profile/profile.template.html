@@ -335,7 +335,7 @@
                         </div>
                         <div class="row">
                             <div class="col item-input">
-                                <input name="tax_identification_number" ng-model="vm.profile.tax_identification_number" ng-pattern="/^([a-zA-Z\d-\s])*$/" ng-minlength="0" ng-maxlength="20" ng-required="vm.isFinancial" />
+                                <input name="tax_identification_number" ng-model="vm.profile.tax_identification_number" ng-pattern="/^[\w-]{0,20}$/" ng-minlength="0" ng-maxlength="20" ng-required="vm.isFinancial" />
                                 <ng-messages ng-if="vm.isDataLoaded" for="profileForm.tax_identification_number.$error" role="alert" class="error">
                                     <ng-message when="minlength, maxlength">
                                         {{ 'profile.maxlength_error_20' | translate }}

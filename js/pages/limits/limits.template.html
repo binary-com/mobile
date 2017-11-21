@@ -53,10 +53,10 @@
 
             <tbody ng-repeat="(key,val) in vm.limits.market_specific track by $index">
               <tr>
-                <td colspan="2" class="left bold">{{key}}</td>
+                <td colspan="2" class="left bold">{{ vm.getLanguageId(key) | translate}}</td>
               </tr>
               <tr ng-repeat="market in val track by $index">
-                <td class="left title-row">{{market.name}}</td>
+                <td class="left title-row">{{ vm.getLanguageId(market.name) | translate}}</td>
                 <td class="center">{{(market.turnover_limit).toLocaleString("en")}}</td>
               </tr>
             </tbody>
