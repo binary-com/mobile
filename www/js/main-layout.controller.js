@@ -52,8 +52,8 @@ angular
             let typeOfNextAccount = 'real';
             let upgradeLink = 'real-account-opening'
             let canUpgrade = false;
-            let currencyOptions = landingCompany.gaming_company.legal_allowed_currencies;
-            let allowedMarkets = {};
+            let currencyOptions = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_currencies : {};
+            let allowedMarkets = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_markets : {};
             let multi = false;
             if (isAccountOfType('virtual', id)) {
                 if (canUpgradeVirtualToFinancial(landingCompany)) {
