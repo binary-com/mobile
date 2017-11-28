@@ -6,7 +6,7 @@ angular
         websocketService,
         appStateService,
         accountService,
-        currencyService) {
+        clientService) {
         const vm = this;
         vm.hasMTAccess = false;
 
@@ -22,7 +22,7 @@ angular
 
         const getAllLoginids = _accounts => accountService.getAllloginids(_accounts);
 
-        const isAccountOfType = (type, loginid) => currencyService.isAccountOfType(type, loginid);
+        const isAccountOfType = (type, loginid) => clientService.isAccountOfType(type, loginid);
 
         const getAccountOfType = type => {
             const id = getAllLoginids(vm.accounts).find(loginid => isAccountOfType(type, loginid));
@@ -40,13 +40,13 @@ angular
         const canUpgradeMultiAccount = data =>  (hasShortCode(data.financial_company, 'costarica'));
 
         const getLegalAllowedCurrencies = (loginid, landingCompany) =>
-            currencyService.landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
+            clientService.landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
         const getLegalAllowedMarkets = (loginid, landingCompany) =>
-            currencyService.landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
+            clientService.landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
 
-        const getExistingCurrencies = accounts => currencyService.getExistingCurrencies(accounts);
+        const getExistingCurrencies = accounts => clientService.getExistingCurrencies(accounts);
 
-        const getDividedCurrencies = currencies => currencyService.dividedCurrencies(currencies);
+        const getDividedCurrencies = currencies => clientService.dividedCurrencies(currencies);
 
         const getUpgradeInfo = (landingCompany, id) => {
             let typeOfNextAccount = 'real';

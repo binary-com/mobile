@@ -6,7 +6,7 @@
  * @copyright Binary Ltd
  */
 
-angular.module("binary").service("currencyService", function(appStateService) {
+angular.module("binary").service("clientService", function(appStateService) {
 
     this.getAccountType = (loginid) => {
         let account_type;

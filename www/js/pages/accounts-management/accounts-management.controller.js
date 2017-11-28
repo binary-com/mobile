@@ -18,7 +18,7 @@
         "$translate",
         "appStateService",
         "accountService",
-        "currencyService"
+        "clientService"
     ];
 
     function AccountsManagement($scope,
@@ -27,7 +27,7 @@
         $translate,
         appStateService,
         accountService,
-        currencyService) {
+        clientService) {
         const vm = this;
         const activeMarkets = {
             commodities: $translate.instant('accounts-management.commodities'),
@@ -77,10 +77,10 @@
             return currencyOptions;
         }
 
-        const accountType = id => currencyService.getAccountType(id);
+        const accountType = id => clientService.getAccountType(id);
 
         const getAvailableMarkets = (id) => {
-            const legalAllowedMarkets = currencyService.landingCompanyValue(id, 'legal_allowed_markets');
+            const legalAllowedMarkets = clientService.landingCompanyValue(id, 'legal_allowed_markets');
             let availableMarkets = [];
             if (Array.isArray(legalAllowedMarkets) && legalAllowedMarkets.length) {
                 availableMarkets = _.join(filterMarkets(legalAllowedMarkets), ', ');
