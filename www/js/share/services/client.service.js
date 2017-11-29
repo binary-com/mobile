@@ -1,5 +1,5 @@
 /**
- * @name currency service
+ * @name client service
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 10/26/2017

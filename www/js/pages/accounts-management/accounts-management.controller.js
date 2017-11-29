@@ -69,7 +69,7 @@
                 const curr = currencies[i];
                 currencyObject.name = curr;
                 // adding translate labels to currencies
-                currencyObject.currencyGroup = /crypto/i.test(currencyConfig[curr].type) ?
+                currencyObject.currencyGroup = isCryptocurrency(currencyConfig, curr) ?
                     $translate.instant('accounts-management.crypto_currencies') :
                     $translate.instant('accounts-management.fiat_currencies');
                 currencyOptions.push(currencyObject);
