@@ -9,10 +9,10 @@
                    ng-if="!vm.isIOS"
                    bg-number
                    require
-                   pattern="\d*"
                    ng-model="vm.amount"
                    ng-change = "vm.changeAmount()"
-                   bg-regex-validate = "vm.regex"/>
+                   bg-regex-validate = "vm.regex"
+                   step="any"/>
             <input type="text"
                    id="payout"
                    ng-if="vm.isIOS"
