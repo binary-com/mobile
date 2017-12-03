@@ -74,8 +74,8 @@
 
         const hasCurrency = (options) => {
             $scope.$applyAsync(() => {
-                vm.hasCryptoOption = _.findIndex(options, 'isCryptoCurrency') > -1;
-                vm.hasFiatOption = _.findIndex(options, ['isCryptoCurrency', false]) > -1;
+                vm.hasCryptoOption = _.findIndex(vm.currenciesOptions, 'isCryptoCurrency') > -1;
+                vm.hasFiatOption = _.findIndex(vm.currenciesOptions, ['isCryptoCurrency', false]) > -1;
             });
         };
 
