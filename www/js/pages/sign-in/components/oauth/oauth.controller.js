@@ -57,8 +57,10 @@
         });
 
         vm.signin = function() {
+            const oathUrl = window.localStorage.getItem('config.server_url') || config.oauthUrl;
+            const appId = window.localStorage.getItem('config.app_id') || config.app_id;
             const authWindow = window.open(
-                `${config.oauthUrl}?app_id=${config.app_id}&l=${languageService.read()}`,
+                `${oathUrl}?app_id=${appId}&l=${languageService.read()}`,
                 "_blank",
                 "location=no,toolbar=no"
             );
