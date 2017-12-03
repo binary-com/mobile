@@ -57,10 +57,11 @@
         });
 
         vm.signin = function() {
-            const oathUrl = window.localStorage.getItem('config.server_url') || config.oauthUrl;
-            const appId = window.localStorage.getItem('config.app_id') || config.app_id;
+            const serverUrl = localStorage.getItem('config.server_url');
+            const oauthUrl = serverUrl ? `https://${serverUrl}/oauth2/authorize` : config.oauthUrl;
+            const appId = localStorage.getItem('config.app_id') || config.app_id;
             const authWindow = window.open(
-                `${oathUrl}?app_id=${appId}&l=${languageService.read()}`,
+                `${oauthUrl}?app_id=${appId}&l=${languageService.read()}`,
                 "_blank",
                 "location=no,toolbar=no"
             );
