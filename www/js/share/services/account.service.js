@@ -114,16 +114,23 @@ angular.module("binary").service("accountService", function(websocketService, ap
             currency  : _account.currency,
             email     : _account.email,
             country   : _account.country,
-            is_default: false
+            is_disabled: _account.is_disabled,
+            is_ico_only: _account.is_ico_only,
+            is_virtual: _account.is_virtual,
+            excluded_until: _account.excluded_until,
+            landing_company_name: _account.landing_company_name
         };
 
         const accountList = this.getAll();
-
         if (_.find(accountList, ["id", account.id])) {
-            return;
+            const defaultAccountIndex = _.findIndex(accountList, ["id", account.id]);
+            account.is_default = true;
+            accountList[defaultAccountIndex] = Object.assign(accountList[defaultAccountIndex], account);
+        } else {
+            account.is_default = false;
+            accountList.push(account);
         }
 
-        accountList.push(account);
         localStorage.accounts = JSON.stringify(accountList);
     };
 

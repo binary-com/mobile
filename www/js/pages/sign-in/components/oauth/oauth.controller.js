@@ -23,6 +23,7 @@
         const vm = this;
 
         let accounts = [];
+        let tokenNumber = 0;
 
         const authenticate = function(_token) {
             // Validate the token
@@ -38,20 +39,34 @@
             if (_message.data && _message.data.url) {
                 accounts = getAccountsFromUrl(_message.data.url);
                 if (accounts.length > 0) {
-                    authenticate(accounts[0].token);
+                    authenticate(accounts[tokenNumber].token);
                 }
             }
         };
 
         $scope.$on("authorize", (e, response) => {
             if (response) {
-                accounts.forEach((value, index) => {
-                    if (index > 0) {
-                        accounts[index].email = response.email;
-                        accounts[index].country = response.country;
-                        accountService.add(accounts[index]);
+                const accountList = response.account_list;
+                const defaultAccount = _.find(accountList, ["id", response.loginid]);
+
+                if ( defaultAccount &&
+                    (defaultAccount.is_disabled ||
+                    defaultAccount.excluded_until)) {
+
+                    tokenNumber += 1;
+                    authenticate(accounts[tokenNumber].token);
+                } else {
+                    accounts.forEach((value, index) => {
+                        let account = accounts[index];
+                    account.email = response.email;
+                    account.country = response.country;
+                    if (accountList) {
+                        const acc = accountList.find(a => a.loginid === account.loginid);
+                        account = Object.assign(account, acc);
                     }
+                    accountService.add(account);
                 });
+                }
             }
             $ionicLoading.hide();
         });
@@ -75,7 +90,7 @@
                 if (accounts && accounts.length) {
                     authWindow.close();
 
-                    authenticate(accounts[0].token);
+                    authenticate(accounts[tokenNumber].token);
                 }
             });
         };
@@ -91,9 +106,6 @@
                     accounts.push({
                         loginid   : result[1],
                         token     : result[2],
-                        currency  : result[4] ? result[4] : null,
-                        email     : "",
-                        is_default: false
                     });
                 }
             } while (result)
