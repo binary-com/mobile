@@ -17,7 +17,7 @@
         'websocketService',
         'localStorageService',
         'accountService',
-        'currencyService'];
+        'clientService'];
 
     function SetCurrency($scope,
         $rootScope,
@@ -27,7 +27,7 @@
         websocketService,
         localStorageService,
         accountService,
-        currencyService) {
+        clientService) {
         const vm = this;
         const cryptoConfig = config.cryptoConfig;
         const currencyConfig = appStateService.currenciesConfig;
@@ -38,15 +38,15 @@
         vm.currenciesOptions = [];
 
         vm.getCurrenciesOptions = () => {
-            const legalAllowedCurrencies = currencyService.landingCompanyValue(currentAccount.id, 'legal_allowed_currencies');
+            const legalAllowedCurrencies = clientService.landingCompanyValue(currentAccount.id, 'legal_allowed_currencies');
             if (vm.isCRAccount) {
-                const existingCurrencies = currencyService.getExistingCurrencies(accounts);
+                const existingCurrencies = clientService.getExistingCurrencies(accounts);
                 if (existingCurrencies.length) {
-                    const dividedExistingCurrencies = currencyService.dividedCurrencies(existingCurrencies);
+                    const dividedExistingCurrencies = clientService.dividedCurrencies(existingCurrencies);
                     const hasFiat = dividedExistingCurrencies.fiatCurrencies.length > 0;
                     if (hasFiat) {
                         const legalAllowedCryptoCurrencies =
-                            currencyService.dividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
+                            clientService.dividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
                         const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
                         return _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
                     }
