@@ -1,0 +1,21 @@
+<ion-view class="settings">
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{ 'resources.resources' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="list">
+      <div ng-repeat="resource in vm.resources">
+        <a href="#"
+           ui-sref="{{resource.url}}"
+           class="item">
+          {{ resource.name | translate }}
+          <i class="submenu-icon ion-android-arrow-dropright" ng-class="{'ion-ios-arrow-right' : vm.ios}"></i>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-item>
+	<div class="row">
+		<div class="col">
+			<p>
+				{{'new-real-account.select_country_text' | translate}}
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col interval-input">
+			<form name="interval">
+				<label class="item-input item-select">
+						<select ng-model="vm.selectedCountry" ng-options="residence.value as residence.text disable when residence.disabled for residence in vm.residenceList track by residence.value" required>
+								<option value="">{{'newvirtualaccount.select' | translate}}</option>
+						</select>
+				</label>
+			</form>
+		</div>
+	</div>
+</ion-item>
