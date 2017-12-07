@@ -661,15 +661,15 @@
     "cash_business": "ธุรกิจเงินสด",
     "company_ownership": "เจ้าของกิจการ",
     "divorce_settlement": "ข้อตกลงการหย่า",
-    "inheritance": "Inheritance",
-    "investment_income": "Investment Income",
-    "sale_of_property": "Sale of Property"
+    "inheritance": "มรดก",
+    "investment_income": "รายได้จากการลงทุน",
+    "sale_of_property": "การขายทรัพย์สิน"
   },
   "limits": {
-    "trading_withdrawal_limits": "Trading and Withdrawal Limits",
+    "trading_withdrawal_limits": "วงเงินซื้อขายและถอนเงิน",
     "item": "รายการ",
     "limit": "วงเงิน",
-    "open_positions": "Maximum number of open positions",
+    "open_positions": "จำนวนสูงสุดของโพซิชั่นที่เปิด",
     "account_balance": "บัญชีเงินสดคงเหลือสูงสุด",
     "payouts": "มูลค่าการชำระเงินรวมสูงสุดของโพซิชั่นที่เปิด",
     "payouts_per_symbol_and_contract_type": "มูลค่าการชำระเงินรวมสูงสุดของโพซิชั่นเปิดต่อสัญลักษณ์และประเภทของสัญญา",
