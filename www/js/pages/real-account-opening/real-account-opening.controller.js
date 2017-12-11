@@ -17,7 +17,9 @@
         "appStateService",
         "accountService",
         "alertService",
-        "clientService"
+        "clientService",
+        "validationService",
+        "realAccountOpeningOptions"
     ];
 
     function RealAccountOpening(
@@ -28,13 +30,17 @@
         appStateService,
         accountService,
         alertService,
-        clientService
+        clientService,
+        validationService,
+        realAccountOpeningOptions
     ) {
         const vm = this;
         vm.data = {};
+        vm.errors= {};
         const loginid = accountService.getDefault().id;
         const isVirtual = clientService.isAccountOfType('virtual', loginid);
-        console.log(isVirtual);
+        vm.validation = validationService;
+        vm.options = realAccountOpeningOptions;
         vm.hasResidence = false;
         vm.disableUpdatebutton = false;
         vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
@@ -58,9 +64,7 @@
 
         // set all fields errors to false
         vm.resetAllErrors = function() {
-            _.forEach(vm.requestData, (value, key) => {
-                vm[`${value}_error`] = false;
-            });
+            vm.errors = {};
         };
 
         $scope.$on("residence_list", (e, residence_list) => {
@@ -73,10 +77,7 @@
                 if (vm.requestData.indexOf(key) > -1) {
                     if (key === "date_of_birth") {
                         vm.data[key] = new Date(val * 1000);
-                    } else if (key === "place_of_birth" && val) {
-                        vm.hasPlaceOfbirth = true;
-                        vm.data[key] = val;
-                    } else {
+                    } else if (val) {
                         vm.data[key] = val;
                     }
                 } else if (key === "country_code") {
@@ -85,7 +86,6 @@
                     websocketService.sendRequestFor.statesListSend(vm.data.residence);
                 }
             });
-
             if (!get_settings.hasOwnProperty("phone")) {
                 vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
                 if (vm.phoneCodeObj.hasOwnProperty("phone_idd")) {
@@ -96,44 +96,11 @@
             }
         });
 
-        vm.findPhoneCode = function(country) {
-            return country.value === vm.data.residence;
-        };
+        vm.findPhoneCode = country => country.value === vm.data.residence;
 
         $scope.$on("states_list", (e, states_list) => {
             vm.statesList = states_list;
         });
-
-        // regexp pattern for name input (pattern in perl API doesn't work in javascript)
-        vm.validateGeneral = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
-            return {
-                test(val) {
-                    const reg = regex.test(val);
-                    return reg !== true;
-                }
-            };
-        })();
-
-        vm.validateAddress = (function(val) {
-            const regex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
-            return {
-                test(val) {
-                    const reg = regex.test(val);
-                    return reg !== true;
-                }
-            };
-        })();
-
-        vm.validateSecretAnswer = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
-            return {
-                test(val) {
-                    const reg = regex.test(val);
-                    return reg !== true;
-                }
-            };
-        })();
 
         vm.submitAccountOpening = function() {
             vm.disableUpdatebutton = true;
@@ -162,8 +129,7 @@
                 $scope.$applyAsync(() => {
                     _.forEach(vm.requestData, (value, key) => {
                         if (error.details.hasOwnProperty(value)) {
-                            vm[`${value}_error`] = true;
-                            vm[`${value}_error_message`] = error.details[value];
+                            vm.errors[value] = error.details[value];
                         }
                     });
                 });
@@ -175,20 +141,17 @@
         $scope.$on("new_account_real", (e, new_account_real) => {
             vm.disableUpdatebutton = false;
             websocketService.authenticate(new_account_real.oauth_token);
-            vm.selectedAccount = new_account_real.oauth_token;
+            const selectedAccount = new_account_real.oauth_token;
             appStateService.newAccountAdded = true;
-            accountService.addedAccount = vm.selectedAccount;
+            accountService.addedAccount = selectedAccount;
         });
 
-        vm.openTermsAndConditions = function() {
-            window.open(vm.data.linkToTermAndConditions, "_blank");
-        };
+        vm.openTermsAndConditions = () => window.open(vm.data.linkToTermAndConditions, "_blank");
 
         vm.init = function() {
             vm.resetAllErrors();
             websocketService.sendRequestFor.residenceListSend();
             vm.readOnly = !isVirtual;
-            console.log(isVirtual);
         };
 
         vm.init();
