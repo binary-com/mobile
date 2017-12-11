@@ -39,7 +39,7 @@
         vm.taxRequirement = false;
         vm.settingTaxResidence = [];
         const loginid = accountService.getDefault().id;
-        const isVirtual = clientService.isAccountOfType(loginid, 'virtual');
+        const isVirtual = clientService.isAccountOfType('virtual', loginid);
         vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
         vm.requestData = [

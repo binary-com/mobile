@@ -16,7 +16,8 @@
         "websocketService",
         "appStateService",
         "accountService",
-        "alertService"
+        "alertService",
+        "clientService"
     ];
 
     function RealAccountOpening(
@@ -26,12 +27,14 @@
         websocketService,
         appStateService,
         accountService,
-        alertService
+        alertService,
+        clientService
     ) {
         const vm = this;
         vm.data = {};
         const loginid = accountService.getDefault().id;
-        const isVirtual = clientService.isAccountOfType(loginid, 'virtual');
+        const isVirtual = clientService.isAccountOfType('virtual', loginid);
+        console.log(isVirtual);
         vm.hasResidence = false;
         vm.disableUpdatebutton = false;
         vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
@@ -185,6 +188,7 @@
             vm.resetAllErrors();
             websocketService.sendRequestFor.residenceListSend();
             vm.readOnly = !isVirtual;
+            console.log(isVirtual);
         };
 
         vm.init();
