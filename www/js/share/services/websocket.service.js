@@ -175,7 +175,6 @@ angular
                 localStorage.removeItem("termsConditionsVersion");
                 appStateService.profitTableRefresh = true;
                 appStateService.statementRefresh = true;
-                appStateService.hasMLT = false;
                 sessionStorage.removeItem("countryParams");
                 websocketService.closeConnection();
                 appStateService.passwordChanged = false;

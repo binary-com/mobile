@@ -18,7 +18,8 @@
         "websocketService",
         "appStateService",
         "accountService",
-        "alertService"
+        "alertService",
+        "clientService"
     ];
 
     function MaltainvestAccountOpening(
@@ -28,7 +29,8 @@
         websocketService,
         appStateService,
         accountService,
-        alertService
+        alertService,
+        clientService
     ) {
         const vm = this;
         vm.data = {};
@@ -36,6 +38,8 @@
         vm.hasPlaceOfbirth = false;
         vm.taxRequirement = false;
         vm.settingTaxResidence = [];
+        const loginid = accountService.getDefault().id;
+        const isVirtual = clientService.isAccountOfType(loginid, 'virtual');
         vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
         vm.requestData = [
@@ -241,7 +245,7 @@
                     if (key === "date_of_birth") {
                         vm.params[key] = $filter("date")(value, "yyyy-MM-dd");
                     } else if (key === "secret_question" || key === "secret_answer") {
-                        if (!vm.hasMLTAccount) {
+                        if (!vm.readOnly) {
 	                        vm.params[key] = _.trim(value);
                         }
                     } else {
@@ -283,9 +287,7 @@
         vm.init = function() {
             vm.resetAllErrors();
             websocketService.sendRequestFor.residenceListSend();
-            $scope.$applyAsync(() => {
-                vm.hasMLTAccount = !!appStateService.hasMLT;
-            });
+            vm.readOnly = !isVirtual;
         };
 
         vm.init();
