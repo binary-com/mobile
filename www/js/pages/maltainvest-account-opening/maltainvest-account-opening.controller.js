@@ -19,7 +19,10 @@
         "appStateService",
         "accountService",
         "alertService",
-        "clientService"
+        "clientService",
+        "validationService",
+        "realAccountOpeningOptions",
+        "maltainvestAcountOpeningOptions"
     ];
 
     function MaltainvestAccountOpening(
@@ -30,14 +33,19 @@
         appStateService,
         accountService,
         alertService,
-        clientService
+        clientService,
+        validationService,
+        realAccountOpeningOptions,
+        maltainvestAcountOpeningOptions
     ) {
         const vm = this;
         vm.data = {};
+        vm.errors = {};
         vm.disableUpdatebutton = false;
-        vm.hasPlaceOfbirth = false;
         vm.taxRequirement = false;
         vm.settingTaxResidence = [];
+        vm.options = _.merge(maltainvestAcountOpeningOptions, realAccountOpeningOptions);
+        vm.validation = validationService;
         const loginid = accountService.getDefault().id;
         const isVirtual = clientService.isAccountOfType('virtual', loginid);
         vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
@@ -110,47 +118,13 @@
 
         // set all errors to false
         vm.resetAllErrors = function() {
-            for (let i = vm.requestData.length; i--; ) {
-                const value = vm.requestData[i];
-                vm[`${value}_error`] = false;
-            }
+            vm.error = {};
         };
 
         $scope.$on("residence_list", (e, residence_list) => {
             vm.residenceList = residence_list;
             websocketService.sendRequestFor.accountSetting();
         });
-
-        // regexp pattern for validating name input
-        vm.validateGeneral = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
-            return {
-                test(val) {
-                    const reg = regex.test(val);
-                    return reg !== true;
-                }
-            };
-        })();
-
-        vm.validateAddress = (function(val) {
-            const regex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
-            return {
-                test(val) {
-                    const reg = regex.test(val);
-                    return reg !== true;
-                }
-            };
-        })();
-
-        vm.validateSecretAnswer = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
-            return {
-                test(val) {
-                    const reg = regex.test(val);
-                    return reg !== true;
-                }
-            };
-        })();
 
         // get phone code of user's country
         vm.findPhoneCode = function(country) {
@@ -170,10 +144,7 @@
                     if (vm.requestData.indexOf(key) > -1) {
                         if (key === "date_of_birth") {
                             vm.data[key] = new Date(val * 1000);
-                        } else if (key === "place_of_birth" && val) {
-                            vm.hasPlaceOfbirth = true;
-                            vm.data[key] = val;
-                        } else {
+                        } else if (val) {
                             vm.data[key] = val;
                         }
                     } else if (key === "country_code") {
@@ -259,13 +230,8 @@
         $scope.$on("new_account_maltainvest:error", (e, error) => {
             vm.disableUpdatebutton = false;
             if (error.hasOwnProperty("details")) {
-                $scope.$applyAsync(() => {
-                    _.forEach(vm.requestData, (value, key) => {
-                        if (error.details.hasOwnProperty(value)) {
-                            vm[`${value}_error`] = true;
-                            vm[`${value}_error_message`] = error.details[value];
-                        }
-                    });
+                $scope.$apply(() => {
+                    vm.errors = error.details;
                 });
             } else if (error.code) {
                 alertService.displayError(error.message);
@@ -275,14 +241,13 @@
         $scope.$on("new_account_maltainvest", (e, new_account_maltainvest) => {
             vm.disableUpdatebutton = false;
             websocketService.authenticate(new_account_maltainvest.oauth_token);
-            vm.selectedAccount = new_account_maltainvest.oauth_token;
+            const selectedAccount = new_account_maltainvest.oauth_token;
             appStateService.newAccountAdded = true;
-            accountService.addedAccount = vm.selectedAccount;
+            accountService.addedAccount = selectedAccount;
         });
 
-        vm.openTermsAndConditions = function() {
+        vm.openTermsAndConditions = () =>
             window.open(vm.data.linkToTermAndConditions, "_blank");
-        };
 
         vm.init = function() {
             vm.resetAllErrors();

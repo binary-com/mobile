@@ -17,6 +17,7 @@ angular
             const validateAddressRegex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
             const validatePostcodeRegex = /^([a-zA-Z\d-\s])*$/;
             const validatePhoneRegex = /^\+?[0-9\s]*$/;
+            const validateTaxIdentificationNumberRegex = /^[\w-]{0,20}$/;
 
             const validator = (val, regexPattern, reverse) => {
                 return {
@@ -31,8 +32,7 @@ angular
             validationService.validateAddress = (val => validator(val, validateAddressRegex, true))();
             validationService.validatePostcode = (val => validator(val, validatePostcodeRegex))();
             validationService.validatePhone = (val => validator(val, validatePhoneRegex))();
-
-
+            validationService.validateTaxIdentificationNumber = (val => validator(val, validateTaxIdentificationNumberRegex))();
 
             return validationService;
         }

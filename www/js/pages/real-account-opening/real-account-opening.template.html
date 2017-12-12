@@ -20,9 +20,11 @@
                             <select name="salutation"
                                     ng-options="option.value as option.text | translate disable
                                     when option.disabled for option in vm.options.salutation"
+                                    ng-init="vm.options.salutation[0].value"
                                     ng-model="vm.data.salutation"
                                     ng-disabled="vm.readOnly"
                                     ng-required="!vm.readOnly">
+                                <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.salutation">
                               {{ vm.errors.salutation }}
@@ -336,7 +338,12 @@
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input name="phone" ng-model="vm.data.phone" ng-pattern="vm.validation.validatePhone" ng-minlength="6" ng-maxlength="35" required>
+                            <input name="phone"
+                                   ng-model="vm.data.phone"
+                                   ng-pattern="vm.validation.validatePhone"
+                                   ng-minlength="6"
+                                   ng-maxlength="35"
+                                   required>
                             <ng-messages class="help-block error"
                                          for="newAccount.phone.$error"
                                          role="alert"
@@ -374,6 +381,7 @@
                                     ng-model="vm.data.account_opening_reason"
                                     ng-disabled="vm.readOnly"
                                     required>
+                                <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.account_opening_reason">
                                 {{ vm.errors.account_opening_reason }}
@@ -393,16 +401,10 @@
                         <div class="col item-select">
                             <select name="secret_question"
                                     ng-model="vm.data.secret_question"
+                                    ng-options="option.value as option.text | translate disable
+                                    when option.disabled for option in vm.options.secret_question"
                                     required>
                               <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
-                              <option value="Mother's maiden name" selected="selected">{{'newaccountreal.secret_question_1' | translate}}</option>
-                              <option value="Name of your pet">{{'newaccountreal.secret_question_2' | translate}}</option>
-                              <option value="Name of first love">{{'newaccountreal.secret_question_3' | translate}}</option>
-                              <option value="Memorable town/city">{{'newaccountreal.secret_question_4' | translate}}</option>
-                              <option value="Memorable date">{{'newaccountreal.secret_question_5' | translate}}</option>
-                              <option value="Favourite dish">{{'newaccountreal.secret_question_6' | translate}}</option>
-                              <option value="Brand of first car">{{'newaccountreal.secret_question_7' | translate}}</option>
-                              <option value="Favourite artist">{{'newaccountreal.secret_question_8' | translate}}</option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.secret_question">
                               {{ vm.errors.secret_question }}
