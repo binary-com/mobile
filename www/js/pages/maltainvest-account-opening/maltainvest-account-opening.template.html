@@ -4,47 +4,8 @@
             <div class="row">
                 <div class="col">
                   <h1 class="page-title">
-                    {{'newaccountmaltainvest.financial_account_opening' | translate}}
+                    {{ 'new-account-maltainvest.financial_account_opening' | translate }}
                   </h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <div class="col input-title">
-                            {{'newaccountmaltainvest.first_name' | translate}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col item-input">
-                            <input name="first_name"
-                                   ng-model="vm.data.first_name"
-                                   ng-readonly="vm.readOnly"
-                                   ng-pattern="vm.validation.validateGeneral"
-                                   ng-minlength="2"
-                                   ng-maxlength="30"
-                                   ng-required="!vm.readOnly" />
-                            <ng-messages
-                                    class="help-block error"
-                                    for="newAccountMaltainvestForm.first_name.$error"
-                                    role="alert"
-                                    ng-if="newAccountMaltainvestForm.first_name.$dirty"
-                                    ng-hide="vm.errors.first_name">
-                                <ng-message when="pattern">
-                                    {{'newaccountmaltainvest.general-pattern-error' | translate}}
-                                </ng-message>
-                                <ng-message when="minlength, maxlength">
-                                    {{'newaccountmaltainvest.length-error-2-30' | translate}}
-                                </ng-message>
-                                <ng-message when="required">
-                                    {{'newaccountmaltainvest.required' | translate}}
-                                </ng-message>
-                            </ng-messages>
-                            <div class="help-block error" ng-if="vm.errors.first_name">
-                                {{ vm.errors.first_name }}
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -52,19 +13,19 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.salutation' | translate}}
+                            {{ 'new-account-maltainvest.salutation' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-select">
                             <select name="salutation"
-                                    ng-options="option.value as option.text | translate disable
-                                    when option.disabled for option in vm.options.salutation"
+                                    ng-options="option.value as option.text | translate
+                                     for option in vm.options.salutation"
                                     ng-model="vm.data.salutation"
                                     ng-disabled="vm.readOnly"
                                     ng-required="!vm.readOnly">
                                 <option value="" disabled>
-                                    {{'newaccountmaltainvest.select' | translate}}
+                                    {{ 'new-account-maltainvest.select' | translate }}
                                 </option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.salutation">
@@ -80,7 +41,47 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.last_name' | translate}}
+                            {{ 'new-account-maltainvest.first_name' | translate }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col item-input">
+                            <input name="first_name"
+                                   ng-model="vm.data.first_name"
+                                   ng-readonly="vm.readOnly"
+                                   ng-pattern="vm.validation.validateGeneral"
+                                   ng-minlength="vm.validation.length.name.min"
+                                   ng-maxlength="vm.validation.length.name.max"
+                                   ng-required="!vm.readOnly" />
+                            <ng-messages class="help-block error"
+                                    for="newAccountMaltainvestForm.first_name.$error"
+                                    role="alert"
+                                    ng-if="newAccountMaltainvestForm.first_name.$dirty"
+                                    ng-hide="vm.errors.first_name">
+                                <ng-message when="pattern">
+                                    {{ 'new-account-maltainvest.general-pattern-error' | translate }}
+                                </ng-message>
+                                <ng-message when="minlength, maxlength">
+                                    {{ 'newaccountreal.length-range-error' | translate :
+                                    { min: vm.validation.length.name.min, max: vm.validation.length.name.max } }}
+                                </ng-message>
+                                <ng-message when="required">
+                                    {{ 'new-account-maltainvest.required' | translate }}
+                                </ng-message>
+                            </ng-messages>
+                            <div class="help-block error" ng-if="vm.errors.first_name">
+                                {{ vm.errors.first_name }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col input-title">
+                            {{ 'new-account-maltainvest.last_name' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -90,21 +91,22 @@
                                    ng-readonly="vm.readOnly"
                                    ng-pattern="vm.validation.validateGeneral"
                                    ng-required="!vm.readOnly"
-                                   ng-minlength="2"
-                                   ng-maxlength="30">
+                                   ng-minlength="vm.validation.length.name.min"
+                                   ng-maxlength="vm.validation.length.name.max">
                             <ng-messages class="help-block error"
                                          for="newAccountMaltainvestForm.last_name.$error"
                                          role="alert"
                                          ng-if="newAccountMaltainvestForm.last_name.$dirty"
                                          ng-hide="vm.errors.last_name">
                                 <ng-message when="pattern">
-                                    {{'newaccountmaltainvest.general-pattern-error' | translate}}
+                                    {{ 'new-account-maltainvest.general-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="minlength, maxlength">
-                                    {{'newaccountmaltainvest.length-error-2-30' | translate}}
+                                    {{ 'newaccountreal.length-range-error' | translate :
+                                    {min: vm.validation.length.name.min, max: vm.validation.length.name.max} }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountmaltainvest.required' | translate}}
+                                    {{ 'new-account-maltainvest.required' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.last_name">
@@ -118,7 +120,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.date_of_birth' | translate}}
+                            {{ 'new-account-maltainvest.date_of_birth' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -135,7 +137,7 @@
                                  ng-if="newAccountMaltainvestForm.date_of_birth.$dirty"
                                  ng-hide="vm.errors.date_of_birth">
                         <ng-message when="required">
-                            {{'newaccountmaltainvest.required' | translate}}
+                            {{ 'new-account-maltainvest.required' | translate }}
                         </ng-message>
                     </ng-messages>
                     <div class="help-block error" ng-if="vm.errors.date_of_birth">
@@ -147,7 +149,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.residence' | translate}}
+                            {{ 'new-account-maltainvest.residence' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -158,7 +160,7 @@
                                   required
                                   ng-disabled="vm.hasResidence">
                             <option value="" disabled>
-                                {{'newaccountmaltainvest.select' | translate}}
+                                {{ 'new-account-maltainvest.select' | translate }}
                             </option>
                           </select>
                         </label>
@@ -172,7 +174,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.place_of_birth' | translate}}
+                            {{ 'new-account-maltainvest.place_of_birth' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -182,7 +184,7 @@
                                       ng-options="residence.value as residence.text for residence in vm.residenceList"
                                       required>
                                   <option value="" disabled>
-                                      {{'newaccountmaltainvest.select' | translate}}
+                                      {{ 'new-account-maltainvest.select' | translate }}
                                   </option>
                               </select>
                         </label>
@@ -196,20 +198,20 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.tax_residence' | translate}}
+                            {{ 'new-account-maltainvest.tax_residence' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <label class="col item-input item-select tax-residence"
                                ng-click="vm.showTaxResidenceItems()">
                           <div class="tax-residence-select">
-                            {{ vm.selectedTaxResidencesName || 'newaccountmaltainvest.select' | translate}}
+                            {{ vm.selectedTaxResidencesName || 'new-account-maltainvest.select' | translate }}
                           </div>
                     </label>
                     </div>
                     <div class="row">
                         <div class="col help-block error" ng-if="vm.data.tax_residence  == null && vm.taxRequirement">
-                            {{ 'newaccountmaltainvest.required' | translate }}
+                            {{ 'new-account-maltainvest.required' | translate }}
                         </div>
                     </div>
                 </div>
@@ -218,7 +220,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.tax_identification_number' | translate}}
+                            {{ 'new-account-maltainvest.tax_identification_number' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -226,22 +228,22 @@
                             <input name="tax_identification_number"
                                    ng-model="vm.data.tax_identification_number"
                                    ng-pattern="vm.validation.validateTaxIdentificationNumber"
-                                   ng-minlength="0"
-                                   ng-maxlength="20"
+                                   ng-maxlength="vm.validation.length.tin.max"
                                    required />
                             <ng-messages class="help-block error"
                                          for="newAccountMaltainvestForm.tax_identification_number.$error"
                                          role="alert"
                                          ng-if="newAccountMaltainvestForm.tax_identification_number.$dirty"
                                          ng-hide="vm.errors.tax_identification_number">
-                                <ng-message when="pattern">
-                                    {{'newaccountmaltainvest.tax-identification-number-pattern-error' | translate}}
+                                <ng-message when="maxlength">
+                                    {{ 'new-account-maltainvest.maxlength_error' | translate :
+                                    { max: vm.validation.length.tin.max } }}
                                 </ng-message>
-                                <ng-message when="minlength, maxlength">
-                                    {{'newaccountmaltainvest.maxlength_error_20' | translate}}
+                                <ng-message when="pattern">
+                                    {{ 'new-account-maltainvest.tax-identification-number-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountmaltainvest.required' | translate}}
+                                    {{ 'new-account-maltainvest.required' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.tax_identification_number">
@@ -255,29 +257,30 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.address_line_1' | translate}}
+                            {{ 'new-account-maltainvest.address_line_1' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-input">
                             <input name="address_line_1"
                                    ng-model="vm.data.address_line_1"
-                                   required
-                                   ng-maxlength="70"
-                                   ng-pattern="vm.validation.validateAddress" />
+                                   ng-maxlength="vm.validation.length.address.max"
+                                   ng-pattern="vm.validation.validateAddress"
+                                   required/>
                             <ng-messages class="help-block error"
                                          for="newAccountMaltainvestForm.address_line_1.$error"
                                          role="alert"
                                          ng-if="newAccountMaltainvestForm.address_line_1.$dirty"
                                          ng-hide="vm.errors.address_line_1">
                                 <ng-message when="maxlength">
-                                    {{'newaccountmaltainvest.maxlength_error_70' | translate}}
+                                    {{ 'new-account-maltainvest.length-range-error' | translate :
+                                    { min: 2, max: vm.validation.length.address.max } }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountmaltainvest.required' | translate}}
+                                    {{ 'new-account-maltainvest.required' | translate }}
                                 </ng-message>
                                 <ng-message when="pattern">
-                                    {{'newaccountmaltainvest.address-pattern-error' | translate}}
+                                    {{ 'new-account-maltainvest.address-pattern-error' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.address_line_1">
@@ -291,15 +294,15 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.address_line_2' | translate}}
-                            <span>{{'newaccountmaltainvest.isoptional' | translate}}</span>
+                            {{ 'new-account-maltainvest.address_line_2' | translate }}
+                            <span>{{ 'new-account-maltainvest.isoptional' | translate }}</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-input">
                             <input name="address_line_2"
                                    ng-model="vm.data.address_line_2"
-                                   ng-maxlength="70"
+                                   ng-maxlength="vm.validation.length.address.max"
                                    ng-pattern="vm.validation.validateAddress" />
                             <ng-messages class="help-block error"
                                          for="newAccountMaltainvestForm.address_line_2.$error"
@@ -307,10 +310,11 @@
                                          ng-if="newAccountMaltainvestForm.address_line_2.$dirty"
                                          ng-hide="vm.errors.address_line_2">
                                 <ng-message when="maxlength">
-                                    {{'newaccountmaltainvest.maxlength_error_70' | translate}}
+                                    {{ 'new-account-maltainvest.maxlength_error' | translate :
+                                    { max: vm.validation.length.address.max } }}
                                 </ng-message>
                                 <ng-message when="pattern">
-                                    {{'newaccountmaltainvest.address-pattern-error' | translate}}
+                                    {{ 'new-account-maltainvest.address-pattern-error' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.address_line_2">
@@ -324,14 +328,14 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.address_city' | translate}}
+                            {{ 'new-account-maltainvest.address_city' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-input">
                             <input name="address_city"
                                    ng-model="vm.data.address_city"
-                                   ng-maxlength="35"
+                                   ng-maxlength="vm.validation.length.city.max"
                                    ng-pattern="vm.validation.validateGeneral"
                                    required />
                             <ng-messages class="help-block error"
@@ -340,13 +344,14 @@
                                          ng-if="newAccountMaltainvestForm.address_city.$dirty"
                                          ng-hide="vm.errors.address_city">
                                 <ng-message when="maxlength">
-                                    {{'newaccountmaltainvest.maxlength_error_35' | translate}}
+                                    {{ 'new-account-maltainvest.maxlength_error' | translate :
+                                    { max: vm.validation.length.city.max } }}
                                 </ng-message>
                                 <ng-message when="pattern">
-                                    {{'newaccountmaltainvest.general-pattern-error' | translate}}
+                                    {{ 'new-account-maltainvest.general-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountmaltainvest.required' | translate}}
+                                    {{ 'new-account-maltainvest.required' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.address_city">
@@ -360,8 +365,8 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.address_state' | translate}}
-                            <span>{{'newaccountmaltainvest.isoptional' | translate}}</span>
+                            {{ 'new-account-maltainvest.address_state' | translate }}
+                            <span>{{ 'new-account-maltainvest.isoptional' | translate }}</span>
                         </div>
                     </div>
                     <div class="row">
@@ -370,7 +375,7 @@
                                     ng-model="vm.data.address_state"
                                     ng-options="state.value as state.text for state in vm.statesList">
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.address_state">
@@ -384,8 +389,8 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.address_postcode' | translate}}
-                            <span>{{'newaccountmaltainvest.isoptional' | translate}}</span>
+                            {{ 'new-account-maltainvest.address_postcode' | translate }}
+                            <span>{{ 'new-account-maltainvest.isoptional' | translate }}</span>
                         </div>
                     </div>
                     <div class="row">
@@ -393,17 +398,18 @@
                             <input name="address_postcode"
                                    ng-model="vm.data.address_postcode"
                                    ng-pattern="vm.validation.validatePostcode"
-                                   ng-minlength="0"
-                                   ng-maxlength="20" />
+                                   ng-maxlength="vm.validation.length.postcode.max" />
                             <ng-messages class="help-block error"
                                          for="newAccountMaltainvestForm.address_postcode.$error"
-                                         role="alert" ng-if="newAccountMaltainvestForm.address_postcode.$dirty"
+                                         role="alert"
+                                         ng-if="newAccountMaltainvestForm.address_postcode.$dirty"
                                          ng-hide="vm.errors.address_postcode">
                                 <ng-message when="pattern">
-                                    {{'newaccountmaltainvest.postcode-pattern-error' | translate}}
+                                    {{ 'new-account-maltainvest.postcode-pattern-error' | translate }}
                                 </ng-message>
-                                <ng-message when="minLength, maxLength">
-                                    {{'newaccountmaltainvest.maxlength_error_20' | translate}}
+                                <ng-message when="maxlength">
+                                    {{ 'new-account-maltainvest.maxlength_error' | translate :
+                                    { max: vm.validation.length.postcode.max } }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.address_postcode">
@@ -417,7 +423,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.phone' | translate}}
+                            {{ 'new-account-maltainvest.phone' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -425,8 +431,8 @@
                             <input name="phone"
                                    ng-model="vm.data.phone"
                                    ng-pattern="vm.validation.validatePhone"
-                                   ng-minlength="6"
-                                   ng-maxlength="35"
+                                   ng-minlength="vm.validation.length.phone.min"
+                                   ng-maxlength="vm.validation.length.phone.max"
                                    required />
                             <ng-messages class="help-block error"
                                          for="newAccountMaltainvestForm.phone.$error"
@@ -434,13 +440,14 @@
                                          ng-if="newAccountMaltainvestForm.phone.$dirty"
                                          ng-hide="vm.errors.phone">
                                 <ng-message when="pattern">
-                                    {{'newaccountmaltainvest.phone-pattern-error' | translate}}
+                                    {{ 'new-account-maltainvest.phone-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="minlength, maxlength">
-                                    {{'newaccountmaltainvest.length-error-6-35'}}
+                                    {{ 'newaccountreal.length-range-error' | translate :
+                                    {min: vm.validation.length.phone.min, max: vm.validation.length.phone.max} }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountmaltainvest.required' | translate}}
+                                    {{ 'new-account-maltainvest.required' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.phone">
@@ -454,7 +461,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.forex_trading_experience' | translate}}
+                            {{ 'new-account-maltainvest.forex_trading_experience' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -465,7 +472,7 @@
                                     ng-model="vm.data.forex_trading_experience"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -476,7 +483,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.forex_trading_frequency' | translate}}
+                            {{ 'new-account-maltainvest.forex_trading_frequency' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -487,7 +494,7 @@
                                     ng-model="vm.data.forex_trading_frequency"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -498,7 +505,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.indices_trading_experience' | translate}}
+                            {{ 'new-account-maltainvest.indices_trading_experience' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -509,7 +516,7 @@
                                     ng-model="vm.data.indices_trading_experience"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -520,7 +527,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.indices_trading_frequency' | translate}}
+                            {{ 'new-account-maltainvest.indices_trading_frequency' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -531,7 +538,7 @@
                                     ng-model="vm.data.indices_trading_frequency"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -542,7 +549,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.commodities_trading_experience' | translate}}
+                            {{ 'new-account-maltainvest.commodities_trading_experience' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -553,7 +560,7 @@
                                     ng-model="vm.data.commodities_trading_experience"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -564,7 +571,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.commodities_trading_frequency' | translate}}
+                            {{ 'new-account-maltainvest.commodities_trading_frequency' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -575,7 +582,7 @@
                                     ng-model="vm.data.commodities_trading_frequency"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -586,7 +593,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.stocks_trading_experience' | translate}}
+                            {{ 'new-account-maltainvest.stocks_trading_experience' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -597,7 +604,7 @@
                                     ng-model="vm.data.stocks_trading_experience"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -608,7 +615,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.stocks_trading_frequency' | translate}}
+                            {{ 'new-account-maltainvest.stocks_trading_frequency' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -619,7 +626,7 @@
                                     ng-model="vm.data.stocks_trading_frequency"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -630,7 +637,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.other_derivatives_trading_experience' | translate}}
+                            {{ 'new-account-maltainvest.other_derivatives_trading_experience' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -641,7 +648,7 @@
                                     ng-model="vm.data.other_derivatives_trading_experience"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -652,7 +659,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.other_derivatives_trading_frequency' | translate}}
+                            {{ 'new-account-maltainvest.other_derivatives_trading_frequency' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -663,7 +670,7 @@
                                     ng-model="vm.data.other_derivatives_trading_frequency"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -674,7 +681,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.other_instruments_trading_experience' | translate}}
+                            {{ 'new-account-maltainvest.other_instruments_trading_experience' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -685,7 +692,7 @@
                                     ng-model="vm.data.other_instruments_trading_experience"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -696,7 +703,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.other_instruments_trading_frequency' | translate}}
+                            {{ 'new-account-maltainvest.other_instruments_trading_frequency' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -707,7 +714,7 @@
                                     ng-model="vm.data.other_instruments_trading_frequency"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -718,7 +725,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.employment_industry' | translate}}
+                            {{ 'new-account-maltainvest.employment_industry' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -729,7 +736,7 @@
                                     ng-model="vm.data.employment_industry"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -740,7 +747,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.education_level' | translate}}
+                            {{ 'new-account-maltainvest.education_level' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -751,7 +758,7 @@
                                     ng-model="vm.data.education_level"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -762,7 +769,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.income_source' | translate}}
+                            {{ 'new-account-maltainvest.income_source' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -773,7 +780,7 @@
                                     ng-model="vm.data.income_source"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -784,7 +791,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.employment_status' | translate}}
+                            {{ 'new-account-maltainvest.employment_status' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -795,7 +802,7 @@
                                     ng-model="vm.data.employment_status"
                                     required>
                                 <option value="" disabled>
-                                    {{'newaccountmaltainvest.select' | translate}}
+                                    {{ 'new-account-maltainvest.select' | translate }}
                                 </option>
                             </select>
                             <span class="help-block error" ng-show="vm.errors.employment_status">
@@ -810,7 +817,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="input-title">
-                                {{'newaccountmaltainvest.occupation' | translate}}
+                                {{ 'new-account-maltainvest.occupation' | translate }}
                             </div>
                         </div>
                     </div>
@@ -822,7 +829,7 @@
                                     ng-model="vm.data.occupation"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                             <span class="help-block error" ng-show="vm.errors.occupation">
@@ -837,7 +844,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="input-title">
-                                {{'newaccountmaltainvest.source_of_wealth' | translate}}
+                                {{ 'new-account-maltainvest.source_of_wealth' | translate }}
                             </div>
                         </div>
                     </div>
@@ -849,7 +856,7 @@
                                     ng-model="vm.data.source_of_wealth"
                                     required>
                                 <option value="" disabled>
-                                    {{'newaccountmaltainvest.select' | translate}}
+                                    {{ 'new-account-maltainvest.select' | translate }}
                                 </option>
                             </select>
                             <span class="help-block error" ng-show="vm.errors.source_of_wealth">
@@ -863,7 +870,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.net_income' | translate}}
+                            {{ 'new-account-maltainvest.net_income' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -874,7 +881,7 @@
                                     ng-model="vm.data.net_income"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -885,7 +892,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.estimated_worth' | translate}}
+                            {{ 'new-account-maltainvest.estimated_worth' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -896,7 +903,7 @@
                                     ng-model="vm.data.estimated_worth"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                         </div>
@@ -907,7 +914,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.account_opening_reason' | translate}}
+                            {{ 'new-account-maltainvest.account_opening_reason' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -918,7 +925,7 @@
                                     ng-model="vm.data.account_opening_reason"
                                     required>
                                 <option value="" disabled>
-                                    {{'newaccountmaltainvest.select' | translate}}
+                                    {{ 'new-account-maltainvest.select' | translate }}
                                 </option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.account_opening_reason">
@@ -933,7 +940,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="input-title">
-                                {{'newaccountmaltainvest.account_turnover' | translate}}
+                                {{ 'new-account-maltainvest.account_turnover' | translate }}
                             </div>
                         </div>
                     </div>
@@ -945,7 +952,7 @@
                                     ng-model="vm.data.account_turnover"
                                     required>
                                 <option value="" disabled>
-                                    {{'newaccountmaltainvest.select' | translate}}
+                                    {{ 'new-account-maltainvest.select' | translate }}
                                 </option>
                             </select>
                         </div>
@@ -956,7 +963,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.secret_question' | translate}}
+                            {{ 'new-account-maltainvest.secret_question' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -967,7 +974,7 @@
                                     ng-model="vm.data.secret_question"
                                     required>
                               <option value="" disabled>
-                                  {{'newaccountmaltainvest.select' | translate}}
+                                  {{ 'new-account-maltainvest.select' | translate }}
                               </option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.secret_question">
@@ -981,15 +988,15 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountmaltainvest.secret_answer' | translate}}
+                            {{ 'new-account-maltainvest.secret_answer' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-input">
                             <input name="secret_answer"
                                    ng-model="vm.data.secret_answer"
-                                   ng-maxlength="50"
-                                   ng-minlength="4"
+                                   ng-minlength="vm.validation.length.secret_answer.min"
+                                   ng-maxlength="vm.validation.length.secret_answer.max"
                                    ng-pattern="vm.validation.validateGeneral"
                                    required />
                             <ng-messages class="help-block error"
@@ -998,13 +1005,14 @@
                                          ng-if="newAccountMaltainvestForm.secret_answer.$dirty"
                                          ng-hide="vm.errors.secret_answer">
                                 <ng-message when="pattern">
-                                    {{'newaccountreal.secretanswer-pattern-error' | translate}}
+                                    {{ 'newaccountreal.secretanswer-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="maxlength, minlength">
-                                    {{'newaccountreal.length-error-4-50' | translate}}
+                                    {{ 'newaccountreal.length-range-error' | translate :
+                                    {min: vm.validation.length.secret_answer.min, max: vm.validation.length.secret_answer.max} }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountmaltainvest.required' | translate}}
+                                    {{ 'new-account-maltainvest.required' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.secret_answer">
@@ -1018,7 +1026,7 @@
                 <div class="col info-container">
                     <div class="row">
                         <div class="col">
-                            {{'newaccountmaltainvest.info' | translate}}
+                            {{ 'new-account-maltainvest.info' | translate }}
                         </div>
                     </div>
                 </div>
@@ -1032,7 +1040,7 @@
                          ng-model="vm.data.pep"
                          class="checkbox"
                          required />
-                  {{'newaccountmaltainvest.not-pep-verify' | translate}}
+                  {{ 'new-account-maltainvest.not-pep-verify' | translate }}
                 </div>
               </div>
             </div>
@@ -1041,7 +1049,7 @@
             <div class="col info-container">
               <div class="row">
                 <div class="col">
-                  {{'newaccountmaltainvest.pep-info' | translate}}
+                  {{ 'new-account-maltainvest.pep-info' | translate }}
                 </div>
               </div>
             </div>
@@ -1055,11 +1063,11 @@
                                  ng-model="vm.data.accept"
                                  class="checkbox"
                                  required/>
-                          {{'newaccountmaltainvest.read_and_agreed_to' | translate}}
+                          {{ 'new-account-maltainvest.read_and_agreed_to' | translate }}
                           <a ng-click="vm.openTermsAndConditions()">
-                              {{'newaccountmaltainvest.terms_and_conditions' | translate}}
+                              {{ 'new-account-maltainvest.terms_and_conditions' | translate }}
                           </a>
-                          {{'newaccountmaltainvest.of_the_site' | translate}}
+                          {{ 'new-account-maltainvest.of_the_site' | translate }}
                           <div class="help-block error" ng-if="vm.errors.accept_risk">
                             {{ vm.errors.accept_risk }}
                           </div>
@@ -1075,7 +1083,7 @@
                                 ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}"
                                 ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.tax_residence  == null
                                 || vm.disableUpdatebutton">
-                            {{'newaccountmaltainvest.open_account' | translate}}
+                            {{ 'new-account-maltainvest.open_account' | translate }}
                         </button>
                     </div>
                 </div>

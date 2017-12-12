@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col">
                   <h1 class="page-title">
-                    {{'newaccountreal.real_account_opening' | translate}}
+                    {{ 'new-account-real.real_account_opening' | translate }}
                   </h1>
                 </div>
             </div>
@@ -12,7 +12,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.salutation' | translate}}
+                            {{ 'new-account-real.salutation' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -20,11 +20,12 @@
                             <select name="salutation"
                                     ng-options="option.value as option.text | translate disable
                                     when option.disabled for option in vm.options.salutation"
-                                    ng-init="vm.options.salutation[0].value"
                                     ng-model="vm.data.salutation"
                                     ng-disabled="vm.readOnly"
                                     ng-required="!vm.readOnly">
-                                <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
+                                <option value="" disabled>
+                                    {{ 'new-account-real.select' | translate }}
+                                </option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.salutation">
                               {{ vm.errors.salutation }}
@@ -37,14 +38,14 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.first_name' | translate}}
+                            {{ 'new-account-real.first_name' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-input">
                             <input name="first_name" ng-model="vm.data.first_name" ng-pattern="vm.validation.validateGeneral"
-                                   ng-minlength="2"
-                                   ng-maxlength="30"
+                                   ng-minlength="vm.validation.length.name.min"
+                                   ng-maxlength="vm.validation.length.name.max"
                                    ng-disabled="vm.readOnly"
                                    ng-required="!vm.readOnly"
                             />
@@ -54,13 +55,14 @@
                                          ng-if="newAccount.first_name.$dirty"
                                          ng-hide="vm.errors.first_name">
                                 <ng-message when="pattern">
-                                    {{'newaccountreal.general-pattern-error' | translate}}
+                                    {{ 'new-account-real.general-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="minlength, maxlength">
-                                    {{'newaccountreal.length-error-2-30' | translate}}
+                                    {{ 'new-account-real.length-range-error' | translate :
+                                    {min: vm.validation.length.name.min, max: vm.validation.length.name.max} }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountreal.required' | translate}}
+                                    {{ 'new-account-real.required' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.first_name">
@@ -74,17 +76,16 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.last_name' | translate}}
+                            {{ 'new-account-real.last_name' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-input">
-                            <input
-                                    name="last_name"
+                            <input name="last_name"
                                     ng-model="vm.data.last_name"
                                     ng-pattern="vm.validation.validateGeneral"
-                                    ng-minlength="2"
-                                    ng-maxlength="30"
+                                    ng-minlength="vm.validation.length.name.min"
+                                    ng-maxlength="vm.validation.length.name.max"
                                     ng-disabled="vm.readOnly"
                                     ng-required="!vm.readOnly"
                             />
@@ -94,13 +95,13 @@
                                          ng-if="newAccount.last_name.$dirty"
                                          ng-hide="vm.errors.last_name">
                                 <ng-message when="pattern">
-                                    {{'newaccountreal.general-pattern-error' | translate}}
+                                    {{ 'new-account-real.general-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="minlength, maxlength">
-                                    {{'newaccountreal.length-error-2-30' | translate}}
+                                    {{ 'new-account-real.length-error-2-30' | translate }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountreal.required' | translate}}
+                                    {{ 'new-account-real.required' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.last_name">
@@ -114,7 +115,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.date_of_birth' | translate}}
+                            {{ 'new-account-real.date_of_birth' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -136,7 +137,7 @@
                                  ng-if="newAccount.date_of_birth.$dirty"
                                  ng-hide="vm.errors.date_of_birth">
                         <ng-message when="required">
-                            {{'newaccountreal.required' | translate}}
+                            {{ 'new-account-real.required' | translate }}
                         </ng-message>
                     </ng-messages>
                     <div class="help-block error" ng-if="vm.errors.date_of_birth">
@@ -148,7 +149,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.residence' | translate}}
+                            {{ 'new-account-real.residence' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -156,10 +157,10 @@
                           <select ng-model="vm.data.residence"
                                   ng-options="residence.value as residence.text disable when
                                    residence.disabled for residence in vm.residenceList"
-                                  required
-                                  ng-disabled="vm.hasResidence">
+                                  ng-disabled="vm.hasResidence"
+                                  required>
                             <option value="" disabled ng-if="!vm.hasResidence">
-                                {{'newaccountreal.select' | translate}}
+                                {{ 'new-account-real.select' | translate }}
                             </option>
                           </select>
                         </label>
@@ -173,14 +174,14 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.address_line_1' | translate}}
+                            {{ 'new-account-real.address_line_1' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-input">
                             <input name="address_line_1"
                                    ng-model="vm.data.address_line_1"
-                                   ng-maxlength="70"
+                                   ng-maxlength="vm.validation.length.address.max"
                                    ng-pattern="vm.validation.validateAddress"
                                    required />
                             <ng-messages class="help-block error"
@@ -188,13 +189,13 @@
                                          role="alert" ng-if="newAccount.address_line_1.$dirty"
                                          ng-hide="vm.errors.address_line_1">
                                 <ng-message when="maxlength">
-                                    {{'newaccountreal.maxlength_error_70' | translate}}
+                                    {{ 'new-account-real.maxlength_error_70' | translate }}
                                 </ng-message>
                                   <ng-message when="required">
-                                      {{'newaccountreal.required' | translate}}
+                                      {{ 'new-account-real.required' | translate }}
                                   </ng-message>
                                 <ng-message when="pattern">
-                                    {{'newaccountreal.address-pattern-error' | translate}}
+                                    {{ 'new-account-real.address-pattern-error' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.address_line_1">
@@ -208,23 +209,23 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.address_line_2' | translate}}
-                            <span>{{'newaccountreal.isoptional' | translate}}</span>
+                            {{ 'new-account-real.address_line_2' | translate }}
+                            <span>{{ 'new-account-real.isoptional' | translate }}</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-input">
                             <input name="address_line_2"
                                    ng-model="vm.data.address_line_2"
-                                   ng-maxlength="70"
+                                   ng-maxlength="vm.validation.length.address.max"
                                    ng-pattern="vm.validation.validateAddress" />
                             <ng-messages class="help-block error"
                                          for="newAccount.address_line_2.$error"
                                          role="alert"
                                          ng-if="newAccount.address_line_2.$dirty"
                                          ng-hide="vm.errors.address_line_2">
-                                <ng-message when="maxlength">{{'newaccountreal.maxlength_error_70' | translate}}</ng-message>
-                                <ng-message when="pattern">{{'newaccountreal.address-pattern-error' | translate}}</ng-message>
+                                <ng-message when="maxlength">{{ 'new-account-real.maxlength_error_70' | translate }}</ng-message>
+                                <ng-message when="pattern">{{ 'new-account-real.address-pattern-error' | translate }}</ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.address_line_2">
                               {{ vm.errors.address_line_2 }}
@@ -237,7 +238,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.address_city' | translate}}
+                            {{ 'new-account-real.address_city' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -245,7 +246,7 @@
                             <input
                                     name="address_city"
                                     ng-model="vm.data.address_city"
-                                    ng-maxlength="35"
+                                    ng-maxlength="vm.validation.length.city.max"
                                     ng-pattern="vm.validation.validateGeneral"
                                     required />
                             <ng-messages class="help-block error error"
@@ -254,13 +255,13 @@
                                          ng-if="newAccount.address_city.$dirty"
                                          ng-hide="vm.errors.address_city">
                                 <ng-message when="maxlength">
-                                    {{'newaccountreal.maxlength_error_35' | translate}}
+                                    {{ 'new-account-real.maxlength_error_35' | translate }}
                                 </ng-message>
                                 <ng-message when="pattern">
-                                    {{'newaccountreal.general-pattern-error' | translate}}
+                                    {{ 'new-account-real.general-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountreal.required' | translate}}
+                                    {{ 'new-account-real.required' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.address_city">
@@ -274,8 +275,8 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.address_state' | translate}}
-                            <span>{{'newaccountreal.isoptional' | translate}}</span>
+                            {{ 'new-account-real.address_state' | translate }}
+                            <span>{{ 'new-account-real.isoptional' | translate }}</span>
                         </div>
                     </div>
                     <div class="row">
@@ -285,7 +286,7 @@
                                     ng-options="state.value as state.text for state in vm.statesList"
                                     ng-disabled="!vm.data.residence">
                               <option value="" disabled>
-                                  {{'newaccountreal.select' | translate}}
+                                  {{ 'new-account-real.select' | translate }}
                               </option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.address_state">
@@ -299,7 +300,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.address_postcode' | translate}}
+                            {{ 'new-account-real.address_postcode' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -307,8 +308,8 @@
                             <input name="address_postcode"
                                    ng-model="vm.data.address_postcode"
                                    ng-pattern="vm.validation.validatePostcode"
-                                   ng-minlength="0"
-                                   ng-maxlength="20">
+                                   ng-minlength="vm.validation.length.postcode.min"
+                                   ng-maxlength="vm.validation.length.postcoe.max">
                             <ng-messages
                                     class="help-block error"
                                     for="newAccount.address_postcode.$error"
@@ -316,10 +317,10 @@
                                     ng-if="newAccount.address_postcode.$dirty"
                                     ng-hide="vm.errors.address_postcode">
                                 <ng-message when="pattern">
-                                    {{'newaccountreal.postcode-pattern-error' | translate}}
+                                    {{ 'new-account-real.postcode-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="maxlength, minlength">
-                                    {{'newaccountreal.maxlength_error_20' | translate}}
+                                    {{ 'new-account-real.maxlength_error_20' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.address_postcode">
@@ -333,7 +334,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.phone' | translate}}
+                            {{ 'new-account-real.phone' | translate }}
                         </div>
                     </div>
                     <div class="row">
@@ -341,8 +342,8 @@
                             <input name="phone"
                                    ng-model="vm.data.phone"
                                    ng-pattern="vm.validation.validatePhone"
-                                   ng-minlength="6"
-                                   ng-maxlength="35"
+                                   ng-minlength="vm.validation.length.phone.min"
+                                   ng-maxlength="vm.validation.length.phone.max"
                                    required>
                             <ng-messages class="help-block error"
                                          for="newAccount.phone.$error"
@@ -350,13 +351,13 @@
                                          ng-if="newAccount.phone.$dirty"
                                          ng-hide="vm.errors.phone">
                                 <ng-message when="pattern">
-                                    {{'newaccountreal.phone-pattern-error' | translate}}
+                                    {{ 'new-account-real.phone-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="minlength, maxlength">
-                                    {{'newaccountreal.length-error-6-35' | translate}}
+                                    {{ 'new-account-real.length-error-6-35' | translate }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountreal.required' | translate}}
+                                    {{ 'new-account-real.required' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.phone">
@@ -370,18 +371,18 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.account_opening_reason' | translate}}
+                            {{ 'new-account-real.account_opening_reason' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-select">
                             <select name="account_opening_reason"
-                                    ng-options="option.value as option.text | translate disable
-                                    when option.disabled for option in vm.options.account_opening_reason"
+                                    ng-options="option.value as option.text | translate
+                                    for option in vm.options.account_opening_reason"
                                     ng-model="vm.data.account_opening_reason"
                                     ng-disabled="vm.readOnly"
                                     required>
-                                <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
+                                <option value="" disabled>{{ 'new-account-real.select' | translate }}</option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.account_opening_reason">
                                 {{ vm.errors.account_opening_reason }}
@@ -394,17 +395,19 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.secret_question' | translate}}
+                            {{ 'new-account-real.secret_question' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-select">
                             <select name="secret_question"
                                     ng-model="vm.data.secret_question"
-                                    ng-options="option.value as option.text | translate disable
-                                    when option.disabled for option in vm.options.secret_question"
+                                    ng-options="option.value as option.text | translate
+                                    for option in vm.options.sec"
                                     required>
-                              <option value="" disabled>{{'newaccountreal.select' | translate}}</option>
+                              <option value="" disabled>
+                                  {{ 'new-account-real.select' | translate }}
+                              </option>
                             </select>
                             <div class="help-block error" ng-if="vm.errors.secret_question">
                               {{ vm.errors.secret_question }}
@@ -417,15 +420,15 @@
                 <div class="col">
                     <div class="row">
                         <div class="col input-title">
-                            {{'newaccountreal.secret_answer' | translate}}
+                            {{ 'new-account-real.secret_answer' | translate }}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col item-input">
                             <input name="secret_answer"
                                    ng-model="vm.data.secret_answer"
-                                   ng-minlength="4"
-                                   ng-maxlength="50"
+                                   ng-minlength="vm.validation.length.secret_answer.min"
+                                   ng-maxlength="vm.validation.length.secret_answer.max"
                                    ng-pattern="vm.validation.validateGeneral"
                                    required />
                             <ng-messages
@@ -435,13 +438,13 @@
                                     ng-if="newAccount.secret_answer.$dirty"
                                     ng-hide="vm.errors.secret_answer">
                                 <ng-message when="pattern">
-                                    {{'newaccountreal.secretanswer-pattern-error' | translate}}
+                                    {{ 'new-account-real.secretanswer-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="maxlength, minlength">
-                                    {{'newaccountreal.length-error-4-50' | translate}}
+                                    {{ 'new-account-real.length-error-4-50' | translate }}
                                 </ng-message>
                                 <ng-message when="required">
-                                    {{'newaccountreal.required' | translate}}
+                                    {{ 'new-account-real.required' | translate }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.secret_answer">
@@ -460,7 +463,7 @@
                                    ng-model="vm.data.pep"
                                    class="checkbox"
                                    required />
-                            {{'newaccountreal.not-pep-verify' | translate}}
+                            {{ 'new-account-real.not-pep-verify' | translate }}
                         </div>
                     </div>
                 </div>
@@ -469,7 +472,7 @@
                 <div class="col info-container">
                     <div class="row">
                         <div class="col">
-                            {{'newaccountreal.pep-info' | translate}}
+                            {{ 'new-account-real.pep-info' | translate }}
                         </div>
                     </div>
                 </div>
@@ -483,11 +486,11 @@
                                    ng-model="vm.data.accept"
                                    class="checkbox"
                                    required/>
-                                {{'newaccountreal.read_and_agreed_to' | translate}}
+                                {{ 'new-account-real.read_and_agreed_to' | translate }}
                             <a ng-click="vm.openTermsAndConditions()">
-                                {{'newaccountreal.terms_and_conditions' | translate}}
+                                {{ 'new-account-real.terms_and_conditions' | translate }}
                             </a>
-                            {{'newaccountreal.of_the_site' | translate}}
+                            {{ 'new-account-real.of_the_site' | translate }}
                         </div>
                     </div>
                 </div>
@@ -496,7 +499,12 @@
                 <div class="col">
                     <div class="row">
                         <div class="col">
-                            <button class="button button-block" ng-click="vm.submitAccountOpening()" ng-disabled="newAccount.$invalid || vm.disableUpdatebutton" ng-class="{'button-default' : newAccount.$invalid}">{{'newaccountreal.open_account' | translate}}</button>
+                            <button class="button button-block"
+                                    ng-click="vm.submitAccountOpening()"
+                                    ng-disabled="newAccount.$invalid || vm.disableUpdatebutton"
+                                    ng-class="{'button-default' : newAccount.$invalid}">
+                                {{ 'new-account-real.open_account' | translate }}
+                            </button>
                         </div>
                     </div>
                 </div>

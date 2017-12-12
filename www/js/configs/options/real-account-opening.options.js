@@ -1,67 +1,67 @@
 angular.module("binary").constant("realAccountOpeningOptions", {
         salutation: [
             {
-                text: 'newaccountreal.mr',
+                text: 'new-account-real.mr',
                 value: 'Mr',
             },
             {
-                text: 'newaccountreal.mrs',
+                text: 'new-account-real.mrs',
                 value: 'Mrs',
             },
             {
-                text: 'newaccountreal.miss',
+                text: 'new-account-real.miss',
                 value: 'Miss',
             },
             {
-                text: 'newaccountreal.ms',
+                text: 'new-account-real.ms',
                 value: 'Ms',
             }
         ],
         account_opening_reason: [
             {
-                text: 'newaccountreal.speculative',
+                text: 'new-account-real.speculative',
                 value: 'Speculative',
             },
             {
-                text: 'newaccountreal.income_earning',
+                text: 'new-account-real.income_earning',
                 value: 'Income Earning',
             },
             {
-                text: 'newaccountreal.hedging',
+                text: 'new-account-real.hedging',
                 value: 'Hedging',
             },
         ],
         secret_question: [
             {
-                text: 'newaccountreal.secret_question_1',
+                text: 'new-account-real.secret_question_1',
                 value: 'Mother\'s maiden name'
             },
             {
-                text: 'newaccountreal.secret_question_2',
+                text: 'new-account-real.secret_question_2',
                 value: 'Name of your pet'
             },
             {
-                text: 'newaccountreal.secret_question_3',
+                text: 'new-account-real.secret_question_3',
                 value: 'Name of first love'
             },
             {
-                text: 'newaccountreal.secret_question_4',
+                text: 'new-account-real.secret_question_4',
                 value: 'Memorable town/city'
             },
             {
-                text: 'newaccountreal.secret_question_5',
+                text: 'new-account-real.secret_question_5',
                 value: 'Memorable date'
             },
             {
-                text: 'newaccountreal.secret_question_6',
+                text: 'new-account-real.secret_question_6',
                 value: 'Favourite dish'
             },
             {
-                text: 'newaccountreal.secret_question_7',
+                text: 'new-account-real.secret_question_7',
                 value: 'Brand of first car'
             },
             {
-                text: 'newaccountreal.secret_question_8',
+                text: 'new-account-real.secret_question_8',
                 value: 'Favourite artist'
             }
         ]

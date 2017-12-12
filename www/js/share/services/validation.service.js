@@ -34,6 +34,33 @@ angular
             validationService.validatePhone = (val => validator(val, validatePhoneRegex))();
             validationService.validateTaxIdentificationNumber = (val => validator(val, validateTaxIdentificationNumberRegex))();
 
+            validationService.length = {
+                name: {
+                    min: 2,
+                    max: 30,
+                },
+                tin: {
+                    max: 20,
+                },
+                address: {
+                    max: 70,
+                },
+                city: {
+                    max: 35,
+                },
+                postcode: {
+                    max: 20,
+                },
+                phone: {
+                    min: 6,
+                    max: 35
+                },
+                secret_answer: {
+                    min: 4,
+                    max: 50
+                }
+            }
+
             return validationService;
         }
 );
