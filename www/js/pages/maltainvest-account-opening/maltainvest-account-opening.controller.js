@@ -104,22 +104,7 @@
             if (vm.modalCtrl) vm.modalCtrl.hide();
         };
 
-        vm.showTaxResidenceItems = function() {
-            vm.settingTaxResidence = _.words(vm.data.tax_residence);
-            _.forEach(vm.residenceList, (value, key) => {
-                if (vm.settingTaxResidence.indexOf(value.value) > -1) {
-                    vm.residenceList[key].checked = true;
-                } else {
-                    vm.residenceList[key].checked = false;
-                }
-            });
-            vm.modalCtrl.show();
-        };
-
-        // set all errors to false
-        vm.resetAllErrors = function() {
-            vm.error = {};
-        };
+        vm.showTaxResidenceItems = () => vm.modalCtrl.show();
 
         $scope.$on("residence_list", (e, residence_list) => {
             vm.residenceList = residence_list;
@@ -208,9 +193,9 @@
 
         vm.submitAccountOpening = function() {
             vm.disableUpdatebutton = true;
-            vm.resetAllErrors();
-            vm.data.accept_risk = vm.data.accept === true ? 1 : 0;
+            vm.error = {};
             vm.params = {};
+            vm.data.accept_risk = vm.data.accept === true ? 1 : 0;
             _.forEach(vm.data, (value, key) => {
                 if (vm.requestData.indexOf(key) > -1) {
                     if (key === "date_of_birth") {
@@ -250,7 +235,7 @@
             window.open(vm.data.linkToTermAndConditions, "_blank");
 
         vm.init = function() {
-            vm.resetAllErrors();
+            vm.error = {};
             websocketService.sendRequestFor.residenceListSend();
             vm.readOnly = !isVirtual;
         };
