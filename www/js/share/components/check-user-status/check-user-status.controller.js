@@ -39,19 +39,22 @@
 	      vm.isMX = false;
         vm.isVirtual = false;
         vm.notificationMessages = notificationService.messages;
+        let currentAccount = {};
 
         // check type of account
         vm.checkAccountType = function() {
-            vm.account = accountService.getDefault();
-            vm.isFinancial = _.startsWith(vm.account.id, "MF");
-            vm.isCR = _.startsWith(vm.account.id, "CR");
-            vm.isMLT = _.startsWith(vm.account.id, "MLT");
-            vm.isMX = _.startsWith(vm.account.id, "MX");
-            vm.isVirtual = !!appStateService.virtuality;
+            if (currentAccount.id) {
+                vm.isFinancial = _.startsWith(currentAccount.id, "MF");
+                vm.isCR = _.startsWith(currentAccount.id, "CR");
+                vm.isMLT = _.startsWith(currentAccount.id, "MLT");
+                vm.isMX = _.startsWith(currentAccount.id, "MX");
+                vm.isVirtual = !!appStateService.virtuality;
+            }
         };
 
         vm.getAccountInfo = function() {
-            if (localStorage.hasOwnProperty("accounts") && !_.isEmpty(localStorage.accounts)) {
+            currentAccount = accountService.getDefault();
+            if (currentAccount && _.keys(currentAccount).length) {
                 vm.checkAccountType();
                 websocketService.sendRequestFor.getAccountStatus();
                 websocketService.sendRequestFor.getSelfExclusion();
