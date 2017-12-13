@@ -164,9 +164,9 @@
                             </option>
                           </select>
                         </label>
-                        <div class="help-block error" ng-if="vm.errors.residence">
-                            {{ vm.errors.residence }}
-                        </div>
+                    </div>
+                    <div class="help-block error" ng-if="vm.errors.residence">
+                        {{ vm.errors.residence }}
                     </div>
                 </div>
             </div>
@@ -188,9 +188,9 @@
                                   </option>
                               </select>
                         </label>
-                        <div class="help-block error" ng-if="vm.errors.place_of_birth">
-                          {{ vm.errors.place_of_birth }}
-                        </div>
+                    </div>
+                    <div class="help-block error" ng-if="vm.errors.place_of_birth">
+                        {{ vm.errors.place_of_birth }}
                     </div>
                 </div>
             </div>
@@ -210,7 +210,7 @@
                     </label>
                     </div>
                     <div class="row">
-                        <div class="col help-block error" ng-if="vm.data.tax_residence  == null && vm.taxRequirement">
+                        <div class="col help-block error" ng-if="!vm.data.tax_residence && vm.taxRequirement">
                             {{ 'new-account-maltainvest.required' | translate }}
                         </div>
                     </div>
