@@ -40,7 +40,6 @@
     ) {
         const vm = this;
         vm.errors = {};
-        let selectedTaxResidencesName = '';
         vm.settingTaxResidence = [];
         vm.disableUpdatebutton = false;
         vm.taxRequirement = false;
@@ -53,42 +52,42 @@
         vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
         vm.data = {
-            salutation: '',
-            first_name: '',
-            last_name: '',
-            date_of_birth: '',
-            residence: '',
-            place_of_birth: '',
-            address_line_1: '',
-            address_line_2: '',
-            address_city: '',
-            address_state: '',
-            address_postcode: '',
-            phone: '',
-            forex_trading_experience: '',
-            forex_trading_frequency: '',
-            indices_trading_experience: '',
-            indices_trading_frequency: '',
-            commodities_trading_experience: '',
-            commodities_trading_frequency: '',
-            stocks_trading_experience: '',
-            stocks_trading_frequency: '',
+            salutation                          : '',
+            first_name                          : '',
+            last_name                           : '',
+            date_of_birth                       : '',
+            residence                           : '',
+            place_of_birth                      : '',
+            address_line_1                      : '',
+            address_line_2                      : '',
+            address_city                        : '',
+            address_state                       : '',
+            address_postcode                    : '',
+            phone                               : '',
+            forex_trading_experience            : '',
+            forex_trading_frequency             : '',
+            indices_trading_experience          : '',
+            indices_trading_frequency           : '',
+            commodities_trading_experience      : '',
+            commodities_trading_frequency       : '',
+            stocks_trading_experience           : '',
+            stocks_trading_frequency            : '',
             other_derivatives_trading_experience: '',
-            other_derivatives_trading_frequency: '',
+            other_derivatives_trading_frequency : '',
             other_instruments_trading_experience: '',
-            other_instruments_trading_frequency: '',
-            employment_industry: '',
-            occupation: '',
-            education_level: '',
-            income_source: '',
-            net_income: '',
-            estimated_worth: '',
-            tax_residence: '',
-            tax_identification_number: '',
-            account_turnover: '',
-            account_opening_reason: '',
-            source_of_wealth: '',
-            employment_status: ''
+            other_instruments_trading_frequency : '',
+            employment_industry                 : '',
+            occupation                          : '',
+            education_level                     : '',
+            income_source                       : '',
+            net_income                          : '',
+            estimated_worth                     : '',
+            tax_residence                       : '',
+            tax_identification_number           : '',
+            account_turnover                    : '',
+            account_opening_reason              : '',
+            source_of_wealth                    : '',
+            employment_status                   : ''
         };
 
         if (isVirtual) {
@@ -127,9 +126,9 @@
         $scope.$on("get_settings", (e, get_settings) => {
             $scope.$applyAsync(() => {
                 vm.receivedSettings = true;
-                for (var k in vm.data) {
-                    if (get_settings[k]) vm.data[k] = get_settings[k];
-                }
+                _.forEach(vm.data, (val, k) => {
+	                if (get_settings[k]) vm.data[k] = get_settings[k];
+                });
                 if (get_settings.date_of_birth) {
                     vm.data.date_of_birth = new Date(get_settings.date_of_birth * 1000);
                 }
@@ -150,7 +149,7 @@
                             res.checked = true;
                         }
                         return res;
-                });
+                    });
                     const checkedValues = vm.residenceList.filter(res => res.checked);
                     vm.selectedTaxResidencesName = checkedValues.map(value => value.text).join(', ');
                 }

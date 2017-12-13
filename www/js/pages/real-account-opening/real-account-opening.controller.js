@@ -47,17 +47,17 @@
         vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
         vm.data = {
-            salutation: '',
-            first_name: '',
-            last_name: '',
-            date_of_birth: '',
-            residence: '',
-            address_line_1: '',
-            address_line_2: '',
-            address_city: '',
-            address_state: '',
-            address_postcode: '',
-            phone: '',
+            salutation            : '',
+            first_name            : '',
+            last_name             : '',
+            date_of_birth         : '',
+            residence             : '',
+            address_line_1        : '',
+            address_line_2        : '',
+            address_city          : '',
+            address_state         : '',
+            address_postcode      : '',
+            phone                 : '',
             account_opening_reason: ''
         };
 
@@ -77,9 +77,9 @@
         $scope.$on("get_settings", (e, get_settings) => {
             $scope.$applyAsync(() => {
                 vm.receivedSettings = true;
-                for (var k in vm.data) {
+                _.forEach(vm.data, (val, k) => {
                     if (get_settings[k]) vm.data[k] = get_settings[k];
-                }
+                });
                 if (get_settings.date_of_birth) {
                     vm.data.date_of_birth = new Date(get_settings.date_of_birth * 1000);
                 }

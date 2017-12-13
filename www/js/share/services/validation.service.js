@@ -18,7 +18,7 @@ angular
             const validatePostcodeRegex = /^([a-zA-Z\d-\s])*$/;
             const validatePhoneRegex = /^\+?[0-9\s]*$/;
             const validateTaxIdentificationNumberRegex = /^[\w-]{0,20}$/;
-
+            /* eslint-disable */
             const validator = (val, regexPattern, reverse) => {
                 return {
                     test(val) {
@@ -26,13 +26,15 @@ angular
                     }
                 }
             };
+            /* eslint-enable */
 
 
             validationService.validateGeneral = (val => validator(val, validateGeneralRegex, true))();
             validationService.validateAddress = (val => validator(val, validateAddressRegex, true))();
             validationService.validatePostcode = (val => validator(val, validatePostcodeRegex))();
             validationService.validatePhone = (val => validator(val, validatePhoneRegex))();
-            validationService.validateTaxIdentificationNumber = (val => validator(val, validateTaxIdentificationNumberRegex))();
+            validationService.validateTaxIdentificationNumber = (val =>
+                validator(val, validateTaxIdentificationNumberRegex))();
 
             validationService.length = {
                 name: {
@@ -63,4 +65,4 @@ angular
 
             return validationService;
         }
-);
+    );
