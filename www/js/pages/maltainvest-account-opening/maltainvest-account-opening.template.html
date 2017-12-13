@@ -1,6 +1,9 @@
 <ion-view class="new-account">
     <ion-content has-bouncing="false" class="general-content has-header has-subheader">
-        <form name="newAccountMaltainvestForm" class="new-real-account" novalidate>
+        <div class="row center spinner-container">
+            <ion-spinner ng-if="!vm.receivedSettings"></ion-spinner>
+        </div>
+        <form name="newAccountMaltainvestForm" class="new-real-account" ng-show="vm.receivedSettings" novalidate>
             <div class="row">
                 <div class="col">
                   <h1 class="page-title">

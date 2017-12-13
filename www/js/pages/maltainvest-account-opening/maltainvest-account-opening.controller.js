@@ -40,16 +40,17 @@
     ) {
         const vm = this;
         vm.errors = {};
+        let selectedTaxResidencesName = '';
+        vm.settingTaxResidence = [];
         vm.disableUpdatebutton = false;
         vm.taxRequirement = false;
-        vm.settingTaxResidence = [];
         vm.hasResidence = false;
-        let selectedTaxResidencesName = '';
-        vm.options = _.merge(maltainvestAcountOpeningOptions, realAccountOpeningOptions);
-        vm.validation = validationService;
         const loginid = accountService.getDefault().id;
         const isVirtual = clientService.isAccountOfType('virtual', loginid);
-        vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
+        vm.receivedSettings = false;
+        vm.options = _.merge(maltainvestAcountOpeningOptions, realAccountOpeningOptions);
+        vm.validation = validationService;
+        vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
         vm.data = {
             salutation: '',
@@ -124,6 +125,7 @@
         // get some values which are set by user before
         $scope.$on("get_settings", (e, get_settings) => {
             $scope.$applyAsync(() => {
+                vm.receivedSettings = true;
                 for (var k in vm.data) {
                     if (get_settings[k]) vm.data[k] = get_settings[k];
                 }
@@ -187,7 +189,7 @@
         });
 
         vm.openTermsAndConditions = () =>
-            window.open(vm.data.linkToTermAndConditions, "_blank");
+            window.open(vm.linkToTermAndConditions, "_blank");
 
         vm.init = () => {
             vm.error = {};
