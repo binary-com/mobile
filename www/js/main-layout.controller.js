@@ -2,6 +2,7 @@ angular
     .module("binary")
     .controller("MainLayoutController", function($scope,
         $state,
+        $timeout,
         config,
         websocketService,
         appStateService,
@@ -9,14 +10,21 @@ angular
         clientService) {
         const vm = this;
         vm.hasMTAccess = false;
+        this.currentAccount = {};
 
         const getAccountInfo = () => {
             vm.upgrade = {};
             vm.accounts = accountService.getAll();
             this.currentAccount = accountService.getDefault();
-            const country = this.currentAccount.country;
-            if (country !== 'jp') {
-                websocketService.sendRequestFor.landingCompanySend(country);
+            if (this.currentAccount && _.keys(this.currentAccount).length) {
+              if (this.currentAccount.country) {
+                const country = this.currentAccount.country;
+                if (country !== 'jp') {
+                  websocketService.sendRequestFor.landingCompanySend(country);
+                }
+              }
+            } else {
+                $timeout(getAccountInfo, 1000);
             }
         };
 
@@ -108,7 +116,7 @@ angular
         };
 
         $scope.$on('authorize', (e, authorize) => {
-            if (this.currentAccount.id !== authorize.loginid) {
+            if (this.currentAccount && this.currentAccount.id !== authorize.loginid) {
                 getAccountInfo();
             }
         });
