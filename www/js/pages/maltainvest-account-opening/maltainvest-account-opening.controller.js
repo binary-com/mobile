@@ -96,6 +96,8 @@
             vm.data.secret_answer = '';
         };
 
+        const getPhoneCode = countryCode => vm.residenceList.find(country => country.value === countryCode).phone_idd;
+
         $ionicModal
             .fromTemplateUrl("js/pages/maltainvest-account-opening/tax-residence.modal.html", {
                 scope: $scope
@@ -128,13 +130,17 @@
                 for (var k in vm.data) {
                     if (get_settings[k]) vm.data[k] = get_settings[k];
                 }
-                vm.data.date_of_birth = new Date(vm.data.date_of_birth * 1000);
+                if (get_settings.date_of_birth) {
+                    vm.data.date_of_birth = new Date(get_settings.date_of_birth * 1000);
+                }
                 if (get_settings.country_code) {
+                    const countryCode = get_settings.country_code;
                     vm.hasResidence = true;
-                    vm.data.residence = get_settings.country_code;
-                    websocketService.sendRequestFor.statesListSend(get_settings.country_code);
-                    if (!vm.data.phone) {
-                        const phoneCodeObj = vm.residenceList.find(country => country.value === get_settings.country_code);
+                    vm.data.residence = countryCode;
+                    websocketService.sendRequestFor.statesListSend(countryCode);
+                    if (!get_settings.phone) {
+                        const phoneCode = getPhoneCode(countryCode);
+                        vm.data.phone = phoneCode ? `+${phoneCode}` : '';
                     }
                 }
                 if (vm.data.tax_residence) {
@@ -162,9 +168,13 @@
         vm.submitAccountOpening = () => {
             vm.disableUpdatebutton = true;
             vm.error = {};
-            const params = _.clone(vm.data);
+            let params = _.clone(vm.data);
             params.accept_risk = vm.accept_risk ? 1 : 0;
             params.date_of_birth = $filter("date")(params.date_of_birth, "yyyy-MM-dd");
+            params = _.forEach(params, (val, k) => {
+                params[k].val = _.trim(val);
+                return params[k];
+            });
             websocketService.sendRequestFor.createMaltainvestAccountSend(params);
         };
 

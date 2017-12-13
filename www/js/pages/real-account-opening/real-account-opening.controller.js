@@ -41,97 +41,83 @@
         const isVirtual = clientService.isAccountOfType('virtual', loginid);
         vm.validation = validationService;
         vm.options = realAccountOpeningOptions;
+        vm.receivedSettings = false;
         vm.hasResidence = false;
         vm.disableUpdatebutton = false;
-        vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
+        vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
-        vm.requestData = [
-            "salutation",
-            "first_name",
-            "last_name",
-            "date_of_birth",
-            "residence",
-            "address_line_1",
-            "address_line_2",
-            "address_city",
-            "address_state",
-            "address_postcode",
-            "phone",
-            "secret_question",
-            "secret_answer",
-            "account_opening_reason"
-        ];
-
-        // set all fields errors to false
-        vm.resetAllErrors = function() {
-            vm.errors = {};
+        vm.data = {
+            salutation: '',
+            first_name: '',
+            last_name: '',
+            date_of_birth: '',
+            residence: '',
+            address_line_1: '',
+            address_line_2: '',
+            address_city: '',
+            address_state: '',
+            address_postcode: '',
+            phone: '',
+            account_opening_reason: ''
         };
+
+        if (isVirtual) {
+            vm.data.secret_question = '';
+            vm.data.secret_answer = '';
+        };
+
+        const getPhoneCode = countryCode => vm.residenceList.find(country => country.value === countryCode).phone_idd;
 
         $scope.$on("residence_list", (e, residence_list) => {
             vm.residenceList = residence_list;
             websocketService.sendRequestFor.accountSetting();
         });
 
+        // get some values which are set by user before
         $scope.$on("get_settings", (e, get_settings) => {
-            _.forEach(get_settings, (val, key) => {
-                if (vm.requestData.indexOf(key) > -1) {
-                    if (key === "date_of_birth") {
-                        vm.data[key] = new Date(val * 1000);
-                    } else if (val) {
-                        vm.data[key] = val;
-                    }
-                } else if (key === "country_code") {
+            $scope.$applyAsync(() => {
+                vm.receivedSettings = true;
+                for (var k in vm.data) {
+                    if (get_settings[k]) vm.data[k] = get_settings[k];
+                }
+                if (get_settings.date_of_birth) {
+                    vm.data.date_of_birth = new Date(get_settings.date_of_birth * 1000);
+                }
+                if (get_settings.country_code) {
+                    const countryCode = get_settings.country_code;
                     vm.hasResidence = true;
-                    vm.data.residence = get_settings.country_code;
-                    websocketService.sendRequestFor.statesListSend(vm.data.residence);
+                    vm.data.residence = countryCode;
+                    websocketService.sendRequestFor.statesListSend(countryCode);
+                    if (!get_settings.phone) {
+                        const phoneCode = getPhoneCode(countryCode);
+                        vm.data.phone = phoneCode ? `+${phoneCode}` : '';
+                    }
                 }
             });
-            if (!get_settings.hasOwnProperty("phone")) {
-                vm.phoneCodeObj = vm.residenceList.find(vm.findPhoneCode);
-                if (vm.phoneCodeObj.hasOwnProperty("phone_idd")) {
-                    $scope.$applyAsync(() => {
-                        vm.data.phone = `+${vm.phoneCodeObj.phone_idd}`;
-                    });
-                }
-            }
         });
-
-        vm.findPhoneCode = country => country.value === vm.data.residence;
 
         $scope.$on("states_list", (e, states_list) => {
             vm.statesList = states_list;
         });
 
-        vm.submitAccountOpening = function() {
+        vm.submitAccountOpening = () => {
             vm.disableUpdatebutton = true;
-            vm.resetAllErrors();
-            vm.params = {};
-            _.forEach(vm.data, (value, key) => {
-                if (vm.requestData.indexOf(key) > -1) {
-                    if (key === "date_of_birth") {
-                        vm.params[key] = $filter("date")(value, "yyyy-MM-dd");
-                    } else if (key === "secret_question" || key === "secret_answer") {
-                        if (!vm.readOnly) {
-                            vm.params[key] = _.trim(value);
-                        }
-                    } else {
-	                      vm.params[key] = _.trim(value);
-                    }
-                }
+            vm.error = {};
+            let params = _.clone(vm.data);
+            params.date_of_birth = $filter("date")(params.date_of_birth, "yyyy-MM-dd");
+            params = _.forEach(params, (val, k) => {
+                params[k].val = _.trim(val);
+                return params[k];
             });
-            websocketService.sendRequestFor.createRealAccountSend(vm.params);
+            websocketService.sendRequestFor.createRealAccountSend(params);
         };
 
         // error handling by backend errors under each input
         $scope.$on("new_account_real:error", (e, error) => {
             vm.disableUpdatebutton = false;
             if (error.hasOwnProperty("details")) {
-                $scope.$applyAsync(() => {
-                    _.forEach(vm.requestData, (value, key) => {
-                        if (error.details.hasOwnProperty(value)) {
-                            vm.errors[value] = error.details[value];
-                        }
-                    });
+                $scope.$apply(() => {
+                    vm.errors = error.details;
                 });
             } else if (error.code) {
                 alertService.displayError(error.message);
@@ -146,10 +132,10 @@
             accountService.addedAccount = selectedAccount;
         });
 
-        vm.openTermsAndConditions = () => window.open(vm.data.linkToTermAndConditions, "_blank");
+        vm.openTermsAndConditions = () => window.open(vm.linkToTermAndConditions, "_blank");
 
-        vm.init = function() {
-            vm.resetAllErrors();
+        vm.init = () => {
+            vm.errors = {};
             websocketService.sendRequestFor.residenceListSend();
             vm.readOnly = !isVirtual;
         };

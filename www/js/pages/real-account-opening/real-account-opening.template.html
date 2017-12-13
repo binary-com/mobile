@@ -3,7 +3,7 @@
         <div class="row center spinner-container" ng-if="!vm.receivedSettings">
             <ion-spinner></ion-spinner>
         </div>
-        <form name="newAccount" class="new-real-account" novalidate>
+        <form name="newAccount" class="new-real-account" ng-show="vm.receivedSettings" novalidate>
             <div class="row">
                 <div class="col">
                   <h1 class="page-title">
@@ -101,7 +101,8 @@
                                     {{ 'new-account-real.general-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="minlength, maxlength">
-                                    {{ 'new-account-real.length-error-2-30' | translate }}
+                                    {{ 'new-account-real.length-range-error' | translate :
+                                    {min: vm.validation.length.name.min, max: vm.validation.length.name.max} }}
                                 </ng-message>
                                 <ng-message when="required">
                                     {{ 'new-account-real.required' | translate }}
@@ -192,7 +193,8 @@
                                          role="alert" ng-if="newAccount.address_line_1.$dirty"
                                          ng-hide="vm.errors.address_line_1">
                                 <ng-message when="maxlength">
-                                    {{ 'new-account-real.maxlength_error_70' | translate }}
+                                    {{ 'new-account-real.maxlength_error' | translate :
+                                    { max: vm.validation.length.address.max } }}
                                 </ng-message>
                                   <ng-message when="required">
                                       {{ 'new-account-real.required' | translate }}
@@ -227,8 +229,13 @@
                                          role="alert"
                                          ng-if="newAccount.address_line_2.$dirty"
                                          ng-hide="vm.errors.address_line_2">
-                                <ng-message when="maxlength">{{ 'new-account-real.maxlength_error_70' | translate }}</ng-message>
-                                <ng-message when="pattern">{{ 'new-account-real.address-pattern-error' | translate }}</ng-message>
+                                <ng-message when="maxlength">
+                                    {{ 'new-account-real.maxlength_error' | translate :
+                                    { max: vm.validation.length.address.max } }}
+                                </ng-message>
+                                <ng-message when="pattern">
+                                    {{ 'new-account-real.address-pattern-error' | translate }}
+                                </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.address_line_2">
                               {{ vm.errors.address_line_2 }}
@@ -258,7 +265,8 @@
                                          ng-if="newAccount.address_city.$dirty"
                                          ng-hide="vm.errors.address_city">
                                 <ng-message when="maxlength">
-                                    {{ 'new-account-real.maxlength_error_35' | translate }}
+                                    {{ 'new-account-real.maxlength_error' | translate :
+                                    { max: vm.validation.length.city.max } }}
                                 </ng-message>
                                 <ng-message when="pattern">
                                     {{ 'new-account-real.general-pattern-error' | translate }}
@@ -311,8 +319,7 @@
                             <input name="address_postcode"
                                    ng-model="vm.data.address_postcode"
                                    ng-pattern="vm.validation.validatePostcode"
-                                   ng-minlength="vm.validation.length.postcode.min"
-                                   ng-maxlength="vm.validation.length.postcoe.max">
+                                   ng-maxlength="vm.validation.length.postcode.max">
                             <ng-messages
                                     class="help-block error"
                                     for="newAccount.address_postcode.$error"
@@ -322,8 +329,9 @@
                                 <ng-message when="pattern">
                                     {{ 'new-account-real.postcode-pattern-error' | translate }}
                                 </ng-message>
-                                <ng-message when="maxlength, minlength">
-                                    {{ 'new-account-real.maxlength_error_20' | translate }}
+                                <ng-message when="maxlength">
+                                    {{ 'new-account-real.maxlength_error' | translate :
+                                    { max: vm.validation.length.postcode.max } }}
                                 </ng-message>
                             </ng-messages>
                             <div class="help-block error" ng-if="vm.errors.address_postcode">
@@ -357,7 +365,9 @@
                                     {{ 'new-account-real.phone-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="minlength, maxlength">
-                                    {{ 'new-account-real.length-error-6-35' | translate }}
+                                    {{ 'new-account-real.length-range-error' | translate :
+                                    { min: vm.validation.length.phone.min,
+                                    max: vm.validation.length.phone.max } }}
                                 </ng-message>
                                 <ng-message when="required">
                                     {{ 'new-account-real.required' | translate }}
@@ -406,7 +416,7 @@
                             <select name="secret_question"
                                     ng-model="vm.data.secret_question"
                                     ng-options="option.value as option.text | translate
-                                    for option in vm.options.sec"
+                                    for option in vm.options.secret_question"
                                     required>
                               <option value="" disabled>
                                   {{ 'new-account-real.select' | translate }}
@@ -444,7 +454,9 @@
                                     {{ 'new-account-real.secretanswer-pattern-error' | translate }}
                                 </ng-message>
                                 <ng-message when="maxlength, minlength">
-                                    {{ 'new-account-real.length-error-4-50' | translate }}
+                                    {{ 'new-account-real.length-range-error' | translate :
+                                    { min: vm.validation.length.secret_answer.min,
+                                    max: vm.validation.length.secret_answer.max } }}
                                 </ng-message>
                                 <ng-message when="required">
                                     {{ 'new-account-real.required' | translate }}
@@ -488,7 +500,7 @@
                                    type="checkbox"
                                    ng-model="vm.accept_risk"
                                    class="checkbox"
-                                   required/>
+                                   required />
                                 {{ 'new-account-real.read_and_agreed_to' | translate }}
                             <a ng-click="vm.openTermsAndConditions()">
                                 {{ 'new-account-real.terms_and_conditions' | translate }}
@@ -504,8 +516,8 @@
                         <div class="col">
                             <button class="button button-block"
                                     ng-click="vm.submitAccountOpening()"
-                                    ng-disabled="newAccount.$invalid || vm.disableUpdatebutton"
-                                    ng-class="{'button-default' : newAccount.$invalid}">
+                                    ng-class="{'button-default' : newAccount.$invalid}"
+                                    ng-disabled="newAccount.$invalid || vm.disableUpdatebutton">
                                 {{ 'new-account-real.open_account' | translate }}
                             </button>
                         </div>
