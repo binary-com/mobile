@@ -1,5 +1,8 @@
 <ion-view class="new-account">
     <ion-content has-bouncing="false" class="general-content has-header has-subheader">
+        <div class="row center spinner-container" ng-if="!vm.receivedSettings">
+            <ion-spinner></ion-spinner>
+        </div>
         <form name="newAccount" class="new-real-account" novalidate>
             <div class="row">
                 <div class="col">
@@ -460,7 +463,7 @@
                         <div class="col accept center">
                             <input name="pep"
                                    type="checkbox"
-                                   ng-model="vm.data.pep"
+                                   ng-model="vm.pep"
                                    class="checkbox"
                                    required />
                             {{ 'new-account-real.not-pep-verify' | translate }}
@@ -483,7 +486,7 @@
                         <div class="col accept center">
                             <input name="TnC"
                                    type="checkbox"
-                                   ng-model="vm.data.accept"
+                                   ng-model="vm.accept_risk"
                                    class="checkbox"
                                    required/>
                                 {{ 'new-account-real.read_and_agreed_to' | translate }}

@@ -1,7 +1,7 @@
 <ion-view class="new-account">
     <ion-content has-bouncing="false" class="general-content has-header has-subheader">
-        <div class="row center spinner-container">
-            <ion-spinner ng-if="!vm.receivedSettings"></ion-spinner>
+        <div class="row center spinner-container" ng-if="!vm.receivedSettings">
+            <ion-spinner></ion-spinner>
         </div>
         <form name="newAccountMaltainvestForm" class="new-real-account" ng-show="vm.receivedSettings" novalidate>
             <div class="row">
@@ -1040,7 +1040,7 @@
                 <div class="col accept center">
                   <input name="pep"
                          type="checkbox"
-                         ng-model="vm.data.pep"
+                         ng-model="vm.pep"
                          class="checkbox"
                          required />
                   {{ 'new-account-maltainvest.not-pep-verify' | translate }}
@@ -1063,7 +1063,7 @@
                       <div class="col accept center">
                           <input name="TnC"
                                  type="checkbox"
-                                 ng-model="vm.data.accept"
+                                 ng-model="vm.accept_risk"
                                  class="checkbox"
                                  required/>
                           {{ 'new-account-maltainvest.read_and_agreed_to' | translate }}

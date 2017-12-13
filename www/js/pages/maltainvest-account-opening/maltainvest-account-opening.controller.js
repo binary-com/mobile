@@ -83,7 +83,6 @@
             income_source: '',
             net_income: '',
             estimated_worth: '',
-            accept_risk: '',
             tax_residence: '',
             tax_identification_number: '',
             account_turnover: '',
@@ -92,7 +91,7 @@
             employment_status: ''
         };
 
-        if (!isVirtual) {
+        if (isVirtual) {
             vm.data.secret_question = '';
             vm.data.secret_answer = '';
         };
@@ -156,7 +155,7 @@
             vm.taxRequirement = true;
             const checkedValues = vm.residenceList.filter(res => res.checked);
             vm.selectedTaxResidencesName = checkedValues.map(value => value.text).join(', ');
-            vm.data.tax_residence = checkedValues.map(value => value.value).join(', ');
+            vm.data.tax_residence = checkedValues.map(value => value.value).join(',');
             vm.closeModal();
         };
 
@@ -164,7 +163,7 @@
             vm.disableUpdatebutton = true;
             vm.error = {};
             const params = _.clone(vm.data);
-            params.accept_risk = vm.data.accept ? 1 : 0;
+            params.accept_risk = vm.accept_risk ? 1 : 0;
             params.date_of_birth = $filter("date")(params.date_of_birth, "yyyy-MM-dd");
             websocketService.sendRequestFor.createMaltainvestAccountSend(params);
         };
