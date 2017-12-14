@@ -17,12 +17,12 @@ angular
             vm.accounts = accountService.getAll();
             this.currentAccount = accountService.getDefault();
             if (this.currentAccount && _.keys(this.currentAccount).length) {
-              if (this.currentAccount.country) {
-                const country = this.currentAccount.country;
-                if (country !== 'jp') {
-                  websocketService.sendRequestFor.landingCompanySend(country);
+                if (this.currentAccount.country) {
+                    const country = this.currentAccount.country;
+                    if (country !== 'jp') {
+                        websocketService.sendRequestFor.landingCompanySend(country);
+                    }
                 }
-              }
             } else {
                 $timeout(getAccountInfo, 1000);
             }
