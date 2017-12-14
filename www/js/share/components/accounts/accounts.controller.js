@@ -77,7 +77,6 @@
             appStateService.isStatementSet = false;
             appStateService.profitTableRefresh = true;
             appStateService.statementRefresh = true;
-            appStateService.hasMLT = false;
             sessionStorage.removeItem("countryParams");
             appStateService.isPopupOpen = false;
             appStateService.realityCheckLogin = false;
