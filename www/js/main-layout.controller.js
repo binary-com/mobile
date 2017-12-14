@@ -63,6 +63,9 @@ angular
                     upgradeLink = 'maltainvest-account-opening';
                     currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
                     allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
+                } else if (!landingCompany.gaming_company && landingCompany.financial_company) {
+                    currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
+                    allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
                 }
                 canUpgrade = !hasAccountOfType('real');
             } else if (canUpgradeGamingToFinancial(landingCompany)) {
@@ -72,6 +75,7 @@ angular
                 currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
                 allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
             } else if (canUpgradeMultiAccount(landingCompany)) {
+                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
                 const legalAllowedCurrencies = landingCompany.financial_company.legal_allowed_currencies;
                 const existingCurrencies = getExistingCurrencies(vm.accounts);
                 if (existingCurrencies.length) {
