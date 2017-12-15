@@ -40,7 +40,25 @@ angular.module("binary").service("accountService", function(websocketService, ap
 			 * @return {Array}
 			 */
     this.getAll = function() {
-        return storageExist() ? JSON.parse(localStorage.accounts) : [];
+        let accounts = storageExist() ? JSON.parse(localStorage.accounts) : [];
+        if (accounts.length > 0) {
+            accounts = accounts.sort((a, b) => {
+                if(a.currency === null){
+                    return 1;
+                }
+                else if(b.currency === null){
+                    return -1;
+                }
+                else if(a.currency === b.currency){
+                    return 0;
+                }
+                else if(a.currency < b.currency) {
+                    return -1;
+                }
+                return 1;
+            });
+        }
+        return accounts;
     };
 
     /**
@@ -93,7 +111,7 @@ angular.module("binary").service("accountService", function(websocketService, ap
         const account = {
             id        : _account.loginid,
             token     : _account.token,
-            currency  : _account.currency || "USD",
+            currency  : _account.currency,
             email     : _account.email,
             country   : _account.country,
             is_default: false
@@ -191,4 +209,13 @@ angular.module("binary").service("accountService", function(websocketService, ap
         }
         return result;
     };
+
+    this.getAllloginids = (_accounts) => {
+        const allLoginids = [];
+        const accounts = _accounts || this.getAll();
+        accounts.forEach((account) => {
+            allLoginids.push(account.id);
+        });
+        return allLoginids;
+    }
 });

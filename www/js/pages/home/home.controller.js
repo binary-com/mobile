@@ -20,7 +20,9 @@
      */
         $scope.$on("authorize", (e, response) => {
             if(response) {
-                $state.go("trade");
+                setTimeout(() => {
+                    $state.go("trade");
+                }, 1000);
             } else {
                 $state.go("signin");
             }
@@ -39,6 +41,7 @@
                     $state.go("trade");
                 }
             } else {
+                accountService.removeAll();
                 $state.go("signin");
             }
         };

@@ -36,6 +36,7 @@
         vm.notAnyChanges = false;
         vm.disableUpdateButton = false;
         vm.hasResidence = false;
+        vm.hasAccountOpeningReason = false;
         vm.settingTaxResidence = [];
         vm.virtualAccountFields = ["email", "country"];
         vm.realAccountFields = [
@@ -47,7 +48,13 @@
             "phone",
             "tax_identification_number",
             "tax_residence",
-            "place_of_birth"
+            "place_of_birth",
+            "account_opening_reason"
+        ];
+        vm.accountOpeningReasonsEnum = [
+            {id: 'speculative', value: "Speculative"},
+            {id: 'income_earning', value: "Income Earning"},
+            {id: 'hedging', value: "Hedging"}
         ];
 
         vm.init = function() {
@@ -83,9 +90,19 @@
                         websocketService.sendRequestFor.residenceListSend();
                         vm.hasResidence = false;
                     }
+
                 });
             } else {
                 vm.profile = get_settings;
+                if(!_.isEmpty(get_settings.account_opening_reason)){
+                    $scope.$applyAsync(() => {
+                        vm.hasAccountOpeningReason = true;
+                    });
+                } else {
+                    $scope.$applyAsync(() => {
+                        vm.hasAccountOpeningReason = false;
+                    });
+                }
                 if (vm.profile.date_of_birth) {
                     $scope.$applyAsync(() => {
                         vm.profile.date_of_birth = $filter("date")(vm.profile.date_of_birth * 1000, "yyyy-MM-dd");
@@ -205,11 +222,7 @@
                 vm.notAnyChanges = true;
                 _.forEach(vm.realAccountFields, (value, key) => {
                     if (vm.profile[value] != null && vm.profile[value] !== undefined) {
-                        if (vm.profile[value] === "address_postcode") {
-                            vm.params[value] = vm.profile[value].trim();
-                        } else {
-                            vm.params[value] = vm.profile[value];
-                        }
+                        vm.params[value] = _.trim(vm.profile[value]);
                         if (vm.params[value] !== vm.getSettings[value]) {
                             vm.notAnyChanges = false;
                         }
@@ -228,7 +241,7 @@
         };
 
         vm.validateGeneral = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/;
+            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);
@@ -238,7 +251,7 @@
         })();
 
         vm.validateAddress = (function(val) {
-            const regex = /[`~!#$%^&*)(_=+[}{\]\\";:?><|]+/;
+            const regex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
             return {
                 test(val) {
                     const reg = regex.test(val);

@@ -87,7 +87,6 @@
     <bg-reality-check></bg-reality-check>
     <bg-check-user-status></bg-check-user-status>
 
-
     <!-- ionic/angularjs js -->
 	<script src="lib/ionic/release/js/ionic.bundle.js"></script>
 
@@ -107,6 +106,7 @@
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <script src="lib/intl/dist/Intl.js"></script>
     <script src="lib/intl/locale-data/complete.js"></script>
+    <script src="lib/ionic-native/ionic.native.min.js"></script>
 
     <script>
       var Intl = IntlPolyfill;
@@ -122,6 +122,7 @@
     <script src="js/configs/currency.decorator.js"></script>
     <script src="js/configs/state.decorator.js"></script>
     <script src="js/configs/angular-ios9-uiwebview.patch.js"></script>
+    <script src="js/configs/deep-link.config.js"></script>
 
     <script src="js/body.controller.js"></script>
     <script src="js/main-layout.controller.js"></script>
@@ -142,6 +143,8 @@
     <script src="js/share/services/utils.service.js"></script>
     <script src="js/share/services/table-state.service.js"></script>
     <script src="js/share/services/notification.service.js"></script>
+    <script src="js/share/services/client.service.js"></script>
+    <script src="js/share/services/validation.service.js"></script>
 
     <script src="js/share/components/header/header.directive.js"></script>
     <script src="js/share/components/header/header.controller.js"></script>
@@ -199,10 +202,6 @@
     <script src="js/share/components/reality-check/reality-check.module.js"></script>
     <script src="js/share/components/reality-check/reality-check.controller.js"></script>
     <script src="js/share/components/reality-check/reality-check.directive.js"></script>
-
-    <script src="js/share/components/account-upgrade/account-upgrade.module.js"></script>
-    <script src="js/share/components/account-upgrade/account-upgrade.controller.js"></script>
-    <script src="js/share/components/account-upgrade/account-upgrade.directive.js"></script>
 
     <script src="js/share/components/check-user-status/check-user-status.module.js"></script>
     <script src="js/share/components/check-user-status/check-user-status.controller.js"></script>
@@ -340,6 +339,15 @@
 
     <script src="js/pages/notifications/notifications.module.js"></script>
     <script src="js/pages/notifications/notifications.controller.js"></script>
+
+    <script src="js/pages/set-currency/set-currency.module.js"></script>
+    <script src="js/pages/set-currency/set-currency.controller.js"></script>
+
+    <script src="js/pages/accounts-management/accounts-management.module.js"></script>
+    <script src="js/pages/accounts-management/accounts-management.controller.js"></script>
+
+    <script src="js/configs/options/real-account-opening.options.js"></script>
+    <script src="js/configs/options/maltainvest-account-opening.options.js"></script>
 
     <!-- endbuild -->
 

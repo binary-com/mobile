@@ -4,14 +4,24 @@
             <a ng-click="vm.changePayoutType()"> {{ 'options.' + vm.proposal.basis | translate }} </a>
         </div>
         <div class="col payout-cell center">
-            <input type="tel"
+            <input type="number"
                    id="payout"
+                   ng-if="!vm.isIOS"
+                   bg-number
                    require
-                   step="0.01"
                    ng-model="vm.amount"
                    ng-change = "vm.changeAmount()"
-                   bg-regex-validate = "^(\d*\.?\d{0,2})"
-                   ng-pattern = "null"/>
+                   bg-regex-validate = "vm.regex"
+                   step="any"/>
+            <input type="text"
+                   id="payout"
+                   ng-if="vm.isIOS"
+                   bg-number
+                   require
+                   pattern="[\d\.]*"
+                   ng-model="vm.amount"
+                   ng-change = "vm.changeAmount()"
+                   bg-regex-validate = "vm.regex"/>
         </div>
         <div class="col payout-cell center">
             <div class="payout-cell-link">

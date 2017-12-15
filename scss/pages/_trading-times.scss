@@ -13,6 +13,7 @@
 	.trading-times-table {
 		width: 100%;
 		font-size: 0.7rem;
+		table-layout: fixed;
 
 		thead {
 			background: $fillColor;
@@ -25,6 +26,8 @@
 			tr {
 				th {
 					padding: 5px;
+					vertical-align:top;
+					word-break:break-word;
 				}
 
 				&.title-row {
@@ -43,6 +46,8 @@
 				td {
 					padding: 5px;
 					font-size: 0.8rem;
+					vertical-align:top;
+					word-break:break-word;
 				}
 			}
 		}

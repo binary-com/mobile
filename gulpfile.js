@@ -64,7 +64,7 @@ gulp.task('git-check', function(done) {
   done();
 });
 
-gulp.task('deploy-translation', function(done){
+gulp.task('deploy-translation', ['build'], function(done){
 
   sh.config.silent = true;
 
@@ -89,15 +89,16 @@ gulp.task('deploy-translation', function(done){
 
   console.log('Copying translation version ...');
   sh.rm('-rf', 'translation');
-  sh.cp('-R', '../www/*','translation');
+  sh.cp('-R', '../dist/*','translation');
 
   console.log('Adding Crowdin scripts ...');
   var config = '<script type="text/javascript">\n\t\tvar _jipt = [];\n\t\t' +
                "_jipt.push(['project', 'tick-trade-app']);\n\t\t" +
                "localStorage.language = 'ach';\n\t</script>\n\t" +
-               '<script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>';
+               '<script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>\n\t' +
+               '<style id="antiClickjack">body{display:none !important;}</style>';
 
-  sh.sed('-i', '<!-- CROWDIN SCRIPT -->', config, 'translation/index.html');
+  sh.sed('-i', '<style id="antiClickjack">body{display:none !important;}</style>', config, 'translation/index.html');
 
   console.log('Pushing changes to gh-pages ...');
   sh.config.silent = false;

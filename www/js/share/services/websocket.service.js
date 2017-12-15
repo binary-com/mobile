@@ -70,6 +70,14 @@ angular
                 }, _data.hasOwnProperty("authorize") && token);
             };
 
+            const getAppId = () => window.localStorage.getItem('config.app_id') || config.app_id;
+
+            const getSocketURL = () => {
+                const server_url = window.localStorage.getItem('config.server_url');
+                const wsUrl = server_url ? `wss://${server_url}/websockets/v3` : config.wsUrl;
+                return wsUrl;
+            };
+
             const init = function(forced) {
                 forced = forced || false;
                 const language = localStorage.language || "en";
@@ -84,7 +92,11 @@ angular
 
                 appStateService.isLoggedin = false;
 
-                dataStream = new WebSocket(`${config.wsUrl}?app_id=${config.app_id}&l=${language}`);
+
+
+                const appId = getAppId();
+                const wsUrl = getSocketURL();
+                dataStream = new WebSocket(`${wsUrl}?app_id=${appId}&l=${language}`);
 
                 dataStream.onopen = function() {
                     // Authorize the default token if it's exist
@@ -125,6 +137,12 @@ angular
 
             $rootScope.$on("language:updated", () => {
                 init(true);
+
+                // Fetch asset_indes and active_symbols in order to update text in selected language.
+                sessionStorage.removeItem('asset_index');
+                sessionStorage.removeItem('active_symbols');
+                websocketService.sendRequestFor.assetIndex();
+                websocketService.sendRequestFor.symbols();
             });
 
             const websocketService = {};
@@ -150,7 +168,6 @@ angular
                 appStateService.isRealityChecked = false;
                 appStateService.isChangedAccount = false;
                 appStateService.isPopupOpen = false;
-                appStateService.isCheckedAccountType = false;
                 appStateService.isLoggedin = false;
                 sessionStorage.removeItem("start");
                 sessionStorage.removeItem("_interval");
@@ -158,9 +175,6 @@ angular
                 localStorage.removeItem("termsConditionsVersion");
                 appStateService.profitTableRefresh = true;
                 appStateService.statementRefresh = true;
-                appStateService.isNewAccountReal = false;
-                appStateService.isNewAccountMaltainvest = false;
-                appStateService.hasMLT = false;
                 sessionStorage.removeItem("countryParams");
                 websocketService.closeConnection();
                 appStateService.passwordChanged = false;
@@ -174,7 +188,13 @@ angular
                 appStateService.hasTaxInfoMessage = false;
                 appStateService.hasFinancialAssessmentMessage = false;
                 appStateService.hasAgeVerificationMessage = false;
+                appStateService.hasCountryMessage = false;
+                appStateService.hasCurrencyMessage = false;
                 appStateService.checkedAccountStatus = false;
+                appStateService.accountCurrencyChanged = false;
+                appStateService.selectedCurrency = false;
+                notificationService.emptyNotices();
+                appStateService.checkingUpgradeDone = false;
 
                 if (error) {
                     $translate(["alert.error", "alert.ok"]).then(translation => {
@@ -477,6 +497,13 @@ angular
                     };
 
                     sendMessage(data);
+                },
+                setAccountCurrency(currency) {
+                    const data = {
+	                     set_account_currency: currency
+                    };
+
+                    sendMessage(data);
                 }
             };
             websocketService.closeConnection = function() {
@@ -533,7 +560,7 @@ angular
                             break;
                         case "website_status":
                             if (message.hasOwnProperty("website_status")) {
-                                appStateService.siteStatus = message.website_status.site_status;
+                                appStateService.currenciesConfig = message.website_status.currencies_config;
                                 $rootScope.$broadcast("website_status", message.website_status);
                                 localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
                             } else if (message.hasOwnProperty("error")) {
@@ -566,6 +593,7 @@ angular
                             break;
                         case "payout_currencies":
                             $rootScope.$broadcast("currencies", message.payout_currencies);
+                            appStateService.payoutCurrencies = message.payout_currencies;
                             break;
                         case "proposal":
                             if (message.proposal) {
@@ -660,7 +688,12 @@ angular
                             }
                             break;
                         case "landing_company":
-                            $rootScope.$broadcast("landing_company", message.landing_company);
+                            if (message.landing_company) {
+                                localStorage.setItem('landingCompanyObject', JSON.stringify(message.landing_company));
+                                $rootScope.$broadcast("landing_company", message.landing_company);
+                            } else if (message.error) {
+                                $rootScope.$broadcast("landing_company:error", message.error.message);
+                            }
                             break;
                         case "states_list":
                             $rootScope.$broadcast("states_list", message.states_list);
@@ -770,6 +803,13 @@ angular
                         case "mt5_get_settings":
                             if (message.mt5_get_settings) {
                                 $rootScope.$broadcast("mt5_get_settings:success", message.mt5_get_settings);
+                            }
+                            break;
+                        case "set_account_currency":
+                            if (message.set_account_currency && message.set_account_currency === 1) {
+                                $rootScope.$broadcast("set_account_currency:success", message.echo_req.set_account_currency);
+                            } else if (message.error) {
+	                            $rootScope.$broadcast("set_account_currency:error", message.error);
                             }
                             break;
                         default:

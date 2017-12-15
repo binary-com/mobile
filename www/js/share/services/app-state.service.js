@@ -20,10 +20,6 @@ angular.module("binary").factory("appStateService", () => {
     factory.isPopupOpen = false;
     factory.hasGetResidence = false;
     factory.showForm = false;
-    factory.isCheckedAccountType = false;
-    factory.isNewAccountReal = false;
-    factory.isNewAccountMaltainvest = false;
-    factory.hasMLT = false;
     factory.isProfitTableSet = false;
     factory.profitTableRefresh = false;
     factory.isStatementSet = false;
@@ -42,9 +38,18 @@ angular.module("binary").factory("appStateService", () => {
     factory.hasTaxInfoMessage = false;
     factory.hasFinancialAssessmentMessage = false;
     factory.hasAgeVerificationMessage = false;
+    factory.hasCurrencyMessage = false;
     factory.checkedAccountStatus = false;
     factory.siteStatus = "up";
     factory.modalIsOpen = false;
+    factory.currenciesConfig = {};
+    factory.payoutCurrencies = {};
+    factory.balanceSubscribtionId = null;
+    factory.accountCurrencyChanged = false;
+    factory.selectedCurrency = false;
+    factory.upgrade = {};
+    factory.redirectedFromAccountsManagemenet = false;
+    factory.checkingUpgradeDone = false;
 
     return factory;
 });

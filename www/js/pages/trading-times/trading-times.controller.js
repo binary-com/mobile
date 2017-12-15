@@ -31,9 +31,16 @@
 
         $scope.$on("trading_times:success", (e, trading_times) => {
             vm.tradingTimes = trading_times;
+            vm.marketDisplayNames = [];
+            vm.activeSymbols = JSON.parse(sessionStorage.getItem('active_symbols'));
+            Object.values(vm.activeSymbols).forEach((market, j) => {
+                if (!vm.marketDisplayNames.market) vm.marketDisplayNames.push(market[0].market_display_name);
+            });
             $scope.$applyAsync(() => {
                 vm.hasError = false;
-                vm.data.markets = vm.tradingTimes.markets;
+	              vm.data.markets = vm.tradingTimes.markets.filter(market =>
+                    vm.marketDisplayNames.includes(market.name)
+	              );
                 vm.market = vm.data.markets[0].name;
             });
         });
@@ -44,5 +51,13 @@
                 vm.error = error;
             });
         });
+
+        vm.getTranslationId = function (title) {
+            if( title === "Closes early (at 21:00)" || title === "Closes early (at 18:00)") {
+                return `trading-times.${title.replace(/[\s]/g, '_').toLowerCase()}`;
+            }
+            return title;
+        }
+
     }
 })();

@@ -57,8 +57,11 @@
         });
 
         vm.signin = function() {
+            const serverUrl = localStorage.getItem('config.server_url');
+            const oauthUrl = serverUrl ? `https://${serverUrl}/oauth2/authorize` : config.oauthUrl;
+            const appId = localStorage.getItem('config.app_id') || config.app_id;
             const authWindow = window.open(
-                `${config.oauthUrl}?app_id=${config.app_id}&l=${languageService.read()}`,
+                `${oauthUrl}?app_id=${appId}&l=${languageService.read()}`,
                 "_blank",
                 "location=no,toolbar=no"
             );
@@ -81,7 +84,7 @@
         };
 
         function getAccountsFromUrl(_url) {
-            const regex = /acct\d+=(\w+)&token\d+=(\w{2}-\w{29})/g;
+            const regex = /acct\d+=(\w+)&token\d+=(\w{2}-\w{29})(&cur\d+=(\w{2,3}))?/g;
             let result = null;
             const accounts = [];
 
@@ -91,6 +94,7 @@
                     accounts.push({
                         loginid   : result[1],
                         token     : result[2],
+                        currency  : result[4] ? result[4] : null,
                         email     : "",
                         is_default: false
                     });

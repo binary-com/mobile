@@ -12,6 +12,7 @@
     Signin.$inejct = [
         "$scope",
         "$state",
+        "$stateParams",
         "$ionicLoading",
         "accountService",
         "languageService",
@@ -23,6 +24,7 @@
     function Signin(
         $scope,
         $state,
+        $stateParams,
         $ionicLoading,
         accountService,
         languageService,
@@ -50,6 +52,12 @@
          */
         const init = function() {
             vm.language = languageService.read();
+
+            if (!_.isEmpty($stateParams.verificationCode)) {
+                vm.showvirtualws = true;
+                vm.data.verificationCode = $stateParams.verificationCode;
+                websocketService.sendRequestFor.residenceListSend();
+            }
         };
 
         init();
@@ -92,7 +100,7 @@
         vm.verifyUserMail = function() {
             vm.emailError = false;
             const mail = vm.data.mail ? vm.data.mail : "";
-            websocketService.sendRequestFor.accountOpening(mail);
+            websocketService.sendRequestFor.accountOpening(_.trim(vm.data.mail));
             vm.isVerifyingEmail = true;
         };
 
@@ -136,7 +144,7 @@
         vm.createVirtualAccount = function() {
             vm.tokenError = false;
             vm.passwordError = false;
-            const verificationCode = vm.data.verificationCode;
+            const verificationCode = _.trim(vm.data.signupToken);
             const clientPassword = vm.data.clientPassword;
             const residence = vm.data.residence;
             websocketService.sendRequestFor.newAccountVirtual(verificationCode, clientPassword, residence);

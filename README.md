@@ -57,14 +57,17 @@ gulp sass  // compiles scss files to css
 gulp watch // compiles scss files to css everytime a scss file gets changed
 ```
 
-## Deploy new web version
+## Deploy new web version to GH-Pages
+To buil new version of the app and deploy it on gh-pages run the below command.
 
-We build with [Gulp](http://gulpjs.com/) and deploy to [GitHub Pages](https://pages.github.com/)
-
-```
-cd build
-npm install or npm update (may need sudo)
+```shell
 gulp deploy
+```
+
+## Update and Deploy CrowdIn version
+
+```shell
+gulp deploy-translation (--remote <remote-name>)
 ```
 
 ## How to use code-push to push new version
