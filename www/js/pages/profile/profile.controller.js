@@ -37,7 +37,7 @@
         const vm = this;
         vm.profile = {};
         vm.errors = {};
-        vm.validations = validationService;
+        vm.validation = validationService;
         vm.isDataLoaded = false;
         vm.notAnyChanges = false;
         vm.disableUpdateButton = false;
@@ -45,10 +45,6 @@
         vm.hasAccountOpeningReason = false;
         vm.settingTaxResidence = [];
         vm.options = accountOptions;
-        const virtualAccountFields = {
-            email: '',
-            country: ''
-        };
         const realAccountFields = {
             address_line_1: '',
             address_line_2: '',
