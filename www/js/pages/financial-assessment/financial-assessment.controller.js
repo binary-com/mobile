@@ -20,37 +20,37 @@
     ];
 
     function FinancialAssessment($scope,
-                                 $translate,
-                                 websocketService,
-                                 alertService,
-                                 financialInformationOptions) {
+        $translate,
+        websocketService,
+        alertService,
+        financialInformationOptions) {
         const vm = this;
         vm.errors = {};
         vm.options = financialInformationOptions;
         vm.disableUpdateButton = false;
         vm.notAnyChanges = false;
         vm.data = {
-          'commodities_trading_experience': '',
-          'commodities_trading_frequency': '',
-          'education_level': '',
-          'employment_industry': '',
-          'estimated_worth': '',
-          'forex_trading_experience': '',
-          'forex_trading_frequency': '',
-          'income_source': '',
-          'employment_status': '',
-          'indices_trading_experience': '',
-          'indices_trading_frequency': '',
-          'net_income': '',
-          'other_derivatives_trading_experience': '',
-          'other_derivatives_trading_frequency': '',
-          'other_instruments_trading_experience': '',
-          'other_instruments_trading_frequency': '',
-          'stocks_trading_experience': '',
-          'stocks_trading_frequency': '',
-          'occupation': '',
-          'source_of_wealth': '',
-          'account_turnover': ''
+            'commodities_trading_experience'      : '',
+            'commodities_trading_frequency'       : '',
+            'education_level'                     : '',
+            'employment_industry'                 : '',
+            'estimated_worth'                     : '',
+            'forex_trading_experience'            : '',
+            'forex_trading_frequency'             : '',
+            'income_source'                       : '',
+            'employment_status'                   : '',
+            'indices_trading_experience'          : '',
+            'indices_trading_frequency'           : '',
+            'net_income'                          : '',
+            'other_derivatives_trading_experience': '',
+            'other_derivatives_trading_frequency' : '',
+            'other_instruments_trading_experience': '',
+            'other_instruments_trading_frequency' : '',
+            'stocks_trading_experience'           : '',
+            'stocks_trading_frequency'            : '',
+            'occupation'                          : '',
+            'source_of_wealth'                    : '',
+            'account_turnover'                    : ''
         };
 
         $scope.$on("get_financial_assessment:success", (e, financial_assessment) => {
@@ -68,12 +68,12 @@
         };
 
         $scope.$on("set_financial_assessment:success", (e, set_financial_assessment) => {
-          if (set_financial_assessment) {
-            alertService.displayAlert(
-                $translate.instant('financial-assessment.success'),
-                $translate.instant('financial-assessment.success_message')
-            );
-          }
+            if (set_financial_assessment) {
+                alertService.displayAlert(
+                    $translate.instant('financial-assessment.success'),
+                    $translate.instant('financial-assessment.success_message')
+                );
+            }
             websocketService.sendRequestFor.getFinancialAssessment();
             vm.disableUpdateButton = false;
         });

@@ -46,24 +46,24 @@
         vm.settingTaxResidence = [];
         vm.options = accountOptions;
         const realAccountFields = {
-            address_line_1: '',
-            address_line_2: '',
-            address_city: '',
-            address_state: '',
-            address_postcode: '',
-            phone: '',
+            address_line_1           : '',
+            address_line_2           : '',
+            address_city             : '',
+            address_state            : '',
+            address_postcode         : '',
+            phone                    : '',
             tax_identification_number: '',
-            tax_residence: '',
-            place_of_birth: '',
-            account_opening_reason: ''
+            tax_residence            : '',
+            place_of_birth           : '',
+            account_opening_reason   : ''
         };
 
         $ionicModal
             .fromTemplateUrl("js/pages/profile/tax-residence.modal.html", {
-              scope: $scope
+                scope: $scope
             })
             .then(modal => {
-              vm.modalCtrl = modal;
+                vm.modalCtrl = modal;
             });
 
         vm.init = () => {
@@ -78,6 +78,7 @@
         };
 
         const getProfile = () => websocketService.sendRequestFor.accountSetting();
+        const getPhoneCode = countryCode => vm.residenceList.find(country => country.value === countryCode).phone_idd;
 
         $scope.$on("residence_list", (e, response) => {
             $scope.$applyAsync(() => {
@@ -96,34 +97,34 @@
                     vm.profile.residence = countryCode;
                 }
             } else {
-              vm.profile = get_settings;
-              if (get_settings.date_of_birth) {
-                vm.profile.date_of_birth = new Date(get_settings.date_of_birth * 1000);
-              }
-              if (get_settings.country_code) {
-                const countryCode = get_settings.country_code;
-                vm.hasResidence = true;
-                vm.profile.residence = countryCode;
-                websocketService.sendRequestFor.statesListSend(countryCode);
-                if (!get_settings.phone) {
-                  const phoneCode = getPhoneCode(countryCode);
-                  vm.profile.phone = phoneCode ? `+${phoneCode}` : '';
+                vm.profile = get_settings;
+                if (get_settings.date_of_birth) {
+                    vm.profile.date_of_birth = new Date(get_settings.date_of_birth * 1000);
                 }
-              }
-              if (vm.profile.tax_residence) {
-                vm.settingTaxResidence = _.words(vm.profile.tax_residence);
-                vm.residenceList = vm.residenceList.map(res => {
-                  if (vm.settingTaxResidence.indexOf(res.value) > -1) {
-                    res.checked = true;
-                  }
-                  return res;
-                });
-                const checkedValues = vm.residenceList.filter(res => res.checked);
-                vm.selectedTaxResidencesName = checkedValues.map(value => value.text).join(', ');
-              }
-              if (vm.profile.account_opening_reason) {
-                vm.hasAccountOpeningReason = true;
-              }
+                if (get_settings.country_code) {
+                    const countryCode = get_settings.country_code;
+                    vm.hasResidence = true;
+                    vm.profile.residence = countryCode;
+                    websocketService.sendRequestFor.statesListSend(countryCode);
+                    if (!get_settings.phone) {
+                        const phoneCode = getPhoneCode(countryCode);
+                        vm.profile.phone = phoneCode ? `+${phoneCode}` : '';
+                    }
+                }
+                if (vm.profile.tax_residence) {
+                    vm.settingTaxResidence = _.words(vm.profile.tax_residence);
+                    vm.residenceList = vm.residenceList.map(res => {
+                        if (vm.settingTaxResidence.indexOf(res.value) > -1) {
+                            res.checked = true;
+                        }
+                        return res;
+                    });
+                    const checkedValues = vm.residenceList.filter(res => res.checked);
+                    vm.selectedTaxResidencesName = checkedValues.map(value => value.text).join(', ');
+                }
+                if (vm.profile.account_opening_reason) {
+                    vm.hasAccountOpeningReason = true;
+                }
             };
         };
 
@@ -187,7 +188,7 @@
             let params = {};
             if (!vm.isVirtualAccount) {
                 _.forEach(realAccountFields, (val, k) => {
-                  if (vm.profile[k]) params[k] = vm.profile[k];
+                    if (vm.profile[k]) params[k] = vm.profile[k];
                 });
                 _.forEach(params, (val, k) => {
                     params[k] = _.trim(val);
@@ -200,14 +201,14 @@
                     vm.disableUpdateButton = true;
                     websocketService.sendRequestFor.setAccountSettings(params);
                 }
-              } else {
-                  params = {
-                      residence: vm.profile.country
-                  };
-                  websocketService.sendRequestFor.setAccountSettings(params);
-              }
-          };
+            } else {
+                params = {
+                    residence: vm.profile.country
+                };
+                websocketService.sendRequestFor.setAccountSettings(params);
+            }
+        };
 
-          vm.init();
-        }
+        vm.init();
+    }
 })();
