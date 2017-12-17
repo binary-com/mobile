@@ -18,6 +18,7 @@ angular
             const validatePostcodeRegex = /^([a-zA-Z\d-\s])*$/;
             const validatePhoneRegex = /^\+?[0-9\s]*$/;
             const validateTaxIdentificationNumberRegex = /^[\w-]{0,20}$/;
+            const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/;
             /* eslint-disable */
             const validator = (val, regexPattern, reverse) => {
                 return {
@@ -35,6 +36,7 @@ angular
             validationService.validatePhone = (val => validator(val, validatePhoneRegex))();
             validationService.validateTaxIdentificationNumber = (val =>
                 validator(val, validateTaxIdentificationNumberRegex))();
+            validationService.validatePassword = (val => validator(val, passwordRegex))();
 
             validationService.length = {
                 name: {
@@ -60,6 +62,10 @@ angular
                 secret_answer: {
                     min: 4,
                     max: 50
+                },
+                password: {
+                    min: 6,
+                    max: 25
                 }
             }
 
