@@ -135,18 +135,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col item-input" ng-if="vm.hasAccountOpeningReason">
-                                <input name="account_opening_reason" ng-value="vm.profile.account_opening_reason" readonly="readonly">
-                            </div>
-                            <div class="col item-input" ng-if="!vm.hasAccountOpeningReason">
+                            <div class="col item-select">
                                 <select name="account_opening_reason"
                                         ng-model="vm.profile.account_opening_reason"
+                                        ng-options="option.value as option.text | translate
+                                    for option in vm.options.account_opening_reason"
+                                        ng-disabled="vm.hasAccountOpeningReason"
                                         required>
                                     <option value="" disabled>{{ 'profile.select' | translate }}</option>
-                                    <option ng-repeat="reason in vm.accountOpeningReasonsEnum"
-                                            value="{{ reason.value }}">
-                                      {{ ('profile.'+ reason.id) | translate }}
-                                    </option>
                                 </select>
                                 <ng-messages ng-if="vm.isDataLoaded"
                                              for="profileForm.account_opening_reason.$error"

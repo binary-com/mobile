@@ -19,7 +19,7 @@
         "alertService",
         "clientService",
         "validationService",
-        "realAccountOpeningOptions"
+        "accountOptions"
     ];
 
     function RealAccountOpening(
@@ -32,7 +32,7 @@
         alertService,
         clientService,
         validationService,
-        realAccountOpeningOptions
+        accountOptions
     ) {
         const vm = this;
         vm.data = {};
@@ -40,7 +40,7 @@
         const loginid = accountService.getDefault().id;
         const isVirtual = clientService.isAccountOfType('virtual', loginid);
         vm.validation = validationService;
-        vm.options = realAccountOpeningOptions;
+        vm.options = accountOptions;
         vm.receivedSettings = false;
         vm.hasResidence = false;
         vm.disableUpdatebutton = false;

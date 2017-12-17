@@ -1,4 +1,4 @@
-angular.module("binary").constant("maltainvestAcountOpeningOptions", {
+angular.module("binary").constant("financialInformationOptions", {
     experienceOptions: [
         {
             text : 'new-account-maltainvest.under_1_year',

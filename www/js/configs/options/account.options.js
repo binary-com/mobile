@@ -1,4 +1,4 @@
-angular.module("binary").constant("realAccountOpeningOptions", {
+angular.module("binary").constant("accountOptions", {
     salutation: [
         {
             text : 'new-account-real.mr',

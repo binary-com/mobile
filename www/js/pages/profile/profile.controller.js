@@ -18,7 +18,8 @@
         "appStateService",
         "websocketService",
         "accountService",
-        "validationService"
+        "validationService",
+        "accountOptions"
     ];
 
     function Profile(
@@ -30,7 +31,8 @@
         appStateService,
         websocketService,
         accountService,
-        validationService
+        validationService,
+        accountOptions
     ) {
         const vm = this;
         vm.profile = {};
@@ -42,6 +44,7 @@
         vm.hasResidence = false;
         vm.hasAccountOpeningReason = false;
         vm.settingTaxResidence = [];
+        vm.options = accountOptions;
         const virtualAccountFields = {
             email: '',
             country: ''
@@ -58,11 +61,6 @@
             place_of_birth: '',
             account_opening_reason: ''
         };
-        vm.accountOpeningReasonsEnum = [
-            {id: 'speculative', value: "Speculative"},
-            {id: 'income_earning', value: "Income Earning"},
-            {id: 'hedging', value: "Hedging"}
-        ];
 
         $ionicModal
             .fromTemplateUrl("js/pages/profile/tax-residence.modal.html", {
@@ -126,6 +124,9 @@
                 });
                 const checkedValues = vm.residenceList.filter(res => res.checked);
                 vm.selectedTaxResidencesName = checkedValues.map(value => value.text).join(', ');
+              }
+              if (vm.profile.account_opening_reason) {
+                vm.hasAccountOpeningReason = true;
               }
             };
         };
