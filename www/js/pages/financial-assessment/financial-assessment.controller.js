@@ -13,19 +13,15 @@
 
     FinancialAssessment.$inject = [
         "$scope",
-        "$state",
         "$translate",
         "websocketService",
-        "appStateService",
         "alertService",
         "financialInformationOptions"
     ];
 
     function FinancialAssessment($scope,
-                                 $state,
                                  $translate,
                                  websocketService,
-                                 appStateService,
                                  alertService,
                                  financialInformationOptions) {
         const vm = this;
@@ -72,19 +68,12 @@
         };
 
         $scope.$on("set_financial_assessment:success", (e, set_financial_assessment) => {
-            $scope.$applyAsync(() => {
-                if (set_financial_assessment) {
-                    $translate([
-                        "financial-assessment.success",
-                        "financial-assessment.success_message"
-                    ]).then(translation => {
-                        alertService.displayAlert(
-                            translation["financial-assessment.success"],
-                            translation["financial-assessment.success_message"]
-                        );
-                    });
-                }
-            });
+          if (set_financial_assessment) {
+            alertService.displayAlert(
+                $translate.instant('financial-assessment.success'),
+                $translate.instant('financial-assessment.success_message')
+            );
+          }
             websocketService.sendRequestFor.getFinancialAssessment();
             vm.disableUpdateButton = false;
         });
