@@ -21,8 +21,8 @@
         "alertService",
         "clientService",
         "validationService",
-        "realAccountOpeningOptions",
-        "maltainvestAcountOpeningOptions"
+        "accountOptions",
+        "financialInformationOptions"
     ];
 
     function MaltainvestAccountOpening(
@@ -35,8 +35,8 @@
         alertService,
         clientService,
         validationService,
-        realAccountOpeningOptions,
-        maltainvestAcountOpeningOptions
+        accountOptions,
+        financialInformationOptions
     ) {
         const vm = this;
         vm.errors = {};
@@ -47,7 +47,7 @@
         const loginid = accountService.getDefault().id;
         const isVirtual = clientService.isAccountOfType('virtual', loginid);
         vm.receivedSettings = false;
-        vm.options = _.merge(maltainvestAcountOpeningOptions, realAccountOpeningOptions);
+        vm.options = _.merge(financialInformationOptions, accountOptions);
         vm.validation = validationService;
         vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
