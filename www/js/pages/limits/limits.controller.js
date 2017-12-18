@@ -9,13 +9,16 @@
 (function() {
     angular.module("binary.pages.limits.controllers").controller("LimitsController", Limits);
 
-    Limits.$inject = ["$scope", "$state", "websocketService", "accountService", "appStateService"];
+    Limits.$inject = ["$scope", "$state", "websocketService", "accountService", "appStateService", "clientService"];
 
-    function Limits($scope, $state, websocketService, accountService, appStateService) {
+    function Limits($scope, $state, websocketService, accountService, appStateService, clientService) {
         const vm = this;
         vm.limits = {};
-        vm.loginId = accountService.getDefault().id;
-        vm.landingCompany = localStorage.getItem("landingCompany");
+        const account = accountService.getDefault();
+        vm.loginid = account.id;
+        const landingCompany = localStorage.getItem("landingCompany");
+        vm.currency = account.currency && account.currency.length ? account.currency
+            : clientService.landingCompanyValue(vm.loginid, 'legal_default_currency');
 
         websocketService.sendRequestFor.accountLimits();
         $scope.$on("get_limits", (e, get_limits) => {
@@ -27,13 +30,13 @@
                     vm.mxAccount = false;
                     vm.crAccount = false;
                     vm.otherAccount = false;
-                } else if (vm.landingCompany === "iom") {
+                } else if (landingCompany === "iom") {
                     // MX accounts
                     vm.mxAccount = true;
                     vm.fullyAuthenticated = false;
                     vm.crAccount = false;
                     vm.otherAccount = false;
-                } else if (vm.landingCompany === "costarica") {
+                } else if (landingCompany === "costarica") {
                     // CR accounts
                     vm.crAccount = true;
                     vm.fullyAuthenticated = false;
@@ -48,11 +51,6 @@
             });
         });
 
-        vm.currency =
-            _.startsWith(vm.loginId, "MLT") || _.startsWith(vm.loginId, "MF") || _.startsWith(vm.loginId, "MX")
-                ? "EUR"
-                : sessionStorage.getItem("currency") || "USD";
-
         $scope.$on("authorize", () => {
             if (appStateService.limitsChange) {
                 if(appStateService.virtuality) {
@@ -64,9 +62,7 @@
             }
         });
 
-        vm.getLanguageId = function (title) {
-            return `limits.${title.replace(/[\s]/g, '_').toLowerCase()}`;
-        }
+        vm.getLanguageId = title => `limits.${title.replace(/[\s]/g, '_').toLowerCase()}`;
 
     }
 })();
