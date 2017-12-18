@@ -9,6 +9,9 @@
       &.list-title {
         background: $fillColor;
       }
+      &.disabled {
+        color: $secondaryContentColor;
+      }
       .list-element {
         display: table-cell;
         padding: 5px;

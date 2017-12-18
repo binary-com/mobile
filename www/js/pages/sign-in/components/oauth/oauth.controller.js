@@ -23,7 +23,6 @@
         const vm = this;
 
         let accounts = [];
-        let tokenNumber = 0;
 
         const authenticate = function(_token) {
             // Validate the token
@@ -39,7 +38,7 @@
             if (_message.data && _message.data.url) {
                 accounts = getAccountsFromUrl(_message.data.url);
                 if (accounts.length > 0) {
-                    authenticate(accounts[tokenNumber].token);
+                    authenticate(accounts[0].token);
                 }
             }
         };
@@ -47,17 +46,8 @@
         $scope.$on("authorize", (e, response) => {
             if (response) {
                 const accountList = response.account_list;
-                const defaultAccount = _.find(accountList, ["id", response.loginid]);
-
-                if ( defaultAccount &&
-                    (defaultAccount.is_disabled ||
-                    defaultAccount.excluded_until)) {
-
-                    tokenNumber += 1;
-                    authenticate(accounts[tokenNumber].token);
-                } else {
-                    accounts.forEach((value, index) => {
-                        let account = accounts[index];
+                accounts.forEach((value, index) => {
+                    let account = accounts[index];
                     account.email = response.email;
                     account.country = response.country;
                     if (accountList) {
@@ -66,7 +56,6 @@
                     }
                     accountService.add(account);
                 });
-                }
             }
             $ionicLoading.hide();
         });
@@ -90,7 +79,7 @@
                 if (accounts && accounts.length) {
                     authWindow.close();
 
-                    authenticate(accounts[tokenNumber].token);
+                    authenticate(accounts[0].token);
                 }
             });
         };

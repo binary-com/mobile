@@ -35,7 +35,8 @@
                                 </div>
                                 <div class="list-element center item-input item-select">
                                     <select ng-model="vm.selectedCurrency"
-                                            ng-options="currency.name as currency.name group by currency.currencyGroup for currency in vm.newAccountCurrencyOptions">
+                                            ng-options="currency.name as currency.name
+                                            group by currency.currencyGroup for currency in vm.newAccountCurrencyOptions">
                                     </select>
                                 </div>
                                 <div class="list-element center">
@@ -96,18 +97,30 @@
                                     {{ 'accounts-management.currency' | translate }}
                                 </div>
                             </li>
-                            <li class="list" ng-repeat="account in vm.existingAccounts track by $index">
+                            <li class="list"
+                                ng-repeat="account in vm.existingAccounts track by $index"
+                                ng-class="{disabled: account.excludedUntil || account.isDisabled}">
                                 <div class="list-element center">
                                     {{ account.id }}
                                 </div>
                                 <div class="list-element center" translate="{{ 'accounts-management.' + account.type }}"></div>
                                 <div class="list-element center">
-                                    {{ account.availableMarkets }}
+                                    <span ng-if="account.isDisabled && !account.excludedUntil">
+                                        {{ 'accounts-management.is_disabled' | translate }}
+                                    </span>
+                                    <span ng-if="account.excludedUntil">
+                                        {{ 'accounts-management.excluded_until' | translate :
+                                        { time:  account.excludedUntil } }}
+                                    </span>
+                                    <span ng-if="!account.isDisabled && !account.excludedUntil">
+                                        {{ account.availableMarkets }}
+                                    </span>
                                 </div>
                                 <div class="list-element center" ng-if="account.currency && account.currency !== ''">
                                     {{ account.currency }}
                                 </div>
-                                <div class="list-element center" ng-if="account.currency === '' && vm.currentAccount.id === account.id">
+                                <div class="list-element center"
+                                     ng-if="account.currency === '' && vm.currentAccount.id === account.id">
                                     <button class="button default-button" ng-click="vm.redirectToSetCurrency()">
                                         {{ 'accounts-management.set_currency' | translate }}
                                     </button>
