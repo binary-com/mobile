@@ -109,15 +109,15 @@ angular.module("binary").service("accountService", function(websocketService, ap
 			 */
     this.add = function(_account) {
         const account = {
-            id        : _account.loginid,
-            token     : _account.token,
-            currency  : _account.currency,
-            email     : _account.email,
-            country   : _account.country,
-            is_disabled: _account.is_disabled,
-            is_ico_only: _account.is_ico_only,
-            is_virtual: _account.is_virtual,
-            excluded_until: _account.excluded_until,
+            id                  : _account.loginid,
+            token               : _account.token,
+            currency            : _account.currency,
+            email               : _account.email,
+            country             : _account.country,
+            is_disabled         : _account.is_disabled,
+            is_ico_only         : _account.is_ico_only,
+            is_virtual          : _account.is_virtual,
+            excluded_until      : _account.excluded_until,
             landing_company_name: _account.landing_company_name
         };
 

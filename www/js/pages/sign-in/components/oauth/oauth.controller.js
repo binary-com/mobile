@@ -93,8 +93,8 @@
                 result = regex.exec(_url);
                 if(result){
                     accounts.push({
-                        loginid   : result[1],
-                        token     : result[2],
+                        loginid: result[1],
+                        token  : result[2],
                     });
                 }
             } while (result)
