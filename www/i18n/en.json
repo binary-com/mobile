@@ -478,7 +478,7 @@
     "current_password_required": "Please enter your current password.",
     "password_pattern_error": "Password should have lower and uppercase letters with numbers.",
     "password_changed_text": "Your password has been changed. Please log in again.",
-    "length-error-6-25": "This field must be within 6-25 characters."
+    "range-length-error": "This field must be within {{min}}-{{max}} characters."
   },
   "financial-assessment": {
     "financial_assessment": "Financial Assessment",
