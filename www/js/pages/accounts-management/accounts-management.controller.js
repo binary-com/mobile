@@ -49,6 +49,8 @@
             return availableMarkets;
         };
 
+        const isCryptocurrency = (currencyConfig, curr) => /crypto/i.test(currencyConfig[curr].type);
+        
         const getNextAccountTitle = (typeOfNextAccount) => {
             let nextAccount;
             if (typeOfNextAccount === 'real') {
