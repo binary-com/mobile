@@ -26,7 +26,9 @@
 
         function link(scope, element, attributes, vm) {
             scope.$on("$destroy", () => {
-                websocketService.sendRequestFor.forgetStream(vm.balance.id);
+                if (vm.balance && vm.balance.id) {
+                    websocketService.sendRequestFor.forgetStream(vm.balance.id);
+                }
             });
         }
 

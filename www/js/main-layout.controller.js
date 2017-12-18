@@ -2,27 +2,35 @@ angular
     .module("binary")
     .controller("MainLayoutController", function($scope,
         $state,
+        $timeout,
         config,
         websocketService,
         appStateService,
         accountService,
-        currencyService) {
+        clientService) {
         const vm = this;
         vm.hasMTAccess = false;
+        this.currentAccount = {};
 
         const getAccountInfo = () => {
             vm.upgrade = {};
             vm.accounts = accountService.getAll();
             this.currentAccount = accountService.getDefault();
-            const country = this.currentAccount.country;
-            if (country !== 'jp') {
-                websocketService.sendRequestFor.landingCompanySend(country);
+            if (this.currentAccount && _.keys(this.currentAccount).length) {
+                if (this.currentAccount.country) {
+                    const country = this.currentAccount.country;
+                    if (country !== 'jp') {
+                        websocketService.sendRequestFor.landingCompanySend(country);
+                    }
+                }
+            } else {
+                $timeout(getAccountInfo, 1000);
             }
         };
 
         const getAllLoginids = _accounts => accountService.getAllloginids(_accounts);
 
-        const isAccountOfType = (type, loginid) => currencyService.isAccountOfType(type, loginid);
+        const isAccountOfType = (type, loginid) => clientService.isAccountOfType(type, loginid);
 
         const getAccountOfType = type => {
             const id = getAllLoginids(vm.accounts).find(loginid => isAccountOfType(type, loginid));
@@ -40,38 +48,43 @@ angular
         const canUpgradeMultiAccount = data =>  (hasShortCode(data.financial_company, 'costarica'));
 
         const getLegalAllowedCurrencies = (loginid, landingCompany) =>
-            currencyService.landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
+            clientService.landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
         const getLegalAllowedMarkets = (loginid, landingCompany) =>
-            currencyService.landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
+            clientService.landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
 
-        const getExistingCurrencies = accounts => currencyService.getExistingCurrencies(accounts);
+        const getExistingCurrencies = accounts => clientService.getExistingCurrencies(accounts);
 
-        const getDividedCurrencies = currencies => currencyService.dividedCurrencies(currencies);
+        const getDividedCurrencies = currencies => clientService.dividedCurrencies(currencies);
 
         const getUpgradeInfo = (landingCompany, id) => {
             let typeOfNextAccount = 'real';
             let upgradeLink = 'real-account-opening'
             let canUpgrade = false;
-            let currencyOptions = landingCompany.gaming_company.legal_allowed_currencies;
-            let allowedMarkets = {};
+            let currencyOptions =
+                landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_currencies : {};
+            let allowedMarkets =
+                landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_markets : {};
             let multi = false;
             if (isAccountOfType('virtual', id)) {
                 if (canUpgradeVirtualToFinancial(landingCompany)) {
                     typeOfNextAccount = 'financial';
                     upgradeLink = 'maltainvest-account-opening';
                     currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
+                    allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
+                } else if (!landingCompany.gaming_company && landingCompany.financial_company) {
+                    currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
+                    allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
                 }
                 canUpgrade = !hasAccountOfType('real');
-                allowedMarkets = getLegalAllowedMarkets(id, landingCompany);
             } else if (canUpgradeGamingToFinancial(landingCompany)) {
                 typeOfNextAccount = 'financial';
                 upgradeLink = 'maltainvest-account-opening';
                 canUpgrade = !hasAccountOfType('financial');
                 currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
-                allowedMarkets = getLegalAllowedMarkets(id, landingCompany);
+                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
             } else if (canUpgradeMultiAccount(landingCompany)) {
-                allowedMarkets = getLegalAllowedMarkets(id, landingCompany);
-                const legalAllowedCurrencies = getLegalAllowedCurrencies(id, landingCompany);
+                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
+                const legalAllowedCurrencies = landingCompany.financial_company.legal_allowed_currencies;
                 const existingCurrencies = getExistingCurrencies(vm.accounts);
                 if (existingCurrencies.length) {
                     const dividedExistingCurrencies = getDividedCurrencies(existingCurrencies);
@@ -106,7 +119,7 @@ angular
         };
 
         $scope.$on('authorize', (e, authorize) => {
-            if (this.currentAccount.id !== authorize.loginid) {
+            if (this.currentAccount && this.currentAccount.id !== authorize.loginid) {
                 getAccountInfo();
             }
         });

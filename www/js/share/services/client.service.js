@@ -1,12 +1,12 @@
 /**
- * @name currency service
+ * @name client service
  * @author Nazanin Reihani Haghighi
  * @contributors []
  * @since 10/26/2017
  * @copyright Binary Ltd
  */
 
-angular.module("binary").service("currencyService", function(appStateService) {
+angular.module("binary").service("clientService", function(appStateService) {
 
     this.getAccountType = (loginid) => {
         let account_type;
