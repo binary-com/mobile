@@ -130,9 +130,16 @@
                         </ul>
                     </div>
                 </div>
+                <div class="row" ng-if="vm.showContact">
+                    <div class="col item item-text-wrap center">
+                        <p>
+                            {{ 'accounts-management.account_warning' | translate }}
+                            <a href="#" ui-sref="contact">{{ 'accounts-management.customer_support' | translate }}</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-
 
 
     </ion-content>

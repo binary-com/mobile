@@ -125,6 +125,7 @@
             vm.selectCurrencyError = false;
             getAvailableAccounts();
             vm.existingAccounts = getExistingAccounts();
+            vm.showContact = _.some(vm.existingAccounts, acc => acc.isDisabled || acc.excludedUntil);
         };
 
         vm.redirectToSetCurrency = () => {
