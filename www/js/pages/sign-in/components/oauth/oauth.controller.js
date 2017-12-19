@@ -47,14 +47,16 @@
             if (response) {
                 const accountList = response.account_list;
                 accounts.forEach((value, index) => {
-                    let account = accounts[index];
-                    account.email = response.email;
-                    account.country = response.country;
-                    if (accountList) {
-                        const acc = accountList.find(a => a.loginid === account.loginid);
-                        account = Object.assign(account, acc);
+                    if (index > 0) {
+                        let account = accounts[index];
+                        account.email = response.email;
+                        account.country = response.country;
+                        if (accountList) {
+                            const acc = accountList.find(a => a.loginid === account.loginid);
+                            account = Object.assign(account, acc);
+                        }
+                        accountService.add(account);
                     }
-                    accountService.add(account);
                 });
             }
             $ionicLoading.hide();
@@ -96,12 +98,12 @@
                 result = regex.exec(_url);
                 if(result){
                     accounts.push({
-                        loginid: result[1],
-                        token  : result[2],
+                        loginid : result[1],
+                        token   : result[2],
+                        currency: result[4] ? result[4] : null,
                     });
                 }
             } while (result)
-
             return accounts;
         }
 

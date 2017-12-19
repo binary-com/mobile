@@ -535,6 +535,18 @@ angular
                                 localStorage.landingCompany = message.authorize.landing_company_name;
                                 appStateService.scopes = message.authorize.scopes;
                                 amplitude.setUserId(message.authorize.loginid);
+                                // update accounts from account list whenever authorize is received
+                                const accounts = localStorage.getItem('accounts') && JSON.parse(localStorage.getItem('accounts'));
+                                const accountList = message.authorize.account_list;
+                                if (accounts && accounts.length) {
+                                    accounts.forEach((account, idx) => {
+                                        if (accountList) {
+                                            const acc = accountList.find(a => a.loginid === account.loginid);
+                                            accounts[idx] = Object.assign(account, acc);
+                                        }
+                                    });
+                                    localStorage.setItem('accounts', JSON.stringify(accounts));
+                                }
 
                                 if (_.isEmpty(message.authorize.currency)) {
                                     websocketService.sendRequestFor.currencies();
