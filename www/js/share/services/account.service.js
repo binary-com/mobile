@@ -122,15 +122,12 @@ angular.module("binary").service("accountService", function(websocketService, ap
         };
 
         const accountList = this.getAll();
-        if (_.find(accountList, ["id", account.id])) {
-            const defaultAccountIndex = _.findIndex(accountList, ["id", account.id]);
-            account.is_default = true;
-            accountList[defaultAccountIndex] = Object.assign(accountList[defaultAccountIndex], account);
-        } else {
-            account.is_default = false;
-            accountList.push(account);
-        }
 
+        if (_.find(accountList, ["id", account.id])) {
+            return;
+        } 
+        
+        accountList.push(account);
         localStorage.accounts = JSON.stringify(accountList);
     };
 
