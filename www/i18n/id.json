@@ -176,12 +176,12 @@
     "required": "Bagian ini wajib diisi."
   },
   "new-account-maltainvest": {
-    "financial_account_opening": "Financial Account Opening",
-    "details": "Details",
-    "privacy": "Privacy",
-    "financial_information": "Financial information",
-    "salutation": "Title",
-    "first_name": "First name",
+    "financial_account_opening": "Pendaftaran Akun Finansial",
+    "details": "Rincian",
+    "privacy": "Privasi",
+    "financial_information": "Informasi finansial",
+    "salutation": "Gelar",
+    "first_name": "Nama depan",
     "last_name": "Family name",
     "date_of_birth": "Date of birth",
     "residence": "Country of residence",
