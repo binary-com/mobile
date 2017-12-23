@@ -70,7 +70,7 @@
             vm.isVirtualAccount = !!appStateService.virtuality;
             if (!vm.isVirtualAccount) {
                 vm.account = accountService.getDefault();
-                vm.isFinancial = !!_.startsWith(vm.account.id, "MF");
+                vm.isFinancial = /MF/i.test(vm.account.id);
                 websocketService.sendRequestFor.residenceListSend();
             } else {
                 getProfile();

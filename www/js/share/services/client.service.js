@@ -10,9 +10,9 @@ angular.module("binary").service("clientService", function(appStateService) {
 
     this.getAccountType = (loginid) => {
         let account_type;
-        if (loginid.startsWith('VR'))  account_type = 'virtual';
-        else if (loginid.startsWith('MF'))  account_type = 'financial';
-        else if (loginid.startsWith('MLT')) account_type = 'gaming';
+        if (/VR/i.test(loginid))  account_type = 'virtual';
+        else if (/MF/i.test(loginid))  account_type = 'financial';
+        else if (/MLT/i.test(loginid)) account_type = 'gaming';
         else account_type = 'real';
         return account_type;
     };
@@ -50,7 +50,7 @@ angular.module("binary").service("clientService", function(appStateService) {
     this.getExistingCurrencies = (accounts) => {
         const currencies = [];
         _.forIn(accounts, (account, key) => {
-            if (!account.id.startsWith('VR') && account.currency.length > 0) {
+            if (!/VR/i.test(account.id) && account.currency.length > 0) {
                 currencies.push(account.currency);
             }
         });
