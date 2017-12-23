@@ -20,7 +20,8 @@ angular
                 if (currentAccount.country) {
                     const country = currentAccount.country;
                     if (country !== 'jp') {
-                        websocketService.sendRequestFor.landingCompanySend(country);
+                        const reqId = 1;
+                        websocketService.sendRequestFor.landingCompanySend(country, reqId);
                     }
                 }
             } else {
@@ -130,17 +131,18 @@ angular
             getAccountInfo();
         });
 
-        $scope.$on('landing_company', (e, landing_company) => {
+        $scope.$on('landing_company', (e, landing_company, req_id) => {
             const landingCompany = landing_company;
-            getAccountInfo();
             vm.hasMTAccess = hasMTfinancialCompany(landingCompany);
-            vm.upgrade = getUpgradeInfo(landingCompany, currentAccount.id);
-            if (vm.upgrade.canUpgrade) {
+            if (req_id === 1) {
+              vm.upgrade = getUpgradeInfo(landingCompany, currentAccount.id);
+              if (vm.upgrade.canUpgrade) {
                 appStateService.upgrade = vm.upgrade;
-            } else {
+              } else {
                 appStateService.upgrade = {};
+              }
+              appStateService.checkingUpgradeDone = true;
             }
-            appStateService.checkingUpgradeDone = true;
         });
 
         vm.linkToRegulatory = `https://www.binary.com/${localStorage.getItem("language") || "en"}/regulation.html`;

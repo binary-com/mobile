@@ -373,10 +373,13 @@ angular
 
                     sendMessage(data);
                 },
-                landingCompanySend(company) {
+                landingCompanySend(company, reqId) {
                     const data = {
-                        landing_company: company
+                        landing_company: company,
                     };
+                    if (reqId) {
+                        data.req_id = reqId;
+                    }
                     sendMessage(data);
                 },
                 statesListSend(countryCode) {
@@ -690,7 +693,7 @@ angular
                         case "landing_company":
                             if (message.landing_company) {
                                 localStorage.setItem('landingCompanyObject', JSON.stringify(message.landing_company));
-                                $rootScope.$broadcast("landing_company", message.landing_company);
+                                $rootScope.$broadcast("landing_company", message.landing_company, message.req_id);
                             } else if (message.error) {
                                 $rootScope.$broadcast("landing_company:error", message.error.message);
                             }
