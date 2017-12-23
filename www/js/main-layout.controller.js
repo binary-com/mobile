@@ -10,15 +10,15 @@ angular
         clientService) {
         const vm = this;
         vm.hasMTAccess = false;
-        this.currentAccount = {};
+        let currentAccount = {};
 
         const getAccountInfo = () => {
             vm.upgrade = {};
             vm.accounts = accountService.getAll();
-            this.currentAccount = accountService.getDefault();
-            if (this.currentAccount && _.keys(this.currentAccount).length) {
-                if (this.currentAccount.country) {
-                    const country = this.currentAccount.country;
+            currentAccount = accountService.getDefault();
+            if (currentAccount && _.keys(currentAccount).length) {
+                if (currentAccount.country) {
+                    const country = currentAccount.country;
                     if (country !== 'jp') {
                         websocketService.sendRequestFor.landingCompanySend(country);
                     }
@@ -27,6 +27,8 @@ angular
                 $timeout(getAccountInfo, 1000);
             }
         };
+
+        getAccountInfo();
 
         const getAllLoginids = _accounts => accountService.getAllloginids(_accounts);
 
@@ -119,7 +121,7 @@ angular
         };
 
         $scope.$on('authorize', (e, authorize) => {
-            if (this.currentAccount && this.currentAccount.id !== authorize.loginid) {
+            if (currentAccount && currentAccount.id !== authorize.loginid) {
                 getAccountInfo();
             }
         });
@@ -130,8 +132,9 @@ angular
 
         $scope.$on('landing_company', (e, landing_company) => {
             const landingCompany = landing_company;
+            getAccountInfo();
             vm.hasMTAccess = hasMTfinancialCompany(landingCompany);
-            vm.upgrade = getUpgradeInfo(landingCompany, this.currentAccount.id);
+            vm.upgrade = getUpgradeInfo(landingCompany, currentAccount.id);
             if (vm.upgrade.canUpgrade) {
                 appStateService.upgrade = vm.upgrade;
             } else {
@@ -139,8 +142,6 @@ angular
             }
             appStateService.checkingUpgradeDone = true;
         });
-
-        getAccountInfo();
 
         vm.linkToRegulatory = `https://www.binary.com/${localStorage.getItem("language") || "en"}/regulation.html`;
         vm.goToRegulatory = function() {
