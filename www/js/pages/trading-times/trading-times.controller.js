@@ -21,7 +21,7 @@
             document.getElementById("date").value = $filter("date")(vm.now, "yyyy-MM-dd");
         });
 
-        vm.sendTradingTimes = function() {
+        vm.sendTradingTimes = () => {
             vm.epochDate = vm.data.date || Math.round(new Date().getTime());
             vm.date = $filter("date")(vm.epochDate, "yyyy-MM-dd");
             websocketService.sendRequestFor.tradingTimes(vm.date);
@@ -52,8 +52,8 @@
             });
         });
 
-        vm.getTranslationId = function (title) {
-            if( title === "Closes early (at 21:00)" || title === "Closes early (at 18:00)") {
+        vm.getTranslationId = title => {
+            if (title === "Closes early (at 21:00)" || title === "Closes early (at 18:00)") {
                 return `trading-times.${title.replace(/[\s]/g, '_').toLowerCase()}`;
             }
             return title;

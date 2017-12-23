@@ -20,13 +20,11 @@
         vm.data.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
 
-        vm.updateUserTermsAndConditions = function() {
+        vm.updateUserTermsAndConditions = () =>
             websocketService.sendRequestFor.TAndCApprovalSend();
-        };
 
-        vm.openTermsAndConditions = function() {
+        vm.openTermsAndConditions = () =>
             window.open(vm.data.linkToTermAndConditions, "_blank");
-        };
 
         $scope.$on("tnc_approval", (e, tnc_approval) => {
             if (tnc_approval === 1) {

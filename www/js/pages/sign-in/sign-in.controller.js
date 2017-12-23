@@ -18,7 +18,8 @@
         "languageService",
         "websocketService",
         "alertService",
-        "appStateService"
+        "appStateService",
+        "validationService"
     ];
 
     function Signin(
@@ -30,9 +31,11 @@
         languageService,
         websocketService,
         alertService,
-        appStateService
+        appStateService,
+        validationService
     ) {
         const vm = this;
+        vm.validation = validationService;
         vm.showTokenForm = false;
         vm.showSignin = false;
         vm.showSignup = false;
@@ -50,7 +53,7 @@
          * Open the websocket
          * If default account is set, send it for validation
          */
-        const init = function() {
+        const init = () => {
             vm.language = languageService.read();
 
             if (!_.isEmpty($stateParams.verificationCode)) {
@@ -81,7 +84,7 @@
          * SignIn button: event handler
          * @param  {String} _token 15char token
          */
-        vm.signIn = function() {
+        vm.signIn = () => {
             const _token = vm.token;
             // Validate the token
             if (_token && _token.length === 15) {
@@ -92,12 +95,8 @@
             }
         };
 
-        vm.changeLanguage = function() {
-            languageService.update(vm.language);
-        };
-
         // sign up email verify
-        vm.verifyUserMail = function() {
+        vm.verifyUserMail = () => {
             vm.emailError = false;
             const mail = vm.data.mail ? vm.data.mail : "";
             websocketService.sendRequestFor.accountOpening(_.trim(vm.data.mail));
@@ -136,12 +135,12 @@
 
         // Hide & show password function
         vm.data.inputType = "password";
-        vm.hideShowPassword = function() {
+        vm.hideShowPassword = () => {
             if (vm.data.inputType === "password") vm.data.inputType = "text";
             else vm.data.inputType = "password";
         };
 
-        vm.createVirtualAccount = function() {
+        vm.createVirtualAccount = () => {
             vm.tokenError = false;
             vm.passwordError = false;
             const verificationCode = _.trim(vm.data.signupToken);
@@ -185,7 +184,7 @@
         });
 
         // change different type of singing methods
-        vm.changeSigninView = function(_isBack) {
+        vm.changeSigninView = _isBack => {
             _isBack = _isBack || false;
 
             $scope.$applyAsync(() => {
@@ -209,21 +208,14 @@
             });
         };
 
-        vm.changeSigninViewtoToken = function() {
-            if (vm.showSignin && !vm.showTokenForm) {
-                vm.showTokenForm = true;
-                vm.showSignin = false;
-            }
-        };
-
-        vm.changeSigninViewtoSignup = function() {
+        vm.changeSigninViewtoSignup = () => {
             if (vm.showSignin && !vm.showSignup) {
                 vm.showSignup = true;
                 vm.showSignin = false;
             }
         };
 
-        vm.showSigninView = function() {
+        vm.showSigninView = () => {
             $scope.$applyAsync(() => {
                 vm.showSignin = true;
             });
@@ -236,8 +228,6 @@
             }
         );
 
-        vm.goToRegulatory = function() {
-            window.open(vm.linkToRegulatory, "_blank");
-        };
+        vm.goToRegulatory = () => window.open(vm.linkToRegulatory, "_blank");
     }
 })();

@@ -55,16 +55,7 @@
             }
         ];
 
-        vm.checkScope = function(scope) {
-            // since users aren't able to sign-in by token scopes don't have meaning any more
-            return true;
-        };
-
-        vm.checkAccount = function(forRealAccount) {
-            if (forRealAccount) {
-                return !appStateService.virtuality;
-            }
-            return true;
-        };
+        vm.checkAccount = forRealAccount =>
+          forRealAccount ? !appStateService.virtuality : true;
     }
 })();
