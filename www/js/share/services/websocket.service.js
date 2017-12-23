@@ -661,7 +661,11 @@ angular
                             );
                             break;
                         case "landing_company_details":
-                            $rootScope.$broadcast("landing_company_details", message.landing_company_details);
+                            if (message.landing_company_details) {
+                                $rootScope.$broadcast("landing_company_details", message.landing_company_details);
+                            } else if (message.error) {
+                                $rootScope.$broadcast("landing_company_details:error", message.error.message);
+                            }
                             break;
                         case "reality_check":
                             $rootScope.$broadcast("reality_check", message.reality_check);
