@@ -135,13 +135,13 @@ angular
             const landingCompany = landing_company;
             vm.hasMTAccess = hasMTfinancialCompany(landingCompany);
             if (req_id === 1) {
-              vm.upgrade = getUpgradeInfo(landingCompany, currentAccount.id);
-              if (vm.upgrade.canUpgrade) {
-                appStateService.upgrade = vm.upgrade;
-              } else {
-                appStateService.upgrade = {};
-              }
-              appStateService.checkingUpgradeDone = true;
+                vm.upgrade = getUpgradeInfo(landingCompany, currentAccount.id);
+                if (vm.upgrade.canUpgrade) {
+                    appStateService.upgrade = vm.upgrade;
+                } else {
+                    appStateService.upgrade = {};
+                }
+                appStateService.checkingUpgradeDone = true;
             }
         });
 
