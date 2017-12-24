@@ -14,6 +14,7 @@
     function Limits($scope, $state, websocketService, accountService, appStateService, clientService) {
         const vm = this;
         vm.limits = {};
+        vm.isDataLoaded = false;
         const account = accountService.getDefault();
         vm.loginid = account.id;
         const landingCompany = localStorage.getItem("landingCompany");
@@ -49,6 +50,7 @@
                     vm.crAccount = false;
                 }
             });
+            vm.isDataLoaded = true;
         });
 
         $scope.$on("authorize", () => {

@@ -29,6 +29,7 @@
         vm.options = financialInformationOptions;
         vm.disableUpdateButton = false;
         vm.notAnyChanges = false;
+        vm.isDataLoaded = false;
         vm.data = {
             'commodities_trading_experience'      : '',
             'commodities_trading_frequency'       : '',
@@ -56,6 +57,8 @@
         $scope.$on("get_financial_assessment:success", (e, financial_assessment) => {
             vm.financialAssessment = _.clone(financial_assessment);
             _.forEach(vm.data, (val, k) => vm.data[k] = financial_assessment[k]);
+            vm.isDataLoaded = true;
+            $scope.$apply();
         });
 
         vm.submitFinancialAssessment = () => {

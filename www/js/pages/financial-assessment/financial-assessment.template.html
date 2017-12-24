@@ -8,7 +8,13 @@
             </div>
         </div>
 
-        <form name="financial_assessment">
+        <div class="row" ng-if="!vm.isDataLoaded">
+            <div class="col center">
+                <ion-spinner></ion-spinner>
+            </div>
+        </div>
+
+        <form name="financial_assessment" ng-if="vm.isDataLoaded">
             <div class="row">
                 <div class="col">
                     <div class="row">
