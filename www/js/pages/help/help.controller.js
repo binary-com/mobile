@@ -19,11 +19,11 @@
 
         analyticsService.google.trackView("Help");
 
-        vm.backToSignInPage = function() {
+        vm.backToSignInPage = () => {
             $state.go("signin");
         };
 
-        vm.openExternal = function($event) {
+        vm.openExternal = $event => {
             window.open($event.currentTarget.href, "_system");
             return false;
         };
