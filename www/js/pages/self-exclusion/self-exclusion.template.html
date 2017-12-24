@@ -1,6 +1,11 @@
 <ion-view class="self-exclusion">
-  <ion-content class="general-content has-header has-subheader">
-    <form name="self_exclusion_form" ng-submit="vm.submit()">
+    <ion-content class="general-content has-header has-subheader">
+    <div class="row" ng-if="!vm.isDataLoaded">
+      <div class="col center">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+    <form name="self_exclusion_form" ng-submit="vm.submit()" ng-show="vm.isDataLoaded">
       <div class="row">
         <div class="col">
           <h1 class="page-title">
