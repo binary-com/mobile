@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.trade.controllers").controller("TradeController", Trade);
 
-    Trade.$inject = ["$scope", "proposalService", "appStateService"];
+    Trade.$inject = ["proposalService"];
 
-    function Trade($scope, proposalService, appStateService) {
+    function Trade(proposalService) {
         const vm = this;
 
         vm.proposal = {};

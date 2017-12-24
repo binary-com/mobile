@@ -56,6 +56,6 @@
         ];
 
         vm.checkAccount = forRealAccount =>
-          forRealAccount ? !appStateService.virtuality : true;
+            forRealAccount ? !appStateService.virtuality : true;
     }
 })();

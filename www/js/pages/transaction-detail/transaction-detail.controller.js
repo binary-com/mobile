@@ -11,9 +11,9 @@
         .module("binary.pages.transaction-detail.controllers")
         .controller("TransactionDetailController", TransactionDetail);
 
-    TransactionDetail.$inject = ["$scope", "$timeout", "$state", "appStateService", "websocketService"];
+    TransactionDetail.$inject = ["$scope", "$timeout", "appStateService", "websocketService"];
 
-    function TransactionDetail($scope, $timeout, $state, appStateService, websocketService) {
+    function TransactionDetail($scope, $timeout, appStateService, websocketService) {
         const vm = this;
         vm.data = {};
         vm.currency = sessionStorage.getItem("currency");
