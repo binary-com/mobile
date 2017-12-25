@@ -1,8 +1,8 @@
 /**
  * @name Notification Icon module
- * @author
+ * @author Nazanin Reihani Haghighi
  * @contributors []
- * @since 05/03/2016
+ * @since 05/03/2017
  * @copyright Binary Ltd
  */
 
