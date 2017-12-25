@@ -6,6 +6,7 @@
 
 angular.module("binary").constant("config", {
     app_id         : "10",
+    serverUrl      : "frontend.binaryws.com",
     wsUrl          : "wss://frontend.binaryws.com/websockets/v3", // Don't set language value here
     oauthUrl       : "https://oauth.binary.com/oauth2/authorize",
     tradeCategories: [
