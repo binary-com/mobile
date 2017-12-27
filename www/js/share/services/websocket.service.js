@@ -540,11 +540,11 @@ angular
                                 amplitude.setUserId(message.authorize.loginid);
                                 // update accounts from account list whenever authorize is received
                                 const accounts = !_.isEmpty(localStorage.getItem('accounts')) && 
-                                JSON.parse(localStorage.getItem('accounts'))
+                                JSON.parse(localStorage.getItem('accounts'));
                                 const accountList = message.authorize.account_list;
                                 if (accounts && accounts.length && accountList) {
                                     accounts.forEach((account, idx) => {
-                                        const acc = accountList.find(a => a.loginid === account.loginid);
+                                        const acc = accountList.find(a => a.loginid === account.id);
                                         accounts[idx] = Object.assign(account, acc);
                                     });
                                     localStorage.setItem('accounts', JSON.stringify(accounts));
