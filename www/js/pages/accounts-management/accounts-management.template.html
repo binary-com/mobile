@@ -91,13 +91,24 @@
                   {{ 'accounts-management.currency' | translate }}
                 </div>
               </li>
-              <li class="list" ng-repeat="account in vm.existingAccounts track by $index">
+              <li class="list" 
+                  ng-repeat="account in vm.existingAccounts track by $index"
+                  ng-class="{disabled: account.excludedUntil || account.isDisabled}">
                 <div class="list-element center">
                   {{ account.id }}
                 </div>
                 <div class="list-element center" translate="{{ 'accounts-management.' + account.type }}"></div>
                 <div class="list-element center">
-                  {{ account.availableMarkets }}
+                  <span ng-if="account.isDisabled && !account.excludedUntil">
+                    {{ 'accounts-management.is_disabled' | translate }}
+                  </span>
+                  <span ng-if="account.excludedUntil">
+                    {{ 'accounts-management.excluded_until' | translate : 
+                    { time:  account.excludedUntil } }}
+                  </span>
+                  <span ng-if="!account.isDisabled && !account.excludedUntil">
+                    {{ account.availableMarkets }}
+                  </span>
                 </div>
                 <div class="list-element center" ng-if="account.currency && account.currency !== ''">
                   {{ account.currency }}
@@ -110,6 +121,14 @@
                 </div>
               </li>
             </ul>
+          </div>
+        </div>
+        <div class="row" ng-if="vm.showContact">
+          <div class="col item item-text-wrap center">
+            <p>
+              {{ 'accounts-management.account_warning' | translate }}
+              <a href="#" ui-sref="contact">{{ 'accounts-management.customer_support' | translate }}</a>
+            </p>
           </div>
         </div>
       </div>

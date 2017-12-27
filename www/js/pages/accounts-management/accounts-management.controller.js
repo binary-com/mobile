@@ -14,6 +14,7 @@
     AccountsManagement.$inject = [
         "$scope",
         "$state",
+        "$filter",
         "$timeout",
         "$translate",
         "appStateService",
@@ -23,6 +24,7 @@
 
     function AccountsManagement($scope,
         $state,
+        $filter,
         $timeout,
         $translate,
         appStateService,
@@ -47,9 +49,8 @@
             return availableMarkets;
         };
 
-
         const isCryptocurrency = (currencyConfig, curr) => /crypto/i.test(currencyConfig[curr].type);
-
+        
         const getNextAccountTitle = (typeOfNextAccount) => {
             let nextAccount;
             if (typeOfNextAccount === 'real') {
@@ -93,6 +94,9 @@
             _.forEach(vm.accounts, (acc) => {
                 const account = {};
                 account.id = acc.id;
+                account.isDisabled = acc.is_disabled;
+                account.excludedUntil = acc.excluded_until ?
+                    $filter('date')(acc.excluded_until *1000, 'yyyy-MM-dd HH:mm:ss') : false;
                 account.availableMarkets = getAvailableMarkets(account.id);
                 account.type = accountType(account.id);
                 if (vm.currentAccount.id !== account.id) {
@@ -123,6 +127,7 @@
             vm.selectCurrencyError = false;
             getAvailableAccounts();
             vm.existingAccounts = getExistingAccounts();
+            vm.showContact = _.some(vm.existingAccounts, acc => acc.isDisabled || acc.excludedUntil);
         };
 
         vm.redirectToSetCurrency = () => {

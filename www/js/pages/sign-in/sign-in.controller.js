@@ -69,7 +69,13 @@
             $ionicLoading.hide();
             if (response) {
                 if (accountService.isUnique(response.loginid)) {
-                    accountService.add(response);
+                    let account = {};
+                    const accountList = response.account_list;
+                    if (accountList) {
+                        const acc = accountList.find(a => a.loginid === response.loginid);
+                        account = Object.assign(response, acc);
+                    }
+                    accountService.add(account);
                     accountService.setDefault(response.token);
                     appStateService.virtuality = response.is_virtual;
                 }

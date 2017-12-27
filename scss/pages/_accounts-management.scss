@@ -9,11 +9,13 @@
       &.list-title {
         background: $fillColor;
       }
+      &.disabled {
+        color: $secondaryContentColor;
+      }
       .list-element {
         display: table-cell;
         padding: 5px;
         font-size: 0.8rem;
-        vertical-align: middle;
       }
     }
   }

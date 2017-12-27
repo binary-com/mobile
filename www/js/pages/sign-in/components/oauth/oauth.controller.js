@@ -45,11 +45,17 @@
 
         $scope.$on("authorize", (e, response) => {
             if (response) {
+                const accountList = response.account_list;
                 accounts.forEach((value, index) => {
                     if (index > 0) {
-                        accounts[index].email = response.email;
-                        accounts[index].country = response.country;
-                        accountService.add(accounts[index]);
+                        let account = accounts[index];
+                        account.email = response.email;
+                        account.country = response.country;
+                        if (accountList) {
+                            const acc = accountList.find(a => a.loginid === account.loginid);
+                            account = Object.assign(account, acc);
+                        }
+                        accountService.add(account);
                     }
                 });
             }
@@ -92,15 +98,12 @@
                 result = regex.exec(_url);
                 if(result){
                     accounts.push({
-                        loginid   : result[1],
-                        token     : result[2],
-                        currency  : result[4] ? result[4] : null,
-                        email     : "",
-                        is_default: false
+                        loginid : result[1],
+                        token   : result[2],
+                        currency: result[4] ? result[4] : null,
                     });
                 }
             } while (result)
-
             return accounts;
         }
 
