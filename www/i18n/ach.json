@@ -701,7 +701,11 @@
     "indices": "crwdns41733:0crwdne41733:0",
     "stocks": "crwdns41734:0crwdne41734:0",
     "volidx": "crwdns41735:0crwdne41735:0",
-    "note": "crwdns41736:0crwdne41736:0"
+    "note": "crwdns41736:0crwdne41736:0",
+    "excluded_until": "crwdns42924:0{{time}}crwdne42924:0",
+    "is_disabled": "crwdns42925:0crwdne42925:0",
+    "account_warning": "crwdns42926:0crwdne42926:0",
+    "customer_support": "crwdns42927:0crwdne42927:0"
   },
   "financial-information-options": {
     "under_1_year": "crwdns42798:0crwdne42798:0",
