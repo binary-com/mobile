@@ -24,7 +24,7 @@
 
         let accounts = [];
 
-        const authenticate = function(_token) {
+        const authenticate = _token => {
             // Validate the token
             if (_token && _token.length === 32) {
                 $ionicLoading.show();
@@ -56,7 +56,7 @@
             $ionicLoading.hide();
         });
 
-        vm.signin = function() {
+        vm.signin = () => {
             const serverUrl = localStorage.getItem('config.server_url');
             const oauthUrl = serverUrl ? `https://${serverUrl}/oauth2/authorize` : config.oauthUrl;
             const appId = localStorage.getItem('config.app_id') || config.app_id;

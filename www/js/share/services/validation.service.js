@@ -19,6 +19,8 @@ angular
             const validatePhoneRegex = /^\+?[0-9\s]*$/;
             const validateTaxIdentificationNumberRegex = /^[\w-]{0,20}$/;
             const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/;
+            const mailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
+            const tokenRegex = /^\w{8,128}$/;
             /* eslint-disable */
             const validator = (val, regexPattern, reverse) => {
                 return {
@@ -37,6 +39,8 @@ angular
             validationService.validateTaxIdentificationNumber = (val =>
                 validator(val, validateTaxIdentificationNumberRegex))();
             validationService.validatePassword = (val => validator(val, passwordRegex))();
+            validationService.validateMail = (val => validator(val, mailRegex))();
+            validationService.validateToken = (val => validator(val, tokenRegex))();
 
             validationService.length = {
                 name: {
