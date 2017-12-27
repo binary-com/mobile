@@ -537,7 +537,6 @@ angular
                                 localStorage.landingCompanyName = message.authorize.landing_company_fullname;
                                 localStorage.landingCompany = message.authorize.landing_company_name;
                                 appStateService.scopes = message.authorize.scopes;
-                                amplitude.setUserId(message.authorize.loginid);
                                 // update accounts from account list whenever authorize is received
                                 const accounts = !_.isEmpty(localStorage.getItem('accounts')) && 
                                 JSON.parse(localStorage.getItem('accounts'))
