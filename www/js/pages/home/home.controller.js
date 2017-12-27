@@ -9,17 +9,16 @@
 (function() {
     angular.module("binary.pages.home.controllers").controller("HomeController", Home);
 
-    Home.$inject = ["$scope", "$state", "accountService", "analyticsService", "appStateService", "websocketService"];
+    Home.$inject = ["$scope", "$state", "accountService", "analyticsService", "appStateService"];
 
-    function Home($scope, $state, accountService, analyticsService, appStateService, websocketService) {
+    function Home($scope, $state, accountService, analyticsService, appStateService) {
         const vm = this;
-
         /**
-     * wait untile authorization and decide
-     * to redirect user  to the proper page
-     */
+        * wait untile authorization and decide
+        * to redirect user  to the proper page
+        */
         $scope.$on("authorize", (e, response) => {
-            if(response) {
+            if (response) {
                 setTimeout(() => {
                     $state.go("trade");
                 }, 1000);
@@ -28,7 +27,7 @@
             }
         });
 
-        vm.init = function() {
+        const init = () => {
             // send track view to Google Analytics
             analyticsService.google.trackView("Home");
 
@@ -46,6 +45,6 @@
             }
         };
 
-        vm.init();
+        init();
     }
 })();

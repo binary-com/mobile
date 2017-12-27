@@ -31,7 +31,7 @@
             setCurrecyPattern(account.currency);
         });
 
-        vm.changePayoutType = function() {
+        vm.changePayoutType = () => {
             if (vm.proposal.basis === "payout") {
                 vm.proposal.basis = "stake";
             } else {
@@ -40,7 +40,7 @@
             proposalService.setPropertyValue("basis", vm.proposal.basis);
         };
 
-        vm.changeAmount = function() {
+        vm.changeAmount = () => {
             if (_.isEmpty(vm.amount) || vm.amount === "NaN" || Number(vm.amount) === 0) {
                 vm.proposal.amount = vm.amount;
             } else {
@@ -52,15 +52,15 @@
             proposalService.setPropertyValue("amount", vm.proposal.amount);
         };
 
-        vm.add = function() {
+        vm.add = () => {
             vm.amount = Number(vm.amount) + 1 <= 10000 ? Number(vm.amount) + 1 : 100000;
         };
 
-        vm.subtract = function() {
+        vm.subtract = () => {
             vm.amount = Number(vm.amount) - 1 >= 1 ? Number(vm.amount) - 1 : 1;
         };
 
-        vm.stopLongPress = function() {
+        vm.stopLongPress = () => {
             vm.proposal.amount = vm.amount;
             proposalService.setPropertyValue("amount", vm.proposal.amount);
         };

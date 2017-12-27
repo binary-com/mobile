@@ -11,19 +11,17 @@
         .module("binary.pages.transaction-detail.controllers")
         .controller("TransactionDetailController", TransactionDetail);
 
-    TransactionDetail.$inject = ["$scope", "$timeout", "$state", "appStateService", "websocketService"];
+    TransactionDetail.$inject = ["$scope", "$timeout", "appStateService", "websocketService"];
 
-    function TransactionDetail($scope, $timeout, $state, appStateService, websocketService) {
+    function TransactionDetail($scope, $timeout, appStateService, websocketService) {
         const vm = this;
-
-        vm.currency = sessionStorage.getItem("currency");
-
         vm.data = {};
+        vm.currency = sessionStorage.getItem("currency");
         vm.data.id = sessionStorage.getItem("id");
         vm.data.extraParams = {
             req_id: vm.data.id
         };
-        vm.sendDetailsRequest = function() {
+        const sendDetailsRequest = () => {
             if (appStateService.isLoggedin) {
                 websocketService.sendRequestFor.openContract(vm.data.id, vm.data.extraParams);
             } else {
@@ -41,6 +39,6 @@
             }
         });
 
-        vm.sendDetailsRequest();
+        sendDetailsRequest();
     }
 })();

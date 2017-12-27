@@ -11,6 +11,8 @@ angular
         const vm = this;
         vm.hasMTAccess = false;
         this.currentAccount = {};
+        vm.serverUrl = websocketService.getServerURL;
+        vm.defaultServerUrl = config.serverUrl;
 
         const getAccountInfo = () => {
             vm.upgrade = {};

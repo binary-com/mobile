@@ -156,7 +156,7 @@
     "view_statement": "View Statement",
     "integer_error": "Interval should be integer."
   },
-  "newvirtualaccount": {
+  "new-virtual-account": {
     "continue": "Continue",
     "signup": "Sign up",
     "email": "Email",
@@ -176,7 +176,7 @@
     "residence-error": "Please choose your country",
     "invalid_email": "Please submit a valid email address.",
     "password-pattern-error": "Password should have lower and uppercase letters with numbers.",
-    "length-error-6-25": "This field must be within 6-25 characters.",
+    "range-length-error": "This field must be within {{min}}-{{max}} characters.",
     "required": "This field is required."
   },
   "new-account-maltainvest": {

@@ -828,6 +828,8 @@ angular
                 }
             };
 
+            websocketService.getServerURL = localStorage.getItem('config.server_url') || config.serverUrl;
+
             return websocketService;
         }
     );
