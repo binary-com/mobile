@@ -701,7 +701,11 @@
     "indices": "指数",
     "stocks": "股票",
     "volidx": "波动率指数",
-    "note": "注： 您只能拥有一个法定货币账户以及每种加密货币一个账户。"
+    "note": "注： 您只能拥有一个法定货币账户以及每种加密货币一个账户。",
+    "excluded_until": "This account is excluded until {{time}}",
+    "is_disabled": "This account is disabled",
+    "account_warning": "Note: For any enquiries regarding disabled or excluded accounts, please contact",
+    "customer_support": "customer support"
   },
   "financial-information-options": {
     "under_1_year": "0-1 year",
