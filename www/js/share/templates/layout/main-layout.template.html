@@ -11,7 +11,8 @@
       <ion-header-bar class="header account-menu">
         <bg-accounts></bg-accounts>
       </ion-header-bar>
-      <ion-content class="has-header has-footer" scroll="true" overflow-scroll="false">
+      <ion-content class="has-header has-footer" scroll="true" overflow-scroll="false"
+                   ng-class="{'has-subfooter': vm.serverUrl !== vm.defaultServerUrl}">
         <ion-list>
           <ion-item
                   nav-clear
@@ -102,8 +103,12 @@
           </ion-item>
         </ion-list>
       </ion-content>
-      <ion-footer-bar align-title="center">
-        <bg-app-version class="sidemenu-app-version"></bg-app-version>
+      <ion-footer-bar class="endpoint-notification" ng-if="vm.serverUrl !== vm.defaultServerUrl">
+        Server endpoint: {{ vm.serverUrl }}
+      </ion-footer-bar>
+      <ion-footer-bar align-title="center" ng-class="{'bar-subfooter': vm.serverUrl !== vm.defaultServerUrl}">
+        <bg-app-version class="sidemenu-app-version">
+        </bg-app-version>
       </ion-footer-bar>
     </ion-side-menu>
   </ion-side-menus>
