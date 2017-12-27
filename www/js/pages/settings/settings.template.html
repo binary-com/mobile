@@ -9,7 +9,7 @@
     </div>
     <div class="list">
       <div ng-repeat="s in vm.settings">
-        <a ng-if="!s.submenus && (vm.checkScope(s.scope) && vm.checkAccount(s.forRealAccount))"
+        <a ng-if="!s.submenus && vm.checkAccount(s.forRealAccount)"
            href="#"
            ui-sref="{{s.url}}"
            class="item">
@@ -20,7 +20,7 @@
              class="item item-divider">
           {{ s.name | translate}}
         </div>
-        <a ng-if="s.submenus && s.submenus.length > 0 && (vm.checkScope(m.scope) && vm.checkAccount(m.forRealAccount))"
+        <a ng-if="s.submenus && s.submenus.length > 0 && vm.checkAccount(m.forRealAccount)"
            ng-repeat="m in s.submenus"
            href="#"
            ui-sref="{{m.url}}"

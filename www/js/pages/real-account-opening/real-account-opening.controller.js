@@ -12,7 +12,6 @@
     RealAccountOpening.$inject = [
         "$scope",
         "$filter",
-        "$ionicModal",
         "websocketService",
         "appStateService",
         "accountService",
@@ -25,7 +24,6 @@
     function RealAccountOpening(
         $scope,
         $filter,
-        $ionicModal,
         websocketService,
         appStateService,
         accountService,

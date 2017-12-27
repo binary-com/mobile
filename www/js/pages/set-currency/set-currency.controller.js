@@ -15,7 +15,6 @@
         'config',
         'appStateService',
         'websocketService',
-        'localStorageService',
         'accountService',
         'clientService'];
 
@@ -25,13 +24,11 @@
         config,
         appStateService,
         websocketService,
-        localStorageService,
         accountService,
         clientService) {
         const vm = this;
         const cryptoConfig = config.cryptoConfig;
         const currencyConfig = appStateService.currenciesConfig;
-        const payoutCurrencies = appStateService.payoutCurrencies;
         const accounts = accountService.getAll();
         const currentAccount = accountService.getDefault();
         vm.isCRAccount = /CR/i.test(currentAccount.id);
@@ -72,7 +69,7 @@
             });
         };
 
-        const hasCurrency = (options) => {
+        const hasCurrency = () => {
             $scope.$applyAsync(() => {
                 vm.hasCryptoOption = _.findIndex(vm.currenciesOptions, 'isCryptoCurrency') > -1;
                 vm.hasFiatOption = _.findIndex(vm.currenciesOptions, ['isCryptoCurrency', false]) > -1;
@@ -109,7 +106,7 @@
         const init = () => {
             const options = vm.getCurrenciesOptions();
             populateOptions(options);
-            hasCurrency(options);
+            hasCurrency();
         };
 
         init();

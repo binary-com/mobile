@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.contact.controllers").controller("ContactController", Contact);
 
-    Contact.$inject = ["$scope"];
+    Contact.$inject = [];
 
-    function Contact($scope) {
+    function Contact() {
         const vm = this;
         vm.data = {};
 

@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.authentication.controllers").controller("AuthenticationController", Authentication);
 
-    Authentication.$inject = ["$scope"];
+    Authentication.$inject = [];
 
-    function Authentication($scope) {
+    function Authentication() {
         const vm = this;
     }
 })();

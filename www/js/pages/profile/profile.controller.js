@@ -12,7 +12,6 @@
     Profile.$inject = [
         "$scope",
         "$translate",
-        "$filter",
         "$ionicModal",
         "alertService",
         "appStateService",
@@ -25,7 +24,6 @@
     function Profile(
         $scope,
         $translate,
-        $filter,
         $ionicModal,
         alertService,
         appStateService,

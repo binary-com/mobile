@@ -50,11 +50,11 @@
             });
         });
 
-        vm.createMTAccount = function(section) {
+        vm.createMTAccount = section => {
             window.open(`https://mt.binary.com/en/user/settings/metatrader.html#${section}`, "_system");
         };
 
-        vm.loadAccount = function(accountName) {
+        vm.loadAccount = accountName => {
             if (vm.mt5LoginList.length > 0) {
                 const account = _.find(vm.mt5LoginList, o => {
                     if (o.group) {
@@ -79,7 +79,7 @@
             }
         };
 
-        vm.openMT5 = function(type) {
+        vm.openMT5 = type => {
             type = type || "_blank";
             if (["android", "ios"].indexOf(ionic.Platform.platform()) > -1) {
                 $state.go("mt5-web", { id: vm.settings.login });
