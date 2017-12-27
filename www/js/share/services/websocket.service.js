@@ -373,10 +373,13 @@ angular
 
                     sendMessage(data);
                 },
-                landingCompanySend(company) {
+                landingCompanySend(company, reqId) {
                     const data = {
-                        landing_company: company
+                        landing_company: company,
                     };
+                    if (reqId) {
+                        data.req_id = reqId;
+                    }
                     sendMessage(data);
                 },
                 statesListSend(countryCode) {
@@ -669,7 +672,11 @@ angular
                             );
                             break;
                         case "landing_company_details":
-                            $rootScope.$broadcast("landing_company_details", message.landing_company_details);
+                            if (message.landing_company_details) {
+                                $rootScope.$broadcast("landing_company_details", message.landing_company_details);
+                            } else if (message.error) {
+                                $rootScope.$broadcast("landing_company_details:error", message.error.message);
+                            }
                             break;
                         case "reality_check":
                             $rootScope.$broadcast("reality_check", message.reality_check);
@@ -701,7 +708,7 @@ angular
                         case "landing_company":
                             if (message.landing_company) {
                                 localStorage.setItem('landingCompanyObject', JSON.stringify(message.landing_company));
-                                $rootScope.$broadcast("landing_company", message.landing_company);
+                                $rootScope.$broadcast("landing_company", message.landing_company, message.req_id);
                             } else if (message.error) {
                                 $rootScope.$broadcast("landing_company:error", message.error.message);
                             }

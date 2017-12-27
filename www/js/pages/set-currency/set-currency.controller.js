@@ -31,7 +31,7 @@
         const currencyConfig = appStateService.currenciesConfig;
         const accounts = accountService.getAll();
         const currentAccount = accountService.getDefault();
-        vm.isCRAccount = currentAccount.id.startsWith('CR');
+        vm.isCRAccount = /CR/i.test(currentAccount.id);
         vm.currenciesOptions = [];
 
         vm.getCurrenciesOptions = () => {

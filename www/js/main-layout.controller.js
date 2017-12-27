@@ -10,25 +10,28 @@ angular
         clientService) {
         const vm = this;
         vm.hasMTAccess = false;
-        this.currentAccount = {};
+        let currentAccount = {};
         vm.serverUrl = websocketService.getServerURL;
         vm.defaultServerUrl = config.serverUrl;
 
         const getAccountInfo = () => {
             vm.upgrade = {};
             vm.accounts = accountService.getAll();
-            this.currentAccount = accountService.getDefault();
-            if (this.currentAccount && _.keys(this.currentAccount).length) {
-                if (this.currentAccount.country) {
-                    const country = this.currentAccount.country;
+            currentAccount = accountService.getDefault();
+            if (currentAccount && _.keys(currentAccount).length) {
+                if (currentAccount.country) {
+                    const country = currentAccount.country;
                     if (country !== 'jp') {
-                        websocketService.sendRequestFor.landingCompanySend(country);
+                        const reqId = 1;
+                        websocketService.sendRequestFor.landingCompanySend(country, reqId);
                     }
                 }
             } else {
                 $timeout(getAccountInfo, 1000);
             }
         };
+
+        getAccountInfo();
 
         const getAllLoginids = _accounts => accountService.getAllloginids(_accounts);
 
@@ -121,7 +124,7 @@ angular
         };
 
         $scope.$on('authorize', (e, authorize) => {
-            if (this.currentAccount && this.currentAccount.id !== authorize.loginid) {
+            if (currentAccount && currentAccount.id !== authorize.loginid) {
                 getAccountInfo();
             }
         });
@@ -130,19 +133,19 @@ angular
             getAccountInfo();
         });
 
-        $scope.$on('landing_company', (e, landing_company) => {
+        $scope.$on('landing_company', (e, landing_company, req_id) => {
             const landingCompany = landing_company;
             vm.hasMTAccess = hasMTfinancialCompany(landingCompany);
-            vm.upgrade = getUpgradeInfo(landingCompany, this.currentAccount.id);
-            if (vm.upgrade.canUpgrade) {
-                appStateService.upgrade = vm.upgrade;
-            } else {
-                appStateService.upgrade = {};
+            if (req_id === 1) {
+                vm.upgrade = getUpgradeInfo(landingCompany, currentAccount.id);
+                if (vm.upgrade.canUpgrade) {
+                    appStateService.upgrade = vm.upgrade;
+                } else {
+                    appStateService.upgrade = {};
+                }
+                appStateService.checkingUpgradeDone = true;
             }
-            appStateService.checkingUpgradeDone = true;
         });
-
-        getAccountInfo();
 
         vm.linkToRegulatory = `https://www.binary.com/${localStorage.getItem("language") || "en"}/regulation.html`;
         vm.goToRegulatory = function() {
