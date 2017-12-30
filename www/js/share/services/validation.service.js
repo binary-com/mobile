@@ -11,7 +11,10 @@ angular
     .module("binary")
     .factory(
         "validationService",
-        ($state) => {
+        ($state, appStateService) => {
+            const currency = sessionStorage.getItem('currency') || 'USD';
+            const currencyConfig = appStateService.currenciesConfig || {};
+            const fractionalDigitis = currencyConfig && Object.keys(currencyConfig).length && currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
             const validationService = {};
             const validateGeneralRegex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             const validateAddressRegex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
@@ -21,6 +24,9 @@ angular
             const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/;
             const mailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
             const tokenRegex = /^\w{8,128}$/;
+            const numberRegex = /^\d+$/;
+            const floatNumberRegex = decimals => new RegExp(`^\\d+(\\.\\d{0,${decimals}})?$`);
+            const integerRegex = /^\d+$/;
             /* eslint-disable */
             const validator = (val, regexPattern, reverse) => {
                 return {
@@ -41,6 +47,10 @@ angular
             validationService.validatePassword = (val => validator(val, passwordRegex))();
             validationService.validateMail = (val => validator(val, mailRegex))();
             validationService.validateToken = (val => validator(val, tokenRegex))();
+
+            validationService.validateFloatNumber = (val => validator(val, floatNumberRegex(fractionalDigitis)))();
+            validationService.validateIntegerNumber = (val => validator(val, integerRegex))();
+
 
             validationService.length = {
                 name: {
@@ -70,6 +80,15 @@ angular
                 password: {
                     min: 6,
                     max: 25
+                },
+                selfExclusionLimits: {
+                    max: 20
+                },
+                selfExclusionOpenPositions: {
+                    max: 4
+                },
+                selfExclusionSessionDuration: {
+                    max: 5
                 }
             }
 

@@ -411,6 +411,7 @@
     "exclude-me-hint": "Please enter date in the format MM/DD/YYYY.",
     "update-settings": "Update Settings",
     "please-enter-an-integer-value": "Please enter an integer value with max length of {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Please enter a number between 0 and {{max}}",
     "date-is-not-valid": "Exclude time must be after today",
     "date-can-not-be-greater-than": "Exclude time cannot be greater than {{max}}",
