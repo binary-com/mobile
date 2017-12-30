@@ -24,7 +24,7 @@
         vm.isDataLoaded = false;
         const currency = sessionStorage.getItem('currency') || 'USD';
         const currencyConfig = appStateService.currenciesConfig || {};
-        vm.fractionalDigitis = currencyConfig && Object.keys(currencyConfig).length &&
+        vm.fractionalDigitis = !_.isEmpty(currencyConfig) &&
         currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
         vm.data = {};
 
