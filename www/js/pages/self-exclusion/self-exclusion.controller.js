@@ -60,7 +60,7 @@
             vm.disableUpdateButton = false;
         });
 
-        vm.submit = function() {
+        vm.submit = () => {
             vm.disableUpdateButton = true;
             setSelfExclusion();
         };
