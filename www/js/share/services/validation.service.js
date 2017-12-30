@@ -14,7 +14,8 @@ angular
         ($state, appStateService) => {
             const currency = sessionStorage.getItem('currency') || 'USD';
             const currencyConfig = appStateService.currenciesConfig || {};
-            const fractionalDigitis = currencyConfig && Object.keys(currencyConfig).length && currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
+            const fractionalDigitis = currencyConfig && Object.keys(currencyConfig).length &&
+            currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
             const validationService = {};
             const validateGeneralRegex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             const validateAddressRegex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
