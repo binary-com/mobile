@@ -12,11 +12,12 @@ angular
     .factory(
         "validationService",
         ($state, appStateService) => {
+            const validationService = {};
             const currency = sessionStorage.getItem('currency') || 'USD';
             const currencyConfig = appStateService.currenciesConfig || {};
-            const fractionalDigitis = !_.isEmpty(currencyConfig) &&
+            validationService.fractionalDigits = !_.isEmpty(currencyConfig) &&
             currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
-            const validationService = {};
+
             const validateGeneralRegex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             const validateAddressRegex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
             const validatePostcodeRegex = /^([a-zA-Z\d-\s])*$/;
@@ -26,7 +27,7 @@ angular
             const mailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
             const tokenRegex = /^\w{8,128}$/;
             const numberRegex = /^\d+$/;
-            const floatNumberRegex = decimals => new RegExp(`^\\d+(\\.\\d{0,${decimals}})?$`);
+            const floatNumberRegex = new RegExp(`^\\d+(\\.\\d{0,${validationService.fractionalDigits}})?$`);
             const integerRegex = /^\d+$/;
             /* eslint-disable */
             const validator = (val, regexPattern, reverse) => {
@@ -49,7 +50,7 @@ angular
             validationService.validateMail = (val => validator(val, mailRegex))();
             validationService.validateToken = (val => validator(val, tokenRegex))();
 
-            validationService.validateFloatNumber = (val => validator(val, floatNumberRegex(fractionalDigitis)))();
+            validationService.validateFloatNumber = (val => validator(val, floatNumberRegex))();
             validationService.validateIntegerNumber = (val => validator(val, integerRegex))();
 
 

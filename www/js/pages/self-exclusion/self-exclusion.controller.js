@@ -15,6 +15,7 @@
         validationService, appStateService) {
         const vm = this;
         vm.validation = validationService;
+        vm.fractionalDigits = vm.validation.fractionalDigits;
         vm.today = new Date();
         vm.minDate = vm.today.toISOString().slice(0, 10);
         vm.minDateTime = vm.today.toISOString();
@@ -22,10 +23,6 @@
         vm.nextSixMonths = new Date(vm.today.getTime() + 30 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
         vm.disableUpdateButton = true;
         vm.isDataLoaded = false;
-        const currency = sessionStorage.getItem('currency') || 'USD';
-        const currencyConfig = appStateService.currenciesConfig || {};
-        vm.fractionalDigitis = !_.isEmpty(currencyConfig) &&
-        currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
         vm.data = {};
 
         $scope.$on("get-self-exclusion", (e, response) => {
