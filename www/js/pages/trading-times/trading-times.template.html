@@ -7,7 +7,12 @@
         </h1>
       </div>
     </div>
-    <div class="row">
+    <div class="row" ng-if="!vm.isDataLoaded">
+      <div class="col center">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+    <div class="row" ng-show="vm.isDataLoaded">
       <div class="col">
         <form name="trading-times">
           <div class="input-title">
@@ -18,23 +23,19 @@
                    ng-change="vm.sendTradingTimes()"/>
           </label>
         </form>
-        <form name="market">
+        <form name="market" ng-if="!vm.hasError">
           <div class="input-title">
             {{'trading-times.market' | translate}}
           </div>
           <div class="item-select">
-            <select ng-model="vm.market">
-              <option ng-if="vm.hasError" selected>-</option>
-              <option ng-repeat="market in vm.data.markets" ng-value="market.name" ng-init="vm.data.markets[0]"
-                      ng-if="!vm.hasError">{{market.name}}
-              </option>
+            <select ng-model="vm.market" ng-if="vm.isDataLoaded" ng-options="market.name as market.name for market in vm.data.markets">
             </select>
           </div>
         </form>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" ng-if="vm.isDataLoaded">
       <div class="col">
         {{'trading-times.GMT_times' | translate}}
       </div>
@@ -75,7 +76,7 @@
         </div>
       </div>
     </div>
-    <div class="row" ng-if="vm.hasError">
+    <div class="row" ng-if="vm.hasError && vm.isDataLoaded">
       <div class="col error">
         {{vm.error.message}}
       </div>

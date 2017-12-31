@@ -13,6 +13,7 @@
 
     function TradingTimes($scope, $filter, websocketService) {
         const vm = this;
+        vm.isDataLoaded = false;
         vm.data = {};
         vm.hasError = false;
         vm.now = Math.round(new Date().getTime());
@@ -32,21 +33,24 @@
         $scope.$on("trading_times:success", (e, trading_times) => {
             vm.tradingTimes = trading_times;
             vm.marketDisplayNames = [];
-            vm.activeSymbols = JSON.parse(sessionStorage.getItem('active_symbols'));
+            const allActiveSymbols = JSON.parse(sessionStorage.getItem('all_active_symbols'));
+            vm.activeSymbols = _.groupBy(allActiveSymbols, "market");
             Object.values(vm.activeSymbols).forEach((market, j) => {
                 if (!vm.marketDisplayNames.market) vm.marketDisplayNames.push(market[0].market_display_name);
             });
             $scope.$applyAsync(() => {
                 vm.hasError = false;
-	              vm.data.markets = vm.tradingTimes.markets.filter(market =>
-                    vm.marketDisplayNames.includes(market.name)
-	              );
+	            vm.data.markets = vm.tradingTimes.markets.filter(market =>
+                    vm.marketDisplayNames.indexOf(market.name) > -1
+                );
                 vm.market = vm.data.markets[0].name;
+                vm.isDataLoaded = true;
             });
         });
 
         $scope.$on("trading_times:error", (e, error) => {
             $scope.$applyAsync(() => {
+                vm.isDataLoaded = true;
                 vm.hasError = true;
                 vm.error = error;
             });
