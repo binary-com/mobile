@@ -76,7 +76,8 @@ angular
                     if (existingCurrencies.length) {
                         const dividedExistingCurrencies = getDividedCurrencies(existingCurrencies);
                         if (dividedExistingCurrencies.fiatCurrencies.length) {
-                            const legalAllowedCryptoCurrencies = getDividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
+                            const legalAllowedCryptoCurrencies =
+                            getDividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
                             const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
                             currencyOptions = _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
                             if (currencyOptions.length) {
@@ -110,8 +111,10 @@ angular
                 const existingCurrencies = getExistingCurrencies(vm.accounts);
                 if (existingCurrencies.length) {
                     const dividedExistingCurrencies = getDividedCurrencies(existingCurrencies);
-                    if (dividedExistingCurrencies.fiatCurrencies.length) {
-                        const legalAllowedCryptoCurrencies = getDividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
+                    const hasFiat = !!dividedExistingCurrencies.fiatCurrencies.length;
+                    if (hasFiat) {
+                        const legalAllowedCryptoCurrencies =
+                        getDividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
                         const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
                         currencyOptions = _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
                         if (currencyOptions.length) {
