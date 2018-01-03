@@ -537,6 +537,7 @@ angular
                                 localStorage.landingCompanyName = message.authorize.landing_company_fullname;
                                 localStorage.landingCompany = message.authorize.landing_company_name;
                                 appStateService.scopes = message.authorize.scopes;
+                                appStateService.upgradeableLandingCompanies = message.authorize.upgradeable_landing_companies || [];
                                 // update accounts from account list whenever authorize is received
                                 const accounts = !_.isEmpty(localStorage.getItem('accounts')) && 
                                 JSON.parse(localStorage.getItem('accounts'));
