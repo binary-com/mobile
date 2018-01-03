@@ -770,18 +770,18 @@
   "account-options": {
     "mr": "先生",
     "miss": "小姐",
-    "mrs": "Mrs",
-    "ms": "Ms",
-    "secret_question_1": "Mother's maiden name",
-    "secret_question_2": "Name of your pet",
-    "secret_question_3": "Name of first love",
-    "secret_question_4": "Memorable town/city",
-    "secret_question_5": "Memorable date",
-    "secret_question_6": "Favourite dish",
-    "secret_question_7": "Brand of first car",
-    "secret_question_8": "Favourite artist",
-    "speculative": "Speculative",
-    "income_earning": "Income Earning",
-    "hedging": "Hedging"
+    "mrs": "夫人",
+    "ms": "女士",
+    "secret_question_1": "母亲婚前的姓氏",
+    "secret_question_2": "您宠物的名字",
+    "secret_question_3": "初恋情人姓名",
+    "secret_question_4": "难忘的城镇/城市",
+    "secret_question_5": "难忘的日子",
+    "secret_question_6": "最喜欢的菜肴",
+    "secret_question_7": "第一辆车的品牌",
+    "secret_question_8": "最喜欢的艺术家",
+    "speculative": "投机",
+    "income_earning": "赚取收入",
+    "hedging": "对冲"
   }
 }
