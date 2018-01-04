@@ -67,8 +67,10 @@ angular
             if (canUpgradeToLandingCompany(['costarica', 'malta', 'iom']) && !canUpgradeMultiAccount) {
                 typeOfNextAccount = 'real';
                 upgradeLink = 'real-account-opening';
-                currencyOptions = landingCompany.gaming_company.legal_allowed_currencies;
-                allowedMarkets = landingCompany.gaming_company.legal_allowed_markets;
+                currencyOptions = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_currencies :
+                    landingCompany.financial_company.legal_allowed_currencies;
+                allowedMarkets = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_markets :
+                    landingCompany.financial_company.legal_allowed_markets;
             } else if (canUpgradeToLandingCompany(['maltainvest'])) {
                 typeOfNextAccount = 'financial';
                 upgradeLink = 'maltainvest-account-opening';
