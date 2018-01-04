@@ -64,40 +64,11 @@ angular
             const canUpgradeToLandingCompany = arr_landing_company => !!arr_landing_company.find(landingCompany => 
                 landingCompany !== currentLandingCompany && upgradeableLandingCompanies.indexOf(landingCompany) > -1);
 
-            if (canUpgradeToLandingCompany(['costarica', 'malta', 'iom'])) {
+            if (canUpgradeToLandingCompany(['costarica', 'malta', 'iom']) && !canUpgradeMultiAccount) {
                 typeOfNextAccount = 'real';
                 upgradeLink = 'real-account-opening';
-
-                if (canUpgradeMultiAccount) {
-                    canUpgrade = false;
-                    allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
-                    const legalAllowedCurrencies = landingCompany.financial_company.legal_allowed_currencies;
-                    const existingCurrencies = getExistingCurrencies(vm.accounts);
-                    if (existingCurrencies.length) {
-                        const dividedExistingCurrencies = getDividedCurrencies(existingCurrencies);
-                        if (dividedExistingCurrencies.fiatCurrencies.length) {
-                            const legalAllowedCryptoCurrencies =
-                            getDividedCurrencies(legalAllowedCurrencies).cryptoCurrencies;
-                            const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
-                            currencyOptions = _.difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
-                            if (currencyOptions.length) {
-                                canUpgrade = true;
-                                multi = true;
-                            }
-                        } else {
-                            canUpgrade = true;
-                            multi = true;
-                            currencyOptions = _.difference(legalAllowedCurrencies, existingCurrencies);
-                        }
-                    } else {
-                        canUpgrade = true;
-                        multi = true;
-                        currencyOptions = legalAllowedCurrencies;
-                    }
-                } else {
-                    currencyOptions = landingCompany.gaming_company.legal_allowed_currencies;
-                    allowedMarkets = landingCompany.gaming_company.legal_allowed_markets;
-                }
+                currencyOptions = landingCompany.gaming_company.legal_allowed_currencies;
+                allowedMarkets = landingCompany.gaming_company.legal_allowed_markets;
             } else if (canUpgradeToLandingCompany(['maltainvest'])) {
                 typeOfNextAccount = 'financial';
                 upgradeLink = 'maltainvest-account-opening';
