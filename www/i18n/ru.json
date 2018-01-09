@@ -683,7 +683,7 @@
     "account_financial": "Финансовый счёт",
     "fiat_currencies": "Обычные деньги",
     "crypto_currencies": "Криптовалюта",
-    "please_select_currency": "Please set the currency for your existing account {{loginid}}, in order to create more accounts.",
+    "please_select_currency": "Пожалуйста, укажите валюту текущего счёта {{loginid}}, чтобы открыть другие счета.",
     "set_currency": "Укажите валюту",
     "existing_accounts": "Ваши текущие счета",
     "create_new": "Открыть новый счет",
