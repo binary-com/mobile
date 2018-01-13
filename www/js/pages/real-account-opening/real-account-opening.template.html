@@ -516,7 +516,8 @@
             <div class="col">
               <button class="button button-block"
                       ng-click="vm.submitAccountOpening()"
-                      ng-class="{'button-default' : newAccount.$invalid}">
+                      ng-class="{'button-default' : newAccount.$invalid}"
+                      ng-disabled="newAccount.$invalid || vm.disableUpdatebutton">
                 {{ 'new-account-real.open_account' | translate }}
               </button>
             </div>
