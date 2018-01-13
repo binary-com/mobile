@@ -190,8 +190,8 @@
 
         $scope.$on("new_account_maltainvest", (e, new_account_maltainvest) => {
             vm.disableUpdatebutton = false;
-            websocketService.authenticate(new_account_maltainvest.oauth_token);
             const selectedAccount = new_account_maltainvest.oauth_token;
+            websocketService.authenticate(selectedAccount);
             appStateService.newAccountAdded = true;
             accountService.addedAccount = selectedAccount;
         });
