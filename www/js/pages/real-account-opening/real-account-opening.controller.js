@@ -102,9 +102,9 @@
             vm.disableUpdatebutton = true;
             vm.error = {};
             let params = _.clone(vm.data);
-            params.date_of_birth = $filter("date")(params.date_of_birth, "yyyy-MM-dd");
+            params.date_of_birth = !_.isEmpty(vm.data.date_of_birth) ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
             params = _.forEach(params, (val, k) => {
-                params[k].val = _.trim(val);
+                params[k] = _.trim(val);
                 return params[k];
             });
             websocketService.sendRequestFor.createRealAccountSend(params);

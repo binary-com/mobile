@@ -3,7 +3,7 @@
     <div class="row center spinner-container" ng-if="!vm.receivedSettings">
       <ion-spinner></ion-spinner>
     </div>
-    <form name="newAccountMaltainvestForm" class="new-real-account" ng-if="vm.receivedSettings && vm.options" novalidate>
+    <form name="newAccountMaltainvestForm" class="new-real-account" ng-show="vm.receivedSettings" novalidate>
       <div class="row">
         <div class="col">
           <h1 class="page-title">

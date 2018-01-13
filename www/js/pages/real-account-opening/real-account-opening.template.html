@@ -3,7 +3,7 @@
     <div class="row center spinner-container" ng-if="!vm.receivedSettings">
       <ion-spinner></ion-spinner>
     </div>
-    <form name="newAccount" class="new-real-account" ng-if="vm.receivedSettings && vm.options" novalidate>
+    <form name="newAccount" class="new-real-account" ng-show="vm.receivedSettings" novalidate>
       <div class="row">
         <div class="col">
           <h1 class="page-title">
@@ -516,8 +516,7 @@
             <div class="col">
               <button class="button button-block"
                       ng-click="vm.submitAccountOpening()"
-                      ng-class="{'button-default' : newAccount.$invalid}"
-                      ng-disabled="newAccount.$invalid || vm.disableUpdatebutton">
+                      ng-class="{'button-default' : newAccount.$invalid}">
                 {{ 'new-account-real.open_account' | translate }}
               </button>
             </div>
