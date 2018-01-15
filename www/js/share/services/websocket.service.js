@@ -609,7 +609,6 @@ angular
                             break;
                         case "payout_currencies":
                             $rootScope.$broadcast("currencies", message.payout_currencies);
-                            appStateService.payoutCurrencies = message.payout_currencies;
                             break;
                         case "proposal":
                             if (message.proposal) {
