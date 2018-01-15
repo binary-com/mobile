@@ -406,6 +406,7 @@
     "exclude-me-hint": "Wprowadź datę w formacie MM/DD/RRRR.",
     "update-settings": "Uaktualnij ustawienia",
     "please-enter-an-integer-value": "Wprowadź wartość całkowitą o maksymalnej długości {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Proszę wpisać liczbę od 0 do {{max}}",
     "date-is-not-valid": "Okres wyłączenia musi zaczynać się jutro lub później",
     "date-can-not-be-greater-than": "Okres wyłączenia nie może przekraczać {{max}}",
