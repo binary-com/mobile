@@ -406,6 +406,7 @@
     "exclude-me-hint": "Masukkan tanggal dalam format BB/HH/TTTT.",
     "update-settings": "Update Pengaturan",
     "please-enter-an-integer-value": "Masukkan nilai integer dengan panjang maksimal {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Masukkan angka antara 0 dan {{max}}",
     "date-is-not-valid": "Waktu pengecualian harus setelah hari ini",
     "date-can-not-be-greater-than": "Waktu pengecualian tidak bisa lebih dari {{max}}",
