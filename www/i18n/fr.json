@@ -406,6 +406,7 @@
     "exclude-me-hint": "Veuillez saisir la date au format JJ/MM/AAAA.",
     "update-settings": "Mise à jour des paramètres",
     "please-enter-an-integer-value": "Veuillez saisir un nombre entier d'une longueur maximale de {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Veuillez saisir un chiffre entre 10 et {{max}}",
     "date-is-not-valid": "L'exclusion doit être ultérieure à aujourd'hui",
     "date-can-not-be-greater-than": "Le temps d'exclusion ne peut excéder {{max}}",
