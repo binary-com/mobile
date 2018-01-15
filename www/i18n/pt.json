@@ -406,6 +406,7 @@
     "exclude-me-hint": "Insira uma data no formato MM/DD/AAAA.",
     "update-settings": "Atualizar configurações",
     "please-enter-an-integer-value": "Insira uma valor inteiro com comprimento máximo de {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Insira um número entre 0 e {{max}}",
     "date-is-not-valid": "Período de exclusão deve ser depois de hoje",
     "date-can-not-be-greater-than": "Período de exclusão não pode ser superior a {{max}}",
