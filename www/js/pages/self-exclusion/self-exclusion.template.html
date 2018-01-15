@@ -25,19 +25,21 @@
               <input name="max_account_balance"
                      type="tel"
                      bg-big-number
-                     ng-pattern="/^\d{0,20}$/"
+                     ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_balance"
                      ng-max="vm.limits.max_balance"
                      ng-min="1"
                      ng-required="vm.limits.max_balance ? true : false"
                      step="1"
-                     maxlength="20" />
-              <div class="hint"> {{ 'self-exclusion.max-balance-hint' | translate }} </div>
+                     ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
+              <div class="hint"> {{ 'self-exclusion.max-balance-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_account_balance.$error"
                            role="alert"
                            class="error">
-                <ng-message when="pattern, number">
-                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max: "20"} }}
+                <ng-message when="pattern, number, maxlength">
+                  {{ 'self-exclusion.enter-valid-value' | translate :
+                  {max: vm.validation.length.selfExclusionLimits.max,
+                  fractionalDigits: vm.fractionalDigits} }}
                 </ng-message>
                 <ng-message when="min, max, required">
                   {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_balance} }}
@@ -60,19 +62,20 @@
               <input name="max_daily_turnover"
                      type="tel"
                      bg-big-number
-                     ng-pattern="/^\d{0,20}$/"
+                     ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_turnover"
                      ng-max="vm.limits.max_turnover"
                      ng-min="1"
                      ng-required="vm.limits.max_turnover ? true : false"
                      step="1"
-                     maxlength="20" />
-              <div class="hint"> {{ 'self-exclusion.max-turnover-hint' | translate }} </div>
+                     ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
+              <div class="hint"> {{ 'self-exclusion.max-turnover-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_daily_turnover.$error"
                            role="alert"
                            class="error">
-                <ng-message when="pattern, number">
-                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max: "20"} }}
+                <ng-message when="pattern, number, maxlength">
+                  {{ 'self-exclusion.enter-valid-value' | translate : {max:
+                  vm.validation.length.selfExclusionLimits.max, fractionalDigits: vm.fractionalDigits} }}
                 </ng-message>
                 <ng-message when="min, max, required">
                   {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_turnover} }}
@@ -95,19 +98,20 @@
               <input name="daily_limit_on_losses"
                      type="tel"
                      bg-big-number
-                     ng-pattern="/^\d{0,20}$/"
+                     ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_losses"
                      ng-max="vm.limits.max_losses"
                      ng-min="1"
                      ng-required="vm.limits.max_losses ? true : false"
                      step="1"
-                     maxlength="20" />
-              <div class="hint"> {{ 'self-exclusion.max-losses-hint' | translate }} </div>
+                     ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
+              <div class="hint"> {{ 'self-exclusion.max-losses-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.daily_limit_on_losses.$error"
                            role="alert"
                            class="error">
-                <ng-message when="pattern, number">
-                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max: "20"} }}
+                <ng-message when="pattern, number, maxlength">
+                  {{ 'self-exclusion.enter-valid-value' | translate : {max:
+                  vm.validation.length.selfExclusionLimits.max, fractionalDigits: vm.fractionalDigits} }}
                 </ng-message>
                 <ng-message when="min, max, required">
                   {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_losses} }}
@@ -130,14 +134,14 @@
               <input name="max_7_day_turnover_limit"
                      type="tel"
                      bg-big-number
-                     ng-pattern="/^\d{0,20}$/"
+                     ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_7day_turnover"
                      ng-max="vm.limits.max_7day_turnover"
                      ng-min="1"
                      ng-required="vm.limits.max_7day_turnover ? true : false"
                      step="1"
-                     maxlength="20" />
-              <div class="hint"> {{ 'self-exclusion.7-day-turnover-hint' | translate }} </div>
+                     ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
+              <div class="hint"> {{ 'self-exclusion.7-day-turnover-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_7_day_turnover_limit.$error"
                            role="alert"
                            class="error">
@@ -145,8 +149,9 @@
                   {{ 'self-exclusion.valid-range-hint' | translate :
                   {max: vm.limits.max_7day_turnover} }}
                 </ng-message>
-                <ng-message when="pattern, number">
-                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max: "20"} }}
+                <ng-message when="pattern, number, maxlength">
+                  {{ 'self-exclusion.enter-valid-value' | translate : {max:
+                  vm.validation.length.selfExclusionLimits.max, fractionalDigits: vm.fractionalDigits} }}
                 </ng-message>
               </ng-messages>
             </div>
@@ -166,19 +171,20 @@
               <input name="max_7_day_limit_on_losses"
                      type="tel"
                      bg-big-number
-                     ng-pattern="/^\d{0,20}$/"
+                     ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_7day_losses"
                      ng-max="vm.limits.max_7day_losses"
                      ng-min="1"
                      ng-required="vm.limits.max_7day_losses ? true : false"
                      step="1"
-                     maxlength="20" />
-              <div class="hint"> {{ 'self-exclusion.7-day-losses-hint' | translate }} </div>
+                     ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
+              <div class="hint"> {{ 'self-exclusion.7-day-losses-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_7_day_limit_on_losses.$error"
                            role="alert"
                            class="error">
-                <ng-message when="pattern, number">
-                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max: "20"} }}
+                <ng-message when="pattern, number, maxlength">
+                  {{ 'self-exclusion.enter-valid-value' | translate : {max:
+                  vm.validation.length.selfExclusionLimits.max, fractionalDigits: vm.fractionalDigits} }}
                 </ng-message>
                 <ng-message when="min, max, required">
                   {{ 'self-exclusion.valid-range-hint' | translate :
@@ -202,17 +208,18 @@
               <input name="max_30_day_turnover_limit"
                      type="tel"
                      bg-big-number
-                     ng-pattern="/^\d{0,20}$/"
+                     ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_30day_turnover"
                      ng-max="vm.limits.max_30day_turnover"
                      ng-min="1"
                      ng-required="vm.limits.max_30day_turnover ? true : false"
                      step="1"
-                     maxlength="20" />
-              <div class="hint"> {{ 'self-exclusion.30-day-turnover-hint' | translate }} </div>
+                     ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
+              <div class="hint"> {{ 'self-exclusion.30-day-turnover-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_30_day_turnover_limit.$error" role="alert" class="error">
-                <ng-message when="pattern, number">
-                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max: "20"} }}
+                <ng-message when="pattern, number, maxlength">
+                  {{ 'self-exclusion.enter-valid-value' | translate : {max:
+                  vm.validation.length.selfExclusionLimits.max, fractionalDigits: vm.fractionalDigits} }}
                 </ng-message>
                 <ng-message when="min, max, required">
                   {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_30day_turnover} }}
@@ -235,21 +242,22 @@
               <input name="max_30_day_limit_on_losses"
                      type="tel"
                      bg-big-number
-                     ng-pattern="/^\d{0,20}$/"
+                     ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_30day_losses"
                      ng-max="vm.limits.max_30day_losses"
                      ng-min="1"
                      ng-required="vm.limits.max_30day_losses ? true : false"
                      step="1"
-                     maxlength="20" />
+                     ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint">
                 {{ 'self-exclusion.30-day-losses-hint' | translate }}
               </div>
               <ng-messages for="self_exclusion_form.max_30_day_limit_on_losses.$error"
                            role="alert"
                            class="error">
-                <ng-message when="pattern, number">
-                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max: "20"} }}
+                <ng-message when="pattern, number, maxlength">
+                  {{ 'self-exclusion.enter-valid-value' | translate : {max:
+                  vm.validation.length.selfExclusionLimits.max, fractionalDigits: vm.fractionalDigits} }}
                 </ng-message>
                 <ng-message when="min, max, required">
                   {{ 'self-exclusion.valid-range-hint' | translate :
@@ -273,18 +281,19 @@
               <input name="maximum_number_of_open_positions"
                      type="tel"
                      bg-big-number
-                     ng-pattern="/^\d{0,4}$/"
+                     ng-pattern="vm.validation.validateIntegerNumber"
                      ng-model="vm.data.max_open_bets"
                      ng-max="vm.limits.max_open_bets"
                      ng-min="1"
                      ng-required="vm.limits.max_open_bets ? true : false"
                      step="1"
-                     maxlength="4" />
+                     ng-maxlength="vm.validation.length.selfExclusionOpenPositions.max"/>
               <ng-messages for="self_exclusion_form.maximum_number_of_open_positions.$error"
                            role="alert"
                            class="error">
-                <ng-message when="pattern, number">
-                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max: "4"} }}
+                <ng-message when="pattern, number, maxlength">
+                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max:
+                  vm.validation.length.selfExclusionOpenPositions.max} }}
                 </ng-message>
                 <ng-message when="min, max, required">
                   {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_open_bets} }}
@@ -307,19 +316,20 @@
               <input name="session_duration_limit"
                      type="tel"
                      bg-big-number
-                     ng-pattern="/^\d{0,5}$/"
+                     ng-pattern="vm.validation.validateIntegerNumber"
                      ng-model="vm.data.session_duration_limit"
                      ng-max="vm.limits.session_duration_limit || 60480"
-                     ng-min="1",
+                     ng-min="1" ,
                      ng-required="vm.limits.session_duration_limit ? true : false"
                      step="1"
-                     maxlength="5" />
-              <div class="hint"> {{ 'self-exclusion.session-duration-hint' | translate }} </div>
+                     ng-maxlength="vm.validation.length.selfExclusionSessionDuration.max"/>
+              <div class="hint"> {{ 'self-exclusion.session-duration-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.session_duration_limit.$error"
                            role="alert"
                            class="error">
-                <ng-message when="pattern, number">
-                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max: "5"} }}
+                <ng-message when="pattern, number, maxlength">
+                  {{ 'self-exclusion.please-enter-an-integer-value' | translate : {max:
+                  vm.validation.length.selfExclusionSessionDuration.max} }}
                 </ng-message>
                 <ng-message when="min, max, required">
                   {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.session_duration_limit || 60480} }}
@@ -346,15 +356,15 @@
                        min="{{ vm.minDate }}T00:00:00"
                        max="{{ vm.nextSixWeeks }}T00:00:00"
                        ng-min="vm.minDateTime"
-                       ng-max="vm.nextSixWeeks + 'T00:00:00'" />
+                       ng-max="vm.nextSixWeeks + 'T00:00:00'"/>
               </label>
-              <div class="hint"> {{ 'self-exclusion.time-out-hint' | translate }} </div>
+              <div class="hint"> {{ 'self-exclusion.time-out-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.time_out_until.$error" role="alert" class="error">
                 <ng-message when="min">
                   {{ 'self-exclusion.date-is-not-valid' | translate }}
                 </ng-message>
                 <ng-message when="max">
-                  {{ 'self-exclusion.date-can-not-be-greater-than' | translate:{max: vm.nextSixWeeks}  }}
+                  {{ 'self-exclusion.date-can-not-be-greater-than' | translate:{max: vm.nextSixWeeks} }}
                 </ng-message>
               </ng-messages>
             </div>
@@ -374,8 +384,9 @@
               <input name="exclude_me_until"
                      type="date"
                      ng-model="vm.data.exclude_until"
-                     min="{{ vm.nextSixMonths }}" />
-              <div class="hint"> {{ 'self-exclusion.exclude-me-hint' | translate }} </div>
+                     maxlength="8"
+                     min="{{ vm.nextSixMonths }}"/>
+              <div class="hint"> {{ 'self-exclusion.exclude-me-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.exclude_me_until.$error" role="alert" class="error">
                 <ng-message when="min, max">
                   {{ 'self-exclusion.date-can-not-less-than' | translate : {max: vm.nextSixMonths} }}

@@ -9,10 +9,13 @@
 (function() {
     angular.module("binary.pages.self-exclusion.controllers").controller("SelfExclusionController", SelfExclusion);
 
-    SelfExclusion.$inject = ["$scope", "$translate", "alertService", "websocketService"];
+    SelfExclusion.$inject = ["$scope", "$translate", "alertService", "websocketService", "validationService", "appStateService"];
 
-    function SelfExclusion($scope, $translate, alertService, websocketService) {
+    function SelfExclusion($scope, $translate, alertService, websocketService,
+        validationService, appStateService) {
         const vm = this;
+        vm.validation = validationService;
+        vm.fractionalDigits = vm.validation.fractionalDigits;
         vm.today = new Date();
         vm.minDate = vm.today.toISOString().slice(0, 10);
         vm.minDateTime = vm.today.toISOString();
@@ -55,7 +58,7 @@
             vm.disableUpdateButton = false;
         });
 
-        vm.submit = function() {
+        vm.submit = () => {
             vm.disableUpdateButton = true;
             setSelfExclusion();
         };
