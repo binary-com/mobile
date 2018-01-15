@@ -406,6 +406,7 @@
     "exclude-me-hint": "Пожалуйста, введите дату в формате ММ/ДД/ГГГГ.",
     "update-settings": "Обновить настройки",
     "please-enter-an-integer-value": "Пожалуйста, введите целое число; максимальная длина {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Пожалуйста, введите число от 0 до {{max}}",
     "date-is-not-valid": "Время начала ограничения должно быть позднее сегодняшней даты",
     "date-can-not-be-greater-than": "Период исключения не может превышать {{max}}",
