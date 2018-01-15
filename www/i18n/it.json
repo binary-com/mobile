@@ -406,6 +406,7 @@
     "exclude-me-hint": "Inserisci la data nel formato MESE/GIORNO/ANNO.",
     "update-settings": "Aggiorna impostazioni",
     "please-enter-an-integer-value": "Si prega di inserire un numero intero con lunghezza max di {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Inserire un numero compreso tra 0 e {{max}}",
     "date-is-not-valid": "Il periodo di esclusione deve essere successivo a oggi",
     "date-can-not-be-greater-than": "Il periodo di esclusione non può essere maggiore di {{max}}",
