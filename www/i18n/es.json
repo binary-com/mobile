@@ -406,6 +406,7 @@
     "exclude-me-hint": "Please enter date in the format MM/DD/YYYY.",
     "update-settings": "Actualizar configuración",
     "please-enter-an-integer-value": "Por favor, ingrese un valor entero con longitud máxima de {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Por favor, ingrese un número entre 0 y {{max}}",
     "date-is-not-valid": "El tiempo de exclusión debe ser después de hoy",
     "date-can-not-be-greater-than": "El tiempo de exclusión no puede ser mayor que {{max}}",
