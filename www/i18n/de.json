@@ -406,6 +406,7 @@
     "exclude-me-hint": "Bitte geben Sie das Datum im folgenden Format ein: TT MM, JJJJ.",
     "update-settings": "Einstellungen aktualisieren",
     "please-enter-an-integer-value": "Bitte geben Sie einen ganzzahligen Wert mit einer max. Länge von {{max}} ein",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Bitte geben Sie eine Zahl zwischen 0 und {{max}} ein",
     "date-is-not-valid": "Ausschlusszeit muss nach dem heutigen Tag sein",
     "date-can-not-be-greater-than": "Ausschlusszeit darf nicht größer als {{max}} sein",
