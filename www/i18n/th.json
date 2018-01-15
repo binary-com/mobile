@@ -406,6 +406,7 @@
     "exclude-me-hint": "โปรดป้อนวันที่ในรูปแบบ MM/DD/YYYY",
     "update-settings": "การปรับปรุงการตั้งค่า",
     "please-enter-an-integer-value": "โปรดป้อนเลขจำนวนเต็มที่มีความยาวสูงสุดจำนวน {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "โปรดป้อนตัวเลขระหว่าง 0 และ {{max}}",
     "date-is-not-valid": "เวลาของการพักจะต้องเป็นหลังจากวันนี้",
     "date-can-not-be-greater-than": "เวลาพักต้องไม่เกิน {{max}}",
