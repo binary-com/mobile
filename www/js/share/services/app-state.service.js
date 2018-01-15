@@ -50,6 +50,7 @@ angular.module("binary").factory("appStateService", () => {
     factory.upgrade = {};
     factory.redirectedFromAccountsManagemenet = false;
     factory.checkingUpgradeDone = false;
+    factory.upgradeableLandingCompanies = [];
 
     return factory;
 });

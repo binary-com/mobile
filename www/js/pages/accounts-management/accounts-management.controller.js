@@ -136,7 +136,7 @@
         };
 
         vm.redirectToAccountOpening = () => {
-            if (vm.currentAccount.currency && vm.currentAccount.currency !== '') {
+            if (vm.currentAccount.currency && vm.currentAccount.currency !== '' || !vm.upgrade.multi) {
                 appStateService.selectedCurrency = vm.selectedCurrency;
                 appStateService.redirectedFromAccountsManagemenet = true;
                 if (vm.upgrade.typeOfNextAccount === 'real') {
