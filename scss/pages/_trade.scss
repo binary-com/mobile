@@ -258,6 +258,11 @@
 								i {
 									border-bottom: 1px dotted #2a3052;
 								}
+								&.disabled {
+									opacity: 0.4;
+									cursor: default !important;
+									pointer-events: none;
+								}
 							}
 						}
 						&.basis-container {

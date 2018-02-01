@@ -1,10 +1,13 @@
 <div class="purchase" ng-if="!vm.showSummary">
   <div class="row">
-    <div class="col center contract" ng-repeat="contract in vm.contracts">
+    <div class="col center contract" ng-repeat="contract in vm.contracts track by $index">
       <div class="row">
         <div class="col center">
           <div class="price-container">
-            <a ng-click="vm.showLongcode(vm.contracts.indexOf(contract))" class="longcode-button">
+            <a ng-disabled="vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0"
+               ng-click="vm.showLongcode($index)"
+               class="longcode-button"
+                ng-class="{'disabled': vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0}">
               <span>
                <i class="ion-help"></i>
              </span>
