@@ -6,7 +6,7 @@
  * @copyright binary ltd
  */
 
-(function() {
+(function () {
     angular.module("binary.pages.trade.components.purchase.controllers").controller("PurchaseController", Purchase);
 
     Purchase.$inject = [
@@ -20,16 +20,14 @@
         "$ionicLoading"
     ];
 
-    function Purchase(
-        $scope,
+    function Purchase($scope,
         $timeout,
         analyticsService,
         accountService,
         appStateService,
         proposalService,
         websocketService,
-        $ionicLoading
-    ) {
+        $ionicLoading) {
         const vm = this;
         let forgetRequestId = 0;
 
@@ -42,27 +40,27 @@
         vm.currencyType = "fiat";
 
         $scope.$watch(
-          () => vm.proposal,
-          (newValue, oldValue) => {
-              if (_.isEqual(newValue, oldValue) && vm.proposalResponses.length > 0) {
-                  return;
-              }
+            () => vm.proposal,
+            (newValue, oldValue) => {
+                if (_.isEqual(newValue, oldValue) && vm.proposalResponses.length > 0) {
+                    return;
+                }
 
-              if (vm.proposalResponses.length > 0) {
-                  $scope.$applyAsync(() => {
-                      vm.proposalResponses[0].isReceiving = true;
-                      vm.proposalResponses[1].isReceiving = true;
-                  });
-              }
+                if (vm.proposalResponses.length > 0) {
+                    $scope.$applyAsync(() => {
+                        vm.proposalResponses[0].isReceiving = true;
+                        vm.proposalResponses[1].isReceiving = true;
+                    });
+                }
 
-              const currencyConfig = appStateService.currenciesConfig[vm.proposal.currency];
-              if (currencyConfig) {
-                  vm.currencyType = currencyConfig.type;
-              }
+                const currencyConfig = appStateService.currenciesConfig[vm.proposal.currency];
+                if (currencyConfig) {
+                    vm.currencyType = currencyConfig.type;
+                }
 
-              proposalUpdated();
-          },
-          true
+                proposalUpdated();
+            },
+            true
         );
 
         $scope.$on("appState:tradeMode", e => {
@@ -97,15 +95,14 @@
                 vm.showSummary = true;
                 $scope.$applyAsync(() => {
                     vm.purchasedContract = {
-                        contractId: response.buy.contract_id,
-                        longcode: response.buy.longcode,
-                        payout: vm.proposalResponses[vm.purchasedContractIndex].payout,
-                        cost: response.buy.buy_price,
-                        profit:
-                        parseFloat(vm.proposalResponses[vm.purchasedContractIndex].payout) -
+                        contractId   : response.buy.contract_id,
+                        longcode     : response.buy.longcode,
+                        payout       : vm.proposalResponses[vm.purchasedContractIndex].payout,
+                        cost         : response.buy.buy_price,
+                        balance      : response.buy.balance_after,
+                        transactionId: response.buy.transaction_id,
+                        profit       : parseFloat(vm.proposalResponses[vm.purchasedContractIndex].payout) -
                         parseFloat(response.buy.buy_price),
-                        balance: response.buy.balance_after,
-                        transactionId: response.buy.transaction_id
                     };
                 });
                 websocketService.sendRequestFor.portfolio();
@@ -139,20 +136,20 @@
 
                 // Send statistic to Google Analytics
                 analyticsService.google.trackEvent(
-                  proposal.market,
-                  proposal.contract_type,
-                  proposal.underlying_symbol,
-                  vm.purchasedContract.payout
+                    proposal.market,
+                    proposal.contract_type,
+                    proposal.underlying_symbol,
+                    vm.purchasedContract.payout
                 );
 
                 const ampEventProperties = {
-                    Symbol: proposal.underlying_symbol,
-                    TradeType: proposal.contract_type,
-                    Stake: vm.purchasedContract.buyPrice,
-                    Market: proposal.market,
-                    Duration: vm.proposal.duration,
+                    Symbol      : proposal.underlying_symbol,
+                    TradeType   : proposal.contract_type,
+                    Stake       : vm.purchasedContract.buyPrice,
+                    Market      : proposal.market,
+                    Duration    : vm.proposal.duration,
                     DurationUnit: vm.proposal.duration_unit,
-                    result: contract.result === "lose" ? "Lost" : "Won"
+                    result      : contract.result === "lose" ? "Lost" : "Won"
                 };
                 sendProposal();
 
@@ -210,7 +207,7 @@
         };
 
         vm.showLongcode = id =>
-          $ionicLoading.show({template: vm.longcode[id], noBackdrop: true, duration: 2500});
+            $ionicLoading.show({template: vm.longcode[id], noBackdrop: true, duration: 2500});
 
         function init() {
             vm.user = accountService.getDefault();
@@ -257,7 +254,7 @@
                 _results.push(
                     ((el) => {
                         const _results1 = [];
-                        const resizeText = function() {
+                        const resizeText = function () {
                             const elNewFontSize = `${parseInt($(el).css("font-size").slice(0, -2)) - 1}px`;
                             return $(el).css("font-size", elNewFontSize);
                         };
