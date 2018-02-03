@@ -406,7 +406,7 @@
     "exclude-me-hint": "โปรดป้อนวันที่ในรูปแบบ MM/DD/YYYY",
     "update-settings": "การปรับปรุงการตั้งค่า",
     "please-enter-an-integer-value": "โปรดป้อนเลขจำนวนเต็มที่มีความยาวสูงสุดจำนวน {{max}}",
-    "enter-valid-value": "กรุณาใส่ค่าที่มีหลักทศนิยมถึง {{fractionalDigitis}} หลัก และความยาวสูงสุดที่ {{max}}",
+    "enter-valid-value": "โปรดป้อนข้อมูลที่มีทศนิยมสูงสุด {{fractionalDigitis}} หลัก และความยาวสูงสุดที่ {{max}} ตัวอักษร",
     "valid-range-hint": "โปรดป้อนตัวเลขระหว่าง 0 และ {{max}}",
     "date-is-not-valid": "เวลาของการพักจะต้องเป็นหลังจากวันนี้",
     "date-can-not-be-greater-than": "เวลาพักต้องไม่เกิน {{max}}",
