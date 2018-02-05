@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Fasilitas Pengecualian Diri",
-    "maximum-account-cash-balance": "Maksimum saldo tunai pada akun",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Setelah batas ini tercapai, Anda tidak lagi dapat mendeposit.",
     "daily-turnover-limit": "Batas pembelian kontrak harian",
     "max-turnover-hint": "Maksimal jumlah kontrak yang dapat dibeli per hari.",
