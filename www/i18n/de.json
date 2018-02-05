@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Selbstausschluss Einrichtungen",
-    "maximum-account-cash-balance": "Maximales Kontoguthaben",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Sobald diese Grenze erreicht ist, können Sie nicht mehr einzahlen.",
     "daily-turnover-limit": "Tägliches Umsatzlimit",
     "max-turnover-hint": "Maximaler Gesamtkontrakterwerb pro Tag.",
