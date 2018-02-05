@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Ferramentas de auto-exclusão",
-    "maximum-account-cash-balance": "Saldo máximo da conta",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Depois de alcançado este limite, você não poderá mais fazer depósitos.",
     "daily-turnover-limit": "Limite diário de volume de negócios",
     "max-turnover-hint": "Máximo de aquisições agregadas de contratos por dia.",
