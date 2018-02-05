@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Características de autoexclusión",
-    "maximum-account-cash-balance": "Saldo máximo de la cuenta",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Una vez que se alcanza este límite, ya no puede depositar.",
     "daily-turnover-limit": "Daily turnover limit",
     "max-turnover-hint": "Máximo de adquisiciones de contratos agregados por día.",
