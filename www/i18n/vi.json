@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Cơ sở tự loại trừ",
-    "maximum-account-cash-balance": "Số dư tài khoản tối đa",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Một khi đã đạt đến giới hạn này, bạn sẽ không còn thể gửi tiền.",
     "daily-turnover-limit": "Giới hạn doanh thu hàng ngày",
     "max-turnover-hint": "Tập hợp các hợp đồng mua tối đa trên một ngày.",
