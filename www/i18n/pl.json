@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Udogodnienia samodzielnego wyłączenia",
-    "maximum-account-cash-balance": "Maksymalne saldo na koncie",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Po osiągnięciu tego limitu nie można dokonywać dalszych wpłat.",
     "daily-turnover-limit": "Dzienny maksymalny obrót",
     "max-turnover-hint": "Maksymalne dzienne łączne zakupy kontraktów.",
