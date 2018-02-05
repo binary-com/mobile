@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Fonctionnalités d'auto-exclusion",
-    "maximum-account-cash-balance": "Solde financier maximum du compte",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Une fois cette limite atteinte, vous ne pouvez plus effectuer de dépôts.",
     "daily-turnover-limit": "Limite journalière du volume des transactions",
     "max-turnover-hint": "Maximum global des achats de contrat par jour.",
