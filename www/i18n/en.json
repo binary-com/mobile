@@ -388,7 +388,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Self Exclusion Facilities",
-    "maximum-account-cash-balance": "Maximun account cash balance",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Once this limit is reached, you may no longer deposit.",
     "daily-turnover-limit": "Daily turnover limit",
     "max-turnover-hint": "Maximum aggregate contract purchases per day.",
