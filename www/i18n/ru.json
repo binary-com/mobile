@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Услуги самоограничения",
-    "maximum-account-cash-balance": "Максимальный баланс счета",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Как только будет достигнут данный лимит, Вы больше не сможете пополнить счёт.",
     "daily-turnover-limit": "Дневной лимит на объём покупок",
     "max-turnover-hint": "Максимальная общая стоимость приобретенных контрактов за день.",
