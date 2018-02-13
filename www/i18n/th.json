@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "เครื่องมือสำหรับพักการซื้อขาย",
-    "maximum-account-cash-balance": "Maximum account cash balance",
+    "maximum-account-cash-balance": "มูลค่าบัญชีเงินสดคงเหลือสูงสุด",
     "max-balance-hint": "เมื่อวงเงินเต็ม ท่านไม่สามารถฝากเงินได้",
     "daily-turnover-limit": "วงเงินซื้อขายต่อวัน",
     "max-turnover-hint": "มูลค่าสัญญารวมสูงสุดที่ซื้อต่อวัน",
