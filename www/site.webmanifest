@@ -1,0 +1,16 @@
+{
+  "name": "Binary.com TickTrade",
+  "short_name": "TickTrade",
+  "theme_color": "#2A3052",
+  "background_color": "#ffffff",
+  "start_url": "http://localhost:8100",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "img/icons/favicon-160x160.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}
