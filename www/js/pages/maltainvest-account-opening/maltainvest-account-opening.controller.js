@@ -21,8 +21,8 @@
         "alertService",
         "clientService",
         "validationService",
-        "realAccountOpeningOptions",
-        "maltainvestAcountOpeningOptions"
+        "accountOptions",
+        "financialInformationOptions"
     ];
 
     function MaltainvestAccountOpening(
@@ -35,8 +35,8 @@
         alertService,
         clientService,
         validationService,
-        realAccountOpeningOptions,
-        maltainvestAcountOpeningOptions
+        accountOptions,
+        financialInformationOptions
     ) {
         const vm = this;
         vm.errors = {};
@@ -47,7 +47,7 @@
         const loginid = accountService.getDefault().id;
         const isVirtual = clientService.isAccountOfType('virtual', loginid);
         vm.receivedSettings = false;
-        vm.options = _.merge(maltainvestAcountOpeningOptions, realAccountOpeningOptions);
+        vm.options = _.merge(financialInformationOptions, accountOptions);
         vm.validation = validationService;
         vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
@@ -169,9 +169,9 @@
             vm.error = {};
             let params = _.clone(vm.data);
             params.accept_risk = vm.accept_risk ? 1 : 0;
-            params.date_of_birth = $filter("date")(params.date_of_birth, "yyyy-MM-dd");
+            params.date_of_birth = !_.isEmpty(vm.data.date_of_birth) ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
             params = _.forEach(params, (val, k) => {
-                params[k].val = _.trim(val);
+                params[k] = _.trim(val);
                 return params[k];
             });
             websocketService.sendRequestFor.createMaltainvestAccountSend(params);
@@ -190,8 +190,8 @@
 
         $scope.$on("new_account_maltainvest", (e, new_account_maltainvest) => {
             vm.disableUpdatebutton = false;
-            websocketService.authenticate(new_account_maltainvest.oauth_token);
             const selectedAccount = new_account_maltainvest.oauth_token;
+            websocketService.authenticate(selectedAccount);
             appStateService.newAccountAdded = true;
             accountService.addedAccount = selectedAccount;
         });

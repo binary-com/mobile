@@ -16,7 +16,6 @@ module.exports = {
     "sessionStorage": true,
     "isIOS9UIWebView": true,
     "ga": true,
-    "amplitude": true,
     "Chart": true,
     "trackJs": true
   },

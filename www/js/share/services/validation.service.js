@@ -11,13 +11,24 @@ angular
     .module("binary")
     .factory(
         "validationService",
-        ($state) => {
+        ($state, appStateService) => {
             const validationService = {};
+            const currency = sessionStorage.getItem('currency') || 'USD';
+            const currencyConfig = appStateService.currenciesConfig || {};
+            validationService.fractionalDigits = !_.isEmpty(currencyConfig) &&
+            currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
+
             const validateGeneralRegex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             const validateAddressRegex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
             const validatePostcodeRegex = /^([a-zA-Z\d-\s])*$/;
             const validatePhoneRegex = /^\+?[0-9\s]*$/;
             const validateTaxIdentificationNumberRegex = /^[\w-]{0,20}$/;
+            const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/;
+            const mailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
+            const tokenRegex = /^\w{8,128}$/;
+            const numberRegex = /^\d+$/;
+            const floatNumberRegex = new RegExp(`^\\d+(\\.\\d{0,${validationService.fractionalDigits}})?$`);
+            const integerRegex = /^\d+$/;
             /* eslint-disable */
             const validator = (val, regexPattern, reverse) => {
                 return {
@@ -35,6 +46,13 @@ angular
             validationService.validatePhone = (val => validator(val, validatePhoneRegex))();
             validationService.validateTaxIdentificationNumber = (val =>
                 validator(val, validateTaxIdentificationNumberRegex))();
+            validationService.validatePassword = (val => validator(val, passwordRegex))();
+            validationService.validateMail = (val => validator(val, mailRegex))();
+            validationService.validateToken = (val => validator(val, tokenRegex))();
+
+            validationService.validateFloatNumber = (val => validator(val, floatNumberRegex))();
+            validationService.validateIntegerNumber = (val => validator(val, integerRegex))();
+
 
             validationService.length = {
                 name: {
@@ -60,6 +78,19 @@ angular
                 secret_answer: {
                     min: 4,
                     max: 50
+                },
+                password: {
+                    min: 6,
+                    max: 25
+                },
+                selfExclusionLimits: {
+                    max: 20
+                },
+                selfExclusionOpenPositions: {
+                    max: 4
+                },
+                selfExclusionSessionDuration: {
+                    max: 5
                 }
             }
 

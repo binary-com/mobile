@@ -27,7 +27,7 @@
           <div class="col">
             <ion-list ng-repeat="currency in vm.currenciesOptions | filter: { isCryptoCurrency: false }">
               <ion-radio ng-model="vm.selectedCurrency" ng-value="currency.symb">
-                <img ng-src="{{currency.img}}" />
+                <img ng-src="{{currency.img}}"/>
                 <div>{{ currency.symb }}</div>
               </ion-radio>
             </ion-list>
@@ -44,10 +44,11 @@
           <div class="col">
             <ion-list ng-repeat="currency in vm.currenciesOptions | filter: { isCryptoCurrency: true }">
               <ion-radio ng-model="vm.selectedCurrency" ng-value="currency.symb">
-                <img ng-src="{{currency.img}}" />
+                <img ng-src="{{currency.img}}"/>
                 <div>{{ currency.symb }} (
                   <span translate="{{ 'cryptocurrencies.' + currency.name }}" translate-compile></span>
-                  )</div>
+                  )
+                </div>
               </ion-radio>
             </ion-list>
           </div>

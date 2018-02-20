@@ -373,10 +373,13 @@ angular
 
                     sendMessage(data);
                 },
-                landingCompanySend(company) {
+                landingCompanySend(company, reqId) {
                     const data = {
-                        landing_company: company
+                        landing_company: company,
                     };
+                    if (reqId) {
+                        data.req_id = reqId;
+                    }
                     sendMessage(data);
                 },
                 statesListSend(countryCode) {
@@ -534,7 +537,20 @@ angular
                                 localStorage.landingCompanyName = message.authorize.landing_company_fullname;
                                 localStorage.landingCompany = message.authorize.landing_company_name;
                                 appStateService.scopes = message.authorize.scopes;
-                                amplitude.setUserId(message.authorize.loginid);
+                                appStateService.upgradeableLandingCompanies =
+                                message.authorize.upgradeable_landing_companies
+                                || [];
+                                // update accounts from account list whenever authorize is received
+                                const accounts = !_.isEmpty(localStorage.getItem('accounts')) && 
+                                JSON.parse(localStorage.getItem('accounts'));
+                                const accountList = message.authorize.account_list;
+                                if (accounts && accounts.length && accountList) {
+                                    accounts.forEach((account, idx) => {
+                                        const acc = accountList.find(a => a.loginid === account.id);
+                                        accounts[idx] = Object.assign(account, acc);
+                                    });
+                                    localStorage.setItem('accounts', JSON.stringify(accounts));
+                                }
 
                                 if (_.isEmpty(message.authorize.currency)) {
                                     websocketService.sendRequestFor.currencies();
@@ -593,7 +609,6 @@ angular
                             break;
                         case "payout_currencies":
                             $rootScope.$broadcast("currencies", message.payout_currencies);
-                            appStateService.payoutCurrencies = message.payout_currencies;
                             break;
                         case "proposal":
                             if (message.proposal) {
@@ -658,7 +673,11 @@ angular
                             );
                             break;
                         case "landing_company_details":
-                            $rootScope.$broadcast("landing_company_details", message.landing_company_details);
+                            if (message.landing_company_details) {
+                                $rootScope.$broadcast("landing_company_details", message.landing_company_details);
+                            } else if (message.error) {
+                                $rootScope.$broadcast("landing_company_details:error", message.error.message);
+                            }
                             break;
                         case "reality_check":
                             $rootScope.$broadcast("reality_check", message.reality_check);
@@ -690,7 +709,7 @@ angular
                         case "landing_company":
                             if (message.landing_company) {
                                 localStorage.setItem('landingCompanyObject', JSON.stringify(message.landing_company));
-                                $rootScope.$broadcast("landing_company", message.landing_company);
+                                $rootScope.$broadcast("landing_company", message.landing_company, message.req_id);
                             } else if (message.error) {
                                 $rootScope.$broadcast("landing_company:error", message.error.message);
                             }
@@ -816,6 +835,8 @@ angular
                     }
                 }
             };
+
+            websocketService.getServerURL = localStorage.getItem('config.server_url') || config.serverUrl;
 
             return websocketService;
         }

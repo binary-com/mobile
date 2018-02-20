@@ -12,27 +12,25 @@
     RealAccountOpening.$inject = [
         "$scope",
         "$filter",
-        "$ionicModal",
         "websocketService",
         "appStateService",
         "accountService",
         "alertService",
         "clientService",
         "validationService",
-        "realAccountOpeningOptions"
+        "accountOptions"
     ];
 
     function RealAccountOpening(
         $scope,
         $filter,
-        $ionicModal,
         websocketService,
         appStateService,
         accountService,
         alertService,
         clientService,
         validationService,
-        realAccountOpeningOptions
+        accountOptions
     ) {
         const vm = this;
         vm.data = {};
@@ -40,7 +38,7 @@
         const loginid = accountService.getDefault().id;
         const isVirtual = clientService.isAccountOfType('virtual', loginid);
         vm.validation = validationService;
-        vm.options = realAccountOpeningOptions;
+        vm.options = accountOptions;
         vm.receivedSettings = false;
         vm.hasResidence = false;
         vm.disableUpdatebutton = false;
@@ -104,9 +102,9 @@
             vm.disableUpdatebutton = true;
             vm.error = {};
             let params = _.clone(vm.data);
-            params.date_of_birth = $filter("date")(params.date_of_birth, "yyyy-MM-dd");
+            params.date_of_birth = !_.isEmpty(vm.data.date_of_birth) ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
             params = _.forEach(params, (val, k) => {
-                params[k].val = _.trim(val);
+                params[k] = _.trim(val);
                 return params[k];
             });
             websocketService.sendRequestFor.createRealAccountSend(params);
@@ -126,8 +124,8 @@
 
         $scope.$on("new_account_real", (e, new_account_real) => {
             vm.disableUpdatebutton = false;
-            websocketService.authenticate(new_account_real.oauth_token);
             const selectedAccount = new_account_real.oauth_token;
+            websocketService.authenticate(selectedAccount);
             appStateService.newAccountAdded = true;
             accountService.addedAccount = selectedAccount;
         });

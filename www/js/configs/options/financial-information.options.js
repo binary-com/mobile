@@ -1,263 +1,263 @@
-angular.module("binary").constant("maltainvestAcountOpeningOptions", {
+angular.module("binary").constant("financialInformationOptions", {
     experienceOptions: [
         {
-            text : 'new-account-maltainvest.under_1_year',
+            text : 'financial-information-options.under_1_year',
             value: '0-1 year',
         },
         {
-            text : 'new-account-maltainvest.1_2_years',
+            text : 'financial-information-options.1_2_years',
             value: '1-2 years',
         },
         {
-            text : 'new-account-maltainvest.over_3_years',
+            text : 'financial-information-options.over_3_years',
             value: 'Over 3 years',
         }
     ],
     frequencyOptions: [
         {
-            text : 'new-account-maltainvest.0_5_transactions',
+            text : 'financial-information-options.0_5_transactions',
             value: '0-5 transactions in the past 12 months',
         },
         {
-            text : 'new-account-maltainvest.6_10_transactions',
+            text : 'financial-information-options.6_10_transactions',
             value: '6-10 transactions in the past 12 months',
         },
         {
-            text : 'new-account-maltainvest.transactions_more',
+            text : 'financial-information-options.transactions_more',
             value: '40 transactions or more in the past 12 months',
         }
     ],
     employment_industry: [
         {
-            text : 'new-account-maltainvest.construction',
+            text : 'financial-information-options.construction',
             value: 'Construction',
         },
         {
-            text : 'new-account-maltainvest.education',
+            text : 'financial-information-options.education',
             value: 'Education',
         },
         {
-            text : 'new-account-maltainvest.finance',
+            text : 'financial-information-options.finance',
             value: 'Finance',
         },
         {
-            text : 'new-account-maltainvest.health',
+            text : 'financial-information-options.health',
             value: 'Health',
         },
         {
-            text : 'new-account-maltainvest.tourism',
+            text : 'financial-information-options.tourism',
             value: 'Tourism',
         },
         {
-            text : 'new-account-maltainvest.other',
+            text : 'financial-information-options.other',
             value: 'Other',
         }
     ],
     education_level: [
         {
-            text : 'new-account-maltainvest.primary',
+            text : 'financial-information-options.primary',
             value: 'Primary',
         },
         {
-            text : 'new-account-maltainvest.secondary',
+            text : 'financial-information-options.secondary',
             value: 'Secondary',
         },
         {
-            text : 'new-account-maltainvest.tertiary',
+            text : 'financial-information-options.tertiary',
             value: 'Tertiary',
         }
     ],
     income_source: [
         {
-            text : 'new-account-maltainvest.salaried',
+            text : 'financial-information-options.salaried',
             value: 'Salaried Employee',
         },
         {
-            text : 'new-account-maltainvest.self_employed',
+            text : 'financial-information-options.self_employed',
             value: 'Self-Employed',
         },
         {
-            text : 'new-account-maltainvest.investment',
+            text : 'financial-information-options.investment',
             value: 'Investments & Dividends',
         },
         {
-            text : 'new-account-maltainvest.pension',
+            text : 'financial-information-options.pension',
             value: 'Pension',
         },
         {
-            text : 'new-account-maltainvest.other',
+            text : 'financial-information-options.other',
             value: 'Other',
         }
     ],
     employment_status: [
         {
-            text : 'new-account-maltainvest.employed',
+            text : 'financial-information-options.employed',
             value: 'Employed',
         },
         {
-            text : 'new-account-maltainvest.pensioner',
+            text : 'financial-information-options.pensioner',
             value: 'Pensioner',
         },
         {
-            text : 'new-account-maltainvest.self_employed',
+            text : 'financial-information-options.self_employed',
             value: 'Self-Employed',
         },
         {
-            text : 'new-account-maltainvest.student',
+            text : 'financial-information-options.student',
             value: 'Student',
         },
         {
-            text : 'new-account-maltainvest.unemployed',
+            text : 'financial-information-options.unemployed',
             value: 'Unemployed',
         }
     ],
     occupation: [
         {
-            text : 'new-account-maltainvest.managers',
+            text : 'financial-information-options.managers',
             value: 'Managers',
         },
         {
-            text : 'new-account-maltainvest.professionals',
+            text : 'financial-information-options.professionals',
             value: 'Professionals',
         },
         {
-            text : 'new-account-maltainvest.clerks',
+            text : 'financial-information-options.clerks',
             value: 'Clerks',
         },
         {
-            text : 'new-account-maltainvest.personal_care',
+            text : 'financial-information-options.personal_care',
             value: 'Personal Care, Sales and Service Workers',
         },
         {
-            text : 'new-account-maltainvest.agricultural',
+            text : 'financial-information-options.agricultural',
             value: 'Agricultural, Forestry and Fishery Workers',
         },
         {
-            text : 'new-account-maltainvest.craft',
+            text : 'financial-information-options.craft',
             value: 'Craft, Metal, Electrical and Electronics Workers',
         },
         {
-            text : 'new-account-maltainvest.machine',
+            text : 'financial-information-options.machine',
             value: 'Plant and Machine Operators and Assemblers',
         },
         {
-            text : 'new-account-maltainvest.helpers',
+            text : 'financial-information-options.helpers',
             value: 'Cleaners and Helpers',
         },
         {
-            text : 'new-account-maltainvest.mining',
+            text : 'financial-information-options.mining',
             value: 'Mining, Construction, Manufacturing and Transport Workers',
         },
         {
-            text : 'new-account-maltainvest.armed_forces',
+            text : 'financial-information-options.armed_forces',
             value: 'Armed Forces',
         },
         {
-            text : 'new-account-maltainvest.government_officers',
+            text : 'financial-information-options.government_officers',
             value: 'Government Officers',
         },
         {
-            text : 'new-account-maltainvest.others',
+            text : 'financial-information-options.others',
             value: 'others',
         }
     ],
     source_of_wealth: [
         {
-            text : 'new-account-maltainvest.accumulation_of_income_savings',
+            text : 'financial-information-options.accumulation_of_income_savings',
             value: 'Accumulation of Income/Savings',
         },
         {
-            text : 'new-account-maltainvest.cash_business',
+            text : 'financial-information-options.cash_business',
             value: 'Cash Business',
         },
         {
-            text : 'new-account-maltainvest.company_ownership',
+            text : 'financial-information-options.company_ownership',
             value: 'Company Ownership',
         },
         {
-            text : 'new-account-maltainvest.divorce_settlement',
+            text : 'financial-information-options.divorce_settlement',
             value: 'Divorce Settlement',
         },
         {
-            text : 'new-account-maltainvest.inheritance',
+            text : 'financial-information-options.inheritance',
             value: 'Inheritance',
         },
         {
-            text : 'new-account-maltainvest.investment_income',
+            text : 'financial-information-options.investment_income',
             value: 'Investment Income',
         },
         {
-            text : 'new-account-maltainvest.sale_of_property',
+            text : 'financial-information-options.sale_of_property',
             value: 'Sale of Property',
         },
         {
-            text : 'new-account-maltainvest.other',
+            text : 'financial-information-options.other',
             value: 'Other',
         }
     ],
     net_income: [
         {
-            text : 'new-account-maltainvest.net_income_1',
+            text : 'financial-information-options.net_income_1',
             value: 'Less than $25,000',
         },
         {
-            text : 'new-account-maltainvest.net_income_2',
+            text : 'financial-information-options.net_income_2',
             value: '$25,000 - $50,000',
         },
         {
-            text : 'new-account-maltainvest.net_income_3',
+            text : 'financial-information-options.net_income_3',
             value: '$50,001 - $100,000',
         },
         {
-            text : 'new-account-maltainvest.net_income_4',
+            text : 'financial-information-options.net_income_4',
             value: '$100,001 - $500,000',
         },
         {
-            text : 'new-account-maltainvest.net_income_5',
+            text : 'financial-information-options.net_income_5',
             value: 'Over $500,000',
         }
     ],
     estimated_worth: [
         {
-            text : 'new-account-maltainvest.estimated_worth_1',
+            text : 'financial-information-options.estimated_worth_1',
             value: 'Less than $100,000',
         },
         {
-            text : 'new-account-maltainvest.estimated_worth_2',
+            text : 'financial-information-options.estimated_worth_2',
             value: '$100,000 - $250,000',
         },
         {
-            text : 'new-account-maltainvest.estimated_worth_3',
+            text : 'financial-information-options.estimated_worth_3',
             value: '$250,001 - $500,000',
         },
         {
-            text : 'new-account-maltainvest.estimated_worth_4',
+            text : 'financial-information-options.estimated_worth_4',
             value: '$500,001 - $1,000,000',
         },
         {
-            text : 'new-account-maltainvest.estimated_worth_5',
+            text : 'financial-information-options.estimated_worth_5',
             value: 'Over $1,000,000',
         }
     ],
     account_turnover: [
         {
-            text : 'new-account-maltainvest.account_turnover_1',
+            text : 'financial-information-options.account_turnover_1',
             value: 'Less than $25,000',
         },
         {
-            text : 'new-account-maltainvest.account_turnover_2',
+            text : 'financial-information-options.account_turnover_2',
             value: '$25,000 - $50,000',
         },
         {
-            text : 'new-account-maltainvest.account_turnover_3',
+            text : 'financial-information-options.account_turnover_3',
             value: '$50,001 - $100,000',
         },
         {
-            text : 'new-account-maltainvest.account_turnover_4',
+            text : 'financial-information-options.account_turnover_4',
             value: '$100,001 - $500,000',
         },
         {
-            text : 'new-account-maltainvest.account_turnover_5',
+            text : 'financial-information-options.account_turnover_5',
             value: 'Over $500,000',
         }
     ]

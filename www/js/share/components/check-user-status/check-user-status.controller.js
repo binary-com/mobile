@@ -44,10 +44,10 @@
         // check type of account
         vm.checkAccountType = function() {
             if (currentAccount.id) {
-                vm.isFinancial = _.startsWith(currentAccount.id, "MF");
-                vm.isCR = _.startsWith(currentAccount.id, "CR");
-                vm.isMLT = _.startsWith(currentAccount.id, "MLT");
-                vm.isMX = _.startsWith(currentAccount.id, "MX");
+                vm.isFinancial = /MF/i.test(currentAccount.id);
+                vm.isCR = /CR/i.test(currentAccount.id);
+                vm.isMLT = /MLT/i.test(currentAccount.id);
+                vm.isMX = /MX/i.test(currentAccount.id);
                 vm.isVirtual = !!appStateService.virtuality;
             }
         };
