@@ -153,11 +153,11 @@
     "integer_error": "Odstęp czasu powinien być liczbą całkowitą."
   },
   "new-virtual-account": {
-    "continue": "Continue",
-    "signup": "Sign up",
-    "email": "Email",
-    "signup-question": "Don't have an account?",
-    "verification-code": "Verification Code",
+    "continue": "Kontynuuj",
+    "signup": "Zarejestruj się",
+    "email": "Adres e-mail",
+    "signup-question": "Nie masz konta?",
+    "verification-code": "Kod weryfikacyjny",
     "password": "Password",
     "residence": "Residence:",
     "select": "Select your country",
