@@ -706,7 +706,7 @@
     "excluded_until": "To konto jest wyłączone z handlowania do {{time}}",
     "is_disabled": "To konto jest wyłączone",
     "account_warning": "Uwaga: Wszelkie pytania dotyczące wyłączonych kont prosimy kierować do",
-    "customer_support": "dział obsługi klienta"
+    "customer_support": "działu obsługi klienta"
   },
   "financial-information-options": {
     "under_1_year": "0-1 rok",
