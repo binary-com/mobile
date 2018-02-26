@@ -9,23 +9,24 @@
 (function() {
     angular.module("binary.pages.change-password.controllers").controller("ChangePasswordController", ChangePassword);
 
-    ChangePassword.$inject = ["$scope", "$timeout", "websocketService", "appStateService", "alertService"];
+    ChangePassword.$inject = ["$scope", "$timeout", "websocketService", "appStateService", "alertService", "validationService"];
 
-    function ChangePassword($scope, $timeout, websocketService, appStateService, alertService) {
+    function ChangePassword($scope, $timeout, websocketService, appStateService, alertService, validationService) {
         const vm = this;
+        vm.validation = validationService;
         vm.passwordEqual = false;
         vm.newPasswordHasError = false;
         vm.oldPasswordHasError = false;
         vm.hideInput = false;
         vm.hideChangedPasswordText = true;
 
-        vm.checkPassword = function() {
+        vm.checkPassword = () => {
             $scope.$applyAsync(() => {
                 vm.passwordEqual = vm.newPassword === vm.repeatNewPassword;
             });
         };
 
-        vm.changePass = function() {
+        vm.changePass = () => {
             websocketService.sendRequestFor.changePassword(vm.currentPassword, vm.newPassword);
             vm.newPasswordHasError = false;
             vm.oldPasswordHasError = false;

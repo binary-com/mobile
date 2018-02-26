@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.trade.components.chart.controllers").controller("DigitResultController", Result);
 
-    Result.$inject = ["$scope", "chartService"];
+    Result.$inject = ["$scope"];
 
-    function Result($scope, chartService) {
+    function Result($scope) {
         const vm = this;
 
         vm.spots = [];

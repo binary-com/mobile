@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {
     "bower": "^1.7.0",
+    "cordova-android": "^6.2.3",
     "cordova-plugin-app-version": "~0.1.8",
     "cordova-plugin-background-mode": "~0.6.5",
     "cordova-plugin-code-push": "~1.9.2-beta",
@@ -28,6 +29,7 @@
     "gulp-minify-css": "^0.3.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^2.1.0",
+    "ionic-plugin-deeplinks": "^1.0.15",
     "ionic-plugin-keyboard": "~2.2.1",
     "xml2js": "^0.4.16"
   },
@@ -90,7 +92,28 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-whitelist": {},
-      "ionic-plugin-keyboard": {}
-    }
+      "ionic-plugin-keyboard": {},
+      "ionic-plugin-deeplinks": {
+        "URL_SCHEME": "ticktrade",
+        "DEEPLINK_SCHEME": "https",
+        "DEEPLINK_HOST": "ticktrade.binary.com",
+        "ANDROID_PATH_PREFIX": "/",
+        "ANDROID_2_PATH_PREFIX": "/",
+        "ANDROID_3_PATH_PREFIX": "/",
+        "ANDROID_4_PATH_PREFIX": "/",
+        "ANDROID_5_PATH_PREFIX": "/",
+        "DEEPLINK_2_SCHEME": " ",
+        "DEEPLINK_2_HOST": " ",
+        "DEEPLINK_3_SCHEME": " ",
+        "DEEPLINK_3_HOST": " ",
+        "DEEPLINK_4_SCHEME": " ",
+        "DEEPLINK_4_HOST": " ",
+        "DEEPLINK_5_SCHEME": " ",
+        "DEEPLINK_5_HOST": " "
+      }
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }

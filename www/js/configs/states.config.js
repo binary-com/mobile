@@ -35,6 +35,9 @@ angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfi
             templateUrl : "js/pages/trade/trade.template.html"
         })
         .state("signin", {
+            params: {
+                verificationCode: null
+            },
             cache       : false,
             templateUrl : "js/pages/sign-in/sign-in.template.html",
             controller  : "SigninController",
@@ -217,7 +220,22 @@ angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfi
             controller  : "NotificationsController",
             controllerAs: "vm",
             detailed    : true
+        })
+        .state("set-currency", {
+            parent      : "layout",
+            cache       : false,
+            templateUrl : "js/pages/set-currency/set-currency.template.html",
+            controller  : "SetCurrencyController",
+            controllerAs: "vm"
+        })
+        .state("accounts-management", {
+            parent      : "layout",
+            cache       : false,
+            templateUrl : "js/pages/accounts-management/accounts-management.template.html",
+            controller  : "AccountsManagementController",
+            controllerAs: "vm"
         });
+
 
     $urlRouterProvider.otherwise("/");
 });

@@ -6,7 +6,8 @@
 
 angular.module("binary").constant("config", {
     app_id         : "10",
-    wsUrl          : "wss://ws.binaryws.com/websockets/v3", // Don't set language value here
+    serverUrl      : "frontend.binaryws.com",
+    wsUrl          : "wss://frontend.binaryws.com/websockets/v3", // Don't set language value here
     oauthUrl       : "https://oauth.binary.com/oauth2/authorize",
     tradeCategories: [
         {
@@ -106,6 +107,13 @@ angular.module("binary").constant("config", {
         contractDisplayName: 1,
         contractFrom       : 2,
         contractTo         : 3
+    },
+    cryptoConfig: {
+        BTC: { name: 'bitcoin' },
+        BCH: { name: 'bitcoin_cash' },
+        ETH: { name: 'ether' },
+        ETC: { name: 'ether_classic' },
+        LTC: { name: 'litecoin' },
     },
     appSupportedLanguages: ["en", "id", "ru", "zh_tw", "zh_cn", "de", "fr", "pl", "it"]
 });

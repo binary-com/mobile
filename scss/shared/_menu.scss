@@ -42,6 +42,12 @@
             color: $white;
             font-size: 0.8rem;
         }
+        &.endpoint-notification {
+            z-index: 10;
+            align-items: center;
+            color: $white;
+            background: $negativeColor;
+        }
     }
     .item-complex {
         .item-content {

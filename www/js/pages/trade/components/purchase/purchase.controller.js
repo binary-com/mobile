@@ -150,9 +150,6 @@
                     DurationUnit: vm.proposal.duration_unit,
                     result      : contract.result === "lose" ? "Lost" : "Won"
                 };
-                // Send statistic to Amplitude
-                analyticsService.amplitude.logEvent("Purchase", ampEventProperties);
-
                 sendProposal();
 
                 // Unlock view to navigate

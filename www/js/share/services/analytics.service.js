@@ -29,13 +29,5 @@ angular.module("binary").factory("analyticsService", accountService => {
         }
     };
 
-    factory.amplitude = {
-        logEvent(title, data) {
-            if (amplitude !== "undefined") {
-                amplitude.logEvent(title, data);
-            }
-        }
-    };
-
     return factory;
 });

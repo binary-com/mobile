@@ -1,271 +1,218 @@
-<ion-view class="profile" title="Profile" ng-cloak>
+<ion-view class="meta-trader" title="Meta-trader" ng-cloak>
     <ion-content class="general-content has-header has-subheader">
-      <div class="row">
-        <div class="col">
-          <h1 class="page-title">
-            {{ 'mt.meta_trader_accounts'| translate }}
-          </h1>
-        </div>
-      </div>
-      <div class="row"
-           ng-if="vm.hasMTAccess === null">
-        <div class="col center">
-          <ion-spinner></ion-spinner>
-        </div>
-      </div>
-      <div class="row"
-           ng-if="vm.hasMTAccess === false">
-        <div class="col center error">
-          <h3> {{ 'mt.feature_is_not_available' | translate }} </h3>
-        </div>
-      </div>
-      <div ng-if="vm.hasMTAccess && vm.mt5LoginList && vm.mt5LoginList.length <= 0">
         <div class="row">
-          <div class="col center">
-            <h3> {{"mt.you_do_not_have_mt5_account" | translate}} </h3>
-          </div>
+            <div class="col">
+              <h1 class="page-title">
+                {{ 'mt.meta_trader_accounts'| translate }}
+              </h1>
+            </div>
         </div>
-        <div class="row">
-          <div class="col center">
-            <button class="button"
-                    ng-click="vm.createMTAccount()"> {{ "mt.create_account" | translate }}
-          </div>
-        </div>
-      </div>
-      <div ng-if="vm.hasMTAccess && vm.mt5LoginList && vm.mt5LoginList.length > 0">
-        <div class="card">
-          <div class="item item-divider"
-               ng-click="vm.loadAccount(vm.accountType.demo)">
-            {{ 'mt.demo_account' | translate }}
-          </div>
-          <div class="item-text-wrap"
-               ng-class="{'hide': vm.openCard !== vm.accountType.demo}">
-            <div class="row"
-                 ng-if="!vm.settings && !vm.upgradeYourAccount">
-              <div class="col center">
+        <div class="row"
+             ng-if="vm.hasMTAccess === null">
+            <div class="col center">
                 <ion-spinner></ion-spinner>
-              </div>
             </div>
-
-            <div class="row"
-                 ng-if="vm.upgradeYourAccount">
-              <div class="col center">
-                <button class="button"
-                        ng-click="vm.createMTAccount()">
-                  {{ 'mt.create_demo_account' | translate }}
-                </button>
-              </div>
-            </div>
-
-            <div class="row"
-                 ng-if="vm.settings && !vm.upgradeYourAccount">
-              <div class="col center">
-                <div class="row">
-                  <div class="col">
-                    {{ 'mt.login_id' | translate }}
-                  </div>
-                  <div class="col">
-                    {{ vm.settings.login }}
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    {{ 'mt.balance' | translate }}
-                  </div>
-                  <div class="col">
-                    {{ vm.settings.balance | currency:'':2 }}
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    {{ 'mt.name' | translate }}
-                  </div>
-                  <div class="col">
-                    {{ vm.settings.name }}
-                  </div>
-                </div>
-
-                <!--
-                <div class="row">
-                  <div class="col center">
-                    <button class="button" ng-click="vm.openMT5('_system')">
-                      {{ 'mt.start_trading_with_mt5' | translate }}
-                    </button>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    <button class="button" ng-click="vm.openMT5('_blank')">
-                      {{ 'mt.start_trading_with_mt5' | translate }}
-                    </button>
-                  </div>
-                </div>
-                -->
-
-                <div class="row">
-                  <div class="col">
-                    <button class="button" ng-click="vm.openMT5()">
-                      {{ 'mt.start_trading_with_mt5' | translate }}
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
         </div>
-        <div class="card">
-          <div class="item item-divider"
-               ng-click="vm.loadAccount(vm.accountType.financial)">
-            {{ 'mt.financial_account' | translate }}
-          </div>
-          <div class="item-text-wrap"
-               ng-class="{'hide': vm.openCard !== vm.accountType.financial}">
-            <div class="row"
-                 ng-if="!vm.settings && !vm.upgradeYourAccount">
-              <div class="col center">
-                <ion-spinner></ion-spinner>
-              </div>
+        <div class="row"
+             ng-if="vm.hasMTAccess === false">
+            <div class="col center error">
+                <h3> {{ 'mt.feature_is_not_available' | translate }} </h3>
             </div>
-
-            <div class="row"
-                 ng-if="vm.upgradeYourAccount && !vm.hasRealAccount">
-              <div class="col center">
-                <strong> {{ 'mt.upgrade_financial_account' | translate }} </strong>
-              </div>
-            </div>
-
-            <div class="row"
-                 ng-if="vm.upgradeYourAccount && vm.hasRealAccount">
-              <div class="col center">
-                <button class="button"
-                        ng-click="vm.createMTAccount('financial')">
-                  {{ 'mt.create_financial_account' | translate }}
-                </button>
-              </div>
-            </div>
-
-            <div class="row"
-                 ng-if="vm.settings && !vm.upgradeYourAccount">
-              <div class="col center">
-                <div class="row">
-                  <div class="col">
-                    {{ 'mt.login_id' | translate }}
-                  </div>
-                  <div class="col">
-                    {{ vm.settings.login }}
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    {{ 'mt.balance' | translate }}
-                  </div>
-                  <div class="col">
-                    {{ vm.settings.balance | currency:'':2 }}
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    {{ 'mt.name' | translate }}
-                  </div>
-                  <div class="col">
-                    {{ vm.settings.name }}
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    <button class="button" ng-click="vm.openMT5()">
-                      {{ 'mt.start_trading_with_mt5' | translate }}
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
         </div>
-        <div class="card">
-          <div class="item item-divider"
-               ng-click="vm.loadAccount(vm.accountType.volatility)">
-            {{ 'mt.volatility_account' | translate }}
-          </div>
-          <div class="item-text-wrap"
-               ng-class="{'hide': vm.openCard !== vm.accountType.volatility}">
-            <div class="row"
-                 ng-if="!vm.settings && !vm.upgradeYourAccount">
-              <div class="col center">
-                <ion-spinner></ion-spinner>
-              </div>
-            </div>
-
-            <div class="row"
-                 ng-if="vm.upgradeYourAccount && !vm.hasRealAccount">
-              <div class="col center">
-                <strong> {{ 'mt.upgrade_volatility_account' | translate }} </strong>
-              </div>
-            </div>
-
-            <div class="row"
-                 ng-if="vm.upgradeYourAccount && vm.hasRealAccount">
-              <div class="col center">
-                <button class="button"
-                        ng-click="vm.createMTAccount('volatility')">
-                  {{ 'mt.create_volatility_account' | translate }}
-                </button>
-              </div>
-            </div>
-
-            <div class="row"
-                 ng-if="vm.settings && !vm.upgradeYourAccount">
-              <div class="col center">
-                <div class="row">
-                  <div class="col">
-                    {{ 'mt.login_id' | translate }}
-                  </div>
-                  <div class="col">
-                    {{ vm.settings.login }}
-                  </div>
+        <div ng-if="vm.hasMTAccess && vm.mt5LoginList && vm.mt5LoginList.length <= 0">
+            <div class="row">
+                <div class="col center">
+                    <h3> {{"mt.you_do_not_have_mt5_account" | translate}} </h3>
                 </div>
-
-                <div class="row">
-                  <div class="col">
-                    {{ 'mt.balance' | translate }}
-                  </div>
-                  <div class="col">
-                    {{ vm.settings.balance | currency:'':2 }}
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    {{ 'mt.name' | translate }}
-                  </div>
-                  <div class="col">
-                    {{ vm.settings.name }}
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    <button class="button" ng-click="vm.openMT5()">
-                      {{ 'mt.start_trading_with_mt5' | translate }}
+            </div>
+            <div class="row">
+                <div class="col center">
+                    <button class="button"
+                            ng-click="vm.createMTAccount()"> {{ "mt.create_account" | translate }}
                     </button>
-                  </div>
                 </div>
-
-              </div>
             </div>
-
-          </div>
         </div>
-      </div>
+        <div ng-if="vm.hasMTAccess && vm.mt5LoginList && vm.mt5LoginList.length > 0">
+            <div class="card">
+                <div class="item item-divider"
+                     ng-click="vm.loadAccount(vm.accountType.demo)">
+                    {{ 'mt.demo_account' | translate }}
+                </div>
+                <div class="item-text-wrap" ng-class="{'hide': vm.openCard !== vm.accountType.demo}">
+                    <div class="row" ng-if="!vm.settings && !vm.upgradeYourAccount">
+                        <div class="col center">
+                            <ion-spinner></ion-spinner>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="vm.upgradeYourAccount">
+                        <div class="col center">
+                            <button class="button" ng-click="vm.createMTAccount()">
+                                {{ 'mt.create_demo_account' | translate }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-if="vm.settings && !vm.upgradeYourAccount">
+                        <div class="col center">
+                            <div class="row">
+                                <div class="col">
+                                    {{ 'mt.login_id' | translate }}
+                                </div>
+                                <div class="col">
+                                    {{ vm.settings.login }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    {{ 'mt.balance' | translate }}
+                                </div>
+                                <div class="col">
+                                    {{ vm.settings.balance | currency:'':2 }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    {{ 'mt.name' | translate }}
+                                </div>
+                                <div class="col">
+                                    {{ vm.settings.name }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <button class="button" ng-click="vm.openMT5()">
+                                        {{ 'mt.start_trading_with_mt5' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="item item-divider" ng-click="vm.loadAccount(vm.accountType.financial)">
+                    {{ 'mt.financial_account' | translate }}
+                </div>
+                <div class="item-text-wrap" ng-class="{'hide': vm.openCard !== vm.accountType.financial}">
+                    <div class="row" ng-if="!vm.settings && !vm.upgradeYourAccount">
+                        <div class="col center">
+                            <ion-spinner></ion-spinner>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-if="vm.upgradeYourAccount && !vm.hasRealAccount">
+                        <div class="col center">
+                          <strong> {{ 'mt.upgrade_financial_account' | translate }} </strong>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-if="vm.upgradeYourAccount && vm.hasRealAccount">
+                        <div class="col center">
+                            <button class="button" ng-click="vm.createMTAccount('financial')">
+                                {{ 'mt.create_financial_account' | translate }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-if="vm.settings && !vm.upgradeYourAccount">
+                        <div class="col center">
+                            <div class="row">
+                                <div class="col"> {{ 'mt.login_id' | translate }} </div>
+                                <div class="col"> {{ vm.settings.login }} </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    {{ 'mt.balance' | translate }}
+                                </div>
+                                <div class="col">
+                                    {{ vm.settings.balance | currency:'':2 }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    {{ 'mt.name' | translate }}
+                                </div>
+                                <div class="col">
+                                    {{ vm.settings.name }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <button class="button" ng-click="vm.openMT5()">
+                                        {{ 'mt.start_trading_with_mt5' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="item item-divider" ng-click="vm.loadAccount(vm.accountType.volatility)">
+                    {{ 'mt.volatility_account' | translate }}
+                </div>
+                <div class="item-text-wrap" ng-class="{'hide': vm.openCard !== vm.accountType.volatility}">
+                    <div class="row" ng-if="!vm.settings && !vm.upgradeYourAccount">
+                        <div class="col center">
+                        <ion-spinner></ion-spinner>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="vm.upgradeYourAccount && !vm.hasRealAccount">
+                        <div class="col center">
+                            <strong> {{ 'mt.upgrade_volatility_account' | translate }} </strong>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="vm.upgradeYourAccount && vm.hasRealAccount">
+                        <div class="col center">
+                            <button class="button" ng-click="vm.createMTAccount('volatility')">
+                                {{ 'mt.create_volatility_account' | translate }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-if="vm.settings && !vm.upgradeYourAccount">
+                        <div class="col center">
+                            <div class="row">
+                                <div class="col">
+                                    {{ 'mt.login_id' | translate }}
+                                </div>
+                                <div class="col">
+                                    {{ vm.settings.login }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    {{ 'mt.balance' | translate }}
+                                </div>
+                                <div class="col">
+                                    {{ vm.settings.balance | currency:'':2 }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    {{ 'mt.name' | translate }}
+                                </div>
+                                <div class="col">
+                                    {{ vm.settings.name }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <button class="button" ng-click="vm.openMT5()">
+                                        {{ 'mt.start_trading_with_mt5' | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

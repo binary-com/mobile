@@ -178,6 +178,7 @@
 
         vm.selectUnderlying = function(underlying) {
             vm.options.underlying = underlying;
+            vm.options.barrier = null;
             sessionStorage.removeItem("tradeTypes");
             websocketService.sendRequestFor.contractsForSymbol(underlying.symbol);
             vm.section1 = vm.SECTIONS.OVERVIEW1;

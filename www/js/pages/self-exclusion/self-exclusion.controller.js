@@ -9,16 +9,20 @@
 (function() {
     angular.module("binary.pages.self-exclusion.controllers").controller("SelfExclusionController", SelfExclusion);
 
-    SelfExclusion.$inject = ["$scope", "$translate", "alertService", "websocketService"];
+    SelfExclusion.$inject = ["$scope", "$translate", "alertService", "websocketService", "validationService", "appStateService"];
 
-    function SelfExclusion($scope, $translate, alertService, websocketService) {
+    function SelfExclusion($scope, $translate, alertService, websocketService,
+        validationService, appStateService) {
         const vm = this;
+        vm.validation = validationService;
+        vm.fractionalDigits = vm.validation.fractionalDigits;
         vm.today = new Date();
         vm.minDate = vm.today.toISOString().slice(0, 10);
         vm.minDateTime = vm.today.toISOString();
         vm.nextSixWeeks = new Date(vm.today.getTime() + 7 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
         vm.nextSixMonths = new Date(vm.today.getTime() + 30 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
         vm.disableUpdateButton = true;
+        vm.isDataLoaded = false;
         vm.data = {};
 
         $scope.$on("get-self-exclusion", (e, response) => {
@@ -26,6 +30,7 @@
                 vm.data = response;
                 vm.limits = _.clone(response);
                 vm.disableUpdateButton = false;
+                vm.isDataLoaded = true;
             });
         });
 
@@ -53,7 +58,7 @@
             vm.disableUpdateButton = false;
         });
 
-        vm.submit = function() {
+        vm.submit = () => {
             vm.disableUpdateButton = true;
             setSelfExclusion();
         };

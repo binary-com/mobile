@@ -25,7 +25,6 @@
                 sessionStorage.setItem("balance", vm.balance.balance);
 
                 getBalance();
-                changeProposalCurrency();
             });
         });
 
@@ -33,7 +32,6 @@
             $scope.$applyAsync(() => {
                 vm.balance = response;
                 appStateService.balanceSubscribtionId = response.id || null;
-                changeProposalCurrency();
             });
         });
 
@@ -47,9 +45,10 @@
             websocketService.sendRequestFor.balance();
         }
 
-        function changeProposalCurrency() {
-            $scope.$broadcast("currency:changed", vm.balance.currency);
-        }
+        $scope.$on('currency:changed', (e, currency) => {
+            getBalance();
+            vm.balance.currency = currency;
+        });
 
         getBalance();
     }
