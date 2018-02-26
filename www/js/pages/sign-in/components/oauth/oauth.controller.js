@@ -24,7 +24,7 @@
 
         let accounts = [];
 
-        const authenticate = function(_token) {
+        const authenticate = _token => {
             // Validate the token
             if (_token && _token.length === 32) {
                 $ionicLoading.show();
@@ -45,20 +45,29 @@
 
         $scope.$on("authorize", (e, response) => {
             if (response) {
+                const accountList = response.account_list;
                 accounts.forEach((value, index) => {
                     if (index > 0) {
-                        accounts[index].email = response.email;
-                        accounts[index].country = response.country;
-                        accountService.add(accounts[index]);
+                        let account = accounts[index];
+                        account.email = response.email;
+                        account.country = response.country;
+                        if (accountList) {
+                            const acc = accountList.find(a => a.loginid === account.loginid);
+                            account = Object.assign(account, acc);
+                        }
+                        accountService.add(account);
                     }
                 });
             }
             $ionicLoading.hide();
         });
 
-        vm.signin = function() {
+        vm.signin = () => {
+            const serverUrl = localStorage.getItem('config.server_url');
+            const oauthUrl = serverUrl ? `https://${serverUrl}/oauth2/authorize` : config.oauthUrl;
+            const appId = localStorage.getItem('config.app_id') || config.app_id;
             const authWindow = window.open(
-                `${config.oauthUrl}?app_id=${config.app_id}&l=${languageService.read()}`,
+                `${oauthUrl}?app_id=${appId}&l=${languageService.read()}`,
                 "_blank",
                 "location=no,toolbar=no"
             );
@@ -89,15 +98,12 @@
                 result = regex.exec(_url);
                 if(result){
                     accounts.push({
-                        loginid   : result[1],
-                        token     : result[2],
-                        currency  : result[4] ? result[4] : null,
-                        email     : "",
-                        is_default: false
+                        loginid : result[1],
+                        token   : result[2],
+                        currency: result[4] ? result[4] : null,
                     });
                 }
             } while (result)
-
             return accounts;
         }
 

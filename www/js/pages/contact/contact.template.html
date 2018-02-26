@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col">
         <h1 class="page-title">
-          {{'contact.contact_us' | translate}}
+          {{ 'contact.contact_us' | translate }}
         </h1>
       </div>
     </div>
@@ -11,64 +11,61 @@
       <div class="col">
         <div class="list">
           <div class="item item-text-wrap item-divider">
-            {{'contact.telephone' | translate}}
+            {{ 'contact.telephone' | translate }}
           </div>
           <div class="item item-input item-select">
             <select name="country" ng-model="vm.data.selectedCountry">
               <option value="australia">
-                {{'contact.australia' | translate}}
+                {{ 'contact.australia' | translate }}
               </option>
               <option value="canada">
-                {{'contact.canada' | translate}}
+                {{ 'contact.canada' | translate }}
               </option>
               <option value="indonesia">
-                {{'contact.indonesia' | translate}}
+                {{ 'contact.indonesia' | translate }}
               </option>
               <option value="ireland">
-                {{'contact.ireland' | translate}}
+                {{ 'contact.ireland' | translate }}
               </option>
               <option value="poland">
-                {{'contact.poland' | translate}}
+                {{ 'contact.poland' | translate }}
               </option>
               <option value="russia">
-                {{'contact.russia' | translate}}
+                {{ 'contact.russia' | translate }}
               </option>
               <option value="united_kingdom">
-                {{'contact.united_kingdom' | translate}}
+                {{ 'contact.united_kingdom' | translate }}
               </option>
             </select>
           </div>
-
-          <div class="item item-text-wrap" ng-repeat="(key, val) in vm.data.countries" ng-show="key === vm.data.selectedCountry">
+          <div class="item item-text-wrap"
+               ng-repeat="(key, val) in vm.data.countries"
+               ng-show="key === vm.data.selectedCountry">
             <div class="row" ng-repeat="phone in val.phone">
               <div class="col">
                 {{ phone.num }}
-                <span ng-if="phone.toll_free">{{ 'contact.toll_free' | translate }}</span>
+                <span ng-if="phone.toll_free"> {{ 'contact.toll_free' | translate }} </span>
               </div>
             </div>
-
             <div class="row">
               <div class="col">
-                <p>
-                  {{'contact.calls' | translate}}
-                </p>
+                <p> {{ 'contact.calls' | translate }} </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col">
         <div class="list">
           <div class="item item-text-wrap item-divider">
-            {{'contact.email' | translate}}
+            {{ 'contact.email' | translate }}
           </div>
           <div class="item item-text-wrap">
             <div class="row">
               <div class="col sub-title">
-                {{'contact.support_email' | translate}}
+                {{ 'contact.support_email' | translate }}
               </div>
             </div>
             <div class="row">
@@ -80,7 +77,7 @@
           <div class="item item-text-wrap">
             <div class="row">
               <div class="col sub-title">
-                {{'contact.payment_email' | translate}}
+                {{ 'contact.payment_email' | translate }}
               </div>
             </div>
             <div class="row">
@@ -92,84 +89,79 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col">
         <div class="list">
           <div class="item item-text-wrap item-divider">
-            {{'contact.company_addresses' | translate}}
+            {{ 'contact.company_addresses' | translate }}
           </div>
           <div class="item item-text-wrap">
             <div class="row">
               <div class="col sub-title">
-                {{'contact.malta' | translate}}
+                {{ 'contact.malta' | translate }}
               </div>
             </div>
             <div class="row">
               <div class="col">
-                {{'contact.malta_address' | translate}}
+                {{ 'contact.malta_address' | translate }}
               </div>
             </div>
           </div>
-
           <div class="item item-text-wrap">
             <div class="row">
               <div class="col sub-title">
-                {{'contact.japan' | translate}}
+                {{ 'contact.japan' | translate }}
               </div>
             </div>
             <div class="row">
               <div class="col">
-                {{'contact.japan_address' | translate}}
+                {{ 'contact.japan_address' | translate }}
               </div>
             </div>
           </div>
-
           <div class="item item-text-wrap">
             <div class="row">
               <div class="col sub-title">
-                {{'contact.malaysia' | translate}}
+                {{ 'contact.malaysia' | translate }}
               </div>
             </div>
             <div class="row">
               <div class="col">
-                {{'contact.cyberjaya_office' | translate}}
+                {{ 'contact.cyberjaya_office' | translate }}
               </div>
             </div>
             <div class="row">
               <div class="col">
-                {{'contact.malaysia_address' | translate}}
+                {{ 'contact.malaysia_address' | translate }}
               </div>
             </div>
           </div>
-
           <div class="item item-text-wrap">
             <div class="row">
               <div class="col sub-title">
-                {{'contact.malaysia' | translate}}
+                {{ 'contact.malaysia' | translate }}
               </div>
             </div>
             <div class="row">
               <div class="col">
-                {{'contact.kl_office' | translate}}
+                {{ 'contact.kl_office' | translate }}
               </div>
             </div>
             <div class="row">
               <div class="col">
-                {{'contact.kl_address' | translate}}
+                {{ 'contact.kl_address' | translate }}
               </div>
             </div>
           </div>
-
           <div class="item item-text-wrap">
             <div class="row">
               <div class="col sub-title">
-                {{'contact.isle_of_man' | translate}}
+                {{ 'contact.isle_of_man' | translate }}
               </div>
             </div>
             <div class="row">
               <div class="col">
-                {{'contact.isle_of_man_address' | translate}}
+                {{ 'contact.isle_of_man_address' | translate }}
               </div>
             </div>
           </div>

@@ -25,8 +25,8 @@ angular.module("binary").service("notificationService", function() {
             link : "contact"
         },
         restrictedMessage: {
-            title: "notifications.account_restriction",
-            text : "notifications.please_contact",
+            title: "account_restriction",
+            text : "please_contact",
             link : "contact"
         },
         countryNotSetMessage: {

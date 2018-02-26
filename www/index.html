@@ -59,22 +59,6 @@
 	<script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
 	<!-- END TRACKJS -->
 
-    <!-- BEGIN APMLITUDE -->
-    <script type="text/javascript">
-        (function(e,t){var n=e.amplitude||{};var r=t.createElement("script");r.type="text/javascript";
-            r.async=true;r.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.9.0-min.gz.js";
-            r.onload=function(){e.amplitude.runQueuedFunctions()};var s=t.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(r,s);var i=function(){this._q=[];return this};function a(e){
-                i.prototype[e]=function(){this._q.push([e].concat(Array.prototype.slice.call(arguments,0)));
-                    return this}}var o=["add","append","clearAll","set","setOnce","unset"];for(var c=0;c<o.length;c++){
-                        a(o[c])}n.Identify=i;n._q=[];function u(e){n[e]=function(){n._q.push([e].concat(Array.prototype.slice.call(arguments,0)));
-                        }}var l=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties"];
-            for(var p=0;p<l.length;p++){u(l[p])}e.amplitude=n})(window,document);
-
-        amplitude.init("bfba930e4adadaa35dfc5b68ac2c07ae");
-    </script>
-    <!-- END AMPLITUDE -->
-
   </head>
   <body ng-app="binary" ng-controller="BodyController as vm" id="{{vm.getLanguage()}}" ng-cloak>
     <bg-updater></bg-updater>
@@ -86,7 +70,6 @@
     <ping></ping>
     <bg-reality-check></bg-reality-check>
     <bg-check-user-status></bg-check-user-status>
-
 
     <!-- ionic/angularjs js -->
 	<script src="lib/ionic/release/js/ionic.bundle.js"></script>
@@ -144,6 +127,8 @@
     <script src="js/share/services/utils.service.js"></script>
     <script src="js/share/services/table-state.service.js"></script>
     <script src="js/share/services/notification.service.js"></script>
+    <script src="js/share/services/client.service.js"></script>
+    <script src="js/share/services/validation.service.js"></script>
 
     <script src="js/share/components/header/header.directive.js"></script>
     <script src="js/share/components/header/header.controller.js"></script>
@@ -202,10 +187,6 @@
     <script src="js/share/components/reality-check/reality-check.controller.js"></script>
     <script src="js/share/components/reality-check/reality-check.directive.js"></script>
 
-    <script src="js/share/components/account-upgrade/account-upgrade.module.js"></script>
-    <script src="js/share/components/account-upgrade/account-upgrade.controller.js"></script>
-    <script src="js/share/components/account-upgrade/account-upgrade.directive.js"></script>
-
     <script src="js/share/components/check-user-status/check-user-status.module.js"></script>
     <script src="js/share/components/check-user-status/check-user-status.controller.js"></script>
     <script src="js/share/components/check-user-status/check-user-status.directive.js"></script>
@@ -224,10 +205,6 @@
 
     <script src="js/share/components/big-number/big-number.module.js"></script>
     <script src="js/share/components/big-number/big-number.directive.js"></script>
-
-    <script src="js/share/components/select-currency/select-currency.module.js"></script>
-    <script src="js/share/components/select-currency/select-currency.controller.js"></script>
-    <script src="js/share/components/select-currency/select-currency.directive.js"></script>
 
     <script src="js/pages/sign-in/sign-in.module.js"></script>
     <script src="js/pages/sign-in/components/oauth/oauth.module.js"></script>
@@ -352,6 +329,12 @@
 
     <script src="js/pages/set-currency/set-currency.module.js"></script>
     <script src="js/pages/set-currency/set-currency.controller.js"></script>
+
+    <script src="js/pages/accounts-management/accounts-management.module.js"></script>
+    <script src="js/pages/accounts-management/accounts-management.controller.js"></script>
+
+    <script src="js/configs/options/account.options.js"></script>
+    <script src="js/configs/options/financial-information.options.js"></script>
 
     <!-- endbuild -->
 

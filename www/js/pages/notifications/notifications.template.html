@@ -1,4 +1,4 @@
-<ion-view class="contact">
+<ion-view class="notifications">
   <ion-content class="general-content has-header has-subheader">
     <div class="list" ng-if="vm.notices.length > 0">
       <div class="item item-text-wrap notification" ng-repeat="notice in vm.notices" ui-sref="{{notice.link}}">
@@ -21,7 +21,6 @@
           {{'notifications.no_notification' | translate}}
         </p>
       </div>
-    </div>
     </div>
   </ion-content>
 </ion-view>
