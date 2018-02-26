@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "自我禁止設施",
-    "maximum-account-cash-balance": "Maximum account cash balance",
+    "maximum-account-cash-balance": "最大帳戶現金餘額",
     "max-balance-hint": "一旦達到此限制，您就不可再存入資金。",
     "daily-turnover-limit": "每日交易限額",
     "max-turnover-hint": "每日最大累計合約買入量。",
