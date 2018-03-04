@@ -12,7 +12,7 @@
     function Oauth() {
         const directive = {
             restrict        : "E",
-            scope           : {},
+            scope           : { accountTokens: "=", },
             templateUrl     : "js/pages/sign-in/components/oauth/oauth.template.html",
             controller      : "OauthController",
             controllerAs    : "vm",

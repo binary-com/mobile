@@ -56,6 +56,13 @@
         const init = () => {
             vm.language = languageService.read();
 
+            // Checking url params to get accoutn tokens from /redirect.
+            if (!_.isEmpty($stateParams.accountTokens)) {
+                vm.showSignin = true;
+                vm.data.accountTokens = $stateParams.accountTokens;
+            }
+
+            // Checking the url param to get verficatoin code.
             if (!_.isEmpty($stateParams.verificationCode)) {
                 vm.showvirtualws = true;
                 vm.data.verificationCode = $stateParams.verificationCode;

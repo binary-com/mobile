@@ -8,6 +8,8 @@
 	</head>
 	<body>
 
+    Loading ...
+
 		<style id="antiClickjack">body{display:none !important;}</style>
 		<script type="text/javascript">
 			if (self === top) {
@@ -20,10 +22,22 @@
 
 		<!-- Redirect to #/redirect -->
 		<script type="text/javascript">
+      if (window.navigator && isIOS(window.navigator.appVersion)) {
+       const result = /.*\?(.*)/g.exec(window.location.href);
+       if(result) {
+         window.location.href = `/#/redirect?${result[0]}`;
+       }
+      }
+
 			var response = {};
 			response.url = window.location.href;
 			window.opener.postMessage(response, '*');
 			window.close();
+
+
+      function isIOS(appVersion) {
+        return /IPHONE|IPAD|IPOD/i.test(appVersion);
+      }
 		</script>
 
 	</body>
