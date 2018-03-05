@@ -67,11 +67,7 @@
             const oauthUrl = serverUrl ? `https://${serverUrl}/oauth2/authorize` : config.oauthUrl;
             const appId = localStorage.getItem('config.app_id') || config.app_id;
             const oauthWindowUrl = `${oauthUrl}?app_id=${appId}&l=${languageService.read()}`;
-            const authWindow = window.cordova ? cordova.InAppBrowser.open(
-                oauthWindowUrl,
-                "_blank",
-                "location=no,toolbar=no"
-            ) : window.open(
+            const authWindow = window.open(
                 oauthWindowUrl,
                 "_blank",
                 "location=no,toolbar=no"
