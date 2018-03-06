@@ -17,7 +17,7 @@ angular.module("binary").service("notificationService", function() {
         authenticateMessage: {
             title: "account_authentication",
             text : "please_authenticate",
-		        link : "authentication"
+            link : "authentication"
         },
         ageVerificationMessage: {
             title: "account_age_verification",
@@ -52,13 +52,13 @@ angular.module("binary").service("notificationService", function() {
         maxTurnoverLimitNotSetMessage: {
             title: "max_turnover_limit",
             text : "set_max_turnover_limit",
-		        link : "self-exclusion"
+            link : "self-exclusion"
         },
-	      currencyNotSetMessage: {
+        currencyNotSetMessage: {
             title: "account_currency",
             text : "choose_account_currency",
             link : "set-currency"
-	      },
+        }
     }
 
 });

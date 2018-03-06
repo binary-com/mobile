@@ -34,9 +34,9 @@
         vm.isLoggedIn = false;
         vm.notUpdatedTaxInfo = false;
         vm.isFinancial = false;
-	      vm.isCR = false;
-	      vm.isMLT = false;
-	      vm.isMX = false;
+        vm.isCR = false;
+        vm.isMLT = false;
+        vm.isMX = false;
         vm.isVirtual = false;
         vm.notificationMessages = notificationService.messages;
         let currentAccount = {};
@@ -69,8 +69,18 @@
         });
 
         $scope.$on("authorize", (e, authorize) => {
-	          const currency = authorize.currency;
-	          vm.currencyStatus(currency);
+            const currency = authorize.currency;
+            vm.currencyStatus(currency);
+            const accountList = authorize.account_list;
+            accountList.find((acc) => {
+                if (acc.loginid == authorize.loginid &&
+                    acc.excluded_until &&
+                    !appStateService.hasRestrictedMessage) {
+                    appStateService.hasRestrictedMessage = true;
+                    notificationService.notices.push(vm.notificationMessages.restrictedMessage);
+                }
+            })
+
             if (!appStateService.checkedAccountStatus) {
                 appStateService.checkedAccountStatus = true;
                 vm.balance = authorize.balance;
