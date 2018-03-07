@@ -12,7 +12,7 @@
         <ion-spinner></ion-spinner>
       </div>
     </div>
-    <form name="self_exclusion_form" ng-submit="vm.submit()" ng-show="vm.isDataLoaded">
+    <form name="self_exclusion_form" ng-submit="vm.submit()" ng-if="vm.isDataLoaded" novalidate>
       <div class="row">
         <div class="col">
           <div class="row">
@@ -29,9 +29,9 @@
                      ng-model="vm.data.max_balance"
                      ng-max="vm.limits.max_balance"
                      ng-min="1"
-                     ng-required="vm.limits.max_balance ? true : false"
+                     ng-required="!!vm.limits.max_balance"
                      step="1"
-                     ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
+                     ng-maxlength="vm.validation.length.selfExclusionLimits.max" />
               <div class="hint"> {{ 'self-exclusion.max-balance-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_account_balance.$error"
                            role="alert"
@@ -44,7 +44,7 @@
                 <ng-message when="min, max, required">
                   {{ 'self-exclusion.valid-range-hint' | translate : {max: vm.limits.max_balance} }}
                 </ng-message>
-                </ng-message>
+              </ng-messages>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@
                      ng-model="vm.data.max_turnover"
                      ng-max="vm.limits.max_turnover"
                      ng-min="1"
-                     ng-required="vm.limits.max_turnover ? true : false"
+                     ng-required="!!vm.limits.max_turnover"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint"> {{ 'self-exclusion.max-turnover-hint' | translate }}</div>
@@ -102,7 +102,7 @@
                      ng-model="vm.data.max_losses"
                      ng-max="vm.limits.max_losses"
                      ng-min="1"
-                     ng-required="vm.limits.max_losses ? true : false"
+                     ng-required="!!vm.limits.max_losses"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint"> {{ 'self-exclusion.max-losses-hint' | translate }}</div>
@@ -138,7 +138,7 @@
                      ng-model="vm.data.max_7day_turnover"
                      ng-max="vm.limits.max_7day_turnover"
                      ng-min="1"
-                     ng-required="vm.limits.max_7day_turnover ? true : false"
+                     ng-required="!!vm.limits.max_7day_turnover"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint"> {{ 'self-exclusion.7-day-turnover-hint' | translate }}</div>
@@ -175,7 +175,7 @@
                      ng-model="vm.data.max_7day_losses"
                      ng-max="vm.limits.max_7day_losses"
                      ng-min="1"
-                     ng-required="vm.limits.max_7day_losses ? true : false"
+                     ng-required="!!vm.limits.max_7day_losses"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint"> {{ 'self-exclusion.7-day-losses-hint' | translate }}</div>
@@ -212,7 +212,7 @@
                      ng-model="vm.data.max_30day_turnover"
                      ng-max="vm.limits.max_30day_turnover"
                      ng-min="1"
-                     ng-required="vm.limits.max_30day_turnover ? true : false"
+                     ng-required="!!vm.limits.max_30day_turnover"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint"> {{ 'self-exclusion.30-day-turnover-hint' | translate }}</div>
@@ -246,7 +246,7 @@
                      ng-model="vm.data.max_30day_losses"
                      ng-max="vm.limits.max_30day_losses"
                      ng-min="1"
-                     ng-required="vm.limits.max_30day_losses ? true : false"
+                     ng-required="!!vm.limits.max_30day_losses"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint">
@@ -285,7 +285,7 @@
                      ng-model="vm.data.max_open_bets"
                      ng-max="vm.limits.max_open_bets"
                      ng-min="1"
-                     ng-required="vm.limits.max_open_bets ? true : false"
+                     ng-required="!!vm.limits.max_open_bets"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionOpenPositions.max"/>
               <ng-messages for="self_exclusion_form.maximum_number_of_open_positions.$error"
@@ -320,7 +320,7 @@
                      ng-model="vm.data.session_duration_limit"
                      ng-max="vm.limits.session_duration_limit || 60480"
                      ng-min="1" ,
-                     ng-required="vm.limits.session_duration_limit ? true : false"
+                     ng-required="!!vm.limits.session_duration_limit"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionSessionDuration.max"/>
               <div class="hint"> {{ 'self-exclusion.session-duration-hint' | translate }}</div>
@@ -384,7 +384,7 @@
               <input name="exclude_me_until"
                      type="date"
                      ng-model="vm.data.exclude_until"
-                     maxlength="8"
+                     maxlength="10"
                      min="{{ vm.nextSixMonths }}"/>
               <div class="hint"> {{ 'self-exclusion.exclude-me-hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.exclude_me_until.$error" role="alert" class="error">
@@ -401,7 +401,7 @@
         <div class="col center">
           <button class="button"
                   type="submit"
-                  ng-disabled="!self_exclusion_form.$valid || vm.disableUpdateButton">
+                  ng-disabled="self_exclusion_form.$invalid || vm.disableUpdateButton">
             {{ 'self-exclusion.update-settings' | translate }}
           </button>
         </div>
