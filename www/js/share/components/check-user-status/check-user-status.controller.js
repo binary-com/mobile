@@ -72,14 +72,11 @@
             const currency = authorize.currency;
             vm.currencyStatus(currency);
             const accountList = authorize.account_list;
-            accountList.find((acc) => {
-                if (acc.loginid == authorize.loginid &&
-                    acc.excluded_until &&
-                    !appStateService.hasRestrictedMessage) {
-                    appStateService.hasRestrictedMessage = true;
-                    notificationService.notices.push(vm.notificationMessages.restrictedMessage);
-                }
-            })
+            const thisAccount = accountList.find(acc => acc.loginid === authorize.loginid);
+            if (thisAccount.excluded_until && !appStateService.hasRestrictedMessage) {
+                appStateService.hasRestrictedMessage = true;
+                notificationService.notices.push(vm.notificationMessages.restrictedMessage);
+            }
 
             if (!appStateService.checkedAccountStatus) {
                 appStateService.checkedAccountStatus = true;
