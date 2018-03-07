@@ -72,8 +72,8 @@
                     let account = {};
                     const accountList = response.account_list;
                     if (accountList) {
-                        const acc = accountList.find(a => a.loginid === response.loginid);
-                        account = Object.assign(response, acc);
+                        const acc = _.find(accountList, a => a.loginid === response.loginid);
+                        account = _.assign(response, acc);
                     }
                     accountService.add(account);
                     accountService.setDefault(response.token);
