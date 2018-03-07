@@ -64,7 +64,8 @@
             vm.data.secret_answer = '';
         };
 
-        const getPhoneCode = countryCode => _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
+        const getPhoneCode = countryCode =>
+            _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
 
         $scope.$on("residence_list", (e, residence_list) => {
             vm.residenceList = residence_list;

@@ -95,7 +95,8 @@
             vm.data.secret_answer = '';
         };
 
-        const getPhoneCode = countryCode => _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
+        const getPhoneCode = countryCode =>
+            _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
 
         $ionicModal
             .fromTemplateUrl("js/pages/maltainvest-account-opening/tax-residence.modal.html", {

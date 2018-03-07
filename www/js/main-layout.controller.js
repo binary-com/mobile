@@ -58,10 +58,10 @@ angular
             let allowedMarkets;
             if (canUpgrade) {
                 canUpgradeMultiAccount = 
-                !!upgradeableLandingCompanies.find(landingCompany => landingCompany === currentLandingCompany);
+                !!_.find(upgradeableLandingCompanies, landingCompany => landingCompany === currentLandingCompany);
             }
 
-            const canUpgradeToLandingCompany = arr_landing_company => !!arr_landing_company.find(landingCompany => 
+            const canUpgradeToLandingCompany = arr_landing_company => !!_.find(arr_landing_company, landingCompany =>
                 landingCompany !== currentLandingCompany && upgradeableLandingCompanies.indexOf(landingCompany) > -1);
 
             if (canUpgradeToLandingCompany(['costarica', 'malta', 'iom']) && !canUpgradeMultiAccount) {

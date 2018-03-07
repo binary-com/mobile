@@ -76,7 +76,8 @@
         };
 
         const getProfile = () => websocketService.sendRequestFor.accountSetting();
-        const getPhoneCode = countryCode => _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
+        const getPhoneCode = countryCode =>
+            _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
 
         $scope.$on("residence_list", (e, response) => {
             $scope.$applyAsync(() => {
