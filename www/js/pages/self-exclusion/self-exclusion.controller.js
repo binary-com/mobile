@@ -51,9 +51,6 @@
             });
             vm.limits = _.clone(vm.data);
             vm.disableUpdateButton = false;
-            if (vm.data.exclude_until || vm.data.timeout_until) {
-                websocketService.logout();
-            }
         });
 
         $scope.$on("set-self-exclusion:error", (e, error) => {
