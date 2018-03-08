@@ -182,6 +182,7 @@
               <select name="place_of_birth"
                       ng-model="vm.data.place_of_birth"
                       ng-options="residence.value as residence.text for residence in vm.residenceList"
+                      ng-disabled="vm.hasPOB"
                       required>
                 <option value="" disabled>
                   {{ 'new-account-maltainvest.select' | translate }}

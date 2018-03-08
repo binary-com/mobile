@@ -44,6 +44,7 @@
         vm.disableUpdatebutton = false;
         vm.taxRequirement = false;
         vm.hasResidence = false;
+        vm.hasPOB = false;
         const loginid = accountService.getDefault().id;
         const isVirtual = clientService.isAccountOfType('virtual', loginid);
         vm.receivedSettings = false;
@@ -131,6 +132,9 @@
                 });
                 if (get_settings.date_of_birth) {
                     vm.data.date_of_birth = new Date(get_settings.date_of_birth * 1000);
+                }
+                if (get_settings.place_of_birth) {
+                    vm.hasPOB = true;
                 }
                 if (get_settings.country_code) {
                     const countryCode = get_settings.country_code;
