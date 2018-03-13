@@ -196,7 +196,7 @@ gulp.task('add-cname', function(done){
   return done();
 });
 
-gulp.task('build', ['clean', 'compress', 'modify-index', 'add-cname'], function(){
+gulp.task('build', ['sass', 'clean', 'compress', 'modify-index', 'add-cname'], function(){
   return gulp.src(['www/**/*', '!www/js/**/*.js', '!www/index.html'])
       .pipe(gulp.dest('dist'));
 });
