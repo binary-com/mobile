@@ -15,6 +15,7 @@
  */
 
 /* eslint-env browser */
+/* eslint-disable */
 'use strict';
 
 if ('serviceWorker' in navigator) {
