@@ -406,6 +406,7 @@
     "exclude-me-hint": "請輸入日期，格式為月/日/年。",
     "update-settings": "更新設定",
     "please-enter-an-integer-value": "請輸入一個整數值，最大長度為 {{max}}",
+    "enter-valid-value": "請輸入最大小數點位數為 {{fractionalDigitis}} 和最大長度為 {{max}} 的數值",
     "valid-range-hint": "請輸入0和{{max}} 之間的數字。",
     "date-is-not-valid": "禁止時間必須在今日之後",
     "date-can-not-be-greater-than": "禁止時間不能超過 {{max}}",

@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Cơ sở tự loại trừ",
-    "maximum-account-cash-balance": "Số dư tài khoản tối đa",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Một khi đã đạt đến giới hạn này, bạn sẽ không còn thể gửi tiền.",
     "daily-turnover-limit": "Giới hạn doanh thu hàng ngày",
     "max-turnover-hint": "Tập hợp các hợp đồng mua tối đa trên một ngày.",
@@ -406,6 +406,7 @@
     "exclude-me-hint": "Vui lòng nhập ngày theo định dạng Tháng/Ngày/Năm.",
     "update-settings": "Cập nhật cài đặt",
     "please-enter-an-integer-value": "Vui lòng nhập một giá trị số nguyên với chiều dài tối đa là {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Vui lòng nhập một con số trong khoảng từ 0 và {{max}}",
     "date-is-not-valid": "Loại trừ thời gian phải sau ngày hôm nay",
     "date-can-not-be-greater-than": "Loại trừ thời gian không thể lớn hơn {{max}}",

@@ -383,7 +383,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "crwdns18013:0crwdne18013:0",
-    "maximum-account-cash-balance": "crwdns18014:0crwdne18014:0",
+    "maximum-account-cash-balance": "crwdns43466:0crwdne43466:0",
     "max-balance-hint": "crwdns18015:0crwdne18015:0",
     "daily-turnover-limit": "crwdns18016:0crwdne18016:0",
     "max-turnover-hint": "crwdns18017:0crwdne18017:0",
@@ -406,6 +406,7 @@
     "exclude-me-hint": "crwdns19399:0crwdne19399:0",
     "update-settings": "crwdns18035:0crwdne18035:0",
     "please-enter-an-integer-value": "crwdns19400:0{{max}}crwdne19400:0",
+    "enter-valid-value": "crwdns43093:0{{fractionalDigitis}}crwdnd43093:0{{max}}crwdne43093:0",
     "valid-range-hint": "crwdns18037:0{{max}}crwdne18037:0",
     "date-is-not-valid": "crwdns19401:0crwdne19401:0",
     "date-can-not-be-greater-than": "crwdns19402:0{{max}}crwdne19402:0",
