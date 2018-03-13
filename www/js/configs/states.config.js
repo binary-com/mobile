@@ -6,7 +6,7 @@
  * @copyright Binary Ltd
  */
 
-angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfigProvider) => {
+angular.module("binary").config(($locationProvider, $stateProvider, $urlRouterProvider, $ionicConfigProvider) => {
     $ionicConfigProvider.views.swipeBackEnabled(false);
     $stateProvider
         .state("home", {
@@ -239,4 +239,6 @@ angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfi
 
 
     $urlRouterProvider.otherwise("/");
+
+    $locationProvider.html5Mode(true);
 });

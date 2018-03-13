@@ -13,6 +13,7 @@ var minify = require('gulp-minify');
 var htmlreplace = require('gulp-html-replace');
 var ghPagesDeploy = require('gulp-gh-pages');
 var del = require('del');
+  var sw = require('sw-precache');
 
 var sh = require('shelljs');
 var bower = require('bower');
@@ -156,7 +157,7 @@ gulp.task('code-push', function(done){
 
 
 gulp.task('compress', function(done){
-  gulp.src(['www/js/**/*.module.js', 'www/js/**/{*.js, !*.module.js}', 'www/*.js'])
+  gulp.src(['www/js/**/*.module.js', 'www/js/**/{*.js, !*.module.js}', 'www/*.js', '!www/js/service-worker-registration.js'])
       .pipe(babel({presets: ['es2015']}))
       .pipe(ngmin())
       .pipe(concat('main.js'))
@@ -173,8 +174,9 @@ gulp.task('modify-index', function(done){
             customscript: {
               src: "window.location.href.indexOf('translation') < 0 && localStorage.language == 'ach'? localStorage.language = 'en' : null;",
               tpl: '<script> %s </script>'
-            }
-           }
+            },
+            replacecordovabysw: "js/service-worker-registration.js",
+          }
          )
       )
       .pipe(gulp.dest('dist'));
@@ -199,7 +201,15 @@ gulp.task('build', ['clean', 'compress', 'modify-index', 'add-cname'], function(
       .pipe(gulp.dest('dist'));
 });
 
-gulp.task('deploy', ['build'], function(){
+gulp.task('service-worker', ['build'], function(done){
+  gulp.src(['www/js/service-worker-registration.js'])
+    .pipe(gulp.dest('dist/js'));
+  var config = require('./sw-precache-config');
+
+  sw.write('dist/service-worker.js', config, done);
+});
+
+gulp.task('deploy', ['service-worker'], function(){
     return gulp.src('dist/**/*')
         .pipe(ghPagesDeploy());
 });

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <base href="/">
 	<meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
@@ -64,6 +65,7 @@
 
   </head>
   <body ng-app="binary" ng-controller="BodyController as vm" id="{{vm.getLanguage()}}" ng-cloak>
+    <ios-pwa-prompt></ios-pwa-prompt>
     <bg-updater></bg-updater>
     <bg-connection-lost></bg-connection-lost>
     <bg-service-outage></bg-service-outage>
@@ -75,10 +77,12 @@
     <bg-check-user-status></bg-check-user-status>
 
     <!-- ionic/angularjs js -->
-	<script src="lib/ionic/release/js/ionic.bundle.js"></script>
+	<script src="lib/ionic/release/js/ionic.bundle.min.js"></script>
 
+    <!-- build:replacecordovabysw -->
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
+    <!-- endbuild -->
 
     <!-- vendors -->
     <script src="lib/jquery/dist/jquery.min.js"></script>
@@ -202,6 +206,11 @@
     <script src="js/share/components/notification-icon/notification-icon.module.js"></script>
     <script src="js/share/components/notification-icon/notification-icon.controller.js"></script>
     <script src="js/share/components/notification-icon/notification-icon.directive.js"></script>
+
+    <script src="js/share/components/ios-pwa-prompt/ios-pwa-prompt.module.js"></script>
+    <script src="js/share/components/ios-pwa-prompt/ios-pwa-prompt.directive.js"></script>
+    <script src="js/share/components/ios-pwa-prompt/ios-pwa-prompt.controller.js"></script>
+
 
     <script src="js/pages/home/home.module.js"></script>
     <script src="js/pages/home/home.controller.js"></script>
