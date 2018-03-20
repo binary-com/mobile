@@ -77,8 +77,9 @@
             const serverUrl = localStorage.getItem('config.server_url');
             const oauthUrl = serverUrl ? `https://${serverUrl}/oauth2/authorize` : config.oauthUrl;
             const appId = localStorage.getItem('config.app_id') || config.app_id;
+            const oauthWindowUrl = `${oauthUrl}?app_id=${appId}&l=${languageService.read()}`;
             const authWindow = window.open(
-                `${oauthUrl}?app_id=${appId}&l=${languageService.read()}`,
+                oauthWindowUrl,
                 "_blank",
                 "location=no,toolbar=no"
             );
