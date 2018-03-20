@@ -40,7 +40,7 @@
             });
             $scope.$applyAsync(() => {
                 vm.hasError = false;
-	            vm.data.markets = vm.tradingTimes.markets.filter(market =>
+	            vm.data.markets = _.filter(vm.tradingTimes.markets, market =>
                     vm.marketDisplayNames.indexOf(market.name) > -1
                 );
                 vm.market = vm.data.markets[0].name;

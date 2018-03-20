@@ -77,7 +77,8 @@
         };
 
         const getProfile = () => websocketService.sendRequestFor.accountSetting();
-        const getPhoneCode = countryCode => vm.residenceList.find(country => country.value === countryCode).phone_idd;
+        const getPhoneCode = countryCode =>
+            _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
 
         $scope.$on("residence_list", (e, response) => {
             $scope.$applyAsync(() => {
@@ -115,14 +116,14 @@
                 }
                 if (vm.profile.tax_residence) {
                     vm.settingTaxResidence = _.words(vm.profile.tax_residence);
-                    vm.residenceList = vm.residenceList.map(res => {
+                    vm.residenceList = _.map(vm.residenceList, res => {
                         if (vm.settingTaxResidence.indexOf(res.value) > -1) {
                             res.checked = true;
                         }
                         return res;
                     });
-                    const checkedValues = vm.residenceList.filter(res => res.checked);
-                    vm.selectedTaxResidencesName = checkedValues.map(value => value.text).join(', ');
+                    const checkedValues = _.filter(vm.residenceList, res => res.checked);
+                    vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
                 }
                 if (vm.profile.account_opening_reason) {
                     vm.hasAccountOpeningReason = true;
@@ -177,9 +178,9 @@
 
         vm.setTaxResidence = () => {
             vm.taxRequirement = true;
-            const checkedValues = vm.residenceList.filter(res => res.checked);
-            vm.selectedTaxResidencesName = checkedValues.map(value => value.text).join(', ');
-            vm.profile.tax_residence = checkedValues.map(value => value.value).join(',');
+            const checkedValues = _.filter(vm.residenceList, res => res.checked);
+            vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
+            vm.profile.tax_residence = _.map(checkedValues, value => value.value).join(',');
             vm.closeModal();
         };
 

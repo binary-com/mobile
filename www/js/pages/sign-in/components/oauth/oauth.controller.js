@@ -56,8 +56,8 @@
                         account.email = response.email;
                         account.country = response.country;
                         if (accountList) {
-                            const acc = accountList.find(a => a.loginid === account.loginid);
-                            account = Object.assign(account, acc);
+                            const acc = _.find(accountList, a => a.loginid === account.loginid);
+                            account = _.assign(account, acc);
                         }
                         accountService.add(account);
                     }
