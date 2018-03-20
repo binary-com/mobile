@@ -784,5 +784,11 @@
     "speculative": "投機",
     "income_earning": "賺取收入",
     "hedging": "對沖"
+  },
+  "ios-pwa-prompt": {
+    "title": "Install Binary TickTrade",
+    "close": "Close",
+    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
+    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
   }
 }
