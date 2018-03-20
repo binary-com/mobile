@@ -40,6 +40,7 @@
         vm.notAnyChanges = false;
         vm.disableUpdateButton = false;
         vm.hasResidence = false;
+        vm.hasPOB = false;
         vm.hasAccountOpeningReason = false;
         vm.settingTaxResidence = [];
         vm.options = accountOptions;
@@ -98,6 +99,9 @@
                 vm.profile = get_settings;
                 if (get_settings.date_of_birth) {
                     vm.profile.date_of_birth = new Date(get_settings.date_of_birth * 1000);
+                }
+                if (get_settings.place_of_birth) {
+                    vm.hasPOB = true;
                 }
                 if (get_settings.country_code) {
                     const countryCode = get_settings.country_code;
