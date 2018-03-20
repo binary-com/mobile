@@ -12,6 +12,7 @@ angular
     .factory(
         "websocketService",
         (
+            $ionicLoading,
             $rootScope,
             $state,
             $translate,
@@ -522,6 +523,10 @@ angular
                     if (message.error) {
                         if (["InvalidToken", "AccountDisabled", "DisabledClient"].indexOf(message.error.code) > -1) {
                             websocketService.logout(message.error.message);
+
+                            // hide ionicLoading if some component show it to receive auth message.
+                            $ionicLoading.hide();
+
                             return;
                         }
                     }
@@ -541,7 +546,7 @@ angular
                                 message.authorize.upgradeable_landing_companies
                                 || [];
                                 // update accounts from account list whenever authorize is received
-                                const accounts = !_.isEmpty(localStorage.getItem('accounts')) && 
+                                const accounts = !_.isEmpty(localStorage.getItem('accounts')) &&
                                 JSON.parse(localStorage.getItem('accounts'));
                                 const accountList = message.authorize.account_list;
                                 if (accounts && accounts.length && accountList) {

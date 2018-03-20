@@ -59,7 +59,8 @@
     "gulp-util": "^2.2.14",
     "lodash": "^4.17.4",
     "prettier-eslint-cli": "^4.1.1",
-    "shelljs": "^0.3.0"
+    "shelljs": "^0.3.0",
+    "sw-precache": "^5.2.1"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",

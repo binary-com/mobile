@@ -37,7 +37,8 @@
         "binary.share.components.check-user-status",
         "binary.share.components.service-outage",
         "binary.share.components.notification-icon",
-        "binary.share.components.big-number"
+        "binary.share.components.big-number",
+        "binary.share.components.ios-pwa-prompt",
     ]);
 
     angular.module("binary.share.services", []);
@@ -68,7 +69,8 @@
         "binary.pages.contact",
         "binary.pages.notifications",
         "binary.pages.set-currency",
-        "binary.pages.accounts-management"
+        "binary.pages.accounts-management",
+        "binary.pages.redirect",
     ]);
 
     String.prototype.capitalize = function() {

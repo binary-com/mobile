@@ -6,7 +6,7 @@
  * @copyright Binary Ltd
  */
 
-angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfigProvider) => {
+angular.module("binary").config(($locationProvider, $stateProvider, $urlRouterProvider, $ionicConfigProvider) => {
     $ionicConfigProvider.views.swipeBackEnabled(false);
     $stateProvider
         .state("home", {
@@ -29,7 +29,8 @@ angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfi
         })
         .state("signin", {
             params: {
-                verificationCode: null
+                accountTokens   : null,
+                verificationCode: null,
             },
             cache       : false,
             templateUrl : "js/pages/sign-in/sign-in.template.html",
@@ -227,8 +228,17 @@ angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfi
             templateUrl : "js/pages/accounts-management/accounts-management.template.html",
             controller  : "AccountsManagementController",
             controllerAs: "vm"
+        })
+        .state('redirect', {
+            url         : "/redirect",
+            cache       : "false",
+            templateUrl : "js/pages/redirect/redirect.template.html",
+            controller  : "RedirectController",
+            controllerAs: "vm",
         });
 
 
     $urlRouterProvider.otherwise("/");
+
+    $locationProvider.html5Mode(true);
 });

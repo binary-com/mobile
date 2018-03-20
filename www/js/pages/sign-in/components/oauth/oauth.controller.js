@@ -34,12 +34,16 @@
             }
         };
 
+        const handleUrl = (url) => {
+            accounts = getAccountsFromUrl(url);
+            if (accounts.length > 0) {
+                authenticate(accounts[0].token);
+            }
+        }
+
         window.onmessage = function(_message) {
             if (_message.data && _message.data.url) {
-                accounts = getAccountsFromUrl(_message.data.url);
-                if (accounts.length > 0) {
-                    authenticate(accounts[0].token);
-                }
+                handleUrl(_message.data.url);
             }
         };
 
@@ -61,6 +65,13 @@
             }
             $ionicLoading.hide();
         });
+
+
+        vm.init = () => {
+            if (!_.isEmpty(vm.accountTokens)) {
+                handleUrl(vm.accountTokens);
+            }
+        };
 
         vm.signin = () => {
             const serverUrl = localStorage.getItem('config.server_url');
@@ -121,5 +132,7 @@
 
             return error;
         }
+
+        vm.init();
     }
 })();
