@@ -784,5 +784,11 @@
     "speculative": "crwdns42868:0crwdne42868:0",
     "income_earning": "crwdns42869:0crwdne42869:0",
     "hedging": "crwdns42870:0crwdne42870:0"
+  },
+  "ios-pwa-prompt": {
+    "title": "crwdns43635:0crwdne43635:0",
+    "close": "crwdns43636:0crwdne43636:0",
+    "installation_text": "crwdns43637:0crwdne43637:0",
+    "installation_help": "crwdns43638:0{{icon}}crwdne43638:0"
   }
 }

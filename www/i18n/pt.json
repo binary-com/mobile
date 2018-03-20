@@ -784,5 +784,11 @@
     "speculative": "Especulativo",
     "income_earning": "Ganho de rendimentos",
     "hedging": "Cobertura de risco"
+  },
+  "ios-pwa-prompt": {
+    "title": "Install Binary TickTrade",
+    "close": "Close",
+    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
+    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
   }
 }
