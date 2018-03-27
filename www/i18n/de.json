@@ -6,20 +6,8 @@
     "paste_token": "Fügen Sie Ihren Token hier ein",
     "get_token": "Wie erhält man einen Token?",
     "signin_with_binary_com": "Anmelden",
-    "use_token": "Oder mit einem Token anmelden",
     "next": "Weiter",
     "regulatory-information": "Regulierungsinformationen"
-  },
-  "accounts": {
-    "my_accounts": "Konten verwalten",
-    "account": "Konto",
-    "remove_all": "Alle Konten entfernen & Abmelden",
-    "default": "Vorgabe",
-    "set_as_default": "Als Vorgabe einstellen",
-    "add": "Hinzufügen",
-    "new_token": "Einen neuen Token hinzufügen",
-    "delete": "Löschen",
-    "not_allowed_to_trade": "Sie haben keine Erlaubnis zu handeln!"
   },
   "alert": {
     "error": "Fehler!",
@@ -105,15 +93,6 @@
     "buy_again": "Nochmal kaufen",
     "sell": "Verkaufen",
     "barrier": "Schwellenverschiebung"
-  },
-  "help": {
-    "need_help": "Brauchen Sie Hilfe?",
-    "generate_api": "Sie müssen einen API Token generieren, um eine Drittanwendug, wie eine Mobile App, aufrufen zu können.",
-    "visit": "Bitte besuchen Sie",
-    "page": "diese Seite",
-    "copy_token": "und generieren Sie einen Token. Kopieren und verschieben Sie ihn einfach in das obere Feld.",
-    "email_cs": "Haben Sie Fragen? Mailen Sie sie dem Kundendienst über ",
-    "back": "Zurück"
   },
   "app": {
     "exit_title": "Beenden",

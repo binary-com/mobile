@@ -6,20 +6,8 @@
     "paste_token": "在此贴上令牌",
     "get_token": "如何获取令牌？",
     "signin_with_binary_com": "登录",
-    "use_token": "或以令牌登录",
     "next": "下一步",
     "regulatory-information": "法规信息"
-  },
-  "accounts": {
-    "my_accounts": "账户管理",
-    "account": "账户",
-    "remove_all": "删除所有账户并退出",
-    "default": "默认",
-    "set_as_default": "设置为默认",
-    "add": "添加",
-    "new_token": "添加新令牌",
-    "delete": "删除",
-    "not_allowed_to_trade": "您没有权限进行交易！"
   },
   "alert": {
     "error": "错误！",
@@ -105,15 +93,6 @@
     "buy_again": "重购",
     "sell": "卖出",
     "barrier": "障碍位移"
-  },
-  "help": {
-    "need_help": "需要帮助？",
-    "generate_api": "要访问第三方应用程序，如手机应用，您必须生成API令牌。",
-    "visit": "请访问",
-    "page": "此页面",
-    "copy_token": "并创建令牌。然后复制粘贴到上方方框。",
-    "email_cs": "有问题？请发电子邮件至客服部门，地址是 ",
-    "back": "返回"
   },
   "app": {
     "exit_title": "退出",
@@ -786,9 +765,9 @@
     "hedging": "对冲"
   },
   "ios-pwa-prompt": {
-    "title": "Install Binary TickTrade",
-    "close": "Close",
-    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
-    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+    "title": "安装Binary TickTrade",
+    "close": "收盘",
+    "installation_text": "在主页屏幕上安装Binary TickTrade, 以便出门时也能快速方便交易。",
+    "installation_help": "只需轻触 {{icon}}，然后'添加到主屏幕'"
   }
 }
