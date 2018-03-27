@@ -37,11 +37,6 @@ angular.module("binary").config(($locationProvider, $stateProvider, $urlRouterPr
             controller  : "SigninController",
             controllerAs: "vm"
         })
-        .state("help", {
-            templateUrl : "js/pages/help/help.template.html",
-            controller  : "HelpController",
-            controllerAs: "vm"
-        })
         .state("profit-table", {
             parent      : "layout",
             cache       : true,

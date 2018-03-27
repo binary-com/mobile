@@ -46,7 +46,6 @@
     angular.module("binary.pages", [
         "binary.pages.home",
         "binary.pages.signin",
-        "binary.pages.help",
         "binary.pages.trade",
         "binary.pages.real-account-opening",
         "binary.pages.maltainvest-account-opening",
