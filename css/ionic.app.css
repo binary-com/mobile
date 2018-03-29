@@ -11382,29 +11382,6 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .trade #trade-container bg-payout {
     max-height: 130px; } }
 
-.help-content {
-  background: #fff;
-  padding-left: 3%;
-  padding-right: 3%;
-  padding-top: 5%;
-  color: #000;
-  font-size: 1rem; }
-  .help-content h1 {
-    font-size: 1.5rem;
-    color: #E98024; }
-  .help-content button {
-    background: #2E8836 !important;
-    font-size: 1.1rem; }
-
-@media only screen and (min-device-width: 480px) {
-  .help-content {
-    font-size: 0.8rem; }
-    .help-content h1 {
-      font-size: 1rem;
-      color: #fff; }
-    .help-content button {
-      font-size: 0.8rem; } }
-
 .realitycheck .popup {
   background: #fff;
   width: 90vw;
@@ -11844,6 +11821,12 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
       display: table-cell;
       padding: 5px;
       font-size: 0.8rem; }
+
+.ios-pwa-prompt .logo {
+  width: 50%; }
+
+.ios-pwa-prompt .slogan {
+  width: 50%; }
 
 .language bg-language-list ion-content .item-content {
   font-size: 1rem;

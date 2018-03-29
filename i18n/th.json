@@ -6,20 +6,8 @@
     "paste_token": "ใส่โทเค่นของท่านที่นี่",
     "get_token": "จะมีโทเค่นได้อย่างไร?",
     "signin_with_binary_com": "เข้าสู่ระบบ",
-    "use_token": "หรือ เข้าสู่ระบบด้วยโทเค่น",
     "next": "ถัดไป",
     "regulatory-information": "ข้อมูลเกี่ยวกับกฎระเบียบ"
-  },
-  "accounts": {
-    "my_accounts": "จัดการบัญชี",
-    "account": "บัญชี",
-    "remove_all": "ลบบัญชีทั้งหมด และออกจากระบบ",
-    "default": "ค่าเริ่มต้น",
-    "set_as_default": "ใช้เป็นค่าเริ่มต้น",
-    "add": "เพิ่ม",
-    "new_token": "เพิ่มโทเค่นใหม่",
-    "delete": "ลบ",
-    "not_allowed_to_trade": "ท่านไม่มีสิทธิ์เทรด!"
   },
   "alert": {
     "error": "ผิดพลาด!",
@@ -105,15 +93,6 @@
     "buy_again": "ซื้ออีกครั้ง",
     "sell": "ขาย",
     "barrier": "Barrier ออฟเซ็ท"
-  },
-  "help": {
-    "need_help": "ต้องการความช่วยเหลือไหม?",
-    "generate_api": "ในการใช้งานแอพพลิเคชันอื่นๆ เช่น แอพพลิเคชันของโทรศัพท์มือถือ ท่านต้องใช้โทเค่น API",
-    "visit": "โปรดเยี่ยมชม",
-    "page": "หน้านี้",
-    "copy_token": "และสร้างโทเค่น แล้วคัดลอกและวางมันในช่องด้านบน",
-    "email_cs": "มีคำถามมั้ย? ส่งอีเมล์ให้กับเจ้าหน้าที่บริการลูกค้าที่ ",
-    "back": "กลับ"
   },
   "app": {
     "exit_title": "ออก",
@@ -383,7 +362,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "เครื่องมือสำหรับพักการซื้อขาย",
-    "maximum-account-cash-balance": "มูลค่าสูงสุดของบัญชีเงินสด",
+    "maximum-account-cash-balance": "มูลค่าบัญชีเงินสดคงเหลือสูงสุด",
     "max-balance-hint": "เมื่อวงเงินเต็ม ท่านไม่สามารถฝากเงินได้",
     "daily-turnover-limit": "วงเงินซื้อขายต่อวัน",
     "max-turnover-hint": "มูลค่าสัญญารวมสูงสุดที่ซื้อต่อวัน",
@@ -406,6 +385,7 @@
     "exclude-me-hint": "โปรดป้อนวันที่ในรูปแบบ MM/DD/YYYY",
     "update-settings": "การปรับปรุงการตั้งค่า",
     "please-enter-an-integer-value": "โปรดป้อนเลขจำนวนเต็มที่มีความยาวสูงสุดจำนวน {{max}}",
+    "enter-valid-value": "โปรดป้อนข้อมูลที่มีทศนิยมสูงสุด {{fractionalDigitis}} หลัก และความยาวสูงสุดที่ {{max}} ตัวอักษร",
     "valid-range-hint": "โปรดป้อนตัวเลขระหว่าง 0 และ {{max}}",
     "date-is-not-valid": "เวลาของการพักจะต้องเป็นหลังจากวันนี้",
     "date-can-not-be-greater-than": "เวลาพักต้องไม่เกิน {{max}}",
@@ -783,5 +763,11 @@
     "speculative": "เก็งกำไร",
     "income_earning": "การรับรายได้",
     "hedging": "การป้องกันความเสี่ยง"
+  },
+  "ios-pwa-prompt": {
+    "title": "Install Binary TickTrade",
+    "close": "Close",
+    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
+    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
   }
 }

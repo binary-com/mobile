@@ -348,7 +348,9 @@
                 <select name="place_of_birth"
                         ng-model="vm.profile.place_of_birth"
                         ng-options="residence.value as residence.text for
-                          residence in vm.residenceList" ng-required="vm.isFinancial">
+                          residence in vm.residenceList"
+                        ng-disabled="vm.hasPOB"
+                        ng-required="vm.isFinancial">
                   <option value="" disabled>
                     {{ 'profile.select' | translate }}
                   </option>

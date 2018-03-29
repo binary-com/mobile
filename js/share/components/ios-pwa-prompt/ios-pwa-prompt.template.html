@@ -1,0 +1,21 @@
+<div class="ios-pwa-prompt">
+  <div class="row">
+    <div class="col center">
+      <img src="img/logomark.svg" class="logo" alt="Binary Logo" />
+      <img src="img/logotype_dark.svg" class="slogan" alt="Binary.com" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col center">
+      <p>
+      {{ "ios-pwa-prompt.installation_text" | translate }}
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col center">
+      <p ng-bind-html="'ios-pwa-prompt.installation_help' | translate: {icon: vm.icon}">
+      </p>
+    </div>
+  </div>
+</div>
