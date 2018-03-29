@@ -765,9 +765,9 @@
     "hedging": "Hedging"
   },
   "ios-pwa-prompt": {
-    "title": "Install Binary TickTrade",
-    "close": "Close",
-    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
-    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+    "title": "Binary TickTrade installieren",
+    "close": "Schluss",
+    "installation_text": "Installieren Sie Binary TickTrade auf Ihrem Startbildschirm für einen schnellen und einfachen Zugang für wenn Sie unterwegs sind.",
+    "installation_help": "Einfach {{icon}} anklicken und dann \"Zum Startbildschirm hinzufügen\""
   }
 }
