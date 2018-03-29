@@ -6,20 +6,8 @@
     "paste_token": "Wklej swój token tutaj",
     "get_token": "Jak uzyskać token?",
     "signin_with_binary_com": "Zaloguj się",
-    "use_token": "Lub zaloguj się przy użyciu tokenu",
     "next": "Dalej",
     "regulatory-information": "Informacje o przepisach prawnych"
-  },
-  "accounts": {
-    "my_accounts": "Zarządzaj kontami",
-    "account": "Konto",
-    "remove_all": "Usuń wszystkie konta i wyloguj",
-    "default": "Domyślny",
-    "set_as_default": "Ustaw jako domyślne",
-    "add": "Dodaj",
-    "new_token": "Dodaj nowy token",
-    "delete": "Usuń",
-    "not_allowed_to_trade": "Nie masz pozwolenia na handlowanie!"
   },
   "alert": {
     "error": "Błąd!",
@@ -105,15 +93,6 @@
     "buy_again": "Kup ponownie",
     "sell": "Sprzedaj",
     "barrier": "Wyrównanie limitu"
-  },
-  "help": {
-    "need_help": "Potrzebujesz pomocy?",
-    "generate_api": "Aby uzyskać dostęp do aplikacji zewnętrznych, takich jak aplikacje mobilne, musisz wygenerować token API.",
-    "visit": "Odwiedź",
-    "page": "tę stronę",
-    "copy_token": "i utwórz token. Po czym skopiuj i wklej go w górnym oknie.",
-    "email_cs": "Masz pytania? Skontaktuj się z działem obsługi klienta, wysyłając e-mail na adres: ",
-    "back": "Wróć"
   },
   "app": {
     "exit_title": "Wyjdź",
@@ -784,5 +763,11 @@
     "speculative": "Spekulacja",
     "income_earning": "Uzyskanie dochodu",
     "hedging": "Hedging"
+  },
+  "ios-pwa-prompt": {
+    "title": "Install Binary TickTrade",
+    "close": "Close",
+    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
+    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
   }
 }

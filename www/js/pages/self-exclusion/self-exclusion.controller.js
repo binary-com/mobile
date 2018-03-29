@@ -27,7 +27,10 @@
 
         $scope.$on("get-self-exclusion", (e, response) => {
             $scope.$applyAsync(() => {
-                vm.data = response;
+                vm.data = _.clone(response);
+                if (vm.data.exclude_until) {
+                    vm.data.exclude_until = new Date(vm.data.exclude_until);
+                }
                 vm.limits = _.clone(response);
                 vm.disableUpdateButton = false;
                 vm.isDataLoaded = true;
@@ -48,9 +51,6 @@
             });
             vm.limits = _.clone(vm.data);
             vm.disableUpdateButton = false;
-            if (vm.data.exclude_until || vm.data.timeout_until) {
-                websocketService.logout();
-            }
         });
 
         $scope.$on("set-self-exclusion:error", (e, error) => {

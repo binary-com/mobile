@@ -6,7 +6,7 @@
     <option ng-repeat="a in vm.accounts"
             value="{{a.token}}"
             ng-selected="{{a.token == vm.selectedAccount}}"
-            ng-if="a.is_disabled === 0 && !a.excluded_until">
+            ng-if="a.is_disabled === 0">
       {{a.id}} {{!a.currency ? "" : "(" + a.currency + ")"}}
     </option>
   </select>

@@ -34,12 +34,16 @@
             }
         };
 
+        const handleUrl = (url) => {
+            accounts = getAccountsFromUrl(url);
+            if (accounts.length > 0) {
+                authenticate(accounts[0].token);
+            }
+        }
+
         window.onmessage = function(_message) {
             if (_message.data && _message.data.url) {
-                accounts = getAccountsFromUrl(_message.data.url);
-                if (accounts.length > 0) {
-                    authenticate(accounts[0].token);
-                }
+                handleUrl(_message.data.url);
             }
         };
 
@@ -52,8 +56,8 @@
                         account.email = response.email;
                         account.country = response.country;
                         if (accountList) {
-                            const acc = accountList.find(a => a.loginid === account.loginid);
-                            account = Object.assign(account, acc);
+                            const acc = _.find(accountList, a => a.loginid === account.loginid);
+                            account = _.assign(account, acc);
                         }
                         accountService.add(account);
                     }
@@ -62,12 +66,20 @@
             $ionicLoading.hide();
         });
 
+
+        vm.init = () => {
+            if (!_.isEmpty(vm.accountTokens)) {
+                handleUrl(vm.accountTokens);
+            }
+        };
+
         vm.signin = () => {
             const serverUrl = localStorage.getItem('config.server_url');
             const oauthUrl = serverUrl ? `https://${serverUrl}/oauth2/authorize` : config.oauthUrl;
             const appId = localStorage.getItem('config.app_id') || config.app_id;
+            const oauthWindowUrl = `${oauthUrl}?app_id=${appId}&l=${languageService.read()}`;
             const authWindow = window.open(
-                `${oauthUrl}?app_id=${appId}&l=${languageService.read()}`,
+                oauthWindowUrl,
                 "_blank",
                 "location=no,toolbar=no"
             );
@@ -121,5 +133,7 @@
 
             return error;
         }
+
+        vm.init();
     }
 })();

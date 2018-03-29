@@ -44,6 +44,7 @@
         vm.disableUpdatebutton = false;
         vm.taxRequirement = false;
         vm.hasResidence = false;
+        vm.hasPOB = false;
         const loginid = accountService.getDefault().id;
         const isVirtual = clientService.isAccountOfType('virtual', loginid);
         vm.receivedSettings = false;
@@ -95,7 +96,8 @@
             vm.data.secret_answer = '';
         };
 
-        const getPhoneCode = countryCode => vm.residenceList.find(country => country.value === countryCode).phone_idd;
+        const getPhoneCode = countryCode =>
+            _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
 
         $ionicModal
             .fromTemplateUrl("js/pages/maltainvest-account-opening/tax-residence.modal.html", {
@@ -132,6 +134,9 @@
                 if (get_settings.date_of_birth) {
                     vm.data.date_of_birth = new Date(get_settings.date_of_birth * 1000);
                 }
+                if (get_settings.place_of_birth) {
+                    vm.hasPOB = true;
+                }
                 if (get_settings.country_code) {
                     const countryCode = get_settings.country_code;
                     vm.hasResidence = true;
@@ -144,23 +149,23 @@
                 }
                 if (vm.data.tax_residence) {
                     vm.settingTaxResidence = _.words(vm.data.tax_residence);
-                    vm.residenceList = vm.residenceList.map(res => {
+                    vm.residenceList = _.map(vm.residenceList, res => {
                         if (vm.settingTaxResidence.indexOf(res.value) > -1) {
                             res.checked = true;
                         }
                         return res;
                     });
-                    const checkedValues = vm.residenceList.filter(res => res.checked);
-                    vm.selectedTaxResidencesName = checkedValues.map(value => value.text).join(', ');
+                    const checkedValues = _.filter(vm.residenceList, res => res.checked);
+                    vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
                 }
             });
         });
 
         vm.setTaxResidence = () => {
             vm.taxRequirement = true;
-            const checkedValues = vm.residenceList.filter(res => res.checked);
-            vm.selectedTaxResidencesName = checkedValues.map(value => value.text).join(', ');
-            vm.data.tax_residence = checkedValues.map(value => value.value).join(',');
+            const checkedValues = _.filter(vm.residenceList, res => res.checked);
+            vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
+            vm.data.tax_residence = _.map(checkedValues, value => value.value).join(',');
             vm.closeModal();
         };
 

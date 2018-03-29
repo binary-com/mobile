@@ -174,7 +174,10 @@
 
       <div class="row center" ng-show="!vm.showTokenForm && !vm.showSignup && vm.showSignin">
         <div class="col col-75">
-          <oauth ng-show="!vm.showTokenForm && vm.showSignin && !vm.showSignup"></oauth>
+          <oauth
+             ng-show="!vm.showTokenForm && vm.showSignin && !vm.showSignup"
+             account-tokens="vm.data.accountTokens"
+          ></oauth>
         <!-- signup -->
           {{ 'new-virtual-account.signup-question' | translate }}
           <div>

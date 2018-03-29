@@ -18,7 +18,7 @@
         vm.activeSymbols = JSON.parse(sessionStorage.all_active_symbols);
 
         vm.getSymbolInfo = function(qSymbol, activeSymbols) {
-            return activeSymbols.filter((sy, id) => {
+            return _.filter(activeSymbols, (sy, id) => {
                 if (sy.symbol === qSymbol) {
                     activeSymbols.splice(id, 1);
                     return true;

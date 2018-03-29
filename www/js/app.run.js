@@ -37,6 +37,9 @@
             if (window.StatusBar) {
                 window.StatusBar.styleDefault();
             }
+            if (window.cordova) {
+                window.open = cordova.InAppBrowser.open;
+            }
 
             // Handle the android's hardware button
             $ionicPlatform.registerBackButtonAction(() => {
