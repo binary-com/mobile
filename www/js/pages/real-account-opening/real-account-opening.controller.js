@@ -41,6 +41,7 @@
         vm.options = accountOptions;
         vm.receivedSettings = false;
         vm.hasResidence = false;
+        vm.hasPOB = false;
         vm.disableUpdatebutton = false;
         vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
@@ -81,6 +82,9 @@
                 });
                 if (get_settings.date_of_birth) {
                     vm.data.date_of_birth = new Date(get_settings.date_of_birth * 1000);
+                }
+                if (get_settings.place_of_birth) {
+                    vm.hasPOB = true;
                 }
                 if (get_settings.country_code) {
                     const countryCode = get_settings.country_code;
