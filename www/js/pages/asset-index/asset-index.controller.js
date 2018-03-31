@@ -17,15 +17,7 @@
         vm.assetIndex = JSON.parse(sessionStorage.asset_index || null);
         vm.activeSymbols = JSON.parse(sessionStorage.all_active_symbols);
 
-        vm.getSymbolInfo = function(qSymbol, activeSymbols) {
-            return _.filter(activeSymbols, (sy, id) => {
-                if (sy.symbol === qSymbol) {
-                    activeSymbols.splice(id, 1);
-                    return true;
-                }
-                return false;
-            });
-        };
+        vm.getSymbolInfo = (qSymbol, activeSymbols) => _.filter(activeSymbols, (sy, id) => sy.symbol === qSymbol);
 
         vm.getAssetIndexData = function(assetIndex, activeSymbols) {
             if (!assetIndex || !activeSymbols) {
@@ -66,7 +58,7 @@
                     vm.assetCells = vm.assetItem[idx.cells];
                     const values = {};
                     for (let j = 0; j < vm.assetCells.length; j++) {
-                        const col = vm.assetCells[j][idx.cellName];
+                        const col = vm.assetCells[j][idx.displayName];
                         values[col] = `${vm.assetCells[j][idx.cellFrom]} - ${vm.assetCells[j][idx.cellTo]}`;
                         const marketCols = vm.marketColumns[market];
                         if (marketCols.columns.indexOf(col) < 0) {
