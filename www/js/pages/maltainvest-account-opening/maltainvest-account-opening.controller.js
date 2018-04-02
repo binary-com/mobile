@@ -174,7 +174,7 @@
             vm.error = {};
             let params = _.clone(vm.data);
             params.accept_risk = vm.accept_risk ? 1 : 0;
-            params.date_of_birth = !_.isEmpty(vm.data.date_of_birth) ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
+            params.date_of_birth = vm.data.date_of_birth ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
             params = _.forEach(params, (val, k) => {
                 params[k] = _.trim(val);
                 return params[k];
