@@ -767,7 +767,7 @@
   "ios-pwa-prompt": {
     "title": "Instalar o Binary TickTrade",
     "close": "Close",
-    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
+    "installation_text": "Instalar o Binary TickTrade na sua tela inicial para fácil e rápido acesso a partir de qualquer lugar.",
     "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
   }
 }
