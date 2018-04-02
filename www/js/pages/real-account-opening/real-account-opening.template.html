@@ -153,6 +153,30 @@
         <div class="col">
           <div class="row">
             <div class="col input-title">
+              {{ 'new-account-real.place_of_birth' | translate }}
+            </div>
+          </div>
+          <div class="row">
+            <label class="col item-input item-select">
+              <select ng-model="vm.data.place_of_birth"
+                      ng-options="residence.value as residence.text for residence in vm.residenceList"
+                      ng-disabled="vm.hasPOB"
+                      required>
+                <option value="" disabled ng-if="!vm.hasPOB">
+                  {{ 'new-account-real.select' | translate }}
+                </option>
+              </select>
+            </label>
+          </div>
+          <div class="help-block error" ng-if="vm.errors.place_of_birth">
+            {{ vm.errors.place_of_birth }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col input-title">
               {{ 'new-account-real.residence' | translate }}
             </div>
           </div>

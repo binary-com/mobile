@@ -149,31 +149,6 @@
         <div class="col">
           <div class="row">
             <div class="col input-title">
-              {{ 'new-account-maltainvest.residence' | translate }}
-            </div>
-          </div>
-          <div class="row">
-            <label class="col item-input item-select">
-              <select ng-model="vm.data.residence"
-                      ng-options="residence.value as residence.text disable
-                      when residence.disabled for residence in vm.residenceList"
-                      required
-                      ng-disabled="vm.hasResidence">
-                <option value="" disabled>
-                  {{ 'new-account-maltainvest.select' | translate }}
-                </option>
-              </select>
-            </label>
-          </div>
-          <div class="help-block error" ng-if="vm.errors.residence">
-            {{ vm.errors.residence }}
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col input-title">
               {{ 'new-account-maltainvest.place_of_birth' | translate }}
             </div>
           </div>
@@ -192,6 +167,31 @@
           </div>
           <div class="help-block error" ng-if="vm.errors.place_of_birth">
             {{ vm.errors.place_of_birth }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col input-title">
+              {{ 'new-account-maltainvest.residence' | translate }}
+            </div>
+          </div>
+          <div class="row">
+            <label class="col item-input item-select">
+              <select ng-model="vm.data.residence"
+                      ng-options="residence.value as residence.text disable
+                      when residence.disabled for residence in vm.residenceList"
+                      required
+                      ng-disabled="vm.hasResidence">
+                <option value="" disabled>
+                  {{ 'new-account-maltainvest.select' | translate }}
+                </option>
+              </select>
+            </label>
+          </div>
+          <div class="help-block error" ng-if="vm.errors.residence">
+            {{ vm.errors.residence }}
           </div>
         </div>
       </div>
