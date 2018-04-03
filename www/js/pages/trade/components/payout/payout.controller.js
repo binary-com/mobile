@@ -53,7 +53,7 @@
         };
 
         vm.add = () => {
-            vm.amount = Number(vm.amount) + 1 <= 10000 ? Number(vm.amount) + 1 : 100000;
+            vm.amount = Number(vm.amount) + 1 <= 100000 ? Number(vm.amount) + 1 : 100000;
         };
 
         vm.subtract = () => {
