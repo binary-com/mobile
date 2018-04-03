@@ -56,7 +56,6 @@
 
   #emailform,
   #virtualws {
-    width: 100%;
     margin: 0 auto;
     .show-hide-password {
       label {
@@ -81,14 +80,18 @@
   }
 }
 
-@media only screen and (min-width: 480px) {
-  #emailform, #virtualws {
-    width: 75%;
+@media screen and (min-width: 780px) {
+  .sign-in {
+    #emailform, #virtualws {
+      width: 75%;
+    }
   }
 }
 
-@media only screen and (min-width: 960px) {
-  #emailform, #virtualws {
-    width: 50%;
+@media screen and (min-width: 960px) {
+  .sign-in {
+    #emailform, #virtualws {
+      width: 50%;
+    }
   }
 }
