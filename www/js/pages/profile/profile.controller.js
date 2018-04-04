@@ -67,11 +67,11 @@
 
         vm.init = () => {
             vm.isVirtualAccount = !!appStateService.virtuality;
-            vm.account = accountService.getDefault();
+            const account = accountService.getDefault();
             if (!vm.isVirtualAccount) {
-                vm.isFinancial = /MF/i.test(vm.account.id);
+                vm.isFinancial = /MF/i.test(account.id);
                 websocketService.sendRequestFor.residenceListSend();
-            } else if (vm.isVirtualAccount && !vm.account.country) {
+            } else if (vm.isVirtualAccount && !account.country) {
                 websocketService.sendRequestFor.residenceListSend();
             } else {
                 getProfile();
