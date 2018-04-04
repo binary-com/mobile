@@ -6,20 +6,8 @@
     "paste_token": "在此粘貼權杖",
     "get_token": "如何獲取權杖?",
     "signin_with_binary_com": "登入",
-    "use_token": "以權杖登入",
     "next": "下一步",
     "regulatory-information": "法規資訊"
-  },
-  "accounts": {
-    "my_accounts": "帳戶管理",
-    "account": "帳戶",
-    "remove_all": "刪除所有帳戶並登出",
-    "default": "預設值",
-    "set_as_default": "設定為預設值",
-    "add": "新增",
-    "new_token": "新增權杖",
-    "delete": "刪除",
-    "not_allowed_to_trade": "您沒有權限進行交易！"
   },
   "alert": {
     "error": "錯誤！",
@@ -105,15 +93,6 @@
     "buy_again": "重購",
     "sell": "賣出",
     "barrier": "障礙位移"
-  },
-  "help": {
-    "need_help": "需要幫助？",
-    "generate_api": "要存取第三方應用程式，如手機應用，您必須生成API權杖。",
-    "visit": "請訪問",
-    "page": "此頁面",
-    "copy_token": "並新增權杖。然後複製貼到頂部方塊。",
-    "email_cs": "有問題？請發電子郵件給客戶支持部。地址是 ",
-    "back": "返回"
   },
   "app": {
     "exit_title": "退出",
@@ -406,6 +385,7 @@
     "exclude-me-hint": "請輸入日期，格式為月/日/年。",
     "update-settings": "更新設定",
     "please-enter-an-integer-value": "請輸入一個整數值，最大長度為 {{max}}",
+    "enter-valid-value": "請輸入最大小數點位數為 {{fractionalDigitis}} 和最大長度為 {{max}} 的數值",
     "valid-range-hint": "請輸入0和{{max}} 之間的數字。",
     "date-is-not-valid": "禁止時間必須在今日之後",
     "date-can-not-be-greater-than": "禁止時間不能超過 {{max}}",
@@ -783,5 +763,11 @@
     "speculative": "投機",
     "income_earning": "賺取收入",
     "hedging": "對沖"
+  },
+  "ios-pwa-prompt": {
+    "title": "安裝 Binary TickTrade\n",
+    "close": "收盤",
+    "installation_text": "在主頁螢幕安裝Binary TickTrade, 以便出門時也能快速方便交易。",
+    "installation_help": "只需輕觸 {{icon}}，然後 '添加到主頁屏幕'"
   }
 }

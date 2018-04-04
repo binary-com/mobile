@@ -6,20 +6,8 @@
     "paste_token": "crwdns17668:0crwdne17668:0",
     "get_token": "crwdns17669:0crwdne17669:0",
     "signin_with_binary_com": "crwdns17670:0crwdne17670:0",
-    "use_token": "crwdns17671:0crwdne17671:0",
     "next": "crwdns17672:0crwdne17672:0",
     "regulatory-information": "crwdns19506:0crwdne19506:0"
-  },
-  "accounts": {
-    "my_accounts": "crwdns17673:0crwdne17673:0",
-    "account": "crwdns17674:0crwdne17674:0",
-    "remove_all": "crwdns17675:0crwdne17675:0",
-    "default": "crwdns17676:0crwdne17676:0",
-    "set_as_default": "crwdns17677:0crwdne17677:0",
-    "add": "crwdns17678:0crwdne17678:0",
-    "new_token": "crwdns17679:0crwdne17679:0",
-    "delete": "crwdns17680:0crwdne17680:0",
-    "not_allowed_to_trade": "crwdns17681:0crwdne17681:0"
   },
   "alert": {
     "error": "crwdns17682:0crwdne17682:0",
@@ -105,15 +93,6 @@
     "buy_again": "crwdns17746:0crwdne17746:0",
     "sell": "crwdns17747:0crwdne17747:0",
     "barrier": "crwdns17748:0crwdne17748:0"
-  },
-  "help": {
-    "need_help": "crwdns17749:0crwdne17749:0",
-    "generate_api": "crwdns17750:0crwdne17750:0",
-    "visit": "crwdns17751:0crwdne17751:0",
-    "page": "crwdns17752:0crwdne17752:0",
-    "copy_token": "crwdns17753:0crwdne17753:0",
-    "email_cs": "crwdns17754:0crwdne17754:0",
-    "back": "crwdns17755:0crwdne17755:0"
   },
   "app": {
     "exit_title": "crwdns17756:0crwdne17756:0",
@@ -383,7 +362,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "crwdns18013:0crwdne18013:0",
-    "maximum-account-cash-balance": "crwdns18014:0crwdne18014:0",
+    "maximum-account-cash-balance": "crwdns43466:0crwdne43466:0",
     "max-balance-hint": "crwdns18015:0crwdne18015:0",
     "daily-turnover-limit": "crwdns18016:0crwdne18016:0",
     "max-turnover-hint": "crwdns18017:0crwdne18017:0",
@@ -406,6 +385,7 @@
     "exclude-me-hint": "crwdns19399:0crwdne19399:0",
     "update-settings": "crwdns18035:0crwdne18035:0",
     "please-enter-an-integer-value": "crwdns19400:0{{max}}crwdne19400:0",
+    "enter-valid-value": "crwdns43093:0{{fractionalDigitis}}crwdnd43093:0{{max}}crwdne43093:0",
     "valid-range-hint": "crwdns18037:0{{max}}crwdne18037:0",
     "date-is-not-valid": "crwdns19401:0crwdne19401:0",
     "date-can-not-be-greater-than": "crwdns19402:0{{max}}crwdne19402:0",
@@ -783,5 +763,11 @@
     "speculative": "crwdns42868:0crwdne42868:0",
     "income_earning": "crwdns42869:0crwdne42869:0",
     "hedging": "crwdns42870:0crwdne42870:0"
+  },
+  "ios-pwa-prompt": {
+    "title": "crwdns43635:0crwdne43635:0",
+    "close": "crwdns43636:0crwdne43636:0",
+    "installation_text": "crwdns43637:0crwdne43637:0",
+    "installation_help": "crwdns43638:0{{icon}}crwdne43638:0"
   }
 }

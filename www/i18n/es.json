@@ -6,20 +6,8 @@
     "paste_token": "Pegue su token aquí",
     "get_token": "¿Cómo obtener un token?",
     "signin_with_binary_com": "Iniciar sesión",
-    "use_token": "O iniciar sesión con un token",
     "next": "Siguiente",
     "regulatory-information": "Información regulatoria"
-  },
-  "accounts": {
-    "my_accounts": "Gestionar Cuentas",
-    "account": "Cuenta",
-    "remove_all": "Suprimir Todas las Cuentas y Salir",
-    "default": "Defecto",
-    "set_as_default": "Establecer por defecto",
-    "add": "Añadir",
-    "new_token": "Añadir un token nuevo",
-    "delete": "Eliminar",
-    "not_allowed_to_trade": "¡No tiene permiso para comerciar!"
   },
   "alert": {
     "error": "¡Error!",
@@ -105,15 +93,6 @@
     "buy_again": "Comprar de nuevo",
     "sell": "Vender",
     "barrier": "Desplazamiento de barrera"
-  },
-  "help": {
-    "need_help": "¿Necesita ayuda?",
-    "generate_api": "Para acceder a una aplicación de terceros, como por ejemplo una aplicación móvil, se requiere que usted genere un Token de API.",
-    "visit": "Por favor visite",
-    "page": "esta página",
-    "copy_token": "y cree un token. Después, simplemente copie y pegue en el cuadro superior.",
-    "email_cs": "¿Tiene preguntas? Contacte el servicio de atención al cliente por correo electrónico ",
-    "back": "Atrás"
   },
   "app": {
     "exit_title": "Salir",
@@ -383,7 +362,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Características de autoexclusión",
-    "maximum-account-cash-balance": "Saldo máximo de la cuenta",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Una vez que se alcanza este límite, ya no puede depositar.",
     "daily-turnover-limit": "Daily turnover limit",
     "max-turnover-hint": "Máximo de adquisiciones de contratos agregados por día.",
@@ -406,6 +385,7 @@
     "exclude-me-hint": "Please enter date in the format MM/DD/YYYY.",
     "update-settings": "Actualizar configuración",
     "please-enter-an-integer-value": "Por favor, ingrese un valor entero con longitud máxima de {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Por favor, ingrese un número entre 0 y {{max}}",
     "date-is-not-valid": "El tiempo de exclusión debe ser después de hoy",
     "date-can-not-be-greater-than": "El tiempo de exclusión no puede ser mayor que {{max}}",
@@ -783,5 +763,11 @@
     "speculative": "Speculative",
     "income_earning": "Income Earning",
     "hedging": "Hedging"
+  },
+  "ios-pwa-prompt": {
+    "title": "Install Binary TickTrade",
+    "close": "Close",
+    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
+    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
   }
 }

@@ -56,6 +56,13 @@
         const init = () => {
             vm.language = languageService.read();
 
+            // Checking url params to get accoutn tokens from /redirect.
+            if (!_.isEmpty($stateParams.accountTokens)) {
+                vm.showSignin = true;
+                vm.data.accountTokens = $stateParams.accountTokens;
+            }
+
+            // Checking the url param to get verficatoin code.
             if (!_.isEmpty($stateParams.verificationCode)) {
                 vm.showvirtualws = true;
                 vm.data.verificationCode = $stateParams.verificationCode;
@@ -72,8 +79,8 @@
                     let account = {};
                     const accountList = response.account_list;
                     if (accountList) {
-                        const acc = accountList.find(a => a.loginid === response.loginid);
-                        account = Object.assign(response, acc);
+                        const acc = _.find(accountList, a => a.loginid === response.loginid);
+                        account = _.assign(response, acc);
                     }
                     accountService.add(account);
                     accountService.setDefault(response.token);
