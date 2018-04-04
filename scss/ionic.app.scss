@@ -34,7 +34,6 @@ $ionicons-font-path: "../lib/ionic/release/fonts" !default;
 @import "scss/pages/home";
 @import "scss/pages/signin";
 @import "scss/pages/trade";
-@import "scss/pages/help";
 @import "scss/pages/reality-check";
 @import "scss/pages/profit-table";
 @import "scss/pages/new-account";
@@ -49,5 +48,6 @@ $ionicons-font-path: "../lib/ionic/release/fonts" !default;
 @import "scss/pages/mt5-web";
 @import "scss/pages/notification";
 @import "scss/pages/accounts-management";
+@import "scss/pages/ios-pwa-prompt";
 
 @import "scss/shared/language";

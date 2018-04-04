@@ -6,20 +6,8 @@
     "paste_token": "Masukkan token Anda disini",
     "get_token": "Bagaimanakah cara memperoleh Token?",
     "signin_with_binary_com": "Masuk",
-    "use_token": "Atau masuk menggunakan token",
     "next": "Berikutnya",
     "regulatory-information": "Informasi pengaturan"
-  },
-  "accounts": {
-    "my_accounts": "Mengelola Akun",
-    "account": "Akun",
-    "remove_all": "Hapus Semua Akun & Keluar",
-    "default": "Setelan",
-    "set_as_default": "Pasang sebagai setelan",
-    "add": "Tambah",
-    "new_token": "Tambahkan token baru",
-    "delete": "Hapus",
-    "not_allowed_to_trade": "Anda tidak memiliki izin untuk bertrading!"
   },
   "alert": {
     "error": "Error!",
@@ -105,15 +93,6 @@
     "buy_again": "Beli Lagi",
     "sell": "Jual",
     "barrier": "Barrier offset"
-  },
-  "help": {
-    "need_help": "Perlu Bantuan?",
-    "generate_api": "Untuk mengakses aplikasi pihak ketiga, seperti mobile app, Anda diperlukan untuk membuat Token API.",
-    "visit": "Kunjungi",
-    "page": "halaman ini",
-    "copy_token": "dan buat token. Kemudian copas pada box di atas.",
-    "email_cs": "Memiliki pertanyaan? Email customer support di ",
-    "back": "Kembali"
   },
   "app": {
     "exit_title": "Keluar",
@@ -383,7 +362,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Fasilitas Pengecualian Diri",
-    "maximum-account-cash-balance": "Maksimum saldo tunai pada akun",
+    "maximum-account-cash-balance": "Maksimum saldo tunai akun",
     "max-balance-hint": "Setelah batas ini tercapai, Anda tidak lagi dapat mendeposit.",
     "daily-turnover-limit": "Batas pembelian kontrak harian",
     "max-turnover-hint": "Maksimal jumlah kontrak yang dapat dibeli per hari.",
@@ -406,6 +385,7 @@
     "exclude-me-hint": "Masukkan tanggal dalam format BB/HH/TTTT.",
     "update-settings": "Update Pengaturan",
     "please-enter-an-integer-value": "Masukkan nilai integer dengan panjang maksimal {{max}}",
+    "enter-valid-value": "Masukkan nilai hingga {{fractionalDigitis}} angka desimal dan panjang maksimal {{max}}",
     "valid-range-hint": "Masukkan angka antara 0 dan {{max}}",
     "date-is-not-valid": "Waktu pengecualian harus setelah hari ini",
     "date-can-not-be-greater-than": "Waktu pengecualian tidak bisa lebih dari {{max}}",
@@ -783,5 +763,11 @@
     "speculative": "Spekulatif",
     "income_earning": "Hasil Pendapatan",
     "hedging": "Hedging"
+  },
+  "ios-pwa-prompt": {
+    "title": "Instal TradingTik Binary",
+    "close": "Tutup",
+    "installation_text": "Instal TradingTik Binary pada halaman depan layar Anda untuk pengaksesan cepat dan mudah.",
+    "installation_help": "Cukup dengan mengklik {{icon}} kemudian 'Tambahkan ke Layar Utama'"
   }
 }

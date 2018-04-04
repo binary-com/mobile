@@ -6,20 +6,8 @@
     "paste_token": "Dán mã token của bạn ở đây",
     "get_token": "Làm thế nào để nhận mã Token?",
     "signin_with_binary_com": "Đăng nhập",
-    "use_token": "Hoặc đăng nhập với chuỗi xác nhận",
     "next": "Tiếp theo",
     "regulatory-information": "Thông tin pháp lý"
-  },
-  "accounts": {
-    "my_accounts": "Quản lý tài khoản",
-    "account": "Tài Khoản",
-    "remove_all": "Xóa tất cả các tài khoản & Đăng xuất",
-    "default": "Mặc định",
-    "set_as_default": "Đặt làm mặc định",
-    "add": "Thêm",
-    "new_token": "Thêm một mã token mới",
-    "delete": "Xóa",
-    "not_allowed_to_trade": "Bạn không có quyền giao dịch!"
   },
   "alert": {
     "error": "Lỗi!",
@@ -105,15 +93,6 @@
     "buy_again": "Mua lại",
     "sell": "Bán",
     "barrier": "Rào cản bù đắp"
-  },
-  "help": {
-    "need_help": "Cần trợ giúp?",
-    "generate_api": "Để truy cập vào một ứng dụng thứ ba, chẳng hạn như một ứng dụng điện thoại di động, bạn cần phải tạo ra một mã token API.",
-    "visit": "Vui lòng truy cập",
-    "page": "trang này",
-    "copy_token": "và tạo một mã token. Sau đó chỉ cần sao chép và dán nó vào mục trên đầu.",
-    "email_cs": "Bạn thắc mắc điều gì? Hãy gửi email cho đội ngũ hỗ trợ khách hàng tại ",
-    "back": "Trở lại"
   },
   "app": {
     "exit_title": "Thoát",
@@ -383,7 +362,7 @@
   },
   "self-exclusion": {
     "self-exclusion": "Cơ sở tự loại trừ",
-    "maximum-account-cash-balance": "Số dư tài khoản tối đa",
+    "maximum-account-cash-balance": "Maximum account cash balance",
     "max-balance-hint": "Một khi đã đạt đến giới hạn này, bạn sẽ không còn thể gửi tiền.",
     "daily-turnover-limit": "Giới hạn doanh thu hàng ngày",
     "max-turnover-hint": "Tập hợp các hợp đồng mua tối đa trên một ngày.",
@@ -406,6 +385,7 @@
     "exclude-me-hint": "Vui lòng nhập ngày theo định dạng Tháng/Ngày/Năm.",
     "update-settings": "Cập nhật cài đặt",
     "please-enter-an-integer-value": "Vui lòng nhập một giá trị số nguyên với chiều dài tối đa là {{max}}",
+    "enter-valid-value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
     "valid-range-hint": "Vui lòng nhập một con số trong khoảng từ 0 và {{max}}",
     "date-is-not-valid": "Loại trừ thời gian phải sau ngày hôm nay",
     "date-can-not-be-greater-than": "Loại trừ thời gian không thể lớn hơn {{max}}",
@@ -783,5 +763,11 @@
     "speculative": "Speculative",
     "income_earning": "Income Earning",
     "hedging": "Hedging"
+  },
+  "ios-pwa-prompt": {
+    "title": "Install Binary TickTrade",
+    "close": "Close",
+    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
+    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
   }
 }
