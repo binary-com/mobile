@@ -43,6 +43,7 @@
         vm.hasResidence = false;
         vm.hasPOB = false;
         vm.hasAccountOpeningReason = false;
+        vm.touchedTaxResidence = false;
         vm.settingTaxResidence = [];
         vm.options = accountOptions;
         const realAccountFields = {
@@ -182,6 +183,7 @@
 
 
         vm.setTaxResidence = () => {
+            vm.touchedTaxResidence = true;
             const checkedValues = _.filter(vm.residenceList, res => res.checked);
             vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
             vm.profile.tax_residence = _.map(checkedValues, value => value.value).join(',');

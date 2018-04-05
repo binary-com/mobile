@@ -42,7 +42,7 @@
         vm.errors = {};
         vm.settingTaxResidence = [];
         vm.disableUpdatebutton = false;
-        vm.taxRequirement = false;
+        vm.touchedTaxResidence = false;
         vm.hasResidence = false;
         vm.hasPOB = false;
         const loginid = accountService.getDefault().id;
@@ -162,7 +162,7 @@
         });
 
         vm.setTaxResidence = () => {
-            vm.taxRequirement = true;
+            vm.touchedTaxResidence = true;
             const checkedValues = _.filter(vm.residenceList, res => res.checked);
             vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
             vm.data.tax_residence = _.map(checkedValues, value => value.value).join(',');

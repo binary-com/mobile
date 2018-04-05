@@ -391,7 +391,7 @@
             </div>
             <div class="row">
               <div class="col help-block error"
-                   ng-if="!vm.taxInfoIsOptional && !vm.profile.tax_residence">
+                   ng-if="!vm.taxInfoIsOptional && !vm.profile.tax_residence && vm.touchedTaxResidence">
                 {{ 'profile.this_field_is_required' | translate }}
               </div>
             </div>
