@@ -35,6 +35,7 @@
         const vm = this;
         vm.profile = {};
         vm.errors = {};
+        vm.taxInfoIsOptional = false;
         vm.validation = validationService;
         vm.isDataLoaded = false;
         vm.notAnyChanges = false;
@@ -70,6 +71,10 @@
             if (!vm.isVirtualAccount) {
                 vm.account = accountService.getDefault();
                 vm.isFinancial = /MF/i.test(vm.account.id);
+                const landingCompany = localStorage.getItem('landingCompany');
+                const accounts = accountService.getAll();
+                const hasMaltainvestAccount = !!_.find(accounts, account => account.landing_company_name === 'maltainvest');
+                vm.taxInfoIsOptional = landingCompany !== 'maltainvest' && !hasMaltainvestAccount;
                 websocketService.sendRequestFor.residenceListSend();
             } else {
                 getProfile();
@@ -177,7 +182,6 @@
 
 
         vm.setTaxResidence = () => {
-            vm.taxRequirement = true;
             const checkedValues = _.filter(vm.residenceList, res => res.checked);
             vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
             vm.profile.tax_residence = _.map(checkedValues, value => value.value).join(',');
