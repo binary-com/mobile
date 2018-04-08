@@ -71,6 +71,7 @@
 
         $scope.$on("assetIndex:updated", e => {
             const markets = marketsService.findTickMarkets();
+            vm.marketsLength = markets ? _.keys(markets).length : 0;
             if (!_.isEmpty(vm.options.market) && _.find(markets, ["displayName", vm.options.market.displayName])) {
                 vm.selectMarket(vm.options.market);
             } else {
@@ -81,6 +82,7 @@
         $scope.$on("symbol", (e, groupSymbols) => {
             sessionStorage.groupSymbols = JSON.stringify(groupSymbols);
             const tradeTypes = tradeTypesService.findTickContracts(groupSymbols);
+            vm.tradeTypesLength = tradeTypes ? _.keys(tradeTypes).length : 0;
             $scope.$applyAsync(() => {
                 vm.options.tradeType =
                     Object.keys(tradeTypes).indexOf(vm.options.tradeType) > -1
