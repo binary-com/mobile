@@ -13,7 +13,7 @@ var minify = require('gulp-minify');
 var htmlreplace = require('gulp-html-replace');
 var ghPagesDeploy = require('gulp-gh-pages');
 var del = require('del');
-  var sw = require('sw-precache');
+var sw = require('sw-precache');
 
 var sh = require('shelljs');
 var bower = require('bower');
@@ -176,6 +176,10 @@ gulp.task('modify-index', function(done){
               tpl: '<script> %s </script>'
             },
             replacecordovabysw: "js/service-worker-registration.js",
+            addbase: {
+              src: '/',
+              tpl: '<base href="%s">'
+            },
           }
          )
       )
