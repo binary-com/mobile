@@ -242,5 +242,7 @@ angular.module("binary").config(($locationProvider, $stateProvider, $urlRouterPr
 
     $urlRouterProvider.otherwise("/");
 
-    $locationProvider.html5Mode(true);
+    if(!window.cordova) {
+        $locationProvider.html5Mode(true);
+    }
 });
