@@ -25,7 +25,7 @@
       if (window.navigator && isIOS(window.navigator.appVersion)) {
        const result = /.*\?(.*)/g.exec(window.location.href);
        if(result) {
-         window.location.href = `/#/redirect?${result[0]}`;
+         window.location.href = `/#/redirect?${result[1]}`;
        }
       }
 
