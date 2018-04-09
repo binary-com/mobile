@@ -13,7 +13,8 @@
   </div>
   <div class="row options-row">
     <div class="col center">
-      <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TRADETYPES)"> {{vm.options.tradeType}}
+      <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TRADETYPES)">
+        {{ vm.getLanguageId(vm.options.tradeType) | translate }}
         <i class="ion-arrow-down-b" ng-if="vm.tradeTypesLength > 1"></i></button>
     </div>
     <div class="col center">

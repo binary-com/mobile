@@ -217,6 +217,10 @@
             hideModal();
         };
 
+        vm.getLanguageId = function (title) {
+            return `options.${title.replace(/[\s,/]/g, '_').toLowerCase()}`;
+        };
+
         function init() {
             const options = optionsService.get();
             if (!_.isEmpty(options)) {
