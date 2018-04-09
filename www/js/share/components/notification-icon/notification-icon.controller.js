@@ -15,7 +15,7 @@
 
     function NotificationIcon($scope, $state, $ionicHistory, notificationService, appStateService) {
         const vm = this;
-        $scope.$watch(
+        $scope.$watchGroup(
             () => notificationService.notices,
             () => {
                 vm.notices = notificationService.notices;

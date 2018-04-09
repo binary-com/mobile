@@ -38,6 +38,8 @@
         vm.isMLT = false;
         vm.isMX = false;
         vm.isVirtual = false;
+        vm.websiteTncStatus = '';
+        vm.clientTncStatus = '';
         vm.notificationMessages = notificationService.messages;
         let currentAccount = {};
 
@@ -58,6 +60,7 @@
                 vm.checkAccountType();
                 websocketService.sendRequestFor.getAccountStatus();
                 websocketService.sendRequestFor.getSelfExclusion();
+                websocketService.sendRequestFor.accountSetting();
             } else {
                 $timeout(vm.getAccountInfo, 1000);
             }
@@ -114,18 +117,17 @@
             }
         };
 
-        vm.termsAndConditionsStatus = function(get_settings) {
-            if (get_settings) {
-                vm.clientTncStatus = get_settings.client_tnc_status;
-                vm.termsConditionsVersion = localStorage.getItem("termsConditionsVersion");
-                if (
-                    !appStateService.virtuality &&
-                    vm.clientTncStatus !== vm.termsConditionsVersion &&
-                    !appStateService.hasTnCMessage
-                ) {
-                    appStateService.hasTnCMessage = true;
-                    notificationService.notices.push(vm.notificationMessages.termsAndConditionsMessage);
-                }
+        vm.termsAndConditionsStatus = () => {
+            if (!appStateService.virtuality &&
+              !appStateService.hasTnCMessage &&
+              vm.clientTncStatus &&
+              vm.websiteTncStatus &&
+              vm.clientTncStatus !== vm.websiteTncStatus) {
+                appStateService.hasTnCMessage = true;
+                notificationService.notices.push(vm.notificationMessages.termsAndConditionsMessage);
+                // we run the digest cycle to call $watch in notifications in this case
+                // because it can be changed from BE anytime (User is subscribed to website status)
+                $scope.$apply();
             }
         };
 
@@ -220,8 +222,18 @@
 
         // get terms and onditions
         $scope.$on("get_settings", (e, get_settings) => {
-            vm.termsAndConditionsStatus(get_settings);
-            vm.residenceStatus(get_settings);
+            if (get_settings) {
+                vm.clientTncStatus = get_settings.client_tnc_status;
+                vm.termsAndConditionsStatus();
+                vm.residenceStatus(get_settings);
+            }
+        });
+
+        $scope.$on('website_status', (e, website_status) => {
+            if (website_status && vm.websiteTncStatus !== website_status.terms_conditions_version) {
+                vm.websiteTncStatus = website_status.terms_conditions_version;
+                vm.termsAndConditionsStatus();
+            }
         });
 
         $scope.$on("get-self-exclusion", (e, get_self_exclusion) => {
