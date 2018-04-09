@@ -98,6 +98,14 @@ angular.module("binary").constant("config", {
             category: "OVER/UNDER"
         }
     ],
+    supportedTradeTypes: [
+        "Digits Digit Matches/Digit Differs",
+        "Digits Digit Odd/Digit Even",
+        "Digits Digit Over/Digit Under",
+        "Higher/Lower",
+        "Rise/Fall",
+        "Asians"
+    ],
     language    : "en",
     assetIndexes: {
         symbol             : 0,
