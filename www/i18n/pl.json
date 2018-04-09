@@ -57,9 +57,9 @@
     "asians_up": "Azjatyckie – wzrost",
     "asians_down": "Azjatyckie – spadek",
     "asians": "Azjatyckie",
-    "digits_over_under": "Cyfry większe/mniejsze",
-    "digits_odd_even": "Cyfry parzyste/nieparzyste",
-    "digits_matches_differs": "Cyfry zgadzają się/ różnią się",
+    "digits_digit_over_digit_under": "Cyfry większe/mniejsze",
+    "digits_digit_odd_digit_even": "Cyfry parzyste/nieparzyste",
+    "digits_digit_matches_digit_differs": "Cyfry zgadzają się/ różnią się",
     "up_down": "Góra/dół",
     "higher_lower": "Wyższy/niższy",
     "rise_fall": "Wzrost/spadek",
@@ -136,9 +136,9 @@
     "signup": "Zarejestruj się",
     "email": "Adres e-mail",
     "signup-question": "Nie masz konta?",
-    "verification-code": "Kod weryfikacyjny",
-    "password": "Hasło",
-    "residence": "Miejsce zamieszkania:",
+    "verification-code": "Verification code",
+    "password": "Choose a password",
+    "residence": "Country of residence",
     "select": "Wybierz swój kraj",
     "isrequired": "(Wymagane)",
     "password_hint": "Hasło musi składać się z co najmniej sześciu znaków, w tym małych i wielkich liter oraz cyfr",
@@ -765,9 +765,9 @@
     "hedging": "Hedging"
   },
   "ios-pwa-prompt": {
-    "title": "Install Binary TickTrade",
-    "close": "Close",
-    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
-    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+    "title": "Zainstaluj aplikację Binary TickTrade",
+    "close": "Zamknij",
+    "installation_text": "Zainstaluj aplikację Binary TickTrade na ekranie startowym, aby uzyskać do niej dostęp w łatwy i szybki sposób, gdy jesteś w drodze.",
+    "installation_help": "Wystarczy nacisnąć ikonę {{icon}}, a następnie wybrać opcję „Dodaj do ekranu głównego”"
   }
 }
