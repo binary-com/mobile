@@ -101,7 +101,9 @@
         });
 
         $scope.$on("states_list", (e, states_list) => {
-            vm.statesList = states_list;
+            $scope.$applyAsync(() => {
+                vm.statesList = states_list;
+            });
         });
 
         vm.submitAccountOpening = () => {
