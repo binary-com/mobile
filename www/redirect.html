@@ -22,18 +22,24 @@
 
 		<!-- Redirect to #/redirect -->
 		<script type="text/javascript">
-      if (window.navigator && isIOS(window.navigator.appVersion)) {
-       const result = /.*\?(.*)/g.exec(window.location.href);
-       if(result) {
-         window.location.href = `/#/redirect?${result[0]}`;
-       }
+
+      if( window.navigator.standalone ) {
+        handleRedirectionInPWA();
+      } else {
+			var response = {};
+        response.url = window.location.href;
+        window.opener.postMessage(response, '*');
+        window.close();
       }
 
-			var response = {};
-			response.url = window.location.href;
-			window.opener.postMessage(response, '*');
-			window.close();
-
+      function handleRedirectionInPWA() {
+        if (window.navigator && isIOS(window.navigator.appVersion)) {
+         const result = /.*\?(.*)/g.exec(window.location.href);
+         if(result) {
+           window.location.href = `/mobile/#/redirect?${result[1]}`;
+         }
+        }
+      }
 
       function isIOS(appVersion) {
         return /IPHONE|IPAD|IPOD/i.test(appVersion);

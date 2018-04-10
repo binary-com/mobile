@@ -69,13 +69,15 @@
 
         vm.init = () => {
             vm.isVirtualAccount = !!appStateService.virtuality;
+            const account = accountService.getDefault();
+            const landingCompany = localStorage.getItem('landingCompany');
+            const accounts = accountService.getAll();
+            const hasMaltainvestAccount = !!_.find(accounts, account => account.landing_company_name === 'maltainvest');
+            vm.taxInfoIsOptional = landingCompany !== 'maltainvest' && !hasMaltainvestAccount;
             if (!vm.isVirtualAccount) {
-                vm.account = accountService.getDefault();
-                vm.isFinancial = /MF/i.test(vm.account.id);
-                const landingCompany = localStorage.getItem('landingCompany');
-                const accounts = accountService.getAll();
-                const hasMaltainvestAccount = !!_.find(accounts, account => account.landing_company_name === 'maltainvest');
-                vm.taxInfoIsOptional = landingCompany !== 'maltainvest' && !hasMaltainvestAccount;
+                vm.isFinancial = /MF/i.test(account.id);
+                websocketService.sendRequestFor.residenceListSend();
+            } else if (vm.isVirtualAccount && !account.country) {
                 websocketService.sendRequestFor.residenceListSend();
             } else {
                 getProfile();
