@@ -104,7 +104,8 @@ angular.module("binary").constant("config", {
         "Digits Digit Over/Digit Under",
         "Higher/Lower",
         "Rise/Fall",
-        "Asians"
+        "Asians",
+        "Up/Down"
     ],
     language    : "en",
     assetIndexes: {

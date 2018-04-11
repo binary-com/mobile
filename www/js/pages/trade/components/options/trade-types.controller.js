@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.trade.components.options.controllers").controller("TradeTypesController", TradeTypes);
 
-    TradeTypes.$inject = ['config'];
+    TradeTypes.$inject = [];
 
-    function TradeTypes(config) {
+    function TradeTypes() {
         const vm = this;
 
         vm.tradeTypes = {};
@@ -27,7 +27,6 @@
 
         function init() {
             vm.tradeTypes = JSON.parse(sessionStorage.tradeTypes);
-            vm.supportedTradeTypes = config.supportedTradeTypes;
         }
 
         init();
