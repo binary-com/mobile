@@ -405,7 +405,7 @@
     "second_line_of_home_address": "Segunda linha do endereço residencial",
     "town_city": "Cidade",
     "state_province": "Estado/Província",
-    "posta_code_zip": "Código postal/CEP",
+    "address_postcode": "Postal Code/ZIP",
     "telephone": "Telefone",
     "update_profile": "Atualizar perfil",
     "success": "Sucesso",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "Apenas letras, números e hífenes são permitidos.",
     "cancel": "Cancelar",
     "continue": "Continuar",
-    "account_opening_reason": "Motivo de abertura de conta"
+    "account_opening_reason": "Motivo de abertura de conta",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "atualizou os seus",
