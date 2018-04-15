@@ -98,18 +98,22 @@
 
         $scope.$on("authorize", (e, authorize) => {
             if (authorize && appStateService.newAccountAdded) {
+                let account = _.find(authorize.account_list, acc => acc.loginid === authorize.loginid);
+                account = _.assign(authorize, account);
+                accountService.add(account);
+                appStateService.newAccountAdded = false;
+                accountService.setDefault(authorize.token);
+                vm.updateAccount(authorize.token);
+                vm.accounts = accountService.getAll();
+                vm.selectedAccount = authorize.token;
+                appStateService.virtuality = authorize.is_virtual;
+                accountService.addedAccount = "";
+
                 vm.selectedCurrency = appStateService.selectedCurrency;
                 if (vm.selectedCurrency) {
                     websocketService.sendRequestFor.setAccountCurrency(vm.selectedCurrency);
                 }
-                accountService.add(authorize);
-                accountService.setDefault(accountService.addedAccount);
-                appStateService.newAccountAdded = false;
-                vm.accounts = accountService.getAll();
-                vm.selectedAccount = accountService.getDefault().token;
-                vm.updateAccount(vm.selectedAccount);
                 $state.go("trade");
-                accountService.addedAccount = "";
             }
         });
 
