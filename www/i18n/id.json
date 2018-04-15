@@ -405,7 +405,7 @@
     "second_line_of_home_address": "Baris kedua alamat rumah",
     "town_city": "Kota",
     "state_province": "Negara Bagian/Propinsi",
-    "posta_code_zip": "Kode Pos",
+    "address_postcode": "Postal Code/ZIP",
     "telephone": "Telepon",
     "update_profile": "Update Profil",
     "success": "Sukses",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "Hanya huruf, angka, dan tanda hubung yang diperbolehkan.",
     "cancel": "Batal",
     "continue": "Lanjutkan",
-    "account_opening_reason": "Alasan pedaftaran akun"
+    "account_opening_reason": "Alasan pedaftaran akun",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "telah memperbarui",
