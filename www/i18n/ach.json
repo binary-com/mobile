@@ -405,7 +405,7 @@
     "second_line_of_home_address": "crwdns18046:0crwdne18046:0",
     "town_city": "crwdns18047:0crwdne18047:0",
     "state_province": "crwdns18048:0crwdne18048:0",
-    "posta_code_zip": "crwdns18049:0crwdne18049:0",
+    "address_postcode": "crwdns44572:0crwdne44572:0",
     "telephone": "crwdns18050:0crwdne18050:0",
     "update_profile": "crwdns18051:0crwdne18051:0",
     "success": "crwdns18052:0crwdne18052:0",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "crwdns19501:0crwdne19501:0",
     "cancel": "crwdns19516:0crwdne19516:0",
     "continue": "crwdns19517:0crwdne19517:0",
-    "account_opening_reason": "crwdns33336:0crwdne33336:0"
+    "account_opening_reason": "crwdns33336:0crwdne33336:0",
+    "is_optional": "crwdns44573:0crwdne44573:0"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "crwdns18103:0crwdne18103:0",

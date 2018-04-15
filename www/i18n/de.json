@@ -405,7 +405,7 @@
     "second_line_of_home_address": "Zweite Adresszeile",
     "town_city": "Ort/Stadt",
     "state_province": "Bundesland/Region",
-    "posta_code_zip": "Postleitzahl/PLZ",
+    "address_postcode": "Postal Code/ZIP",
     "telephone": "Telefon",
     "update_profile": "Profil aktualisieren",
     "success": "Erfolg",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "Es sind nur Buchstaben, Zahlen, und Bindestriche erlaubt.",
     "cancel": "Abbrechen",
     "continue": "Weiter",
-    "account_opening_reason": "Kontoeröffnung-Grund"
+    "account_opening_reason": "Kontoeröffnung-Grund",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "hat seine",

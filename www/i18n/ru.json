@@ -405,7 +405,7 @@
     "second_line_of_home_address": "Вторая строка адреса",
     "town_city": "Город",
     "state_province": "Область/регион",
-    "posta_code_zip": "Почтовый код/индекс",
+    "address_postcode": "Postal Code/ZIP",
     "telephone": "Телефон",
     "update_profile": "Обновить профиль",
     "success": "Готово",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "Разрешены только буквы, цифры и дефисы.",
     "cancel": "Отмена",
     "continue": "Продолжить",
-    "account_opening_reason": "Причина открытия счёта"
+    "account_opening_reason": "Причина открытия счёта",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "обновил(а)",
