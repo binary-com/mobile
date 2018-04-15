@@ -50,6 +50,7 @@
             first_name            : '',
             last_name             : '',
             date_of_birth         : '',
+            place_of_birth        : '',
             residence             : '',
             address_line_1        : '',
             address_line_2        : '',
@@ -100,7 +101,9 @@
         });
 
         $scope.$on("states_list", (e, states_list) => {
-            vm.statesList = states_list;
+            $scope.$applyAsync(() => {
+                vm.statesList = states_list;
+            });
         });
 
         vm.submitAccountOpening = () => {

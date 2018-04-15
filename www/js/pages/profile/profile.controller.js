@@ -35,6 +35,7 @@
         const vm = this;
         vm.profile = {};
         vm.errors = {};
+        vm.taxInfoIsOptional = false;
         vm.validation = validationService;
         vm.isDataLoaded = false;
         vm.notAnyChanges = false;
@@ -42,6 +43,7 @@
         vm.hasResidence = false;
         vm.hasPOB = false;
         vm.hasAccountOpeningReason = false;
+        vm.touchedTaxResidence = false;
         vm.settingTaxResidence = [];
         vm.options = accountOptions;
         const realAccountFields = {
@@ -68,6 +70,10 @@
         vm.init = () => {
             vm.isVirtualAccount = !!appStateService.virtuality;
             const account = accountService.getDefault();
+            const landingCompany = localStorage.getItem('landingCompany');
+            const accounts = accountService.getAll();
+            const hasMaltainvestAccount = !!_.find(accounts, account => account.landing_company_name === 'maltainvest');
+            vm.taxInfoIsOptional = landingCompany !== 'maltainvest' && !hasMaltainvestAccount;
             if (!vm.isVirtualAccount) {
                 vm.isFinancial = /MF/i.test(account.id);
                 websocketService.sendRequestFor.residenceListSend();
@@ -179,7 +185,7 @@
 
 
         vm.setTaxResidence = () => {
-            vm.taxRequirement = true;
+            vm.touchedTaxResidence = true;
             const checkedValues = _.filter(vm.residenceList, res => res.checked);
             vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
             vm.profile.tax_residence = _.map(checkedValues, value => value.value).join(',');
