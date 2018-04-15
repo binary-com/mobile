@@ -112,8 +112,10 @@
                 vm.selectedCurrency = appStateService.selectedCurrency;
                 if (vm.selectedCurrency) {
                     websocketService.sendRequestFor.setAccountCurrency(vm.selectedCurrency);
+                    $state.go("trade");
+                } else {
+                    $state.go("set-currency")
                 }
-                $state.go("trade");
             }
         });
 
