@@ -405,7 +405,7 @@
     "second_line_of_home_address": "家庭地址第二行",
     "town_city": "城镇/城市",
     "state_province": "州/省",
-    "posta_code_zip": "邮编",
+    "address_postcode": "Postal Code/ZIP",
     "telephone": "电话",
     "update_profile": "更新配置文件",
     "success": "成功",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "只允许字母、数字和连字符。",
     "cancel": "取消",
     "continue": "继续",
-    "account_opening_reason": "开立账户的原因"
+    "account_opening_reason": "开立账户的原因",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "已更新其",
