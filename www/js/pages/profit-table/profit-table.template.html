@@ -83,7 +83,9 @@
               <div class="statement-element center" ng-bind="transaction.transaction_id"></div>
               <div class="statement-element bold green center"
                    ng-class="{red : (transaction.sell_price - transaction.buy_price).toFixed(2) < 0}"
-                   ng-bind="(transaction.sell_price - transaction.buy_price) | currency : vm.currency : 2"></div>
+                   ng-bind="(transaction.sell_price - transaction.buy_price) | currency :
+                   vm.currency : vm.fractionalDigits ">
+              </div>
             </li>
             <li class="list no-transaction" ng-if="vm.noTransaction">
               {{'profittable.no_transaction' | translate}}
