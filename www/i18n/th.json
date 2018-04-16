@@ -405,7 +405,7 @@
     "second_line_of_home_address": "บรรทัดที่สองของที่อยู่",
     "town_city": "เมือง",
     "state_province": "รัฐ/จังหวัด",
-    "posta_code_zip": "รหัสไปรษณีย์",
+    "address_postcode": "Postal Code/ZIP",
     "telephone": "โทรศัพท์",
     "update_profile": "อัพเดตข้อมูล",
     "success": "เรียบร้อยแล้ว",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "ตัวอักษร ตัวเลข และเครื่องหมายขีดกลางเท่านั้นที่อนุญาต",
     "cancel": "ยกเลิก",
     "continue": "ดำเนินการต่อ",
-    "account_opening_reason": "เหตุผลในการเปิดบัญชี"
+    "account_opening_reason": "เหตุผลในการเปิดบัญชี",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "ได้ปรับปรุง",

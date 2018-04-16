@@ -405,7 +405,7 @@
     "second_line_of_home_address": "Dòng thứ hai của địa chỉ nhà",
     "town_city": "Tỉnh/thành phố",
     "state_province": "Bang/Tỉnh",
-    "posta_code_zip": "Mã bưu chính/ZIP",
+    "address_postcode": "Postal Code/ZIP",
     "telephone": "Điện thoại",
     "update_profile": "Cập nhật hồ sơ",
     "success": "Thành công",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "Chỉ các chữ cái, số và dấu nối là được phép.",
     "cancel": "Hủy bỏ",
     "continue": "Tiếp tục",
-    "account_opening_reason": "Account opening reason"
+    "account_opening_reason": "Account opening reason",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "đã cập nhập của nó",

@@ -405,7 +405,7 @@
     "second_line_of_home_address": "Druga część adresu zamieszkania",
     "town_city": "Miasto",
     "state_province": "Stan/prowincja",
-    "posta_code_zip": "Kod pocztowy",
+    "address_postcode": "Postal Code/ZIP",
     "telephone": "Telefon",
     "update_profile": "Zaktualizuj profil",
     "success": "Udało się",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "Dozwolone są tylko litery, cyfry i myślnik.",
     "cancel": "Anuluj",
     "continue": "Kontynuuj",
-    "account_opening_reason": "Powód otwarcia konta"
+    "account_opening_reason": "Powód otwarcia konta",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "zaktualizowało swój",
