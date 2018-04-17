@@ -1,10 +1,9 @@
 /**
- * @name websocketService
- * @author Massih Hazrati
+ * @name validation service
+ * @author Nazanin Reihani Haghighi
  * @contributors []
- * @since 10/15/2015
+ * @since 10/15/2017
  * @copyright Binary Ltd
- * Handles websocket functionalities
  */
 
 angular
