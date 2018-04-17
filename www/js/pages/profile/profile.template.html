@@ -94,6 +94,37 @@
           <div class="col">
             <div class="row">
               <div class="col input-title">
+                {{ 'profile.place_of_birth' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <label class="col item-input item-select">
+                <select name="place_of_birth"
+                        ng-model="vm.profile.place_of_birth"
+                        ng-options="residence.value as residence.text for
+                          residence in vm.residenceList"
+                        ng-disabled="vm.hasPOB"
+                        required>
+                  <option value="" disabled>
+                    {{ 'profile.select' | translate }}
+                  </option>
+                </select>
+              </label>
+              <ng-messages ng-if="vm.isDataLoaded"
+                           for="profileForm.place_of_birth.$error"
+                           class="error"
+                           role="alert">
+                <ng-message when="required">
+                  {{ 'profile.this_field_is_required' | translate }}
+                </ng-message>
+              </ng-messages>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
                 {{ 'profile.country_of_residence' | translate }}
               </div>
             </div>
@@ -187,6 +218,7 @@
             <div class="row">
               <div class="col input-title">
                 {{ 'profile.second_line_of_home_address' | translate }}
+                <span>{{ 'profile.is_optional' | translate }}</span>
               </div>
             </div>
             <div class="row">
@@ -250,6 +282,7 @@
             <div class="row">
               <div class="col input-title">
                 {{ 'profile.state_province' | translate }}
+                <span>{{ 'profile.is_optional' | translate }}</span>
               </div>
             </div>
             <div class="row">
@@ -276,7 +309,8 @@
           <div class="col">
             <div class="row">
               <div class="col input-title">
-                {{ 'profile.posta_code_zip' | translate }}
+                {{ 'profile.address_postcode' | translate }}
+                <span>{{ 'profile.is_optional' | translate }}</span>
               </div>
             </div>
             <div class="row">
@@ -336,43 +370,15 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col input-title">
-                {{ 'profile.place_of_birth' | translate }}
-              </div>
-            </div>
-            <div class="row">
-              <label class="col item-input item-select">
-                <select name="place_of_birth"
-                        ng-model="vm.profile.place_of_birth"
-                        ng-options="residence.value as residence.text for
-                          residence in vm.residenceList"
-                        ng-disabled="vm.hasPOB"
-                        ng-required="vm.isFinancial">
-                  <option value="" disabled>
-                    {{ 'profile.select' | translate }}
-                  </option>
-                </select>
-              </label>
-              <ng-messages ng-if="vm.isDataLoaded"
-                           for="profileForm.place_of_birth.$error"
-                           class="error"
-                           role="alert">
-                <ng-message when="required">
-                  {{ 'profile.this_field_is_required' | translate }}
-                </ng-message>
-              </ng-messages>
-            </div>
-          </div>
-        </div>
         <!-- multiselect -->
         <div class="row">
           <div class="col">
             <div class="row">
               <div class="col input-title">
                 {{ 'profile.tax_residence' | translate }}
+                <span ng-if="vm.taxInfoIsOptional">
+                  {{ 'profile.is_optional' | translate }}
+                </span>
               </div>
             </div>
             <div class="row">
@@ -385,7 +391,7 @@
             </div>
             <div class="row">
               <div class="col help-block error"
-                   ng-if="vm.isFinancial && vm.profile.tax_residence  == null && vm.taxRequirement">
+                   ng-if="!vm.taxInfoIsOptional && !vm.profile.tax_residence && vm.touchedTaxResidence">
                 {{ 'profile.this_field_is_required' | translate }}
               </div>
             </div>
@@ -397,6 +403,9 @@
             <div class="row">
               <div class="col input-title">
                 {{ 'profile.tax_identification_number' | translate }}
+                <span ng-if="vm.taxInfoIsOptional">
+                  {{ 'profile.is_optional' | translate }}
+                </span>
               </div>
             </div>
             <div class="row">
@@ -405,7 +414,7 @@
                        ng-model="vm.profile.tax_identification_number"
                        ng-pattern="vm.validation.validateTaxIdentificationNumber"
                        ng-maxlength="vm.validation.length.tin.max"
-                       ng-required="vm.isFinancial"/>
+                       ng-required="!vm.taxInfoIsOptional"/>
                 <ng-messages ng-if="vm.isDataLoaded"
                              for="profileForm.tax_identification_number.$error"
                              class="error"
@@ -434,8 +443,8 @@
           <button class="button button-block"
                   ng-if="(vm.isVirtualAccount && !vm.hasResidence) || !vm.isVirtualAccount"
                   ng-click="vm.updateProfile()"
-                  ng-disabled="!profileForm.$valid || vm.disableUpdateButton  ||
-                           (vm.isFinancial && vm.profile.tax_residence  == null) ">
+                  ng-disabled="!profileForm.$valid || vm.disableUpdateButton ||
+                  (!vm.taxInfoIsOptional && !vm.profile.tax_residence)">
             {{ 'profile.update_profile' | translate }}
           </button>
         </div>

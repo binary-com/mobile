@@ -4,7 +4,7 @@
     <div class="col center">
       <button class="button button-clear" ng-click="vm.setSection(1, vm.SECTIONS.MARKETS)">
         {{vm.options.market.displayName}}
-        <i class="ion-arrow-down-b"></i></button>
+        <i class="ion-arrow-down-b" ng-if="vm.marketsLength > 1"></i></button>
     </div>
     <div class="col center">
       <button class="button button-clear" ng-click="vm.setSection(1, vm.SECTIONS.UNDERLYINGS)">
@@ -13,8 +13,9 @@
   </div>
   <div class="row options-row">
     <div class="col center">
-      <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TRADETYPES)"> {{vm.options.tradeType}}
-        <i class="ion-arrow-down-b"></i></button>
+      <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TRADETYPES)">
+        {{ vm.getLanguageId(vm.options.tradeType) | translate }}
+        <i class="ion-arrow-down-b" ng-if="vm.tradeTypesLength > 1"></i></button>
     </div>
     <div class="col center">
       <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TICKS)"> {{vm.options.tick}} Ticks

@@ -41,6 +41,7 @@
         vm.options = accountOptions;
         vm.receivedSettings = false;
         vm.hasResidence = false;
+        vm.hasPOB = false;
         vm.disableUpdatebutton = false;
         vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
@@ -49,6 +50,7 @@
             first_name            : '',
             last_name             : '',
             date_of_birth         : '',
+            place_of_birth        : '',
             residence             : '',
             address_line_1        : '',
             address_line_2        : '',
@@ -82,6 +84,9 @@
                 if (get_settings.date_of_birth) {
                     vm.data.date_of_birth = new Date(get_settings.date_of_birth * 1000);
                 }
+                if (get_settings.place_of_birth) {
+                    vm.hasPOB = true;
+                }
                 if (get_settings.country_code) {
                     const countryCode = get_settings.country_code;
                     vm.hasResidence = true;
@@ -96,14 +101,16 @@
         });
 
         $scope.$on("states_list", (e, states_list) => {
-            vm.statesList = states_list;
+            $scope.$applyAsync(() => {
+                vm.statesList = states_list;
+            });
         });
 
         vm.submitAccountOpening = () => {
             vm.disableUpdatebutton = true;
             vm.error = {};
             let params = _.clone(vm.data);
-            params.date_of_birth = !_.isEmpty(vm.data.date_of_birth) ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
+            params.date_of_birth = vm.data.date_of_birth ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
             params = _.forEach(params, (val, k) => {
                 params[k] = _.trim(val);
                 return params[k];

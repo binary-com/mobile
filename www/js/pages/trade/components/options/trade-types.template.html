@@ -1,6 +1,6 @@
 <div class="trade-types">
   <div class="row">
-    <div class="col center" ng-repeat="(key, value) in vm.tradeTypes">
+    <div class="col center" ng-repeat="(key, value) in vm.tradeTypes" ng-if="value[0].contract_category !== 'reset'">
       <button class="button button-clear"
               ng-click="vm.selectTradeType(key)">
         {{ vm.getLanguageId(key) | translate }}

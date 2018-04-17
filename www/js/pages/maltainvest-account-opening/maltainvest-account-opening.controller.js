@@ -42,7 +42,7 @@
         vm.errors = {};
         vm.settingTaxResidence = [];
         vm.disableUpdatebutton = false;
-        vm.taxRequirement = false;
+        vm.touchedTaxResidence = false;
         vm.hasResidence = false;
         vm.hasPOB = false;
         const loginid = accountService.getDefault().id;
@@ -51,7 +51,7 @@
         vm.options = _.merge(financialInformationOptions, accountOptions);
         vm.validation = validationService;
         vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
-            "en"}/terms-and-conditions.html`;
+        "en"}/terms-and-conditions.html`;
         vm.data = {
             salutation                          : '',
             first_name                          : '',
@@ -129,7 +129,7 @@
             $scope.$applyAsync(() => {
                 vm.receivedSettings = true;
                 _.forEach(vm.data, (val, k) => {
-	                if (get_settings[k]) vm.data[k] = get_settings[k];
+                    if (get_settings[k]) vm.data[k] = get_settings[k];
                 });
                 if (get_settings.date_of_birth) {
                     vm.data.date_of_birth = new Date(get_settings.date_of_birth * 1000);
@@ -162,7 +162,7 @@
         });
 
         vm.setTaxResidence = () => {
-            vm.taxRequirement = true;
+            vm.touchedTaxResidence = true;
             const checkedValues = _.filter(vm.residenceList, res => res.checked);
             vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
             vm.data.tax_residence = _.map(checkedValues, value => value.value).join(',');
@@ -174,7 +174,7 @@
             vm.error = {};
             let params = _.clone(vm.data);
             params.accept_risk = vm.accept_risk ? 1 : 0;
-            params.date_of_birth = !_.isEmpty(vm.data.date_of_birth) ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
+            params.date_of_birth = vm.data.date_of_birth ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
             params = _.forEach(params, (val, k) => {
                 params[k] = _.trim(val);
                 return params[k];
