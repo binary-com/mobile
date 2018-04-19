@@ -1,14 +1,21 @@
 <div class="purchase" ng-if="!vm.showSummary">
   <div class="row">
-    <div class="col center contract" ng-repeat="contract in vm.contracts">
+    <div class="col center contract" ng-repeat="contract in vm.contracts track by $index">
       <div class="row">
         <div class="col center">
           <div class="price-container">
-
+            <a ng-disabled="vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0"
+               ng-click="vm.showLongcode($index)"
+               class="longcode-button"
+                ng-class="{'disabled': vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0}">
+              <span>
+               <i class="ion-help"></i>
+             </span>
+            </a>
             <span class="price-des">{{'trade.net_profit' | translate}}:</span>
             <span class="price" ng-if="!getWaitForProposal()">
-                            {{ (vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price)  | currency:vm.proposal.currency:2}}
-                        </span>
+              {{ (vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price)  | currency:vm.proposal.currency:2}}
+            </span>
           </div>
         </div>
       </div>

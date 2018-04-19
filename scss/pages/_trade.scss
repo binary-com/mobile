@@ -251,6 +251,19 @@
 								vertical-align: middle;
 								line-height: normal;
 							}
+							.longcode-button {
+								padding-right: 15px;
+								padding-left: 15px;
+								font-size: 1.5rem;
+								i {
+									border-bottom: 1px dotted #2a3052;
+								}
+								&.disabled {
+									opacity: 0.4;
+									cursor: default !important;
+									pointer-events: none;
+								}
+							}
 						}
 						&.basis-container {
 							height: auto;
@@ -793,4 +806,11 @@
 	.trade #trade-container bg-payout {
 		max-height: 130px;
 	}
+}
+// toast design
+.loading {
+	bottom: 1rem;
+	margin: 0 auto;
+	width: 90%;
+	position: absolute;
 }
