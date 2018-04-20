@@ -147,6 +147,8 @@ angular
             window.open(vm.linkToRegulatory, "_blank");
         };
 
-
+        vm.goToNetworkStatus = () => {
+            window.open("https://binarycom.statuspage.io/", "_blank");
+        }
 
     });
