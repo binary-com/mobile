@@ -1,6 +1,6 @@
 <ion-view class="accounts-management">
   <ion-content class="general-content has-header has-subheader">
-    <div class="row">
+    <div class="row" ng-if="vm.upgrade.canUpgrade">
       <div class="col">
         <div class="row">
           <div class="col">
@@ -9,7 +9,7 @@
             </h1>
           </div>
         </div>
-        <div class="row" ng-if="vm.upgrade.canUpgrade">
+        <div class="row">
           <div class="col">
             <ul>
               <li class="list list-title">
