@@ -92,7 +92,8 @@
     "transaction_id": "Ссылка на сделку",
     "buy_again": "Купить снова",
     "sell": "Продать",
-    "barrier": "Изменение барьера"
+    "barrier": "Изменение барьера",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Выход",
