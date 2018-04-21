@@ -20,11 +20,14 @@
             <span>
               {{'trade.return' | translate}}:
             </span>
-            <span>
+            <span ng-if="vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price !== 0">
               {{((vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price) * 100 /
               (vm.proposalResponses[$index].ask_price ||
               vm.proposalResponses[$index].details.display_value)).toFixed(1)
               }}%
+            </span>
+            <span  ng-if="vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price === 0">
+              --
             </span>
           </div>
         </div>
