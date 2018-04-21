@@ -355,7 +355,8 @@
     "open_real":"Upgrade to a real account",
     "open_financial": "Open a financial account",
     "create_account": "Create account",
-    "accounts_list": "Accounts list"
+    "accounts_list": "Accounts list",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Settings",

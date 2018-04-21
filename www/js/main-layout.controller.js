@@ -19,6 +19,10 @@ angular
             vm.accounts = accountService.getAll();
             currentAccount = accountService.getDefault();
             if (currentAccount && _.keys(currentAccount).length) {
+                const landingCompany = localStorage.getItem('landingCompany');
+                vm.showNetworkStatus = landingCompany === 'iom' ||
+                    landingCompany === 'malta' ||
+                    landingCompany === 'maltainvest';
                 if (currentAccount.country) {
                     const country = currentAccount.country;
                     if (country !== 'jp') {
@@ -147,6 +151,8 @@ angular
             window.open(vm.linkToRegulatory, "_blank");
         };
 
-
+        vm.goToNetworkStatus = () => {
+            window.open("https://binarycom.statuspage.io/", "_blank");
+        }
 
     });
