@@ -92,7 +92,8 @@
     "transaction_id": "crwdns17745:0crwdne17745:0",
     "buy_again": "crwdns17746:0crwdne17746:0",
     "sell": "crwdns17747:0crwdne17747:0",
-    "barrier": "crwdns17748:0crwdne17748:0"
+    "barrier": "crwdns17748:0crwdne17748:0",
+    "return": "crwdns44602:0crwdne44602:0"
   },
   "app": {
     "exit_title": "crwdns17756:0crwdne17756:0",

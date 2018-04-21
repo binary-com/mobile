@@ -92,7 +92,8 @@
     "transaction_id": "ธุรกรรมอ้างอิง",
     "buy_again": "ซื้ออีกครั้ง",
     "sell": "ขาย",
-    "barrier": "Barrier ออฟเซ็ท"
+    "barrier": "Barrier ออฟเซ็ท",
+    "return": "Return"
   },
   "app": {
     "exit_title": "ออก",

@@ -92,7 +92,8 @@
     "transaction_id": "Riferimento della transazione",
     "buy_again": "Acquista di nuovo",
     "sell": "Vendi",
-    "barrier": "Correzione della barriera"
+    "barrier": "Correzione della barriera",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Esci",

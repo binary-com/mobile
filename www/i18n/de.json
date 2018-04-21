@@ -92,7 +92,8 @@
     "transaction_id": "Transaktionsreferenz",
     "buy_again": "Nochmal kaufen",
     "sell": "Verkaufen",
-    "barrier": "Schwellenverschiebung"
+    "barrier": "Schwellenverschiebung",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Beenden",

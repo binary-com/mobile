@@ -92,7 +92,8 @@
     "transaction_id": "交易参考号",
     "buy_again": "重购",
     "sell": "卖出",
-    "barrier": "障碍位移"
+    "barrier": "障碍位移",
+    "return": "Return"
   },
   "app": {
     "exit_title": "退出",
