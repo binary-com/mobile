@@ -9,12 +9,22 @@
                class="longcode-button"
                 ng-class="{'disabled': vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0}">
               <span>
-               <i class="ion-help"></i>
+               <i class="ion-information-circled"></i>
              </span>
             </a>
             <span class="price-des">{{'trade.net_profit' | translate}}:</span>
             <span class="price" ng-if="!getWaitForProposal()">
               {{ (vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price)  | currency:vm.proposal.currency:2}}
+            </span>
+            /
+            <span>
+              {{'trade.return' | translate}}:
+            </span>
+            <span>
+              {{((vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price) * 100 /
+              (vm.proposalResponses[$index].ask_price ||
+              vm.proposalResponses[$index].details.display_value)).toFixed(1)
+              }}%
             </span>
           </div>
         </div>
