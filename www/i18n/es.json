@@ -92,7 +92,8 @@
     "transaction_id": "Referencia de la Transacción",
     "buy_again": "Comprar de nuevo",
     "sell": "Vender",
-    "barrier": "Desplazamiento de barrera"
+    "barrier": "Desplazamiento de barrera",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Salir",
