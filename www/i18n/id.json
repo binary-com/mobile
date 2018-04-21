@@ -92,7 +92,8 @@
     "transaction_id": "Referensi Transaksi",
     "buy_again": "Beli Lagi",
     "sell": "Jual",
-    "barrier": "Barrier offset"
+    "barrier": "Barrier offset",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Keluar",
