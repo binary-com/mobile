@@ -217,11 +217,8 @@
             hideModal();
         };
 
-        vm.getLanguageId = title => {
-            if (title) {
-                return `options.${title.replace(/[\s,/]/g, '_').toLowerCase()}`;
-            }
-        };
+        vm.getLanguageId = title =>
+          title ? `options.${title.replace(/[\s,/]/g, '_').toLowerCase()}` : title;
 
         function init() {
             const options = optionsService.get();
