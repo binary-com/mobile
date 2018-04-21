@@ -95,7 +95,7 @@
             </div>
             {{ 'menu.regulatory_information' | translate }}
           </ion-item>
-          <ion-item nav-clear menu-close ng-click="vm.goToNetworkStatus()">
+          <ion-item nav-clear menu-close ng-if="vm.showNetworkStatus" ng-click="vm.goToNetworkStatus()">
             <div class="icon-wrapper">
               <i class="ion-flag"></i>
             </div>

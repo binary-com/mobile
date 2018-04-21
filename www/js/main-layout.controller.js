@@ -20,6 +20,9 @@ angular
             currentAccount = accountService.getDefault();
             if (currentAccount && _.keys(currentAccount).length) {
                 if (currentAccount.country) {
+                    vm.showNetworkStatus = _.startsWith(currentAccount.loginid, 'MX') ||
+                      _.startsWith(currentAccount.loginid, 'MLT') ||
+                      _.startsWith(currentAccount.loginid, 'MF');
                     const country = currentAccount.country;
                     if (country !== 'jp') {
                         const reqId = 1;
