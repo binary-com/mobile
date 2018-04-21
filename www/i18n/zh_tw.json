@@ -350,7 +350,8 @@
     "open_real": "升級為真實帳戶",
     "open_financial": "開立金融帳戶",
     "create_account": "開立帳戶",
-    "accounts_list": "帳戶清單"
+    "accounts_list": "帳戶清單",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "設置",
