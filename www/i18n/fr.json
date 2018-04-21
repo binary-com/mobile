@@ -92,7 +92,8 @@
     "transaction_id": "Référence de transaction",
     "buy_again": "Acheter à nouveau",
     "sell": "Vente",
-    "barrier": "Compensation de barrière"
+    "barrier": "Compensation de barrière",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Quitter",
