@@ -350,7 +350,8 @@
     "open_real": "crwdns41791:0crwdne41791:0",
     "open_financial": "crwdns41792:0crwdne41792:0",
     "create_account": "crwdns41793:0crwdne41793:0",
-    "accounts_list": "crwdns41794:0crwdne41794:0"
+    "accounts_list": "crwdns41794:0crwdne41794:0",
+    "network_status": "crwdns44601:0crwdne44601:0"
   },
   "settings": {
     "settings": "crwdns18010:0crwdne18010:0",

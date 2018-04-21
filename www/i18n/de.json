@@ -350,7 +350,8 @@
     "open_real": "Erweitern Sie auf ein Echtgeldkonto",
     "open_financial": "Eröffnen Sie ein Finanzkonto",
     "create_account": "Konto einrichten",
-    "accounts_list": "Kontenliste"
+    "accounts_list": "Kontenliste",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Einstellungen",

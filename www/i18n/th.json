@@ -350,7 +350,8 @@
     "open_real": "อัพเกรดเป็นบัญชีจริง",
     "open_financial": "เปิดบัญชีทางการเงิน 1 บัญชี",
     "create_account": "สร้างบัญชี",
-    "accounts_list": "รายการบัญชี"
+    "accounts_list": "รายการบัญชี",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "การตั้งค่า",

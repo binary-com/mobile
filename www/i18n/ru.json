@@ -350,7 +350,8 @@
     "open_real": "Открыть реальный счет",
     "open_financial": "Открыть финансовый счёт",
     "create_account": "Открыть счёт",
-    "accounts_list": "Список счетов"
+    "accounts_list": "Список счетов",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Настройки",
