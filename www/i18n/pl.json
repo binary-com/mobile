@@ -92,7 +92,8 @@
     "transaction_id": "Numer referencyjny transakcji",
     "buy_again": "Kup ponownie",
     "sell": "Sprzedaj",
-    "barrier": "Wyrównanie limitu"
+    "barrier": "Wyrównanie limitu",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Wyjdź",
