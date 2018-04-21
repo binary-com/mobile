@@ -250,6 +250,7 @@
 								display: inline-block;
 								vertical-align: middle;
 								line-height: normal;
+								font-size: 0.8rem;
 							}
 							.longcode-button {
 								padding-right: 10px;
@@ -274,9 +275,13 @@
 								display: flex;
 								height: auto;
 								align-items: center;
-								padding: 10px 0;
+								padding: 10px;
+
+								width: 50%;
 								img {
 									margin: 0 auto;
+									max-width: 55px;
+									max-height: 55px;
 								}
 							}
 							.basis-content {
@@ -689,12 +694,6 @@
 			.contract {
 				.row {
 					&.basis-container {
-						.contract-image-container {
-							img {
-								width: 30px;
-								height: 30px;
-							}
-						}
 						.basis-content {
 							height: 40px;
 							.basis-title {
@@ -764,12 +763,6 @@
 			.contract {
 				.row {
 					&.basis-container {
-						.contract-image-container {
-							img {
-								width: 40px;
-								height: 40px;
-							}
-						}
 						.basis-content {
 							.basis-title {
 								height: 25px;
