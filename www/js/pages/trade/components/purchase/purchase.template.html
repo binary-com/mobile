@@ -1,36 +1,43 @@
 <div class="purchase" ng-if="!vm.showSummary">
   <div class="row">
     <div class="col center contract" ng-repeat="contract in vm.contracts track by $index">
-      <div class="row">
-        <div class="col center">
-          <div class="price-container">
-            <a ng-disabled="vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0 ||
+      <div class="row price-container">
+
+
+
+            <div class="col center longcode-button-container">
+              <a ng-disabled="vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0 ||
              vm.proposalResponses[$index].hasError"
-               ng-click="vm.showLongcode($index)"
-               class="longcode-button"
-                ng-class="{'disabled': vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0
+                 ng-click="vm.showLongcode($index)"
+                 class="longcode-button"
+                 ng-class="{'disabled': vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0
                  || vm.proposalResponses[$index].hasError}">
-              <span>
-               <i class="ion-information-circled"></i>
-             </span>
-            </a>
-            <span class="price-des">{{'trade.net_profit' | translate}}:</span>
-            <span class="price" ng-if="!getWaitForProposal()">
-              {{ (vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price)  | currency:vm.proposal.currency:2}}
-            </span>
-            /
-            <span>
-              {{'trade.return' | translate}}:
-            </span>
-            <span ng-if="vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price !== 0">
-              {{((vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price) * 100 /
-              (vm.proposalResponses[$index].ask_price ||
-              vm.proposalResponses[$index].details.display_value)).toFixed(1)
-              }}%
-            </span>
-            <span  ng-if="vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price === 0">
-              --
-            </span>
+                <span>
+                  <i class="ion-information-circled"></i>
+                </span>
+              </a>
+            </div>
+            <div class="col left price-content">
+              <div class="net-profit">
+                <span class="price" ng-if="!getWaitForProposal()">
+                                  {{'trade.net_profit' | translate}}:
+
+                  {{ (vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price) |
+                  currency:vm.proposal.currency:2}}
+                </span>
+              </div>
+              <div class="return">
+                <span ng-if="vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price !== 0">
+                                  {{'trade.return' | translate}}:
+
+                  {{((vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price) * 100 /
+                    (vm.proposalResponses[$index].ask_price ||
+                    vm.proposalResponses[$index].details.display_value)).toFixed(1)
+                  }}%
+                </span>
+                <span  ng-if="vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price === 0">
+                  --
+                </span>
           </div>
         </div>
       </div>

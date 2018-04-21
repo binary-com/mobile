@@ -246,23 +246,65 @@
 								height: auto;
 								text-transform: capitalize;
 							}
-							.price-container {
-								display: inline-block;
-								vertical-align: middle;
-								line-height: normal;
-								font-size: 0.8rem;
-							}
-							.longcode-button {
-								padding-right: 10px;
-								padding-left: 10px;
-								font-size: 1rem;
-								i {
-									color: $primaryBrandColor;
+						}
+						&.price-container {
+							height: auto;
+							align-items: center;
+							margin-bottom: 5px;
+							.longcode-button-container {
+								text-align: center;
+								display: flex;
+								height: auto;
+								align-items: center;
+								padding: 5px;
+								width: auto;
+								max-width: 35px;
+								.longcode-button {
+									padding-right: 10px;
+									padding-left: 10px;
+									font-size: 1.2rem;
+									i {
+										color: $primaryBrandColor;
+									}
+									&.disabled {
+										opacity: 0.4;
+										cursor: default !important;
+										pointer-events: none;
+									}
 								}
-								&.disabled {
-									opacity: 0.4;
-									cursor: default !important;
-									pointer-events: none;
+							}
+							.price-content {
+								height: auto;
+								margin: 0;
+								.net-profit {
+									color: $contentColor;
+									vertical-align: middle;
+									line-height: normal;
+									width: 100%;
+									align-items: center;
+									display: flex;
+									font-size: 0.8rem;
+									span {
+										display: inline-block;
+										vertical-align: middle;
+										line-height: normal;
+									}
+								}
+								.return {
+									display: inline-block;
+									vertical-align: middle;
+									width: 100%;
+									align-items: center;
+									display: flex;
+									font-size: 0.8rem;
+									span {
+										display: inline-block;
+										vertical-align: middle;
+										line-height: normal;
+									}
+									.crypto {
+										font-size: 0.9rem !important;
+									}
 								}
 							}
 						}
@@ -302,9 +344,9 @@
 										font-size: 1.1rem;
 										line-height: normal;
 									}
-                  &.crypto {
-                    justify-content: center !important;
-                  }
+									&.crypto {
+										justify-content: center !important;
+									}
 								}
 								.basis {
 									font-size: 1.1rem;
@@ -319,9 +361,9 @@
 										font-size: 1.1rem;
 										line-height: normal;
 									}
-                  .crypto {
-                    font-size: 0.9rem !important;
-                  }
+                  					.crypto {
+                    					font-size: 0.9rem !important;
+                  					}
 								}
 							}
 						}
