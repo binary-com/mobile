@@ -92,7 +92,8 @@
     "transaction_id": "Transaction Reference",
     "buy_again": "Buy Again",
     "sell": "Sell",
-    "barrier": "Barrier offset"
+    "barrier": "Barrier offset",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Exit",
