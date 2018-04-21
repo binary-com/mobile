@@ -218,7 +218,7 @@
         };
 
         vm.getLanguageId = title =>
-          title ? `options.${title.replace(/[\s,/]/g, '_').toLowerCase()}` : title;
+            title ? `options.${title.replace(/[\s,/]/g, '_').toLowerCase()}` : title;
 
         function init() {
             const options = optionsService.get();
