@@ -246,22 +246,66 @@
 								height: auto;
 								text-transform: capitalize;
 							}
-							.price-container {
-								display: inline-block;
-								vertical-align: middle;
-								line-height: normal;
-							}
-							.longcode-button {
-								padding-right: 15px;
-								padding-left: 15px;
-								font-size: 1.5rem;
-								i {
-									border-bottom: 1px dotted #2a3052;
+						}
+						&.price-container {
+							height: auto;
+							align-items: center;
+							margin-bottom: 5px;
+							.longcode-button-container {
+								text-align: center;
+								display: flex;
+								height: auto;
+								align-items: center;
+								padding: 5px;
+								width: auto;
+								max-width: 45px;
+								.longcode-button {
+									padding-right: 10px;
+									padding-left: 10px;
+									font-size: 28px;
+									i {
+										color: $primaryBrandColor;
+										margin: 0 auto;
+									}
+									&.disabled {
+										opacity: 0.4;
+										cursor: default !important;
+										pointer-events: none;
+									}
 								}
-								&.disabled {
-									opacity: 0.4;
-									cursor: default !important;
-									pointer-events: none;
+							}
+							.price-content {
+								height: auto;
+								margin: 0;
+								.price-divider {
+									float: left;
+									padding: 0 2.5px;
+								}
+								.net-profit {
+									color: $contentColor;
+									vertical-align: middle;
+									line-height: normal;
+									align-items: center;
+									display: flex;
+									font-size: 0.8rem;
+									float: left;
+									span {
+										display: inline-block;
+										vertical-align: middle;
+										line-height: normal;
+									}
+								}
+								.return {
+									display: inline-block;
+									vertical-align: middle;
+									align-items: center;
+									display: flex;
+									font-size: 0.8rem;
+									span {
+										display: inline-block;
+										vertical-align: middle;
+										line-height: normal;
+									}
 								}
 							}
 						}
@@ -274,9 +318,13 @@
 								display: flex;
 								height: auto;
 								align-items: center;
-								padding: 10px 0;
+								padding: 10px;
+
+								width: 50%;
 								img {
 									margin: 0 auto;
+									max-width: 55px;
+									max-height: 55px;
 								}
 							}
 							.basis-content {
@@ -297,9 +345,9 @@
 										font-size: 1.1rem;
 										line-height: normal;
 									}
-                  &.crypto {
-                    justify-content: center !important;
-                  }
+									&.crypto {
+										justify-content: center !important;
+									}
 								}
 								.basis {
 									font-size: 1.1rem;
@@ -314,9 +362,9 @@
 										font-size: 1.1rem;
 										line-height: normal;
 									}
-                  .crypto {
-                    font-size: 0.9rem !important;
-                  }
+                  					.crypto {
+                    					font-size: 0.9rem !important;
+                  					}
 								}
 							}
 						}
@@ -653,6 +701,33 @@
 	}
 }
 
+// toast design
+.loading {
+	bottom: 1rem;
+	margin: 0 auto;
+	width: 90%;
+	position: absolute;
+}
+
+@media screen and (min-width: 960px) {
+	// toast design
+	.loading {
+		width: 80vw;
+		max-width: 768px;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	.return, .net-profit {
+		width: 100%;
+		padding: 0;
+		font-size: 1rem;
+	}
+	.price-divider {
+		display: none;
+	}
+}
+
 @media only screen and (max-device-height: 480px) {
 	.trade {
 		#tradeChart {
@@ -673,12 +748,6 @@
 			.contract {
 				.row {
 					&.basis-container {
-						.contract-image-container {
-							img {
-								width: 30px;
-								height: 30px;
-							}
-						}
 						.basis-content {
 							height: 40px;
 							.basis-title {
@@ -748,12 +817,6 @@
 			.contract {
 				.row {
 					&.basis-container {
-						.contract-image-container {
-							img {
-								width: 40px;
-								height: 40px;
-							}
-						}
 						.basis-content {
 							.basis-title {
 								height: 25px;
@@ -807,10 +870,4 @@
 		max-height: 130px;
 	}
 }
-// toast design
-.loading {
-	bottom: 1rem;
-	margin: 0 auto;
-	width: 90%;
-	position: absolute;
-}
+
