@@ -252,11 +252,11 @@
 								line-height: normal;
 							}
 							.longcode-button {
-								padding-right: 15px;
-								padding-left: 15px;
-								font-size: 1.5rem;
+								padding-right: 10px;
+								padding-left: 10px;
+								font-size: 1rem;
 								i {
-									border-bottom: 1px dotted #2a3052;
+									color: $primaryBrandColor;
 								}
 								&.disabled {
 									opacity: 0.4;
@@ -653,6 +653,22 @@
 	}
 }
 
+// toast design
+.loading {
+	bottom: 1rem;
+	margin: 0 auto;
+	width: 90%;
+	position: absolute;
+}
+
+@media screen and (min-width: 960px) {
+	// toast design
+	.loading {
+		width: 80vw;
+		max-width: 768px;
+	}
+}
+
 @media only screen and (max-device-height: 480px) {
 	.trade {
 		#tradeChart {
@@ -807,10 +823,4 @@
 		max-height: 130px;
 	}
 }
-// toast design
-.loading {
-	bottom: 1rem;
-	margin: 0 auto;
-	width: 90%;
-	position: absolute;
-}
+

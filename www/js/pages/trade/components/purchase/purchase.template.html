@@ -4,10 +4,12 @@
       <div class="row">
         <div class="col center">
           <div class="price-container">
-            <a ng-disabled="vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0"
+            <a ng-disabled="vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0 ||
+             vm.proposalResponses[$index].hasError"
                ng-click="vm.showLongcode($index)"
                class="longcode-button"
-                ng-class="{'disabled': vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0}">
+                ng-class="{'disabled': vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0
+                 || vm.proposalResponses[$index].hasError}">
               <span>
                <i class="ion-information-circled"></i>
              </span>
