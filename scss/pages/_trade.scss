@@ -258,13 +258,14 @@
 								align-items: center;
 								padding: 5px;
 								width: auto;
-								max-width: 35px;
+								max-width: 45px;
 								.longcode-button {
 									padding-right: 10px;
 									padding-left: 10px;
-									font-size: 1.2rem;
+									font-size: 28px;
 									i {
 										color: $primaryBrandColor;
+										margin: 0 auto;
 									}
 									&.disabled {
 										opacity: 0.4;
@@ -276,14 +277,18 @@
 							.price-content {
 								height: auto;
 								margin: 0;
+								.price-divider {
+									float: left;
+									padding: 0 2.5px;
+								}
 								.net-profit {
 									color: $contentColor;
 									vertical-align: middle;
 									line-height: normal;
-									width: 100%;
 									align-items: center;
 									display: flex;
 									font-size: 0.8rem;
+									float: left;
 									span {
 										display: inline-block;
 										vertical-align: middle;
@@ -293,7 +298,6 @@
 								.return {
 									display: inline-block;
 									vertical-align: middle;
-									width: 100%;
 									align-items: center;
 									display: flex;
 									font-size: 0.8rem;
@@ -301,9 +305,6 @@
 										display: inline-block;
 										vertical-align: middle;
 										line-height: normal;
-									}
-									.crypto {
-										font-size: 0.9rem !important;
 									}
 								}
 							}
@@ -713,6 +714,17 @@
 	.loading {
 		width: 80vw;
 		max-width: 768px;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	.return, .net-profit {
+		width: 100%;
+		padding: 0;
+		font-size: 1rem;
+	}
+	.price-divider {
+		display: none;
 	}
 }
 
