@@ -350,7 +350,8 @@
     "open_real": "Ouvrir un compte réel",
     "open_financial": "Ouvrir un compte financier",
     "create_account": "Créer un compte",
-    "accounts_list": "Liste des comptes"
+    "accounts_list": "Liste des comptes",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Paramètres",
