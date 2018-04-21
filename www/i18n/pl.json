@@ -350,7 +350,8 @@
     "open_real": "Przekształć w konto z prawdziwymi pieniędzmi",
     "open_financial": "Otwórz konto finansowe",
     "create_account": "Załóż konto",
-    "accounts_list": "Lista kont"
+    "accounts_list": "Lista kont",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Ustawienia",
