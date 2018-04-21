@@ -92,7 +92,8 @@
     "transaction_id": "Referência de transação",
     "buy_again": "Comprar novamente",
     "sell": "Vender",
-    "barrier": "Deslocamento da barreira"
+    "barrier": "Deslocamento da barreira",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Sair",
