@@ -92,7 +92,8 @@
     "transaction_id": "Tham chiếu giao dịch",
     "buy_again": "Mua lại",
     "sell": "Bán",
-    "barrier": "Rào cản bù đắp"
+    "barrier": "Rào cản bù đắp",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Thoát",
