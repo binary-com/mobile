@@ -277,14 +277,14 @@
 							.price-content {
 								height: auto;
 								margin: 0;
-                              text-align: center;
+                                text-align: center;
 								.price-divider {
 									padding: 0 2.5px;
-                                  display: inline-block;
+                                    display: inline-block;
 								}
 								.net-profit {
 									color: $contentColor;
-                                  display: inline-block;
+                                    display: inline-block;
 									vertical-align: middle;
 									line-height: normal;
 									align-items: center;
@@ -724,6 +724,7 @@
 		padding: 0;
 		font-size: 1rem;
 	}
+
     .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .price-divider {
         display: none;
     }
@@ -771,67 +772,67 @@
 	}
 }
 @media only screen and (min-device-height: 481px) and (max-device-height: 640px) {
-  .platform-android {
-    &.platform-cordova {
-      &.platform-webview {
-        .trade {
-          #tradeChart {
-            width: 100% !important;
-            height: 165px !important;
-          }
-          bg-chart {
-            max-height: 170px;
-            min-height: 160px;
-          }
-          .row + .row {
-            margin-top: 0 !important;
-            padding-top: 5px !important;
-          }
-          .longcode {
-            .row {
-              padding: 0 !important;
+    .platform-android {
+        &.platform-cordova {
+            &.platform-webview {
+                .trade {
+                    #tradeChart {
+                        width: 100% !important;
+                        height: 165px !important;
+                    }
+                    bg-chart {
+                        max-height: 170px;
+                        min-height: 160px;
+                    }
+                    .row + .row {
+                        margin-top: 0 !important;
+                        padding-top: 5px !important;
+                    }
+                    .longcode {
+                        .row {
+                            padding: 0 !important;
+                        }
+                    }
+                    .has-subheader {
+                        top: 75px !important;
+                    }
+                }
             }
-          }
-          .has-subheader {
-            top: 75px !important;
-          }
         }
-      }
     }
+	    .trade {
+		    #tradeChart {
+			    width: 100% !important;
+			    height: 180px !important;
+		    }
+            bg-chart {
+                max-height: 180px;
+                min-height: 175px;
+            }
+            .row + .row {
+                margin-top: 0 !important;
+                padding-top: 5px !important;
+            }
+        }
+        bg-purchase {
+            .purchase {
+                .contract {
+                    .row {
+                        &.basis-container {
+                            .basis-content {
+                                .basis-title {
+                                    height: 25px;
+                                }
+                                .basis {
+                                    height: 25px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
   }
-	.trade {
-		#tradeChart {
-			width: 100% !important;
-			height: 180px !important;
-		}
-		bg-chart {
-			max-height: 180px;
-			min-height: 175px;
-		}
-    .row + .row {
-      margin-top: 0 !important;
-      padding-top: 5px !important;
-    }
-	}
-	bg-purchase {
-		.purchase {
-			.contract {
-				.row {
-					&.basis-container {
-						.basis-content {
-							.basis-title {
-								height: 25px;
-							}
-							.basis {
-								height: 25px;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
 @media only screen and (min-device-height: 641px) {
 	.trade {
 		#tradeChart {
