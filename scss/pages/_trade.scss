@@ -260,9 +260,9 @@
 								width: auto;
 								max-width: 45px;
 								.longcode-button {
-									padding-right: 10px;
-									padding-left: 10px;
-									font-size: 28px;
+									padding-right: 15px;
+									padding-left: 15px;
+									font-size: 22px;
 									i {
 										color: $primaryBrandColor;
 										margin: 0 auto;
@@ -277,19 +277,20 @@
 							.price-content {
 								height: auto;
 								margin: 0;
+                              text-align: center;
 								.price-divider {
-									float: left;
 									padding: 0 2.5px;
+                                  display: inline-block;
 								}
 								.net-profit {
 									color: $contentColor;
+                                  display: inline-block;
 									vertical-align: middle;
 									line-height: normal;
 									align-items: center;
-									display: flex;
 									font-size: 0.8rem;
-									float: left;
-									span {
+                                    text-align: center;
+                                    span {
 										display: inline-block;
 										vertical-align: middle;
 										line-height: normal;
@@ -299,8 +300,8 @@
 									display: inline-block;
 									vertical-align: middle;
 									align-items: center;
-									display: flex;
 									font-size: 0.8rem;
+                                    text-align: center;
 									span {
 										display: inline-block;
 										vertical-align: middle;
@@ -723,9 +724,9 @@
 		padding: 0;
 		font-size: 1rem;
 	}
-	.price-divider {
-		display: none;
-	}
+    .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .price-divider {
+        display: none;
+    }
 }
 
 @media only screen and (max-device-height: 480px) {
