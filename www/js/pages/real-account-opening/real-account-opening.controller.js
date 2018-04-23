@@ -37,7 +37,7 @@
         vm.errors= {};
         const loginid = accountService.getDefault().id;
         const landingCompany = localStorage.getItem('landingCompany');
-        const isVirtual = landingCompany ? landingCompany === 'virtual' : clientService.isAccountOfType('virtual', loginid);
+        const isVirtual = clientService.isAccountOfType('virtual', loginid, landingCompany) || landingCompany === 'virtual';
         vm.validation = validationService;
         vm.options = accountOptions;
         vm.receivedSettings = false;

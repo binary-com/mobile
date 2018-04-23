@@ -47,7 +47,8 @@
         vm.hasPOB = false;
         const loginid = accountService.getDefault().id;
         const landingCompany = localStorage.getItem('landingCompany');
-        const isVirtual = landingCompany ? landingCompany === 'virtual' : clientService.isAccountOfType('virtual', loginid);        vm.receivedSettings = false;
+        const isVirtual = clientService.isAccountOfType('virtual', loginid, landingCompany) || landingCompany === 'virtual';
+        vm.receivedSettings = false;
         vm.options = _.merge(financialInformationOptions, accountOptions);
         vm.validation = validationService;
         vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
