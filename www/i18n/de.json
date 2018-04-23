@@ -93,7 +93,7 @@
     "buy_again": "Nochmal kaufen",
     "sell": "Verkaufen",
     "barrier": "Schwellenverschiebung",
-    "return": "Return"
+    "return": "Rendite"
   },
   "app": {
     "exit_title": "Beenden",
@@ -352,7 +352,7 @@
     "open_financial": "Eröffnen Sie ein Finanzkonto",
     "create_account": "Konto einrichten",
     "accounts_list": "Kontenliste",
-    "network_status": "Network status"
+    "network_status": "Netzwerkstatus"
   },
   "settings": {
     "settings": "Einstellungen",
