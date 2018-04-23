@@ -24,8 +24,8 @@ angular.module("binary").service("clientService", function(appStateService) {
         return account_type;
     };
 
-    this.isAccountOfType = (type, loginid) => {
-        const accountType = this.getAccountType(loginid);
+    this.isAccountOfType = (type, loginid, landingCompany) => {
+        const accountType = this.getAccountType(loginid, landingCompany);
         return (
             (type === 'virtual' && accountType === 'virtual') ||
             (type === 'real'    && accountType !== 'virtual') ||
