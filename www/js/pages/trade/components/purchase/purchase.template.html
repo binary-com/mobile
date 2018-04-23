@@ -1,14 +1,35 @@
 <div class="purchase" ng-if="!vm.showSummary">
   <div class="row">
-    <div class="col center contract" ng-repeat="contract in vm.contracts">
-      <div class="row">
-        <div class="col center">
-          <div class="price-container">
-
-            <span class="price-des">{{'trade.net_profit' | translate}}:</span>
+    <div class="col center contract" ng-repeat="contract in vm.contracts track by $index">
+      <div class="row price-container">
+        <div class="col center longcode-button-container">
+          <a ng-disabled="vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0 ||
+          vm.proposalResponses[$index].hasError"
+             ng-click="vm.showLongcode($index)"
+             class="longcode-button"
+             ng-class="{'disabled': vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0
+             || vm.proposalResponses[$index].hasError}">
+              <i class="ion-ios-information-outline"></i>
+          </a>
+        </div>
+        <div class="col left price-content">
+          <div class="net-profit">
             <span class="price" ng-if="!getWaitForProposal()">
-                            {{ (vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price)  | currency:vm.proposal.currency:2}}
-                        </span>
+              {{ 'trade.net_profit' | translate }}:
+              {{ (vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price) |
+              currency:vm.proposal.currency:2}}
+            </span>
+          </div>
+          <span class="price-divider">|</span>
+          <div class="return">
+            <span>
+              {{ 'trade.return' | translate }}:
+              {{ vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price !== 0 ?
+              ((vm.proposalResponses[$index].payout - vm.proposalResponses[$index].ask_price) * 100 /
+              (vm.proposalResponses[$index].ask_price ||
+              vm.proposalResponses[$index].details.display_value)).toFixed(1) + '%' : '--'
+              }}
+            </span>
           </div>
         </div>
       </div>

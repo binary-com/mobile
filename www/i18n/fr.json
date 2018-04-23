@@ -92,7 +92,8 @@
     "transaction_id": "Référence de transaction",
     "buy_again": "Acheter à nouveau",
     "sell": "Vente",
-    "barrier": "Compensation de barrière"
+    "barrier": "Compensation de barrière",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Quitter",
@@ -350,7 +351,8 @@
     "open_real": "Ouvrir un compte réel",
     "open_financial": "Ouvrir un compte financier",
     "create_account": "Créer un compte",
-    "accounts_list": "Liste des comptes"
+    "accounts_list": "Liste des comptes",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Paramètres",

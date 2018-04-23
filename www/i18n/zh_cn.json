@@ -92,7 +92,8 @@
     "transaction_id": "交易参考号",
     "buy_again": "重购",
     "sell": "卖出",
-    "barrier": "障碍位移"
+    "barrier": "障碍位移",
+    "return": "Return"
   },
   "app": {
     "exit_title": "退出",
@@ -350,7 +351,8 @@
     "open_real": "升级为真实账户",
     "open_financial": "开立金融账户",
     "create_account": "开立账户",
-    "accounts_list": "账户列表"
+    "accounts_list": "账户列表",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "设置",

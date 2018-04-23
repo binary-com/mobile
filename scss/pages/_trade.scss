@@ -246,10 +246,68 @@
 								height: auto;
 								text-transform: capitalize;
 							}
-							.price-container {
-								display: inline-block;
-								vertical-align: middle;
-								line-height: normal;
+						}
+						&.price-container {
+							height: auto;
+							align-items: center;
+							margin-bottom: 5px;
+							.longcode-button-container {
+								text-align: center;
+								display: flex;
+								height: auto;
+								align-items: center;
+								padding: 5px;
+								width: auto;
+								max-width: 45px;
+								.longcode-button {
+									padding-right: 15px;
+									padding-left: 15px;
+									font-size: 22px;
+									i {
+										color: $primaryBrandColor;
+										margin: 0 auto;
+									}
+									&.disabled {
+										opacity: 0.4;
+										cursor: default !important;
+										pointer-events: none;
+									}
+								}
+							}
+							.price-content {
+								height: auto;
+								margin: 0;
+                                text-align: center;
+								.price-divider {
+									padding: 0 2.5px;
+                                    display: inline-block;
+								}
+								.net-profit {
+									color: $contentColor;
+                                    display: inline-block;
+									vertical-align: middle;
+									line-height: normal;
+									align-items: center;
+									font-size: 0.8rem;
+                                    text-align: center;
+                                    span {
+										display: inline-block;
+										vertical-align: middle;
+										line-height: normal;
+									}
+								}
+								.return {
+									display: inline-block;
+									vertical-align: middle;
+									align-items: center;
+									font-size: 0.8rem;
+                                    text-align: center;
+									span {
+										display: inline-block;
+										vertical-align: middle;
+										line-height: normal;
+									}
+								}
 							}
 						}
 						&.basis-container {
@@ -261,9 +319,13 @@
 								display: flex;
 								height: auto;
 								align-items: center;
-								padding: 10px 0;
+								padding: 10px;
+
+								width: 50%;
 								img {
 									margin: 0 auto;
+									max-width: 55px;
+									max-height: 55px;
 								}
 							}
 							.basis-content {
@@ -284,9 +346,9 @@
 										font-size: 1.1rem;
 										line-height: normal;
 									}
-                  &.crypto {
-                    justify-content: center !important;
-                  }
+									&.crypto {
+										justify-content: center !important;
+									}
 								}
 								.basis {
 									font-size: 1.1rem;
@@ -301,9 +363,9 @@
 										font-size: 1.1rem;
 										line-height: normal;
 									}
-                  .crypto {
-                    font-size: 0.9rem !important;
-                  }
+                  					.crypto {
+                    					font-size: 0.9rem !important;
+                  					}
 								}
 							}
 						}
@@ -640,6 +702,34 @@
 	}
 }
 
+// toast design
+.loading {
+	bottom: 1rem;
+	margin: 0 auto;
+	width: 90%;
+	position: absolute;
+}
+
+@media screen and (min-width: 960px) {
+	// toast design
+	.loading {
+		width: 80vw;
+		max-width: 768px;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	.return, .net-profit {
+		width: 100%;
+		padding: 0;
+		font-size: 1rem;
+	}
+
+    .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .price-divider {
+        display: none;
+    }
+}
+
 @media only screen and (max-device-height: 480px) {
 	.trade {
 		#tradeChart {
@@ -660,12 +750,6 @@
 			.contract {
 				.row {
 					&.basis-container {
-						.contract-image-container {
-							img {
-								width: 30px;
-								height: 30px;
-							}
-						}
 						.basis-content {
 							height: 40px;
 							.basis-title {
@@ -688,73 +772,67 @@
 	}
 }
 @media only screen and (min-device-height: 481px) and (max-device-height: 640px) {
-  .platform-android {
-    &.platform-cordova {
-      &.platform-webview {
-        .trade {
-          #tradeChart {
-            width: 100% !important;
-            height: 165px !important;
-          }
-          bg-chart {
-            max-height: 170px;
-            min-height: 160px;
-          }
-          .row + .row {
-            margin-top: 0 !important;
-            padding-top: 5px !important;
-          }
-          .longcode {
-            .row {
-              padding: 0 !important;
+    .platform-android {
+        &.platform-cordova {
+            &.platform-webview {
+                .trade {
+                    #tradeChart {
+                        width: 100% !important;
+                        height: 165px !important;
+                    }
+                    bg-chart {
+                        max-height: 170px;
+                        min-height: 160px;
+                    }
+                    .row + .row {
+                        margin-top: 0 !important;
+                        padding-top: 5px !important;
+                    }
+                    .longcode {
+                        .row {
+                            padding: 0 !important;
+                        }
+                    }
+                    .has-subheader {
+                        top: 75px !important;
+                    }
+                }
             }
-          }
-          .has-subheader {
-            top: 75px !important;
-          }
         }
-      }
     }
+	    .trade {
+		    #tradeChart {
+			    width: 100% !important;
+			    height: 180px !important;
+		    }
+            bg-chart {
+                max-height: 180px;
+                min-height: 175px;
+            }
+            .row + .row {
+                margin-top: 0 !important;
+                padding-top: 5px !important;
+            }
+        }
+        bg-purchase {
+            .purchase {
+                .contract {
+                    .row {
+                        &.basis-container {
+                            .basis-content {
+                                .basis-title {
+                                    height: 25px;
+                                }
+                                .basis {
+                                    height: 25px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
   }
-	.trade {
-		#tradeChart {
-			width: 100% !important;
-			height: 180px !important;
-		}
-		bg-chart {
-			max-height: 180px;
-			min-height: 175px;
-		}
-    .row + .row {
-      margin-top: 0 !important;
-      padding-top: 5px !important;
-    }
-	}
-	bg-purchase {
-		.purchase {
-			.contract {
-				.row {
-					&.basis-container {
-						.contract-image-container {
-							img {
-								width: 40px;
-								height: 40px;
-							}
-						}
-						.basis-content {
-							.basis-title {
-								height: 25px;
-							}
-							.basis {
-								height: 25px;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
 @media only screen and (min-device-height: 641px) {
 	.trade {
 		#tradeChart {
@@ -794,3 +872,4 @@
 		max-height: 130px;
 	}
 }
+

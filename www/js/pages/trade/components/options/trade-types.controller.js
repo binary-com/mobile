@@ -15,6 +15,7 @@
         const vm = this;
 
         vm.tradeTypes = {};
+        vm.supportedTradeTypes = [];
 
         vm.selectTradeType = function(tradeType) {
             vm.select()(tradeType);

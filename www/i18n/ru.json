@@ -92,7 +92,8 @@
     "transaction_id": "Ссылка на сделку",
     "buy_again": "Купить снова",
     "sell": "Продать",
-    "barrier": "Изменение барьера"
+    "barrier": "Изменение барьера",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Выход",
@@ -350,7 +351,8 @@
     "open_real": "Открыть реальный счет",
     "open_financial": "Открыть финансовый счёт",
     "create_account": "Открыть счёт",
-    "accounts_list": "Список счетов"
+    "accounts_list": "Список счетов",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Настройки",

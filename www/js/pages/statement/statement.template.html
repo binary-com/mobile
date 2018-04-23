@@ -89,7 +89,7 @@
                 "-" ) ) ) ) | translate }}
               </div>
               <div class="statement-element last-statement-element bold green center"
-                   ng-bind="transaction.balance_after | currency : vm.currency : 2"></div>
+                   ng-bind="transaction.balance_after | currency : vm.currency : vm.fractionalDigits"></div>
             </li>
             <li class="list no-transaction" ng-if="vm.noTransaction">
               {{ 'statement.no_transaction' | translate }}

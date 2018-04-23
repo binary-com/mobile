@@ -57,9 +57,9 @@
     "asians_up": "Asiatisches Hoch",
     "asians_down": "Asiatisches Tief",
     "asians": "Asiaten",
-    "digits_digit_over_digit_under": "Digits Over/Under",
-    "digits_digit_odd_digit_even": "Digits Odd/Even",
-    "digits_digit_matches_digit_differs": "Digits Matches/Differs",
+    "digits_digit_over_digit_under": "Ziffern Über/Unter",
+    "digits_digit_odd_digit_even": "Ziffern Ungerade/Gerade",
+    "digits_digit_matches_digit_differs": "Ziffern Gleich/Verschieden",
     "up_down": "Auf/Ab",
     "higher_lower": "Höher/Tiefer",
     "rise_fall": "Steigen/Fallen",
@@ -92,7 +92,8 @@
     "transaction_id": "Transaktionsreferenz",
     "buy_again": "Nochmal kaufen",
     "sell": "Verkaufen",
-    "barrier": "Schwellenverschiebung"
+    "barrier": "Schwellenverschiebung",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Beenden",
@@ -136,9 +137,9 @@
     "signup": "Anmelden",
     "email": "E-Mail",
     "signup-question": "Sie haben noch kein Konto?",
-    "verification-code": "Verification code",
-    "password": "Choose a password",
-    "residence": "Country of residence",
+    "verification-code": "Verifikationscode",
+    "password": "Wählen Sie ein Passwort aus",
+    "residence": "Wohnsitzland",
     "select": "Wählen Sie Ihr Land aus",
     "isrequired": "(Erforderlich)",
     "password_hint": "Das Passwort muss mindestens sechs Klein- und Großbuchstaben mit Zahlen haben",
@@ -350,7 +351,8 @@
     "open_real": "Erweitern Sie auf ein Echtgeldkonto",
     "open_financial": "Eröffnen Sie ein Finanzkonto",
     "create_account": "Konto einrichten",
-    "accounts_list": "Kontenliste"
+    "accounts_list": "Kontenliste",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Einstellungen",
@@ -405,7 +407,7 @@
     "second_line_of_home_address": "Zweite Adresszeile",
     "town_city": "Ort/Stadt",
     "state_province": "Bundesland/Region",
-    "address_postcode": "Postal Code/ZIP",
+    "address_postcode": "Postleitzahl/PLZ",
     "telephone": "Telefon",
     "update_profile": "Profil aktualisieren",
     "success": "Erfolg",

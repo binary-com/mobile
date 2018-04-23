@@ -61,7 +61,7 @@
                 const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
                 currency.symb = curr;
                 currency.isCryptoCurrency = isCryptoCurrency;
-                currency.img = `/img/currency/${curr.toLowerCase()}.svg`;
+                currency.img = `img/currency/${curr.toLowerCase()}.svg`;
                 if (isCryptoCurrency) {
                     currency.name = cryptoConfig[curr].name;
                 }
