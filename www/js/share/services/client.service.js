@@ -8,12 +8,19 @@
 
 angular.module("binary").service("clientService", function(appStateService) {
 
-    this.getAccountType = (loginid) => {
+    this.getAccountType = (loginid, landingCompany) => {
         let account_type;
-        if (/VR/i.test(loginid))  account_type = 'virtual';
-        else if (/MF/i.test(loginid))  account_type = 'financial';
-        else if (/MLT/i.test(loginid)) account_type = 'gaming';
-        else account_type = 'real';
+        if (landingCompany) {
+            if (landingCompany === 'virtual') account_type = 'virtual';
+            else if (landingCompany === 'maltainvest')  account_type = 'financial';
+            else if (landingCompany === 'malta') account_type = 'gaming';
+            else account_type = 'real';
+        } else {
+            if (/VR/i.test(loginid)) account_type = 'virtual';
+            else if (/MF/i.test(loginid))  account_type = 'financial';
+            else if (/MLT/i.test(loginid)) account_type = 'gaming';
+            else account_type = 'real';
+        }
         return account_type;
     };
 
@@ -25,14 +32,12 @@ angular.module("binary").service("clientService", function(appStateService) {
             type === accountType);
     };
 
-    const isCryptocurrency = (currencyConfig, curr) => /crypto/i.test(currencyConfig[curr].type)
-
     this.landingCompanyValue = (loginid, key, landingCompany) => {
         let landingCompanyOfAccount;
         const landingCompanyObject = landingCompany || JSON.parse(localStorage.getItem('landingCompanyObject'));
-        if (this.isAccountOfType('financial', loginid)) {
+        if (this.isAccountOfType('financial', loginid, landingCompanyObject)) {
             landingCompanyOfAccount = landingCompanyObject.financial_company;
-        } else if (this.isAccountOfType('real', loginid)) {
+        } else if (this.isAccountOfType('real', loginid, landingCompanyObject)) {
             landingCompanyOfAccount = landingCompanyObject.gaming_company;
             if (!landingCompanyOfAccount) {
                 landingCompanyOfAccount = landingCompanyObject.financial_company;

@@ -78,7 +78,7 @@
             return currencyOptions;
         }
 
-        const accountType = id => clientService.getAccountType(id);
+        const accountType = (id, landingCompany) => clientService.getAccountType(id, landingCompany);
 
         const getAvailableMarkets = (id) => {
             const legalAllowedMarkets = clientService.landingCompanyValue(id, 'legal_allowed_markets');
@@ -98,7 +98,7 @@
                 account.excludedUntil = acc.excluded_until ?
                     $filter('date')(acc.excluded_until *1000, 'yyyy-MM-dd HH:mm:ss') : false;
                 account.availableMarkets = getAvailableMarkets(account.id);
-                account.type = accountType(account.id);
+                account.type = accountType(account.id, acc.landing_company_name);
                 if (vm.currentAccount.id !== account.id) {
                     account.currency = acc.currency || '-';
                 } else {
@@ -124,7 +124,8 @@
         const init = () => {
             vm.accounts = accountService.getAll();
             vm.currentAccount = accountService.getDefault();
-            vm.isMultiAccount = /CR/i.test(vm.currentAccount.id);
+            const landingcompany = vm.currentAccount.landing_company_name || localStorage.getItem('landingCompany');
+            vm.isMultiAccount = landingcompany ? landingcompany === 'costarica' : /CR/i.test(vm.currentAccount.id);
             vm.selectCurrencyError = false;
             getAvailableAccounts();
             vm.existingAccounts = getExistingAccounts();
