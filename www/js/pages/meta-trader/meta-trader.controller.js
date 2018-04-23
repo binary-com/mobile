@@ -95,7 +95,6 @@
 
         function init() {
             const accounts = accountService.getAll();
-            console.log(accounts);
             vm.hasRealAccount = !!_.find(accounts, obj =>
               _.indexOf(['malta', 'costarica', 'iom'], obj.landing_company_name) > -1) ||
               !!_.find(accounts, obj => /(CR|MLT|MX)\d+/.test(obj.id));

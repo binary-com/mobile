@@ -35,9 +35,9 @@ angular.module("binary").service("clientService", function(appStateService) {
     this.landingCompanyValue = (loginid, key, landingCompany) => {
         let landingCompanyOfAccount;
         const landingCompanyObject = landingCompany || JSON.parse(localStorage.getItem('landingCompanyObject'));
-        if (this.isAccountOfType('financial', loginid, landingCompanyObject)) {
+        if (this.isAccountOfType('financial', loginid)) {
             landingCompanyOfAccount = landingCompanyObject.financial_company;
-        } else if (this.isAccountOfType('real', loginid, landingCompanyObject)) {
+        } else if (this.isAccountOfType('real', loginid)) {
             landingCompanyOfAccount = landingCompanyObject.gaming_company;
             if (!landingCompanyOfAccount) {
                 landingCompanyOfAccount = landingCompanyObject.financial_company;
