@@ -68,14 +68,13 @@
             });
 
         vm.init = () => {
-            vm.isVirtualAccount = !!appStateService.virtuality;
             const account = accountService.getDefault();
-            const landingCompany = localStorage.getItem('landingCompany');
+            const landingCompany = account.landing_company_name || localStorage.getItem('landingCompany');
+            vm.isVirtualAccount = account.landing_company_name === 'virtual' || !!appStateService.virtuality;
             const accounts = accountService.getAll();
             const hasMaltainvestAccount = !!_.find(accounts, account => account.landing_company_name === 'maltainvest');
             vm.taxInfoIsOptional = landingCompany !== 'maltainvest' && !hasMaltainvestAccount;
             if (!vm.isVirtualAccount) {
-                vm.isFinancial = /MF/i.test(account.id);
                 websocketService.sendRequestFor.residenceListSend();
             } else if (vm.isVirtualAccount && !account.country) {
                 websocketService.sendRequestFor.residenceListSend();

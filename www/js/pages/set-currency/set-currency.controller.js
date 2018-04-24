@@ -32,11 +32,11 @@
         const accounts = accountService.getAll();
         const currentAccount = accountService.getDefault();
         const landingCompany = currentAccount.landing_company_name || localStorage.getItem('landingCompany');
-        vm.isCRAccount = landingCompany ? landingCompany === 'costarica' : /CR/i.test(currentAccount.id);
+        vm.isCRAccount = landingCompany === 'costarica';
         vm.currenciesOptions = [];
 
         vm.getCurrenciesOptions = () => {
-            const legalAllowedCurrencies = clientService.landingCompanyValue(currentAccount.id, 'legal_allowed_currencies');
+            const legalAllowedCurrencies = clientService.landingCompanyValue(landingCompany, 'legal_allowed_currencies');
             if (vm.isCRAccount) {
                 const existingCurrencies = clientService.getExistingCurrencies(accounts);
                 if (existingCurrencies.length) {

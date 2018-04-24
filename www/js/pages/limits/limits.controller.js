@@ -17,9 +17,9 @@
         vm.isDataLoaded = false;
         const account = accountService.getDefault();
         vm.loginid = account.id;
-        const landingCompany = localStorage.getItem("landingCompany");
+        const landingCompany = account.landing_company_name || localStorage.getItem("landingCompany");
         vm.currency = account.currency && account.currency.length ? account.currency
-            : clientService.landingCompanyValue(vm.loginid, 'legal_default_currency');
+            : clientService.landingCompanyValue(landingCompany, 'legal_default_currency');
 
         websocketService.sendRequestFor.accountLimits();
         $scope.$on("get_limits", (e, get_limits) => {

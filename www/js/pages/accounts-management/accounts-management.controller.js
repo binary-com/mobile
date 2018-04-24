@@ -80,8 +80,8 @@
 
         const accountType = (id, landingCompany) => clientService.getAccountType(id, landingCompany);
 
-        const getAvailableMarkets = (id) => {
-            const legalAllowedMarkets = clientService.landingCompanyValue(id, 'legal_allowed_markets');
+        const getAvailableMarkets = (landingCompany) => {
+            const legalAllowedMarkets = clientService.landingCompanyValue(landingCompany, 'legal_allowed_markets');
             let availableMarkets = [];
             if (Array.isArray(legalAllowedMarkets) && legalAllowedMarkets.length) {
                 availableMarkets = _.join(filterMarkets(legalAllowedMarkets), ', ');
@@ -97,7 +97,7 @@
                 account.isDisabled = acc.is_disabled;
                 account.excludedUntil = acc.excluded_until ?
                     $filter('date')(acc.excluded_until *1000, 'yyyy-MM-dd HH:mm:ss') : false;
-                account.availableMarkets = getAvailableMarkets(account.id);
+                account.availableMarkets = getAvailableMarkets(account.landing_company_name);
                 account.type = accountType(account.id, acc.landing_company_name);
                 if (vm.currentAccount.id !== account.id) {
                     account.currency = acc.currency || '-';
@@ -124,8 +124,8 @@
         const init = () => {
             vm.accounts = accountService.getAll();
             vm.currentAccount = accountService.getDefault();
-            const landingcompany = vm.currentAccount.landing_company_name || localStorage.getItem('landingCompany');
-            vm.isMultiAccount = landingcompany ? landingcompany === 'costarica' : /CR/i.test(vm.currentAccount.id);
+            const landingCompany = vm.currentAccount.landing_company_name || localStorage.getItem('landingCompany');
+            vm.isMultiAccount = landingCompany === 'costarica';
             vm.selectCurrencyError = false;
             getAvailableAccounts();
             vm.existingAccounts = getExistingAccounts();

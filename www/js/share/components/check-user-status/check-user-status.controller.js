@@ -46,19 +46,11 @@
 
         // check type of account
         vm.checkAccountType = function(landingCompany) {
-            if (landingCompany) {
-                vm.isMaltainvest = landingCompany === 'maltainvest';
-                vm.isMalta = landingCompany === 'malta';
-                vm.isCostarica = landingCompany === 'costarica';
-                vm.isIom = landingCompany === 'iom';
-                vm.isVirtual = landingCompany === 'virtual';
-            } else if (currentAccount.id) {
-                vm.isMaltainvest = /MF/i.test(currentAccount.id);
-                vm.isCostarica = /CR/i.test(currentAccount.id);
-                vm.isMalta = /MLT/i.test(currentAccount.id);
-                vm.isIom = /MX/i.test(currentAccount.id);
-                vm.isVirtual = /VR/i.test(currentAccount.id) || !!appStateService.virtuality;
-            }
+            vm.isMaltainvest = landingCompany === 'maltainvest';
+            vm.isMalta = landingCompany === 'malta';
+            vm.isCostarica = landingCompany === 'costarica';
+            vm.isIom = landingCompany === 'iom';
+            vm.isVirtual = landingCompany === 'virtual';
         };
 
         vm.getAccountInfo = function(landingCompany) {
