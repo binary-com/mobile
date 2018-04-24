@@ -96,7 +96,7 @@
         function init() {
             const accounts = accountService.getAll();
             vm.hasRealAccount = !!_.find(accounts, obj =>
-              _.indexOf(['malta', 'costarica', 'iom'], obj.landing_company_name) > -1);
+                _.indexOf(['malta', 'costarica', 'iom'], obj.landing_company_name) > -1);
 
             const account = accountService.getDefault();
             if (account) {

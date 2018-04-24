@@ -69,7 +69,8 @@ angular
                 currencyOptions = landingCompanyObj.gaming_company ?
                     landingCompanyObj.gaming_company.legal_allowed_currencies :
                     landingCompanyObj.financial_company.legal_allowed_currencies;
-                allowedMarkets = landingCompanyObj.gaming_company ? landingCompanyObj.gaming_company.legal_allowed_markets :
+                allowedMarkets = landingCompanyObj.gaming_company ?
+                    landingCompanyObj.gaming_company.legal_allowed_markets :
                     landingCompanyObj.financial_company.legal_allowed_markets;
             } else if (canUpgradeToLandingCompany(['maltainvest'])) {
                 typeOfNextAccount = 'financial';
