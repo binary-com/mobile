@@ -69,11 +69,9 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
     </platform>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
-    <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-app-version" spec="~0.1.8" />
     <plugin name="cordova-plugin-background-mode" spec="~0.6.5" />
     <plugin name="cordova-plugin-code-push" spec="~1.9.2-beta" />
-    <plugin name="cordova-plugin-compat" spec="~1.0.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.3" />
     <plugin name="cordova-plugin-device" spec="~1.1.2" />
     <plugin name="cordova-plugin-google-analytics" spec="^1.8.3" />
@@ -101,4 +99,5 @@
         <variable name="DEEPLINK_5_SCHEME" value=" " />
         <variable name="DEEPLINK_5_HOST" value=" " />
     </plugin>
+    <engine name="android" spec="7.0.0" />
 </widget>
