@@ -12,7 +12,7 @@ angular.module("binary").service("clientService", function(appStateService) {
         let account_type;
         if (landingCompany) {
             if (landingCompany === 'virtual') account_type = 'virtual';
-            else if (landingCompany === 'maltainvest')  account_type = 'financial';
+            else if (landingCompany === 'maltainvest') account_type = 'financial';
             else if (landingCompany === 'malta') account_type = 'gaming';
             else account_type = 'real';
         }

@@ -78,7 +78,7 @@
             return currencyOptions;
         }
 
-        const accountType = (id, landingCompany) => clientService.getAccountType(id, landingCompany);
+        const accountType = (landingCompany) => clientService.getAccountType(landingCompany);
 
         const getAvailableMarkets = (landingCompany) => {
             const legalAllowedMarkets = clientService.landingCompanyValue(landingCompany, 'legal_allowed_markets');
@@ -98,7 +98,7 @@
                 account.excludedUntil = acc.excluded_until ?
                     $filter('date')(acc.excluded_until *1000, 'yyyy-MM-dd HH:mm:ss') : false;
                 account.availableMarkets = getAvailableMarkets(account.landing_company_name);
-                account.type = accountType(account.id, acc.landing_company_name);
+                account.type = accountType(acc.landing_company_name);
                 if (vm.currentAccount.id !== account.id) {
                     account.currency = acc.currency || '-';
                 } else {
