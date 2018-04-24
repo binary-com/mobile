@@ -10484,12 +10484,13 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .sign-in .signin-page {
     height: 90vh;
     height: calc(100vh - 45px) !important; }
-    .sign-in .signin-page .row, .sign-in .signin-page form, .sign-in .signin-page oauth {
+    .sign-in .signin-page form, .sign-in .signin-page oauth {
       display: flex;
       flex-grow: 1;
+      flex-direction: column;
       align-items: center;
       justify-content: center; }
-      .sign-in .signin-page .row .col, .sign-in .signin-page form .col, .sign-in .signin-page oauth .col {
+      .sign-in .signin-page form .col, .sign-in .signin-page oauth .col {
         align-items: center;
         justify-content: center; }
     .sign-in .signin-page .app-version {
@@ -10503,59 +10504,29 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     align-items: flex-end !important; }
     .sign-in .regulatory-information a {
       font-weight: normal; }
-  .sign-in #emailform .show-hide-password,
-  .sign-in #virtualws .show-hide-password {
-    margin-top: 15px; }
-    .sign-in #emailform .show-hide-password input#show-hide,
-    .sign-in #virtualws .show-hide-password input#show-hide {
-      width: 20px;
-      top: 2px;
-      position: relative; }
-  .sign-in #emailform .help-block,
-  .sign-in #virtualws .help-block {
-    text-align: left;
-    padding: 0 5px 5px 5px; }
-  .sign-in .list label.item-input {
+  .sign-in #emailform,
+  .sign-in #virtualws {
+    margin: 0 auto; }
+    .sign-in #emailform .show-hide-password label,
+    .sign-in #virtualws .show-hide-password label {
+      font-size: 0.8rem; }
+  .sign-in .language label.item-input {
     width: 75%;
     margin: 0 auto; }
-    .sign-in .list label.item-input i {
+    .sign-in .language label.item-input i {
       font-size: 40px;
       width: 40px;
       text-align: center; }
-      .sign-in .list label.item-input i.icon-small {
+      .sign-in .language label.item-input i.icon-small {
         font-size: 28px; }
-  .sign-in ::-webkit-input-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in ::-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-ms-input-placeholder {
-    color: #C2C2C2; }
 
-@media only screen and (max-device-width: 480px) {
-  .sign-in ::-webkit-input-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in ::-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-ms-input-placeholder {
-    color: #C2C2C2; } }
+@media screen and (min-width: 780px) {
+  .sign-in #emailform, .sign-in #virtualws {
+    width: 75%; } }
 
-@media only screen and (min-device-width: 480px) {
-  .sign-in .list label.item-input i {
-    color: #15212D; }
-  .sign-in .list label.item-select i {
-    color: #15212D; }
-  .sign-in ::-webkit-input-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in ::-moz-placeholder {
-    color: #C2C2C2; }
-  .sign-in :-ms-input-placeholder {
-    color: #C2C2C2; } }
+@media screen and (min-width: 960px) {
+  .sign-in #emailform, .sign-in #virtualws {
+    width: 50%; } }
 
 .trade {
   background: #fff; }
@@ -11820,7 +11791,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     .accounts-management ul li .list-element {
       display: table-cell;
       padding: 5px;
-      font-size: 0.8rem; }
+      font-size: 0.8rem;
+      vertical-align: middle; }
 
 .ios-pwa-prompt .logo {
   width: 50%; }

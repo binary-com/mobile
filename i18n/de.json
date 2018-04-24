@@ -57,9 +57,9 @@
     "asians_up": "Asiatisches Hoch",
     "asians_down": "Asiatisches Tief",
     "asians": "Asiaten",
-    "digits_over_under": "Ziffern Über/Unter",
-    "digits_odd_even": "Ziffern Ungerade/Gerade",
-    "digits_matches_differs": "Ziffern Gleich/Verschieden",
+    "digits_digit_over_digit_under": "Ziffern Über/Unter",
+    "digits_digit_odd_digit_even": "Ziffern Ungerade/Gerade",
+    "digits_digit_matches_digit_differs": "Ziffern Gleich/Verschieden",
     "up_down": "Auf/Ab",
     "higher_lower": "Höher/Tiefer",
     "rise_fall": "Steigen/Fallen",
@@ -137,8 +137,8 @@
     "email": "E-Mail",
     "signup-question": "Sie haben noch kein Konto?",
     "verification-code": "Verifikationscode",
-    "password": "Passwort",
-    "residence": "Wohnort:",
+    "password": "Wählen Sie ein Passwort aus",
+    "residence": "Wohnsitzland",
     "select": "Wählen Sie Ihr Land aus",
     "isrequired": "(Erforderlich)",
     "password_hint": "Das Passwort muss mindestens sechs Klein- und Großbuchstaben mit Zahlen haben",
@@ -405,7 +405,7 @@
     "second_line_of_home_address": "Zweite Adresszeile",
     "town_city": "Ort/Stadt",
     "state_province": "Bundesland/Region",
-    "posta_code_zip": "Postleitzahl/PLZ",
+    "address_postcode": "Postleitzahl/PLZ",
     "telephone": "Telefon",
     "update_profile": "Profil aktualisieren",
     "success": "Erfolg",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "Es sind nur Buchstaben, Zahlen, und Bindestriche erlaubt.",
     "cancel": "Abbrechen",
     "continue": "Weiter",
-    "account_opening_reason": "Kontoeröffnung-Grund"
+    "account_opening_reason": "Kontoeröffnung-Grund",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "hat seine",
@@ -765,9 +766,9 @@
     "hedging": "Hedging"
   },
   "ios-pwa-prompt": {
-    "title": "Install Binary TickTrade",
-    "close": "Close",
-    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
-    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+    "title": "Binary TickTrade installieren",
+    "close": "Schluss",
+    "installation_text": "Installieren Sie Binary TickTrade auf Ihrem Startbildschirm für einen schnellen und einfachen Zugang für wenn Sie unterwegs sind.",
+    "installation_help": "Einfach {{icon}} anklicken und dann \"Zum Startbildschirm hinzufügen\""
   }
 }

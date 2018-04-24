@@ -57,9 +57,9 @@
     "asians_up": "Asiáticos Acima",
     "asians_down": "Asiáticos Abaixo",
     "asians": "Asiáticos",
-    "digits_over_under": "Dígitos Superior/Inferior",
-    "digits_odd_even": "Dígitos Ímpar/Par",
-    "digits_matches_differs": "Dígitos Combina/Difere",
+    "digits_digit_over_digit_under": "Dígitos Superior/Inferior",
+    "digits_digit_odd_digit_even": "Dígitos Ímpar/Par",
+    "digits_digit_matches_digit_differs": "Dígitos Combina/Difere",
     "up_down": "Acima/Abaixo",
     "higher_lower": "Superior/Inferior",
     "rise_fall": "Sobe/Desce",
@@ -136,9 +136,9 @@
     "signup": "Inscreva-se",
     "email": "E-mail",
     "signup-question": "Não tem uma conta?",
-    "verification-code": "Código de verificação",
-    "password": "Senha",
-    "residence": "Residência:",
+    "verification-code": "Verification code",
+    "password": "Choose a password",
+    "residence": "Country of residence",
     "select": "Selecione o seu país",
     "isrequired": "(Obrigatório)",
     "password_hint": "A senha deve conter um mínimo de 6 letras minúsculas e maiúsculas com números",
@@ -405,7 +405,7 @@
     "second_line_of_home_address": "Segunda linha do endereço residencial",
     "town_city": "Cidade",
     "state_province": "Estado/Província",
-    "posta_code_zip": "Código postal/CEP",
+    "address_postcode": "Postal Code/ZIP",
     "telephone": "Telefone",
     "update_profile": "Atualizar perfil",
     "success": "Sucesso",
@@ -427,7 +427,8 @@
     "tax-identification-number-pattern-error": "Apenas letras, números e hífenes são permitidos.",
     "cancel": "Cancelar",
     "continue": "Continuar",
-    "account_opening_reason": "Motivo de abertura de conta"
+    "account_opening_reason": "Motivo de abertura de conta",
+    "is_optional": "(optional)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "atualizou os seus",
@@ -765,9 +766,9 @@
     "hedging": "Cobertura de risco"
   },
   "ios-pwa-prompt": {
-    "title": "Install Binary TickTrade",
+    "title": "Instalar o Binary TickTrade",
     "close": "Close",
-    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
+    "installation_text": "Instalar o Binary TickTrade na sua tela inicial para fácil e rápido acesso a partir de qualquer lugar.",
     "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
   }
 }
