@@ -53,7 +53,7 @@ angular.module("binary").service("clientService", function(appStateService) {
     this.getExistingCurrencies = (accounts) => {
         const currencies = [];
         _.forIn(accounts, (account, key) => {
-            if (account.landing_company_name !== 'virtual' && account.currency.length > 0) {
+            if (!this.isLandingCompanyOf('virtual', account.landing_company_name) && account.currency.length > 0) {
                 currencies.push(account.currency);
             }
         });
