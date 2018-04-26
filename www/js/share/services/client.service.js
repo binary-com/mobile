@@ -8,12 +8,15 @@
 
 angular.module("binary").service("clientService", function(appStateService) {
 
+    this.isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
+        targetLandingCompany === accountLandingCompany;
+
     this.getAccountType = landingCompany => {
         let account_type;
         if (landingCompany) {
-            if (landingCompany === 'virtual') account_type = 'virtual';
-            else if (landingCompany === 'maltainvest') account_type = 'financial';
-            else if (landingCompany === 'malta') account_type = 'gaming';
+            if (this.isLandingCompanyOf('virtual', landingCompany) account_type = 'virtual';
+            else if (this.isLandingCompanyOf('maltainvest', landingCompany)) account_type = 'financial';
+            else if (this.isLandingCompanyOf('malta', landingCompany)) account_type = 'gaming';
             else account_type = 'real';
         }
         return account_type;
@@ -26,9 +29,6 @@ angular.module("binary").service("clientService", function(appStateService) {
             (type === 'real'    && accountType !== 'virtual') ||
             type === accountType);
     };
-
-    this.isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
-        targetLandingCompany === accountLandingCompany;
 
     this.landingCompanyValue = (landingCompany, key, landingCompanyObj) => {
         let landingCompanyOfAccount;
