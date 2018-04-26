@@ -70,7 +70,7 @@
             });
 
         const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
-          clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
+            clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
 
         vm.init = () => {
             const account = accountService.getDefault();

@@ -47,7 +47,7 @@
         let landingCompany = '';
 
         const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
-          clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
+            clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
 
         // check type of account
         vm.checkAccountType = function(landingCompany) {

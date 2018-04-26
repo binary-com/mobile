@@ -22,7 +22,7 @@
             : clientService.landingCompanyValue(landingCompany, 'legal_default_currency');
 
         const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
-          clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
+            clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
 
         websocketService.sendRequestFor.accountLimits();
         $scope.$on("get_limits", (e, get_limits) => {
