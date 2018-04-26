@@ -31,8 +31,8 @@
         const currencyConfig = appStateService.currenciesConfig;
         const accounts = accountService.getAll();
         const currentAccount = accountService.getDefault();
-        const landingCompany = currentAccount.landing_company_name || localStorage.getItem('landingCompany');
-        vm.isCRAccount = landingCompany === 'costarica';
+        const landingCompany = currentAccount.landing_company_name;
+        vm.isCRAccount = clientService.isLandingCompanyOf('costarica', landingCompany);
         vm.currenciesOptions = [];
 
         vm.getCurrenciesOptions = () => {

@@ -45,9 +45,8 @@
         vm.touchedTaxResidence = false;
         vm.hasResidence = false;
         vm.hasPOB = false;
-        const loginid = accountService.getDefault().id;
-        const landingCompany = localStorage.getItem('landingCompany');
-        const isVirtual = clientService.isAccountOfType('virtual', loginid, landingCompany) || landingCompany === 'virtual';
+        const landingCompany = accountService.getDefault().landing_company_name;
+        const isVirtual = clientService.isLandingCompanyOf('virtual', landingCompany);
         vm.receivedSettings = false;
         vm.options = _.merge(financialInformationOptions, accountOptions);
         vm.validation = validationService;

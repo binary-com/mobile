@@ -14,15 +14,18 @@ angular
         vm.serverUrl = websocketService.getServerURL;
         vm.defaultServerUrl = config.serverUrl;
 
+        const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
+            clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
+
         const getAccountInfo = () => {
             vm.upgrade = {};
             vm.accounts = accountService.getAll();
             currentAccount = accountService.getDefault();
             if (currentAccount && _.keys(currentAccount).length) {
-                const landingCompany = currentAccount.landing_company_name || localStorage.getItem('landingCompany');
-                vm.showNetworkStatus = landingCompany === 'iom' ||
-                    landingCompany === 'malta' ||
-                    landingCompany === 'maltainvest';
+                const landingCompany = currentAccount.landing_company_name;
+                vm.showNetworkStatus = isLandingCompanyOf('iom', landingCompany) ||
+                    isLandingCompanyOf('malta', landingCompany) ||
+                    isLandingCompanyOf('maltainvest', landingCompany);
                 if (currentAccount.country) {
                     const country = currentAccount.country;
                     if (country !== 'jp') {
@@ -47,7 +50,7 @@ angular
 
         const getUpgradeInfo = landingCompanyObj => {
             const upgradeableLandingCompanies = appStateService.upgradeableLandingCompanies;
-            const currentLandingCompany = currentAccount.landing_company_name || localStorage.getItem('landingCompany');
+            const currentLandingCompany = currentAccount.landing_company_name;
             let canUpgrade = !!(upgradeableLandingCompanies && upgradeableLandingCompanies.length);
             let canUpgradeMultiAccount = false;
             let multi = false;

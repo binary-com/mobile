@@ -18,7 +18,8 @@
         "websocketService",
         "appStateService",
         "accountService",
-        "notificationService"
+        "notificationService",
+        "clientService"
     ];
 
     function CheckUserStatus(
@@ -28,7 +29,8 @@
         websocketService,
         appStateService,
         accountService,
-        notificationService
+        notificationService,
+        clientService
     ) {
         const vm = this;
         vm.isLoggedIn = false;
@@ -44,13 +46,16 @@
         let currentAccount = {};
         let landingCompany = '';
 
+        const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
+          clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
+
         // check type of account
         vm.checkAccountType = function(landingCompany) {
-            vm.isMaltainvest = landingCompany === 'maltainvest';
-            vm.isMalta = landingCompany === 'malta';
-            vm.isCostarica = landingCompany === 'costarica';
-            vm.isIom = landingCompany === 'iom';
-            vm.isVirtual = landingCompany === 'virtual';
+            vm.isMaltainvest = isLandingCompanyOf('maltainvest', landingCompany);
+            vm.isMalta = isLandingCompanyOf('malta', landingCompany);
+            vm.isCostarica = isLandingCompanyOf('costarica', landingCompany);
+            vm.isIom = isLandingCompanyOf('iom', landingCompany);
+            vm.isVirtual = isLandingCompanyOf('virtual', landingCompany);
         };
 
         vm.getAccountInfo = function(landingCompany) {

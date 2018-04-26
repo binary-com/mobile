@@ -27,6 +27,8 @@ angular.module("binary").service("clientService", function(appStateService) {
             type === accountType);
     };
 
+    this.isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) => targetLandingCompany === accountLandingCompany;
+
     this.landingCompanyValue = (landingCompany, key, landingCompanyObj) => {
         let landingCompanyOfAccount;
         const landingCompanyObject = landingCompanyObj || JSON.parse(localStorage.getItem('landingCompanyObject'));
