@@ -124,8 +124,8 @@
         const init = () => {
             vm.accounts = accountService.getAll();
             vm.currentAccount = accountService.getDefault();
-            const landingCompany = vm.currentAccount.landing_company_name || localStorage.getItem('landingCompany');
-            vm.isMultiAccount = landingCompany === 'costarica';
+            const landingCompany = vm.currentAccount.landing_company_name;
+            vm.isMultiAccount = clientService.isLandingCompanyOf('costarica', landingCompany);
             vm.selectCurrencyError = false;
             getAvailableAccounts();
             vm.existingAccounts = getExistingAccounts();
