@@ -14,7 +14,7 @@ angular.module("binary").service("clientService", function(appStateService) {
     this.getAccountType = landingCompany => {
         let account_type;
         if (landingCompany) {
-            if (this.isLandingCompanyOf('virtual', landingCompany) account_type = 'virtual';
+            if (this.isLandingCompanyOf('virtual', landingCompany)) account_type = 'virtual';
             else if (this.isLandingCompanyOf('maltainvest', landingCompany)) account_type = 'financial';
             else if (this.isLandingCompanyOf('malta', landingCompany)) account_type = 'gaming';
             else account_type = 'real';
