@@ -92,7 +92,8 @@
     "transaction_id": "ธุรกรรมอ้างอิง",
     "buy_again": "ซื้ออีกครั้ง",
     "sell": "ขาย",
-    "barrier": "Barrier ออฟเซ็ท"
+    "barrier": "Barrier ออฟเซ็ท",
+    "return": "Return"
   },
   "app": {
     "exit_title": "ออก",
@@ -350,7 +351,8 @@
     "open_real": "อัพเกรดเป็นบัญชีจริง",
     "open_financial": "เปิดบัญชีทางการเงิน 1 บัญชี",
     "create_account": "สร้างบัญชี",
-    "accounts_list": "รายการบัญชี"
+    "accounts_list": "รายการบัญชี",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "การตั้งค่า",

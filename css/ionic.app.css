@@ -10746,10 +10746,58 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                 background: #2E8836;
                 height: auto;
                 text-transform: capitalize; }
-              .trade #trade-container bg-purchase .purchase .contract .row .col .price-container {
-                display: inline-block;
-                vertical-align: middle;
-                line-height: normal; }
+            .trade #trade-container bg-purchase .purchase .contract .row.price-container {
+              height: auto;
+              align-items: center;
+              margin-bottom: 5px; }
+              .trade #trade-container bg-purchase .purchase .contract .row.price-container .longcode-button-container {
+                text-align: center;
+                display: flex;
+                height: auto;
+                align-items: center;
+                padding: 5px;
+                width: auto;
+                max-width: 45px; }
+                .trade #trade-container bg-purchase .purchase .contract .row.price-container .longcode-button-container .longcode-button {
+                  padding-right: 15px;
+                  padding-left: 15px;
+                  font-size: 22px; }
+                  .trade #trade-container bg-purchase .purchase .contract .row.price-container .longcode-button-container .longcode-button i {
+                    color: #2A3052;
+                    margin: 0 auto; }
+                  .trade #trade-container bg-purchase .purchase .contract .row.price-container .longcode-button-container .longcode-button.disabled {
+                    opacity: 0.4;
+                    cursor: default !important;
+                    pointer-events: none; }
+              .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content {
+                height: auto;
+                margin: 0;
+                text-align: center; }
+                .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .price-divider {
+                  padding: 0 2.5px;
+                  display: inline-block; }
+                .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .net-profit {
+                  color: #000;
+                  display: inline-block;
+                  vertical-align: middle;
+                  line-height: normal;
+                  align-items: center;
+                  font-size: 0.8rem;
+                  text-align: center; }
+                  .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .net-profit span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    line-height: normal; }
+                .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .return {
+                  display: inline-block;
+                  vertical-align: middle;
+                  align-items: center;
+                  font-size: 0.8rem;
+                  text-align: center; }
+                  .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .return span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    line-height: normal; }
             .trade #trade-container bg-purchase .purchase .contract .row.basis-container {
               height: auto;
               align-items: center;
@@ -10759,9 +10807,12 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                 display: flex;
                 height: auto;
                 align-items: center;
-                padding: 10px 0; }
+                padding: 10px;
+                width: 50%; }
                 .trade #trade-container bg-purchase .purchase .contract .row.basis-container .contract-image-container img {
-                  margin: 0 auto; }
+                  margin: 0 auto;
+                  max-width: 55px;
+                  max-height: 55px; }
               .trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content {
                 height: auto;
                 margin: 0; }
@@ -10843,6 +10894,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                 color: #2A3052; }
               .trade #trade-container bg-contract-summary .contract-summary .row .col.buy .title {
                 color: #000; }
+              .trade #trade-container bg-contract-summary .contract-summary .row .col.buy .crypto {
+                font-size: 0.9rem !important; }
             .trade #trade-container bg-contract-summary .contract-summary .row .col.sell {
               padding: 0; }
               .trade #trade-container bg-contract-summary .contract-summary .row .col.sell .loss {
@@ -10851,10 +10904,14 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                 color: #2A3052 !important; }
               .trade #trade-container bg-contract-summary .contract-summary .row .col.sell .title {
                 color: #000; }
+              .trade #trade-container bg-contract-summary .contract-summary .row .col.sell .crypto {
+                font-size: 0.9rem !important; }
             .trade #trade-container bg-contract-summary .contract-summary .row .col.profit {
               padding: 0; }
               .trade #trade-container bg-contract-summary .contract-summary .row .col.profit .title {
                 color: #000; }
+              .trade #trade-container bg-contract-summary .contract-summary .row .col.profit .crypto {
+                font-size: 0.9rem !important; }
             .trade #trade-container bg-contract-summary .contract-summary .row .col.win {
               color: #2E8836 !important; }
             .trade #trade-container bg-contract-summary .contract-summary .row .col.lose {
@@ -10882,6 +10939,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           padding: 0; }
           .trade #trade-container .buy-again-container .buy-again .col .row:last-child {
             font-weight: bold; }
+          .trade #trade-container .buy-again-container .buy-again .col .crypto {
+            font-size: 0.9rem !important; }
           .trade #trade-container .buy-again-container .buy-again .col .button {
             white-space: nowrap;
             font-size: 1rem;
@@ -11281,6 +11340,25 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             .modal bg-underlyings .underlyings .row .col a:hover {
               color: #000 !important; }
 
+.loading {
+  bottom: 1rem;
+  margin: 0 auto;
+  width: 90%;
+  position: absolute; }
+
+@media screen and (min-width: 960px) {
+  .loading {
+    width: 80vw;
+    max-width: 768px; } }
+
+@media screen and (max-width: 780px) {
+  .return, .net-profit {
+    width: 100%;
+    padding: 0;
+    font-size: 1rem; }
+  .trade #trade-container bg-purchase .purchase .contract .row.price-container .price-content .price-divider {
+    display: none; } }
+
 @media only screen and (max-device-height: 480px) {
   .trade #tradeChart {
     width: 100% !important;
@@ -11291,9 +11369,6 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .trade .row + .row {
     margin-top: 0 !important;
     padding-top: 5px !important; }
-  bg-purchase .purchase .contract .row.basis-container .contract-image-container img {
-    width: 30px;
-    height: 30px; }
   bg-purchase .purchase .contract .row.basis-container .basis-content {
     height: 40px; }
     bg-purchase .purchase .contract .row.basis-container .basis-content .basis-title {
@@ -11328,9 +11403,6 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .trade .row + .row {
     margin-top: 0 !important;
     padding-top: 5px !important; }
-  bg-purchase .purchase .contract .row.basis-container .contract-image-container img {
-    width: 40px;
-    height: 40px; }
   bg-purchase .purchase .contract .row.basis-container .basis-content .basis-title {
     height: 25px; }
   bg-purchase .purchase .contract .row.basis-container .basis-content .basis {
