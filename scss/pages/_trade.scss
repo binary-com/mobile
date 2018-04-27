@@ -431,6 +431,9 @@
 							.title {
 								color: $contentColor;
 							}
+							.crypto {
+								font-size: 0.9rem !important;
+							}
 						}
 						&.sell {
 							padding: 0;
@@ -443,11 +446,17 @@
 							.title {
 								color: $contentColor;
 							}
+							.crypto {
+								font-size: 0.9rem !important;
+							}
 						}
 						&.profit {
 							padding: 0;
 							.title {
 								color: $contentColor;
+							}
+							.crypto {
+								font-size: 0.9rem !important;
 							}
 						}
 						&.win {
@@ -485,6 +494,9 @@
 						&:last-child {
 							font-weight: bold;
 						}
+					}
+					.crypto {
+						font-size: 0.9rem !important;
 					}
 					.button {
 						white-space: nowrap;

@@ -11,9 +11,16 @@
         .module("binary.pages.trade.components.purchase.controllers")
         .controller("ContractSummaryController", Summary);
 
-    Summary.$inject = [];
+    Summary.$inject = ['appStateService'];
 
-    function Summary() {
+    function Summary(appStateService) {
         const vm = this;
+        vm.currencyType = 'fiat';
+        const currency = sessionStorage.getItem('currency');
+        const currencyConfig = appStateService.currenciesConfig[currency];
+
+        if (currencyConfig) {
+            vm.currencyType = currencyConfig.type;
+        }
     }
 })();

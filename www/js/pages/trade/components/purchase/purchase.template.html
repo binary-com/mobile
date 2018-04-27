@@ -79,7 +79,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col center">
+        <div class="col center {{vm.currencyType}}">
           {{ vm.proposalResponses[vm.purchasedContractIndex].ask_price | currency:vm.proposal.currency:2 }}
         </div>
       </div>
@@ -91,7 +91,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col center">
+        <div class="col center {{vm.currencyType}}">
           {{ vm.proposalResponses[vm.purchasedContractIndex].payout | currency:vm.proposal.currency:2 }}
         </div>
       </div>
