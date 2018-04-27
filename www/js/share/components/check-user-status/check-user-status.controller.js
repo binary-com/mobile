@@ -18,7 +18,8 @@
         "websocketService",
         "appStateService",
         "accountService",
-        "notificationService"
+        "notificationService",
+        "clientService"
     ];
 
     function CheckUserStatus(
@@ -28,36 +29,39 @@
         websocketService,
         appStateService,
         accountService,
-        notificationService
+        notificationService,
+        clientService
     ) {
         const vm = this;
         vm.isLoggedIn = false;
         vm.notUpdatedTaxInfo = false;
-        vm.isFinancial = false;
-        vm.isCR = false;
-        vm.isMLT = false;
-        vm.isMX = false;
+        vm.isMaltainvest = false;
+        vm.isCostarica = false;
+        vm.isMalta = false;
+        vm.isIom = false;
         vm.isVirtual = false;
         vm.websiteTncStatus = '';
         vm.clientTncStatus = '';
         vm.notificationMessages = notificationService.messages;
         let currentAccount = {};
+        let landingCompany = '';
+
+        const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
+            clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
 
         // check type of account
-        vm.checkAccountType = function() {
-            if (currentAccount.id) {
-                vm.isFinancial = /MF/i.test(currentAccount.id);
-                vm.isCR = /CR/i.test(currentAccount.id);
-                vm.isMLT = /MLT/i.test(currentAccount.id);
-                vm.isMX = /MX/i.test(currentAccount.id);
-                vm.isVirtual = !!appStateService.virtuality;
-            }
+        vm.checkAccountType = function(landingCompany) {
+            vm.isMaltainvest = isLandingCompanyOf('maltainvest', landingCompany);
+            vm.isMalta = isLandingCompanyOf('malta', landingCompany);
+            vm.isCostarica = isLandingCompanyOf('costarica', landingCompany);
+            vm.isIom = isLandingCompanyOf('iom', landingCompany);
+            vm.isVirtual = isLandingCompanyOf('virtual', landingCompany);
         };
 
-        vm.getAccountInfo = function() {
+        vm.getAccountInfo = function(landingCompany) {
             currentAccount = accountService.getDefault();
             if (currentAccount && _.keys(currentAccount).length) {
-                vm.checkAccountType();
+                vm.checkAccountType(landingCompany);
                 websocketService.sendRequestFor.getAccountStatus();
                 websocketService.sendRequestFor.getSelfExclusion();
                 websocketService.sendRequestFor.accountSetting();
@@ -84,7 +88,8 @@
             if (!appStateService.checkedAccountStatus) {
                 appStateService.checkedAccountStatus = true;
                 vm.balance = authorize.balance;
-                vm.getAccountInfo();
+                landingCompany = authorize.landing_company_name;
+                vm.getAccountInfo(landingCompany);
             }
         });
 
@@ -93,7 +98,8 @@
             if (appStateService.isLoggedin && !appStateService.checkedAccountStatus) {
                 appStateService.checkedAccountStatus = true;
                 vm.balance = sessionStorage.getItem("balance");
-                vm.getAccountInfo();
+                landingCompany = localStorage.getItem('landingCompany');
+                vm.getAccountInfo(landingCompany);
             }
         };
 
@@ -101,7 +107,7 @@
 
         vm.financialAssessmentStatus = function(status) {
 	          if (
-                (status.risk_classification === "high" || vm.isFinancial || vm.mt5LoginList.length > 0) &&
+                (status.risk_classification === "high" || vm.isMaltainvest || vm.mt5LoginList.length > 0) &&
                 status.indexOf("financial_assessment_not_complete") > -1 &&
                 !appStateService.hasFinancialAssessmentMessage && !vm.isVirtual
             ) {
@@ -111,7 +117,7 @@
         };
 
         vm.taxInformationStatus = function(status) {
-            if (vm.isFinancial && status.indexOf("crs_tin_information") < 0 && !appStateService.hasTaxInfoMessage) {
+            if (vm.isMaltainvest && status.indexOf("crs_tin_information") < 0 && !appStateService.hasTaxInfoMessage) {
                 appStateService.hasTaxInfoMessage = true;
                 notificationService.notices.push(vm.notificationMessages.taxInformationMessage);
             }
@@ -140,7 +146,7 @@
 
         vm.ageVerificationStatus = function(status) {
             vm.ageVerified = status.indexOf("age_verification") > -1;
-            if (!vm.ageVerified && (vm.isFinancial || vm.isMLT || vm.isMX)) {
+            if (!vm.ageVerified && (vm.isMaltainvest || vm.isMalta || vm.isIom)) {
                 if (!appStateService.hasAgeVerificationMessage) {
                     appStateService.hasAgeVerificationMessage = true;
                     notificationService.notices.push(vm.notificationMessages.ageVerificationMessage);
@@ -150,7 +156,7 @@
 
         vm.unwelcomeStatus = function(status) {
             vm.unwelcomed = status.indexOf("unwelcome") > -1;
-            if (vm.unwelcomed && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
+            if (vm.unwelcomed && (vm.isMalta || vm.isMaltainvest || vm.isIom || vm.isCostarica)) {
                 if (!appStateService.hasRestrictedMessage) {
                     appStateService.hasRestrictedMessage = true;
                     notificationService.notices.push(vm.notificationMessages.restrictedMessage);
@@ -160,7 +166,7 @@
 
         vm.cashierStatus = function(status) {
             vm.cashierLocked = status.indexOf("cashier_locked") > -1;
-            if (vm.cashierLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
+            if (vm.cashierLocked && (vm.isMalta || vm.isMaltainvest || vm.isIom || vm.isCostarica)) {
                 if (!appStateService.hasRestrictedMessage) {
                     appStateService.hasRestrictedMessage = true;
                     notificationService.notices.push(vm.notificationMessages.restrictedMessage);
@@ -170,7 +176,7 @@
 
         vm.withdrawalStatus = function(status) {
             vm.withdrawalLocked = status.indexOf("withdrawal_locked") > -1;
-            if (vm.withdrawalLocked && (vm.isMLT || vm.isFinancial || vm.isMX || vm.isCR)) {
+            if (vm.withdrawalLocked && (vm.isMalta || vm.isMaltainvest || vm.isIom || vm.isCostarica)) {
                 if (!appStateService.hasRestrictedMessage) {
                     appStateService.hasRestrictedMessage = true;
                     notificationService.notices.push(vm.notificationMessages.restrictedMessage);
@@ -180,10 +186,10 @@
 
         vm.maxTurnoverLimitStatus = function(get_self_exclusion) {
             vm.maxTurnoverLimitSet = get_self_exclusion.hasOwnProperty("max_30day_turnover");
-            if (vm.isMX && !vm.maxTurnoverLimitSet && !appStateService.hasMaxTurnoverMessage) {
+            if (vm.isIom && !vm.maxTurnoverLimitSet && !appStateService.hasMaxTurnoverMessage) {
                 appStateService.hasMaxTurnoverMessage = true;
                 notificationService.notices.push(vm.notificationMessages.maxTurnoverLimitNotSetMessage);
-            } else if (vm.isMX && vm.maxTurnoverLimitSet && appStateService.hasMaxTurnoverMessage) {
+            } else if (vm.isIom && vm.maxTurnoverLimitSet && appStateService.hasMaxTurnoverMessage) {
                 // in update of self exclusion
                 vm.reload();
             }

@@ -14,15 +14,18 @@ angular
         vm.serverUrl = websocketService.getServerURL;
         vm.defaultServerUrl = config.serverUrl;
 
+        const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
+            clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
+
         const getAccountInfo = () => {
             vm.upgrade = {};
             vm.accounts = accountService.getAll();
             currentAccount = accountService.getDefault();
             if (currentAccount && _.keys(currentAccount).length) {
-                const landingCompany = localStorage.getItem('landingCompany');
-                vm.showNetworkStatus = landingCompany === 'iom' ||
-                    landingCompany === 'malta' ||
-                    landingCompany === 'maltainvest';
+                const landingCompany = currentAccount.landing_company_name;
+                vm.showNetworkStatus = isLandingCompanyOf('iom', landingCompany) ||
+                    isLandingCompanyOf('malta', landingCompany) ||
+                    isLandingCompanyOf('maltainvest', landingCompany);
                 if (currentAccount.country) {
                     const country = currentAccount.country;
                     if (country !== 'jp') {
@@ -41,18 +44,13 @@ angular
 
         const hasMTfinancialCompany = data => (hasShortCode(data.financial_company, 'vanuatu'));
 
-        const getLegalAllowedCurrencies = (loginid, landingCompany) =>
-            clientService.landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
-        const getLegalAllowedMarkets = (loginid, landingCompany) =>
-            clientService.landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
-
         const getExistingCurrencies = accounts => clientService.getExistingCurrencies(accounts);
 
         const getDividedCurrencies = currencies => clientService.dividedCurrencies(currencies);
 
-        const getUpgradeInfo = (landingCompany, id) => {
+        const getUpgradeInfo = landingCompanyObj => {
             const upgradeableLandingCompanies = appStateService.upgradeableLandingCompanies;
-            const currentLandingCompany = localStorage.getItem('landingCompany');
+            const currentLandingCompany = currentAccount.landing_company_name;
             let canUpgrade = !!(upgradeableLandingCompanies && upgradeableLandingCompanies.length);
             let canUpgradeMultiAccount = false;
             let multi = false;
@@ -71,21 +69,22 @@ angular
             if (canUpgradeToLandingCompany(['costarica', 'malta', 'iom']) && !canUpgradeMultiAccount) {
                 typeOfNextAccount = 'real';
                 upgradeLink = 'real-account-opening';
-                currencyOptions = landingCompany.gaming_company ?
-                    landingCompany.gaming_company.legal_allowed_currencies :
-                    landingCompany.financial_company.legal_allowed_currencies;
-                allowedMarkets = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_markets :
-                    landingCompany.financial_company.legal_allowed_markets;
+                currencyOptions = landingCompanyObj.gaming_company ?
+                    landingCompanyObj.gaming_company.legal_allowed_currencies :
+                    landingCompanyObj.financial_company.legal_allowed_currencies;
+                allowedMarkets = landingCompanyObj.gaming_company ?
+                    landingCompanyObj.gaming_company.legal_allowed_markets :
+                    landingCompanyObj.financial_company.legal_allowed_markets;
             } else if (canUpgradeToLandingCompany(['maltainvest'])) {
                 typeOfNextAccount = 'financial';
                 upgradeLink = 'maltainvest-account-opening';
-                currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
-                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
+                currencyOptions = landingCompanyObj.financial_company.legal_allowed_currencies;
+                allowedMarkets = landingCompanyObj.financial_company.legal_allowed_markets;
             } else if (canUpgradeMultiAccount) {
                 typeOfNextAccount = 'real';
                 upgradeLink = '';
-                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
-                const legalAllowedCurrencies = landingCompany.financial_company.legal_allowed_currencies;
+                allowedMarkets = landingCompanyObj.financial_company.legal_allowed_markets;
+                const legalAllowedCurrencies = landingCompanyObj.financial_company.legal_allowed_currencies;
                 const existingCurrencies = getExistingCurrencies(vm.accounts);
                 if (existingCurrencies.length) {
                     const dividedExistingCurrencies = getDividedCurrencies(existingCurrencies);
@@ -136,7 +135,7 @@ angular
             const landingCompany = landing_company;
             vm.hasMTAccess = hasMTfinancialCompany(landingCompany);
             if (req_id === 1) {
-                vm.upgrade = getUpgradeInfo(landingCompany, currentAccount.id);
+                vm.upgrade = getUpgradeInfo(landingCompany);
                 if (vm.upgrade.canUpgrade) {
                     appStateService.upgrade = vm.upgrade;
                 } else {
