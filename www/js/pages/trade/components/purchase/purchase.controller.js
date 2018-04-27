@@ -78,7 +78,7 @@
                 });
             }
 
-            if (!!vm.isContractFinished) {
+            if (vm.isContractFinished) {
                 // Unlock view to navigate
                 appStateService.purchaseMode = false;
                 vm.inPurchaseMode = false;
