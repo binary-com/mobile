@@ -18,6 +18,7 @@
         "websocketService",
         "accountService",
         "validationService",
+        "clientService",
         "accountOptions"
     ];
 
@@ -30,6 +31,7 @@
         websocketService,
         accountService,
         validationService,
+        clientService,
         accountOptions
     ) {
         const vm = this;
@@ -67,15 +69,18 @@
                 vm.modalCtrl = modal;
             });
 
+        const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
+            clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
+
         vm.init = () => {
-            vm.isVirtualAccount = !!appStateService.virtuality;
             const account = accountService.getDefault();
-            const landingCompany = localStorage.getItem('landingCompany');
+            const landingCompany = account.landing_company_name;
+            vm.isVirtualAccount = isLandingCompanyOf('virtual', landingCompany);
             const accounts = accountService.getAll();
-            const hasMaltainvestAccount = !!_.find(accounts, account => account.landing_company_name === 'maltainvest');
-            vm.taxInfoIsOptional = landingCompany !== 'maltainvest' && !hasMaltainvestAccount;
+            const hasMaltainvestAccount = !!_.find(accounts, account =>
+                isLandingCompanyOf('maltainvest', account.landing_company_name));
+            vm.taxInfoIsOptional = !isLandingCompanyOf('maltainvest', landingCompany) && !hasMaltainvestAccount;
             if (!vm.isVirtualAccount) {
-                vm.isFinancial = /MF/i.test(account.id);
                 websocketService.sendRequestFor.residenceListSend();
             } else if (vm.isVirtualAccount && !account.country) {
                 websocketService.sendRequestFor.residenceListSend();

@@ -38,6 +38,7 @@
         vm.showSummary = false;
         vm.purchasedContractIndex = -1;
         vm.currencyType = "fiat";
+        vm.isContractFinished = false;
 
         $scope.$watch(
             () => vm.proposal,
@@ -75,9 +76,14 @@
                     vm.proposalResponses[reqId - 1].isReceiving = false;
                     vm.longcode[reqId - 1] = proposal.longcode;
                 });
+            }
+
+            if (vm.isContractFinished) {
                 // Unlock view to navigate
+                appStateService.purchaseMode = false;
                 vm.inPurchaseMode = false;
             }
+
         });
 
         $scope.$on("proposal:error", (e, error, reqId) => {
@@ -151,10 +157,9 @@
                     DurationUnit: vm.proposal.duration_unit,
                     result      : contract.result === "lose" ? "Lost" : "Won"
                 };
-                sendProposal();
 
-                // Unlock view to navigate
-                appStateService.purchaseMode = false;
+                vm.isContractFinished = true;
+                sendProposal();
             }
         });
 
@@ -191,6 +196,7 @@
 
         vm.purchase = function (contractIndex) {
             $scope.$applyAsync(() => {
+                vm.isContractFinished = false;
                 vm.inPurchaseMode = true;
                 vm.purchasedContractIndex = contractIndex;
                 appStateService.purchaseMode = true;

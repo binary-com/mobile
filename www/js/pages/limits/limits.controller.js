@@ -17,9 +17,12 @@
         vm.isDataLoaded = false;
         const account = accountService.getDefault();
         vm.loginid = account.id;
-        const landingCompany = localStorage.getItem("landingCompany");
+        const landingCompany = account.landing_company_name;
         vm.currency = account.currency && account.currency.length ? account.currency
-            : clientService.landingCompanyValue(vm.loginid, 'legal_default_currency');
+            : clientService.landingCompanyValue(landingCompany, 'legal_default_currency');
+
+        const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
+            clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
 
         websocketService.sendRequestFor.accountLimits();
         $scope.$on("get_limits", (e, get_limits) => {
@@ -31,13 +34,13 @@
                     vm.mxAccount = false;
                     vm.crAccount = false;
                     vm.otherAccount = false;
-                } else if (landingCompany === "iom") {
+                } else if (isLandingCompanyOf('iom', landingCompany)) {
                     // MX accounts
                     vm.mxAccount = true;
                     vm.fullyAuthenticated = false;
                     vm.crAccount = false;
                     vm.otherAccount = false;
-                } else if (landingCompany === "costarica") {
+                } else if (isLandingCompanyOf('costarica', landingCompany)) {
                     // CR accounts
                     vm.crAccount = true;
                     vm.fullyAuthenticated = false;

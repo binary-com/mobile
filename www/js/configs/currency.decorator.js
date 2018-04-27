@@ -38,7 +38,7 @@
                         currency: currency || "USD"
                     };
 
-                    if (/btc|xbt|ltc/i.test(currency)) {
+                    if (/btc|xbt|ltc|bch|eth/i.test(currency)) {
                         options.minimumFractionDigits = 8;
                         options.maximumFractionDigits = 8;
                     }

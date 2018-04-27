@@ -34,9 +34,6 @@
                 // a much nicer keyboard experience.
                 cordova.plugins.Keyboard.disableScroll(true);
             }
-            if (window.StatusBar) {
-                window.StatusBar.styleDefault();
-            }
             if (window.cordova) {
                 window.open = cordova.InAppBrowser.open;
             }
