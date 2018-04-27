@@ -27,3 +27,4 @@ CNAME
 tmp
 build
 *.provisionprofile
+package-lock.json
