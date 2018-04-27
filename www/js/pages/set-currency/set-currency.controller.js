@@ -31,11 +31,12 @@
         const currencyConfig = appStateService.currenciesConfig;
         const accounts = accountService.getAll();
         const currentAccount = accountService.getDefault();
-        vm.isCRAccount = /CR/i.test(currentAccount.id);
+        const landingCompany = currentAccount.landing_company_name;
+        vm.isCRAccount = clientService.isLandingCompanyOf('costarica', landingCompany);
         vm.currenciesOptions = [];
 
         vm.getCurrenciesOptions = () => {
-            const legalAllowedCurrencies = clientService.landingCompanyValue(currentAccount.id, 'legal_allowed_currencies');
+            const legalAllowedCurrencies = clientService.landingCompanyValue(landingCompany, 'legal_allowed_currencies');
             if (vm.isCRAccount) {
                 const existingCurrencies = clientService.getExistingCurrencies(accounts);
                 if (existingCurrencies.length) {
@@ -61,7 +62,7 @@
                 const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
                 currency.symb = curr;
                 currency.isCryptoCurrency = isCryptoCurrency;
-                currency.img = `/img/currency/${curr.toLowerCase()}.svg`;
+                currency.img = `img/currency/${curr.toLowerCase()}.svg`;
                 if (isCryptoCurrency) {
                     currency.name = cryptoConfig[curr].name;
                 }

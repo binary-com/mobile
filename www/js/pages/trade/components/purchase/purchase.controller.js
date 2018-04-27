@@ -6,7 +6,7 @@
  * @copyright binary ltd
  */
 
-(function() {
+(function () {
     angular.module("binary.pages.trade.components.purchase.controllers").controller("PurchaseController", Purchase);
 
     Purchase.$inject = [
@@ -16,27 +16,29 @@
         "accountService",
         "appStateService",
         "proposalService",
-        "websocketService"
+        "websocketService",
+        "$ionicLoading"
     ];
 
-    function Purchase(
-        $scope,
+    function Purchase($scope,
         $timeout,
         analyticsService,
         accountService,
         appStateService,
         proposalService,
-        websocketService
-    ) {
+        websocketService,
+        $ionicLoading) {
         const vm = this;
         let forgetRequestId = 0;
 
+        vm.longcode = [];
         vm.contracts = [];
         vm.proposalResponses = [];
         vm.inPurchaseMode = false;
         vm.showSummary = false;
         vm.purchasedContractIndex = -1;
         vm.currencyType = "fiat";
+        vm.isContractFinished = false;
 
         $scope.$watch(
             () => vm.proposal,
@@ -72,10 +74,16 @@
                     vm.proposalResponses[reqId - 1] = proposal;
                     vm.proposalResponses[reqId - 1].hasError = false;
                     vm.proposalResponses[reqId - 1].isReceiving = false;
+                    vm.longcode[reqId - 1] = proposal.longcode;
                 });
+            }
+
+            if (vm.isContractFinished) {
                 // Unlock view to navigate
+                appStateService.purchaseMode = false;
                 vm.inPurchaseMode = false;
             }
+
         });
 
         $scope.$on("proposal:error", (e, error, reqId) => {
@@ -93,15 +101,14 @@
                 vm.showSummary = true;
                 $scope.$applyAsync(() => {
                     vm.purchasedContract = {
-                        contractId: response.buy.contract_id,
-                        longcode  : response.buy.longcode,
-                        payout    : vm.proposalResponses[vm.purchasedContractIndex].payout,
-                        cost      : response.buy.buy_price,
-                        profit    :
-                            parseFloat(vm.proposalResponses[vm.purchasedContractIndex].payout) -
-                            parseFloat(response.buy.buy_price),
+                        contractId   : response.buy.contract_id,
+                        longcode     : response.buy.longcode,
+                        payout       : vm.proposalResponses[vm.purchasedContractIndex].payout,
+                        cost         : response.buy.buy_price,
                         balance      : response.buy.balance_after,
-                        transactionId: response.buy.transaction_id
+                        transactionId: response.buy.transaction_id,
+                        profit       : parseFloat(vm.proposalResponses[vm.purchasedContractIndex].payout) -
+                        parseFloat(response.buy.buy_price),
                     };
                 });
                 websocketService.sendRequestFor.portfolio();
@@ -150,10 +157,9 @@
                     DurationUnit: vm.proposal.duration_unit,
                     result      : contract.result === "lose" ? "Lost" : "Won"
                 };
-                sendProposal();
 
-                // Unlock view to navigate
-                appStateService.purchaseMode = false;
+                vm.isContractFinished = true;
+                sendProposal();
             }
         });
 
@@ -184,12 +190,13 @@
             proposalService.forget();
         });
 
-        vm.getImageUrl = function(contractType) {
+        vm.getImageUrl = function (contractType) {
             return `img/trade-icon/${contractType.toLowerCase()}.svg`;
         };
 
-        vm.purchase = function(contractIndex) {
+        vm.purchase = function (contractIndex) {
             $scope.$applyAsync(() => {
+                vm.isContractFinished = false;
                 vm.inPurchaseMode = true;
                 vm.purchasedContractIndex = contractIndex;
                 appStateService.purchaseMode = true;
@@ -198,12 +205,15 @@
             proposalService.purchase(vm.proposalResponses[contractIndex]);
         };
 
-        vm.backToTrade = function() {
+        vm.backToTrade = function () {
             vm.showSummary = false;
             appStateService.tradeMode = true;
             appStateService.purchaseMode = false;
             vm.purchasedContractIndex = -1;
         };
+
+        vm.showLongcode = id =>
+            $ionicLoading.show({template: vm.longcode[id], noBackdrop: true, duration: 2500});
 
         function init() {
             vm.user = accountService.getDefault();
@@ -250,7 +260,7 @@
                 _results.push(
                     ((el) => {
                         const _results1 = [];
-                        const resizeText = function() {
+                        const resizeText = function () {
                             const elNewFontSize = `${parseInt($(el).css("font-size").slice(0, -2)) - 1}px`;
                             return $(el).css("font-size", elNewFontSize);
                         };

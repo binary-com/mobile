@@ -92,7 +92,8 @@
     "transaction_id": "Tham chiếu giao dịch",
     "buy_again": "Mua lại",
     "sell": "Bán",
-    "barrier": "Rào cản bù đắp"
+    "barrier": "Rào cản bù đắp",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Thoát",
@@ -350,7 +351,8 @@
     "open_real": "Upgrade to a real account",
     "open_financial": "Open a financial account",
     "create_account": "Create account",
-    "accounts_list": "Accounts list"
+    "accounts_list": "Accounts list",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Cài đặt",

@@ -92,7 +92,8 @@
     "transaction_id": "Transaktionsreferenz",
     "buy_again": "Nochmal kaufen",
     "sell": "Verkaufen",
-    "barrier": "Schwellenverschiebung"
+    "barrier": "Schwellenverschiebung",
+    "return": "Rendite"
   },
   "app": {
     "exit_title": "Beenden",
@@ -350,7 +351,8 @@
     "open_real": "Erweitern Sie auf ein Echtgeldkonto",
     "open_financial": "Eröffnen Sie ein Finanzkonto",
     "create_account": "Konto einrichten",
-    "accounts_list": "Kontenliste"
+    "accounts_list": "Kontenliste",
+    "network_status": "Netzwerkstatus"
   },
   "settings": {
     "settings": "Einstellungen",

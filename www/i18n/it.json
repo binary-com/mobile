@@ -92,7 +92,8 @@
     "transaction_id": "Riferimento della transazione",
     "buy_again": "Acquista di nuovo",
     "sell": "Vendi",
-    "barrier": "Correzione della barriera"
+    "barrier": "Correzione della barriera",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Esci",
@@ -350,7 +351,8 @@
     "open_real": "Passa a un account reale",
     "open_financial": "Apri un account finanziario",
     "create_account": "Crea un account",
-    "accounts_list": "Elenco degli account"
+    "accounts_list": "Elenco degli account",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Impostazioni",

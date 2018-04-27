@@ -92,7 +92,8 @@
     "transaction_id": "Referensi Transaksi",
     "buy_again": "Beli Lagi",
     "sell": "Jual",
-    "barrier": "Barrier offset"
+    "barrier": "Barrier offset",
+    "return": "Return"
   },
   "app": {
     "exit_title": "Keluar",
@@ -350,7 +351,8 @@
     "open_real": "Upgrade ke akun real",
     "open_financial": "Daftar akun finansial",
     "create_account": "Daftar Akun",
-    "accounts_list": "Daftar Akun"
+    "accounts_list": "Daftar Akun",
+    "network_status": "Network status"
   },
   "settings": {
     "settings": "Pengaturan",

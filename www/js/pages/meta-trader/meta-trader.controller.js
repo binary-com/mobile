@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.meta-trader.controllers").controller("MetaTraderController", MetaTrader);
 
-    MetaTrader.$inject = ["$scope", "$state", "accountService", "websocketService"];
+    MetaTrader.$inject = ["$scope", "$state", "accountService", "websocketService", "clientService"];
 
-    function MetaTrader($scope, $state, accountService, websocketService) {
+    function MetaTrader($scope, $state, accountService, websocketService, clientService) {
         const vm = this;
         vm.hasMTAccess = null;
         vm.upgradeYourAccount = false;
@@ -27,7 +27,7 @@
             $scope.$applyAsync(() => {
                 if (
                     landingCompany.hasOwnProperty("mt_financial_company") &&
-                    landingCompany.mt_financial_company.shortcode === "vanuatu"
+                    clientService.isLandingCompanyOf('vanuatu', landingCompany.mt_financial_company.shortcode)
                 ) {
                     vm.hasMTAccess = true;
                     websocketService.sendRequestFor.mt5LoginList();
@@ -95,7 +95,8 @@
 
         function init() {
             const accounts = accountService.getAll();
-            vm.hasRealAccount = !!_.find(accounts, obj => /(CR|MLT|MX)\d+/.test(obj.id));
+            vm.hasRealAccount = !!_.find(accounts, obj =>
+                _.indexOf(['malta', 'costarica', 'iom'], obj.landing_company_name) > -1);
 
             const account = accountService.getDefault();
             if (account) {
