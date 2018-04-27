@@ -80,7 +80,7 @@
             const oauthWindowUrl = `${oauthUrl}?app_id=${appId}&l=${languageService.read()}`;
             const authWindow = window.open(
                 oauthWindowUrl,
-                "_blank",
+                "_system",
                 "location=no,toolbar=no"
             );
 

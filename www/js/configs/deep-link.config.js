@@ -11,8 +11,9 @@ angular.module('binary')
         ($ionicPlatform, $cordovaDeeplinks, $state, $timeout) => {
             $ionicPlatform.ready(() => {
                 $cordovaDeeplinks.route({
-                    '/verify': {}
+                    '/verify/': {}
                 }).subscribe((match) => {
+                    console.log(match.$args);
                     if(match.$args && !_.isEmpty(match.$args.action) &&
                         match.$args.action === 'signup' && !_.isEmpty(match.$args.code)){
                         $timeout(() => {
