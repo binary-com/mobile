@@ -50,13 +50,14 @@
         let enteredNow = false;
         let backFromMainPages = false;
         let noMoreRequest = false;
-        vm.currency = sessionStorage.getItem('currency') || 'USD';
-        const currencyConfig = appStateService.currenciesConfig || {};
-        vm.fractionalDigits = !_.isEmpty(currencyConfig) &&
-        currencyConfig[vm.currency] ? currencyConfig[vm.currency].fractional_digits : 2;
+        vm.fractionalDigits = 2;
 
         const notAuthorizeYet = () => {// check if app is authorized already or has to wait for it to be authorized
             if (appStateService.isLoggedin) {
+                vm.currency = sessionStorage.getItem('currency') || 'USD';
+                const currencyConfig = appStateService.currenciesConfig || {};
+                vm.fractionalDigits = !_.isEmpty(currencyConfig) &&
+                currencyConfig[vm.currency] ? currencyConfig[vm.currency].fractional_digits : 2;
                 if (appStateService.statementRefresh || backFromMainPages) {
                     $templateCache.remove();
                     resetParams();
