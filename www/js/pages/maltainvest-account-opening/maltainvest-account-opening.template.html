@@ -1082,7 +1082,7 @@
             <button class="button button-block"
                     ng-click="vm.submitAccountOpening()"
                     ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}"
-                    ng-disabled="newAccountMaltainvestForm.$invalid || vm.data.tax_residence  == null
+                    ng-disabled="newAccountMaltainvestForm.$invalid || !vm.data.tax_residence
                                 || vm.disableUpdatebutton">
               {{ 'new-account-maltainvest.open_account' | translate }}
             </button>
