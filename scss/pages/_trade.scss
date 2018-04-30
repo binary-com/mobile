@@ -321,9 +321,11 @@
 								align-items: center;
 								padding: 10px;
 
-								width: 50%;
+								width: calc(50% - 20px);
+								width: 40%;
 								img {
 									margin: 0 auto;
+									width: 100%;
 									max-width: 55px;
 									max-height: 55px;
 								}
@@ -346,7 +348,7 @@
 										font-size: 1.1rem;
 										line-height: normal;
 									}
-									&.crypto {
+									.crypto {
 										justify-content: center !important;
 									}
 								}
@@ -861,12 +863,6 @@
 			.contract {
 				.row {
 					&.basis-container {
-						.contract-image-container {
-							img {
-								width: 55px;
-								height: 55px;
-							}
-						}
 						.basis-content {
 							.basis-title {
 								height: 30px;
