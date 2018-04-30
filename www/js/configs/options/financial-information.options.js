@@ -158,7 +158,7 @@ angular.module("binary").constant("financialInformationOptions", {
         },
         {
             text : 'financial-information-options.others',
-            value: 'others',
+            value: 'Others',
         }
     ],
     source_of_wealth: [
