@@ -112,7 +112,7 @@
 
                 if (!authorize.currency && !selectedCurrency) {
                     $state.go("set-currency")
-                } else if (selectedCurrency) {
+                } else if (!authorize.currency && selectedCurrency) {
                     websocketService.sendRequestFor.setAccountCurrency(selectedCurrency);
                 } else {
                     $state.go("trade");
@@ -128,7 +128,6 @@
                     break;
                 }
             }
-            console.log(accounts);
             localStorage.accounts = JSON.stringify(accounts);
             localStorage.setItem("accounts", JSON.stringify(accounts));
             appStateService.accountCurrencyChanged = true;
