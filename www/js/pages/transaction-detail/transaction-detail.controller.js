@@ -15,26 +15,25 @@
 
     function TransactionDetail($scope, $timeout, appStateService, websocketService) {
         const vm = this;
-        vm.data = {};
         vm.currency = sessionStorage.getItem("currency");
-        vm.data.id = sessionStorage.getItem("id");
-        vm.data.extraParams = {
-            req_id: vm.data.id
+        const id = sessionStorage.getItem("id");
+        const extraParams = {
+            req_id: id
         };
         const sendDetailsRequest = () => {
             if (appStateService.isLoggedin) {
-                websocketService.sendRequestFor.openContract(vm.data.id, vm.data.extraParams);
+                websocketService.sendRequestFor.openContract(id, extraParams);
             } else {
-                $timeout(vm.sendDetailsRequest, 500);
+                $timeout(sendDetailsRequest, 500);
             }
         };
 
         $scope.$on("proposal:open-contract", (e, proposal_open_contract, req_id) => {
-            vm.proposalOpenContract = proposal_open_contract;
-            vm.data.reqId = req_id;
-            if (vm.data.reqId === vm.data.id) {
+            const proposalOpenContract = proposal_open_contract;
+            const reqId = req_id;
+            if (reqId === id) {
                 $scope.$applyAsync(() => {
-                    vm.contract = vm.proposalOpenContract;
+                    vm.contract = proposalOpenContract;
                 });
             }
         });
