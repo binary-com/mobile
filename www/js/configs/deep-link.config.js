@@ -11,14 +11,24 @@ angular.module('binary')
         ($ionicPlatform, $cordovaDeeplinks, $state, $timeout) => {
             $ionicPlatform.ready(() => {
                 $cordovaDeeplinks.route({
-                    '/verify/': {}
+                    '/redirect': {},
                 }).subscribe((match) => {
-                    console.log(match.$args);
-                    if(match.$args && !_.isEmpty(match.$args.action) &&
-                        match.$args.action === 'signup' && !_.isEmpty(match.$args.code)){
-                        $timeout(() => {
-                            $state.go('signin', {verificationCode: match.$args.code});
-                        }, 100);
+                    if(match.$args && !_.isEmpty(match.$args.action)) {
+                        if (match.$args.action === 'signup' && !_.isEmpty(match.$args.code)){
+                            $timeout(() => {
+                                $state.go('signin', {verificationCode: match.$args.code});
+                            }, 100);
+                        } else if (match.$args.action === 'oauth') {
+                            const tokens = /action=oauth&(.*)/.exec(match.$link.queryString);
+ 
+                            if (_.isEmpty(tokens)) {
+                                return;
+                            }
+
+                            $timeout(() => {
+                                $state.go('signin', {accountTokens: tokens[1]});
+                            }, 100);
+                        }
                     }
                 }, (nomatch) => {
                 });
