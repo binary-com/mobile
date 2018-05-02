@@ -129,12 +129,14 @@
                 if (contract.result === "win") {
                     vm.purchasedContract.buyPrice = vm.purchasedContract.cost;
                     vm.purchasedContract.profit = vm.purchasedContract.profit;
-                    vm.purchasedContract.finalPrice = vm.purchasedContract.buyPrice + vm.purchasedContract.profit;
+                    vm.purchasedContract.finalPrice =
+                        parseFloat(vm.purchasedContract.buyPrice) + parseFloat(vm.purchasedContract.profit);
                     websocketService.sendRequestFor.openContract();
                 } else if (contract.result === "lose") {
                     vm.purchasedContract.buyPrice = vm.purchasedContract.cost;
                     vm.purchasedContract.loss = vm.purchasedContract.cost;
-                    vm.purchasedContract.finalPrice = vm.purchasedContract.buyPrice + vm.purchasedContract.loss;
+                    vm.purchasedContract.finalPrice =
+                        parseFloat(vm.purchasedContract.buyPrice) + parseFloat(vm.purchasedContract.loss);
                 }
                 vm.purchasedContract.result = contract.result === "lose" ? "loss" : contract.result;
 
@@ -147,17 +149,7 @@
                     proposal.underlying_symbol,
                     vm.purchasedContract.payout
                 );
-
-                const ampEventProperties = {
-                    Symbol      : proposal.underlying_symbol,
-                    TradeType   : proposal.contract_type,
-                    Stake       : vm.purchasedContract.buyPrice,
-                    Market      : proposal.market,
-                    Duration    : vm.proposal.duration,
-                    DurationUnit: vm.proposal.duration_unit,
-                    result      : contract.result === "lose" ? "Lost" : "Won"
-                };
-
+                
                 vm.isContractFinished = true;
                 sendProposal();
             }
