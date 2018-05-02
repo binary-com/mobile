@@ -110,6 +110,10 @@
             vm.disableUpdatebutton = true;
             vm.error = {};
             let params = _.clone(vm.data);
+            const currency = appStateService.selectedCurrency || '';
+            if (currency) {
+                params.currency = currency;
+            }
             params.date_of_birth = vm.data.date_of_birth ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
             params = _.forEach(params, (val, k) => {
                 params[k] = _.trim(val);

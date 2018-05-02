@@ -108,13 +108,14 @@
                 vm.selectedAccount = authorize.token;
                 appStateService.virtuality = authorize.is_virtual;
                 accountService.addedAccount = "";
+                const selectedCurrency = appStateService.selectedCurrency || '';
 
-                vm.selectedCurrency = appStateService.selectedCurrency;
-                if (vm.selectedCurrency) {
-                    websocketService.sendRequestFor.setAccountCurrency(vm.selectedCurrency);
-                    $state.go("trade");
-                } else {
+                if (!authorize.currency && !selectedCurrency) {
                     $state.go("set-currency")
+                } else if (!authorize.currency && selectedCurrency) {
+                    websocketService.sendRequestFor.setAccountCurrency(selectedCurrency);
+                } else {
+                    $state.go("trade");
                 }
             }
         });
@@ -127,9 +128,11 @@
                     break;
                 }
             }
+            localStorage.accounts = JSON.stringify(accounts);
             localStorage.setItem("accounts", JSON.stringify(accounts));
             appStateService.accountCurrencyChanged = true;
             $rootScope.$broadcast("currency:changed", currency);
+            $state.go("trade");
         });
     }
 })();
