@@ -97,7 +97,7 @@
                 account.isDisabled = acc.is_disabled;
                 account.excludedUntil = acc.excluded_until ?
                     $filter('date')(acc.excluded_until *1000, 'yyyy-MM-dd HH:mm:ss') : false;
-                account.availableMarkets = getAvailableMarkets(account.landing_company_name);
+                account.availableMarkets = getAvailableMarkets(acc.landing_company_name);
                 account.type = accountType(acc.landing_company_name);
                 if (vm.currentAccount.id !== account.id) {
                     account.currency = acc.currency || '-';
