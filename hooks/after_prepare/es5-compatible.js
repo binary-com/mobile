@@ -18,7 +18,7 @@ function run(){
 
     switch(platform){
       case 'android':
-        wwwPath = path.join(platformPath, platform, 'assets', 'www');
+        wwwPath = path.join(platformPath, platform, 'app', 'src', 'main', 'assets', 'www');
         break;
 
       case 'ios':
