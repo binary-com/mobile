@@ -11,7 +11,8 @@ angular.module('binary')
         ($ionicPlatform, $cordovaDeeplinks, $state, $timeout) => {
             $ionicPlatform.ready(() => {
                 $cordovaDeeplinks.route({
-                    '/redirect': {},
+                    '/redirect'     : {},
+                    '/redirect.html': {},
                 }).subscribe((match) => {
                     if(match.$args && !_.isEmpty(match.$args.action)) {
                         if (match.$args.action === 'signup' && !_.isEmpty(match.$args.code)){
@@ -29,7 +30,12 @@ angular.module('binary')
                                 $state.go('signin', {accountTokens: tokens[1]});
                             }, 100);
                         }
+                    } else if (match.$link.path === '/redirect.html' && !!match.$link.queryString) {
+                        $timeout(() => {
+                            $state.go('signin', {accountTokens: match.$link.queryString});
+                        }, 100);
                     }
+
                 }, (nomatch) => {
                 });
             });
