@@ -52,7 +52,7 @@
             const diffDays = lastSeen ? (new Date().getTime() - lastSeen) / (86400*1000) : 0;
             const isApple = /IPHONE|IPAD|IPOD/i.test(navigator.appVersion);
 
-            return isApple && (diffDays === 0 || diffDays >= 14);
+            return isApple && isSafari() && (diffDays === 0 || diffDays >= 14);
 
         };
 
@@ -63,6 +63,18 @@
         };
 
         vm.init();
+
+        function isSafari() {
+            const ua = window.navigator.userAgent;
+
+            const isNotSafari = /chrome|ucbrowser|fxios|crios/i.test(ua);
+
+            if (!isNotSafari && /safari/i.test(ua)) {
+                return true;
+            }
+
+            return false;
+        }
 
     }
 })();
