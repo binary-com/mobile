@@ -10808,9 +10808,11 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                 height: auto;
                 align-items: center;
                 padding: 10px;
-                width: 50%; }
+                width: calc(50% - 20px);
+                width: 40%; }
                 .trade #trade-container bg-purchase .purchase .contract .row.basis-container .contract-image-container img {
                   margin: 0 auto;
+                  width: 100%;
                   max-width: 55px;
                   max-height: 55px; }
               .trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content {
@@ -10830,7 +10832,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
                     vertical-align: middle;
                     font-size: 1.1rem;
                     line-height: normal; }
-                  .trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content .basis-title.crypto {
+                  .trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content .basis-title .crypto {
                     justify-content: center !important; }
                 .trade #trade-container bg-purchase .purchase .contract .row.basis-container .basis-content .basis {
                   font-size: 1.1rem;
@@ -11344,7 +11346,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   bottom: 1rem;
   margin: 0 auto;
   width: 90%;
-  position: absolute; }
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.9) !important; }
 
 @media screen and (min-width: 960px) {
   .loading {
@@ -11415,9 +11418,6 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .trade bg-chart {
     max-height: 240px;
     min-height: 235px; }
-  bg-purchase .purchase .contract .row.basis-container .contract-image-container img {
-    width: 55px;
-    height: 55px; }
   bg-purchase .purchase .contract .row.basis-container .basis-content .basis-title {
     height: 30px; }
   bg-purchase .purchase .contract .row.basis-container .basis-content .basis {

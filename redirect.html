@@ -23,6 +23,10 @@
 		<!-- Redirect to #/redirect -->
 		<script type="text/javascript">
 
+        if(/ANDROID/i.test(window.navigator.appVersion)) {
+            const result = /.*\?(.*)/g.exec(window.location.href);
+            window.location.href = 'ticktrade://redirect?action=oauth&' + result[1];
+        }
       if( window.navigator.standalone ) {
         handleRedirectionInPWA();
       } else {
