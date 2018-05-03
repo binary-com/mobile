@@ -235,7 +235,9 @@ angular.module("binary").config(($locationProvider, $stateProvider, $urlRouterPr
 
     $urlRouterProvider.otherwise("/");
 
-    if(!window.cordova && !!navigator.serviceWorker.controller) {
+    const baseElement = document.getElementsByTagName('base');
+
+    if(!_.isEmpty(baseElement)) {
         $locationProvider.html5Mode(true);
     }
 });
