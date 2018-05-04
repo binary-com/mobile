@@ -40,7 +40,7 @@
         if (window.navigator && isIOS(window.navigator.appVersion)) {
          const result = /.*\?(.*)/g.exec(window.location.href);
          if(result) {
-           window.location.href = `/mobile/#/redirect?${result[1]}`;
+           window.location.href = '/mobile/#/redirect?' + result[1];
          }
         }
       }
