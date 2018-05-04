@@ -237,7 +237,7 @@ angular.module("binary").config(($locationProvider, $stateProvider, $urlRouterPr
 
     const baseElement = document.getElementsByTagName('base');
 
-    if(!_.isEmpty(baseElement)) {
+    if(!!baseElement.length) {
         $locationProvider.html5Mode(true);
     }
 });
