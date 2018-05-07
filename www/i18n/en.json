@@ -231,7 +231,9 @@
     "professional_client": "Professional Client",
     "professional_client_info": "By default, all clients are treated as retail, do you prefer to be treated as a professional client if you match the necessary criteria?",
     "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?"
+    "what_is_this": "What is this?",
+    "read_more": "Read more.",
+    "required_to_collect_tin": "Binary Investments (Europe) Ltd. is required to collect your tax information."
   },
   "new-account-real": {
     "real_account_opening":"Real Money Account Opening",
@@ -799,5 +801,12 @@
   "pep-information": {
     "pep": "What is PEP?",
     "what-is-pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+  },
+  "what-is-tax-information": {
+    "required_by": "This requirement is mandated by the Common Reporting Standard (CRS) and the Foreign Account Tax Compliance Act (FATCA).",
+    "please_enter": "Please enter your ",
+    "tax_information": "tax information",
+    "to_continue": "to continue.",
+    "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe."
   }
 }

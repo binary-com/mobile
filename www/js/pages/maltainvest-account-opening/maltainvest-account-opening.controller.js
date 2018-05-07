@@ -52,6 +52,7 @@
         vm.validation = validationService;
         vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
         "en"}/terms-and-conditions.html`;
+        const linkToTINSite = 'https://ec.europa.eu/taxation_customs/tin/tinByCountry.html';
         vm.data = {
             salutation                          : '',
             first_name                          : '',
@@ -208,6 +209,14 @@
 
         vm.openPEPInformation = () => {
             alertService.showPEPInformation($scope);
+        }
+
+        vm.openTaxInformation = () => {
+            alertService.showTaxInformation($scope);
+        }
+
+        vm.goToTINSite = () => {
+            window.open(linkToTINSite, "_blank");
         }
 
         vm.init = () => {

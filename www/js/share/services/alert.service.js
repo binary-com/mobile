@@ -228,4 +228,20 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
         });
         return showPopup;
     }
+
+    this.showTaxInformation = function (scope) {
+        const showPopup = $ionicPopup.show({
+            title      : $translate.instant('what-is-tax-information.tax-information'),
+            cssClass   : 'information-popup',
+            scope,
+            templateUrl: 'js/share/templates/tax-information/tax-information.template.html',
+            buttons    : [
+                {
+                    type: "button-positive",
+                    text: $translate.instant("alert.ok")
+                }
+            ]
+        });
+        return showPopup;
+    }
 });
