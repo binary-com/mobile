@@ -212,4 +212,20 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
         });
         return showPopup;
     };
+
+    this.showPEPInformation = function (scope) {
+        const showPopup = $ionicPopup.show({
+            title      : $translate.instant('pep-information.pep'),
+            cssClass   : 'information-popup',
+            scope,
+            templateUrl: 'js/share/templates/pep-information/pep-information.template.html',
+            buttons    : [
+                {
+                    type: "button-positive",
+                    text: $translate.instant("alert.ok")
+                }
+            ]
+        });
+        return showPopup;
+    }
 });

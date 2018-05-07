@@ -206,6 +206,10 @@
             alertService.showProfessioanlClientInformation($scope);
         }
 
+        vm.openPEPInformation = () => {
+            alertService.showPEPInformation($scope);
+        }
+
         vm.init = () => {
             vm.error = {};
             websocketService.sendRequestFor.residenceListSend();
