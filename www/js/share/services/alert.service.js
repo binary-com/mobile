@@ -196,4 +196,20 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
             );
         });
     };
+
+    this.showProfessioanlClientInformation = function(scope) {
+        const showPopup = $ionicPopup.show({
+            title      : $translate.instant('professional-client-information.professional_client'),
+            cssClass   : 'information-popup',
+            scope,
+            templateUrl: 'js/share/templates/professional-client-information/professional-client-information.template.html',
+            buttons    : [
+                {
+                    type: "button-positive",
+                    text: $translate.instant("alert.ok")
+                }
+            ]
+        });
+        return showPopup;
+    };
 });

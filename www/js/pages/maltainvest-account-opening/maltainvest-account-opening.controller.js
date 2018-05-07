@@ -67,8 +67,8 @@
             phone                               : '',
             forex_trading_experience            : '',
             forex_trading_frequency             : '',
-            stocks_trading_experience           : '',
-            stocks_trading_frequency            : '',
+            binary_options_trading_experience   : '',
+            binary_options_trading_frequency    : '',
             cfd_trading_experience              : '',
             cfd_trading_frequency               : '',
             other_instruments_trading_experience: '',
@@ -201,6 +201,10 @@
 
         vm.openTermsAndConditions = () =>
             window.open(vm.linkToTermAndConditions, "_blank");
+
+        vm.openProfessionalClientInformation = () => {
+            alertService.showProfessioanlClientInformation($scope);
+        }
 
         vm.init = () => {
             vm.error = {};

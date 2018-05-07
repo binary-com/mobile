@@ -205,16 +205,12 @@
     "pep-info": "A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates.",
     "forex_trading_experience": "Forex trading experience",
     "forex_trading_frequency": "Forex trading frequency",
-    "indices_trading_experience": "Indices trading experience",
-    "indices_trading_frequency": "Indices trading frequency",
-    "commodities_trading_experience": "Commodities trading experience",
-    "commodities_trading_frequency": "Commodities trading frequency",
-    "stocks_trading_experience": "Stocks trading experience",
-    "stocks_trading_frequency": "Stocks trading frequency",
-    "other_derivatives_trading_experience": "Binary options or other financial derivatives trading experience",
-    "other_derivatives_trading_frequency": "Binary options or other financial derivatives trading frequency",
-    "other_instruments_trading_experience": "Other financial instruments trading experience",
-    "other_instruments_trading_frequency": "Other financial instruments trading frequency",
+    "binary_options_trading_experience": "Binary options trading experience",
+    "binary_options_trading_frequency": "Binary options trading frequency",
+    "cfd_trading_experience": "CFD trading experience",
+    "cfd_trading_frequency": "CFD trading frequency",
+    "other_instruments_trading_experience": "Trading experience in other financial instruments?",
+    "other_instruments_trading_frequency": "Trading frequency in other financial instruments?",
     "employment_industry": "Industry of Employment",
     "education_level": "Level of Education",
     "income_source": "Income Source",
@@ -234,7 +230,8 @@
     "tax_information": "Tax Information",
     "professional_client": "Professional Client",
     "professional_client_info": "By default, all clients are treated as retail, do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client."
+    "professional_client_verify": "I want to be treated as a professional client.",
+    "what_is_this": "What is this?"
   },
   "new-account-real": {
     "real_account_opening":"Real Money Account Opening",
@@ -787,5 +784,16 @@
     "close": "Close",
     "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
     "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+  },
+  "professional-client-information": {
+    "professional_client": "Professional Client",
+    "clients_need_to_satisfy": "Clients need to satisfy at least two of the following criteria in order to receive Professional Client status:",
+    "significant_transactions": "You’ve carried out significant transactions on markets similar to the ones we offer, averaging 10 transactions per quarter for the previous four quarters",
+    "size_of_instrument": "The size of your instrument portfolio exceeds EUR 500,000 or its equivalent",
+    "worked_in_financial_sector": "You’ve worked in the financial sector for at least one year in a role that requires knowledge of your intended transactions on our platform",
+    "treated_as_professional_client": "If you choose to be treated as a Professional Client, we’ll regard you as having the required market knowledge and experience. As such, we’ll take steps to ensure that your request for Professional Client status meets the above criteria, including a request for the following:",
+    "statements": "Statements that reflect your transactions from the previous four quarters",
+    "portfolio": "Proof of your portfolio held elsewhere",
+    "employment": "Proof of your employment"
   }
 }

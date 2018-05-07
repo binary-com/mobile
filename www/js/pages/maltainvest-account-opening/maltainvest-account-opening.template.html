@@ -610,6 +610,9 @@
                      ng-model="vm.client_type"
                      class="checkbox" />
               {{ 'new-account-maltainvest.professional_client_verify' | translate }}
+              <a ng-click="vm.openProfessionalClientInformation()">
+                {{ 'new-account-maltainvest.what_is_this' | translate }}
+              </a>
             </div>
           </div>
         </div>
@@ -673,15 +676,15 @@
         <div class="col">
           <div class="row">
             <div class="col input-title">
-              {{ 'new-account-maltainvest.stocks_trading_experience' | translate }}
+              {{ 'new-account-maltainvest.binary_options_trading_experience' | translate }}
             </div>
           </div>
           <div class="row">
             <div class="col item-select">
-              <select name="stocks_trading_experience"
+              <select name="binary_options_trading_experience"
                       ng-options="option.value as option.text | translate
                       for option in vm.options.experienceOptions"
-                      ng-model="vm.data.stocks_trading_experience"
+                      ng-model="vm.data.binary_options_trading_experience"
                       required>
                 <option value="" disabled>
                   {{ 'new-account-maltainvest.select' | translate }}
@@ -695,15 +698,15 @@
         <div class="col">
           <div class="row">
             <div class="col input-title">
-              {{ 'new-account-maltainvest.stocks_trading_frequency' | translate }}
+              {{ 'new-account-maltainvest.binary_options_trading_frequency' | translate }}
             </div>
           </div>
           <div class="row">
             <div class="col item-select">
-              <select name="stocks_trading_frequency"
+              <select name="binary_options_trading_frequency"
                       ng-options="option.value as option.text | translate
                       for option in vm.options.frequencyOptions"
-                      ng-model="vm.data.stocks_trading_frequency"
+                      ng-model="vm.data.binary_options_trading_frequency"
                       required>
                 <option value="" disabled>
                   {{ 'new-account-maltainvest.select' | translate }}
