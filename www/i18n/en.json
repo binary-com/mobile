@@ -162,7 +162,6 @@
   },
   "new-account-maltainvest": {
     "financial_account_opening": "Financial Account Opening",
-    "details": "Details",
     "privacy": "Privacy",
     "financial_information": "Financial information",
     "salutation": "Title",
@@ -180,7 +179,6 @@
     "address_state": "State/Province",
     "address_postcode": "Postal code/ZIP",
     "phone": "Telephone",
-    "financial-info": "Financial Information",
     "info": "The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium.",
     "open_account": "Open Account",
     "select": "Please select",
@@ -226,7 +224,14 @@
     "employment_status": "Employment Status",
     "account_turnover": "Anticipated account turnover",
     "source_of_wealth": "Source of Wealth",
-    "account_opening_reason": "Account opening reason"
+    "account_opening_reason": "Account opening reason",
+    "details": "Details",
+    "pep-declaration": "PEP Declaration",
+    "trading_experience": "Trading Experience",
+    "security": "Security",
+    "address": "Address",
+    "financial-info": "Financial Information",
+    "tax_information": "Tax Information"
   },
   "new-account-real": {
     "real_account_opening":"Real Money Account Opening",
