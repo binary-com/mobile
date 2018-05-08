@@ -10464,9 +10464,6 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     color: #2A3052;
     text-align: center; }
 
-.signin-content {
-  height: calc(100vh - 15px) !important; }
-
 .sign-in {
   background-color: #fff; }
   .sign-in .branding {
