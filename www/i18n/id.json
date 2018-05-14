@@ -93,7 +93,7 @@
     "buy_again": "Beli Lagi",
     "sell": "Jual",
     "barrier": "Barrier offset",
-    "return": "Return"
+    "return": "Laba"
   },
   "app": {
     "exit_title": "Keluar",
@@ -352,7 +352,7 @@
     "open_financial": "Daftar akun finansial",
     "create_account": "Daftar Akun",
     "accounts_list": "Daftar Akun",
-    "network_status": "Network status"
+    "network_status": "Status jaringan"
   },
   "settings": {
     "settings": "Pengaturan",
@@ -407,7 +407,7 @@
     "second_line_of_home_address": "Baris kedua alamat rumah",
     "town_city": "Kota",
     "state_province": "Negara Bagian/Propinsi",
-    "address_postcode": "Postal Code/ZIP",
+    "address_postcode": "Kode Pos",
     "telephone": "Telepon",
     "update_profile": "Update Profil",
     "success": "Sukses",
@@ -430,7 +430,7 @@
     "cancel": "Batal",
     "continue": "Lanjutkan",
     "account_opening_reason": "Alasan pedaftaran akun",
-    "is_optional": "(optional)"
+    "is_optional": "(pilihan)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "telah memperbarui",
