@@ -100,6 +100,7 @@
     "exit_confirmation": "ท่านต้องการออกจากระบบใช่ไหม?",
     "connection_error_title": "การเชื่อมต่อมีความผิดพลาด",
     "connection_error": "ไม่มีสัญญาณอินเทอร์เน็ต!",
+    "ssl_cert_failed": "Your connection is not private!",
     "sign_out": "ออกจากระบบ"
   },
   "update": {
