@@ -222,6 +222,22 @@ gulp.task('build-desktop', function(){
   electronPkg.build();
 });
 
+gulp.task('release-qa', function() {
+    
+    const gitResult = sh.exec('echo | git branch | grep "*"');
+
+    if (gitResult && gitResult.output && gitResult.output.indexOf('qa_version') < 0) {
+        console.log("You're not in qa_version branch");
+        //process.exit(-1);
+    }
+
+    const qaMachine = getArgvBySwitchName('--qa_machine');
+    console.log(qaMachine);
+    sh.exec('ionic cordova build --release android -- --qa_machine=' + qaMachine);
+
+
+});
+
 
 function getRemoteUrl(remote){
   var result = sh.exec('git remote show '+ remote  +' -n | grep "Push  URL:"');

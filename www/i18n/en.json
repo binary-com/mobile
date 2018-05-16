@@ -100,6 +100,7 @@
     "exit_confirmation": "Are you sure you want to exit?",
     "connection_error_title": "Connection Error",
     "connection_error": "There is no internet connection!",
+    "ssl_cert_failed": "Your connection is not private!",
     "sign_out": "Sign out"
   },
   "update": {

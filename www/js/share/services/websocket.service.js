@@ -13,6 +13,7 @@ angular
         "websocketService",
         (
             $ionicLoading,
+            $ionicPlatform,
             $rootScope,
             $state,
             $translate,
@@ -41,14 +42,14 @@ angular
             };
 
             const waitForConnection = function(callback, isAuthonticationRequest) {
-                if (dataStream.readyState === 3) {
+                if (dataStream && dataStream.readyState === 3) {
                     init();
                     if (!isAuthonticationRequest) {
                         setTimeout(() => {
                             waitForConnection(callback);
                         }, 1000);
                     }
-                } else if (dataStream.readyState === 1) {
+                } else if (dataStream && dataStream.readyState === 1) {
                     callback();
                 } else if (!(dataStream instanceof WebSocket)) {
                     init();
@@ -66,9 +67,12 @@ angular
 
             const sendMessage = function(_data) {
                 const token = localStorageService.getDefaultToken();
-                waitForConnection(() => {
-                    dataStream.send(JSON.stringify(_data));
-                }, _data.hasOwnProperty("authorize") && token);
+
+                $ionicPlatform.ready(() => {
+                    waitForConnection(() => {
+                        dataStream.send(JSON.stringify(_data));
+                    }, _data.hasOwnProperty("authorize") && token);
+                });
             };
 
             const getAppId = () => window.localStorage.getItem('config.app_id') || config.app_id;
@@ -78,6 +82,30 @@ angular
                 const wsUrl = server_url ? `wss://${server_url}/websockets/v3` : config.wsUrl;
                 return wsUrl;
             };
+
+            const getFPofURL = (url) => {
+                if (_.inEmpty(url)) {
+                    return null;
+                }
+
+                if (url === config.wsUrl) {
+                    return config.serverCertFP;
+                }
+
+                const result = /(binary\d{2}.com)/.exec(url);
+
+                if (!_.isEmpty(result)) {
+                    const bareUrl = `www.${result[1]}`;
+
+                    const matchedCert = _.find(config.qaMachinesCertFP, (c) => c.url.indexOf(bareUrl) > -1);
+
+                    if (matchedCert) {
+                        return matchedCert.fp;
+                    }
+                }
+
+                return null;
+            }
 
             const init = function(forced) {
                 forced = forced || false;
@@ -93,47 +121,68 @@ angular
 
                 appStateService.isLoggedin = false;
 
+                
 
+                const onFailed = () => {
+                    $rootScope.$broadcast("connection:error", true);
+                };
+
+                const onSuccess = () => {
+
+                    dataStream = new WebSocket(`${wsUrl}?app_id=${appId}&l=${language}`);
+
+                    dataStream.onopen = function() {
+                        // Authorize the default token if it's exist
+                        const token = localStorageService.getDefaultToken();
+                        if (token) {
+                            const data = {
+                                authorize  : token,
+                                passthrough: {
+                                    type: "reopen-connection"
+                                }
+                            };
+                            sendMessage(data);
+                        }
+
+                        console.log("socket is opened"); // eslint-disable-line
+                        $rootScope.$broadcast("connection:ready");
+                    };
+
+                    dataStream.onmessage = function(message) {
+                        receiveMessage(message);
+                    };
+
+                    dataStream.onclose = function(e) {
+                        console.log("socket is closed ", e); // eslint-disable-line
+                        init();
+                        console.log("socket is reopened"); // eslint-disable-line
+                        appStateService.isLoggedin = false;
+                        $rootScope.$broadcast("connection:reopened");
+                    };
+
+                    dataStream.onerror = function(e) {
+                        if (e.target.readyState === 3) {
+                            $rootScope.$broadcast("connection:error");
+                        }
+                        appStateService.isLoggedin = false;
+                    };
+
+                };
 
                 const appId = getAppId();
                 const wsUrl = getSocketURL();
-                dataStream = new WebSocket(`${wsUrl}?app_id=${appId}&l=${language}`);
+                const fp = getFPofURL();
 
-                dataStream.onopen = function() {
-                    // Authorize the default token if it's exist
-                    const token = localStorageService.getDefaultToken();
-                    if (token) {
-                        const data = {
-                            authorize  : token,
-                            passthrough: {
-                                type: "reopen-connection"
-                            }
-                        };
-                        sendMessage(data);
-                    }
-
-                    console.log("socket is opened"); // eslint-disable-line
-                    $rootScope.$broadcast("connection:ready");
-                };
-
-                dataStream.onmessage = function(message) {
-                    receiveMessage(message);
-                };
-
-                dataStream.onclose = function(e) {
-                    console.log("socket is closed ", e); // eslint-disable-line
-                    init();
-                    console.log("socket is reopened"); // eslint-disable-line
-                    appStateService.isLoggedin = false;
-                    $rootScope.$broadcast("connection:reopened");
-                };
-
-                dataStream.onerror = function(e) {
-                    if (e.target.readyState === 3) {
-                        $rootScope.$broadcast("connection:error");
-                    }
-                    appStateService.isLoggedin = false;
-                };
+                if (window.plugins && window.plugins.sslCertificateChecker) {
+                    window.plugins.sslCertificateChecker.check(
+                        onSuccess,
+                        onFailed,
+                        `https://${wsUrl.slice(6)}`,
+                        fp,
+                    );
+                } else {
+                    onSuccess();
+                }
             };
 
             $rootScope.$on("language:updated", () => {
