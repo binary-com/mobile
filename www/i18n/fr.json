@@ -100,6 +100,7 @@
     "exit_confirmation": "Voulez-vous vraiment quitter cette page ?",
     "connection_error_title": "Erreur de connexion",
     "connection_error": "Aucune connexion Internet !",
+    "ssl_cert_failed": "Your connection is not private!",
     "sign_out": "Déconnexion"
   },
   "update": {
