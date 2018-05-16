@@ -83,6 +83,30 @@ angular
                 return wsUrl;
             };
 
+            const getFPofURL = (url) => {
+                if (_.inEmpty(url)) {
+                    return null;
+                }
+
+                if (url === config.wsUrl) {
+                    return config.serverCertFP;
+                }
+
+                const result = /(binary\d{2}.com)/.exec(url);
+
+                if (!_.isEmpty(result)) {
+                    const bareUrl = `www.${result[1]}`;
+
+                    const matchedCert = _.find(config.qaMachinesCertFP, (c) => c.url.indexOf(bareUrl) > -1);
+
+                    if (matchedCert) {
+                        return matchedCert.fp;
+                    }
+                }
+
+                return null;
+            }
+
             const init = function(forced) {
                 forced = forced || false;
                 const language = localStorage.language || "en";
@@ -147,13 +171,14 @@ angular
 
                 const appId = getAppId();
                 const wsUrl = getSocketURL();
+                const fp = getFPofURL();
 
                 if (window.plugins && window.plugins.sslCertificateChecker) {
                     window.plugins.sslCertificateChecker.check(
                         onSuccess,
                         onFailed,
                         `https://${wsUrl.slice(6)}`,
-                        config.serverCertFP
+                        fp,
                     );
                 } else {
                     onSuccess();

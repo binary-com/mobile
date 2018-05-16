@@ -26,7 +26,9 @@
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
     <access launch-external="yes" origin="mailto:*" />
+    <hook src="scripts/after_prepare/es5-compatible.js" type="after_prepare" />
     <platform name="android">
+        <hook src="scripts/after_prepare/011_add_cert_fingerprint.js" type="after_prepare" />
         <preference name="CodePushDeploymentKey" value="RsETRgKn7ZenvRAozwUYOcUwXEi6V1eFOQxYg" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
