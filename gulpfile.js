@@ -223,16 +223,20 @@ gulp.task('build-desktop', function(){
 });
 
 gulp.task('release-qa', function() {
+
+    /**
+     * Usage gulp release-qa --qa_machine qaurl1,qaurl2,...
+     *
+     */
     
     const gitResult = sh.exec('echo | git branch | grep "*"');
 
     if (gitResult && gitResult.output && gitResult.output.indexOf('qa_version') < 0) {
         console.log("You're not in qa_version branch");
-        //process.exit(-1);
+        process.exit(-1);
     }
 
     const qaMachine = getArgvBySwitchName('--qa_machine');
-    console.log(qaMachine);
     sh.exec('ionic cordova build --release android -- --qa_machine=' + qaMachine);
 
 

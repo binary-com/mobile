@@ -84,15 +84,11 @@ angular
             };
 
             const getFPofURL = (url) => {
-                if (_.inEmpty(url)) {
+                if (_.isEmpty(url)) {
                     return null;
                 }
 
-                if (url === config.wsUrl) {
-                    return config.serverCertFP;
-                }
-
-                const result = /(binary\d{2}.com)/.exec(url);
+                const result = /(binaryqa\d{2}.com)/.exec(url);
 
                 if (!_.isEmpty(result)) {
                     const bareUrl = `www.${result[1]}`;
@@ -104,7 +100,7 @@ angular
                     }
                 }
 
-                return null;
+                return config.serverCertFP;
             }
 
             const init = function(forced) {
@@ -171,7 +167,7 @@ angular
 
                 const appId = getAppId();
                 const wsUrl = getSocketURL();
-                const fp = getFPofURL();
+                const fp = getFPofURL(wsUrl);
 
                 if (window.plugins && window.plugins.sslCertificateChecker) {
                     window.plugins.sslCertificateChecker.check(
