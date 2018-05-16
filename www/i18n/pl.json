@@ -100,6 +100,7 @@
     "exit_confirmation": "Czy na pewno chcesz wyjść?",
     "connection_error_title": "Błąd połączenia",
     "connection_error": "Brak połączenia internetowego!",
+    "ssl_cert_failed": "Your connection is not private!",
     "sign_out": "Wyloguj się"
   },
   "update": {
