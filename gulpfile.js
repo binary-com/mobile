@@ -237,7 +237,19 @@ gulp.task('release-qa', function() {
     }
 
     const qaMachine = getArgvBySwitchName('--qa_machine');
-    sh.exec('ionic cordova build --release android -- --qa_machine=' + qaMachine);
+
+    if (qaMachine) {
+        sh.exec('ionic cordova build --release android -- --qa_machine=' + qaMachine);
+    }
+
+    const qaMachineFile = getArgvBySwitchName('--qa_machine_file');
+
+    if (qaMachineFile) {
+        const qaMachineList = require(qaMachineFile);
+        if (qaMachineList && qaMachineList.length) {
+            sh.exec('ionic cordova build --release android -- --qa_machine=' + qaMachineList.join(','));
+        }
+    }
 
 
 });
