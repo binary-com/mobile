@@ -408,7 +408,7 @@
     "second_line_of_home_address": "家庭地址第二行",
     "town_city": "城镇/城市",
     "state_province": "州/省",
-    "address_postcode": "Postal Code/ZIP",
+    "address_postcode": "邮编",
     "telephone": "电话",
     "update_profile": "更新配置文件",
     "success": "成功",
@@ -431,7 +431,7 @@
     "cancel": "取消",
     "continue": "继续",
     "account_opening_reason": "开立账户的原因",
-    "is_optional": "(optional)"
+    "is_optional": "（可选）"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "已更新其",
