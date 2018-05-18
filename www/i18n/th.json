@@ -57,8 +57,8 @@
     "asians_up": "เอเชียขึ้น",
     "asians_down": "เอเชียลง",
     "asians": "ภูมิภาคเอเชีย",
-    "digits_digit_over_digit_under": "หลักตัวเลข สูง/ต่ำ",
-    "digits_digit_odd_digit_even": "หลักตัวเลข คี่/คู่",
+    "digits_digit_over_digit_under": "ตัวเลข สูง/ต่ำ",
+    "digits_digit_odd_digit_even": "ตัวเลข คี่/คู่",
     "digits_digit_matches_digit_differs": "หลักตัวเลข ตรงกัน/ต่างกัน",
     "up_down": "ขึ้น/ลง",
     "higher_lower": "สูงกว่า/ต่ำกว่า",
@@ -100,7 +100,7 @@
     "exit_confirmation": "ท่านต้องการออกจากระบบใช่ไหม?",
     "connection_error_title": "การเชื่อมต่อมีความผิดพลาด",
     "connection_error": "ไม่มีสัญญาณอินเทอร์เน็ต!",
-    "ssl_cert_failed": "การเชื่อมต่อของคุณไม่เป็นส่วนตัว!",
+    "ssl_cert_failed": "การเชื่อมต่อของท่านไม่ปลอดภัย!",
     "sign_out": "ออกจากระบบ"
   },
   "update": {
@@ -771,7 +771,7 @@
   "ios-pwa-prompt": {
     "title": "ติดตั้ง Binary TickTrade",
     "close": "ปิด",
-    "installation_text": "ติดตั้ง Binary TickTrade บนหน้าจอหลักเพื่อให้เข้าถึงได้เร็วและง่ายในขณะที่คุณกำลังเดินทาง",
-    "installation_help": "เพียงแค่แตะ {{icon}} จากนั้น 'เพิ่มเข้าที่หน้าหลัก'"
+    "installation_text": "ติดตั้ง Binary TickTrade บนหน้าจอหลักเพื่อให้เข้าถึงได้เร็วและง่ายในขณะที่ท่านกำลังเดินทาง",
+    "installation_help": "เพียงแค่เลือก {{icon}} จากนั้น 'เพิ่มเข้าที่หน้าหลัก'"
   }
 }
