@@ -90,6 +90,7 @@
                 }
             }
             localStorage.setItem("accounts", JSON.stringify(accounts));
+            sessionStorage.setItem("currency", currency);
             appStateService.accountCurrencyChanged = true;
             $rootScope.$broadcast("currency:changed", currency);
             // if user is redirected here from accounts-management page redirect him/her to account-management page
