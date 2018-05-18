@@ -275,6 +275,9 @@ input[type="date"] {
       text-align: left;
     }
   }
+  select[disabled] {
+      background: #f8f8f8 !important;
+  }
 }
 select {
   position: relative;
