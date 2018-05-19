@@ -24,13 +24,14 @@
         }
 
         $scope.$watch(
-          () => vm.proposal,
-          () => {
-              currency = sessionStorage.getItem('currency');
-              currencyConfig = appStateService.currenciesConfig[currency];
-              if (currencyConfig) {
-                  vm.currencyType = currencyConfig.type;
-              }
-          });
+            () => vm.proposal,
+            () => {
+                currency = sessionStorage.getItem('currency');
+                currencyConfig = appStateService.currenciesConfig[currency];
+                if (currencyConfig) {
+                    vm.currencyType = currencyConfig.type;
+                }
+            }
+        );
     }
 })();
