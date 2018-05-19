@@ -48,6 +48,9 @@
         vm.touchedTaxResidence = false;
         vm.settingTaxResidence = [];
         vm.options = accountOptions;
+        const account = accountService.getDefault();
+        const landingCompany = account.landing_company_name;
+        const accounts = accountService.getAll();
         const realAccountFields = {
             address_line_1           : '',
             address_line_2           : '',
@@ -73,10 +76,7 @@
             clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
 
         vm.init = () => {
-            const account = accountService.getDefault();
-            const landingCompany = account.landing_company_name;
             vm.isVirtualAccount = isLandingCompanyOf('virtual', landingCompany);
-            const accounts = accountService.getAll();
             const hasMaltainvestAccount = !!_.find(accounts, account =>
                 isLandingCompanyOf('maltainvest', account.landing_company_name));
             vm.taxInfoIsOptional = !isLandingCompanyOf('maltainvest', landingCompany) && !hasMaltainvestAccount;
@@ -101,7 +101,9 @@
         });
 
         const setProfile = function(get_settings) {
-            vm.isDataLoaded = true;
+            $scope.$applyAsync(() => {
+                vm.isDataLoaded = true;
+            });
             if (vm.isVirtualAccount) {
                 vm.profile = get_settings;
                 if (get_settings.country_code) {
@@ -177,8 +179,6 @@
             }
         });
 
-
-
         vm.closeModal = () => {
             if (vm.modalCtrl) {
                 vm.modalCtrl.hide();
@@ -221,7 +221,13 @@
                 params = {
                     residence: vm.profile.country
                 };
-                websocketService.sendRequestFor.setAccountSettings(params);
+                if (params.residence !== vm.getSettings.country_code) {
+                    vm.notAnyChanges = false;
+                }
+                if (!vm.notAnyChanges) {
+                    vm.disableUpdateButton = true;
+                    websocketService.sendRequestFor.setAccountSettings(params);
+                }
             }
         };
 
