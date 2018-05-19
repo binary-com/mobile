@@ -597,6 +597,7 @@ angular
                                 if (accounts && accounts.length && accountList) {
                                     accounts.forEach((account, idx) => {
                                         const acc = _.find(accountList, a => a.loginid === account.id);
+                                        account.country = message.authorize.country || '';
                                         accounts[idx] = _.assign(account, acc);
                                     });
                                     localStorage.setItem('accounts', JSON.stringify(accounts));

@@ -110,6 +110,9 @@
                     const countryCode = get_settings.country_code;
                     vm.hasResidence = true;
                     vm.profile.residence = countryCode;
+                    if (countryCode !== account.country) {
+                        websocketService.authenticate(account.token);
+                    }
                 }
             } else {
                 vm.profile = get_settings;
