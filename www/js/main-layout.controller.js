@@ -122,8 +122,9 @@ angular
         };
 
         $scope.$on('authorize', (e, authorize) => {
-            //check for upgrade info after changing account or user selects country in profile page and updates settings
-            if (currentAccount && (currentAccount.id !== authorize.loginid || currentAccount.country !== authorize.country)) {
+            // check for upgrade info after changing account or user selects country in profile page and updates settings
+            if (currentAccount &&
+              (currentAccount.id !== authorize.loginid || currentAccount.country !== authorize.country)) {
                 getAccountInfo();
             }
         });
