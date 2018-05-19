@@ -38,11 +38,11 @@
         let isVirtual = false;
         let websiteTncStatus = '';
         let clientTncStatus = '';
-        let notificationMessages = notificationService.messages;
         let currentAccount = {};
         let mt5LoginList = [];
         let landingCompany = '';
         let status = {};
+        const notificationMessages = notificationService.messages;
 
         const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
             clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
