@@ -1088,7 +1088,7 @@
             <div class="col accept center">
               <input name="TnC"
                      type="checkbox"
-                     ng-model="vm.accept_risk"
+                     ng-model="vm.tncAccepted"
                      class="checkbox"
                      required/>
               {{ 'new-account-maltainvest.read_and_agreed_to' | translate }}
@@ -1096,9 +1096,6 @@
                 {{ 'new-account-maltainvest.terms_and_conditions' | translate }}
               </a>
               {{ 'new-account-maltainvest.of_the_site' | translate }}
-              <div class="help-block error" ng-if="vm.errors.accept_risk">
-                {{ vm.errors.accept_risk }}
-              </div>
             </div>
           </div>
         </div>
@@ -1107,12 +1104,48 @@
         <div class="col">
           <div class="row">
             <button class="button button-block"
+                    ng-hide="vm.showRiskDisclaimer"
                     ng-click="vm.submitAccountOpening()"
                     ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}"
                     ng-disabled="newAccountMaltainvestForm.$invalid || !vm.data.tax_residence
-                                || vm.disableUpdatebutton">
+                                || vm.disableUpdatebutton || !vm.tncAccepted">
               {{ 'new-account-maltainvest.open_account' | translate }}
             </button>
+          </div>
+        </div>
+      </div>
+      <div class="row" ng-if="vm.showRiskDisclaimer">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <p>
+                {{ 'new-account-maltainvest.required_to_obtain_information' | translate }}
+              </p>
+              <p>
+                {{ 'new-account-maltainvest.on_the_basis_of_information' | translate }}
+              </p>
+              <p>
+                {{ 'new-account-maltainvest.by_clicking' | translate }}
+                <span class="bold">
+                  {{ 'new-account-maltainvest.accept' | translate }}
+                </span>
+                {{ 'new-account-maltainvest.exposing_at_risk' | translate }}
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button class="button button-block button-positive"
+                      ng-click="vm.acceptRisk()">
+                {{ 'new-account-maltainvest.accept' | translate }}
+              </button>
+            </div>
+            <div class="col">
+              <button class="button button-block button-default"
+                      ng-click="vm.declineRisk()">
+                {{ 'new-account-maltainvest.decline' | translate }}
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -45,6 +45,8 @@
         vm.touchedTaxResidence = false;
         vm.hasResidence = false;
         vm.hasPOB = false;
+        vm.showRiskDisclaimer = false;
+        vm.tncAccepted = false;
         const landingCompany = accountService.getDefault().landing_company_name;
         const isVirtual = clientService.isLandingCompanyOf('virtual', landingCompany);
         vm.receivedSettings = false;
@@ -172,7 +174,7 @@
             vm.error = {};
             let params = _.clone(vm.data);
             params.client_type = vm.client_type ? 'professional' : 'retail';
-            params.accept_risk = vm.accept_risk ? 1 : 0;
+            params.accept_risk = 0;
             params.date_of_birth = vm.data.date_of_birth ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
             params = _.forEach(params, (val, k) => {
                 params[k] = _.trim(val);
@@ -181,12 +183,26 @@
             websocketService.sendRequestFor.createMaltainvestAccountSend(params);
         };
 
+        vm.acceptRisk = () => {
+            let params = _.clone(vm.data);
+            params.accept_risk = 1;
+            websocketService.sendRequestFor.createMaltainvestAccountSend(params);
+        };
+
+        vm.declineRisk = () => {
+            let params = _.clone(vm.data);
+            params.accept_risk = 0;
+            websocketService.sendRequestFor.createMaltainvestAccountSend(params);
+        }
+
         $scope.$on("new_account_maltainvest:error", (e, error) => {
             vm.disableUpdatebutton = false;
             if (error.hasOwnProperty("details")) {
                 $scope.$apply(() => {
                     vm.errors = error.details;
                 });
+            } else if (error.code && error.code === 'show risk disclaimer') {
+                vm.showRiskDisclaimer = true;
             } else if (error.code) {
                 alertService.displayError(error.message);
             }
@@ -219,12 +235,12 @@
             window.open(linkToTINSite, "_blank");
         }
 
-        vm.init = () => {
+        const init = () => {
             vm.error = {};
             websocketService.sendRequestFor.residenceListSend();
             vm.readOnly = !isVirtual;
         };
 
-        vm.init();
+        init();
     }
 })();
