@@ -481,8 +481,8 @@
     "binary_options_trading_frequency": "Binary options trading frequency",
     "cfd_trading_experience": "CFD trading experience",
     "cfd_trading_frequency": "CFD trading frequency",
-    "other_instruments_trading_experience": "Trading experience in other financial instruments?",
-    "other_instruments_trading_frequency": "Trading frequency in other financial instruments?",
+    "other_instruments_trading_experience": "Trading experience in other financial instruments",
+    "other_instruments_trading_frequency": "Trading frequency in other financial instruments",
     "employment_industry": "Industry of Employment",
     "education_level": "Level of Education",
     "income_source": "Income Source",
@@ -496,7 +496,10 @@
     "success_message": "Your settings have been updated successfully.",
     "account_turnover": "Anticipated account turnover",
     "employment_status": "Employment Status",
-    "source_of_wealth": "Source of Wealth"
+    "source_of_wealth": "Source of Wealth",
+    "occupation": "Occupation",
+    "trading_experience": "Trading Experience",
+    "financial_information": "Financial Information"
   },
   "limits": {
     "trading_withdrawal_limits": "Trading and Withdrawal Limits",

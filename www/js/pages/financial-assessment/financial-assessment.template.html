@@ -16,6 +16,15 @@
       <div class="row">
         <div class="col">
           <div class="row">
+            <div class="col sub-title">
+              {{ 'financial-assessment.trading_experience' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
             <div class="col">
               <div class="input-title">
                 {{ 'financial-assessment.forex_trading_experience' | translate }}
@@ -72,14 +81,14 @@
           <div class="row">
             <div class="col">
               <div class="input-title">
-                {{ 'financial-assessment.indices_trading_experience' | translate }}
+                {{ 'financial-assessment.binary_options_trading_experience' | translate }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col item-select">
-              <select name="indices_trading_experience"
-                      ng-model="vm.data.indices_trading_experience"
+              <select name="binary_options_trading_experience"
+                      ng-model="vm.data.binary_options_trading_experience"
                       ng-options="option.value as option.text | translate
                       for option in vm.options.experienceOptions"
                       required>
@@ -87,8 +96,8 @@
                   {{ 'financial-assessment.select' | translate }}
                 </option>
               </select>
-              <span class="help-block error" ng-show="vm.errors.indices_trading_experience">
-                {{ vm.errors.indices_trading_experience }}
+              <span class="help-block error" ng-show="vm.errors.binary_options_trading_experience">
+                {{ vm.errors.binary_options_trading_experience }}
               </span>
             </div>
           </div>
@@ -99,14 +108,14 @@
           <div class="row">
             <div class="col">
               <div class="input-title">
-                {{ 'financial-assessment.indices_trading_frequency' | translate }}
+                {{ 'financial-assessment.binary_options_trading_frequency' | translate }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col item-select">
-              <select name="indices_trading_frequency"
-                      ng-model="vm.data.indices_trading_frequency"
+              <select name="binary_options_trading_frequency"
+                      ng-model="vm.data.binary_options_trading_frequency"
                       ng-options="option.value as option.text | translate
                       for option in vm.options.frequencyOptions"
                       required>
@@ -114,8 +123,8 @@
                   {{ 'financial-assessment.select' | translate }}
                 </option>
               </select>
-              <span class="help-block error" ng-show="vm.errors.indices_trading_experience">
-                {{ vm.errors.indices_trading_experience }}
+              <span class="help-block error" ng-show="vm.errors.binary_options_trading_frequency">
+                {{ vm.errors.binary_options_trading_frequency }}
               </span>
             </div>
           </div>
@@ -126,14 +135,14 @@
           <div class="row">
             <div class="col">
               <div class="input-title">
-                {{ 'financial-assessment.commodities_trading_experience' | translate }}
+                {{ 'financial-assessment.cfd_trading_experience' | translate }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col item-select">
-              <select name="commodities_trading_experience"
-                      ng-model="vm.data.commodities_trading_experience"
+              <select name="cfd_trading_experience"
+                      ng-model="vm.data.cfd_trading_experience"
                       ng-options="option.value as option.text | translate
                       for option in vm.options.experienceOptions"
                       required>
@@ -141,8 +150,8 @@
                   {{ 'financial-assessment.select' | translate }}
                 </option>
               </select>
-              <span class="help-block error" ng-show="vm.errors.commodities_trading_experience">
-                {{ vm.errors.commodities_trading_experience }}
+              <span class="help-block error" ng-show="vm.errors.cfd_trading_experience">
+                {{ vm.errors.cfd_trading_experience }}
               </span>
             </div>
           </div>
@@ -153,14 +162,14 @@
           <div class="row">
             <div class="col">
               <div class="input-title">
-                {{ 'financial-assessment.commodities_trading_frequency' | translate }}
+                {{ 'financial-assessment.cfd_trading_frequency' | translate }}
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col item-select">
-              <select name="commodities_trading_frequency"
-                      ng-model="vm.data.commodities_trading_frequency"
+              <select name="cfd_trading_frequency"
+                      ng-model="vm.data.cfd_trading_frequency"
                       ng-options="option.value as option.text | translate
                       for option in vm.options.frequencyOptions"
                       required>
@@ -168,116 +177,8 @@
                   {{ 'financial-assessment.select' | translate }}
                 </option>
               </select>
-              <span class="help-block error" ng-show="vm.errors.commodities_trading_frequency">
-                {{ vm.errors.commodities_trading_frequency }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col">
-              <div class="input-title">
-                {{ 'financial-assessment.stocks_trading_experience' | translate }}
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col item-select">
-              <select name="stocks_trading_experience"
-                      ng-model="vm.data.stocks_trading_experience"
-                      ng-options="option.value as option.text | translate
-                      for option in vm.options.experienceOptions"
-                      required>
-                <option value="" disabled>
-                  {{ 'financial-assessment.select' | translate }}
-                </option>
-              </select>
-              <span class="help-block error" ng-show="vm.errors.stocks_trading_experience">
-                {{ vm.errors.stocks_trading_experience }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col">
-              <div class="input-title">
-                {{ 'financial-assessment.stocks_trading_frequency' | translate }}
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col item-select">
-              <select name="stocks_trading_frequency"
-                      ng-model="vm.data.stocks_trading_frequency"
-                      ng-options="option.value as option.text | translate
-                      for option in vm.options.frequencyOptions"
-                      required>
-                <option value="" disabled>
-                  {{ 'financial-assessment.select' | translate }}
-                </option>
-              </select>
-              <span class="help-block error" ng-show="vm.errors.stocks_trading_frequency">
-                {{ vm.errors.stocks_trading_frequency }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col">
-              <div class="input-title">
-                {{ 'financial-assessment.other_derivatives_trading_experience' | translate }}
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col item-select">
-              <select name="other_derivatives_trading_experience"
-                      ng-model="vm.data.other_derivatives_trading_experience"
-                      ng-options="option.value as option.text | translate
-                      for option in vm.options.experienceOptions"
-                      required>
-                <option value="" disabled>
-                  {{ 'financial-assessment.select' | translate }}
-                </option>
-              </select>
-              <span class="help-block error" ng-show="vm.errors.other_derivatives_trading_experience">
-                {{ vm.errors.other_derivatives_trading_experience }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col">
-              <div class="input-title">
-                {{ 'financial-assessment.other_derivatives_trading_frequency' | translate }}
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col item-select">
-              <select name="other_derivatives_trading_frequency"
-                      ng-model="vm.data.other_derivatives_trading_frequency"
-                      ng-options="option.value as option.text | translate
-                      for option in vm.options.frequencyOptions"
-                      required>
-                <option value="" disabled>
-                  {{ 'financial-assessment.select' | translate }}
-                </option>
-              </select>
-              <span class="help-block error" ng-show="vm.errors.other_derivatives_trading_frequency">
-                {{ vm.errors.other_derivatives_trading_frequency }}
+              <span class="help-block error" ng-show="vm.errors.cfd_trading_frequency">
+                {{ vm.errors.cfd_trading_frequency }}
               </span>
             </div>
           </div>
@@ -330,8 +231,71 @@
                   {{ 'financial-assessment.select' | translate }}
                 </option>
               </select>
-              <span class="help-block error" ng-show="vm.errors.other_instruments_trading_frequency">
-                {{ vm.errors.other_instruments_trading_frequency }}
+              <span class="help-block error" ng-show="vm.errors.indices_trading_frequency">
+                {{ vm.errors.indices_trading_frequency }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col sub-title">
+              {{ 'financial-assessment.financial_information' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <div class="input-title">
+                {{ 'financial-assessment.income_source' | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col item-select">
+              <select name="income_source"
+                      ng-model="vm.data.income_source"
+                      ng-options="option.value as option.text | translate
+                      for option in vm.options.income_source"
+                      required>
+                <option value="" disabled>
+                  {{ 'financial-assessment.select' | translate }}
+                </option>
+              </select>
+              <span class="help-block error" ng-show="vm.errors.income_source">
+                {{ vm.errors.income_source }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <div class="input-title">
+                {{ 'financial-assessment.employment_status' | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col item-select">
+              <select name="employment_status"
+                      ng-model="vm.data.employment_status"
+                      ng-options="option.value as option.text | translate
+                      for option in vm.options.employment_status"
+                      required>
+                <option value="" disabled>
+                  {{ 'financial-assessment.select' | translate }}
+                </option>
+              </select>
+              <span class="help-block error" ng-show="vm.errors.employment_status">
+                {{ vm.errors.employment_status }}
               </span>
             </div>
           </div>
@@ -440,60 +404,6 @@
               </select>
               <span class="help-block error" ng-show="vm.errors.education_level">
                 {{ vm.errors.education_level }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col">
-              <div class="input-title">
-                {{ 'financial-assessment.income_source' | translate }}
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col item-select">
-              <select name="income_source"
-                      ng-model="vm.data.income_source"
-                      ng-options="option.value as option.text | translate
-                      for option in vm.options.income_source"
-                      required>
-                <option value="" disabled>
-                  {{ 'financial-assessment.select' | translate }}
-                </option>
-              </select>
-              <span class="help-block error" ng-show="vm.errors.income_source">
-                {{ vm.errors.income_source }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <div class="col">
-              <div class="input-title">
-                {{ 'financial-assessment.employment_status' | translate }}
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col item-select">
-              <select name="employment_status"
-                      ng-model="vm.data.employment_status"
-                      ng-options="option.value as option.text | translate
-                      for option in vm.options.employment_status"
-                      required>
-                <option value="" disabled>
-                  {{ 'financial-assessment.select' | translate }}
-                </option>
-              </select>
-              <span class="help-block error" ng-show="vm.errors.employment_status">
-                {{ vm.errors.employment_status }}
               </span>
             </div>
           </div>
