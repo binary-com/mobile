@@ -93,13 +93,14 @@
     "buy_again": "重购",
     "sell": "卖出",
     "barrier": "障碍位移",
-    "return": "Return"
+    "return": "回报"
   },
   "app": {
     "exit_title": "退出",
     "exit_confirmation": "确认退出？",
     "connection_error_title": "连接错误",
     "connection_error": "无网络连接！",
+    "ssl_cert_failed": "您的连接不是私密连接!",
     "sign_out": "注销"
   },
   "update": {
@@ -352,7 +353,7 @@
     "open_financial": "开立金融账户",
     "create_account": "开立账户",
     "accounts_list": "账户列表",
-    "network_status": "Network status"
+    "network_status": "网络状态"
   },
   "settings": {
     "settings": "设置",
@@ -407,7 +408,7 @@
     "second_line_of_home_address": "家庭地址第二行",
     "town_city": "城镇/城市",
     "state_province": "州/省",
-    "address_postcode": "Postal Code/ZIP",
+    "address_postcode": "邮编",
     "telephone": "电话",
     "update_profile": "更新配置文件",
     "success": "成功",
@@ -430,7 +431,7 @@
     "cancel": "取消",
     "continue": "继续",
     "account_opening_reason": "开立账户的原因",
-    "is_optional": "(optional)"
+    "is_optional": "（可选）"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "已更新其",

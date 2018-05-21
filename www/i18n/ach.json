@@ -100,6 +100,7 @@
     "exit_confirmation": "crwdns17757:0crwdne17757:0",
     "connection_error_title": "crwdns17758:0crwdne17758:0",
     "connection_error": "crwdns17759:0crwdne17759:0",
+    "ssl_cert_failed": "crwdns44767:0crwdne44767:0",
     "sign_out": "crwdns17760:0crwdne17760:0"
   },
   "update": {

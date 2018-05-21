@@ -100,6 +100,7 @@
     "exit_confirmation": "Вы уверены, что хотите выйти?",
     "connection_error_title": "Ошибка при подключении",
     "connection_error": "Нет интернет-соединения!",
+    "ssl_cert_failed": "Your connection is not private!",
     "sign_out": "Выход"
   },
   "update": {

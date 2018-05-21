@@ -57,9 +57,9 @@
     "asians_up": "เอเชียขึ้น",
     "asians_down": "เอเชียลง",
     "asians": "ภูมิภาคเอเชีย",
-    "digits_digit_over_digit_under": "Digits Over/Under",
-    "digits_digit_odd_digit_even": "Digits Odd/Even",
-    "digits_digit_matches_digit_differs": "Digits Matches/Differs",
+    "digits_digit_over_digit_under": "ตัวเลข สูง/ต่ำ",
+    "digits_digit_odd_digit_even": "ตัวเลข คี่/คู่",
+    "digits_digit_matches_digit_differs": "หลักตัวเลข ตรงกัน/ต่างกัน",
     "up_down": "ขึ้น/ลง",
     "higher_lower": "สูงกว่า/ต่ำกว่า",
     "rise_fall": "ขึ้น/ตก",
@@ -93,13 +93,14 @@
     "buy_again": "ซื้ออีกครั้ง",
     "sell": "ขาย",
     "barrier": "Barrier ออฟเซ็ท",
-    "return": "Return"
+    "return": "ผลตอบแทน"
   },
   "app": {
     "exit_title": "ออก",
     "exit_confirmation": "ท่านต้องการออกจากระบบใช่ไหม?",
     "connection_error_title": "การเชื่อมต่อมีความผิดพลาด",
     "connection_error": "ไม่มีสัญญาณอินเทอร์เน็ต!",
+    "ssl_cert_failed": "การเชื่อมต่อของท่านไม่ปลอดภัย!",
     "sign_out": "ออกจากระบบ"
   },
   "update": {
@@ -137,9 +138,9 @@
     "signup": "ลงทะเบียน",
     "email": "อีเมล์",
     "signup-question": "ยังไม่มีบัญชีใช่ไหม?",
-    "verification-code": "Verification code",
-    "password": "Choose a password",
-    "residence": "Country of residence",
+    "verification-code": "รหัสตรวจสอบ",
+    "password": "กำหนดรหัสผ่าน",
+    "residence": "ประเทศที่พำนัก",
     "select": "เลือก ประเทศของท่าน",
     "isrequired": "(ต้องการ)",
     "password_hint": "รหัสผ่านจะต้องประกอบด้วยอย่างน้อย 6 อักขระ ที่เป็นอักษรตัวเล็ก อักษรตัวใหญ่ และตัวเลข",
@@ -352,7 +353,7 @@
     "open_financial": "เปิดบัญชีทางการเงิน 1 บัญชี",
     "create_account": "สร้างบัญชี",
     "accounts_list": "รายการบัญชี",
-    "network_status": "Network status"
+    "network_status": "สถานะของเครือข่าย"
   },
   "settings": {
     "settings": "การตั้งค่า",
@@ -407,7 +408,7 @@
     "second_line_of_home_address": "บรรทัดที่สองของที่อยู่",
     "town_city": "เมือง",
     "state_province": "รัฐ/จังหวัด",
-    "address_postcode": "Postal Code/ZIP",
+    "address_postcode": "รหัสไปรษณีย์",
     "telephone": "โทรศัพท์",
     "update_profile": "อัพเดตข้อมูล",
     "success": "เรียบร้อยแล้ว",
@@ -430,7 +431,7 @@
     "cancel": "ยกเลิก",
     "continue": "ดำเนินการต่อ",
     "account_opening_reason": "เหตุผลในการเปิดบัญชี",
-    "is_optional": "(optional)"
+    "is_optional": "(ทางเลือก)"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "ได้ปรับปรุง",
@@ -768,9 +769,9 @@
     "hedging": "การป้องกันความเสี่ยง"
   },
   "ios-pwa-prompt": {
-    "title": "Install Binary TickTrade",
-    "close": "Close",
-    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
-    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+    "title": "ติดตั้ง Binary TickTrade",
+    "close": "ปิด",
+    "installation_text": "ติดตั้ง Binary TickTrade บนหน้าจอหลักเพื่อให้เข้าถึงได้เร็วและง่ายในขณะที่ท่านกำลังเดินทาง",
+    "installation_help": "เพียงแค่เลือก {{icon}} จากนั้น 'เพิ่มเข้าที่หน้าหลัก'"
   }
 }

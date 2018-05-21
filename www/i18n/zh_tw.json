@@ -93,13 +93,14 @@
     "buy_again": "重購",
     "sell": "賣出",
     "barrier": "障礙位移",
-    "return": "Return"
+    "return": "回報"
   },
   "app": {
     "exit_title": "退出",
     "exit_confirmation": "確認退出?",
     "connection_error_title": "連接錯誤",
     "connection_error": "沒有網際網路連接服務！",
+    "ssl_cert_failed": "您的連接不是私密連接!",
     "sign_out": "登出"
   },
   "update": {
@@ -352,7 +353,7 @@
     "open_financial": "開立金融帳戶",
     "create_account": "開立帳戶",
     "accounts_list": "帳戶清單",
-    "network_status": "Network status"
+    "network_status": "網路狀態"
   },
   "settings": {
     "settings": "設置",
@@ -407,7 +408,7 @@
     "second_line_of_home_address": "家庭地址第二行",
     "town_city": "城鎮/城市",
     "state_province": "州/省",
-    "address_postcode": "Postal Code/ZIP",
+    "address_postcode": "郵遞區號",
     "telephone": "電話",
     "update_profile": "更新設定檔",
     "success": "成功",
@@ -430,7 +431,7 @@
     "cancel": "取消",
     "continue": "繼續",
     "account_opening_reason": "開立帳戶的原因",
-    "is_optional": "(optional)"
+    "is_optional": "（可選）"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "已更新其",
