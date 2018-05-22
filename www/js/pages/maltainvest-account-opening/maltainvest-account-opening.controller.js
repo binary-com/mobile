@@ -184,13 +184,13 @@
         };
 
         vm.acceptRisk = () => {
-            let params = _.clone(vm.data);
+            const params = _.clone(vm.data);
             params.accept_risk = 1;
             websocketService.sendRequestFor.createMaltainvestAccountSend(params);
         };
 
         vm.declineRisk = () => {
-            let params = _.clone(vm.data);
+            const params = _.clone(vm.data);
             params.accept_risk = 0;
             websocketService.sendRequestFor.createMaltainvestAccountSend(params);
         }
