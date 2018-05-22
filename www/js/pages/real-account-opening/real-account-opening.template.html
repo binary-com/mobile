@@ -14,6 +14,15 @@
       <div class="row">
         <div class="col">
           <div class="row">
+            <div class="col sub-title">
+              {{ 'new-account-real.details' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
             <div class="col input-title">
               {{ 'new-account-real.salutation' | translate }}
             </div>
@@ -195,6 +204,39 @@
           </div>
           <div class="help-block error" ng-if="vm.errors.residence">
             {{ vm.errors.residence }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col input-title">
+              {{ 'new-account-real.account_opening_reason' | translate }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col item-select">
+              <select name="account_opening_reason"
+                      ng-options="option.value as option.text | translate
+                                    for option in vm.options.account_opening_reason"
+                      ng-model="vm.data.account_opening_reason"
+                      ng-disabled="vm.readOnly"
+                      required>
+                <option value="" disabled>{{ 'new-account-real.select' | translate }}</option>
+              </select>
+              <div class="help-block error" ng-if="vm.errors.account_opening_reason">
+                {{ vm.errors.account_opening_reason }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col sub-title">
+              {{ 'new-account-real.address' | translate }}
+            </div>
           </div>
         </div>
       </div>
@@ -405,26 +447,11 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" ng-if="!vm.readOnly">
         <div class="col">
           <div class="row">
-            <div class="col input-title">
-              {{ 'new-account-real.account_opening_reason' | translate }}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col item-select">
-              <select name="account_opening_reason"
-                      ng-options="option.value as option.text | translate
-                                    for option in vm.options.account_opening_reason"
-                      ng-model="vm.data.account_opening_reason"
-                      ng-disabled="vm.readOnly"
-                      required>
-                <option value="" disabled>{{ 'new-account-real.select' | translate }}</option>
-              </select>
-              <div class="help-block error" ng-if="vm.errors.account_opening_reason">
-                {{ vm.errors.account_opening_reason }}
-              </div>
+            <div class="col sub-title">
+              {{ 'new-account-real.security' | translate }}
             </div>
           </div>
         </div>
@@ -503,7 +530,10 @@
                      ng-model="vm.pep"
                      class="checkbox"
                      required/>
-              {{ 'new-account-real.not-pep-verify' | translate }}
+              {{ 'new-account-real.not_pep_verify' | translate }}
+              <a ng-click="vm.openPEPInformation()">
+                {{ 'new-account-real.what_is_this' | translate }}
+              </a>
             </div>
           </div>
         </div>
@@ -512,7 +542,7 @@
         <div class="col info-container">
           <div class="row">
             <div class="col">
-              {{ 'new-account-real.pep-info' | translate }}
+              {{ 'new-account-real.pep_info' | translate }}
             </div>
           </div>
         </div>
