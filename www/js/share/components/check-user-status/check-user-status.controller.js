@@ -102,10 +102,12 @@
         init();
 
         const financialAssessmentStatus = status => {
+            const isHighRisk = status.risk_classification === "high";
             if (
-                (status.risk_classification === "high" || isMaltainvest || mt5LoginList.length > 0) &&
-                status.indexOf("financial_assessment_not_complete") > -1 &&
-                !appStateService.hasFinancialAssessmentMessage && !isVirtual
+                ((isHighRisk && isMaltainvest) || mt5LoginList.length > 0) &&
+                (status.indexOf("financial_assessment_not_complete") > -1 ||
+                status.indexOf("trading_experience_not_complete")) &&
+                !appStateService.hasFinancialAssessmentMessage
             ) {
                 appStateService.hasFinancialAssessmentMessage = true;
                 notificationService.notices.push(notificationMessages.financialAssessmentMessage);
