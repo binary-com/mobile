@@ -16,6 +16,7 @@
         "$translate",
         "websocketService",
         "alertService",
+        "clientService",
         "financialInformationOptions"
     ];
 
@@ -23,8 +24,11 @@
         $translate,
         websocketService,
         alertService,
+        clientService,
         financialInformationOptions) {
         const vm = this;
+        const landingCompany = localStorage.getItem('landingCompany');
+        vm.isFinancial = clientService.isAccountOfType('financial', landingCompany);
         vm.errors = {};
         vm.options = financialInformationOptions;
         vm.disableUpdateButton = false;
@@ -34,6 +38,14 @@
             'education_level'                     : '',
             'employment_industry'                 : '',
             'estimated_worth'                     : '',
+            'income_source'                       : '',
+            'employment_status'                   : '',
+            'net_income'                          : '',
+            'occupation'                          : '',
+            'source_of_wealth'                    : '',
+            'account_turnover'                    : ''
+        };
+        const financialAssessmentData = {
             'forex_trading_experience'            : '',
             'forex_trading_frequency'             : '',
             'other_instruments_trading_experience': '',
@@ -41,13 +53,7 @@
             'binary_options_trading_experience'   : '',
             'binary_options_trading_frequency'    : '',
             'cfd_trading_experience'              : '',
-            'cfd_trading_frequency'               : '',
-            'income_source'                       : '',
-            'employment_status'                   : '',
-            'net_income'                          : '',
-            'occupation'                          : '',
-            'source_of_wealth'                    : '',
-            'account_turnover'                    : ''
+            'cfd_trading_frequency'               : ''
         };
 
         $scope.$on("get_financial_assessment:success", (e, financial_assessment) => {
@@ -88,7 +94,12 @@
             }
         });
 
-        const init = () => websocketService.sendRequestFor.getFinancialAssessment();
+        const init = () => {
+            if (vm.isFinancial) {
+                _.assign(vm.data, financialAssessmentData);
+            }
+            websocketService.sendRequestFor.getFinancialAssessment();
+        }
 
         init();
     }
