@@ -47,6 +47,7 @@
         vm.hasPOB = false;
         vm.showRiskDisclaimer = false;
         vm.tncAccepted = false;
+        let acceptRisk = 0;
         const landingCompany = accountService.getDefault().landing_company_name;
         const isVirtual = clientService.isLandingCompanyOf('virtual', landingCompany);
         vm.receivedSettings = false;
@@ -174,7 +175,7 @@
             vm.error = {};
             let params = _.clone(vm.data);
             params.client_type = vm.client_type ? 'professional' : 'retail';
-            params.accept_risk = 0;
+            params.accept_risk = acceptRisk;
             params.date_of_birth = vm.data.date_of_birth ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
             params = _.forEach(params, (val, k) => {
                 params[k] = _.trim(val);
@@ -184,9 +185,8 @@
         };
 
         vm.acceptRisk = () => {
-            const params = _.clone(vm.data);
-            params.accept_risk = 1;
-            websocketService.sendRequestFor.createMaltainvestAccountSend(params);
+            acceptRisk = 1;
+            vm.submitAccountOpening();
         };
 
         vm.declineRisk = () => {
@@ -202,7 +202,9 @@
                     vm.errors = error.details;
                 });
             } else if (error.code && error.code === 'show risk disclaimer') {
-                vm.showRiskDisclaimer = true;
+                $scope.$applyAsync(() => {
+                    vm.showRiskDisclaimer = true;
+                });
             } else if (error.code) {
                 alertService.displayError(error.message);
             }
