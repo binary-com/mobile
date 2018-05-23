@@ -70,7 +70,7 @@
 
         $scope.$on('mt5_login_list:success', (e, mt5_login_list) => {
             mt5LoginList = mt5_login_list;
-            financialAssessmentStatus(status);
+            riskAssessmentStatus(status);
         });
 
         $scope.$on("authorize", (e, authorize) => {
@@ -101,16 +101,18 @@
 
         init();
 
-        const financialAssessmentStatus = status => {
+        const riskAssessmentStatus = status => {
             const isHighRisk = status.risk_classification === "high";
-            if (
-                ((isHighRisk && isMaltainvest) || mt5LoginList.length > 0) &&
-                (status.indexOf("financial_assessment_not_complete") > -1 ||
-                status.indexOf("trading_experience_not_complete")) &&
-                !appStateService.hasFinancialAssessmentMessage
-            ) {
-                appStateService.hasFinancialAssessmentMessage = true;
-                notificationService.notices.push(notificationMessages.financialAssessmentMessage);
+            const hasRiskAssessment = isMaltainvest ?
+              status.indexOf("financial_assessment_not_complete") > -1 ||
+              status.indexOf("trading_experience_not_complete") : isHighRisk &&
+              status.indexOf("financial_assessment_not_complete") > -1;
+            const mt5HasRiskAssessment = mt5LoginList.length > 0 &&
+              (status.indexOf("financial_assessment_not_complete") > -1 ||
+              status.indexOf("trading_experience_not_complete"));
+            if ((hasRiskAssessment || mt5HasRiskAssessment) && !appStateService.hasRiskAssessmentMessage) {
+                appStateService.hasRiskAssessmentMessage = true;
+                notificationService.notices.push(notificationMessages.riskAssessmentMessage);
             }
         };
 
@@ -270,7 +272,7 @@
             appStateService.hasCountryMessage = false;
             appStateService.hasTnCMessage = false;
             appStateService.hasTaxInfoMessage = false;
-            appStateService.hasFinancialAssessmentMessage = false;
+            appStateService.hasRiskAssessmentMessage = false;
             appStateService.hasAgeVerificationMessage = false;
             appStateService.hasCurrencyMessage = false;
             appStateService.checkedAccountStatus = false;
