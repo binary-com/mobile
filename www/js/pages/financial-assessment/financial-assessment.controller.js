@@ -35,15 +35,15 @@
         vm.notAnyChanges = false;
         vm.isDataLoaded = false;
         vm.data = {
-            'education_level'                     : '',
-            'employment_industry'                 : '',
-            'estimated_worth'                     : '',
-            'income_source'                       : '',
-            'employment_status'                   : '',
-            'net_income'                          : '',
-            'occupation'                          : '',
-            'source_of_wealth'                    : '',
-            'account_turnover'                    : ''
+            'education_level'    : '',
+            'employment_industry': '',
+            'estimated_worth'    : '',
+            'income_source'      : '',
+            'employment_status'  : '',
+            'net_income'         : '',
+            'occupation'         : '',
+            'source_of_wealth'   : '',
+            'account_turnover'   : ''
         };
         const financialAssessmentData = {
             'forex_trading_experience'            : '',

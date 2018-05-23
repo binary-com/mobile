@@ -104,12 +104,12 @@
         const riskAssessmentStatus = status => {
             const isHighRisk = status.risk_classification === "high";
             const hasRiskAssessment = isMaltainvest ?
-              status.indexOf("financial_assessment_not_complete") > -1 ||
-              status.indexOf("trading_experience_not_complete") : isHighRisk &&
-              status.indexOf("financial_assessment_not_complete") > -1;
+                status.indexOf("financial_assessment_not_complete") > -1 ||
+                status.indexOf("trading_experience_not_complete") : isHighRisk &&
+                status.indexOf("financial_assessment_not_complete") > -1;
             const mt5HasRiskAssessment = mt5LoginList.length > 0 &&
-              (status.indexOf("financial_assessment_not_complete") > -1 ||
-              status.indexOf("trading_experience_not_complete"));
+                (status.indexOf("financial_assessment_not_complete") > -1 ||
+                status.indexOf("trading_experience_not_complete"));
             if ((hasRiskAssessment || mt5HasRiskAssessment) && !appStateService.hasRiskAssessmentMessage) {
                 appStateService.hasRiskAssessmentMessage = true;
                 notificationService.notices.push(notificationMessages.riskAssessmentMessage);
