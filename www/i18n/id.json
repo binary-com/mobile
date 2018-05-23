@@ -100,7 +100,7 @@
     "exit_confirmation": "Apa Anda yakin ingin keluar?",
     "connection_error_title": "Koneksi Error",
     "connection_error": "Tidak ada koneksi internet!",
-    "ssl_cert_failed": "Your connection is not private!",
+    "ssl_cert_failed": "Koneksi Anda tidak pribadi!",
     "sign_out": "Keluar"
   },
   "update": {
