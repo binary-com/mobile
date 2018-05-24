@@ -200,10 +200,10 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
     this.showInformation = function (scope, title, templateUrl) {
         const showPopup = $ionicPopup.show({
             title,
-            cssClass   : 'information-popup',
+            cssClass: 'information-popup',
             scope,
             templateUrl,
-            buttons    : [
+            buttons : [
                 {
                     type: "button-positive",
                     text: $translate.instant("alert.ok")
@@ -230,5 +230,5 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
         $translate.instant('what-is-tax-information.tax-information'),
         'js/share/templates/tax-information/tax-information.template.html'
     );
-    
+
 });
