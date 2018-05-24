@@ -190,7 +190,7 @@
             }
         };
 
-        $scope.$on('modal.hidden', function() {
+        $scope.$on('modal.hidden', () => {
             // check in modal close action to see if it's closed by submitting changes or not
             // if it's not saved, changes to popup state should not be saved too
             // not saving applies when user clicks outside popup to close popup either
