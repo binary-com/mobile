@@ -60,6 +60,7 @@
             options.forEach(curr => {
                 const currency = currencyConfig[curr];
                 const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
+                if (isCryptoCurrency && !cryptoConfig[curr]) return;
                 currency.symb = curr;
                 currency.isCryptoCurrency = isCryptoCurrency;
                 currency.img = `img/currency/${curr.toLowerCase()}.svg`;
