@@ -185,7 +185,7 @@
                 });
                 directUpgradeData.residence = get_settings.country_code;
                 directUpgradeData.date_of_birth = directUpgradeData.date_of_birth ?
-                  $filter("date")(directUpgradeData.date_of_birth * 1000, "yyyy-MM-dd") : '';
+                    $filter("date")(directUpgradeData.date_of_birth * 1000, "yyyy-MM-dd") : '';
                 directUpgradeData.currency = vm.selectedCurrency;
                 websocketService.sendRequestFor.createRealAccountSend(directUpgradeData);
             }
