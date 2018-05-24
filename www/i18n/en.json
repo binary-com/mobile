@@ -664,7 +664,8 @@
     "bitcoin_cash": "Bitcoin Cash",
     "ether": "Ether",
     "ether_classic": "Ether Classic",
-    "litecoin": "Litecoin"
+    "litecoin": "Litecoin",
+    "dai": "Dai"
   },
   "accounts-management": {
     "create_account": "Create account",
