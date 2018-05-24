@@ -190,9 +190,8 @@
         };
 
         vm.declineRisk = () => {
-            const params = _.clone(vm.data);
-            params.accept_risk = 0;
-            websocketService.sendRequestFor.createMaltainvestAccountSend(params);
+            acceptRisk = 0;
+            vm.submitAccountOpening();
         }
 
         $scope.$on("new_account_maltainvest:error", (e, error) => {
