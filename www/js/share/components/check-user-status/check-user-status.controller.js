@@ -40,7 +40,6 @@
         let clientTncStatus = '';
         let currentAccount = {};
         let mt5LoginList = [];
-        let landingCompany = '';
         let status = {};
         const notificationMessages = notificationService.messages;
 
@@ -80,7 +79,7 @@
 
         $scope.$on("authorize", (e, authorize) => {
             if (!appStateService.checkedAccountStatus) {
-                getAccountInfo();
+                init();
             }
         });
 
@@ -250,7 +249,7 @@
             reload();
         });
 
-        $scope.$on("set_account_currency:success", (e, set_account_currency) => {
+        $scope.$on("currency:changed", () => {
             reload();
         });
 
@@ -266,7 +265,7 @@
             appStateService.hasCurrencyMessage = false;
             appStateService.checkedAccountStatus = false;
 	        notificationService.emptyNotices();
-            getAccountInfo();
+            init();
         };
     }
 })();
