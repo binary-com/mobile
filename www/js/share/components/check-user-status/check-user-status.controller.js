@@ -56,13 +56,18 @@
             isVirtual = isLandingCompanyOf('virtual', landingCompany);
         };
 
-        const getAccountInfo = landingCompany => {
+        const getAccountInfo = () => {
             currentAccount = accountService.getDefault();
             if (!_.isEmpty(currentAccount)) {
-                checkAccountType(landingCompany);
+                currencyStatus(currentAccount.currency);
+                checkAccountType(currentAccount.landingCompany);
                 websocketService.sendRequestFor.getAccountStatus();
                 websocketService.sendRequestFor.getSelfExclusion();
                 websocketService.sendRequestFor.accountSetting();
+                if (currentAccount.excluded_until && !appStateService.hasRestrictedMessage) {
+                    appStateService.hasRestrictedMessage = true;
+                    notificationService.notices.push(notificationMessages.restrictedMessage);
+                }
             } else {
                 $timeout(getAccountInfo, 1000);
             }
@@ -74,19 +79,8 @@
         });
 
         $scope.$on("authorize", (e, authorize) => {
-            const currency = authorize.currency;
-            currencyStatus(currency);
-            const accountList = authorize.account_list;
-            const thisAccount = _.find(accountList, acc => acc.loginid === authorize.loginid);
-            if (thisAccount.excluded_until && !appStateService.hasRestrictedMessage) {
-                appStateService.hasRestrictedMessage = true;
-                notificationService.notices.push(notificationMessages.restrictedMessage);
-            }
-
             if (!appStateService.checkedAccountStatus) {
-                appStateService.checkedAccountStatus = true;
-                landingCompany = authorize.landing_company_name;
-                getAccountInfo(landingCompany);
+                getAccountInfo();
             }
         });
 
@@ -94,8 +88,7 @@
         const init = () => {
             if (appStateService.isLoggedin && !appStateService.checkedAccountStatus) {
                 appStateService.checkedAccountStatus = true;
-                landingCompany = localStorage.getItem('landingCompany');
-                getAccountInfo(landingCompany);
+                getAccountInfo();
             }
         };
 
