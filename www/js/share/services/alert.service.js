@@ -197,28 +197,12 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
         });
     };
 
-    this.showProfessioanlClientInformation = function(scope) {
+    this.showInformation = function (scope, title, templateUrl) {
         const showPopup = $ionicPopup.show({
-            title      : $translate.instant('professional-client-information.professional_client'),
+            title,
             cssClass   : 'information-popup',
             scope,
-            templateUrl: 'js/share/templates/professional-client-information/professional-client-information.template.html',
-            buttons    : [
-                {
-                    type: "button-positive",
-                    text: $translate.instant("alert.ok")
-                }
-            ]
-        });
-        return showPopup;
-    };
-
-    this.showPEPInformation = function (scope) {
-        const showPopup = $ionicPopup.show({
-            title      : $translate.instant('pep-information.pep'),
-            cssClass   : 'information-popup',
-            scope,
-            templateUrl: 'js/share/templates/pep-information/pep-information.template.html',
+            templateUrl,
             buttons    : [
                 {
                     type: "button-positive",
@@ -229,19 +213,22 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
         return showPopup;
     }
 
-    this.showTaxInformation = function (scope) {
-        const showPopup = $ionicPopup.show({
-            title      : $translate.instant('what-is-tax-information.tax-information'),
-            cssClass   : 'information-popup',
-            scope,
-            templateUrl: 'js/share/templates/tax-information/tax-information.template.html',
-            buttons    : [
-                {
-                    type: "button-positive",
-                    text: $translate.instant("alert.ok")
-                }
-            ]
-        });
-        return showPopup;
-    }
+    this.showProfessioanlClientInformation = scope => this.showInformation(
+        scope,
+        $translate.instant('professional-client-information.professional_client'),
+        'js/share/templates/professional-client-information/professional-client-information.template.html'
+    );
+
+    this.showPEPInformation = scope => this.showInformation(
+        scope,
+        $translate.instant('pep-information.pep'),
+        'js/share/templates/pep-information/pep-information.template.html'
+    );
+
+    this.showTaxInformation = scope => this.showInformation(
+        scope,
+        $translate.instant('what-is-tax-information.tax-information'),
+        'js/share/templates/tax-information/tax-information.template.html'
+    );
+    
 });
