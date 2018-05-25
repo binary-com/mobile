@@ -142,7 +142,9 @@
             accountService.addedAccount = selectedAccount;
         });
 
-        vm.openTermsAndConditions = () => window.open(vm.linkToTermAndConditions, "_blank");
+        vm.openTermsAndConditions = () => {
+            window.open(vm.linkToTermAndConditions, "_blank");
+        }
 
         vm.openPEPInformation = () => {
             alertService.showPEPInformation($scope);

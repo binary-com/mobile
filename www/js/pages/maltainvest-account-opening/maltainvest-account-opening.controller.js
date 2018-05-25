@@ -53,7 +53,7 @@
         vm.receivedSettings = false;
         vm.options = _.merge(financialInformationOptions, accountOptions);
         vm.validation = validationService;
-        vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
+        const linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
         "en"}/terms-and-conditions.html`;
         const linkToTINSite = 'https://ec.europa.eu/taxation_customs/tin/tinByCountry.html';
         vm.data = {
@@ -217,8 +217,9 @@
             accountService.addedAccount = selectedAccount;
         });
 
-        vm.openTermsAndConditions = () =>
-            window.open(vm.linkToTermAndConditions, "_blank");
+        vm.openTermsAndConditions = () => {
+            window.open(linkToTermAndConditions, "_system");
+        }
 
         vm.openProfessionalClientInformation = () => {
             alertService.showProfessioanlClientInformation($scope);

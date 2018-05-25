@@ -241,6 +241,8 @@
             }
         );
 
-        vm.goToRegulatory = () => window.open(vm.linkToRegulatory, "_blank");
+        vm.goToRegulatory = () => {
+            window.open(vm.linkToRegulatory, "_blank");
+        }
     }
 })();
