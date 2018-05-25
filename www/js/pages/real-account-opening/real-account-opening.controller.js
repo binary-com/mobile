@@ -144,6 +144,10 @@
 
         vm.openTermsAndConditions = () => window.open(vm.linkToTermAndConditions, "_blank");
 
+        vm.openPEPInformation = () => {
+            alertService.showPEPInformation($scope);
+        }
+
         vm.init = () => {
             vm.errors = {};
             websocketService.sendRequestFor.residenceListSend();
