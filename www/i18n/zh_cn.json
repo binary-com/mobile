@@ -794,17 +794,17 @@
     "size_of_instrument": "您的工具组合大小已超过50万欧元或相同价值",
     "worked_in_financial_sector": "您在金融业界工作至少一年, 拥有在我们平台上交易的所需知识",
     "treated_as_professional_client": "如果您选择成为专业客户, 我们将视您已具备所需的市场知识和经验。因此, 我们将采取步骤, 确保您对成为专业客户的请求符合上述标准, 包括以下要求:",
-    "statements": "Statements that reflect your transactions from the previous four quarters",
-    "portfolio": "Proof of your portfolio held elsewhere",
-    "employment": "Proof of your employment"
+    "statements": "反映前四季度交易的报表",
+    "portfolio": "您在别处的投资组合证明",
+    "employment": "您的职业证明"
   },
   "pep-information": {
-    "pep": "What is PEP?",
-    "what-is-pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+    "pep": "Pep 是什么？",
+    "what-is-pep": "政治公众人士(PEP) 是被委托进行特出公众任务的个人。此身份包括了其直系亲属和众所周知为其亲近的人，但不包括中级或初级官员。所指个人包括国家首长、部长、国会秘书、国会议员、法官、大使、高级政府官员、军事高层官员、中央银行的审计委员、国营企业董事等。以上各例的直系亲属也都属于政治公众人士，包括其配偶/伴侣、父母和孩子。再者，众所周知的与政治公众人士有亲密关系的人士包括其商业合伙人也属于政治公众人士。一般来说，已经停止被委托进行特出公众任务为期超过十二个月的个人不属于政治公众人士。"
   },
   "what-is-tax-information": {
-    "required_by": "This requirement is mandated by the Common Reporting Standard (CRS) and the Foreign Account Tax Compliance Act (FATCA).",
-    "please_enter": "Please enter your ",
+    "required_by": "此要求由《统一报告标准》 (CRS) 和《外国账户税收遵守法》 (FATCA) 规定。",
+    "please_enter": "请输入您的 ",
     "tax_information": "tax information",
     "to_continue": "to continue.",
     "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe."
