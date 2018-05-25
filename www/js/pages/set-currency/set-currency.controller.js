@@ -16,7 +16,9 @@
         'appStateService',
         'websocketService',
         'accountService',
-        'clientService'];
+        'clientService',
+        'alertService'
+    ];
 
     function SetCurrency($scope,
         $rootScope,
@@ -25,7 +27,8 @@
         appStateService,
         websocketService,
         accountService,
-        clientService) {
+        clientService,
+        alertService) {
         const vm = this;
         const cryptoConfig = config.cryptoConfig;
         const currencyConfig = appStateService.currenciesConfig;
@@ -100,6 +103,10 @@
             } else {
                 $state.go("trade");
             }
+        });
+
+        $scope.$on('set_account_currency:error', (e, error) => {
+            alertService.displayError(error.message);
         });
 
         $scope.$on('$stateChangeSuccess', (ev, to, toParams, from, fromParams) => {
