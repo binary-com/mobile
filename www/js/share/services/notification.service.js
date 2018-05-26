@@ -34,7 +34,7 @@ angular.module("binary").service("notificationService", function() {
             text : "set_country",
             link : "profile"
         },
-        financialAssessmentMessage: {
+        riskAssessmentMessage: {
             title: "financial_assessment_not_completed",
             text : "complete_financial_assessment",
             link : "financial-assessment"

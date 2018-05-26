@@ -125,6 +125,7 @@ angular.module("binary").constant("config", {
         ETH: { name: 'ether' },
         ETC: { name: 'ether_classic' },
         LTC: { name: 'litecoin' },
+        DAI: { name: 'dai' }
     },
     appSupportedLanguages: ["en", "id", "ru", "zh_tw", "zh_cn", "de", "fr", "pl", "it"]
 });

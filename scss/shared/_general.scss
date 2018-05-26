@@ -328,6 +328,64 @@ textarea {
   float: right;
   // color: $darkPrimaryBrandColor;
 }
+.information-popup {
+  .popup {
+    background: $white;
+    width: 90vw;
+    padding: 0;
+    font-size: 1rem;
+  }
+  .popup-body {
+    background: $white;
+    padding: 5px;
+    .item {
+      font-size: 1rem;
+      padding: 5px;
+      background: $white;
+      p {
+        white-space: normal;
+        color: $contentColor;
+      }
+      .row {
+        white-space: normal;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .information-popup .popup-body .item {
+    font-size: 1rem;
+  }
+  .information-popup {
+    .popup {
+      width: 90vw!important;
+    }
+    .popup-body {
+      .item {
+        .row {
+          padding: 0;
+          .interval-text {
+            padding: 0;
+            width: 100%;
+          }
+        }
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .information-popup {
+    .popup {
+      width: 95vw!important;
+    }
+  }
+}
+
 @media screen and (min-width: 960px) {
   .accounts,
   .help,

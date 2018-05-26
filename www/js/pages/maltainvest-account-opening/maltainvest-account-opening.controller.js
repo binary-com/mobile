@@ -46,13 +46,17 @@
         vm.hasResidence = false;
         vm.hasPOB = false;
         let modalIsSubmitted = false;
+        vm.showRiskDisclaimer = false;
+        vm.tncAccepted = false;
+        let acceptRisk = 0;
         const landingCompany = accountService.getDefault().landing_company_name;
         const isVirtual = clientService.isLandingCompanyOf('virtual', landingCompany);
         vm.receivedSettings = false;
         vm.options = _.merge(financialInformationOptions, accountOptions);
         vm.validation = validationService;
-        vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
+        const linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
         "en"}/terms-and-conditions.html`;
+        const linkToTINSite = 'https://ec.europa.eu/taxation_customs/tin/tinByCountry.html';
         vm.data = {
             salutation                          : '',
             first_name                          : '',
@@ -68,14 +72,10 @@
             phone                               : '',
             forex_trading_experience            : '',
             forex_trading_frequency             : '',
-            indices_trading_experience          : '',
-            indices_trading_frequency           : '',
-            commodities_trading_experience      : '',
-            commodities_trading_frequency       : '',
-            stocks_trading_experience           : '',
-            stocks_trading_frequency            : '',
-            other_derivatives_trading_experience: '',
-            other_derivatives_trading_frequency : '',
+            binary_options_trading_experience   : '',
+            binary_options_trading_frequency    : '',
+            cfd_trading_experience              : '',
+            cfd_trading_frequency               : '',
             other_instruments_trading_experience: '',
             other_instruments_trading_frequency : '',
             employment_industry                 : '',
@@ -89,7 +89,8 @@
             account_turnover                    : '',
             account_opening_reason              : '',
             source_of_wealth                    : '',
-            employment_status                   : ''
+            employment_status                   : '',
+            client_type                         : ''
         };
 
         if (isVirtual) {
@@ -193,7 +194,8 @@
             vm.disableUpdatebutton = true;
             vm.error = {};
             let params = _.clone(vm.data);
-            params.accept_risk = vm.accept_risk ? 1 : 0;
+            params.client_type = vm.client_type ? 'professional' : 'retail';
+            params.accept_risk = acceptRisk;
             params.date_of_birth = vm.data.date_of_birth ? $filter("date")(vm.data.date_of_birth, "yyyy-MM-dd") : '';
             params = _.forEach(params, (val, k) => {
                 params[k] = _.trim(val);
@@ -202,11 +204,25 @@
             websocketService.sendRequestFor.createMaltainvestAccountSend(params);
         };
 
+        vm.acceptRisk = () => {
+            acceptRisk = 1;
+            vm.submitAccountOpening();
+        };
+
+        vm.declineRisk = () => {
+            acceptRisk = 0;
+            vm.submitAccountOpening();
+        }
+
         $scope.$on("new_account_maltainvest:error", (e, error) => {
             vm.disableUpdatebutton = false;
             if (error.hasOwnProperty("details")) {
                 $scope.$apply(() => {
                     vm.errors = error.details;
+                });
+            } else if (error.code && error.code === 'show risk disclaimer') {
+                $scope.$applyAsync(() => {
+                    vm.showRiskDisclaimer = true;
                 });
             } else if (error.code) {
                 alertService.displayError(error.message);
@@ -221,15 +237,32 @@
             accountService.addedAccount = selectedAccount;
         });
 
-        vm.openTermsAndConditions = () =>
-            window.open(vm.linkToTermAndConditions, "_blank");
+        vm.openTermsAndConditions = () => {
+            window.open(linkToTermAndConditions, "_system");
+        }
 
-        vm.init = () => {
+        vm.openProfessionalClientInformation = () => {
+            alertService.showProfessioanlClientInformation($scope);
+        }
+
+        vm.openPEPInformation = () => {
+            alertService.showPEPInformation($scope);
+        }
+
+        vm.openTaxInformation = () => {
+            alertService.showTaxInformation($scope);
+        }
+
+        vm.goToTINSite = () => {
+            window.open(linkToTINSite, "_blank");
+        }
+
+        const init = () => {
             vm.error = {};
             websocketService.sendRequestFor.residenceListSend();
             vm.readOnly = !isVirtual;
         };
 
-        vm.init();
+        init();
     }
 })();
