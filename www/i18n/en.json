@@ -5,9 +5,9 @@
     "need_help": "Need Help?",
     "paste_token": "Paste your token here",
     "get_token": "How to get a Token?",
-    "signin_with_binary_com": "Sign in",
+    "signin_with_binary_com": "Sign In",
     "next": "Next",
-    "regulatory-information": "Regulatory information"
+    "regulatory-information": "Regulatory Information"
   },
   "alert": {
     "error": "Error!",
@@ -92,7 +92,7 @@
     "transaction_id": "Transaction Reference",
     "buy_again": "Buy Again",
     "sell": "Sell",
-    "barrier": "Barrier offset",
+    "barrier": "Barrier Offset",
     "return": "Return"
   },
   "app": {
@@ -101,7 +101,7 @@
     "connection_error_title": "Connection Error",
     "connection_error": "There is no internet connection!",
     "ssl_cert_failed": "Your connection is not private!",
-    "sign_out": "Sign out"
+    "sign_out": "Sign Out"
   },
   "update": {
     "installed": "The update was installed successfully.",
@@ -139,7 +139,7 @@
   },
   "new-virtual-account": {
     "continue": "Continue",
-    "signup": "Sign up",
+    "signup": "Sign Up",
     "email": "Email",
     "signup-question": "Don't have an account?",
     "verification-code": "Verification code",
@@ -365,14 +365,14 @@
     "language": "Language",
     "settings": "Settings",
     "resources": "Resources",
-    "regulatory_information": "Regulatory information",
+    "regulatory_information": "Regulatory Information",
     "mt5": "MetaTrader 5",
     "contact_us": "Contact us",
-    "open_real":"Upgrade to a real account",
-    "open_financial": "Open a financial account",
-    "create_account": "Create account",
-    "accounts_list": "Accounts list",
-    "network_status": "Network status"
+    "open_real":"Upgrade To A Real Account",
+    "open_financial": "Open A Financial Account",
+    "create_account": "Create Account",
+    "accounts_list": "Accounts List",
+    "network_status": "Network Status"
   },
   "settings": {
     "settings": "Settings",
