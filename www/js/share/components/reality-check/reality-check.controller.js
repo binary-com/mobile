@@ -149,15 +149,15 @@
             vm.data.interval = 60;
             if (!appStateService.isPopupOpen) {
                 appStateService.isPopupOpen = true;
-                $translate(["realitycheck.continue", "realitycheck.title"]).then(translation => {
+                $translate(["reality-check.continue", "reality-check.title"]).then(translation => {
                     alertService.displayRealitCheckInterval(
-                        translation["realitycheck.title"],
+                        translation["reality-check.title"],
                         "realitycheck getinterval",
                         $scope,
                         "js/share/components/reality-check/interval-popup.template.html",
                         [
                             {
-                                text: translation["realitycheck.continue"],
+                                text: translation["reality-check.continue"],
                                 type: "button-positive",
                                 onTap(e) {
                                     if (vm.data.interval <= 60 && vm.data.interval >= 10 && !vm.integerError) {
@@ -227,26 +227,26 @@
                 $timeout.cancel(vm.realityCheckTimeout);
                 appStateService.isPopupOpen = true;
                 $translate([
-                    "realitycheck.title",
-                    "realitycheck.continue",
-                    "realitycheck.logout",
-                    "realitycheck.view_statement"
+                    "reality-check.title",
+                    "reality-check.continue",
+                    "reality-check.logout",
+                    "reality-check.view_statement"
                 ]).then(translation => {
                     alertService.displayRealityCheckResult(
-                        translation["realitycheck.title"],
+                        translation["reality-check.title"],
                         "realitycheck result-popup",
                         $scope,
                         "js/share/components/reality-check/reality-check-result.template.html",
                         [
                             {
-                                text: translation["realitycheck.logout"],
+                                text: translation["reality-check.logout"],
                                 type: "button-secondary",
                                 onTap() {
                                     vm.logout();
                                 }
                             },
                             {
-                                text: translation["realitycheck.view_statement"],
+                                text: translation["reality-check.view_statement"],
                                 type: "button-positive",
                                 onTap(e) {
                                     $state.go("statement");
@@ -257,7 +257,7 @@
                                 }
                             },
                             {
-                                text: translation["realitycheck.continue"],
+                                text: translation["reality-check.continue"],
                                 type: "button-positive",
                                 onTap(e) {
                                     if (vm.data.interval <= 60 && vm.data.interval >= 10 && !vm.integerError) {
