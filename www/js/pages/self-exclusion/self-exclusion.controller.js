@@ -43,10 +43,10 @@
         });
 
         $scope.$on("set-self-exclusion", (e, response) => {
-            $translate(["self-exclusion.success", "self-exclusion.save-prompt"]).then(translation => {
+            $translate(["self-exclusion.success", "self-exclusion.save_prompt"]).then(translation => {
                 alertService.displayAlert(
                     translation["self-exclusion.success"],
-                    translation["self-exclusion.save-prompt"]
+                    translation["self-exclusion.save_prompt"]
                 );
             });
             vm.limits = _.clone(vm.data);

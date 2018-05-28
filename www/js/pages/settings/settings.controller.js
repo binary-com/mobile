@@ -24,7 +24,7 @@
                 forRealAccount: false
             },
             {
-                name          : "settings.self-exclusion",
+                name          : "settings.self_exclusion",
                 url           : "self-exclusion",
                 scope         : "admin",
                 forRealAccount: true
@@ -36,13 +36,13 @@
                 forRealAccount: false
             },
             {
-                name          : "settings.change-password",
+                name          : "settings.change_password",
                 url           : "change-password",
                 scope         : "admin",
                 forRealAccount: false
             },
             {
-                name          : "settings.financial-assessment",
+                name          : "settings.financial_assessment",
                 url           : "financial-assessment",
                 scope         : "admin",
                 forRealAccount: true

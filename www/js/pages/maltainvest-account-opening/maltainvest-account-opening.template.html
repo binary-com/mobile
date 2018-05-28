@@ -69,7 +69,7 @@
                            ng-if="newAccountMaltainvestForm.first_name.$dirty"
                            ng-hide="vm.errors.first_name">
                 <ng-message when="pattern">
-                  {{ 'new-account-maltainvest.general-pattern-error' | translate }}
+                  {{ 'new-account-maltainvest.general_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
                   {{ 'newaccountreal.length-range-error' | translate :
@@ -108,7 +108,7 @@
                            ng-if="newAccountMaltainvestForm.last_name.$dirty"
                            ng-hide="vm.errors.last_name">
                 <ng-message when="pattern">
-                  {{ 'new-account-maltainvest.general-pattern-error' | translate }}
+                  {{ 'new-account-maltainvest.general_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
                   {{ 'newaccountreal.length-range-error' | translate :
@@ -298,7 +298,7 @@
                   { max: vm.validation.length.tin.max } }}
                 </ng-message>
                 <ng-message when="pattern">
-                  {{ 'new-account-maltainvest.tax-identification-number-pattern-error' | translate }}
+                  {{ 'new-account-maltainvest.tax_identification_number_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="required">
                   {{ 'new-account-maltainvest.required' | translate }}
@@ -340,14 +340,14 @@
                            ng-if="newAccountMaltainvestForm.address_line_1.$dirty"
                            ng-hide="vm.errors.address_line_1">
                 <ng-message when="maxlength">
-                  {{ 'new-account-maltainvest.length-range-error' | translate :
+                  {{ 'new-account-maltainvest.length_range_error' | translate :
                   { min: 2, max: vm.validation.length.address.max } }}
                 </ng-message>
                 <ng-message when="required">
                   {{ 'new-account-maltainvest.required' | translate }}
                 </ng-message>
                 <ng-message when="pattern">
-                  {{ 'new-account-maltainvest.address-pattern-error' | translate }}
+                  {{ 'new-account-maltainvest.address_pattern_error' | translate }}
                 </ng-message>
               </ng-messages>
               <div class="help-block error" ng-if="vm.errors.address_line_1">
@@ -362,7 +362,7 @@
           <div class="row">
             <div class="col input-title">
               {{ 'new-account-maltainvest.address_line_2' | translate }}
-              <span>{{ 'new-account-maltainvest.isoptional' | translate }}</span>
+              <span>{{ 'new-account-maltainvest.is_optional' | translate }}</span>
             </div>
           </div>
           <div class="row">
@@ -381,7 +381,7 @@
                   { max: vm.validation.length.address.max } }}
                 </ng-message>
                 <ng-message when="pattern">
-                  {{ 'new-account-maltainvest.address-pattern-error' | translate }}
+                  {{ 'new-account-maltainvest.address_pattern_error' | translate }}
                 </ng-message>
               </ng-messages>
               <div class="help-block error" ng-if="vm.errors.address_line_2">
@@ -415,7 +415,7 @@
                   { max: vm.validation.length.city.max } }}
                 </ng-message>
                 <ng-message when="pattern">
-                  {{ 'new-account-maltainvest.general-pattern-error' | translate }}
+                  {{ 'new-account-maltainvest.general_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="required">
                   {{ 'new-account-maltainvest.required' | translate }}
@@ -433,7 +433,7 @@
           <div class="row">
             <div class="col input-title">
               {{ 'new-account-maltainvest.address_state' | translate }}
-              <span>{{ 'new-account-maltainvest.isoptional' | translate }}</span>
+              <span>{{ 'new-account-maltainvest.is_optional' | translate }}</span>
             </div>
           </div>
           <div class="row">
@@ -457,7 +457,7 @@
           <div class="row">
             <div class="col input-title">
               {{ 'new-account-maltainvest.address_postcode' | translate }}
-              <span>{{ 'new-account-maltainvest.isoptional' | translate }}</span>
+              <span>{{ 'new-account-maltainvest.is_optional' | translate }}</span>
             </div>
           </div>
           <div class="row">
@@ -472,7 +472,7 @@
                            ng-if="newAccountMaltainvestForm.address_postcode.$dirty"
                            ng-hide="vm.errors.address_postcode">
                 <ng-message when="pattern">
-                  {{ 'new-account-maltainvest.postcode-pattern-error' | translate }}
+                  {{ 'new-account-maltainvest.postcode_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="maxlength">
                   {{ 'new-account-maltainvest.maxlength_error' | translate :
@@ -507,7 +507,7 @@
                            ng-if="newAccountMaltainvestForm.phone.$dirty"
                            ng-hide="vm.errors.phone">
                 <ng-message when="pattern">
-                  {{ 'new-account-maltainvest.phone-pattern-error' | translate }}
+                  {{ 'new-account-maltainvest.phone_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
                   {{ 'newaccountreal.length-range-error' | translate :
@@ -819,7 +819,7 @@
         <div class="col">
           <div class="row">
             <div class="col sub-title">
-              {{ 'new-account-maltainvest.financial-info' | translate }}
+              {{ 'new-account-maltainvest.financial_info' | translate }}
             </div>
           </div>
         </div>

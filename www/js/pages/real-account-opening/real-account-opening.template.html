@@ -67,10 +67,10 @@
                            ng-if="newAccount.first_name.$dirty"
                            ng-hide="vm.errors.first_name">
                 <ng-message when="pattern">
-                  {{ 'new-account-real.general-pattern-error' | translate }}
+                  {{ 'new-account-real.general_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
-                  {{ 'new-account-real.length-range-error' | translate :
+                  {{ 'new-account-real.length_range_error' | translate :
                   {min: vm.validation.length.name.min, max: vm.validation.length.name.max} }}
                 </ng-message>
                 <ng-message when="required">
@@ -107,10 +107,10 @@
                            ng-if="newAccount.last_name.$dirty"
                            ng-hide="vm.errors.last_name">
                 <ng-message when="pattern">
-                  {{ 'new-account-real.general-pattern-error' | translate }}
+                  {{ 'new-account-real.general_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
-                  {{ 'new-account-real.length-range-error' | translate :
+                  {{ 'new-account-real.length_range_error' | translate :
                   {min: vm.validation.length.name.min, max: vm.validation.length.name.max} }}
                 </ng-message>
                 <ng-message when="required">
@@ -266,7 +266,7 @@
                   {{ 'new-account-real.required' | translate }}
                 </ng-message>
                 <ng-message when="pattern">
-                  {{ 'new-account-real.address-pattern-error' | translate }}
+                  {{ 'new-account-real.address_pattern_error' | translate }}
                 </ng-message>
               </ng-messages>
               <div class="help-block error" ng-if="vm.errors.address_line_1">
@@ -281,7 +281,7 @@
           <div class="row">
             <div class="col input-title">
               {{ 'new-account-real.address_line_2' | translate }}
-              <span>{{ 'new-account-real.isoptional' | translate }}</span>
+              <span>{{ 'new-account-real.is_optional' | translate }}</span>
             </div>
           </div>
           <div class="row">
@@ -300,7 +300,7 @@
                   { max: vm.validation.length.address.max } }}
                 </ng-message>
                 <ng-message when="pattern">
-                  {{ 'new-account-real.address-pattern-error' | translate }}
+                  {{ 'new-account-real.address_pattern_error' | translate }}
                 </ng-message>
               </ng-messages>
               <div class="help-block error" ng-if="vm.errors.address_line_2">
@@ -335,7 +335,7 @@
                   { max: vm.validation.length.city.max } }}
                 </ng-message>
                 <ng-message when="pattern">
-                  {{ 'new-account-real.general-pattern-error' | translate }}
+                  {{ 'new-account-real.general_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="required">
                   {{ 'new-account-real.required' | translate }}
@@ -353,7 +353,7 @@
           <div class="row">
             <div class="col input-title">
               {{ 'new-account-real.address_state' | translate }}
-              <span>{{ 'new-account-real.isoptional' | translate }}</span>
+              <span>{{ 'new-account-real.is_optional' | translate }}</span>
             </div>
           </div>
           <div class="row">
@@ -378,7 +378,7 @@
           <div class="row">
             <div class="col input-title">
               {{ 'new-account-real.address_postcode' | translate }}
-              <span>{{ 'new-account-real.isoptional' | translate }}</span>
+              <span>{{ 'new-account-real.is_optional' | translate }}</span>
             </div>
           </div>
           <div class="row">
@@ -394,7 +394,7 @@
                       ng-if="newAccount.address_postcode.$dirty"
                       ng-hide="vm.errors.address_postcode">
                 <ng-message when="pattern">
-                  {{ 'new-account-real.postcode-pattern-error' | translate }}
+                  {{ 'new-account-real.postcode_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="maxlength">
                   {{ 'new-account-real.maxlength_error' | translate :
@@ -429,10 +429,10 @@
                            ng-if="newAccount.phone.$dirty"
                            ng-hide="vm.errors.phone">
                 <ng-message when="pattern">
-                  {{ 'new-account-real.phone-pattern-error' | translate }}
+                  {{ 'new-account-real.phone_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
-                  {{ 'new-account-real.length-range-error' | translate :
+                  {{ 'new-account-real.length_range_error' | translate :
                   { min: vm.validation.length.phone.min,
                   max: vm.validation.length.phone.max } }}
                 </ng-message>
@@ -503,10 +503,10 @@
                       ng-if="newAccount.secret_answer.$dirty"
                       ng-hide="vm.errors.secret_answer">
                 <ng-message when="pattern">
-                  {{ 'new-account-real.secretanswer-pattern-error' | translate }}
+                  {{ 'new-account-real.secret_answer_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="maxlength, minlength">
-                  {{ 'new-account-real.length-range-error' | translate :
+                  {{ 'new-account-real.length_range_error' | translate :
                   { min: vm.validation.length.secret_answer.min,
                   max: vm.validation.length.secret_answer.max } }}
                 </ng-message>
