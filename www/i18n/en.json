@@ -301,7 +301,7 @@
     "settings": "Settings",
     "self_exclusion": "Self Exclusion",
     "change_password": "Change Password",
-    "financial-assessment": "Financial Assessment",
+    "financial_assessment": "Financial Assessment",
     "limits": "Limits"
   },
   "self-exclusion": {
