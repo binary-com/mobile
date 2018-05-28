@@ -52,7 +52,7 @@
               </td>
               <td class="center" ng-bind="vm.limits.payout.toLocaleString('en')"></td>
             </tr>
-            <tr>
+            <tr ng-if="vm.limits.payout_per_symbol_and_contract_type">
               <td class="left title-row">
                 {{ 'limits.payouts_per_symbol_and_contract_type' | translate }}
               </td>
