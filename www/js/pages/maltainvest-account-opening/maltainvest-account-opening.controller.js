@@ -45,6 +45,7 @@
         vm.touchedTaxResidence = false;
         vm.hasResidence = false;
         vm.hasPOB = false;
+        let modalIsSubmitted = false;
         vm.showRiskDisclaimer = false;
         vm.tncAccepted = false;
         let acceptRisk = 0;
@@ -109,8 +110,27 @@
             });
 
         vm.closeModal = () => {
-            if (vm.modalCtrl) vm.modalCtrl.hide();
+            if (vm.modalCtrl) {
+                vm.modalCtrl.hide();
+            }
         };
+
+        $scope.$on('modal.hidden', () => {
+            // check in modal close action to see if it's closed by submitting changes or not
+            // if it's not saved, changes to popup state should not be saved too
+            // not saving applies when user clicks outside popup to close popup either
+            if (!modalIsSubmitted) {
+                const taxResidence = _.split(vm.data.tax_residence, ',');
+                _.filter(vm.residenceList, (residence, idx) => {
+                    if (_.indexOf(taxResidence, residence.value) > -1) {
+                        vm.residenceList[idx].checked = true;
+                    } else {
+                        vm.residenceList[idx].checked = false;
+                    }
+                });
+            }
+            modalIsSubmitted = false;
+        });
 
         vm.showTaxResidenceItems = () => vm.modalCtrl.show();
 
