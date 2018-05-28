@@ -98,7 +98,7 @@
               </div>
             </div>
             <div class="row">
-              <label class="col item-input item-select">
+              <div class="col item-select">
                 <select name="place_of_birth"
                         ng-model="vm.profile.place_of_birth"
                         ng-options="residence.value as residence.text for
@@ -109,15 +109,15 @@
                     {{ 'profile.select' | translate }}
                   </option>
                 </select>
-              </label>
-              <ng-messages ng-if="vm.isDataLoaded"
-                           for="profileForm.place_of_birth.$error"
-                           class="error"
-                           role="alert">
-                <ng-message when="required">
-                  {{ 'profile.this_field_is_required' | translate }}
-                </ng-message>
+                <ng-messages ng-if="vm.isDataLoaded"
+                            for="profileForm.place_of_birth.$error"
+                            class="error"
+                            role="alert">
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
               </ng-messages>
+              </div>
             </div>
           </div>
         </div>
