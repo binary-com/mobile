@@ -188,7 +188,7 @@
                     $filter("date")(get_settings.date_of_birth * 1000, "yyyy-MM-dd") : '';
                 directUpgradeData.currency = vm.selectedCurrency;
                 // Some users have upgraded their account before the place_of_birth became required for real_account_opening
-                //redirect these users to upgrade page to fill the form with place_of_birth included
+                // redirect these users to upgrade page to fill the form with place_of_birth included
                 if (!directUpgradeData.place_of_birth) {
                     $state.go('real-account-opening');
                 } else {
