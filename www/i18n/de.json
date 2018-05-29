@@ -229,7 +229,7 @@
     "read_more": "Lesen Sie mehr.",
     "required_to_collect_tin": "Binary Investments (Europe) Ltd. ist dazu verpflichtet, Ihre Steuerinformationen zu sammeln.",
     "required_to_obtain_information": "Damit wir Ihnen unsere Dienstleistungen zur Verfügung stellen können, müssen wir einige Informationen von Ihnen erhalten, um festzustellen, ob ein Produkt oder Service für Sie geeignet ist (ob Sie die Erfahrung und das Wissen besitzen, die damit verbundenen Risiken zu erkennen).",
-    "on_the_basis_of_information": "Auf der Grundlage der von Ihnen bezüglich Ihrer Kenntnis und Erfahrung zur Verfügung gestellten Informationen, sehen wir die über diese Website möglichen Anlagegeschäfte als für Sie als nicht geeignet an.",
+    "on_the_basis_of_information": "Auf der Grundlage, der von Ihnen bezüglich Ihrer Kenntnis und Erfahrung zur Verfügung gestellten Informationen, sehen wir die über diese Website möglichen Anlagegeschäfte als für Sie nicht geeignet an.",
     "by_clicking": "Indem Sie klicken ",
     "accept": "Akzeptieren",
     "exposing_at_risk": "nachfolgend und mit der Kontoeröffnung fortfahren, müssen Sie beachten, dass Sie sich selbst Risiken aussetzen können (die erheblich sind, einschließlich des Verlusts des gesamten investierten Betrags), wenn Sie nicht das Wissen und die Erfahrung haben, diese richtig zu beurteilen oder abzuschwächen.",
@@ -788,25 +788,25 @@
     "installation_help": "Einfach {{icon}} anklicken und dann \"Zum Startbildschirm hinzufügen\""
   },
   "professional-client-information": {
-    "professional_client": "Wer ist ein Professioneller Kunde?",
+    "professional_client": "Wer ist ein professioneller Kunde?",
     "clients_need_to_satisfy": "Kunden müssen mindestens zwei der folgenden Kriterien erfüllen, um einen professionellen Kunden-Status zu erhalten:",
     "significant_transactions": "Sie haben bedeutende Transaktionen auf Märkten, die den von uns angebotenen ähnlich sind, mit durchschnittlich 10 Transaktionen pro Quartal für die vergangenen vier Quartale durchgeführt",
-    "size_of_instrument": "The size of your instrument portfolio exceeds EUR 500,000 or its equivalent",
-    "worked_in_financial_sector": "You’ve worked in the financial sector for at least one year in a role that requires knowledge of your intended transactions on our platform",
-    "treated_as_professional_client": "If you choose to be treated as a Professional Client, we’ll regard you as having the required market knowledge and experience. As such, we’ll take steps to ensure that your request for Professional Client status meets the above criteria, including a request for the following:",
-    "statements": "Statements that reflect your transactions from the previous four quarters",
-    "portfolio": "Proof of your portfolio held elsewhere",
-    "employment": "Proof of your employment"
+    "size_of_instrument": "Die Größe Ihres Instrumenten-Portfolios übersteigt 500.000 EUR oder dessen Gegenwert",
+    "worked_in_financial_sector": "Sie haben im Finanzsektor für mindestens ein Jahr in einer Rolle gearbeitet, die Kenntnis Ihrer beabsichtigten Transaktionen auf unserer Plattform erfordert",
+    "treated_as_professional_client": "Wenn Sie als professioneller Kunde behandelt werden möchten, nehmen wir an, dass Sie die erforderliche Marktkenntnis und Erfahrung besitzen. Deshalb ergreifen wir Maßnahmen, um sicherzustellen, dass Ihre Anfrage für einen professionellen Kunden-Status die oben genannten Kriterien erfüllt, einschließlich einer Anfrage für Folgendes:",
+    "statements": "Auszüge, die Ihre Transaktionen der vergangenen vier Quartale reflektieren",
+    "portfolio": "Nachweis Ihres Portfolios, das Sie anderswo halten",
+    "employment": "Nachweis Ihrer Erwerbstätigkeit"
   },
   "pep-information": {
-    "pep": "What is PEP?",
-    "what-is-pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+    "pep": "Was ist PEP?",
+    "what-is-pep": "Eine politisch exponierte Person (PEP) ist eine Person, die mit einem wichtigen öffentlichen Amt anvertraut worden ist oder war, einschließlich seiner/ihrer unmittelbaren Familienangehörigen oder Personen, die bekanntermaßen nahe stehende Personen sind, bezieht sich jedoch nicht auf Beamte mittleren Ranges oder Junior-Beamte. Zu solchen Personen gehören Staatschefs, Minister, parlamentarische Sekretäre, Parlamentarier, Richter, Botschafter, Senior Regierungsbeamte, hochrangige Offiziere in der Armee, Prüfungsausschüsse der Vorstände von Zentralbanken und Direktoren der staatlichen Unternehmen. Die \"Familienmitglieder\" von den obigen Beispielen werden auch als PEP betrachtet, wozu der Ehepartner/Partner, Eltern und Kinder gehören. Darüber hinaus zählen zu den \"Personen, die als nahestehende Personen” der PEP bekannt sind, deren Geschäftspartner, die ebenfalls als solche betrachtet werden. In der Regel gilt, dass eine Person die als PEP betrachtet wird, aber aufgehört hat, mit einem wichtigen öffentlichen Amt, für einen Zeitraum von mindestens zwölf Monaten, betraut zu sein, sich nicht mehr als PEP qualifiziert."
   },
   "what-is-tax-information": {
-    "required_by": "This requirement is mandated by the Common Reporting Standard (CRS) and the Foreign Account Tax Compliance Act (FATCA).",
-    "please_enter": "Please enter your ",
-    "tax_information": "tax information",
-    "to_continue": "to continue.",
-    "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe."
+    "required_by": "Diese Anforderung ist vom Common Reporting Standard (CRS) und dem Foreign Account Tax Compliance Act (FATCA) vorgeschrieben.",
+    "please_enter": "Bitte geben Sie Ihre ",
+    "tax_information": "Steuerinformation",
+    "to_continue": "um fortzufahren.",
+    "information_will_be_safe": "Seien Sie versichert, dass Ihre Daten nur für CRS/FATCA Berichtszwecke verwendet und sicher gehalten werden."
   }
 }
