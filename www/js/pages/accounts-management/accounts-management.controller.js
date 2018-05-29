@@ -198,11 +198,7 @@
         });
 
         $scope.$on("new_account_real:error", (e, error) => {
-            if (error.hasOwnProperty("details") && error.details.place_of_birth) {
-                alertService.displayError('aaaa');
-
-            }
-            else if (error.hasOwnProperty("details")) {
+            if (error.hasOwnProperty("details")) {
                 alertService.displayError(error.details);
             } else if (error.code) {
                 alertService.displayError(error.message);
