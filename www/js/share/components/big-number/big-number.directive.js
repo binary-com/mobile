@@ -38,9 +38,8 @@
                 let maxVal;
 
                 if (angular.isDefined(attr.min) || attr.ngMin) {
-                    ctrl.$validators.min = value => {
-                        return ctrl.$isEmpty(value) || angular.isUndefined(minVal) || value >= parseFloat(minVal);
-                    };
+                    ctrl.$validators.min = value =>
+                        ctrl.$isEmpty(value) || angular.isUndefined(minVal) || value >= parseFloat(minVal);
 
                     attr.$observe("min", val => {
                         minVal = val;
@@ -49,9 +48,8 @@
                 }
 
                 if (angular.isDefined(attr.max) || attr.ngMax) {
-                    ctrl.$validators.max = value => {
-                        return ctrl.$isEmpty(value) || angular.isUndefined(maxVal) || value <= parseFloat(maxVal);
-                    };
+                    ctrl.$validators.max = value =>
+                        ctrl.$isEmpty(value) || angular.isUndefined(maxVal) || value <= parseFloat(maxVal);
 
                     attr.$observe("max", val => {
                         maxVal = val;
