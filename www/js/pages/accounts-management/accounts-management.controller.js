@@ -184,10 +184,16 @@
                     if (get_settings[k]) directUpgradeData[k] = get_settings[k];
                 });
                 directUpgradeData.residence = get_settings.country_code;
-                directUpgradeData.date_of_birth = directUpgradeData.date_of_birth ?
-                    $filter("date")(directUpgradeData.date_of_birth * 1000, "yyyy-MM-dd") : '';
+                directUpgradeData.date_of_birth = get_settings.date_of_birth ?
+                    $filter("date")(get_settings.date_of_birth * 1000, "yyyy-MM-dd") : '';
                 directUpgradeData.currency = vm.selectedCurrency;
-                websocketService.sendRequestFor.createRealAccountSend(directUpgradeData);
+                // Some users have upgraded their account before the place_of_birth became required for real_account_opening
+                // redirect these users to upgrade page to fill the form with place_of_birth included
+                if (!directUpgradeData.place_of_birth) {
+                    $state.go('real-account-opening');
+                } else {
+                    websocketService.sendRequestFor.createRealAccountSend(directUpgradeData);
+                }
             }
         });
 
