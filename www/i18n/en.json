@@ -329,7 +329,7 @@
     "exclude_me_hint": "Please enter date in the format MM/DD/YYYY.",
     "update_settings": "Update Settings",
     "please_enter_an_integer_value": "Please enter an integer value with max length of {{max}}",
-    "enter_valid_value": "Please enter a value with up to {{fractionalDigitis}} decimal places and max length of {{max}}",
+    "enter_valid_value": "Please enter a value with up to {{fractionalDigits}} decimal places and max length of {{max}}",
     "valid_range_hint": "Please enter a number between 0 and {{max}}",
     "date_is_not_valid": "Exclude time must be after today",
     "date_can_not_be_greater_than": "Exclude time cannot be greater than {{max}}",
