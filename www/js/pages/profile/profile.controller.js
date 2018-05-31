@@ -245,7 +245,8 @@
                     residence    : vm.hasResidence ? vm.getSettings.country_code : vm.profile.country,
                     email_consent: vm.profile.email_consent ? 1 : 0
                 };
-                if (params.residence !== vm.getSettings.country_code || params.email_consent !== vm.getSettings.email_consent) {
+                if (params.residence !== vm.getSettings.country_code ||
+                  params.email_consent !== vm.getSettings.email_consent) {
                     vm.notAnyChanges = false;
                 }
                 if (!vm.notAnyChanges) {
