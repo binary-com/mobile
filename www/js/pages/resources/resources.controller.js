@@ -18,11 +18,11 @@
 
         vm.resources = [
             {
-                name: "resources.trading-times",
+                name: "resources.trading_times",
                 url : "trading-times"
             },
             {
-                name: "resources.asset-index",
+                name: "resources.asset_index",
                 url : "asset-index"
             }
         ];

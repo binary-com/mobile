@@ -113,6 +113,10 @@ angular.module("binary").constant("financialInformationOptions", {
     ],
     occupation: [
         {
+            text : 'financial-information-options.chief_executives',
+            value: 'Chief Executives, Senior Officials and Legislators'
+        },
+        {
             text : 'financial-information-options.managers',
             value: 'Managers',
         },
