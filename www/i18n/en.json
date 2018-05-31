@@ -369,7 +369,12 @@
     "cancel": "Cancel",
     "continue": "Continue",
     "account_opening_reason": "Account opening reason",
-    "is_optional": "(Optional)"
+    "is_optional": "(Optional)",
+    "address": "Address",
+    "details": "Details",
+    "tax_information": "Tax Information",
+    "email_preferences": "Email Preferences",
+    "receive_emails": "Receive emails on Binary.com products, services, and events"
   },
   "accept-terms-and-conditions": {
     "has_updated_its" : "has updated its",

@@ -52,7 +52,7 @@
         const account = accountService.getDefault();
         const landingCompany = account.landing_company_name;
         const accounts = accountService.getAll();
-        const realAccountFields = {
+        const profileFields = {
             address_line_1           : '',
             address_line_2           : '',
             address_city             : '',
@@ -62,7 +62,8 @@
             tax_identification_number: '',
             tax_residence            : '',
             place_of_birth           : '',
-            account_opening_reason   : ''
+            account_opening_reason   : '',
+            email_consent            : ''
         };
 
         $ionicModal
@@ -144,6 +145,7 @@
                     const checkedValues = _.filter(vm.residenceList, res => res.checked);
                     vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
                 }
+                vm.profile.email_consent = get_settings.email_consent === 1 ? true : false;
                 if (vm.profile.account_opening_reason) {
                     vm.hasAccountOpeningReason = true;
                 }
@@ -151,7 +153,7 @@
         };
 
         $scope.$on("get_settings", (e, get_settings) => {
-            vm.getSettings = angular.copy(get_settings);
+            vm.getSettings = _.clone(get_settings);
             setProfile(get_settings);
         });
 
@@ -224,11 +226,16 @@
             vm.error = {};
             let params = {};
             if (!vm.isVirtualAccount) {
-                _.forEach(realAccountFields, (val, k) => {
-                    if (vm.profile[k]) params[k] = vm.profile[k];
+                _.forEach(profileFields, (val, k) => {
+                    if (vm.profile[k] && k !== 'email_consent') params[k] = vm.profile[k];
+                    if (k === 'email_consent') {
+                        params[k] = vm.profile[k] ? 1 : 0;
+                    }
                 });
                 _.forEach(params, (val, k) => {
-                    params[k] = _.trim(val);
+                    if (_.isString(params[k])) {
+                        params[k] = _.trim(val);
+                    }
                     if (params[k] !== vm.getSettings[k]) {
                         vm.notAnyChanges = false;
                     }
