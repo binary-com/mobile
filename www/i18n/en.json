@@ -374,7 +374,9 @@
     "details": "Details",
     "tax_information": "Tax Information",
     "email_preferences": "Email Preferences",
-    "receive_emails": "Receive emails on Binary.com products, services, and events"
+    "receive_emails": "Receive emails on Binary.com products, services, and events",
+    "to_change": "To change your name, date of birth, country of residence, or email, please contact",
+    "customer_support": "Customer Support"
   },
   "accept-terms-and-conditions": {
     "has_updated_its" : "has updated its",
