@@ -82,13 +82,7 @@
             const hasMaltainvestAccount = !!_.find(accounts, account =>
                 isLandingCompanyOf('maltainvest', account.landing_company_name));
             vm.taxInfoIsOptional = !isLandingCompanyOf('maltainvest', landingCompany) && !hasMaltainvestAccount;
-            if (!vm.isVirtualAccount) {
-                websocketService.sendRequestFor.residenceListSend();
-            } else if (vm.isVirtualAccount && !account.country) {
-                websocketService.sendRequestFor.residenceListSend();
-            } else {
-                getProfile();
-            }
+            getProfile();
         };
 
         const getProfile = () => websocketService.sendRequestFor.accountSetting();
@@ -116,6 +110,7 @@
                         websocketService.authenticate(account.token);
                     }
                 }
+                vm.profile.email_consent = get_settings.email_consent === 1;
             } else {
                 vm.profile = get_settings;
                 if (get_settings.date_of_birth) {
@@ -247,9 +242,10 @@
                 }
             } else {
                 params = {
-                    residence: vm.profile.country
+                    residence    : vm.hasResidence ? vm.getSettings.country_code : vm.profile.country,
+                    email_consent: vm.profile.email_consent ? 1 : 0
                 };
-                if (params.residence !== vm.getSettings.country_code) {
+                if (params.residence !== vm.getSettings.country_code || params.email_consent !== vm.getSettings.email_consent) {
                     vm.notAnyChanges = false;
                 }
                 if (!vm.notAnyChanges) {

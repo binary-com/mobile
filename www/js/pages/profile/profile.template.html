@@ -16,6 +16,13 @@
       <div ng-if="vm.isVirtualAccount">
         <div class="row">
           <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.details' | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
             <div class="row">
               <div class="col input-title">
                 {{ 'profile.country_of_residence' | translate }}
@@ -455,35 +462,36 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <h1 class="sub-title">
-              {{ 'profile.email_preferences' | translate }}
-            </h1>
-          </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h1 class="sub-title">
+            {{ 'profile.email_preferences' | translate }}
+          </h1>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col accept center">
-                <input name="emailConsent"
-                       type="checkbox"
-                       ng-model="vm.profile.email_consent"
-                       class="checkbox"
-                />
-                {{ 'profile.receive_emails' | translate }}
-              </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col accept center">
+              <input name="emailConsent"
+                     type="checkbox"
+                     ng-model="vm.profile.email_consent"
+                     class="checkbox"
+              />
+              {{ 'profile.receive_emails' | translate }}
             </div>
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="col center">
           <span class="help-block error center" ng-if="vm.notAnyChanges">
             {{ 'financial-assessment.no_change' | translate }}
           </span>
           <button class="button button-block"
-                  ng-if="(vm.isVirtualAccount && !vm.hasResidence) || !vm.isVirtualAccount"
                   ng-click="vm.updateProfile()"
                   ng-disabled="!profileForm.$valid || vm.disableUpdateButton ||
                   (!vm.taxInfoIsOptional && !vm.profile.tax_residence)">
