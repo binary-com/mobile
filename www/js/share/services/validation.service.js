@@ -10,12 +10,13 @@ angular
     .module("binary")
     .factory(
         "validationService",
-        ($state, appStateService) => {
+        (clientService) => {
             const validationService = {};
-            const currency = sessionStorage.getItem('currency') || 'USD';
-            const currencyConfig = appStateService.currenciesConfig || {};
-            validationService.fractionalDigits = !_.isEmpty(currencyConfig) &&
-            currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
+
+            const getFrctionalDigits = () => clientService.getFractionalDigits();
+            const getFloatNumberRegex = () => new RegExp(`^\\d+(\\.\\d{0,${validationService.fractionalDigits}})?$`);
+
+            validationService.fractionalDigits = getFrctionalDigits();
 
             const validateGeneralRegex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             const validateAddressRegex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
@@ -25,8 +26,7 @@ angular
             const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/;
             const mailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
             const tokenRegex = /^\w{8,128}$/;
-            const numberRegex = /^\d+$/;
-            const floatNumberRegex = new RegExp(`^\\d+(\\.\\d{0,${validationService.fractionalDigits}})?$`);
+            let floatNumberRegex = getFloatNumberRegex();
             const integerRegex = /^\d+$/;
             /* eslint-disable */
             const validator = (val, regexPattern, reverse) => {
@@ -51,7 +51,6 @@ angular
 
             validationService.validateFloatNumber = (val => validator(val, floatNumberRegex))();
             validationService.validateIntegerNumber = (val => validator(val, integerRegex))();
-
 
             validationService.length = {
                 name: {
@@ -91,6 +90,12 @@ angular
                 selfExclusionSessionDuration: {
                     max: 5
                 }
+            };
+
+            validationService.reset = () => {
+                validationService.fractionalDigits = getFrctionalDigits();
+                floatNumberRegex = getFloatNumberRegex();
+                validationService.validateFloatNumber = (val => validator(val, floatNumberRegex))();
             }
 
             return validationService;
