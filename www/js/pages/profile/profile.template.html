@@ -386,7 +386,7 @@
                   <option value=""
                           disabled
                           ng-if="vm.profile.address_state == null">
-                    {{ profile.select }}
+                    {{ 'profile.select' | translate }}
                   </option>
                   <option ng-repeat="s in vm.states"
                           value="{{s.value}}">
