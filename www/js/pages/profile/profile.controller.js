@@ -11,6 +11,7 @@
 
     Profile.$inject = [
         "$scope",
+        "$state",
         "$translate",
         "$ionicModal",
         "alertService",
@@ -24,6 +25,7 @@
 
     function Profile(
         $scope,
+        $state,
         $translate,
         $ionicModal,
         alertService,
@@ -255,6 +257,10 @@
                 }
             }
         };
+
+        vm.goToContact = () => {
+            $state.go('contact');
+        }
 
         vm.init();
     }

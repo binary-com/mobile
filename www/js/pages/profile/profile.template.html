@@ -501,5 +501,18 @@
       </div>
       <!--{{ profile_form }}-->
     </form>
+
+    <div class="row" ng-if="!vm.isVirtualAccount">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            {{ 'profile.to_change' | translate }}
+            <a ng-click="vm.goToContact()">
+              {{ 'profile.customer_support' | translate }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
