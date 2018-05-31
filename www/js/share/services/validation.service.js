@@ -15,6 +15,7 @@ angular
 
             const getFrctionalDigits = () => clientService.getFractionalDigits();
             const getFloatNumberRegex = () => new RegExp(`^\\d+(\\.\\d{0,${validationService.fractionalDigits}})?$`);
+            const getValidateFloatNumber = (floatNumberRegex) => (val => validator(val, floatNumberRegex))()
 
             validationService.fractionalDigits = getFrctionalDigits();
 
@@ -49,7 +50,7 @@ angular
             validationService.validateMail = (val => validator(val, mailRegex))();
             validationService.validateToken = (val => validator(val, tokenRegex))();
 
-            validationService.validateFloatNumber = (val => validator(val, floatNumberRegex))();
+            validationService.validateFloatNumber = getValidateFloatNumber(floatNumberRegex);
             validationService.validateIntegerNumber = (val => validator(val, integerRegex))();
 
             validationService.length = {
@@ -95,7 +96,7 @@ angular
             validationService.reset = () => {
                 validationService.fractionalDigits = getFrctionalDigits();
                 floatNumberRegex = getFloatNumberRegex();
-                validationService.validateFloatNumber = (val => validator(val, floatNumberRegex))();
+                validationService.validateFloatNumber = getValidateFloatNumber(floatNumberRegex);
             }
 
             return validationService;
