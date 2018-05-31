@@ -145,7 +145,7 @@
                     const checkedValues = _.filter(vm.residenceList, res => res.checked);
                     vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
                 }
-                vm.profile.email_consent = get_settings.email_consent === 1 ? true : false;
+                vm.profile.email_consent = get_settings.email_consent === 1;
                 if (vm.profile.account_opening_reason) {
                     vm.hasAccountOpeningReason = true;
                 }
