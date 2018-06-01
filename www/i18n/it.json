@@ -480,9 +480,6 @@
     "closes_early_(at_18:00)": "Chiude in anticipo (alle 18:00)",
     "fridays": "Venerdì"
   },
-  "new-real-account": {
-    "select_country_text": "Seleziona il tuo paese di residenza"
-  },
   "asset-index": {
     "asset_index": "Indice degli asset",
     "error": "Siamo spiacenti, si è verificato un errore durante l'elaborazione della tua richiesta."
