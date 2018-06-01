@@ -84,7 +84,7 @@
             } else {
                 if (
                     vm.from.name === "statement" &&
-                    vm.to.name !== "transactiondetail" &&
+                    vm.to.name !== "transaction-detail" &&
                     document.getElementsByClassName("realitycheck").length > 0
                 ) {
                     $(".popup-container").addClass("popup-showing");
