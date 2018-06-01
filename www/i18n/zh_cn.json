@@ -369,7 +369,14 @@
     "cancel": "取消",
     "continue": "继续",
     "account_opening_reason": "开立账户的原因",
-    "is_optional": "（可选）"
+    "is_optional": "（可选）",
+    "address": "Address",
+    "details": "Details",
+    "tax_information": "Tax Information",
+    "email_preferences": "Email Preferences",
+    "receive_emails": "Receive emails on Binary.com products, services, and events",
+    "to_change": "To change your name, date of birth, country of residence, or email, please contact",
+    "customer_support": "Customer Support"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "已更新其",
