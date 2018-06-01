@@ -17,7 +17,8 @@
         "accountService",
         "appStateService",
         "websocketService",
-        "notificationService"
+        "notificationService",
+        "validationService"
     ];
 
     function Accounts(
@@ -28,9 +29,11 @@
         accountService,
         appStateService,
         websocketService,
-        notificationService
+        notificationService,
+        validationService
     ) {
         const vm = this;
+        let updatingAccount = false;
 
         const init = function() {
             vm.accounts = accountService.getAll();
@@ -65,6 +68,7 @@
         init();
 
         vm.updateAccount = function(_selectedAccount) {
+            updatingAccount = true;
             accountService.setDefault(_selectedAccount);
             accountService.validate();
             updateSymbols();
@@ -109,6 +113,7 @@
                 appStateService.virtuality = authorize.is_virtual;
                 accountService.addedAccount = "";
                 const selectedCurrency = appStateService.selectedCurrency || '';
+                validationService.reset();
 
                 if (!authorize.currency && !selectedCurrency) {
                     $state.go("set-currency")
@@ -117,6 +122,8 @@
                 } else {
                     $state.go("trade");
                 }
+            } else if (authorize && updatingAccount) {
+                validationService.reset();
             }
         });
 
@@ -132,6 +139,7 @@
             localStorage.setItem("accounts", JSON.stringify(accounts));
             appStateService.accountCurrencyChanged = true;
             $rootScope.$broadcast("currency:changed", currency);
+            validationService.reset();
             $state.go("trade");
         });
     }
