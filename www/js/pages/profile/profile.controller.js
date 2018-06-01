@@ -11,6 +11,7 @@
 
     Profile.$inject = [
         "$scope",
+        "$state",
         "$translate",
         "$ionicModal",
         "alertService",
@@ -24,6 +25,7 @@
 
     function Profile(
         $scope,
+        $state,
         $translate,
         $ionicModal,
         alertService,
@@ -52,7 +54,7 @@
         const account = accountService.getDefault();
         const landingCompany = account.landing_company_name;
         const accounts = accountService.getAll();
-        const realAccountFields = {
+        const profileFields = {
             address_line_1           : '',
             address_line_2           : '',
             address_city             : '',
@@ -62,7 +64,8 @@
             tax_identification_number: '',
             tax_residence            : '',
             place_of_birth           : '',
-            account_opening_reason   : ''
+            account_opening_reason   : '',
+            email_consent            : ''
         };
 
         $ionicModal
@@ -81,13 +84,7 @@
             const hasMaltainvestAccount = !!_.find(accounts, account =>
                 isLandingCompanyOf('maltainvest', account.landing_company_name));
             vm.taxInfoIsOptional = !isLandingCompanyOf('maltainvest', landingCompany) && !hasMaltainvestAccount;
-            if (!vm.isVirtualAccount) {
-                websocketService.sendRequestFor.residenceListSend();
-            } else if (vm.isVirtualAccount && !account.country) {
-                websocketService.sendRequestFor.residenceListSend();
-            } else {
-                getProfile();
-            }
+            getProfile();
         };
 
         const getProfile = () => websocketService.sendRequestFor.accountSetting();
@@ -115,6 +112,7 @@
                         websocketService.authenticate(account.token);
                     }
                 }
+                vm.profile.email_consent = get_settings.email_consent === 1;
             } else {
                 vm.profile = get_settings;
                 if (get_settings.date_of_birth) {
@@ -144,6 +142,7 @@
                     const checkedValues = _.filter(vm.residenceList, res => res.checked);
                     vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
                 }
+                vm.profile.email_consent = get_settings.email_consent === 1;
                 if (vm.profile.account_opening_reason) {
                     vm.hasAccountOpeningReason = true;
                 }
@@ -151,7 +150,7 @@
         };
 
         $scope.$on("get_settings", (e, get_settings) => {
-            vm.getSettings = angular.copy(get_settings);
+            vm.getSettings = _.clone(get_settings);
             setProfile(get_settings);
         });
 
@@ -224,11 +223,16 @@
             vm.error = {};
             let params = {};
             if (!vm.isVirtualAccount) {
-                _.forEach(realAccountFields, (val, k) => {
-                    if (vm.profile[k]) params[k] = vm.profile[k];
+                _.forEach(profileFields, (val, k) => {
+                    if (vm.profile[k] && k !== 'email_consent') params[k] = vm.profile[k];
+                    if (k === 'email_consent') {
+                        params[k] = vm.profile[k] ? 1 : 0;
+                    }
                 });
                 _.forEach(params, (val, k) => {
-                    params[k] = _.trim(val);
+                    if (_.isString(params[k])) {
+                        params[k] = _.trim(val);
+                    }
                     if (params[k] !== vm.getSettings[k]) {
                         vm.notAnyChanges = false;
                     }
@@ -240,9 +244,11 @@
                 }
             } else {
                 params = {
-                    residence: vm.profile.country
+                    residence    : vm.hasResidence ? vm.getSettings.country_code : vm.profile.country,
+                    email_consent: vm.profile.email_consent ? 1 : 0
                 };
-                if (params.residence !== vm.getSettings.country_code) {
+                if (params.residence !== vm.getSettings.country_code ||
+                  params.email_consent !== vm.getSettings.email_consent) {
                     vm.notAnyChanges = false;
                 }
                 if (!vm.notAnyChanges) {
@@ -251,6 +257,10 @@
                 }
             }
         };
+
+        vm.goToContact = () => {
+            $state.go('contact');
+        }
 
         vm.init();
     }

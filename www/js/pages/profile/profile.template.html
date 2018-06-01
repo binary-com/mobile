@@ -16,6 +16,13 @@
       <div ng-if="vm.isVirtualAccount">
         <div class="row">
           <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.details' | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
             <div class="row">
               <div class="col input-title">
                 {{ 'profile.country_of_residence' | translate }}
@@ -57,6 +64,13 @@
       </div>
 
       <div ng-if="!vm.isVirtualAccount">
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.details' | translate }}
+            </h1>
+          </div>
+        </div>
         <div class="row">
           <div class="col">
             <div class="row">
@@ -182,6 +196,84 @@
         </div>
         <div class="row">
           <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.tax_information' | translate }}
+            </h1>
+          </div>
+        </div>
+        <!-- multiselect -->
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.tax_residence' | translate }}
+                <span ng-if="vm.taxInfoIsOptional">
+                  {{ 'profile.is_optional' | translate }}
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col item-input item-select tax-residence"
+                     ng-click="vm.showTaxResidenceItems()">
+                <div class="tax-residence-select">
+                  {{ vm.selectedTaxResidencesName || 'profile.select' | translate }}
+                </div>
+              </label>
+            </div>
+            <div class="row">
+              <div class="col help-block error"
+                   ng-if="!vm.taxInfoIsOptional && !vm.profile.tax_residence && vm.touchedTaxResidence">
+                {{ 'profile.this_field_is_required' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end multiselect -->
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.tax_identification_number' | translate }}
+                <span ng-if="vm.taxInfoIsOptional">
+                  {{ 'profile.is_optional' | translate }}
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="tax_identification_number"
+                       ng-model="vm.profile.tax_identification_number"
+                       ng-pattern="vm.validation.validateTaxIdentificationNumber"
+                       ng-maxlength="vm.validation.length.tin.max"
+                       ng-required="!vm.taxInfoIsOptional"/>
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.tax_identification_number.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="minlength">
+                    {{ 'profile.maxlength_error' | translate :
+                    {max: vm.validation.length.tin.max} }}
+                  </ng-message>
+                  <ng-message when="pattern">
+                    {{ 'profile.tax_identification_number_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.address' | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
             <div class="row">
               <div class="col input-title">
                 {{ 'profile.first_line_of_home_address' | translate }}
@@ -294,7 +386,7 @@
                   <option value=""
                           disabled
                           ng-if="vm.profile.address_state == null">
-                    {{ profile.select }}
+                    {{ 'profile.select' | translate }}
                   </option>
                   <option ng-repeat="s in vm.states"
                           value="{{s.value}}">
@@ -370,78 +462,36 @@
             </div>
           </div>
         </div>
-        <!-- multiselect -->
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col input-title">
-                {{ 'profile.tax_residence' | translate }}
-                <span ng-if="vm.taxInfoIsOptional">
-                  {{ 'profile.is_optional' | translate }}
-                </span>
-              </div>
-            </div>
-            <div class="row">
-              <label class="col item-input item-select tax-residence"
-                     ng-click="vm.showTaxResidenceItems()">
-                <div class="tax-residence-select">
-                  {{ vm.selectedTaxResidencesName || 'profile.select' | translate }}
-                </div>
-              </label>
-            </div>
-            <div class="row">
-              <div class="col help-block error"
-                   ng-if="!vm.taxInfoIsOptional && !vm.profile.tax_residence && vm.touchedTaxResidence">
-                {{ 'profile.this_field_is_required' | translate }}
-              </div>
-            </div>
-          </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h1 class="sub-title">
+            {{ 'profile.email_preferences' | translate }}
+          </h1>
         </div>
-        <!-- end multiselect -->
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col input-title">
-                {{ 'profile.tax_identification_number' | translate }}
-                <span ng-if="vm.taxInfoIsOptional">
-                  {{ 'profile.is_optional' | translate }}
-                </span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col item-input">
-                <input name="tax_identification_number"
-                       ng-model="vm.profile.tax_identification_number"
-                       ng-pattern="vm.validation.validateTaxIdentificationNumber"
-                       ng-maxlength="vm.validation.length.tin.max"
-                       ng-required="!vm.taxInfoIsOptional"/>
-                <ng-messages ng-if="vm.isDataLoaded"
-                             for="profileForm.tax_identification_number.$error"
-                             class="error"
-                             role="alert">
-                  <ng-message when="minlength">
-                    {{ 'profile.maxlength_error' | translate :
-                    {max: vm.validation.length.tin.max} }}
-                  </ng-message>
-                  <ng-message when="pattern">
-                    {{ 'profile.tax_identification_number_pattern_error' | translate }}
-                  </ng-message>
-                  <ng-message when="required">
-                    {{ 'profile.this_field_is_required' | translate }}
-                  </ng-message>
-                </ng-messages>
-              </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col accept center">
+              <input name="emailConsent"
+                     type="checkbox"
+                     ng-model="vm.profile.email_consent"
+                     class="checkbox"
+              />
+              {{ 'profile.receive_emails' | translate }}
             </div>
           </div>
         </div>
       </div>
+
       <div class="row">
         <div class="col center">
           <span class="help-block error center" ng-if="vm.notAnyChanges">
             {{ 'financial-assessment.no_change' | translate }}
           </span>
           <button class="button button-block"
-                  ng-if="(vm.isVirtualAccount && !vm.hasResidence) || !vm.isVirtualAccount"
                   ng-click="vm.updateProfile()"
                   ng-disabled="!profileForm.$valid || vm.disableUpdateButton ||
                   (!vm.taxInfoIsOptional && !vm.profile.tax_residence)">
@@ -451,5 +501,18 @@
       </div>
       <!--{{ profile_form }}-->
     </form>
+
+    <div class="row" ng-if="!vm.isVirtualAccount">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            {{ 'profile.to_change' | translate }}
+            <a ng-click="vm.goToContact()">
+              {{ 'profile.customer_support' | translate }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
