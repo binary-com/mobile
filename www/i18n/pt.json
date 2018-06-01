@@ -480,9 +480,6 @@
     "closes_early_(at_18:00)": "Fecha cedo (às 18:00)",
     "fridays": "Sextas-feiras"
   },
-  "new-real-account": {
-    "select_country_text": "Selecione o seu país de residência"
-  },
   "asset-index": {
     "asset_index": "Índice de ativos",
     "error": "Lamentamos, ocorreu um erro durante o processamento do seu pedido."
