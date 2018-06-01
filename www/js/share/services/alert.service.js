@@ -62,17 +62,6 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
         showPopup.then(_callback);
     };
 
-    this.displaySelectResidence = function(_title, _class, scope, _template, _buttons, _callback) {
-        const showPopup = $ionicPopup.show({
-            title      : _title,
-            cssClass   : _class,
-            scope,
-            templateUrl: _template,
-            buttons    : _buttons
-        });
-        showPopup.then(_callback);
-    };
-
     this.displayIOSPWAPrompt = function(_title, _class, scope, _template, _buttons, _callback) {
         const showPopup = $ionicPopup.show({
             title      : _title,
