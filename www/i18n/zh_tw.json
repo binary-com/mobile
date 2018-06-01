@@ -480,9 +480,6 @@
     "closes_early_(at_18:00)": "收盤提前（至18:00）",
     "fridays": "星期五"
   },
-  "new-real-account": {
-    "select_country_text": "請選擇您的居住國"
-  },
   "asset-index": {
     "asset_index": "資產指數",
     "error": "對不起，處理您的請求時出錯。"
