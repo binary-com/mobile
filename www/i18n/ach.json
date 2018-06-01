@@ -369,7 +369,14 @@
     "cancel": "crwdns19516:0crwdne19516:0",
     "continue": "crwdns19517:0crwdne19517:0",
     "account_opening_reason": "crwdns33336:0crwdne33336:0",
-    "is_optional": "crwdns45050:0crwdne45050:0"
+    "is_optional": "crwdns45050:0crwdne45050:0",
+    "address": "crwdns45152:0crwdne45152:0",
+    "details": "crwdns45153:0crwdne45153:0",
+    "tax_information": "crwdns45154:0crwdne45154:0",
+    "email_preferences": "crwdns45155:0crwdne45155:0",
+    "receive_emails": "crwdns45156:0crwdne45156:0",
+    "to_change": "crwdns45157:0crwdne45157:0",
+    "customer_support": "crwdns45158:0crwdne45158:0"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "crwdns18103:0crwdne18103:0",
