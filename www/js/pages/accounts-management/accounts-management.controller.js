@@ -45,6 +45,19 @@
             volidx     : $translate.instant('accounts-management.volidx')
         };
 
+        const requiredDirectUpgradeFields = [
+            'salutation',
+            'first_name',
+            'last_name',
+            'date_of_birth',
+            'residence',
+            'place_of_birth',
+            'address_line_1',
+            'address_city',
+            'phone',
+            'account_opening_reason'
+        ];
+
         const directUpgradeData = {
             salutation            : '',
             first_name            : '',
@@ -189,8 +202,8 @@
                 directUpgradeData.currency = vm.selectedCurrency;
                 // Some users have upgraded their account before the place_of_birth became required for real_account_opening
                 // redirect these users to upgrade page to fill the form with place_of_birth included
-                if (!directUpgradeData.place_of_birth) {
-                    $state.go('real-account-opening');
+                if (_.findIndex(requiredDirectUpgradeFields, field => !directUpgradeData[field]) > -1) {
+                    $state.go('profile');
                 } else {
                     websocketService.sendRequestFor.createRealAccountSend(directUpgradeData);
                 }
