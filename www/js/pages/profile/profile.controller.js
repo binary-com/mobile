@@ -81,7 +81,7 @@
         const getResidenceList = () => websocketService.sendRequestFor.residenceListSend();
         const getProfile = () => websocketService.sendRequestFor.accountSetting();
         const getPhoneCode = countryCode =>
-          _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
+            _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
 
         vm.init = () => {
             vm.isVirtualAccount = isLandingCompanyOf('virtual', landingCompany);
