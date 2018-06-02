@@ -57,7 +57,7 @@
 
         const getAccountInfo = () => {
             currentAccount = accountService.getDefault();
-            if (!_.isEmpty(currentAccount)) {
+            if (!_.isEmpty(currentAccount) && appStateService.loginFinished) {
                 currencyStatus(currentAccount.currency);
                 checkAccountType(currentAccount.landingCompany);
                 websocketService.sendRequestFor.getAccountStatus();

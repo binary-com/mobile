@@ -69,6 +69,7 @@
 
         vm.updateAccount = function(_selectedAccount) {
             updatingAccount = true;
+            appStateService.loginFinished = false;
             accountService.setDefault(_selectedAccount);
             accountService.validate();
             updateSymbols();
