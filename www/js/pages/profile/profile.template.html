@@ -494,7 +494,7 @@
           <button class="button button-block"
                   ng-click="vm.updateProfile()"
                   ng-disabled="!profileForm.$valid || vm.disableUpdateButton ||
-                  (!vm.taxInfoIsOptional && !vm.profile.tax_residence)">
+                  (!vm.taxInfoIsOptional && !vm.profile.tax_residence && !vm.isVirtualAccount)">
             {{ 'profile.update_profile' | translate }}
           </button>
         </div>
