@@ -28,7 +28,6 @@ angular
                     isLandingCompanyOf('malta', landingCompany) ||
                     isLandingCompanyOf('maltainvest', landingCompany);
                 if (currentAccount.country) {
-                    vm.hasNotSelectedCountry = false;
                     const country = currentAccount.country;
                     $scope.$applyAsync(() => {
                         vm.hasNotSelectedCountry = false;
@@ -38,7 +37,9 @@ angular
                         websocketService.sendRequestFor.landingCompanySend(country, reqId);
                     }
                 } else {
-                    vm.hasNotSelectedCountry = true;
+                    $scope.$applyAsync(() => {
+                        vm.hasNotSelectedCountry = true;
+                    });
                 }
             } else {
                 $timeout(getAccountInfo, 1000);
