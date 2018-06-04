@@ -334,7 +334,7 @@
         vm.goToTopButtonCondition = () => {
             $timeout(() => {
                 const position = $ionicScrollDelegate.$getByHandle("handler").getScrollPosition();
-                vm.goToTopButton = position.top >= 30;
+                vm.goToTopButton = position ? position.top >= 30 : false;
             }, 500);
         };
 
