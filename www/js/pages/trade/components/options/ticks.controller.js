@@ -31,7 +31,7 @@
                 max = parseInt(getTickValue(tradeType.max_contract_duration));
                 vm.tickRange = _.range(min, max + 1);
             } else {
-                    setTimeout(init, 5);
+                setTimeout(init, 5);
             }
         };
 
