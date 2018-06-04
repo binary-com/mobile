@@ -14,6 +14,7 @@ angular
         let currentAccount = {};
         vm.serverUrl = websocketService.getServerURL;
         vm.defaultServerUrl = config.serverUrl;
+        let n = 0;
 
         const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
             clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
@@ -30,6 +31,9 @@ angular
                 if (currentAccount.country) {
                     vm.hasNotSelectedCountry = false;
                     const country = currentAccount.country;
+                    $scope.$applyAsync(() => {
+                        vm.hasNotSelectedCountry = false;
+                    });
                     if (country !== 'jp') {
                         const reqId = 1;
                         websocketService.sendRequestFor.landingCompanySend(country, reqId);

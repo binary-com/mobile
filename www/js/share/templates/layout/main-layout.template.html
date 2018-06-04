@@ -68,9 +68,10 @@
             {{ 'menu.resources' | translate }}
           </ion-item>
           <ion-item
+                  ng-if="!vm.hasNotSelectedCountry"
                   nav-clear
                   menu-close
-                  ui-sref="{{ vm.hasNotSelectedCountry ? 'profile' : 'accounts-management' }}"
+                  ui-sref="accounts-management"
                   tabindex="1"
                   href="#">
             <div class="icon-wrapper">
