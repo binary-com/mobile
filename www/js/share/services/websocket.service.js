@@ -219,6 +219,9 @@ angular
                 sessionStorage.removeItem("_interval");
                 sessionStorage.removeItem("realityCheckStart");
                 localStorage.removeItem("termsConditionsVersion");
+                localStorage.removeItem("landingCompanyObject");
+                localStorage.removeItem("landingCompany");
+                localStorage.removeItem("landingCompanyName");
                 appStateService.profitTableRefresh = true;
                 appStateService.statementRefresh = true;
                 sessionStorage.removeItem("countryParams");

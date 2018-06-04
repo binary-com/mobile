@@ -10,6 +10,7 @@ angular
         clientService) {
         const vm = this;
         vm.hasMTAccess = false;
+        vm.hasNotSelectedCountry = false;
         let currentAccount = {};
         vm.serverUrl = websocketService.getServerURL;
         vm.defaultServerUrl = config.serverUrl;
@@ -32,6 +33,8 @@ angular
                         const reqId = 1;
                         websocketService.sendRequestFor.landingCompanySend(country, reqId);
                     }
+                } else {
+                    vm.hasNotSelectedCountry = true;
                 }
             } else {
                 $timeout(getAccountInfo, 1000);

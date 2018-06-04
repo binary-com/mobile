@@ -70,7 +70,7 @@
           <ion-item
                   nav-clear
                   menu-close
-                  ui-sref="accounts-management"
+                  ui-sref="{{ vm.hasNotSelectedCountry ? 'profile' : 'accounts-management' }}"
                   tabindex="1"
                   href="#">
             <div class="icon-wrapper">
