@@ -14,7 +14,6 @@ angular
         let currentAccount = {};
         vm.serverUrl = websocketService.getServerURL;
         vm.defaultServerUrl = config.serverUrl;
-        let n = 0;
 
         const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
             clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
