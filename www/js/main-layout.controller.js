@@ -22,12 +22,13 @@ angular
             vm.upgrade = {};
             vm.accounts = accountService.getAll();
             currentAccount = accountService.getDefault();
-            if (currentAccount && _.keys(currentAccount).length) {
+            if (!_.isEmpty(currentAccount)) {
                 const landingCompany = currentAccount.landing_company_name;
                 vm.showNetworkStatus = isLandingCompanyOf('iom', landingCompany) ||
                     isLandingCompanyOf('malta', landingCompany) ||
                     isLandingCompanyOf('maltainvest', landingCompany);
                 if (currentAccount.country) {
+                    vm.hasNotSelectedCountry = false;
                     const country = currentAccount.country;
                     if (country !== 'jp') {
                         const reqId = 1;
