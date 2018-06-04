@@ -78,18 +78,20 @@
 
         const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
             clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
+        const getResidenceList = () => websocketService.sendRequestFor.residenceListSend();
+        const getProfile = () => websocketService.sendRequestFor.accountSetting();
+        const getPhoneCode = countryCode =>
+            _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
 
         vm.init = () => {
             vm.isVirtualAccount = isLandingCompanyOf('virtual', landingCompany);
             const hasMaltainvestAccount = !!_.find(accounts, account =>
                 isLandingCompanyOf('maltainvest', account.landing_company_name));
             vm.taxInfoIsOptional = !isLandingCompanyOf('maltainvest', landingCompany) && !hasMaltainvestAccount;
-            getProfile();
+            getResidenceList();
         };
 
-        const getProfile = () => websocketService.sendRequestFor.accountSetting();
-        const getPhoneCode = countryCode =>
-            _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
+
 
         $scope.$on("residence_list", (e, response) => {
             $scope.$applyAsync(() => {
