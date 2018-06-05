@@ -8,6 +8,6 @@
 
 (function() {
     angular.module("binary.pages.accounts-management", ["binary.pages.accounts-management.controllers"]);
-
+    
     angular.module("binary.pages.accounts-management.controllers", []);
 })();

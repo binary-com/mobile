@@ -86,3 +86,8 @@ gulp deploy-translation (--remote <remote-name>)
 3. sign the released app:
   1. install electron-osx-sign globally `npm instal -g electron-osx-sign`
   2. run `electron-osx-sign path/to/release/app`
+
+## How to test
+1. run `npm install` to install `karam`, `jasmine` and all other dependencies.
+2. run `npm install -g karma-cli`
+3. run 'karma start`
