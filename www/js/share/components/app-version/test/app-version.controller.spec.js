@@ -1,14 +1,14 @@
 describe('app-version controller', () => {
 
-    var $ionicPlatform;
-    var $controller;
-    var $rootScope;
-    var $scope;
-    var AppVersion;
+    let $ionicPlatform;
+    let $controller;
+    let $rootScope;
+    let $scope;
+    let AppVersion;
 
     beforeEach(module('binary'));
 
-    beforeEach(inject((_$controller_, _$rootScope_, _$ionicPlatform_) => {
+    beforeEach(angular.mock.inject((_$controller_, _$rootScope_, _$ionicPlatform_) => {
         $ionicPlatform = _$ionicPlatform_;
         $controller = _$controller_;
         $rootScope = _$rootScope_;
@@ -18,8 +18,8 @@ describe('app-version controller', () => {
         $scope = $rootScope.$new();
         spyOn($ionicPlatform, 'ready').and.callThrough();
         AppVersion = $controller('AppVersionController', {
-            $scope: $scope,
-            $ionicPlatform: $ionicPlatform,
+            $scope,
+            $ionicPlatform,
         });
     });
 
@@ -29,7 +29,6 @@ describe('app-version controller', () => {
     });
 
     it ('vm.appVersion should be like x.y.z', () => {
-        console.log(JSON.stringify(AppVersion));
         expect($ionicPlatform.ready).toHaveBeenCalled();
 
         expect(/\d+\.\d+\.\d+/.test(AppVersion.appVersion,)).toBeTruthy();
