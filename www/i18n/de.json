@@ -199,8 +199,8 @@
     "accept": "Akzeptieren",
     "exposing_at_risk": "nachfolgend und mit der Kontoeröffnung fortfahren, müssen Sie beachten, dass Sie sich selbst Risiken aussetzen können (die erheblich sind, einschließlich des Verlusts des gesamten investierten Betrags), wenn Sie nicht das Wissen und die Erfahrung haben, diese richtig zu beurteilen oder abzuschwächen.",
     "decline": "Ablehnen",
-    "secret_question": "Secret question",
-    "secret_answer": "Secret answer"
+    "secret_question": "Geheimfrage",
+    "secret_answer": "Geheimantwort"
   },
   "new-account-real": {
     "real_account_opening": "Echtgeldkonto Eröffnung",
