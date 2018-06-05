@@ -106,7 +106,7 @@
     "minutes": "นาที",
     "interval_error": "โปรดป้อนตัวเลขระหว่าง 10 ถึง 60",
     "view_statement": "ดูรายการเดินบัญชี",
-    "integer_error": "Interval should be integer."
+    "integer_error": "ช่วงเวลาควรเป็นเลขจำนวนเต็ม"
   },
   "new-virtual-account": {
     "continue": "ดำเนินการต่อ",
@@ -123,8 +123,8 @@
     "enter_email": "โปรดป้อนอีเมล์ของท่าน",
     "token_invalid": "โปรดป้อนโทเค่นที่ถูกต้องเพื่อการตรวจสอบ",
     "invalid_email": "โปรดใช้อีเมล์ที่ถูกต้อง",
-    "password_pattern_error": "Password should have lower and uppercase letters with numbers.",
-    "range_length_error": "This field must be within {{min}}-{{max}} characters.",
+    "password_pattern_error": "รหัสผ่านควรประกอบด้วยอักษรตัวเล็ก อักษรตัวใหญ่ และตัวเลข",
+    "range_length_error": "ข้อมูลช่องนี้ต้องการ {{min}}-{{max}} อักขระ",
     "required": "ข้อมูลนี้ต้องระบุ ไม่สามารถเป็นค่าว่าง"
   },
   "new-account-maltainvest": {
@@ -152,9 +152,9 @@
     "terms_and_conditions": "ข้อตกลงและเงื่อนไข ",
     "of_the_site": "ของเว็บไซต์นี้",
     "general_pattern_error": "ตัวอักษร ช่องว่าง ขีดกลาง จุด เครื่องหมายอัญประกาศ ( ' ) เท่านั้น ที่สามารถใช้ได้",
-    "length_range_error": "This field must be within {{min}}-{{max}} characters.",
+    "length_range_error": "ข้อมูลช่องนี้ต้องการ {{min}}-{{max}} อักขระ",
     "maxlength_error": "ข้อมูลช่องนี้สามารถบันทึกข้อมูลได้สูงสุด {{max}} อักขระ",
-    "address_pattern_error": "Only letters, numbers, space, and these special characters are allowed: - . ' # ; : ( ) , @ /",
+    "address_pattern_error": "อุญาตเฉพาะตัวอักษร ตัวเลข ช่องว่าง และอักขระพิเศษเหล่านี้เท่านั้น - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Only letters, numbers, and hyphen are allowed.",
     "phone_pattern_error": "Only numbers and spaces are allowed.",
     "tax_identification_number_pattern_error": "Only letters, numbers, and hyphen are allowed.",
