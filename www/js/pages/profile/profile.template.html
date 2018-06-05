@@ -37,7 +37,8 @@
               <div class="col item-input">
                 <select name="country"
                         ng-model="vm.profile.country"
-                        ng-options="residence.value as residence.text for residence in vm.residenceList"
+                        ng-options="residence.value as residence.text disable
+                  when residence.disabled for residence in vm.residenceList track by residence.value"
                         required>
                   <option value="" disabled>
                     {{ 'profile.select' | translate }}
