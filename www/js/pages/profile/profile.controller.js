@@ -85,6 +85,7 @@
 
         vm.init = () => {
             vm.isVirtualAccount = isLandingCompanyOf('virtual', landingCompany);
+            vm.isIOMAccount = isLandingCompanyOf('iom', landingCompany);
             const hasMaltainvestAccount = !!_.find(accounts, account =>
                 isLandingCompanyOf('maltainvest', account.landing_company_name));
             vm.taxInfoIsOptional = !isLandingCompanyOf('maltainvest', landingCompany) && !hasMaltainvestAccount;
