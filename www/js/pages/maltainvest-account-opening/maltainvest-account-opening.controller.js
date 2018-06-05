@@ -51,6 +51,10 @@
         let acceptRisk = 0;
         const landingCompany = accountService.getDefault().landing_company_name;
         const isVirtual = clientService.isLandingCompanyOf('virtual', landingCompany);
+        const landingCompanyObject = !_.isEmpty(localStorage.landingCompanyObject) ?
+            JSON.parse(localStorage.landingCompanyObject) : {};
+        vm.isIOM = landingCompanyObject && landingCompanyObject.financial_company ?
+            landingCompanyObject.financial_company.shortcode === 'iom' : false;
         vm.receivedSettings = false;
         vm.options = _.merge(financialInformationOptions, accountOptions);
         vm.validation = validationService;
