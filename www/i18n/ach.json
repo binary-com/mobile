@@ -198,7 +198,9 @@
     "by_clicking": "crwdns44882:0crwdne44882:0",
     "accept": "crwdns44883:0crwdne44883:0",
     "exposing_at_risk": "crwdns44884:0crwdne44884:0",
-    "decline": "crwdns44885:0crwdne44885:0"
+    "decline": "crwdns44885:0crwdne44885:0",
+    "secret_question": "crwdns45172:0crwdne45172:0",
+    "secret_answer": "crwdns45173:0crwdne45173:0"
   },
   "new-account-real": {
     "real_account_opening": "crwdns42739:0crwdne42739:0",
