@@ -198,7 +198,9 @@
     "by_clicking": "通过点击 ",
     "accept": "接受",
     "exposing_at_risk": "以下并依照后续流程开立账户，您须注意，您可能承担一些风险（可能会很严重，包括损失整个投资资金的风险），而对于此类风险缺，你可能乏知识与经验以作出正确评估或化解.",
-    "decline": "下降"
+    "decline": "下降",
+    "secret_question": "Secret question",
+    "secret_answer": "Secret answer"
   },
   "new-account-real": {
     "real_account_opening": "开立真实资金账户",
