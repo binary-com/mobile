@@ -37,6 +37,10 @@
         vm.errors= {};
         const landingCompany = accountService.getDefault().landing_company_name;
         const isVirtual = clientService.isLandingCompanyOf('virtual', landingCompany);
+        const landingCompanyObject = !_.isEmpty(localStorage.landingCompanyObject) ?
+            JSON.parse(localStorage.landingCompanyObject) : {};
+        vm.isIOM = landingCompanyObject && landingCompanyObject.gaming_company ?
+            landingCompanyObject.gaming_company.shortcode === 'iom' : false;
         vm.validation = validationService;
         vm.options = accountOptions;
         vm.receivedSettings = false;
