@@ -403,7 +403,7 @@
             <div class="row">
               <div class="col input-title">
                 {{ 'profile.address_postcode' | translate }}
-                <span ng-if="!vm.isIOMAccount">{{ 'profile.is_optional' | translate }}</span>
+                <span ng-if="!vm.hasIOM">{{ 'profile.is_optional' | translate }}</span>
               </div>
             </div>
             <div class="row">
@@ -412,7 +412,7 @@
                        ng-model="vm.profile.address_postcode"
                        ng-maxlength="vm.validation.length.postcode.max"
                        ng-pattern="vm.validation.validatePostcode"
-                       ng-required="vm.isIOMAccount" />
+                       ng-required="vm.hasIOM" />
                 <ng-messages ng-if="vm.isDataLoaded"
                              for="profileForm.address_postcode.$error"
                              class="error"
