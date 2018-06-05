@@ -198,7 +198,9 @@
     "by_clicking": "通過點選 ",
     "accept": "接受",
     "exposing_at_risk": "以下並繼續開立帳戶，請注意您可能會冒一些風險（可能很嚴重，甚至損失整個投資資金），而您可能缺乏正確評估或化解風險的知識及經驗.",
-    "decline": "下降"
+    "decline": "下降",
+    "secret_question": "Secret question",
+    "secret_answer": "Secret answer"
   },
   "new-account-real": {
     "real_account_opening": "開立真實資金帳戶",

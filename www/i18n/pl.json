@@ -198,7 +198,9 @@
     "by_clicking": "By clicking ",
     "accept": "Accept",
     "exposing_at_risk": "below and proceeding with the Account Opening you should note that you may be exposing yourself to risks (which may be significant, including the risk of loss of the entire sum invested) that you may not have the knowledge and experience to properly assess or mitigate.",
-    "decline": "Decline"
+    "decline": "Decline",
+    "secret_question": "Secret question",
+    "secret_answer": "Secret answer"
   },
   "new-account-real": {
     "real_account_opening": "Otwierania konta z prawdziwymi pieniędzmi",
