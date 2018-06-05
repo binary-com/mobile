@@ -14,25 +14,26 @@
     function Ticks() {
         const vm = this;
 
-        vm.min = 0;
-        vm.max = 0;
+        let min = 0;
+        let max = 0;
         vm.tickRange = [];
 
-        vm.selectTick = function(tick) {
+        vm.selectTick = tick => {
             vm.select()(tick);
         };
 
-        function init() {
-            const tradeType = JSON.parse(sessionStorage.tradeTypes)[vm.tradeType][0];
-            vm.min = parseInt(getTickValue(tradeType.min_contract_duration));
-            vm.max = parseInt(getTickValue(tradeType.max_contract_duration));
+        const getTickValue = tick => tick.slice(0, -1);
 
-            vm.tickRange = _.range(vm.min, vm.max + 1);
-        }
-
-        function getTickValue(tick) {
-            return tick.slice(0, -1);
-        }
+        const init = () => {
+            if (!_.isEmpty(sessionStorage.tradeTypes)) {
+                const tradeType = JSON.parse(sessionStorage.tradeTypes)[vm.tradeType][0];
+                min = parseInt(getTickValue(tradeType.min_contract_duration));
+                max = parseInt(getTickValue(tradeType.max_contract_duration));
+                vm.tickRange = _.range(min, max + 1);
+            } else {
+                setTimeout(init, 5);
+            }
+        };
 
         init();
     }
