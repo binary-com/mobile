@@ -137,6 +137,7 @@
         $scope.$on("new_account_real", (e, new_account_real) => {
             vm.disableUpdatebutton = false;
             const selectedAccount = new_account_real.oauth_token;
+            appStateService.loginFinished = false;
             websocketService.authenticate(selectedAccount);
             appStateService.newAccountAdded = true;
             accountService.addedAccount = selectedAccount;

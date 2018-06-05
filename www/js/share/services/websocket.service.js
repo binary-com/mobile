@@ -241,6 +241,7 @@ angular
                 appStateService.selectedCurrency = false;
                 notificationService.emptyNotices();
                 appStateService.checkingUpgradeDone = false;
+                appStateService.loginFinished = false;
 
                 if (error) {
                     $translate(["alert.error", "alert.ok"]).then(translation => {
@@ -608,6 +609,7 @@ angular
                                 } else {
                                     sessionStorage.currency = message.authorize.currency;
                                 }
+                                appStateService.loginFinished = true;
 
                                 $rootScope.$broadcast(
                                     "authorize",
