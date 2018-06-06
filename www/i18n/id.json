@@ -4,9 +4,9 @@
     "add_account": "Gunakan Akun",
     "paste_token": "Masukkan token Anda disini",
     "get_token": "Bagaimanakah cara memperoleh Token?",
-    "signin_with_binary_com": "Sign In",
+    "signin_with_binary_com": "Masuk",
     "next": "Berikutnya",
-    "regulatory_information": "Regulatory Information"
+    "regulatory_information": "Informasi Peraturan"
   },
   "alert": {
     "error": "Error!",
@@ -66,14 +66,14 @@
     "potential_payout": "Potensi Hasil",
     "total_cost": "Total Biaya",
     "potential_profit": "Potensi Profit",
-    "back": "Back to Trade",
+    "back": "Kembali Bertrading",
     "loss": "Rugi",
     "win": "Untung",
     "lose": "Kontrak ini rugi",
     "transaction_id": "Referensi Transaksi",
     "buy_again": "Beli Lagi",
     "sell": "Jual",
-    "barrier": "Barrier Offset",
+    "barrier": "Batasan Ofset",
     "return": "Laba"
   },
   "app": {
@@ -81,7 +81,7 @@
     "exit_confirmation": "Apa Anda yakin ingin keluar?",
     "connection_error": "Tidak ada koneksi internet!",
     "ssl_cert_failed": "Koneksi Anda tidak pribadi!",
-    "sign_out": "Sign Out"
+    "sign_out": "Keluar"
   },
   "reality-check": {
     "title": "Reality Check",
