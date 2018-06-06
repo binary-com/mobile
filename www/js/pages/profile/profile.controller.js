@@ -78,6 +78,8 @@
 
         const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
             clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
+        const hasAccountOfLandingCompany = (accounts, landingCompany) =>
+            clientService.hasAccountOfLandingCompany(accounts, landingCompany);
         const getResidenceList = () => websocketService.sendRequestFor.residenceListSend();
         const getProfile = () => websocketService.sendRequestFor.accountSetting();
         const getPhoneCode = countryCode =>
@@ -85,8 +87,8 @@
 
         vm.init = () => {
             vm.isVirtualAccount = isLandingCompanyOf('virtual', landingCompany);
-            const hasMaltainvestAccount = !!_.find(accounts, account =>
-                isLandingCompanyOf('maltainvest', account.landing_company_name));
+            vm.hasIOM = hasAccountOfLandingCompany(accounts, 'iom');
+            const hasMaltainvestAccount = hasAccountOfLandingCompany(accounts, 'maltainvest');
             vm.taxInfoIsOptional = !isLandingCompanyOf('maltainvest', landingCompany) && !hasMaltainvestAccount;
             getResidenceList();
         };

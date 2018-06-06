@@ -11,6 +11,9 @@ angular.module("binary").service("clientService", function(appStateService) {
     this.isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
         targetLandingCompany === accountLandingCompany;
 
+    this.hasAccountOfLandingCompany = (accounts, landingCompany) => !!_.find(accounts, account =>
+        this.isLandingCompanyOf(landingCompany, account.landing_company_name))
+
     this.getAccountType = landingCompany => {
         let account_type;
         if (landingCompany) {

@@ -457,7 +457,7 @@
           <div class="row">
             <div class="col input-title">
               {{ 'new-account-maltainvest.address_postcode' | translate }}
-              <span>{{ 'new-account-maltainvest.is_optional' | translate }}</span>
+              <span ng-if="!vm.hasIOM">{{ 'new-account-maltainvest.is_optional' | translate }}</span>
             </div>
           </div>
           <div class="row">
@@ -465,7 +465,9 @@
               <input name="address_postcode"
                      ng-model="vm.data.address_postcode"
                      ng-pattern="vm.validation.validatePostcode"
-                     ng-maxlength="vm.validation.length.postcode.max"/>
+                     ng-maxlength="vm.validation.length.postcode.max"
+                     ng-required="vm.hasIOM"
+              />
               <ng-messages class="help-block error"
                            for="newAccountMaltainvestForm.address_postcode.$error"
                            role="alert"
@@ -477,6 +479,9 @@
                 <ng-message when="maxlength">
                   {{ 'new-account-maltainvest.maxlength_error' | translate :
                   { max: vm.validation.length.postcode.max } }}
+                </ng-message>
+                <ng-message when="required">
+                  {{ 'new-account-maltainvest.required' | translate }}
                 </ng-message>
               </ng-messages>
               <div class="help-block error" ng-if="vm.errors.address_postcode">
