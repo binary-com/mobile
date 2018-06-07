@@ -80,7 +80,7 @@
     "exit_title": "Wyjdź",
     "exit_confirmation": "Czy na pewno chcesz wyjść?",
     "connection_error": "Brak połączenia internetowego!",
-    "ssl_cert_failed": "Twoje połączenie nie jest publiczne!",
+    "ssl_cert_failed": "Twoje połączenie nie jest prywatne!",
     "sign_out": "Wyloguj"
   },
   "reality-check": {
