@@ -168,14 +168,14 @@
     "binary_options_trading_frequency": "Trading opsi binary frekuensi",
     "cfd_trading_experience": "Pengalaman trading CFD",
     "cfd_trading_frequency": "Trading frekuensi CFD",
-    "other_instruments_trading_experience": "Trading experience in other financial instruments",
-    "other_instruments_trading_frequency": "Trading frequency in other financial instruments",
-    "employment_industry": "Industry of employment",
-    "education_level": "Level of education",
-    "income_source": "Income source",
-    "net_income": "Net annual income",
+    "other_instruments_trading_experience": "Pengalaman trading pada instrumen keuangan lainnya",
+    "other_instruments_trading_frequency": "Trading frekuensi pada instrumen keuangan lainnya",
+    "employment_industry": "Industri pekerjaan",
+    "education_level": "Tingkat pendidikan",
+    "income_source": "Sumber pendapatan",
+    "net_income": "Pendapatan bersih tahunan",
     "occupation": "Pekerjaan",
-    "estimated_worth": "Estimated net worth",
+    "estimated_worth": "Perkiraan kekayaan",
     "employment_status": "Status pekerjaan",
     "account_turnover": "Antisipasi turnover akun",
     "source_of_wealth": "Sumber kekayaan",
@@ -710,14 +710,14 @@
     "employment": "Bukti pekerjaan Anda"
   },
   "pep-information": {
-    "pep": "What is PEP?",
-    "what-is-pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+    "pep": "Apa itu PEP?",
+    "what-is-pep": "Politically Exposed Person yang selanjutnya disingkat sebagai PEP adalah orang yang memiliki atau pernah memiliki kewenangan publik termasuk anggota keluarganya atau orang terdekat dengannya, namun tidak termasuk kelas menengah atau posisi yang lebih rendah. Individu tersebut termasuk Kepala Negara, Menteri, Sekretaris Parlemen, Anggota Parlemen, Hakim, Duta Besar, Pejabat Tinggi Pemerintah, Petugas Peringkat Tinggi Angkatan Bersenjata, Komite Audit Dewan Bank Sentral, dan Direktur Perusahaan Milik Negara. \"Anggota keluarga terdekat\" dari contoh di atas juga akan dianggap sebagai PEP, dan ini termasuk pasangan, orang tua, dan anak-anak mereka. Selain itu, \"orang-orang yang dikenal sebagai rekan dekat\" termasuk mitra bisnis mereka, juga akan dianggap sebagai PEP. Sebagai aturan umum, seseorang yang sudah tidak memegang fungsi sebagai pihak berwenang lebih dari dua belas bulan maka orang tersebut tidak layak disebut sebagai PEP."
   },
   "what-is-tax-information": {
-    "required_by": "This requirement is mandated by the Common Reporting Standard (CRS) and the Foreign Account Tax Compliance Act (FATCA).",
+    "required_by": "Persyaratan ini dimandatkan oleh Common Reporting Standard (CRS) dan Foreign Fail Tax Compliance Act (FATCA).",
     "please_enter": "Please enter your ",
-    "tax_information": "tax information",
-    "to_continue": "to continue.",
-    "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe."
+    "tax_information": "informasi pajak",
+    "to_continue": "untuk melanjutkan.",
+    "information_will_be_safe": "Yakinlah bahwa informasi Anda hanya akan digunakan untuk tujuan pelaporan CRS/FATCA dan akan disimpan dengan aman."
   }
 }
