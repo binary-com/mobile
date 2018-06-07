@@ -223,7 +223,7 @@
     "select": "Proszę wybrać",
     "secret_question": "Pytanie zabezpieczające",
     "secret_answer": "Odpowiedź na pytanie zabezpieczające",
-    "is_optional": "(Opcjonalne)",
+    "is_optional": "(Opcjonalnie)",
     "read_and_agreed_to": "Przeczytałem/-am i akceptuję ",
     "terms_and_conditions": "regulamin ",
     "of_the_site": "tego portalu.",
