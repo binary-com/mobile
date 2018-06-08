@@ -157,7 +157,7 @@ gulp.task('code-push', function(done){
 
 
 gulp.task('compress', function(done){
-  gulp.src(['www/js/**/*.module.js', 'www/js/**/{*.js, !*.module.js}', 'www/*.js', '!www/js/service-worker-registration.js'])
+  gulp.src(['www/js/**/*.module.js', 'www/js/**/{*.js, !*.module.js}', 'www/*.js', '!www/js/**/*.spec.js', '!www/js/service-worker-registration.js'])
       .pipe(babel({presets: ['es2015']}))
       .pipe(ngmin())
       .pipe(concat('main.js'))
