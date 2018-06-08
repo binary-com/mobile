@@ -1,4 +1,4 @@
-<div class="payout">
+<div class="payout" ng-show="!vm.marketsClosed">
   <div class="row payout-cell-container">
     <div class="col payout-cell center">
       <a ng-click="vm.changePayoutType()"> {{ 'options.' + vm.proposal.basis | translate }} </a>

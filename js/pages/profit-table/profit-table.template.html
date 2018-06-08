@@ -2,7 +2,7 @@
   <div class="row title-container">
     <div class="col">
       <h1 class="page-title">
-        <span> {{ 'profittable.profit_table' | translate }} </span>
+        <span> {{ 'profit-table.profit_table' | translate }} </span>
         <div ng-click="vm.toggleItem()" class="item-expand-footer right">
           <i class="ion-funnel" ng-class="!vm.isItemShown ? 'icon-inactive' : 'icon-active'"></i>
         </div>
@@ -14,8 +14,8 @@
       <div class="col col-50">
         <label class="item item-input item-select">
           <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFiltered()">
-            <option value="allApps"> {{ 'profittable.all_apps' | translate }}</option>
-            <option value="tickTradeApp"> {{ 'profittable.tick_trade_app' | translate }}</option>
+            <option value="allApps"> {{ 'profit-table.all_apps' | translate }}</option>
+            <option value="tickTradeApp"> {{ 'profit-table.tick_trade_app' | translate }}</option>
           </select>
         </label>
       </div>
@@ -24,8 +24,8 @@
           <select name="dateType"
                   ng-model="vm.data.dateType"
                   ng-change="vm.dateFilter()">
-            <option value="allTime"> {{ 'profittable.all_time' | translate }}</option>
-            <option value="jumpToDate"> {{ 'profittable.jump_to_date' | translate }}</option>
+            <option value="allTime"> {{ 'profit-table.all_time' | translate }}</option>
+            <option value="jumpToDate"> {{ 'profit-table.jump_to_date' | translate }}</option>
           </select>
         </label>
       </div>
@@ -36,7 +36,7 @@
           <div class="col input-container">
             <label class="item item-input jump-to-date" for="dateTo">
               <span>
-                {{ 'profittable.jump_to_date' | translate }}
+                {{ 'profit-table.jump_to_date' | translate }}
               </span>
               <input id="dateTo" type="date" name="dateTo" ng-model="vm.data.end"/>
             </label>
@@ -45,7 +45,7 @@
             <button type="button"
                     class="button button-default"
                     ng-click="vm.jumpToDateFilter()">
-              {{ 'profittable.go' | translate }}
+              {{ 'profit-table.go' | translate }}
             </button>
           </div>
         </div>
@@ -68,10 +68,10 @@
         <div class="col">
           <ul class="statement-table">
             <li class="list list-title" ng-if="!vm.noTransaction && vm.firstCompleted">
-              <div class="statement-element center">{{ 'profittable.date' | translate }}</div>
-              <div class="statement-element center">{{ 'profittable.ref' | translate }}</div>
+              <div class="statement-element center">{{ 'profit-table.date' | translate }}</div>
+              <div class="statement-element center">{{ 'profit-table.ref' | translate }}</div>
               <div class="statement-element center">
-                {{ 'profittable.profit_loss' | translate }}
+                {{ 'profit-table.profit_loss' | translate }}
               </div>
             </li>
             <li class="list"
@@ -88,7 +88,7 @@
               </div>
             </li>
             <li class="list no-transaction" ng-if="vm.noTransaction">
-              {{'profittable.no_transaction' | translate}}
+              {{'profit-table.no_transaction' | translate}}
             </li>
             <li class="list center has-error" ng-if="vm.hasError">
               <div class="col">

@@ -10115,6 +10115,8 @@ input[type="date"] {
     .item-select select option {
       width: 100%;
       text-align: left; }
+  .item-select select[disabled] {
+    background: #f8f8f8 !important; }
 
 select {
   position: relative;
@@ -10159,6 +10161,42 @@ textarea {
 
 .submenu-icon {
   float: right; }
+
+.information-popup .popup {
+  background: #fff;
+  width: 90vw;
+  padding: 0;
+  font-size: 1rem; }
+
+.information-popup .popup-body {
+  background: #fff;
+  padding: 5px; }
+  .information-popup .popup-body .item {
+    font-size: 1rem;
+    padding: 5px;
+    background: #fff; }
+    .information-popup .popup-body .item p {
+      white-space: normal;
+      color: #000; }
+    .information-popup .popup-body .item .row {
+      white-space: normal; }
+
+@media screen and (max-width: 480px) {
+  .information-popup .popup-body .item {
+    font-size: 1rem; }
+  .information-popup .popup {
+    width: 90vw !important; }
+  .information-popup .popup-body .item .row {
+    padding: 0; }
+    .information-popup .popup-body .item .row .interval-text {
+      padding: 0;
+      width: 100%; }
+  .information-popup .popup-body p {
+    font-size: 1rem; } }
+
+@media screen and (max-width: 960px) {
+  .information-popup .popup {
+    width: 95vw !important; } }
 
 @media screen and (min-width: 960px) {
   .accounts,
@@ -10879,7 +10917,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
         .trade #trade-container bg-contract-summary .contract-summary .row {
           display: flex;
           flex-grow: 1;
-          flex-direction: row; }
+          flex-direction: row;
+          white-space: nowrap; }
           .trade #trade-container bg-contract-summary .contract-summary .row .col {
             font-size: 1rem;
             display: flex;
@@ -11643,10 +11682,6 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
 .item-expand-footer {
   float: right; }
 
-.new-account .new-real-account .row {
-  margin: 0;
-  padding: 0 5px; }
-
 .new-account .new-real-account .accept {
   font-size: 0.8rem; }
 
@@ -11868,6 +11903,14 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
 
 .ios-pwa-prompt .slogan {
   width: 50%; }
+
+.update-page {
+  background-color: #F2F2F2; }
+  .update-page .message {
+    padding: 20px;
+    padding-top: 30%; }
+  .update-page .features .update-link {
+    padding-top: 10px !important; }
 
 .language bg-language-list ion-content .item-content {
   font-size: 1rem;

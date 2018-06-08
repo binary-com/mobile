@@ -10,15 +10,6 @@
   </div>
 
   <div class="features">
-    <h3> {{ 'update.what_is_new' | translate }} </h3>
-    <div class="list">
-      <span class="item" ng-repeat="item in vm.lastVersion.features">
-        <i class="icon ion-record"></i>
-        {{ item }}
-        </li>
-        </ul>
-    </div>
-
     <div class="update-link center"
          ng-if="vm.storeLogo">
       <a href="{{ vm.lastVersion[vm.platform] }}"

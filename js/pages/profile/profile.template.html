@@ -16,6 +16,13 @@
       <div ng-if="vm.isVirtualAccount">
         <div class="row">
           <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.details' | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
             <div class="row">
               <div class="col input-title">
                 {{ 'profile.country_of_residence' | translate }}
@@ -30,7 +37,8 @@
               <div class="col item-input">
                 <select name="country"
                         ng-model="vm.profile.country"
-                        ng-options="residence.value as residence.text for residence in vm.residenceList"
+                        ng-options="residence.value as residence.text disable
+                  when residence.disabled for residence in vm.residenceList track by residence.value"
                         required>
                   <option value="" disabled>
                     {{ 'profile.select' | translate }}
@@ -57,6 +65,13 @@
       </div>
 
       <div ng-if="!vm.isVirtualAccount">
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.details' | translate }}
+            </h1>
+          </div>
+        </div>
         <div class="row">
           <div class="col">
             <div class="row">
@@ -98,7 +113,7 @@
               </div>
             </div>
             <div class="row">
-              <label class="col item-input item-select">
+              <div class="col item-select">
                 <select name="place_of_birth"
                         ng-model="vm.profile.place_of_birth"
                         ng-options="residence.value as residence.text for
@@ -109,15 +124,15 @@
                     {{ 'profile.select' | translate }}
                   </option>
                 </select>
-              </label>
-              <ng-messages ng-if="vm.isDataLoaded"
-                           for="profileForm.place_of_birth.$error"
-                           class="error"
-                           role="alert">
-                <ng-message when="required">
-                  {{ 'profile.this_field_is_required' | translate }}
-                </ng-message>
+                <ng-messages ng-if="vm.isDataLoaded"
+                            for="profileForm.place_of_birth.$error"
+                            class="error"
+                            role="alert">
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
               </ng-messages>
+              </div>
             </div>
           </div>
         </div>
@@ -182,192 +197,9 @@
         </div>
         <div class="row">
           <div class="col">
-            <div class="row">
-              <div class="col input-title">
-                {{ 'profile.first_line_of_home_address' | translate }}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col item-input">
-                <input name="address_line_1"
-                       ng-model="vm.profile.address_line_1"
-                       ng-maxlength="vm.validation.length.address.max"
-                       ng-required="true"
-                       ng-pattern="vm.validation.validateAddress"/>
-                <ng-messages ng-if="vm.isDataLoaded"
-                             for="profileForm.address_line_1.$error"
-                             class="help block error"
-                             role="alert">
-                  <ng-message when="pattern">
-                    {{ 'profile.address-pattern-error' | translate }}
-                  </ng-message>
-                  <ng-message when="maxlength">
-                    {{ 'profile.maxlength_error' | translate :
-                    {max: vm.validation.length.address.max} }}
-                  </ng-message>
-                  <ng-message when="required">
-                    {{ 'profile.this_field_is_required' | translate }}
-                  </ng-message>
-                </ng-messages>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col input-title">
-                {{ 'profile.second_line_of_home_address' | translate }}
-                <span>{{ 'profile.is_optional' | translate }}</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col item-input">
-                <input name="address_line_2"
-                       ng-model="vm.profile.address_line_2"
-                       ng-maxlength="vm.validation.length.address.max"
-                       ng-pattern="vm.validation.validateAddress"/>
-                <ng-messages ng-if="vm.isDataLoaded"
-                             for="profileForm.address_line_2.$error"
-                             class="error"
-                             role="alert">
-                  <ng-message when="pattern">
-                    {{ 'profile.address-pattern-error' | translate }}
-                  </ng-message>
-                  <ng-message when="maxlength">
-                    {{ 'profile.maxlength_error' | translate :
-                    {max: vm.validation.length.address.max} }}
-                  </ng-message>
-                </ng-messages>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col input-title">
-                {{ 'profile.town_city' | translate }}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col item-input">
-                <input name="address_city"
-                       ng-model="vm.profile.address_city"
-                       ng-required="true"
-                       ng-maxlength="vm.validation.length.city.max"
-                       ng-pattern="vm.validation.validateGeneral">
-                <ng-messages ng-if="vm.isDataLoaded"
-                             for="profileForm.address_city.$error"
-                             class="error"
-                             role="alert">
-                  <ng-message when="pattern">
-                    {{ 'profile.general-pattern-error' | translate }}
-                  </ng-message>
-                  <ng-message when="maxlength">
-                    {{ 'profile.maxlength_error' | translate :
-                    {max: vm.validation.length.city.max} }}
-                  </ng-message>
-                  <ng-message when="required">
-                    {{ 'profile.this_field_is_required' | translate }}
-                  </ng-message>
-                </ng-messages>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col input-title">
-                {{ 'profile.state_province' | translate }}
-                <span>{{ 'profile.is_optional' | translate }}</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col item-select">
-                <select name="address_state"
-                        ng-model="vm.profile.address_state"
-                        ng-select="vm.profile.address_state"
-                        ng-disabled="!vm.states">
-                  <option value=""
-                          disabled
-                          ng-if="vm.profile.address_state == null">
-                    {{ profile.select }}
-                  </option>
-                  <option ng-repeat="s in vm.states"
-                          value="{{s.value}}">
-                    {{ s.text }}
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col input-title">
-                {{ 'profile.address_postcode' | translate }}
-                <span>{{ 'profile.is_optional' | translate }}</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col item-input">
-                <input name="address_postcode"
-                       ng-model="vm.profile.address_postcode"
-                       ng-maxlength="vm.validation.length.postcode.max"
-                       ng-pattern="vm.validation.validatePostcode"/>
-                <ng-messages ng-if="vm.isDataLoaded"
-                             for="profileForm.address_postcode.$error"
-                             class="error"
-                             role="alert">
-                  <ng-message when="pattern">
-                    {{ 'profile.postcode-pattern-error' | translate }}
-                  </ng-message>
-                  <ng-message when="maxlength">
-                    {{ 'profile.maxlength_error' | translate :
-                    {max: vm.validation.length.postcode.max} }}
-                  </ng-message>
-                </ng-messages>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col input-title">
-                {{ 'profile.telephone' | translate }}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col item-input">
-                <input name="phone"
-                       ng-model="vm.profile.phone"
-                       ng-pattern="vm.validation.validatePhone"
-                       ng-maxlength="vm.validation.length.phone.max"
-                       ng-minlength="vm.validation.length.phone.min"
-                       ng-required="true">
-                <ng-messages ng-if="vm.isDataLoaded"
-                             for="profileForm.phone.$error"
-                             class="error"
-                             role="alert">
-                  <ng-message when="pattern">
-                    {{ 'profile.phone-pattern-error' | translate }}
-                  </ng-message>
-                  <ng-message when="minlength, maxlength">
-                    {{ 'profile.range-length-error' | translate :
-                    {min: vm.validation.length.phone.min,
-                    max: vm.validation.length.phone.max} }}
-                  </ng-message>
-                  <ng-message when="required">
-                    {{ 'profile.this_field_is_required' | translate }}
-                  </ng-message>
-                </ng-messages>
-              </div>
-            </div>
+            <h1 class="sub-title">
+              {{ 'profile.tax_information' | translate }}
+            </h1>
           </div>
         </div>
         <!-- multiselect -->
@@ -424,7 +256,208 @@
                     {max: vm.validation.length.tin.max} }}
                   </ng-message>
                   <ng-message when="pattern">
-                    {{ 'profile.tax-identification-number-pattern-error' | translate }}
+                    {{ 'profile.tax_identification_number_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.address' | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.first_line_of_home_address' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="address_line_1"
+                       ng-model="vm.profile.address_line_1"
+                       ng-maxlength="vm.validation.length.address.max"
+                       ng-required="true"
+                       ng-pattern="vm.validation.validateAddress"/>
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.address_line_1.$error"
+                             class="help block error"
+                             role="alert">
+                  <ng-message when="pattern">
+                    {{ 'profile.address_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="maxlength">
+                    {{ 'profile.maxlength_error' | translate :
+                    {max: vm.validation.length.address.max} }}
+                  </ng-message>
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.second_line_of_home_address' | translate }}
+                <span>{{ 'profile.is_optional' | translate }}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="address_line_2"
+                       ng-model="vm.profile.address_line_2"
+                       ng-maxlength="vm.validation.length.address.max"
+                       ng-pattern="vm.validation.validateAddress"/>
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.address_line_2.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="pattern">
+                    {{ 'profile.address_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="maxlength">
+                    {{ 'profile.maxlength_error' | translate :
+                    {max: vm.validation.length.address.max} }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.town_city' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="address_city"
+                       ng-model="vm.profile.address_city"
+                       ng-required="true"
+                       ng-maxlength="vm.validation.length.city.max"
+                       ng-pattern="vm.validation.validateGeneral">
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.address_city.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="pattern">
+                    {{ 'profile.general_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="maxlength">
+                    {{ 'profile.maxlength_error' | translate :
+                    {max: vm.validation.length.city.max} }}
+                  </ng-message>
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.state_province' | translate }}
+                <span>{{ 'profile.is_optional' | translate }}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-select">
+                <select name="address_state"
+                        ng-model="vm.profile.address_state"
+                        ng-select="vm.profile.address_state"
+                        ng-disabled="!vm.states">
+                  <option value=""
+                          disabled
+                          ng-if="vm.profile.address_state == null">
+                    {{ 'profile.select' | translate }}
+                  </option>
+                  <option ng-repeat="s in vm.states"
+                          value="{{s.value}}">
+                    {{ s.text }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.address_postcode' | translate }}
+                <span ng-if="!vm.hasIOM">{{ 'profile.is_optional' | translate }}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="address_postcode"
+                       ng-model="vm.profile.address_postcode"
+                       ng-maxlength="vm.validation.length.postcode.max"
+                       ng-pattern="vm.validation.validatePostcode"
+                       ng-required="vm.hasIOM" />
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.address_postcode.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="pattern">
+                    {{ 'profile.postcode_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="maxlength">
+                    {{ 'profile.maxlength_error' | translate :
+                    {max: vm.validation.length.postcode.max} }}
+                  </ng-message>
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.telephone' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="phone"
+                       ng-model="vm.profile.phone"
+                       ng-pattern="vm.validation.validatePhone"
+                       ng-maxlength="vm.validation.length.phone.max"
+                       ng-minlength="vm.validation.length.phone.min"
+                       ng-required="true">
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.phone.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="pattern">
+                    {{ 'profile.phone-pattern-error' | translate }}
+                  </ng-message>
+                  <ng-message when="minlength, maxlength">
+                    {{ 'profile.range_length_error' | translate :
+                    {min: vm.validation.length.phone.min,
+                    max: vm.validation.length.phone.max} }}
                   </ng-message>
                   <ng-message when="required">
                     {{ 'profile.this_field_is_required' | translate }}
@@ -435,21 +468,56 @@
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col">
+          <h1 class="sub-title">
+            {{ 'profile.email_preferences' | translate }}
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col accept center">
+              <input name="emailConsent"
+                     type="checkbox"
+                     ng-model="vm.profile.email_consent"
+                     class="checkbox"
+              />
+              {{ 'profile.receive_emails' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col center">
           <span class="help-block error center" ng-if="vm.notAnyChanges">
             {{ 'financial-assessment.no_change' | translate }}
           </span>
           <button class="button button-block"
-                  ng-if="(vm.isVirtualAccount && !vm.hasResidence) || !vm.isVirtualAccount"
                   ng-click="vm.updateProfile()"
                   ng-disabled="!profileForm.$valid || vm.disableUpdateButton ||
-                  (!vm.taxInfoIsOptional && !vm.profile.tax_residence)">
+                  (!vm.taxInfoIsOptional && !vm.profile.tax_residence && !vm.isVirtualAccount)">
             {{ 'profile.update_profile' | translate }}
           </button>
         </div>
       </div>
       <!--{{ profile_form }}-->
     </form>
+
+    <div class="row" ng-if="!vm.isVirtualAccount">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            {{ 'profile.to_change' | translate }}
+            <a ng-click="vm.goToContact()">
+              {{ 'profile.customer_support' | translate }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
