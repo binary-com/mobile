@@ -42,7 +42,7 @@
         <div class="row center">
           <div class="col">
             <div class="input-title">
-              {{ 'new-virtual-account.enter-email' | translate }}
+              {{ 'new-virtual-account.enter_email' | translate }}
             </div>
             <label class="item-input">
               <input autocomplete="off"
@@ -79,7 +79,7 @@
           <div class="col">
             <div class="row">
               <div class="col input-title">
-                {{ 'new-virtual-account.verification-code' | translate }}
+                {{ 'new-virtual-account.verification_code' | translate }}
               </div>
             </div>
             <div class="row">
@@ -95,7 +95,7 @@
                         role="alert"
                         ng-if='virtualws.verificationCode.$dirty && !vm.tokenError'>
                   <ng-message when="required"> {{ 'new-virtual-account.required' | translate }} </ng-message>
-                  <ng-message when="pattern"> {{ 'new-virtual-account.token-invalid' | translate }} </ng-message>
+                  <ng-message when="pattern"> {{ 'new-virtual-account.token_invalid' | translate }} </ng-message>
                 </ng-messages>
                 <div class="help-block error" ng-if="vm.tokenError">
                   <div> {{ vm.tokenErrorMessage }} </div>
@@ -129,12 +129,12 @@
                         ng-hide="vm.passwordError">
                   <ng-message when="required"> {{ 'new-virtual-account.required' | translate }} </ng-message>
                   <ng-message when="minlength, maxlength">
-                    {{ 'new-virtual-account.range-length-error' | translate : {
+                    {{ 'new-virtual-account.range_length_error' | translate : {
                     min: vm.validation.length.password.min,
                     max: vm.validation.length.password.max
                     } }}
                   </ng-message>
-                  <ng-message when="pattern"> {{ 'new-virtual-account.password-pattern-error' | translate }} </ng-message>
+                  <ng-message when="pattern"> {{ 'new-virtual-account.password_pattern_error' | translate }} </ng-message>
                 </ng-messages>
                 <div class="help-block error" ng-if="vm.passwordError">
                   <div> {{ vm.passwordErrorMessage }} </div>
@@ -220,7 +220,7 @@
                   account-tokens="vm.data.accountTokens"
           ></oauth>
           <!-- signup -->
-          {{ 'new-virtual-account.signup-question' | translate }}
+          {{ 'new-virtual-account.signup_question' | translate }}
           <div>
             <a href ng-click="vm.changeSigninViewtoSignup()">
               {{ 'new-virtual-account.signup' | translate }}
@@ -233,7 +233,7 @@
       <div class="row center regulatory-information" ng-show="!vm.showTokenForm && !vm.showSignup && vm.showSignin">
         <div class="col col-75">
           <a href ng-click="vm.goToRegulatory()">
-            {{ 'signin.regulatory-information' | translate }}
+            {{ 'signin.regulatory_information' | translate }}
           </a>
         </div>
       </div>

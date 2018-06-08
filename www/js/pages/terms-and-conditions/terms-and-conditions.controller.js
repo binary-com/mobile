@@ -23,8 +23,9 @@
         vm.updateUserTermsAndConditions = () =>
             websocketService.sendRequestFor.TAndCApprovalSend();
 
-        vm.openTermsAndConditions = () =>
+        vm.openTermsAndConditions = () => {
             window.open(vm.data.linkToTermAndConditions, "_blank");
+        }
 
         $scope.$on("tnc_approval", (e, tnc_approval) => {
             if (tnc_approval === 1) {

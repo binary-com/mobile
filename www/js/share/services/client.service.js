@@ -11,6 +11,9 @@ angular.module("binary").service("clientService", function(appStateService) {
     this.isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
         targetLandingCompany === accountLandingCompany;
 
+    this.hasAccountOfLandingCompany = (accounts, landingCompany) => !!_.find(accounts, account =>
+        this.isLandingCompanyOf(landingCompany, account.landing_company_name))
+
     this.getAccountType = landingCompany => {
         let account_type;
         if (landingCompany) {
@@ -77,6 +80,13 @@ angular.module("binary").service("clientService", function(appStateService) {
             cryptoCurrencies,
             fiatCurrencies
         };
-    }
+    };
+
+    this.getFractionalDigits = () => {
+        const currency = sessionStorage.getItem('currency') || 'USD';
+        const currencyConfig = appStateService.currenciesConfig || {};
+        return !_.isEmpty(currencyConfig) &&
+        currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
+    };
 
 });

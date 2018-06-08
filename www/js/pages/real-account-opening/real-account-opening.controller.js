@@ -37,6 +37,12 @@
         vm.errors= {};
         const landingCompany = accountService.getDefault().landing_company_name;
         const isVirtual = clientService.isLandingCompanyOf('virtual', landingCompany);
+        const accounts = accountService.getAll();
+        const landingCompanyObject = !_.isEmpty(localStorage.landingCompanyObject) ?
+            JSON.parse(localStorage.landingCompanyObject) : {};
+        vm.hasIOM = () => (landingCompanyObject && landingCompanyObject.financial_company &&
+            landingCompanyObject.financial_company.shortcode === 'iom') ||
+            clientService.hasAccountOfLandingCompany(accounts, 'iom');
         vm.validation = validationService;
         vm.options = accountOptions;
         vm.receivedSettings = false;
@@ -137,12 +143,19 @@
         $scope.$on("new_account_real", (e, new_account_real) => {
             vm.disableUpdatebutton = false;
             const selectedAccount = new_account_real.oauth_token;
+            appStateService.loginFinished = false;
             websocketService.authenticate(selectedAccount);
             appStateService.newAccountAdded = true;
             accountService.addedAccount = selectedAccount;
         });
 
-        vm.openTermsAndConditions = () => window.open(vm.linkToTermAndConditions, "_blank");
+        vm.openTermsAndConditions = () => {
+            window.open(vm.linkToTermAndConditions, "_blank");
+        }
+
+        vm.openPEPInformation = () => {
+            alertService.showPEPInformation($scope);
+        }
 
         vm.init = () => {
             vm.errors = {};

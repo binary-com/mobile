@@ -9,18 +9,18 @@
 (function() {
     angular.module("binary.pages.self-exclusion.controllers").controller("SelfExclusionController", SelfExclusion);
 
-    SelfExclusion.$inject = ["$scope", "$translate", "alertService", "websocketService", "validationService", "appStateService"];
+    SelfExclusion.$inject = ["$scope", "$translate", "alertService", "websocketService", "validationService"];
 
     function SelfExclusion($scope, $translate, alertService, websocketService,
-        validationService, appStateService) {
+        validationService) {
         const vm = this;
         vm.validation = validationService;
         vm.fractionalDigits = vm.validation.fractionalDigits;
-        vm.today = new Date();
-        vm.minDate = vm.today.toISOString().slice(0, 10);
-        vm.minDateTime = vm.today.toISOString();
-        vm.nextSixWeeks = new Date(vm.today.getTime() + 7 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-        vm.nextSixMonths = new Date(vm.today.getTime() + 30 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+        const today = new Date();
+        vm.minDate = today.toISOString().slice(0, 10);
+        vm.minDateTime = today.toISOString();
+        vm.nextSixWeeks = new Date(today.getTime() + 7 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+        vm.nextSixMonths = new Date(today.getTime() + 30 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
         vm.disableUpdateButton = true;
         vm.isDataLoaded = false;
         vm.data = {};
@@ -43,10 +43,10 @@
         });
 
         $scope.$on("set-self-exclusion", (e, response) => {
-            $translate(["self-exclusion.success", "self-exclusion.save-prompt"]).then(translation => {
+            $translate(["self-exclusion.success", "self-exclusion.save_prompt"]).then(translation => {
                 alertService.displayAlert(
                     translation["self-exclusion.success"],
-                    translation["self-exclusion.save-prompt"]
+                    translation["self-exclusion.save_prompt"]
                 );
             });
             vm.limits = _.clone(vm.data);
@@ -63,13 +63,9 @@
             setSelfExclusion();
         };
 
-        init();
+        const getSelfExclusion = () => websocketService.sendRequestFor.getSelfExclusion();
 
-        function getSelfExclusion() {
-            websocketService.sendRequestFor.getSelfExclusion();
-        }
-
-        function setSelfExclusion() {
+        const setSelfExclusion = () => {
             const data = _.clone(vm.data);
 
             if (data.timeout_until) {
@@ -86,8 +82,9 @@
             websocketService.sendRequestFor.setSelfExclusion(JSON.parse(stringify));
         }
 
-        function init() {
-            getSelfExclusion();
-        }
+        const init = () => getSelfExclusion();
+
+        init();
+
     }
 })();

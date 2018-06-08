@@ -19,7 +19,9 @@
         "$translate",
         "appStateService",
         "accountService",
-        "clientService"
+        "clientService",
+        "websocketService",
+        "alertService"
     ];
 
     function AccountsManagement($scope,
@@ -29,14 +31,47 @@
         $translate,
         appStateService,
         accountService,
-        clientService) {
+        clientService,
+        websocketService,
+        alertService) {
         const vm = this;
+        let hasRealAccount = false;
+        let upgradingRealAccountDirectly = false;
         const activeMarkets = {
             commodities: $translate.instant('accounts-management.commodities'),
             forex      : $translate.instant('accounts-management.forex'),
             indices    : $translate.instant('accounts-management.indices'),
             stocks     : $translate.instant('accounts-management.stocks'),
             volidx     : $translate.instant('accounts-management.volidx')
+        };
+
+        const requiredDirectUpgradeFields = [
+            'salutation',
+            'first_name',
+            'last_name',
+            'date_of_birth',
+            'residence',
+            'place_of_birth',
+            'address_line_1',
+            'address_city',
+            'phone',
+            'account_opening_reason'
+        ];
+
+        const directUpgradeData = {
+            salutation            : '',
+            first_name            : '',
+            last_name             : '',
+            date_of_birth         : '',
+            place_of_birth        : '',
+            residence             : '',
+            address_line_1        : '',
+            address_line_2        : '',
+            address_city          : '',
+            address_state         : '',
+            address_postcode      : '',
+            phone                 : '',
+            account_opening_reason: ''
         };
 
         const filterMarkets = (markets) => {
@@ -129,6 +164,7 @@
             vm.selectCurrencyError = false;
             getAvailableAccounts();
             vm.existingAccounts = getExistingAccounts();
+            hasRealAccount = !!_.find(vm.existingAccounts, acc => acc.type === 'real');
             vm.showContact = _.some(vm.existingAccounts, acc => acc.isDisabled || acc.excludedUntil);
         };
 
@@ -141,7 +177,12 @@
                 appStateService.selectedCurrency = vm.selectedCurrency;
                 appStateService.redirectedFromAccountsManagemenet = true;
                 if (vm.upgrade.typeOfNextAccount === 'real') {
-                    $state.go('real-account-opening');
+                    if (hasRealAccount) {
+                        upgradingRealAccountDirectly = true;
+                        websocketService.sendRequestFor.accountSetting();
+                    } else {
+                        $state.go('real-account-opening');
+                    }
                 } else if (vm.upgrade.typeOfNextAccount === 'financial') {
                     $state.go('maltainvest-account-opening');
                 }
@@ -149,6 +190,40 @@
                 vm.selectCurrencyError = true;
             }
         };
+
+        $scope.$on("get_settings", (e, get_settings) => {
+            if (upgradingRealAccountDirectly && get_settings) {
+                _.forEach(directUpgradeData, (val, k) => {
+                    if (get_settings[k]) directUpgradeData[k] = get_settings[k];
+                });
+                directUpgradeData.residence = get_settings.country_code;
+                directUpgradeData.date_of_birth = get_settings.date_of_birth ?
+                    $filter("date")(get_settings.date_of_birth * 1000, "yyyy-MM-dd") : '';
+                directUpgradeData.currency = vm.selectedCurrency;
+                // Some users have upgraded their account before the place_of_birth became required for real_account_opening
+                // redirect these users to upgrade page to fill the form with place_of_birth included
+                if (_.findIndex(requiredDirectUpgradeFields, field => !directUpgradeData[field]) > -1) {
+                    $state.go('profile');
+                } else {
+                    websocketService.sendRequestFor.createRealAccountSend(directUpgradeData);
+                }
+            }
+        });
+
+        $scope.$on("new_account_real:error", (e, error) => {
+            if (error.hasOwnProperty("details")) {
+                alertService.displayError(error.details);
+            } else if (error.code) {
+                alertService.displayError(error.message);
+            }
+        });
+
+        $scope.$on("new_account_real", (e, new_account_real) => {
+            const selectedAccount = new_account_real.oauth_token;
+            websocketService.authenticate(selectedAccount);
+            appStateService.newAccountAdded = true;
+            accountService.addedAccount = selectedAccount;
+        });
 
         const reInitAfterChangeAccount = () => {
             if (appStateService.checkingUpgradeDone) {

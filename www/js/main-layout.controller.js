@@ -10,6 +10,7 @@ angular
         clientService) {
         const vm = this;
         vm.hasMTAccess = false;
+        vm.hasNotSelectedCountry = false;
         let currentAccount = {};
         vm.serverUrl = websocketService.getServerURL;
         vm.defaultServerUrl = config.serverUrl;
@@ -21,17 +22,24 @@ angular
             vm.upgrade = {};
             vm.accounts = accountService.getAll();
             currentAccount = accountService.getDefault();
-            if (currentAccount && _.keys(currentAccount).length) {
+            if (!_.isEmpty(currentAccount)) {
                 const landingCompany = currentAccount.landing_company_name;
                 vm.showNetworkStatus = isLandingCompanyOf('iom', landingCompany) ||
                     isLandingCompanyOf('malta', landingCompany) ||
                     isLandingCompanyOf('maltainvest', landingCompany);
                 if (currentAccount.country) {
                     const country = currentAccount.country;
+                    $scope.$applyAsync(() => {
+                        vm.hasNotSelectedCountry = false;
+                    });
                     if (country !== 'jp') {
                         const reqId = 1;
                         websocketService.sendRequestFor.landingCompanySend(country, reqId);
                     }
+                } else {
+                    $scope.$applyAsync(() => {
+                        vm.hasNotSelectedCountry = true;
+                    });
                 }
             } else {
                 $timeout(getAccountInfo, 1000);
@@ -122,7 +130,9 @@ angular
         };
 
         $scope.$on('authorize', (e, authorize) => {
-            if (currentAccount && currentAccount.id !== authorize.loginid) {
+            // check for upgrade info after changing account or user selects country in profile page and updates settings
+            if (currentAccount &&
+              (currentAccount.id !== authorize.loginid || currentAccount.country !== authorize.country)) {
                 getAccountInfo();
             }
         });

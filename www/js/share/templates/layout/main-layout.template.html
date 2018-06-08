@@ -68,6 +68,7 @@
             {{ 'menu.resources' | translate }}
           </ion-item>
           <ion-item
+                  ng-if="!vm.hasNotSelectedCountry"
                   nav-clear
                   menu-close
                   ui-sref="accounts-management"

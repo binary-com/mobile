@@ -62,17 +62,6 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
         showPopup.then(_callback);
     };
 
-    this.displaySelectResidence = function(_title, _class, scope, _template, _buttons, _callback) {
-        const showPopup = $ionicPopup.show({
-            title      : _title,
-            cssClass   : _class,
-            scope,
-            templateUrl: _template,
-            buttons    : _buttons
-        });
-        showPopup.then(_callback);
-    };
-
     this.displayIOSPWAPrompt = function(_title, _class, scope, _template, _buttons, _callback) {
         const showPopup = $ionicPopup.show({
             title      : _title,
@@ -196,4 +185,39 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
             );
         });
     };
+
+    this.showInformation = function (scope, title, templateUrl) {
+        const showPopup = $ionicPopup.show({
+            title,
+            cssClass: 'information-popup',
+            scope,
+            templateUrl,
+            buttons : [
+                {
+                    type: "button-positive",
+                    text: $translate.instant("alert.ok")
+                }
+            ]
+        });
+        return showPopup;
+    }
+
+    this.showProfessioanlClientInformation = scope => this.showInformation(
+        scope,
+        $translate.instant('professional-client-information.professional_client'),
+        'js/share/templates/professional-client-information/professional-client-information.template.html'
+    );
+
+    this.showPEPInformation = scope => this.showInformation(
+        scope,
+        $translate.instant('pep-information.pep'),
+        'js/share/templates/pep-information/pep-information.template.html'
+    );
+
+    this.showTaxInformation = scope => this.showInformation(
+        scope,
+        $translate.instant('what-is-tax-information.tax-information'),
+        'js/share/templates/tax-information/tax-information.template.html'
+    );
+
 });
