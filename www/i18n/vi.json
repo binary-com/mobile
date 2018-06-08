@@ -4,9 +4,9 @@
     "add_account": "Thêm tài khoản",
     "paste_token": "Dán mã token của bạn ở đây",
     "get_token": "Làm thế nào để nhận mã Token?",
-    "signin_with_binary_com": "Sign In",
+    "signin_with_binary_com": "Đăng nhập",
     "next": "Tiếp theo",
-    "regulatory_information": "Regulatory Information"
+    "regulatory_information": "Thông tin điều chỉnh"
   },
   "alert": {
     "error": "Lỗi!",
@@ -44,7 +44,7 @@
     "asians_up": "Châu Á Lên",
     "asians_down": "Châu Á Xuống",
     "asians": "Châu Á Lên",
-    "digits_digit_over_digit_under": "Digits Over/Under",
+    "digits_digit_over_digit_under": "Chữ số trên/dưới",
     "digits_digit_odd_digit_even": "Digits Odd/Even",
     "digits_digit_matches_digit_differs": "Digits Matches/Differs",
     "up_down": "Lên/Xuống",
