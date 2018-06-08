@@ -28,7 +28,6 @@
                      ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_balance"
                      ng-max="vm.limits.max_balance"
-                     ng-min="1"
                      ng-required="!!vm.limits.max_balance"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max" />
@@ -65,7 +64,6 @@
                      ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_turnover"
                      ng-max="vm.limits.max_turnover"
-                     ng-min="1"
                      ng-required="!!vm.limits.max_turnover"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
@@ -101,7 +99,6 @@
                      ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_losses"
                      ng-max="vm.limits.max_losses"
-                     ng-min="1"
                      ng-required="!!vm.limits.max_losses"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
@@ -137,7 +134,6 @@
                      ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_7day_turnover"
                      ng-max="vm.limits.max_7day_turnover"
-                     ng-min="1"
                      ng-required="!!vm.limits.max_7day_turnover"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
@@ -174,7 +170,6 @@
                      ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_7day_losses"
                      ng-max="vm.limits.max_7day_losses"
-                     ng-min="1"
                      ng-required="!!vm.limits.max_7day_losses"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
@@ -211,7 +206,6 @@
                      ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_30day_turnover"
                      ng-max="vm.limits.max_30day_turnover"
-                     ng-min="1"
                      ng-required="!!vm.limits.max_30day_turnover"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
@@ -245,7 +239,6 @@
                      ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_30day_losses"
                      ng-max="vm.limits.max_30day_losses"
-                     ng-min="1"
                      ng-required="!!vm.limits.max_30day_losses"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
@@ -284,7 +277,6 @@
                      ng-pattern="vm.validation.validateIntegerNumber"
                      ng-model="vm.data.max_open_bets"
                      ng-max="vm.limits.max_open_bets"
-                     ng-min="1"
                      ng-required="!!vm.limits.max_open_bets"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionOpenPositions.max"/>
@@ -319,7 +311,6 @@
                      ng-pattern="vm.validation.validateIntegerNumber"
                      ng-model="vm.data.session_duration_limit"
                      ng-max="vm.limits.session_duration_limit || 60480"
-                     ng-min="1" ,
                      ng-required="!!vm.limits.session_duration_limit"
                      step="1"
                      ng-maxlength="vm.validation.length.selfExclusionSessionDuration.max"/>
