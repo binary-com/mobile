@@ -149,32 +149,30 @@
             vm.data.interval = 60;
             if (!appStateService.isPopupOpen) {
                 appStateService.isPopupOpen = true;
-                $translate(["reality-check.continue", "reality-check.title"]).then(translation => {
-                    alertService.displayRealitCheckInterval(
-                        translation["reality-check.title"],
-                        "realitycheck getinterval",
-                        $scope,
-                        "js/share/components/reality-check/interval-popup.template.html",
-                        [
-                            {
-                                text: translation["reality-check.continue"],
-                                type: "button-positive",
-                                onTap(e) {
-                                    if (vm.data.interval <= 60 && vm.data.interval >= 10 && !vm.integerError) {
-                                        vm.setInterval(vm.data.interval);
-                                        vm.data.start_interval = new Date().getTime();
-                                        vm.setStart(vm.data.start_interval);
-                                        vm.hasRealityCheck();
-                                        appStateService.isPopupOpen = false;
-                                        sessionStorage.setItem("realityCheckStart", Date.now());
-                                    } else {
-                                        e.preventDefault();
-                                    }
+                alertService.displayRealitCheckInterval(
+                    $translate.instant("reality-check.title"),
+                    "reality-check get-interval",
+                    $scope,
+                    "js/share/components/reality-check/interval-popup.template.html",
+                    [
+                        {
+                            text: $translate.instant("reality-check.continue"),
+                            type: "button-positive",
+                            onTap(e) {
+                                if (vm.data.interval <= 60 && vm.data.interval >= 10 && !vm.integerError) {
+                                    vm.setInterval(vm.data.interval);
+                                    vm.data.start_interval = new Date().getTime();
+                                    vm.setStart(vm.data.start_interval);
+                                    vm.hasRealityCheck();
+                                    appStateService.isPopupOpen = false;
+                                    sessionStorage.setItem("realityCheckStart", Date.now());
+                                } else {
+                                    e.preventDefault();
                                 }
                             }
-                        ]
-                    );
-                });
+                        }
+                    ]
+                );
             }
         };
 
@@ -226,56 +224,49 @@
                 vm.data.interval = parseInt(vm.getInterval("_interval"));
                 $timeout.cancel(vm.realityCheckTimeout);
                 appStateService.isPopupOpen = true;
-                $translate([
-                    "reality-check.title",
-                    "reality-check.continue",
-                    "reality-check.logout",
-                    "reality-check.view_statement"
-                ]).then(translation => {
-                    alertService.displayRealityCheckResult(
-                        translation["reality-check.title"],
-                        "realitycheck result-popup",
-                        $scope,
-                        "js/share/components/reality-check/reality-check-result.template.html",
-                        [
-                            {
-                                text: translation["reality-check.logout"],
-                                type: "button-secondary",
-                                onTap() {
-                                    vm.logout();
-                                }
-                            },
-                            {
-                                text: translation["reality-check.view_statement"],
-                                type: "button-positive",
-                                onTap(e) {
-                                    $state.go("statement");
-                                    $(".popup-container").removeClass("popup-showing");
-                                    $("body").removeClass("popup-open");
-                                    $(".backdrop").removeClass("visible");
+                alertService.displayRealityCheckResult(
+                    $translate.instant("reality-check.title"),
+                    "reality-check result-popup",
+                    $scope,
+                    "js/share/components/reality-check/reality-check-result.template.html",
+                    [
+                        {
+                            text: $translate.instant("reality-check.logout"),
+                            type: "button-secondary",
+                            onTap() {
+                                vm.logout();
+                            }
+                        },
+                        {
+                            text: $translate.instant("reality-check.view_statement"),
+                            type: "button-positive",
+                            onTap(e) {
+                                $state.go("statement");
+                                $(".popup-container").removeClass("popup-showing");
+                                $("body").removeClass("popup-open");
+                                $(".backdrop").removeClass("visible");
+                                e.preventDefault();
+                            }
+                        },
+                        {
+                            text: $translate.instant("reality-check.continue"),
+                            type: "button-positive",
+                            onTap(e) {
+                                if (vm.data.interval <= 60 && vm.data.interval >= 10 && !vm.integerError) {
+                                    if (vm.sessionLoginId === vm.realityCheckitems.loginid) {
+                                        vm.getLastInterval(vm.data.interval);
+                                        vm.data.start_interval = new Date().getTime();
+                                        vm.setStart(vm.data.start_interval);
+                                        vm.hasRealityCheck();
+                                        appStateService.isPopupOpen = false;
+                                    }
+                                } else {
                                     e.preventDefault();
                                 }
-                            },
-                            {
-                                text: translation["reality-check.continue"],
-                                type: "button-positive",
-                                onTap(e) {
-                                    if (vm.data.interval <= 60 && vm.data.interval >= 10 && !vm.integerError) {
-                                        if (vm.sessionLoginId === vm.realityCheckitems.loginid) {
-                                            vm.getLastInterval(vm.data.interval);
-                                            vm.data.start_interval = new Date().getTime();
-                                            vm.setStart(vm.data.start_interval);
-                                            vm.hasRealityCheck();
-                                            appStateService.isPopupOpen = false;
-                                        }
-                                    } else {
-                                        e.preventDefault();
-                                    }
-                                }
                             }
-                        ]
-                    );
-                });
+                        }
+                    ]
+                );
             }
         };
 
