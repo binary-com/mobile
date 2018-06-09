@@ -272,12 +272,12 @@
         }
 
         vm.showConfirmProfessionalClient = () => {
-            if (!!vm.client_type) {
+            if (vm.client_type) {
                 alertService.displayProfessionalClientConfirmation(
                     $translate.instant('professional-client-confirmation.professional_clients'),
                     'information-popup',
                     $scope,
-                    'js/share/templates/professional-client-information/professional-client-confirmation.template.html',
+                    'js/share/templates/professional-client/professional-client-confirmation.template.html',
                     [
                         {
                             text : $translate.instant("professional-client-confirmation.decline"),
