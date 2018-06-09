@@ -719,6 +719,7 @@
     "please_enter": "Please enter your ",
     "tax_information": "tax information",
     "to_continue": "to continue.",
-    "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe."
+    "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe.",
+    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
   }
 }
