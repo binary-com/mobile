@@ -216,7 +216,7 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
 
     this.showTaxInformation = scope => this.showInformation(
         scope,
-        $translate.instant('what-is-tax-information.tax-information'),
+        $translate.instant('what-is-tax-information.tax_information_title'),
         'js/share/templates/tax-information/tax-information.template.html'
     );
 
