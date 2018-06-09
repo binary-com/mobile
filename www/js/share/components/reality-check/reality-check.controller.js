@@ -46,7 +46,7 @@
                     const period = getFromSessions("_interval") * 60000 - (thisTime - timeGap);
                     vm.realityCheckTimeout = $timeout(getRealityCheck, period);
                 }
-            } else if (_.isEmpty(sessionStorage._interval) === false) { // if user did not refresh the app and the interval is set
+            } else if (!_.isEmpty(sessionStorage._interval)) { // if user did not refresh the app and the interval is set
                 const period = getFromSessions("_interval") * 60000;
                 vm.realityCheckTimeout = $timeout(getRealityCheck, period);
             }
@@ -146,7 +146,7 @@
                             text: $translate.instant("reality-check.continue"),
                             type: "button-positive",
                             onTap(e) {
-                                if (vm.data.interval <= 60 && vm.data.interval >= 1 && !vm.integerError) {
+                                if (vm.data.interval <= 60 && vm.data.interval >= 10 && !vm.integerError) {
                                     setInSessions('_interval', vm.data.interval);
                                     vm.data.start_interval = new Date().getTime();
                                     setInSessions('start', vm.data.start_interval);
@@ -194,6 +194,7 @@
                 if (res) {
                     websocketService.logout();
                 } else {
+                    appStateService.isPopupOpen = false;
                     hasRealityCheck();
                 }
             });
@@ -234,7 +235,7 @@
                             text: $translate.instant("reality-check.continue"),
                             type: "button-positive",
                             onTap(e) {
-                                if (vm.data.interval <= 60 && vm.data.interval >= 1 && !vm.integerError) {
+                                if (vm.data.interval <= 60 && vm.data.interval >= 10 && !vm.integerError) {
                                     if (vm.sessionLoginId === vm.realityCheckItems.loginid) {
                                         getLastInterval(vm.data.interval);
                                         vm.data.start_interval = new Date().getTime();
