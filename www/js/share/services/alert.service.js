@@ -220,4 +220,15 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
         'js/share/templates/tax-information/tax-information.template.html'
     );
 
+    this.displayProfessionalClientConfirmation = (_title, _class, scope, _template, _buttons) => {
+        const showPopup = $ionicPopup.show({
+            title      : _title,
+            cssClass   : _class,
+            scope,
+            templateUrl: _template,
+            buttons    : _buttons
+        });
+        return showPopup;
+    };
+
 });

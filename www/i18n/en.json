@@ -721,5 +721,15 @@
     "to_continue": "to continue.",
     "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe.",
     "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+  },
+  "professional-client-confirmation": {
+    "professional_clients": "Professional Clients",
+    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
+    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
+    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
+    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "you_may_decline": "Note: You may decline and continue as a Retail Client."
   }
 }
