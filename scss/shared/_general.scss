@@ -1,10 +1,6 @@
-::-webkit-input-placeholder {
-  color: $darkPrimaryBrandColor;
-}
-
 [ng-click],
 [data-ng-click],
-[x-ng-click] {
+[x-ng-click], a {
   cursor: pointer;
 }
 
@@ -15,47 +11,126 @@
   -ms-user-select: none;
   user-select: none;
 }
-input {
-  -webkit-user-select: auto !important;
-  -khtml-user-select: auto !important;
-  -moz-user-select: auto !important;
-  -ms-user-select: auto !important;
-  user-select: auto !important;
-}
+
 * {
   -webkit-user-drag: none;
   -moz-user-drag: none;
   -ms-user-drag: none;
   user-drag: none;
 }
+
 ion-scroll[direction=x] {
   width: 100vw;
 }
+
 body * {
   font-family: roboto, sans-serif !important;
 }
+
 ion-side-menu {
   ion-content {
     overflow-y: hidden;
   }
 }
-.bar-subheader {
-  padding: 0;
-  height: inherit;
-  width: 100%;
-  background: $white;
-  position: relative;
-  top: 0;
-  bg-balance {
-    width: 100%;
-    position: relative;
-  }
-}
+
 a {
   color: $primaryBrandColor;
   text-decoration: none;
   font-weight: bold;
 }
+
+p {
+  font-size: 1rem!important;
+  padding: 5px;
+  color: $contentColor;
+  font-weight: normal;
+  white-space: normal;
+  line-height: 1.4rem;
+}
+
+.center {
+  text-align: center!important;
+  justify-content: center;
+}
+
+.item {
+  border-width: 0;
+  color: $contentColor;
+  font-size: 1rem;
+}
+
+.scroll {
+  padding-bottom: 1px;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.green {
+  color: $positiveColor;
+}
+
+.red {
+  color: $negativeColor!important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: normal;
+  padding: 5px;
+  color: $contentColor;
+  border-bottom: 2px solid $black;
+  margin: 0;
+}
+
+.sub-title {
+  font-size: 1rem;
+  color: $primaryBrandColor;
+}
+
+.hint {
+  font-size: 0.8rem;
+  font-size: $FONT_SIZE_S;
+  color: $black;
+  margin-top: 3px;
+}
+
+.help-block {
+  font-size: 0.8rem;
+  text-align: left;
+  color: $secondaryContentColor;
+  position: relative;
+}
+
+.error {
+  color: $negativeColor;
+  font-size: 0.8rem;
+  p {
+    color: $negativeColor;
+    font-size: 0.5rem;
+  }
+}
+
+.general-content {
+  //margin-bottom: 80px !important;
+  width: 100vw;
+  font-size: 1rem;
+}
+
+.submenu-icon{
+  float: right;
+}
+
+// popups
 .popup-head {
   padding: 10px;
   border: none;
@@ -78,106 +153,7 @@ a {
     font-size: 1rem;
   }
 }
-
-.side-item {
-  background: inherit;
-  color: $white;
-}
-.token-link {
-  text-decoration: underline;
-}
-.center {
-  text-align: center!important;
-  justify-content: center;
-}
-.item {
-  border-width: 0;
-  color: $contentColor;
-  font-size: 1rem;
-}
-.item-select select {
-  max-width: 100%;
-}
-.item-complex .item-content,
-.item-radio .item-content {
-  background: $fillColor;
-}
-.item-radio > input[disabled="disabled"] + div.item-content {
-  opacity: 0.4;
-}
-.scroll {
-  padding-bottom: 1px;
-}
-.error p {
-  color: $negativeColor;
-  font-size: 0.5rem;
-}
-.app-version {
-  color: $primaryBrandColor;
-  opacity: 0.5;
-  font-size: 0.8rem;
-  display: block;
-  margin: 0 auto;
-}
-.help-block {
-  font-size: 0.8rem;
-  color: $contentColor;
-  text-align: left;
-}
-.left {
-  text-align: left;
-}
-.right {
-  text-align: right;
-}
-.green {
-  color: $positiveColor;
-}
-.red {
-  color: $negativeColor!important;
-}
-.bold {
-  font-weight: bold;
-}
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
-  -webkit-appearance: none;
-  margin: 0;
-  /* <-- Apparently some margin are still there even though it's hidden */
-}
-.page-title {
-  font-size: 1.5rem;
-  font-weight: normal;
-  padding: 5px;
-  color: $contentColor;
-  border-bottom: 2px solid $black;
-  margin: 0;
-}
-.sub-title {
-  font-size: 1rem;
-  color: $primaryBrandColor;
-}
-.input-title {
-  text-align: left;
-  white-space: normal;
-  font-size: 1rem;
-  padding: 5px;
-  span {
-    font-size: 1rem;
-    color: $secondaryContentColor;
-  }
-}
-.help-block {
-  font-size: 0.8rem;
-  text-align: left;
-  color: $secondaryContentColor;
-  position: relative;
-}
-.error {
-  color: $negativeColor;
-  font-size: 0.8rem;
-}
+// end popups
 .info-container {
   border-radius: 3px;
   background: $fillColor;
@@ -185,75 +161,13 @@ input::-webkit-outer-spin-button {
   padding: 0;
   font-size: 0.8rem;
 }
-input {
-  width: 100%;
-  padding: 5px!important;
-  border: 1px solid $borderColor!important;
-  border-radius: 3px!important;
-  background: $white;
-  font-size: 0.8rem!important;
-  height: auto!important;
-  &.checkbox {
-    width: 20px;
-    top: 2px;
-    position: relative;
-  }
-  &.input-disabled {
-    background: $fillColor;
-  }
-}
-input[type="date"]::-webkit-calendar-picker-indicator {
-  color: $secondaryContentColor;
-  // border: 1px solid $borderColor;
-}
-input[type="date"] {
-  min-height: 30px!important;
-}
-.item-input {
-  padding: 5px;
-}
-.item-select {
-  border-radius: 3px;
-  font-size: 1rem;
-  padding: 5px;
-  select {
-    position: relative;
-    width: 100%;
-    padding: 5px;
-    border: 1px solid $borderColor;
-    border-radius: 3px;
-    background: $white;
-    direction: ltr;
-    font-size: 0.8rem;
-    option {
-      width: 100%;
-      text-align: left;
-    }
-  }
-  select[disabled] {
-      background: #f8f8f8 !important;
-  }
-}
-select {
-  position: relative;
-  width: 100%;
-  padding: 5px;
-  border: 1px solid $borderColor;
-  border-radius: 3px;
-  background: $white;
-  direction: ltr;
-  option {
-    width: 100%;
-    text-align: left;
-  }
-}
-p {
-  font-size: 1rem;
-  padding: 5px;
-  color: $contentColor;
-  font-weight: normal;
-  white-space: normal;
-  line-height: 1.4rem;
+
+.app-version {
+  color: $primaryBrandColor;
+  opacity: 0.5;
+  font-size: 0.8rem;
+  display: block;
+  margin: 0 auto;
 }
 
 .popup-head {
@@ -261,25 +175,7 @@ p {
     font-size: 1rem;
   }
 }
-label,
-textarea {
-  font-size: 1rem;
-}
-.general-content {
-  //margin-bottom: 80px !important;
-  width: 100vw;
-  font-size: 1rem;
-}
-.hint {
-  font-size: 0.8rem;
-  font-size: $FONT_SIZE_S;
-  color: $black;
-  margin-top: 3px;
-}
-.submenu-icon{
-  float: right;
-  // color: $darkPrimaryBrandColor;
-}
+
 .information-popup {
   .popup {
     background: $white;
@@ -303,6 +199,94 @@ textarea {
       }
     }
   }
+}
+
+// Inputs
+input {
+  -webkit-user-select: auto !important;
+  -khtml-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+  &::-webkit-input-placeholder {
+    color: $darkPrimaryBrandColor;
+  }
+  &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+  }
+  width: 100%;
+  padding: 5px!important;
+  border: 1px solid $borderColor!important;
+  border-radius: 3px!important;
+  background: $white;
+  font-size: 0.8rem!important;
+  height: auto!important;
+  &.checkbox {
+    width: 20px;
+    top: 2px;
+    position: relative;
+  }
+  &[type="date"] {
+    min-height: 30px!important;
+  }
+  &[type="date"]::-webkit-calendar-picker-indicator {
+    color: $secondaryContentColor;
+  }
+}
+
+.item-input {
+  padding: 5px;
+}
+
+.item-select {
+  border-radius: 3px;
+  font-size: 1rem;
+  select {
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    background: $white;
+    direction: ltr;
+    font-size: 0.8rem;
+    option {
+      width: 100%;
+      text-align: left;
+    }
+
+    &[disabled] {
+      background: $disabledColor!important;
+    }
+  }
+}
+
+.item-complex .item-content,
+.item-radio .item-content {
+  background: $fillColor;
+}
+
+.item-radio > input[disabled="disabled"] + div.item-content {
+  opacity: 0.4;
+}
+
+.input-title {
+  text-align: left;
+  white-space: normal;
+  font-size: 1rem;
+  padding: 5px;
+  span {
+    font-size: 1rem;
+    color: $secondaryContentColor;
+  }
+}
+
+label,
+textarea {
+  font-size: 1rem;
 }
 
 // Buttons
