@@ -490,13 +490,16 @@
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col center">
-          <span class="help-block error center" ng-if="vm.notAnyChanges">
+          <span class="help-block error" ng-if="vm.notAnyChanges">
             {{ 'financial-assessment.no_change' | translate }}
           </span>
-          <button class="button button-block"
+        </div>
+      </div>
+      <div class="row">
+        <div class="col center">
+          <button class="button button-positive"
                   ng-click="vm.updateProfile()"
                   ng-disabled="!profileForm.$valid || vm.disableUpdateButton ||
                   (!vm.taxInfoIsOptional && !vm.profile.tax_residence && !vm.isVirtualAccount)">

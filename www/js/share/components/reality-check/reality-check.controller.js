@@ -240,7 +240,7 @@
                         [
                             {
                                 text: translation["reality-check.logout"],
-                                type: "button-secondary",
+                                type: "button-default",
                                 onTap() {
                                     vm.logout();
                                 }

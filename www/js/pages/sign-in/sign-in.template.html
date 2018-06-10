@@ -31,7 +31,7 @@
         </div>
         <div class="row center">
           <div class="col col-75">
-            <button class="button button-block btn-signin" type="submit">
+            <button class="button button-block button-positive" type="submit">
               {{ 'signin.add_account' | translate }}
             </button>
           </div>
@@ -63,7 +63,7 @@
             <div class="help-block error" ng-if="vm.emailError">
               {{vm.emailErrorMessage}}
             </div>
-            <button class="button button-block btn-signin"
+            <button class="button button-block button-positive"
                     type="submit"
                     ng-disabled="emailForm.$invalid || vm.isVerifyingEmail">
               {{ 'new-virtual-account.continue' | translate }}
@@ -194,7 +194,7 @@
             <div class="row">
               <div class="col">
                 <button
-                        class="button button-block btn-signin"
+                        class="button button-block button-positive"
                         type="submit"
                         ng-disabled="virtualws.$invalid">
                   {{ 'new-virtual-account.signup' | translate }}
@@ -242,7 +242,7 @@
       </div>
       <div class="row center" ng-show="!vm.showSignin && !vm.showTokenForm && !vm.showSignup && !vm.showvirtualws">
         <div class="col col-75">
-          <button class="button button-block button-possitive btn-signin"
+          <button class="button button-block button-positive"
                   type="button"
                   ng-click="vm.showSigninView()"
                   ng-disabled="vm.disableNextbutton">
