@@ -72,7 +72,7 @@
                   {{ 'new-account-maltainvest.general_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
-                  {{ 'newaccountreal.length-range-error' | translate :
+                  {{ 'new-account-maltainvest.length_range_error' | translate :
                   { min: vm.validation.length.name.min, max: vm.validation.length.name.max } }}
                 </ng-message>
                 <ng-message when="required">
@@ -111,7 +111,7 @@
                   {{ 'new-account-maltainvest.general_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
-                  {{ 'newaccountreal.length-range-error' | translate :
+                  {{ 'new-account-maltainvest.length_range_error' | translate :
                   {min: vm.validation.length.name.min, max: vm.validation.length.name.max} }}
                 </ng-message>
                 <ng-message when="required">
@@ -584,10 +584,10 @@
                            ng-if="newAccountMaltainvestForm.secret_answer.$dirty"
                            ng-hide="vm.errors.secret_answer">
                 <ng-message when="pattern">
-                  {{ 'newaccountreal.secretanswer-pattern-error' | translate }}
+                  {{ 'new-account-maltainvest.secret_answer_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="maxlength, minlength">
-                  {{ 'newaccountreal.length-range-error' | translate :
+                  {{ 'new-account-maltainvest.length_range_error' | translate :
                   {min: vm.validation.length.secret_answer.min, max: vm.validation.length.secret_answer.max} }}
                 </ng-message>
                 <ng-message when="required">
