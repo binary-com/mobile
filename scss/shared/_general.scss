@@ -40,12 +40,12 @@ a {
 }
 
 p {
-  font-size: 1rem!important;
+  font-size: $FONT_SIZE_N!important;
   padding: 5px;
   color: $contentColor;
   font-weight: normal;
   white-space: normal;
-  line-height: 1.4rem;
+  line-height: normal;
 }
 
 .center {
@@ -56,7 +56,7 @@ p {
 .item {
   border-width: 0;
   color: $contentColor;
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
 }
 
 .scroll {
@@ -93,7 +93,7 @@ p {
 }
 
 .sub-title {
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
   color: $primaryBrandColor;
 }
 
@@ -123,7 +123,7 @@ p {
 .general-content {
   //margin-bottom: 80px !important;
   width: 100vw;
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
 }
 
 .submenu-icon{
@@ -137,20 +137,20 @@ p {
   background: $primaryBrandColor;
   h3.popup-title {
     color: $white!important;
-    font-size: 1rem;
+    font-size: $FONT_SIZE_N;
     text-align: left;
     font-weight: bold;
   }
 }
 .popup-body {
   background: $white;
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
 }
 .popup-buttons {
   background: $white;
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
   .button {
-    font-size: 1rem;
+    font-size: $FONT_SIZE_N;
   }
 }
 // end popups
@@ -172,7 +172,7 @@ p {
 
 .popup-head {
   .popup-title {
-    font-size: 1rem;
+    font-size: $FONT_SIZE_N;
   }
 }
 
@@ -181,13 +181,13 @@ p {
     background: $white;
     width: 90vw;
     padding: 0;
-    font-size: 1rem;
+    font-size: $FONT_SIZE_N;
   }
   .popup-body {
     background: $white;
     padding: 5px;
     .item {
-      font-size: 1rem;
+      font-size: $FONT_SIZE_N;
       padding: 5px;
       background: $white;
       p {
@@ -243,10 +243,11 @@ input {
 
 .item-select {
   border-radius: 3px;
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
   select {
     position: relative;
     width: 100%;
+    max-width: 100%;
     padding: 5px;
     border: 1px solid $borderColor;
     border-radius: 3px;
@@ -276,23 +277,23 @@ input {
 .input-title {
   text-align: left;
   white-space: normal;
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
   padding: 5px;
   span {
-    font-size: 1rem;
+    font-size: $FONT_SIZE_N;
     color: $secondaryContentColor;
   }
 }
 
 label,
 textarea {
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
 }
 
 // Buttons
 button {
   border: none !important;
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
   a {
     font-weight: normal;
   }
@@ -317,7 +318,7 @@ button {
 
 @media screen and (max-width: 480px) {
   .information-popup .popup-body .item {
-    font-size: 1rem;
+    font-size: $FONT_SIZE_N;
   }
   .information-popup {
     .popup {
@@ -334,7 +335,7 @@ button {
         }
       }
       p {
-        font-size: 1rem;
+        font-size: $FONT_SIZE_N;
       }
     }
   }

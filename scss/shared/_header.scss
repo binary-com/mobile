@@ -4,7 +4,7 @@
 .balance {
 	background: $white;
 	color: $contentColor;
-	font-size: 1rem;
+	font-size: $FONT_SIZE_N;
 	padding: 0 5px;
 	border-bottom: 1px solid $borderColor;
 	.row{
