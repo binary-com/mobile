@@ -89,4 +89,16 @@ angular.module("binary").service("clientService", function(appStateService) {
         currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
     };
 
+    this.groupMT5Accounts = accounts => {
+        const demo = [];
+        const real = [];
+        _.forEach(accounts, account => {
+            account.isDemo ? demo.push(account) : real.push(account);
+        });
+        return {
+            demo,
+            real
+        };
+    };
+
 });
