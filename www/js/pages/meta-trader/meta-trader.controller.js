@@ -50,8 +50,8 @@
             });
         });
 
-        vm.createMTAccount = section => {
-            window.open(`https://mt.binary.com/en/user/settings/metatrader.html#${section}`, "_system");
+        vm.createMTAccount = () => {
+            window.open(`https://www.binary.com/en/user/metatrader.html`, "_system");
         };
 
         vm.loadAccount = accountName => {
