@@ -197,7 +197,7 @@
     "on_the_basis_of_information": "Na podstawie przedstawionych informacji dotyczących Twojej wiedzy i doświadczenia uznaliśmy, że inwestycje dostępne za pośrednictwem naszej strony są dla Ciebie nieodpowiednie.",
     "by_clicking": "Przez kliknięcie ",
     "accept": "Akceptuj",
-    "exposing_at_risk": "i kontynuowanie procedury otwarcia konta oznacza, że zdajesz sobie sprawę z tego, że możesz być narażony/a na ryzyko (które może być znaczne, w tym na ryzyko utraty całej zainwestowanej sumy) i możesz nie posiadać wystarczającej wiedzy i wystarczającego doświadczenia, aby sobie z nimi poradzić.",
+    "exposing_at_risk": "i kontynuowanie procedury otwarcia konta oznacza, że zdajesz sobie sprawę z tego, że możesz być narażony/a na ryzyko (które może być znaczne, w tym na ryzyko utraty całej zainwestowanej sumy) i możesz nie posiadać wystarczającej wiedzy i wystarczającego doświadczenia, aby sobie z nim poradzić.",
     "decline": "Odrzuć",
     "secret_question": "Pytanie zabezpieczające",
     "secret_answer": "Odpowiedź na pytanie zabezpieczające"
@@ -333,9 +333,9 @@
     "please_enter_an_integer_value": "Wprowadź wartość całkowitą o maksymalnej długości {{max}}",
     "enter_valid_value": "Proszę wprowadzić wartość do {{fractionalDigits}} dwóch miejsc po przecinku i o maksymalnej długości {{max}}",
     "valid_range_hint": "Proszę wpisać liczbę od 0 do {{max}}",
-    "date_is_not_valid": "Okres wyłączenia musi zaczynać się jutro lub później",
-    "date_can_not_be_greater_than": "Okres wyłączenia nie może przekraczać {{max}}",
-    "date_can_not_less_than": "Okres wyłączenia nie może być krótszy niż {{max}}",
+    "date_is_not_valid": "Okres wykluczenia musi zaczynać się jutro lub później",
+    "date_can_not_be_greater_than": "Okres wykluczenia nie może przekraczać {{max}}",
+    "date_can_not_less_than": "Okres wykluczenia nie może być krótszy niż {{max}}",
     "save_prompt": "Treść zapisana pomyślnie",
     "session_timeout_warning": "Limit czasu sesji zakończy się za 10 sek.",
     "success": "Udało się",
@@ -371,14 +371,14 @@
     "cancel": "Anuluj",
     "continue": "Kontynuuj",
     "account_opening_reason": "Powód otwarcia konta",
-    "is_optional": "(Opcjonalne)",
+    "is_optional": "(Opcjonalnie)",
     "address": "Adres",
     "details": "Szczegóły",
     "tax_information": "Informacje podatkowe",
     "email_preferences": "Preferencje dot. wiadomości e-mail",
     "receive_emails": "Otrzymuj wiadomości e-mail dotyczące produktów i usług Binary.com oraz wydarzeń organizowanych przez %1",
     "to_change": "W celu zmiany imienia i nazwiska, daty urodzenia, kraju zamieszkania lub adresu e-mail, prosimy o kontakt z",
-    "customer_support": "Dział obsługi klienta"
+    "customer_support": "działem obsługi klienta"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "zaktualizowało swój",
@@ -527,7 +527,7 @@
     "russia": "Rosja",
     "united_kingdom": "Wielka Brytania",
     "toll_free": "(Numer bezpłatny)",
-    "not_located": "Jeśli nie mieszkasz w jednym z wyżej wymienionych państw, wybierz dowolny z naszych numerów kontaktowych, aby uzyskać pomoc.",
+    "not_located": "Jeśli nie mieszkasz w jednym z wyżej wymienionych państw, wybierz nasz dowolny numer kontaktowy, aby uzyskać pomoc.",
     "calls": "* Wszystkie rozmowy są rejestrowane w celach szkoleniowych i kontrolnych",
     "email": "Adres e-mail",
     "payment_email": "Jeśli masz pytania dot. płatności",
@@ -704,18 +704,18 @@
     "significant_transactions": "Zawierałeś/-aś już duże transakcje na rynkach podobnych do tych oferowanych przez nas, średnio 10 transakcji na kwartał w ostatnich czterech kwartałach",
     "size_of_instrument": "Wartość Twojego portfela instrumentów finansowych przekracza 500 000 EUR lub równowartość tej kwoty",
     "worked_in_financial_sector": "Pracowałeś/-aś w sektorze finansowym przez co najmniej rok na stanowisku wymagającym wiedzy o transakcjach, które chcesz zawierać na naszej platformie",
-    "treated_as_professional_client": "Jeśli wybierzesz opcję traktowania jako klienta profesjonalnego, uznamy Cię za osobę posiadającą wymagane doświadczenie i wiedzę o rynku. Podejmiemy kroki, aby upewnić się, że Twój wniosek o przyznanie statusu klienta profesjonalnego spełnia powyższe kryteria, w tym wystąpimy z prośbą przedstawienia następujących dokumentów:",
+    "treated_as_professional_client": "Jeśli wybierzesz opcję uznania Cię za klienta profesjonalnego, uznamy Cię za osobę posiadającą wymagane doświadczenie i wiedzę o rynku. Podejmiemy kroki, aby upewnić się, że Twój wniosek o przyznanie statusu klienta profesjonalnego spełnia powyższe kryteria, w tym wystąpimy z prośbą przedstawienia następujących dokumentów:",
     "statements": "Wyciągi przedstawiające Twoje transakcje z poprzednich czterech kwartałów",
     "portfolio": "Potwierdzenie Twojego portfolio u innych usługodawców",
     "employment": "Potwierdzenie zatrudnienia"
   },
   "pep-information": {
-    "pep": "Czym jest PEP?",
-    "what-is-pep": "Osoba zajmująca eksponowane stanowisko polityczne (PEP) to osoba, która sprawuje lub sprawowała znaczącą funkcję publiczną lub osoba, której bliski członek rodziny lub osoba uznana za bliskiego współpracownika sprawuje lub sprawowała taką funkcję, z wyłączeniem urzędników niższego lub średniego szczebla. Do takich osób zalicza się: przywódców państw, ministrów, sekretarzy parlamentarnych, posłów parlamentarnych, sędziów, ambasadorów, wysokiej rangi urzędników rządowych, wysokiej rangi wojskowych, członków komitetów ds. audytu w radach banków centralnych, dyrektorów spółek skarbu państwa. Za PEP uważa się również „bliskich członków rodziny” wyżej wymienionych osób, czyli np. małżonków i partnerów, rodziców, czy dzieci. Dodatkowo, „osoba uznana za bliskiego współpracownika” PEP rozumiana jest m. in. jako partner biznesowy. Co do zasady, osoba, która według powyższej definicji kwalifikuje się jako PEP, ale która nie sprawuje już znaczącej funkcji publicznej przez okres co najmniej dwunastu miesięczny nie jest już uznawana za PEP."
+    "pep": "Kim jest PEP?",
+    "what-is-pep": "Osoba zajmująca eksponowane stanowisko polityczne (PEP) to osoba, która sprawuje lub sprawowała znaczącą funkcję publiczną lub osoba, której bliski członek rodziny lub osoba uznana za bliskiego współpracownika sprawuje lub sprawowała taką funkcję, z wyłączeniem urzędników niższego lub średniego szczebla. Do takich osób zalicza się: przywódców państw, ministrów, sekretarzy parlamentarnych, posłów parlamentarnych, sędziów, ambasadorów, wysokiej rangi urzędników rządowych, wysokiej rangi wojskowych, członków komitetów ds. audytu w radach banków centralnych, dyrektorów spółek skarbu państwa. Za PEP uważa się również „bliskich członków rodziny” wyżej wymienionych osób, czyli np. małżonków i partnerów, rodziców, czy dzieci. Dodatkowo, „osoba uznana za bliskiego współpracownika” PEP rozumiana jest m. in. jako partner biznesowy. Co do zasady, osoba, która według powyższej definicji kwalifikuje się jako PEP, ale która nie sprawuje już znaczącej funkcji publicznej przez okres co najmniej dwunastu miesięcy nie jest już uznawana za PEP."
   },
   "what-is-tax-information": {
     "required_by": "Wymóg ten jest nałożony przez standard automatycznej wymiany informacji w dziedzinie opodatkowania (Common Reporting Standard - CRS) oraz regulację FATCA (Foreign Account Tax Compliance Act).",
-    "please_enter": "Wprowadź swój ",
+    "please_enter": "Wprowadź ",
     "tax_information": "informacje podatkowe",
     "to_continue": "aby kontynuować.",
     "information_will_be_safe": "Zapewniamy, że Twoje informacje będą wykorzystywane wyłącznie w celu raportowania CRS/FATCA i że będą bezpiecznie przechowywane."
