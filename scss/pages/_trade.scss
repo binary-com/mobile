@@ -169,7 +169,7 @@
 								white-space: nowrap;
 								margin: 0 auto;
 								color: $contentColor;
-								font-size: 1.5rem;
+								font-size: $FONT_SIZE_XL;
 								align-items: center;
 								display: flex;
 								&:hover {
@@ -288,7 +288,7 @@
 									vertical-align: middle;
 									line-height: normal;
 									align-items: center;
-									font-size: 0.8rem;
+									font-size: $FONT_SIZE_XS;
                                     text-align: center;
                                     span {
 										display: inline-block;
@@ -300,7 +300,7 @@
 									display: inline-block;
 									vertical-align: middle;
 									align-items: center;
-									font-size: 0.8rem;
+									font-size: $FONT_SIZE_XS;
                                     text-align: center;
 									span {
 										display: inline-block;
@@ -335,7 +335,7 @@
 								margin: 0;
 								.basis-title {
 									font-weight: bold;
-									font-size: 1.$FONT_SIZE_N;
+									font-size: $FONT_SIZE_L;
 									color: $contentColor;
 									vertical-align: middle;
 									line-height: normal;
@@ -345,7 +345,7 @@
 									span {
 										display: inline-block;
 										vertical-align: middle;
-										font-size: 1.$FONT_SIZE_N;
+										font-size: $FONT_SIZE_L;
 										line-height: normal;
 									}
 									.crypto {
@@ -353,7 +353,7 @@
 									}
 								}
 								.basis {
-									font-size: 1.$FONT_SIZE_N;
+									font-size: $FONT_SIZE_L;
 									display: inline-block;
 									vertical-align: middle;
 									width: 100%;
@@ -362,11 +362,11 @@
 									span {
 										display: inline-block;
 										vertical-align: middle;
-										font-size: 1.$FONT_SIZE_N;
+										font-size: $FONT_SIZE_L;
 										line-height: normal;
 									}
                   					.crypto {
-                    					font-size: 0.9rem !important;
+                    					font-size: $FONT_SIZE_S !important;
                   					}
 								}
 							}
@@ -435,7 +435,7 @@
 								color: $contentColor;
 							}
 							.crypto {
-								font-size: 0.9rem !important;
+								font-size: $FONT_SIZE_S !important;
 							}
 						}
 						&.sell {
@@ -450,7 +450,7 @@
 								color: $contentColor;
 							}
 							.crypto {
-								font-size: 0.9rem !important;
+								font-size: $FONT_SIZE_S !important;
 							}
 						}
 						&.profit {
@@ -459,7 +459,7 @@
 								color: $contentColor;
 							}
 							.crypto {
-								font-size: 0.9rem !important;
+								font-size: $FONT_SIZE_S !important;
 							}
 						}
 						&.win {
@@ -499,7 +499,7 @@
 						}
 					}
 					.crypto {
-						font-size: 0.9rem !important;
+						font-size: $FONT_SIZE_S !important;
 					}
 					.button {
 						white-space: nowrap;

@@ -134,7 +134,7 @@
 			.statement-element {
 				display: table-cell;
 				padding: 5px;
-				font-size: 0.8rem;
+				font-size: $FONT_SIZE_XS;
 
 				&:nth-child(2) {
 					padding-top: 10px;
@@ -147,7 +147,7 @@
 		}
 
 		.has-error {
-			font-size: 1.$FONT_SIZE_N;
+			font-size: $FONT_SIZE_L;
 			color: $negativeColor;
 		}
 	}
@@ -160,13 +160,13 @@
 	}
 
 	.reference {
-		font-size: 1.5rem;
+		font-size: $FONT_SIZE_XL;
 		border-bottom: 2px solid $black;
 		padding: 5px 0;
 	}
 
 	.small-text {
-		font-size: 0.8rem;
+		font-size: $FONT_SIZE_XS;
 	}
 
 	.back {

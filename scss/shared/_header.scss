@@ -80,7 +80,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 	padding: 0;
 	background: $noticeColor;
 	.error {
-		font-size: 0.8rem;
+		font-size: $FONT_SIZE_XS;
 		padding: 10px;
 	}
 }

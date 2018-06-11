@@ -84,7 +84,7 @@ p {
 }
 
 .page-title {
-  font-size: 1.5rem;
+  font-size: $FONT_SIZE_XL;
   font-weight: normal;
   padding: 5px;
   color: $contentColor;
@@ -98,14 +98,13 @@ p {
 }
 
 .hint {
-  font-size: 0.8rem;
-  font-size: $FONT_SIZE_S;
+  font-size: $FONT_SIZE_XSS;
   color: $black;
   margin-top: 3px;
 }
 
 .help-block {
-  font-size: 0.8rem;
+  font-size: $FONT_SIZE_XS;
   text-align: left;
   color: $secondaryContentColor;
   position: relative;
@@ -113,10 +112,10 @@ p {
 
 .error {
   color: $negativeColor;
-  font-size: 0.8rem;
+  font-size: $FONT_SIZE_XS;
   p {
     color: $negativeColor;
-    font-size: 0.5rem;
+    font-size: $FONT_SIZE_XS;
   }
 }
 
@@ -159,13 +158,13 @@ p {
   background: $fillColor;
   word-break: break-word;
   padding: 0;
-  font-size: 0.8rem;
+  font-size: $FONT_SIZE_XS;
 }
 
 .app-version {
   color: $primaryBrandColor;
   opacity: 0.5;
-  font-size: 0.8rem;
+  font-size: $FONT_SIZE_XS;
   display: block;
   margin: 0 auto;
 }
@@ -222,7 +221,7 @@ input {
   border: 1px solid $borderColor!important;
   border-radius: 3px!important;
   background: $white;
-  font-size: 0.8rem!important;
+  font-size: $FONT_SIZE_XS!important;
   height: auto!important;
   &.checkbox {
     width: 20px;
@@ -253,7 +252,7 @@ input {
     border-radius: 3px;
     background: $white;
     direction: ltr;
-    font-size: 0.8rem;
+    font-size: $FONT_SIZE_XS;
     option {
       width: 100%;
       text-align: left;
