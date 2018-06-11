@@ -120,7 +120,7 @@
               !appStateService.hasTnCMessage &&
               clientTncStatus &&
               websiteTncStatus &&
-              clientTncStatus !== websiteTncStatus) {
+              clientTncStatus == websiteTncStatus) {
                 appStateService.hasTnCMessage = true;
                 notificationService.notices.push(notificationMessages.termsAndConditionsMessage);
                 // we run the digest cycle to call $watch in notifications in this case
