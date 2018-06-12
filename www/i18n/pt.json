@@ -200,7 +200,8 @@
     "exposing_at_risk": "below and proceeding with the Account Opening you should note that you may be exposing yourself to risks (which may be significant, including the risk of loss of the entire sum invested) that you may not have the knowledge and experience to properly assess or mitigate.",
     "decline": "Decline",
     "secret_question": "Secret question",
-    "secret_answer": "Secret answer"
+    "secret_answer": "Secret answer",
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
   },
   "new-account-real": {
     "real_account_opening": "Abertura de uma conta de dinheiro real",
