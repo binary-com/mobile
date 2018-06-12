@@ -200,7 +200,8 @@
     "exposing_at_risk": "crwdns44884:0crwdne44884:0",
     "decline": "crwdns44885:0crwdne44885:0",
     "secret_question": "crwdns45172:0crwdne45172:0",
-    "secret_answer": "crwdns45173:0crwdne45173:0"
+    "secret_answer": "crwdns45173:0crwdne45173:0",
+    "secret_answer_pattern_error": "crwdns45843:0crwdne45843:0"
   },
   "new-account-real": {
     "real_account_opening": "crwdns42739:0crwdne42739:0",
@@ -645,7 +646,7 @@
     "secondary": "crwdns42824:0crwdne42824:0",
     "tertiary": "crwdns42825:0crwdne42825:0",
     "salaried": "crwdns42826:0crwdne42826:0",
-    "self_employed": "crwdns42827:0crwdne42827:0",
+    "self_employed": "crwdns45831:0crwdne45831:0",
     "investment": "crwdns42828:0crwdne42828:0",
     "pension": "crwdns42829:0crwdne42829:0",
     "net_income_1": "crwdns42830:0crwdne42830:0",
@@ -711,13 +712,25 @@
   },
   "pep-information": {
     "pep": "crwdns44908:0crwdne44908:0",
-    "what-is-pep": "crwdns44909:0crwdne44909:0"
+    "what_is_pep": "crwdns45832:0crwdne45832:0"
   },
   "what-is-tax-information": {
+    "tax_information_title": "crwdns45833:0crwdne45833:0",
     "required_by": "crwdns44910:0crwdne44910:0",
     "please_enter": "crwdns44911:0crwdne44911:0",
     "tax_information": "crwdns44912:0crwdne44912:0",
     "to_continue": "crwdns44913:0crwdne44913:0",
-    "information_will_be_safe": "crwdns44914:0crwdne44914:0"
+    "information_will_be_safe": "crwdns44914:0crwdne44914:0",
+    "contact_for_clarification": "crwdns45834:0crwdne45834:0"
+  },
+  "professional-client-confirmation": {
+    "professional_clients": "crwdns45835:0crwdne45835:0",
+    "professional_clients_receive": "crwdns45836:0crwdne45836:0",
+    "posses_of_experience": "crwdns45837:0crwdne45837:0",
+    "appropriateness_test": "crwdns45838:0crwdne45838:0",
+    "keep_informed": "crwdns45839:0crwdne45839:0",
+    "accept": "crwdns45840:0crwdne45840:0",
+    "decline": "crwdns45841:0crwdne45841:0",
+    "you_may_decline": "crwdns45842:0crwdne45842:0"
   }
 }
