@@ -645,7 +645,7 @@
     "secondary": "次要",
     "tertiary": "三级",
     "salaried": "受薪雇员",
-    "self_employed": "个体经营",
+    "self_employed": "Self-Employed",
     "investment": "投资与分红",
     "pension": "养老金",
     "net_income_1": "少于$25,000",
@@ -711,13 +711,25 @@
   },
   "pep-information": {
     "pep": "Pep 是什么？",
-    "what-is-pep": "政治公众人士(PEP) 是被委托进行特出公众任务的个人。此身份包括了其直系亲属和众所周知为其亲近的人，但不包括中级或初级官员。所指个人包括国家首长、部长、国会秘书、国会议员、法官、大使、高级政府官员、军事高层官员、中央银行的审计委员、国营企业董事等。以上各例的直系亲属也都属于政治公众人士，包括其配偶/伴侣、父母和孩子。再者，众所周知的与政治公众人士有亲密关系的人士包括其商业合伙人也属于政治公众人士。一般来说，已经停止被委托进行特出公众任务为期超过十二个月的个人不属于政治公众人士。"
+    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
   },
   "what-is-tax-information": {
+    "tax_information_title": "Tax Information",
     "required_by": "此要求由《统一报告标准》 (CRS) 和《外国账户税收遵守法》 (FATCA) 规定。",
     "please_enter": "请输入您的 ",
     "tax_information": "税务信息",
     "to_continue": "继续。",
-    "information_will_be_safe": "请放心, 您的信息将只用于 CRS/FATCA 报告, 并将给予安全保障。"
+    "information_will_be_safe": "请放心, 您的信息将只用于 CRS/FATCA 报告, 并将给予安全保障。",
+    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+  },
+  "professional-client-confirmation": {
+    "professional_clients": "Professional Clients",
+    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
+    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
+    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
+    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "you_may_decline": "Note: You may decline and continue as a Retail Client."
   }
 }
