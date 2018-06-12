@@ -85,7 +85,7 @@
                 if (
                     vm.from.name === "statement" &&
                     vm.to.name !== "transaction-detail" &&
-                    document.getElementsByClassName("realitycheck").length > 0
+                    document.getElementsByClassName("reality-check").length > 0
                 ) {
                     $(".popup-container").addClass("popup-showing");
                     $("body").addClass("popup-open");

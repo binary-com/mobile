@@ -1,4 +1,4 @@
-.realitycheck {
+.reality-check {
 	.popup {
 		background: $white;
 		width: 90vw;
@@ -18,7 +18,7 @@
 			}
 			.row {
 				white-space: normal;
-				&.realitycheck-text {
+				&.reality-check-text {
 					padding: 15px 0 0 !important;
 				}
 				.col:nth-child(2n) {
@@ -34,12 +34,12 @@
 		}
 	}
 }
-.getinterval {
+.get-interval {
 	.popup {
 		width: 40vw;
 	}
 }
-.getinterval,
+.get-interval,
 .result-popup {
 	.popup {
 		width: 40vw;
@@ -47,10 +47,10 @@
 }
 
 @media screen and (max-width: 480px) {
-	.realitycheck .popup-body .item {
+	.reality-check .popup-body .item {
 		font-size: 1rem;
 	}
-	.realitycheck {
+	.reality-check {
 		.popup-body {
 			.item {
 				.row {
@@ -66,7 +66,7 @@
 			}
 		}
 	}
-	.getinterval {
+	.get-interval {
 		.popup {
 			width: 90vw!important;
 		}
@@ -79,7 +79,7 @@
 }
 
 @media screen and (max-width: 960px) {
-	.getinterval,
+	.get-interval,
 	.result-popup {
 		.popup {
 			width: 95vw!important;
