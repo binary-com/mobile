@@ -90,15 +90,19 @@ angular.module("binary").service("clientService", function(appStateService) {
     };
 
     this.groupMT5Accounts = accounts => {
+        const groupedAccounts = {};
         const demo = [];
         const real = [];
         _.forEach(accounts, account => {
             account.isDemo ? demo.push(account) : real.push(account);
         });
-        return {
-            demo,
-            real
-        };
+        if (demo.length) {
+            groupedAccounts.demo = demo;
+        }
+        if (real.length) {
+            groupedAccounts.real = real;
+        }
+        return groupedAccounts;
     };
 
 });

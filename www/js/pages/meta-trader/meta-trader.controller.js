@@ -13,16 +13,14 @@
 
     function MetaTrader($scope, $state, accountService, websocketService, clientService) {
         const vm = this;
-        vm.hasMTAccess = null;
-        vm.canUpgrade = false;
+        vm.isLoaded = false;
         vm.accountsList = {};
+        vm.hasMTAccess = false;
+        vm.canUpgrade = false;
         const accounts = {};
         const accountsInfo = {};
         const mtCompany = {};
         const landingCompanyObject = JSON.parse(localStorage.getItem('landingCompanyObject'));
-        // vm.hasMTAccess = null;
-        // vm.upgradeYourAccount = false;
-        // vm.hasRealAccount = false;
 
         const mtCompanies = {
             financial: {
@@ -73,6 +71,7 @@
                     accountsInfo[accountType].info = obj;
                     const account = obj;
                     account.isDemo = accountsInfo[accountType].isDemo;
+                    account.shortTitle = accountsInfo[accountType].shortTitle;
                     accounts[account.login] = account;
                 }
             });
@@ -80,6 +79,9 @@
             $scope.$applyAsync(() => {
                 vm.canUpgrade = !!_.find(accountsInfo, (name, acc) => !acc.info);
                 vm.accountsList = clientService.groupMT5Accounts(accounts);
+                console.log(vm.accountsList);
+                console.log(!_.isEmpty(vm.accountsList));
+                vm.isLoaded = true;
             });
         };
 
@@ -99,125 +101,42 @@
 
         $scope.$on('mt5_login_list:success', (e, list) => {
             getAllAccountsInfo(list);
-
-            // if (isVirtual) {
-            //     getAllAccountsInfo(list);
-            // } else {
-            //     // get_limits.thengetAllAccountsInfo then exchange rates
-            // }
         });
+
+        vm.createMTAccount = () => {
+            window.open(`https://www.binary.com/en/user/metatrader.html`, "_system");
+        };
+
+        vm.openMT5 = type => {
+            type = type || "_blank";
+            if (["android", "ios"].indexOf(ionic.Platform.platform()) > -1) {
+                $state.go("mt5-web");
+                return;
+            }
+
+            const url = "https://trade.mql5.com/trade?servers=Binary.com-Server&trade_server=Binary.com-Server";
+            window.open(url, type);
+        };
 
         const init = () => {
             if (isEligible()) {
                 const accounts = accountService.getAll();
                 vm.hasRealAccount = !!_.find(accounts, obj =>
-                    _.indexOf(['malta', 'costarica', 'iom', 'maltainvest'], obj.landing_company_name) > -1);
-                getMT5LoginList();
+                  _.indexOf(['malta', 'costarica', 'iom', 'maltainvest'], obj.landing_company_name) > -1);
                 $scope.$applyAsync(() => {
                     vm.hasMTAccess = true;
                 });
+                getMT5LoginList();
             } else {
                 $scope.$applyAsync(() => {
                     vm.hasMTAccess = false;
+                    vm.isLoaded = true;
                 });
                 //  show feature not available error
             }
         };
 
         init();
-
-
-
-
-
-
-
-        // vm.accountType = {
-        //     demo      : "demo\\binary_virtual",
-        //     volatility: "real\\costarica",
-        //     financial : "real\\vanuatu_cent"
-        // };
-        //
-        // $scope.$on("landing_company", (e, landingCompany) => {
-        //     $scope.$applyAsync(() => {
-        //         if (
-        //             landingCompany.hasOwnProperty("mt_financial_company") &&
-        //             clientService.isLandingCompanyOf('vanuatu', landingCompany.mt_financial_company.shortcode)
-        //         ) {
-        //             vm.hasMTAccess = true;
-        //             websocketService.sendRequestFor.mt5LoginList();
-        //         } else {
-        //             vm.hasMTAccess = false;
-        //         }
-        //     });
-        // });
-        //
-        // $scope.$on("mt5_login_list:success", (e, list) => {
-        //     $scope.$applyAsync(() => {
-        //         vm.mt5LoginList = list;
-        //         vm.loadAccount(vm.accountType.demo);
-        //     });
-        // });
-        //
-        // $scope.$on("mt5_get_settings:success", (e, settings) => {
-        //     $scope.$applyAsync(() => {
-        //         vm.settings = settings;
-        //     });
-        // });
-        //
-        // vm.createMTAccount = () => {
-        //     window.open(`https://www.binary.com/en/user/metatrader.html`, "_system");
-        // };
-        //
-        // vm.loadAccount = accountName => {
-        //     if (vm.mt5LoginList.length > 0) {
-        //         const account = _.find(vm.mt5LoginList, o => {
-        //             if (o.group) {
-        //                 return o.group.indexOf(accountName) > -1;
-        //             }
-        //             return null;
-        //         });
-        //         if (account) {
-        //             websocketService.sendRequestFor.mt5GetSettings(account.login);
-        //             $scope.$applyAsync(() => {
-        //                 vm.upgradeYourAccount = false;
-        //             });
-        //         } else {
-        //             $scope.$applyAsync(() => {
-        //                 vm.upgradeYourAccount = true;
-        //             });
-        //         }
-        //         $scope.$applyAsync(() => {
-        //             vm.openCard = accountName;
-        //             vm.settings = null;
-        //         });
-        //     }
-        // };
-        //
-        // vm.openMT5 = type => {
-        //     type = type || "_blank";
-        //     if (["android", "ios"].indexOf(ionic.Platform.platform()) > -1) {
-        //         $state.go("mt5-web", { id: vm.settings.login });
-        //         return;
-        //     }
-        //
-        //     let url = "https://trade.mql5.com/trade?servers=Binary.com-Server&trade_server=Binary.com-Server&login=";
-        //     url += vm.settings.login;
-        //     window.open(url, type);
-        // };
-        //
-        // const init = () => {
-        //     const accounts = accountService.getAll();
-        //     vm.hasRealAccount = !!_.find(accounts, obj =>
-        //       _.indexOf(['malta', 'costarica', 'iom'], obj.landing_company_name) > -1);
-        //
-        //     const account = accountService.getDefault();
-        //     if (account) {
-        //         websocketService.sendRequestFor.landingCompanySend(account.country);
-        //     }
-        // };
-        //
-        // init();
 
     }
 })();
