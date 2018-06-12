@@ -14,6 +14,7 @@
     function MetaTrader($scope, $state, accountService, websocketService, clientService) {
         const vm = this;
         vm.isLoaded = false;
+        vm.hasAccount = false;
         vm.accountsList = {};
         vm.hasMTAccess = false;
         vm.canUpgrade = false;
@@ -80,6 +81,7 @@
                 vm.canUpgrade = !!_.find(accountsInfo, (name, acc) => !acc.info);
                 vm.accountsList = clientService.groupMT5Accounts(accounts);
                 vm.isLoaded = true;
+                vm.hasAccount = !_.isEmpty(vm.accountsList);
             });
         };
 
