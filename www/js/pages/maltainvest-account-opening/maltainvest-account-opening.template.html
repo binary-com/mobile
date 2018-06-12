@@ -3,7 +3,10 @@
     <div class="row center spinner-container" ng-if="!vm.receivedSettings">
       <ion-spinner></ion-spinner>
     </div>
-    <form name="newAccountMaltainvestForm" class="new-real-account" ng-show="vm.receivedSettings" novalidate>
+    <form name="newAccountMaltainvestForm"
+          class="new-real-account"
+          ng-show="vm.receivedSettings && !vm.showRiskDisclaimer"
+          novalidate>
       <div class="row">
         <div class="col">
           <h1 class="page-title">
@@ -72,7 +75,7 @@
                   {{ 'new-account-maltainvest.general_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
-                  {{ 'newaccountreal.length-range-error' | translate :
+                  {{ 'new-account-maltainvest.length_range_error' | translate :
                   { min: vm.validation.length.name.min, max: vm.validation.length.name.max } }}
                 </ng-message>
                 <ng-message when="required">
@@ -111,7 +114,7 @@
                   {{ 'new-account-maltainvest.general_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
-                  {{ 'newaccountreal.length-range-error' | translate :
+                  {{ 'new-account-maltainvest.length_range_error' | translate :
                   {min: vm.validation.length.name.min, max: vm.validation.length.name.max} }}
                 </ng-message>
                 <ng-message when="required">
@@ -515,7 +518,7 @@
                   {{ 'new-account-maltainvest.phone_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="minlength, maxlength">
-                  {{ 'newaccountreal.length-range-error' | translate :
+                  {{ 'new-account-maltainvest.length_range_error' | translate :
                   {min: vm.validation.length.phone.min, max: vm.validation.length.phone.max} }}
                 </ng-message>
                 <ng-message when="required">
@@ -584,10 +587,10 @@
                            ng-if="newAccountMaltainvestForm.secret_answer.$dirty"
                            ng-hide="vm.errors.secret_answer">
                 <ng-message when="pattern">
-                  {{ 'newaccountreal.secretanswer-pattern-error' | translate }}
+                  {{ 'new-account-maltainvest.secret_answer_pattern_error' | translate }}
                 </ng-message>
                 <ng-message when="maxlength, minlength">
-                  {{ 'newaccountreal.length-range-error' | translate :
+                  {{ 'new-account-maltainvest.length_range_error' | translate :
                   {min: vm.validation.length.secret_answer.min, max: vm.validation.length.secret_answer.max} }}
                 </ng-message>
                 <ng-message when="required">
@@ -626,6 +629,7 @@
               <input name="professional_client"
                      type="checkbox"
                      ng-model="vm.client_type"
+                     ng-change="vm.showConfirmProfessionalClient()"
                      class="checkbox" />
               {{ 'new-account-maltainvest.professional_client_verify' | translate }}
               <a ng-click="vm.openProfessionalClientInformation()">
@@ -1119,41 +1123,41 @@
           </div>
         </div>
       </div>
-      <div class="row" ng-if="vm.showRiskDisclaimer">
-        <div class="col">
-          <div class="row">
-            <div class="col">
-              <p>
-                {{ 'new-account-maltainvest.required_to_obtain_information' | translate }}
-              </p>
-              <p>
-                {{ 'new-account-maltainvest.on_the_basis_of_information' | translate }}
-              </p>
-              <p>
-                {{ 'new-account-maltainvest.by_clicking' | translate }}
-                <span class="bold">
+    </form>
+    <div class="row" ng-if="vm.showRiskDisclaimer">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p>
+              {{ 'new-account-maltainvest.required_to_obtain_information' | translate }}
+            </p>
+            <p>
+              {{ 'new-account-maltainvest.on_the_basis_of_information' | translate }}
+            </p>
+            <p>
+              {{ 'new-account-maltainvest.by_clicking' | translate }}
+              <span class="bold">
                   {{ 'new-account-maltainvest.accept' | translate }}
                 </span>
-                {{ 'new-account-maltainvest.exposing_at_risk' | translate }}
-              </p>
-            </div>
+              {{ 'new-account-maltainvest.exposing_at_risk' | translate }}
+            </p>
           </div>
-          <div class="row">
-            <div class="col">
-              <button class="button button-block button-positive"
-                      ng-click="vm.acceptRisk()">
-                {{ 'new-account-maltainvest.accept' | translate }}
-              </button>
-            </div>
-            <div class="col">
-              <button class="button button-block button-default"
-                      ng-click="vm.declineRisk()">
-                {{ 'new-account-maltainvest.decline' | translate }}
-              </button>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button class="button button-block button-positive"
+                    ng-click="vm.acceptRisk()">
+              {{ 'new-account-maltainvest.accept' | translate }}
+            </button>
+          </div>
+          <div class="col">
+            <button class="button button-block button-default"
+                    ng-click="vm.declineRisk()">
+              {{ 'new-account-maltainvest.decline' | translate }}
+            </button>
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </ion-content>
 </ion-view>

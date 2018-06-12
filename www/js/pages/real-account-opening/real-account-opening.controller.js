@@ -40,7 +40,7 @@
         const accounts = accountService.getAll();
         const landingCompanyObject = !_.isEmpty(localStorage.landingCompanyObject) ?
             JSON.parse(localStorage.landingCompanyObject) : {};
-        vm.hasIOM = () => (landingCompanyObject && landingCompanyObject.financial_company &&
+        vm.hasIOM = (landingCompanyObject && landingCompanyObject.financial_company &&
             landingCompanyObject.financial_company.shortcode === 'iom') ||
             clientService.hasAccountOfLandingCompany(accounts, 'iom');
         vm.validation = validationService;

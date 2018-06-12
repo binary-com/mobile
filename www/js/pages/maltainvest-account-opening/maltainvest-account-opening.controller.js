@@ -13,8 +13,11 @@
 
     MaltainvestAccountOpening.$inject = [
         "$scope",
+        "$state",
         "$filter",
+        "$translate",
         "$ionicModal",
+        "$ionicScrollDelegate",
         "websocketService",
         "appStateService",
         "accountService",
@@ -27,8 +30,11 @@
 
     function MaltainvestAccountOpening(
         $scope,
+        $state,
         $filter,
+        $translate,
         $ionicModal,
+        $ionicScrollDelegate,
         websocketService,
         appStateService,
         accountService,
@@ -54,7 +60,7 @@
         const accounts = accountService.getAll();
         const landingCompanyObject = !_.isEmpty(localStorage.landingCompanyObject) ?
             JSON.parse(localStorage.landingCompanyObject) : {};
-        vm.hasIOM = () => (landingCompanyObject && landingCompanyObject.financial_company &&
+        vm.hasIOM = (landingCompanyObject && landingCompanyObject.financial_company &&
             landingCompanyObject.financial_company.shortcode === 'iom') ||
             clientService.hasAccountOfLandingCompany(accounts, 'iom');
         vm.receivedSettings = false;
@@ -217,7 +223,7 @@
 
         vm.declineRisk = () => {
             acceptRisk = 0;
-            vm.submitAccountOpening();
+            $state.go('trade');
         }
 
         $scope.$on("new_account_maltainvest:error", (e, error) => {
@@ -229,6 +235,7 @@
             } else if (error.code && error.code === 'show risk disclaimer') {
                 $scope.$applyAsync(() => {
                     vm.showRiskDisclaimer = true;
+                    $ionicScrollDelegate.scrollTop(true);
                 });
             } else if (error.code) {
                 alertService.displayError(error.message);
@@ -262,6 +269,28 @@
 
         vm.goToTINSite = () => {
             window.open(linkToTINSite, "_blank");
+        }
+
+        vm.showConfirmProfessionalClient = () => {
+            if (vm.client_type) {
+                alertService.displayProfessionalClientConfirmation(
+                    $translate.instant('professional-client-confirmation.professional_clients'),
+                    'information-popup',
+                    $scope,
+                    'js/share/templates/professional-client/professional-client-confirmation.template.html',
+                    [
+                        {
+                            text : $translate.instant("professional-client-confirmation.decline"),
+                            onTap: () => vm.client_type = 0
+                        },
+                        {
+                            text : $translate.instant("professional-client-confirmation.accept"),
+                            type : "button-positive",
+                            onTap: () => true
+                        }
+                    ]
+                );
+            }
         }
 
         const init = () => {
