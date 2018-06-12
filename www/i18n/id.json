@@ -645,7 +645,7 @@
     "secondary": "Menengah",
     "tertiary": "Tersier",
     "salaried": "Karyawan Bergaji",
-    "self_employed": "Wiraswasta",
+    "self_employed": "Self-Employed",
     "investment": "Investasi & Dividen",
     "pension": "Pensiunan",
     "net_income_1": "Kurang dari $25.000",
@@ -711,13 +711,25 @@
   },
   "pep-information": {
     "pep": "Apa itu PEP?",
-    "what-is-pep": "Politically Exposed Person yang selanjutnya disingkat sebagai PEP adalah orang yang memiliki atau pernah memiliki kewenangan publik termasuk anggota keluarganya atau orang terdekat dengannya, namun tidak termasuk kelas menengah atau posisi yang lebih rendah. Individu tersebut termasuk Kepala Negara, Menteri, Sekretaris Parlemen, Anggota Parlemen, Hakim, Duta Besar, Pejabat Tinggi Pemerintah, Petugas Peringkat Tinggi Angkatan Bersenjata, Komite Audit Dewan Bank Sentral, dan Direktur Perusahaan Milik Negara. \"Anggota keluarga terdekat\" dari contoh di atas juga akan dianggap sebagai PEP, dan ini termasuk pasangan, orang tua, dan anak-anak mereka. Selain itu, \"orang-orang yang dikenal sebagai rekan dekat\" termasuk mitra bisnis mereka, juga akan dianggap sebagai PEP. Sebagai aturan umum, seseorang yang sudah tidak memegang fungsi sebagai pihak berwenang lebih dari dua belas bulan maka orang tersebut tidak layak disebut sebagai PEP."
+    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
   },
   "what-is-tax-information": {
+    "tax_information_title": "Tax Information",
     "required_by": "Persyaratan ini dimandatkan oleh Common Reporting Standard (CRS) dan Foreign Fail Tax Compliance Act (FATCA).",
     "please_enter": "Silakan masukkan ",
     "tax_information": "informasi pajak",
     "to_continue": "untuk melanjutkan.",
-    "information_will_be_safe": "Yakinlah bahwa informasi Anda hanya akan digunakan untuk tujuan pelaporan CRS/FATCA dan akan disimpan dengan aman."
+    "information_will_be_safe": "Yakinlah bahwa informasi Anda hanya akan digunakan untuk tujuan pelaporan CRS/FATCA dan akan disimpan dengan aman.",
+    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+  },
+  "professional-client-confirmation": {
+    "professional_clients": "Professional Clients",
+    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
+    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
+    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
+    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "you_may_decline": "Note: You may decline and continue as a Retail Client."
   }
 }
