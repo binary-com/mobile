@@ -200,7 +200,8 @@
     "exposing_at_risk": "dibawah ini dan melanjutkan Pendaftaran Akun berarti Anda memahami bahwa Anda akan mungkin akan mengalami risiko (yang mungkin segnifikan termasuk risiko kehilangan semua dana yang Anda investasikan) dimana Anda mungkin tidak memiliki pengetahuan dan pengalaman untuk mengurangi atau menghindarinya.",
     "decline": "Menurun",
     "secret_question": "Pertanyaan rahasia",
-    "secret_answer": "Jawaban rahasia"
+    "secret_answer": "Jawaban rahasia",
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
   },
   "new-account-real": {
     "real_account_opening": "Pendaftaran Akun Uang Riil",
