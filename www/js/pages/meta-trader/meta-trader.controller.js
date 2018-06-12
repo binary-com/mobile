@@ -79,8 +79,6 @@
             $scope.$applyAsync(() => {
                 vm.canUpgrade = !!_.find(accountsInfo, (name, acc) => !acc.info);
                 vm.accountsList = clientService.groupMT5Accounts(accounts);
-                console.log(vm.accountsList);
-                console.log(!_.isEmpty(vm.accountsList));
                 vm.isLoaded = true;
             });
         };
