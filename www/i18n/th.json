@@ -200,7 +200,8 @@
     "exposing_at_risk": "ด้านล่างนี้ และดำเนินการเปิดบัญชี คุณควรทราบว่า คุณอาจเจอความเสี่ยง (ที่อาจจะมีนัยสำคัญ รวมถึงความเสี่ยงในการขาดทุนมูลค่าทั้งหมดที่ได้ลงทุน) ซึ่งคุณอาจจะไม่มีความรู้และประสบการณ์ที่จะประเมินและจัดการอย่างเหมาะสม",
     "decline": "ปฏิเสธ",
     "secret_question": "คำถามลับ",
-    "secret_answer": "คำตอบลับ"
+    "secret_answer": "คำตอบลับ",
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
   },
   "new-account-real": {
     "real_account_opening": "การเปิดบัญชีเงินจริง",
