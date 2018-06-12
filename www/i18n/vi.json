@@ -200,7 +200,8 @@
     "exposing_at_risk": "dưới đây và tiếp tục với việc mở tài khoản, bạn nên lưu ý rằng bạn có thể đang đối diện với những rủi ro (có thể là đáng kể, trong đó có nguy cơ mất toàn bộ số tiền đầu tư) mà bạn có thể không có kiến thức và kinh nghiệm để đánh giá đúng mực và giảm thiểu.",
     "decline": "Từ chối",
     "secret_question": "Câu hỏi bí mật",
-    "secret_answer": "Câu trả lời bí mật"
+    "secret_answer": "Câu trả lời bí mật",
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
   },
   "new-account-real": {
     "real_account_opening": "Mở Tài khoản Tiền Thực",
