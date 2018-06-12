@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.meta-trader.controllers").controller("MetaTraderController", MetaTrader);
 
-    MetaTrader.$inject = ["$scope", "$state", "accountService", "websocketService", "clientService"];
+    MetaTrader.$inject = ["$scope", "$translate", "$state", "accountService", "websocketService", "clientService"];
 
-    function MetaTrader($scope, $state, accountService, websocketService, clientService) {
+    function MetaTrader($scope, $translate, $state, accountService, websocketService, clientService) {
         const vm = this;
         vm.isLoaded = false;
         vm.hasAccount = false;
@@ -25,13 +25,13 @@
 
         const mtCompanies = {
             financial: {
-                standard: { mt5_account_type: 'standard',      max_leverage: 1000, title: 'Standard' },
-                advanced: { mt5_account_type: 'advanced',      max_leverage: 300,  title: 'Advanced' },
-                mamm    : { mt5_account_type: 'mamm_advanced', max_leverage: 300,  title: 'MAM Advanced', is_real_only: 1 },
+                standard: { mt5_account_type: 'standard',      max_leverage: 1000, title: $translate.instant('mt.standard') },
+                advanced: { mt5_account_type: 'advanced',      max_leverage: 300,  title: $translate.instant('mt.advanced') },
+                mamm    : { mt5_account_type: 'mamm_advanced', max_leverage: 300,  title: $translate.instant('mt.mam_advanced'), is_real_only: 1 },
             },
             gaming: {
-                volatility: { mt5_account_type: '',     max_leverage: 500, title: 'Volatility Indices' },
-                mamm      : { mt5_account_type: 'mamm', max_leverage: 500, title: 'MAM Volatility Indices', is_real_only: 1 },
+                volatility: { mt5_account_type: '',     max_leverage: 500, title: $translate.instant('mt.volatility_indices') },
+                mamm      : { mt5_account_type: 'mamm', max_leverage: 500, title: $translate.instant('mt.mam_volatility_indices'), is_real_only: 1 },
             },
         };
 

@@ -500,7 +500,12 @@
     "balance": "Balance",
     "name": "Name",
     "start_trading_with_mt5": "Start Trading With MT5",
-    "upgrade_real_account": "To create a real money Account for MT5, please upgrade to Binary.com Real Account."
+    "upgrade_real_account": "To create a real money Account for MT5, please upgrade to Binary.com Real Account.",
+    "standard": "Standard",
+    "advanced": "Advanced",
+    "mam_advanced": "MAM Advanced",
+    "volatility_indices": "Volatility Indices",
+    "mam_volatility_indices": "MAM Volatility Indices"
   },
   "authentication": {
     "authentication": "Authentication",
