@@ -93,9 +93,7 @@ angular.module("binary").service("clientService", function(appStateService) {
         const groupedAccounts = {};
         const demo = [];
         const real = [];
-        _.forEach(accounts, account => {
-            account.isDemo ? demo.push(account) : real.push(account);
-        });
+        _.forEach(accounts, account => account.isDemo ? demo.push(account) : real.push(account));
         if (demo.length) {
             groupedAccounts.demo = demo;
         }

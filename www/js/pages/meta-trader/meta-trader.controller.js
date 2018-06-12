@@ -38,22 +38,22 @@
         const addAccount = company => {
             _.forEach(['demo', 'real'], type => {
                 _.forEach(_.keys(mtCompanies[company]), accType => {
-                   const companyInfo = mtCompanies[company][accType];
-                   const mt5AccountType = companyInfo.mt5_account_type;
-                   // add translate to this later
-                   const title = companyInfo.title;
-                   const isDemo = type === 'demo';
+                    const companyInfo = mtCompanies[company][accType];
+                    const mt5AccountType = companyInfo.mt5_account_type;
+                    // add translate to this later
+                    const title = companyInfo.title;
+                    const isDemo = type === 'demo';
 
-                   if (!(isDemo && companyInfo.is_real_only)) {
-                       accountsInfo[`${type}_${mtCompany[company]}${mt5AccountType ? `_${mt5AccountType}` : ''}`] = {
-                           title,
-                           isDemo,
-                           mt5AccountType,
-                           accountType: isDemo ? 'demo' : company,
-                           maxLeverage: companyInfo.max_leverage,
-                           shortTitle : companyInfo.title,
-                       };
-                   }
+                    if (!(isDemo && companyInfo.is_real_only)) {
+                        accountsInfo[`${type}_${mtCompany[company]}${mt5AccountType ? `_${mt5AccountType}` : ''}`] = {
+                            title,
+                            isDemo,
+                            mt5AccountType,
+                            accountType: isDemo ? 'demo' : company,
+                            maxLeverage: companyInfo.max_leverage,
+                            shortTitle : companyInfo.title,
+                        };
+                    }
                 });
             });
         };
@@ -89,11 +89,12 @@
             let hasMTCompany = false;
             _.forEach(_.keys(mtCompanies), company => {
                 const landingCompany = `mt_${company}_company`;
-                mtCompany[company] = landingCompanyObject.hasOwnProperty(landingCompany) ?
-                    landingCompanyObject[landingCompany].shortcode : false;
-                if (mtCompany[company]) {
-                    hasMTCompany = true;
-                    addAccount(company);
+                if (landingCompanyObject.hasOwnProperty(landingCompany)) {
+                    mtCompany[company] = landingCompanyObject[landingCompany].shortcode;
+                    if (mtCompany[company]) {
+                        hasMTCompany = true;
+                        addAccount(company);
+                    }
                 }
             });
             return hasMTCompany;
@@ -122,7 +123,7 @@
             if (isEligible()) {
                 const accounts = accountService.getAll();
                 vm.hasRealAccount = !!_.find(accounts, obj =>
-                  _.indexOf(['malta', 'costarica', 'iom', 'maltainvest'], obj.landing_company_name) > -1);
+                    _.indexOf(['malta', 'costarica', 'iom', 'maltainvest'], obj.landing_company_name) > -1);
                 $scope.$applyAsync(() => {
                     vm.hasMTAccess = true;
                 });
