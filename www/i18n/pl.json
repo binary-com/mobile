@@ -200,7 +200,8 @@
     "exposing_at_risk": "i kontynuowanie procedury otwarcia konta oznacza, że zdajesz sobie sprawę z tego, że możesz być narażony/a na ryzyko (które może być znaczne, w tym na ryzyko utraty całej zainwestowanej sumy) i możesz nie posiadać wystarczającej wiedzy i wystarczającego doświadczenia, aby sobie z nim poradzić.",
     "decline": "Odrzuć",
     "secret_question": "Pytanie zabezpieczające",
-    "secret_answer": "Odpowiedź na pytanie zabezpieczające"
+    "secret_answer": "Odpowiedź na pytanie zabezpieczające",
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
   },
   "new-account-real": {
     "real_account_opening": "Otwierania konta z prawdziwymi pieniędzmi",
