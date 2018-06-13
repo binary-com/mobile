@@ -63,17 +63,16 @@ angular.module("binary").service("clientService", function(appStateService) {
         return currencies;
     }
 
-    this.dividedCurrencies = (currencies) => {
+    this.dividedCurrencies = currencies => {
         const currencyConfig = appStateService.currenciesConfig;
         const cryptoCurrencies = [];
         const fiatCurrencies = [];
-        _.forEach(currencies, curr => {
-            const currency = currencyConfig[curr];
-            const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
+        _.forEach(currencies, currency => {
+            const isCryptoCurrency = /crypto/i.test(currencyConfig[currency].type);
             if (isCryptoCurrency) {
-                cryptoCurrencies.push(curr);
+                cryptoCurrencies.push(currency);
             } else {
-                fiatCurrencies.push(curr);
+                fiatCurrencies.push(currency);
             }
         });
         return {
