@@ -58,10 +58,8 @@
         const landingCompany = accountService.getDefault().landing_company_name;
         const isVirtual = clientService.isLandingCompanyOf('virtual', landingCompany);
         const accounts = accountService.getAll();
-        const landingCompanyObject = !_.isEmpty(localStorage.landingCompanyObject) ?
-            JSON.parse(localStorage.landingCompanyObject) : {};
-        vm.hasIOM = (landingCompanyObject && landingCompanyObject.financial_company &&
-            landingCompanyObject.financial_company.shortcode === 'iom') ||
+        const upgradableLandingCompanies = appStateService.upgradeableLandingCompanies;
+        vm.hasIOM = _.indexOf(upgradableLandingCompanies, 'iom') > -1 ||
             clientService.hasAccountOfLandingCompany(accounts, 'iom');
         vm.receivedSettings = false;
         vm.options = _.merge(financialInformationOptions, accountOptions);
