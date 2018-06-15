@@ -4,9 +4,9 @@
     "add_account": "Добавить счёт",
     "paste_token": "Введите ключ здесь",
     "get_token": "Как получить ключ?",
-    "signin_with_binary_com": "Sign In",
+    "signin_with_binary_com": "Войти",
     "next": "Далее",
-    "regulatory_information": "Regulatory Information"
+    "regulatory_information": "Информация о регулировании"
   },
   "alert": {
     "error": "Ошибка!",
