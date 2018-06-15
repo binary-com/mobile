@@ -437,7 +437,7 @@
     "trading_withdrawal_limits": "Opérations de trading et limites de retrait",
     "item": "Élément",
     "limit": "Limite",
-    "open_positions": "Nombre maximal de positions ouvertes",
+    "open_positions": "Nombre Maximal de Positions Ouvertes",
     "account_balance": "Solde Financier Maximum du Compte",
     "payouts": "Maximum Global des Paiements sur les Positions Ouvertes",
     "payouts_per_symbol_and_contract_type": "Maximum Global des Paiements sur les Positions Ouvertes par Symbole et Type de Contrat",
