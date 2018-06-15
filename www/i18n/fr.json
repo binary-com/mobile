@@ -194,7 +194,7 @@
     "read_more": "Afficher la suite.",
     "required_to_collect_tin": "Binary Investments (Europe) Ltd. est tenu de collecter vos informations fiscales.",
     "required_to_obtain_information": "Dans le cadre des services que nous vous fournissons, nous sommes dans l'obligation d'obtenir des informations de votre part afin de déterminer si un produit ou service donné est pertinent dans votre cas (c'est-à-dire si vous possédez l'expérience et les connaissances nécessaires pour comprendre les risques impliqués).",
-    "on_the_basis_of_information": "sur base de l'information fournie en relation avec votre connaissance et expérience, nous sommes d'avis que les investissements disponibles sur ce site ne sont pas pour vous.",
+    "on_the_basis_of_information": "sur la base de l'information fournie en relation avec votre connaissance et expérience, nous sommes d'avis que les investissements disponibles sur ce site ne sont pas pour vous.",
     "by_clicking": "En cliquant ",
     "accept": "Accepter",
     "exposing_at_risk": "ci-dessous et de procéder à l'ouverture du compte, vous devez savoir que vous pourriez vous exposer à des risques (qui peuvent être importants, notamment la perte de toute la somme d'investissement) que vos connaissances et votre expérience ne vous permettent pas forcément d'évaluer ou de réduire efficacement.",
@@ -550,26 +550,26 @@
   "notifications": {
     "no_notification": "Il n’y a aucune notification à afficher.",
     "please_authenticate": "Authentifiez votre compte dès maintenant pour profiter pleinement de toutes les options de retrait disponibles.",
-    "account_authentication": "Account Authentication",
+    "account_authentication": "Authentification de Compte",
     "please_contact": "Votre compte est fait l'objet de restrictions. Contactez notre support client pour vous assister.",
-    "account_restriction": "Account Restriction",
+    "account_restriction": "Restriction de Compte",
     "account_country": "Pays de résidence",
     "set_country": "Veuillez définir le pays de résidence avant de passer à un compte d’argent réel.",
     "complete_financial_assessment": "Veuillez remplir le formulaire d’évaluation financière pour lever vos limites de retrait et de trading.",
-    "financial_assessment_not_completed": "Financial Assessment Is Not Completed",
+    "financial_assessment_not_completed": "L'Évaluation Financière n’est pas terminée",
     "tax_information": "Informations fiscales",
     "complete_profile": "Veuillez compléter votre profil compte pour lever vos limites de retrait et de trading.",
     "tnc": "Conditions générales",
     "accept_tnc": "Veuillez accepter les Conditions Générales mises à jour pour supprimer vos limites de retrait et de trading.",
-    "max_turnover_limit": "Account Maximum Turnover Limit",
+    "max_turnover_limit": "Limite de Chiffre d’Affaires Maximal de Compte",
     "set_max_turnover_limit": "S’il vous plaît choisissez la limite de chiffre d’affaires de 30 jours d'Auto-Exclusion afin de lever vos limites de dépôt.",
-    "account_age_verification": "Age Verification",
+    "account_age_verification": "Vérification de l’âge",
     "needs_age_verification": "Le compte nécessite une vérification de l’âge, veuillez contacter le support client pour plus d’informations.",
     "choose_account_currency": "Veuillez définir la devise de votre compte.",
-    "account_currency": "Account Currency"
+    "account_currency": "Devise du Compte"
   },
   "set-currency": {
-    "select_currency": "Select Currency",
+    "select_currency": "Sélectionnez une Devise",
     "select_currency_text": "Veuillez sélectionner la devise de ce compte :",
     "fiat_currency": "Monnaie papier",
     "cryptocurrency": "Devise cryptée",
@@ -694,13 +694,13 @@
     "hedging": "Opérations de couverture"
   },
   "ios-pwa-prompt": {
-    "title": "Install Binary TickTrade",
+    "title": "Installer le TickTrade Binary",
     "close": "Clôture",
-    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
-    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+    "installation_text": "Installer le TickTrade Binary sur votre écran d’accueil pour un accès facile et rapide lorsque vous êtes en déplacement.",
+    "installation_help": "Clique droit sur {{icon}} puis « Ajouter à l’écran d’accueil »"
   },
   "professional-client-information": {
-    "professional_client": "What is Professional Client?",
+    "professional_client": "Qu'est ce qu'un Client Professionnel?",
     "clients_need_to_satisfy": "Les clients doivent satisfaire au moins deux des critères suivants afin de recevoir le statut de Client Professionnel :",
     "significant_transactions": "Vous avez effectué d’importantes transactions sur des marchés similaires à ceux que nous offrons, avec une moyenne de 10 transactions par trimestre pour les quatre trimestres précédents",
     "size_of_instrument": "La taille de votre portefeuille d’instrument est supérieur à 500 000 euros ou son équivalent",
@@ -711,15 +711,15 @@
     "employment": "Preuve de votre emploi"
   },
   "pep-information": {
-    "pep": "What is PEP?",
+    "pep": "Qu'est ce qu'un PEP ?",
     "what_is_pep": "Une personne politiquement exposées (PEP) est une personne qui est ou s’est vu confier une fonction publique importante, y compris sa famille immédiate ou les personnes connues pour être des proches de ces personnes, mais n’inclut pas les officiels de rang moyen ou plus subalternes. Ces personnes incluent des chefs d’Etat, ministres, secrétaires parlementaires, députés, juges, ambassadeurs, hauts fonctionnaires, officiers de rang élevé dans les Forces armées, les comités de vérification des conseils des banques centrales et les administrateurs des sociétés publiques. La « famille immédiate » des exemples ci-dessus est également considérées comme PEP, et il s’agit de leurs conjoints, parents et enfants. En outre, « les personnes connues pour être proches associés » personnes politiquement exposées, notamment leurs partenaires d’affaires, sont également considérés comme tels. En règle générale, une personne considérée comme un PEP et qui a cessé de se voir confier une fonction publique importante pendant une période d’au moins douze mois n’est plus considéré comme un PEP."
   },
   "what-is-tax-information": {
     "tax_information_title": "Informations fiscales",
     "required_by": "Cette exigence est mandatée par la norme commune de notification (SNPC) et la loi de conformité fiscale pour les comptes étrangers (FATCA).",
-    "please_enter": "Please enter your ",
+    "please_enter": "Veuillez saisir votre ",
     "tax_information": "informations fiscales",
-    "to_continue": "to continue.",
+    "to_continue": "continuer.",
     "information_will_be_safe": "Soyez assuré que vos informations serviront uniquement aux fins des rapports CRS/FATCA et seront conservés en toute sécurité.",
     "contact_for_clarification": "Si nous avons des raisons de croire que vos renseignements fiscaux sont incomplets, nous pouvons vous contacter pour des précisions."
   },
