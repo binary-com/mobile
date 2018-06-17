@@ -200,7 +200,8 @@
     "exposing_at_risk": "nachfolgend und mit der Kontoeröffnung fortfahren, müssen Sie beachten, dass Sie sich selbst Risiken aussetzen können (die erheblich sind, einschließlich des Verlusts des gesamten investierten Betrags), wenn Sie nicht das Wissen und die Erfahrung haben, diese richtig zu beurteilen oder abzuschwächen.",
     "decline": "Ablehnen",
     "secret_question": "Geheimfrage",
-    "secret_answer": "Geheimantwort"
+    "secret_answer": "Geheimantwort",
+    "secret_answer_pattern_error": "Nur Buchstaben, Zahlen, Abstände, Bindestriche, Punkte, und Apostrophe sind erlaubt."
   },
   "new-account-real": {
     "real_account_opening": "Echtgeldkonto Eröffnung",
@@ -491,21 +492,21 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "Sie haben keine Konten für MetaTrader, bitte erstellen Sie eines und versuchen Sie es erneut.",
-    "create_account": "Ein Konto für MT5 erstellen",
-    "feature_is_not_available": "Leider ist diese Funktion nicht vorhanden.",
+    "create_account": "Create New Account",
+    "feature_is_not_available": "Sorry, this feature is not available in your jurisdiction.",
     "meta_trader_accounts": "Meta Trader Konten",
     "demo_account": "Demo-Konto",
-    "financial_account": "Finanzkonto",
-    "volatility_account": "Volatilität Indizes Konto",
-    "upgrade_financial_account": "Um ein Finanzkonto für MT5 erstellen zu können, rüsten Sie bitte auf ein Binary.com Echtes Konto auf.",
-    "upgrade_volatility_account": "Um ein Volatilität Indizes Konto für MT5 erstellen zu können, rüsten Sie bitte auf ein Binary.com Echtes Konto auf.",
-    "create_financial_account": "Erstellen Sie ein Finanzkonto für MT5",
-    "create_volatility_account": "Erstellen Sie ein Volatilität Konto für MT5",
-    "create_demo_account": "Ein Demo Konto für MT5 erstellen",
-    "login_id": "Login-ID",
+    "real_money_account": "Real-Money Account",
+    "login": "Login",
     "balance": "Guthaben",
     "name": "Name",
-    "start_trading_with_mt5": "Beginnen Sie mit MT5 zu Handeln"
+    "start_trading_with_mt5": "Beginnen Sie mit MT5 zu Handeln",
+    "upgrade_real_account": "To create a real money Account for MT5, please upgrade to Binary.com Real Account.",
+    "standard": "Standard",
+    "advanced": "Advanced",
+    "mam_advanced": "MAM Advanced",
+    "volatility_indices": "Volatility Indices",
+    "mam_volatility_indices": "MAM Volatility Indices"
   },
   "authentication": {
     "authentication": "Authentifizierung",
@@ -711,13 +712,25 @@
   },
   "pep-information": {
     "pep": "Was ist PEP?",
-    "what-is-pep": "Eine politisch exponierte Person (PEP) ist eine Person, die mit einem wichtigen öffentlichen Amt anvertraut worden ist oder war, einschließlich seiner/ihrer unmittelbaren Familienangehörigen oder Personen, die bekanntermaßen nahe stehende Personen sind, bezieht sich jedoch nicht auf Beamte mittleren Ranges oder Junior-Beamte. Zu solchen Personen gehören Staatschefs, Minister, parlamentarische Sekretäre, Parlamentarier, Richter, Botschafter, Senior Regierungsbeamte, hochrangige Offiziere in der Armee, Prüfungsausschüsse der Vorstände von Zentralbanken und Direktoren der staatlichen Unternehmen. Die \"Familienmitglieder\" von den obigen Beispielen werden auch als PEP betrachtet, wozu der Ehepartner/Partner, Eltern und Kinder gehören. Darüber hinaus zählen zu den \"Personen, die als nahestehende Personen” der PEP bekannt sind, deren Geschäftspartner, die ebenfalls als solche betrachtet werden. In der Regel gilt, dass eine Person die als PEP betrachtet wird, aber aufgehört hat, mit einem wichtigen öffentlichen Amt, für einen Zeitraum von mindestens zwölf Monaten, betraut zu sein, sich nicht mehr als PEP qualifiziert."
+    "what_is_pep": "Eine politisch exponierte Person (PEP) ist eine Person, die mit einem wichtigen öffentlichen Amt anvertraut worden ist oder war, einschließlich seiner/ihrer unmittelbaren Familienangehörigen oder Personen, die bekanntermaßen nahe stehende Personen sind, bezieht sich jedoch nicht auf Beamte mittleren Ranges oder Junior-Beamte. Zu solchen Personen gehören Staatschefs, Minister, parlamentarische Sekretäre, Parlamentarier, Richter, Botschafter, Senior Regierungsbeamte, hochrangige Offiziere in der Armee, Prüfungsausschüsse der Vorstände von Zentralbanken und Direktoren der staatlichen Unternehmen. Die \"Familienmitglieder\" von den obigen Beispielen werden auch als PEP betrachtet, wozu der Ehepartner/Partner, Eltern und Kinder gehören. Darüber hinaus zählen zu den \"Personen, die als nahestehende Personen” der PEP bekannt sind, deren Geschäftspartner, die ebenfalls als solche betrachtet werden. In der Regel gilt, dass eine Person die als PEP betrachtet wird, aber aufgehört hat, mit einem wichtigen öffentlichen Amt, für einen Zeitraum von mindestens zwölf Monaten, betraut zu sein, sich nicht mehr als PEP qualifiziert."
   },
   "what-is-tax-information": {
+    "tax_information_title": "Steuerinformationen",
     "required_by": "Diese Anforderung ist vom Common Reporting Standard (CRS) und dem Foreign Account Tax Compliance Act (FATCA) vorgeschrieben.",
     "please_enter": "Bitte geben Sie Ihre ",
     "tax_information": "Steuerinformation",
     "to_continue": "um fortzufahren.",
-    "information_will_be_safe": "Seien Sie versichert, dass Ihre Daten nur für CRS/FATCA Berichtszwecke verwendet und sicher gehalten werden."
+    "information_will_be_safe": "Seien Sie versichert, dass Ihre Daten nur für CRS/FATCA Berichtszwecke verwendet und sicher gehalten werden.",
+    "contact_for_clarification": "Wenn wir Grund dazu haben, zu glauben, dass Ihre Steuerinformationen unvollständig sind, können wir Sie zur Aufklärung kontaktieren."
+  },
+  "professional-client-confirmation": {
+    "professional_clients": "Professionelle Kunden",
+    "professional_clients_receive": "Ein professioneller Kunde erhält einen geringeren Kundenschutz aus den folgenden Gründen:",
+    "posses_of_experience": "Wir setzten voraus, dass Sie die Erfahrung, das Wissen und Know-how, um Ihre eigenen Anlageentscheidungen treffen zu können und die involvierten Risiken richtig beurteilen zu können, besitzen",
+    "appropriateness_test": "Wir sind nicht dazu verpflichtet einen Eignungstest durchzuführen, noch Ihnen alle Risikowarnungen zukommen zu lassen",
+    "keep_informed": "Als professioneller Kunde müssen Sie uns über Änderungen, die Ihren Status beeinflussen könnten auf dem Laufenden halten.",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen",
+    "you_may_decline": "Hinweis: Sie können zurückgehen und als Privatkunde fortfahren."
   }
 }

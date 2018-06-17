@@ -200,7 +200,8 @@
     "exposing_at_risk": "以下并依照后续流程开立账户，您须注意，您可能承担一些风险（可能会很严重，包括损失整个投资资金的风险），而对于此类风险缺，你可能乏知识与经验以作出正确评估或化解.",
     "decline": "下降",
     "secret_question": "密码提示问题",
-    "secret_answer": "密码提示问题的答案"
+    "secret_answer": "密码提示问题的答案",
+    "secret_answer_pattern_error": "只允许字母、数字、空格、连字符、句号和省略号。"
   },
   "new-account-real": {
     "real_account_opening": "开立真实资金账户",
@@ -491,21 +492,21 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "您没有MetaTrader账户。请先开立账户，然后重试。",
-    "create_account": "开立MT5账户",
-    "feature_is_not_available": "对不起，此功能不可用。",
+    "create_account": "Create New Account",
+    "feature_is_not_available": "Sorry, this feature is not available in your jurisdiction.",
     "meta_trader_accounts": "Meta Trader账户",
     "demo_account": "模拟账户",
-    "financial_account": "金融账户",
-    "volatility_account": "波动率指数账户",
-    "upgrade_financial_account": "如要开立MT5金融账户，请升级为Binary.com真实账户。",
-    "upgrade_volatility_account": "如要开立MT5波动率指数账户，请升级为Binary.com真实账户。",
-    "create_financial_account": "开立MT5金融账户",
-    "create_volatility_account": "开立MT5波动率账户",
-    "create_demo_account": "开立MT5模拟账户",
-    "login_id": "登录 ID",
+    "real_money_account": "Real-Money Account",
+    "login": "Login",
     "balance": "余额",
     "name": "姓名",
-    "start_trading_with_mt5": "开始用 MT5 交易"
+    "start_trading_with_mt5": "开始用 MT5 交易",
+    "upgrade_real_account": "To create a real money Account for MT5, please upgrade to Binary.com Real Account.",
+    "standard": "Standard",
+    "advanced": "Advanced",
+    "mam_advanced": "MAM Advanced",
+    "volatility_indices": "Volatility Indices",
+    "mam_volatility_indices": "MAM Volatility Indices"
   },
   "authentication": {
     "authentication": "验证",
@@ -711,13 +712,25 @@
   },
   "pep-information": {
     "pep": "Pep 是什么？",
-    "what-is-pep": "政治公众人士(PEP) 是被委托进行特出公众任务的个人。此身份包括了其直系亲属和众所周知为其亲近的人，但不包括中级或初级官员。所指个人包括国家首长、部长、国会秘书、国会议员、法官、大使、高级政府官员、军事高层官员、中央银行的审计委员、国营企业董事等。以上各例的直系亲属也都属于政治公众人士，包括其配偶/伴侣、父母和孩子。再者，众所周知的与政治公众人士有亲密关系的人士包括其商业合伙人也属于政治公众人士。一般来说，已经停止被委托进行特出公众任务为期超过十二个月的个人不属于政治公众人士。"
+    "what_is_pep": "政治公众人士(PEP) 是被委托进行特出公众任务的个人。此身份包括了其直系亲属和众所周知为其亲近的人，但不包括中级或初级官员。所指个人包括国家首长、部长、国会秘书、国会议员、法官、大使、高级政府官员、军事高层官员、中央银行的审计委员、国营企业董事等。以上各例的直系亲属也都属于政治公众人士，包括其配偶/伴侣、父母和孩子。再者，众所周知的与政治公众人士有亲密关系的人士包括其商业合伙人也属于政治公众人士。一般来说，已经停止被委托进行特出公众任务为期超过十二个月的个人不属于政治公众人士。"
   },
   "what-is-tax-information": {
+    "tax_information_title": "税务信息",
     "required_by": "此要求由《统一报告标准》 (CRS) 和《外国账户税收遵守法》 (FATCA) 规定。",
     "please_enter": "请输入您的 ",
     "tax_information": "税务信息",
     "to_continue": "继续。",
-    "information_will_be_safe": "请放心, 您的信息将只用于 CRS/FATCA 报告, 并将给予安全保障。"
+    "information_will_be_safe": "请放心, 您的信息将只用于 CRS/FATCA 报告, 并将给予安全保障。",
+    "contact_for_clarification": "如果我们有理由相信您的税务信息不完整, 我们将与您联系, 以作澄清。"
+  },
+  "professional-client-confirmation": {
+    "professional_clients": "专业客户",
+    "professional_clients_receive": "由于以下原因, 专业客户会收到程度较低的客户端保护:",
+    "posses_of_experience": "我们假定您拥有足够的经验、知识和专长，可自行决定投资, 并正确评估相关风险",
+    "appropriateness_test": "我们没有义务进行适当性测试, 也没有义务向您提供任何风险警告",
+    "keep_informed": "作为专业客户, 您必须随时将任何可能影响您状态的更改通知我们。",
+    "accept": "接受",
+    "decline": "下降",
+    "you_may_decline": "注: 您可以拒绝并继续保留零售客户资格。"
   }
 }

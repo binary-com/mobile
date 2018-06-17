@@ -200,7 +200,8 @@
     "exposing_at_risk": "以下並繼續開立帳戶，請注意您可能會冒一些風險（可能很嚴重，甚至損失整個投資資金），而您可能缺乏正確評估或化解風險的知識及經驗.",
     "decline": "下降",
     "secret_question": "密碼提示問題",
-    "secret_answer": "密碼提示問題的答案"
+    "secret_answer": "密碼提示問題的答案",
+    "secret_answer_pattern_error": "只允許字母、數字、空格、連字號、句號和所有格號。"
   },
   "new-account-real": {
     "real_account_opening": "開立真實資金帳戶",
@@ -491,21 +492,21 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "您沒有MetaTrader帳戶。請先開立帳戶，然後重試。",
-    "create_account": "開立MT5帳戶",
-    "feature_is_not_available": "對不起，此功能不可用。",
+    "create_account": "Create New Account",
+    "feature_is_not_available": "Sorry, this feature is not available in your jurisdiction.",
     "meta_trader_accounts": "Meta Trader帳戶",
     "demo_account": "模擬帳戶",
-    "financial_account": "金融帳戶",
-    "volatility_account": "波動率指數帳戶",
-    "upgrade_financial_account": "如要開立MT5金融帳戶，請升級為Binary.com真實帳戶。",
-    "upgrade_volatility_account": "如要開立MT5波動率指數帳戶，請升級為Binary.com真實帳戶。",
-    "create_financial_account": "開立MT5金融帳戶",
-    "create_volatility_account": "開立MT5波動率帳戶",
-    "create_demo_account": "開立MT5虛擬帳戶",
-    "login_id": "登入ID",
+    "real_money_account": "Real-Money Account",
+    "login": "Login",
     "balance": "餘額",
     "name": "姓名",
-    "start_trading_with_mt5": "開始用 MT5 交易"
+    "start_trading_with_mt5": "開始用 MT5 交易",
+    "upgrade_real_account": "To create a real money Account for MT5, please upgrade to Binary.com Real Account.",
+    "standard": "Standard",
+    "advanced": "Advanced",
+    "mam_advanced": "MAM Advanced",
+    "volatility_indices": "Volatility Indices",
+    "mam_volatility_indices": "MAM Volatility Indices"
   },
   "authentication": {
     "authentication": "驗證",
@@ -711,13 +712,25 @@
   },
   "pep-information": {
     "pep": "PEP 是什麼？",
-    "what-is-pep": "政治公眾人士(PEP) 是被委託進行特出公眾任務的個人。此身份包括了其直系親屬和眾所周知為其親近的人，但不包括中級或初級官員。所指個人包括國家首長、部長、國會秘書、國會議員、法官、大使、高級政府官員、軍事高層官員、中央銀行的審計委員、國營企業董事等。以上各例的直系親屬也都屬於政治公眾人士，包括其配偶/伴侶、父母和孩子。再者，眾所周知的與政治公眾人士有親密關係的人士包括其商業合夥人也屬於政治公眾人士。一般來說，已經停止被委託進行特出公眾任務為期超過十二個月的個人不屬於政治公眾人士。"
+    "what_is_pep": "政治公眾人士(PEP) 是被委託進行特出公眾任務的個人。此身份包括了其直系親屬和眾所周知為其親近的人，但不包括中級或初級官員。所指個人包括國家首長、部長、國會秘書、國會議員、法官、大使、高級政府官員、軍事高層官員、中央銀行的審計委員、國營企業董事等。以上各例的直系親屬也都屬於政治公眾人士，包括其配偶/伴侶、父母和孩子。再者，眾所周知的與政治公眾人士有親密關係的人士包括其商業合夥人也屬於政治公眾人士。一般來說，已經停止被委託進行特出公眾任務為期超過十二個月的個人不屬於政治公眾人士。"
   },
   "what-is-tax-information": {
+    "tax_information_title": "稅務資訊",
     "required_by": "此要求由《統一報告標準》 (CRS) 和《外國帳戶稅收遵守法》 (FATCA) 規定。",
     "please_enter": "請輸入您的 ",
     "tax_information": "稅務資訊",
     "to_continue": "繼續。",
-    "information_will_be_safe": "請放心, 您的資訊將只用于 CRS/FATCA 報告, 並將給予安全保障。"
+    "information_will_be_safe": "請放心, 您的資訊將只用于 CRS/FATCA 報告, 並將給予安全保障。",
+    "contact_for_clarification": "如果我們有理由相信您的稅務資訊不完整, 我們將與您聯繫, 以作澄清。"
+  },
+  "professional-client-confirmation": {
+    "professional_clients": "專業客戶",
+    "professional_clients_receive": "由於以下原因, 專業客戶會收到程度較低的用戶端保護:",
+    "posses_of_experience": "我們假定您擁有足夠的經驗、知識和專長，可自行決定投資, 並正確評估相關風險",
+    "appropriateness_test": "我們沒有義務進行適當性測試, 也沒有義務向您提供任何風險警告",
+    "keep_informed": "作為專業客戶, 您必須隨時將任何可能影響您狀態的更改通知我們。",
+    "accept": "接受",
+    "decline": "拒絕",
+    "you_may_decline": "注: 您可以拒絕並繼續保留零售客戶資格。"
   }
 }

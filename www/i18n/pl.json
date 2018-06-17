@@ -197,10 +197,11 @@
     "on_the_basis_of_information": "Na podstawie przedstawionych informacji dotyczących Twojej wiedzy i doświadczenia uznaliśmy, że inwestycje dostępne za pośrednictwem naszej strony są dla Ciebie nieodpowiednie.",
     "by_clicking": "Przez kliknięcie ",
     "accept": "Akceptuj",
-    "exposing_at_risk": "i kontynuowanie procedury otwarcia konta oznacza, że zdajesz sobie sprawę z tego, że możesz być narażony/a na ryzyko (które może być znaczne, w tym na ryzyko utraty całej zainwestowanej sumy) i możesz nie posiadać wystarczającej wiedzy i wystarczającego doświadczenia, aby sobie z nimi poradzić.",
+    "exposing_at_risk": "i kontynuowanie procedury otwarcia konta oznacza, że zdajesz sobie sprawę z tego, że możesz być narażony/a na ryzyko (które może być znaczne, w tym na ryzyko utraty całej zainwestowanej sumy) i możesz nie posiadać wystarczającej wiedzy i wystarczającego doświadczenia, aby sobie z nim poradzić.",
     "decline": "Odrzuć",
     "secret_question": "Pytanie zabezpieczające",
-    "secret_answer": "Odpowiedź na pytanie zabezpieczające"
+    "secret_answer": "Odpowiedź na pytanie zabezpieczające",
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
   },
   "new-account-real": {
     "real_account_opening": "Otwierania konta z prawdziwymi pieniędzmi",
@@ -333,9 +334,9 @@
     "please_enter_an_integer_value": "Wprowadź wartość całkowitą o maksymalnej długości {{max}}",
     "enter_valid_value": "Proszę wprowadzić wartość do {{fractionalDigits}} dwóch miejsc po przecinku i o maksymalnej długości {{max}}",
     "valid_range_hint": "Proszę wpisać liczbę od 0 do {{max}}",
-    "date_is_not_valid": "Okres wyłączenia musi zaczynać się jutro lub później",
-    "date_can_not_be_greater_than": "Okres wyłączenia nie może przekraczać {{max}}",
-    "date_can_not_less_than": "Okres wyłączenia nie może być krótszy niż {{max}}",
+    "date_is_not_valid": "Okres wykluczenia musi zaczynać się jutro lub później",
+    "date_can_not_be_greater_than": "Okres wykluczenia nie może przekraczać {{max}}",
+    "date_can_not_less_than": "Okres wykluczenia nie może być krótszy niż {{max}}",
     "save_prompt": "Treść zapisana pomyślnie",
     "session_timeout_warning": "Limit czasu sesji zakończy się za 10 sek.",
     "success": "Udało się",
@@ -371,14 +372,14 @@
     "cancel": "Anuluj",
     "continue": "Kontynuuj",
     "account_opening_reason": "Powód otwarcia konta",
-    "is_optional": "(Opcjonalne)",
+    "is_optional": "(Opcjonalnie)",
     "address": "Adres",
     "details": "Szczegóły",
     "tax_information": "Informacje podatkowe",
     "email_preferences": "Preferencje dot. wiadomości e-mail",
     "receive_emails": "Otrzymuj wiadomości e-mail dotyczące produktów i usług Binary.com oraz wydarzeń organizowanych przez %1",
     "to_change": "W celu zmiany imienia i nazwiska, daty urodzenia, kraju zamieszkania lub adresu e-mail, prosimy o kontakt z",
-    "customer_support": "Dział obsługi klienta"
+    "customer_support": "działem obsługi klienta"
   },
   "accept-terms-and-conditions": {
     "has_updated_its": "zaktualizowało swój",
@@ -491,21 +492,21 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "Nie posiadasz żadnego konta przeznaczonego do użytku w MetaTrader. Utwórz takie konto i spróbuj ponownie.",
-    "create_account": "Utwórz Konto MT5",
-    "feature_is_not_available": "Przepraszamy, ta funkcja jest niedostępna.",
+    "create_account": "Create New Account",
+    "feature_is_not_available": "Sorry, this feature is not available in your jurisdiction.",
     "meta_trader_accounts": "Konta Meta Trader",
     "demo_account": "Konto Demo",
-    "financial_account": "Konto finansowe",
-    "volatility_account": "Konto wskaźników zmienności",
-    "upgrade_financial_account": "Aby utworzyć Konto finansowe do użytku w MT5, zaktualizuj najpierw Prawdziwe konto Binary.com.",
-    "upgrade_volatility_account": "Aby utworzyć Konto wskaźników zmienności do użytku w MT5, zaktualizuj najpierw Prawdziwe konto Binary.com.",
-    "create_financial_account": "Utwórz Konto finansowe MT5",
-    "create_volatility_account": "Utwórz Konto zmienności MT5",
-    "create_demo_account": "Utwórz Konto demo MT5",
-    "login_id": "Login",
+    "real_money_account": "Real-Money Account",
+    "login": "Login",
     "balance": "Saldo",
     "name": "Imię",
-    "start_trading_with_mt5": "Rozpocznij handlowanie z MT5"
+    "start_trading_with_mt5": "Rozpocznij handlowanie z MT5",
+    "upgrade_real_account": "To create a real money Account for MT5, please upgrade to Binary.com Real Account.",
+    "standard": "Standard",
+    "advanced": "Advanced",
+    "mam_advanced": "MAM Advanced",
+    "volatility_indices": "Volatility Indices",
+    "mam_volatility_indices": "MAM Volatility Indices"
   },
   "authentication": {
     "authentication": "Weryfikacja",
@@ -527,7 +528,7 @@
     "russia": "Rosja",
     "united_kingdom": "Wielka Brytania",
     "toll_free": "(Numer bezpłatny)",
-    "not_located": "Jeśli nie mieszkasz w jednym z wyżej wymienionych państw, wybierz dowolny z naszych numerów kontaktowych, aby uzyskać pomoc.",
+    "not_located": "Jeśli nie mieszkasz w jednym z wyżej wymienionych państw, wybierz nasz dowolny numer kontaktowy, aby uzyskać pomoc.",
     "calls": "* Wszystkie rozmowy są rejestrowane w celach szkoleniowych i kontrolnych",
     "email": "Adres e-mail",
     "payment_email": "Jeśli masz pytania dot. płatności",
@@ -645,7 +646,7 @@
     "secondary": "Średnie",
     "tertiary": "Wyższe",
     "salaried": "Pracownik etatowy",
-    "self_employed": "Osoba samozatrudniona",
+    "self_employed": "Self-Employed",
     "investment": "Inwestycje i dywidenda",
     "pension": "Emerytura",
     "net_income_1": "Mniej niż 25 000 $",
@@ -704,20 +705,32 @@
     "significant_transactions": "Zawierałeś/-aś już duże transakcje na rynkach podobnych do tych oferowanych przez nas, średnio 10 transakcji na kwartał w ostatnich czterech kwartałach",
     "size_of_instrument": "Wartość Twojego portfela instrumentów finansowych przekracza 500 000 EUR lub równowartość tej kwoty",
     "worked_in_financial_sector": "Pracowałeś/-aś w sektorze finansowym przez co najmniej rok na stanowisku wymagającym wiedzy o transakcjach, które chcesz zawierać na naszej platformie",
-    "treated_as_professional_client": "Jeśli wybierzesz opcję traktowania jako klienta profesjonalnego, uznamy Cię za osobę posiadającą wymagane doświadczenie i wiedzę o rynku. Podejmiemy kroki, aby upewnić się, że Twój wniosek o przyznanie statusu klienta profesjonalnego spełnia powyższe kryteria, w tym wystąpimy z prośbą przedstawienia następujących dokumentów:",
+    "treated_as_professional_client": "Jeśli wybierzesz opcję uznania Cię za klienta profesjonalnego, uznamy Cię za osobę posiadającą wymagane doświadczenie i wiedzę o rynku. Podejmiemy kroki, aby upewnić się, że Twój wniosek o przyznanie statusu klienta profesjonalnego spełnia powyższe kryteria, w tym wystąpimy z prośbą przedstawienia następujących dokumentów:",
     "statements": "Wyciągi przedstawiające Twoje transakcje z poprzednich czterech kwartałów",
     "portfolio": "Potwierdzenie Twojego portfolio u innych usługodawców",
     "employment": "Potwierdzenie zatrudnienia"
   },
   "pep-information": {
-    "pep": "Czym jest PEP?",
-    "what-is-pep": "Osoba zajmująca eksponowane stanowisko polityczne (PEP) to osoba, która sprawuje lub sprawowała znaczącą funkcję publiczną lub osoba, której bliski członek rodziny lub osoba uznana za bliskiego współpracownika sprawuje lub sprawowała taką funkcję, z wyłączeniem urzędników niższego lub średniego szczebla. Do takich osób zalicza się: przywódców państw, ministrów, sekretarzy parlamentarnych, posłów parlamentarnych, sędziów, ambasadorów, wysokiej rangi urzędników rządowych, wysokiej rangi wojskowych, członków komitetów ds. audytu w radach banków centralnych, dyrektorów spółek skarbu państwa. Za PEP uważa się również „bliskich członków rodziny” wyżej wymienionych osób, czyli np. małżonków i partnerów, rodziców, czy dzieci. Dodatkowo, „osoba uznana za bliskiego współpracownika” PEP rozumiana jest m. in. jako partner biznesowy. Co do zasady, osoba, która według powyższej definicji kwalifikuje się jako PEP, ale która nie sprawuje już znaczącej funkcji publicznej przez okres co najmniej dwunastu miesięczny nie jest już uznawana za PEP."
+    "pep": "Kim jest PEP?",
+    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
   },
   "what-is-tax-information": {
+    "tax_information_title": "Tax Information",
     "required_by": "Wymóg ten jest nałożony przez standard automatycznej wymiany informacji w dziedzinie opodatkowania (Common Reporting Standard - CRS) oraz regulację FATCA (Foreign Account Tax Compliance Act).",
-    "please_enter": "Wprowadź swój ",
+    "please_enter": "Wprowadź ",
     "tax_information": "informacje podatkowe",
     "to_continue": "aby kontynuować.",
-    "information_will_be_safe": "Zapewniamy, że Twoje informacje będą wykorzystywane wyłącznie w celu raportowania CRS/FATCA i że będą bezpiecznie przechowywane."
+    "information_will_be_safe": "Zapewniamy, że Twoje informacje będą wykorzystywane wyłącznie w celu raportowania CRS/FATCA i że będą bezpiecznie przechowywane.",
+    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+  },
+  "professional-client-confirmation": {
+    "professional_clients": "Professional Clients",
+    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
+    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
+    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
+    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "you_may_decline": "Note: You may decline and continue as a Retail Client."
   }
 }

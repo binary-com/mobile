@@ -63,17 +63,16 @@ angular.module("binary").service("clientService", function(appStateService) {
         return currencies;
     }
 
-    this.dividedCurrencies = (currencies) => {
+    this.dividedCurrencies = currencies => {
         const currencyConfig = appStateService.currenciesConfig;
         const cryptoCurrencies = [];
         const fiatCurrencies = [];
-        _.forEach(currencies, curr => {
-            const currency = currencyConfig[curr];
-            const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
+        _.forEach(currencies, currency => {
+            const isCryptoCurrency = /crypto/i.test(currencyConfig[currency].type);
             if (isCryptoCurrency) {
-                cryptoCurrencies.push(curr);
+                cryptoCurrencies.push(currency);
             } else {
-                fiatCurrencies.push(curr);
+                fiatCurrencies.push(currency);
             }
         });
         return {
@@ -87,6 +86,20 @@ angular.module("binary").service("clientService", function(appStateService) {
         const currencyConfig = appStateService.currenciesConfig || {};
         return !_.isEmpty(currencyConfig) &&
         currencyConfig[currency] ? currencyConfig[currency].fractional_digits : 2;
+    };
+
+    this.groupMT5Accounts = accounts => {
+        const groupedAccounts = {};
+        const demo = [];
+        const real = [];
+        _.forEach(accounts, account => account.isDemo ? demo.push(account) : real.push(account));
+        if (demo.length) {
+            groupedAccounts.demo = demo;
+        }
+        if (real.length) {
+            groupedAccounts.real = real;
+        }
+        return groupedAccounts;
     };
 
 });
