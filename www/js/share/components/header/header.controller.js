@@ -10,9 +10,9 @@
 (function() {
     angular.module("binary.share.components").controller("HeaderController", Header);
 
-    Header.$inject = ["$scope", "$state", "$ionicHistory", "$ionicSideMenuDelegate", "appStateService"];
+    Header.$inject = ["$scope", "$state", "$ionicHistory", "$ionicSideMenuDelegate", "appStateService", "clientService"];
 
-    function Header($scope, $state, $ionicHistory, $ionicSideMenuDelegate, appStateService) {
+    function Header($scope, $state, $ionicHistory, $ionicSideMenuDelegate, appStateService, clientService) {
         const vm = this;
         vm.hideMenuButton = false;
         vm.hideBalance = false;
@@ -23,6 +23,7 @@
         $ionicHistory.backView(null);
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
+        vm.isMaltainvest = appStateService.isMaltainvest;
 
         vm.toggleSideMenu = function() {
             if (appStateService.tradeMode || !appStateService.purchaseMode) {
@@ -99,6 +100,12 @@
                 if (vm.from.name === "statement") {
                     appStateService.isStatementSet = false;
                 }
+            }
+        });
+
+        $scope.$on('authorize', (e, authorize) => {
+            if (authorize) {
+                vm.isMaltainvest = clientService.isLandingCompanyOf('maltainvest', authorize.landing_company_name);
             }
         });
 

@@ -9,7 +9,9 @@
           ng-class="{'ion-ios-arrow-back' : vm.ios}"></button>
 
   <h1 class="title">
-    <img src="img/binary_logo_light.svg" alt="Binary.com">
+    <img ng-if="!vm.isMaltainvest" src="img/binary_logo_light.svg" alt="Binary.com">
+    <img ng-if="vm.isMaltainvest" src="img/logo.svg" alt="Binary.com">
+    <img ng-if="vm.isMaltainvest" src="img/old-logo.svg" alt="Binary.com">
   </h1>
   <bg-notification-icon class="notification-icon"></bg-notification-icon>
 </ion-header-bar>

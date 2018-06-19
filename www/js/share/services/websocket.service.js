@@ -20,6 +20,7 @@ angular
             alertService,
             appStateService,
             localStorageService,
+            clientService,
             config,
             notificationService
         ) => {
@@ -245,6 +246,7 @@ angular
                 notificationService.emptyNotices();
                 appStateService.checkingUpgradeDone = false;
                 appStateService.loginFinished = false;
+                appStateService.isMaltainvest = false;
 
                 if (error) {
                     $translate(["alert.error", "alert.ok"]).then(translation => {
@@ -594,6 +596,8 @@ angular
                                 appStateService.upgradeableLandingCompanies =
                                 message.authorize.upgradeable_landing_companies
                                 || [];
+                                appStateService.isMaltainvest =
+                                    clientService.isLandingCompanyOf('maltainvest', message.authorize.landing_company_name);
                                 // update accounts from account list whenever authorize is received
                                 const accounts = !_.isEmpty(localStorage.getItem('accounts')) &&
                                 JSON.parse(localStorage.getItem('accounts'));
