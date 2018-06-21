@@ -34,7 +34,7 @@
               </div>
             </div>
             <div class="row" ng-if="!vm.hasResidence">
-              <div class="col item-input">
+              <div class="col item-input item-select">
                 <select name="country"
                         ng-model="vm.profile.country"
                         ng-options="residence.value as residence.text disable
@@ -113,7 +113,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="place_of_birth"
                         ng-model="vm.profile.place_of_birth"
                         ng-options="residence.value as residence.text for
@@ -174,7 +174,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="account_opening_reason"
                         ng-model="vm.profile.account_opening_reason"
                         ng-options="option.value as option.text | translate for
@@ -379,7 +379,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="address_state"
                         ng-model="vm.profile.address_state"
                         ng-select="vm.profile.address_state"
@@ -490,13 +490,16 @@
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col center">
-          <span class="help-block error center" ng-if="vm.notAnyChanges">
+          <span class="help-block error" ng-if="vm.notAnyChanges">
             {{ 'financial-assessment.no_change' | translate }}
           </span>
-          <button class="button button-block"
+        </div>
+      </div>
+      <div class="row">
+        <div class="col center">
+          <button class="button button-positive"
                   ng-click="vm.updateProfile()"
                   ng-disabled="!profileForm.$valid || vm.disableUpdateButton ||
                   (!vm.taxInfoIsOptional && !vm.profile.tax_residence && !vm.isVirtualAccount)">

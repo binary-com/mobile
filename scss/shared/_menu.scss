@@ -6,7 +6,7 @@
       &.account-icon {
         line-height: 1.42857;
         padding: 5px 5px 0 5px;
-        font-size: 1rem;
+        font-size: $FONT_SIZE_N;
         color: $white!important;
         position: relative;
       }
@@ -40,7 +40,7 @@
             width: 100%;
             text-align: center;
             color: $white;
-            font-size: 0.8rem;
+            font-size: $FONT_SIZE_XS;
         }
         &.endpoint-notification {
             z-index: 10;
@@ -70,7 +70,7 @@
             width: calc(100% - 10px);
             .manage-account {
                 text-align: right;
-                font-size: 0.8rem;
+                font-size: $FONT_SIZE_XS;
             }
             select {
                 color: $contentInverseColor;
@@ -79,14 +79,14 @@
                 border: none;
                 width: 90%;
                 width: calc(100% - 30px);
-                font-size: 1rem;
+                font-size: $FONT_SIZE_N;
                 padding: 5px 0;
             }
         }
     }
     a.item-content {
         color: $contentInverseColor;
-        font-size: 1rem;
+        font-size: $FONT_SIZE_N;
         font-weight: normal;
         &.activated {
             background: $primaryBrandColor;

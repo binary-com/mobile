@@ -31,7 +31,7 @@
                     [
                         {
                             text : translation['ios-pwa-prompt.close'],
-                            type : 'button-secondary',
+                            type : 'button-default',
                             onTap: (e) => {
                                 popup.close();
                             },

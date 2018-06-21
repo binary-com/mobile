@@ -27,7 +27,7 @@
           <div class="input-title">
             {{'trading-times.market' | translate}}
           </div>
-          <div class="item-select">
+          <div class="item-input item-select">
             <select ng-model="vm.market" ng-if="vm.isDataLoaded" ng-options="market.name as market.name for market in vm.data.markets">
             </select>
           </div>

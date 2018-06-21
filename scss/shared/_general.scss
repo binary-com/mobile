@@ -1,16 +1,9 @@
-::-webkit-input-placeholder {
-  color: $darkPrimaryBrandColor;
-}
-
 [ng-click],
 [data-ng-click],
-[x-ng-click] {
+[x-ng-click], a {
   cursor: pointer;
 }
 
-button {
-  border: none !important;
-}
 * {
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -18,328 +11,182 @@ button {
   -ms-user-select: none;
   user-select: none;
 }
-input {
-  -webkit-user-select: auto !important;
-  -khtml-user-select: auto !important;
-  -moz-user-select: auto !important;
-  -ms-user-select: auto !important;
-  user-select: auto !important;
-}
+
 * {
   -webkit-user-drag: none;
   -moz-user-drag: none;
   -ms-user-drag: none;
   user-drag: none;
 }
+
 ion-scroll[direction=x] {
   width: 100vw;
 }
+
 body * {
   font-family: roboto, sans-serif !important;
 }
+
 ion-side-menu {
   ion-content {
     overflow-y: hidden;
   }
 }
-.bar-subheader {
-  padding: 0;
-  height: inherit;
-  width: 100%;
-  background: $white;
-  position: relative;
-  top: 0;
-  bg-balance {
-    width: 100%;
-    position: relative;
-  }
-}
+
 a {
   color: $primaryBrandColor;
   text-decoration: none;
   font-weight: bold;
 }
-.popup-head {
-  padding: 10px;
-  border: none;
-  background: $primaryBrandColor;
-  h3.popup-title {
-    color: $white!important;
-    font-size: 1rem;
-    text-align: left;
-    font-weight: bold;
-  }
-}
-.popup-body {
-  background: $white;
-  font-size: 1rem;
-}
-.popup-buttons {
-  background: $white;
-  font-size: 1rem;
-  .button {
-    font-size: 1rem;
-  }
-}
-button.button.button-default {
-  color: $contentColor!important;
-  background: $fillColor!important;
-}
-button.button.button-positive {
-  background: $positiveColor!important;
-  &:hover {
-    color: $white !important;
-    background: $darkPositiveColor!important;
-  }
-}
-.button {
-  border: none;
-  background: $positiveColor;
-  color: $white;
-  font-size: 1rem;
-  :hover {
-    color: $white !important;
-    background: $darkPositiveColor;
-  }
-}
-button {
-  font-size: 1rem;
-  a {
-    font-weight: normal;
-  }
-}
-button:hover {
-  color: $white !important;
-  background: $darkPositiveColor;
-}
-.button-gray {
-  background: $fillColor;
+
+p {
+  font-size: $FONT_SIZE_N!important;
+  padding: 5px;
   color: $contentColor;
-  &:hover {
-    background: $secondaryContentColor!important;
-    color: $contentColor!important;
-  }
+  font-weight: normal;
+  white-space: normal;
+  line-height: normal;
 }
-button.button.button-default {
-  color: $contentColor!important;
-  background: $fillColor!important;
-}
-.side-item {
-  background: inherit;
-  color: $white;
-}
-.token-link {
-  text-decoration: underline;
-}
+
 .center {
   text-align: center!important;
   justify-content: center;
 }
+
 .item {
   border-width: 0;
   color: $contentColor;
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
 }
-.item-select select {
-  max-width: 100%;
-}
-.item-complex .item-content,
-.item-radio .item-content {
-  background: $fillColor;
-}
-.item-radio > input[disabled="disabled"] + div.item-content {
-  opacity: 0.4;
-}
+
 .scroll {
   padding-bottom: 1px;
 }
-.error p {
-  color: $negativeColor;
-  font-size: 0.5rem;
-}
-.app-version {
-  color: $primaryBrandColor;
-  opacity: 0.5;
-  font-size: 0.8rem;
-  display: block;
-  margin: 0 auto;
-}
-.help-block {
-  font-size: 0.8rem;
-  color: $contentColor;
-  text-align: left;
-}
+
 .left {
   text-align: left;
 }
+
 .right {
   text-align: right;
 }
+
 .green {
   color: $positiveColor;
 }
+
 .red {
   color: $negativeColor!important;
 }
+
 .bold {
   font-weight: bold;
 }
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
-  -webkit-appearance: none;
-  margin: 0;
-  /* <-- Apparently some margin are still there even though it's hidden */
-}
+
 .page-title {
-  font-size: 1.5rem;
+  font-size: $FONT_SIZE_XL;
   font-weight: normal;
   padding: 5px;
   color: $contentColor;
   border-bottom: 2px solid $black;
   margin: 0;
 }
+
 .sub-title {
-  font-size: 1rem;
+  font-size: $FONT_SIZE_N;
   color: $primaryBrandColor;
 }
-.input-title {
-  text-align: left;
-  white-space: normal;
-  font-size: 1rem;
-  padding: 5px;
-  span {
-    font-size: 1rem;
-    color: $secondaryContentColor;
-  }
+
+.hint {
+  font-size: $FONT_SIZE_XSS;
+  color: $black;
+  margin-top: 3px;
 }
+
 .help-block {
-  font-size: 0.8rem;
+  font-size: $FONT_SIZE_XS;
   text-align: left;
   color: $secondaryContentColor;
   position: relative;
 }
+
 .error {
   color: $negativeColor;
-  font-size: 0.8rem;
+  font-size: $FONT_SIZE_XS;
+  p {
+    color: $negativeColor;
+    font-size: $FONT_SIZE_XS;
+  }
 }
+
+.general-content {
+  //margin-bottom: 80px !important;
+  width: 100vw;
+  font-size: $FONT_SIZE_N;
+}
+
+.submenu-icon{
+  float: right;
+}
+
+// popups
+.popup-head {
+  padding: 10px;
+  border: none;
+  background: $primaryBrandColor;
+  h3.popup-title {
+    color: $white!important;
+    font-size: $FONT_SIZE_N;
+    text-align: left;
+    font-weight: bold;
+  }
+}
+.popup-body {
+  background: $white;
+  font-size: $FONT_SIZE_N;
+}
+.popup-buttons {
+  background: $white;
+  font-size: $FONT_SIZE_N;
+  .button {
+    font-size: $FONT_SIZE_N;
+  }
+}
+// end popups
 .info-container {
   border-radius: 3px;
   background: $fillColor;
   word-break: break-word;
   padding: 0;
-  font-size: 0.8rem;
+  font-size: $FONT_SIZE_XS;
 }
-input {
-  width: 100%;
-  padding: 5px!important;
-  border: 1px solid $borderColor!important;
-  border-radius: 3px!important;
-  background: $white;
-  font-size: 0.8rem!important;
-  height: auto!important;
-  &.checkbox {
-    width: 20px;
-    top: 2px;
-    position: relative;
-  }
-  &.input-disabled {
-    background: $fillColor;
-  }
+
+.app-version {
+  color: $primaryBrandColor;
+  opacity: 0.5;
+  font-size: $FONT_SIZE_XS;
+  display: block;
+  margin: 0 auto;
 }
-input[type="date"]::-webkit-calendar-picker-indicator {
-  color: $secondaryContentColor;
-  // border: 1px solid $borderColor;
-}
-input[type="date"] {
-  min-height: 30px!important;
-}
-.item-input {
-  padding: 5px;
-}
-.item-select {
-  border-radius: 3px;
-  font-size: 1rem;
-  padding: 5px;
-  select {
-    position: relative;
-    width: 100%;
-    padding: 5px;
-    border: 1px solid $borderColor;
-    border-radius: 3px;
-    background: $white;
-    direction: ltr;
-    font-size: 0.8rem;
-    option {
-      width: 100%;
-      text-align: left;
-    }
-  }
-  select[disabled] {
-      background: #f8f8f8 !important;
-  }
-}
-select {
-  position: relative;
-  width: 100%;
-  padding: 5px;
-  border: 1px solid $borderColor;
-  border-radius: 3px;
-  background: $white;
-  direction: ltr;
-  option {
-    width: 100%;
-    text-align: left;
-  }
-}
-p {
-  font-size: 1rem;
-  padding: 5px;
-  color: $contentColor;
-  font-weight: normal;
-  white-space: normal;
-  line-height: 1.4rem;
-}
-.button-secondary {
-  color: $contentColor!important;
-  background: $fillColor!important;
-}
+
 .popup-head {
   .popup-title {
-    font-size: 1rem;
+    font-size: $FONT_SIZE_N;
   }
 }
-label,
-textarea {
-  font-size: 1rem;
-}
-.general-content {
-  //margin-bottom: 80px !important;
-  width: 100vw;
-  font-size: 1rem;
-}
-.hint {
-  font-size: 0.8rem;
-  font-size: $FONT_SIZE_S;
-  color: $black;
-  margin-top: 3px;
-}
-.submenu-icon{
-  float: right;
-  // color: $darkPrimaryBrandColor;
-}
+
 .information-popup {
   .popup {
     background: $white;
     width: 90vw;
     padding: 0;
-    font-size: 1rem;
+    font-size: $FONT_SIZE_N;
   }
   .popup-body {
     background: $white;
     padding: 5px;
     .item {
-      font-size: 1rem;
+      font-size: $FONT_SIZE_N;
       padding: 5px;
       background: $white;
       p {
@@ -353,9 +200,124 @@ textarea {
   }
 }
 
+// Inputs
+input {
+  -webkit-user-select: auto !important;
+  -khtml-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+  &::-webkit-input-placeholder {
+    color: $darkPrimaryBrandColor;
+  }
+  &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+  }
+  width: 100%;
+  padding: 5px!important;
+  border: 1px solid $borderColor!important;
+  border-radius: 3px!important;
+  background: $white;
+  font-size: $FONT_SIZE_XS!important;
+  height: auto!important;
+  &.checkbox {
+    width: 20px;
+    top: 2px;
+    position: relative;
+  }
+  &[type="date"] {
+    min-height: 30px!important;
+  }
+  &[type="date"]::-webkit-calendar-picker-indicator {
+    color: $secondaryContentColor;
+  }
+}
+
+.item-input {
+  padding: 5px;
+}
+
+.item-select {
+  border-radius: 3px;
+  font-size: $FONT_SIZE_N;
+  select {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: 5px;
+    border: 1px solid $borderColor;
+    border-radius: 3px;
+    background: $white;
+    direction: ltr;
+    font-size: $FONT_SIZE_XS;
+    option {
+      width: 100%;
+      text-align: left;
+    }
+
+    &[disabled] {
+      background: $disabledColor!important;
+    }
+  }
+}
+
+.item-complex .item-content,
+.item-radio .item-content {
+  background: $fillColor;
+}
+
+.item-radio > input[disabled="disabled"] + div.item-content {
+  opacity: 0.4;
+}
+
+.input-title {
+  text-align: left;
+  white-space: normal;
+  font-size: $FONT_SIZE_N;
+  padding: 5px;
+  span {
+    font-size: $FONT_SIZE_N;
+    color: $secondaryContentColor;
+  }
+}
+
+label,
+textarea {
+  font-size: $FONT_SIZE_N;
+}
+
+// Buttons
+button {
+  border: none !important;
+  font-size: $FONT_SIZE_N;
+  a {
+    font-weight: normal;
+  }
+}
+
+.button-default {
+  color: $contentColor!important;
+  background: $fillColor!important;
+  &:hover {
+    color: $contentColor !important;
+    background: $fillColor;
+  }
+}
+.button-positive {
+  background: $positiveColor!important;
+  color: $white!important;
+  &:hover {
+    color: $white !important;
+    background: $darkPositiveColor!important;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .information-popup .popup-body .item {
-    font-size: 1rem;
+    font-size: $FONT_SIZE_N;
   }
   .information-popup {
     .popup {
@@ -372,7 +334,7 @@ textarea {
         }
       }
       p {
-        font-size: 1rem;
+        font-size: $FONT_SIZE_N;
       }
     }
   }

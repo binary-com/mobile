@@ -4,11 +4,23 @@
 .balance {
 	background: $white;
 	color: $contentColor;
-	font-size: 1rem;
+	font-size: $FONT_SIZE_N;
 	padding: 0 5px;
 	border-bottom: 1px solid $borderColor;
 	.row{
 		padding: 0;
+	}
+}
+.bar-subheader {
+	padding: 0;
+	height: inherit;
+	width: 100%;
+	background: $white;
+	position: relative;
+	top: 0;
+	bg-balance {
+		width: 100%;
+		position: relative;
 	}
 }
 .bar.bar-positive {
@@ -68,7 +80,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive{
 	padding: 0;
 	background: $noticeColor;
 	.error {
-		font-size: 0.8rem;
+		font-size: $FONT_SIZE_XS;
 		padding: 10px;
 	}
 }

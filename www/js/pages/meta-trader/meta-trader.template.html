@@ -88,14 +88,14 @@
         </div>
         <div class="row" ng-if="vm.hasMTAccess && vm.isLoaded && (vm.canUpgrade || !vm.hasAccount)">
             <div class="col center">
-                <button class="button"
+                <button class="button button-positive"
                         ng-click="vm.createMTAccount()"> {{ "mt.create_account" | translate }}
                 </button>
             </div>
         </div>
         <div class="row" ng-if="vm.isLoaded && vm.hasMTAccess && vm.hasAccount">
             <div class="col center">
-                <button class="button" ng-click="vm.openMT5()">
+                <button class="button button-positive" ng-click="vm.openMT5()">
                     {{ 'mt.start_trading_with_mt5' | translate }}
                 </button>
             </div>
