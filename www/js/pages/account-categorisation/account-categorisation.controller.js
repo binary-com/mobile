@@ -35,7 +35,7 @@
             }
         });
 
-        $scope.$on('set-settings', (e, error) => {
+        $scope.$on('set-settings', (e, message) => {
             init();
         });
 
