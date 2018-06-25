@@ -305,7 +305,8 @@
     "self_exclusion": "Self Exclusion",
     "change_password": "Change Password",
     "financial_assessment": "Financial Assessment",
-    "limits": "Limiti"
+    "limits": "Limiti",
+    "account_categorisation": "Account Categorisation"
   },
   "self-exclusion": {
     "self_exclusion": "Self Exclusion Facilities",
@@ -732,5 +733,15 @@
     "accept": "Accept",
     "decline": "Decline",
     "you_may_decline": "Note: You may decline and continue as a Retail Client."
+  },
+  "account-categorisation": {
+    "account_categorisation": "Account Categorisation",
+    "processing": "Your application to be treated as a professional client is being processed.",
+    "professional": "You are categorised as a professional client.",
+    "error": "Sorry, an error occurred while processing your request.",
+    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
+    "professional_client_verify": "I want to be treated as a professional client.",
+    "what_is_this": "What is this?",
+    "submit": "Submit"
   }
 }
