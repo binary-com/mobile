@@ -305,7 +305,8 @@
     "self_exclusion": "crwdns45007:0crwdne45007:0",
     "change_password": "crwdns45008:0crwdne45008:0",
     "financial_assessment": "crwdns45009:0crwdne45009:0",
-    "limits": "crwdns19267:0crwdne19267:0"
+    "limits": "crwdns19267:0crwdne19267:0",
+    "account_categorisation": "crwdns45928:0crwdne45928:0"
   },
   "self-exclusion": {
     "self_exclusion": "crwdns45010:0crwdne45010:0",
@@ -732,5 +733,15 @@
     "accept": "crwdns45840:0crwdne45840:0",
     "decline": "crwdns45841:0crwdne45841:0",
     "you_may_decline": "crwdns45842:0crwdne45842:0"
+  },
+  "account-categorisation": {
+    "account_categorisation": "crwdns45929:0crwdne45929:0",
+    "processing": "crwdns45930:0crwdne45930:0",
+    "professional": "crwdns45931:0crwdne45931:0",
+    "error": "crwdns45932:0crwdne45932:0",
+    "retail_info": "crwdns45933:0crwdne45933:0",
+    "professional_client_verify": "crwdns45934:0crwdne45934:0",
+    "what_is_this": "crwdns45935:0crwdne45935:0",
+    "submit": "crwdns45936:0crwdne45936:0"
   }
 }

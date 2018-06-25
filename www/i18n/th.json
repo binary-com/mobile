@@ -305,7 +305,8 @@
     "self_exclusion": "การพักตัวเอง",
     "change_password": "เปลี่ยนรหัสผ่าน",
     "financial_assessment": "การประเมินทางการเงิน",
-    "limits": "วงเงิน"
+    "limits": "วงเงิน",
+    "account_categorisation": "Account Categorisation"
   },
   "self-exclusion": {
     "self_exclusion": "เครื่องมือสำหรับพักการซื้อขาย",
@@ -732,5 +733,15 @@
     "accept": "ยอมรับ",
     "decline": "ปฏิเสธ",
     "you_may_decline": "หมายเหตุ: คุณอาจปฏิเสธ และเป็นลูกค้ารายย่อยต่อไป"
+  },
+  "account-categorisation": {
+    "account_categorisation": "Account Categorisation",
+    "processing": "Your application to be treated as a professional client is being processed.",
+    "professional": "You are categorised as a professional client.",
+    "error": "Sorry, an error occurred while processing your request.",
+    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
+    "professional_client_verify": "I want to be treated as a professional client.",
+    "what_is_this": "What is this?",
+    "submit": "Submit"
   }
 }
