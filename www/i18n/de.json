@@ -305,7 +305,8 @@
     "self_exclusion": "Selbstausschluss",
     "change_password": "Passwort ändern",
     "financial_assessment": "Finanzielle Bewertung",
-    "limits": "Grenzen"
+    "limits": "Grenzen",
+    "account_categorisation": "Account Categorisation"
   },
   "self-exclusion": {
     "self_exclusion": "Selbstausschluss Einrichtungen",
@@ -732,5 +733,15 @@
     "accept": "Akzeptieren",
     "decline": "Ablehnen",
     "you_may_decline": "Hinweis: Sie können zurückgehen und als Privatkunde fortfahren."
+  },
+  "account-categorisation": {
+    "account_categorisation": "Account Categorisation",
+    "processing": "Your application to be treated as a professional client is being processed.",
+    "professional": "You are categorised as a professional client.",
+    "error": "Sorry, an error occurred while processing your request.",
+    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
+    "professional_client_verify": "I want to be treated as a professional client.",
+    "what_is_this": "What is this?",
+    "submit": "Submit"
   }
 }
