@@ -1112,14 +1112,16 @@
       <div class="row">
         <div class="col">
           <div class="row">
-            <button class="button button-positive"
-                    ng-hide="vm.showRiskDisclaimer"
-                    ng-click="vm.submitAccountOpening()"
-                    ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}"
-                    ng-disabled="newAccountMaltainvestForm.$invalid || !vm.data.tax_residence
+            <div class="col center">
+              <button class="button button-positive"
+                      ng-hide="vm.showRiskDisclaimer"
+                      ng-click="vm.submitAccountOpening()"
+                      ng-class="{'button-default' : newAccountMaltainvestForm.$invalid}"
+                      ng-disabled="newAccountMaltainvestForm.$invalid || !vm.data.tax_residence
                                 || vm.disableUpdatebutton || !vm.tncAccepted">
-              {{ 'new-account-maltainvest.open_account' | translate }}
-            </button>
+                {{ 'new-account-maltainvest.open_account' | translate }}
+              </button>
+            </div>
           </div>
         </div>
       </div>

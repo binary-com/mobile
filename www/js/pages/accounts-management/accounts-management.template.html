@@ -40,7 +40,7 @@
                   </select>
                 </div>
                 <div class="list-element center">
-                  <button class="button default-button" ng-click="vm.redirectToAccountOpening()">
+                  <button class="button button-positive" ng-click="vm.redirectToAccountOpening()">
                     {{ 'accounts-management.create' | translate }}
                   </button>
                 </div>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="list-element center"
                      ng-if="account.currency === '' && vm.currentAccount.id === account.id">
-                  <button class="button default-button" ng-click="vm.redirectToSetCurrency()">
+                  <button class="button button-positive" ng-click="vm.redirectToSetCurrency()">
                     {{ 'accounts-management.set_currency' | translate }}
                   </button>
                 </div>
