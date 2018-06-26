@@ -1,0 +1,10 @@
+<div class="selected-tick">
+  <div class="row">
+    <div class="col center" ng-repeat="val in vm.selectableTicksRange">
+      <button class="button button-clear"
+              ng-click="vm.selectSelectedTick(val)">
+        {{ val }}
+      </button>
+    </div>
+  </div>
+</div>

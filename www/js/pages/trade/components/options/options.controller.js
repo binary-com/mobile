@@ -44,7 +44,8 @@
             MARKETS    : 3,
             TRADETYPES : 4,
             TICKS      : 5,
-            DIGITS     : 6
+            DIGITS     : 6,
+            SELECTEDTICK: 7
         };
 
         vm.options = {
@@ -52,7 +53,8 @@
             underlying: null,
             tradeType : null,
             tick      : null,
-            digit     : null
+            digit     : null,
+            selected_tick: null
         };
 
         vm.section1 = vm.SECTIONS.OVERVIEW1; // vm.options.market ? vm.SECTIONS.OVERVIEW : vm.SECTIONS.MARKETS;
@@ -97,6 +99,8 @@
                     tradeTypes[vm.options.tradeType][0].barriers > 0
                         ? vm.options.barrier || tradeTypes[vm.options.tradeType][0].barrier
                         : null;
+                vm.options.selected_tick = vm.options.tradeType === 'High/Low Ticks' ?
+                    (vm.options.selected_tick || vm.options.tick) : null;
                 updateProposal();
                 tradeService.proposalIsReady = true;
             });
@@ -197,6 +201,8 @@
                 tradeType.barriers > 0 && !_.isEmpty(tradeType.barrier)
                     ? vm.options.barrier || tradeType.barrier
                     : null;
+            vm.options.selected_tick = vm.options.tradeType === 'High/Low Ticks' ?
+                (vm.options.selected_tick || vm.options.tick) : null;
             vm.section2 = vm.SECTIONS.OVERVIEW2;
             updateProposal();
             hideModal();
@@ -212,6 +218,14 @@
         vm.selectDigit = function(digit) {
             vm.options.digit = digit;
             vm.options.barrier = null;
+            vm.section2 = vm.SECTIONS.OVERVIEW2;
+            updateProposal();
+            hideModal();
+        };
+
+        vm.selectSelectedTick = function(tick) {
+            vm.options.selected_tick = tick;
+            // vm.options.barrier = null;
             vm.section2 = vm.SECTIONS.OVERVIEW2;
             updateProposal();
             hideModal();

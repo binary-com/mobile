@@ -154,6 +154,14 @@ angular.module("binary").factory("chartService", $rootScope => {
                 const avg = utils.average(priceList);
 
                 return parseFloat(price) < avg;
+            },
+            TICKHIGH: function condition(barrier, price, priceList) {
+                // console.log(priceList);
+                return true;
+            },
+            TICKLOW: function condition(barrier, price, priceList) {
+                console.log(priceList);
+                return true;
             }
         },
         digitTrade: function digitTrade(contract) {

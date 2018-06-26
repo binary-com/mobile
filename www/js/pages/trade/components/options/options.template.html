@@ -26,6 +26,11 @@
               ng-click="vm.setSection(2, vm.SECTIONS.DIGITS)"> Last Digit: {{ vm.options.digit }}
         <i class="ion-arrow-down-b"></i></button>
     </div>
+    <div class="col center" ng-if="vm.options.selected_tick != null">
+      <button class="button button-clear"
+              ng-click="vm.setSection(2, vm.SECTIONS.SELECTEDTICK)"> Tick Prediction: {{ vm.options.selected_tick }}
+        <i class="ion-arrow-down-b"></i></button>
+    </div>
   </div>
 </div>
 <div class="row" ng-if="!vm.showOptions && vm.marketsClosed">

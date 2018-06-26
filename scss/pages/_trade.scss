@@ -36,6 +36,7 @@
 		bg-chart,
 		bg-contract-summary,
 		bg-digits,
+		bg-selected-tick,
 		bg-longcode,
 		bg-markets,
 		bg-options,
@@ -98,9 +99,11 @@
 			}
 		}
 		bg-digits,
+		bg-selected-tick,
 		bg-ticks {
 			width: 100vw;
 			.digits,
+			.selected-tick,
 			.ticks {
 				width: 100vw;
 				display: flex;
@@ -637,6 +640,7 @@
 	}
 
 	bg-digits,
+	bg-selected-tick,
 	bg-markets,
 	bg-ticks,
 	bg-tradetypes,
@@ -658,6 +662,7 @@
 			}
 		}
 		.digits,
+		.selected-tick,
 		.markets,
 		.ticks,
 		.trade-types,
