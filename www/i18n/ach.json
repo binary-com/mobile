@@ -343,7 +343,9 @@
     "save_prompt": "crwdns45039:0crwdne45039:0",
     "session_timeout_warning": "crwdns45040:0crwdne45040:0",
     "success": "crwdns18039:0crwdne18039:0",
-    "warning": "crwdns19405:0crwdne19405:0"
+    "warning": "crwdns19405:0crwdne19405:0",
+    "not_zero": "crwdns45950:0crwdne45950:0",
+    "error": "crwdns45951:0crwdne45951:0"
   },
   "profile": {
     "personal_details": "crwdns18040:0crwdne18040:0",
