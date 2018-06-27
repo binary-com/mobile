@@ -63,14 +63,14 @@
         });
 
         vm.checkZeroValues = () => {
-            let hasZeroValue = [];
+            const hasZeroValue = [];
             _.forEach(noZeroValues, field => {
                 if (parseInt(vm.data[field]) === 0) {
                     hasZeroValue.push(field);
                 }
             });
             $scope.$applyAsync(() => {
-               vm.disableForZeroValues = !!hasZeroValue.length;
+                vm.disableForZeroValues = !!hasZeroValue.length;
             });
         };
 
