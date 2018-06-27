@@ -78,7 +78,7 @@
             });
 
             $scope.$applyAsync(() => {
-                vm.canUpgrade = !!_.find(accountsInfo, (name, acc) => !acc.hasOwnProperty('info'));
+                vm.canUpgrade = !!_.find(accountsInfo, acc => !acc.hasOwnProperty('info'));
                 vm.accountsList = clientService.groupMT5Accounts(accounts);
                 vm.isLoaded = true;
                 vm.hasAccount = !_.isEmpty(vm.accountsList);
