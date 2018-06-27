@@ -343,7 +343,9 @@
     "save_prompt": "內容已成功儲存",
     "session_timeout_warning": "交易期持續時間限制將於10秒內結束。",
     "success": "成功",
-    "warning": "警告"
+    "warning": "警告",
+    "not_zero": "Value can not be 0",
+    "error": "Sorry, an error occurred while processing your request."
   },
   "profile": {
     "personal_details": "個人詳細資訊",
