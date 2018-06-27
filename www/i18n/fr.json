@@ -343,7 +343,9 @@
     "save_prompt": "Contenu enregistré avec succès",
     "session_timeout_warning": "Votre limite de durée de session sera atteinte dans 10 secondes.",
     "success": "Succès",
-    "warning": "Avertissement"
+    "warning": "Avertissement",
+    "not_zero": "Value can not be 0",
+    "error": "Sorry, an error occurred while processing your request."
   },
   "profile": {
     "personal_details": "Informations personnelles",
