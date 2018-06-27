@@ -27,9 +27,10 @@
                      bg-big-number
                      ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_balance"
-                     ng-max="vm.limits.max_balance"
+                     ng-max="vm.limits.max_balance || vm.accountLimits.account_balance"
                      ng-required="!!vm.limits.max_balance"
                      step="1"
+                     ng-change="vm.checkZeroValues()"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max" />
               <div class="hint"> {{ 'self-exclusion.max_balance_hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_account_balance.$error"
@@ -41,9 +42,13 @@
                   fractionalDigits: vm.fractionalDigits} }}
                 </ng-message>
                 <ng-message when="min, max, required">
-                  {{ 'self-exclusion.valid_range_hint' | translate : {max: vm.limits.max_balance} }}
+                  {{ 'self-exclusion.valid_range_hint' | translate : {max: vm.limits.max_balance ||
+                  vm.accountLimits.account_balance} }}
                 </ng-message>
               </ng-messages>
+              <div class="error" ng-if="vm.data.max_balance == 0">
+                {{ 'self-exclusion.not_zero' | translate }}
+              </div>
             </div>
           </div>
         </div>
@@ -63,9 +68,10 @@
                      bg-big-number
                      ng-pattern="vm.validation.validateFloatNumber"
                      ng-model="vm.data.max_turnover"
-                     ng-max="vm.limits.max_turnover"
+                     ng-max="vm.limits.max_turnover || vm.accountLimits.daily_turnover"
                      ng-required="!!vm.limits.max_turnover"
                      step="1"
+                     ng-change="vm.checkZeroValues()"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint"> {{ 'self-exclusion.max_turnover_hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_daily_turnover.$error"
@@ -76,9 +82,13 @@
                   vm.validation.length.selfExclusionLimits.max, fractionalDigits: vm.fractionalDigits} }}
                 </ng-message>
                 <ng-message when="min, max, required">
-                  {{ 'self-exclusion.valid_range_hint' | translate : {max: vm.limits.max_turnover} }}
+                  {{ 'self-exclusion.valid_range_hint' | translate : {max: vm.limits.max_turnover ||
+                  vm.accountLimits.daily_turnover} }}
                 </ng-message>
               </ng-messages>
+              <div class="error" ng-if="vm.data.max_turnover == 0">
+                {{ 'self-exclusion.not_zero' | translate }}
+              </div>
             </div>
           </div>
         </div>
@@ -101,6 +111,7 @@
                      ng-max="vm.limits.max_losses"
                      ng-required="!!vm.limits.max_losses"
                      step="1"
+                     ng-change="vm.checkZeroValues()"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint"> {{ 'self-exclusion.max_losses_hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.daily_limit_on_losses.$error"
@@ -114,6 +125,9 @@
                   {{ 'self-exclusion.valid_range_hint' | translate : {max: vm.limits.max_losses} }}
                 </ng-message>
               </ng-messages>
+              <div class="error" ng-if="vm.data.max_losses == 0">
+                {{ 'self-exclusion.not_zero' | translate }}
+              </div>
             </div>
           </div>
         </div>
@@ -136,6 +150,7 @@
                      ng-max="vm.limits.max_7day_turnover"
                      ng-required="!!vm.limits.max_7day_turnover"
                      step="1"
+                     ng-change="vm.checkZeroValues()"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint"> {{ 'self-exclusion.7_day_turnover_hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_7_day_turnover_limit.$error"
@@ -150,6 +165,9 @@
                   vm.validation.length.selfExclusionLimits.max, fractionalDigits: vm.fractionalDigits} }}
                 </ng-message>
               </ng-messages>
+              <div class="error" ng-if="vm.data.max_7day_turnover == 0">
+                {{ 'self-exclusion.not_zero' | translate }}
+              </div>
             </div>
           </div>
         </div>
@@ -172,6 +190,7 @@
                      ng-max="vm.limits.max_7day_losses"
                      ng-required="!!vm.limits.max_7day_losses"
                      step="1"
+                     ng-change="vm.checkZeroValues()"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint"> {{ 'self-exclusion.7_day_losses_hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_7_day_limit_on_losses.$error"
@@ -186,6 +205,9 @@
                   {max: vm.limits.max_7day_losses} }}
                 </ng-message>
               </ng-messages>
+              <div class="error" ng-if="vm.data.max_7day_losses == 0">
+                {{ 'self-exclusion.not_zero' | translate }}
+              </div>
             </div>
           </div>
         </div>
@@ -208,6 +230,7 @@
                      ng-max="vm.limits.max_30day_turnover"
                      ng-required="!!vm.limits.max_30day_turnover"
                      step="1"
+                     ng-change="vm.checkZeroValues()"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint"> {{ 'self-exclusion.30_day_turnover_hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.max_30_day_turnover_limit.$error" role="alert" class="error">
@@ -219,6 +242,9 @@
                   {{ 'self-exclusion.valid_range_hint' | translate : {max: vm.limits.max_30day_turnover} }}
                 </ng-message>
               </ng-messages>
+              <div class="error" ng-if="vm.data.max_30day_turnover == 0">
+                {{ 'self-exclusion.not_zero' | translate }}
+              </div>
             </div>
           </div>
         </div>
@@ -241,6 +267,7 @@
                      ng-max="vm.limits.max_30day_losses"
                      ng-required="!!vm.limits.max_30day_losses"
                      step="1"
+                     ng-change="vm.checkZeroValues()"
                      ng-maxlength="vm.validation.length.selfExclusionLimits.max"/>
               <div class="hint">
                 {{ 'self-exclusion.30_day_losses_hint' | translate }}
@@ -257,6 +284,9 @@
                   {max: vm.limits.max_30day_losses} }}
                 </ng-message>
               </ng-messages>
+              <div class="error" ng-if="vm.data.max_30day_losses == 0">
+                {{ 'self-exclusion.not_zero' | translate }}
+              </div>
             </div>
           </div>
         </div>
@@ -276,9 +306,10 @@
                      bg-big-number
                      ng-pattern="vm.validation.validateIntegerNumber"
                      ng-model="vm.data.max_open_bets"
-                     ng-max="vm.limits.max_open_bets"
+                     ng-max="vm.limits.max_open_bets || vm.accountLimits.open_positions"
                      ng-required="!!vm.limits.max_open_bets"
                      step="1"
+                     ng-change="vm.checkZeroValues()"
                      ng-maxlength="vm.validation.length.selfExclusionOpenPositions.max"/>
               <ng-messages for="self_exclusion_form.maximum_number_of_open_positions.$error"
                            role="alert"
@@ -288,9 +319,13 @@
                   vm.validation.length.selfExclusionOpenPositions.max} }}
                 </ng-message>
                 <ng-message when="min, max, required">
-                  {{ 'self-exclusion.valid_range_hint' | translate : {max: vm.limits.max_open_bets} }}
+                  {{ 'self-exclusion.valid_range_hint' | translate : {max: vm.limits.max_open_bets ||
+                  vm.accountLimits.open_positions} }}
                 </ng-message>
               </ng-messages>
+              <div class="error" ng-if="vm.data.max_open_bets == 0">
+                {{ 'self-exclusion.not_zero' | translate }}
+              </div>
             </div>
           </div>
         </div>
@@ -387,12 +422,17 @@
           </div>
         </div>
       </div>
+      <div class="row" ng-if="vm.hasError">
+        <div class="col error center">
+          {{ 'self-exclusion.error' | translate }}
+        </div>
+      </div>
 
       <div class="row">
         <div class="col center">
           <button class="button button-positive"
                   type="submit"
-                  ng-disabled="self_exclusion_form.$invalid || vm.disableUpdateButton">
+                  ng-disabled="self_exclusion_form.$invalid || vm.disableUpdateButton || vm.disableForZeroValues">
             {{ 'self-exclusion.update_settings' | translate }}
           </button>
         </div>
