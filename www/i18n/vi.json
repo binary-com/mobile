@@ -343,7 +343,9 @@
     "save_prompt": "Content saved successfully",
     "session_timeout_warning": "Your session duration limit will end in 10 seconds.",
     "success": "Thành công",
-    "warning": "Cảnh báo"
+    "warning": "Cảnh báo",
+    "not_zero": "Value can not be 0",
+    "error": "Sorry, an error occurred while processing your request."
   },
   "profile": {
     "personal_details": "Thông tin cá nhân",
