@@ -861,7 +861,11 @@ angular
                             }
                             break;
                         case "get_limits":
-                            $rootScope.$broadcast("get_limits", message.get_limits);
+                            if (message.get_limits) {
+                                $rootScope.$broadcast("get_limits", message.get_limits);
+                            } else if (message.error) {
+                                $rootScope.$broadcast("get_limits:error", message.error);
+                            }
                             break;
                         case "trading_times":
                             if (message.trading_times) {
