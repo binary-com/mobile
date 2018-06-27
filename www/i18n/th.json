@@ -343,7 +343,9 @@
     "save_prompt": "ได้บันทึกเนื้อหาเรียบร้อยแล้ว",
     "session_timeout_warning": "เวลาจำกัดของการซื้อขายของคุณจะสิ้นสุดภายใน 10 วินาที",
     "success": "เรียบร้อยแล้ว",
-    "warning": "คำเตือน"
+    "warning": "คำเตือน",
+    "not_zero": "Value can not be 0",
+    "error": "Sorry, an error occurred while processing your request."
   },
   "profile": {
     "personal_details": "รายละเอียดส่วนบุคคล",
