@@ -74,22 +74,29 @@
                 </div>
             </div>
         </div>
-        <div ng-if="vm.hasMTAccess && vm.isLoaded && !vm.hasAccount">
+        <div ng-if="vm.hasMTAccess && vm.isLoaded && !vm.hasAccount && vm.hasRealAccount">
             <div class="row">
                 <div class="col center">
                     {{"mt.you_do_not_have_mt5_account" | translate}}
                 </div>
             </div>
         </div>
-        <div class="row" ng-if="vm.hasMTAccess && vm.isLoaded && !vm.hasRealAccount">
+        <div class="row" ng-if="vm.hasMTAccess && vm.isLoaded && !vm.hasAccount && !vm.hasRealAccount">
             <div class="col center">
                 {{ 'mt.upgrade_real_account' | translate }}
             </div>
         </div>
-        <div class="row" ng-if="vm.hasMTAccess && vm.isLoaded && (vm.canUpgrade || !vm.hasAccount)">
+        <div class="row" ng-if="vm.hasMTAccess && vm.isLoaded && vm.hasRealAccount && (vm.canUpgrade || !vm.hasAccount)">
             <div class="col center">
                 <button class="button button-positive"
                         ng-click="vm.createMTAccount()"> {{ "mt.create_account" | translate }}
+                </button>
+            </div>
+        </div>
+        <div class="row" ng-if="vm.hasMTAccess && vm.isLoaded && !vm.hasRealAccount">
+            <div class="col center">
+                <button class="button button-positive"
+                        ng-click="vm.redirectToUpgrade()"> {{ "mt.upgrade" | translate }}
                 </button>
             </div>
         </div>
