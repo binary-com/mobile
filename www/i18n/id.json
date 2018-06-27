@@ -343,7 +343,9 @@
     "save_prompt": "Konten yang berhasil disimpan",
     "session_timeout_warning": "Batasan sesi durasi Anda akan berakhir dalam 10 detik.",
     "success": "Sukses",
-    "warning": "Peringatan"
+    "warning": "Peringatan",
+    "not_zero": "Value can not be 0",
+    "error": "Sorry, an error occurred while processing your request."
   },
   "profile": {
     "personal_details": "Detail Pribadi",
