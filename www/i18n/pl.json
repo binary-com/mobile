@@ -194,7 +194,9 @@
     "read_more": "Dowiedz się więcej.",
     "required_to_collect_tin": "Firma Binary Investments (Europe) Ltd. jest zobowiązana do gromadzenia informacji podatkowych.",
     "required_to_obtain_information": "Świadcząc nasze usługi, jesteśmy zobligowani do uzyskania od Ciebie informacji w celu przeprowadzenia oceny, czy dany produkt lub usługa jest odpowiednia dla Ciebie (tzn. czy posiadasz odpowiednie doświadczenie i wiedzę potrzebne do zrozumienia ryzyka związanego z danym produktem).",
-    "on_the_basis_of_information": "Na podstawie przedstawionych informacji dotyczących Twojej wiedzy i doświadczenia uznaliśmy, że inwestycje dostępne za pośrednictwem naszej strony są dla Ciebie nieodpowiednie.",
+    "on_the_basis_of_information": "On the basis of the information provided in relation to your knowledge and experience, we consider that the investments available via this website are not appropriate for you.",
+    "appropriateness_test": "Appropriateness Test: ",
+    "warning": "WARNING:",
     "by_clicking": "Przez kliknięcie ",
     "accept": "Akceptuj",
     "exposing_at_risk": "i kontynuowanie procedury otwarcia konta oznacza, że zdajesz sobie sprawę z tego, że możesz być narażony/a na ryzyko (które może być znaczne, w tym na ryzyko utraty całej zainwestowanej sumy) i możesz nie posiadać wystarczającej wiedzy i wystarczającego doświadczenia, aby sobie z nim poradzić.",
@@ -341,7 +343,9 @@
     "save_prompt": "Treść zapisana pomyślnie",
     "session_timeout_warning": "Limit czasu sesji zakończy się za 10 sek.",
     "success": "Udało się",
-    "warning": "Ostrzeżenie"
+    "warning": "Ostrzeżenie",
+    "not_zero": "Value can not be 0",
+    "error": "Sorry, an error occurred while processing your request."
   },
   "profile": {
     "personal_details": "Dane osobowe",

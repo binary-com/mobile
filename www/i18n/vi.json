@@ -194,7 +194,9 @@
     "read_more": "Tìm hiểu thêm.",
     "required_to_collect_tin": "Công ty cổ phần đầu tư Binary (Châu Âu) được yêu cầu để thu thập thông tin thuế của bạn.",
     "required_to_obtain_information": "Trong quá trình cung cấp dịch vụ tới bạn, chúng tôi cần thu thập thông tin từ bạn để đánh giá xem một sản phẩm hoặc dịch vụ nhất định có thích hợp cho bạn hay không (đó là, cho dù bạn có kinh nghiệm và kiến thức để hiểu các rủi ro liên quan).",
-    "on_the_basis_of_information": "cơ sở thông tin được cung cấp có liên quan tới kiến thức và kinh nghiệm bạn cung cấp, chúng tôi thấy rằng những dự án đầu tư sẵn có trên trang web này không thích hợp với bạn.",
+    "on_the_basis_of_information": "On the basis of the information provided in relation to your knowledge and experience, we consider that the investments available via this website are not appropriate for you.",
+    "appropriateness_test": "Appropriateness Test: ",
+    "warning": "WARNING:",
     "by_clicking": "Bằng cách nhấp vào ",
     "accept": "Chấp nhận",
     "exposing_at_risk": "dưới đây và tiếp tục với việc mở tài khoản, bạn nên lưu ý rằng bạn có thể đang đối diện với những rủi ro (có thể là đáng kể, trong đó có nguy cơ mất toàn bộ số tiền đầu tư) mà bạn có thể không có kiến thức và kinh nghiệm để đánh giá đúng mực và giảm thiểu.",
@@ -341,7 +343,9 @@
     "save_prompt": "Content saved successfully",
     "session_timeout_warning": "Your session duration limit will end in 10 seconds.",
     "success": "Thành công",
-    "warning": "Cảnh báo"
+    "warning": "Cảnh báo",
+    "not_zero": "Value can not be 0",
+    "error": "Sorry, an error occurred while processing your request."
   },
   "profile": {
     "personal_details": "Thông tin cá nhân",

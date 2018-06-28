@@ -194,7 +194,9 @@
     "read_more": "crwdns44878:0crwdne44878:0",
     "required_to_collect_tin": "crwdns44879:0crwdne44879:0",
     "required_to_obtain_information": "crwdns44880:0crwdne44880:0",
-    "on_the_basis_of_information": "crwdns44881:0crwdne44881:0",
+    "on_the_basis_of_information": "crwdns45947:0crwdne45947:0",
+    "appropriateness_test": "crwdns45948:0crwdne45948:0",
+    "warning": "crwdns45949:0crwdne45949:0",
     "by_clicking": "crwdns44882:0crwdne44882:0",
     "accept": "crwdns44883:0crwdne44883:0",
     "exposing_at_risk": "crwdns44884:0crwdne44884:0",
@@ -341,7 +343,9 @@
     "save_prompt": "crwdns45039:0crwdne45039:0",
     "session_timeout_warning": "crwdns45040:0crwdne45040:0",
     "success": "crwdns18039:0crwdne18039:0",
-    "warning": "crwdns19405:0crwdne19405:0"
+    "warning": "crwdns19405:0crwdne19405:0",
+    "not_zero": "crwdns45950:0crwdne45950:0",
+    "error": "crwdns45951:0crwdne45951:0"
   },
   "profile": {
     "personal_details": "crwdns18040:0crwdne18040:0",
