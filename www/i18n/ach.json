@@ -506,12 +506,13 @@
     "balance": "crwdns19586:0crwdne19586:0",
     "name": "crwdns19587:0crwdne19587:0",
     "start_trading_with_mt5": "crwdns19588:0crwdne19588:0",
-    "upgrade_real_account": "crwdns45889:0crwdne45889:0",
+    "upgrade_real_account": "crwdns45953:0crwdne45953:0",
     "standard": "crwdns45890:0crwdne45890:0",
     "advanced": "crwdns45891:0crwdne45891:0",
     "mam_advanced": "crwdns45892:0crwdne45892:0",
     "volatility_indices": "crwdns45893:0crwdne45893:0",
-    "mam_volatility_indices": "crwdns45894:0crwdne45894:0"
+    "mam_volatility_indices": "crwdns45894:0crwdne45894:0",
+    "upgrade": "crwdns45954:0crwdne45954:0"
   },
   "authentication": {
     "authentication": "crwdns19680:0crwdne19680:0",
