@@ -506,12 +506,13 @@
     "balance": "Saldo",
     "name": "Nama",
     "start_trading_with_mt5": "Mulai Trading Dengan MT5",
-    "upgrade_real_account": "Untuk mendaftar Akun uang riil MT5, silahkan upgrade akun Riil Binary.com Anda.",
+    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
     "standard": "Standar",
     "advanced": "Lanjutan",
     "mam_advanced": "MAM Tingkat Lanjut",
     "volatility_indices": "Indeks Volatilitas",
-    "mam_volatility_indices": "MAM Indeks Volatilitas"
+    "mam_volatility_indices": "MAM Indeks Volatilitas",
+    "upgrade": "Upgrade"
   },
   "authentication": {
     "authentication": "Pembuktian",

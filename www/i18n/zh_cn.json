@@ -506,12 +506,13 @@
     "balance": "余额",
     "name": "姓名",
     "start_trading_with_mt5": "开始用 MT5 交易",
-    "upgrade_real_account": "如要开立MT5真实资金账户，请升级为Binary.com真实账户。",
+    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
     "standard": "标准",
     "advanced": "高级",
     "mam_advanced": "MAM 高级",
     "volatility_indices": "波动率指数",
-    "mam_volatility_indices": "MAM波动率指数"
+    "mam_volatility_indices": "MAM波动率指数",
+    "upgrade": "Upgrade"
   },
   "authentication": {
     "authentication": "验证",

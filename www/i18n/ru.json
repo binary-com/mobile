@@ -506,12 +506,13 @@
     "balance": "Баланс",
     "name": "Имя",
     "start_trading_with_mt5": "Начните торговлю на MT5",
-    "upgrade_real_account": "Чтобы открыть Реальный счёт на MT5, обновите свой счёт Binary.com на Реальный.",
+    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
     "standard": "Стандартный",
     "advanced": "Расширенный",
     "mam_advanced": "Расширенные ММС",
     "volatility_indices": "Индексы волатильности",
-    "mam_volatility_indices": "Индексы волатильности ММС"
+    "mam_volatility_indices": "Индексы волатильности ММС",
+    "upgrade": "Upgrade"
   },
   "authentication": {
     "authentication": "Аутентификация",

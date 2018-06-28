@@ -506,12 +506,13 @@
     "balance": "Guthaben",
     "name": "Name",
     "start_trading_with_mt5": "Beginnen Sie mit MT5 zu Handeln",
-    "upgrade_real_account": "Um ein Echtgeldkonto für MT5 erstellen zu können, rüsten Sie bitte auf ein Binary.com Echtes Konto auf.",
+    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
     "standard": "Standard",
     "advanced": "Fortgeschritten",
     "mam_advanced": "MAM Fortgeschritten",
     "volatility_indices": "Volatilität Indizes",
-    "mam_volatility_indices": "MAM Volatilität Indizes"
+    "mam_volatility_indices": "MAM Volatilität Indizes",
+    "upgrade": "Upgrade"
   },
   "authentication": {
     "authentication": "Authentifizierung",

@@ -506,12 +506,13 @@
     "balance": "餘額",
     "name": "姓名",
     "start_trading_with_mt5": "開始用 MT5 交易",
-    "upgrade_real_account": "如要開立MT5真實資金帳戶，請升級為Binary.com真實帳戶。",
+    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
     "standard": "標準",
     "advanced": "高階",
     "mam_advanced": "MAM高級",
     "volatility_indices": "波動率指數",
-    "mam_volatility_indices": "MAM波動率指數"
+    "mam_volatility_indices": "MAM波動率指數",
+    "upgrade": "Upgrade"
   },
   "authentication": {
     "authentication": "驗證",
