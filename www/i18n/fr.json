@@ -506,12 +506,13 @@
     "balance": "Solde",
     "name": "Nom",
     "start_trading_with_mt5": "Commencer à trader avec MT5",
-    "upgrade_real_account": "Pour créer un compte d'argent réel pour MT5, veuillez passez à un Compte Réel Binary.com.",
+    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
     "standard": "Standard",
     "advanced": "Avancé",
     "mam_advanced": "MAM Avancé",
     "volatility_indices": "Indices de volatilité",
-    "mam_volatility_indices": "Indices de volatilité MAM"
+    "mam_volatility_indices": "Indices de volatilité MAM",
+    "upgrade": "Upgrade"
   },
   "authentication": {
     "authentication": "Authentification",
