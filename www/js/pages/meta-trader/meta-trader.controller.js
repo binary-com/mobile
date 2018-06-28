@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.meta-trader.controllers").controller("MetaTraderController", MetaTrader);
 
-    MetaTrader.$inject = ["$scope", "$translate", "$state", "accountService", "websocketService", "clientService"];
+    MetaTrader.$inject = ["$scope", "$translate", "$state", "accountService", "websocketService", "clientService", "appStateService"];
 
-    function MetaTrader($scope, $translate, $state, accountService, websocketService, clientService) {
+    function MetaTrader($scope, $translate, $state, accountService, websocketService, clientService, appStateService) {
         const vm = this;
         vm.isLoaded = false;
         vm.hasAccount = false;
@@ -78,7 +78,7 @@
             });
 
             $scope.$applyAsync(() => {
-                vm.canUpgrade = !!_.find(accountsInfo, (name, acc) => !acc.info);
+                vm.canUpgrade = !!_.find(accountsInfo, acc => !acc.hasOwnProperty('info'));
                 vm.accountsList = clientService.groupMT5Accounts(accounts);
                 vm.isLoaded = true;
                 vm.hasAccount = !_.isEmpty(vm.accountsList);
@@ -117,6 +117,11 @@
 
             const url = "https://trade.mql5.com/trade?servers=Binary.com-Server&trade_server=Binary.com-Server";
             window.open(url, type);
+        };
+
+        vm.redirectToUpgrade = () => {
+            const linkToUpgrade = appStateService.upgrade.upgradeLink;
+            $state.go(linkToUpgrade);
         };
 
         const init = () => {
