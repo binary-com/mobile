@@ -18,6 +18,7 @@
         vm.accountsList = {};
         vm.hasMTAccess = false;
         vm.canUpgrade = false;
+        vm.showUpgradeToRealButton = false;
         const accounts = {};
         const accountsInfo = {};
         const mtCompany = {};
@@ -129,6 +130,9 @@
                 const accounts = accountService.getAll();
                 vm.hasRealAccount = !!_.find(accounts, obj =>
                     _.indexOf(['malta', 'costarica', 'iom', 'maltainvest'], obj.landing_company_name) > -1);
+                if (!vm.hasRealAccount && appStateService.upgrade && appStateService.upgrade.upgradeLink) {
+                    vm.showUpgradeToRealButton = true;
+                }
                 $scope.$applyAsync(() => {
                     vm.hasMTAccess = true;
                 });
