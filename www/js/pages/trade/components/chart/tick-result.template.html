@@ -1,10 +1,10 @@
 <div class="digit-result">
   <div class="row">
     <div class="col {{spot.result}} center"
-         ng-repeat="spot in vm.spots">
-      <span class="{{spot.result}}"
-            ng-show="spot.value">
-        <span>{{ spot.value }}</span>
+         ng-repeat="spot in vm.spots track by $index">
+      <span ng-show="spot.value">
+        <span>tick {{ $index + 1}}</span>
+        <span ng-class="{ 'bold': $index + 1 === vm.selectedTick }">{{ spot.value }}</span>
       </span>
     </div>
   </div>

@@ -17,30 +17,36 @@
         vm.spots = [];
         vm.reset = true;
         vm.counter = 0;
+        vm.selectedTick = 0;
+        let tickToCount = 0;
 
         $scope.$on("contract:spot", (e, contract, lastPrice) => {
-            console.log(contract.entrySpotPrice);
-            if (vm.reset) {
-                vm.spots = new Array(contract.duration + 1);
-                for (let i = 0; i < vm.spots.length; i++) {
-                    vm.spots[i] = {};
+            console.log(contract);
+            if (tickToCount) {
+                if (vm.reset) {
+                    vm.spots = new Array(contract.duration);
+                    for (let i = 0; i < vm.spots.length; i++) {
+                        vm.spots[i] = {};
+                    }
+                    vm.reset = false;
+                    vm.counter = 0;
                 }
-                vm.reset = false;
-                vm.counter = 0;
+                vm.selectedTick = contract.selectedTick;
+                const localContract = _.clone(contract);
+
+                $scope.$applyAsync(() => {
+                    vm.spots[vm.counter++] = {
+                        result: localContract.result,
+                        value : lastPrice
+                    };
+                });
             }
-
-            const localContract = _.clone(contract);
-
-            $scope.$applyAsync(() => {
-                vm.spots[vm.counter++] = {
-                    result: localContract.result,
-                    value : lastPrice.toString().slice(-1)
-                };
-            });
+            tickToCount++;
         });
 
         $scope.$on("contract:finished", (e, contract) => {
             vm.reset = true;
+            tickToCount = 0;
         });
     }
 })();
