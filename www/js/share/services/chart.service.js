@@ -155,13 +155,15 @@ angular.module("binary").factory("chartService", $rootScope => {
 
                 return parseFloat(price) < avg;
             },
-            TICKHIGH: function condition(barrier, price, priceList) {
-                // console.log(priceList);
-                return true;
+            TICKHIGH: function condition(barrier, price, priceList, selectedTick) {
+                if (priceList[selectedTick + 1]) {
+                    return !_.find(priceList, val => val > priceList[selectedTick + 1]);
+                }
             },
-            TICKLOW: function condition(barrier, price, priceList) {
-                console.log(priceList);
-                return true;
+            TICKLOW: function condition(barrier, price, priceList, selectedTick) {
+                if (priceList[selectedTick + 1]) {
+                    return !_.find(priceList, val => val < priceList[selectedTick + 1]);
+                }
             }
         },
         digitTrade: function digitTrade(contract) {
@@ -496,7 +498,8 @@ angular.module("binary").factory("chartService", $rootScope => {
                 if (tickPriceList.length === 0) {
                     if (contract.entrySpotTime !== lastTime && betweenExistingSpots(lastTime)) {
                         tickPriceList.push(parseFloat(contract.entrySpotPrice));
-                        if (utils.conditions[contract.type](contract.barrier, contract.entrySpotPrice, tickPriceList)) {
+                        if (utils.conditions[contract.type](contract.barrier, contract.entrySpotPrice,
+                          tickPriceList, contract.selectedTick)) {
                             contract.result = "win";
                         } else {
                             contract.result = "lose";
@@ -510,7 +513,7 @@ angular.module("binary").factory("chartService", $rootScope => {
                 }
 
                 if (betweenExistingSpots(lastTime)) {
-                    if (utils.conditions[contract.type](contract.barrier, lastPrice, tickPriceList)) {
+                    if (utils.conditions[contract.type](contract.barrier, lastPrice, tickPriceList, contract.selectedTick)) {
                         contract.result = "win";
                     } else {
                         contract.result = "lose";

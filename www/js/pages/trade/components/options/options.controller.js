@@ -225,7 +225,7 @@
 
         vm.selectSelectedTick = function(tick) {
             vm.options.selected_tick = tick;
-            // vm.options.barrier = null;
+            vm.options.barrier = null;
             vm.section2 = vm.SECTIONS.OVERVIEW2;
             updateProposal();
             hideModal();

@@ -32,6 +32,7 @@
                                 vm.proposal.tradeType === "Higher/Lower"
                                     ? `${contract.contract_type}HL`
                                     : contract.contract_type,
+                            selectedTick: vm.proposal.tradeType === "High/Low Ticks" ? vm.proposal.selected_tick : null,
                             barrier: vm.proposal.barrier
                         });
                     }

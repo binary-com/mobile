@@ -1,0 +1,11 @@
+<div class="digit-result">
+  <div class="row">
+    <div class="col {{spot.result}} center"
+         ng-repeat="spot in vm.spots">
+      <span class="{{spot.result}}"
+            ng-show="spot.value">
+        <span>{{ spot.value }}</span>
+      </span>
+    </div>
+  </div>
+</div>
