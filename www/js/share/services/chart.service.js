@@ -157,7 +157,6 @@ angular.module("binary").factory("chartService", $rootScope => {
             },
             TICKHIGH: function condition(barrier, price, priceList, selectedTick) {
                 if (priceList[selectedTick]) {
-                    console.log(priceList[selectedTick]);
                     return !_.find(priceList, val => val > priceList[selectedTick]);
                 }
             },

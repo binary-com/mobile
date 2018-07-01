@@ -126,6 +126,7 @@
             } else {
                 proposal.barrier = options.digit;
             }
+            proposal.selected_tick = options.tradeType === "High/Low Ticks" ? options.selected_tick : null;
             proposal.tradeType = options.tradeType;
             proposal.basis = options.basis || proposal.basis;
 

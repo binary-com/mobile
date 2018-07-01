@@ -75,7 +75,8 @@
     "buy_again": "Buy Again",
     "sell": "Sell",
     "barrier": "Barrier Offset",
-    "return": "Return"
+    "return": "Return",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "Exit",
