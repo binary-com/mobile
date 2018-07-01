@@ -38,22 +38,22 @@
         vm.marketsClosed = false;
 
         vm.SECTIONS = {
-            OVERVIEW1  : 0,
-            OVERVIEW2  : 1,
-            UNDERLYINGS: 2,
-            MARKETS    : 3,
-            TRADETYPES : 4,
-            TICKS      : 5,
-            DIGITS     : 6,
+            OVERVIEW1   : 0,
+            OVERVIEW2   : 1,
+            UNDERLYINGS : 2,
+            MARKETS     : 3,
+            TRADETYPES  : 4,
+            TICKS       : 5,
+            DIGITS      : 6,
             SELECTEDTICK: 7
         };
 
         vm.options = {
-            market    : null,
-            underlying: null,
-            tradeType : null,
-            tick      : null,
-            digit     : null,
+            market       : null,
+            underlying   : null,
+            tradeType    : null,
+            tick         : null,
+            digit        : null,
             selected_tick: null
         };
 
@@ -196,7 +196,8 @@
             vm.options.tradeType = tradeType;
             tradeType = JSON.parse(sessionStorage.tradeTypes)[tradeType][0];
             vm.options.tick = vm.options.tradeType === 'High/Low Ticks' ?
-                tradeType.min_contract_duration.slice(0, -1) : vm.options.tick || tradeType.min_contract_duration.slice(0, -1);
+                tradeType.min_contract_duration.slice(0, -1) : vm.options.tick ||
+                tradeType.min_contract_duration.slice(0, -1);
             vm.options.digit = tradeType.last_digit_range ? vm.options.digit || tradeType.last_digit_range[0] : null;
             vm.options.barrier =
                 tradeType.barriers > 0 && !_.isEmpty(tradeType.barrier)

@@ -17,8 +17,8 @@
             controllerAs    : "vm",
             bindToController: true,
             scope           : {
-                select   : "&",
-                tick: "="
+                select: "&",
+                tick  : "="
             }
         };
 

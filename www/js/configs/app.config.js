@@ -47,86 +47,86 @@ angular.module("binary").constant("config", {
     ],
     tradeTypes: [
         {
-            name    : "Up",
-            value   : "CALL",
-            digits  : false,
+            name         : "Up",
+            value        : "CALL",
+            digits       : false,
             selected_tick: false,
-            category: "UP/DOWN"
+            category     : "UP/DOWN"
         },
         {
-            name    : "Down",
-            value   : "PUT",
-            digits  : false,
+            name         : "Down",
+            value        : "PUT",
+            digits       : false,
             selected_tick: false,
-            category: "UP/DOWN"
+            category     : "UP/DOWN"
         },
         {
-            name    : "Asians Up",
-            value   : "ASIANU",
-            digits  : false,
+            name         : "Asians Up",
+            value        : "ASIANU",
+            digits       : false,
             selected_tick: false,
-            category: "Asians"
+            category     : "Asians"
         },
         {
-            name    : "Asians Down",
-            value   : "ASIAND",
-            digits  : false,
+            name         : "Asians Down",
+            value        : "ASIAND",
+            digits       : false,
             selected_tick: false,
-            category: "Asians"
+            category     : "Asians"
         },
         {
-            name    : "Digit Match",
-            value   : "DIGITMATCH",
-            digits  : true,
+            name         : "Digit Match",
+            value        : "DIGITMATCH",
+            digits       : true,
             selected_tick: false,
-            category: "MATCH/DIFF"
+            category     : "MATCH/DIFF"
         },
         {
-            name    : "Digit Differs",
-            value   : "DIGITDIFF",
-            digits  : true,
+            name         : "Digit Differs",
+            value        : "DIGITDIFF",
+            digits       : true,
             selected_tick: false,
-            category: "MATCH/DIFF"
+            category     : "MATCH/DIFF"
         },
         {
-            name    : "Digit Even",
-            value   : "DIGITEVEN",
+            name         : "Digit Even",
+            value        : "DIGITEVEN",
             selected_tick: false,
-            category: "EVEN/ODD"
+            category     : "EVEN/ODD"
         },
         {
-            name    : "Digit Odd",
-            value   : "DIGITODD",
+            name         : "Digit Odd",
+            value        : "DIGITODD",
             selected_tick: false,
-            category: "EVEN/ODD"
+            category     : "EVEN/ODD"
         },
         {
-            name    : "Digit Over",
-            value   : "DIGITOVER",
-            digits  : true,
+            name         : "Digit Over",
+            value        : "DIGITOVER",
+            digits       : true,
             selected_tick: false,
-            category: "OVER/UNDER"
+            category     : "OVER/UNDER"
         },
         {
-            name    : "Digit Under",
-            value   : "DIGITUNDER",
-            digits  : true,
+            name         : "Digit Under",
+            value        : "DIGITUNDER",
+            digits       : true,
             selected_tick: false,
-            category: "OVER/UNDER"
+            category     : "OVER/UNDER"
         },
         {
-            name    : "TICK HIGH",
-            value   : "TICKHIGH",
-            digits  : false,
+            name         : "TICK HIGH",
+            value        : "TICKHIGH",
+            digits       : false,
             selected_tick: true,
-            category: "HIGH/LOW TICKS"
+            category     : "HIGH/LOW TICKS"
         },
         {
-            name    : "TICK LOW",
-            value   : "TICKLOW",
-            digits  : false,
+            name         : "TICK LOW",
+            value        : "TICKLOW",
+            digits       : false,
             selected_tick: true,
-            category: "HIGH/LOW TICKS"
+            category     : "HIGH/LOW TICKS"
         }
     ],
     supportedTradeTypes: [

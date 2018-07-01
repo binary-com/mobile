@@ -156,14 +156,10 @@ angular.module("binary").factory("chartService", $rootScope => {
                 return parseFloat(price) < avg;
             },
             TICKHIGH: function condition(barrier, price, priceList, selectedTick) {
-                if (priceList[selectedTick]) {
-                    return !_.find(priceList, val => val > priceList[selectedTick]);
-                }
+                return priceList[selectedTick] && !_.find(priceList, val => val > priceList[selectedTick]);
             },
             TICKLOW: function condition(barrier, price, priceList, selectedTick) {
-                if (priceList[selectedTick]) {
-                    return !_.find(priceList, val => val < priceList[selectedTick]);
-                }
+                return priceList[selectedTick] && !_.find(priceList, val => val < priceList[selectedTick]);
             }
         },
         digitTrade: function digitTrade(contract) {
@@ -499,7 +495,7 @@ angular.module("binary").factory("chartService", $rootScope => {
                     if (contract.entrySpotTime !== lastTime && betweenExistingSpots(lastTime)) {
                         tickPriceList.push(parseFloat(contract.entrySpotPrice));
                         if (utils.conditions[contract.type](contract.barrier, contract.entrySpotPrice,
-                          tickPriceList, contract.selectedTick)) {
+                            tickPriceList, contract.selectedTick)) {
                             contract.result = "win";
                         } else {
                             contract.result = "lose";
@@ -513,7 +509,8 @@ angular.module("binary").factory("chartService", $rootScope => {
                 }
 
                 if (betweenExistingSpots(lastTime)) {
-                    if (utils.conditions[contract.type](contract.barrier, lastPrice, tickPriceList, contract.selectedTick)) {
+                    if (utils.conditions[contract.type](contract.barrier, lastPrice,
+                        tickPriceList, contract.selectedTick)) {
                         contract.result = "win";
                     } else {
                         contract.result = "lose";
