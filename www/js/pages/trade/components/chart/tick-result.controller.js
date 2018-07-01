@@ -30,10 +30,10 @@
                     vm.reset = false;
                     vm.counter = 0;
                 }
-                vm.selectedTick = contract.selectedTick;
                 const localContract = _.clone(contract);
 
                 $scope.$applyAsync(() => {
+                    vm.selectedTick = contract.selectedTick;
                     vm.spots[vm.counter++] = {
                         result: localContract.result,
                         value : lastPrice

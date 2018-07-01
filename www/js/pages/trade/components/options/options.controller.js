@@ -204,7 +204,7 @@
                     ? vm.options.barrier || tradeType.barrier
                     : null;
             vm.options.selected_tick = vm.options.tradeType === 'High/Low Ticks' ?
-                (vm.options.selected_tick || vm.options.tick) : null;
+                (vm.options.selected_tick || parseInt(vm.options.tick)) : null;
             vm.section2 = vm.SECTIONS.OVERVIEW2;
             updateProposal();
             hideModal();
