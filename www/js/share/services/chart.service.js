@@ -156,13 +156,14 @@ angular.module("binary").factory("chartService", $rootScope => {
                 return parseFloat(price) < avg;
             },
             TICKHIGH: function condition(barrier, price, priceList, selectedTick) {
-                if (priceList[selectedTick + 1]) {
-                    return !_.find(priceList, val => val > priceList[selectedTick + 1]);
+                if (priceList[selectedTick]) {
+                    console.log(priceList[selectedTick]);
+                    return !_.find(priceList, val => val > priceList[selectedTick]);
                 }
             },
             TICKLOW: function condition(barrier, price, priceList, selectedTick) {
-                if (priceList[selectedTick + 1]) {
-                    return !_.find(priceList, val => val < priceList[selectedTick + 1]);
+                if (priceList[selectedTick]) {
+                    return !_.find(priceList, val => val < priceList[selectedTick]);
                 }
             }
         },

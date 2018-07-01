@@ -21,7 +21,6 @@
         let tickToCount = 0;
 
         $scope.$on("contract:spot", (e, contract, lastPrice) => {
-            console.log(contract);
             if (tickToCount) {
                 if (vm.reset) {
                     vm.spots = new Array(contract.duration);
