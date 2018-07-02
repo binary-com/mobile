@@ -194,9 +194,9 @@
     "read_more": "閱讀詳細資訊。",
     "required_to_collect_tin": "Binary投資 (歐洲) 有限公司需要收集您的稅務資訊。",
     "required_to_obtain_information": "為了給您提供服務，我們需要向您獲取資訊，以便評估某項產品或服務是否適合您（也就是說，要看您是否擁有足夠的經驗和知識來了解相關的風險）。",
-    "on_the_basis_of_information": "On the basis of the information provided in relation to your knowledge and experience, we consider that the investments available via this website are not appropriate for you.",
-    "appropriateness_test": "Appropriateness Test: ",
-    "warning": "WARNING:",
+    "on_the_basis_of_information": "根據您所提供的知識和經驗相關資訊，我們認為此網站的投資活動對您來說並不合適。",
+    "appropriateness_test": "合適性測試: ",
+    "warning": "警告：",
     "by_clicking": "通過點選 ",
     "accept": "接受",
     "exposing_at_risk": "以下並繼續開立帳戶，請注意您可能會冒一些風險（可能很嚴重，甚至損失整個投資資金），而您可能缺乏正確評估或化解風險的知識及經驗.",
@@ -308,7 +308,7 @@
     "change_password": "更改密碼",
     "financial_assessment": "財務評估",
     "limits": "限額",
-    "account_categorisation": "Account Categorisation"
+    "account_categorisation": "帳戶分類"
   },
   "self-exclusion": {
     "self_exclusion": "自我禁止設施",
@@ -344,8 +344,8 @@
     "session_timeout_warning": "交易期持續時間限制將於10秒內結束。",
     "success": "成功",
     "warning": "警告",
-    "not_zero": "Value can not be 0",
-    "error": "Sorry, an error occurred while processing your request."
+    "not_zero": "值不能為0",
+    "error": "對不起，在處理您的請求時發生錯誤。"
   },
   "profile": {
     "personal_details": "個人詳細資訊",
@@ -506,13 +506,13 @@
     "balance": "餘額",
     "name": "姓名",
     "start_trading_with_mt5": "開始用 MT5 交易",
-    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
+    "upgrade_real_account": "如要開立MT5真實資金帳戶，請升級為Binary.com真實帳戶。",
     "standard": "標準",
     "advanced": "高階",
     "mam_advanced": "MAM高級",
     "volatility_indices": "波動率指數",
     "mam_volatility_indices": "MAM波動率指數",
-    "upgrade": "Upgrade"
+    "upgrade": "升級"
   },
   "authentication": {
     "authentication": "驗證",
@@ -740,13 +740,13 @@
     "you_may_decline": "注: 您可以拒絕並繼續保留零售客戶資格。"
   },
   "account-categorisation": {
-    "account_categorisation": "Account Categorisation",
-    "processing": "Your application to be treated as a professional client is being processed.",
-    "professional": "You are categorised as a professional client.",
-    "error": "Sorry, an error occurred while processing your request.",
-    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?",
-    "submit": "Submit"
+    "account_categorisation": "帳戶分類",
+    "processing": "您請求成為專業客戶的申請正在處理中。",
+    "professional": "您被歸類為專業客戶。",
+    "error": "對不起，在處理您的請求時發生錯誤。",
+    "retail_info": "預設情況下, 所有客戶都被視為零售。如果您符合必要的標準, 您同意被視為專業客戶嗎？",
+    "professional_client_verify": "我要被視為專業客戶。",
+    "what_is_this": "這是甚麽？",
+    "submit": "提交"
   }
 }

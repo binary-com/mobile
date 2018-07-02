@@ -194,9 +194,9 @@
     "read_more": "阅读详细内容。",
     "required_to_collect_tin": "Binary投资 (欧洲) 有限公司需要收集您的税务信息。",
     "required_to_obtain_information": "为了给您提供服务，我们必须向您获取信息，以便确定产品或服务是否适合您（也就是说，看您是否拥有足够经验和知识，以了解相关的风险）。",
-    "on_the_basis_of_information": "On the basis of the information provided in relation to your knowledge and experience, we consider that the investments available via this website are not appropriate for you.",
-    "appropriateness_test": "Appropriateness Test: ",
-    "warning": "WARNING:",
+    "on_the_basis_of_information": "根据您所提供的知识和经验相关信息，我们认为此网站的投资活动对您来说并不合适。",
+    "appropriateness_test": "合适性测试: ",
+    "warning": "警告：",
     "by_clicking": "通过点击 ",
     "accept": "接受",
     "exposing_at_risk": "以下并依照后续流程开立账户，您须注意，您可能承担一些风险（可能会很严重，包括损失整个投资资金的风险），而对于此类风险缺，你可能乏知识与经验以作出正确评估或化解.",
@@ -308,7 +308,7 @@
     "change_password": "更改密码",
     "financial_assessment": "财务评估",
     "limits": "限制",
-    "account_categorisation": "Account Categorisation"
+    "account_categorisation": "账户分类"
   },
   "self-exclusion": {
     "self_exclusion": "自我禁止设施",
@@ -344,8 +344,8 @@
     "session_timeout_warning": "交易期持续时间限制将于10秒内结束。",
     "success": "成功",
     "warning": "警告",
-    "not_zero": "Value can not be 0",
-    "error": "Sorry, an error occurred while processing your request."
+    "not_zero": "值不能为0",
+    "error": "对不起，您的请求处理发生错误。"
   },
   "profile": {
     "personal_details": "个人详细信息",
@@ -506,13 +506,13 @@
     "balance": "余额",
     "name": "姓名",
     "start_trading_with_mt5": "开始用 MT5 交易",
-    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
+    "upgrade_real_account": "如要开立MT5真实资金账户，请升级为Binary.com真实账户。",
     "standard": "标准",
     "advanced": "高级",
     "mam_advanced": "MAM 高级",
     "volatility_indices": "波动率指数",
     "mam_volatility_indices": "MAM波动率指数",
-    "upgrade": "Upgrade"
+    "upgrade": "升级"
   },
   "authentication": {
     "authentication": "验证",
@@ -740,13 +740,13 @@
     "you_may_decline": "注: 您可以拒绝并继续保留零售客户资格。"
   },
   "account-categorisation": {
-    "account_categorisation": "Account Categorisation",
-    "processing": "Your application to be treated as a professional client is being processed.",
-    "professional": "You are categorised as a professional client.",
-    "error": "Sorry, an error occurred while processing your request.",
-    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?",
-    "submit": "Submit"
+    "account_categorisation": "账户分类",
+    "processing": "您要求成为专业客户的申请正在处理中。",
+    "professional": "您被归类为专业客户。",
+    "error": "对不起，您的请求处理发生错误。",
+    "retail_info": "默认情况下, 所有客户都被视为零售。如果您符合必要的标准, 您同意被视为专业客户吗？",
+    "professional_client_verify": "我要被视为专业客户。",
+    "what_is_this": "这是什么？",
+    "submit": "提交"
   }
 }

@@ -194,9 +194,9 @@
     "read_more": "Подробнее.",
     "required_to_collect_tin": "Компания Binary Investments (Europe) Ltd. обязана запросить Вашу налоговую информацию.",
     "required_to_obtain_information": "В рамках предоставления Вам услуг, нам необходимо получить от Вас информацию с целью оценить, подходит ли Вам определённый продукт или услуга (в частности, узнать, обладаете ли Вы необходимым опытом и знаниями, чтобы понимать сопряжённые риски).",
-    "on_the_basis_of_information": "On the basis of the information provided in relation to your knowledge and experience, we consider that the investments available via this website are not appropriate for you.",
-    "appropriateness_test": "Appropriateness Test: ",
-    "warning": "WARNING:",
+    "on_the_basis_of_information": "На основе информации, предоставленной в отношении Ваших знаний и опыта, мы считаем, что инвестиции, доступные посредством этого сайта, не подходят для Вас.",
+    "appropriateness_test": "Тест на целесообразность: ",
+    "warning": "ПРЕДУПРЕЖДЕНИЕ:",
     "by_clicking": "Нажав ",
     "accept": "Принять",
     "exposing_at_risk": "ниже и переходя к открытию счёта, Вы должны принять во внимание, что подвергаете себя риску (который может оказаться весьма значительным и включать риск потери всей инвестиции), для оценки и смягчения которого у Вас может быть недостаточно знаний и опыта.",
@@ -308,7 +308,7 @@
     "change_password": "Изменение пароля",
     "financial_assessment": "Финансовая оценка",
     "limits": "Ограничения",
-    "account_categorisation": "Account Categorisation"
+    "account_categorisation": "Категоризация счетов"
   },
   "self-exclusion": {
     "self_exclusion": "Услуги самоограничения",
@@ -344,8 +344,8 @@
     "session_timeout_warning": "Лимит на длительность Вашей сессии истечёт через 10 секунд.",
     "success": "Готово",
     "warning": "Предупреждение",
-    "not_zero": "Value can not be 0",
-    "error": "Sorry, an error occurred while processing your request."
+    "not_zero": "Значение не может быть равно 0",
+    "error": "Извините, при обработке Вашего запроса произошла ошибка."
   },
   "profile": {
     "personal_details": "Личные данные",
@@ -506,13 +506,13 @@
     "balance": "Баланс",
     "name": "Имя",
     "start_trading_with_mt5": "Начните торговлю на MT5",
-    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
+    "upgrade_real_account": "Чтобы открыть Реальный счёт на MT5, обновите свой счёт Binary.com на Реальный.",
     "standard": "Стандартный",
     "advanced": "Расширенный",
     "mam_advanced": "Расширенные ММС",
     "volatility_indices": "Индексы волатильности",
     "mam_volatility_indices": "Индексы волатильности ММС",
-    "upgrade": "Upgrade"
+    "upgrade": "Обновить"
   },
   "authentication": {
     "authentication": "Аутентификация",
@@ -740,13 +740,13 @@
     "you_may_decline": "Примечание: Вы можете отклонить заявку и продолжить в статусе индивидуального клиента."
   },
   "account-categorisation": {
-    "account_categorisation": "Account Categorisation",
-    "processing": "Your application to be treated as a professional client is being processed.",
-    "professional": "You are categorised as a professional client.",
-    "error": "Sorry, an error occurred while processing your request.",
-    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?",
-    "submit": "Submit"
+    "account_categorisation": "Категоризация счетов",
+    "processing": "Ваша заявка на квалификацию профессионального клиента находится на рассмотрении.",
+    "professional": "Вы относитесь к категории профессиональных клиентов.",
+    "error": "Извините, при обработке Вашего запроса произошла ошибка.",
+    "retail_info": "По умолчанию все клиенты считаются индивидуальными. Вы хотите, чтобы Вас считали профессиональным клиентом, в случае соответствия необходимым критериям?",
+    "professional_client_verify": "Я хочу стать профессиональным клиентом.",
+    "what_is_this": "Что это такое?",
+    "submit": "Подтвердить"
   }
 }
