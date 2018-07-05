@@ -24,9 +24,9 @@
             if (tickToCount) {
                 if (vm.reset) {
                     vm.spots = new Array(contract.duration);
-                    for (let i = 0; i < vm.spots.length; i++) {
-                        vm.spots[i] = {};
-                    }
+                    _.map(vm.spots, (val, i) => {
+                        vm.spots[i] = {}
+                    });
                     vm.reset = false;
                     vm.counter = 0;
                 }
