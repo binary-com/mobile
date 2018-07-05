@@ -57,7 +57,9 @@
     "select_underlying": "Select Underlying",
     "select_tradetype": "Select Tradetype",
     "select_tick": "Select Tick",
-    "select_digit": "Select Digit"
+    "select_digit": "Select Digit",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "Payout",
