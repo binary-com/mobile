@@ -91,12 +91,14 @@ angular.module("binary").constant("config", {
         {
             name         : "Digit Even",
             value        : "DIGITEVEN",
+            digits       : true,
             selected_tick: false,
             category     : "EVEN/ODD"
         },
         {
             name         : "Digit Odd",
             value        : "DIGITODD",
+            digits       : true,
             selected_tick: false,
             category     : "EVEN/ODD"
         },
