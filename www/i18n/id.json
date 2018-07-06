@@ -196,7 +196,7 @@
     "required_to_obtain_information": "Dalam memberikan pelayanan, kami diharuskan untuk memperoleh informasi dari Anda untuk memastikan apakah produk atau layanan yang diberikan adalah tepat untuk Anda (yaitu, apakah Anda memiliki pengalaman dan pengetahuan untuk memahami risiko yang terlibat).",
     "on_the_basis_of_information": "Berdasarkan informasi yang diberikan berkaitan dengan pengetahuan dan pengalaman, kami menganggap bahwa investasi yang tersedia melalui website ini tidak sesuai untuk Anda.",
     "appropriateness_test": "Ketepatan Uji: ",
-    "warning": "WARNING:",
+    "warning": "PERINGATAN:",
     "by_clicking": "Dengan mengklik ",
     "accept": "Menerima",
     "exposing_at_risk": "dibawah ini dan melanjutkan Pendaftaran Akun berarti Anda memahami bahwa Anda akan mungkin akan mengalami risiko (yang mungkin segnifikan termasuk risiko kehilangan semua dana yang Anda investasikan) dimana Anda mungkin tidak memiliki pengetahuan dan pengalaman untuk mengurangi atau menghindarinya.",
@@ -344,7 +344,7 @@
     "session_timeout_warning": "Batasan sesi durasi Anda akan berakhir dalam 10 detik.",
     "success": "Sukses",
     "warning": "Peringatan",
-    "not_zero": "Value can not be 0",
+    "not_zero": "Nilai tidak boleh 0",
     "error": "Maaf, terjadi error saat memproses permintaan Anda."
   },
   "profile": {
@@ -506,7 +506,7 @@
     "balance": "Saldo",
     "name": "Nama",
     "start_trading_with_mt5": "Mulai Trading Dengan MT5",
-    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
+    "upgrade_real_account": "Untuk mendaftar akun uang riil MT5, silahkan upgrade ke Akun Riil Binary.com.",
     "standard": "Standar",
     "advanced": "Lanjutan",
     "mam_advanced": "MAM Tingkat Lanjut",
@@ -740,13 +740,13 @@
     "you_may_decline": "Catatan: Anda dapat menolak dan melanjutkan sebagai Klien Ritel."
   },
   "account-categorisation": {
-    "account_categorisation": "Account Categorisation",
-    "processing": "Your application to be treated as a professional client is being processed.",
-    "professional": "You are categorised as a professional client.",
-    "error": "Sorry, an error occurred while processing your request.",
-    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?",
-    "submit": "Submit"
+    "account_categorisation": "Kategorisasi Akun",
+    "processing": "Aplikasi Anda sebagai klien profesional sedang diproses.",
+    "professional": "Anda dikategorikan sebagai klien profesional.",
+    "error": "Maaf, terjadi error saat memproses permintaan Anda.",
+    "retail_info": "Secara otomatis, klien akan di layani sebagai retail. Apakah Anda ingin dilayani sebagai klien profesional jika Anda lulus pada kreteria yang di wajibkan?",
+    "professional_client_verify": "Saya ingin diperlakukan sebagai klien profesional.",
+    "what_is_this": "Apa ini?",
+    "submit": "Kirim"
   }
 }
