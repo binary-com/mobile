@@ -194,8 +194,8 @@
     "read_more": "Baca lebih lanjut.",
     "required_to_collect_tin": "Binary Investments (Europe) Ltd. diwajibkan untuk memperoleh informasi pajak Anda.",
     "required_to_obtain_information": "Dalam memberikan pelayanan, kami diharuskan untuk memperoleh informasi dari Anda untuk memastikan apakah produk atau layanan yang diberikan adalah tepat untuk Anda (yaitu, apakah Anda memiliki pengalaman dan pengetahuan untuk memahami risiko yang terlibat).",
-    "on_the_basis_of_information": "On the basis of the information provided in relation to your knowledge and experience, we consider that the investments available via this website are not appropriate for you.",
-    "appropriateness_test": "Appropriateness Test: ",
+    "on_the_basis_of_information": "Berdasarkan informasi yang diberikan berkaitan dengan pengetahuan dan pengalaman, kami menganggap bahwa investasi yang tersedia melalui website ini tidak sesuai untuk Anda.",
+    "appropriateness_test": "Ketepatan Uji: ",
     "warning": "WARNING:",
     "by_clicking": "Dengan mengklik ",
     "accept": "Menerima",
@@ -308,7 +308,7 @@
     "change_password": "Rubah Kata Sandi",
     "financial_assessment": "Penilaian Finansial",
     "limits": "Batasan",
-    "account_categorisation": "Account Categorisation"
+    "account_categorisation": "Kategorisasi Akun"
   },
   "self-exclusion": {
     "self_exclusion": "Fasilitas Pengecualian Diri",
@@ -345,7 +345,7 @@
     "success": "Sukses",
     "warning": "Peringatan",
     "not_zero": "Value can not be 0",
-    "error": "Sorry, an error occurred while processing your request."
+    "error": "Maaf, terjadi error saat memproses permintaan Anda."
   },
   "profile": {
     "personal_details": "Detail Pribadi",
