@@ -156,10 +156,10 @@ angular.module("binary").factory("chartService", $rootScope => {
                 return parseFloat(price) < avg;
             },
             TICKHIGH: function condition(barrier, price, priceList, selectedTick) {
-                return priceList[selectedTick] && !_.find(priceList, val => val > priceList[selectedTick]);
+                return priceList[selectedTick - 1] && !_.find(priceList, val => val > priceList[selectedTick - 1]);
             },
             TICKLOW: function condition(barrier, price, priceList, selectedTick) {
-                return priceList[selectedTick] && !_.find(priceList, val => val < priceList[selectedTick]);
+                return priceList[selectedTick - 1] && !_.find(priceList, val => val < priceList[selectedTick - 1]);
             }
         },
         digitTrade: function digitTrade(contract) {
@@ -176,6 +176,12 @@ angular.module("binary").factory("chartService", $rootScope => {
         },
         higherLowerTrade: function higherLowerTrade(contract) {
             if (["PUTHL", "CALLHL"].indexOf(contract.type) > -1 && !_.isEmpty(contract.barrier)) {
+                return true;
+            }
+            return false;
+        },
+        highLowTrade: function highLowTrade(contract) {
+            if (["TICKLOW", "TICKHIGH"].indexOf(contract.type > -1)) {
                 return true;
             }
             return false;
@@ -1280,7 +1286,7 @@ angular.module("binary").factory("chartService", $rootScope => {
 
         const addContract = function addContract(_contract) {
             if (_contract) {
-                if (utils.digitTrade(_contract) || utils.asianGame(_contract)) {
+                if (utils.digitTrade(_contract) || utils.asianGame(_contract) || utils.highLowTrade(_contract)) {
                     _contract.duration -= 1;
                 }
                 contractCtrls.push(ContractCtrl(_contract));

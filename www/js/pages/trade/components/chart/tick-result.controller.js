@@ -18,12 +18,10 @@
         vm.reset = true;
         vm.counter = 0;
         vm.selectedTick = 0;
-        let tickToCount = 0;
 
         $scope.$on("contract:spot", (e, contract, lastPrice) => {
-            if (tickToCount) {
                 if (vm.reset) {
-                    vm.spots = new Array(contract.duration);
+                    vm.spots = new Array(contract.duration + 1);
                     _.map(vm.spots, (val, i) => {
                         vm.spots[i] = {}
                     });
@@ -33,19 +31,18 @@
                 const localContract = _.clone(contract);
 
                 $scope.$applyAsync(() => {
-                    vm.selectedTick = contract.selectedTick;
-                    vm.spots[vm.counter++] = {
-                        result: localContract.result,
-                        value : lastPrice
-                    };
+                    vm.selectedTick = contract.selectedTick - 1;
+                    if (vm.counter < vm.spots.length) {
+                        vm.spots[vm.counter++] = {
+                            result: localContract.result,
+                            value : lastPrice
+                        };
+                    }
                 });
-            }
-            tickToCount++;
         });
 
         $scope.$on("contract:finished", (e, contract) => {
             vm.reset = true;
-            tickToCount = 0;
         });
     }
 })();
