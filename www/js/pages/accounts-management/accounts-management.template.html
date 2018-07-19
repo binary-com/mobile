@@ -40,7 +40,9 @@
                   </select>
                 </div>
                 <div class="list-element center">
-                  <button class="button button-positive" ng-click="vm.redirectToAccountOpening()">
+                  <button class="button button-positive"
+                          ng-click="vm.openNewAccount()"
+                          ng-disabled="vm.upgradeButtonDisabled">
                     {{ 'accounts-management.create' | translate }}
                   </button>
                 </div>
