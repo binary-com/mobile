@@ -194,9 +194,9 @@
     "read_more": "Lesen Sie mehr.",
     "required_to_collect_tin": "Binary Investments (Europe) Ltd. ist dazu verpflichtet, Ihre Steuerinformationen zu sammeln.",
     "required_to_obtain_information": "Damit wir Ihnen unsere Dienstleistungen zur Verfügung stellen können, müssen wir einige Informationen von Ihnen erhalten, um festzustellen, ob ein Produkt oder Service für Sie geeignet ist (ob Sie die Erfahrung und das Wissen besitzen, die damit verbundenen Risiken zu erkennen).",
-    "on_the_basis_of_information": "On the basis of the information provided in relation to your knowledge and experience, we consider that the investments available via this website are not appropriate for you.",
-    "appropriateness_test": "Appropriateness Test: ",
-    "warning": "WARNING:",
+    "on_the_basis_of_information": "Auf der Grundlage der von Ihnen bezüglich Ihrer Kenntnis und Erfahrung zur Verfügung gestellten Informationen, sehen wir die über diese Website möglichen Anlagegeschäfte als für Sie nicht geeignet an.",
+    "appropriateness_test": "Eignungstest: ",
+    "warning": "WARNUNG:",
     "by_clicking": "Indem Sie klicken ",
     "accept": "Akzeptieren",
     "exposing_at_risk": "nachfolgend und mit der Kontoeröffnung fortfahren, müssen Sie beachten, dass Sie sich selbst Risiken aussetzen können (die erheblich sind, einschließlich des Verlusts des gesamten investierten Betrags), wenn Sie nicht das Wissen und die Erfahrung haben, diese richtig zu beurteilen oder abzuschwächen.",
@@ -308,7 +308,7 @@
     "change_password": "Passwort ändern",
     "financial_assessment": "Finanzielle Bewertung",
     "limits": "Grenzen",
-    "account_categorisation": "Account Categorisation"
+    "account_categorisation": "Konto-Kategorisierung"
   },
   "self-exclusion": {
     "self_exclusion": "Selbstausschluss Einrichtungen",
@@ -344,8 +344,8 @@
     "session_timeout_warning": "Das Limit Ihrer Sitzungsdauer endet in 10 Sekunden.",
     "success": "Erfolg",
     "warning": "Achtung",
-    "not_zero": "Value can not be 0",
-    "error": "Sorry, an error occurred while processing your request."
+    "not_zero": "Wert kann nicht 0 sein",
+    "error": "Leider ist während der Bearbeitung Ihrer Anfrage ein Fehler aufgetreten."
   },
   "profile": {
     "personal_details": "Persönliche Angaben",
@@ -506,7 +506,7 @@
     "balance": "Guthaben",
     "name": "Name",
     "start_trading_with_mt5": "Beginnen Sie mit MT5 zu Handeln",
-    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
+    "upgrade_real_account": "Um ein Echtgeldkonto für MT5 erstellen zu können, rüsten Sie bitte auf ein Binary.com Echtes Konto auf.",
     "standard": "Standard",
     "advanced": "Fortgeschritten",
     "mam_advanced": "MAM Fortgeschritten",
@@ -740,13 +740,13 @@
     "you_may_decline": "Hinweis: Sie können zurückgehen und als Privatkunde fortfahren."
   },
   "account-categorisation": {
-    "account_categorisation": "Account Categorisation",
-    "processing": "Your application to be treated as a professional client is being processed.",
-    "professional": "You are categorised as a professional client.",
-    "error": "Sorry, an error occurred while processing your request.",
-    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?",
-    "submit": "Submit"
+    "account_categorisation": "Konto-Kategorisierung",
+    "processing": "Ihre Anfrage auf Behandlung als professioneller Kunde, wird bearbeitet.",
+    "professional": "Sie sind als professioneller Kunde eingestuft.",
+    "error": "Leider ist während der Bearbeitung Ihrer Anfrage ein Fehler aufgetreten.",
+    "retail_info": "Standardmäßig werden alle Kunden als Einzelhandelskunden behandelt. Würden Sie es bevorzugen, als professioneller Kunde behandelt zu werden, sollten Sie die erforderlichen Kriterien erfüllen?",
+    "professional_client_verify": "Ich möchte als professioneller Kunde behandelt werden.",
+    "what_is_this": "Was ist das?",
+    "submit": "Absenden"
   }
 }
