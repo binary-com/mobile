@@ -510,9 +510,9 @@
     "standard": "มาตรฐาน",
     "advanced": "ขั้นสูง",
     "mam_advanced": "MAM ขั้นสูง",
-    "volatility_indices": "Volatility Indices",
-    "mam_volatility_indices": "MAM Volatility Indices",
-    "upgrade": "Upgrade"
+    "volatility_indices": "ดัชนีความผันผวน",
+    "mam_volatility_indices": "ดัชนีความผันผวน MAM",
+    "upgrade": "อัพเกรด"
   },
   "authentication": {
     "authentication": "การพิสูจน์ตัวตน",
@@ -740,13 +740,13 @@
     "you_may_decline": "หมายเหตุ: คุณอาจปฏิเสธ และเป็นลูกค้ารายย่อยต่อไป"
   },
   "account-categorisation": {
-    "account_categorisation": "Account Categorisation",
-    "processing": "Your application to be treated as a professional client is being processed.",
-    "professional": "You are categorised as a professional client.",
-    "error": "Sorry, an error occurred while processing your request.",
-    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?",
-    "submit": "Submit"
+    "account_categorisation": "การจำแนกบัญชี",
+    "processing": "ใบสมัครของท่านเพื่อปรับสถานะเป็นลูกค้ามืออาชีพกำลังถูกดำเนินการ",
+    "professional": "ท่านอยู่ในกลุ่มลูกค้ามืออาชีพ",
+    "error": "ขออภัย มีความผิดพลาดเกิดขึ้นขณะที่ประมวลผลความประสงค์ของท่าน",
+    "retail_info": "สถานะเมื่อเริ่มต้น ลูกค้าทั้งหมดเป็นลูกค้ารายย่อย ท่านต้องการเปลี่ยนสถานะให้เป็นลูกค้ามืออาชีพหรือไม่ หากท่านมีเงื่อนไขที่จำเป็นตรงกับเงื่อนไขที่กำหนดไว้?",
+    "professional_client_verify": "ฉันต้องการได้รับการปฏิบัติเสมือนเป็นลูกค้ามืออาชีพคนหนึ่ง",
+    "what_is_this": "นี้คืออะไร?",
+    "submit": "ส่ง"
   }
 }
