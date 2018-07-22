@@ -194,9 +194,9 @@
     "read_more": "ศึกษาเพิ่มเติม",
     "required_to_collect_tin": "Binary Investments (Europe) Ltd. ถูกกำหนดให้เก็บรวบรวมข้อมูลภาษีของท่าน",
     "required_to_obtain_information": "ในการให้บริการ พวกเราขออนุญาตสอบถามข้อมูลจากท่านเพื่อประเมินผลิตภัณฑ์และบริการที่เหมาะสมให้กับท่าน (ซึ่งรายละเอียดจะเกี่ยวข้องกับประสบการณ์และความรู้ของท่านเพื่อให้เข้าใจถึงระดับความเสี่ยงที่เกี่ยวข้องในผลิตภัณฑ์แต่ละประเภท)",
-    "on_the_basis_of_information": "On the basis of the information provided in relation to your knowledge and experience, we consider that the investments available via this website are not appropriate for you.",
-    "appropriateness_test": "Appropriateness Test: ",
-    "warning": "WARNING:",
+    "on_the_basis_of_information": "บนพื้นฐานของข้อมูลที่สัมพันธ์กับความรู้และประสบการณ์ของท่าน พวกเราพิจารณาว่า การลงทุนที่มีอยู่ทางเว็บไซต์แห่งนี้ไม่เหมาะสมกับท่าน",
+    "appropriateness_test": "การทดสอบความเหมาะสม: ",
+    "warning": "คำเตือน:",
     "by_clicking": "โดยการคลิก ",
     "accept": "ยอมรับ",
     "exposing_at_risk": "ด้านล่างนี้ และดำเนินการเปิดบัญชี คุณควรทราบว่า คุณอาจเจอความเสี่ยง (ที่อาจจะมีนัยสำคัญ รวมถึงความเสี่ยงในการขาดทุนมูลค่าทั้งหมดที่ได้ลงทุน) ซึ่งคุณอาจจะไม่มีความรู้และประสบการณ์ที่จะประเมินและจัดการอย่างเหมาะสม",
@@ -308,7 +308,7 @@
     "change_password": "เปลี่ยนรหัสผ่าน",
     "financial_assessment": "การประเมินทางการเงิน",
     "limits": "วงเงิน",
-    "account_categorisation": "Account Categorisation"
+    "account_categorisation": "การจำแนกบัญชี"
   },
   "self-exclusion": {
     "self_exclusion": "เครื่องมือสำหรับพักการซื้อขาย",
@@ -344,8 +344,8 @@
     "session_timeout_warning": "เวลาจำกัดของการซื้อขายของคุณจะสิ้นสุดภายใน 10 วินาที",
     "success": "เรียบร้อยแล้ว",
     "warning": "คำเตือน",
-    "not_zero": "Value can not be 0",
-    "error": "Sorry, an error occurred while processing your request."
+    "not_zero": "ค่าไม่สามารถเป็น 0",
+    "error": "ขออภัย มีความผิดพลาดเกิดขึ้นขณะที่ประมวลผลความประสงค์ของท่าน"
   },
   "profile": {
     "personal_details": "รายละเอียดส่วนบุคคล",
@@ -497,22 +497,22 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "คุณไม่มีบัญชีใดๆของ MetaTrader โปรดสร้าง แล้วลองอีกครั้ง",
-    "create_account": "Create New Account",
-    "feature_is_not_available": "Sorry, this feature is not available in your jurisdiction.",
+    "create_account": "สร้างบัญชีใหม่",
+    "feature_is_not_available": "ขออภัย ฟังก์ชันนี้ไม่พร้อมใช้งานในพื้นที่ของท่าน",
     "meta_trader_accounts": "บัญชี Meta Trader",
     "demo_account": "บัญชีทดลองใช้",
-    "real_money_account": "Real-Money Account",
-    "login": "Login",
+    "real_money_account": "บัญชีเงินจริง",
+    "login": "เข้าสู่ระบบ",
     "balance": "ยอดคงเหลือ",
     "name": "ชื่อ",
     "start_trading_with_mt5": "เริ่มซื้อขายกับ MT5",
-    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
-    "standard": "Standard",
-    "advanced": "Advanced",
-    "mam_advanced": "MAM Advanced",
-    "volatility_indices": "Volatility Indices",
-    "mam_volatility_indices": "MAM Volatility Indices",
-    "upgrade": "Upgrade"
+    "upgrade_real_account": "เพื่อสร้างบัญชีเงินจริงสำหรับ MT5 โปรดอัพเกรดไปเป็นบัญชีจริงของ Binary.com",
+    "standard": "มาตรฐาน",
+    "advanced": "ขั้นสูง",
+    "mam_advanced": "MAM ขั้นสูง",
+    "volatility_indices": "ดัชนีความผันผวน",
+    "mam_volatility_indices": "ดัชนีความผันผวน MAM",
+    "upgrade": "อัพเกรด"
   },
   "authentication": {
     "authentication": "การพิสูจน์ตัวตน",
@@ -740,13 +740,13 @@
     "you_may_decline": "หมายเหตุ: คุณอาจปฏิเสธ และเป็นลูกค้ารายย่อยต่อไป"
   },
   "account-categorisation": {
-    "account_categorisation": "Account Categorisation",
-    "processing": "Your application to be treated as a professional client is being processed.",
-    "professional": "You are categorised as a professional client.",
-    "error": "Sorry, an error occurred while processing your request.",
-    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?",
-    "submit": "Submit"
+    "account_categorisation": "การจำแนกบัญชี",
+    "processing": "ใบสมัครของท่านเพื่อปรับสถานะเป็นลูกค้ามืออาชีพกำลังถูกดำเนินการ",
+    "professional": "ท่านอยู่ในกลุ่มลูกค้ามืออาชีพ",
+    "error": "ขออภัย มีความผิดพลาดเกิดขึ้นขณะที่ประมวลผลความประสงค์ของท่าน",
+    "retail_info": "สถานะเมื่อเริ่มต้น ลูกค้าทั้งหมดเป็นลูกค้ารายย่อย ท่านต้องการเปลี่ยนสถานะให้เป็นลูกค้ามืออาชีพหรือไม่ หากท่านมีเงื่อนไขที่จำเป็นตรงกับเงื่อนไขที่กำหนดไว้?",
+    "professional_client_verify": "ฉันต้องการได้รับการปฏิบัติเสมือนเป็นลูกค้ามืออาชีพคนหนึ่ง",
+    "what_is_this": "นี้คืออะไร?",
+    "submit": "ส่ง"
   }
 }
