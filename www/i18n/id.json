@@ -50,13 +50,16 @@
     "up_down": "Up/Down",
     "higher_lower": "Higher/Lower",
     "rise_fall": "Rise/Fall",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "Maaf, semua pasar sedang ditutup. Silahkan coba kembali nanti",
     "cancel": "Batal",
     "select_market": "Pilih Pasar",
     "select_underlying": "Pilih Dasar",
     "select_tradetype": "Pilih jenis kontrak",
     "select_tick": "Pilih Tik",
-    "select_digit": "Pilih Digit"
+    "select_digit": "Pilih Digit",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "Hasil",
@@ -74,7 +77,8 @@
     "buy_again": "Beli Lagi",
     "sell": "Jual",
     "barrier": "Batasan Ofset",
-    "return": "Laba"
+    "return": "Laba",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "Keluar",
