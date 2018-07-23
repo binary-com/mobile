@@ -38,66 +38,97 @@ angular.module("binary").constant("config", {
             name   : "asians",
             value  : "Asians",
             markets: ["volidx", "random"]
+        },
+        {
+            name   : "high_low_ticks",
+            value  : "HIGH/LOW TICKS",
+            markets: ["volidx"]
         }
     ],
     tradeTypes: [
         {
-            name    : "Up",
-            value   : "CALL",
-            digits  : false,
-            category: "UP/DOWN"
+            name         : "Up",
+            value        : "CALL",
+            digits       : false,
+            selected_tick: false,
+            category     : "UP/DOWN"
         },
         {
-            name    : "Down",
-            value   : "PUT",
-            digits  : false,
-            category: "UP/DOWN"
+            name         : "Down",
+            value        : "PUT",
+            digits       : false,
+            selected_tick: false,
+            category     : "UP/DOWN"
         },
         {
-            name    : "Asians Up",
-            value   : "ASIANU",
-            digits  : false,
-            category: "Asians"
+            name         : "Asians Up",
+            value        : "ASIANU",
+            digits       : false,
+            selected_tick: false,
+            category     : "Asians"
         },
         {
-            name    : "Asians Down",
-            value   : "ASIAND",
-            digits  : false,
-            category: "Asians"
+            name         : "Asians Down",
+            value        : "ASIAND",
+            digits       : false,
+            selected_tick: false,
+            category     : "Asians"
         },
         {
-            name    : "Digit Match",
-            value   : "DIGITMATCH",
-            digits  : true,
-            category: "MATCH/DIFF"
+            name         : "Digit Match",
+            value        : "DIGITMATCH",
+            digits       : true,
+            selected_tick: false,
+            category     : "MATCH/DIFF"
         },
         {
-            name    : "Digit Differs",
-            value   : "DIGITDIFF",
-            digits  : true,
-            category: "MATCH/DIFF"
+            name         : "Digit Differs",
+            value        : "DIGITDIFF",
+            digits       : true,
+            selected_tick: false,
+            category     : "MATCH/DIFF"
         },
         {
-            name    : "Digit Even",
-            value   : "DIGITEVEN",
-            category: "EVEN/ODD"
+            name         : "Digit Even",
+            value        : "DIGITEVEN",
+            digits       : true,
+            selected_tick: false,
+            category     : "EVEN/ODD"
         },
         {
-            name    : "Digit Odd",
-            value   : "DIGITODD",
-            category: "EVEN/ODD"
+            name         : "Digit Odd",
+            value        : "DIGITODD",
+            digits       : true,
+            selected_tick: false,
+            category     : "EVEN/ODD"
         },
         {
-            name    : "Digit Over",
-            value   : "DIGITOVER",
-            digits  : true,
-            category: "OVER/UNDER"
+            name         : "Digit Over",
+            value        : "DIGITOVER",
+            digits       : true,
+            selected_tick: false,
+            category     : "OVER/UNDER"
         },
         {
-            name    : "Digit Under",
-            value   : "DIGITUNDER",
-            digits  : true,
-            category: "OVER/UNDER"
+            name         : "Digit Under",
+            value        : "DIGITUNDER",
+            digits       : true,
+            selected_tick: false,
+            category     : "OVER/UNDER"
+        },
+        {
+            name         : "TICK HIGH",
+            value        : "TICKHIGH",
+            digits       : false,
+            selected_tick: true,
+            category     : "HIGH/LOW TICKS"
+        },
+        {
+            name         : "TICK LOW",
+            value        : "TICKLOW",
+            digits       : false,
+            selected_tick: true,
+            category     : "HIGH/LOW TICKS"
         }
     ],
     supportedTradeTypes: [
@@ -107,7 +138,8 @@ angular.module("binary").constant("config", {
         "Higher/Lower",
         "Rise/Fall",
         "Asians",
-        "Up/Down"
+        "Up/Down",
+        "High/Low Ticks"
     ],
     language    : "en",
     assetIndexes: {

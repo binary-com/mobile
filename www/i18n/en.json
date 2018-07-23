@@ -50,13 +50,16 @@
     "up_down": "Up/Down",
     "higher_lower": "Higher/Lower",
     "rise_fall": "Rise/Fall",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "Sorry, All markets are currently closed. Please try again later",
     "cancel": "Cancel",
     "select_market": "Select Market",
     "select_underlying": "Select Underlying",
     "select_tradetype": "Select Tradetype",
     "select_tick": "Select Tick",
-    "select_digit": "Select Digit"
+    "select_digit": "Select Digit",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "Payout",
@@ -74,7 +77,8 @@
     "buy_again": "Buy Again",
     "sell": "Sell",
     "barrier": "Barrier Offset",
-    "return": "Return"
+    "return": "Return",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "Exit",

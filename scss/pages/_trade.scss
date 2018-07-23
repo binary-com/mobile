@@ -36,6 +36,7 @@
 		bg-chart,
 		bg-contract-summary,
 		bg-digits,
+		bg-selected-tick,
 		bg-longcode,
 		bg-markets,
 		bg-options,
@@ -98,9 +99,11 @@
 			}
 		}
 		bg-digits,
+		bg-selected-tick,
 		bg-ticks {
 			width: 100vw;
 			.digits,
+			.selected-tick,
 			.ticks {
 				width: 100vw;
 				display: flex;
@@ -615,6 +618,29 @@
 				}
 			}
 		}
+		bg-tick-result {
+			padding: 5px;
+			max-height: 75px;
+			margin: 0 auto;
+			width: 100%;
+			.tick-result {
+				border: 1px solid $borderColor;
+				background: $white;
+				border-radius: 3px;
+				display: flex;
+				flex-direction: column;
+				color: $contentColor;
+				padding: 5px 0;
+				.col {
+					padding: 0 !important;
+				}
+				.number-rec {
+					display: inline-block;
+					border-radius:  2px;
+					font-size: $FONT_SIZE_S;
+				}
+			}
+		}
 	}
 }
 .modal {
@@ -637,6 +663,7 @@
 	}
 
 	bg-digits,
+	bg-selected-tick,
 	bg-markets,
 	bg-ticks,
 	bg-tradetypes,
@@ -658,6 +685,7 @@
 			}
 		}
 		.digits,
+		.selected-tick,
 		.markets,
 		.ticks,
 		.trade-types,

@@ -19,5 +19,7 @@
               trade-type="vm.options.tradeType"></bg-ticks>
     <bg-digits ng-if="vm.section2 == vm.SECTIONS.DIGITS" select="vm.selectDigit"
                trade-type="vm.options.tradeType"></bg-digits>
+    <bg-selected-tick ng-if="vm.section2 == vm.SECTIONS.SELECTEDTICK" select="vm.selectSelectedTick"
+               tick="vm.options.tick"></bg-selected-tick>
   </ion-content>
 </ion-modal-view>

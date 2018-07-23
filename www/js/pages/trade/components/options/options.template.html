@@ -23,7 +23,12 @@
     </div>
     <div class="col center" ng-if="vm.options.digit != null">
       <button class="button button-clear"
-              ng-click="vm.setSection(2, vm.SECTIONS.DIGITS)"> Last Digit: {{ vm.options.digit }}
+              ng-click="vm.setSection(2, vm.SECTIONS.DIGITS)"> {{ 'options.last_digit' | translate }}: {{ vm.options.digit }}
+        <i class="ion-arrow-down-b"></i></button>
+    </div>
+    <div class="col center" ng-if="vm.options.selected_tick != null">
+      <button class="button button-clear"
+              ng-click="vm.setSection(2, vm.SECTIONS.SELECTEDTICK)"> {{ 'options.selected_tick' | translate }}: {{ vm.options.selected_tick }}
         <i class="ion-arrow-down-b"></i></button>
     </div>
   </div>
