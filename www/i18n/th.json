@@ -50,13 +50,16 @@
     "up_down": "ขึ้น/ลง",
     "higher_lower": "สูงกว่า/ต่ำกว่า",
     "rise_fall": "ขึ้น/ตก",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "ขออภัย ขณะนี้ตลาดปิด กรุณาลองใหม่อีกครั้ง",
     "cancel": "ยกเลิก",
     "select_market": "เลือก ตลาด",
     "select_underlying": "เลือก ผลิตภัณฑ์อ้างอิง",
     "select_tradetype": "เลือก ประเภทการซื้อขาย",
     "select_tick": "เลือก ช่วงเวลา",
-    "select_digit": "เลือก จำนวนตัวเลข"
+    "select_digit": "เลือก จำนวนตัวเลข",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "การชำระเงิน",
@@ -74,7 +77,8 @@
     "buy_again": "ซื้ออีกครั้ง",
     "sell": "ขาย",
     "barrier": "Barrier ออฟเซ็ท",
-    "return": "ผลตอบแทน"
+    "return": "ผลตอบแทน",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "ออก",
