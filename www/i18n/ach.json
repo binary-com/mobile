@@ -50,13 +50,16 @@
     "up_down": "crwdns17726:0crwdne17726:0",
     "higher_lower": "crwdns33565:0crwdne33565:0",
     "rise_fall": "crwdns33566:0crwdne33566:0",
+    "high_low_ticks": "crwdns46226:0crwdne46226:0",
     "markets_are_closed": "crwdns17727:0crwdne17727:0",
     "cancel": "crwdns19509:0crwdne19509:0",
     "select_market": "crwdns29653:0crwdne29653:0",
     "select_underlying": "crwdns19510:0crwdne19510:0",
     "select_tradetype": "crwdns19511:0crwdne19511:0",
     "select_tick": "crwdns19512:0crwdne19512:0",
-    "select_digit": "crwdns19513:0crwdne19513:0"
+    "select_digit": "crwdns19513:0crwdne19513:0",
+    "selected_tick": "crwdns46227:0crwdne46227:0",
+    "last_digit": "crwdns46228:0crwdne46228:0"
   },
   "trade": {
     "payout": "crwdns17728:0crwdne17728:0",
@@ -74,7 +77,8 @@
     "buy_again": "crwdns17746:0crwdne17746:0",
     "sell": "crwdns17747:0crwdne17747:0",
     "barrier": "crwdns44923:0crwdne44923:0",
-    "return": "crwdns44602:0crwdne44602:0"
+    "return": "crwdns44602:0crwdne44602:0",
+    "tick": "crwdns46229:0crwdne46229:0"
   },
   "app": {
     "exit_title": "crwdns17756:0crwdne17756:0",
