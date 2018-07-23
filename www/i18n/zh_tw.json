@@ -50,13 +50,16 @@
     "up_down": "上漲/下跌",
     "higher_lower": "高於/低於",
     "rise_fall": "上漲/下跌",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "抱歉，所有市場現已關閉。請稍後重試。",
     "cancel": "取消",
     "select_market": "選擇市場",
     "select_underlying": "選擇基礎",
     "select_tradetype": "選擇交易類型",
     "select_tick": "選擇跳動點",
-    "select_digit": "選擇位數"
+    "select_digit": "選擇位數",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "賠付額",
@@ -74,7 +77,8 @@
     "buy_again": "重購",
     "sell": "賣出",
     "barrier": "障礙偏移量",
-    "return": "回報"
+    "return": "回報",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "退出",
