@@ -50,13 +50,16 @@
     "up_down": "Вверх/Вниз",
     "higher_lower": "Выше/Ниже",
     "rise_fall": "Повышение/Падение",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "Извините, все рынки в данное время закрыты. Повторите попытку позже.",
     "cancel": "Отмена",
     "select_market": "Выберите рынок",
     "select_underlying": "Выберите актив",
     "select_tradetype": "Выберите тип контракта",
     "select_tick": "Выберите тик",
-    "select_digit": "Выберите цифру"
+    "select_digit": "Выберите цифру",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "Выплата",
@@ -74,7 +77,8 @@
     "buy_again": "Купить снова",
     "sell": "Продать",
     "barrier": "Изменение барьера",
-    "return": "Прибыль"
+    "return": "Прибыль",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "Выход",
