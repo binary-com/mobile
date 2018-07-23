@@ -50,13 +50,16 @@
     "up_down": "Hausse/Baisse",
     "higher_lower": "Plus Haut/Plus Bas",
     "rise_fall": "Hausse/Baisse",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "Désolé, tous les marchés sont actuellement fermés. Veuillez réessayer ultérieurement",
     "cancel": "Annuler",
     "select_market": "Sélectionnez un marché",
     "select_underlying": "Sélectionnez le sous-jacent",
     "select_tradetype": "Sélectionnez le type de trade",
     "select_tick": "Sélectionnez Tick",
-    "select_digit": "Sélectionner le chiffre"
+    "select_digit": "Sélectionner le chiffre",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "Paiement",
@@ -74,7 +77,8 @@
     "buy_again": "Acheter à nouveau",
     "sell": "Vente",
     "barrier": "Marge de barrière",
-    "return": "Retour"
+    "return": "Retour",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "Quitter",
@@ -256,8 +260,11 @@
     "go": "Aller"
   },
   "transaction-details": {
-    "contract_id": "Identifiant de contrat :",
     "ref": "Identifiant de référence",
+    "contract_type": "Contract Type",
+    "transaction_id": "Transaction ID",
+    "buy": "Buy",
+    "sell": "Sell",
     "start_time": "Heure de début",
     "entry_spot": "Point d'entrée",
     "barrier": "Barrière",
@@ -267,7 +274,35 @@
     "exit_spot_time": "Heure du Point de Sortie",
     "sell_price": "Prix de vente",
     "profit_loss": "Profits/pertes",
-    "end_time": "Heure de fin"
+    "end_time": "Heure de fin",
+    "ASIANU": "Asian Up",
+    "ASIAND": "Asian Down",
+    "CALL": "Higher",
+    "CALLE": "Higher or equal",
+    "PUT": "Lower",
+    "PUTE": "Lower or equal",
+    "DIGITMATCH": "Digit Matches",
+    "DIGITDIFF": "Digit Differs",
+    "DIGITODD": "Digit Odd",
+    "DIGITEVEN": "Digit Even",
+    "DIGITOVER": "Digit Over",
+    "DIGITUNDER": "Digit Under",
+    "EXPIRYMISS": "Ends Outside",
+    "EXPIRYRANGE": "Ends Between",
+    "EXPIRYRANGEE": "Ends Between",
+    "LBFLOATCALL": "Close-Low",
+    "LBFLOATPUT": "High-Close",
+    "LBHIGHLOW": "High-Low",
+    "RANGE": "Stays Between",
+    "RESETCALL": "Reset Call",
+    "RESETPUT": "Reset Put",
+    "UPORDOWN": "Goes Outside",
+    "ONETOUCH": "Touches",
+    "NOTOUCH": "Does Not Touch",
+    "CALLSPREAD": "Call Spread",
+    "PUTSPREAD": "Put Spread",
+    "TICKHIGH": "High Tick",
+    "TICKLOW": "Low Tick"
   },
   "statement": {
     "statement": "Relevé",

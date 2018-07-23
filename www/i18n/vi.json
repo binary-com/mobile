@@ -50,13 +50,16 @@
     "up_down": "Lên/Xuống",
     "higher_lower": "Cao hơn/Thấp hơn",
     "rise_fall": "Tăng/Giảm",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "Rất tiếc, Tất cả các thị trường hiện đã đóng. Vui lòng thử lại sau",
     "cancel": "Hủy bỏ",
     "select_market": "Chọn thị trường",
     "select_underlying": "Chọn mục được gạch chân",
     "select_tradetype": "Chọn loại giao dịch",
     "select_tick": "Chọn Tick",
-    "select_digit": "Chọn Digit"
+    "select_digit": "Chọn Digit",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "Thanh toán",
@@ -74,7 +77,8 @@
     "buy_again": "Mua lại",
     "sell": "Bán",
     "barrier": "Rào cản bù đắp",
-    "return": "Quay trở lại"
+    "return": "Quay trở lại",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "Thoát",
@@ -256,8 +260,11 @@
     "go": "Go"
   },
   "transaction-details": {
-    "contract_id": "Contract ID:",
     "ref": "Reference ID",
+    "contract_type": "Contract Type",
+    "transaction_id": "Transaction ID",
+    "buy": "Buy",
+    "sell": "Sell",
     "start_time": "Start Time",
     "entry_spot": "Entry Spot",
     "barrier": "Barrier",
@@ -267,7 +274,35 @@
     "exit_spot_time": "Exit Spot Time",
     "sell_price": "Sell Price",
     "profit_loss": "Profit/Loss",
-    "end_time": "End Time"
+    "end_time": "End Time",
+    "ASIANU": "Asian Up",
+    "ASIAND": "Asian Down",
+    "CALL": "Higher",
+    "CALLE": "Higher or equal",
+    "PUT": "Lower",
+    "PUTE": "Lower or equal",
+    "DIGITMATCH": "Digit Matches",
+    "DIGITDIFF": "Digit Differs",
+    "DIGITODD": "Digit Odd",
+    "DIGITEVEN": "Digit Even",
+    "DIGITOVER": "Digit Over",
+    "DIGITUNDER": "Digit Under",
+    "EXPIRYMISS": "Ends Outside",
+    "EXPIRYRANGE": "Ends Between",
+    "EXPIRYRANGEE": "Ends Between",
+    "LBFLOATCALL": "Close-Low",
+    "LBFLOATPUT": "High-Close",
+    "LBHIGHLOW": "High-Low",
+    "RANGE": "Stays Between",
+    "RESETCALL": "Reset Call",
+    "RESETPUT": "Reset Put",
+    "UPORDOWN": "Goes Outside",
+    "ONETOUCH": "Touches",
+    "NOTOUCH": "Does Not Touch",
+    "CALLSPREAD": "Call Spread",
+    "PUTSPREAD": "Put Spread",
+    "TICKHIGH": "High Tick",
+    "TICKLOW": "Low Tick"
   },
   "statement": {
     "statement": "Báo cáo",

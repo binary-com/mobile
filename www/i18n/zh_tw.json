@@ -50,13 +50,16 @@
     "up_down": "上漲/下跌",
     "higher_lower": "高於/低於",
     "rise_fall": "上漲/下跌",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "抱歉，所有市場現已關閉。請稍後重試。",
     "cancel": "取消",
     "select_market": "選擇市場",
     "select_underlying": "選擇基礎",
     "select_tradetype": "選擇交易類型",
     "select_tick": "選擇跳動點",
-    "select_digit": "選擇位數"
+    "select_digit": "選擇位數",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "賠付額",
@@ -74,7 +77,8 @@
     "buy_again": "重購",
     "sell": "賣出",
     "barrier": "障礙偏移量",
-    "return": "回報"
+    "return": "回報",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "退出",
@@ -256,8 +260,11 @@
     "go": "開始"
   },
   "transaction-details": {
-    "contract_id": "合約編號:",
     "ref": "身份參考號",
+    "contract_type": "Contract Type",
+    "transaction_id": "Transaction ID",
+    "buy": "Buy",
+    "sell": "Sell",
     "start_time": "開始時間",
     "entry_spot": "入市現價",
     "barrier": "障礙",
@@ -267,7 +274,35 @@
     "exit_spot_time": "退市現價時間",
     "sell_price": "賣出價格",
     "profit_loss": "利潤/虧損",
-    "end_time": "結束時間"
+    "end_time": "結束時間",
+    "ASIANU": "Asian Up",
+    "ASIAND": "Asian Down",
+    "CALL": "Higher",
+    "CALLE": "Higher or equal",
+    "PUT": "Lower",
+    "PUTE": "Lower or equal",
+    "DIGITMATCH": "Digit Matches",
+    "DIGITDIFF": "Digit Differs",
+    "DIGITODD": "Digit Odd",
+    "DIGITEVEN": "Digit Even",
+    "DIGITOVER": "Digit Over",
+    "DIGITUNDER": "Digit Under",
+    "EXPIRYMISS": "Ends Outside",
+    "EXPIRYRANGE": "Ends Between",
+    "EXPIRYRANGEE": "Ends Between",
+    "LBFLOATCALL": "Close-Low",
+    "LBFLOATPUT": "High-Close",
+    "LBHIGHLOW": "High-Low",
+    "RANGE": "Stays Between",
+    "RESETCALL": "Reset Call",
+    "RESETPUT": "Reset Put",
+    "UPORDOWN": "Goes Outside",
+    "ONETOUCH": "Touches",
+    "NOTOUCH": "Does Not Touch",
+    "CALLSPREAD": "Call Spread",
+    "PUTSPREAD": "Put Spread",
+    "TICKHIGH": "High Tick",
+    "TICKLOW": "Low Tick"
   },
   "statement": {
     "statement": "帳單",

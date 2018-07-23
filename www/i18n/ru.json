@@ -50,13 +50,16 @@
     "up_down": "Вверх/Вниз",
     "higher_lower": "Выше/Ниже",
     "rise_fall": "Повышение/Падение",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "Извините, все рынки в данное время закрыты. Повторите попытку позже.",
     "cancel": "Отмена",
     "select_market": "Выберите рынок",
     "select_underlying": "Выберите актив",
     "select_tradetype": "Выберите тип контракта",
     "select_tick": "Выберите тик",
-    "select_digit": "Выберите цифру"
+    "select_digit": "Выберите цифру",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "Выплата",
@@ -74,7 +77,8 @@
     "buy_again": "Купить снова",
     "sell": "Продать",
     "barrier": "Изменение барьера",
-    "return": "Прибыль"
+    "return": "Прибыль",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "Выход",
@@ -256,8 +260,11 @@
     "go": "Перейти"
   },
   "transaction-details": {
-    "contract_id": "Номер контракта:",
     "ref": "Номер",
+    "contract_type": "Contract Type",
+    "transaction_id": "Transaction ID",
+    "buy": "Buy",
+    "sell": "Sell",
     "start_time": "Время начала",
     "entry_spot": "Входная котировка",
     "barrier": "Барьер",
@@ -267,7 +274,35 @@
     "exit_spot_time": "Время выходной котировки",
     "sell_price": "Цена прод.",
     "profit_loss": "Прибыль/убыток",
-    "end_time": "Время окончания"
+    "end_time": "Время окончания",
+    "ASIANU": "Asian Up",
+    "ASIAND": "Asian Down",
+    "CALL": "Higher",
+    "CALLE": "Higher or equal",
+    "PUT": "Lower",
+    "PUTE": "Lower or equal",
+    "DIGITMATCH": "Digit Matches",
+    "DIGITDIFF": "Digit Differs",
+    "DIGITODD": "Digit Odd",
+    "DIGITEVEN": "Digit Even",
+    "DIGITOVER": "Digit Over",
+    "DIGITUNDER": "Digit Under",
+    "EXPIRYMISS": "Ends Outside",
+    "EXPIRYRANGE": "Ends Between",
+    "EXPIRYRANGEE": "Ends Between",
+    "LBFLOATCALL": "Close-Low",
+    "LBFLOATPUT": "High-Close",
+    "LBHIGHLOW": "High-Low",
+    "RANGE": "Stays Between",
+    "RESETCALL": "Reset Call",
+    "RESETPUT": "Reset Put",
+    "UPORDOWN": "Goes Outside",
+    "ONETOUCH": "Touches",
+    "NOTOUCH": "Does Not Touch",
+    "CALLSPREAD": "Call Spread",
+    "PUTSPREAD": "Put Spread",
+    "TICKHIGH": "High Tick",
+    "TICKLOW": "Low Tick"
   },
   "statement": {
     "statement": "История счёта",

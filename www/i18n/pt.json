@@ -50,13 +50,16 @@
     "up_down": "Acima/Abaixo",
     "higher_lower": "Superior/Inferior",
     "rise_fall": "Sobe/Desce",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "Lamentamos, todos os mercados estão encerrados. Tente novamente mais tarde",
     "cancel": "Cancelar",
     "select_market": "Selecionar mercado",
     "select_underlying": "Selecione ativo subjacente",
     "select_tradetype": "Selecione TipoDeNegociação",
     "select_tick": "Selecione tique-taque",
-    "select_digit": "Selecione dígito"
+    "select_digit": "Selecione dígito",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "Pagamento",
@@ -74,7 +77,8 @@
     "buy_again": "Comprar novamente",
     "sell": "Vender",
     "barrier": "Barrier Offset",
-    "return": "Return"
+    "return": "Return",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "Sair",
@@ -256,8 +260,11 @@
     "go": "Go"
   },
   "transaction-details": {
-    "contract_id": "Contract ID:",
     "ref": "Reference ID",
+    "contract_type": "Contract Type",
+    "transaction_id": "Transaction ID",
+    "buy": "Buy",
+    "sell": "Sell",
     "start_time": "Start Time",
     "entry_spot": "Entry Spot",
     "barrier": "Barrier",
@@ -267,7 +274,35 @@
     "exit_spot_time": "Exit Spot Time",
     "sell_price": "Sell Price",
     "profit_loss": "Profit/Loss",
-    "end_time": "End Time"
+    "end_time": "End Time",
+    "ASIANU": "Asian Up",
+    "ASIAND": "Asian Down",
+    "CALL": "Higher",
+    "CALLE": "Higher or equal",
+    "PUT": "Lower",
+    "PUTE": "Lower or equal",
+    "DIGITMATCH": "Digit Matches",
+    "DIGITDIFF": "Digit Differs",
+    "DIGITODD": "Digit Odd",
+    "DIGITEVEN": "Digit Even",
+    "DIGITOVER": "Digit Over",
+    "DIGITUNDER": "Digit Under",
+    "EXPIRYMISS": "Ends Outside",
+    "EXPIRYRANGE": "Ends Between",
+    "EXPIRYRANGEE": "Ends Between",
+    "LBFLOATCALL": "Close-Low",
+    "LBFLOATPUT": "High-Close",
+    "LBHIGHLOW": "High-Low",
+    "RANGE": "Stays Between",
+    "RESETCALL": "Reset Call",
+    "RESETPUT": "Reset Put",
+    "UPORDOWN": "Goes Outside",
+    "ONETOUCH": "Touches",
+    "NOTOUCH": "Does Not Touch",
+    "CALLSPREAD": "Call Spread",
+    "PUTSPREAD": "Put Spread",
+    "TICKHIGH": "High Tick",
+    "TICKLOW": "Low Tick"
   },
   "statement": {
     "statement": "Extrato",

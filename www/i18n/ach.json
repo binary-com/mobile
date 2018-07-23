@@ -50,13 +50,16 @@
     "up_down": "crwdns17726:0crwdne17726:0",
     "higher_lower": "crwdns33565:0crwdne33565:0",
     "rise_fall": "crwdns33566:0crwdne33566:0",
+    "high_low_ticks": "crwdns46226:0crwdne46226:0",
     "markets_are_closed": "crwdns17727:0crwdne17727:0",
     "cancel": "crwdns19509:0crwdne19509:0",
     "select_market": "crwdns29653:0crwdne29653:0",
     "select_underlying": "crwdns19510:0crwdne19510:0",
     "select_tradetype": "crwdns19511:0crwdne19511:0",
     "select_tick": "crwdns19512:0crwdne19512:0",
-    "select_digit": "crwdns19513:0crwdne19513:0"
+    "select_digit": "crwdns19513:0crwdne19513:0",
+    "selected_tick": "crwdns46227:0crwdne46227:0",
+    "last_digit": "crwdns46228:0crwdne46228:0"
   },
   "trade": {
     "payout": "crwdns17728:0crwdne17728:0",
@@ -74,7 +77,8 @@
     "buy_again": "crwdns17746:0crwdne17746:0",
     "sell": "crwdns17747:0crwdne17747:0",
     "barrier": "crwdns44923:0crwdne44923:0",
-    "return": "crwdns44602:0crwdne44602:0"
+    "return": "crwdns44602:0crwdne44602:0",
+    "tick": "crwdns46229:0crwdne46229:0"
   },
   "app": {
     "exit_title": "crwdns17756:0crwdne17756:0",
@@ -256,8 +260,11 @@
     "go": "crwdns44987:0crwdne44987:0"
   },
   "transaction-details": {
-    "contract_id": "crwdns44988:0crwdne44988:0",
     "ref": "crwdns44989:0crwdne44989:0",
+    "contract_type": "crwdns46230:0crwdne46230:0",
+    "transaction_id": "crwdns46231:0crwdne46231:0",
+    "buy": "crwdns46232:0crwdne46232:0",
+    "sell": "crwdns46233:0crwdne46233:0",
     "start_time": "crwdns44990:0crwdne44990:0",
     "entry_spot": "crwdns44991:0crwdne44991:0",
     "barrier": "crwdns44992:0crwdne44992:0",
@@ -267,7 +274,35 @@
     "exit_spot_time": "crwdns44996:0crwdne44996:0",
     "sell_price": "crwdns44997:0crwdne44997:0",
     "profit_loss": "crwdns44998:0crwdne44998:0",
-    "end_time": "crwdns44999:0crwdne44999:0"
+    "end_time": "crwdns44999:0crwdne44999:0",
+    "ASIANU": "crwdns46234:0crwdne46234:0",
+    "ASIAND": "crwdns46235:0crwdne46235:0",
+    "CALL": "crwdns46236:0crwdne46236:0",
+    "CALLE": "crwdns46237:0crwdne46237:0",
+    "PUT": "crwdns46238:0crwdne46238:0",
+    "PUTE": "crwdns46239:0crwdne46239:0",
+    "DIGITMATCH": "crwdns46240:0crwdne46240:0",
+    "DIGITDIFF": "crwdns46241:0crwdne46241:0",
+    "DIGITODD": "crwdns46242:0crwdne46242:0",
+    "DIGITEVEN": "crwdns46243:0crwdne46243:0",
+    "DIGITOVER": "crwdns46244:0crwdne46244:0",
+    "DIGITUNDER": "crwdns46245:0crwdne46245:0",
+    "EXPIRYMISS": "crwdns46246:0crwdne46246:0",
+    "EXPIRYRANGE": "crwdns46247:0crwdne46247:0",
+    "EXPIRYRANGEE": "crwdns46248:0crwdne46248:0",
+    "LBFLOATCALL": "crwdns46249:0crwdne46249:0",
+    "LBFLOATPUT": "crwdns46250:0crwdne46250:0",
+    "LBHIGHLOW": "crwdns46251:0crwdne46251:0",
+    "RANGE": "crwdns46252:0crwdne46252:0",
+    "RESETCALL": "crwdns46253:0crwdne46253:0",
+    "RESETPUT": "crwdns46254:0crwdne46254:0",
+    "UPORDOWN": "crwdns46255:0crwdne46255:0",
+    "ONETOUCH": "crwdns46256:0crwdne46256:0",
+    "NOTOUCH": "crwdns46257:0crwdne46257:0",
+    "CALLSPREAD": "crwdns46258:0crwdne46258:0",
+    "PUTSPREAD": "crwdns46259:0crwdne46259:0",
+    "TICKHIGH": "crwdns46260:0crwdne46260:0",
+    "TICKLOW": "crwdns46261:0crwdne46261:0"
   },
   "statement": {
     "statement": "crwdns17980:0crwdne17980:0",
