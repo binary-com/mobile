@@ -207,7 +207,9 @@
     "decline": "crwdns44885:0crwdne44885:0",
     "secret_question": "crwdns45172:0crwdne45172:0",
     "secret_answer": "crwdns45173:0crwdne45173:0",
-    "secret_answer_pattern_error": "crwdns45843:0crwdne45843:0"
+    "secret_answer_pattern_error": "crwdns45843:0crwdne45843:0",
+    "confirm_tax_info": "crwdns46262:0crwdne46262:0",
+    "multi_tax_residence_info": "crwdns46263:0crwdne46263:0"
   },
   "new-account-real": {
     "real_account_opening": "crwdns42739:0crwdne42739:0",
