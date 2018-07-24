@@ -50,7 +50,7 @@
     "up_down": "Up/Down",
     "higher_lower": "Higher/Lower",
     "rise_fall": "Rise/Fall",
-    "high_low_ticks": "High/Low Ticks",
+    "high_low_ticks": "High/Low Tik",
     "markets_are_closed": "Maaf, semua pasar sedang ditutup. Silahkan coba kembali nanti",
     "cancel": "Batal",
     "select_market": "Pilih Pasar",
@@ -58,8 +58,8 @@
     "select_tradetype": "Pilih jenis kontrak",
     "select_tick": "Pilih Tik",
     "select_digit": "Pilih Digit",
-    "selected_tick": "Selected Tick",
-    "last_digit": "Last Digit"
+    "selected_tick": "Tik Yang Dipilih",
+    "last_digit": "Digit Terakhir"
   },
   "trade": {
     "payout": "Hasil",
@@ -78,7 +78,7 @@
     "sell": "Jual",
     "barrier": "Batasan Ofset",
     "return": "Laba",
-    "tick": "tick"
+    "tick": "tik"
   },
   "app": {
     "exit_title": "Keluar",
@@ -208,8 +208,8 @@
     "secret_question": "Pertanyaan rahasia",
     "secret_answer": "Jawaban rahasia",
     "secret_answer_pattern_error": "Hanya huruf, angka, spasi, tanda hubung, titik, dan tanda kutip yang diperbolehkan.",
-    "confirm_tax_info": "I hereby confirm that the tax information I provided is true and complete. I will also inform Binary Investments (Europe) Ltd. about any changes to this information.",
-    "multi_tax_residence_info": "You may be considered a tax resident in more than one jurisdiction. Please consult your tax advisor and verify that your tax information is accurate."
+    "confirm_tax_info": "Dengan ini saya mengkonfirmasikan bahwa informasi pajak yang saya berikan adalah benar dan lengkap. Saya juga akan menginformasikan kepada Binary Investments (Europe) Ltd. jika terdapat perubahan pada informasi ini.",
+    "multi_tax_residence_info": "Anda mungkin dianggap sebagai penduduk pajak di lebih dari satu yurisdiksi. Silakan berkonsultasi dengan penasihat pajak Anda dan pastikan informasi pajak Anda akurat."
   },
   "new-account-real": {
     "real_account_opening": "Pendaftaran Akun Uang Riil",
@@ -263,10 +263,10 @@
   },
   "transaction-details": {
     "ref": "ID referensi",
-    "contract_type": "Contract Type",
-    "transaction_id": "Transaction ID",
-    "buy": "Buy",
-    "sell": "Sell",
+    "contract_type": "Jenis Kontrak",
+    "transaction_id": "ID Transaksi",
+    "buy": "Beli",
+    "sell": "Jual",
     "start_time": "Waktu Mulai",
     "entry_spot": "Spot Awal",
     "barrier": "Batasan",
@@ -280,18 +280,18 @@
     "ASIANU": "Asian Up",
     "ASIAND": "Asian Down",
     "CALL": "Higher",
-    "CALLE": "Higher or equal",
+    "CALLE": "Higher atau equal",
     "PUT": "Lower",
-    "PUTE": "Lower or equal",
-    "DIGITMATCH": "Digit Matches",
-    "DIGITDIFF": "Digit Differs",
+    "PUTE": "Lower atau equal",
+    "DIGITMATCH": "Digit Match",
+    "DIGITDIFF": "Digit Differ",
     "DIGITODD": "Digit Odd",
     "DIGITEVEN": "Digit Even",
     "DIGITOVER": "Digit Over",
     "DIGITUNDER": "Digit Under",
-    "EXPIRYMISS": "Ends Outside",
-    "EXPIRYRANGE": "Ends Between",
-    "EXPIRYRANGEE": "Ends Between",
+    "EXPIRYMISS": "End Outside",
+    "EXPIRYRANGE": "End Between",
+    "EXPIRYRANGEE": "End Between",
     "LBFLOATCALL": "Close-Low",
     "LBFLOATPUT": "High-Close",
     "LBHIGHLOW": "High-Low",
