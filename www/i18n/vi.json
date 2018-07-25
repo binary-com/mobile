@@ -207,7 +207,9 @@
     "decline": "Từ chối",
     "secret_question": "Câu hỏi bí mật",
     "secret_answer": "Câu trả lời bí mật",
-    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "confirm_tax_info": "I hereby confirm that the tax information I provided is true and complete. I will also inform Binary Investments (Europe) Ltd. about any changes to this information.",
+    "multi_tax_residence_info": "You may be considered a tax resident in more than one jurisdiction. Please consult your tax advisor and verify that your tax information is accurate."
   },
   "new-account-real": {
     "real_account_opening": "Mở Tài khoản Tiền Thực",
