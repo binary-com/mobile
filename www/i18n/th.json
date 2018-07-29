@@ -303,8 +303,8 @@
     "NOTOUCH": "ไม่แตะ",
     "CALLSPREAD": "คอลสเปรด",
     "PUTSPREAD": "พุทสเปรด",
-    "TICKHIGH": "ราคาสูง",
-    "TICKLOW": "Low Tick"
+    "TICKHIGH": "ช่วงราคาสูง",
+    "TICKLOW": "ช่วงราคาต่ำ"
   },
   "statement": {
     "statement": "รายการธุรกรรม",
