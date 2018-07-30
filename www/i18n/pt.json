@@ -750,19 +750,19 @@
     "worked_in_financial_sector": "Você já trabalhou no setor financeiro durante pelo menos um ano numa função que requeira conhecimentos relacionados com as transações que você pretende realizar na nossa plataforma",
     "treated_as_professional_client": "Caso você decida ser tratado como um cliente profissional, iremos assumir que você possui a experiência e os conhecimentos de mercado necessários. Como tal, iremos tomar medidas para certificar que o seu pedido de status de cliente profissional cumpra os critérios acima, incluindo uma solicitação do seguinte:",
     "statements": "Declarações que refletem as suas transações dos últimos quatro trimestres",
-    "portfolio": "Proof of your portfolio held elsewhere",
-    "employment": "Proof of your employment"
+    "portfolio": "Prova da carteira que mantém em outros lugares",
+    "employment": "Prova do seu emprego"
   },
   "pep-information": {
-    "pep": "What is PEP?",
-    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+    "pep": "O que uma PPE?",
+    "what_is_pep": "Uma pessoa politicamente exposta (PPE) é um indivíduo a quem é ou já foi confiada uma função pública proeminente, incluindo os seus familiares diretos ou pessoas conhecidas como estando estreitamente associadas a tais indivíduos, mas que não inclui funcionários de nível média ou júniores. Tais individuos incluem chefes de estado, ministros, secretários parlamentares, deputados, juízes, embaixadores, altos funcionários do governo, pessoal dos altos quadros das forças armadas, comissões de auditoria dos conselhos de administração de bancos centrais e diretores de empresas de estados. Os \"familiares diretos\" dos exemplos acima também serão considerados pessoas politicamente expostas e isso inclui os seus cônjuges/parceiros, pais e filhos. Além disso, \"pessoas conhecidas como estando estreitamente associadas\" a pessoas politicamente expostas incluem os seus parceiros de negócio, que serão considerados como tal. Como regra geral, uma pessoa considerada pessoa politicamente exposta e a quem deixou de ser confiada uma função pública proeminente há pelo menos 12 meses já não se qualifica como pessoa politicamente exposta."
   },
   "what-is-tax-information": {
-    "tax_information_title": "Tax Information",
-    "required_by": "This requirement is mandated by the Common Reporting Standard (CRS) and the Foreign Account Tax Compliance Act (FATCA).",
+    "tax_information_title": "Informações fiscais",
+    "required_by": "Este requisito é mandatado pelo Padrão Comum de Relatório (Common Reporting Standard – CRS) e a Lei de Conformidade Tributária de Contas Estrangeiras (Foreign Account Tax Compliance Act – FATCA).",
     "please_enter": "Please enter your ",
-    "tax_information": "tax information",
-    "to_continue": "to continue.",
+    "tax_information": "informações fiscais",
+    "to_continue": "para continuar.",
     "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe.",
     "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
   },
