@@ -115,6 +115,49 @@ gulp.task('deploy-translation', ['build'], function(done){
   return done();
 });
 
+gulp.task('deploy-apk', function(done){
+
+  sh.config.silent = true;
+
+  var remote = getRemoteName(process.argv);
+  var remoteUrl = getRemoteUrl(remote);
+
+  // remove last tmp directory if it exists
+  sh.rm('-rf', 'tmp');
+
+  //make a tmp directory
+  sh.mkdir('tmp');
+  if(sh.error()){
+    console.log(gutil.colors.red('Error: ' + sh.error()));
+    process.exit(1);
+  }
+
+  sh.cd('tmp');
+  console.log('Fetching gh-pages ...');
+  sh.config.silent = false;
+  sh.exec('git clone '+ remoteUrl +' -b gh-pages ./');
+  sh.config.silent = true;
+
+  console.log('Copying latest verison of APK ...');
+    sh.rm('-rf', 'download');
+    sh.mkdir('download');
+    sh.cp('../platforms/android/app/build/outputs/apk/release/ticktrade-app.apk','download/ticktrade-app.apk');
+
+  console.log('Pushing changes to gh-pages ...');
+  sh.config.silent = false;
+  sh.exec('git config user.name "Morteza Tavanarad"');
+  sh.exec('git config user.email "morteza@binary.com"');
+  sh.exec('git add .');
+  sh.exec('git commit -m "Updated translation version"');
+  sh.exec('git push origin gh-pages:gh-pages');
+  sh.config.silent = true;
+
+  console.log('Cleaning workspace ...');
+  // remove tmp directory to clean workspace
+  sh.cd('../');
+  sh.rm('-rf', 'tmp');
+  return done();
+});
 gulp.task('code-push', function(done){
   if(!sh.which('code-push')){
     console.log('  ' + gutil.colors.red('Code-Push is not installed.'));
