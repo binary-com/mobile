@@ -200,7 +200,8 @@
     "exposing_at_risk": "ด้านล่างนี้ และดำเนินการเปิดบัญชี คุณควรทราบว่า คุณอาจเจอความเสี่ยง (ที่อาจจะมีนัยสำคัญ รวมถึงความเสี่ยงในการขาดทุนมูลค่าทั้งหมดที่ได้ลงทุน) ซึ่งคุณอาจจะไม่มีความรู้และประสบการณ์ที่จะประเมินและจัดการอย่างเหมาะสม",
     "decline": "ปฏิเสธ",
     "secret_question": "คำถามลับ",
-    "secret_answer": "คำตอบลับ"
+    "secret_answer": "คำตอบลับ",
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
   },
   "new-account-real": {
     "real_account_opening": "การเปิดบัญชีเงินจริง",
@@ -645,7 +646,7 @@
     "secondary": "ลำดับที่สอง",
     "tertiary": "ลำดับที่สาม",
     "salaried": "พนักงานประจำ",
-    "self_employed": "เจ้าของกิจการ",
+    "self_employed": "Self-Employed",
     "investment": "เงินปันผลและการลงทุน",
     "pension": "บำนาญ",
     "net_income_1": "น้อยกว่า 25,000 เหรียญสหรัฐ",
@@ -711,13 +712,25 @@
   },
   "pep-information": {
     "pep": "PEP คืออะไร",
-    "what-is-pep": "บุคคลที่เกี่ยวข้องกับการเมือง (PEP) เป็นบุคคลที่ได้รับมอบหมายในการปฏิบัติงานสาธารณะที่โดดเด่น รวมถึงสมาชิกครอบครัวใกล้ชิด หรือ บุคคลที่ทราบว่าเป็นเพื่อนร่วมงานที่ใกล้ชิดของผู้นั้น แต่ไม่รวมเจ้าหน้าที่ระดับกลาง หรือ ระดับล่างกว่า บุคคลดังกล่าวรวมถึงผู้นำรัฐ รัฐมนตรี เลขาธิการรัฐสภา สมาชิกรัฐสภา ผู้พิพากษา ทูต ข้าราชการอาวุโส เจ้าหน้าที่ระดับสูงในกองทัพ คณะกรรมการตรวจสอบของคณะกรรมการธนาคารกลาง และผู้อำนวยการของบริษัทรัฐวิสาหกิจ \"สมาชิกครอบครัวใกล้ชิด\" ตามตัวอย่างข้างต้นจะถูกพิจารณาว่าเป็น PEP ด้วย และรวมถึงคู่สมรส บิดามารดา และบุตร นอกจากนี้ \"บุคคลที่ทราบว่าเป็นเพื่อนร่วมงานใกล้ชิด\" ของ PEP รวมถึง หุ้นส่วนทางธุรกิจจะถูกพิจารณาว่าเป็นด้วยเช่นกัน โดยทั่วๆไป บุคคลที่ถูกพิจารณว่าเป็น PEP และหยุดการรับมอบหมายในการปฏิบัติงานสาธารณะที่โดดเด่นเป็นระยะเวลาอย่างน้อยสิบสองเดือนไม่ถือว่ามีคุณสมบัติเป็น PEP ต่อไป"
+    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
   },
   "what-is-tax-information": {
+    "tax_information_title": "Tax Information",
     "required_by": "ข้อกำหนดนี้ถูกบังคับ โดยมาตรฐานรายงานทั่วไป (CRS) และพระราชบัญญัติการปฏิบัติตามบัญชีภาษีต่างชาติ (FATCA)",
     "please_enter": "โปรดป้อน....ของท่าน",
     "tax_information": "ข้อมูลภาษี",
     "to_continue": "ดำเนินการต่อ",
-    "information_will_be_safe": "โปรดมั่นใจว่า ข้อมูลของคุณจะถูกใช้เพื่อวัตถุประสงค์ในการรายงาน CRS/FATCA เท่านั้น และจะถูกเก็บเอาไว้อย่างปลอดภัย"
+    "information_will_be_safe": "โปรดมั่นใจว่า ข้อมูลของคุณจะถูกใช้เพื่อวัตถุประสงค์ในการรายงาน CRS/FATCA เท่านั้น และจะถูกเก็บเอาไว้อย่างปลอดภัย",
+    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+  },
+  "professional-client-confirmation": {
+    "professional_clients": "Professional Clients",
+    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
+    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
+    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
+    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "you_may_decline": "Note: You may decline and continue as a Retail Client."
   }
 }

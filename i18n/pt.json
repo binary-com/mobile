@@ -200,7 +200,8 @@
     "exposing_at_risk": "below and proceeding with the Account Opening you should note that you may be exposing yourself to risks (which may be significant, including the risk of loss of the entire sum invested) that you may not have the knowledge and experience to properly assess or mitigate.",
     "decline": "Decline",
     "secret_question": "Secret question",
-    "secret_answer": "Secret answer"
+    "secret_answer": "Secret answer",
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
   },
   "new-account-real": {
     "real_account_opening": "Abertura de uma conta de dinheiro real",
@@ -645,7 +646,7 @@
     "secondary": "Secundária",
     "tertiary": "Terciário/Superior",
     "salaried": "Trabalhador assalariado",
-    "self_employed": "Trabalhador por conta própria",
+    "self_employed": "Self-Employed",
     "investment": "Investimentos e dividendos",
     "pension": "Pensão",
     "net_income_1": "Menos de $25.000",
@@ -711,13 +712,25 @@
   },
   "pep-information": {
     "pep": "What is PEP?",
-    "what-is-pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
   },
   "what-is-tax-information": {
+    "tax_information_title": "Tax Information",
     "required_by": "This requirement is mandated by the Common Reporting Standard (CRS) and the Foreign Account Tax Compliance Act (FATCA).",
     "please_enter": "Please enter your ",
     "tax_information": "tax information",
     "to_continue": "to continue.",
-    "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe."
+    "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe.",
+    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+  },
+  "professional-client-confirmation": {
+    "professional_clients": "Professional Clients",
+    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
+    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
+    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
+    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "you_may_decline": "Note: You may decline and continue as a Retail Client."
   }
 }
