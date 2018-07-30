@@ -78,21 +78,21 @@
     "sell": "Vender",
     "barrier": "Deslocação da barreira",
     "return": "Voltar",
-    "tick": "tick"
+    "tick": "tique-taque"
   },
   "app": {
     "exit_title": "Sair",
     "exit_confirmation": "Tem certeza que deseja sair?",
     "connection_error": "Não há conexão com a internet!",
-    "ssl_cert_failed": "Your connection is not private!",
-    "sign_out": "Sign Out"
+    "ssl_cert_failed": "A sua conexão não é privada!",
+    "sign_out": "Sair"
   },
   "reality-check": {
-    "title": "Reality Check",
-    "about": "Options trading can become a real addiction, as can any other activity pushed to its limits. To avoid the danger of such an addiction, we provide a reality-check that gives you a summary of your trades and accounts on a regular basis.",
-    "login_time": "Login Time:",
-    "current_time": "Current Time:",
-    "session_duration": "Session Duration:",
+    "title": "Verificação da realidade",
+    "about": "A negociação de opções pode se tornar um verdadeiro vício, tal como qualquer outra atividade levada até ao limite. Para evitar os perigos de tal vício, fornecemos uma verificação de realidade que lhe proporciona um resumo de todas as suas negociações e conta regularmente.",
+    "login_time": "Hora de login:",
+    "current_time": "Hora atual:",
+    "session_duration": "Duração da sessão:",
     "interval_question": "Please specify your preferred reality-check interval in minutes:",
     "loginid": "Login ID",
     "currency": "Currency",
