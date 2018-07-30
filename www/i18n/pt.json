@@ -763,22 +763,22 @@
     "please_enter": "Please enter your ",
     "tax_information": "informações fiscais",
     "to_continue": "para continuar.",
-    "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe.",
-    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+    "information_will_be_safe": "Tenha certeza de que as suas informações serão apenas usadas para fins de relatórios CRS/FATCA e serão mantidas em segurança.",
+    "contact_for_clarification": "Caso tenhamos motivos para acreditar que as suas informações fiscais estejam incompletas, poderemos entrar em contato com você para pedir esclarecimentos."
   },
   "professional-client-confirmation": {
-    "professional_clients": "Professional Clients",
-    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
-    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
-    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
-    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
-    "accept": "Accept",
-    "decline": "Decline",
-    "you_may_decline": "Note: You may decline and continue as a Retail Client."
+    "professional_clients": "Clientes profissionais",
+    "professional_clients_receive": "Os clientes profissionais recebem um menor grau de proteção devido ao seguinte:",
+    "posses_of_experience": "Pressupomos que você possui a experiência, os conhecimentos e a competência para fazer as suas próprias decisões e avaliar corretamente os riscos envolvidos",
+    "appropriateness_test": "Não somos obrigados a realizar testes de adequação, nem de lhe fornecer quaisquer avisos sobre riscos",
+    "keep_informed": "Enquanto cliente profissional, você deve manter-nos informado sobre quaisquer alterações que possam afetar o seu status.",
+    "accept": "Aceitar",
+    "decline": "Recusar",
+    "you_may_decline": "Nota: Você pode recusar e continuar como um cliente não profissional."
   },
   "account-categorisation": {
-    "account_categorisation": "Account Categorisation",
-    "processing": "Your application to be treated as a professional client is being processed.",
+    "account_categorisation": "Categorização de conta",
+    "processing": "O seu requerimento para ser tratado como cliente profissional está sendo processado.",
     "professional": "You are categorised as a professional client.",
     "error": "Sorry, an error occurred while processing your request.",
     "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
