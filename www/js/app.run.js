@@ -12,7 +12,8 @@
                     title : "Binary.com TickTrade",
                     text  : "",
                     ticker: "TickTrade is running in background",
-                    color : "#2A3052"
+                    color : "#2A3052",
+                    icon  : "notification",
                 });
                 cordova.plugins.backgroundMode.enable();
             }
