@@ -779,11 +779,11 @@
   "account-categorisation": {
     "account_categorisation": "Categorização de conta",
     "processing": "O seu requerimento para ser tratado como cliente profissional está sendo processado.",
-    "professional": "You are categorised as a professional client.",
-    "error": "Sorry, an error occurred while processing your request.",
-    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?",
-    "submit": "Submit"
+    "professional": "Você está sendo categorizado como cliente profissional.",
+    "error": "Lamentamos, ocorreu um erro durante o processamento do seu pedido.",
+    "retail_info": "Por padrão, todos os clientes são tratados como clientes particulares. Prefere ser tratado como cliente profissional no caso de corresponder aos critérios necessários?",
+    "professional_client_verify": "Quero ser tratado como um cliente profissional.",
+    "what_is_this": "O que é isto?",
+    "submit": "Enviar"
   }
 }
