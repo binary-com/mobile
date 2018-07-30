@@ -4,9 +4,9 @@
     "add_account": "Adicionar conta",
     "paste_token": "Cole o seu token aqui",
     "get_token": "Como recebo um token?",
-    "signin_with_binary_com": "Sign In",
+    "signin_with_binary_com": "Conectar-se",
     "next": "Próximo",
-    "regulatory_information": "Regulatory Information"
+    "regulatory_information": "Informação regulamentar"
   },
   "alert": {
     "error": "Erro!",
@@ -50,7 +50,7 @@
     "up_down": "Acima/Abaixo",
     "higher_lower": "Superior/Inferior",
     "rise_fall": "Sobe/Desce",
-    "high_low_ticks": "High/Low Ticks",
+    "high_low_ticks": "Tique-taques Altos/Baixos",
     "markets_are_closed": "Lamentamos, todos os mercados estão encerrados. Tente novamente mais tarde",
     "cancel": "Cancelar",
     "select_market": "Selecionar mercado",
@@ -58,8 +58,8 @@
     "select_tradetype": "Selecione TipoDeNegociação",
     "select_tick": "Selecione tique-taque",
     "select_digit": "Selecione dígito",
-    "selected_tick": "Selected Tick",
-    "last_digit": "Last Digit"
+    "selected_tick": "Tique-taque selecionado",
+    "last_digit": "Último dígito"
   },
   "trade": {
     "payout": "Pagamento",
@@ -69,15 +69,15 @@
     "potential_payout": "Pagamento potencial",
     "total_cost": "Custo total",
     "potential_profit": "Lucro potencial",
-    "back": "Back to Trade",
+    "back": "Voltar para as negociações",
     "loss": "Perda",
     "win": "Ganho",
     "lose": "Este contrato perdeu",
     "transaction_id": "Referência de transação",
     "buy_again": "Comprar novamente",
     "sell": "Vender",
-    "barrier": "Barrier Offset",
-    "return": "Return",
+    "barrier": "Deslocação da barreira",
+    "return": "Voltar",
     "tick": "tick"
   },
   "app": {
