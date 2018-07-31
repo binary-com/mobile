@@ -50,7 +50,7 @@
     "up_down": "Hausse/Baisse",
     "higher_lower": "Plus Haut/Plus Bas",
     "rise_fall": "Hausse/Baisse",
-    "high_low_ticks": "High/Low Ticks",
+    "high_low_ticks": "Ticks Haut/Bas",
     "markets_are_closed": "Désolé, tous les marchés sont actuellement fermés. Veuillez réessayer ultérieurement",
     "cancel": "Annuler",
     "select_market": "Sélectionnez un marché",
@@ -58,8 +58,8 @@
     "select_tradetype": "Sélectionnez le type de trade",
     "select_tick": "Sélectionnez Tick",
     "select_digit": "Sélectionner le chiffre",
-    "selected_tick": "Selected Tick",
-    "last_digit": "Last Digit"
+    "selected_tick": "Tick Sélectionné",
+    "last_digit": "Dernier Chiffre"
   },
   "trade": {
     "payout": "Paiement",
@@ -198,9 +198,9 @@
     "read_more": "Afficher la suite.",
     "required_to_collect_tin": "Binary Investments (Europe) Ltd. est tenu de collecter vos informations fiscales.",
     "required_to_obtain_information": "Dans le cadre des services que nous vous fournissons, nous sommes dans l'obligation d'obtenir des informations de votre part afin de déterminer si un produit ou service donné est pertinent dans votre cas (c'est-à-dire si vous possédez l'expérience et les connaissances nécessaires pour comprendre les risques impliqués).",
-    "on_the_basis_of_information": "On the basis of the information provided in relation to your knowledge and experience, we consider that the investments available via this website are not appropriate for you.",
-    "appropriateness_test": "Appropriateness Test: ",
-    "warning": "WARNING:",
+    "on_the_basis_of_information": "Sur base de l'information fournie en relation à votre connaissance et expérience, nous sommes d'avis que les investissements disponibles sur ce site ne sont pas pour vous.",
+    "appropriateness_test": "Test de Pertinence: ",
+    "warning": "MISE EN GARDE :",
     "by_clicking": "En cliquant ",
     "accept": "Accepter",
     "exposing_at_risk": "ci-dessous et de procéder à l'ouverture du compte, vous devez savoir que vous pourriez vous exposer à des risques (qui peuvent être importants, notamment la perte de toute la somme d'investissement) que vos connaissances et votre expérience ne vous permettent pas forcément d'évaluer ou de réduire efficacement.",
@@ -208,8 +208,8 @@
     "secret_question": "Question secrète",
     "secret_answer": "Réponse secrète",
     "secret_answer_pattern_error": "Seuls les lettres, les chiffres, espace, trait d'union, point et apostrophe sont autorisés.",
-    "confirm_tax_info": "I hereby confirm that the tax information I provided is true and complete. I will also inform Binary Investments (Europe) Ltd. about any changes to this information.",
-    "multi_tax_residence_info": "You may be considered a tax resident in more than one jurisdiction. Please consult your tax advisor and verify that your tax information is accurate."
+    "confirm_tax_info": "Je confirme par la présente que les renseignements fiscaux fournis sont véridiques et complets. J’informerai également Binary Investments (Europe) Ltd. de tout changement à ces renseignements.",
+    "multi_tax_residence_info": "Vous pouvez être considéré comme un résident fiscal dans plus d’une juridiction. Veuillez consulter votre conseiller fiscal et vérifiez que vos informations fiscales sont exactes."
   },
   "new-account-real": {
     "real_account_opening": "Ouverture d'un compte réel",
@@ -263,10 +263,10 @@
   },
   "transaction-details": {
     "ref": "Identifiant de référence",
-    "contract_type": "Contract Type",
-    "transaction_id": "Transaction ID",
-    "buy": "Buy",
-    "sell": "Sell",
+    "contract_type": "Type de Contrat",
+    "transaction_id": "ID de Transaction",
+    "buy": "Achat",
+    "sell": "Vente",
     "start_time": "Heure de début",
     "entry_spot": "Point d'entrée",
     "barrier": "Barrière",
@@ -277,34 +277,34 @@
     "sell_price": "Prix de vente",
     "profit_loss": "Profits/pertes",
     "end_time": "Heure de fin",
-    "ASIANU": "Asian Up",
-    "ASIAND": "Asian Down",
-    "CALL": "Higher",
-    "CALLE": "Higher or equal",
-    "PUT": "Lower",
-    "PUTE": "Lower or equal",
-    "DIGITMATCH": "Digit Matches",
-    "DIGITDIFF": "Digit Differs",
-    "DIGITODD": "Digit Odd",
-    "DIGITEVEN": "Digit Even",
-    "DIGITOVER": "Digit Over",
-    "DIGITUNDER": "Digit Under",
-    "EXPIRYMISS": "Ends Outside",
-    "EXPIRYRANGE": "Ends Between",
-    "EXPIRYRANGEE": "Ends Between",
-    "LBFLOATCALL": "Close-Low",
-    "LBFLOATPUT": "High-Close",
-    "LBHIGHLOW": "High-Low",
-    "RANGE": "Stays Between",
+    "ASIANU": "Asiatiques à la hausse",
+    "ASIAND": "Asiatiques à la Baisse",
+    "CALL": "Supérieur",
+    "CALLE": "Supérieur ou égal",
+    "PUT": "Inférieur",
+    "PUTE": "Inférieur ou égal",
+    "DIGITMATCH": "Chiffre Correspondant",
+    "DIGITDIFF": "Chiffre Différent",
+    "DIGITODD": "Chiffre impair",
+    "DIGITEVEN": "Chiffre Pair",
+    "DIGITOVER": "Chiffre Au-Dessus",
+    "DIGITUNDER": "Chiffre En-Dessous",
+    "EXPIRYMISS": "Termine hors de la zone",
+    "EXPIRYRANGE": "Termine dans la zone",
+    "EXPIRYRANGEE": "Termine dans la zone",
+    "LBFLOATCALL": "Clôture-Bas",
+    "LBFLOATPUT": "Haut-Clôture",
+    "LBHIGHLOW": "Haut-Bas",
+    "RANGE": "Reste dans la zone",
     "RESETCALL": "Reset Call",
     "RESETPUT": "Reset Put",
-    "UPORDOWN": "Goes Outside",
-    "ONETOUCH": "Touches",
-    "NOTOUCH": "Does Not Touch",
+    "UPORDOWN": "Sort de la zone",
+    "ONETOUCH": "Touche",
+    "NOTOUCH": "Ne touche pas",
     "CALLSPREAD": "Call Spread",
     "PUTSPREAD": "Put Spread",
-    "TICKHIGH": "High Tick",
-    "TICKLOW": "Low Tick"
+    "TICKHIGH": "Tick Haut",
+    "TICKLOW": "Tick Bas"
   },
   "statement": {
     "statement": "Relevé",
@@ -345,7 +345,7 @@
     "change_password": "Modifier le mot de passe",
     "financial_assessment": "Évaluation financière",
     "limits": "Limites",
-    "account_categorisation": "Account Categorisation"
+    "account_categorisation": "Catégorisation de Compte"
   },
   "self-exclusion": {
     "self_exclusion": "Fonctionnalités d'auto-exclusion",
@@ -381,8 +381,8 @@
     "session_timeout_warning": "Votre limite de durée de session sera atteinte dans 10 secondes.",
     "success": "Succès",
     "warning": "Avertissement",
-    "not_zero": "Value can not be 0",
-    "error": "Sorry, an error occurred while processing your request."
+    "not_zero": "La Valeur ne peut pas être 0",
+    "error": "Désolé, une erreur s’est produite lors du traitement de votre demande."
   },
   "profile": {
     "personal_details": "Informations personnelles",
@@ -543,13 +543,13 @@
     "balance": "Solde",
     "name": "Nom",
     "start_trading_with_mt5": "Commencer à trader avec MT5",
-    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
+    "upgrade_real_account": "Pour créer un compte d'argent réel pour MT5, veuillez passez à un Compte Réel Binary.com.",
     "standard": "Standard",
     "advanced": "Avancé",
     "mam_advanced": "MAM Avancé",
     "volatility_indices": "Indices de volatilité",
     "mam_volatility_indices": "Indices de volatilité MAM",
-    "upgrade": "Upgrade"
+    "upgrade": "Mise à niveau"
   },
   "authentication": {
     "authentication": "Authentification",
@@ -777,13 +777,13 @@
     "you_may_decline": "Remarque : Vous pouvez refuser et continuer comme un Client de détail."
   },
   "account-categorisation": {
-    "account_categorisation": "Account Categorisation",
-    "processing": "Your application to be treated as a professional client is being processed.",
-    "professional": "You are categorised as a professional client.",
-    "error": "Sorry, an error occurred while processing your request.",
-    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?",
-    "submit": "Submit"
+    "account_categorisation": "Catégorisation de Compte",
+    "processing": "Votre application pour être traité comme un client professionnel est en cours de traitement.",
+    "professional": "Vous êtes considéré comme un client professionnel.",
+    "error": "Désolé, une erreur s’est produite lors du traitement de votre demande.",
+    "retail_info": "Par défaut, tous les clients sont traités comme particulier. Préférez-vous être traité comme un client professionnel si vous correspondez aux critères nécessaires ?",
+    "professional_client_verify": "Je veux être traité comme un client professionnel.",
+    "what_is_this": "Qu'est-ce que c est ?",
+    "submit": "Envoyer"
   }
 }
