@@ -253,7 +253,7 @@
     "profit_table": "Tabela de lucro",
     "all_apps": "Todos os aplicativos",
     "tick_trade_app": "Aplicativo negociações tique-taque",
-    "all_time": "Lifetime",
+    "all_time": "Tempo de vida",
     "jump_to_date": "Saltar para a data",
     "date": "Data",
     "ref": "Referência",
@@ -740,7 +740,7 @@
     "title": "Instalar o Binary TickTrade",
     "close": "Fechar",
     "installation_text": "Instalar o Binary TickTrade na sua tela inicial para fácil e rápido acesso a partir de qualquer lugar.",
-    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+    "installation_help": "Basta tocar em {{icon}} e depois \"Adicionar à tela inicial\""
   },
   "professional-client-information": {
     "professional_client": "O que é um cliente profissional?",
@@ -760,7 +760,7 @@
   "what-is-tax-information": {
     "tax_information_title": "Informações fiscais",
     "required_by": "Este requisito é mandatado pelo Padrão Comum de Relatório (Common Reporting Standard – CRS) e a Lei de Conformidade Tributária de Contas Estrangeiras (Foreign Account Tax Compliance Act – FATCA).",
-    "please_enter": "Please enter your ",
+    "please_enter": "Insira as suas ",
     "tax_information": "informações fiscais",
     "to_continue": "para continuar.",
     "information_will_be_safe": "Tenha certeza de que as suas informações serão apenas usadas para fins de relatórios CRS/FATCA e serão mantidas em segurança.",
