@@ -181,7 +181,7 @@ angular.module("binary").factory("chartService", $rootScope => {
             return false;
         },
         highLowTrade: function highLowTrade(contract) {
-            if (["TICKLOW", "TICKHIGH"].indexOf(contract.type > -1)) {
+            if (["TICKLOW", "TICKHIGH"].indexOf(contract.type) > -1) {
                 return true;
             }
             return false;
