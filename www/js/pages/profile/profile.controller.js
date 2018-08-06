@@ -64,6 +64,7 @@
             tax_identification_number: '',
             tax_residence            : '',
             place_of_birth           : '',
+            citizen                  : '',
             account_opening_reason   : '',
             email_consent            : ''
         };
@@ -89,6 +90,9 @@
             vm.isVirtualAccount = isLandingCompanyOf('virtual', landingCompany);
             vm.hasIOM = hasAccountOfLandingCompany(accounts, 'iom');
             const hasMaltainvestAccount = hasAccountOfLandingCompany(accounts, 'maltainvest');
+            vm.requireCitizen = isLandingCompanyOf('malta', landingCompany) ||
+                isLandingCompanyOf('maltainvest', landingCompany) ||
+                isLandingCompanyOf('iom', landingCompany);
             vm.taxInfoIsOptional = !isLandingCompanyOf('maltainvest', landingCompany) && !hasMaltainvestAccount;
             getResidenceList();
         };
@@ -124,6 +128,9 @@
                 }
                 if (get_settings.place_of_birth) {
                     vm.hasPOB = true;
+                }
+                if (get_settings.citizen) {
+                    vm.hasCitizen = true;
                 }
                 if (get_settings.country_code) {
                     const countryCode = get_settings.country_code;
