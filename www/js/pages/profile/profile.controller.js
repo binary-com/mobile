@@ -46,6 +46,7 @@
         vm.disableUpdateButton = false;
         vm.hasResidence = false;
         vm.hasPOB = false;
+        vm.hasCitizen = false;
         vm.hasAccountOpeningReason = false;
         vm.touchedTaxResidence = false;
         vm.settingTaxResidence = [];
