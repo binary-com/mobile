@@ -350,7 +350,7 @@
   "self-exclusion": {
     "self_exclusion": "เครื่องมือสำหรับพักการซื้อขาย",
     "maximum_account_cash_balance": "บัญชีเงินสดคงเหลือสูงสุด",
-    "max_balance_hint": "เมื่อวงเงินเต็ม คุณจะไม่สามารถฝากเงินได้",
+    "max_balance_hint": "เมื่อวงเงินเต็ม ท่านไม่สามารถฝากเงินได้",
     "daily_turnover_limit": "วงเงินซื้อขายต่อวัน",
     "max_turnover_hint": "มูลค่าสัญญารวมสูงสุดที่ซื้อต่อวัน",
     "daily_limit_on_losses": "วงเงินขาดทุนต่อวัน",
@@ -363,12 +363,12 @@
     "30_day_turnover_hint": "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 30 วัน",
     "30_day_limit_on_losses": "วงเงินขาดทุนในช่วง 30 วัน",
     "30_day_losses_hint": "มูลค่ารวมที่ขาดทุนสูงสุดในระยะเวลา 30 วัน",
-    "maximum_number_of_open_positions": "จำนวนสูงสุดของโพซิชั่นที่เปิด",
+    "maximum_number_of_open_positions": "จำนวนสูงสุดของโพซิชั่นที่เปิดอยู่",
     "session_duration_limit_in_minutes": "รอบระยะเวลาการซื้อขาย ในหน่วยนาที",
     "session_duration_hint": "คุณจะออกจากระบบโดยอัตโนมัติภายหลังเวลาดังกล่าว",
     "time_out_until": "หมดเวลากระทั่ง",
     "time_out_hint": "โปรดป้อนวันที่ในรูปแบบ MM/DD/YYYY HH:mm (เวลาท้องถิ่น) ",
-    "exclude_me_from_the_website_until": "พักฉันจากเว็บไซต์จนถึง",
+    "exclude_me_from_the_website_until": "พักฉันจากเว็บไซต์จนกระทั่ง",
     "exclude_me_hint": "โปรดป้อนวันที่ในรูปแบบ MM/DD/YYYY",
     "update_settings": "การปรับปรุงการตั้งค่า",
     "please_enter_an_integer_value": "โปรดป้อนเลขจำนวนเต็มที่มีความยาวสูงสุดจำนวน {{max}}",
@@ -406,8 +406,8 @@
     "select": "โปรดระบุ",
     "general_pattern_error": "ตัวอักษร ช่องว่าง ขีดกลาง จุด เครื่องหมายอัญประกาศ ( ' ) เท่านั้น ที่สามารถใช้ได้",
     "address_pattern_error": "อนุญาตเฉพาะตัวอักษร ตัวเลข ช่องว่าง และอักขระพิเศษเหล่านี้เท่านั้น - . ' # ; : ( ) , @ /",
-    "maxlength_error": "ข้อมูลช่องนี้สามารถบันทึกข้อมูลได้สูงสุด {{max}} อักขระ",
-    "range_length_error": "ข้อมูลช่องนี้ต้องการ {{min}}-{{max}} อักขระ",
+    "maxlength_error": "ระเบียนนี้สามารถบันทึกข้อมูลได้สูงสุด {{max}} อักขระ",
+    "range_length_error": "ระเบียนนี้ต้องการ {{min}}-{{max}} อักขระ",
     "postcode_pattern_error": "อนุญาตเฉพาะตัวอักษร ตัวเลข และเครื่องหมายขีดกลางเท่านั้น",
     "phone_pattern_error": "อนุญาตเฉพาะตัวเลข และช่องว่างเท่านั้น",
     "tax_identification_number_pattern_error": "อนุญาตเฉพาะตัวอักษร ตัวเลข และเครื่องหมายขีดกลางเท่านั้น",
@@ -426,7 +426,7 @@
   "accept-terms-and-conditions": {
     "has_updated_its": "ได้ปรับปรุง",
     "terms_and_conditions": "ข้อตกลงและเงื่อนไข",
-    "confirm_phrase": "โดยการกดปุ่มตกลง (OK) คุณยืนยันว่าได้อ่านและยอมรับข้อตกลงและเงื่อนไขที่ได้ปรับปรุงแล้ว",
+    "confirm_phrase": "โดยการกดปุ่ม OK ท่านยืนยันว่า ท่านได้อ่านและยอมรับข้อตกลงและเงื่อนไขดังกล่าวแล้ว",
     "ok": "OK"
   },
   "app-version": {
