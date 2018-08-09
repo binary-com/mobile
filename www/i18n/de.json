@@ -50,13 +50,16 @@
     "up_down": "Auf/Ab",
     "higher_lower": "Höher/Tiefer",
     "rise_fall": "Steigen/Fallen",
+    "high_low_ticks": "Hohe/Niedrige Ticks",
     "markets_are_closed": "Leider sind derzeit alle Märkte geschlossen. Bitte versuchen Sie es später erneut",
     "cancel": "Abbrechen",
     "select_market": "Wählen Sie den Markt",
     "select_underlying": "Wählen Sie die zugrunde liegenden",
     "select_tradetype": "Wählen Sie den Handelstyp",
     "select_tick": "Wählen Sie den Tick",
-    "select_digit": "Wählen Sie die Ziffer"
+    "select_digit": "Wählen Sie die Ziffer",
+    "selected_tick": "Ausgewählter Tick",
+    "last_digit": "Letzte Ziffer"
   },
   "trade": {
     "payout": "Auszahlung",
@@ -74,7 +77,8 @@
     "buy_again": "Nochmal kaufen",
     "sell": "Verkaufen",
     "barrier": "Schwellenverschiebung",
-    "return": "Rendite"
+    "return": "Rendite",
+    "tick": "Tick"
   },
   "app": {
     "exit_title": "Beenden",
@@ -194,14 +198,18 @@
     "read_more": "Lesen Sie mehr.",
     "required_to_collect_tin": "Binary Investments (Europe) Ltd. ist dazu verpflichtet, Ihre Steuerinformationen zu sammeln.",
     "required_to_obtain_information": "Damit wir Ihnen unsere Dienstleistungen zur Verfügung stellen können, müssen wir einige Informationen von Ihnen erhalten, um festzustellen, ob ein Produkt oder Service für Sie geeignet ist (ob Sie die Erfahrung und das Wissen besitzen, die damit verbundenen Risiken zu erkennen).",
-    "on_the_basis_of_information": "Auf der Grundlage, der von Ihnen bezüglich Ihrer Kenntnis und Erfahrung zur Verfügung gestellten Informationen, sehen wir die über diese Website möglichen Anlagegeschäfte als für Sie nicht geeignet an.",
+    "on_the_basis_of_information": "Auf der Grundlage der von Ihnen bezüglich Ihrer Kenntnis und Erfahrung zur Verfügung gestellten Informationen, sehen wir die über diese Website möglichen Anlagegeschäfte als für Sie nicht geeignet an.",
+    "appropriateness_test": "Eignungstest: ",
+    "warning": "WARNUNG:",
     "by_clicking": "Indem Sie klicken ",
     "accept": "Akzeptieren",
     "exposing_at_risk": "nachfolgend und mit der Kontoeröffnung fortfahren, müssen Sie beachten, dass Sie sich selbst Risiken aussetzen können (die erheblich sind, einschließlich des Verlusts des gesamten investierten Betrags), wenn Sie nicht das Wissen und die Erfahrung haben, diese richtig zu beurteilen oder abzuschwächen.",
     "decline": "Ablehnen",
     "secret_question": "Geheimfrage",
     "secret_answer": "Geheimantwort",
-    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
+    "secret_answer_pattern_error": "Nur Buchstaben, Zahlen, Abstände, Bindestriche, Punkte, und Apostrophe sind erlaubt.",
+    "confirm_tax_info": "Hiermit bestätige ich, dass die von mir angegebenen Steuerinformationen wahr und vollständig sind. Ich werde Binary Investments (Europe) Ltd. auch über Änderungen dieser Angaben informieren.",
+    "multi_tax_residence_info": "Sie können einen steuerlichen Wohnsitz in mehr als einem Land haben. Bitte konsultieren Sie Ihren Steuerberater und stellen Sie sicher, dass Ihre Steuerinformationen korrekt sind."
   },
   "new-account-real": {
     "real_account_opening": "Echtgeldkonto Eröffnung",
@@ -254,8 +262,11 @@
     "go": "Los"
   },
   "transaction-details": {
-    "contract_id": "Kontrakt ID:",
     "ref": "Referenz ID",
+    "contract_type": "Kontrakttyp",
+    "transaction_id": "Transaktions-ID",
+    "buy": "Kaufen",
+    "sell": "Verkaufen",
     "start_time": "Startzeit",
     "entry_spot": "Startkurs",
     "barrier": "Schwelle",
@@ -265,7 +276,35 @@
     "exit_spot_time": "Schlusskurszeit",
     "sell_price": "Verkaufspreis",
     "profit_loss": "Gewinn/Verlust",
-    "end_time": "Endzeit"
+    "end_time": "Endzeit",
+    "ASIANU": "Asiatisches Hoch",
+    "ASIAND": "Asiatisches Tief",
+    "CALL": "Höher",
+    "CALLE": "Höher oder gleich",
+    "PUT": "Niedriger",
+    "PUTE": "Niedriger oder gleich",
+    "DIGITMATCH": "Kommast. gleich",
+    "DIGITDIFF": "Kommastelle unterschiedlich",
+    "DIGITODD": "Kommastelle ungerade",
+    "DIGITEVEN": "Kommastelle gleich",
+    "DIGITOVER": "Kommastelle über",
+    "DIGITUNDER": "Kommastelle unter",
+    "EXPIRYMISS": "Endet Außerhalb",
+    "EXPIRYRANGE": "Schließt Zwischen",
+    "EXPIRYRANGEE": "Schließt Zwischen",
+    "LBFLOATCALL": "Schluss-Tief",
+    "LBFLOATPUT": "Hoch-Schluss",
+    "LBHIGHLOW": "Hoch-Tief",
+    "RANGE": "Bleibt Zwischen",
+    "RESETCALL": "Call zurücksetzen",
+    "RESETPUT": "Put zurücksetzen",
+    "UPORDOWN": "Geht Außerhalb",
+    "ONETOUCH": "Berührt",
+    "NOTOUCH": "Erreicht Nicht",
+    "CALLSPREAD": "Call Spread",
+    "PUTSPREAD": "Put Spread",
+    "TICKHIGH": "Hoher Tick",
+    "TICKLOW": "Niedriger Tick"
   },
   "statement": {
     "statement": "Erklärung",
@@ -305,7 +344,8 @@
     "self_exclusion": "Selbstausschluss",
     "change_password": "Passwort ändern",
     "financial_assessment": "Finanzielle Bewertung",
-    "limits": "Grenzen"
+    "limits": "Grenzen",
+    "account_categorisation": "Konto-Kategorisierung"
   },
   "self-exclusion": {
     "self_exclusion": "Selbstausschluss Einrichtungen",
@@ -340,7 +380,9 @@
     "save_prompt": "Inhalt erfolgreich gespeichert",
     "session_timeout_warning": "Das Limit Ihrer Sitzungsdauer endet in 10 Sekunden.",
     "success": "Erfolg",
-    "warning": "Achtung"
+    "warning": "Achtung",
+    "not_zero": "Wert kann nicht 0 sein",
+    "error": "Leider ist während der Bearbeitung Ihrer Anfrage ein Fehler aufgetreten."
   },
   "profile": {
     "personal_details": "Persönliche Angaben",
@@ -492,21 +534,22 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "Sie haben keine Konten für MetaTrader, bitte erstellen Sie eines und versuchen Sie es erneut.",
-    "create_account": "Ein Konto für MT5 erstellen",
-    "feature_is_not_available": "Leider ist diese Funktion nicht vorhanden.",
+    "create_account": "Neues Konto einrichten",
+    "feature_is_not_available": "Leider ist dieses Feature in Ihrer Gerichtsbarkeit nicht verfügbar.",
     "meta_trader_accounts": "Meta Trader Konten",
     "demo_account": "Demo-Konto",
-    "financial_account": "Finanzkonto",
-    "volatility_account": "Volatilität Indizes Konto",
-    "upgrade_financial_account": "Um ein Finanzkonto für MT5 erstellen zu können, rüsten Sie bitte auf ein Binary.com Echtes Konto auf.",
-    "upgrade_volatility_account": "Um ein Volatilität Indizes Konto für MT5 erstellen zu können, rüsten Sie bitte auf ein Binary.com Echtes Konto auf.",
-    "create_financial_account": "Erstellen Sie ein Finanzkonto für MT5",
-    "create_volatility_account": "Erstellen Sie ein Volatilität Konto für MT5",
-    "create_demo_account": "Ein Demo Konto für MT5 erstellen",
-    "login_id": "Login-ID",
+    "real_money_account": "Echtgeldkonto",
+    "login": "Login",
     "balance": "Guthaben",
     "name": "Name",
-    "start_trading_with_mt5": "Beginnen Sie mit MT5 zu Handeln"
+    "start_trading_with_mt5": "Beginnen Sie mit MT5 zu Handeln",
+    "upgrade_real_account": "Um ein Echtgeldkonto für MT5 erstellen zu können, rüsten Sie bitte auf ein Binary.com Echtes Konto auf.",
+    "standard": "Standard",
+    "advanced": "Fortgeschritten",
+    "mam_advanced": "MAM Fortgeschritten",
+    "volatility_indices": "Volatilität Indizes",
+    "mam_volatility_indices": "MAM Volatilität Indizes",
+    "upgrade": "Upgrade"
   },
   "authentication": {
     "authentication": "Authentifizierung",
@@ -646,7 +689,7 @@
     "secondary": "Sekundär",
     "tertiary": "Tertiär",
     "salaried": "Angestellter",
-    "self_employed": "Self-Employed",
+    "self_employed": "Selbstständig",
     "investment": "Investitionen & Dividenden",
     "pension": "Pension",
     "net_income_1": "Weniger als 25.000 $",
@@ -712,25 +755,35 @@
   },
   "pep-information": {
     "pep": "Was ist PEP?",
-    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+    "what_is_pep": "Eine politisch exponierte Person (PEP) ist eine Person, die mit einem wichtigen öffentlichen Amt anvertraut worden ist oder war, einschließlich seiner/ihrer unmittelbaren Familienangehörigen oder Personen, die bekanntermaßen nahe stehende Personen sind, bezieht sich jedoch nicht auf Beamte mittleren Ranges oder Junior-Beamte. Zu solchen Personen gehören Staatschefs, Minister, parlamentarische Sekretäre, Parlamentarier, Richter, Botschafter, Senior Regierungsbeamte, hochrangige Offiziere in der Armee, Prüfungsausschüsse der Vorstände von Zentralbanken und Direktoren der staatlichen Unternehmen. Die \"Familienmitglieder\" von den obigen Beispielen werden auch als PEP betrachtet, wozu der Ehepartner/Partner, Eltern und Kinder gehören. Darüber hinaus zählen zu den \"Personen, die als nahestehende Personen” der PEP bekannt sind, deren Geschäftspartner, die ebenfalls als solche betrachtet werden. In der Regel gilt, dass eine Person die als PEP betrachtet wird, aber aufgehört hat, mit einem wichtigen öffentlichen Amt, für einen Zeitraum von mindestens zwölf Monaten, betraut zu sein, sich nicht mehr als PEP qualifiziert."
   },
   "what-is-tax-information": {
-    "tax_information_title": "Tax Information",
+    "tax_information_title": "Steuerinformationen",
     "required_by": "Diese Anforderung ist vom Common Reporting Standard (CRS) und dem Foreign Account Tax Compliance Act (FATCA) vorgeschrieben.",
     "please_enter": "Bitte geben Sie Ihre ",
     "tax_information": "Steuerinformation",
     "to_continue": "um fortzufahren.",
     "information_will_be_safe": "Seien Sie versichert, dass Ihre Daten nur für CRS/FATCA Berichtszwecke verwendet und sicher gehalten werden.",
-    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+    "contact_for_clarification": "Wenn wir Grund dazu haben, zu glauben, dass Ihre Steuerinformationen unvollständig sind, können wir Sie zur Aufklärung kontaktieren."
   },
   "professional-client-confirmation": {
-    "professional_clients": "Professional Clients",
-    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
-    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
-    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
-    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
-    "accept": "Accept",
-    "decline": "Decline",
-    "you_may_decline": "Note: You may decline and continue as a Retail Client."
+    "professional_clients": "Professionelle Kunden",
+    "professional_clients_receive": "Ein professioneller Kunde erhält einen geringeren Kundenschutz aus den folgenden Gründen:",
+    "posses_of_experience": "Wir setzten voraus, dass Sie die Erfahrung, das Wissen und Know-how, um Ihre eigenen Anlageentscheidungen treffen zu können und die involvierten Risiken richtig beurteilen zu können, besitzen",
+    "appropriateness_test": "Wir sind nicht dazu verpflichtet einen Eignungstest durchzuführen, noch Ihnen alle Risikowarnungen zukommen zu lassen",
+    "keep_informed": "Als professioneller Kunde müssen Sie uns über Änderungen, die Ihren Status beeinflussen könnten auf dem Laufenden halten.",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen",
+    "you_may_decline": "Hinweis: Sie können zurückgehen und als Privatkunde fortfahren."
+  },
+  "account-categorisation": {
+    "account_categorisation": "Konto-Kategorisierung",
+    "processing": "Ihre Anfrage auf Behandlung als professioneller Kunde, wird bearbeitet.",
+    "professional": "Sie sind als professioneller Kunde eingestuft.",
+    "error": "Leider ist während der Bearbeitung Ihrer Anfrage ein Fehler aufgetreten.",
+    "retail_info": "Standardmäßig werden alle Kunden als Einzelhandelskunden behandelt. Würden Sie es bevorzugen, als professioneller Kunde behandelt zu werden, sollten Sie die erforderlichen Kriterien erfüllen?",
+    "professional_client_verify": "Ich möchte als professioneller Kunde behandelt werden.",
+    "what_is_this": "Was ist das?",
+    "submit": "Absenden"
   }
 }

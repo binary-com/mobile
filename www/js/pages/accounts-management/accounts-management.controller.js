@@ -37,6 +37,7 @@
         const vm = this;
         let hasRealAccount = false;
         let upgradingRealAccountDirectly = false;
+        vm.upgradeButtonDisabled = false;
         const activeMarkets = {
             commodities: $translate.instant('accounts-management.commodities'),
             forex      : $translate.instant('accounts-management.forex'),
@@ -172,8 +173,10 @@
             $state.go('set-currency');
         };
 
-        vm.redirectToAccountOpening = () => {
-            if (vm.currentAccount.currency && vm.currentAccount.currency !== '' || !vm.upgrade.multi) {
+        vm.openNewAccount = () => {
+            if (((vm.currentAccount.currency && vm.currentAccount.currency !== '') || !vm.upgrade.multi)
+                && !vm.upgradeButtonDisabled) {
+                vm.upgradeButtonDisabled = true;
                 appStateService.selectedCurrency = vm.selectedCurrency;
                 appStateService.redirectedFromAccountsManagemenet = true;
                 if (vm.upgrade.typeOfNextAccount === 'real') {
@@ -187,7 +190,10 @@
                     $state.go('maltainvest-account-opening');
                 }
             } else {
-                vm.selectCurrencyError = true;
+                $scope.$applyAsync(() => {
+                    vm.upgradeButtonDisabled = false;
+                    vm.selectCurrencyError = true;
+                });
             }
         };
 
@@ -211,6 +217,7 @@
         });
 
         $scope.$on("new_account_real:error", (e, error) => {
+            vm.upgradeButtonDisabled = false;
             if (error.hasOwnProperty("details")) {
                 alertService.displayError(error.details);
             } else if (error.code) {
@@ -223,6 +230,7 @@
             websocketService.authenticate(selectedAccount);
             appStateService.newAccountAdded = true;
             accountService.addedAccount = selectedAccount;
+            vm.upgradeButtonDisabled = false;
         });
 
         const reInitAfterChangeAccount = () => {

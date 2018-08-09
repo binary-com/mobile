@@ -229,7 +229,14 @@ angular.module("binary").config(($locationProvider, $stateProvider, $urlRouterPr
             cache       : "false",
             templateUrl : "js/pages/redirect/redirect.template.html",
             controller  : "RedirectController",
-            controllerAs: "vm",
+            controllerAs: "vm"
+        })
+        .state('account-categorisation', {
+            parent      : "layout",
+            cache       : "false",
+            templateUrl : "js/pages/account-categorisation/account-categorisation.template.html",
+            controller  : "AccountCategorisationController",
+            controllerAs: "vm"
         });
 
 

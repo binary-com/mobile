@@ -3,9 +3,8 @@
     <div class="row">
       <div class="col">
         <div class="list">
-          <h1 class="reference page-title" ng-if="vm.contract.contract_id">
-            {{'transaction-details.contract_id' | translate}}
-            <span>{{vm.contract.contract_id}}</span>
+          <h1 class="reference">
+            <span> {{ vm.contract.display_name }} </span>
           </h1>
           <div class="longcode" ng-if="vm.contract.longcode">
             {{vm.contract.longcode}}
@@ -17,13 +16,25 @@
     <div class="row">
       <div class="col">
         <ul>
+          <li class="list" ng-if="vm.contract.contract_type">
+            <ul class="statement-list">
+              <li class="statement-element">{{'transaction-details.contract_type' | translate}}</li>
+              <li class="statement-element last-statement-element right">
+                <span> {{ 'transaction-details.' + vm.contract.contract_type | translate }} </span>
+              </li>
+            </ul>
+          </li>
           <li class="list" ng-if="vm.contract.transaction_ids.buy && vm.contract.transaction_ids.sell">
             <ul class="statement-list">
-              <li class="statement-element">{{'transaction-details.ref' | translate}}</li>
+              <li class="statement-element">{{'transaction-details.transaction_id' | translate}}</li>
               <li class="statement-element last-statement-element right">
-                <span ng-bind="vm.contract.transaction_ids.buy"></span>
+                <span ng-if="vm.contract.transaction_ids.buy">
+                  {{ vm.contract.transaction_ids.buy }} ({{ 'transaction-details.buy' | translate }})
+                </span>
                 -
-                <span ng-bind="vm.contract.transaction_ids.sell"></span>
+                <span ng-if="vm.contract.transaction_ids.sell">
+                  {{ vm.contract.transaction_ids.sell }} ({{ 'transaction-details.sell' | translate }})
+                </span>
               </li>
             </ul>
           </li>

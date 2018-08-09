@@ -51,6 +51,7 @@
         vm.touchedTaxResidence = false;
         vm.hasResidence = false;
         vm.hasPOB = false;
+        vm.hasCitizen = false;
         let modalIsSubmitted = false;
         vm.showRiskDisclaimer = false;
         vm.tncAccepted = false;
@@ -58,10 +59,8 @@
         const landingCompany = accountService.getDefault().landing_company_name;
         const isVirtual = clientService.isLandingCompanyOf('virtual', landingCompany);
         const accounts = accountService.getAll();
-        const landingCompanyObject = !_.isEmpty(localStorage.landingCompanyObject) ?
-            JSON.parse(localStorage.landingCompanyObject) : {};
-        vm.hasIOM = (landingCompanyObject && landingCompanyObject.financial_company &&
-            landingCompanyObject.financial_company.shortcode === 'iom') ||
+        const upgradableLandingCompanies = appStateService.upgradeableLandingCompanies;
+        vm.hasIOM = _.indexOf(upgradableLandingCompanies, 'iom') > -1 ||
             clientService.hasAccountOfLandingCompany(accounts, 'iom');
         vm.receivedSettings = false;
         vm.options = _.merge(financialInformationOptions, accountOptions);
@@ -76,6 +75,7 @@
             date_of_birth                       : '',
             residence                           : '',
             place_of_birth                      : '',
+            citizen                             : '',
             address_line_1                      : '',
             address_line_2                      : '',
             address_city                        : '',
@@ -169,6 +169,9 @@
                 }
                 if (get_settings.place_of_birth) {
                     vm.hasPOB = true;
+                }
+                if (get_settings.citizen) {
+                    vm.hasCitizen = true;
                 }
                 if (get_settings.country_code) {
                     const countryCode = get_settings.country_code;

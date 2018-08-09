@@ -50,13 +50,16 @@
     "up_down": "Góra/dół",
     "higher_lower": "Wyższy/niższy",
     "rise_fall": "Wzrost/spadek",
+    "high_low_ticks": "High/Low Ticks",
     "markets_are_closed": "Niestety wszystkie rynki są obecnie zamknięte. Spróbuj ponownie później",
     "cancel": "Anuluj",
     "select_market": "Wybierz rynek",
     "select_underlying": "Wybierz instrument bazowy",
     "select_tradetype": "Wybierz rodzaj zakładu",
     "select_tick": "Wybierz najmniejszą zmianę ceny",
-    "select_digit": "Wybierz cyfrę"
+    "select_digit": "Wybierz cyfrę",
+    "selected_tick": "Selected Tick",
+    "last_digit": "Last Digit"
   },
   "trade": {
     "payout": "Wypłata",
@@ -74,7 +77,8 @@
     "buy_again": "Kup ponownie",
     "sell": "Sprzedaj",
     "barrier": "Wyrównanie limitu",
-    "return": "Zwrot"
+    "return": "Zwrot",
+    "tick": "tick"
   },
   "app": {
     "exit_title": "Wyjdź",
@@ -194,14 +198,18 @@
     "read_more": "Dowiedz się więcej.",
     "required_to_collect_tin": "Firma Binary Investments (Europe) Ltd. jest zobowiązana do gromadzenia informacji podatkowych.",
     "required_to_obtain_information": "Świadcząc nasze usługi, jesteśmy zobligowani do uzyskania od Ciebie informacji w celu przeprowadzenia oceny, czy dany produkt lub usługa jest odpowiednia dla Ciebie (tzn. czy posiadasz odpowiednie doświadczenie i wiedzę potrzebne do zrozumienia ryzyka związanego z danym produktem).",
-    "on_the_basis_of_information": "Na podstawie przedstawionych informacji dotyczących Twojej wiedzy i doświadczenia uznaliśmy, że inwestycje dostępne za pośrednictwem naszej strony są dla Ciebie nieodpowiednie.",
+    "on_the_basis_of_information": "On the basis of the information provided in relation to your knowledge and experience, we consider that the investments available via this website are not appropriate for you.",
+    "appropriateness_test": "Appropriateness Test: ",
+    "warning": "WARNING:",
     "by_clicking": "Przez kliknięcie ",
     "accept": "Akceptuj",
     "exposing_at_risk": "i kontynuowanie procedury otwarcia konta oznacza, że zdajesz sobie sprawę z tego, że możesz być narażony/a na ryzyko (które może być znaczne, w tym na ryzyko utraty całej zainwestowanej sumy) i możesz nie posiadać wystarczającej wiedzy i wystarczającego doświadczenia, aby sobie z nim poradzić.",
     "decline": "Odrzuć",
     "secret_question": "Pytanie zabezpieczające",
     "secret_answer": "Odpowiedź na pytanie zabezpieczające",
-    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
+    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
+    "confirm_tax_info": "I hereby confirm that the tax information I provided is true and complete. I will also inform Binary Investments (Europe) Ltd. about any changes to this information.",
+    "multi_tax_residence_info": "You may be considered a tax resident in more than one jurisdiction. Please consult your tax advisor and verify that your tax information is accurate."
   },
   "new-account-real": {
     "real_account_opening": "Otwierania konta z prawdziwymi pieniędzmi",
@@ -254,8 +262,11 @@
     "go": "Idź"
   },
   "transaction-details": {
-    "contract_id": "Identyfikator kontraktu:",
     "ref": "Identyfikator referencyjny",
+    "contract_type": "Contract Type",
+    "transaction_id": "Transaction ID",
+    "buy": "Buy",
+    "sell": "Sell",
     "start_time": "Godzina rozpoczęcia",
     "entry_spot": "Pozycja wejściowa",
     "barrier": "Limit",
@@ -265,7 +276,35 @@
     "exit_spot_time": "Czas punktu wyjściowego",
     "sell_price": "Cena sprzedaży",
     "profit_loss": "Zysk/strata",
-    "end_time": "Czas zakończenia"
+    "end_time": "Czas zakończenia",
+    "ASIANU": "Asian Up",
+    "ASIAND": "Asian Down",
+    "CALL": "Higher",
+    "CALLE": "Higher or equal",
+    "PUT": "Lower",
+    "PUTE": "Lower or equal",
+    "DIGITMATCH": "Digit Matches",
+    "DIGITDIFF": "Digit Differs",
+    "DIGITODD": "Digit Odd",
+    "DIGITEVEN": "Digit Even",
+    "DIGITOVER": "Digit Over",
+    "DIGITUNDER": "Digit Under",
+    "EXPIRYMISS": "Ends Outside",
+    "EXPIRYRANGE": "Ends Between",
+    "EXPIRYRANGEE": "Ends Between",
+    "LBFLOATCALL": "Close-Low",
+    "LBFLOATPUT": "High-Close",
+    "LBHIGHLOW": "High-Low",
+    "RANGE": "Stays Between",
+    "RESETCALL": "Reset Call",
+    "RESETPUT": "Reset Put",
+    "UPORDOWN": "Goes Outside",
+    "ONETOUCH": "Touches",
+    "NOTOUCH": "Does Not Touch",
+    "CALLSPREAD": "Call Spread",
+    "PUTSPREAD": "Put Spread",
+    "TICKHIGH": "High Tick",
+    "TICKLOW": "Low Tick"
   },
   "statement": {
     "statement": "Oświadczenie",
@@ -305,7 +344,8 @@
     "self_exclusion": "Samodzielne wyłączenie",
     "change_password": "Zmień hasło",
     "financial_assessment": "Ocena finansowa",
-    "limits": "Limity"
+    "limits": "Limity",
+    "account_categorisation": "Account Categorisation"
   },
   "self-exclusion": {
     "self_exclusion": "Udogodnienia samodzielnego wyłączenia",
@@ -340,7 +380,9 @@
     "save_prompt": "Treść zapisana pomyślnie",
     "session_timeout_warning": "Limit czasu sesji zakończy się za 10 sek.",
     "success": "Udało się",
-    "warning": "Ostrzeżenie"
+    "warning": "Ostrzeżenie",
+    "not_zero": "Value can not be 0",
+    "error": "Sorry, an error occurred while processing your request."
   },
   "profile": {
     "personal_details": "Dane osobowe",
@@ -492,21 +534,22 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "Nie posiadasz żadnego konta przeznaczonego do użytku w MetaTrader. Utwórz takie konto i spróbuj ponownie.",
-    "create_account": "Utwórz Konto MT5",
-    "feature_is_not_available": "Przepraszamy, ta funkcja jest niedostępna.",
+    "create_account": "Create New Account",
+    "feature_is_not_available": "Sorry, this feature is not available in your jurisdiction.",
     "meta_trader_accounts": "Konta Meta Trader",
     "demo_account": "Konto Demo",
-    "financial_account": "Konto finansowe",
-    "volatility_account": "Konto wskaźników zmienności",
-    "upgrade_financial_account": "Aby utworzyć Konto finansowe do użytku w MT5, zaktualizuj najpierw Prawdziwe konto Binary.com.",
-    "upgrade_volatility_account": "Aby utworzyć Konto wskaźników zmienności do użytku w MT5, zaktualizuj najpierw Prawdziwe konto Binary.com.",
-    "create_financial_account": "Utwórz Konto finansowe MT5",
-    "create_volatility_account": "Utwórz Konto zmienności MT5",
-    "create_demo_account": "Utwórz Konto demo MT5",
-    "login_id": "Login",
+    "real_money_account": "Real-Money Account",
+    "login": "Login",
     "balance": "Saldo",
     "name": "Imię",
-    "start_trading_with_mt5": "Rozpocznij handlowanie z MT5"
+    "start_trading_with_mt5": "Rozpocznij handlowanie z MT5",
+    "upgrade_real_account": "To create a real money account for MT5, please upgrade to Binary.com Real Account.",
+    "standard": "Standard",
+    "advanced": "Advanced",
+    "mam_advanced": "MAM Advanced",
+    "volatility_indices": "Volatility Indices",
+    "mam_volatility_indices": "MAM Volatility Indices",
+    "upgrade": "Upgrade"
   },
   "authentication": {
     "authentication": "Weryfikacja",
@@ -732,5 +775,15 @@
     "accept": "Accept",
     "decline": "Decline",
     "you_may_decline": "Note: You may decline and continue as a Retail Client."
+  },
+  "account-categorisation": {
+    "account_categorisation": "Account Categorisation",
+    "processing": "Your application to be treated as a professional client is being processed.",
+    "professional": "You are categorised as a professional client.",
+    "error": "Sorry, an error occurred while processing your request.",
+    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
+    "professional_client_verify": "I want to be treated as a professional client.",
+    "what_is_this": "What is this?",
+    "submit": "Submit"
   }
 }

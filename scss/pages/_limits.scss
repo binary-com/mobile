@@ -1,13 +1,13 @@
 .limits {
 	.sub-title{
-		font-size: 1rem;
+		font-size: $FONT_SIZE_N;
 		color: $primaryBrandColor;
 	}
 	.limits-table {
 		width: 100%;
 			thead{
 			background: $fillColor;
-			font-size: 0.8rem;
+			font-size: $FONT_SIZE_XS;
 			&.limits-by-market{
 				margin-top: 20px;
 			}
@@ -22,7 +22,7 @@
 				border-bottom: 1px solid $borderColor;
 				td{
 					padding: 5px;
-					font-size: 0.8rem;
+					font-size: $FONT_SIZE_XS;
 					&.title-row {
 						padding-left: 15px;
 					}
@@ -30,8 +30,8 @@
 			}
 		}
 	}
-	p{
-		font-size: 0.8rem;
+	p {
+		font-size: $FONT_SIZE_XS;
 		padding: 0 5px;
 	}
 	.withdrawal-limits{

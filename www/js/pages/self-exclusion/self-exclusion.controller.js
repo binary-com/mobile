@@ -14,6 +14,7 @@
     function SelfExclusion($scope, $translate, alertService, websocketService,
         validationService) {
         const vm = this;
+        vm.hasError = false;
         vm.validation = validationService;
         vm.fractionalDigits = vm.validation.fractionalDigits;
         const today = new Date();
@@ -23,7 +24,10 @@
         vm.nextSixMonths = new Date(today.getTime() + 30 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
         vm.disableUpdateButton = true;
         vm.isDataLoaded = false;
+        vm.disableForZeroValues = false;
         vm.data = {};
+        const noZeroValues = ['max_balance', 'max_turnover', 'max_losses', 'max_7day_turnover', 'max_7day_losses',
+            'max_30day_turnover', 'max_30day_losses', 'max_open_bets'];
 
         $scope.$on("get-self-exclusion", (e, response) => {
             $scope.$applyAsync(() => {
@@ -58,12 +62,25 @@
             vm.disableUpdateButton = false;
         });
 
+        vm.checkZeroValues = () => {
+            const hasZeroValue = [];
+            _.forEach(noZeroValues, field => {
+                if (parseInt(vm.data[field]) === 0) {
+                    hasZeroValue.push(field);
+                }
+            });
+            $scope.$applyAsync(() => {
+                vm.disableForZeroValues = !!hasZeroValue.length;
+            });
+        };
+
         vm.submit = () => {
             vm.disableUpdateButton = true;
             setSelfExclusion();
         };
 
         const getSelfExclusion = () => websocketService.sendRequestFor.getSelfExclusion();
+        const getLimits = () => websocketService.sendRequestFor.accountLimits();
 
         const setSelfExclusion = () => {
             const data = _.clone(vm.data);
@@ -82,7 +99,17 @@
             websocketService.sendRequestFor.setSelfExclusion(JSON.parse(stringify));
         }
 
-        const init = () => getSelfExclusion();
+        $scope.$on('get_limits', (e, limits) => {
+            vm.hasError = false;
+            vm.accountLimits = limits;
+            getSelfExclusion();
+        });
+
+        $scope.$on('get_limits:error', () => {
+            vm.hasError = true;
+        });
+
+        const init = () => getLimits();
 
         init();
 

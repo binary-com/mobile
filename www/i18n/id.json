@@ -50,13 +50,16 @@
     "up_down": "Up/Down",
     "higher_lower": "Higher/Lower",
     "rise_fall": "Rise/Fall",
+    "high_low_ticks": "High/Low Tik",
     "markets_are_closed": "Maaf, semua pasar sedang ditutup. Silahkan coba kembali nanti",
     "cancel": "Batal",
     "select_market": "Pilih Pasar",
     "select_underlying": "Pilih Dasar",
     "select_tradetype": "Pilih jenis kontrak",
     "select_tick": "Pilih Tik",
-    "select_digit": "Pilih Digit"
+    "select_digit": "Pilih Digit",
+    "selected_tick": "Tik Yang Dipilih",
+    "last_digit": "Digit Terakhir"
   },
   "trade": {
     "payout": "Hasil",
@@ -74,7 +77,8 @@
     "buy_again": "Beli Lagi",
     "sell": "Jual",
     "barrier": "Batasan Ofset",
-    "return": "Laba"
+    "return": "Laba",
+    "tick": "tik"
   },
   "app": {
     "exit_title": "Keluar",
@@ -194,14 +198,18 @@
     "read_more": "Baca lebih lanjut.",
     "required_to_collect_tin": "Binary Investments (Europe) Ltd. diwajibkan untuk memperoleh informasi pajak Anda.",
     "required_to_obtain_information": "Dalam memberikan pelayanan, kami diharuskan untuk memperoleh informasi dari Anda untuk memastikan apakah produk atau layanan yang diberikan adalah tepat untuk Anda (yaitu, apakah Anda memiliki pengalaman dan pengetahuan untuk memahami risiko yang terlibat).",
-    "on_the_basis_of_information": "berdasarkan informasi yang diberikan berkaitan dengan pengetahuan dan pengalaman, kami menganggap bahwa investasi yang tersedia melalui website ini tidak sesuai untuk Anda.",
+    "on_the_basis_of_information": "Berdasarkan informasi yang diberikan berkaitan dengan pengetahuan dan pengalaman, kami menganggap bahwa investasi yang tersedia melalui website ini tidak sesuai untuk Anda.",
+    "appropriateness_test": "Ketepatan Uji: ",
+    "warning": "PERINGATAN:",
     "by_clicking": "Dengan mengklik ",
     "accept": "Menerima",
     "exposing_at_risk": "dibawah ini dan melanjutkan Pendaftaran Akun berarti Anda memahami bahwa Anda akan mungkin akan mengalami risiko (yang mungkin segnifikan termasuk risiko kehilangan semua dana yang Anda investasikan) dimana Anda mungkin tidak memiliki pengetahuan dan pengalaman untuk mengurangi atau menghindarinya.",
     "decline": "Menurun",
     "secret_question": "Pertanyaan rahasia",
     "secret_answer": "Jawaban rahasia",
-    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
+    "secret_answer_pattern_error": "Hanya huruf, angka, spasi, tanda hubung, titik, dan tanda kutip yang diperbolehkan.",
+    "confirm_tax_info": "Dengan ini saya mengkonfirmasikan bahwa informasi pajak yang saya berikan adalah benar dan lengkap. Saya juga akan menginformasikan kepada Binary Investments (Europe) Ltd. jika terdapat perubahan pada informasi ini.",
+    "multi_tax_residence_info": "Anda mungkin dianggap sebagai penduduk pajak di lebih dari satu yurisdiksi. Silakan berkonsultasi dengan penasihat pajak Anda dan pastikan informasi pajak Anda akurat."
   },
   "new-account-real": {
     "real_account_opening": "Pendaftaran Akun Uang Riil",
@@ -254,8 +262,11 @@
     "go": "Lihat"
   },
   "transaction-details": {
-    "contract_id": "ID Kontrak:",
     "ref": "ID referensi",
+    "contract_type": "Jenis Kontrak",
+    "transaction_id": "ID Transaksi",
+    "buy": "Beli",
+    "sell": "Jual",
     "start_time": "Waktu Mulai",
     "entry_spot": "Spot Awal",
     "barrier": "Batasan",
@@ -265,7 +276,35 @@
     "exit_spot_time": "Waktu Spot Akhir",
     "sell_price": "Harga Jual",
     "profit_loss": "Laba/Rugi",
-    "end_time": "Waktu Berakhir"
+    "end_time": "Waktu Berakhir",
+    "ASIANU": "Asian Up",
+    "ASIAND": "Asian Down",
+    "CALL": "Higher",
+    "CALLE": "Higher atau equal",
+    "PUT": "Lower",
+    "PUTE": "Lower atau equal",
+    "DIGITMATCH": "Digit Matches",
+    "DIGITDIFF": "Digit Differs",
+    "DIGITODD": "Digit Odd",
+    "DIGITEVEN": "Digit Even",
+    "DIGITOVER": "Digit Over",
+    "DIGITUNDER": "Digit Under",
+    "EXPIRYMISS": "Ends Outside",
+    "EXPIRYRANGE": "Ends Between",
+    "EXPIRYRANGEE": "Ends Between",
+    "LBFLOATCALL": "Close-Low",
+    "LBFLOATPUT": "High-Close",
+    "LBHIGHLOW": "High-Low",
+    "RANGE": "Stays Between",
+    "RESETCALL": "Reset Call",
+    "RESETPUT": "Reset Put",
+    "UPORDOWN": "Goes Outside",
+    "ONETOUCH": "Touches",
+    "NOTOUCH": "Does Not Touch",
+    "CALLSPREAD": "Call Spread",
+    "PUTSPREAD": "Put Spread",
+    "TICKHIGH": "High Tik",
+    "TICKLOW": "Low Tik"
   },
   "statement": {
     "statement": "Pernyataan",
@@ -305,7 +344,8 @@
     "self_exclusion": "Pengecualian Diri",
     "change_password": "Rubah Kata Sandi",
     "financial_assessment": "Penilaian Finansial",
-    "limits": "Batasan"
+    "limits": "Batasan",
+    "account_categorisation": "Kategorisasi Akun"
   },
   "self-exclusion": {
     "self_exclusion": "Fasilitas Pengecualian Diri",
@@ -340,7 +380,9 @@
     "save_prompt": "Konten yang berhasil disimpan",
     "session_timeout_warning": "Batasan sesi durasi Anda akan berakhir dalam 10 detik.",
     "success": "Sukses",
-    "warning": "Peringatan"
+    "warning": "Peringatan",
+    "not_zero": "Nilai tidak boleh 0",
+    "error": "Maaf, terjadi error saat memproses permintaan Anda."
   },
   "profile": {
     "personal_details": "Detail Pribadi",
@@ -492,21 +534,22 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "Anda tidak memiliki akun MetaTrader, silahkan daftar dan coba kembali.",
-    "create_account": "Mendaftar Akun MT5",
-    "feature_is_not_available": "Maaf, fitur ini tidak tersedia.",
+    "create_account": "Daftar Akun Baru",
+    "feature_is_not_available": "Maaf, fitur ini tidak tersedia di yurisdiksi Anda.",
     "meta_trader_accounts": "Akun Meta Trader",
     "demo_account": "Akun Demo",
-    "financial_account": "Akun Finansial",
-    "volatility_account": "Akun Indeks Volatilitas",
-    "upgrade_financial_account": "Untuk mendaftar Akun Finansial MT5, silahkan upgrade akun Riil Binary.com Anda.",
-    "upgrade_volatility_account": "Untuk mendaftar Akun Indeks Volatilitas MT5, silahkan upgrade akun Riil Binary.com Anda.",
-    "create_financial_account": "Daftar Akun Finansial MT5",
-    "create_volatility_account": "Daftar Akun Volatilitas untuk MT5",
-    "create_demo_account": "Daftar Akun Demo untuk MT5",
-    "login_id": "Login ID",
+    "real_money_account": "Akun Uang Riil",
+    "login": "Login",
     "balance": "Saldo",
     "name": "Nama",
-    "start_trading_with_mt5": "Mulai Trading Dengan MT5"
+    "start_trading_with_mt5": "Mulai Trading Dengan MT5",
+    "upgrade_real_account": "Untuk mendaftar akun uang riil MT5, silahkan upgrade ke Akun Riil Binary.com.",
+    "standard": "Standar",
+    "advanced": "Lanjutan",
+    "mam_advanced": "MAM Tingkat Lanjut",
+    "volatility_indices": "Indeks Volatilitas",
+    "mam_volatility_indices": "MAM Indeks Volatilitas",
+    "upgrade": "Upgrade"
   },
   "authentication": {
     "authentication": "Pembuktian",
@@ -646,7 +689,7 @@
     "secondary": "Menengah",
     "tertiary": "Tersier",
     "salaried": "Karyawan Bergaji",
-    "self_employed": "Self-Employed",
+    "self_employed": "Wiraswasta",
     "investment": "Investasi & Dividen",
     "pension": "Pensiunan",
     "net_income_1": "Kurang dari $25.000",
@@ -712,25 +755,35 @@
   },
   "pep-information": {
     "pep": "Apa itu PEP?",
-    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+    "what_is_pep": "Politically Exposed Person yang selanjutnya disingkat sebagai PEP adalah orang yang memiliki atau pernah memiliki kewenangan publik termasuk anggota keluarganya atau orang terdekat dengannya, namun tidak termasuk kelas menengah atau posisi yang lebih rendah. Individu tersebut termasuk Kepala Negara, Menteri, Sekretaris Parlemen, Anggota Parlemen, Hakim, Duta Besar, Pejabat Tinggi Pemerintah, Petugas Peringkat Tinggi Angkatan Bersenjata, Komite Audit Dewan Bank Sentral, dan Direktur Perusahaan Milik Negara. \"Anggota keluarga terdekat\" dari contoh di atas juga akan dianggap sebagai PEP, dan ini termasuk pasangan, orang tua, dan anak-anak mereka. Selain itu, \"orang-orang yang dikenal sebagai rekan dekat\" termasuk mitra bisnis mereka, juga akan dianggap sebagai PEP. Sebagai aturan umum, seseorang yang sudah tidak memegang fungsi sebagai pihak berwenang lebih dari dua belas bulan maka orang tersebut tidak layak disebut sebagai PEP."
   },
   "what-is-tax-information": {
-    "tax_information_title": "Tax Information",
+    "tax_information_title": "Informasi Pajak",
     "required_by": "Persyaratan ini dimandatkan oleh Common Reporting Standard (CRS) dan Foreign Fail Tax Compliance Act (FATCA).",
     "please_enter": "Silakan masukkan ",
     "tax_information": "informasi pajak",
     "to_continue": "untuk melanjutkan.",
     "information_will_be_safe": "Yakinlah bahwa informasi Anda hanya akan digunakan untuk tujuan pelaporan CRS/FATCA dan akan disimpan dengan aman.",
-    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+    "contact_for_clarification": "Jika kami meyakini bahwa informasi pajak Anda tidak lengkap, kami akan menghubungi Anda untuk klarifikasi."
   },
   "professional-client-confirmation": {
-    "professional_clients": "Professional Clients",
-    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
-    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
-    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
-    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
-    "accept": "Accept",
-    "decline": "Decline",
-    "you_may_decline": "Note: You may decline and continue as a Retail Client."
+    "professional_clients": "Klien Profesional",
+    "professional_clients_receive": "Klien profesional akan menerima perlindungan klien lebih rendah berhubung:",
+    "posses_of_experience": "Kami berasumsi bahwa Anda memiliki pengalaman, pengetahuan, dan keahlian untuk membuat keputusan investasi Anda sendiri dan menilai dengan tepat risiko yang terlibat",
+    "appropriateness_test": "Kami tidak berkewajiban untuk melakukan uji kelayakan, atau memberi Anda peringatan risiko",
+    "keep_informed": "Sebagai klien profesional, Anda harus menginformasikan setiap perubahan yang mungkin mempengaruhi status Anda.",
+    "accept": "Menerima",
+    "decline": "Ditolak",
+    "you_may_decline": "Catatan: Anda dapat menolak dan melanjutkan sebagai Klien Ritel."
+  },
+  "account-categorisation": {
+    "account_categorisation": "Kategorisasi Akun",
+    "processing": "Aplikasi Anda sebagai klien profesional sedang diproses.",
+    "professional": "Anda dikategorikan sebagai klien profesional.",
+    "error": "Maaf, terjadi error saat memproses permintaan Anda.",
+    "retail_info": "Secara otomatis, klien akan di layani sebagai retail. Apakah Anda ingin dilayani sebagai klien profesional jika Anda lulus pada kreteria yang di wajibkan?",
+    "professional_client_verify": "Saya ingin diperlakukan sebagai klien profesional.",
+    "what_is_this": "Apa ini?",
+    "submit": "Kirim"
   }
 }
