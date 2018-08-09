@@ -41,11 +41,14 @@
         const upgradableLandingCompanies = appStateService.upgradeableLandingCompanies;
         vm.hasIOM = _.indexOf(upgradableLandingCompanies, 'iom') > -1 ||
             clientService.hasAccountOfLandingCompany(accounts, 'iom');
+        vm.requireCitizen = _.indexOf(upgradableLandingCompanies, 'malta') > -1 ||
+            _.indexOf(upgradableLandingCompanies, 'iom') > -1;
         vm.validation = validationService;
         vm.options = accountOptions;
         vm.receivedSettings = false;
         vm.hasResidence = false;
         vm.hasPOB = false;
+        vm.hasCitizen = false;
         vm.disableUpdatebutton = false;
         vm.linkToTermAndConditions = `https://www.binary.com/${localStorage.getItem("language") ||
             "en"}/terms-and-conditions.html`;
@@ -54,6 +57,7 @@
             first_name            : '',
             last_name             : '',
             date_of_birth         : '',
+            citizen               : '',
             place_of_birth        : '',
             residence             : '',
             address_line_1        : '',
@@ -90,6 +94,9 @@
                 }
                 if (get_settings.place_of_birth) {
                     vm.hasPOB = true;
+                }
+                if (get_settings.citizen) {
+                    vm.hasCitizen = true;
                 }
                 if (get_settings.country_code) {
                     const countryCode = get_settings.country_code;

@@ -51,6 +51,7 @@
         vm.touchedTaxResidence = false;
         vm.hasResidence = false;
         vm.hasPOB = false;
+        vm.hasCitizen = false;
         let modalIsSubmitted = false;
         vm.showRiskDisclaimer = false;
         vm.tncAccepted = false;
@@ -74,6 +75,7 @@
             date_of_birth                       : '',
             residence                           : '',
             place_of_birth                      : '',
+            citizen                             : '',
             address_line_1                      : '',
             address_line_2                      : '',
             address_city                        : '',
@@ -167,6 +169,9 @@
                 }
                 if (get_settings.place_of_birth) {
                     vm.hasPOB = true;
+                }
+                if (get_settings.citizen) {
+                    vm.hasCitizen = true;
                 }
                 if (get_settings.country_code) {
                     const countryCode = get_settings.country_code;
