@@ -19,7 +19,7 @@
     </div>
     <div class="col center">
       <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TICKS)"> {{vm.options.tick}} Ticks
-        <i class="ion-arrow-down-b"></i></button>
+        <i class="ion-arrow-down-b" ng-if="vm.tickRangeLength > 1"></i></button>
     </div>
     <div class="col center" ng-if="vm.options.digit != null">
       <button class="button button-clear"
