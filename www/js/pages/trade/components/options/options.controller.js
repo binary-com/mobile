@@ -101,6 +101,9 @@
                         : null;
                 vm.options.selected_tick = vm.options.tradeType === 'High/Low Ticks' ?
                     (vm.options.selected_tick || vm.options.tick) : null;
+                const min = parseInt(tradeTypes[vm.options.tradeType][0].min_contract_duration.slice(0, -1));
+                const max = parseInt(tradeTypes[vm.options.tradeType][0].max_contract_duration.slice(0, -1));
+                vm.tickRangeLength = min && max ? _.range(min, max + 1).length : 0;
                 updateProposal();
                 tradeService.proposalIsReady = true;
             });
@@ -146,6 +149,12 @@
                 case vm.SECTIONS.TRADETYPES: {
                     const tradeTypes = JSON.parse(sessionStorage.tradeTypes || "{}");
                     if (Object.keys(tradeTypes).length <= 1) {
+                        return;
+                    }
+                    break;
+                }
+                case vm.SECTIONS.TICKS: {
+                    if (vm.tickRangeLength <= 1) {
                         return;
                     }
                     break;
@@ -205,6 +214,9 @@
                     : null;
             vm.options.selected_tick = vm.options.tradeType === 'High/Low Ticks' ?
                 (vm.options.selected_tick || parseInt(vm.options.tick)) : null;
+            const min = parseInt(tradeType.min_contract_duration.slice(0, -1));
+            const max = parseInt(tradeType.max_contract_duration.slice(0, -1));
+            vm.tickRangeLength = min && max ? _.range(min, max + 1).length : 0;
             vm.section2 = vm.SECTIONS.OVERVIEW2;
             updateProposal();
             hideModal();
