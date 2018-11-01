@@ -22,7 +22,7 @@ angular
             const validateGeneralRegex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/;
             const validateAddressRegex = /[`~!$%^&*_=+[}{\]\\"?><|]+/;
             const validatePostcodeRegex = /^([a-zA-Z\d-\s])*$/;
-            const validatePhoneRegex = /^\+?[0-9\s]*$/;
+            const validatePhoneRegex = /^\+?((-|\s)*[0-9])*$/;
             const validateTaxIdentificationNumberRegex = /^[\w-]{0,20}$/;
             const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]+/;
             const mailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/;
@@ -71,7 +71,7 @@ angular
                     max: 20,
                 },
                 phone: {
-                    min: 6,
+                    min: 8,
                     max: 35
                 },
                 secret_answer: {
