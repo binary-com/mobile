@@ -238,7 +238,7 @@
     "read_and_agreed_to": "Tôi đã đọc và đồng ý với ",
     "terms_and_conditions": "các điều khoản và điều kiện ",
     "of_the_site": "của trang web.",
-    "general_pattern_error": "Only letters, space, hyphen, period, and apostrophe are allowed.",
+    "general_pattern_error": "Chỉ chữ cái, dấu cách, dấu nối, dấu chấm và dấu nháy đơn được cho phép.",
     "length_range_error": "This field must be within {{min}}-{{max}} characters.",
     "maxlength_error": "This field can be at most {{max}} characters long.",
     "address_pattern_error": "Only letters, numbers, space, and these special characters are allowed: - . ' # ; : ( ) , @ /",
