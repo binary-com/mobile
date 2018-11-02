@@ -165,7 +165,7 @@
     "tax_identification_number_pattern_error": "Chỉ các chữ cái, số và dấu nối là được phép.",
     "continue": "Tiếp tục",
     "cancel": "Hủy bỏ",
-    "not_pep_verify": "I acknowledge that I am not a politically exposed person (PEP)",
+    "not_pep_verify": "Tôi thừa nhận rằng tôi không phải là một cá nhân có ảnh hưởng chính trị (PEP)",
     "pep_info": "A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP’s relatives and close associates.",
     "forex_trading_experience": "Forex trading experience",
     "forex_trading_frequency": "Forex trading frequency",
