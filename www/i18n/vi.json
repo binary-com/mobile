@@ -128,14 +128,14 @@
     "token_invalid": "Vui lòng nhập một mã thông báo xác nhận hợp lệ.",
     "invalid_email": "Xin vui lòng gửi một địa chỉ email hợp lệ.",
     "password_pattern_error": "Mật khẩu nên bao gồm cả chữ hoa, chữ thường và con số.",
-    "range_length_error": "This field must be within {{min}}-{{max}} characters.",
-    "required": "This field is required."
+    "range_length_error": "Mục này phải nằm trong khoảng {{min}}--{{max}} ký tự.",
+    "required": "Mục này là bắt buộc."
   },
   "new-account-maltainvest": {
-    "financial_account_opening": "Financial Account Opening",
-    "salutation": "Title",
-    "first_name": "First name",
-    "last_name": "Family name",
+    "financial_account_opening": "Mở Tài khoản Tài chính",
+    "salutation": "Tiêu đề",
+    "first_name": "Tên riêng",
+    "last_name": "Họ",
     "date_of_birth": "Date of birth",
     "residence": "Country of residence",
     "place_of_birth": "Place of birth",
