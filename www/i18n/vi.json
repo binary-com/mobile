@@ -59,7 +59,7 @@
     "select_tick": "Chọn Tick",
     "select_digit": "Chọn Digit",
     "selected_tick": "Tick đã chọn",
-    "last_digit": "Last Digit"
+    "last_digit": "Số cuối"
   },
   "trade": {
     "payout": "Thanh toán",
