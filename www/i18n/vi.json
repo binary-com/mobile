@@ -58,7 +58,7 @@
     "select_tradetype": "Chọn loại giao dịch",
     "select_tick": "Chọn Tick",
     "select_digit": "Chọn Digit",
-    "selected_tick": "Selected Tick",
+    "selected_tick": "Tick đã chọn",
     "last_digit": "Last Digit"
   },
   "trade": {
