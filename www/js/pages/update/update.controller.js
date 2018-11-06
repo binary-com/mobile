@@ -18,8 +18,8 @@
         vm.showSpinner = true;
         vm.platform = null;
 
-        vm.openExternal = function($event) {
-            window.open($event.currentTarget.href, "_system");
+        vm.openExternal = function(url) {
+            window.open(url, "_system");
             return false;
         };
 
