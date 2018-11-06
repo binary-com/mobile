@@ -12,11 +12,10 @@
   <div class="features">
     <div class="update-link center"
          ng-if="vm.storeLogo">
-      <a href="{{ vm.lastVersion[vm.platform] }}"
-         onClick="javascript: return false;"
-         ng-click="vm.openExternal($event)">
-        <img src="{{ vm.storeLogo }}" alt="Tick Trade">
-      </a>
+      <button class="button"
+         ng-click="vm.openExternal(vm.lastVersion[vm.platform])">
+          {{ 'update.download_the_android_app' | translate }}
+      </button>
     </div>
   </div>
 </ion-view>
