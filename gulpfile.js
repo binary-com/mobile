@@ -148,7 +148,7 @@ gulp.task('deploy-apk', function(done){
   sh.exec('git config user.name "Morteza Tavanarad"');
   sh.exec('git config user.email "morteza@binary.com"');
   sh.exec('git add .');
-  sh.exec('git commit -m "Updated translation version"');
+    sh.exec(`git commit -m "Deployed new version of APK - ${new Date().toUTCString()}"`);
   sh.exec('git push origin gh-pages:gh-pages');
   sh.config.silent = true;
 
