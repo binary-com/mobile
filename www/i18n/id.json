@@ -436,7 +436,8 @@
     "version": "Versi"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "Anda menggunakan versi trading tik lama. Silahkan update applikasi pada versi terbaru."
+    "your_version_is_out_of_date_please_update": "Anda menggunakan versi trading tik lama. Silahkan update applikasi pada versi terbaru.",
+    "download_the_android_app": "Download The Android App"
   },
   "change-password": {
     "change_password": "Rubah Kata Sandi",
