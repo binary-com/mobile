@@ -436,7 +436,8 @@
     "version": "Versione"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "La tua versione di Tick Trade è obsoleta. Aggiorna la tua app con la versione più recente."
+    "your_version_is_out_of_date_please_update": "La tua versione di Tick Trade è obsoleta. Aggiorna la tua app con la versione più recente.",
+    "download_the_android_app": "Download The Android App"
   },
   "change-password": {
     "change_password": "Modifica password",
