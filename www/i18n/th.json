@@ -436,7 +436,8 @@
     "version": "เวอร์ชัน"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "เวอร์ชันของ Tick Trade ที่ท่านใช้งานยังไม่ได้รับการปรับปรุง โปรดติดตั้งแอพพลิเคชันเวอร์ชันล่าสุด"
+    "your_version_is_out_of_date_please_update": "เวอร์ชันของ Tick Trade ที่ท่านใช้งานยังไม่ได้รับการปรับปรุง โปรดติดตั้งแอพพลิเคชันเวอร์ชันล่าสุด",
+    "download_the_android_app": "Download The Android App"
   },
   "change-password": {
     "change_password": "เปลี่ยนรหัสผ่าน",
