@@ -436,7 +436,8 @@
     "version": "Phiên bản"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "Phiên bản Giao dịch Tick của bạn đã lỗi thời. Vui lòng cập nhập ứng dụng lên phiên bản mới nhất."
+    "your_version_is_out_of_date_please_update": "Phiên bản Giao dịch Tick của bạn đã lỗi thời. Vui lòng cập nhập ứng dụng lên phiên bản mới nhất.",
+    "download_the_android_app": "Download The Android App"
   },
   "change-password": {
     "change_password": "Thay đổi Mật khẩu",
