@@ -436,7 +436,8 @@
     "version": "Версия"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "Ваша версия приложения Tick Trade устарела. Пожалуйста, обновите приложение."
+    "your_version_is_out_of_date_please_update": "Ваша версия приложения Tick Trade устарела. Пожалуйста, обновите приложение.",
+    "download_the_android_app": "Download The Android App"
   },
   "change-password": {
     "change_password": "Изменение пароля",
