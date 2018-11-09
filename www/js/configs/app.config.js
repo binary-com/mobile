@@ -4,13 +4,15 @@
  * @copyright Binary Ltd
  */
 
+const isBinaryMe = window.location.host === 'ticktrade.binary.me';
+
 angular.module("binary").constant("config", {
-    app_id          : "10",
+    app_id          : isBinaryMe ? "15488" : "10",
     serverUrl       : "frontend.binaryws.com",
     serverCertFP    : "",
     qaMachinesCertFP: "",
     wsUrl           : "wss://frontend.binaryws.com/websockets/v3", // Don't set language value here
-    oauthUrl        : "https://oauth.binary.com/oauth2/authorize",
+    oauthUrl        : `https://oauth.binary.${isBinaryMe ? 'me' : 'com'}/oauth2/authorize`,
     tradeCategories : [
         {
             name   : "up_down",

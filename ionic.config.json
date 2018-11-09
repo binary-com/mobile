@@ -1,13 +1,12 @@
 {
   "name": "tickTrade",
-  "app_id": "",
+  "integrations": {
+    "cordova": {}
+  },
   "gulpStartupTasks": [
     "sass",
     "watch"
   ],
-  "integrations": {
-    "cordova": {}
-  },
   "type": "ionic1",
   "watchPatterns": []
 }
