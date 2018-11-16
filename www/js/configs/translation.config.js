@@ -10,6 +10,7 @@ angular.module("binary").config([
     "$translateProvider",
     function($translateProvider) {
         const language = localStorage.language || "en";
+        $translateProvider.fallbackLanguage("en");
         $translateProvider.preferredLanguage(language);
         $translateProvider.useStaticFilesLoader({
             prefix: "i18n/",
