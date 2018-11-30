@@ -161,7 +161,7 @@
     "maxlength_error": "crwdns42706:0{{max}}crwdne42706:0",
     "address_pattern_error": "crwdns44959:0crwdne44959:0",
     "postcode_pattern_error": "crwdns44960:0crwdne44960:0",
-    "phone_pattern_error": "crwdns44961:0crwdne44961:0",
+    "phone_pattern_error": "crwdns51228:0crwdne51228:0",
     "tax_identification_number_pattern_error": "crwdns44962:0crwdne44962:0",
     "continue": "crwdns42712:0crwdne42712:0",
     "cancel": "crwdns42713:0crwdne42713:0",
@@ -243,7 +243,7 @@
     "maxlength_error": "crwdns42780:0{{max}}crwdne42780:0",
     "address_pattern_error": "crwdns44974:0crwdne44974:0",
     "postcode_pattern_error": "crwdns44975:0crwdne44975:0",
-    "phone_pattern_error": "crwdns44976:0crwdne44976:0",
+    "phone_pattern_error": "crwdns51230:0crwdne51230:0",
     "secret_answer_pattern_error": "crwdns44977:0crwdne44977:0",
     "required": "crwdns42785:0crwdne42785:0",
     "not_pep_verify": "crwdns44887:0crwdne44887:0",
@@ -412,7 +412,7 @@
     "maxlength_error": "crwdns42795:0{{max}}crwdne42795:0",
     "range_length_error": "crwdns45046:0{{min}}crwdnd45046:0{{max}}crwdne45046:0",
     "postcode_pattern_error": "crwdns45047:0crwdne45047:0",
-    "phone_pattern_error": "crwdns45048:0crwdne45048:0",
+    "phone_pattern_error": "crwdns51232:0crwdne51232:0",
     "tax_identification_number_pattern_error": "crwdns45049:0crwdne45049:0",
     "cancel": "crwdns19516:0crwdne19516:0",
     "continue": "crwdns19517:0crwdne19517:0",
@@ -436,7 +436,8 @@
     "version": "crwdns18149:0crwdne18149:0"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "crwdns19069:0crwdne19069:0"
+    "your_version_is_out_of_date_please_update": "crwdns19069:0crwdne19069:0",
+    "download_the_android_app": "crwdns51296:0crwdne51296:0"
   },
   "change-password": {
     "change_password": "crwdns19094:0crwdne19094:0",

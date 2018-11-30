@@ -161,7 +161,7 @@
     "maxlength_error": "Dieses Feld kann maximal {{max}} Zeichen lang sein.",
     "address_pattern_error": "Nur Buchstaben, Zahlen, Leerzeichen und diese Sonderzeichen sind erlaubt: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Es sind nur Buchstaben, Zahlen, und Bindestriche erlaubt.",
-    "phone_pattern_error": "Es sind nur Zahlen und Abstände erlaubt.",
+    "phone_pattern_error": "Es sind nur Zahlen, Abstände und Bindestriche erlaubt.",
     "tax_identification_number_pattern_error": "Es sind nur Buchstaben, Zahlen, und Bindestriche erlaubt.",
     "continue": "Weiter",
     "cancel": "Abbrechen",
@@ -243,7 +243,7 @@
     "maxlength_error": "Dieses Feld kann maximal {{max}} Zeichen lang sein.",
     "address_pattern_error": "Nur Buchstaben, Zahlen, Leerzeichen und diese Sonderzeichen sind erlaubt: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Es sind nur Buchstaben, Zahlen, und Bindestriche erlaubt.",
-    "phone_pattern_error": "Es sind nur Zahlen und Abstände erlaubt.",
+    "phone_pattern_error": "Es sind nur Zahlen, Abstände und Bindestriche erlaubt.",
     "secret_answer_pattern_error": "Nur Buchstaben, Zahlen, Abstände, Bindestriche, Punkte, und Apostrophe sind erlaubt.",
     "required": "Dieses Feld ist erforderlich.",
     "not_pep_verify": "Ich bestätige hiermit, dass ich keine politisch exponierte Person (PEP) bin",
@@ -412,7 +412,7 @@
     "maxlength_error": "Dieses Feld kann maximal {{max}} Zeichen lang sein.",
     "range_length_error": "Dieses Feld muss zwischen {{min}}-{{max}} Zeichen lang sein.",
     "postcode_pattern_error": "Es sind nur Buchstaben, Zahlen, und Bindestriche erlaubt.",
-    "phone_pattern_error": "Es sind nur Zahlen und Abstände erlaubt.",
+    "phone_pattern_error": "Es sind nur Zahlen, Abstände und Bindestriche erlaubt.",
     "tax_identification_number_pattern_error": "Es sind nur Buchstaben, Zahlen, und Bindestriche erlaubt.",
     "cancel": "Abbrechen",
     "continue": "Weiter",
@@ -436,7 +436,8 @@
     "version": "Version"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "Ihre Version von Tick Trade ist veraltet. Bitte aktualisieren Sie Ihre App auf die neueste Version."
+    "your_version_is_out_of_date_please_update": "Ihre Version von Tick Trade ist veraltet. Bitte aktualisieren Sie Ihre App auf die neueste Version.",
+    "download_the_android_app": "Die Android-App herunterladen"
   },
   "change-password": {
     "change_password": "Passwort ändern",

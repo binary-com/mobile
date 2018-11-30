@@ -161,7 +161,7 @@
     "maxlength_error": "Ce champ peut contenir au maximum {{max}} caractères.",
     "address_pattern_error": "Seulement des lettres, chiffres, espace et ces caractères spéciaux sont autorisés :-. ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Seuls les lettres, les chiffres et trait d'union sont autorisés.",
-    "phone_pattern_error": "Seuls les chiffres et espaces sont autorisés.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "tax_identification_number_pattern_error": "Seuls les lettres, les chiffres et trait d'union sont autorisés.",
     "continue": "Continuer",
     "cancel": "Annuler",
@@ -243,7 +243,7 @@
     "maxlength_error": "Ce champ peut contenir au maximum {{max}} caractères.",
     "address_pattern_error": "Seulement des lettres, chiffres, espace et ces caractères spéciaux sont autorisés :-. ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Seuls les lettres, les chiffres et trait d'union sont autorisés.",
-    "phone_pattern_error": "Seuls les chiffres et espaces sont autorisés.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "secret_answer_pattern_error": "Seuls les lettres, les chiffres, espace, trait d'union, point et apostrophe sont autorisés.",
     "required": "Ce champ est requis.",
     "not_pep_verify": "Je reconnais que je ne suis pas une personne politiquement exposée (PEP)",
@@ -412,7 +412,7 @@
     "maxlength_error": "Ce champ peut contenir au maximum {{max}} caractères.",
     "range_length_error": "Ce champ doit contenir entre {{min}}{{max}} caractères.",
     "postcode_pattern_error": "Seuls les lettres, les chiffres et trait d'union sont autorisés.",
-    "phone_pattern_error": "Seuls les chiffres et espaces sont autorisés.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "tax_identification_number_pattern_error": "Seuls les lettres, les chiffres et trait d'union sont autorisés.",
     "cancel": "Annuler",
     "continue": "Continuer",
@@ -436,7 +436,8 @@
     "version": "Version"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "Votre version de Tick Trade est obsolète. Veuillez mettre à jour votre application avec la dernière version."
+    "your_version_is_out_of_date_please_update": "Votre version de Tick Trade est obsolète. Veuillez mettre à jour votre application avec la dernière version.",
+    "download_the_android_app": "Download The Android App"
   },
   "change-password": {
     "change_password": "Modifier le mot de passe",

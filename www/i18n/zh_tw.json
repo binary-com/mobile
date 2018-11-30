@@ -161,7 +161,7 @@
     "maxlength_error": "此欄位最多可以有 {{max}} 個字元。",
     "address_pattern_error": "僅允許字母、數字、空格和這些特殊字元: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "只允許字母、數字和連字符。",
-    "phone_pattern_error": "只允许數字和空格。",
+    "phone_pattern_error": "只允許數字、空格和連字符。",
     "tax_identification_number_pattern_error": "只允許字母、數字和連字符。",
     "continue": "繼續",
     "cancel": "取消",
@@ -243,7 +243,7 @@
     "maxlength_error": "此欄位最多可以有 {{max}} 個字元。",
     "address_pattern_error": "僅允許字母、數字、空格和這些特殊字元: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "只允許字母、數字和連字符。",
-    "phone_pattern_error": "只允许數字和空格。",
+    "phone_pattern_error": "只允許數字、空格和連字符。",
     "secret_answer_pattern_error": "只允許字母、數字、空格、連字號、句號和所有格號。",
     "required": "此為必填欄位。",
     "not_pep_verify": "我聲明本人不是政治公眾人士(PEP)。",
@@ -412,7 +412,7 @@
     "maxlength_error": "此欄位最多可以有 {{max}} 個字元。",
     "range_length_error": "此欄位必須為{{min}}-{{max}} 個字元。",
     "postcode_pattern_error": "只允許字母、數字和連字符。",
-    "phone_pattern_error": "只允许數字和空格。",
+    "phone_pattern_error": "只允許數字、空格和連字符。",
     "tax_identification_number_pattern_error": "只允許字母、數字和連字符。",
     "cancel": "取消",
     "continue": "繼續",
@@ -436,7 +436,8 @@
     "version": "版本"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "您的跳動點交易版本已過時。請更新應用程式到最新版本。"
+    "your_version_is_out_of_date_please_update": "您的跳動點交易版本已過時。請更新應用程式到最新版本。",
+    "download_the_android_app": "下載Android應用程式"
   },
   "change-password": {
     "change_password": "更改密碼",

@@ -161,7 +161,7 @@
     "maxlength_error": "Este campo pode conter no máximo {{max}} caracteres.",
     "address_pattern_error": "Apenas são permitidos números, letras, espaços e estes caracteres especiais: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Apenas letras, números e hífenes são permitidos.",
-    "phone_pattern_error": "Apenas números e espaços são permitidos.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "tax_identification_number_pattern_error": "Apenas letras, números e hífenes são permitidos.",
     "continue": "Continuar",
     "cancel": "Cancelar",
@@ -243,7 +243,7 @@
     "maxlength_error": "Este campo pode conter no máximo {{max}} caracteres.",
     "address_pattern_error": "Apenas são permitidos números, letras, espaços e estes caracteres especiais: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Apenas letras, números e hífenes são permitidos.",
-    "phone_pattern_error": "Apenas números e espaços são permitidos.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "secret_answer_pattern_error": "Apenas letras, números, espaços, hífenes, pontos e apostrofes são permitidos.",
     "required": "Este campo é obrigatório.",
     "not_pep_verify": "Eu confirmo que não sou uma pessoa politicamente exposta (PPE)",
@@ -412,7 +412,7 @@
     "maxlength_error": "Este campo pode conter no máximo {{max}} caracteres.",
     "range_length_error": "Este campo deve conter entre {{min}}e{{max}} caracteres.",
     "postcode_pattern_error": "Apenas letras, números e hífenes são permitidos.",
-    "phone_pattern_error": "Apenas números e espaços são permitidos.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "tax_identification_number_pattern_error": "Apenas letras, números e hífenes são permitidos.",
     "cancel": "Cancelar",
     "continue": "Continuar",
@@ -436,7 +436,8 @@
     "version": "Versão"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "A sua versão do Tick Trade está desatualizada. Atualize o seu aplicativo para a versão mais recente."
+    "your_version_is_out_of_date_please_update": "A sua versão do Tick Trade está desatualizada. Atualize o seu aplicativo para a versão mais recente.",
+    "download_the_android_app": "Download The Android App"
   },
   "change-password": {
     "change_password": "Alterar senha",

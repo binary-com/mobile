@@ -161,7 +161,7 @@
     "maxlength_error": "Kolom ini dapat diisi dengan maksimal {{max}} karakter panjang.",
     "address_pattern_error": "Hanya huruf, angka, spasi, dan karakter khusus berikut yang diperbolehkan: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Hanya huruf, angka, dan tanda hubung yang diperbolehkan.",
-    "phone_pattern_error": "Hanya nomor dan spasi yang yang diperbolehkan.",
+    "phone_pattern_error": "Hanya angka, spasi dan tanda hubung yang diperbolehkan.",
     "tax_identification_number_pattern_error": "Hanya huruf, angka, dan tanda hubung yang diperbolehkan.",
     "continue": "Lanjutkan",
     "cancel": "Batal",
@@ -243,7 +243,7 @@
     "maxlength_error": "Kolom ini dapat diisi dengan maksimal {{max}} karakter panjang.",
     "address_pattern_error": "Hanya huruf, angka, spasi, dan karakter khusus berikut yang diperbolehkan: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Hanya huruf, angka, dan tanda hubung yang diperbolehkan.",
-    "phone_pattern_error": "Hanya nomor dan spasi yang yang diperbolehkan.",
+    "phone_pattern_error": "Hanya angka, spasi dan tanda hubung yang diperbolehkan.",
     "secret_answer_pattern_error": "Hanya huruf, angka, spasi, tanda hubung, titik, dan tanda kutip yang diperbolehkan.",
     "required": "Bagian ini wajib diisi.",
     "not_pep_verify": "Saya mengakui bahwa saya bukan orang yang terjun di dunia politik (PEP)",
@@ -412,7 +412,7 @@
     "maxlength_error": "Kolom ini dapat diisi dengan maksimal {{max}} karakter panjang.",
     "range_length_error": "Kolom ini harus diisi dengan {{min}}-{{max}} karakter.",
     "postcode_pattern_error": "Hanya huruf, angka, dan tanda hubung yang diperbolehkan.",
-    "phone_pattern_error": "Hanya nomor dan spasi yang yang diperbolehkan.",
+    "phone_pattern_error": "Hanya angka, spasi dan tanda hubung yang diperbolehkan.",
     "tax_identification_number_pattern_error": "Hanya huruf, angka, dan tanda hubung yang diperbolehkan.",
     "cancel": "Batal",
     "continue": "Lanjutkan",
@@ -436,7 +436,8 @@
     "version": "Versi"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "Anda menggunakan versi trading tik lama. Silahkan update applikasi pada versi terbaru."
+    "your_version_is_out_of_date_please_update": "Anda menggunakan versi trading tik lama. Silahkan update applikasi pada versi terbaru.",
+    "download_the_android_app": "Unduh Aplikasi Android"
   },
   "change-password": {
     "change_password": "Rubah Kata Sandi",

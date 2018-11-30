@@ -161,7 +161,7 @@
     "maxlength_error": "Данное поле должно содержать не более {{max}} знаков.",
     "address_pattern_error": "Разрешены только буквы, цифры, пробел и следующие символы: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Разрешены только буквы, цифры и дефисы.",
-    "phone_pattern_error": "Разрешены только цифры и пробелы.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "tax_identification_number_pattern_error": "Разрешены только буквы, цифры и дефисы.",
     "continue": "Продолжить",
     "cancel": "Отмена",
@@ -243,7 +243,7 @@
     "maxlength_error": "Данное поле должно содержать не более {{max}} знаков.",
     "address_pattern_error": "Разрешены только буквы, цифры, пробел и следующие символы: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Разрешены только буквы, цифры и дефисы.",
-    "phone_pattern_error": "Разрешены только цифры и пробелы.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "secret_answer_pattern_error": "Разрешены только буквы, цифры, пробелы, дефисы, точки и апострофы.",
     "required": "Данное поле является обязательным.",
     "not_pep_verify": "Настоящим я заявляю, что не являюсь политически значимым лицом (ПЗЛ)",
@@ -412,7 +412,7 @@
     "maxlength_error": "Данное поле должно содержать не более {{max}} знаков.",
     "range_length_error": "Запись в данном поле не должна превышать {{min}}-{{max}} знаков.",
     "postcode_pattern_error": "Разрешены только буквы, цифры и дефисы.",
-    "phone_pattern_error": "Разрешены только цифры и пробелы.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "tax_identification_number_pattern_error": "Разрешены только буквы, цифры и дефисы.",
     "cancel": "Отмена",
     "continue": "Продолжить",
@@ -436,7 +436,8 @@
     "version": "Версия"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "Ваша версия приложения Tick Trade устарела. Пожалуйста, обновите приложение."
+    "your_version_is_out_of_date_please_update": "Ваша версия приложения Tick Trade устарела. Пожалуйста, обновите приложение.",
+    "download_the_android_app": "Download The Android App"
   },
   "change-password": {
     "change_password": "Изменение пароля",

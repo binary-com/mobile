@@ -161,7 +161,7 @@
     "maxlength_error": "Questo campo può contenere al massimo {{max}} caratteri.",
     "address_pattern_error": "Only letters, numbers, space, and these special characters are allowed: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Only letters, numbers, and hyphen are allowed.",
-    "phone_pattern_error": "Only numbers and spaces are allowed.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "tax_identification_number_pattern_error": "Only letters, numbers, and hyphen are allowed.",
     "continue": "Continua",
     "cancel": "Annulla",
@@ -243,7 +243,7 @@
     "maxlength_error": "Questo campo può contenere al massimo {{max}} caratteri.",
     "address_pattern_error": "Only letters, numbers, space, and these special characters are allowed: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Only letters, numbers, and hyphen are allowed.",
-    "phone_pattern_error": "Only numbers and spaces are allowed.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed.",
     "required": "Questo campo è obbligatorio.",
     "not_pep_verify": "I acknowledge that I am not a politically exposed person (PEP)",
@@ -412,7 +412,7 @@
     "maxlength_error": "Questo campo può contenere al massimo {{max}} caratteri.",
     "range_length_error": "This field must be within {{min}}-{{max}} characters.",
     "postcode_pattern_error": "Only letters, numbers, and hyphen are allowed.",
-    "phone_pattern_error": "Only numbers and spaces are allowed.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "tax_identification_number_pattern_error": "Only letters, numbers, and hyphen are allowed.",
     "cancel": "Annulla",
     "continue": "Continua",
@@ -436,7 +436,8 @@
     "version": "Versione"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "La tua versione di Tick Trade è obsoleta. Aggiorna la tua app con la versione più recente."
+    "your_version_is_out_of_date_please_update": "La tua versione di Tick Trade è obsoleta. Aggiorna la tua app con la versione più recente.",
+    "download_the_android_app": "Download The Android App"
   },
   "change-password": {
     "change_password": "Modifica password",
