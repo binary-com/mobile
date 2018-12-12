@@ -434,7 +434,9 @@ angular.module("binary").factory("chartService", $rootScope => {
                         index      : index + (tickPriceList.length - 1)
                     });
                 }
-            } else if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
+            }
+
+            if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
                 contract.showingExitSpot = true;
             }
         };
@@ -451,11 +453,13 @@ angular.module("binary").factory("chartService", $rootScope => {
                     utils.setObjValue(contract, "barrier", barrier, !utils.digitTrade(contract));
                     utils.setObjValue(contract, "entrySpotPrice", tickPrice, true);
                     utils.setObjValue(contract, "entrySpotTime", tickTime, !hasEntrySpot());
-                } else if (isExitSpot(tickTime, index)) {
-                    utils.setObjValue(contract, "exitSpot", tickTime, !hasExitSpot());
+                    utils.setObjValue(contract, "entrySpotIndex", index, true);
                 }
-                utils.setObjValue(contract, "entrySpotIndex", index, isEntrySpot(tickTime));
-                utils.setObjValue(contract, "exitSpotIndex", index, isExitSpot(tickTime, index));
+
+                if (isExitSpot(tickTime, index)) {
+                    utils.setObjValue(contract, "exitSpot", tickTime, !hasExitSpot());
+                    utils.setObjValue(contract, "exitSpotIndex", index, true);
+                }
 
                 // tickPriceList.push(tickPrice);
             }
@@ -627,16 +631,18 @@ angular.module("binary").factory("chartService", $rootScope => {
             const height = thisChart.scale.endPoint - thisChart.scale.startPoint + 12; // + 12 to size up the region to the top
             let end;
 
-            const start = thisChart.datasets[0].points[region.start].x;
+            let start = thisChart.datasets[0].points[region.start].x;
             if (utils.isDefined(region.end)) {
                 end = thisChart.datasets[0].points[region.end].x;
             } else {
                 end = thisChart.datasets[0].points.slice(-1)[0].x;
             }
-            if (end <= start) {
+            if (end < start) {
                 return;
+            } else if (end === start) {
+                start -= 2; // subtract 2 from start to make the region visible when the duration is 1 tick
             }
-            const length = end - start;
+            const length = (end - start) || 6; // set the region length to 6 whenever the duration is 1 tick
             ctx.fillStyle = region.color;
             ctx.fillRect(start, thisChart.scale.startPoint - 12, length, height); // begin the region from the top
         };
