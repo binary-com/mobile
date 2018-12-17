@@ -185,11 +185,14 @@ gulp.task('code-push', function(done){
     process.exit(-1);
   }
 
+var targetVersion = getArgvBySwitchName("--targetVersion");
+targetVersion = targetVersion ? ' --targetBinaryVersion "' + targetVersion + '"'  : '';
+
   console.log('  ' + gutil.colors.blue('Preparing files ...'));
   sh.sed('-i', '.otherwise("/")', '.otherwise("/update")', 'www/js/configs/states.config.js');
 
   console.log('  ' + gutil.colors.blue('Run code-push ...'));
-  sh.exec('code-push release-cordova ' + app + ' ' + platform + ' --deploymentName ' + deployment + ' --mandatory');
+    sh.exec('code-push release-cordova ' + app + ' ' + platform + ' --deploymentName ' + deployment + targetVersion  +  ' --mandatory');
 
   console.log('  ' + gutil.colors.blue('Rolling back dump changes ...'));
   sh.sed('-i', '.otherwise("/update")', '.otherwise("/")', 'www/js/configs/states.config.js');
