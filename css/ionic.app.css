@@ -9815,15 +9815,6 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.font-n {
-  font-size: 18px; }
-
-.font-s {
-  font-size: 13px; }
-
-.font-xs {
-  font-size: 10px; }
-
 @media only screen and (max-width: 480px) {
   html, body {
     font-size: 4vw; } }
@@ -9855,16 +9846,10 @@ a.button {
   src: url(../fonts/Roboto/Roboto-Bold.ttf);
   font-weight: 700; }
 
-::-webkit-input-placeholder {
-  color: #15212D; }
-
 [ng-click],
 [data-ng-click],
-[x-ng-click] {
+[x-ng-click], a {
   cursor: pointer; }
-
-button {
-  border: none !important; }
 
 * {
   -webkit-user-select: none;
@@ -9872,13 +9857,6 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-
-input {
-  -webkit-user-select: auto !important;
-  -khtml-user-select: auto !important;
-  -moz-user-select: auto !important;
-  -ms-user-select: auto !important;
-  user-select: auto !important; }
 
 * {
   -webkit-user-drag: none;
@@ -9895,21 +9873,82 @@ body * {
 ion-side-menu ion-content {
   overflow-y: hidden; }
 
-.bar-subheader {
-  padding: 0;
-  height: inherit;
-  width: 100%;
-  background: #fff;
-  position: relative;
-  top: 0; }
-  .bar-subheader bg-balance {
-    width: 100%;
-    position: relative; }
-
 a {
   color: #2A3052;
   text-decoration: none;
   font-weight: bold; }
+
+p {
+  font-size: 1rem !important;
+  padding: 5px;
+  color: #000;
+  font-weight: normal;
+  white-space: normal;
+  line-height: normal; }
+
+.center {
+  text-align: center !important;
+  justify-content: center; }
+
+.item {
+  border-width: 0;
+  color: #000;
+  font-size: 1rem; }
+
+.scroll {
+  padding-bottom: 1px; }
+
+.left {
+  text-align: left; }
+
+.right {
+  text-align: right; }
+
+.green {
+  color: #2E8836; }
+
+.red {
+  color: #C03 !important; }
+
+.bold {
+  font-weight: bold; }
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: normal;
+  padding: 5px;
+  color: #000;
+  border-bottom: 2px solid #000;
+  margin: 0; }
+
+.sub-title {
+  font-size: 1rem;
+  color: #2A3052; }
+
+.hint {
+  font-size: 0.7rem;
+  color: #000;
+  margin-top: 3px; }
+
+.help-block {
+  font-size: 0.8rem;
+  text-align: left;
+  color: #C2C2C2;
+  position: relative; }
+
+.error {
+  color: #C03;
+  font-size: 0.8rem; }
+  .error p {
+    color: #C03;
+    font-size: 0.8rem; }
+
+.general-content {
+  width: 100vw;
+  font-size: 1rem; }
+
+.submenu-icon {
+  float: right; }
 
 .popup-head {
   padding: 10px;
@@ -9931,77 +9970,12 @@ a {
   .popup-buttons .button {
     font-size: 1rem; }
 
-button.button.button-default {
-  color: #000 !important;
-  background: #F2F2F2 !important; }
-
-button.button.button-positive {
-  background: #2E8836 !important; }
-  button.button.button-positive:hover {
-    color: #fff !important;
-    background: #14602B !important; }
-
-.button {
-  border: none;
-  background: #2E8836;
-  color: #fff;
-  font-size: 1rem; }
-  .button :hover {
-    color: #fff !important;
-    background: #14602B; }
-
-button {
-  font-size: 1rem; }
-  button a {
-    font-weight: normal; }
-
-button:hover {
-  color: #fff !important;
-  background: #14602B; }
-
-.button-gray {
+.info-container {
+  border-radius: 3px;
   background: #F2F2F2;
-  color: #000; }
-  .button-gray:hover {
-    background: #C2C2C2 !important;
-    color: #000 !important; }
-
-button.button.button-default {
-  color: #000 !important;
-  background: #F2F2F2 !important; }
-
-.side-item {
-  background: inherit;
-  color: #fff; }
-
-.token-link {
-  text-decoration: underline; }
-
-.center {
-  text-align: center !important;
-  justify-content: center; }
-
-.item {
-  border-width: 0;
-  color: #000;
-  font-size: 1rem; }
-
-.item-select select {
-  max-width: 100%; }
-
-.item-complex .item-content,
-.item-radio .item-content {
-  background: #F2F2F2; }
-
-.item-radio > input[disabled="disabled"] + div.item-content {
-  opacity: 0.4; }
-
-.scroll {
-  padding-bottom: 1px; }
-
-.error p {
-  color: #C03;
-  font-size: 0.5rem; }
+  word-break: break-word;
+  padding: 0;
+  font-size: 0.8rem; }
 
 .app-version {
   color: #2A3052;
@@ -10010,157 +9984,8 @@ button.button.button-default {
   display: block;
   margin: 0 auto; }
 
-.help-block {
-  font-size: 0.8rem;
-  color: #000;
-  text-align: left; }
-
-.left {
-  text-align: left; }
-
-.right {
-  text-align: right; }
-
-.green {
-  color: #2E8836; }
-
-.red {
-  color: #C03 !important; }
-
-.bold {
-  font-weight: bold; }
-
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
-  -webkit-appearance: none;
-  margin: 0;
-  /* <-- Apparently some margin are still there even though it's hidden */ }
-
-.page-title {
-  font-size: 1.5rem;
-  font-weight: normal;
-  padding: 5px;
-  color: #000;
-  border-bottom: 2px solid #000;
-  margin: 0; }
-
-.sub-title {
-  font-size: 1rem;
-  color: #2A3052; }
-
-.input-title {
-  text-align: left;
-  white-space: normal;
-  font-size: 1rem;
-  padding: 5px; }
-  .input-title span {
-    font-size: 1rem;
-    color: #C2C2C2; }
-
-.help-block {
-  font-size: 0.8rem;
-  text-align: left;
-  color: #C2C2C2;
-  position: relative; }
-
-.error {
-  color: #C03;
-  font-size: 0.8rem; }
-
-.info-container {
-  border-radius: 3px;
-  background: #F2F2F2;
-  word-break: break-word;
-  padding: 0;
-  font-size: 0.8rem; }
-
-input {
-  width: 100%;
-  padding: 5px !important;
-  border: 1px solid #DEDEDE !important;
-  border-radius: 3px !important;
-  background: #fff;
-  font-size: 0.8rem !important;
-  height: auto !important; }
-  input.checkbox {
-    width: 20px;
-    top: 2px;
-    position: relative; }
-  input.input-disabled {
-    background: #F2F2F2; }
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-  color: #C2C2C2; }
-
-input[type="date"] {
-  min-height: 30px !important; }
-
-.item-input {
-  padding: 5px; }
-
-.item-select {
-  border-radius: 3px;
-  font-size: 1rem;
-  padding: 5px; }
-  .item-select select {
-    position: relative;
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #DEDEDE;
-    border-radius: 3px;
-    background: #fff;
-    direction: ltr;
-    font-size: 0.8rem; }
-    .item-select select option {
-      width: 100%;
-      text-align: left; }
-  .item-select select[disabled] {
-    background: #f8f8f8 !important; }
-
-select {
-  position: relative;
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #DEDEDE;
-  border-radius: 3px;
-  background: #fff;
-  direction: ltr; }
-  select option {
-    width: 100%;
-    text-align: left; }
-
-p {
-  font-size: 1rem;
-  padding: 5px;
-  color: #000;
-  font-weight: normal;
-  white-space: normal;
-  line-height: 1.4rem; }
-
-.button-secondary {
-  color: #000 !important;
-  background: #F2F2F2 !important; }
-
 .popup-head .popup-title {
   font-size: 1rem; }
-
-label,
-textarea {
-  font-size: 1rem; }
-
-.general-content {
-  width: 100vw;
-  font-size: 1rem; }
-
-.hint {
-  font-size: 0.8rem;
-  font-size: 13px;
-  color: #000;
-  margin-top: 3px; }
-
-.submenu-icon {
-  float: right; }
 
 .information-popup .popup {
   background: #fff;
@@ -10180,6 +10005,97 @@ textarea {
       color: #000; }
     .information-popup .popup-body .item .row {
       white-space: normal; }
+
+input {
+  -webkit-user-select: auto !important;
+  -khtml-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+  width: 100%;
+  padding: 5px !important;
+  border: 1px solid #DEDEDE !important;
+  border-radius: 3px !important;
+  background: #fff;
+  font-size: 0.8rem !important;
+  height: auto !important; }
+  input::-webkit-input-placeholder {
+    color: #15212D; }
+  input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */ }
+  input.checkbox {
+    width: 20px;
+    top: 2px;
+    position: relative; }
+  input[type="date"] {
+    min-height: 30px !important; }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #C2C2C2; }
+
+.item-input {
+  padding: 5px; }
+
+.item-select {
+  border-radius: 3px;
+  font-size: 1rem; }
+  .item-select select {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: 5px;
+    border: 1px solid #DEDEDE;
+    border-radius: 3px;
+    background: #fff;
+    direction: ltr;
+    font-size: 0.8rem; }
+    .item-select select option {
+      width: 100%;
+      text-align: left; }
+    .item-select select[disabled] {
+      background: #f8f8f8 !important; }
+
+.item-complex .item-content,
+.item-radio .item-content {
+  background: #F2F2F2; }
+
+.item-radio > input[disabled="disabled"] + div.item-content {
+  opacity: 0.4; }
+
+.input-title {
+  text-align: left;
+  white-space: normal;
+  font-size: 1rem;
+  padding: 5px; }
+  .input-title span {
+    font-size: 1rem;
+    color: #C2C2C2; }
+
+label,
+textarea {
+  font-size: 1rem; }
+
+button {
+  border: none !important;
+  font-size: 1rem; }
+  button a {
+    font-weight: normal; }
+
+.button-default {
+  color: #000 !important;
+  background: #F2F2F2 !important; }
+  .button-default:hover {
+    color: #000 !important;
+    background: #F2F2F2; }
+
+.button-positive {
+  background: #2E8836 !important;
+  color: #fff !important; }
+  .button-positive:hover {
+    color: #fff !important;
+    background: #14602B !important; }
 
 @media screen and (max-width: 480px) {
   .information-popup .popup-body .item {
@@ -10225,6 +10141,17 @@ textarea {
   border-bottom: 1px solid #DEDEDE; }
   .balance .row {
     padding: 0; }
+
+.bar-subheader {
+  padding: 0;
+  height: inherit;
+  width: 100%;
+  background: #fff;
+  position: relative;
+  top: 0; }
+  .bar-subheader bg-balance {
+    width: 100%;
+    position: relative; }
 
 .bar.bar-positive {
   border-color: #DEDEDE;
@@ -10425,57 +10352,6 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .menu .upgrade-link a {
     padding: 15px; }
 
-.barspinner {
-  margin: 0px auto;
-  width: 60px;
-  height: 20px;
-  text-align: center;
-  font-size: 13px;
-  white-space: nowrap; }
-  .barspinner > div {
-    margin: 2px;
-    border-radius: 20px;
-    height: 100%;
-    width: 6px;
-    display: inline-block;
-    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
-    animation: sk-stretchdelay 1.2s infinite ease-in-out; }
-  .barspinner.dark > div {
-    background-color: #2A3052; }
-  .barspinner.white > div {
-    background-color: #fff; }
-  .barspinner .rect1 {
-    -webkit-animation-delay: -1.2s;
-    animation-delay: -1.2s; }
-  .barspinner .rect2 {
-    -webkit-animation-delay: -1.1s;
-    animation-delay: -1.1s; }
-  .barspinner .rect3 {
-    -webkit-animation-delay: -1s;
-    animation-delay: -1s; }
-  .barspinner .rect4 {
-    -webkit-animation-delay: -0.9s;
-    animation-delay: -0.9s; }
-  .barspinner .rect5 {
-    -webkit-animation-delay: -0.8s;
-    animation-delay: -0.8s; }
-
-@keyframes sk-stretchdelay {
-  0%, 40%, 100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1); }
-  20% {
-    -webkit-transform: scaleY(2);
-    transform: scaleY(2); } }
-
-@-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1); }
-  20% {
-    -webkit-transform: scaleY(2);
-    transform: scaleY(2); } }
-
 .home {
   background-color: #F2F2F2; }
   .home.branding {
@@ -10592,6 +10468,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     .trade #trade-container bg-chart,
     .trade #trade-container bg-contract-summary,
     .trade #trade-container bg-digits,
+    .trade #trade-container bg-selected-tick,
     .trade #trade-container bg-longcode,
     .trade #trade-container bg-markets,
     .trade #trade-container bg-options,
@@ -10645,31 +10522,52 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
         .trade #trade-container bg-options .options ion-tab {
           color: #000; }
     .trade #trade-container bg-digits,
+    .trade #trade-container bg-selected-tick,
     .trade #trade-container bg-ticks {
       width: 100vw; }
       .trade #trade-container bg-digits .digits,
+      .trade #trade-container bg-digits .selected-tick,
       .trade #trade-container bg-digits .ticks,
+      .trade #trade-container bg-selected-tick .digits,
+      .trade #trade-container bg-selected-tick .selected-tick,
+      .trade #trade-container bg-selected-tick .ticks,
       .trade #trade-container bg-ticks .digits,
+      .trade #trade-container bg-ticks .selected-tick,
       .trade #trade-container bg-ticks .ticks {
         width: 100vw;
         display: flex; }
         .trade #trade-container bg-digits .digits .row,
+        .trade #trade-container bg-digits .selected-tick .row,
         .trade #trade-container bg-digits .ticks .row,
+        .trade #trade-container bg-selected-tick .digits .row,
+        .trade #trade-container bg-selected-tick .selected-tick .row,
+        .trade #trade-container bg-selected-tick .ticks .row,
         .trade #trade-container bg-ticks .digits .row,
+        .trade #trade-container bg-ticks .selected-tick .row,
         .trade #trade-container bg-ticks .ticks .row {
           display: flex;
           flex-direction: row; }
           .trade #trade-container bg-digits .digits .row .col,
+          .trade #trade-container bg-digits .selected-tick .row .col,
           .trade #trade-container bg-digits .ticks .row .col,
+          .trade #trade-container bg-selected-tick .digits .row .col,
+          .trade #trade-container bg-selected-tick .selected-tick .row .col,
+          .trade #trade-container bg-selected-tick .ticks .row .col,
           .trade #trade-container bg-ticks .digits .row .col,
+          .trade #trade-container bg-ticks .selected-tick .row .col,
           .trade #trade-container bg-ticks .ticks .row .col {
             display: flex;
             flex-grow: 1;
             padding: 0;
             margin: 0; }
             .trade #trade-container bg-digits .digits .row .col .button,
+            .trade #trade-container bg-digits .selected-tick .row .col .button,
             .trade #trade-container bg-digits .ticks .row .col .button,
+            .trade #trade-container bg-selected-tick .digits .row .col .button,
+            .trade #trade-container bg-selected-tick .selected-tick .row .col .button,
+            .trade #trade-container bg-selected-tick .ticks .row .col .button,
             .trade #trade-container bg-ticks .digits .row .col .button,
+            .trade #trade-container bg-ticks .selected-tick .row .col .button,
             .trade #trade-container bg-ticks .ticks .row .col .button {
               padding: 0;
               margin: 0;
@@ -11072,6 +10970,25 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
               color: #fff !important;
               background: #2E8836 !important;
               border-color: #2E8836 !important; }
+    .trade #trade-container bg-tick-result {
+      padding: 5px;
+      max-height: 75px;
+      margin: 0 auto;
+      width: 100%; }
+      .trade #trade-container bg-tick-result .tick-result {
+        border: 1px solid #DEDEDE;
+        background: #fff;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        color: #000;
+        padding: 5px 0; }
+        .trade #trade-container bg-tick-result .tick-result .col {
+          padding: 0 !important; }
+        .trade #trade-container bg-tick-result .tick-result .number-rec {
+          display: inline-block;
+          border-radius: 2px;
+          font-size: 0.9rem; }
 
 .modal {
   opacity: 0.95;
@@ -11088,6 +11005,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     .modal ion-content .scroll {
       height: 100% !important; }
   .modal bg-digits,
+  .modal bg-selected-tick,
   .modal bg-markets,
   .modal bg-ticks,
   .modal bg-tradetypes,
@@ -11103,38 +11021,51 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     display: flex;
     align-items: center; }
     .modal bg-digits .ionic-scroll,
+    .modal bg-selected-tick .ionic-scroll,
     .modal bg-markets .ionic-scroll,
     .modal bg-ticks .ionic-scroll,
     .modal bg-tradetypes .ionic-scroll,
     .modal bg-underlyings .ionic-scroll {
       min-height: 30px; }
       .modal bg-digits .ionic-scroll .scroll,
+      .modal bg-selected-tick .ionic-scroll .scroll,
       .modal bg-markets .ionic-scroll .scroll,
       .modal bg-ticks .ionic-scroll .scroll,
       .modal bg-tradetypes .ionic-scroll .scroll,
       .modal bg-underlyings .ionic-scroll .scroll {
         min-height: 30px; }
     .modal bg-digits .digits,
+    .modal bg-digits .selected-tick,
     .modal bg-digits .markets,
     .modal bg-digits .ticks,
     .modal bg-digits .trade-types,
     .modal bg-digits .underlyings,
+    .modal bg-selected-tick .digits,
+    .modal bg-selected-tick .selected-tick,
+    .modal bg-selected-tick .markets,
+    .modal bg-selected-tick .ticks,
+    .modal bg-selected-tick .trade-types,
+    .modal bg-selected-tick .underlyings,
     .modal bg-markets .digits,
+    .modal bg-markets .selected-tick,
     .modal bg-markets .markets,
     .modal bg-markets .ticks,
     .modal bg-markets .trade-types,
     .modal bg-markets .underlyings,
     .modal bg-ticks .digits,
+    .modal bg-ticks .selected-tick,
     .modal bg-ticks .markets,
     .modal bg-ticks .ticks,
     .modal bg-ticks .trade-types,
     .modal bg-ticks .underlyings,
     .modal bg-tradetypes .digits,
+    .modal bg-tradetypes .selected-tick,
     .modal bg-tradetypes .markets,
     .modal bg-tradetypes .ticks,
     .modal bg-tradetypes .trade-types,
     .modal bg-tradetypes .underlyings,
     .modal bg-underlyings .digits,
+    .modal bg-underlyings .selected-tick,
     .modal bg-underlyings .markets,
     .modal bg-underlyings .ticks,
     .modal bg-underlyings .trade-types,
@@ -11148,26 +11079,37 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
       align-items: center;
       height: 100%; }
       .modal bg-digits .digits .row,
+      .modal bg-digits .selected-tick .row,
       .modal bg-digits .markets .row,
       .modal bg-digits .ticks .row,
       .modal bg-digits .trade-types .row,
       .modal bg-digits .underlyings .row,
+      .modal bg-selected-tick .digits .row,
+      .modal bg-selected-tick .selected-tick .row,
+      .modal bg-selected-tick .markets .row,
+      .modal bg-selected-tick .ticks .row,
+      .modal bg-selected-tick .trade-types .row,
+      .modal bg-selected-tick .underlyings .row,
       .modal bg-markets .digits .row,
+      .modal bg-markets .selected-tick .row,
       .modal bg-markets .markets .row,
       .modal bg-markets .ticks .row,
       .modal bg-markets .trade-types .row,
       .modal bg-markets .underlyings .row,
       .modal bg-ticks .digits .row,
+      .modal bg-ticks .selected-tick .row,
       .modal bg-ticks .markets .row,
       .modal bg-ticks .ticks .row,
       .modal bg-ticks .trade-types .row,
       .modal bg-ticks .underlyings .row,
       .modal bg-tradetypes .digits .row,
+      .modal bg-tradetypes .selected-tick .row,
       .modal bg-tradetypes .markets .row,
       .modal bg-tradetypes .ticks .row,
       .modal bg-tradetypes .trade-types .row,
       .modal bg-tradetypes .underlyings .row,
       .modal bg-underlyings .digits .row,
+      .modal bg-underlyings .selected-tick .row,
       .modal bg-underlyings .markets .row,
       .modal bg-underlyings .ticks .row,
       .modal bg-underlyings .trade-types .row,
@@ -11181,26 +11123,37 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
         flex-direction: row;
         flex-wrap: wrap; }
         .modal bg-digits .digits .row .col,
+        .modal bg-digits .selected-tick .row .col,
         .modal bg-digits .markets .row .col,
         .modal bg-digits .ticks .row .col,
         .modal bg-digits .trade-types .row .col,
         .modal bg-digits .underlyings .row .col,
+        .modal bg-selected-tick .digits .row .col,
+        .modal bg-selected-tick .selected-tick .row .col,
+        .modal bg-selected-tick .markets .row .col,
+        .modal bg-selected-tick .ticks .row .col,
+        .modal bg-selected-tick .trade-types .row .col,
+        .modal bg-selected-tick .underlyings .row .col,
         .modal bg-markets .digits .row .col,
+        .modal bg-markets .selected-tick .row .col,
         .modal bg-markets .markets .row .col,
         .modal bg-markets .ticks .row .col,
         .modal bg-markets .trade-types .row .col,
         .modal bg-markets .underlyings .row .col,
         .modal bg-ticks .digits .row .col,
+        .modal bg-ticks .selected-tick .row .col,
         .modal bg-ticks .markets .row .col,
         .modal bg-ticks .ticks .row .col,
         .modal bg-ticks .trade-types .row .col,
         .modal bg-ticks .underlyings .row .col,
         .modal bg-tradetypes .digits .row .col,
+        .modal bg-tradetypes .selected-tick .row .col,
         .modal bg-tradetypes .markets .row .col,
         .modal bg-tradetypes .ticks .row .col,
         .modal bg-tradetypes .trade-types .row .col,
         .modal bg-tradetypes .underlyings .row .col,
         .modal bg-underlyings .digits .row .col,
+        .modal bg-underlyings .selected-tick .row .col,
         .modal bg-underlyings .markets .row .col,
         .modal bg-underlyings .ticks .row .col,
         .modal bg-underlyings .trade-types .row .col,
@@ -11215,52 +11168,74 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           align-items: center;
           display: flex; }
           .modal bg-digits .digits .row .col:first-child,
+          .modal bg-digits .selected-tick .row .col:first-child,
           .modal bg-digits .markets .row .col:first-child,
           .modal bg-digits .ticks .row .col:first-child,
           .modal bg-digits .trade-types .row .col:first-child,
           .modal bg-digits .underlyings .row .col:first-child,
+          .modal bg-selected-tick .digits .row .col:first-child,
+          .modal bg-selected-tick .selected-tick .row .col:first-child,
+          .modal bg-selected-tick .markets .row .col:first-child,
+          .modal bg-selected-tick .ticks .row .col:first-child,
+          .modal bg-selected-tick .trade-types .row .col:first-child,
+          .modal bg-selected-tick .underlyings .row .col:first-child,
           .modal bg-markets .digits .row .col:first-child,
+          .modal bg-markets .selected-tick .row .col:first-child,
           .modal bg-markets .markets .row .col:first-child,
           .modal bg-markets .ticks .row .col:first-child,
           .modal bg-markets .trade-types .row .col:first-child,
           .modal bg-markets .underlyings .row .col:first-child,
           .modal bg-ticks .digits .row .col:first-child,
+          .modal bg-ticks .selected-tick .row .col:first-child,
           .modal bg-ticks .markets .row .col:first-child,
           .modal bg-ticks .ticks .row .col:first-child,
           .modal bg-ticks .trade-types .row .col:first-child,
           .modal bg-ticks .underlyings .row .col:first-child,
           .modal bg-tradetypes .digits .row .col:first-child,
+          .modal bg-tradetypes .selected-tick .row .col:first-child,
           .modal bg-tradetypes .markets .row .col:first-child,
           .modal bg-tradetypes .ticks .row .col:first-child,
           .modal bg-tradetypes .trade-types .row .col:first-child,
           .modal bg-tradetypes .underlyings .row .col:first-child,
           .modal bg-underlyings .digits .row .col:first-child,
+          .modal bg-underlyings .selected-tick .row .col:first-child,
           .modal bg-underlyings .markets .row .col:first-child,
           .modal bg-underlyings .ticks .row .col:first-child,
           .modal bg-underlyings .trade-types .row .col:first-child,
           .modal bg-underlyings .underlyings .row .col:first-child {
             border-top: none; }
           .modal bg-digits .digits .row .col:last-child,
+          .modal bg-digits .selected-tick .row .col:last-child,
           .modal bg-digits .markets .row .col:last-child,
           .modal bg-digits .ticks .row .col:last-child,
           .modal bg-digits .trade-types .row .col:last-child,
           .modal bg-digits .underlyings .row .col:last-child,
+          .modal bg-selected-tick .digits .row .col:last-child,
+          .modal bg-selected-tick .selected-tick .row .col:last-child,
+          .modal bg-selected-tick .markets .row .col:last-child,
+          .modal bg-selected-tick .ticks .row .col:last-child,
+          .modal bg-selected-tick .trade-types .row .col:last-child,
+          .modal bg-selected-tick .underlyings .row .col:last-child,
           .modal bg-markets .digits .row .col:last-child,
+          .modal bg-markets .selected-tick .row .col:last-child,
           .modal bg-markets .markets .row .col:last-child,
           .modal bg-markets .ticks .row .col:last-child,
           .modal bg-markets .trade-types .row .col:last-child,
           .modal bg-markets .underlyings .row .col:last-child,
           .modal bg-ticks .digits .row .col:last-child,
+          .modal bg-ticks .selected-tick .row .col:last-child,
           .modal bg-ticks .markets .row .col:last-child,
           .modal bg-ticks .ticks .row .col:last-child,
           .modal bg-ticks .trade-types .row .col:last-child,
           .modal bg-ticks .underlyings .row .col:last-child,
           .modal bg-tradetypes .digits .row .col:last-child,
+          .modal bg-tradetypes .selected-tick .row .col:last-child,
           .modal bg-tradetypes .markets .row .col:last-child,
           .modal bg-tradetypes .ticks .row .col:last-child,
           .modal bg-tradetypes .trade-types .row .col:last-child,
           .modal bg-tradetypes .underlyings .row .col:last-child,
           .modal bg-underlyings .digits .row .col:last-child,
+          .modal bg-underlyings .selected-tick .row .col:last-child,
           .modal bg-underlyings .markets .row .col:last-child,
           .modal bg-underlyings .ticks .row .col:last-child,
           .modal bg-underlyings .trade-types .row .col:last-child,
@@ -11268,6 +11243,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             border-bottom: none; }
           .modal bg-digits .digits .row .col .button,
           .modal bg-digits .digits .row .col a,
+          .modal bg-digits .selected-tick .row .col .button,
+          .modal bg-digits .selected-tick .row .col a,
           .modal bg-digits .markets .row .col .button,
           .modal bg-digits .markets .row .col a,
           .modal bg-digits .ticks .row .col .button,
@@ -11276,8 +11253,22 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           .modal bg-digits .trade-types .row .col a,
           .modal bg-digits .underlyings .row .col .button,
           .modal bg-digits .underlyings .row .col a,
+          .modal bg-selected-tick .digits .row .col .button,
+          .modal bg-selected-tick .digits .row .col a,
+          .modal bg-selected-tick .selected-tick .row .col .button,
+          .modal bg-selected-tick .selected-tick .row .col a,
+          .modal bg-selected-tick .markets .row .col .button,
+          .modal bg-selected-tick .markets .row .col a,
+          .modal bg-selected-tick .ticks .row .col .button,
+          .modal bg-selected-tick .ticks .row .col a,
+          .modal bg-selected-tick .trade-types .row .col .button,
+          .modal bg-selected-tick .trade-types .row .col a,
+          .modal bg-selected-tick .underlyings .row .col .button,
+          .modal bg-selected-tick .underlyings .row .col a,
           .modal bg-markets .digits .row .col .button,
           .modal bg-markets .digits .row .col a,
+          .modal bg-markets .selected-tick .row .col .button,
+          .modal bg-markets .selected-tick .row .col a,
           .modal bg-markets .markets .row .col .button,
           .modal bg-markets .markets .row .col a,
           .modal bg-markets .ticks .row .col .button,
@@ -11288,6 +11279,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           .modal bg-markets .underlyings .row .col a,
           .modal bg-ticks .digits .row .col .button,
           .modal bg-ticks .digits .row .col a,
+          .modal bg-ticks .selected-tick .row .col .button,
+          .modal bg-ticks .selected-tick .row .col a,
           .modal bg-ticks .markets .row .col .button,
           .modal bg-ticks .markets .row .col a,
           .modal bg-ticks .ticks .row .col .button,
@@ -11298,6 +11291,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           .modal bg-ticks .underlyings .row .col a,
           .modal bg-tradetypes .digits .row .col .button,
           .modal bg-tradetypes .digits .row .col a,
+          .modal bg-tradetypes .selected-tick .row .col .button,
+          .modal bg-tradetypes .selected-tick .row .col a,
           .modal bg-tradetypes .markets .row .col .button,
           .modal bg-tradetypes .markets .row .col a,
           .modal bg-tradetypes .ticks .row .col .button,
@@ -11308,6 +11303,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
           .modal bg-tradetypes .underlyings .row .col a,
           .modal bg-underlyings .digits .row .col .button,
           .modal bg-underlyings .digits .row .col a,
+          .modal bg-underlyings .selected-tick .row .col .button,
+          .modal bg-underlyings .selected-tick .row .col a,
           .modal bg-underlyings .markets .row .col .button,
           .modal bg-underlyings .markets .row .col a,
           .modal bg-underlyings .ticks .row .col .button,
@@ -11328,6 +11325,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             padding: 10px 5px; }
             .modal bg-digits .digits .row .col .button:hover,
             .modal bg-digits .digits .row .col a:hover,
+            .modal bg-digits .selected-tick .row .col .button:hover,
+            .modal bg-digits .selected-tick .row .col a:hover,
             .modal bg-digits .markets .row .col .button:hover,
             .modal bg-digits .markets .row .col a:hover,
             .modal bg-digits .ticks .row .col .button:hover,
@@ -11336,8 +11335,22 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             .modal bg-digits .trade-types .row .col a:hover,
             .modal bg-digits .underlyings .row .col .button:hover,
             .modal bg-digits .underlyings .row .col a:hover,
+            .modal bg-selected-tick .digits .row .col .button:hover,
+            .modal bg-selected-tick .digits .row .col a:hover,
+            .modal bg-selected-tick .selected-tick .row .col .button:hover,
+            .modal bg-selected-tick .selected-tick .row .col a:hover,
+            .modal bg-selected-tick .markets .row .col .button:hover,
+            .modal bg-selected-tick .markets .row .col a:hover,
+            .modal bg-selected-tick .ticks .row .col .button:hover,
+            .modal bg-selected-tick .ticks .row .col a:hover,
+            .modal bg-selected-tick .trade-types .row .col .button:hover,
+            .modal bg-selected-tick .trade-types .row .col a:hover,
+            .modal bg-selected-tick .underlyings .row .col .button:hover,
+            .modal bg-selected-tick .underlyings .row .col a:hover,
             .modal bg-markets .digits .row .col .button:hover,
             .modal bg-markets .digits .row .col a:hover,
+            .modal bg-markets .selected-tick .row .col .button:hover,
+            .modal bg-markets .selected-tick .row .col a:hover,
             .modal bg-markets .markets .row .col .button:hover,
             .modal bg-markets .markets .row .col a:hover,
             .modal bg-markets .ticks .row .col .button:hover,
@@ -11348,6 +11361,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             .modal bg-markets .underlyings .row .col a:hover,
             .modal bg-ticks .digits .row .col .button:hover,
             .modal bg-ticks .digits .row .col a:hover,
+            .modal bg-ticks .selected-tick .row .col .button:hover,
+            .modal bg-ticks .selected-tick .row .col a:hover,
             .modal bg-ticks .markets .row .col .button:hover,
             .modal bg-ticks .markets .row .col a:hover,
             .modal bg-ticks .ticks .row .col .button:hover,
@@ -11358,6 +11373,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             .modal bg-ticks .underlyings .row .col a:hover,
             .modal bg-tradetypes .digits .row .col .button:hover,
             .modal bg-tradetypes .digits .row .col a:hover,
+            .modal bg-tradetypes .selected-tick .row .col .button:hover,
+            .modal bg-tradetypes .selected-tick .row .col a:hover,
             .modal bg-tradetypes .markets .row .col .button:hover,
             .modal bg-tradetypes .markets .row .col a:hover,
             .modal bg-tradetypes .ticks .row .col .button:hover,
@@ -11368,6 +11385,8 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
             .modal bg-tradetypes .underlyings .row .col a:hover,
             .modal bg-underlyings .digits .row .col .button:hover,
             .modal bg-underlyings .digits .row .col a:hover,
+            .modal bg-underlyings .selected-tick .row .col .button:hover,
+            .modal bg-underlyings .selected-tick .row .col a:hover,
             .modal bg-underlyings .markets .row .col .button:hover,
             .modal bg-underlyings .markets .row .col a:hover,
             .modal bg-underlyings .ticks .row .col .button:hover,
@@ -11566,7 +11585,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
         .profit-table .filters.jump-to-date-container .jump-to-date-content .jump-to-date input {
           background: #fff;
           font-size: 1rem;
-          line-height: 1.5rem;
+          line-height: normal;
           padding: 0;
           max-width: 150px;
           padding-left: 5px;
@@ -11620,7 +11639,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   color: #000; }
 
 .transaction-detail .reference {
-  font-size: 1.5rem;
+  font-size: 1rem;
   border-bottom: 2px solid #000;
   padding: 5px 0; }
 
@@ -11642,7 +11661,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
     display: flex;
     flex-grow: 1;
     padding: 0;
-    font-size: 1rem; }
+    font-size: 0.9rem; }
     .transaction-detail ul.statement-list .statement-element.last-statement-element {
       display: block; }
 
@@ -11812,7 +11831,7 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
       text-transform: capitalize; }
   .asset-index form label,
   .asset-index form select {
-    line-height: inherit !important; }
+    line-height: normal; }
 
 .asset-index .table-container {
   overflow-x: scroll; }
@@ -11875,6 +11894,15 @@ ion-subheader-bar.bar.bar-subheader.bar-positive {
   .mt5-web ion-content iframe {
     width: 100%;
     height: 100%; }
+
+.meta-trader .meta-trader-accounts .meta-trader-accounts-list .meta-trader-account-title {
+  background: #2A3052;
+  color: #fff; }
+
+.meta-trader .meta-trader-accounts .meta-trader-accounts-list .meta-trader-account-info span {
+  font-size: 0.8rem; }
+  .meta-trader .meta-trader-accounts .meta-trader-accounts-list .meta-trader-account-info span.right {
+    float: right; }
 
 .notification {
   padding: 5px 10px;

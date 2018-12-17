@@ -50,13 +50,16 @@
     "up_down": "crwdns17726:0crwdne17726:0",
     "higher_lower": "crwdns33565:0crwdne33565:0",
     "rise_fall": "crwdns33566:0crwdne33566:0",
+    "high_low_ticks": "crwdns46226:0crwdne46226:0",
     "markets_are_closed": "crwdns17727:0crwdne17727:0",
     "cancel": "crwdns19509:0crwdne19509:0",
     "select_market": "crwdns29653:0crwdne29653:0",
     "select_underlying": "crwdns19510:0crwdne19510:0",
     "select_tradetype": "crwdns19511:0crwdne19511:0",
     "select_tick": "crwdns19512:0crwdne19512:0",
-    "select_digit": "crwdns19513:0crwdne19513:0"
+    "select_digit": "crwdns19513:0crwdne19513:0",
+    "selected_tick": "crwdns46227:0crwdne46227:0",
+    "last_digit": "crwdns46228:0crwdne46228:0"
   },
   "trade": {
     "payout": "crwdns17728:0crwdne17728:0",
@@ -74,7 +77,8 @@
     "buy_again": "crwdns17746:0crwdne17746:0",
     "sell": "crwdns17747:0crwdne17747:0",
     "barrier": "crwdns44923:0crwdne44923:0",
-    "return": "crwdns44602:0crwdne44602:0"
+    "return": "crwdns44602:0crwdne44602:0",
+    "tick": "crwdns46229:0crwdne46229:0"
   },
   "app": {
     "exit_title": "crwdns17756:0crwdne17756:0",
@@ -135,6 +139,7 @@
     "date_of_birth": "crwdns42610:0crwdne42610:0",
     "residence": "crwdns42611:0crwdne42611:0",
     "place_of_birth": "crwdns42612:0crwdne42612:0",
+    "citizenship": "crwdns46389:0crwdne46389:0",
     "tax_residence": "crwdns42613:0crwdne42613:0",
     "tax_identification_number": "crwdns44955:0crwdne44955:0",
     "address_line_1": "crwdns42616:0crwdne42616:0",
@@ -156,7 +161,7 @@
     "maxlength_error": "crwdns42706:0{{max}}crwdne42706:0",
     "address_pattern_error": "crwdns44959:0crwdne44959:0",
     "postcode_pattern_error": "crwdns44960:0crwdne44960:0",
-    "phone_pattern_error": "crwdns44961:0crwdne44961:0",
+    "phone_pattern_error": "crwdns51228:0crwdne51228:0",
     "tax_identification_number_pattern_error": "crwdns44962:0crwdne44962:0",
     "continue": "crwdns42712:0crwdne42712:0",
     "cancel": "crwdns42713:0crwdne42713:0",
@@ -194,14 +199,18 @@
     "read_more": "crwdns44878:0crwdne44878:0",
     "required_to_collect_tin": "crwdns44879:0crwdne44879:0",
     "required_to_obtain_information": "crwdns44880:0crwdne44880:0",
-    "on_the_basis_of_information": "crwdns44881:0crwdne44881:0",
+    "on_the_basis_of_information": "crwdns45947:0crwdne45947:0",
+    "appropriateness_test": "crwdns45948:0crwdne45948:0",
+    "warning": "crwdns45949:0crwdne45949:0",
     "by_clicking": "crwdns44882:0crwdne44882:0",
     "accept": "crwdns44883:0crwdne44883:0",
     "exposing_at_risk": "crwdns44884:0crwdne44884:0",
     "decline": "crwdns44885:0crwdne44885:0",
     "secret_question": "crwdns45172:0crwdne45172:0",
     "secret_answer": "crwdns45173:0crwdne45173:0",
-    "secret_answer_pattern_error": "crwdns45843:0crwdne45843:0"
+    "secret_answer_pattern_error": "crwdns45843:0crwdne45843:0",
+    "confirm_tax_info": "crwdns46262:0crwdne46262:0",
+    "multi_tax_residence_info": "crwdns46263:0crwdne46263:0"
   },
   "new-account-real": {
     "real_account_opening": "crwdns42739:0crwdne42739:0",
@@ -214,6 +223,7 @@
     "date_of_birth": "crwdns42748:0crwdne42748:0",
     "residence": "crwdns42749:0crwdne42749:0",
     "place_of_birth": "crwdns42750:0crwdne42750:0",
+    "citizenship": "crwdns46390:0crwdne46390:0",
     "address_line_1": "crwdns42751:0crwdne42751:0",
     "address_line_2": "crwdns42752:0crwdne42752:0",
     "address_city": "crwdns42753:0crwdne42753:0",
@@ -233,7 +243,7 @@
     "maxlength_error": "crwdns42780:0{{max}}crwdne42780:0",
     "address_pattern_error": "crwdns44974:0crwdne44974:0",
     "postcode_pattern_error": "crwdns44975:0crwdne44975:0",
-    "phone_pattern_error": "crwdns44976:0crwdne44976:0",
+    "phone_pattern_error": "crwdns51230:0crwdne51230:0",
     "secret_answer_pattern_error": "crwdns44977:0crwdne44977:0",
     "required": "crwdns42785:0crwdne42785:0",
     "not_pep_verify": "crwdns44887:0crwdne44887:0",
@@ -254,8 +264,11 @@
     "go": "crwdns44987:0crwdne44987:0"
   },
   "transaction-details": {
-    "contract_id": "crwdns44988:0crwdne44988:0",
     "ref": "crwdns44989:0crwdne44989:0",
+    "contract_type": "crwdns46230:0crwdne46230:0",
+    "transaction_id": "crwdns46231:0crwdne46231:0",
+    "buy": "crwdns46232:0crwdne46232:0",
+    "sell": "crwdns46233:0crwdne46233:0",
     "start_time": "crwdns44990:0crwdne44990:0",
     "entry_spot": "crwdns44991:0crwdne44991:0",
     "barrier": "crwdns44992:0crwdne44992:0",
@@ -265,7 +278,35 @@
     "exit_spot_time": "crwdns44996:0crwdne44996:0",
     "sell_price": "crwdns44997:0crwdne44997:0",
     "profit_loss": "crwdns44998:0crwdne44998:0",
-    "end_time": "crwdns44999:0crwdne44999:0"
+    "end_time": "crwdns44999:0crwdne44999:0",
+    "ASIANU": "crwdns46234:0crwdne46234:0",
+    "ASIAND": "crwdns46235:0crwdne46235:0",
+    "CALL": "crwdns46236:0crwdne46236:0",
+    "CALLE": "crwdns46237:0crwdne46237:0",
+    "PUT": "crwdns46238:0crwdne46238:0",
+    "PUTE": "crwdns46239:0crwdne46239:0",
+    "DIGITMATCH": "crwdns46240:0crwdne46240:0",
+    "DIGITDIFF": "crwdns46241:0crwdne46241:0",
+    "DIGITODD": "crwdns46242:0crwdne46242:0",
+    "DIGITEVEN": "crwdns46243:0crwdne46243:0",
+    "DIGITOVER": "crwdns46244:0crwdne46244:0",
+    "DIGITUNDER": "crwdns46245:0crwdne46245:0",
+    "EXPIRYMISS": "crwdns46246:0crwdne46246:0",
+    "EXPIRYRANGE": "crwdns46247:0crwdne46247:0",
+    "EXPIRYRANGEE": "crwdns46248:0crwdne46248:0",
+    "LBFLOATCALL": "crwdns46249:0crwdne46249:0",
+    "LBFLOATPUT": "crwdns46250:0crwdne46250:0",
+    "LBHIGHLOW": "crwdns46251:0crwdne46251:0",
+    "RANGE": "crwdns46252:0crwdne46252:0",
+    "RESETCALL": "crwdns46253:0crwdne46253:0",
+    "RESETPUT": "crwdns46254:0crwdne46254:0",
+    "UPORDOWN": "crwdns46255:0crwdne46255:0",
+    "ONETOUCH": "crwdns46256:0crwdne46256:0",
+    "NOTOUCH": "crwdns46257:0crwdne46257:0",
+    "CALLSPREAD": "crwdns46258:0crwdne46258:0",
+    "PUTSPREAD": "crwdns46259:0crwdne46259:0",
+    "TICKHIGH": "crwdns46260:0crwdne46260:0",
+    "TICKLOW": "crwdns46261:0crwdne46261:0"
   },
   "statement": {
     "statement": "crwdns17980:0crwdne17980:0",
@@ -305,7 +346,8 @@
     "self_exclusion": "crwdns45007:0crwdne45007:0",
     "change_password": "crwdns45008:0crwdne45008:0",
     "financial_assessment": "crwdns45009:0crwdne45009:0",
-    "limits": "crwdns19267:0crwdne19267:0"
+    "limits": "crwdns19267:0crwdne19267:0",
+    "account_categorisation": "crwdns45928:0crwdne45928:0"
   },
   "self-exclusion": {
     "self_exclusion": "crwdns45010:0crwdne45010:0",
@@ -340,7 +382,9 @@
     "save_prompt": "crwdns45039:0crwdne45039:0",
     "session_timeout_warning": "crwdns45040:0crwdne45040:0",
     "success": "crwdns18039:0crwdne18039:0",
-    "warning": "crwdns19405:0crwdne19405:0"
+    "warning": "crwdns19405:0crwdne19405:0",
+    "not_zero": "crwdns45950:0crwdne45950:0",
+    "error": "crwdns45951:0crwdne45951:0"
   },
   "profile": {
     "personal_details": "crwdns18040:0crwdne18040:0",
@@ -361,13 +405,14 @@
     "tax_residence": "crwdns19449:0crwdne19449:0",
     "tax_identification_number": "crwdns45043:0crwdne45043:0",
     "place_of_birth": "crwdns19427:0crwdne19427:0",
+    "citizenship": "crwdns46391:0crwdne46391:0",
     "select": "crwdns19428:0crwdne19428:0",
     "general_pattern_error": "crwdns45044:0crwdne45044:0",
     "address_pattern_error": "crwdns45045:0crwdne45045:0",
     "maxlength_error": "crwdns42795:0{{max}}crwdne42795:0",
     "range_length_error": "crwdns45046:0{{min}}crwdnd45046:0{{max}}crwdne45046:0",
     "postcode_pattern_error": "crwdns45047:0crwdne45047:0",
-    "phone_pattern_error": "crwdns45048:0crwdne45048:0",
+    "phone_pattern_error": "crwdns51232:0crwdne51232:0",
     "tax_identification_number_pattern_error": "crwdns45049:0crwdne45049:0",
     "cancel": "crwdns19516:0crwdne19516:0",
     "continue": "crwdns19517:0crwdne19517:0",
@@ -391,7 +436,8 @@
     "version": "crwdns18149:0crwdne18149:0"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "crwdns19069:0crwdne19069:0"
+    "your_version_is_out_of_date_please_update": "crwdns19069:0crwdne19069:0",
+    "download_the_android_app": "crwdns51296:0crwdne51296:0"
   },
   "change-password": {
     "change_password": "crwdns19094:0crwdne19094:0",
@@ -492,21 +538,22 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "crwdns19575:0crwdne19575:0",
-    "create_account": "crwdns19576:0crwdne19576:0",
-    "feature_is_not_available": "crwdns19577:0crwdne19577:0",
+    "create_account": "crwdns45885:0crwdne45885:0",
+    "feature_is_not_available": "crwdns45886:0crwdne45886:0",
     "meta_trader_accounts": "crwdns19578:0crwdne19578:0",
     "demo_account": "crwdns19579:0crwdne19579:0",
-    "financial_account": "crwdns19580:0crwdne19580:0",
-    "volatility_account": "crwdns19581:0crwdne19581:0",
-    "upgrade_financial_account": "crwdns19582:0crwdne19582:0",
-    "upgrade_volatility_account": "crwdns19583:0crwdne19583:0",
-    "create_financial_account": "crwdns19633:0crwdne19633:0",
-    "create_volatility_account": "crwdns19634:0crwdne19634:0",
-    "create_demo_account": "crwdns19584:0crwdne19584:0",
-    "login_id": "crwdns19585:0crwdne19585:0",
+    "real_money_account": "crwdns45887:0crwdne45887:0",
+    "login": "crwdns45888:0crwdne45888:0",
     "balance": "crwdns19586:0crwdne19586:0",
     "name": "crwdns19587:0crwdne19587:0",
-    "start_trading_with_mt5": "crwdns19588:0crwdne19588:0"
+    "start_trading_with_mt5": "crwdns19588:0crwdne19588:0",
+    "upgrade_real_account": "crwdns45953:0crwdne45953:0",
+    "standard": "crwdns45890:0crwdne45890:0",
+    "advanced": "crwdns45891:0crwdne45891:0",
+    "mam_advanced": "crwdns45892:0crwdne45892:0",
+    "volatility_indices": "crwdns45893:0crwdne45893:0",
+    "mam_volatility_indices": "crwdns45894:0crwdne45894:0",
+    "upgrade": "crwdns45954:0crwdne45954:0"
   },
   "authentication": {
     "authentication": "crwdns19680:0crwdne19680:0",
@@ -732,5 +779,15 @@
     "accept": "crwdns45840:0crwdne45840:0",
     "decline": "crwdns45841:0crwdne45841:0",
     "you_may_decline": "crwdns45842:0crwdne45842:0"
+  },
+  "account-categorisation": {
+    "account_categorisation": "crwdns45929:0crwdne45929:0",
+    "processing": "crwdns45930:0crwdne45930:0",
+    "professional": "crwdns45931:0crwdne45931:0",
+    "error": "crwdns45932:0crwdne45932:0",
+    "retail_info": "crwdns45933:0crwdne45933:0",
+    "professional_client_verify": "crwdns45934:0crwdne45934:0",
+    "what_is_this": "crwdns45935:0crwdne45935:0",
+    "submit": "crwdns45936:0crwdne45936:0"
   }
 }

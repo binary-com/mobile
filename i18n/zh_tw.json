@@ -50,13 +50,16 @@
     "up_down": "上漲/下跌",
     "higher_lower": "高於/低於",
     "rise_fall": "上漲/下跌",
+    "high_low_ticks": "高/低跳動點",
     "markets_are_closed": "抱歉，所有市場現已關閉。請稍後重試。",
     "cancel": "取消",
     "select_market": "選擇市場",
     "select_underlying": "選擇基礎",
     "select_tradetype": "選擇交易類型",
     "select_tick": "選擇跳動點",
-    "select_digit": "選擇位數"
+    "select_digit": "選擇位數",
+    "selected_tick": "選定跳動點",
+    "last_digit": "最後數位"
   },
   "trade": {
     "payout": "賠付額",
@@ -74,7 +77,8 @@
     "buy_again": "重購",
     "sell": "賣出",
     "barrier": "障礙偏移量",
-    "return": "回報"
+    "return": "回報",
+    "tick": "跳動點"
   },
   "app": {
     "exit_title": "退出",
@@ -135,6 +139,7 @@
     "date_of_birth": "出生日期",
     "residence": "居住國",
     "place_of_birth": "出生地",
+    "citizenship": "公民身份",
     "tax_residence": "納稅居留地",
     "tax_identification_number": "稅務識別號",
     "address_line_1": "家庭地址第一行",
@@ -156,7 +161,7 @@
     "maxlength_error": "此欄位最多可以有 {{max}} 個字元。",
     "address_pattern_error": "僅允許字母、數字、空格和這些特殊字元: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "只允許字母、數字和連字符。",
-    "phone_pattern_error": "只允许數字和空格。",
+    "phone_pattern_error": "只允許數字、空格和連字符。",
     "tax_identification_number_pattern_error": "只允許字母、數字和連字符。",
     "continue": "繼續",
     "cancel": "取消",
@@ -195,13 +200,17 @@
     "required_to_collect_tin": "Binary投資 (歐洲) 有限公司需要收集您的稅務資訊。",
     "required_to_obtain_information": "為了給您提供服務，我們需要向您獲取資訊，以便評估某項產品或服務是否適合您（也就是說，要看您是否擁有足夠的經驗和知識來了解相關的風險）。",
     "on_the_basis_of_information": "根據您所提供的知識和經驗相關資訊，我們認為此網站的投資活動對您來說並不合適。",
+    "appropriateness_test": "合適性測試: ",
+    "warning": "警告：",
     "by_clicking": "通過點選 ",
     "accept": "接受",
     "exposing_at_risk": "以下並繼續開立帳戶，請注意您可能會冒一些風險（可能很嚴重，甚至損失整個投資資金），而您可能缺乏正確評估或化解風險的知識及經驗.",
     "decline": "下降",
     "secret_question": "密碼提示問題",
     "secret_answer": "密碼提示問題的答案",
-    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
+    "secret_answer_pattern_error": "只允許字母、數字、空格、連字號、句號和所有格號。",
+    "confirm_tax_info": "我特此確認, 我提供的稅務資訊是真實和完整的。將來如果此資訊有任何更改，我將會通知Binary投資 (歐洲) 有限公司。",
+    "multi_tax_residence_info": "您可能被一個以上管轄區視為納稅居民。請諮詢您的稅務顧問, 並驗證您的稅務資訊是正確的。"
   },
   "new-account-real": {
     "real_account_opening": "開立真實資金帳戶",
@@ -214,6 +223,7 @@
     "date_of_birth": "出生日期",
     "residence": "居住國",
     "place_of_birth": "出生地",
+    "citizenship": "公民身份",
     "address_line_1": "家庭地址第一行",
     "address_line_2": "家庭地址第二行",
     "address_city": "城鎮/城市",
@@ -233,7 +243,7 @@
     "maxlength_error": "此欄位最多可以有 {{max}} 個字元。",
     "address_pattern_error": "僅允許字母、數字、空格和這些特殊字元: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "只允許字母、數字和連字符。",
-    "phone_pattern_error": "只允许數字和空格。",
+    "phone_pattern_error": "只允許數字、空格和連字符。",
     "secret_answer_pattern_error": "只允許字母、數字、空格、連字號、句號和所有格號。",
     "required": "此為必填欄位。",
     "not_pep_verify": "我聲明本人不是政治公眾人士(PEP)。",
@@ -254,8 +264,11 @@
     "go": "開始"
   },
   "transaction-details": {
-    "contract_id": "合約編號:",
     "ref": "身份參考號",
+    "contract_type": "合約類型",
+    "transaction_id": "交易ID",
+    "buy": "買入",
+    "sell": "賣出",
     "start_time": "開始時間",
     "entry_spot": "入市現價",
     "barrier": "障礙",
@@ -265,7 +278,35 @@
     "exit_spot_time": "退市現價時間",
     "sell_price": "賣出價格",
     "profit_loss": "利潤/虧損",
-    "end_time": "結束時間"
+    "end_time": "結束時間",
+    "ASIANU": "亞洲上漲",
+    "ASIAND": "亞洲下跌",
+    "CALL": "高於",
+    "CALLE": "高於或等於",
+    "PUT": "低於",
+    "PUTE": "低於或等值",
+    "DIGITMATCH": "數字匹配",
+    "DIGITDIFF": "數字不匹配",
+    "DIGITODD": "數字為奇數",
+    "DIGITEVEN": "數字為偶數",
+    "DIGITOVER": "數字超過限額",
+    "DIGITUNDER": "數字低於限額",
+    "EXPIRYMISS": "區間之外結束",
+    "EXPIRYRANGE": "區間之內結束",
+    "EXPIRYRANGEE": "區間之內結束",
+    "LBFLOATCALL": "收盤-低",
+    "LBFLOATPUT": "最高值-收盤值",
+    "LBHIGHLOW": "最高值-最低值",
+    "RANGE": "位於區間之內",
+    "RESETCALL": "重設買權",
+    "RESETPUT": "重設賣權",
+    "UPORDOWN": "處於區間之外",
+    "ONETOUCH": "觸及",
+    "NOTOUCH": "未觸及",
+    "CALLSPREAD": "買權價差",
+    "PUTSPREAD": "賣權價差",
+    "TICKHIGH": "高跳動點",
+    "TICKLOW": "低跳動點"
   },
   "statement": {
     "statement": "帳單",
@@ -305,7 +346,8 @@
     "self_exclusion": "自我禁止",
     "change_password": "更改密碼",
     "financial_assessment": "財務評估",
-    "limits": "限額"
+    "limits": "限額",
+    "account_categorisation": "帳戶分類"
   },
   "self-exclusion": {
     "self_exclusion": "自我禁止設施",
@@ -340,7 +382,9 @@
     "save_prompt": "內容已成功儲存",
     "session_timeout_warning": "交易期持續時間限制將於10秒內結束。",
     "success": "成功",
-    "warning": "警告"
+    "warning": "警告",
+    "not_zero": "值不能為0",
+    "error": "對不起，在處理您的請求時發生錯誤。"
   },
   "profile": {
     "personal_details": "個人詳細資訊",
@@ -361,13 +405,14 @@
     "tax_residence": "納稅居留地",
     "tax_identification_number": "稅務識別號",
     "place_of_birth": "出生地",
+    "citizenship": "公民身份",
     "select": "請選擇",
     "general_pattern_error": "只允許字母、空格、連字號、句號和所有格號。",
     "address_pattern_error": "僅允許字母、數字、空格和這些特殊字元: - . ' # ; : ( ) , @ /",
     "maxlength_error": "此欄位最多可以有 {{max}} 個字元。",
     "range_length_error": "此欄位必須為{{min}}-{{max}} 個字元。",
     "postcode_pattern_error": "只允許字母、數字和連字符。",
-    "phone_pattern_error": "只允许數字和空格。",
+    "phone_pattern_error": "只允許數字、空格和連字符。",
     "tax_identification_number_pattern_error": "只允許字母、數字和連字符。",
     "cancel": "取消",
     "continue": "繼續",
@@ -391,7 +436,8 @@
     "version": "版本"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "您的跳動點交易版本已過時。請更新應用程式到最新版本。"
+    "your_version_is_out_of_date_please_update": "您的跳動點交易版本已過時。請更新應用程式到最新版本。",
+    "download_the_android_app": "下載Android應用程式"
   },
   "change-password": {
     "change_password": "更改密碼",
@@ -492,21 +538,22 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "您沒有MetaTrader帳戶。請先開立帳戶，然後重試。",
-    "create_account": "開立MT5帳戶",
-    "feature_is_not_available": "對不起，此功能不可用。",
+    "create_account": "開立新帳戶",
+    "feature_is_not_available": "對不起，您的管轄權內無法使用此功能。",
     "meta_trader_accounts": "Meta Trader帳戶",
     "demo_account": "模擬帳戶",
-    "financial_account": "金融帳戶",
-    "volatility_account": "波動率指數帳戶",
-    "upgrade_financial_account": "如要開立MT5金融帳戶，請升級為Binary.com真實帳戶。",
-    "upgrade_volatility_account": "如要開立MT5波動率指數帳戶，請升級為Binary.com真實帳戶。",
-    "create_financial_account": "開立MT5金融帳戶",
-    "create_volatility_account": "開立MT5波動率帳戶",
-    "create_demo_account": "開立MT5虛擬帳戶",
-    "login_id": "登入ID",
+    "real_money_account": "真實資金帳戶",
+    "login": "登入",
     "balance": "餘額",
     "name": "姓名",
-    "start_trading_with_mt5": "開始用 MT5 交易"
+    "start_trading_with_mt5": "開始用 MT5 交易",
+    "upgrade_real_account": "如要開立MT5真實資金帳戶，請升級為Binary.com真實帳戶。",
+    "standard": "標準",
+    "advanced": "高階",
+    "mam_advanced": "MAM高級",
+    "volatility_indices": "波動率指數",
+    "mam_volatility_indices": "MAM波動率指數",
+    "upgrade": "升級"
   },
   "authentication": {
     "authentication": "驗證",
@@ -646,7 +693,7 @@
     "secondary": "次要",
     "tertiary": "三級",
     "salaried": "受薪雇員",
-    "self_employed": "Self-Employed",
+    "self_employed": "自雇者",
     "investment": "投資與分紅",
     "pension": "退休金",
     "net_income_1": "少於$25,000",
@@ -712,25 +759,35 @@
   },
   "pep-information": {
     "pep": "PEP 是什麼？",
-    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+    "what_is_pep": "政治公眾人士(PEP) 是被委託進行特出公眾任務的個人。此身份包括了其直系親屬和眾所周知為其親近的人，但不包括中級或初級官員。所指個人包括國家首長、部長、國會秘書、國會議員、法官、大使、高級政府官員、軍事高層官員、中央銀行的審計委員、國營企業董事等。以上各例的直系親屬也都屬於政治公眾人士，包括其配偶/伴侶、父母和孩子。再者，眾所周知的與政治公眾人士有親密關係的人士包括其商業合夥人也屬於政治公眾人士。一般來說，已經停止被委託進行特出公眾任務為期超過十二個月的個人不屬於政治公眾人士。"
   },
   "what-is-tax-information": {
-    "tax_information_title": "Tax Information",
+    "tax_information_title": "稅務資訊",
     "required_by": "此要求由《統一報告標準》 (CRS) 和《外國帳戶稅收遵守法》 (FATCA) 規定。",
     "please_enter": "請輸入您的 ",
     "tax_information": "稅務資訊",
     "to_continue": "繼續。",
     "information_will_be_safe": "請放心, 您的資訊將只用于 CRS/FATCA 報告, 並將給予安全保障。",
-    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+    "contact_for_clarification": "如果我們有理由相信您的稅務資訊不完整, 我們將與您聯繫, 以作澄清。"
   },
   "professional-client-confirmation": {
-    "professional_clients": "Professional Clients",
-    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
-    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
-    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
-    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
-    "accept": "Accept",
-    "decline": "Decline",
-    "you_may_decline": "Note: You may decline and continue as a Retail Client."
+    "professional_clients": "專業客戶",
+    "professional_clients_receive": "由於以下原因, 專業客戶會收到程度較低的用戶端保護:",
+    "posses_of_experience": "我們假定您擁有足夠的經驗、知識和專長，可自行決定投資, 並正確評估相關風險",
+    "appropriateness_test": "我們沒有義務進行適當性測試, 也沒有義務向您提供任何風險警告",
+    "keep_informed": "作為專業客戶, 您必須隨時將任何可能影響您狀態的更改通知我們。",
+    "accept": "接受",
+    "decline": "拒絕",
+    "you_may_decline": "注: 您可以拒絕並繼續保留零售客戶資格。"
+  },
+  "account-categorisation": {
+    "account_categorisation": "帳戶分類",
+    "processing": "您請求成為專業客戶的申請正在處理中。",
+    "professional": "您被歸類為專業客戶。",
+    "error": "對不起，在處理您的請求時發生錯誤。",
+    "retail_info": "預設情況下, 所有客戶都被視為零售。如果您符合必要的標準, 您同意被視為專業客戶嗎？",
+    "professional_client_verify": "我要被視為專業客戶。",
+    "what_is_this": "這是甚麽？",
+    "submit": "提交"
   }
 }

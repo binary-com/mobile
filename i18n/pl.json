@@ -50,13 +50,16 @@
     "up_down": "Góra/dół",
     "higher_lower": "Wyższy/niższy",
     "rise_fall": "Wzrost/spadek",
+    "high_low_ticks": "Duże/małe zmiany ceny",
     "markets_are_closed": "Niestety wszystkie rynki są obecnie zamknięte. Spróbuj ponownie później",
     "cancel": "Anuluj",
     "select_market": "Wybierz rynek",
     "select_underlying": "Wybierz instrument bazowy",
     "select_tradetype": "Wybierz rodzaj zakładu",
     "select_tick": "Wybierz najmniejszą zmianę ceny",
-    "select_digit": "Wybierz cyfrę"
+    "select_digit": "Wybierz cyfrę",
+    "selected_tick": "Wybrana najmniejsza zmiana ceny",
+    "last_digit": "Ostatnia cyfra"
   },
   "trade": {
     "payout": "Wypłata",
@@ -74,7 +77,8 @@
     "buy_again": "Kup ponownie",
     "sell": "Sprzedaj",
     "barrier": "Wyrównanie limitu",
-    "return": "Zwrot"
+    "return": "Zwrot",
+    "tick": "najmniejsza zmiana ceny"
   },
   "app": {
     "exit_title": "Wyjdź",
@@ -135,6 +139,7 @@
     "date_of_birth": "Data urodzenia",
     "residence": "Kraj zamieszkania",
     "place_of_birth": "Miejsce urodzenia",
+    "citizenship": "Obywatelstwo",
     "tax_residence": "Rezydencja podatkowa",
     "tax_identification_number": "Numer identyfikacji podatkowej",
     "address_line_1": "Pierwsza część adresu zamieszkania",
@@ -156,7 +161,7 @@
     "maxlength_error": "To pole może liczyć maksymalnie {{max}} znaków.",
     "address_pattern_error": "Dozwolone są tylko litery, liczby, spacja i następujące znaki specjalne: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Dozwolone są tylko litery, cyfry i myślnik.",
-    "phone_pattern_error": "Dozwolone są tylko liczby i spacje.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "tax_identification_number_pattern_error": "Dozwolone są tylko litery, cyfry i myślnik.",
     "continue": "Kontynuuj",
     "cancel": "Anuluj",
@@ -195,13 +200,17 @@
     "required_to_collect_tin": "Firma Binary Investments (Europe) Ltd. jest zobowiązana do gromadzenia informacji podatkowych.",
     "required_to_obtain_information": "Świadcząc nasze usługi, jesteśmy zobligowani do uzyskania od Ciebie informacji w celu przeprowadzenia oceny, czy dany produkt lub usługa jest odpowiednia dla Ciebie (tzn. czy posiadasz odpowiednie doświadczenie i wiedzę potrzebne do zrozumienia ryzyka związanego z danym produktem).",
     "on_the_basis_of_information": "Na podstawie przedstawionych informacji dotyczących Twojej wiedzy i doświadczenia uznaliśmy, że inwestycje dostępne za pośrednictwem naszej strony są dla Ciebie nieodpowiednie.",
+    "appropriateness_test": "Ocena zdolności: ",
+    "warning": "OSTRZEŻENIE:",
     "by_clicking": "Przez kliknięcie ",
     "accept": "Akceptuj",
     "exposing_at_risk": "i kontynuowanie procedury otwarcia konta oznacza, że zdajesz sobie sprawę z tego, że możesz być narażony/a na ryzyko (które może być znaczne, w tym na ryzyko utraty całej zainwestowanej sumy) i możesz nie posiadać wystarczającej wiedzy i wystarczającego doświadczenia, aby sobie z nim poradzić.",
     "decline": "Odrzuć",
     "secret_question": "Pytanie zabezpieczające",
     "secret_answer": "Odpowiedź na pytanie zabezpieczające",
-    "secret_answer_pattern_error": "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
+    "secret_answer_pattern_error": "Dozwolone są wyłącznie litery, cyfry, znak spacji, myślnik, kropka i apostrof.",
+    "confirm_tax_info": "Niniejszym potwierdzam, że podane informacje podatkowe są prawdziwe i kompletne. Ponadto poinformuję Binary Investments (Europe) Ltd. o wszelkich zmianach tych informacji.",
+    "multi_tax_residence_info": "Możesz być uznawany/-a za rezydenta podatkowego w więcej niż w jednej jurysdykcji. Zasięgnij porady swojego doradcy podatkowego i sprawdź, czy Twoje informacje podatkowe są prawidłowe."
   },
   "new-account-real": {
     "real_account_opening": "Otwierania konta z prawdziwymi pieniędzmi",
@@ -214,6 +223,7 @@
     "date_of_birth": "Data urodzenia",
     "residence": "Kraj zamieszkania",
     "place_of_birth": "Miejsce urodzenia",
+    "citizenship": "Obywatelstwo",
     "address_line_1": "Pierwsza część adresu zamieszkania",
     "address_line_2": "Druga część adresu zamieszkania",
     "address_city": "Miasto",
@@ -233,7 +243,7 @@
     "maxlength_error": "To pole może liczyć maksymalnie {{max}} znaków.",
     "address_pattern_error": "Dozwolone są tylko litery, liczby, spacja i następujące znaki specjalne: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Dozwolone są tylko litery, cyfry i myślnik.",
-    "phone_pattern_error": "Dozwolone są tylko liczby i spacje.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "secret_answer_pattern_error": "Dozwolone są wyłącznie litery, cyfry, znak spacji, myślnik, kropka i apostrof.",
     "required": "To pole jest wymagane.",
     "not_pep_verify": "Oświadczam, że nie jestem osobą zajmującą eksponowane stanowisko polityczne (PEP)",
@@ -254,8 +264,11 @@
     "go": "Idź"
   },
   "transaction-details": {
-    "contract_id": "Identyfikator kontraktu:",
     "ref": "Identyfikator referencyjny",
+    "contract_type": "Rodzaj kontraktu",
+    "transaction_id": "ID transakcji",
+    "buy": "Kup",
+    "sell": "Sprzedaj",
     "start_time": "Godzina rozpoczęcia",
     "entry_spot": "Pozycja wejściowa",
     "barrier": "Limit",
@@ -265,7 +278,35 @@
     "exit_spot_time": "Czas punktu wyjściowego",
     "sell_price": "Cena sprzedaży",
     "profit_loss": "Zysk/strata",
-    "end_time": "Czas zakończenia"
+    "end_time": "Czas zakończenia",
+    "ASIANU": "Azjatyckie – Wzrost",
+    "ASIAND": "Azjatyckie – Spadek",
+    "CALL": "Wyższe",
+    "CALLE": "Wyższe lub równe",
+    "PUT": "Niższe",
+    "PUTE": "Niższe lub równe",
+    "DIGITMATCH": "Cyfra zgadza się",
+    "DIGITDIFF": "Cyfra nie zgadza się",
+    "DIGITODD": "Cyfra nieparzysta",
+    "DIGITEVEN": "Cyfra parzysta",
+    "DIGITOVER": "Cyfra większa",
+    "DIGITUNDER": "Cyfra mniejsza",
+    "EXPIRYMISS": "Kończy się poza",
+    "EXPIRYRANGE": "Kończy się pomiędzy",
+    "EXPIRYRANGEE": "Kończy się pomiędzy",
+    "LBFLOATCALL": "Zamknięcia-Niska",
+    "LBFLOATPUT": "Zamknięcia-Wysoka",
+    "LBHIGHLOW": "Wysoka-Niska",
+    "RANGE": "Pozostaje pomiędzy",
+    "RESETCALL": "Reset Call",
+    "RESETPUT": "Reset Put",
+    "UPORDOWN": "Przekroczy",
+    "ONETOUCH": "Osiągnie",
+    "NOTOUCH": "Nie osiągnie",
+    "CALLSPREAD": "Spread zakupu",
+    "PUTSPREAD": "Spread sprzedaży",
+    "TICKHIGH": "Duże zmiany ceny",
+    "TICKLOW": "Mała zmiana ceny"
   },
   "statement": {
     "statement": "Oświadczenie",
@@ -305,7 +346,8 @@
     "self_exclusion": "Samodzielne wyłączenie",
     "change_password": "Zmień hasło",
     "financial_assessment": "Ocena finansowa",
-    "limits": "Limity"
+    "limits": "Limity",
+    "account_categorisation": "Kategoryzacja konta"
   },
   "self-exclusion": {
     "self_exclusion": "Udogodnienia samodzielnego wyłączenia",
@@ -340,7 +382,9 @@
     "save_prompt": "Treść zapisana pomyślnie",
     "session_timeout_warning": "Limit czasu sesji zakończy się za 10 sek.",
     "success": "Udało się",
-    "warning": "Ostrzeżenie"
+    "warning": "Ostrzeżenie",
+    "not_zero": "Wartość nie może wynosić 0",
+    "error": "Przepraszamy, podczas przetwarzania żądania wystąpił błąd."
   },
   "profile": {
     "personal_details": "Dane osobowe",
@@ -361,13 +405,14 @@
     "tax_residence": "Rezydencja podatkowa",
     "tax_identification_number": "Numer identyfikacji podatkowej",
     "place_of_birth": "Miejsce urodzenia",
+    "citizenship": "Obywatelstwo",
     "select": "Proszę wybrać",
     "general_pattern_error": "Dozwolone są tylko litery, spacja, myślniki, kropki i apostrof.",
     "address_pattern_error": "Dozwolone są tylko litery, liczby, spacja i następujące znaki specjalne: - . ' # ; : ( ) , @ /",
     "maxlength_error": "To pole może liczyć maksymalnie {{max}} znaków.",
     "range_length_error": "To pole musi zawierać od {{min}} do {{max}} znaków.",
     "postcode_pattern_error": "Dozwolone są tylko litery, cyfry i myślnik.",
-    "phone_pattern_error": "Dozwolone są tylko liczby i spacje.",
+    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
     "tax_identification_number_pattern_error": "Dozwolone są tylko litery, cyfry i myślnik.",
     "cancel": "Anuluj",
     "continue": "Kontynuuj",
@@ -391,7 +436,8 @@
     "version": "Wersja"
   },
   "update": {
-    "your_version_is_out_of_date_please_update": "Korzystasz z nieaktualnej wersji aplikacji Tick Trade. Zaktualizuj swoją aplikację do najnowszej wersji."
+    "your_version_is_out_of_date_please_update": "Korzystasz z nieaktualnej wersji aplikacji Tick Trade. Zaktualizuj swoją aplikację do najnowszej wersji.",
+    "download_the_android_app": "Download The Android App"
   },
   "change-password": {
     "change_password": "Zmień hasło",
@@ -492,21 +538,22 @@
   },
   "mt": {
     "you_do_not_have_mt5_account": "Nie posiadasz żadnego konta przeznaczonego do użytku w MetaTrader. Utwórz takie konto i spróbuj ponownie.",
-    "create_account": "Utwórz Konto MT5",
-    "feature_is_not_available": "Przepraszamy, ta funkcja jest niedostępna.",
+    "create_account": "Załóż nowe konto",
+    "feature_is_not_available": "Niestety ta funkcja jest niedostępna w Twojej jurysdykcji.",
     "meta_trader_accounts": "Konta Meta Trader",
     "demo_account": "Konto Demo",
-    "financial_account": "Konto finansowe",
-    "volatility_account": "Konto wskaźników zmienności",
-    "upgrade_financial_account": "Aby utworzyć Konto finansowe do użytku w MT5, zaktualizuj najpierw Prawdziwe konto Binary.com.",
-    "upgrade_volatility_account": "Aby utworzyć Konto wskaźników zmienności do użytku w MT5, zaktualizuj najpierw Prawdziwe konto Binary.com.",
-    "create_financial_account": "Utwórz Konto finansowe MT5",
-    "create_volatility_account": "Utwórz Konto zmienności MT5",
-    "create_demo_account": "Utwórz Konto demo MT5",
-    "login_id": "Login",
+    "real_money_account": "Konto z prawdziwymi pieniędzmi",
+    "login": "Logowanie",
     "balance": "Saldo",
     "name": "Imię",
-    "start_trading_with_mt5": "Rozpocznij handlowanie z MT5"
+    "start_trading_with_mt5": "Rozpocznij handlowanie z MT5",
+    "upgrade_real_account": "Aby utworzyć konto z prawdziwymi pieniędzmi w MT5, zaktualizuj najpierw Prawdziwe konto Binary.com.",
+    "standard": "Standardowe",
+    "advanced": "Zaawansowane",
+    "mam_advanced": "MAM zaawansowane",
+    "volatility_indices": "Wskaźniki zmienności",
+    "mam_volatility_indices": "Wskaźniki zmienności MAM",
+    "upgrade": "Aktualizacja"
   },
   "authentication": {
     "authentication": "Weryfikacja",
@@ -646,7 +693,7 @@
     "secondary": "Średnie",
     "tertiary": "Wyższe",
     "salaried": "Pracownik etatowy",
-    "self_employed": "Self-Employed",
+    "self_employed": "Osoba samozatrudniona",
     "investment": "Inwestycje i dywidenda",
     "pension": "Emerytura",
     "net_income_1": "Mniej niż 25 000 $",
@@ -712,25 +759,35 @@
   },
   "pep-information": {
     "pep": "Kim jest PEP?",
-    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+    "what_is_pep": "Osoba zajmująca eksponowane stanowisko polityczne (PEP) to osoba, która sprawuje lub sprawowała znaczącą funkcję publiczną lub osoba, której bliski członek rodziny lub osoba uznana za bliskiego współpracownika sprawuje lub sprawowała taką funkcję, z wyłączeniem urzędników niższego lub średniego szczebla. Do takich osób zalicza się: przywódców państw, ministrów, sekretarzy parlamentarnych, posłów parlamentarnych, sędziów, ambasadorów, wysokiej rangi urzędników rządowych, wysokiej rangi wojskowych, członków komitetów ds. audytu w radach banków centralnych, dyrektorów spółek skarbu państwa. Za PEP uważa się również „bliskich członków rodziny” wyżej wymienionych osób, czyli np. małżonków i partnerów, rodziców, czy dzieci. Dodatkowo, „osoba uznana za bliskiego współpracownika” PEP rozumiana jest m. in. jako partner biznesowy. Co do zasady, osoba, która według powyższej definicji kwalifikuje się jako PEP, ale która nie sprawuje już znaczącej funkcji publicznej przez okres co najmniej dwunastu miesięcy nie jest już uznawana za PEP."
   },
   "what-is-tax-information": {
-    "tax_information_title": "Tax Information",
+    "tax_information_title": "Informacje podatkowe",
     "required_by": "Wymóg ten jest nałożony przez standard automatycznej wymiany informacji w dziedzinie opodatkowania (Common Reporting Standard - CRS) oraz regulację FATCA (Foreign Account Tax Compliance Act).",
     "please_enter": "Wprowadź ",
     "tax_information": "informacje podatkowe",
     "to_continue": "aby kontynuować.",
     "information_will_be_safe": "Zapewniamy, że Twoje informacje będą wykorzystywane wyłącznie w celu raportowania CRS/FATCA i że będą bezpiecznie przechowywane.",
-    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+    "contact_for_clarification": "Jeśli będziemy mieć powody, by sądzić, że Twoje informacje podatkowe są niekompletne, być może skontaktujemy się z Tobą w celu wyjaśnienia."
   },
   "professional-client-confirmation": {
-    "professional_clients": "Professional Clients",
-    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
-    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
-    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
-    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
-    "accept": "Accept",
-    "decline": "Decline",
-    "you_may_decline": "Note: You may decline and continue as a Retail Client."
+    "professional_clients": "Klienci profesjonalni",
+    "professional_clients_receive": "Klientom profesjonalnym zapewniamy ochronę na niższym poziomie z następujących przyczyn:",
+    "posses_of_experience": "Zakładamy, że posiadasz doświadczenie, wiedzę i umiejętności, umożliwiające podejmowanie własnych decyzji inwestycyjnych i odpowiednie ocenienie ryzyka związanego z transakcjami",
+    "appropriateness_test": "Nie mamy obowiązku przeprowadzenia oceny zdolności ani przedstawienia Ci ostrzeżeń o ryzyku",
+    "keep_informed": "Jako klient profesjonalny masz obowiązek informowania nas o wszelkich zmianach, które mogą wpłynąć na Twój status.",
+    "accept": "Akceptuj",
+    "decline": "Odrzuć",
+    "you_may_decline": "Uwaga: Możesz nie zgodzić się i kontynuować jako klient detaliczny."
+  },
+  "account-categorisation": {
+    "account_categorisation": "Kategoryzacja konta",
+    "processing": "Twój wniosek o uznanie za klienta profesjonalnego jest przetwarzany.",
+    "professional": "Zaklasyfikowano Cię jako klienta profesjonalnego.",
+    "error": "Przepraszamy, podczas przetwarzania żądania wystąpił błąd.",
+    "retail_info": "Domyślnie wszyscy klienci są traktowani jako klienci detaliczni. Wolisz być traktowany/traktowana jako klient profesjonalny, jeśli spełniasz niezbędne wymogi?",
+    "professional_client_verify": "Chcę być traktowany/-a jako klient profesjonalny.",
+    "what_is_this": "Co to jest?",
+    "submit": "Prześlij"
   }
 }

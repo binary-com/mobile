@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="forex_trading_experience"
                         ng-model="vm.data.forex_trading_experience"
                         ng-options="option.value as option.text | translate
@@ -60,7 +60,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="forex_trading_frequency"
                         ng-model="vm.data.forex_trading_frequency"
                         ng-options="option.value as option.text | translate
@@ -87,7 +87,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="binary_options_trading_experience"
                         ng-model="vm.data.binary_options_trading_experience"
                         ng-options="option.value as option.text | translate
@@ -114,7 +114,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="binary_options_trading_frequency"
                         ng-model="vm.data.binary_options_trading_frequency"
                         ng-options="option.value as option.text | translate
@@ -141,7 +141,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="cfd_trading_experience"
                         ng-model="vm.data.cfd_trading_experience"
                         ng-options="option.value as option.text | translate
@@ -168,7 +168,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="cfd_trading_frequency"
                         ng-model="vm.data.cfd_trading_frequency"
                         ng-options="option.value as option.text | translate
@@ -195,7 +195,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="other_instruments_trading_experience"
                         ng-model="vm.data.other_instruments_trading_experience"
                         ng-options="option.value as option.text | translate
@@ -222,7 +222,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="other_instruments_trading_frequency"
                         ng-model="vm.data.other_instruments_trading_frequency"
                         ng-options="option.value as option.text | translate
@@ -261,7 +261,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="income_source"
                         ng-model="vm.data.income_source"
                         ng-options="option.value as option.text | translate
@@ -288,7 +288,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="employment_status"
                         ng-model="vm.data.employment_status"
                         ng-options="option.value as option.text | translate
@@ -315,7 +315,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="employment_industry"
                         ng-model="vm.data.employment_industry"
                         ng-options="option.value as option.text | translate
@@ -342,7 +342,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="occupation"
                         ng-model="vm.data.occupation"
                         ng-options="option.value as option.text | translate
@@ -369,7 +369,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="source_of_wealth"
                         ng-model="vm.data.source_of_wealth"
                         ng-options="option.value as option.text | translate
@@ -396,7 +396,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="education_level"
                         ng-model="vm.data.education_level"
                         ng-options="option.value as option.text | translate
@@ -423,7 +423,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="net_income"
                         ng-model="vm.data.net_income"
                         ng-options="option.value as option.text | translate
@@ -450,7 +450,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="estimated_worth"
                         ng-model="vm.data.estimated_worth"
                         ng-options="option.value as option.text | translate
@@ -477,7 +477,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col item-select">
+              <div class="col item-input item-select">
                 <select name="account_turnover"
                         ng-model="vm.data.account_turnover"
                         ng-options="option.value as option.text | translate
@@ -503,15 +503,19 @@
         </div>
         <div class="row">
           <div class="col center">
-          <span class="help-block error center"
-                ng-if="vm.notAnyChanges">
-            {{ 'financial-assessment.no_change' | translate }}
-          </span>
+            <span class="help-block error center"
+                  ng-if="vm.notAnyChanges">
+              {{ 'financial-assessment.no_change' | translate }}
+            </span>
             <span class="center" ng-if="vm.updateSuccessful">
-            <i class="ion-checkmark green"></i>
-            {{ 'financial-assessment.updated_successfully' | translate }}
-          </span>
-            <button class="button button-block"
+              <i class="ion-checkmark green"></i>
+              {{ 'financial-assessment.updated_successfully' | translate }}
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col center">
+            <button class="button button-positive"
                     ng-click="vm.submitFinancialAssessment()"
                     ng-disabled="financial_assessment.$invalid || vm.disableUpdateButton">
               {{ 'financial-assessment.update' | translate }}
