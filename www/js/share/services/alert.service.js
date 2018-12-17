@@ -205,7 +205,7 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
     this.showProfessioanlClientInformation = scope => this.showInformation(
         scope,
         $translate.instant('professional-client.professional_client'),
-        'js/share/templates/professional-client/professional-client.template.html'
+        'js/share/templates/professional-client/professional-client-information.template.html'
     );
 
     this.showPEPInformation = scope => this.showInformation(

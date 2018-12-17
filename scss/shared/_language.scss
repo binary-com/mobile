@@ -2,7 +2,7 @@
 	bg-language-list {
 		ion-content {
 			.item-content {
-				font-size: 1rem;
+				font-size: $FONT_SIZE_N;
 				background: $white;
 			}
 		}
@@ -33,12 +33,12 @@
 
 body#ru .trade #trade-container bg-purchase .purchase .contract .row .col .button ,
 body#de .trade #trade-container bg-purchase .purchase .contract .row .col .button {
-	font-size: 0.8rem!important;
+	font-size: $FONT_SIZE_XS!important;
 	white-space: wrap;
 }
 body#ru .trade #trade-container bg-longcode .longcode .row .col ,
 body#de .trade #trade-container bg-longcode .longcode .row .col {
-	font-size: 0.8rem!important;
+	font-size: $FONT_SIZE_XS!important;
 }
 body#ru .trade #trade-container bg-longcode .longcode ,
 body#de .trade #trade-container bg-longcode .longcode {

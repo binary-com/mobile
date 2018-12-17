@@ -77,17 +77,21 @@
             } else {
                 proposal.barrier = options.digit;
             }
+            if (options.tradeType === 'High/Low Ticks') {
+                proposal.selected_tick = options.selected_tick;
+            } else {
+                proposal.selected_tick = '';
+            }
             proposal.tradeType = options.tradeType;
             proposal.basis = options.basis || proposal.basis;
             proposal.currency = sessionStorage.currency || "USD";
 
             const currencyConfig = appStateService.currenciesConfig[sessionStorage.currency];
             if (currencyConfig && currencyConfig.type === "crypto") {
-                proposal.amount = options.cryptoAmounti || proposal.amount;
+                proposal.amount = options.cryptoAmount || proposal.amount;
             } else {
                 proposal.amount = options.amount || proposal.amount;
             }
-
             return proposal;
         };
 
@@ -122,6 +126,7 @@
             } else {
                 proposal.barrier = options.digit;
             }
+            proposal.selected_tick = options.tradeType === "High/Low Ticks" ? options.selected_tick : null;
             proposal.tradeType = options.tradeType;
             proposal.basis = options.basis || proposal.basis;
 

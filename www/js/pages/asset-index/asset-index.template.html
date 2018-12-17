@@ -13,7 +13,7 @@
     <div class="row" ng-if="!vm.hasError">
       <div class="col">
         <form name="market" ng-show="!vm.hasError && vm.selectedMarket">
-          <div class="item-select">
+          <div class="item-input item-select">
             <select ng-if="!vm.hasError"
                     ng-model="vm.selectedMarket"
                     ng-options="k as val.displayName for (k, val) in vm.marketColumns">

@@ -12,12 +12,12 @@
 	}
 	.trading-times-table {
 		width: 100%;
-		font-size: 0.7rem;
+		font-size: $FONT_SIZE_XSS;
 		table-layout: fixed;
 
 		thead {
 			background: $fillColor;
-			font-size: 0.8rem;
+			font-size: $FONT_SIZE_XS;
 
 			&.limits-by-market {
 				margin-top: 20px;
@@ -45,7 +45,7 @@
 
 				td {
 					padding: 5px;
-					font-size: 0.8rem;
+					font-size: $FONT_SIZE_XS;
 					vertical-align:top;
 					word-break:break-word;
 				}

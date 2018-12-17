@@ -1,0 +1,18 @@
+.meta-trader {
+  .meta-trader-accounts {
+    .meta-trader-accounts-list {
+      .meta-trader-account-title {
+        background: $primaryBrandColor;
+        color: $white;
+      }
+      .meta-trader-account-info {
+        span  {
+          font-size: $FONT_SIZE_XS;
+          &.right {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}

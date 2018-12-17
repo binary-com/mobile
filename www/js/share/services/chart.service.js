@@ -154,6 +154,12 @@ angular.module("binary").factory("chartService", $rootScope => {
                 const avg = utils.average(priceList);
 
                 return parseFloat(price) < avg;
+            },
+            TICKHIGH: function condition(barrier, price, priceList, selectedTick) {
+                return priceList[selectedTick - 1] && !_.find(priceList, val => val > priceList[selectedTick - 1]);
+            },
+            TICKLOW: function condition(barrier, price, priceList, selectedTick) {
+                return priceList[selectedTick - 1] && !_.find(priceList, val => val < priceList[selectedTick - 1]);
             }
         },
         digitTrade: function digitTrade(contract) {
@@ -170,6 +176,12 @@ angular.module("binary").factory("chartService", $rootScope => {
         },
         higherLowerTrade: function higherLowerTrade(contract) {
             if (["PUTHL", "CALLHL"].indexOf(contract.type) > -1 && !_.isEmpty(contract.barrier)) {
+                return true;
+            }
+            return false;
+        },
+        highLowTrade: function highLowTrade(contract) {
+            if (["TICKLOW", "TICKHIGH"].indexOf(contract.type) > -1) {
                 return true;
             }
             return false;
@@ -422,7 +434,9 @@ angular.module("binary").factory("chartService", $rootScope => {
                         index      : index + (tickPriceList.length - 1)
                     });
                 }
-            } else if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
+            }
+
+            if (isExitSpot(tickTime, utils.getAbsoluteIndex(index))) {
                 contract.showingExitSpot = true;
             }
         };
@@ -439,11 +453,13 @@ angular.module("binary").factory("chartService", $rootScope => {
                     utils.setObjValue(contract, "barrier", barrier, !utils.digitTrade(contract));
                     utils.setObjValue(contract, "entrySpotPrice", tickPrice, true);
                     utils.setObjValue(contract, "entrySpotTime", tickTime, !hasEntrySpot());
-                } else if (isExitSpot(tickTime, index)) {
-                    utils.setObjValue(contract, "exitSpot", tickTime, !hasExitSpot());
+                    utils.setObjValue(contract, "entrySpotIndex", index, true);
                 }
-                utils.setObjValue(contract, "entrySpotIndex", index, isEntrySpot(tickTime));
-                utils.setObjValue(contract, "exitSpotIndex", index, isExitSpot(tickTime, index));
+
+                if (isExitSpot(tickTime, index)) {
+                    utils.setObjValue(contract, "exitSpot", tickTime, !hasExitSpot());
+                    utils.setObjValue(contract, "exitSpotIndex", index, true);
+                }
 
                 // tickPriceList.push(tickPrice);
             }
@@ -488,7 +504,8 @@ angular.module("binary").factory("chartService", $rootScope => {
                 if (tickPriceList.length === 0) {
                     if (contract.entrySpotTime !== lastTime && betweenExistingSpots(lastTime)) {
                         tickPriceList.push(parseFloat(contract.entrySpotPrice));
-                        if (utils.conditions[contract.type](contract.barrier, contract.entrySpotPrice, tickPriceList)) {
+                        if (utils.conditions[contract.type](contract.barrier, contract.entrySpotPrice,
+                            tickPriceList, contract.selectedTick)) {
                             contract.result = "win";
                         } else {
                             contract.result = "lose";
@@ -502,7 +519,8 @@ angular.module("binary").factory("chartService", $rootScope => {
                 }
 
                 if (betweenExistingSpots(lastTime)) {
-                    if (utils.conditions[contract.type](contract.barrier, lastPrice, tickPriceList)) {
+                    if (utils.conditions[contract.type](contract.barrier, lastPrice,
+                        tickPriceList, contract.selectedTick)) {
                         contract.result = "win";
                     } else {
                         contract.result = "lose";
@@ -613,16 +631,18 @@ angular.module("binary").factory("chartService", $rootScope => {
             const height = thisChart.scale.endPoint - thisChart.scale.startPoint + 12; // + 12 to size up the region to the top
             let end;
 
-            const start = thisChart.datasets[0].points[region.start].x;
+            let start = thisChart.datasets[0].points[region.start].x;
             if (utils.isDefined(region.end)) {
                 end = thisChart.datasets[0].points[region.end].x;
             } else {
                 end = thisChart.datasets[0].points.slice(-1)[0].x;
             }
-            if (end <= start) {
+            if (end < start) {
                 return;
+            } else if (end === start) {
+                start -= 2; // subtract 2 from start to make the region visible when the duration is 1 tick
             }
-            const length = end - start;
+            const length = (end - start) || 6; // set the region length to 6 whenever the duration is 1 tick
             ctx.fillStyle = region.color;
             ctx.fillRect(start, thisChart.scale.startPoint - 12, length, height); // begin the region from the top
         };
@@ -1272,7 +1292,7 @@ angular.module("binary").factory("chartService", $rootScope => {
 
         const addContract = function addContract(_contract) {
             if (_contract) {
-                if (utils.digitTrade(_contract) || utils.asianGame(_contract)) {
+                if (utils.digitTrade(_contract) || utils.asianGame(_contract) || utils.highLowTrade(_contract)) {
                     _contract.duration -= 1;
                 }
                 contractCtrls.push(ContractCtrl(_contract));

@@ -1,0 +1,19 @@
+<div class="tick-result">
+  <div class="row">
+    <div class="col center"
+         ng-repeat="spot in vm.spots track by $index">
+      <span class="number-rec" ng-show="spot.value">
+        <div class="row">
+          <div class="col">
+            {{ 'trade.tick' | translate }} {{ $index + 1}}
+          </div>
+        </div>
+        <div class="row">
+          <div  class="col" ng-class="{ 'bold': $index === vm.selectedTick }">
+            {{ spot.value }}
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
