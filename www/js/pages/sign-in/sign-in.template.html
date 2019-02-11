@@ -237,6 +237,13 @@
           </a>
         </div>
       </div>
+      <div class="row center gamstop" ng-show="!vm.showTokenForm && !vm.showSignup && vm.showSignin && vm.clientCountryIsUK">
+        <div class="col col-75">
+          <a href ng-click="vm.goToGamStop()">
+            <img src="img/gamstop.svg" alt="Gamstop">
+          </a>
+        </div>
+      </div>
       <div class="list language" ng-show="!vm.showSignin && !vm.showTokenForm  && !vm.showSignup && !vm.showvirtualws">
         <language></language>
       </div>
