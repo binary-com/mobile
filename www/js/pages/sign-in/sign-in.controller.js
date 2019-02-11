@@ -199,7 +199,11 @@
         });
 
         $scope.$on("website_status", (e, website_status) => {
-            vm.clientCountryIsUK = true;
+            $scope.$applyAsync(() => {
+                if (/gb/.test(website_status.clients_country)) {
+                    vm.clientCountryIsUK = true;
+                }
+            });
         });
 
         // change different type of singing methods
