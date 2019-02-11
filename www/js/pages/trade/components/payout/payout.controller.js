@@ -62,7 +62,7 @@
         };
 
         vm.stopLongPress = () => {
-            vm.proposal.amount = typeof vm.amount === "string" ? Number(vm.amount) : vm.amount;
+            vm.proposal.amount = +vm.amount;
             proposalService.setPropertyValue("amount", vm.proposal.amount);
         };
 
