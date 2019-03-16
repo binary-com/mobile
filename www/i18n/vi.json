@@ -743,14 +743,14 @@
   "ios-pwa-prompt": {
     "title": "Cài đặt Binary TickTrade",
     "close": "Đóng",
-    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
-    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+    "installation_text": "Cài đặt Binary TickTrade trên màn hình chính để bạn có thể dễ dàng truy cập.",
+    "installation_help": "Chạm vào {{icon}} sau đó chọn 'Add to Home Screen'"
   },
   "professional-client-information": {
-    "professional_client": "What is Professional Client?",
-    "clients_need_to_satisfy": "Clients need to satisfy at least two of the following criteria in order to receive Professional Client status:",
-    "significant_transactions": "You’ve carried out significant transactions on markets similar to the ones we offer, averaging 10 transactions per quarter for the previous four quarters",
-    "size_of_instrument": "The size of your instrument portfolio exceeds EUR 500,000 or its equivalent",
+    "professional_client": "Thế nào là Khách hàng Chuyên nghiệp?",
+    "clients_need_to_satisfy": "Khách Hàng cần phải đáp ứng ít nhất là hai yêu cầu dưới đây để nhận được danh hiệu Khách Hàng Chuyên Nghiệp:",
+    "significant_transactions": "Bạn đã thực hiện nhiều giao dịch lớn trên thị trường tương đương những thị trường chúng tôi cung cấp, trung bình 10 giao dịch mỗi quý trong 4 quý trước",
+    "size_of_instrument": "Kích thước danh mục đầu tư của bạn vượt ngưỡng giá trị tương đương 500.000 EUR",
     "worked_in_financial_sector": "You’ve worked in the financial sector for at least one year in a role that requires knowledge of your intended transactions on our platform",
     "treated_as_professional_client": "If you choose to be treated as a Professional Client, we’ll regard you as having the required market knowledge and experience. As such, we’ll take steps to ensure that your request for Professional Client status meets the above criteria, including a request for the following:",
     "statements": "Statements that reflect your transactions from the previous four quarters",
@@ -758,11 +758,11 @@
     "employment": "Proof of your employment"
   },
   "pep-information": {
-    "pep": "What is PEP?",
+    "pep": "Pep là gì?",
     "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
   },
   "what-is-tax-information": {
-    "tax_information_title": "Tax Information",
+    "tax_information_title": "Thông tin thuế",
     "required_by": "This requirement is mandated by the Common Reporting Standard (CRS) and the Foreign Account Tax Compliance Act (FATCA).",
     "please_enter": "Please enter your ",
     "tax_information": "tax information",
