@@ -752,10 +752,10 @@
     "significant_transactions": "Bạn đã thực hiện nhiều giao dịch lớn trên thị trường tương đương những thị trường chúng tôi cung cấp, trung bình 10 giao dịch mỗi quý trong 4 quý trước",
     "size_of_instrument": "Kích thước danh mục đầu tư của bạn vượt ngưỡng giá trị tương đương 500.000 EUR",
     "worked_in_financial_sector": "Bạn đã làm việc trong lĩnh vực tài chính tối thiểu được một năm trong một vai trò đòi hỏi kiến thức về giao dịch bạn định thực hiện trên nền tảng của chúng tôi",
-    "treated_as_professional_client": "If you choose to be treated as a Professional Client, we’ll regard you as having the required market knowledge and experience. As such, we’ll take steps to ensure that your request for Professional Client status meets the above criteria, including a request for the following:",
-    "statements": "Statements that reflect your transactions from the previous four quarters",
-    "portfolio": "Proof of your portfolio held elsewhere",
-    "employment": "Proof of your employment"
+    "treated_as_professional_client": "Nếu bạn chọn được chấp nhận như là một khách hàng chuyên nghiệp, chúng tôi sẽ mặc định bạn đã có các kiến thức thị trường và kinh nghiệm yêu cầu. Như vậy, chúng tôi sẽ thực hiện các bước để đảm bảo yêu cầu của bạn muốn có tình trạng khách hàng chuyên nghiệp đáp ứng các tiêu chí nêu trên, bao gồm các yêu cầu sau đây:",
+    "statements": "Báo cáo phản ánh các giao dịch của bạn trong bốn quý trước đó",
+    "portfolio": "Bằng chứng về danh mục đầu tư của bạn được tổ chức ở những nơi khác",
+    "employment": "Bằng chứng về công việc của bạn"
   },
   "pep-information": {
     "pep": "Pep là gì?",
