@@ -74,7 +74,7 @@ angular
             const canUpgradeToLandingCompany = arr_landing_company => !!_.find(arr_landing_company, landingCompany =>
                 landingCompany !== currentLandingCompany && upgradeableLandingCompanies.indexOf(landingCompany) > -1);
 
-            if (canUpgradeToLandingCompany(['costarica', 'malta', 'iom']) && !canUpgradeMultiAccount) {
+            if (canUpgradeToLandingCompany(['svg', 'malta', 'iom']) && !canUpgradeMultiAccount) {
                 typeOfNextAccount = 'real';
                 upgradeLink = 'real-account-opening';
                 currencyOptions = landingCompanyObj.gaming_company ?
