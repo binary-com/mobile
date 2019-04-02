@@ -9,9 +9,10 @@
 (function() {
     angular.module("binary.pages.self-exclusion.controllers").controller("SelfExclusionController", SelfExclusion);
 
-    SelfExclusion.$inject = ["$scope", "$translate", "alertService", "websocketService", "validationService"];
+    SelfExclusion.$inject = ["$scope", "$translate", "alertService", "websocketService",
+        "accountService", "validationService"];
 
-    function SelfExclusion($scope, $translate, alertService, websocketService,
+    function SelfExclusion($scope, $translate, alertService, websocketService, accountService,
         validationService) {
         const vm = this;
         vm.hasError = false;
@@ -26,6 +27,8 @@
         vm.isDataLoaded = false;
         vm.disableForZeroValues = false;
         vm.data = {};
+        const account = accountService.getDefault();
+        vm.country = account.country;
         const noZeroValues = ['max_balance', 'max_turnover', 'max_losses', 'max_7day_turnover', 'max_7day_losses',
             'max_30day_turnover', 'max_30day_losses', 'max_open_bets'];
 

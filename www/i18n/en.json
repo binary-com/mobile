@@ -384,7 +384,10 @@
     "success": "Success",
     "warning": "Warning",
     "not_zero": "Value can not be 0",
-    "error": "Sorry, an error occurred while processing your request."
+    "error": "Sorry, an error occurred while processing your request.",
+    "ukgc_info_1": "If you are considering self-exclusion, you may wish to register with GAMSTOP.",
+    "ukgc_info_2": "GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain.",
+    "ukgc_info_3": "To find out more and to sign up with GAMSTOP, please visit"
   },
   "profile": {
     "personal_details": "Personal Details",
