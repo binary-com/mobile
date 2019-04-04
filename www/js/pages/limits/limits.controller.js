@@ -40,7 +40,7 @@
                     vm.fullyAuthenticated = false;
                     vm.crAccount = false;
                     vm.otherAccount = false;
-                } else if (isLandingCompanyOf('costarica', landingCompany)) {
+                } else if (isLandingCompanyOf('costarica', landingCompany) || isLandingCompanyOf('svg', landingCompany)) {
                     // CR accounts
                     vm.crAccount = true;
                     vm.fullyAuthenticated = false;

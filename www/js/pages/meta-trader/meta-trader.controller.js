@@ -129,7 +129,7 @@
             if (isEligible()) {
                 const accounts = accountService.getAll();
                 vm.hasRealAccount = !!_.find(accounts, obj =>
-                    _.indexOf(['malta', 'costarica', 'iom', 'maltainvest'], obj.landing_company_name) > -1);
+                    _.indexOf(['malta', 'costarica', 'svg', 'iom', 'maltainvest'], obj.landing_company_name) > -1);
                 if (!vm.hasRealAccount && appStateService.upgrade && appStateService.upgrade.upgradeLink) {
                     vm.showUpgradeToRealButton = true;
                 }
