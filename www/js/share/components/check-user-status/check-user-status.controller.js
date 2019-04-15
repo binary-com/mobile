@@ -32,7 +32,7 @@
     ) {
         const vm = this;
         let isMaltainvest = false;
-        let isCostarica = false;
+        let isCR = false;
         let isMalta = false;
         let isIom = false;
         let isVirtual = false;
@@ -50,7 +50,7 @@
         const checkAccountType = landingCompany => {
             isMaltainvest = isLandingCompanyOf('maltainvest', landingCompany);
             isMalta = isLandingCompanyOf('malta', landingCompany);
-            isCostarica = isLandingCompanyOf('costarica', landingCompany);
+            isCR = isLandingCompanyOf('costarica', landingCompany) || isLandingCompanyOf('svg', landingCompany);
             isIom = isLandingCompanyOf('iom', landingCompany);
             isVirtual = isLandingCompanyOf('virtual', landingCompany);
         };
@@ -148,7 +148,7 @@
 
         const unwelcomeStatus = status => {
             const unwelcomed = status.indexOf("unwelcome") > -1;
-            if (unwelcomed && (isMalta || isMaltainvest || isIom || isCostarica)) {
+            if (unwelcomed && (isMalta || isMaltainvest || isIom || isCR)) {
                 if (!appStateService.hasRestrictedMessage) {
                     appStateService.hasRestrictedMessage = true;
                     notificationService.notices.push(notificationMessages.restrictedMessage);
@@ -158,7 +158,7 @@
 
         const cashierStatus = status => {
             const cashierLocked = status.indexOf("cashier_locked") > -1;
-            if (cashierLocked && (isMalta || isMaltainvest || isIom || isCostarica)) {
+            if (cashierLocked && (isMalta || isMaltainvest || isIom || isCR)) {
                 if (!appStateService.hasRestrictedMessage) {
                     appStateService.hasRestrictedMessage = true;
                     notificationService.notices.push(notificationMessages.restrictedMessage);
@@ -168,7 +168,7 @@
 
         const withdrawalStatus = status => {
             const withdrawalLocked = status.indexOf("withdrawal_locked") > -1;
-            if (withdrawalLocked && (isMalta || isMaltainvest || isIom || isCostarica)) {
+            if (withdrawalLocked && (isMalta || isMaltainvest || isIom || isCR)) {
                 if (!appStateService.hasRestrictedMessage) {
                     appStateService.hasRestrictedMessage = true;
                     notificationService.notices.push(notificationMessages.restrictedMessage);
