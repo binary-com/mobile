@@ -9,10 +9,10 @@
 (function() {
     angular.module("binary.pages.self-exclusion.controllers").controller("SelfExclusionController", SelfExclusion);
 
-    SelfExclusion.$inject = ["$scope", "$translate", "alertService", "websocketService",
+    SelfExclusion.$inject = ["$scope", "$state", "$translate", "alertService", "websocketService",
         "accountService", "validationService"];
 
-    function SelfExclusion($scope, $translate, alertService, websocketService, accountService,
+    function SelfExclusion($scope, $state, $translate, alertService, websocketService, accountService,
         validationService) {
         const vm = this;
         vm.hasError = false;
@@ -111,6 +111,10 @@
         $scope.$on('get_limits:error', () => {
             vm.hasError = true;
         });
+
+        vm.goToContact = () => {
+            $state.go('contact');
+        };
 
         const init = () => getLimits();
 

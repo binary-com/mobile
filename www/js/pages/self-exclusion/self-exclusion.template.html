@@ -13,19 +13,31 @@
       </div>
     </div>
     <form name="self_exclusion_form" ng-submit="vm.submit()" ng-if="vm.isDataLoaded" novalidate>
+      <div class="row">
+        <div class="col">
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.info' | translate }}
+                <a ng-click="vm.goToContact()">
+                  {{ 'profile.customer_support' | translate }}.
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row" ng-if="vm.country === 'gb'">
         <div class="col">
-          <div class="row">
+          <div class="row info-container">
             <div class="col">
               {{ 'self-exclusion.ukgc_info_1' | translate }}
             </div>
           </div>
-          <div class="row">
+          <div class="row info-container">
             <div class="col">
               {{ 'self-exclusion.ukgc_info_2' | translate }}
             </div>
           </div>
-          <div class="row">
+          <div class="row info-container">
             <div class="col">
               {{ 'self-exclusion.ukgc_info_3' | translate }}
               <a href='https://www.gamstop.co.uk/' target="_blank">www.gamstop.co.uk</a>.
