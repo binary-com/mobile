@@ -35,7 +35,7 @@
         const accounts = accountService.getAll();
         const currentAccount = accountService.getDefault();
         const landingCompany = currentAccount.landing_company_name;
-        vm.isCRAccount = clientService.isLandingCompanyOf('costarica', landingCompany);
+        vm.isCRAccount = clientService.isLandingCompanyOf('costarica', landingCompany) || clientService.isLandingCompanyOf('svg', landingCompany);
         vm.currenciesOptions = [];
 
         vm.getCurrenciesOptions = () => {
