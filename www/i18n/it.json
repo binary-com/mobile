@@ -289,11 +289,11 @@
     "DIGITDIFF": "Cifra Diversa",
     "DIGITODD": "Cifra Dispari",
     "DIGITEVEN": "Cifra Pari",
-    "DIGITOVER": "Digit Over",
-    "DIGITUNDER": "Digit Under",
-    "EXPIRYMISS": "Ends Outside",
-    "EXPIRYRANGE": "Ends Between",
-    "EXPIRYRANGEE": "Ends Between",
+    "DIGITOVER": "Cifra Superiore",
+    "DIGITUNDER": "Cifra Inferiore",
+    "EXPIRYMISS": "Termina fuori",
+    "EXPIRYRANGE": "Finisce tra",
+    "EXPIRYRANGEE": "Finisce tra",
     "LBFLOATCALL": "Close-Low",
     "LBFLOATPUT": "High-Close",
     "LBHIGHLOW": "High-Low",
@@ -552,7 +552,7 @@
     "advanced": "Avanzato",
     "mam_advanced": "MAM avanzato",
     "volatility_indices": "Indici di volatilità",
-    "mam_volatility_indices": "MAM Volatility Indices",
+    "mam_volatility_indices": "Indici di volatilità MAM",
     "upgrade": "Upgrade"
   },
   "authentication": {
@@ -575,7 +575,7 @@
     "russia": "Russia",
     "united_kingdom": "Regno Unito",
     "toll_free": "(Numero verde)",
-    "not_located": "If you are not located in the above-mentioned countries, simply dial any of our contact numbers for help.",
+    "not_located": "Se non ti trovi nei paesi menzionati precedentemente e hai bisogno d'aiuto, puoi chiamare uno dei nostri numeri di telefono.",
     "calls": "*Tutte le chiamate vengono registrate a fini formativi e di monitoraggio",
     "email": "Email",
     "payment_email": "Per le richieste legate ai pagamenti",
@@ -754,40 +754,40 @@
     "worked_in_financial_sector": "You’ve worked in the financial sector for at least one year in a role that requires knowledge of your intended transactions on our platform",
     "treated_as_professional_client": "If you choose to be treated as a Professional Client, we’ll regard you as having the required market knowledge and experience. As such, we’ll take steps to ensure that your request for Professional Client status meets the above criteria, including a request for the following:",
     "statements": "Statements that reflect your transactions from the previous four quarters",
-    "portfolio": "Proof of your portfolio held elsewhere",
-    "employment": "Proof of your employment"
+    "portfolio": "Prova del tuo portafoglio conservato altrove",
+    "employment": "Prova della tua attività lavorativa"
   },
   "pep-information": {
     "pep": "What is PEP?",
-    "what_is_pep": "A Politically Exposed Person (PEP) is an individual who is or has been entrusted with a prominent public function including his/her immediate family members or persons known to be close associates of such persons, but does not include middle ranking or more junior officials. Such individuals include Heads of State, Ministers, Parliamentary Secretaries, Members of Parliament, Judges, Ambassadors, Senior Government Officials, High Ranking Officers in the Armed Forces, Audit Committees of the boards of central banks, and Directors of state-owned corporations. The “immediate family members” of the above examples will also be considered as PEP, and these include their spouses/partners, parents, and children. Additionally, “persons known to be close associates” of PEPs include their business partners, will also be considered as such. As a general rule, a person considered to be a PEP and who has ceased to be entrusted with a prominent public function for a period of at least twelve months no longer qualifies as a PEP."
+    "what_is_pep": "Una Persona Esposta Politicamente (PEP) è un individuo a cui è o è stata affidata una funzione pubblica di spicco, compresi i suoi familiari diretti o persone note per essere stretti collaboratori di tali persone, ma non include funzionari di grado medio o inferiore. Tali persone comprendono capi di Stato, ministri, segretari parlamentari, membri del parlamento, giudici, ambasciatori, alti funzionari governativi, alti ufficiali delle Forze Armate, comitati di audit dei consigli di amministrazione delle banche centrali e direttori di società di proprietà statale. Anche i \"familiari stretti\" delle figure sopra citate saranno considerati come PEP, e questi includono i loro coniugi / partner, genitori e figli. Inoltre, \"le persone note per essere stretti collaboratori\" dei PEP includono i loro partner commerciali, che saranno a loro volta considerati tali. Come regola generale, una persona considerata PEP e che ha cessato di essere incaricata di una funzione pubblica di rilievo per un periodo di almeno dodici mesi non è da considerarsi più come PEP."
   },
   "what-is-tax-information": {
-    "tax_information_title": "Tax Information",
-    "required_by": "This requirement is mandated by the Common Reporting Standard (CRS) and the Foreign Account Tax Compliance Act (FATCA).",
+    "tax_information_title": "Informazioni Aggiuntive",
+    "required_by": "Questo requisito è espressamente richiesto dal Common Reporting Standard (CRS) e dal Foreign Account Tax Compliance Act (FATCA).",
     "please_enter": "Please enter your ",
-    "tax_information": "tax information",
+    "tax_information": "informazioni fiscali",
     "to_continue": "to continue.",
-    "information_will_be_safe": "Rest assured that your information will only be used for CRS/FATCA reporting purposes and will be kept safe.",
-    "contact_for_clarification": "If we have reason to believe that your tax information is incomplete, we may contact you for clarification."
+    "information_will_be_safe": "Garantiamo che le informazioni dei clienti verranno utilizzate solo ai fini della segnalazione CRS/FATCA e saranno mantenute riservate.",
+    "contact_for_clarification": "Se abbiamo motivo di ritenere che i tuoi dati fiscali siano incompleti, potremmo contattarti per chiarimenti."
   },
   "professional-client-confirmation": {
-    "professional_clients": "Professional Clients",
-    "professional_clients_receive": "A Professional Client receives a lower degree of client protection due to the following:",
-    "posses_of_experience": "We presume that you possess the experience, knowledge, and expertise to make your own investment decisions and properly assess the risks involved",
-    "appropriateness_test": "We’re not obliged to conduct an appropriateness test, nor provide you with any risk warnings",
-    "keep_informed": "As a Professional Client, you must keep us informed about any changes that may affect your status.",
-    "accept": "Accept",
-    "decline": "Decline",
-    "you_may_decline": "Note: You may decline and continue as a Retail Client."
+    "professional_clients": "Clienti professionisti",
+    "professional_clients_receive": "Un Cliente Professionale riceve un grado di tutela del cliente inferiore per i seguenti motivi:",
+    "posses_of_experience": "Presupponiamo che il cliente possieda l'esperienza, la conoscenza e le competenze necessarie per prendere decisioni di investimento e valutarne correttamente i rischi connessi",
+    "appropriateness_test": "Non siamo tenuti a condurre un test di appropriatezza e né tantomeno a fornire avvisi di rischio",
+    "keep_informed": "Come Cliente Professionale, ci devi tenere informati su eventuali cambiamenti che possono influenzare il tuo stato.",
+    "accept": "Accetta",
+    "decline": "Rifiuta",
+    "you_may_decline": "Nota: Puoi rifiutare e continuare come un Cliente al Dettaglio."
   },
   "account-categorisation": {
-    "account_categorisation": "Account Categorisation",
-    "processing": "Your application to be treated as a professional client is being processed.",
-    "professional": "You are categorised as a professional client.",
-    "error": "Sorry, an error occurred while processing your request.",
-    "retail_info": "By default, all clients are treated as retail. Do you prefer to be treated as a professional client if you match the necessary criteria?",
-    "professional_client_verify": "I want to be treated as a professional client.",
-    "what_is_this": "What is this?",
-    "submit": "Submit"
+    "account_categorisation": "Categorizzazione del conto",
+    "processing": "La tua richiesta di essere categorizzato come cliente professionale è in fase di elaborazione.",
+    "professional": "Sei categorizzato come cliente professionista.",
+    "error": "Siamo spiacenti, si è verificato un errore durante l'elaborazione della tua richiesta.",
+    "retail_info": "Normalmente i clienti vengono considerati clienti al dettaglio. Desideri essere considerato cliente professionale, previa verifica dei requisiti richiesti?",
+    "professional_client_verify": "Voglio essere trattato come cliente professionale.",
+    "what_is_this": "Cos'è questo?",
+    "submit": "Invia"
   }
 }
