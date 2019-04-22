@@ -9,11 +9,27 @@
 (function() {
     angular.module("binary.pages.self-exclusion.controllers").controller("SelfExclusionController", SelfExclusion);
 
-    SelfExclusion.$inject = ["$scope", "$state", "$translate", "$ionicScrollDelegate", "alertService", "websocketService",
-        "accountService", "validationService"];
+    SelfExclusion.$inject = [
+        "$scope",
+        "$state",
+        "$translate",
+        "$ionicScrollDelegate",
+        "alertService",
+        "websocketService",
+        "accountService",
+        "validationService"
+    ];
 
-    function SelfExclusion($scope, $state, $translate, $ionicScrollDelegate, alertService, websocketService, accountService,
-        validationService) {
+    function SelfExclusion(
+        $scope,
+        $state,
+        $translate,
+        $ionicScrollDelegate,
+        alertService,
+        websocketService,
+        accountService,
+        validationService
+    ) {
         const vm = this;
         vm.hasError = false;
         vm.validation = validationService;
