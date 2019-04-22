@@ -469,6 +469,26 @@
           </button>
         </div>
       </div>
+      <div class="row" ng-if="vm.limits.exclude_until">
+        <div class="col">
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.info_bottom_1' | translate }}
+            </div>
+          </div>
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.info_bottom_2' | translate }}
+            </div>
+          </div>
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.info_bottom_3' | translate }}
+              <a href='https://www.gamstop.co.uk/' target="_blank">www.gamstop.co.uk</a>.
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </ion-content>
 </ion-view>

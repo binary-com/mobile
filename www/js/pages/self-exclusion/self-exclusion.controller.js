@@ -9,10 +9,10 @@
 (function() {
     angular.module("binary.pages.self-exclusion.controllers").controller("SelfExclusionController", SelfExclusion);
 
-    SelfExclusion.$inject = ["$scope", "$state", "$translate", "alertService", "websocketService",
+    SelfExclusion.$inject = ["$scope", "$state", "$translate", "$ionicScrollDelegate", "alertService", "websocketService",
         "accountService", "validationService"];
 
-    function SelfExclusion($scope, $state, $translate, alertService, websocketService, accountService,
+    function SelfExclusion($scope, $state, $translate, $ionicScrollDelegate, alertService, websocketService, accountService,
         validationService) {
         const vm = this;
         vm.hasError = false;
@@ -26,6 +26,7 @@
         vm.disableUpdateButton = true;
         vm.isDataLoaded = false;
         vm.disableForZeroValues = false;
+        let isUpdated = false;
         vm.data = {};
         const account = accountService.getDefault();
         vm.country = account.country;
@@ -58,6 +59,12 @@
             });
             vm.limits = _.clone(vm.data);
             vm.disableUpdateButton = false;
+            if (isUpdated) {
+                isUpdated = false;
+                if (vm.country === 'gb') {
+                    $ionicScrollDelegate.scrollBottom();
+                }
+            }
         });
 
         $scope.$on("set-self-exclusion:error", (e, error) => {
@@ -100,6 +107,7 @@
             let stringify = JSON.stringify(data);
             stringify = stringify.replace(/:(\d+)([,}])/g, ':"$1"$2');
             websocketService.sendRequestFor.setSelfExclusion(JSON.parse(stringify));
+            isUpdated = true;
         }
 
         $scope.$on('get_limits', (e, limits) => {
