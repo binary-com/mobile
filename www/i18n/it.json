@@ -84,7 +84,7 @@
     "exit_title": "Esci",
     "exit_confirmation": "Sei sicuro di voler uscire?",
     "connection_error": "Nessuna connessione internet!",
-    "ssl_cert_failed": "Your connection is not private!",
+    "ssl_cert_failed": "La connessione non è privata!",
     "sign_out": "Esci"
   },
   "reality-check": {
