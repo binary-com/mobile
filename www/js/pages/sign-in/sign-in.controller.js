@@ -46,7 +46,9 @@
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
         vm.disableNextbutton = false;
+        vm.clientCountryIsUK = false;
         vm.linkToRegulatory = `https://www.binary.com/${localStorage.getItem("language") || "en"}/regulation.html`;
+        vm.gamStopLink = "https://www.gamstop.co.uk/";
 
         /**
          * On load:
@@ -196,6 +198,14 @@
             });
         });
 
+        $scope.$on("website_status", (e, website_status) => {
+            $scope.$applyAsync(() => {
+                if (/gb/.test(website_status.clients_country)) {
+                    vm.clientCountryIsUK = true;
+                }
+            });
+        });
+
         // change different type of singing methods
         vm.changeSigninView = _isBack => {
             _isBack = _isBack || false;
@@ -243,6 +253,10 @@
 
         vm.goToRegulatory = () => {
             window.open(vm.linkToRegulatory, "_blank");
+        }
+
+        vm.goToGamStop = () => {
+            window.open(vm.gamStopLink, "_blank");
         }
     }
 })();

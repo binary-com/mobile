@@ -161,7 +161,7 @@
     "maxlength_error": "To pole może liczyć maksymalnie {{max}} znaków.",
     "address_pattern_error": "Dozwolone są tylko litery, liczby, spacja i następujące znaki specjalne: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Dozwolone są tylko litery, cyfry i myślnik.",
-    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
+    "phone_pattern_error": "Dozwolone są tylko liczby, spacje i myślnik.",
     "tax_identification_number_pattern_error": "Dozwolone są tylko litery, cyfry i myślnik.",
     "continue": "Kontynuuj",
     "cancel": "Anuluj",
@@ -243,7 +243,7 @@
     "maxlength_error": "To pole może liczyć maksymalnie {{max}} znaków.",
     "address_pattern_error": "Dozwolone są tylko litery, liczby, spacja i następujące znaki specjalne: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Dozwolone są tylko litery, cyfry i myślnik.",
-    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
+    "phone_pattern_error": "Dozwolone są tylko liczby, spacje i myślnik.",
     "secret_answer_pattern_error": "Dozwolone są wyłącznie litery, cyfry, znak spacji, myślnik, kropka i apostrof.",
     "required": "To pole jest wymagane.",
     "not_pep_verify": "Oświadczam, że nie jestem osobą zajmującą eksponowane stanowisko polityczne (PEP)",
@@ -412,7 +412,7 @@
     "maxlength_error": "To pole może liczyć maksymalnie {{max}} znaków.",
     "range_length_error": "To pole musi zawierać od {{min}} do {{max}} znaków.",
     "postcode_pattern_error": "Dozwolone są tylko litery, cyfry i myślnik.",
-    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
+    "phone_pattern_error": "Dozwolone są tylko liczby, spacje i myślnik.",
     "tax_identification_number_pattern_error": "Dozwolone są tylko litery, cyfry i myślnik.",
     "cancel": "Anuluj",
     "continue": "Kontynuuj",
@@ -437,7 +437,7 @@
   },
   "update": {
     "your_version_is_out_of_date_please_update": "Korzystasz z nieaktualnej wersji aplikacji Tick Trade. Zaktualizuj swoją aplikację do najnowszej wersji.",
-    "download_the_android_app": "Download The Android App"
+    "download_the_android_app": "Pobierz aplikację dla systemu Android"
   },
   "change-password": {
     "change_password": "Zmień hasło",

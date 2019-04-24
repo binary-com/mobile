@@ -48,7 +48,7 @@
                 if (/^\.\d+$/.test(vm.amount)){
                     vm.amount = `0${vm.amount}`;
                 }
-                vm.proposal.amount = vm.amount;
+                vm.proposal.amount = +vm.amount;
             }
             proposalService.setPropertyValue("amount", vm.proposal.amount);
         };
@@ -62,7 +62,7 @@
         };
 
         vm.stopLongPress = () => {
-            vm.proposal.amount = vm.amount;
+            vm.proposal.amount = +vm.amount;
             proposalService.setPropertyValue("amount", vm.proposal.amount);
         };
 
