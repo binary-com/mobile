@@ -439,11 +439,13 @@
           </div>
           <div class="row">
             <div class="col item-input">
-              <input name="exclude_me_until"
-                     type="date"
-                     ng-model="vm.data.exclude_until"
-                     maxlength="10"
-                     min="{{ vm.nextSixMonths }}"/>
+              <label class="item item-input">
+                <input name="exclude_me_until"
+                       type="date"
+                       ng-model="vm.data.exclude_until"
+                       maxlength="10"
+                       min="{{ vm.nextSixMonths }}"/>
+              </label>
               <div class="hint"> {{ 'self-exclusion.exclude_me_hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.exclude_me_until.$error" role="alert" class="error">
                 <ng-message when="min, max">
