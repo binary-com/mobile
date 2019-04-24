@@ -14,5 +14,13 @@
         "features": [
             "Bug fixes"
         ]
+    },
+    {
+        "version": "2.4.1",
+        "googleplay": "https://binary.la/downloads/ticktrade-app.apk",
+        "appstore": "https://itunes.apple.com/us/app/binary.com-tick-trade/id1091187567?ls=1&mt=8",
+        "features": [
+            "Bug fixes"
+        ]
     }
 ]
