@@ -385,14 +385,14 @@
     "warning": "Cảnh báo",
     "not_zero": "Giá trị không thể là 0",
     "error": "Rất tiếc, đã xảy ra lỗi khi đang xử lý yêu cầu của bạn.",
-    "customer_support": "customer support",
-    "info": "Online trading can become addictive. Fill in the form below to limit your participation on the website or send a signed letter or fax to our customer support team. Once set, you can only tighten your limits. Limits will only be removed or loosened after 7 days with the exception of the self-exclusion date, which cannot be removed or altered once you have confirmed it. To remove or increase your limits, please contact",
-    "ukgc_info_1": "If you are considering self-exclusion, you may wish to register with GAMSTOP.",
-    "ukgc_info_2": "GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain.",
-    "ukgc_info_3": "To find out more and to sign up with GAMSTOP, please visit",
-    "info_bottom_1": "Self-exclusion on this website only applies to your Binary.com account and does not include other companies or websites.",
-    "info_bottom_2": "Since you feel the need to self-exclude, we strongly encourage you to exclude yourself from similar services that you may have signed up for.",
-    "info_bottom_3": "To self-exclude from all online gambling companies licensed in Great Britain, you may go to "
+    "customer_support": "hỗ trợ khách hàng",
+    "info": "Giao dịch trực tuyến có thể gây nghiện. Điền thông tin vào mẫu dưới đây để giới hạn mức chơi trên trang web hoặc gửi thư đã được kí hoặc fax cho nhóm hỗ trợ khách hàng của chúng tôi. Khi được thiết lập, bạn có thể thắt chặt giới hạn của mình. Giới hạn này sẽ chỉ bị loại bỏ hoặc nới lỏng sau 7 ngày ngày tự loại trừ, không thể bị loại bỏ hoặc thay thế từ khi bạn đã xác nhận chúng. Để loại bỏ hoặc tăng giới hạn của bạn, vui lòng liên hệ",
+    "ukgc_info_1": "Nếu bạn đang cân nhắc việc tự loại trừ, bạn có thể muốn đăng ký với GAMSTOP.",
+    "ukgc_info_2": "GAMSTOP là một dịch vụ miễn phí cho phép bạn tự loại trừ khỏi tất cả các công ty cờ bạc trực tuyến được cấp phép ở Vương Quốc Anh.",
+    "ukgc_info_3": "Để tìm hiểu thêm và đăng ký với GAMSTOP, xin vui lòng truy cập",
+    "info_bottom_1": "Tự loại trừ trên trang web này chỉ áp dụng cho tài khoản %1 của bạn và không bao gồm các công ty hoặc trang web khác.",
+    "info_bottom_2": "Vì bạn cảm thấy cần tự loại trừ, chúng tôi thực sự khuyên bạn nên loại trừ bản thân khỏi các dịch vụ tương tự mà bạn có thể đã đăng ký.",
+    "info_bottom_3": "Để tự loại trừ khỏi tất cả công ty cờ bạc trực tuyến có giấy phép của Anh Quốc, đi tới "
   },
   "profile": {
     "personal_details": "Thông tin cá nhân",
