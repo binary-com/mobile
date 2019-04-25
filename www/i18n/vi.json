@@ -384,7 +384,15 @@
     "success": "Thành công",
     "warning": "Cảnh báo",
     "not_zero": "Giá trị không thể là 0",
-    "error": "Rất tiếc, đã xảy ra lỗi khi đang xử lý yêu cầu của bạn."
+    "error": "Rất tiếc, đã xảy ra lỗi khi đang xử lý yêu cầu của bạn.",
+    "customer_support": "customer support",
+    "info": "Online trading can become addictive. Fill in the form below to limit your participation on the website or send a signed letter or fax to our customer support team. Once set, you can only tighten your limits. Limits will only be removed or loosened after 7 days with the exception of the self-exclusion date, which cannot be removed or altered once you have confirmed it. To remove or increase your limits, please contact",
+    "ukgc_info_1": "If you are considering self-exclusion, you may wish to register with GAMSTOP.",
+    "ukgc_info_2": "GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain.",
+    "ukgc_info_3": "To find out more and to sign up with GAMSTOP, please visit",
+    "info_bottom_1": "Self-exclusion on this website only applies to your Binary.com account and does not include other companies or websites.",
+    "info_bottom_2": "Since you feel the need to self-exclude, we strongly encourage you to exclude yourself from similar services that you may have signed up for.",
+    "info_bottom_3": "To self-exclude from all online gambling companies licensed in Great Britain, you may go to "
   },
   "profile": {
     "personal_details": "Thông tin cá nhân",
