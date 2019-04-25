@@ -228,10 +228,10 @@ input {
     top: 2px;
     position: relative;
   }
-  &[type="date"] {
+  &[type="date"], &[type="datetime-local"] {
     min-height: 30px!important;
   }
-  &[type="date"]::-webkit-calendar-picker-indicator {
+  &[type="date"]::-webkit-calendar-picker-indicator, &[type="datetime-local"]::-webkit-calendar-picker-indicator {
     color: $secondaryContentColor;
   }
 }
