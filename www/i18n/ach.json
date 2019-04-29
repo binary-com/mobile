@@ -384,7 +384,15 @@
     "success": "crwdns18039:0crwdne18039:0",
     "warning": "crwdns19405:0crwdne19405:0",
     "not_zero": "crwdns45950:0crwdne45950:0",
-    "error": "crwdns45951:0crwdne45951:0"
+    "error": "crwdns45951:0crwdne45951:0",
+    "customer_support": "crwdns53682:0crwdne53682:0",
+    "info": "crwdns53684:0crwdne53684:0",
+    "ukgc_info_1": "crwdns53686:0crwdne53686:0",
+    "ukgc_info_2": "crwdns53688:0crwdne53688:0",
+    "ukgc_info_3": "crwdns53690:0crwdne53690:0",
+    "info_bottom_1": "crwdns53692:0crwdne53692:0",
+    "info_bottom_2": "crwdns53694:0crwdne53694:0",
+    "info_bottom_3": "crwdns53696:0crwdne53696:0"
   },
   "profile": {
     "personal_details": "crwdns18040:0crwdne18040:0",
