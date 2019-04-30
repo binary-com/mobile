@@ -385,14 +385,14 @@
     "warning": "Avertissement",
     "not_zero": "La Valeur ne peut pas être 0",
     "error": "Désolé, une erreur s’est produite lors du traitement de votre demande.",
-    "customer_support": "customer support",
+    "customer_support": "service clientèle",
     "info": "Online trading can become addictive. Fill in the form below to limit your participation on the website or send a signed letter or fax to our customer support team. Once set, you can only tighten your limits. Limits will only be removed or loosened after 7 days with the exception of the self-exclusion date, which cannot be removed or altered once you have confirmed it. To remove or increase your limits, please contact",
-    "ukgc_info_1": "If you are considering self-exclusion, you may wish to register with GAMSTOP.",
-    "ukgc_info_2": "GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain.",
-    "ukgc_info_3": "To find out more and to sign up with GAMSTOP, please visit",
+    "ukgc_info_1": "Si vous envisagez de vous auto-exclure, vous pouvez vous inscrire auprès de GAMSTOP.",
+    "ukgc_info_2": "GAMSTOP est un service gratuit qui vous permet de vous auto exclure de toutes les sociétés de jeu en ligne sous licence en Grande-Bretagne.",
+    "ukgc_info_3": "Pour trouver plus d'information et pour signer avec GAMSTOP, veuillez visiter",
     "info_bottom_1": "Self-exclusion on this website only applies to your Binary.com account and does not include other companies or websites.",
-    "info_bottom_2": "Since you feel the need to self-exclude, we strongly encourage you to exclude yourself from similar services that you may have signed up for.",
-    "info_bottom_3": "To self-exclude from all online gambling companies licensed in Great Britain, you may go to "
+    "info_bottom_2": "Étant donné que vous ressentez le besoin de vous auto exclure, nous vous encourageons vivement à vous exclure des services similaires que vous pouvez avoir contracté.",
+    "info_bottom_3": "Pour vous auto exclure de toutes les compagnies de jeu en ligne sous licence en Grande-Bretagne, allez à "
   },
   "profile": {
     "personal_details": "Informations personnelles",
