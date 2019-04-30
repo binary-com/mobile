@@ -385,14 +385,14 @@
     "warning": "Ostrzeżenie",
     "not_zero": "Wartość nie może wynosić 0",
     "error": "Przepraszamy, podczas przetwarzania żądania wystąpił błąd.",
-    "customer_support": "customer support",
+    "customer_support": "dział obsługi klienta",
     "info": "Online trading can become addictive. Fill in the form below to limit your participation on the website or send a signed letter or fax to our customer support team. Once set, you can only tighten your limits. Limits will only be removed or loosened after 7 days with the exception of the self-exclusion date, which cannot be removed or altered once you have confirmed it. To remove or increase your limits, please contact",
-    "ukgc_info_1": "If you are considering self-exclusion, you may wish to register with GAMSTOP.",
-    "ukgc_info_2": "GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain.",
-    "ukgc_info_3": "To find out more and to sign up with GAMSTOP, please visit",
+    "ukgc_info_1": "Jeśli rozważasz skorzystanie z opcji samodzielnego wykluczenia, możesz zarejestrować się w GAMSTOP.",
+    "ukgc_info_2": "GAMSTOP to darmowa usługa, która umożliwia samodzielne wykluczenie z dostępu do wszystkich firm oferujących handel online z licencją w Wielkiej Brytanii.",
+    "ukgc_info_3": "Aby uzyskać więcej informacji i zarejestrować się z GAMSTOP, odwiedź",
     "info_bottom_1": "Self-exclusion on this website only applies to your Binary.com account and does not include other companies or websites.",
-    "info_bottom_2": "Since you feel the need to self-exclude, we strongly encourage you to exclude yourself from similar services that you may have signed up for.",
-    "info_bottom_3": "To self-exclude from all online gambling companies licensed in Great Britain, you may go to "
+    "info_bottom_2": "Skoro czujesz potrzebę skorzystania z opcji samo-wykluczenia, zachęcamy do samo-wykluczenia również z podobnych usług, z których być może korzystasz.",
+    "info_bottom_3": "Aby dokonać samo-wyłączenia ze wszystkich firm oferujących handel online w Wielkiej Brytanii, przejdź do "
   },
   "profile": {
     "personal_details": "Dane osobowe",

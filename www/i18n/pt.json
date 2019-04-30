@@ -385,14 +385,14 @@
     "warning": "Aviso",
     "not_zero": "Valor não pode ser 0",
     "error": "Lamentamos, ocorreu um erro durante o processamento do seu pedido.",
-    "customer_support": "customer support",
+    "customer_support": "apoio ao cliente",
     "info": "Online trading can become addictive. Fill in the form below to limit your participation on the website or send a signed letter or fax to our customer support team. Once set, you can only tighten your limits. Limits will only be removed or loosened after 7 days with the exception of the self-exclusion date, which cannot be removed or altered once you have confirmed it. To remove or increase your limits, please contact",
-    "ukgc_info_1": "If you are considering self-exclusion, you may wish to register with GAMSTOP.",
-    "ukgc_info_2": "GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain.",
-    "ukgc_info_3": "To find out more and to sign up with GAMSTOP, please visit",
+    "ukgc_info_1": "Caso você esteja considerando a auto-exclusão, é provável que queira registrar no GAMSTOP.",
+    "ukgc_info_2": "O GAMSTOP é um serviço gratuito que lhe permite excluir-se de todas as empresas de jogos de azar online licenciadas no Reino Unido.",
+    "ukgc_info_3": "Para saber mais e para se inscrever no GAMSTOP, visite",
     "info_bottom_1": "Self-exclusion on this website only applies to your Binary.com account and does not include other companies or websites.",
-    "info_bottom_2": "Since you feel the need to self-exclude, we strongly encourage you to exclude yourself from similar services that you may have signed up for.",
-    "info_bottom_3": "To self-exclude from all online gambling companies licensed in Great Britain, you may go to "
+    "info_bottom_2": "Visto que você sente a necessidade de se autoexcluir, recomendamos fortemente que se exclua de serviços semelhantes em quais esteja inscrito.",
+    "info_bottom_3": "Para se excluir de todas as empresas de jogos de azar online licenciadas no Reino Unido, pode visitar "
   },
   "profile": {
     "personal_details": "Dados pessoais",
