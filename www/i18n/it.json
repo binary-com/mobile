@@ -666,9 +666,9 @@
     "stocks": "Azioni",
     "volidx": "Indici di volatilità",
     "note": "Nota: puoi avere solo un conto di moneta reale e uno per ogni conto di criptovaluta.",
-    "excluded_until": "This account is excluded until {{time}}",
+    "excluded_until": "Questo conto è escluso fino alle {{time}}",
     "is_disabled": "Questo conto è disattivato",
-    "account_warning": "Note: For any enquiries regarding disabled or excluded accounts, please contact",
+    "account_warning": "Nota: Per qualsiasi richiesta relativa a conti disattivati o esclusi, ti preghiamo di contattare",
     "customer_support": "servizio clienti."
   },
   "financial-information-options": {
@@ -749,9 +749,9 @@
     "hedging": "Hedging"
   },
   "ios-pwa-prompt": {
-    "title": "Install Binary TickTrade",
+    "title": "Installa Binary TickTrade",
     "close": "Chiudi",
-    "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
+    "installation_text": "Installa Binary TickTrade sullo schermo della home per accedere velocemente e con facilità in qualsiasi momento.",
     "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
   },
   "professional-client-information": {
