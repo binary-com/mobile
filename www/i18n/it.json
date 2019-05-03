@@ -647,7 +647,7 @@
     "account_financial": "Conto finanziario",
     "fiat_currencies": "Moneta Fiat",
     "crypto_currencies": "Criptovaluta",
-    "please_select_currency": "Please set the currency for your existing account {{loginid}}, in order to create more accounts.",
+    "please_select_currency": "Imposta la valuta per il conto esistente {{loginid}} al fine di creare altri conti.",
     "set_currency": "Imposta la valuta",
     "existing_accounts": "I tuoi conti esistenti",
     "create_new": "Crea un nuovo account",
