@@ -386,13 +386,13 @@
     "not_zero": "Il valore non può essere 0",
     "error": "Siamo spiacenti, si è verificato un errore durante l'elaborazione della tua richiesta.",
     "customer_support": "servizio clienti",
-    "info": "Online trading can become addictive. Fill in the form below to limit your participation on the website or send a signed letter or fax to our customer support team. Once set, you can only tighten your limits. Limits will only be removed or loosened after 7 days with the exception of the self-exclusion date, which cannot be removed or altered once you have confirmed it. To remove or increase your limits, please contact",
+    "info": "Il trading online può creare dipendenza. Compila il modulo sottostante per limitare la tua partecipazione sul sito web, oppure invia una lettera o un fax firmato al nostro team di assistenza clienti. Una volta impostati i limiti, potrai solamente incrementarli; inoltre saranno rimossi o ridotti dopo 7 giorni a eccezione della data di auto-esclusione, che non può essere rimossa o modificata una volta confermata. Per rimuovere o aumentare i limiti, ti preghiamo di contattare l'assistenza clienti",
     "ukgc_info_1": "Se stai valutando l'autoesclusione, potresti volere registrarti con GAMSTOP.",
     "ukgc_info_2": "GAMSTOP è un servizio gratuito che ti permette di autoescluderti da qualsiasi società di gioco d'azzardo online autorizzata in Gran Bretagna.",
     "ukgc_info_3": "Per saperne di più e per iscriverti con GAMSTOP, visita il sito",
-    "info_bottom_1": "Self-exclusion on this website only applies to your Binary.com account and does not include other companies or websites.",
+    "info_bottom_1": "L'autoesclusione su questo sito web si applica solamente al conto Binary.com del Cliente e non include altri siti web o società.",
     "info_bottom_2": "Dal momento che hai deciso di autoescluderti, ti consigliamo vivamente di autoescluderti anche da altri servizi simili ai quali sei iscritto.",
-    "info_bottom_3": "To self-exclude from all online gambling companies licensed in Great Britain, you may go to "
+    "info_bottom_3": "Per autoescludersi da qualsiasi società di gioco d'azzardo online autorizzata in Gran Bretagna, aprire il link seguente: "
   },
   "profile": {
     "personal_details": "Informazioni personali",
@@ -420,7 +420,7 @@
     "maxlength_error": "Questo campo può contenere al massimo {{max}} caratteri.",
     "range_length_error": "Questo campo deve contenere da {{min}} a {{max}} caratteri.",
     "postcode_pattern_error": "Sono consentiti solo lettere, numeri e trattini.",
-    "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
+    "phone_pattern_error": "Sono consentiti solo numeri, spazi e trattini.",
     "tax_identification_number_pattern_error": "Sono consentiti solo lettere, numeri e trattini.",
     "cancel": "Annulla",
     "continue": "Continua",
@@ -430,8 +430,8 @@
     "details": "Dettagli",
     "tax_information": "Informazioni Aggiuntive",
     "email_preferences": "Preferenze e-mail",
-    "receive_emails": "Receive emails on Binary.com products, services, and events",
-    "to_change": "To change your name, date of birth, country of residence, or email, please contact",
+    "receive_emails": "Ricevere e-mail su prodotti, servizi ed eventi di Binary.com",
+    "to_change": "Per modificare nome, data di nascita, paese di residenza o e-mail, contatta",
     "customer_support": "Assistenza clienti"
   },
   "accept-terms-and-conditions": {
@@ -445,7 +445,7 @@
   },
   "update": {
     "your_version_is_out_of_date_please_update": "La tua versione di Tick Trade è obsoleta. Aggiorna la tua app con la versione più recente.",
-    "download_the_android_app": "Download The Android App"
+    "download_the_android_app": "Scarica l'app per Android"
   },
   "change-password": {
     "change_password": "Modifica password",
@@ -467,13 +467,13 @@
     "binary_options_trading_frequency": "Frequenza del trading di opzioni binarie",
     "cfd_trading_experience": "Esperienza di trading di CFD",
     "cfd_trading_frequency": "Frequenza del trading di CFD",
-    "other_instruments_trading_experience": "Trading experience in other financial instruments",
-    "other_instruments_trading_frequency": "Trading frequency in other financial instruments",
-    "employment_industry": "Industry of employment",
-    "education_level": "Level of education",
-    "income_source": "Income source",
-    "net_income": "Net annual income",
-    "estimated_worth": "Estimated net worth",
+    "other_instruments_trading_experience": "Esperienza di trading in altri strumenti finanziari",
+    "other_instruments_trading_frequency": "Frequenza del trading in altri strumenti finanziari",
+    "employment_industry": "Settori di occupazione",
+    "education_level": "Livello di istruzione",
+    "income_source": "Fonte di reddito",
+    "net_income": "Reddito annuale netto",
+    "estimated_worth": "Patrimonio netto stimato",
     "select": "Seleziona",
     "update": "Aggiorna",
     "financial_assessment_info": "I servizi di trading finanziario contenuti in questo sito sono adatti solo per i clienti in grado di subire la perdita di tutti i soldi investiti e che comprendono ed hanno esperienza dei rischi connessi all'acquisizione di contratti finanziari. Le transazioni su contratti finanziari hanno un alto livello di rischio. Se i contratti acquistati scadono in negativo, subirai una perdita totale del tuo investimento che consiste nel premio del contratto.",
@@ -491,8 +491,8 @@
     "trading_withdrawal_limits": "Limiti di trading e dei prelievi",
     "item": "Voce",
     "limit": "Limite",
-    "open_positions": "Maximum Number of Open Positions",
-    "account_balance": "Maximum Account Cash Balance",
+    "open_positions": "Numero massimo di posizioni aperte",
+    "account_balance": "Massimo saldo di cassa del conto",
     "payouts": "Maximum Aggregate Payouts on Open Positions",
     "payouts_per_symbol_and_contract_type": "Maximum Aggregate Payouts on Open Positions per Symbol and Contract Type",
     "maximum_daily_turnover": "Turnover Massimo Giornaliero",
