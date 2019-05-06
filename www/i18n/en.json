@@ -339,7 +339,8 @@
     "open_financial": "Open A Financial Account",
     "create_account": "Create Account",
     "accounts_list": "Accounts List",
-    "network_status": "Network Status"
+    "network_status": "Network Status",
+    "responsible_trading": "Responsible Trading"
   },
   "settings": {
     "settings": "Settings",
