@@ -339,7 +339,8 @@
     "open_financial": "Daftar Akun Finansial",
     "create_account": "Daftar Akun",
     "accounts_list": "Daftar Akun",
-    "network_status": "Status Jaringan"
+    "network_status": "Status Jaringan",
+    "responsible_trading": "Responsible Trading"
   },
   "settings": {
     "settings": "Pengaturan",
