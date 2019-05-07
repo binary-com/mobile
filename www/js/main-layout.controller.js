@@ -155,13 +155,18 @@ angular
             }
         });
 
-        vm.linkToRegulatory = `https://www.binary.com/${localStorage.getItem("language") || "en"}/regulation.html`;
         vm.goToRegulatory = function() {
-            window.open(vm.linkToRegulatory, "_blank");
+            const linkToRegulatory = `https://www.binary.com/${localStorage.getItem("language") || "en"}/regulation.html`;
+            window.open(linkToRegulatory, "_blank");
         };
 
         vm.goToNetworkStatus = () => {
             window.open("https://binarycom.statuspage.io/", "_blank");
-        }
+        };
+
+        vm.goToResponsbileTrading = () => {
+            const linkToResponsibleTrading = `https://www.binary.com/${localStorage.getItem("language") || "en"}/responsible-trading.html`;
+            window.open(linkToResponsibleTrading, "_blank");
+        };
 
     });

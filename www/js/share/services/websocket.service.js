@@ -22,7 +22,8 @@ angular
             localStorageService,
             clientService,
             config,
-            notificationService
+            notificationService,
+            supportedLanguagesService
         ) => {
             let dataStream = "";
             const messageBuffer = [];
@@ -118,7 +119,7 @@ angular
 
                 appStateService.isLoggedin = false;
 
-                
+
 
                 const onFailed = () => {
                     $rootScope.$broadcast("connection:error", true);
@@ -639,6 +640,12 @@ angular
                                 appStateService.currenciesConfig = message.website_status.currencies_config;
                                 $rootScope.$broadcast("website_status", message.website_status);
                                 localStorage.termsConditionsVersion = message.website_status.terms_conditions_version;
+                                const supportedLanguages = message.website_status.supported_languages;
+                                if (supportedLanguages.length) {
+                                    supportedLanguagesService.setSupportedLanguages(
+                                        message.website_status.supported_languages
+                                    );
+                                }
                             } else if (message.hasOwnProperty("error")) {
                                 trackJs.track(`${message.error.code}: ${message.error.message}`);
                             }
