@@ -339,7 +339,8 @@
     "open_financial": "เปิดบัญชีทางการเงิน 1 บัญชี",
     "create_account": "สร้างบัญชี",
     "accounts_list": "รายการบัญชี",
-    "network_status": "สถานะของเครือข่าย"
+    "network_status": "สถานะของเครือข่าย",
+    "responsible_trading": "Responsible Trading"
   },
   "settings": {
     "settings": "การตั้งค่า",
