@@ -339,7 +339,8 @@
     "open_financial": "Открыть Финансовый счёт",
     "create_account": "Открыть счёт",
     "accounts_list": "Список счетов",
-    "network_status": "Статус сети"
+    "network_status": "Статус сети",
+    "responsible_trading": "Responsible Trading"
   },
   "settings": {
     "settings": "Настройки",
