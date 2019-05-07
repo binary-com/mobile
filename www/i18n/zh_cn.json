@@ -339,7 +339,8 @@
     "open_financial": "开立金融账户",
     "create_account": "开立账户",
     "accounts_list": "账户列表",
-    "network_status": "网络状态"
+    "network_status": "网络状态",
+    "responsible_trading": "Responsible Trading"
   },
   "settings": {
     "settings": "设置",
