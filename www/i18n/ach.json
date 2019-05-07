@@ -339,7 +339,8 @@
     "open_financial": "crwdns45003:0crwdne45003:0",
     "create_account": "crwdns45004:0crwdne45004:0",
     "accounts_list": "crwdns45005:0crwdne45005:0",
-    "network_status": "crwdns45006:0crwdne45006:0"
+    "network_status": "crwdns45006:0crwdne45006:0",
+    "responsible_trading": "crwdns53748:0crwdne53748:0"
   },
   "settings": {
     "settings": "crwdns18010:0crwdne18010:0",
