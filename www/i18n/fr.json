@@ -339,7 +339,8 @@
     "open_financial": "Ouvrir un Compte Financier",
     "create_account": "Créer un compte",
     "accounts_list": "Liste des comptes",
-    "network_status": "Statut réseau"
+    "network_status": "Statut réseau",
+    "responsible_trading": "Trading responsable"
   },
   "settings": {
     "settings": "Paramètres",
@@ -386,11 +387,11 @@
     "not_zero": "La Valeur ne peut pas être 0",
     "error": "Désolé, une erreur s’est produite lors du traitement de votre demande.",
     "customer_support": "service clientèle",
-    "info": "Online trading can become addictive. Fill in the form below to limit your participation on the website or send a signed letter or fax to our customer support team. Once set, you can only tighten your limits. Limits will only be removed or loosened after 7 days with the exception of the self-exclusion date, which cannot be removed or altered once you have confirmed it. To remove or increase your limits, please contact",
+    "info": "La spéculation financière peut s'avérer addictive. Veuillez remplir le formulaire ci-dessous pour limiter votre participation sur le site Web ou envoyer une lettre ou un fax signé à notre équipe du service clientèle. Une fois vos limites fixées, vous pourrez uniquement les restreindre. Elles ne pourront être supprimées ou élargies qu'au bout de 7 jours, sauf si une date d'auto-exclusion a été sélectionnée, laquelle ne peut être supprimée ou modifiée une fois confirmée. Pour supprimer ou augmenter vos limites, veuillez contacter",
     "ukgc_info_1": "Si vous envisagez de vous auto-exclure, vous pouvez vous inscrire auprès de GAMSTOP.",
     "ukgc_info_2": "GAMSTOP est un service gratuit qui vous permet de vous auto exclure de toutes les sociétés de jeu en ligne sous licence en Grande-Bretagne.",
     "ukgc_info_3": "Pour trouver plus d'information et pour signer avec GAMSTOP, veuillez visiter",
-    "info_bottom_1": "Self-exclusion on this website only applies to your Binary.com account and does not include other companies or websites.",
+    "info_bottom_1": "L'auto-exclusion sur ce site Web s'applique uniquement à votre compte Binary.com et n'inclut pas d'autres sociétés ou sites Web.",
     "info_bottom_2": "Étant donné que vous ressentez le besoin de vous auto exclure, nous vous encourageons vivement à vous exclure des services similaires que vous pouvez avoir contracté.",
     "info_bottom_3": "Pour vous auto exclure de toutes les compagnies de jeu en ligne sous licence en Grande-Bretagne, allez à "
   },
@@ -591,7 +592,7 @@
     "marketing_email": "Pour le programme d'affiliation, partenariat et autres requêtes axés sur le marketing ",
     "company_addresses": "Adresses de la société",
     "malta": "Malte",
-    "malta_address": "Binary (Europe) Ltd et Binary Investments (Europe) Ltd, Mompalao Building, Suite 2, Tower Road, Msida MSD1825",
+    "malta_address": "Binary (Europe) Ltd & Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033",
     "japan": "Japon",
     "japan_address": "Binary KK, Hiroo Miyata Bldg 3F, 9-16, Hiroo 1-chome, Shibuya-ku, Tokyo 150-0012, Japon",
     "malaysia": "Malaisie",

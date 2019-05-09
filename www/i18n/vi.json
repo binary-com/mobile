@@ -339,7 +339,8 @@
     "open_financial": "Mở một Tài khoản Tài chính",
     "create_account": "Tạo Tài khoản",
     "accounts_list": "Danh sách tài khoản",
-    "network_status": "Tình trạng Kết nối"
+    "network_status": "Tình trạng Kết nối",
+    "responsible_trading": "Giao Dịch Có Trách Nhiệm"
   },
   "settings": {
     "settings": "Cài đặt",
@@ -591,7 +592,7 @@
     "marketing_email": "Dành cho các vấn đề liên quan đến liên kết, hợp tác và các câu hỏi về tiếp thị",
     "company_addresses": "Địa chỉ công ty",
     "malta": "Cộng hòa Malta",
-    "malta_address": "Công ty TNHH Binary (châu Âu) và công ty TNHH Đầu tư Binary (châu Âu), Tòa nhà Mompalao, Khu 2, ĐườngTower, Msida MSD1825",
+    "malta_address": "Binary (Châu Âu) công ty TNHH & Đầu tư Binary (Châu Âu), W Business Centre, tầng 3, Triq Dun Karm, Birkirkara, BKR 9033",
     "japan": "Nhật Bản",
     "japan_address": "Binary KK, Tòa nhà Hiroo Miyata 3F, 9-16, Hiroo 1-chome, Shibuya-ku, Tokyo 150-0012, Nhật Bản",
     "malaysia": "Ma-lay-si-a",

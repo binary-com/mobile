@@ -339,7 +339,8 @@
     "open_financial": "crwdns45003:0crwdne45003:0",
     "create_account": "crwdns45004:0crwdne45004:0",
     "accounts_list": "crwdns45005:0crwdne45005:0",
-    "network_status": "crwdns45006:0crwdne45006:0"
+    "network_status": "crwdns45006:0crwdne45006:0",
+    "responsible_trading": "crwdns53748:0crwdne53748:0"
   },
   "settings": {
     "settings": "crwdns18010:0crwdne18010:0",
@@ -591,7 +592,7 @@
     "marketing_email": "crwdns45161:0crwdne45161:0",
     "company_addresses": "crwdns45162:0crwdne45162:0",
     "malta": "crwdns19705:0crwdne19705:0",
-    "malta_address": "crwdns19706:0crwdne19706:0",
+    "malta_address": "crwdns53728:0crwdne53728:0",
     "japan": "crwdns19707:0crwdne19707:0",
     "japan_address": "crwdns19708:0crwdne19708:0",
     "malaysia": "crwdns19710:0crwdne19710:0",
