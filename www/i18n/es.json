@@ -753,12 +753,12 @@
     "title": "Instalar Binary TickTrade",
     "close": "Cerrar",
     "installation_text": "Instalar Binary TickTrade en la pantalla principal para un acceso rápido y fácil en cualquier lugar.",
-    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+    "installation_help": "Toque en {{icon}} y despues \"Añadir a la pantalla principal\""
   },
   "professional-client-information": {
-    "professional_client": "What is Professional Client?",
+    "professional_client": "¿Qué es Cliente Profesional?",
     "clients_need_to_satisfy": "Los clientes deben cumplir con al menos dos de los siguientes criterios para ser reconocidos como cliente profesional:",
-    "significant_transactions": "You’ve carried out significant transactions on markets similar to the ones we offer, averaging 10 transactions per quarter for the previous four quarters",
+    "significant_transactions": "Ha realizado transacciones significativas en mercados similares a los que ofrecemos, con un promedio de 10 transacciones por trimestre durante los cuatro trimestres anteriores",
     "size_of_instrument": "El tamaño de su cartera de instrumentos excede los 500.000 EUR o su equivalente",
     "worked_in_financial_sector": "Usted ha trabajado en el sector financiero durante al menos un año en una posición que requiere conocer las transacciones que planea efectuar en nuestra plataforma",
     "treated_as_professional_client": "Si elige ser tratado como cliente profesional, consideraremos que posee el conocimiento y experiencia de mercado necesarios. En tal caso, tomaremos algunas medidas para garantizar que su solicitud cumpla con los criterios mencionados anteriormente, incluyendo la petición de lo siguiente:",
@@ -767,15 +767,15 @@
     "employment": "Prueba de su empleo"
   },
   "pep-information": {
-    "pep": "What is PEP?",
+    "pep": "¿Qué es PEP?",
     "what_is_pep": "Una Persona Políticamente Expuesta (PEP) es un individuo a quien se le ha confiado o se le ha confiado una función pública prominente, incluyendo a sus familiares inmediatos o a asociados cercanos de dichas personas, sin incluir a los funcionarios de rango medio o más bajo. Estas personas incluyen jefes de estado, ministros, secretarios del parlamento, miembros del parlamento, jueces, embajadores, altos funcionarios de gobierno, altos oficiales de las fuerzas armadas, comités de auditoría de los consejos de administración de los bancos centrales y directores de empresas estatales. Los \"miembros de la familia inmediata\" de los cargos mencionados anteriormente, es decir, sus cónyuges/parejas, padres e hijos, también serán considerados como PEP. Del mismo modo, se considerarán como PEP a los \"asociados cercanos\" de las PEP incluyen sus socios comerciales. Como regla general, ya no califica como PEP una persona que haya cesado de sus funciones públicas prominentes por un periodo de al menos doce meses."
   },
   "what-is-tax-information": {
     "tax_information_title": "Información tributaria",
     "required_by": "Este es un requisito del Estándar Común de Reporte (ECR/CRS) y de la Ley de cumplimiento tributario de cuentas extranjeras (FATCA).",
-    "please_enter": "Please enter your ",
+    "please_enter": "Por favor, introduzca su",
     "tax_information": "información tributaria",
-    "to_continue": "to continue.",
+    "to_continue": "para continuar.",
     "information_will_be_safe": "Descanse tranquilo, teniendo la seguridad de que su información sólo se utilizará para informes CRS/FATCA y que se mantendrá segura.",
     "contact_for_clarification": "Si tenemos motivos para creer que su información tributaria está incompleta, podemos contactarlo para aclarar su situación."
   },
