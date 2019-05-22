@@ -391,7 +391,7 @@
     "ukgc_info_1": "Si está considerando la autoexclusión, le recomendamos registrarse en GAMSTOP.",
     "ukgc_info_2": "GAMSTOP es un servicio gratuito que le permite autoexcluirse de todas las empresas de apuestas en línea con licencia en Gran Bretaña.",
     "ukgc_info_3": "Para más detalles e inscribirse en GAMSTOP, por favor visite",
-    "info_bottom_1": "Self-exclusion on this website only applies to your Binary.com account and does not include other companies or websites.",
+    "info_bottom_1": "La autoexclusión en este sitio web solo se aplica a su cuenta %1 y no incluye otras empresas o sitios web.",
     "info_bottom_2": "Dado que siente la necesidad de autoexcluirse, le recomendamos encarecidamente que también se autoexcluya de servicios similares en los que se haya inscrito.",
     "info_bottom_3": "Para autoexcluirse de todas las empresas de apuestas online licenciadas en Gran Bretaña, diríjase a "
   },
@@ -418,7 +418,7 @@
     "select": "Por favor, seleccione",
     "general_pattern_error": "Se permite sólo el uso de letras, espacios, guiones, puntos y apóstrofes.",
     "address_pattern_error": "Se permite sólo el uso de letras, números, espacios y los siguientes caracteres especiales: - . ' # ; : ( ) , @ /",
-    "maxlength_error": "This field can be at most {{max}} characters long.",
+    "maxlength_error": "Este campo debe contener como máximo {{max}} caracteres",
     "range_length_error": "This field must be within {{min}}-{{max}} characters.",
     "postcode_pattern_error": "Se permiten sólo letras, números y guiones.",
     "phone_pattern_error": "Only numbers, spaces and hyphen are allowed.",
