@@ -431,8 +431,8 @@
     "details": "Detalles",
     "tax_information": "Información tributaria",
     "email_preferences": "Preferencias de correo electrónico",
-    "receive_emails": "Receive emails on Binary.com products, services, and events",
-    "to_change": "To change your name, date of birth, country of residence, or email, please contact",
+    "receive_emails": "Reciba correos electrónicos sobre productos, servicios y eventos de %1",
+    "to_change": "Para modificar su nombre, fecha de nacimiento, país de residencia o email, contacte con",
     "customer_support": "Atención al cliente"
   },
   "accept-terms-and-conditions": {
@@ -446,7 +446,7 @@
   },
   "update": {
     "your_version_is_out_of_date_please_update": "Su versión de Tick Trade está desactualizada. Por favor, actualice la aplicación a la versión más reciente.",
-    "download_the_android_app": "Download The Android App"
+    "download_the_android_app": "Descargar la aplicación para Android"
   },
   "change-password": {
     "change_password": "Cambiar contraseña",
@@ -458,7 +458,7 @@
     "required": "Campo obligatorio.",
     "password_pattern_error": "La contraseña debe tener letras minúsculas y mayúsculas con números.",
     "password_changed_text": "Su contraseña ha sido cambiada. Por favor, inicie sesión nuevo.",
-    "range_length_error": "This field must be within {{min}}-{{max}} characters."
+    "range_length_error": "Este campo debe contener entre {{min}-{{max}} caracteres."
   },
   "financial-assessment": {
     "financial_assessment": "Evaluación financiera",
@@ -468,11 +468,11 @@
     "binary_options_trading_frequency": "Frecuencia en operación con opciones binarias",
     "cfd_trading_experience": "Experiencia en operación con CFD",
     "cfd_trading_frequency": "Frecuencia en operación con CFD",
-    "other_instruments_trading_experience": "Trading experience in other financial instruments",
-    "other_instruments_trading_frequency": "Trading frequency in other financial instruments",
+    "other_instruments_trading_experience": "Experiencia comercial en otros instrumentos financieros",
+    "other_instruments_trading_frequency": "Frecuencia de negociación en otros instrumentos financieros",
     "employment_industry": "Sector laboral",
     "education_level": "Nivel de educación",
-    "income_source": "Income source",
+    "income_source": "Fuente de ingresos",
     "net_income": "Ingreso neto anual",
     "estimated_worth": "Valor neto estimado",
     "select": "Por favor, seleccione",
@@ -492,7 +492,7 @@
     "trading_withdrawal_limits": "Límites de comercialización y de retiro",
     "item": "Artículo",
     "limit": "Límite",
-    "open_positions": "Maximum Number of Open Positions",
+    "open_positions": "Número máximo de posiciones abiertas",
     "account_balance": "Maximum Account Cash Balance",
     "payouts": "Maximum Aggregate Payouts on Open Positions",
     "payouts_per_symbol_and_contract_type": "Maximum Aggregate Payouts on Open Positions per Symbol and Contract Type",
