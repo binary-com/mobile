@@ -618,14 +618,14 @@
     "tnc": "Términos y condiciones",
     "accept_tnc": "Por favor acepte los términos y condiciones actualizados para aumentar el límite de retiro y negociación de su cuenta.",
     "max_turnover_limit": "Límite máximo de facturación de la cuenta",
-    "set_max_turnover_limit": "Please set Self Exclusion 30-day turnover limit to lift your deposit limits.",
-    "account_age_verification": "Age Verification",
+    "set_max_turnover_limit": "Por favor, establezca el límite de facturación de 30 días de Autoexclusión para levantar sus límites de depósito.",
+    "account_age_verification": "Verificación de edad",
     "needs_age_verification": "Es necesario verificar su edad. Por favor, póngase en contacto con nuestro servicio de atención al cliente para obtener más información.",
     "choose_account_currency": "Configure la moneda de su cuenta.",
-    "account_currency": "Account Currency"
+    "account_currency": "Moneda de la cuenta"
   },
   "set-currency": {
-    "select_currency": "Select Currency",
+    "select_currency": "Seleccionar moneda",
     "select_currency_text": "Seleccione la moneda para esta cuenta:",
     "fiat_currency": "Dinero fiat",
     "cryptocurrency": "Criptomonedas",
@@ -648,7 +648,7 @@
     "account_financial": "Cuenta Financiera",
     "fiat_currencies": "Dinero fiat",
     "crypto_currencies": "Criptomonedas",
-    "please_select_currency": "Please set the currency for your existing account {{loginid}}, in order to create more accounts.",
+    "please_select_currency": "Configure la moneda de su cuenta existente {{loginid}} para crear más cuentas.",
     "set_currency": "Definir moneda",
     "existing_accounts": "Sus Cuentas Existentes",
     "create_new": "Crear una cuenta nueva",
@@ -667,9 +667,9 @@
     "stocks": "Acciones",
     "volidx": "Índices de Volatilidad",
     "note": "Nota: Sólo puede tener una cuenta en moneda fiat y una cuenta de cada criptomoneda.",
-    "excluded_until": "This account is excluded until {{time}}",
+    "excluded_until": "Esta cuenta se encuentra excluida hasta {{time}}",
     "is_disabled": "Esta cuenta está deshabilitada",
-    "account_warning": "Note: For any enquiries regarding disabled or excluded accounts, please contact",
+    "account_warning": "Nota: Para cualquier consulta relacionada con cuentas deshabilitadas o excluidas, póngase en contacto con",
     "customer_support": "atención al cliente."
   },
   "financial-information-options": {
@@ -746,11 +746,11 @@
     "secret_question_7": "Marca de su primer coche",
     "secret_question_8": "Artista favorito",
     "speculative": "Especulativo",
-    "income_earning": "Income Earning",
+    "income_earning": "Ingresos",
     "hedging": "Cobertura"
   },
   "ios-pwa-prompt": {
-    "title": "Install Binary TickTrade",
+    "title": "Instalar Binary TickTrade",
     "close": "Cerrar",
     "installation_text": "Install Binary TickTrade on your home screen for quick and easy access when you're on the go.",
     "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
