@@ -493,7 +493,7 @@
     "item": "Artículo",
     "limit": "Límite",
     "open_positions": "Número máximo de posiciones abiertas",
-    "account_balance": "Maximum Account Cash Balance",
+    "account_balance": "Saldo máximo en efectivo de la cuenta",
     "payouts": "Maximum Aggregate Payouts on Open Positions",
     "payouts_per_symbol_and_contract_type": "Maximum Aggregate Payouts on Open Positions per Symbol and Contract Type",
     "maximum_daily_turnover": "Volumen de ventas diario máximo",
