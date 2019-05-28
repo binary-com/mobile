@@ -341,7 +341,6 @@
         // details functions
         vm.sendContractDetailRequest = id => {
             if (id) {
-                id = parseInt(id);
                 sessionStorage.setItem("id", id);
                 $state.go("transaction-detail");
             }
