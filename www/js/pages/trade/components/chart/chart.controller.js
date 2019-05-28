@@ -22,7 +22,7 @@
         $scope.$on("portfolio", (e, portfolio) => {
             const contractId = vm.purchasedContract.contractId;
 
-            if (!!contractId) {
+            if (contractId) {
                 portfolio.contracts.forEach(contract => {
                     if (contract.contract_id === contractId) {
                         chartService.addContract({
