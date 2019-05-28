@@ -22,9 +22,9 @@
         $scope.$on("portfolio", (e, portfolio) => {
             const contractId = vm.purchasedContract.contractId;
 
-            if (contractId) {
+            if ((typeof contractId === "string" && !_.isEmpty(contractId)) || contractId) {
                 portfolio.contracts.forEach(contract => {
-                    if (contract.contract_id === contractId) {
+                    if ((typeof contractId === "string" && contract.contract_id.toString() === contractId) || contract.contract_id === contractId) {
                         chartService.addContract({
                             startTime: contract.date_start + 1,
                             duration : parseInt(vm.proposal.duration),
