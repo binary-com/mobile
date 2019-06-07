@@ -44,6 +44,8 @@
             vm.showSpinner = false;
         });
 
+        $scope.$on('supported_languages', init);
+
         vm.language = languageService.read();
 
         vm.changeLanguage = function(language) {
@@ -51,7 +53,5 @@
             languageService.update(vm.language);
             vm.showSpinner = true;
         };
-
-        init();
     }
 })();
