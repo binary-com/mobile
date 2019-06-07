@@ -645,6 +645,7 @@ angular
                                     supportedLanguagesService.setSupportedLanguages(
                                         message.website_status.supported_languages
                                     );
+                                    $rootScope.$broadcast("supported_languages");
                                 }
                             } else if (message.hasOwnProperty("error")) {
                                 trackJs.track(`${message.error.code}: ${message.error.message}`);
