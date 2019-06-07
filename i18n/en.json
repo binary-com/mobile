@@ -339,7 +339,8 @@
     "open_financial": "Open A Financial Account",
     "create_account": "Create Account",
     "accounts_list": "Accounts List",
-    "network_status": "Network Status"
+    "network_status": "Network Status",
+    "responsible_trading": "Responsible Trading"
   },
   "settings": {
     "settings": "Settings",
@@ -384,7 +385,15 @@
     "success": "Success",
     "warning": "Warning",
     "not_zero": "Value can not be 0",
-    "error": "Sorry, an error occurred while processing your request."
+    "error": "Sorry, an error occurred while processing your request.",
+    "customer_support": "customer support",
+    "info": "Online trading can become addictive. Fill in the form below to limit your participation on the website or send a signed letter or fax to our customer support team. Once set, you can only tighten your limits. Limits will only be removed or loosened after 7 days with the exception of the self-exclusion date, which cannot be removed or altered once you have confirmed it. To remove or increase your limits, please contact",
+    "ukgc_info_1": "If you are considering self-exclusion, you may wish to register with GAMSTOP.",
+    "ukgc_info_2": "GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain.",
+    "ukgc_info_3": "To find out more and to sign up with GAMSTOP, please visit",
+    "info_bottom_1": "Self-exclusion on this website only applies to your Binary.com account and does not include other companies or websites.",
+    "info_bottom_2": "Since you feel the need to self-exclude, we strongly encourage you to exclude yourself from similar services that you may have signed up for.",
+    "info_bottom_3": "To self-exclude from all online gambling companies licensed in Great Britain, you may go to "
   },
   "profile": {
     "personal_details": "Personal Details",
@@ -583,7 +592,7 @@
     "marketing_email": "For affiliate, partnership, and other marketing-related queries",
     "company_addresses": "Company addresses",
     "malta": "Malta",
-    "malta_address": "Binary (Europe) Ltd & Binary Investments (Europe) Ltd, Mompalao Building, Suite 2, Tower Road, Msida MSD1825",
+    "malta_address": "Binary (Europe) Ltd & Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033",
     "japan": "Japan",
     "japan_address": "Binary KK, Hiroo Miyata Bldg 3F, 9-16, Hiroo 1-chome, Shibuya-ku, Tokyo 150-0012, Japan",
     "malaysia": "Malaysia",

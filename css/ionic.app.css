@@ -10030,9 +10030,9 @@ input {
     width: 20px;
     top: 2px;
     position: relative; }
-  input[type="date"] {
+  input[type="date"], input[type="datetime-local"] {
     min-height: 30px !important; }
-  input[type="date"]::-webkit-calendar-picker-indicator {
+  input[type="date"]::-webkit-calendar-picker-indicator, input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     color: #C2C2C2; }
 
 .item-input {
