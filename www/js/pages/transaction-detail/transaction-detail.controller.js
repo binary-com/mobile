@@ -17,8 +17,9 @@
         const vm = this;
         vm.currency = sessionStorage.getItem("currency");
         const id = sessionStorage.getItem("id");
+        const contractId = parseInt(id);
         const extraParams = {
-            req_id: id
+            req_id: contractId
         };
         const sendDetailsRequest = () => {
             if (appStateService.isLoggedin) {
@@ -31,7 +32,7 @@
         $scope.$on("proposal:open-contract", (e, proposal_open_contract, req_id) => {
             const proposalOpenContract = proposal_open_contract;
             const reqId = req_id;
-            if (reqId === id) {
+            if (reqId === contractId) {
                 $scope.$applyAsync(() => {
                     vm.contract = proposalOpenContract;
                 });

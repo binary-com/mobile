@@ -71,7 +71,7 @@
             const options = JSON.parse(localStorage.options);
             const proposal = create();
             proposal.symbol = options.underlying.symbol;
-            proposal.duration = options.tick;
+            proposal.duration = parseInt(options.tick);
             if (options.tradeType === "Higher/Lower") {
                 proposal.barrier = _.isEmpty(options.barrier) ? "" : options.barrier;
             } else {
@@ -120,7 +120,7 @@
             }
 
             proposal.symbol = options.underlying.symbol;
-            proposal.duration = options.tick;
+            proposal.duration = parseInt(options.tick);
             if (options.tradeType === "Higher/Lower") {
                 proposal.barrier = _.isEmpty(options.barrier) ? "" : options.barrier;
             } else {

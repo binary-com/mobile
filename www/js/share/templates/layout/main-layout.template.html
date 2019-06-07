@@ -97,6 +97,12 @@
             </div>
             {{ 'menu.regulatory_information' | translate }}
           </ion-item>
+          <ion-item nav-clear menu-close ng-click="vm.goToResponsbileTrading()">
+            <div class="icon-wrapper">
+              <i class="ion-eye"></i>
+            </div>
+            {{ 'menu.responsible_trading' | translate }}
+          </ion-item>
           <ion-item nav-clear menu-close ng-if="vm.showNetworkStatus" ng-click="vm.goToNetworkStatus()">
             <div class="icon-wrapper">
               <i class="ion-flag"></i>

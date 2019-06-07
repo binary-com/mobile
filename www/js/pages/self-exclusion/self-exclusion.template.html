@@ -15,6 +15,38 @@
     <form name="self_exclusion_form" ng-submit="vm.submit()" ng-if="vm.isDataLoaded" novalidate>
       <div class="row">
         <div class="col">
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.info' | translate }}
+                <a ng-click="vm.goToContact()">
+                  {{ 'profile.customer_support' | translate }}.
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" ng-if="vm.country === 'gb'">
+        <div class="col">
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.ukgc_info_1' | translate }}
+            </div>
+          </div>
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.ukgc_info_2' | translate }}
+            </div>
+          </div>
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.ukgc_info_3' | translate }}
+              <a href='https://www.gamstop.co.uk/' target="_blank">www.gamstop.co.uk</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <div class="row">
             <div class="col input-title">
               {{ 'self-exclusion.maximum_account_cash_balance' | translate }}
@@ -407,11 +439,13 @@
           </div>
           <div class="row">
             <div class="col item-input">
-              <input name="exclude_me_until"
-                     type="date"
-                     ng-model="vm.data.exclude_until"
-                     maxlength="10"
-                     min="{{ vm.nextSixMonths }}"/>
+              <label class="item item-input">
+                <input name="exclude_me_until"
+                       type="date"
+                       ng-model="vm.data.exclude_until"
+                       maxlength="10"
+                       min="{{ vm.nextSixMonths }}"/>
+              </label>
               <div class="hint"> {{ 'self-exclusion.exclude_me_hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.exclude_me_until.$error" role="alert" class="error">
                 <ng-message when="min, max">
@@ -435,6 +469,26 @@
                   ng-disabled="self_exclusion_form.$invalid || vm.disableUpdateButton || vm.disableForZeroValues">
             {{ 'self-exclusion.update_settings' | translate }}
           </button>
+        </div>
+      </div>
+      <div class="row" ng-if="vm.limits.exclude_until">
+        <div class="col">
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.info_bottom_1' | translate }}
+            </div>
+          </div>
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.info_bottom_2' | translate }}
+            </div>
+          </div>
+          <div class="row info-container">
+            <div class="col">
+              {{ 'self-exclusion.info_bottom_3' | translate }}
+              <a href='https://www.gamstop.co.uk/' target="_blank">www.gamstop.co.uk</a>.
+            </div>
+          </div>
         </div>
       </div>
     </form>

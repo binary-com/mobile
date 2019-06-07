@@ -9,10 +9,27 @@
 (function() {
     angular.module("binary.pages.self-exclusion.controllers").controller("SelfExclusionController", SelfExclusion);
 
-    SelfExclusion.$inject = ["$scope", "$translate", "alertService", "websocketService", "validationService"];
+    SelfExclusion.$inject = [
+        "$scope",
+        "$state",
+        "$translate",
+        "$ionicScrollDelegate",
+        "alertService",
+        "websocketService",
+        "accountService",
+        "validationService"
+    ];
 
-    function SelfExclusion($scope, $translate, alertService, websocketService,
-        validationService) {
+    function SelfExclusion(
+        $scope,
+        $state,
+        $translate,
+        $ionicScrollDelegate,
+        alertService,
+        websocketService,
+        accountService,
+        validationService
+    ) {
         const vm = this;
         vm.hasError = false;
         vm.validation = validationService;
@@ -25,7 +42,10 @@
         vm.disableUpdateButton = true;
         vm.isDataLoaded = false;
         vm.disableForZeroValues = false;
+        let isUpdated = false;
         vm.data = {};
+        const account = accountService.getDefault();
+        vm.country = account.country;
         const noZeroValues = ['max_balance', 'max_turnover', 'max_losses', 'max_7day_turnover', 'max_7day_losses',
             'max_30day_turnover', 'max_30day_losses', 'max_open_bets'];
 
@@ -55,6 +75,12 @@
             });
             vm.limits = _.clone(vm.data);
             vm.disableUpdateButton = false;
+            if (isUpdated) {
+                isUpdated = false;
+                if (vm.country === 'gb') {
+                    $ionicScrollDelegate.scrollBottom();
+                }
+            }
         });
 
         $scope.$on("set-self-exclusion:error", (e, error) => {
@@ -97,6 +123,7 @@
             let stringify = JSON.stringify(data);
             stringify = stringify.replace(/:(\d+)([,}])/g, ':"$1"$2');
             websocketService.sendRequestFor.setSelfExclusion(JSON.parse(stringify));
+            isUpdated = true;
         }
 
         $scope.$on('get_limits', (e, limits) => {
@@ -108,6 +135,10 @@
         $scope.$on('get_limits:error', () => {
             vm.hasError = true;
         });
+
+        vm.goToContact = () => {
+            $state.go('contact');
+        };
 
         const init = () => getLimits();
 
