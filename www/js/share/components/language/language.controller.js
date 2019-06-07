@@ -36,8 +36,11 @@
                     });
                 }
             });
-            vm.isLanguageReady = true;
-            appStateService.isLanguageReady = true;
+
+            if (vm.languages.length) {
+                vm.isLanguageReady = true;
+                appStateService.isLanguageReady = true;
+            }
         };
 
         $scope.$on('authorize', (e, authorize) => {
@@ -53,5 +56,7 @@
             languageService.update(vm.language);
             vm.showSpinner = true;
         };
+
+        init();
     }
 })();
