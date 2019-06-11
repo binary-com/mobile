@@ -753,10 +753,10 @@
     "title": "Installa Binary TickTrade",
     "close": "Chiudi",
     "installation_text": "Installa Binary TickTrade sullo schermo della home per accedere velocemente e con facilità in qualsiasi momento.",
-    "installation_help": "Just tab {{icon}} then 'Add to Home Screen'"
+    "installation_help": "Clicca su {{icon}} e poi su \"Aggiungi a schermata iniziale\""
   },
   "professional-client-information": {
-    "professional_client": "What is Professional Client?",
+    "professional_client": "Chi è un cliente professionista?",
     "clients_need_to_satisfy": "I Clienti devono soddisfare almeno due dei seguenti criteri al fine di ricevere lo status di Cliente Professionale:",
     "significant_transactions": "Tu hai già eseguito operazioni significative su mercati simili a quelli che offriamo, con una media di 10 operazioni al trimestre nei quattro trimestri precedenti",
     "size_of_instrument": "La dimensione del tuo portafoglio di strumenti supera 500.000 EUR o il suo equivalente",
@@ -767,15 +767,15 @@
     "employment": "Prova della tua attività lavorativa"
   },
   "pep-information": {
-    "pep": "What is PEP?",
+    "pep": "Cosa significa PEP?",
     "what_is_pep": "Una Persona Esposta Politicamente (PEP) è un individuo a cui è o è stata affidata una funzione pubblica di spicco, compresi i suoi familiari diretti o persone note per essere stretti collaboratori di tali persone, ma non include funzionari di grado medio o inferiore. Tali persone comprendono capi di Stato, ministri, segretari parlamentari, membri del parlamento, giudici, ambasciatori, alti funzionari governativi, alti ufficiali delle Forze Armate, comitati di audit dei consigli di amministrazione delle banche centrali e direttori di società di proprietà statale. Anche i \"familiari stretti\" delle figure sopra citate saranno considerati come PEP, e questi includono i loro coniugi / partner, genitori e figli. Inoltre, \"le persone note per essere stretti collaboratori\" dei PEP includono i loro partner commerciali, che saranno a loro volta considerati tali. Come regola generale, una persona considerata PEP e che ha cessato di essere incaricata di una funzione pubblica di rilievo per un periodo di almeno dodici mesi non è da considerarsi più come PEP."
   },
   "what-is-tax-information": {
     "tax_information_title": "Informazioni Aggiuntive",
     "required_by": "Questo requisito è espressamente richiesto dal Common Reporting Standard (CRS) e dal Foreign Account Tax Compliance Act (FATCA).",
-    "please_enter": "Please enter your ",
+    "please_enter": "Inserisci le ",
     "tax_information": "informazioni fiscali",
-    "to_continue": "to continue.",
+    "to_continue": "continua.",
     "information_will_be_safe": "Garantiamo che le informazioni dei clienti verranno utilizzate solo ai fini della segnalazione CRS/FATCA e saranno mantenute riservate.",
     "contact_for_clarification": "Se abbiamo motivo di ritenere che i tuoi dati fiscali siano incompleti, potremmo contattarti per chiarimenti."
   },
