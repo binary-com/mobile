@@ -510,9 +510,9 @@ angular.module("binary").factory("chartService", $rootScope => {
             if (hasEntrySpot() && broadcastable) {
                 if (tickPriceList.length === 0) {
                     if (contract.entrySpotTime !== lastTime && betweenExistingSpots(lastTime)) {
-                        tickPriceList.push(parseFloat(contract.entrySpotPrice).toFixed(fractionalLength));
-                        const barrier = parseFloat(contract.barrier).toFixed(fractionalLength);
                         const entrySpotPrice = parseFloat(contract.entrySpotPrice).toFixed(fractionalLength);
+                        const barrier = parseFloat(contract.barrier).toFixed(fractionalLength);
+                        tickPriceList.push(entrySpotPrice);
 
                         if (utils.conditions[contract.type](barrier, entrySpotPrice,
                             tickPriceList, contract.selectedTick)) {
