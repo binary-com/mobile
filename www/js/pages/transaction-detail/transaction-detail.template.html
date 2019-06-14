@@ -61,7 +61,8 @@
           <li class="list" ng-if="vm.contract.entry_spot">
             <ul class="statement-list">
               <li class="statement-element">{{'transaction-details.entry_spot' | translate}}</li>
-              <li class="statement-element last-statement-element right">{{vm.contract.entry_spot}}</li>
+              <li class="statement-element last-statement-element right"
+                  ng-bind="vm.contract.entry_spot | number : vm.fractionalLength"></li>
             </ul>
           </li>
           <li class="list" ng-if="vm.contract.barrier">
@@ -87,7 +88,9 @@
           <li class="list" ng-if="vm.contract.exit_tick">
             <ul class="statement-list">
               <li class="statement-element">{{'transaction-details.exit_spot' | translate}}</li>
-              <li class="statement-element last-statement-element right">{{vm.contract.exit_tick}}</li>
+              <li class="statement-element last-statement-element right"
+                  ng-bind="vm.contract.exit_tick | number : vm.fractionalLength">
+              </li>
             </ul>
           </li>
           <li class="list" ng-if="vm.contract.exit_tick_time">
