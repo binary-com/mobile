@@ -128,10 +128,10 @@ angular.module("binary").factory("chartService", $rootScope => {
                 return parseFloat(price) < parseFloat(barrier);
             },
             DIGITMATCH: function condition(barrier, price) {
-                return utils.lastDigit(barrier) === utils.lastDigit(price);
+                return utils.lastDigit(parseInt(barrier)) === utils.lastDigit(price);
             },
             DIGITDIFF: function condition(barrier, price) {
-                return utils.lastDigit(barrier) !== utils.lastDigit(price);
+                return utils.lastDigit(parseInt(barrier)) !== utils.lastDigit(price);
             },
             DIGITEVEN: function condition(barrier, price) {
                 return utils.lastDigit(price) % 2 === 0;
@@ -451,7 +451,8 @@ angular.module("binary").factory("chartService", $rootScope => {
                     if (utils.higherLowerTrade(contract)) {
                         contract.offset = contract.offset || contract.barrier;
                         barrier = Number(tickPrice) + Number(contract.offset);
-                        barrier = barrier.toFixed(utils.fractionalLength(tickPrice));
+                        barrier = utils.digitTrade(contract) ?
+                            contract.barrier : barrier.toFixed(utils.fractionalLength(tickPrice));
                     }
                     utils.setObjValue(contract, "barrier", barrier, !utils.digitTrade(contract));
                     utils.setObjValue(contract, "entrySpotPrice", tickPrice, true);
@@ -511,7 +512,8 @@ angular.module("binary").factory("chartService", $rootScope => {
                 if (tickPriceList.length === 0) {
                     if (contract.entrySpotTime !== lastTime && betweenExistingSpots(lastTime)) {
                         const entrySpotPrice = parseFloat(contract.entrySpotPrice).toFixed(fractionalLength);
-                        const barrier = parseFloat(contract.barrier).toFixed(fractionalLength);
+                        const barrier = utils.digitTrade(contract) ?
+                            contract.barrier : parseFloat(contract.barrier).toFixed(fractionalLength);
                         tickPriceList.push(entrySpotPrice);
 
                         if (utils.conditions[contract.type](barrier, entrySpotPrice,

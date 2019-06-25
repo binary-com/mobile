@@ -6,7 +6,7 @@
     "get_token": "Come si ottiene un token?",
     "signin_with_binary_com": "Entra",
     "next": "Avanti",
-    "regulatory_information": "Informazioni regolamentari"
+    "regulatory_information": "Informazioni sulle normative"
   },
   "alert": {
     "error": "Errore!",
@@ -88,16 +88,16 @@
     "sign_out": "Esci"
   },
   "reality-check": {
-    "title": "Verifica della realtà",
-    "about": "Il trading in opzioni può sviluppare una vera e propria dipendenza così come qualsiasi altra attività spinta al limite. Per evitare i danni di tale dipendenza, ti forniamo la possibilità di controllare la situazione reale dei tuoi trade e dei tuoi account su base regolare.",
+    "title": "Verifica della situazione reale",
+    "about": "Il trading di opzioni può sviluppare una vera e propria dipendenza così come qualsiasi altra attività spinta al limite. Per evitare i danni di tale dipendenza, ti forniamo la possibilità di controllare la situazione reale attraverso un regolare riepilogo dei tuoi trade e dei tuoi conti.",
     "login_time": "Orario di login:",
     "current_time": "Orario attuale:",
     "session_duration": "Durata della sessione:",
-    "interval_question": "Specifica il tuo intervallo preferito di verifica della realtà in minuti:",
+    "interval_question": "Specifica il tuo intervallo preferito di verifica della situazione reale in minuti:",
     "loginid": "ID di accesso",
     "currency": "Valuta",
     "buy_amount": "Turnover",
-    "profit_loss": "Profitto/Perdita",
+    "profit_loss": "Profitto/perdita",
     "buy_count": "Contratti acquistati",
     "sell_count": "Contratti venduti",
     "open_contract_count": "Apri contratti",
@@ -141,7 +141,7 @@
     "place_of_birth": "Luogo di nascita",
     "citizenship": "Cittadinanza",
     "tax_residence": "Residenza fiscale",
-    "tax_identification_number": "Codice fiscale",
+    "tax_identification_number": "Identificazione fiscale",
     "address_line_1": "Prima riga dell'indirizzo di residenza",
     "address_line_2": "Seconda riga dell'indirizzo di residenza",
     "address_city": "Città",
@@ -209,12 +209,12 @@
     "secret_question": "Domanda segreta",
     "secret_answer": "Risposta segreta",
     "secret_answer_pattern_error": "Sono consentiti solo lettere, numeri, spazi, trattini, punti e apostrofi.",
-    "confirm_tax_info": "Con la presente confermo che le informazioni fiscali fornite sono veritiere e complete. Informerò inoltre Binary Investments (Europe) Ltd. su eventuali modifiche a queste informazioni.",
-    "multi_tax_residence_info": "Puoi essere considerato un residente fiscale in più di una giurisdizione. Ti chiediamo di consultare il tuo consulente fiscale e verificare che i dati fiscali siano corretti."
+    "confirm_tax_info": "Con la presente confermo che le informazioni fiscali fornite sono veritiere e complete. Informerò inoltre Binary Investments (Europe) Ltd. di eventuali modifiche a queste informazioni.",
+    "multi_tax_residence_info": "Puoi essere considerato un residente fiscale in più di una giurisdizione. Consulta il tuo consulente fiscale e verifica che i dati fiscali siano corretti."
   },
   "new-account-real": {
     "real_account_opening": "Apertura di un account reale",
-    "details": "Dettagli",
+    "details": "Informazioni",
     "address": "Indirizzo",
     "security": "Sicurezza",
     "salutation": "Titolo",
@@ -230,7 +230,7 @@
     "address_state": "Stato/Provincia",
     "address_postcode": "Codice postale/CAP",
     "phone": "Telefono",
-    "open_account": "Apri un account",
+    "open_account": "Apri un conto",
     "select": "Seleziona",
     "secret_question": "Domanda segreta",
     "secret_answer": "Risposta segreta",
@@ -241,14 +241,14 @@
     "general_pattern_error": "Sono consentite solo lettere, spazi, trattini, punti e apostrofi.",
     "length_range_error": "Questo campo deve contenere da {{min}} a {{max}} caratteri.",
     "maxlength_error": "Questo campo può contenere al massimo {{max}} caratteri.",
-    "address_pattern_error": "Sono consentiti solo lettere, numeri, spazi, trattini, e questi caratteri speciali: - . ' # ; : ( ) , @ /",
+    "address_pattern_error": "Sono consentiti solo lettere, numeri, spazi, trattini e i seguenti caratteri speciali: - . ' # ; : ( ) , @ /",
     "postcode_pattern_error": "Sono consentiti solo lettere, numeri e trattini.",
     "phone_pattern_error": "Sono consentiti solo numeri, spazi e trattini.",
     "secret_answer_pattern_error": "Sono consentiti solo lettere, numeri, spazi, trattini, punti e apostrofi.",
     "required": "Questo campo è obbligatorio.",
     "not_pep_verify": "Dichiaro di non essere una persona politicamente esposta (PEP)",
-    "pep_info": "Un PEP è un individuo che è o che è stato incaricato di un'importante funzione pubblica. Questo status si estende ai parenti e stretti collaboratori del PEP.",
-    "account_opening_reason": "Motivo dell'apertura dell'account",
+    "pep_info": "Un PEP è un individuo che è o è stato incaricato di un'importante funzione pubblica. Questo status si estende ai parenti e stretti collaboratori del suddetto PEP.",
+    "account_opening_reason": "Ragione dell'apertura del conto",
     "what_is_this": "Cos'è questo?"
   },
   "profit-table": {
@@ -259,7 +259,7 @@
     "jump_to_date": "Vai alla data",
     "date": "Data",
     "ref": "Riferimento",
-    "profit_loss": "Profitto/Perdita",
+    "profit_loss": "Profitto/perdita",
     "no_transaction": "Non esiste alcuna transazione da mostrare.",
     "go": "Vai"
   },
