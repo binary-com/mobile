@@ -1371,6 +1371,6 @@ angular.module("binary").factory("chartService", $rootScope => {
         dragLeft        : chartDrawer.dragLeft,
         getCapacity     : chartDrawer.getCapacity,
         addContract     : chartDrawer.addContract,
-        historyInterface: chartDrawer.historyInterface,
+        historyInterface: chartDrawer.historyInterface
     };
 });
