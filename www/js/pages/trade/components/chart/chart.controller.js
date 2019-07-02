@@ -13,6 +13,7 @@
 
     function Chart($scope, chartService, websocketService, proposalService) {
         const vm = this;
+        vm.addedContracts = [];
 
         $scope.$on("$destroy", (e, value) => {
             websocketService.sendRequestFor.forgetTicks();
@@ -21,19 +22,22 @@
 
         $scope.$on("proposal:open-contract", (e, contract, req_id) => {
             if (contract && proposalService.openContractId === req_id) {
-                const contractId = contract.contract_id;
-
+                const contractId = vm.purchasedContract.contractId;
+                if (vm.addedContracts.indexOf(contractId) > -1) return;
                 if ((typeof contractId === "string" && !_.isEmpty(contractId)) || contractId) {
-                    chartService.addContract({
-                        startTime: contract.date_start + 1,
-                        duration : parseInt(vm.proposal.duration),
-                        type     :
-                            vm.proposal.tradeType === "Higher/Lower"
-                                ? `${contract.contract_type}HL`
-                                : contract.contract_type,
-                        selectedTick: vm.proposal.tradeType === "High/Low Ticks" ? vm.proposal.selected_tick : null,
-                        barrier     : vm.proposal.barrier
-                    });
+                    if (contract.contract_id.toString() === contractId.toString()) {
+                        vm.addedContracts.push(contractId);
+                        chartService.addContract({
+                            startTime: contract.date_start + 1,
+                            duration : parseInt(vm.proposal.duration),
+                            type     :
+                                vm.proposal.tradeType === "Higher/Lower"
+                                    ? `${contract.contract_type}HL`
+                                    : contract.contract_type,
+                            selectedTick: vm.proposal.tradeType === "High/Low Ticks" ? vm.proposal.selected_tick : null,
+                            barrier     : vm.proposal.barrier
+                        });
+                    }
                 }
             }
         });
