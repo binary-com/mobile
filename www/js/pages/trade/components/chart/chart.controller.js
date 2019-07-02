@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.trade.components.chart.controllers").controller("ChartController", Chart);
 
-    Chart.$inject = ["$scope", "chartService", "websocketService"];
+    Chart.$inject = ["$scope", "chartService", "websocketService", "proposalService"];
 
-    function Chart($scope, chartService, websocketService) {
+    function Chart($scope, chartService, websocketService, proposalService) {
         const vm = this;
 
         $scope.$on("$destroy", (e, value) => {
@@ -19,24 +19,22 @@
             chartService.destroy();
         });
 
-        $scope.$on("portfolio", (e, portfolio) => {
-            const contractId = vm.purchasedContract.contractId;
+        $scope.$on("proposal:open-contract", (e, contract, req_id) => {
+            if (contract && proposalService.openContractId === req_id) {
+                const contractId = contract.contract_id;
 
-            if ((typeof contractId === "string" && !_.isEmpty(contractId)) || contractId) {
-                portfolio.contracts.forEach(contract => {
-                    if ((typeof contractId === "string" && contract.contract_id.toString() === contractId) || contract.contract_id === contractId) {
-                        chartService.addContract({
-                            startTime: contract.date_start + 1,
-                            duration : parseInt(vm.proposal.duration),
-                            type     :
-                                vm.proposal.tradeType === "Higher/Lower"
-                                    ? `${contract.contract_type}HL`
-                                    : contract.contract_type,
-                            selectedTick: vm.proposal.tradeType === "High/Low Ticks" ? vm.proposal.selected_tick : null,
-                            barrier     : vm.proposal.barrier
-                        });
-                    }
-                });
+                if ((typeof contractId === "string" && !_.isEmpty(contractId)) || contractId) {
+                    chartService.addContract({
+                        startTime: contract.date_start + 1,
+                        duration : parseInt(vm.proposal.duration),
+                        type     :
+                            vm.proposal.tradeType === "Higher/Lower"
+                                ? `${contract.contract_type}HL`
+                                : contract.contract_type,
+                        selectedTick: vm.proposal.tradeType === "High/Low Ticks" ? vm.proposal.selected_tick : null,
+                        barrier     : vm.proposal.barrier
+                    });
+                }
             }
         });
 

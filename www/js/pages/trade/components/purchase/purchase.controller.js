@@ -111,7 +111,10 @@
                         parseFloat(response.buy.buy_price),
                     };
                 });
-                websocketService.sendRequestFor.portfolio();
+                const req_id = Date.now();
+                proposalService.openContractId = req_id;
+                const params = { subscribe: 1, req_id };
+                websocketService.sendRequestFor.openContract(response.buy.contract_id, params);
             }
         });
 
@@ -149,7 +152,7 @@
                     proposal.underlying_symbol,
                     vm.purchasedContract.payout
                 );
-                
+
                 vm.isContractFinished = true;
                 sendProposal();
             }

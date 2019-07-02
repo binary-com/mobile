@@ -64,6 +64,9 @@
                 }
             }
         };
+
+        factory.openContractId = '';
+
         factory.get = function() {
             if (_.isEmpty(localStorage.options)) {
                 return create();
