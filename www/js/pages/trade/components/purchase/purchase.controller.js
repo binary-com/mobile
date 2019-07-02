@@ -113,8 +113,7 @@
                 });
                 const req_id = Date.now();
                 proposalService.openContractId = req_id;
-                const params = { subscribe: 1, req_id };
-                websocketService.sendRequestFor.openContract(response.buy.contract_id, params);
+                websocketService.sendRequestFor.openContract(response.buy.contract_id, { req_id });
             }
         });
 
