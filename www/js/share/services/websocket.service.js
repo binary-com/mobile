@@ -327,11 +327,13 @@ angular
                 proposal(_proposal) {
                     sendMessage(_proposal);
                 },
-                purchase(_proposalId, price) {
+                purchase(_proposalId, price, params) {
                     const data = {
                         buy  : _proposalId,
                         price: price || 0
                     };
+                    addExtraParams(data, params);
+
                     sendMessage(data);
                 },
                 balance() {
