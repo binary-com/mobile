@@ -148,7 +148,7 @@
         };
 
         factory.purchase = function(contract) {
-            websocketService.sendRequestFor.purchase(contract.id, contract.ask_price, { subscribe: 1 });
+            websocketService.sendRequestFor.purchase(contract.id, contract.ask_price);
             factory.forget();
         };
 
