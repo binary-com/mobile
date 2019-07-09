@@ -332,6 +332,7 @@ angular
                         buy  : _proposalId,
                         price: price || 0
                     };
+
                     sendMessage(data);
                 },
                 balance() {

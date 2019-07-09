@@ -17,6 +17,7 @@
         "appStateService",
         "proposalService",
         "websocketService",
+        "chartService",
         "$ionicLoading"
     ];
 
@@ -27,6 +28,7 @@
         appStateService,
         proposalService,
         websocketService,
+        chartService,
         $ionicLoading) {
         const vm = this;
         let forgetRequestId = 0;
@@ -39,6 +41,7 @@
         vm.purchasedContractIndex = -1;
         vm.currencyType = "fiat";
         vm.isContractFinished = false;
+        vm.contractType = '';
 
         $scope.$watch(
             () => vm.proposal,
@@ -97,21 +100,32 @@
         });
 
         $scope.$on("purchase", (e, response) => {
+            const purchaseInfo = response.buy;
+
             if (!_.isEmpty(response.buy)) {
                 vm.showSummary = true;
                 $scope.$applyAsync(() => {
                     vm.purchasedContract = {
-                        contractId   : response.buy.contract_id,
-                        longcode     : response.buy.longcode,
+                        contractId   : purchaseInfo.contract_id,
+                        longcode     : purchaseInfo.longcode,
                         payout       : vm.proposalResponses[vm.purchasedContractIndex].payout,
-                        cost         : response.buy.buy_price,
-                        balance      : response.buy.balance_after,
-                        transactionId: response.buy.transaction_id,
+                        cost         : purchaseInfo.buy_price,
+                        balance      : purchaseInfo.balance_after,
+                        transactionId: purchaseInfo.transaction_id,
                         profit       : parseFloat(vm.proposalResponses[vm.purchasedContractIndex].payout) -
-                        parseFloat(response.buy.buy_price),
+                        parseFloat(purchaseInfo.buy_price),
                     };
                 });
-                websocketService.sendRequestFor.portfolio();
+                chartService.addContract({
+                    startTime: purchaseInfo.start_time + 1,
+                    duration : parseInt(vm.proposal.duration),
+                    type     :
+                        vm.proposal.tradeType === "Higher/Lower"
+                            ? `${vm.contractType}HL`
+                            : vm.contractType,
+                    selectedTick: vm.proposal.tradeType === "High/Low Ticks" ? vm.proposal.selected_tick : null,
+                    barrier     : vm.proposal.barrier
+                });
             }
         });
 
@@ -149,7 +163,7 @@
                     proposal.underlying_symbol,
                     vm.purchasedContract.payout
                 );
-                
+
                 vm.isContractFinished = true;
                 sendProposal();
             }
@@ -186,7 +200,7 @@
             return `img/trade-icon/${contractType.toLowerCase()}.svg`;
         };
 
-        vm.purchase = function (contractIndex) {
+        vm.purchase = function (contractIndex, contract_type) {
             $scope.$applyAsync(() => {
                 vm.isContractFinished = false;
                 vm.inPurchaseMode = true;
@@ -194,6 +208,9 @@
                 appStateService.purchaseMode = true;
                 appStateService.tradeMode = false;
             });
+            if (contract_type) {
+                vm.contractType = contract_type;
+            }
             proposalService.purchase(vm.proposalResponses[contractIndex]);
         };
 
