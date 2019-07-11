@@ -110,7 +110,7 @@ angular.module("binary").factory("chartService", $rootScope => {
         },
         average: function average(list) {
             const decimalPointLength = utils.fractionalLength(list[0]) + 1;
-            return parseFloat(list.reduce((a, b) => a + b, 0) / list.length).toFixed(decimalPointLength);
+            return parseFloat(list.reduce((a, b) => (+a) + (+b), 0) / list.length).toFixed(decimalPointLength);
         },
         conditions: {
             CALL: function condition(barrier, price) {
