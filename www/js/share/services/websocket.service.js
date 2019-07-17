@@ -222,6 +222,7 @@ angular
                 appStateService.isChangedAccount = false;
                 appStateService.isPopupOpen = false;
                 appStateService.isLoggedin = false;
+                appStateService.authorizeToken = '';
                 sessionStorage.removeItem("start");
                 sessionStorage.removeItem("_interval");
                 sessionStorage.removeItem("realityCheckStart");
