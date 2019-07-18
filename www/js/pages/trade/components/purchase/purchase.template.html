@@ -51,7 +51,7 @@
       </div>
       <div class="row" ng-if="!vm.proposalResponses[$index].hasError">
         <div class="col center">
-          <button class="button button-positive" ng-click="vm.purchase($index)"
+          <button class="button button-positive" ng-click="vm.purchase($index, contract.contract_type)"
                   ng-disabled="vm.inPurchaseMode || vm.proposalResponses[$index].isReceiving || vm.proposalResponses.length == 0"
                   disabled>
             {{ "trade.buy" | translate}}
