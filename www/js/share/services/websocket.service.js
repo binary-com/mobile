@@ -195,6 +195,11 @@ angular
 
             const websocketService = {};
             websocketService.authenticate = function(_token, extraParams) {
+                if (_token && _token !== "<not shown>") {
+                    appStateService.authorizeToken = _token;
+                } else {
+                    _token = appStateService.authorizeToken;
+                }
                 extraParams = null || extraParams;
                 appStateService.isLoggedin = false;
 
@@ -217,6 +222,7 @@ angular
                 appStateService.isChangedAccount = false;
                 appStateService.isPopupOpen = false;
                 appStateService.isLoggedin = false;
+                appStateService.authorizeToken = '';
                 sessionStorage.removeItem("start");
                 sessionStorage.removeItem("_interval");
                 sessionStorage.removeItem("realityCheckStart");
@@ -332,6 +338,7 @@ angular
                         buy  : _proposalId,
                         price: price || 0
                     };
+
                     sendMessage(data);
                 },
                 balance() {
@@ -587,6 +594,7 @@ angular
                     switch (messageType) {
                         case "authorize":
                             if (message.authorize) {
+                                message.echo_req.authorize = appStateService.authorizeToken;
                                 message.authorize.token = message.echo_req.authorize;
                                 window._trackJs.userId = message.authorize.loginid;
                                 appStateService.isLoggedin = true;
