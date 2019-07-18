@@ -48,6 +48,7 @@ angular.module("binary").factory("appStateService", () => {
     factory.upgradeableLandingCompanies = [];
     factory.loginFinished = false;
     factory.isMaltainvest = false;
+    factory.authorizeToken = "";
 
     return factory;
 });
