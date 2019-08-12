@@ -12,6 +12,7 @@
     SelfExclusion.$inject = [
         "$scope",
         "$state",
+        "$filter",
         "$translate",
         "$ionicScrollDelegate",
         "alertService",
@@ -23,6 +24,7 @@
     function SelfExclusion(
         $scope,
         $state,
+        $filter,
         $translate,
         $ionicScrollDelegate,
         alertService,
@@ -34,11 +36,6 @@
         vm.hasError = false;
         vm.validation = validationService;
         vm.fractionalDigits = vm.validation.fractionalDigits;
-        const today = new Date();
-        vm.minDate = today.toISOString().slice(0, 10);
-        vm.minDateTime = today.toISOString();
-        vm.nextSixWeeks = new Date(today.getTime() + 7 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-        vm.nextSixMonths = new Date(today.getTime() + 30 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
         vm.disableUpdateButton = true;
         vm.isDataLoaded = false;
         vm.disableForZeroValues = false;
@@ -126,6 +123,31 @@
             isUpdated = true;
         }
 
+        // yyyy-mm-dd
+        const filterDate = (date) => {
+            const year  = $filter('date')(date, 'yyyy', 'UTC');
+            const month = $filter('date')(date, 'MM', 'UTC');
+            const day = $filter('date')(date, 'dd', 'UTC');
+            return `${year}-${month}-${day}`;
+        }
+
+        const calculateDateLimits = (startingDate = new Date()) => {
+            vm.minDateTime = startingDate.toISOString();
+            startingDate.setDate(startingDate.getDate() + 1);
+            // calculating the min date for 'timeout until' 
+            // (6 weeks after tomorrow in format yyyy-mm-dd in UTC)
+            const tomorrow = _.clone(startingDate);
+            vm.minDate = `${tomorrow.toISOString().slice(0, 10)}T00:00:00`;
+            const dateAfterSixWeeks = tomorrow.setDate(tomorrow.getDate() + 41);
+            vm.nextSixWeeks = filterDate(dateAfterSixWeeks);
+            vm.nextSixWeeksDateTime = `${vm.nextSixWeeks}T23:59:59`
+
+            // calculating the min date for 'exclude until' 
+            // (6 month after tomorrow in format yyyy-mm-dd in UTC)
+            const dateAfterSixMonths = new Date(startingDate.setMonth(startingDate.getMonth() + 6)).getTime();
+            vm.nextSixMonths = filterDate(dateAfterSixMonths);
+        };
+
         $scope.$on('get_limits', (e, limits) => {
             vm.hasError = false;
             vm.accountLimits = limits;
@@ -140,8 +162,20 @@
             $state.go('contact');
         };
 
-        const init = () => getLimits();
+        $scope.$on('time:success', (e, time) => {
+            const startingDate = new Date(time * 1000);
+            calculateDateLimits(startingDate);
+        });
 
+        $scope.$on('time:error', () => {
+            calculateDateLimits();
+        });
+
+        const init = () => {
+            websocketService.sendRequestFor.serverTime();
+            getLimits();
+        };
+        
         init();
 
     }

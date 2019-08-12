@@ -411,10 +411,10 @@
                 <input name="time_out_until"
                        type="datetime-local"
                        ng-model="vm.data.timeout_until"
-                       min="{{ vm.minDate }}T00:00:00"
-                       max="{{ vm.nextSixWeeks }}T00:00:00"
+                       min="{{ vm.minDate }}"
+                       max="{{ vm.nextSixWeeksDateTime }}"
                        ng-min="vm.minDateTime"
-                       ng-max="vm.nextSixWeeks + 'T00:00:00'"/>
+                       ng-max="vm.nextSixWeeksDateTime"/>
               </label>
               <div class="hint"> {{ 'self-exclusion.time_out_hint' | translate }}</div>
               <ng-messages for="self_exclusion_form.time_out_until.$error" role="alert" class="error">
