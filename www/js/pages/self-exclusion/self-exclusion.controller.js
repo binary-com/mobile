@@ -48,10 +48,12 @@
 
         $scope.$on("get-self-exclusion", (e, response) => {
             $scope.$applyAsync(() => {
-                vm.data = _.clone(response);
-                if (vm.data.exclude_until) {
-                    vm.data.exclude_until = new Date(vm.data.exclude_until);
+                const data = _.clone(response);
+                if (data.exclude_until) {
+                    data.exclude_until = new Date(data.exclude_until);
                 }
+                if (data.timeout_until) data.timeout_until = new Date(data.timeout_until * 1000);
+                vm.data = data;
                 vm.limits = _.clone(response);
                 vm.disableUpdateButton = false;
                 vm.isDataLoaded = true;
@@ -109,7 +111,7 @@
             const data = _.clone(vm.data);
 
             if (data.timeout_until) {
-                data.timeout_until = new Date(data.timeout_until).getTime() / 1000;
+                data.timeout_until = Math.floor(new Date(data.timeout_until).getTime() / 1000);
             }
 
             if (data.exclude_until) {
@@ -125,27 +127,66 @@
 
         // yyyy-mm-dd
         const filterDate = (date) => {
-            const year  = $filter('date')(date, 'yyyy', 'UTC');
-            const month = $filter('date')(date, 'MM', 'UTC');
-            const day = $filter('date')(date, 'dd', 'UTC');
+            const year  = $filter('date')(date, 'yyyy');
+            const month = $filter('date')(date, 'MM');
+            const day = $filter('date')(date, 'dd');
             return `${year}-${month}-${day}`;
         }
 
+        const filterTime = (date) => {
+            const hour = $filter('date')(date, 'HH');
+            const minute = $filter('date')(date, 'mm');
+            return `${hour}:${minute}`;
+        }
+        
+        const filterDateTime = (date) => {
+            const filteredDate = filterDate(date);
+            const filteredTime = filterTime(date);
+            return `${filteredDate}T${filteredTime}`;
+        }
+
+        const addWeeks = (startingDate, weeks) => {
+            const date = _.clone(startingDate);
+            const exactTime = filterTime(date);
+            const dateAfterSixWeeks = date.setDate(date.getDate() + weeks * 7);
+            return {
+                limit: `${filterDate(dateAfterSixWeeks)}T${exactTime}`,
+                text : `${filterDate(dateAfterSixWeeks)} at ${exactTime}`
+            };
+        }
+
+        const addMonth = (startingDate, month) => {
+            const date = _.clone(startingDate);
+            date.setDate(date.getDate() + 1);
+            const dateAfterMonths = new Date(date.setMonth(date.getMonth() + month)).getTime();
+            return filterDate(dateAfterMonths);
+        }
+
+        const addYears = (startingDate, years) => {
+            const date = _.clone(startingDate);
+            const dateAfterFiveMonth = new Date(date.setDate(date.getDate() +  years * 365)).getTime();
+            return filterDate(dateAfterFiveMonth);
+        }
+
+        const getCurrentDateTime = (startingDate) => {
+            const date = _.clone(startingDate);
+            const now = new Date(date).getTime();
+            return filterDateTime(now);
+        }
+
         const calculateDateLimits = (startingDate = new Date()) => {
-            vm.minDateTime = startingDate.toISOString();
-            startingDate.setDate(startingDate.getDate() + 1);
+            vm.minTimeoutUntil = getCurrentDateTime(startingDate);
             // calculating the min date for 'timeout until' 
-            // (6 weeks after tomorrow in format yyyy-mm-dd in UTC)
-            const tomorrow = _.clone(startingDate);
-            vm.minDate = `${tomorrow.toISOString().slice(0, 10)}T00:00:00`;
-            const dateAfterSixWeeks = tomorrow.setDate(tomorrow.getDate() + 41);
-            vm.nextSixWeeks = filterDate(dateAfterSixWeeks);
-            vm.nextSixWeeksDateTime = `${vm.nextSixWeeks}T23:59:59`
+            // (6 weeks after tomorrow in format yyyy-mm-dd)
+            vm.maxTimeoutUntil = addWeeks(startingDate, 6);
 
             // calculating the min date for 'exclude until' 
-            // (6 month after tomorrow in format yyyy-mm-dd in UTC)
-            const dateAfterSixMonths = new Date(startingDate.setMonth(startingDate.getMonth() + 6)).getTime();
-            vm.nextSixMonths = filterDate(dateAfterSixMonths);
+            // (6 month after tomorrow in format yyyy-mm-dd)
+            vm.minExcludeUntil = addMonth(startingDate, 6);
+            // calculating the max date for 'exclude until'
+            // we add 5 * 365 = 1825 days instead of years to be exactly like API 
+            // otherwise it will have more days considering leap years
+            vm.maxExcludeUntil = addYears(startingDate, 5);
         };
 
         $scope.$on('get_limits', (e, limits) => {
