@@ -448,6 +448,7 @@
                        max="{{ vm.maxExcludeUntil }}"
                        ng-min="vm.minExcludeUntil"
                        ng-max="vm.maxExcludeUntil"
+                       ng-readonly="vm.isReadonlyExcludeUntil"
                        />
               </label>
               <div class="hint"> {{ 'self-exclusion.exclude_me_hint' | translate }}</div>
@@ -470,7 +471,8 @@
         <div class="col center">
           <button class="button button-positive"
                   type="submit"
-                  ng-disabled="self_exclusion_form.$invalid || vm.disableUpdateButton || vm.disableForZeroValues">
+                  ng-disabled="self_exclusion_form.$invalid || vm.disableUpdateButton || vm.disableForZeroValues"
+                  ng-if="!vm.isReadonlyExcludeUntil">
             {{ 'self-exclusion.update_settings' | translate }}
           </button>
         </div>

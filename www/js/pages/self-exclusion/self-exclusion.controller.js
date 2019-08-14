@@ -39,6 +39,7 @@
         vm.disableUpdateButton = true;
         vm.isDataLoaded = false;
         vm.disableForZeroValues = false;
+        vm.isReadonlyExcludeUntil = false;
         let isUpdated = false;
         vm.data = {};
         const account = accountService.getDefault();
@@ -50,7 +51,8 @@
             $scope.$applyAsync(() => {
                 const data = _.clone(response);
                 if (data.exclude_until) {
-                    data.exclude_until = new Date(data.exclude_until);
+                    data.exclude_until = new Date(`${data.exclude_until}T00:00:00`);
+                    vm.isReadonlyExcludeUntil = true;
                 }
                 if (data.timeout_until) data.timeout_until = new Date(data.timeout_until * 1000);
                 vm.data = data;
@@ -127,16 +129,11 @@
 
         // yyyy-mm-dd
         const filterDate = (date) => {
-            const year  = $filter('date')(date, 'yyyy');
-            const month = $filter('date')(date, 'MM');
-            const day = $filter('date')(date, 'dd');
-            return `${year}-${month}-${day}`;
+            return $filter('date')(date, 'yyyy-MM-dd');
         }
 
         const filterTime = (date) => {
-            const hour = $filter('date')(date, 'HH');
-            const minute = $filter('date')(date, 'mm');
-            return `${hour}:${minute}`;
+            return $filter('date')(date, 'HH:mm');
         }
         
         const filterDateTime = (date) => {
@@ -148,10 +145,10 @@
         const addWeeks = (startingDate, weeks) => {
             const date = _.clone(startingDate);
             const exactTime = filterTime(date);
-            const dateAfterSixWeeks = date.setDate(date.getDate() + weeks * 7);
+            const dateAfterWeeks = date.setDate(date.getDate() + weeks * 7);
             return {
-                limit: `${filterDate(dateAfterSixWeeks)}T${exactTime}`,
-                text : `${filterDate(dateAfterSixWeeks)} at ${exactTime}`
+                limit: `${filterDate(dateAfterWeeks)}T${exactTime}`,
+                text : `${filterDate(dateAfterWeeks)} at ${exactTime}`
             };
         }
 
@@ -164,8 +161,8 @@
 
         const addYears = (startingDate, years) => {
             const date = _.clone(startingDate);
-            const dateAfterFiveMonth = new Date(date.setDate(date.getDate() +  years * 365)).getTime();
-            return filterDate(dateAfterFiveMonth);
+            const dateAfterYears = new Date(date.setDate(date.getDate() +  years * 365)).getTime();
+            return filterDate(dateAfterYears);
         }
 
         const getCurrentDateTime = (startingDate) => {
