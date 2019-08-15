@@ -128,13 +128,9 @@
         }
 
         // yyyy-mm-dd
-        const filterDate = (date) => {
-            return $filter('date')(date, 'yyyy-MM-dd');
-        }
+        const filterDate = (date) => $filter('date')(date, 'yyyy-MM-dd');
 
-        const filterTime = (date) => {
-            return $filter('date')(date, 'HH:mm');
-        }
+        const filterTime = (date) => $filter('date')(date, 'HH:mm');
         
         const filterDateTime = (date) => {
             const filteredDate = filterDate(date);
