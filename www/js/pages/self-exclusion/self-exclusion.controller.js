@@ -117,7 +117,7 @@
             }
 
             if (data.exclude_until) {
-                data.exclude_until = data.exclude_until.toISOString().slice(0, 10);
+                data.exclude_until = filterDate(new Date(data.exclude_until).getTime());
             }
 
             // Convert all numbers to string for supporting number with more than 15 digits
