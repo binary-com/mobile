@@ -452,7 +452,7 @@
                        />
               </label>
               <div class="hint"> {{ 'self-exclusion.exclude_me_hint' | translate }}</div>
-              <ng-messages for="self_exclusion_form.exclude_me_until.$error" role="alert" class="error">
+              <ng-messages for="self_exclusion_form.exclude_me_until.$error" role="alert" class="error" ng-if="!vm.isReadonlyExcludeUntil">
                 <ng-message when="min, max">
                   {{ 'self-exclusion.date_can_not_less_than' | translate : {min: vm.minExcludeUntil, max: vm.maxExcludeUntil} }}
                 </ng-message>
