@@ -370,7 +370,7 @@
     "session_duration_limit_in_minutes": "Limite de durée de session, en minutes",
     "session_duration_hint": "Votre compte sera automatiquement déconnecté à l'issue de ce délai.",
     "time_out_until": "Maintenir l'expiration jusqu'au",
-    "time_out_hint": "Please enter date in the format DD/MM/YYYY HH:mm (local time). ",
+    "time_out_hint": "Veuillez saisir la date au format JJ/MM/AAAA HH:mm (heure locale). ",
     "exclude_me_from_the_website_until": "M’exclure du site Web jusqu’au",
     "exclude_me_hint": "Please enter date in the format DD/MM/YYYY.",
     "update_settings": "Mise à jour des paramètres",
