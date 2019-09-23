@@ -18,13 +18,13 @@ module.exports = function (context) {
 
         const currentBranch = shell.exec("echo | git branch | grep '*'");
 
-        if(currentBranch && currentBranch.output && currentBranch.output.indexOf('qa_version') > -1) {
+        if(currentBranch && currentBranch.stdout && currentBranch.stdout.indexOf('qa_version') > -1) {
             const qaFP = [];
 
             qaMachines.forEach((m) => {
                 const cert = {
                     url: m,
-                    fp: retriveFP(m),
+                    fp : retriveFP(m),
                 };
 
                 cert.fp ? qaFP.push(cert) : null;
@@ -41,8 +41,8 @@ module.exports = function (context) {
             'openssl x509 -fingerprint -noout'
         );
 
-        if (fpResult && fpResult.output) {
-            const result = /^SHA1 Fingerprint=(.+)/.exec(fpResult.output)
+        if (fpResult && fpResult.stdout) {
+            const result = /^SHA1 Fingerprint=(.+)/.exec(fpResult.stdout)
 
             if (result && result.length > 1) {
                 return result[1].replace(/:/g, ' ');
