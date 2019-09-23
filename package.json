@@ -1,6 +1,6 @@
 {
   "name": "binary-ticktrade",
-  "version": "2.3.7",
+  "version": "2.4.6",
   "description": "Binary.com Tick Trade",
   "main": "main.js",
   "repository": {
