@@ -567,6 +567,13 @@ angular
                     };
 
                     sendMessage(data);
+                },
+                serverTime() {
+                    const data = {
+                        time: 1,
+                    };
+
+                    sendMessage(data);
                 }
             };
             websocketService.closeConnection = function() {
@@ -909,6 +916,13 @@ angular
                                 $rootScope.$broadcast("set_account_currency:success", message.echo_req.set_account_currency);
                             } else if (message.error) {
 	                            $rootScope.$broadcast("set_account_currency:error", message.error);
+                            }
+                            break;
+                        case "time": 
+                            if (message.time) {
+                                $rootScope.$broadcast("time:success", message.time);
+                            } else if (message.error) {
+                                $rootScope.$broadcast("time:error", message.error);
                             }
                             break;
                         default:
