@@ -669,7 +669,7 @@
     "note": "Nota: puoi avere solo un conto di moneta reale e uno per ogni conto di criptovaluta.",
     "excluded_until": "Questo conto è escluso fino alle {{time}}",
     "is_disabled": "Questo conto è disattivato",
-    "account_warning": "Nota: Per qualsiasi richiesta relativa a conti disattivati o esclusi, ti preghiamo di contattare",
+    "account_warning": "Nota: per qualsiasi richiesta relativa a conti disattivati o esclusi, ti preghiamo di contattare",
     "customer_support": "servizio clienti."
   },
   "financial-information-options": {
