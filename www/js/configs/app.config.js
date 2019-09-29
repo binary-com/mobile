@@ -16,35 +16,35 @@ angular.module("binary").constant("config", {
     tradeCategories : [
         {
             name   : "up_down",
-            markets: ["forex", "volidx", "random"],
+            markets: ["forex", "synthetic_index", "random"],
             value  : "UP/DOWN"
         },
         {
             name   : "digit_matches_differs",
             value  : "MATCH/DIFF",
-            markets: ["volidx", "random"],
+            markets: ["synthetic_index", "random"],
             digits : true
         },
         {
             name   : "digit_even_odd",
-            markets: ["volidx", "random"],
+            markets: ["synthetic_index", "random"],
             value  : "EVEN/ODD"
         },
         {
             name   : "digit_over_under",
             value  : "OVER/UNDER",
-            markets: ["volidx", "random"],
+            markets: ["synthetic_index", "random"],
             digits : true
         },
         {
             name   : "asians",
             value  : "Asians",
-            markets: ["volidx", "random"]
+            markets: ["synthetic_index", "random"]
         },
         {
             name   : "high_low_ticks",
             value  : "HIGH/LOW TICKS",
-            markets: ["volidx"]
+            markets: ["synthetic_index"]
         }
     ],
     tradeTypes: [
