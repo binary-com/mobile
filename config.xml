@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="204060" id="com.binary.ticktrade" version="2.4.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="204070" id="com.binary.ticktrade" version="2.4.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Tick Trade</name>
     <description>
     Enjoy fast-paced binary options trading with the Binary.com Tick Trade App. Trade Forex and more in seconds with our mobile application.
