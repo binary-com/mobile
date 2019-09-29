@@ -56,7 +56,7 @@ angular
             validationService.length = {
                 name: {
                     min: 2,
-                    max: 30,
+                    max: 50,
                 },
                 tin: {
                     max: 20,

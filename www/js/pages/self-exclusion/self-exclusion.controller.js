@@ -12,6 +12,7 @@
     SelfExclusion.$inject = [
         "$scope",
         "$state",
+        "$filter",
         "$translate",
         "$ionicScrollDelegate",
         "alertService",
@@ -23,6 +24,7 @@
     function SelfExclusion(
         $scope,
         $state,
+        $filter,
         $translate,
         $ionicScrollDelegate,
         alertService,
@@ -34,14 +36,10 @@
         vm.hasError = false;
         vm.validation = validationService;
         vm.fractionalDigits = vm.validation.fractionalDigits;
-        const today = new Date();
-        vm.minDate = today.toISOString().slice(0, 10);
-        vm.minDateTime = today.toISOString();
-        vm.nextSixWeeks = new Date(today.getTime() + 7 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-        vm.nextSixMonths = new Date(today.getTime() + 30 * 6 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
         vm.disableUpdateButton = true;
         vm.isDataLoaded = false;
         vm.disableForZeroValues = false;
+        vm.isReadonlyExcludeUntil = false;
         let isUpdated = false;
         vm.data = {};
         const account = accountService.getDefault();
@@ -51,10 +49,13 @@
 
         $scope.$on("get-self-exclusion", (e, response) => {
             $scope.$applyAsync(() => {
-                vm.data = _.clone(response);
-                if (vm.data.exclude_until) {
-                    vm.data.exclude_until = new Date(vm.data.exclude_until);
+                const data = _.clone(response);
+                if (data.exclude_until) {
+                    data.exclude_until = new Date(`${data.exclude_until}T00:00:00`);
+                    vm.isReadonlyExcludeUntil = true;
                 }
+                if (data.timeout_until) data.timeout_until = new Date(data.timeout_until * 1000);
+                vm.data = data;
                 vm.limits = _.clone(response);
                 vm.disableUpdateButton = false;
                 vm.isDataLoaded = true;
@@ -112,11 +113,11 @@
             const data = _.clone(vm.data);
 
             if (data.timeout_until) {
-                data.timeout_until = new Date(data.timeout_until).getTime() / 1000;
+                data.timeout_until = Math.floor(new Date(data.timeout_until).getTime() / 1000);
             }
 
             if (data.exclude_until) {
-                data.exclude_until = data.exclude_until.toISOString().slice(0, 10);
+                data.exclude_until = filterDate(new Date(data.exclude_until).getTime());
             }
 
             // Convert all numbers to string for supporting number with more than 15 digits
@@ -125,6 +126,61 @@
             websocketService.sendRequestFor.setSelfExclusion(JSON.parse(stringify));
             isUpdated = true;
         }
+
+        // yyyy-mm-dd
+        const filterDate = (date) => $filter('date')(date, 'yyyy-MM-dd');
+
+        const filterTime = (date) => $filter('date')(date, 'HH:mm');
+        
+        const filterDateTime = (date) => {
+            const filteredDate = filterDate(date);
+            const filteredTime = filterTime(date);
+            return `${filteredDate}T${filteredTime}`;
+        }
+
+        const addWeeks = (startingDate, weeks) => {
+            const date = _.clone(startingDate);
+            const exactTime = filterTime(date);
+            const dateAfterWeeks = date.setDate(date.getDate() + weeks * 7);
+            return {
+                limit: `${filterDate(dateAfterWeeks)}T${exactTime}`,
+                text : `${filterDate(dateAfterWeeks)} at ${exactTime}`
+            };
+        }
+
+        const addMonth = (startingDate, month) => {
+            const date = _.clone(startingDate);
+            date.setDate(date.getDate() + 1);
+            const dateAfterMonths = new Date(date.setMonth(date.getMonth() + month)).getTime();
+            return filterDate(dateAfterMonths);
+        }
+
+        const addYears = (startingDate, years) => {
+            const date = _.clone(startingDate);
+            const dateAfterYears = new Date(date.setDate(date.getDate() +  years * 365)).getTime();
+            return filterDate(dateAfterYears);
+        }
+
+        const getCurrentDateTime = (startingDate) => {
+            const date = _.clone(startingDate);
+            const now = new Date(date).getTime();
+            return filterDateTime(now);
+        }
+
+        const calculateDateLimits = (startingDate = new Date()) => {
+            vm.minTimeoutUntil = getCurrentDateTime(startingDate);
+            // calculating the min date for 'timeout until' 
+            // (6 weeks after tomorrow in format yyyy-mm-dd)
+            vm.maxTimeoutUntil = addWeeks(startingDate, 6);
+
+            // calculating the min date for 'exclude until' 
+            // (6 month after tomorrow in format yyyy-mm-dd)
+            vm.minExcludeUntil = addMonth(startingDate, 6);
+            // calculating the max date for 'exclude until'
+            // we add 5 * 365 = 1825 days instead of years to be exactly like API 
+            // otherwise it will have more days considering leap years
+            vm.maxExcludeUntil = addYears(startingDate, 5);
+        };
 
         $scope.$on('get_limits', (e, limits) => {
             vm.hasError = false;
@@ -140,8 +196,20 @@
             $state.go('contact');
         };
 
-        const init = () => getLimits();
+        $scope.$on('time:success', (e, time) => {
+            const startingDate = new Date(time * 1000);
+            calculateDateLimits(startingDate);
+        });
 
+        $scope.$on('time:error', () => {
+            calculateDateLimits();
+        });
+
+        const init = () => {
+            websocketService.sendRequestFor.serverTime();
+            getLimits();
+        };
+        
         init();
 
     }
