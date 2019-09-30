@@ -784,19 +784,19 @@
     "professional_clients_receive": "Un Cliente Professionale riceve un grado di tutela del cliente inferiore per i seguenti motivi:",
     "posses_of_experience": "Presupponiamo che il cliente possieda l'esperienza, la conoscenza e le competenze necessarie per prendere decisioni di investimento e valutarne correttamente i rischi connessi",
     "appropriateness_test": "Non siamo tenuti a condurre un test di appropriatezza e né tantomeno a fornire avvisi di rischio",
-    "keep_informed": "Come Cliente Professionale, ci devi tenere informati su eventuali cambiamenti che possono influenzare il tuo stato.",
+    "keep_informed": "Come Cliente Professionale, devi informarci di eventuali cambiamenti che possono modificare il tuo stato.",
     "accept": "Accetto",
     "decline": "Rifiuto",
     "you_may_decline": "Nota: puoi rifiutare e continuare come cliente al dettaglio."
   },
   "account-categorisation": {
     "account_categorisation": "Classificazione del conto",
-    "processing": "La tua richiesta di essere categorizzato come cliente professionale è in fase di elaborazione.",
-    "professional": "Sei categorizzato come cliente professionista.",
+    "processing": "Stiamo elaborando la richiesta di classificazione come cliente professionale.",
+    "professional": "Sei classificato come cliente professionista.",
     "error": "Siamo spiacenti, si è verificato un errore durante l'elaborazione della tua richiesta.",
     "retail_info": "Normalmente i clienti vengono considerati clienti al dettaglio. Desideri essere considerato cliente professionale, previa verifica dei requisiti richiesti?",
     "professional_client_verify": "Voglio essere trattato come cliente professionale.",
-    "what_is_this": "Cos'è questo?",
+    "what_is_this": "Di cosa si tratta?",
     "submit": "Invia"
   }
 }
