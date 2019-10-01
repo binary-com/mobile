@@ -507,6 +507,8 @@
     "otc_stocks": "OTC Stocks",
     "volidx": "Volidx",
     "volatility_indices": "Volatility Indices",
+    "synthetic_indices": "Synthetic Indices",
+    "synthetic_index": "Synthetic Indices",
     "subject_to_change": "Stated limits are subject to change without prior notice.",
     "trading_limits": "Trading Limits",
     "withdrawal_limits": "Withdrawal Limits",
