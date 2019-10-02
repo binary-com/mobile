@@ -759,10 +759,10 @@
     "professional_client": "Chi è un cliente professionista?",
     "clients_need_to_satisfy": "Per essere classificati come Clienti Professionali, è necessario soddisfare almeno due dei seguenti requisiti:",
     "significant_transactions": "Hai già eseguito operazioni significative su mercati simili a quelli che offriamo, con una media di 10 operazioni al trimestre nei quattro trimestri precedenti",
-    "size_of_instrument": "La dimensione del tuo portafoglio di strumenti supera 500.000 EUR o il suo equivalente",
+    "size_of_instrument": "Il valore del tuo portafoglio di strumenti supera i 500.000 EUR o il suo equivalente",
     "worked_in_financial_sector": "Hai lavorato nel settore finanziario per almeno un anno ricoprendo un ruolo che richiede la conoscenza delle transazioni che andrai ad eseguire sulla nostra piattaforma",
-    "treated_as_professional_client": "Se scegli di essere trattato come un Cliente Professionale, considereremo che tu possegga la necessaria esperienza e conoscenza del mercato. In conseguenza di questo, prenderemo le misure necessarie per garantire che la tua richiesta per lo status di Cliente Professionale soddisfi i criteri indicati, compresa la richiesta dei seguenti:",
-    "statements": "Documenti che evidenzino le tue transazioni dei quattro trimestri precedenti",
+    "treated_as_professional_client": "Se scegli di essere trattato come un Cliente Professionale, ti riterremo in possesso della necessaria esperienza e conoscenza del mercato. Pertanto, adotteremo le misure necessarie per garantire che la tua richiesta di classificazione come Cliente Professionale soddisfi i requisiti indicati, tra cui la richiesta dei seguenti documenti:",
+    "statements": "Estratti che mostrino le transazioni dei quattro trimestri precedenti",
     "portfolio": "Prova del tuo portafoglio conservato altrove",
     "employment": "Prova dell'attività lavorativa"
   },
