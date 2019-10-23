@@ -509,6 +509,7 @@ angular.module("binary").factory("chartService", $rootScope => {
             const fractionalLength = utils.fractionalLength(pip);
 
             if (hasEntrySpot() && broadcastable) {
+                const isLastTickAfterExit = contract.exitSpot && lastTime > contract.exitSpot;
                 if (tickPriceList.length === 0) {
                     if (contract.entrySpotTime !== lastTime && betweenExistingSpots(lastTime)) {
                         const entrySpotPrice = parseFloat(contract.entrySpotPrice).toFixed(fractionalLength);
@@ -523,6 +524,8 @@ angular.module("binary").factory("chartService", $rootScope => {
                             contract.result = "lose";
                         }
                         $rootScope.$broadcast("contract:spot", contract, entrySpotPrice);
+                    } else if (isLastTickAfterExit) {
+                        tickPriceList.push(contract.entrySpotPrice);
                     } else {
                         tickPriceList.push(parseFloat(lastPrice).toFixed(fractionalLength));
                     }
@@ -530,9 +533,11 @@ angular.module("binary").factory("chartService", $rootScope => {
                     tickPriceList.push(parseFloat(lastPrice).toFixed(fractionalLength));
                 }
 
-                if (betweenExistingSpots(lastTime)) {
+                if (betweenExistingSpots(lastTime) || isLastTickAfterExit) {
                     const barrier = parseFloat(contract.barrier).toFixed(fractionalLength);
-                    const lastPriceFloat = parseFloat(lastPrice).toFixed(fractionalLength);
+                    const lastPriceFloat = isLastTickAfterExit
+                        ? tickPriceList.slice(-2)[0]
+                        : parseFloat(lastPrice).toFixed(fractionalLength);
 
                     if (utils.conditions[contract.type](barrier, lastPriceFloat,
                         tickPriceList, contract.selectedTick)) {
