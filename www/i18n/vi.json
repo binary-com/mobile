@@ -507,6 +507,8 @@
     "otc_stocks": "Cổ phiếu OTC",
     "volidx": "Volidx",
     "volatility_indices": "Chỉ Số Biến Động",
+    "synthetic_indices": "Các chỉ số tổng hợp",
+    "synthetic_index": "Các chỉ số tổng hợp",
     "subject_to_change": "Những giới hạn đã được quy định có thể được thay đổi mà không báo trước.",
     "trading_limits": "Giới hạn Giao dịch",
     "withdrawal_limits": "Giới hạn Rút tiền",

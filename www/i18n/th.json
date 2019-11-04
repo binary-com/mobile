@@ -507,6 +507,8 @@
     "otc_stocks": "หลักทรัพย์ OTC",
     "volidx": "Volidx",
     "volatility_indices": "ดัชนีความผันผวน",
+    "synthetic_indices": "Synthetic Indices",
+    "synthetic_index": "Synthetic Indices",
     "subject_to_change": "วงเงินที่ได้รับที่ระบุไว้อาจจะมีการเปลี่ยนแปลงโดยไม่บอกกล่าวให้ทราบล่วงหน้า",
     "trading_limits": "วงเงินในการซื้อขาย",
     "withdrawal_limits": "วงเงินในการถอน",
