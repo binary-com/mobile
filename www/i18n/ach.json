@@ -507,6 +507,8 @@
     "otc_stocks": "crwdns19350:0crwdne19350:0",
     "volidx": "crwdns33590:0crwdne33590:0",
     "volatility_indices": "crwdns33591:0crwdne33591:0",
+    "synthetic_indices": "crwdns68904:0crwdne68904:0",
+    "synthetic_index": "crwdns68906:0crwdne68906:0",
     "subject_to_change": "crwdns19351:0crwdne19351:0",
     "trading_limits": "crwdns19352:0crwdne19352:0",
     "withdrawal_limits": "crwdns19353:0crwdne19353:0",

@@ -507,6 +507,8 @@
     "otc_stocks": "Saham OTC",
     "volidx": "Volidx",
     "volatility_indices": "Indeks Volatilitas",
+    "synthetic_indices": "Indeks Sintetis",
+    "synthetic_index": "Indeks Sintetis",
     "subject_to_change": "Batas dapat berubah tanpa pemberitahuan sebelumnya.",
     "trading_limits": "Batas Trading",
     "withdrawal_limits": "Batas Penarikan",
