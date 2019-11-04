@@ -507,6 +507,8 @@
     "otc_stocks": "場外交易股票",
     "volidx": "Volidx",
     "volatility_indices": "波動率指數",
+    "synthetic_indices": "綜合指數",
+    "synthetic_index": "綜合指數",
     "subject_to_change": "我們保留隨時在沒有預先通知的情況下更改所述限制的權利。",
     "trading_limits": "交易限制",
     "withdrawal_limits": "提款限額",
