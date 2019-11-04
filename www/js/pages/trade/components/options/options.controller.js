@@ -38,21 +38,23 @@
         vm.marketsClosed = false;
 
         vm.SECTIONS = {
-            OVERVIEW1  : 0,
-            OVERVIEW2  : 1,
-            UNDERLYINGS: 2,
-            MARKETS    : 3,
-            TRADETYPES : 4,
-            TICKS      : 5,
-            DIGITS     : 6
+            OVERVIEW1   : 0,
+            OVERVIEW2   : 1,
+            UNDERLYINGS : 2,
+            MARKETS     : 3,
+            TRADETYPES  : 4,
+            TICKS       : 5,
+            DIGITS      : 6,
+            SELECTEDTICK: 7
         };
 
         vm.options = {
-            market    : null,
-            underlying: null,
-            tradeType : null,
-            tick      : null,
-            digit     : null
+            market       : null,
+            underlying   : null,
+            tradeType    : null,
+            tick         : null,
+            digit        : null,
+            selected_tick: null
         };
 
         vm.section1 = vm.SECTIONS.OVERVIEW1; // vm.options.market ? vm.SECTIONS.OVERVIEW : vm.SECTIONS.MARKETS;
@@ -71,6 +73,7 @@
 
         $scope.$on("assetIndex:updated", e => {
             const markets = marketsService.findTickMarkets();
+            vm.marketsLength = markets ? _.keys(markets).length : 0;
             if (!_.isEmpty(vm.options.market) && _.find(markets, ["displayName", vm.options.market.displayName])) {
                 vm.selectMarket(vm.options.market);
             } else {
@@ -81,6 +84,7 @@
         $scope.$on("symbol", (e, groupSymbols) => {
             sessionStorage.groupSymbols = JSON.stringify(groupSymbols);
             const tradeTypes = tradeTypesService.findTickContracts(groupSymbols);
+            vm.tradeTypesLength = tradeTypes ? _.keys(tradeTypes).length : 0;
             $scope.$applyAsync(() => {
                 vm.options.tradeType =
                     Object.keys(tradeTypes).indexOf(vm.options.tradeType) > -1
@@ -95,6 +99,11 @@
                     tradeTypes[vm.options.tradeType][0].barriers > 0
                         ? vm.options.barrier || tradeTypes[vm.options.tradeType][0].barrier
                         : null;
+                vm.options.selected_tick = vm.options.tradeType === 'High/Low Ticks' ?
+                    (vm.options.selected_tick || vm.options.tick) : null;
+                const min = parseInt(tradeTypes[vm.options.tradeType][0].min_contract_duration.slice(0, -1));
+                const max = parseInt(tradeTypes[vm.options.tradeType][0].max_contract_duration.slice(0, -1));
+                vm.tickRangeLength = min && max ? _.range(min, max + 1).length : 0;
                 updateProposal();
                 tradeService.proposalIsReady = true;
             });
@@ -144,6 +153,12 @@
                     }
                     break;
                 }
+                case vm.SECTIONS.TICKS: {
+                    if (vm.tickRangeLength <= 1) {
+                        return;
+                    }
+                    break;
+                }
                 default:
                     break;
             }
@@ -178,6 +193,7 @@
 
         vm.selectUnderlying = function(underlying) {
             vm.options.underlying = underlying;
+            vm.options.barrier = null;
             sessionStorage.removeItem("tradeTypes");
             websocketService.sendRequestFor.contractsForSymbol(underlying.symbol);
             vm.section1 = vm.SECTIONS.OVERVIEW1;
@@ -188,12 +204,19 @@
         vm.selectTradeType = function(tradeType) {
             vm.options.tradeType = tradeType;
             tradeType = JSON.parse(sessionStorage.tradeTypes)[tradeType][0];
-            vm.options.tick = vm.options.tick || tradeType.min_contract_duration.slice(0, -1);
+            vm.options.tick = vm.options.tradeType === 'High/Low Ticks' ?
+                tradeType.min_contract_duration.slice(0, -1) : vm.options.tick ||
+                tradeType.min_contract_duration.slice(0, -1);
             vm.options.digit = tradeType.last_digit_range ? vm.options.digit || tradeType.last_digit_range[0] : null;
             vm.options.barrier =
                 tradeType.barriers > 0 && !_.isEmpty(tradeType.barrier)
                     ? vm.options.barrier || tradeType.barrier
                     : null;
+            vm.options.selected_tick = vm.options.tradeType === 'High/Low Ticks' ?
+                (vm.options.selected_tick || parseInt(vm.options.tick)) : null;
+            const min = parseInt(tradeType.min_contract_duration.slice(0, -1));
+            const max = parseInt(tradeType.max_contract_duration.slice(0, -1));
+            vm.tickRangeLength = min && max ? _.range(min, max + 1).length : 0;
             vm.section2 = vm.SECTIONS.OVERVIEW2;
             updateProposal();
             hideModal();
@@ -213,6 +236,17 @@
             updateProposal();
             hideModal();
         };
+
+        vm.selectSelectedTick = function(tick) {
+            vm.options.selected_tick = tick;
+            vm.options.barrier = null;
+            vm.section2 = vm.SECTIONS.OVERVIEW2;
+            updateProposal();
+            hideModal();
+        };
+
+        vm.getLanguageId = title =>
+            title ? `options.${title.replace(/[\s,/]/g, '_').toLowerCase()}` : title;
 
         function init() {
             const options = optionsService.get();

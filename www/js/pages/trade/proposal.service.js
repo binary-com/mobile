@@ -9,16 +9,16 @@
 (function() {
     angular.module("binary.pages.trade.services").factory("proposalService", Proposal);
 
-    Proposal.$inject = ["$rootScope", "websocketService"];
+    Proposal.$inject = ["$rootScope", "appStateService", "websocketService"];
 
-    function Proposal($rootScope, websocketService) {
+    function Proposal($rootScope, appStateService, websocketService) {
         const factory = {};
 
         const proposalSchema = {
             amount: {
                 presence: true,
                 format  : {
-                    pattern: /^(\d+\.?\d{0,2}|\.\d{1,2})$/
+                    pattern: /^[0-9]+([.][0-9]+)?$/
                 }
             },
             basis: {
@@ -71,16 +71,27 @@
             const options = JSON.parse(localStorage.options);
             const proposal = create();
             proposal.symbol = options.underlying.symbol;
-            proposal.duration = options.tick;
+            proposal.duration = parseInt(options.tick);
             if (options.tradeType === "Higher/Lower") {
                 proposal.barrier = _.isEmpty(options.barrier) ? "" : options.barrier;
             } else {
                 proposal.barrier = options.digit;
             }
+            if (options.tradeType === 'High/Low Ticks') {
+                proposal.selected_tick = options.selected_tick;
+            } else {
+                proposal.selected_tick = '';
+            }
             proposal.tradeType = options.tradeType;
-            proposal.amount = options.amount || proposal.amount;
             proposal.basis = options.basis || proposal.basis;
             proposal.currency = sessionStorage.currency || "USD";
+
+            const currencyConfig = appStateService.currenciesConfig[sessionStorage.currency];
+            if (currencyConfig && currencyConfig.type === "crypto") {
+                proposal.amount = options.cryptoAmount || proposal.amount;
+            } else {
+                proposal.amount = options.amount || proposal.amount;
+            }
             return proposal;
         };
 
@@ -98,15 +109,25 @@
         factory.update = function(options) {
             const proposal = factory.get();
 
+            const currencyConfig = appStateService.currenciesConfig[sessionStorage.currency];
+            if (currencyConfig && currencyConfig.type === "crypto"){
+                const amount = options.amount || proposal.cryptoAmount;
+                options.cryptoAmount  = amount;
+                options.amount = proposal.amount;
+                proposal.amount = amount;
+            } else {
+                proposal.amount = options.amount || proposal.amount;
+            }
+
             proposal.symbol = options.underlying.symbol;
-            proposal.duration = options.tick;
+            proposal.duration = parseInt(options.tick);
             if (options.tradeType === "Higher/Lower") {
                 proposal.barrier = _.isEmpty(options.barrier) ? "" : options.barrier;
             } else {
                 proposal.barrier = options.digit;
             }
+            proposal.selected_tick = options.tradeType === "High/Low Ticks" ? options.selected_tick : null;
             proposal.tradeType = options.tradeType;
-            proposal.amount = options.amount || proposal.amount;
             proposal.basis = options.basis || proposal.basis;
 
             factory.save(options);
@@ -140,12 +161,20 @@
                 duration     : null,
                 basis        : "payout",
                 currency     : sessionStorage.currency || "USD",
-                amount       : 5,
+                amount       : isCryptoCurrency() ? 0.005 : 5,
                 duration_unit: "t",
                 passthrough  : null
             };
 
             return proposal;
+        }
+
+        function isCryptoCurrency() {
+            const correncyConfig = appStateService.currenciesConfig[sessionStorage.currency];
+            if (correncyConfig && correncyConfig.type === 'crypto') {
+                return true;
+            }
+            return false;
         }
 
         function validate(proposal) {

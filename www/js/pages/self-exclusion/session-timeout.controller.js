@@ -42,10 +42,10 @@
             }
 
             const logout = () => {
-                $translate(["self-exclusion.warning", "self-exclusion.session-timeout-warning"]).then(translation => {
+                $translate(["self-exclusion.warning", "self-exclusion.session_timeout_warning"]).then(translation => {
                     alertService.displayAlert(
                         translation["self-exclusion.warning"],
-                        translation["self-exclusion.session-timeout-warning"]
+                        translation["self-exclusion.session_timeout_warning"]
                     );
                 });
                 setTimeout(() => {

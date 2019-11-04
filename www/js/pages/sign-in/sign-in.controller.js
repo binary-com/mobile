@@ -12,25 +12,30 @@
     Signin.$inejct = [
         "$scope",
         "$state",
+        "$stateParams",
         "$ionicLoading",
         "accountService",
         "languageService",
         "websocketService",
         "alertService",
-        "appStateService"
+        "appStateService",
+        "validationService"
     ];
 
     function Signin(
         $scope,
         $state,
+        $stateParams,
         $ionicLoading,
         accountService,
         languageService,
         websocketService,
         alertService,
-        appStateService
+        appStateService,
+        validationService
     ) {
         const vm = this;
+        vm.validation = validationService;
         vm.showTokenForm = false;
         vm.showSignin = false;
         vm.showSignup = false;
@@ -41,15 +46,30 @@
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
         vm.disableNextbutton = false;
+        vm.clientCountryIsUK = false;
         vm.linkToRegulatory = `https://www.binary.com/${localStorage.getItem("language") || "en"}/regulation.html`;
+        vm.gamStopLink = "https://www.gamstop.co.uk/";
 
         /**
          * On load:
          * Open the websocket
          * If default account is set, send it for validation
          */
-        const init = function() {
+        const init = () => {
             vm.language = languageService.read();
+
+            // Checking url params to get accoutn tokens from /redirect.
+            if (!_.isEmpty($stateParams.accountTokens)) {
+                vm.showSignin = true;
+                vm.data.accountTokens = $stateParams.accountTokens;
+            }
+
+            // Checking the url param to get verficatoin code.
+            if (!_.isEmpty($stateParams.verificationCode)) {
+                vm.showvirtualws = true;
+                vm.data.verificationCode = $stateParams.verificationCode;
+                websocketService.sendRequestFor.residenceListSend();
+            }
         };
 
         init();
@@ -58,7 +78,13 @@
             $ionicLoading.hide();
             if (response) {
                 if (accountService.isUnique(response.loginid)) {
-                    accountService.add(response);
+                    let account = {};
+                    const accountList = response.account_list;
+                    if (accountList) {
+                        const acc = _.find(accountList, a => a.loginid === response.loginid);
+                        account = _.assign(response, acc);
+                    }
+                    accountService.add(account);
                     accountService.setDefault(response.token);
                     appStateService.virtuality = response.is_virtual;
                 }
@@ -73,7 +99,7 @@
          * SignIn button: event handler
          * @param  {String} _token 15char token
          */
-        vm.signIn = function() {
+        vm.signIn = () => {
             const _token = vm.token;
             // Validate the token
             if (_token && _token.length === 15) {
@@ -84,15 +110,11 @@
             }
         };
 
-        vm.changeLanguage = function() {
-            languageService.update(vm.language);
-        };
-
         // sign up email verify
-        vm.verifyUserMail = function() {
+        vm.verifyUserMail = () => {
             vm.emailError = false;
             const mail = vm.data.mail ? vm.data.mail : "";
-            websocketService.sendRequestFor.accountOpening(mail);
+            websocketService.sendRequestFor.accountOpening(_.trim(vm.data.mail));
             vm.isVerifyingEmail = true;
         };
 
@@ -128,15 +150,15 @@
 
         // Hide & show password function
         vm.data.inputType = "password";
-        vm.hideShowPassword = function() {
+        vm.hideShowPassword = () => {
             if (vm.data.inputType === "password") vm.data.inputType = "text";
             else vm.data.inputType = "password";
         };
 
-        vm.createVirtualAccount = function() {
+        vm.createVirtualAccount = () => {
             vm.tokenError = false;
             vm.passwordError = false;
-            const verificationCode = vm.data.verificationCode;
+            const verificationCode = _.trim(vm.data.signupToken);
             const clientPassword = vm.data.clientPassword;
             const residence = vm.data.residence;
             websocketService.sendRequestFor.newAccountVirtual(verificationCode, clientPassword, residence);
@@ -176,8 +198,16 @@
             });
         });
 
+        $scope.$on("website_status", (e, website_status) => {
+            $scope.$applyAsync(() => {
+                if (/gb/.test(website_status.clients_country)) {
+                    vm.clientCountryIsUK = true;
+                }
+            });
+        });
+
         // change different type of singing methods
-        vm.changeSigninView = function(_isBack) {
+        vm.changeSigninView = _isBack => {
             _isBack = _isBack || false;
 
             $scope.$applyAsync(() => {
@@ -201,21 +231,14 @@
             });
         };
 
-        vm.changeSigninViewtoToken = function() {
-            if (vm.showSignin && !vm.showTokenForm) {
-                vm.showTokenForm = true;
-                vm.showSignin = false;
-            }
-        };
-
-        vm.changeSigninViewtoSignup = function() {
+        vm.changeSigninViewtoSignup = () => {
             if (vm.showSignin && !vm.showSignup) {
                 vm.showSignup = true;
                 vm.showSignin = false;
             }
         };
 
-        vm.showSigninView = function() {
+        vm.showSigninView = () => {
             $scope.$applyAsync(() => {
                 vm.showSignin = true;
             });
@@ -228,8 +251,12 @@
             }
         );
 
-        vm.goToRegulatory = function() {
+        vm.goToRegulatory = () => {
             window.open(vm.linkToRegulatory, "_blank");
-        };
+        }
+
+        vm.goToGamStop = () => {
+            window.open(vm.gamStopLink, "_blank");
+        }
     }
 })();

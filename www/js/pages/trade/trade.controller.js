@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.trade.controllers").controller("TradeController", Trade);
 
-    Trade.$inject = ["$scope", "proposalService", "appStateService"];
+    Trade.$inject = ["proposalService"];
 
-    function Trade($scope, proposalService, appStateService) {
+    function Trade(proposalService) {
         const vm = this;
 
         vm.proposal = {};
@@ -24,9 +24,9 @@
         init();
 
         angular.element(document).ready(() => {
-            if (ionic.Platform.isIOS()) {
-                document.getElementById("trade-container").style.paddingBottom = "20px";
-            }
+            // if (ionic.Platform.isIOS()) {
+            //     document.getElementById("trade-container").style.paddingBottom = "20px";
+            // }
             if (!ionic.Platform.isWebView()) {
                 const tradeContainer = document.getElementById("trade-container");
                 if (tradeContainer !== undefined && tradeContainer !== null) {

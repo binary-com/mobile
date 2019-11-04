@@ -13,23 +13,17 @@ $positiveColor: #2E8836;
 $darkPositiveColor: #14602B;
 $negativeColor: #C03;
 $noticeColor: #FEF1CF;
+$disabledColor: #f8f8f8;
 $chartColor: #6B8Fb9;
 $chartAreaColor: rgba(128,179,236,0.3);
 
 // Typography
-$FONT_SIZE_N: 18px;
-$FONT_SIZE_S: 13px;
-$FONT_SIZE_XS: 10px;
-
-.font-n{
-  font-size: $FONT_SIZE_N;
-}
-.font-s{
-  font-size: $FONT_SIZE_S;
-}
-.font-xs{
-  font-size: $FONT_SIZE_XS;
-}
+$FONT_SIZE_XL: 1.5rem;
+$FONT_SIZE_L: 1.1rem;
+$FONT_SIZE_N: 1rem;
+$FONT_SIZE_S: 0.9rem;
+$FONT_SIZE_XS: 0.8rem;
+$FONT_SIZE_XSS: 0.7rem;
 
 @media only screen and (max-width: 480px) {
   html, body{

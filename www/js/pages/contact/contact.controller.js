@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.contact.controllers").controller("ContactController", Contact);
 
-    Contact.$inject = ["$scope"];
+    Contact.$inject = [];
 
-    function Contact($scope) {
+    function Contact() {
         const vm = this;
         vm.data = {};
 
@@ -32,13 +32,6 @@
                 phone: {
                     phone_1: {
                         num: "+1 (450) 823 1002"
-                    }
-                }
-            },
-            germany: {
-                phone: {
-                    phone_1: {
-                        num: "+49 3025 5553844"
                     }
                 }
             },

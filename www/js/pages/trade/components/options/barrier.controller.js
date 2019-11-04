@@ -9,10 +9,15 @@
 (function() {
     angular.module("binary.pages.trade.components.options.controllers").controller("BarrierController", Barrier);
 
-    Barrier.$inject = [];
+    Barrier.$inject = ['proposalService'];
 
-    function Barrier() {
+    function Barrier(proposalService) {
         const vm = this;
-        const pattern = /^[+-]\d+(\.\d{1,5})?|\d+(\.\d{1,5})?/;
+        const pattern = /[+,-]\d+(\.\d{1,5})?|\d+(\.\d{1,5})?/;
+        vm.regex = "^([+,-]?(\\d+)?(\\.)?\\d*)$";
+
+        vm.changeBarrier = () => {
+            proposalService.setPropertyValue('barrier', vm.proposal.barrier);
+        };
     }
 })();

@@ -38,59 +38,40 @@
         vm.data = {};
         vm.noTransaction = false;
         vm.noMore = false;
-        vm.hasRefresh = false;
-        vm.enteredNow = false;
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
         vm.goToTopButton = false;
-        vm.backFromMainPages = false;
         vm.firstCompleted = false;
-        vm.noMoreRequest = false;
         vm.jumpToDateInputShow = false;
         vm.hasError = false;
         vm.dateChanged = false;
-        vm.appIdAllowed = config.app_id;
         vm.isItemShown = false;
+        const appIdAllowed = config.app_id;
+        let enteredNow = false;
+        let backFromMainPages = false;
+        let noMoreRequest = false;
+        vm.fractionalDigits = 2;
 
-        $scope.$on("$stateChangeSuccess", (ev, to, toParams, from, fromParams) => {
-            vm.lastPage = from.name;
-            vm.enteredNow = true;
-            vm.thisPage = to.name;
-            // check if state is changed from any state other than transaction-detail
-            // we do not refresh the state if it comes back from transaction-detail
-            if (vm.lastPage !== "transaction-detail" && vm.thisPage === "statement") {
-                vm.resetParams();
-                vm.firstCompleted = false;
-                vm.backFromMainPages = true;
-                vm.jumpToDateInputShow = false;
-                vm.notAuthorizeYet();
-            }
-        });
-
-        $scope.$on("authorize", (e, response) => {
-            if (appStateService.statementRefresh) {
-                vm.notAuthorizeYet();
-            }
-        });
-
-        vm.notAuthorizeYet = function() {
-            // check if app is authorized already or has to wait for it to be authorized
+        const notAuthorizeYet = () => {// check if app is authorized already or has to wait for it to be authorized
             if (appStateService.isLoggedin) {
-                if (appStateService.statementRefresh || vm.backFromMainPages) {
+                vm.currency = sessionStorage.getItem('currency') || 'USD';
+                const currencyConfig = appStateService.currenciesConfig || {};
+                vm.fractionalDigits = !_.isEmpty(currencyConfig) &&
+                currencyConfig[vm.currency] ? currencyConfig[vm.currency].fractional_digits : 2;
+                if (appStateService.statementRefresh || backFromMainPages) {
                     $templateCache.remove();
-                    vm.resetParams();
+                    resetParams();
                     vm.jumpToDateInputShow = false;
                     vm.firstCompleted = false;
-                    vm.noMoreRequest = false;
+                    noMoreRequest = false;
                     vm.hasError = false;
                     vm.filteredTransactions = [];
                     vm.noTransaction = false;
-                    vm.backFromMainPages = false;
+                    backFromMainPages = false;
                     tableStateService.statementCompletedGroup = true;
                     appStateService.statementRefresh = false;
                     appStateService.isStatementSet = false;
-                    vm.hasError = false;
-                    vm.loadMore();
+                    loadMore();
                 }
             }
             // else{
@@ -98,33 +79,54 @@
             // }
         };
 
-        vm.delayedLoad = function() {
-            $timeout(vm.loadMore, 50);
+        $scope.$on("$stateChangeSuccess", (ev, to, toParams, from, fromParams) => {
+            vm.lastPage = from.name;
+            enteredNow = true;
+            vm.thisPage = to.name;
+            // check if state is changed from any state other than transaction-detail
+            // we do not refresh the state if it comes back from transaction-detail
+            if (vm.lastPage !== "transaction-detail" && vm.thisPage === "statement") {
+                resetParams();
+                vm.firstCompleted = false;
+                backFromMainPages = true;
+                vm.jumpToDateInputShow = false;
+                notAuthorizeYet();
+            }
+        });
+
+        $scope.$on("authorize", (e, response) => {
+            if (appStateService.statementRefresh) {
+                notAuthorizeYet();
+            }
+        });
+
+        vm.delayedLoad = () => {
+            $timeout(loadMore, 50);
         };
 
-        vm.loadMore = function() {
+        const loadMore = () => {
             if (!tableStateService.statementCompletedGroup) {
                 // here can load some amount of transactions already recieved
-                vm.setBatch();
+                setBatch();
             } else if (tableStateService.statementCompletedGroup) {
                 tableStateService.statementCurrentPage += 1;
-                vm.pageState();
+                pageState();
             }
         };
 
-        vm.pageState = function() {
+        const pageState = () => {
             if (!appStateService.isStatementSet) {
                 appStateService.isStatementSet = true;
                 tableStateService.statementDateType = "allTime";
                 vm.jumpToDateInputShow = false;
-                vm.resetParams();
-                vm.setParams();
+                resetParams();
+                setParams();
                 tableStateService.statementCompletedGroup = false;
                 vm.goTop();
-            } else if (!appStateService.isStatementSet && vm.enteredNow && vm.lastPage === "transaction-detail") {
-                vm.enteredNow = false;
+            } else if (!appStateService.isStatementSet && enteredNow && vm.lastPage === "transaction-detail") {
+                enteredNow = false;
                 vm.lastPage = "";
-                vm.setParams();
+                setParams();
             } else if (appStateService.isStatementSet && vm.dateChanged && tableStateService.statementCompletedGroup) {
                 vm.transactions = [];
                 vm.batchedTransaction = [];
@@ -134,22 +136,22 @@
                 tableStateService.statementBatchNum = 0;
                 tableStateService.statementBatchLimit = 0;
                 tableStateService.statementCompletedGroup = false;
-                vm.setParams();
+                setParams();
                 vm.goTop();
             } else if (appStateService.isStatementSet && !vm.dateChanged && tableStateService.statementCompletedGroup) {
                 vm.transactions = [];
                 tableStateService.statementCompletedGroup = false;
-                vm.setParams();
+                setParams();
             } else if (!vm.dateChanged) {
-                vm.setParams();
+                setParams();
                 $scope.$applyAsync(() => {
                     vm.noMore = false;
                 });
             }
-            vm.sendRequest();
+            sendRequest();
         };
 
-        vm.setParams = function() {
+        const setParams = () => {
             vm.data.appID = tableStateService.statementAppID;
             vm.data.dateType = tableStateService.statementDateType;
             vm.data.dateFrom = tableStateService.statementDateFrom;
@@ -158,7 +160,8 @@
             vm.itemsPerPage = 300;
             vm.limit = vm.itemsPerPage + 1;
         };
-        vm.resetParams = function() {
+
+        const resetParams = () => {
             tableStateService.statementAppID = "allApps";
             tableStateService.statementDateFrom = "";
             tableStateService.statementDateTo = "";
@@ -170,58 +173,58 @@
             tableStateService.statementBatchLimit = 0;
         };
 
-        vm.sendRequest = function() {
-            vm.params = {
+        const sendRequest = () => {
+            const params = {
                 description: 1,
                 limit      : vm.limit,
                 offset     : vm.itemsPerPage * vm.data.statementCurrentPage
             };
             if (vm.data.hasOwnProperty("dateFrom") && vm.data.dateFrom !== "") {
-                vm.params.date_from = vm.data.dateFrom;
+                params.date_from = vm.data.dateFrom;
             }
             if (vm.data.hasOwnProperty("dateTo") && vm.data.dateTo !== "") {
-                vm.params.date_to = vm.data.dateTo + 8.64e4;
+                params.date_to = vm.data.dateTo + 8.64e4;
             }
-            vm.params.req_id = vm.data.dateTo || Math.round(new Date().getTime() / 1000);
-            vm.reqId = vm.params.req_id;
-            websocketService.sendRequestFor.statement(vm.params);
+            params.req_id = vm.data.dateTo || Math.round(new Date().getTime() / 1000);
+            vm.reqId = params.req_id;
+            websocketService.sendRequestFor.statement(params);
         };
 
         $scope.$on("statement:update", (e, _statement, _req_id) => {
             vm.firstCompleted = true;
             vm.statement = _statement;
-            vm.count = vm.statement.count;
+            const count = vm.statement.count;
             vm.hasError = false;
             if (vm.reqId === _req_id) {
-                if (vm.count === 0) {
+                if (count === 0) {
                     vm.noTransaction = true;
                     $scope.$applyAsync(() => {
                         vm.noMore = true;
                     });
-                    vm.setBatch();
-                } else if (vm.count > 0) {
-                    if (vm.count < vm.limit) {
+                    setBatch();
+                } else if (count > 0) {
+                    if (count < vm.limit) {
                         // has no more to load on next call
                         vm.noTransaction = false;
                         // $scope.$applyAsync(() => {
-                        vm.noMoreRequest = true;
+                        noMoreRequest = true;
                         // });
                         vm.statement.transactions.forEach((el, i) => {
                             vm.transactions.push(vm.statement.transactions[i]);
                         });
-                        vm.setBatch();
-                    } else if (vm.count === vm.limit) {
+                        setBatch();
+                    } else if (count === vm.limit) {
                         // has at least one transaction on next call to show to user
                         vm.noTransaction = false;
                         $scope.$applyAsync(() => {
                             vm.noMore = false;
                         });
                         vm.statement.transactions.forEach((el, i) => {
-                            if (i < vm.count - 1) {
+                            if (i < count - 1) {
                                 vm.transactions.push(vm.statement.transactions[i]);
                             }
                         });
-                        vm.setBatch();
+                        setBatch();
                     }
                 }
             }
@@ -234,24 +237,23 @@
             });
         });
 
-        vm.setBatch = function() {
-            tableStateService.statementBatchLimit = Math.ceil(
-                vm.transactions.length / tableStateService.statementBatchSize
-            );
-            vm.sliced = [];
-            vm.sliced = vm.transactions.slice(
+        const setBatch = () => {
+            tableStateService.statementBatchLimit =
+              Math.ceil(vm.transactions.length / tableStateService.statementBatchSize);
+            let sliced = [];
+            sliced = vm.transactions.slice(
                 tableStateService.statementBatchNum * tableStateService.statementBatchSize,
                 (tableStateService.statementBatchNum + 1) * tableStateService.statementBatchSize
             );
-            vm.sliced.forEach((el, i) => {
-                vm.batchedTransaction.push(vm.sliced[i]);
+            sliced.forEach((el, i) => {
+                vm.batchedTransaction.push(sliced[i]);
             });
             tableStateService.statementBatchNum += 1;
             if (tableStateService.statementBatchNum === tableStateService.statementBatchLimit) {
                 tableStateService.statementBatchLimit = 0;
                 tableStateService.statementBatchNum = 0;
                 tableStateService.statementCompletedGroup = true;
-                if (vm.noMoreRequest) {
+                if (noMoreRequest) {
                     $scope.$applyAsync(() => {
                         vm.noMore = true;
                     });
@@ -261,13 +263,13 @@
             vm.setFiltered();
         };
 
-        vm.setFiltered = function() {
+        vm.setFiltered = () => {
             $scope.$applyAsync(() => {
                 tableStateService.statementAppID = vm.data.appID;
                 vm.filteredTransactions = $filter("StatementDataFilter")(
                     vm.batchedTransaction,
                     tableStateService.statementAppID,
-                    vm.appIdAllowed
+                    appIdAllowed
                 );
                 if (vm.filteredTransactions.length === 0) {
                     vm.noTransaction = true;
@@ -278,10 +280,10 @@
             });
         };
 
-        vm.dateFilter = function() {
-            vm.noTransaction = false;
-            vm.dateChanged = true;
+        vm.dateFilter = () => {
             tableStateService.statementDateType = vm.data.dateType;
+            vm.dateChanged = true;
+            vm.noTransaction = false;
             if (vm.data.dateType === "allTime") {
                 $scope.$applyAsync(() => {
                     vm.jumpToDateInputShow = false;
@@ -291,7 +293,7 @@
                 vm.data.dateTo = "";
                 tableStateService.statementDateFrom = "";
                 tableStateService.statementDateTo = "";
-                vm.loadMore();
+                loadMore();
             }
             if (vm.data.dateType === "jumpToDate") {
                 $scope.$applyAsync(() => {
@@ -306,7 +308,7 @@
             }
         };
 
-        vm.jumpToDateFilter = function() {
+        vm.jumpToDateFilter = () => {
             if (tableStateService.statementDateType === "jumpToDate") {
                 tableStateService.statementCompletedGroup = true;
                 vm.dateChanged = true;
@@ -315,32 +317,31 @@
                 tableStateService.statementCurrentPage = 0;
                 vm.data.dateTo = new Date(vm.data.end).getTime() / 1000 || "";
                 tableStateService.statementDateTo = vm.data.dateTo;
-                vm.loadMore();
+                loadMore();
             }
         };
 
-        vm.toggleItem = function() {
+        vm.toggleItem = () => {
             vm.isItemShown = !vm.isItemShown;
             const content = document.getElementsByClassName("statement-content-expandable")[0];
             content.id = content.id === "statement-filter-active" ? "" : "statement-filter-active";
         };
 
-        vm.goTop = function() {
+        vm.goTop = () => {
             $ionicScrollDelegate.scrollTop(true);
         };
 
-        vm.goToTopButtonCondition = function() {
+        vm.goToTopButtonCondition = () => {
             $timeout(() => {
                 const position = $ionicScrollDelegate.$getByHandle("handler").getScrollPosition();
-                vm.goToTopButton = position.top >= 30;
-            });
+                vm.goToTopButton = position ? position.top >= 30 : false;
+            }, 500);
         };
 
         // details functions
-        vm.sendContractDetailRequest = function(id) {
+        vm.sendContractDetailRequest = id => {
             if (id) {
-                vm.id = id;
-                sessionStorage.setItem("id", vm.id);
+                sessionStorage.setItem("id", id);
                 $state.go("transaction-detail");
             }
         };

@@ -9,8 +9,9 @@
 (function() {
     angular.module("binary.pages.trade.components.options.services").factory("tradeTypesService", TradeTypes);
 
-    function TradeTypes() {
+    function TradeTypes(config) {
         const directive = {};
+        const supportedTradeTypes = config.supportedTradeTypes;
 
         directive.findTickContracts = function(contracts) {
             const tradeTypes = {};
@@ -52,8 +53,14 @@
                 }
             });
 
-            sessionStorage.tradeTypes = JSON.stringify(groupedTradeTypes);
-            return groupedTradeTypes;
+            const supportedGroupedTradeTypes = {};
+            _.forIn(groupedTradeTypes, (value, key) => {
+                if (_.includes(supportedTradeTypes, key)) {
+                    supportedGroupedTradeTypes[key] = value;
+                }
+            });
+            sessionStorage.tradeTypes = JSON.stringify(supportedGroupedTradeTypes);
+            return supportedGroupedTradeTypes;
         };
 
         return directive;

@@ -24,9 +24,15 @@
             });
         });
 
-        $scope.$on("connection:error", e => {
+        $scope.$on("connection:error", (e, isSSLFailed) => {
             $scope.$applyAsync(() => {
                 vm.showMessage = true;
+
+                if (isSSLFailed ) {
+                    vm.message = 'app.ssl_cert_failed';
+                } else {
+                    vm.message = 'app.connection_error';
+                }
             });
         });
     }

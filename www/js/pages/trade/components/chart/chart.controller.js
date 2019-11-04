@@ -19,26 +19,6 @@
             chartService.destroy();
         });
 
-        $scope.$on("portfolio", (e, portfolio) => {
-            const contractId = vm.purchasedContract.contractId;
-
-            if (!_.isEmpty(contractId)) {
-                portfolio.contracts.forEach(contract => {
-                    if (contract.contract_id.toString() === contractId) {
-                        chartService.addContract({
-                            startTime: contract.date_start + 1,
-                            duration : parseInt(vm.proposal.duration),
-                            type     :
-                                vm.proposal.tradeType === "Higher/Lower"
-                                    ? `${contract.contract_type}HL`
-                                    : contract.contract_type,
-                            barrier: vm.proposal.barrier
-                        });
-                    }
-                });
-            }
-        });
-
         $scope.$on("tick", (e, feed) => {
             if (feed && feed.echo_req.ticks_history === vm.proposal.symbol) {
                 chartService.historyInterface.addTick(feed.tick);

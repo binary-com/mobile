@@ -6,7 +6,7 @@
  * @copyright Binary Ltd
  */
 
-angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfigProvider) => {
+angular.module("binary").config(($locationProvider, $stateProvider, $urlRouterProvider, $ionicConfigProvider) => {
     $ionicConfigProvider.views.swipeBackEnabled(false);
     $stateProvider
         .state("home", {
@@ -28,14 +28,13 @@ angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfi
             templateUrl : "js/pages/trade/trade.template.html"
         })
         .state("signin", {
+            params: {
+                accountTokens   : null,
+                verificationCode: null,
+            },
             cache       : false,
             templateUrl : "js/pages/sign-in/sign-in.template.html",
             controller  : "SigninController",
-            controllerAs: "vm"
-        })
-        .state("help", {
-            templateUrl : "js/pages/help/help.template.html",
-            controller  : "HelpController",
             controllerAs: "vm"
         })
         .state("profit-table", {
@@ -210,7 +209,42 @@ angular.module("binary").config(($stateProvider, $urlRouterProvider, $ionicConfi
             controller  : "NotificationsController",
             controllerAs: "vm",
             detailed    : true
+        })
+        .state("set-currency", {
+            parent      : "layout",
+            cache       : false,
+            templateUrl : "js/pages/set-currency/set-currency.template.html",
+            controller  : "SetCurrencyController",
+            controllerAs: "vm"
+        })
+        .state("accounts-management", {
+            parent      : "layout",
+            cache       : false,
+            templateUrl : "js/pages/accounts-management/accounts-management.template.html",
+            controller  : "AccountsManagementController",
+            controllerAs: "vm"
+        })
+        .state('redirect', {
+            url         : "/redirect",
+            cache       : "false",
+            templateUrl : "js/pages/redirect/redirect.template.html",
+            controller  : "RedirectController",
+            controllerAs: "vm"
+        })
+        .state('account-categorisation', {
+            parent      : "layout",
+            cache       : "false",
+            templateUrl : "js/pages/account-categorisation/account-categorisation.template.html",
+            controller  : "AccountCategorisationController",
+            controllerAs: "vm"
         });
 
+
     $urlRouterProvider.otherwise("/");
+
+    const baseElement = document.getElementsByTagName('base');
+
+    if(baseElement.length) {
+        $locationProvider.html5Mode(true);
+    }
 });

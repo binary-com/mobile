@@ -1,6 +1,6 @@
 .tax-residence-modal {
     .item-checkbox {
-        font-size: 0.8rem;
+        font-size: $FONT_SIZE_XS;
     }
 
     .disabled {
@@ -24,6 +24,6 @@
         border-radius: 3px;
         background: #fff;
         direction: ltr;
-        font-size: 0.8rem;
+        font-size: $FONT_SIZE_XS;
     }
 }

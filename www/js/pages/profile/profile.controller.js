@@ -11,111 +11,159 @@
 
     Profile.$inject = [
         "$scope",
+        "$state",
         "$translate",
-        "$filter",
         "$ionicModal",
         "alertService",
         "appStateService",
         "websocketService",
-        "accountService"
+        "accountService",
+        "validationService",
+        "clientService",
+        "accountOptions"
     ];
 
     function Profile(
         $scope,
+        $state,
         $translate,
-        $filter,
         $ionicModal,
         alertService,
         appStateService,
         websocketService,
-        accountService
+        accountService,
+        validationService,
+        clientService,
+        accountOptions
     ) {
         const vm = this;
         vm.profile = {};
+        vm.errors = {};
+        vm.taxInfoIsOptional = false;
+        vm.validation = validationService;
         vm.isDataLoaded = false;
         vm.notAnyChanges = false;
         vm.disableUpdateButton = false;
         vm.hasResidence = false;
+        vm.hasPOB = false;
+        vm.hasCitizen = false;
+        vm.hasAccountOpeningReason = false;
+        vm.touchedTaxResidence = false;
         vm.settingTaxResidence = [];
-        vm.virtualAccountFields = ["email", "country"];
-        vm.realAccountFields = [
-            "address_line_1",
-            "address_line_2",
-            "address_city",
-            "address_state",
-            "address_postcode",
-            "phone",
-            "tax_identification_number",
-            "tax_residence",
-            "place_of_birth"
-        ];
-
-        vm.init = function() {
-            vm.isVirtualAccount = !!appStateService.virtuality;
-            if (!vm.isVirtualAccount) {
-                vm.account = accountService.getDefault();
-                vm.isFinancial = !!_.startsWith(vm.account.id, "MF");
-                websocketService.sendRequestFor.residenceListSend();
-            } else {
-                vm.getProfile();
-            }
+        vm.options = accountOptions;
+        let modalIsSubmitted = false;
+        const account = accountService.getDefault();
+        const landingCompany = account.landing_company_name;
+        const accounts = accountService.getAll();
+        const profileFields = {
+            address_line_1           : '',
+            address_line_2           : '',
+            address_city             : '',
+            address_state            : '',
+            address_postcode         : '',
+            phone                    : '',
+            tax_identification_number: '',
+            tax_residence            : '',
+            place_of_birth           : '',
+            citizen                  : '',
+            account_opening_reason   : '',
+            email_consent            : ''
         };
 
-        vm.getProfile = function() {
-            websocketService.sendRequestFor.accountSetting();
+        $ionicModal
+            .fromTemplateUrl("js/pages/profile/tax-residence.modal.html", {
+                scope: $scope
+            })
+            .then(modal => {
+                vm.modalCtrl = modal;
+            });
+
+        const isLandingCompanyOf = (targetLandingCompany, accountLandingCompany) =>
+            clientService.isLandingCompanyOf(targetLandingCompany, accountLandingCompany);
+        const hasAccountOfLandingCompany = (accounts, landingCompany) =>
+            clientService.hasAccountOfLandingCompany(accounts, landingCompany);
+        const getResidenceList = () => websocketService.sendRequestFor.residenceListSend();
+        const getProfile = () => websocketService.sendRequestFor.accountSetting();
+        const getPhoneCode = countryCode =>
+            _.find(vm.residenceList, country => country.value === countryCode).phone_idd;
+
+        vm.init = () => {
+            vm.isVirtualAccount = isLandingCompanyOf('virtual', landingCompany);
+            vm.hasIOM = hasAccountOfLandingCompany(accounts, 'iom');
+            const hasMaltainvestAccount = hasAccountOfLandingCompany(accounts, 'maltainvest');
+            vm.requireCitizen = isLandingCompanyOf('malta', landingCompany) ||
+                isLandingCompanyOf('maltainvest', landingCompany) ||
+                isLandingCompanyOf('iom', landingCompany);
+            vm.taxInfoIsOptional = !isLandingCompanyOf('maltainvest', landingCompany) && !hasMaltainvestAccount;
+            getResidenceList();
         };
+
+
 
         $scope.$on("residence_list", (e, response) => {
             $scope.$applyAsync(() => {
                 vm.residenceList = response;
-                vm.getProfile();
+                getProfile();
             });
         });
 
-        vm.setProfile = function(get_settings) {
-            vm.isDataLoaded = true;
+        const setProfile = function(get_settings) {
+            $scope.$applyAsync(() => {
+                vm.isDataLoaded = true;
+            });
             if (vm.isVirtualAccount) {
-                $scope.$applyAsync(() => {
-                    vm.profile = get_settings;
-                    if (get_settings.hasOwnProperty("country")) {
-                        vm.hasResidence = true;
-                    } else {
-                        websocketService.sendRequestFor.residenceListSend();
-                        vm.hasResidence = false;
+                vm.profile = get_settings;
+                if (get_settings.country_code) {
+                    const countryCode = get_settings.country_code;
+                    vm.hasResidence = true;
+                    vm.profile.residence = countryCode;
+                    if (countryCode !== account.country) {
+                        websocketService.authenticate(account.token);
                     }
-                });
+                }
+                vm.profile.email_consent = get_settings.email_consent === 1;
             } else {
                 vm.profile = get_settings;
-                if (vm.profile.date_of_birth) {
-                    $scope.$applyAsync(() => {
-                        vm.profile.date_of_birth = $filter("date")(vm.profile.date_of_birth * 1000, "yyyy-MM-dd");
-                    });
+                if (get_settings.date_of_birth) {
+                    vm.profile.date_of_birth = new Date(get_settings.date_of_birth * 1000);
+                }
+                if (get_settings.place_of_birth) {
+                    vm.hasPOB = true;
+                }
+                if (get_settings.citizen) {
+                    vm.hasCitizen = true;
+                }
+                if (get_settings.country_code) {
+                    const countryCode = get_settings.country_code;
+                    vm.hasResidence = true;
+                    vm.profile.residence = countryCode;
+                    websocketService.sendRequestFor.statesListSend(countryCode);
+                    if (!get_settings.phone) {
+                        const phoneCode = getPhoneCode(countryCode);
+                        vm.profile.phone = phoneCode ? `+${phoneCode}` : '';
+                    }
                 }
                 if (vm.profile.tax_residence) {
                     vm.settingTaxResidence = _.words(vm.profile.tax_residence);
-                    vm.selectedTaxResidencesName = null;
-                    _.forEach(vm.residenceList, (value, key) => {
-                        if (vm.settingTaxResidence.indexOf(value.value) > -1) {
-                            vm.selectedTaxResidencesName = vm.selectedTaxResidencesName
-                                ? `${vm.selectedTaxResidencesName + value.text}, `
-                                : `${value.text}, `;
-                            vm.residenceList[key].checked = true;
+                    vm.residenceList = _.map(vm.residenceList, res => {
+                        if (vm.settingTaxResidence.indexOf(res.value) > -1) {
+                            res.checked = true;
                         }
+                        return res;
                     });
-                    $scope.$applyAsync(() => {
-                        vm.selectedTaxResidencesName = _.trimEnd(vm.selectedTaxResidencesName, ", ");
-                    });
+                    const checkedValues = _.filter(vm.residenceList, res => res.checked);
+                    vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
                 }
-                const country = _.find(vm.residenceList, ["text", vm.profile.country]);
-                if (country) {
-                    websocketService.sendRequestFor.statesListSend(country.value);
+                vm.profile.email_consent = get_settings.email_consent === 1;
+                if (vm.profile.account_opening_reason) {
+                    vm.hasAccountOpeningReason = true;
                 }
-            }
+            };
         };
 
         $scope.$on("get_settings", (e, get_settings) => {
-            vm.getSettings = angular.copy(get_settings);
-            vm.setProfile(get_settings);
+            vm.getSettings = _.clone(get_settings);
+            setProfile(get_settings);
         });
 
         $scope.$on("states_list", (e, states_list) => {
@@ -131,121 +179,100 @@
                 $translate(["profile.success", "profile.success_message"]).then(translation => {
                     alertService.displayAlert(translation["profile.success"], translation["profile.success_message"]);
                 });
-                vm.getProfile();
+                getProfile();
             }
         });
 
         $scope.$on("set-settings:error", (e, error) => {
+            vm.disableUpdatebutton = false;
             if (!vm.isVirtualAccount && error.hasOwnProperty("details")) {
-                Object.keys(error.details).forEach((key, index) => {
-                    const errorField = key;
-                    const ErrorMessage = error.details[key];
-                    if (vm.realAccountFields.indexOf(errorField) > -1) {
-                        vm[`${errorField}Error`] = true;
-                        vm[`${errorField}ErrorMessage`] = ErrorMessage;
-                    }
+                $scope.$apply(() => {
+                    vm.errors = error.details;
                 });
+            } else if (error.code) {
+                alertService.displayError(error.message);
             }
-            vm.disableUpdateButton = false;
-            alertService.displayError(error.message);
         });
 
-        $ionicModal
-            .fromTemplateUrl("js/pages/profile/tax-residence.modal.html", {
-                scope: $scope
-            })
-            .then(modal => {
-                vm.modalCtrl = modal;
-            });
-
-        vm.closeModal = function() {
+        vm.closeModal = () => {
             if (vm.modalCtrl) {
                 vm.modalCtrl.hide();
                 appStateService.modalIsOpen = false;
             }
         };
 
-        vm.showTaxResidenceItems = function() {
-            vm.settingTaxResidence = _.words(vm.profile.tax_residence);
-            _.forEach(vm.residenceList, (value, key) => {
-                if (vm.settingTaxResidence.indexOf(value.value) > -1) {
-                    vm.residenceList[key].checked = true;
-                } else {
-                    vm.residenceList[key].checked = false;
-                }
-            });
-            vm.modalCtrl.show();
-            appStateService.modalIsOpen = true;
-        };
+        $scope.$on('modal.hidden', () => {
+            // check in modal close action to see if it's closed by submitting changes or not
+            // if it's not saved, changes to popup state should not be saved too
+            // not saving applies when user clicks outside popup to close popup either
+            if (!modalIsSubmitted) {
+                const taxResidence = _.split(vm.profile.tax_residence, ',');
+                _.filter(vm.residenceList, (residence, idx) => {
+                    if (_.indexOf(taxResidence, residence.value) > -1) {
+                        vm.residenceList[idx].checked = true;
+                    } else {
+                        vm.residenceList[idx].checked = false;
+                    }
+                });
+            }
+            modalIsSubmitted = false;
+        });
 
-        vm.setTaxResidence = function() {
-            vm.taxRequirement = true;
-            vm.selectedTaxResidencesName = null;
-            vm.profile.tax_residence = null;
-            _.forEach(vm.residenceList, (value, key) => {
-                if (value.checked) {
-                    vm.selectedTaxResidencesName = vm.selectedTaxResidencesName
-                        ? `${vm.selectedTaxResidencesName + value.text}, `
-                        : `${value.text}, `;
-                    vm.profile.tax_residence = vm.profile.tax_residence
-                        ? `${vm.profile.tax_residence + value.value},`
-                        : `${value.value},`;
-                }
-            });
-            vm.profile.tax_residence =
-                vm.profile.tax_residence != null ? _.trimEnd(vm.profile.tax_residence, ",") : null;
-            vm.selectedTaxResidencesName =
-                vm.selectedTaxResidencesName != null ? _.trimEnd(vm.selectedTaxResidencesName, ", ") : null;
+        vm.showTaxResidenceItems = () => vm.modalCtrl.show();
+
+        vm.setTaxResidence = () => {
+            vm.touchedTaxResidence = true;
+            const checkedValues = _.filter(vm.residenceList, res => res.checked);
+            vm.selectedTaxResidencesName = _.map(checkedValues, value => value.text).join(', ');
+            vm.profile.tax_residence = _.map(checkedValues, value => value.value).join(',');
+            modalIsSubmitted = true;
             vm.closeModal();
         };
 
         vm.updateProfile = function() {
+            vm.disableUpdatebutton = true;
+            vm.notAnyChanges = true;
+            vm.error = {};
+            let params = {};
             if (!vm.isVirtualAccount) {
-                vm.params = {};
-                vm.notAnyChanges = true;
-                _.forEach(vm.realAccountFields, (value, key) => {
-                    if (vm.profile[value] != null && vm.profile[value] !== undefined) {
-                        if (vm.profile[value] === "address_postcode") {
-                            vm.params[value] = vm.profile[value].trim();
-                        } else {
-                            vm.params[value] = vm.profile[value];
-                        }
-                        if (vm.params[value] !== vm.getSettings[value]) {
-                            vm.notAnyChanges = false;
-                        }
+                _.forEach(profileFields, (val, k) => {
+                    if (vm.profile[k] && k !== 'email_consent') params[k] = vm.profile[k];
+                    if (k === 'email_consent') {
+                        params[k] = vm.profile[k] ? 1 : 0;
                     }
+                });
+                _.forEach(params, (val, k) => {
+                    if (_.isString(params[k])) {
+                        params[k] = _.trim(val);
+                    }
+                    if (params[k] !== vm.getSettings[k]) {
+                        vm.notAnyChanges = false;
+                    }
+                    return params[k];
                 });
                 if (!vm.notAnyChanges) {
                     vm.disableUpdateButton = true;
-                    websocketService.sendRequestFor.setAccountSettings(vm.params);
+                    websocketService.sendRequestFor.setAccountSettings(params);
                 }
             } else {
-                const params = {
-                    residence: vm.profile.country
+                params = {
+                    residence    : vm.hasResidence ? vm.getSettings.country_code : vm.profile.country,
+                    email_consent: vm.profile.email_consent ? 1 : 0
                 };
-                websocketService.sendRequestFor.setAccountSettings(params);
+                if (params.residence !== vm.getSettings.country_code ||
+                  params.email_consent !== vm.getSettings.email_consent) {
+                    vm.notAnyChanges = false;
+                }
+                if (!vm.notAnyChanges) {
+                    vm.disableUpdateButton = true;
+                    websocketService.sendRequestFor.setAccountSettings(params);
+                }
             }
         };
 
-        vm.validateGeneral = (function(val) {
-            const regex = /[`~!@#$%^&*)(_=+[}{\]\\/";:?><,|\d]+/;
-            return {
-                test(val) {
-                    const reg = regex.test(val);
-                    return reg !== true;
-                }
-            };
-        })();
-
-        vm.validateAddress = (function(val) {
-            const regex = /[`~!#$%^&*)(_=+[}{\]\\";:?><|]+/;
-            return {
-                test(val) {
-                    const reg = regex.test(val);
-                    return reg !== true;
-                }
-            };
-        })();
+        vm.goToContact = () => {
+            $state.go('contact');
+        }
 
         vm.init();
     }

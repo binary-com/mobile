@@ -13,6 +13,7 @@
 
     function AppVersion($scope, $ionicPlatform, appVersionService) {
         const vm = this;
+        vm.appVersion = '0.0.0';
         $ionicPlatform.ready(() => {
             $scope.$applyAsync(() => {
                 if (window.cordova) {

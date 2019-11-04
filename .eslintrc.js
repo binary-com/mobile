@@ -1,10 +1,11 @@
 module.exports = {
   "extends": ["airbnb-base", "prettier"],
-  "plugins": ["angular"],
+  "plugins": ["angular", "jasmine"],
   "env": {
     "browser": true,
     "es6": true,
-    "jquery": true
+    "jquery": true,
+    "jasmine": true,
   },
   "globals": {
     "window": true,
@@ -16,7 +17,6 @@ module.exports = {
     "sessionStorage": true,
     "isIOS9UIWebView": true,
     "ga": true,
-    "amplitude": true,
     "Chart": true,
     "trackJs": true
   },

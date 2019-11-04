@@ -4,12 +4,12 @@
     <div class="col center">
       {{vm.balance.balance | currency:vm.balance.currency:2}}
     </div>
-    <div class="col center"> {{vm.balance.loginid}} </div>
+    <div class="col center"> {{vm.balance.loginid}}</div>
   </div>
   <div class="row"
        ng-if="!vm.balance">
     <div class="col center">
-    <ion-spinner></ion-spinner>
+      <ion-spinner></ion-spinner>
     </div>
   </div>
 </div>

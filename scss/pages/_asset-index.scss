@@ -15,7 +15,7 @@
 
 		label,
 		select {
-			line-height: inherit!important;
+			line-height: normal;
 		}
 	}
 
@@ -29,7 +29,8 @@
 
 	.asset-index-table {
 		width: 100%;
-		font-size: 0.7rem;
+		font-size: $FONT_SIZE_XSS;
+		table-layout: fixed;
 
 		tbody {
 			tr {
@@ -37,7 +38,9 @@
 
 				td {
 					padding: 5px;
-					font-size: 0.8rem;
+					font-size: $FONT_SIZE_XS;
+					vertical-align:top;
+					word-break:break-word;
 				}
 
 				&.title-row {
@@ -49,7 +52,7 @@
 
 				&.market-row {
 					background: $fillColor;
-					font-size: 0.8rem;
+					font-size: $FONT_SIZE_XS;
 
 					&.limits-by-market {
 						margin-top: 20px;
@@ -58,6 +61,11 @@
 					tr {
 						th {
 							padding: 5px;
+
+							td {
+								vertical-align:top;
+								word-break:break-word;
+							}
 						}
 					}
 				}

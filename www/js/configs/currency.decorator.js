@@ -13,13 +13,22 @@
 
     function Currency($provide) {
         $provide.decorator("currencyFilter", [
-            "$delegate",
-            function(/* $delegate */) {
+            "accountService",
+            function(accountService) {
                 // const srcFilter = $delegate;
 
                 const extendsFilter = function() {
                     const locale = (localStorage.language || "en").replace("_", "-").slice(0, 2);
-                    const currency = arguments[1] || "USD";
+                    const currency = arguments[1] ||
+                        (accountService.getDefault() ? accountService.getDefault().currency : null);
+
+                    if (isNaN(arguments[0])) {
+                        return '--';
+                    }
+                    if(_.isEmpty(currency)){
+                        return "";
+                    }
+
                     return formatMoney(locale, currency, arguments[0]);
                 };
 
@@ -29,8 +38,8 @@
                         currency: currency || "USD"
                     };
 
-                    if (/btc|xbt/i.test(currency)) {
-                        options.minimumFractionDigits = 2;
+                    if (/btc|xbt|ltc|bch|eth/i.test(currency)) {
+                        options.minimumFractionDigits = 8;
                         options.maximumFractionDigits = 8;
                     }
 

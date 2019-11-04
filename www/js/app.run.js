@@ -1,6 +1,29 @@
 (function() {
-    angular.module("binary").run(($rootScope, $ionicPlatform, $state, alertService, appStateService) => {
+    angular.module("binary").run(($rootScope, $ionicPlatform, $state, alertService, appStateService, appVersionService) => {
         $ionicPlatform.ready(() => {
+            if (window.CacheClear) {
+                cordova.getAppVersion().then(version => {
+                    if (version === localStorage.version) {
+                        return;
+                    }
+
+                    const language = localStorage.language;
+                    const accounts = localStorage.accounts;
+                    window.CacheClear(
+                        () => {
+                            localStorage.version = version;
+                            localStorage.language = language || "en";
+                            localStorage.accounts = accounts || null;
+
+                            window.location.href = 'file:///android_asset/www/index.html' ;
+                        },
+                        (e) => {
+                            console.log('Cannot clear cache!'); // eslint-disable-line no-console
+                        }
+                    );
+
+                });
+            }
             if (ionic.Platform.isIOS()) {
                 setTimeout(() => {
                     navigator.splashscreen.hide();
@@ -12,7 +35,8 @@
                     title : "Binary.com TickTrade",
                     text  : "",
                     ticker: "TickTrade is running in background",
-                    color : "#2A3052"
+                    color : "#2A3052",
+                    icon  : "notification",
                 });
                 cordova.plugins.backgroundMode.enable();
             }
@@ -34,8 +58,8 @@
                 // a much nicer keyboard experience.
                 cordova.plugins.Keyboard.disableScroll(true);
             }
-            if (window.StatusBar) {
-                window.StatusBar.styleDefault();
+            if (window.cordova) {
+                window.open = cordova.InAppBrowser.open;
             }
 
             // Handle the android's hardware button

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <!-- build:addbase -->
+  <!-- endbuild -->
+
 	<meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
@@ -24,9 +27,12 @@
 	<link href='img/icons/favicon-96x96.png' rel='icon' sizes='96x96' type='image/png' />
 	<link href='img/icons/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png' />
 	<link href='img/icons/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png' />
+  <link rel="manifest" href="site.webmanifest"/>
+
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#2A3052" />
 	<meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#2A3052"/>
 
   <!-- CROWDIN SCRIPT -->
 
@@ -59,24 +65,9 @@
 	<script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
 	<!-- END TRACKJS -->
 
-    <!-- BEGIN APMLITUDE -->
-    <script type="text/javascript">
-        (function(e,t){var n=e.amplitude||{};var r=t.createElement("script");r.type="text/javascript";
-            r.async=true;r.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.9.0-min.gz.js";
-            r.onload=function(){e.amplitude.runQueuedFunctions()};var s=t.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(r,s);var i=function(){this._q=[];return this};function a(e){
-                i.prototype[e]=function(){this._q.push([e].concat(Array.prototype.slice.call(arguments,0)));
-                    return this}}var o=["add","append","clearAll","set","setOnce","unset"];for(var c=0;c<o.length;c++){
-                        a(o[c])}n.Identify=i;n._q=[];function u(e){n[e]=function(){n._q.push([e].concat(Array.prototype.slice.call(arguments,0)));
-                        }}var l=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties"];
-            for(var p=0;p<l.length;p++){u(l[p])}e.amplitude=n})(window,document);
-
-        amplitude.init("bfba930e4adadaa35dfc5b68ac2c07ae");
-    </script>
-    <!-- END AMPLITUDE -->
-
   </head>
   <body ng-app="binary" ng-controller="BodyController as vm" id="{{vm.getLanguage()}}" ng-cloak>
+    <ios-pwa-prompt></ios-pwa-prompt>
     <bg-updater></bg-updater>
     <bg-connection-lost></bg-connection-lost>
     <bg-service-outage></bg-service-outage>
@@ -87,12 +78,13 @@
     <bg-reality-check></bg-reality-check>
     <bg-check-user-status></bg-check-user-status>
 
-
     <!-- ionic/angularjs js -->
-	<script src="lib/ionic/release/js/ionic.bundle.js"></script>
+	<script src="lib/ionic/release/js/ionic.bundle.min.js"></script>
 
+    <!-- build:replacecordovabysw -->
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
+    <!-- endbuild -->
 
     <!-- vendors -->
     <script src="lib/jquery/dist/jquery.min.js"></script>
@@ -107,6 +99,7 @@
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
     <script src="lib/intl/dist/Intl.js"></script>
     <script src="lib/intl/locale-data/complete.js"></script>
+    <script src="lib/ionic-native/ionic.native.min.js"></script>
 
     <script>
       var Intl = IntlPolyfill;
@@ -122,12 +115,14 @@
     <script src="js/configs/currency.decorator.js"></script>
     <script src="js/configs/state.decorator.js"></script>
     <script src="js/configs/angular-ios9-uiwebview.patch.js"></script>
+    <script src="js/configs/deep-link.config.js"></script>
 
     <script src="js/body.controller.js"></script>
     <script src="js/main-layout.controller.js"></script>
 
     <script src="js/share/services/websocket.service.js"></script>
     <script src="js/share/services/language.service.js"></script>
+    <script src="js/share/services/supported-languages.service.js"></script>
     <script src="js/share/services/account.service.js"></script>
     <script src="js/share/services/alert.service.js"></script>
     <script src="js/share/services/market.service.js"></script>
@@ -142,6 +137,8 @@
     <script src="js/share/services/utils.service.js"></script>
     <script src="js/share/services/table-state.service.js"></script>
     <script src="js/share/services/notification.service.js"></script>
+    <script src="js/share/services/client.service.js"></script>
+    <script src="js/share/services/validation.service.js"></script>
 
     <script src="js/share/components/header/header.directive.js"></script>
     <script src="js/share/components/header/header.controller.js"></script>
@@ -200,10 +197,6 @@
     <script src="js/share/components/reality-check/reality-check.controller.js"></script>
     <script src="js/share/components/reality-check/reality-check.directive.js"></script>
 
-    <script src="js/share/components/account-upgrade/account-upgrade.module.js"></script>
-    <script src="js/share/components/account-upgrade/account-upgrade.controller.js"></script>
-    <script src="js/share/components/account-upgrade/account-upgrade.directive.js"></script>
-
     <script src="js/share/components/check-user-status/check-user-status.module.js"></script>
     <script src="js/share/components/check-user-status/check-user-status.controller.js"></script>
     <script src="js/share/components/check-user-status/check-user-status.directive.js"></script>
@@ -217,6 +210,11 @@
     <script src="js/share/components/notification-icon/notification-icon.controller.js"></script>
     <script src="js/share/components/notification-icon/notification-icon.directive.js"></script>
 
+    <script src="js/share/components/ios-pwa-prompt/ios-pwa-prompt.module.js"></script>
+    <script src="js/share/components/ios-pwa-prompt/ios-pwa-prompt.directive.js"></script>
+    <script src="js/share/components/ios-pwa-prompt/ios-pwa-prompt.controller.js"></script>
+
+
     <script src="js/pages/home/home.module.js"></script>
     <script src="js/pages/home/home.controller.js"></script>
 
@@ -228,6 +226,9 @@
     <script src="js/pages/sign-in/components/oauth/oauth.directive.js"></script>
     <script src="js/pages/sign-in/components/oauth/oauth.controller.js"></script>
     <script src="js/pages/sign-in/sign-in.controller.js"></script>
+
+    <script src="js/pages/redirect/redirect.module.js"></script>
+    <script src="js/pages/redirect/redirect.controller.js"></script>
 
     <script src="js/pages/trade/trade.module.js"></script>
     <script src="js/pages/trade/trade.controller.js"></script>
@@ -252,12 +253,16 @@
     <script src="js/pages/trade/components/options/digits.controller.js"></script>
     <script src="js/pages/trade/components/options/barrier.directive.js"></script>
     <script src="js/pages/trade/components/options/barrier.controller.js"></script>
+    <script src="js/pages/trade/components/options/selected-tick.directive.js"></script>
+    <script src="js/pages/trade/components/options/selected-tick.controller.js"></script>
 
     <script src="js/pages/trade/components/chart/chart.module.js"></script>
     <script src="js/pages/trade/components/chart/chart.directive.js"></script>
     <script src="js/pages/trade/components/chart/chart.controller.js"></script>
     <script src="js/pages/trade/components/chart/digit-result.directive.js"></script>
     <script src="js/pages/trade/components/chart/digit-result.controller.js"></script>
+    <script src="js/pages/trade/components/chart/tick-result.directive.js"></script>
+    <script src="js/pages/trade/components/chart/tick-result.controller.js"></script>
 
     <script src="js/pages/trade/components/payout/payout.module.js"></script>
     <script src="js/pages/trade/components/payout/payout.directive.js"></script>
@@ -272,9 +277,6 @@
     <script src="js/pages/trade/components/longcode/longcode.module.js"></script>
     <script src="js/pages/trade/components/longcode/longcode.directive.js"></script>
     <script src="js/pages/trade/components/longcode/longcode.controller.js"></script>
-
-    <script src="js/pages/help/help.module.js"></script>
-    <script src="js/pages/help/help.controller.js"></script>
 
     <script src="js/pages/profit-table/profit-table.module.js"></script>
     <script src="js/pages/profit-table/profit-table.controller.js"></script>
@@ -340,6 +342,18 @@
 
     <script src="js/pages/notifications/notifications.module.js"></script>
     <script src="js/pages/notifications/notifications.controller.js"></script>
+
+    <script src="js/pages/set-currency/set-currency.module.js"></script>
+    <script src="js/pages/set-currency/set-currency.controller.js"></script>
+
+    <script src="js/pages/accounts-management/accounts-management.module.js"></script>
+    <script src="js/pages/accounts-management/accounts-management.controller.js"></script>
+
+    <script src="js/pages/account-categorisation/account-categorisation.module.js"></script>
+    <script src="js/pages/account-categorisation/account-categorisation.controller.js"></script>
+
+    <script src="js/configs/options/account.options.js"></script>
+    <script src="js/configs/options/financial-information.options.js"></script>
 
     <!-- endbuild -->
 

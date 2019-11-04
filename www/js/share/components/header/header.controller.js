@@ -10,9 +10,9 @@
 (function() {
     angular.module("binary.share.components").controller("HeaderController", Header);
 
-    Header.$inject = ["$scope", "$state", "$ionicHistory", "$ionicSideMenuDelegate", "appStateService"];
+    Header.$inject = ["$scope", "$state", "$ionicHistory", "$ionicSideMenuDelegate", "appStateService", "clientService"];
 
-    function Header($scope, $state, $ionicHistory, $ionicSideMenuDelegate, appStateService) {
+    function Header($scope, $state, $ionicHistory, $ionicSideMenuDelegate, appStateService, clientService) {
         const vm = this;
         vm.hideMenuButton = false;
         vm.hideBalance = false;
@@ -23,6 +23,7 @@
         $ionicHistory.backView(null);
         vm.ios = ionic.Platform.isIOS();
         vm.android = ionic.Platform.isAndroid();
+        vm.isMaltainvest = appStateService.isMaltainvest;
 
         vm.toggleSideMenu = function() {
             if (appStateService.tradeMode || !appStateService.purchaseMode) {
@@ -75,11 +76,17 @@
                     vm.hideMenuButton = false;
                     vm.showBack = false;
                 }
+            } else if (["real-account-opening", "maltainvest-account-opening"].indexOf(vm.to.name) > -1 &&
+                appStateService.redirectedFromAccountsManagemenet) {
+                if (["accounts-management"].indexOf(vm.from.name) > -1) {
+                    vm.hideMenuButton = true;
+                    vm.showBack = true;
+                }
             } else {
                 if (
                     vm.from.name === "statement" &&
-                    vm.to.name !== "transactiondetail" &&
-                    document.getElementsByClassName("realitycheck").length > 0
+                    vm.to.name !== "transaction-detail" &&
+                    document.getElementsByClassName("reality-check").length > 0
                 ) {
                     $(".popup-container").addClass("popup-showing");
                     $("body").addClass("popup-open");
@@ -96,12 +103,22 @@
             }
         });
 
+        $scope.$on('authorize', (e, authorize) => {
+            if (authorize) {
+                vm.isMaltainvest = clientService.isLandingCompanyOf('maltainvest', authorize.landing_company_name);
+            }
+        });
+
         // back button function
         vm.goToPrevPage = function() {
             if (vm.to.detailed) {
                 $state.go("trade");
             } else {
                 $state.go(vm.from);
+                if (vm.to.name === 'real-account-opening' || vm.to.name === 'maltainvest-account-opening') {
+                    appStateService.selectedCurrency = false;
+                    appStateService.redirectedFromAccountsManagemenet = false;
+                }
             }
         };
     }
