@@ -507,6 +507,8 @@
     "otc_stocks": "Внебиржевые акции",
     "volidx": "Volidx",
     "volatility_indices": "Индексы волатильности",
+    "synthetic_indices": "Синтетические индексы",
+    "synthetic_index": "Синтетические индексы",
     "subject_to_change": "Указанные лимиты могут быть изменены без предварительного уведомления.",
     "trading_limits": "Торговые лимиты",
     "withdrawal_limits": "Лимиты на вывод",

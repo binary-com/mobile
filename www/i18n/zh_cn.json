@@ -507,6 +507,8 @@
     "otc_stocks": "场外交易股票",
     "volidx": "Volidx",
     "volatility_indices": "波动率指数",
+    "synthetic_indices": "综合指数",
+    "synthetic_index": "综合指数",
     "subject_to_change": "我们保留随时在没有预先通知的情况下更改所述限制的权利。",
     "trading_limits": "交易限制",
     "withdrawal_limits": "提款限额",
