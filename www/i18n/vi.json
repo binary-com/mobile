@@ -6,7 +6,7 @@
     "get_token": "Làm thế nào để nhận mã Token?",
     "signin_with_binary_com": "Đăng nhập",
     "next": "Tiếp theo",
-    "regulatory_information": "Thông tin điều chỉnh"
+    "regulatory_information": "Thông Tin Quy Định"
   },
   "alert": {
     "error": "Lỗi!",
@@ -15,7 +15,7 @@
     "not_auth": "Xin lỗi, chúng tôi không thể xác thực bạn.",
     "not_unique": "Bạn đã thêm tài khoản này.",
     "contract_error": "Hợp đồng không khả dụng, vui lòng thử lại.",
-    "no_tick": "Vui lòng lựa chọn một thị trường cơ bản khác, Thị trường cơ bản mà bạn chọn không hỗ trợ khoảng thời gian là giây.",
+    "no_tick": "Vui lòng lựa chọn một thị trường cơ bản khác, Thị trường cơ bản mà bạn chọn không hỗ trợ khoảng thời gian là tick.",
     "remove_token_title": "Xóa bỏ mã Token",
     "remove_token_content": "Bạn có chắc muốn xóa mã token này?",
     "remove_all_tokens_title": "Thoát",
@@ -57,27 +57,27 @@
     "select_underlying": "Chọn mục được gạch chân",
     "select_tradetype": "Chọn loại giao dịch",
     "select_tick": "Chọn Tick",
-    "select_digit": "Chọn Digit",
+    "select_digit": "Chọn Chữ số",
     "selected_tick": "Tick đã chọn",
-    "last_digit": "Số cuối"
+    "last_digit": "\bChữ số cuối"
   },
   "trade": {
-    "payout": "Thanh toán",
+    "payout": "Mức chi trả",
     "stake": "Cổ phần",
     "buy": "Mua",
     "net_profit": "Lợi nhuận ròng",
-    "potential_payout": "Khả năng thanh toán",
+    "potential_payout": "Mức chi trả tiềm năng",
     "total_cost": "Tổng chi phí",
     "potential_profit": "Lợi Nhuận Tiềm Năng",
-    "back": "Quay lại thương mại",
+    "back": "Quay lại Giao dịch",
     "loss": "Thua lỗ",
-    "win": "Hợp đồng này đã thắng",
-    "lose": "Hợp đồng này đã thất bại",
+    "win": "Thắng",
+    "lose": "Thua thầu",
     "transaction_id": "Tham chiếu giao dịch",
     "buy_again": "Mua lại",
     "sell": "Bán",
     "barrier": "Rào cản bù đắp",
-    "return": "Quay trở lại",
+    "return": "Quay lại",
     "tick": "tick"
   },
   "app": {
