@@ -137,8 +137,28 @@ jobs:
       - git_checkout_from_cache
       - npm_install
       - npm_test
+  release_beta:
+    docker:
+      - image: circleci/node:12.13.0-stretch
+    steps:
+      - git_checkout_from_cache
+      - npm_install
+      - build
+      - docker:
+          target: "beta"
+      - k8s_deploy:
+          target: "beta"
 
 workflows:
   test:
     jobs:
       - test
+  release:
+    jobs:
+      - release_beta:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /V*-beta/
+        
