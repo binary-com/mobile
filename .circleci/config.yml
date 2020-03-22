@@ -139,7 +139,7 @@ jobs:
       - npm_test
   release_beta:
     docker:
-      - image: circleci/node:12.13.0-stretch
+      - image: circleci/node:chakracore-browsers-legacy
     steps:
       - git_checkout_from_cache
       - npm_install
@@ -160,5 +160,5 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /V*-beta/
+              only: /*-beta/
         
