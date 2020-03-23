@@ -41,7 +41,7 @@ commands:
             - npm-v1-
       - run:
           name: Install npm modules
-          command: npm install -g bower gulp cordova ionic ios-sim && npm install
+          command: yarn
       - save_cache:
           name: Save NPM cache
           key: npm-v1-{{ checksum "package.json" }}
@@ -139,7 +139,7 @@ jobs:
       - npm_test
   release_beta:
     docker:
-      - image: circleci/node:lts-stretch
+      - image: phantasm/node:lts-stretch
     steps:
       - git_checkout_from_cache
       - npm_install
