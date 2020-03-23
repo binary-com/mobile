@@ -132,7 +132,7 @@ commands:
 jobs:
   test:
     docker:
-      - image: circleci/node:lts-stretch
+      - image: phantasm/node:lts-stretch
     steps:
       - git_checkout_from_cache
       - npm_install
