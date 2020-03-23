@@ -41,7 +41,7 @@ commands:
             - npm-v1-
       - run:
           name: Install npm modules
-          command: yarn
+          command: npm install electron electron-packager
       - save_cache:
           name: Save NPM cache
           key: npm-v1-{{ checksum "package.json" }}
