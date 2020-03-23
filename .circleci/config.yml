@@ -41,7 +41,7 @@ commands:
             - npm-v1-
       - run:
           name: Install npm modules
-          command: npm install
+          command: npm install && ./node_modules/.bin/bower install
       - save_cache:
           name: Save NPM cache
           key: npm-v1-{{ checksum "package.json" }}
@@ -52,7 +52,7 @@ commands:
     steps:
       - run:
           name: "yarn build"
-          command: gulp build-desktop --platform=linux --arch=x64
+          command: ./node_modules/.bin/gulp build
   compress:
     description: "Compress"
     steps:
@@ -132,14 +132,14 @@ commands:
 jobs:
   test:
     docker:
-      - image: circleci/node:chakracore-browsers-legacy
+      - image: circleci/node:11.15.0
     steps:
       - git_checkout_from_cache
       - npm_install
       - npm_test
   release_beta:
     docker:
-      - image: phantasm/node:lts-stretch
+      - image: circleci/node:11.15.0
     steps:
       - git_checkout_from_cache
       - npm_install
