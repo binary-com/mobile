@@ -52,7 +52,7 @@ commands:
     steps:
       - run:
           name: "yarn build"
-          command: node_modules/gulp/bin/gulp.js build-desktop --platform=linux --arch=x64
+          command: node_modules/gulp/bin/gulp.js -h  &&  node_modules/gulp/bin/gulp.js build-desktop --platform=linux --arch=x64
   compress:
     description: "Compress"
     steps:
