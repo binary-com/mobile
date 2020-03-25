@@ -95,8 +95,7 @@ commands:
       - run:
           name: Building docker image for << parameters.target >>
           command: |
-            build_tag="${target}-${CIRCLE_TAG}"
-            docker build -t ${DOCKHUB_ORGANISATION}/ticktrade:${build_tag} -t ${DOCKHUB_ORGANISATION}/ticktrade:${target}-latest .
+            docker build -t ${DOCKHUB_ORGANISATION}/ticktrade:${CIRCLE_TAG} -t ${DOCKHUB_ORGANISATION}/ticktrade:<< parameters.target >>-latest .
       - run:
           name: Pushing Image to docker hub
           command: |
