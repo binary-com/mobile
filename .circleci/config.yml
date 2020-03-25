@@ -64,7 +64,7 @@ commands:
             mv artifact.tar ${OLDPWD}/
       - run:
           name: "Tag commit id as artifact identifer"
-          command: echo "${CIRCLE_SHA1}" > artifact-info.txt
+          command: echo "${CIRCLE_TAG}" > artifact-info.txt
   upload_artifact:
     description: "upload artifact to s3"
     steps:
@@ -74,7 +74,7 @@ commands:
           aws-access-key-id: env_CONTEXT_ARTIFACT_S3_AWS_ACCESS_KEY_ID
           aws-secret-access-key: env_CONTEXT_ARTIFACT_S3_AWS_SECRET_ACCESS_KEY
           aws-region: env_CONTEXT_ARTIFACT_S3_AWS_REGION
-          arguments: '--metadata "{\"x-amz-artifact-id\": \"${CIRCLE_SHA1}\" }"'
+          arguments: '--metadata "{\"x-amz-artifact-id\": \"${CIRCLE_TAG}\" }"'
   upload_checksum:
     description: "upload artifact commit id to s3"
     steps:
