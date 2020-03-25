@@ -107,17 +107,13 @@ commands:
       k8s_svc_name:
         type: string
         default: "staging-ticktrade-binary-com"
-      target:
-        type: string
-        default: "staging"
     steps:
       - k8s/install-kubectl
       - run:
           name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
           command: |
-            build_tag="${target}-${CIRCLE_TAG}"
             echo $CA_CRT | base64 --decode > ca.crt
-            kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/ticktrade:${build_tag}
+            kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/ticktrade:${CIRCLE_TAG}
 
   npm_test:
     description: Run test
@@ -146,7 +142,6 @@ jobs:
           target: "staging"
       - k8s_deploy:
           k8s_svc_name: "staging-ticktrade-binary-com"
-          target: "staging"
   release_production:
     docker:
       - image: circleci/node:11.15.0
@@ -161,7 +156,6 @@ jobs:
           target: "production"
       - k8s_deploy:
           k8s_svc_name: "production-ticktrade-binary-com"
-          target: "production"
 
 workflows:
   test:
