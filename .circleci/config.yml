@@ -84,7 +84,7 @@ commands:
           aws-access-key-id: env_CONTEXT_ARTIFACT_S3_AWS_ACCESS_KEY_ID
           aws-secret-access-key: env_CONTEXT_ARTIFACT_S3_AWS_SECRET_ACCESS_KEY
           aws-region: env_CONTEXT_ARTIFACT_S3_AWS_REGION
-  docker:
+  docker_build_push:
     description: "Build and Push image to docker hub"
     parameters:
       target:
@@ -138,25 +138,25 @@ commands:
 
 jobs:
   test:
-    docker:
+    docker_build_push:
       - image: circleci/node:11.15.0
     steps:
       - git_checkout_from_cache
       - npm_install
       - npm_test
   release_staging:
-    docker:
+    docker_build_push:
       - image: circleci/node:11.15.0
     steps:
       - git_checkout_from_cache
       - npm_install
       - build
-      - docker:
+      - docker_build_push:
           target: "staging"
       - k8s_deploy:
           k8s_svc_name: "staging-ticktrade-binary-com"
   release_production:
-    docker:
+    docker_build_push:
       - image: circleci/node:11.15.0
     steps:
       - git_checkout_from_cache
@@ -165,7 +165,7 @@ jobs:
       - compress
       - upload_artifact  # uploading the built code to s3 to create a backup of key services separate from Kubernetes deployment
       - upload_checksum  # uploading compressed artifact checksum to cross match artifact fingerprint before actual deployment
-      - docker:
+      - docker_build_push:
           target: "production"
       - k8s_deploy:
           k8s_svc_name: "production-ticktrade-binary-com"
@@ -182,6 +182,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^staging.*/
+          context: binary-frontend-artifact-upload
       - release_production:
           filters:
             branches:
