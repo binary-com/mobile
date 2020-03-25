@@ -138,14 +138,14 @@ commands:
 
 jobs:
   test:
-    docker_build_push:
+    docker:
       - image: circleci/node:11.15.0
     steps:
       - git_checkout_from_cache
       - npm_install
       - npm_test
   release_staging:
-    docker_build_push:
+    docker:
       - image: circleci/node:11.15.0
     steps:
       - git_checkout_from_cache
@@ -156,7 +156,7 @@ jobs:
       - k8s_deploy:
           k8s_svc_name: "staging-ticktrade-binary-com"
   release_production:
-    docker_build_push:
+    docker:
       - image: circleci/node:11.15.0
     steps:
       - git_checkout_from_cache
