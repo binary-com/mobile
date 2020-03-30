@@ -52,7 +52,7 @@ commands:
     steps:
       - run:
           name: "gulp build"
-          command: ./node_modules/.bin/gulp build
+          command: npx gulp build
   compress:
     description: "Compress"
     steps:
