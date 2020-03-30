@@ -91,23 +91,3 @@ gulp deploy-translation (--remote <remote-name>)
 1. run `npm install` to install `karam`, `jasmine` and all other dependencies.
 2. run `npm install -g karma-cli`
 3. run 'karma start`
-
-## Release
-
-```
-git tag ${RELEASE_TARGET}_vYYYYMMDD_${INTEGER} -m 'some message'
-```
-
-> `RELEASE_TARGET` could be one of **staging** or **production** for staging and production release respectively.
-
-Example:
-
-```
-git tag production_v20191010_0 -m 'release fixes to production'
-```
-
-Push the tag:
-
-```
-git push origin staging_v20191010_0
-```
