@@ -188,13 +188,14 @@ gulp.task('code-push', (done) => {
 
     console.log(`  ${  gutil.colors.blue('Preparing files ...')}`);
     sh.sed('-i', '.otherwise("/")', '.otherwise("/update")', 'www/js/configs/states.config.js');
+    sh.exec('ionic cordova prepare');
 
     console.log(`  ${  gutil.colors.blue('Run code-push ...')}`);
     sh.exec(`code-push release-cordova ${  app  } ${  platform  } --deploymentName ${  deployment  }${targetVersion    } --mandatory`);
 
     console.log(`  ${  gutil.colors.blue('Rolling back dump changes ...')}`);
     sh.sed('-i', '.otherwise("/update")', '.otherwise("/")', 'www/js/configs/states.config.js');
-    sh.exec('ionic prepare');
+    sh.exec('ionic cordova prepare');
 
     done();
 });
