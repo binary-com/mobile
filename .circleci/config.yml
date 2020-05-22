@@ -68,11 +68,11 @@ commands:
           name: Install and configure dependencies
           command: |
             sudo npm install -g gh-pages@2.0.1
-            git config user.email "mahboub.meng@gmail.com"
-            git config user.name "mahboobeh-binary"
+            git config user.email "ci-build@binary.com"
+            git config user.name "ci-build"
       - add_ssh_keys:
           fingerprints:
-            - "c1:1d:89:74:e5:aa:8f:1b:19:43:e3:b5:2d:48:78:94"
+            - "a7:37:be:b5:d6:ba:e5:5c:5e:b5:a7:7e:d3:fa:fc:77"
       - run:
           name: Deploy docs to gh-pages branch
           command: gh-pages -d www --branch << parameters.target_branch >>
