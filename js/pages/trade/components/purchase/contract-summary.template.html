@@ -1,0 +1,52 @@
+<div class="contract-summary">
+  <div class="row">
+    <div class="col center ref">
+      {{ 'trade.transaction_id' | translate }}: {{ vm.purchasedContract.transactionId }}
+    </div>
+  </div>
+  <div class="row">
+    <!-- Buy Col -->
+    <div class="col center buy">
+      <div class="row">
+        <div class="col center title {{vm.currencyType}}" ng-if="!vm.purchasedContract.result"> {{ 'trade.total_cost' | translate }} </div>
+        <div class="col center title {{vm.currencyType}}" ng-if="vm.purchasedContract.result"> {{ 'trade.buy' | translate }} </div>
+      </div>
+      <div class="row">
+        <div class="col center {{vm.currencyType}}">
+          <strong> {{ vm.purchasedContract.cost | currency:vm.proposal.currency:2 }} </strong>
+        </div>
+      </div>
+    </div>
+    <!-- Sell Col -->
+    <div class="col center sell">
+      <div class="row">
+        <div class="col center title {{vm.currencyType}}" ng-if="!vm.purchasedContract.result"> {{ 'trade.potential_payout' | translate }} </div>
+        <div class="col center title {{vm.currencyType}}" ng-if="vm.purchasedContract.result"> {{ 'trade.sell' | translate }} </div>
+      </div>
+      <div class="row">
+        <div class="col center {{vm.purchasedContract.result}} {{vm.currencyType}}">
+          <strong> {{ (vm.purchasedContract.result === 'loss' ? '0' : vm.purchasedContract.payout)  | currency:vm.proposal.currency:2 }} </strong>
+        </div>
+      </div>
+    </div>
+    <!-- Profit Col -->
+    <div class="col center profit">
+      <div class="row">
+        <div class="col center title {{vm.currencyType}}" ng-if="!vm.purchasedContract.result"> {{ 'trade.potential_profit' | translate }} </div>
+        <div class="col center title {{vm.currencyType}}" ng-if="vm.purchasedContract.result === 'loss'"> {{ 'trade.loss' | translate }} </div>
+        <div class="col center title {{vm.currencyType}}" ng-if="vm.purchasedContract.result === 'win'"> {{ 'trade.win' | translate }} </div>
+      </div>
+      <div class="row">
+        <div class="col center {{vm.currencyType}}" ng-if="!vm.purchasedContract.result">
+          <strong> {{ vm.purchasedContract.profit | currency:vm.proposal.currency:2 }} </strong>
+        </div>
+        <div class="col center lose {{vm.currencyType}}" ng-if="vm.purchasedContract.result === 'loss'">
+          <strong>{{ vm.purchasedContract.cost | currency:vm.proposal.currency:2 }} </strong>
+        </div>
+        <div class="col center win {{vm.currencyType}}" ng-if="vm.purchasedContract.result === 'win'">
+          <strong> {{ vm.purchasedContract.profit | currency:vm.proposal.currency:2 }} </strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

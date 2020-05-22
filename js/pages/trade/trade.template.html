@@ -1,0 +1,20 @@
+<ion-view class="trade" ng-cloak>
+  <ion-content has-bouncing="false" class="trade-container has-header has-subheader">
+    <div class="flexed" id="trade-container">
+      <bg-options proposal="vm.proposal" ng-show="!vm.inPurchaseMode"></bg-options>
+      <bg-longcode purchased-contract="vm.purchasedContract"
+                   ng-if="vm.inPurchaseMode"></bg-longcode>
+      <bg-chart proposal="vm.proposal"
+                purchased-contract="vm.purchasedContract"></bg-chart>
+      <bg-digit-result ng-if="vm.inPurchaseMode && (vm.proposal.tradeType.indexOf('Digit') > -1)"></bg-digit-result>
+      <bg-tick-result ng-if="vm.inPurchaseMode && (vm.proposal.tradeType.indexOf('High/Low Ticks') > -1)"></bg-tick-result>
+      <bg-barrier ng-if="!vm.inPurchaseMode && vm.proposal.tradeType=='Higher/Lower'"
+                  proposal="vm.proposal"></bg-barrier>
+      <bg-payout proposal="vm.proposal"
+                 ng-if="!vm.inPurchaseMode"></bg-payout>
+      <bg-purchase proposal="vm.proposal"
+                   purchased-contract="vm.purchasedContract"
+                   in-purchase-mode="vm.inPurchaseMode"></bg-purchase>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="binary">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Binary App</title>
+
+	</head>
+	<body>
+
+    Loading ...
+
+		<style id="antiClickjack">body{display:none !important;}</style>
+		<script type="text/javascript">
+			if (self === top) {
+				var antiClickjack = document.getElementById("antiClickjack");
+				antiClickjack.parentNode.removeChild(antiClickjack);
+			} else {
+				top.location = self.location;
+			}
+		</script>
+
+		<!-- Redirect to #/redirect -->
+		<script type="text/javascript">
+
+        if(/ANDROID/i.test(window.navigator.appVersion)) {
+            const result = /.*\?(.*)/g.exec(window.location.href);
+            window.location.href = 'ticktrade://redirect?action=oauth&' + result[1];
+        }
+      if( window.navigator.standalone ) {
+        handleRedirectionInPWA();
+      } else {
+			var response = {};
+        response.url = window.location.href;
+        window.opener.postMessage(response, '*');
+        window.close();
+      }
+
+      function handleRedirectionInPWA() {
+        if (window.navigator && isIOS(window.navigator.appVersion)) {
+         const result = /.*\?(.*)/g.exec(window.location.href);
+         if(result) {
+           window.location.href = '/mobile/#/redirect?' + result[1];
+         }
+        }
+      }
+
+      function isIOS(appVersion) {
+        return /IPHONE|IPAD|IPOD/i.test(appVersion);
+      }
+		</script>
+
+	</body>
+</html>

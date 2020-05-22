@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <!-- build:addbase -->
+  <!-- endbuild -->
+
+  <meta name="referrer" content="origin">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+	<!-- Content Security Policy for cordova-plugin-whitelist -->
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' gap://ready file: wss: ws: data: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; media-src *">
+
+  <!-- Disabling ios telephone number detection -->
+  <meta name = "format-detection" content = "telephone=no">
+
+	<link href='img/icons/apple-touch-icon-57x57.png' rel='apple-touch-icon' sizes='57x57' />
+	<link href='img/icons/apple-touch-icon-114x114.png' rel='apple-touch-icon' sizes='114x114' />
+	<link href='img/icons/apple-touch-icon-72x72.png' rel='apple-touch-icon' sizes='72x72' />
+	<link href='img/icons/apple-touch-icon-144x144.png' rel='apple-touch-icon' sizes='144x144' />
+	<link href='img/icons/apple-touch-icon-60x60.png' rel='apple-touch-icon' sizes='60x60' />
+	<link href='img/icons/apple-touch-icon-120x120.png' rel='apple-touch-icon' sizes='120x120' />
+	<link href='img/icons/apple-touch-icon-76x76.png' rel='apple-touch-icon' sizes='76x76' />
+	<link href='img/icons/apple-touch-icon-152x152.png' rel='apple-touch-icon' sizes='152x152' />
+	<link href='img/icons/apple-touch-icon-180x180.png' rel='apple-touch-icon' sizes='180x180' />
+	<link href='img/icons/favicon-192x192.png' rel='icon' sizes='192x192' type='image/png' />
+	<link href='img/icons/favicon-160x160.png' rel='icon' sizes='160x160' type='image/png' />
+	<link href='img/icons/favicon-96x96.png' rel='icon' sizes='96x96' type='image/png' />
+	<link href='img/icons/favicon-16x16.png' rel='icon' sizes='16x16' type='image/png' />
+	<link href='img/icons/favicon-32x32.png' rel='icon' sizes='32x32' type='image/png' />
+  <link rel="manifest" href="site.webmanifest"/>
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#2A3052" />
+	<meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#2A3052"/>
+
+  <!-- CROWDIN SCRIPT -->
+
+  <style id="antiClickjack">body{display:none !important;}</style>
+  <script type="text/javascript">
+      if (self === top) {
+          var antiClickjack = document.getElementById("antiClickjack");
+          antiClickjack.parentNode.removeChild(antiClickjack);
+      } else {
+          top.location = self.location;
+      }
+  </script>
+
+	<title>Binary App</title>
+	<link href="css/ionic.app.css" rel="stylesheet">
+
+	<!-- BEGIN TRACKJS -->
+	<script type="text/javascript">
+		window._trackJs = {
+		    token: "346262e7ffef497d85874322fff3bbf8",
+		    application: "tick-trade",
+		    onError: function(payload){
+                payload.customer.userId = window._trackJs.userId;
+                payload.customer.version = window._trackJs.version;
+                return !(window.location.hostname === "localhost");
+            }
+		    // other configuration
+		}
+	</script>
+	<script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
+	<!-- END TRACKJS -->
+
+  </head>
+  <body ng-app="binary" ng-controller="BodyController as vm" id="{{vm.getLanguage()}}" ng-cloak>
+    <ios-pwa-prompt></ios-pwa-prompt>
+    <bg-updater></bg-updater>
+    <bg-connection-lost></bg-connection-lost>
+    <bg-service-outage></bg-service-outage>
+	  <ion-nav-view can-swipe-back="false"></ion-nav-view>
+    <bg-session-timeout></bg-session-timeout>
+    <bg-connectivity></bg-connectivity>
+    <ping></ping>
+    <bg-reality-check></bg-reality-check>
+    <bg-check-user-status></bg-check-user-status>
+
+    <!-- ionic/angularjs js -->
+	<script src="lib/ionic/release/js/ionic.bundle.min.js"></script>
+
+    <!-- build:replacecordovabysw -->
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <!-- endbuild -->
+
+    <!-- vendors -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/angular-translate/angular-translate.min.js"></script>
+    <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script src="lib/lodash/dist/lodash.min.js"></script>
+    <script src="lib/Chart.js/Chart.min.js"></script>
+    <script src="lib/hammerjs/hammer.min.js"></script>
+    <script src="lib/AngularHammer/angular.hammer.min.js"></script>
+    <script src="lib/validate/validate.min.js"></script>
+    <script src="lib/angular-messages/angular-messages.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/intl/dist/Intl.js"></script>
+    <script src="lib/intl/locale-data/complete.js"></script>
+    <script src="lib/ionic-native/ionic.native.min.js"></script>
+
+    <script>
+      var Intl = IntlPolyfill;
+    </script>
+
+    <!-- build:js -->
+    <script src="js/app.js"></script>
+    <script src="js/app.run.js"></script>
+
+    <script src="js/configs/app.config.js"></script>
+    <script src="js/configs/states.config.js"></script>
+    <script src="js/configs/translation.config.js"></script>
+    <script src="js/configs/currency.decorator.js"></script>
+    <script src="js/configs/state.decorator.js"></script>
+    <script src="js/configs/angular-ios9-uiwebview.patch.js"></script>
+    <script src="js/configs/deep-link.config.js"></script>
+
+    <script src="js/body.controller.js"></script>
+    <script src="js/main-layout.controller.js"></script>
+
+    <script src="js/share/services/websocket.service.js"></script>
+    <script src="js/share/services/language.service.js"></script>
+    <script src="js/share/services/supported-languages.service.js"></script>
+    <script src="js/share/services/account.service.js"></script>
+    <script src="js/share/services/alert.service.js"></script>
+    <script src="js/share/services/market.service.js"></script>
+    <script src="js/share/services/chart.service.js"></script>
+    <script src="js/share/services/cleanup.service.js"></script>
+    <script src="js/share/services/local-storage.service.js"></script>
+    <script src="js/share/services/session-storage.service.js"></script>
+    <script src="js/share/services/delay.service.js"></script>
+    <script src="js/share/services/app-version.service.js"></script>
+    <script src="js/share/services/app-state.service.js"></script>
+    <script src="js/share/services/analytics.service.js"></script>
+    <script src="js/share/services/utils.service.js"></script>
+    <script src="js/share/services/table-state.service.js"></script>
+    <script src="js/share/services/notification.service.js"></script>
+    <script src="js/share/services/client.service.js"></script>
+    <script src="js/share/services/validation.service.js"></script>
+
+    <script src="js/share/components/header/header.directive.js"></script>
+    <script src="js/share/components/header/header.controller.js"></script>
+
+    <script src="js/share/components/accounts/accounts.module.js"></script>
+    <script src="js/share/components/accounts/accounts.directive.js"></script>
+    <script src="js/share/components/accounts/accounts.controller.js"></script>
+
+    <script src="js/share/components/balance/balance.module.js"></script>
+    <script src="js/share/components/balance/balance.directive.js"></script>
+    <script src="js/share/components/balance/balance.controller.js"></script>
+
+    <script src="js/share/components/spinner-logo/spinner-logo.module.js"></script>
+    <script src="js/share/components/spinner-logo/spinner-logo.directive.js"></script>
+    <script src="js/share/components/spinner-logo/spinner-logo.controller.js"></script>
+
+    <script src="js/share/components/language/language.module.js"></script>
+    <script src="js/share/components/language/language.directive.js"></script>
+    <script src="js/share/components/language/language-list.directive.js"></script>
+    <script src="js/share/components/language/language.controller.js"></script>
+
+    <script src="js/share/components/ping/ping.module.js"></script>
+    <script src="js/share/components/ping/ping.directive.js"></script>
+    <script src="js/share/components/ping/ping.controller.js"></script>
+
+    <script src="js/share/components/long-press/long-press.module.js"></script>
+    <script src="js/share/components/long-press/long-press.directive.js"></script>
+
+    <script src="js/share/components/side-menu/side-menu.directive.js"></script>
+
+    <script src="js/share/components/logout/logout.module.js"></script>
+    <script src="js/share/components/logout/logout.directive.js"></script>
+    <script src="js/share/components/logout/logout.controller.js"></script>
+
+    <script src="js/share/components/connectivity/connectivity.module.js"></script>
+    <script src="js/share/components/connectivity/connectivity.directive.js"></script>
+    <script src="js/share/components/connectivity/connectivity.controller.js"></script>
+    <script src="js/share/components/connectivity/connection-lost.directive.js"></script>
+    <script src="js/share/components/connectivity/connection-lost.controller.js"></script>
+
+    <script src="js/share/components/app-version/app-version.module.js"></script>
+    <script src="js/share/components/app-version/app-version.directive.js"></script>
+    <script src="js/share/components/app-version/app-version.controller.js"></script>
+
+    <script src="js/share/components/regex-validate/regex-validate.module.js"></script>
+    <script src="js/share/components/regex-validate/regex-validate.directive.js"></script>
+
+    <script src="js/share/components/number/number.module.js"></script>
+    <script src="js/share/components/number/number.directive.js"></script>
+
+    <script src="js/share/components/updater/updater.module.js"></script>
+    <script src="js/share/components/updater/updater.directive.js"></script>
+    <script src="js/share/components/updater/updater.controller.js"></script>
+
+    <script src="js/share/components/reality-check/reality-check.module.js"></script>
+    <script src="js/share/components/reality-check/reality-check.controller.js"></script>
+    <script src="js/share/components/reality-check/reality-check.directive.js"></script>
+
+    <script src="js/share/components/check-user-status/check-user-status.module.js"></script>
+    <script src="js/share/components/check-user-status/check-user-status.controller.js"></script>
+    <script src="js/share/components/check-user-status/check-user-status.directive.js"></script>
+
+    <script src="js/share/components/service-outage/service-outage.module.js"></script>
+    <script src="js/share/components/service-outage/service-outage.directive.js"></script>
+    <script src="js/share/components/service-outage/service-outage.controller.js"></script>
+    <script src="js/share/components/service-outage/service-outage-page.controller.js"></script>
+
+    <script src="js/share/components/notification-icon/notification-icon.module.js"></script>
+    <script src="js/share/components/notification-icon/notification-icon.controller.js"></script>
+    <script src="js/share/components/notification-icon/notification-icon.directive.js"></script>
+
+    <script src="js/share/components/ios-pwa-prompt/ios-pwa-prompt.module.js"></script>
+    <script src="js/share/components/ios-pwa-prompt/ios-pwa-prompt.directive.js"></script>
+    <script src="js/share/components/ios-pwa-prompt/ios-pwa-prompt.controller.js"></script>
+
+
+    <script src="js/pages/home/home.module.js"></script>
+    <script src="js/pages/home/home.controller.js"></script>
+
+    <script src="js/share/components/big-number/big-number.module.js"></script>
+    <script src="js/share/components/big-number/big-number.directive.js"></script>
+
+    <script src="js/pages/sign-in/sign-in.module.js"></script>
+    <script src="js/pages/sign-in/components/oauth/oauth.module.js"></script>
+    <script src="js/pages/sign-in/components/oauth/oauth.directive.js"></script>
+    <script src="js/pages/sign-in/components/oauth/oauth.controller.js"></script>
+    <script src="js/pages/sign-in/sign-in.controller.js"></script>
+
+    <script src="js/pages/redirect/redirect.module.js"></script>
+    <script src="js/pages/redirect/redirect.controller.js"></script>
+
+    <script src="js/pages/trade/trade.module.js"></script>
+    <script src="js/pages/trade/trade.controller.js"></script>
+    <script src="js/pages/trade/trade.service.js"></script>
+    <script src="js/pages/trade/proposal.service.js"></script>
+
+    <script src="js/pages/trade/components/options/options.module.js"></script>
+    <script src="js/pages/trade/components/options/options.directive.js"></script>
+    <script src="js/pages/trade/components/options/options.controller.js"></script>
+    <script src="js/pages/trade/components/options/options.service.js"></script>
+    <script src="js/pages/trade/components/options/markets.service.js"></script>
+    <script src="js/pages/trade/components/options/markets.directive.js"></script>
+    <script src="js/pages/trade/components/options/markets.controller.js"></script>
+    <script src="js/pages/trade/components/options/underlyings.directive.js"></script>
+    <script src="js/pages/trade/components/options/underlyings.controller.js"></script>
+    <script src="js/pages/trade/components/options/trade-types.directive.js"></script>
+    <script src="js/pages/trade/components/options/trade-types.controller.js"></script>
+    <script src="js/pages/trade/components/options/trade-types.service.js"></script>
+    <script src="js/pages/trade/components/options/ticks.directive.js"></script>
+    <script src="js/pages/trade/components/options/ticks.controller.js"></script>
+    <script src="js/pages/trade/components/options/digits.directive.js"></script>
+    <script src="js/pages/trade/components/options/digits.controller.js"></script>
+    <script src="js/pages/trade/components/options/barrier.directive.js"></script>
+    <script src="js/pages/trade/components/options/barrier.controller.js"></script>
+    <script src="js/pages/trade/components/options/selected-tick.directive.js"></script>
+    <script src="js/pages/trade/components/options/selected-tick.controller.js"></script>
+
+    <script src="js/pages/trade/components/chart/chart.module.js"></script>
+    <script src="js/pages/trade/components/chart/chart.directive.js"></script>
+    <script src="js/pages/trade/components/chart/chart.controller.js"></script>
+    <script src="js/pages/trade/components/chart/digit-result.directive.js"></script>
+    <script src="js/pages/trade/components/chart/digit-result.controller.js"></script>
+    <script src="js/pages/trade/components/chart/tick-result.directive.js"></script>
+    <script src="js/pages/trade/components/chart/tick-result.controller.js"></script>
+
+    <script src="js/pages/trade/components/payout/payout.module.js"></script>
+    <script src="js/pages/trade/components/payout/payout.directive.js"></script>
+    <script src="js/pages/trade/components/payout/payout.controller.js"></script>
+
+    <script src="js/pages/trade/components/purchase/purchase.module.js"></script>
+    <script src="js/pages/trade/components/purchase/purchase.directive.js"></script>
+    <script src="js/pages/trade/components/purchase/purchase.controller.js"></script>
+    <script src="js/pages/trade/components/purchase/contract-summary.directive.js"></script>
+    <script src="js/pages/trade/components/purchase/contract-summary.controller.js"></script>
+
+    <script src="js/pages/trade/components/longcode/longcode.module.js"></script>
+    <script src="js/pages/trade/components/longcode/longcode.directive.js"></script>
+    <script src="js/pages/trade/components/longcode/longcode.controller.js"></script>
+
+    <script src="js/pages/profit-table/profit-table.module.js"></script>
+    <script src="js/pages/profit-table/profit-table.controller.js"></script>
+    <script src="js/pages/profit-table/profit-table.filter.js"></script>
+
+    <script src="js/pages/statement/statement.module.js"></script>
+    <script src="js/pages/statement/statement.controller.js"></script>
+    <script src="js/pages/statement/statement.filter.js"></script>
+
+    <script src="js/pages/transaction-detail/transaction-detail.module.js"></script>
+    <script src="js/pages/transaction-detail/transaction-detail.controller.js"></script>
+
+    <script src="js/pages/terms-and-conditions/terms-and-conditions.module.js"></script>
+    <script src="js/pages/terms-and-conditions/terms-and-conditions.controller.js"></script>
+
+    <script src="js/pages/real-account-opening/real-account-opening.module.js"></script>
+    <script src="js/pages/real-account-opening/real-account-opening.controller.js"></script>
+
+    <script src="js/pages/maltainvest-account-opening/maltainvest-account-opening.module.js"></script>
+    <script src="js/pages/maltainvest-account-opening/maltainvest-account-opening.controller.js"></script>
+
+    <script src="js/pages/self-exclusion/self-exclusion.module.js"></script>
+    <script src="js/pages/self-exclusion/self-exclusion.controller.js"></script>
+    <script src="js/pages/self-exclusion/session-timeout.directive.js"></script>
+    <script src="js/pages/self-exclusion/session-timeout.controller.js"></script>
+
+    <script src="js/pages/settings/settings.module.js"></script>
+    <script src="js/pages/settings/settings.controller.js"></script>
+
+    <script src="js/pages/profile/profile.module.js"></script>
+    <script src="js/pages/profile/profile.controller.js"></script>
+
+    <script src="js/pages/update/update.module.js"></script>
+    <script src="js/pages/update/update.controller.js"></script>
+
+    <script src="js/pages/change-password/change-password.module.js"></script>
+    <script src="js/pages/change-password/change-password.controller.js"></script>
+
+    <script src="js/pages/financial-assessment/financial-assessment.module.js"></script>
+    <script src="js/pages/financial-assessment/financial-assessment.controller.js"></script>
+
+    <script src="js/pages/limits/limits.module.js"></script>
+    <script src="js/pages/limits/limits.controller.js"></script>
+
+    <script src="js/pages/resources/resources.module.js"></script>
+    <script src="js/pages/resources/resources.controller.js"></script>
+
+    <script src="js/pages/trading-times/trading-times.module.js"></script>
+    <script src="js/pages/trading-times/trading-times.controller.js"></script>
+
+    <script src="js/pages/asset-index/asset-index.module.js"></script>
+    <script src="js/pages/asset-index/asset-index.controller.js"></script>
+
+    <script src="js/pages/meta-trader/meta-trader.module.js"></script>
+    <script src="js/pages/meta-trader/meta-trader.controller.js"></script>
+    <script src="js/pages/meta-trader/mt5-web.controller.js"></script>
+
+    <script src="js/pages/authentication/authentication.module.js"></script>
+    <script src="js/pages/authentication/authentication.controller.js"></script>
+
+    <script src="js/pages/contact/contact.module.js"></script>
+    <script src="js/pages/contact/contact.controller.js"></script>
+
+    <script src="js/pages/notifications/notifications.module.js"></script>
+    <script src="js/pages/notifications/notifications.controller.js"></script>
+
+    <script src="js/pages/set-currency/set-currency.module.js"></script>
+    <script src="js/pages/set-currency/set-currency.controller.js"></script>
+
+    <script src="js/pages/accounts-management/accounts-management.module.js"></script>
+    <script src="js/pages/accounts-management/accounts-management.controller.js"></script>
+
+    <script src="js/pages/account-categorisation/account-categorisation.module.js"></script>
+    <script src="js/pages/account-categorisation/account-categorisation.controller.js"></script>
+
+    <script src="js/configs/options/account.options.js"></script>
+    <script src="js/configs/options/financial-information.options.js"></script>
+
+    <!-- endbuild -->
+
+  <!-- build:customscript -->
+  <!-- endbuild -->
+  </body>
+</html>

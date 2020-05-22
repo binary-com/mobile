@@ -1,0 +1,111 @@
+<ion-view class="meta-trader" title="Meta-trader" ng-cloak>
+    <ion-content class="general-content has-header has-subheader">
+        <div class="row">
+            <div class="col">
+              <h1 class="page-title">
+                {{ 'mt.meta_trader_accounts'| translate }}
+              </h1>
+            </div>
+        </div>
+        <div class="row"
+             ng-if="!vm.isLoaded">
+            <div class="col center">
+                <ion-spinner></ion-spinner>
+            </div>
+        </div>
+        <div class="row"
+             ng-if="!vm.hasMTAccess && vm.isLoaded">
+            <div class="col center">
+                {{ 'mt.feature_is_not_available' | translate }}
+            </div>
+        </div>
+        <div class="card meta-trader-accounts" ng-if="vm.hasMTAccess && vm.isLoaded && vm.hasAccount">
+            <div ng-if="vm.accountsList.demo">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="sub-title">
+                            {{ "mt.demo_account" | translate }}
+                        </h1>
+                    </div>
+                </div>
+                <div class="row meta-trader-accounts-list" ng-repeat="acc in vm.accountsList.demo">
+                    <div class="col list">
+                        <div class="item meta-trader-account-title">
+                            {{ acc.shortTitle }} ({{ acc.login }})
+                        </div>
+                        <div class="item item-divider meta-trader-account-info">
+                                <span>
+                                    {{ 'mt.name' | translate }}:
+                                    {{ acc.name }}
+                                </span>
+                                <span class="right">
+                                    {{ 'mt.balance' | translate }}:
+                                    {{ acc.balance | currency:acc.currency:2 }}
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="vm.accountsList.real">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="sub-title">
+                            {{ "mt.real_money_account" | translate }}
+                        </h1>
+                    </div>
+                </div>
+                <div class="row meta-trader-accounts-list" ng-repeat="acc in vm.accountsList.real">
+                    <div class="col list">
+                        <div class="item meta-trader-account-title">
+                            {{ acc.shortTitle }} ({{ acc.login }})
+                        </div>
+                        <div class="item item-divider meta-trader-account-info">
+                            <span>
+                                {{ 'mt.name' | translate }}:
+                                {{ acc.name }}
+                            </span>
+                            <span class="right">
+                                {{ 'mt.balance' | translate }}:
+                                {{ acc.balance | currency:acc.currency:2 }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="vm.hasMTAccess && vm.isLoaded && !vm.hasAccount && vm.hasRealAccount">
+            <div class="row">
+                <div class="col center">
+                    {{"mt.you_do_not_have_mt5_account" | translate}}
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-if="vm.hasMTAccess && vm.isLoaded && !vm.hasRealAccount">
+            <div class="col center">
+                {{ 'mt.upgrade_real_account' | translate }}
+            </div>
+        </div>
+        <div class="row" ng-if="vm.hasMTAccess && vm.isLoaded && !vm.hasRealAccount && vm.showUpgradeToRealButton">
+            <div class="col center">
+                <button class="button button-positive"
+                        ng-click="vm.redirectToUpgrade()"> {{ "mt.upgrade" | translate }}
+                </button>
+            </div>
+        </div>
+        <div class="row" ng-if="vm.hasMTAccess && vm.isLoaded && vm.hasRealAccount && (vm.canUpgrade || !vm.hasAccount)">
+            <div class="col center">
+                <button class="button button-positive"
+                        ng-click="vm.createMTAccount()"> {{ "mt.create_account" | translate }}
+                </button>
+            </div>
+        </div>
+        <div class="row" ng-if="vm.isLoaded && vm.hasMTAccess && vm.hasAccount">
+            <div class="col center">
+                <button class="button button-positive" ng-click="vm.openMT5()">
+                    {{ 'mt.start_trading_with_mt5' | translate }}
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

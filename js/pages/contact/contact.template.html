@@ -1,0 +1,179 @@
+<ion-view class="contact">
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{ 'contact.contact_us' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="list">
+          <div class="item item-text-wrap item-divider">
+            {{ 'contact.telephone' | translate }}
+          </div>
+          <div class="item item-input item-select">
+            <select name="country" ng-model="vm.data.selectedCountry">
+              <option value="australia">
+                {{ 'contact.australia' | translate }}
+              </option>
+              <option value="canada">
+                {{ 'contact.canada' | translate }}
+              </option>
+              <option value="indonesia">
+                {{ 'contact.indonesia' | translate }}
+              </option>
+              <option value="ireland">
+                {{ 'contact.ireland' | translate }}
+              </option>
+              <option value="poland">
+                {{ 'contact.poland' | translate }}
+              </option>
+              <option value="russia">
+                {{ 'contact.russia' | translate }}
+              </option>
+              <option value="united_kingdom">
+                {{ 'contact.united_kingdom' | translate }}
+              </option>
+            </select>
+          </div>
+          <div class="item item-text-wrap"
+               ng-repeat="(key, val) in vm.data.countries"
+               ng-show="key === vm.data.selectedCountry">
+            <div class="row" ng-repeat="phone in val.phone">
+              <div class="col">
+                {{ phone.num }}
+                <span ng-if="phone.toll_free"> {{ 'contact.toll_free' | translate }} </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p>
+                  {{ 'contact.not_located' | translate }}
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p> {{ 'contact.calls' | translate }} </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="list">
+          <div class="item item-text-wrap item-divider">
+            {{ 'contact.email' | translate }}
+          </div>
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col sub-title">
+                {{ 'contact.support_email' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <a href="mailto:support@binary.com">support@binary.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col sub-title">
+                {{ 'contact.payment_email' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <a href="mailto:payments@binary.com">payments@binary.com</a>
+              </div>
+            </div>
+          </div>
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col sub-title">
+                {{ 'contact.marketing_email' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <a href="mailto:marketing@binary.com">marketing@binary.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="list">
+          <div class="item item-text-wrap item-divider">
+            {{ 'contact.company_addresses' | translate }}
+          </div>
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col sub-title">
+                {{ 'contact.malta' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{ 'contact.malta_address' | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col sub-title">
+                {{ 'contact.isle_of_man' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{ 'contact.isle_of_man_address' | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col sub-title">
+                {{ 'contact.malaysia' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{ 'contact.cyberjaya_office' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{ 'contact.malaysia_address' | translate }}
+              </div>
+            </div>
+          </div>
+          <div class="item item-text-wrap">
+            <div class="row">
+              <div class="col sub-title">
+                {{ 'contact.malaysia' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{ 'contact.kl_office' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{ 'contact.kl_address' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

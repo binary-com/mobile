@@ -1,0 +1,26 @@
+[
+    {
+        "version": "2.1.0",
+        "googleplay": "https://play.google.com/store/apps/details?id=com.binary.ticktrade",
+        "appstore": "https://itunes.apple.com/us/app/binary.com-tick-trade/id1091187567?ls=1&mt=8",
+        "features": [
+            "Bug fixes"
+        ]
+    },
+    {
+        "version": "2.3.9",
+        "googleplay": "https://binary.la/downloads/ticktrade-app.apk",
+        "appstore": "https://itunes.apple.com/us/app/binary.com-tick-trade/id1091187567?ls=1&mt=8",
+        "features": [
+            "Bug fixes"
+        ]
+    },
+    {
+        "version": "2.4.1",
+        "googleplay": "https://binary.la/downloads/ticktrade-app.apk",
+        "appstore": "https://itunes.apple.com/us/app/binary.com-tick-trade/id1091187567?ls=1&mt=8",
+        "features": [
+            "Bug fixes"
+        ]
+    }
+]

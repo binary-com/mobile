@@ -1,0 +1,10 @@
+<div class="underlyings">
+  <div class="row">
+    <div class="col center" ng-repeat="underlying in vm.underlyings">
+      <button class="button button-clear"
+              ng-click="vm.selectUnderlying(underlying)">
+        {{ underlying.display_name }}
+      </button>
+    </div>
+  </div>
+</div>

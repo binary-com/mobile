@@ -1,0 +1,13 @@
+<label class="item item-input item-select" ng-show="vm.isLanguageReady">
+  <i class="icon placeholder-icon icon-small ion-android-globe" ng-class="{'ion-ios-world' : vm.ios}"></i>
+  <select class="language" tabindex="2" ng-model="vm.language"
+          ng-options="language.id as language.title for language in vm.languages"
+          ng-change="vm.changeLanguage(language.id)">
+  </select>
+</label>
+<div class="row" ng-show="!vm.isLanguageReady">
+  <div class="col center">
+    <ion-spinner>
+    </ion-spinner>
+  </div>
+</div>

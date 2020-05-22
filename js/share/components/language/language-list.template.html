@@ -1,0 +1,20 @@
+<ion-content class="general-content has-header has-subheader">
+  <div class="row">
+    <div class="col">
+      <h1 class="page-title"> {{ 'signin.language' | translate }} </h1>
+    </div>
+  </div>
+  <div class="row" ng-if="!vm.isLanguageReady">
+    <div class="col center">
+      <ion-spinner></ion-spinner>
+    </div>
+  </div>
+  <div class="list" ng-show="vm.isLanguageReady">
+    <ion-radio ng-repeat="language in vm.languages"
+               ng-model="vm.language"
+               ng-value="language.id"
+               ng-click="vm.changeLanguage(language.id)">
+      {{language.title}}
+    </ion-radio>
+  </div>
+</ion-content>

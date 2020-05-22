@@ -1,0 +1,4 @@
+<button class="button button-icon icon ion-android-notifications right-buttons notification-button"
+        ng-click="vm.goToNotifications()" ng-disabled="vm.disableMenuButton">
+  <span ng-if="vm.notices.length > 0"> {{ vm.notices.length }} </span>
+</button>

@@ -1,0 +1,25 @@
+<ion-modal-view class="modal">
+  <ion-header-bar class="bar bar-header" align-title="center">
+    <button class="button button-clear button-primary" ng-click="vm.closeModal()">{{ "options.cancel" | translate }}
+    </button>
+    <h1 class="title">
+      <span ng-if="vm.section1 == vm.SECTIONS.MARKETS">{{ "options.select_market" | translate }}</span>
+      <span ng-if="vm.section1 == vm.SECTIONS.UNDERLYINGS">{{ "options.select_underlying" | translate }}</span>
+      <span ng-if="vm.section2 == vm.SECTIONS.TRADETYPES">{{ "options.select_tradetype" | translate }}</span>
+      <span ng-if="vm.section2 == vm.SECTIONS.TICKS">{{ "options.select_tick" | translate }}</span>
+      <span ng-if="vm.section2 == vm.SECTIONS.DIGITS">{{ "options.select_digit" | translate }}</span>
+    </h1>
+  </ion-header-bar>
+  <ion-content scroll-content="false" class="trade">
+    <bg-markets ng-if="vm.section1 == vm.SECTIONS.MARKETS" select="vm.selectMarket"></bg-markets>
+    <bg-underlyings ng-if="vm.section1 == vm.SECTIONS.UNDERLYINGS" select="vm.selectUnderlying"
+                    market="vm.options.market"></bg-underlyings>
+    <bg-tradetypes ng-if="vm.section2 == vm.SECTIONS.TRADETYPES" select="vm.selectTradeType"></bg-tradetypes>
+    <bg-ticks ng-if="vm.section2 == vm.SECTIONS.TICKS" select="vm.selectTick"
+              trade-type="vm.options.tradeType"></bg-ticks>
+    <bg-digits ng-if="vm.section2 == vm.SECTIONS.DIGITS" select="vm.selectDigit"
+               trade-type="vm.options.tradeType"></bg-digits>
+    <bg-selected-tick ng-if="vm.section2 == vm.SECTIONS.SELECTEDTICK" select="vm.selectSelectedTick"
+               tick="vm.options.tick"></bg-selected-tick>
+  </ion-content>
+</ion-modal-view>

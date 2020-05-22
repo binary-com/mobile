@@ -1,0 +1,33 @@
+<ion-view class="settings">
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{ 'settings.settings' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="list">
+      <div ng-repeat="s in vm.settings">
+        <a ng-if="!s.submenus && vm.checkAccount(s.forRealAccount) && vm.checkFinancialAccount(s.forFinancialAccount)"
+           href="#"
+           ui-sref="{{s.url}}"
+           class="item">
+          {{ s.name | translate }}
+          <i class="submenu-icon ion-android-arrow-dropright" ng-class="{'ion-ios-arrow-right' : vm.ios}"></i>
+        </a>
+        <div ng-if="s.submenus && s.submenus.length > 0"
+             class="item item-divider">
+          {{ s.name | translate}}
+        </div>
+        <a ng-if="s.submenus && s.submenus.length > 0 && vm.checkAccount(m.forRealAccount)"
+           ng-repeat="m in s.submenus"
+           href="#"
+           ui-sref="{{m.url}}"
+           class="item">
+          {{ m.name | translate }}
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

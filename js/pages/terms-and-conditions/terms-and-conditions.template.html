@@ -1,0 +1,26 @@
+<ion-view class="accept-terms-and-conditions">
+  <ion-content has-bouncing="false" class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col info-container">
+            {{vm.data.landingCompanyName}} {{'accept-terms-and-conditions.has_updated_its' | translate}}
+            <a ng-click="vm.openTermsAndConditions()">{{'accept-terms-and-conditions.terms_and_conditions' |
+              translate}}</a>{{'accept-terms-and-conditions.confirm_phrase' | translate}}</a>.
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <bg-logout class="logout"></bg-logout>
+          </div>
+          <div class="col">
+            <button name="button" class="button button-block button-positive" ng-click="vm.updateUserTermsAndConditions()">
+              {{'accept-terms-and-conditions.ok' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

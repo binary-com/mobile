@@ -1,0 +1,268 @@
+<ion-view class="sign-in" xmlns="http://www.w3.org/1999/html">
+  <ion-content class="signin-content" has-bouncing="false">
+    <ion-header-bar align-title="center" class="bar bar-header bar-positive">
+      <button class="button icon-left button-clear ion-android-arrow-back"
+              ng-class="{'ion-ios-arrow-back' : vm.ios}"
+              ng-click="vm.changeSigninView(true)"
+              ng-show="vm.showTokenForm || vm.showSignin || vm.showSignup || vm.showvirtualws"></button>
+      <h1 class="title"></h1>
+    </ion-header-bar>
+    <div class="signin-page">
+      <div class="row center">
+        <div class="col col-75 branding">
+          <img src="img/logomark.svg" class="logo" alt="Binary Logo">
+          <img src="img/logotype_dark.svg" class="slogan" alt="Binary.com">
+        </div>
+      </div>
+      <form ng-submit="vm.signIn()"
+            role="form"
+            name="signin"
+            ng-show="vm.showTokenForm">
+        <div class="list">
+          <ion-spinner ng-show="vm.showSpinner"></ion-spinner>
+          <label class="item-input" ng-class="{'error': vm.tokenError}">
+            <i class="icon ion-android-lock placeholder-icon icon-small"></i>
+            <input type="text"
+                   placeholder="{{ 'signin.paste_token' | translate }}"
+                   ng-model="vm.token"
+                   tabindex="1"
+                   ngRequired>
+          </label>
+        </div>
+        <div class="row center">
+          <div class="col col-75">
+            <button class="button button-block button-positive" type="submit">
+              {{ 'signin.add_account' | translate }}
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <form name="emailForm" id="emailform" ng-show="vm.showSignup && !vm.showvirtualws" ng-submit="vm.verifyUserMail()">
+        <div class="row center">
+          <div class="col">
+            <div class="input-title">
+              {{ 'new-virtual-account.enter_email' | translate }}
+            </div>
+            <label class="item-input">
+              <input autocomplete="off"
+                     name="email"
+                     ng-model="vm.data.mail"
+                     required
+                     ng-pattern="vm.validation.validateMail"/>
+            </label>
+            <div ng-messages
+                 class="help-block error"
+                 for="emailForm.email.$error"
+                 role="alert"
+                 ng-if='emailForm.email.$dirty'>
+              <ng-message when="pattern">
+                {{ 'new-virtual-account.invalid_email' | translate }}
+              </ng-message>
+            </div>
+            <div class="help-block error" ng-if="vm.emailError">
+              {{vm.emailErrorMessage}}
+            </div>
+            <button class="button button-block button-positive"
+                    type="submit"
+                    ng-disabled="emailForm.$invalid || vm.isVerifyingEmail">
+              {{ 'new-virtual-account.continue' | translate }}
+            </button>
+          </div>
+        </div>
+      </form>
+      <form name="virtualws"
+            id="virtualws"
+            ng-show="vm.showvirtualws && !vm.showSignin && !vm.showTokenForm"
+            ng-submit="vm.createVirtualAccount()">
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'new-virtual-account.verification_code' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input ng-model="vm.data.signupToken"
+                       type="text"
+                       ng-pattern="vm.validation.validateToken"
+                       ng-required="true" />
+                <div class="hint"> {{ 'new-virtual-account.code_hint' | translate }} </div>
+                <ng-messages
+                        class="help-block error"
+                        for="virtualws.verificationCode.$error"
+                        role="alert"
+                        ng-if='virtualws.verificationCode.$dirty && !vm.tokenError'>
+                  <ng-message when="required"> {{ 'new-virtual-account.required' | translate }} </ng-message>
+                  <ng-message when="pattern"> {{ 'new-virtual-account.token_invalid' | translate }} </ng-message>
+                </ng-messages>
+                <div class="help-block error" ng-if="vm.tokenError">
+                  <div> {{ vm.tokenErrorMessage }} </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'new-virtual-account.password' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="password"
+                       id="password"
+                       ng-model="vm.data.clientPassword"
+                       type="{{vm.data.inputType}}"
+                       ng-minlength="vm.validation.length.password.min"
+                       ng-maxlength="vm.validation.length.password.max"
+                       ng-pattern="vm.validation.validatePassword" ng-required="true" />
+                <div class="hint"> {{ 'new-virtual-account.password_hint' | translate }} </div>
+                <ng-messages
+                        class="help-block error"
+                        for="virtualws.password.$error"
+                        role="alert"
+                        ng-if='virtualws.password.$dirty'
+                        ng-hide="vm.passwordError">
+                  <ng-message when="required"> {{ 'new-virtual-account.required' | translate }} </ng-message>
+                  <ng-message when="minlength, maxlength">
+                    {{ 'new-virtual-account.range_length_error' | translate : {
+                    min: vm.validation.length.password.min,
+                    max: vm.validation.length.password.max
+                    } }}
+                  </ng-message>
+                  <ng-message when="pattern"> {{ 'new-virtual-account.password_pattern_error' | translate }} </ng-message>
+                </ng-messages>
+                <div class="help-block error" ng-if="vm.passwordError">
+                  <div> {{ vm.passwordErrorMessage }} </div>
+                </div>
+                <div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col show-hide-password">
+                <input type="checkbox"
+                       class="checkbox"
+                       id="show-hide"
+                       name="show-hide"
+                       ng-model="vm.passwordCheckbox"
+                       ng-click="vm.hideShowPassword()"
+                />
+                <label for="show-hide"
+                       ng-if="vm.passwordCheckbox">
+                  {{ 'new-virtual-account.hide_pass' | translate }}
+                </label>
+                <label for="show-hide"
+                       ng-if="!vm.passwordCheckbox">
+                  {{ 'new-virtual-account.show_pass' | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'new-virtual-account.residence' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select
+                        ng-show="vm.data.residenceList"
+                        ng-model="vm.data.residence"
+                        ng-options="residence.value as residence.text disable
+                  when residence.disabled for residence in vm.data.residenceList track by residence.value"
+                        required>
+                  <option value="" disabled> {{ 'new-virtual-account.select' | translate }} </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <button
+                        class="button button-block button-positive"
+                        type="submit"
+                        ng-disabled="virtualws.$invalid">
+                  {{ 'new-virtual-account.signup' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="row responsive-sm" ng-show="vm.showTokenForm">
+        <div class="col center">
+          <a href="#" class="help" ui-sref="help">
+            {{ 'signin.get_token' | translate }}
+          </a>
+        </div>
+      </div>
+
+      <div class="row center" ng-show="!vm.showTokenForm && !vm.showSignup && vm.showSignin">
+        <div class="col col-75">
+          <oauth
+                  ng-show="!vm.showTokenForm && vm.showSignin && !vm.showSignup"
+                  account-tokens="vm.data.accountTokens"
+          ></oauth>
+          <!-- signup -->
+          {{ 'new-virtual-account.signup_question' | translate }}
+          <div>
+            <a href ng-click="vm.changeSigninViewtoSignup()">
+              {{ 'new-virtual-account.signup' | translate }}
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- end signup -->
+
+      <div class="row center regulatory-information" ng-show="!vm.showTokenForm && !vm.showSignup && vm.showSignin">
+        <div class="col col-75">
+          <a href ng-click="vm.goToRegulatory()">
+            {{ 'signin.regulatory_information' | translate }}
+          </a>
+        </div>
+      </div>
+      <div class="row center gamstop" ng-show="!vm.showTokenForm && !vm.showSignup && vm.showSignin && vm.clientCountryIsUK">
+        <div class="col col-75">
+          <a href ng-click="vm.goToGamStop()">
+            <img src="img/gamstop.svg" alt="Gamstop">
+          </a>
+        </div>
+      </div>
+      <div class="list language" ng-show="!vm.showSignin && !vm.showTokenForm  && !vm.showSignup && !vm.showvirtualws">
+        <language></language>
+      </div>
+      <div class="row center" ng-show="!vm.showSignin && !vm.showTokenForm && !vm.showSignup && !vm.showvirtualws">
+        <div class="col col-75">
+          <button class="button button-block button-positive"
+                  type="button"
+                  ng-click="vm.showSigninView()"
+                  ng-disabled="vm.disableNextbutton">
+            {{ 'signin.next' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <bg-app-version
+              ng-show="(!vm.showTokenForm && !vm.showSignup && vm.showSignin) ||
+              (!vm.showSignin && !vm.showTokenForm && !vm.showSignup && !vm.showvirtualws)"
+              class="app-version center">
+      </bg-app-version>
+    </div>
+  </ion-content>
+</ion-view>

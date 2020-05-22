@@ -1,0 +1,16 @@
+<div class="barrier">
+  <div class="row">
+    <div class="col center">
+      {{ 'trade.barrier' | translate }}
+    </div>
+    <div class="col center">
+      <input type="text"
+             ng-model="vm.proposal.barrier"
+             ng-change="vm.changeBarrier()"
+             bg-regex-validate="vm.regex"/>
+    </div>
+    <div class="col center" ng-if="vm.spot">
+      {{ vm.spot }}
+    </div>
+  </div>
+</div>

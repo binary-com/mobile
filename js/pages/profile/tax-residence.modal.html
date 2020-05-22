@@ -1,0 +1,22 @@
+<ion-modal-view class="tax-residence-modal">
+  <ion-header-bar class="bar-positive">
+    <button class="button button-clear" ng-click="vm.closeModal()">
+      {{ 'profile.cancel' | translate}}
+    </button>
+    <h1 class="title">
+      {{'profile.tax_residence' | translate}}
+    </h1>
+    <button class="button button-clear" ng-click="vm.setTaxResidence()">
+      {{ 'profile.continue' | translate}}
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-checkbox ng-repeat="residence in vm.residenceList"
+                  ng-model="residence.checked"
+                  ng-value="residence.value"
+                  ng-checked="vm.settingTaxResidence.indexOf(residence.value) > -1"
+                  ng-class="{'disabled' :vm.residenceDisable($index, residence)}">
+      {{ residence.text }}
+    </ion-checkbox>
+  </ion-content>
+</ion-modal-view>

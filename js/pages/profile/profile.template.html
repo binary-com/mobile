@@ -1,0 +1,557 @@
+<ion-view class="profile" title="Profile" ng-cloak>
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{ 'profile.personal_details' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="row" ng-if="!vm.isDataLoaded">
+      <div class="col center">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+    <form name="profileForm" ng-submit="vm.submit()" ng-if="vm.isDataLoaded">
+      <div ng-if="vm.isVirtualAccount">
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.details' | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.country_of_residence' | translate }}
+              </div>
+            </div>
+            <div class="row" ng-if="vm.hasResidence">
+              <div class="col item-input">
+                <input name="country" ng-value="vm.profile.country" readonly="readonly">
+              </div>
+            </div>
+            <div class="row" ng-if="!vm.hasResidence">
+              <div class="col item-input item-select">
+                <select name="country"
+                        ng-model="vm.profile.country"
+                        ng-options="residence.value as residence.text disable
+                  when residence.disabled for residence in vm.residenceList track by residence.value"
+                        required>
+                  <option value="" disabled>
+                    {{ 'profile.select' | translate }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.email_address' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="email" ng-value="vm.profile.email" readonly="readonly"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="!vm.isVirtualAccount">
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.details' | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.name' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="name"
+                       ng-value="vm.profile.first_name + ' ' + vm.profile.last_name"
+                       readonly="readonly"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.date_of_birth' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input type="date"
+                       name="data_of_birth"
+                       ng-model="vm.profile.date_of_birth"
+                       readonly="readonly"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.citizenship' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="citizen"
+                        ng-model="vm.profile.citizen"
+                        ng-options="residence.value as residence.text for
+                          residence in vm.residenceList"
+                        ng-disabled="vm.hasCitizen"
+                        ng-required="vm.requireCitizen">
+                  <option value="" disabled>
+                    {{ 'profile.select' | translate }}
+                  </option>
+                </select>
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.citizen.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.place_of_birth' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="place_of_birth"
+                        ng-model="vm.profile.place_of_birth"
+                        ng-options="residence.value as residence.text for
+                          residence in vm.residenceList"
+                        ng-disabled="vm.hasPOB"
+                        required>
+                  <option value="" disabled>
+                    {{ 'profile.select' | translate }}
+                  </option>
+                </select>
+                <ng-messages ng-if="vm.isDataLoaded"
+                            for="profileForm.place_of_birth.$error"
+                            class="error"
+                            role="alert">
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+              </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.country_of_residence' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="country_of_residence"
+                       ng-value="vm.profile.country"
+                       readonly="readonly"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.email_address' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="email" ng-value="vm.profile.email" readonly="readonly"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.account_opening_reason' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="account_opening_reason"
+                        ng-model="vm.profile.account_opening_reason"
+                        ng-options="option.value as option.text | translate for
+                           option in vm.options.account_opening_reason"
+                        ng-disabled="vm.hasAccountOpeningReason"
+                        required>
+                  <option value="" disabled>{{ 'profile.select' | translate }}</option>
+                </select>
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.account_opening_reason.$error"
+                             role="alert"
+                             class="help block error">
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.tax_information' | translate }}
+            </h1>
+          </div>
+        </div>
+        <!-- multiselect -->
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.tax_residence' | translate }}
+                <span ng-if="vm.taxInfoIsOptional">
+                  {{ 'profile.is_optional' | translate }}
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col item-input item-select tax-residence"
+                     ng-click="vm.showTaxResidenceItems()">
+                <div class="tax-residence-select">
+                  {{ vm.selectedTaxResidencesName || 'profile.select' | translate }}
+                </div>
+              </label>
+            </div>
+            <div class="row">
+              <div class="col help-block error"
+                   ng-if="!vm.taxInfoIsOptional && !vm.profile.tax_residence && vm.touchedTaxResidence">
+                {{ 'profile.this_field_is_required' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end multiselect -->
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.tax_identification_number' | translate }}
+                <span ng-if="vm.taxInfoIsOptional">
+                  {{ 'profile.is_optional' | translate }}
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="tax_identification_number"
+                       ng-model="vm.profile.tax_identification_number"
+                       ng-pattern="vm.validation.validateTaxIdentificationNumber"
+                       ng-maxlength="vm.validation.length.tin.max"
+                       ng-required="!vm.taxInfoIsOptional"/>
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.tax_identification_number.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="minlength">
+                    {{ 'profile.maxlength_error' | translate :
+                    {max: vm.validation.length.tin.max} }}
+                  </ng-message>
+                  <ng-message when="pattern">
+                    {{ 'profile.tax_identification_number_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title">
+              {{ 'profile.address' | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.first_line_of_home_address' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="address_line_1"
+                       ng-model="vm.profile.address_line_1"
+                       ng-maxlength="vm.validation.length.address.max"
+                       ng-required="true"
+                       ng-pattern="vm.validation.validateAddress"/>
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.address_line_1.$error"
+                             class="help block error"
+                             role="alert">
+                  <ng-message when="pattern">
+                    {{ 'profile.address_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="maxlength">
+                    {{ 'profile.maxlength_error' | translate :
+                    {max: vm.validation.length.address.max} }}
+                  </ng-message>
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.second_line_of_home_address' | translate }}
+                <span>{{ 'profile.is_optional' | translate }}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="address_line_2"
+                       ng-model="vm.profile.address_line_2"
+                       ng-maxlength="vm.validation.length.address.max"
+                       ng-pattern="vm.validation.validateAddress"/>
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.address_line_2.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="pattern">
+                    {{ 'profile.address_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="maxlength">
+                    {{ 'profile.maxlength_error' | translate :
+                    {max: vm.validation.length.address.max} }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.town_city' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="address_city"
+                       ng-model="vm.profile.address_city"
+                       ng-required="true"
+                       ng-maxlength="vm.validation.length.city.max"
+                       ng-pattern="vm.validation.validateGeneral">
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.address_city.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="pattern">
+                    {{ 'profile.general_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="maxlength">
+                    {{ 'profile.maxlength_error' | translate :
+                    {max: vm.validation.length.city.max} }}
+                  </ng-message>
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.state_province' | translate }}
+                <span>{{ 'profile.is_optional' | translate }}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="address_state"
+                        ng-model="vm.profile.address_state"
+                        ng-select="vm.profile.address_state"
+                        ng-disabled="!vm.states">
+                  <option value=""
+                          disabled
+                          ng-if="vm.profile.address_state == null">
+                    {{ 'profile.select' | translate }}
+                  </option>
+                  <option ng-repeat="s in vm.states"
+                          value="{{s.value}}">
+                    {{ s.text }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.address_postcode' | translate }}
+                <span ng-if="!vm.hasIOM">{{ 'profile.is_optional' | translate }}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="address_postcode"
+                       ng-model="vm.profile.address_postcode"
+                       ng-maxlength="vm.validation.length.postcode.max"
+                       ng-pattern="vm.validation.validatePostcode"
+                       ng-required="vm.hasIOM" />
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.address_postcode.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="pattern">
+                    {{ 'profile.postcode_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="maxlength">
+                    {{ 'profile.maxlength_error' | translate :
+                    {max: vm.validation.length.postcode.max} }}
+                  </ng-message>
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col input-title">
+                {{ 'profile.telephone' | translate }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input">
+                <input name="phone"
+                       ng-model="vm.profile.phone"
+                       ng-pattern="vm.validation.validatePhone"
+                       ng-maxlength="vm.validation.length.phone.max"
+                       ng-minlength="vm.validation.length.phone.min"
+                       ng-required="true">
+                <ng-messages ng-if="vm.isDataLoaded"
+                             for="profileForm.phone.$error"
+                             class="error"
+                             role="alert">
+                  <ng-message when="pattern">
+                    {{ 'profile.phone_pattern_error' | translate }}
+                  </ng-message>
+                  <ng-message when="minlength, maxlength">
+                    {{ 'profile.range_length_error' | translate :
+                    {min: vm.validation.length.phone.min,
+                    max: vm.validation.length.phone.max} }}
+                  </ng-message>
+                  <ng-message when="required">
+                    {{ 'profile.this_field_is_required' | translate }}
+                  </ng-message>
+                </ng-messages>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h1 class="sub-title">
+            {{ 'profile.email_preferences' | translate }}
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col accept center">
+              <input name="emailConsent"
+                     type="checkbox"
+                     ng-model="vm.profile.email_consent"
+                     class="checkbox"
+              />
+              {{ 'profile.receive_emails' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col center">
+          <span class="help-block error" ng-if="vm.notAnyChanges">
+            {{ 'financial-assessment.no_change' | translate }}
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col center">
+          <button class="button button-positive"
+                  ng-click="vm.updateProfile()"
+                  ng-disabled="!profileForm.$valid || vm.disableUpdateButton ||
+                  (!vm.taxInfoIsOptional && !vm.profile.tax_residence && !vm.isVirtualAccount)">
+            {{ 'profile.update_profile' | translate }}
+          </button>
+        </div>
+      </div>
+      <!--{{ profile_form }}-->
+    </form>
+
+    <div class="row" ng-if="!vm.isVirtualAccount">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            {{ 'profile.to_change' | translate }}
+            <a ng-click="vm.goToContact()">
+              {{ 'profile.customer_support' | translate }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
