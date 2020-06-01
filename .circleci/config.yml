@@ -115,7 +115,7 @@ commands:
 jobs:
   test:
     docker:
-      - image: circleci/node:11.15.0
+      - image: circleci/node:8.10.0-stretch
     steps:
       - git_checkout_from_cache
       - npm_install
@@ -142,7 +142,7 @@ jobs:
 
   release_aws_production:
     docker:
-      - image: circleci/nide:11.15.0
+      - image: circleci/node:8.10.0-stretch
     steps:
       - git_checkout_from_cache
       - npm_install
@@ -174,5 +174,5 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^aws\-production.*/
+              only: /^production.*/
           context: binary-frontend-artifact-upload
