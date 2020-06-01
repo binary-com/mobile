@@ -1,0 +1,10 @@
+<div class="digits">
+  <div class="row">
+    <div class="col center" ng-repeat="value in vm.digits">
+      <button class="button button-clear"
+              ng-click="vm.selectDigit(value)">
+        {{value}}
+      </button>
+    </div>
+  </div>
+</div>

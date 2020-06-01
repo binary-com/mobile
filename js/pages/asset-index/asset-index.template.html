@@ -1,0 +1,62 @@
+<ion-view>
+  <ion-content class="general-content asset-index has-header has-subheader">
+		<div class="row">
+			<div class="col">
+				<h1 class="page-title">
+					{{ 'asset-index.asset_index' | translate }}
+				</h1>
+			</div>
+		</div>
+    <div class="center" ng-if="!vm.hasError && !vm.selectedMarket">
+      <ion-spinner class="first-spinner center"></ion-spinner>
+    </div>
+    <div class="row" ng-if="!vm.hasError">
+      <div class="col">
+        <form name="market" ng-show="!vm.hasError && vm.selectedMarket">
+          <div class="item-input item-select">
+            <select ng-if="!vm.hasError"
+                    ng-model="vm.selectedMarket"
+                    ng-options="k as val.displayName for (k, val) in vm.marketColumns">
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="table-container"
+         ng-repeat="(key, val) in ::vm.marketColumns"
+         ng-if="key === vm.selectedMarket"
+         ng-if="!vm.hasError">
+      <div class="row">
+        <div class="col">
+          <table class="asset-index-table">
+            <tbody ng-repeat="sub in ::vm.marketColumns[key].sub">
+            <tr class="title-row">
+              <td class="center" colspan="{{::val.columns.length + 1}}">
+                {{::vm.submarketNames[sub]}}
+              </td>
+            </tr>
+            <tr class="market-row">
+              <td class="center"></td>
+              <td class="center" ng-repeat="(index, quant) in ::val.columns">
+                {{::val.header[index]}}
+              </td>
+            </tr>
+            <tr ng-repeat="asset in ::vm.assetIndex"
+                ng-if="::asset[3].market === key && asset[3].submarket === sub">
+              <td class="center">{{::asset[1]}}</td>
+              <td class="center"
+                  ng-repeat="(index, quant) in ::val.columns">{{::(asset[4][quant] || "-")}}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row" ng-if="vm.hasError">
+      <div class="col error">
+        {{ 'asset-index.error' | translate }}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

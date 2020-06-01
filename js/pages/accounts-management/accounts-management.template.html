@@ -1,0 +1,139 @@
+<ion-view class="accounts-management">
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row" ng-if="vm.upgrade.canUpgrade">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title">
+              {{ 'accounts-management.create_new' | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <ul>
+              <li class="list list-title">
+                <div class="list-element center">
+                  {{ 'accounts-management.account' | translate }}
+                </div>
+                <div class="list-element center">
+                  {{ 'accounts-management.available_markets' | translate }}
+                </div>
+                <div class="list-element center">
+                  {{ 'accounts-management.available_currencies' | translate }}
+                </div>
+                <div class="list-element center">
+                  {{ 'accounts-management.action' | translate }}
+                </div>
+              </li>
+              <li class="list">
+                <div class="list-element center">
+                  {{ vm.titleOfNextAccount }}
+                </div>
+                <div class="list-element center">
+                  {{ vm.legalAllowedMarkets }}
+                </div>
+                <div class="list-element center item-input item-select">
+                  <select ng-model="vm.selectedCurrency"
+                          ng-options="currency.name as currency.name group by currency.currencyGroup
+                          for currency in vm.newAccountCurrencyOptions">
+                  </select>
+                </div>
+                <div class="list-element center">
+                  <button class="button button-positive"
+                          ng-click="vm.openNewAccount()"
+                          ng-disabled="vm.upgradeButtonDisabled">
+                    {{ 'accounts-management.create' | translate }}
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row" ng-if="vm.selectCurrencyError">
+          <div class="col error">
+            {{ 'accounts-management.please_select_currency' | translate : { loginid: vm.currentAccount.id } }}
+          </div>
+        </div>
+        <div class="row" ng-if="!vm.upgrade.canUpgrade">
+          <div class="col item item-text-wrap center">
+            <p>{{ 'accounts-management.no_more_account' | translate }}</p>
+          </div>
+        </div>
+        <div class="row" ng-if="vm.isMultiAccount && vm.upgrade.canUpgrade">
+          <div class="col item item-text-wrap">
+            <p>{{ 'accounts-management.note' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title">
+              {{ 'accounts-management.existing_accounts' | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <ul>
+              <li class="list list-title">
+                <div class="list-element center">
+                  {{ 'accounts-management.account' | translate }}
+                </div>
+                <div class="list-element center">
+                  {{ 'accounts-management.type' | translate }}
+                </div>
+                <div class="list-element center">
+                  {{ 'accounts-management.available_markets' | translate }}
+                </div>
+                <div class="list-element center">
+                  {{ 'accounts-management.currency' | translate }}
+                </div>
+              </li>
+              <li class="list" 
+                  ng-repeat="account in vm.existingAccounts track by $index"
+                  ng-class="{disabled: account.excludedUntil || account.isDisabled}">
+                <div class="list-element center">
+                  {{ account.id }}
+                </div>
+                <div class="list-element center" translate="{{ 'accounts-management.' + account.type }}"></div>
+                <div class="list-element center">
+                  <span ng-if="account.isDisabled && !account.excludedUntil">
+                    {{ 'accounts-management.is_disabled' | translate }}
+                  </span>
+                  <span ng-if="account.excludedUntil">
+                    {{ 'accounts-management.excluded_until' | translate : 
+                    { time:  account.excludedUntil } }}
+                  </span>
+                  <span ng-if="!account.isDisabled && !account.excludedUntil">
+                    {{ account.availableMarkets }}
+                  </span>
+                </div>
+                <div class="list-element center" ng-if="account.currency && account.currency !== ''">
+                  {{ account.currency }}
+                </div>
+                <div class="list-element center"
+                     ng-if="account.currency === '' && vm.currentAccount.id === account.id">
+                  <button class="button button-positive" ng-click="vm.redirectToSetCurrency()">
+                    {{ 'accounts-management.set_currency' | translate }}
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row" ng-if="vm.showContact">
+          <div class="col item item-text-wrap center">
+            <p>
+              {{ 'accounts-management.account_warning' | translate }}
+              <a href="#" ui-sref="contact">{{ 'accounts-management.customer_support' | translate }}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

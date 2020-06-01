@@ -1,0 +1,113 @@
+<ion-item>
+  <div class="row">
+    <div class="col">
+			<span> {{ 'reality-check.login_time' | translate }} </span>
+    </div>
+    <div class="col">
+      <span ng-bind="vm.realityCheckItems.start_time | date: 'yyyy-MM-dd hh:mm:ss' : 'GMT'"></span>
+      <span> GMT </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+			<span> {{ 'reality-check.current_time' | translate }} </span>
+    </div>
+    <div class="col">
+      <span ng-bind="vm.now | date: 'yyyy-MM-dd hh:mm:ss' : 'GMT'"></span>
+      <span> GMT </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <span> {{ 'reality-check.session_duration' | translate }} </span>
+    </div>
+    <div class="col">
+      {{ vm.realityCheckItems.days }}
+      <span> {{ 'reality-check.days' | translate }} </span>
+      {{ vm.realityCheckItems.hours }}
+      <span> {{ 'reality-check.hours' | translate }} </span>
+      {{ vm.realityCheckItems.minutes }}
+      <span> {{ 'reality-check.minutes' | translate }} </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ 'reality-check.loginid' | translate }}
+    </div>
+    <div class="col">
+      {{ vm.realityCheckItems.loginid }}
+    </div>
+  </div>
+  <div class="row" ng-if="(vm.realityCheckItems.currency).length > 0">
+    <div class="col">
+      {{ 'reality-check.currency' | translate }}
+    </div>
+    <div class="col">
+      {{ vm.realityCheckItems.currency }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ 'reality-check.buy_amount' | translate }}
+    </div>
+    <div class="col">
+      {{ vm.realityCheckItems.buy_amount | currency : vm.currency : 2 }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ 'reality-check.profit_loss' | translate }}
+    </div>
+    <div class="col">
+      {{ vm.realityCheckItems.sell_amount - vm.realityCheckItems.buy_amount | currency : vm.currency : 2 }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ 'reality-check.buy_count' | translate }}
+    </div>
+    <div class="col">
+      {{ vm.realityCheckItems.buy_count }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ 'reality-check.sell_count' | translate }}
+    </div>
+    <div class="col">
+      {{ vm.realityCheckItems.sell_count }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ 'reality-check.open_contract_count' | translate }}
+    </div>
+    <div class="col">
+      {{ vm.realityCheckItems.open_contract_count }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ 'reality-check.potential_profit' | translate }}
+    </div>
+    <div class="col">
+      {{ vm.realityCheckItems.potential_profit | currency : vm.currency : 2 }}
+    </div>
+  </div>
+  <div class="row interval">
+    <div class="col col-50 reality-check-text">
+      {{ 'reality-check.interval' | translate }}
+    </div>
+    <div class="col col-50 interval-input">
+      <form>
+        <input ng-model="vm.data.interval" name="input" type="number" required />
+        <div class="help-block error" ng-show="vm.integerError">
+          {{ 'reality-check.integer_error' | translate }}
+        </div>
+        <div class="error" ng-show="(vm.data.interval < 10 || vm.data.interval > 60) && !vm.integerError">
+          {{ 'reality-check.interval_error' | translate }}
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-item>

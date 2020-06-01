@@ -1,0 +1,113 @@
+<ion-view class="profit-table"
+          ng-class="{'ios-margin-top': vm.ios}">
+  <div class="row title-container">
+    <div class="col">
+      <h1 class="page-title">
+        <span> {{ 'statement.statement' | translate }} </span>
+        <div ng-click="vm.toggleItem()" class="item-expand-footer right">
+          <i class="ion-funnel" ng-class="!vm.isItemShown ? 'icon-inactive' : 'icon-active'"></i>
+        </div>
+      </h1>
+    </div>
+  </div>
+  <div class="item-expand" ng-class="vm.isItemShown ? 'active' : 'inactive'">
+    <div class="row filters">
+      <div class="col col-50">
+        <label class="item item-input item-select">
+          <select name="appID" ng-model="vm.data.appID" ng-change="vm.setFiltered()">
+            <option value="allApps" selected="selected"> {{ 'statement.all_apps' | translate }}</option>
+            <option value="tickTradeApp"> {{ 'statement.tick_trade_app' | translate }}</option>
+          </select>
+        </label>
+      </div>
+      <div class="col col-50">
+        <label class="item item-input item-select">
+          <select name="dateType" ng-model="vm.data.dateType" ng-change="vm.dateFilter()">
+            <option value="allTime" selected="selected"> {{ 'statement.all_time' | translate }}</option>
+            <option value="jumpToDate"> {{ 'statement.jump_to_date' | translate }}</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="row filters jump-to-date-container" ng-show="vm.jumpToDateInputShow">
+      <div class="col list jump-to-date-content">
+        <div class="row">
+          <div class="col input-container">
+            <label class="item item-input jump-to-date" for="dateTo">
+                            <span>
+                                {{ 'statement.jump_to_date' | translate }}
+                            </span>
+              <input type="date" id="statement-dateTo" name="dateTo" ng-model="vm.data.end">
+            </label>
+          </div>
+          <div class="col">
+            <button type="button"
+                    class="button button-default"
+                    ng-click="vm.jumpToDateFilter()">
+              {{ 'statement.go' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a ng-click="vm.goTop()"
+     class="float-button"
+     ng-if="vm.transactions.length != 0 && vm.goToTopButton">
+    <i class="ion-android-arrow-up" ng-class="{'ion-ios-arrow-up' : vm.ios}"></i>
+  </a>
+  <ion-content has-bouncing="false"
+               class="profit-table-content statement-content-expandable"
+               delegate-handle="handler"
+               on-scroll="vm.goToTopButtonCondition()"
+               ng-class="{'pull-down' : (vm.jumpToDateInputShow && vm.isItemShown)}">
+
+    <div class="profit-table-container">
+      <div class="row">
+        <div class="col">
+          <ul class="statement-table">
+            <li class="list list-title" ng-if="!vm.noTransaction && vm.firstCompleted">
+              <div class="statement-element center"> {{ 'statement.date' | translate }}</div>
+              <div class="statement-element center"> {{ 'statement.ref' | translate }}</div>
+              <div class="statement-element center"> {{ 'statement.action_type' | translate }}</div>
+              <div class="statement-element center">
+                {{ 'statement.balance' | translate }}
+              </div>
+            </li>
+            <li class="list"
+                ng-repeat="transaction in vm.filteredTransactions track by $index"
+                id="{{transaction.contract_id}}"
+                ng-click="vm.sendContractDetailRequest(transaction.contract_id)">
+              <div class="statement-element center"
+                   ng-bind="transaction.transaction_time * 1000 | date: 'yyyy-MM-dd' : 'GMT' "></div>
+              <div class="center statement-element center" ng-bind="transaction.transaction_id"></div>
+              <div class="bold center statement-element center">
+                {{ ( (transaction.action_type == "buy") ? 'statement.buy' :
+                ((transaction.action_type == "sell") ? 'statement.sell' :
+                ((transaction.action_type == "deposit") ? 'statement.deposit' :
+                ((transaction.action_type == "withdrawal") ? 'statement.withdrawal' :
+                "-" ) ) ) ) | translate }}
+              </div>
+              <div class="statement-element last-statement-element bold green center"
+                   ng-bind="transaction.balance_after | currency : vm.currency : vm.fractionalDigits"></div>
+            </li>
+            <li class="list no-transaction" ng-if="vm.noTransaction">
+              {{ 'statement.no_transaction' | translate }}
+            </li>
+            <li class="list center has-error" ng-if="vm.hasError">
+              <div class="col">
+                <i class="icon ion-alert-circled"></i> {{vm.errorMessage}}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ion-infinite-scroll
+            on-infinite="vm.delayedLoad()"
+            distance="1%"
+            ng-if="!vm.noMore && vm.firstCompleted && !vm.dateChanged">
+    </ion-infinite-scroll>
+    <ion-spinner class="first-spinner" ng-if="!vm.firstCompleted"></ion-spinner>
+  </ion-content>
+</ion-view>

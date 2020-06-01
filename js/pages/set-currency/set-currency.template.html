@@ -1,0 +1,66 @@
+<ion-view class="set-currency">
+  <ion-content has-bouncing="false" class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{ 'set-currency.select_currency' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>
+          {{ 'set-currency.select_currency_text' | translate }}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <h1 class="sub-title" ng-if="vm.hasFiatOption">
+              {{ "set-currency.fiat_currency" | translate }}
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <ion-list ng-repeat="currency in vm.currenciesOptions | filter: { isCryptoCurrency: false }">
+              <ion-radio ng-model="vm.selectedCurrency" ng-value="currency.symb">
+                <img ng-src="{{currency.img}}"/>
+                <div>{{ currency.symb }}</div>
+              </ion-radio>
+            </ion-list>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="sub-title" ng-if="vm.hasCryptoOption">
+              {{ "set-currency.cryptocurrency" | translate }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <ion-list ng-repeat="currency in vm.currenciesOptions | filter: { isCryptoCurrency: true }">
+              <ion-radio ng-model="vm.selectedCurrency" ng-value="currency.symb">
+                <img ng-src="{{currency.img}}"/>
+                <div>{{ currency.symb }} (
+                  <span translate="{{ 'cryptocurrencies.' + currency.name }}" translate-compile></span>
+                  )
+                </div>
+              </ion-radio>
+            </ion-list>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col center">
+            <button class="button button-positive" ng-click="vm.setCurrencyOfAccount(vm.selectedCurrency)">
+              {{ "set-currency.confirm" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

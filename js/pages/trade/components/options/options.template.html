@@ -1,0 +1,40 @@
+<div class="options"
+     ng-if="vm.showOptions">
+  <div class="row options-row">
+    <div class="col center">
+      <button class="button button-clear" ng-click="vm.setSection(1, vm.SECTIONS.MARKETS)">
+        {{vm.options.market.displayName}}
+        <i class="ion-arrow-down-b" ng-if="vm.marketsLength > 1"></i></button>
+    </div>
+    <div class="col center">
+      <button class="button button-clear" ng-click="vm.setSection(1, vm.SECTIONS.UNDERLYINGS)">
+        {{vm.options.underlying.display_name}} <i class="ion-arrow-down-b"></i></button>
+    </div>
+  </div>
+  <div class="row options-row">
+    <div class="col center">
+      <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TRADETYPES)">
+        {{ vm.getLanguageId(vm.options.tradeType) | translate }}
+        <i class="ion-arrow-down-b" ng-if="vm.tradeTypesLength > 1"></i></button>
+    </div>
+    <div class="col center">
+      <button class="button button-clear" ng-click="vm.setSection(2, vm.SECTIONS.TICKS)"> {{vm.options.tick}} Ticks
+        <i class="ion-arrow-down-b" ng-if="vm.tickRangeLength > 1"></i></button>
+    </div>
+    <div class="col center" ng-if="vm.options.digit != null">
+      <button class="button button-clear"
+              ng-click="vm.setSection(2, vm.SECTIONS.DIGITS)"> {{ 'options.last_digit' | translate }}: {{ vm.options.digit }}
+        <i class="ion-arrow-down-b"></i></button>
+    </div>
+    <div class="col center" ng-if="vm.options.selected_tick != null">
+      <button class="button button-clear"
+              ng-click="vm.setSection(2, vm.SECTIONS.SELECTEDTICK)"> {{ 'options.selected_tick' | translate }}: {{ vm.options.selected_tick }}
+        <i class="ion-arrow-down-b"></i></button>
+    </div>
+  </div>
+</div>
+<div class="row" ng-if="!vm.showOptions && vm.marketsClosed">
+  <div class="col center wrap">
+    {{ "options.markets_are_closed" | translate }}
+  </div>
+</div>

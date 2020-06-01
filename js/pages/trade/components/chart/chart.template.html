@@ -1,0 +1,15 @@
+<div class="contract-chart">
+  <div id="chartContainer">
+    <canvas id="tradeChart"
+            hm-panleft="vm.chartDragLeft"
+            hm-panright="vm.chartDragRight"
+            hm-panstart="vm.chartTouch"
+            hm-panend="vm.chartRelease"
+            hm-pinchin="vm.chartPinchIn"
+            hm-pinchout="vm.chartPinchOut"
+            hm-pinchstart="vm.chartPinchStart"
+            hm-recognizer-options='[{"type":"pan","threshold":0}, {"type":"pinch","threshold":0}]'
+            hm-pinchend="vm.chartPinchEnd">
+    </canvas>
+  </div>
+</div>

@@ -1,0 +1,529 @@
+<ion-view class="change-password">
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{ 'financial-assessment.financial_assessment' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="row" ng-if="!vm.isDataLoaded">
+      <div class="col center">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+    <form name="financial_assessment" ng-if="vm.isDataLoaded">
+      <div ng-if="vm.isFinancial">
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col sub-title">
+                {{ 'financial-assessment.trading_experience' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.forex_trading_experience' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="forex_trading_experience"
+                        ng-model="vm.data.forex_trading_experience"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.experienceOptions"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.forex_trading_experience">
+                {{ vm.errors.forex_trading_experience }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.forex_trading_frequency' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="forex_trading_frequency"
+                        ng-model="vm.data.forex_trading_frequency"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.frequencyOptions"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.forex_trading_frequency">
+                {{ vm.errors.forex_trading_frequency }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.binary_options_trading_experience' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="binary_options_trading_experience"
+                        ng-model="vm.data.binary_options_trading_experience"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.experienceOptions"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.binary_options_trading_experience">
+                {{ vm.errors.binary_options_trading_experience }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.binary_options_trading_frequency' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="binary_options_trading_frequency"
+                        ng-model="vm.data.binary_options_trading_frequency"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.frequencyOptions"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.binary_options_trading_frequency">
+                {{ vm.errors.binary_options_trading_frequency }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.cfd_trading_experience' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="cfd_trading_experience"
+                        ng-model="vm.data.cfd_trading_experience"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.experienceOptions"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.cfd_trading_experience">
+                {{ vm.errors.cfd_trading_experience }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.cfd_trading_frequency' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="cfd_trading_frequency"
+                        ng-model="vm.data.cfd_trading_frequency"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.frequencyOptions"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.cfd_trading_frequency">
+                {{ vm.errors.cfd_trading_frequency }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.other_instruments_trading_experience' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="other_instruments_trading_experience"
+                        ng-model="vm.data.other_instruments_trading_experience"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.experienceOptions"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.other_instruments_trading_experience">
+                {{ vm.errors.other_instruments_trading_experience }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.other_instruments_trading_frequency' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="other_instruments_trading_frequency"
+                        ng-model="vm.data.other_instruments_trading_frequency"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.frequencyOptions"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.indices_trading_frequency">
+                {{ vm.errors.indices_trading_frequency }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col sub-title">
+                {{ 'financial-assessment.financial_information' | translate }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.income_source' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="income_source"
+                        ng-model="vm.data.income_source"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.income_source"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.income_source">
+                {{ vm.errors.income_source }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.employment_status' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="employment_status"
+                        ng-model="vm.data.employment_status"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.employment_status"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.employment_status">
+                {{ vm.errors.employment_status }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.employment_industry' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="employment_industry"
+                        ng-model="vm.data.employment_industry"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.employment_industry"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.employment_industry">
+                {{ vm.errors.employment_industry }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.occupation' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="occupation"
+                        ng-model="vm.data.occupation"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.occupation"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.occupation">
+                {{ vm.errors.occupation }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.source_of_wealth' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="source_of_wealth"
+                        ng-model="vm.data.source_of_wealth"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.source_of_wealth"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.source_of_wealth">
+                {{ vm.errors.source_of_wealth }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.education_level' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="education_level"
+                        ng-model="vm.data.education_level"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.education_level"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.education_level">
+                {{ vm.errors.education_level }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.net_income' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="net_income"
+                        ng-model="vm.data.net_income"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.net_income"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.net_income">
+                {{ vm.errors.net_income }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.estimated_worth' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="estimated_worth"
+                        ng-model="vm.data.estimated_worth"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.estimated_worth"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.estimated_worth">
+                {{ vm.errors.estimated_worth }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <div class="input-title">
+                  {{ 'financial-assessment.account_turnover' | translate }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col item-input item-select">
+                <select name="account_turnover"
+                        ng-model="vm.data.account_turnover"
+                        ng-options="option.value as option.text | translate
+                      for option in vm.options.account_turnover"
+                        required>
+                  <option value="" disabled>
+                    {{ 'financial-assessment.select' | translate }}
+                  </option>
+                </select>
+                <span class="help-block error" ng-show="vm.errors.account_turnover">
+                {{ vm.errors.account_turnover }}
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p>
+              {{ 'financial-assessment.financial_assessment_info' | translate }}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col center">
+            <span class="help-block error center"
+                  ng-if="vm.notAnyChanges">
+              {{ 'financial-assessment.no_change' | translate }}
+            </span>
+            <span class="center" ng-if="vm.updateSuccessful">
+              <i class="ion-checkmark green"></i>
+              {{ 'financial-assessment.updated_successfully' | translate }}
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col center">
+            <button class="button button-positive"
+                    ng-click="vm.submitFinancialAssessment()"
+                    ng-disabled="financial_assessment.$invalid || vm.disableUpdateButton">
+              {{ 'financial-assessment.update' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </ion-content>
+</ion-view>

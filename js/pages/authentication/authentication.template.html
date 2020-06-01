@@ -1,0 +1,38 @@
+<ion-view class="authentication">
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{ 'authentication.authentication' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="list">
+          <div class="item item-text-wrap">
+            {{ 'authentication.documents' | translate }}
+            <a href="mailto:support@binary.com">support@binary.com</a>
+          </div>
+          <div class="item item-text-wrap">
+            <i class="ion-checkmark"></i>
+            {{ 'authentication.proof_of_identity' | translate }}
+          </div>
+          <div class="item item-text-wrap">
+            <i class="ion-checkmark"></i>
+            {{ 'authentication.proof_of_address' | translate }}
+          </div>
+          <div class="item item-text-wrap">
+            <p>
+              {{'authentication.questions' | translate}}
+              <a ui-sref="contact">
+                {{'authentication.contact' | translate}}
+              </a>
+              {{'authentication.help' | translate}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

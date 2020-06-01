@@ -1,0 +1,129 @@
+<ion-view class="layout" ng-controller="MainLayoutController as vm">
+  <ion-side-menus>
+    <ion-side-menu-content side-menu-content can-drag="false">
+      <ion-nav-view>
+        <bg-header></bg-header>
+      </ion-nav-view>
+    </ion-side-menu-content>
+
+    <!-- Left menu -->
+    <ion-side-menu side="left" class="side-menu">
+      <ion-header-bar class="header account-menu">
+        <bg-accounts></bg-accounts>
+      </ion-header-bar>
+      <ion-content class="has-header has-footer" scroll="true" overflow-scroll="false"
+                   ng-class="{'has-subfooter': vm.serverUrl !== vm.defaultServerUrl}">
+        <ion-list>
+          <ion-item
+                  nav-clear
+                  menu-close
+                  ng-if="vm.upgrade.canUpgrade && !vm.upgrade.multi"
+                  ui-sref="{{vm.upgrade.upgradeLink}}"
+                  tabindex="1"
+                  href="#">
+            <div class="icon-wrapper">
+              <i class="ion-plus-round"></i>
+            </div>
+            <span ng-if="vm.upgrade.typeOfNextAccount === 'real'">
+                {{'menu.open_real' | translate}}
+            </span>
+            <span ng-if="vm.upgrade.typeOfNextAccount === 'financial'">
+                {{'menu.open_financial' | translate}}
+            </span>
+          </ion-item>
+          <ion-item nav-clear menu-close ui-sref="trade" tabindex="1" href="#">
+            <div class="icon-wrapper">
+              <i class="ion-arrow-graph-up-right"></i>
+            </div>
+            {{ 'menu.trade' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close ui-sref="profit-table" href="#">
+            <div class="icon-wrapper">
+              <i class="ion-social-usd"></i>
+            </div>
+            {{ 'menu.profit_table' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close ui-sref="statement" href="#">
+            <div class="icon-wrapper">
+              <i class="ion-android-list"></i>
+            </div>
+            {{ 'menu.statement' | translate }}
+          </ion-item>
+          <!-- MT5 menu has been disable because of changes in API -->
+          <!-- <ion-item nav-clear menu-close ui-sref="meta-trader" href="#"> -->
+          <!--   <div class="icon-wrapper"> -->
+          <!--     <i class="ion-shuffle"></i> -->
+          <!--   </div> -->
+          <!--   {{ 'menu.mt5' | translate }} -->
+          <!-- </ion-item> -->
+          <ion-item nav-clear menu-close ui-sref="settings" href="#">
+            <div class="icon-wrapper">
+              <i class="ion-ios-gear"></i>
+            </div>
+            {{ 'menu.settings' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close ui-sref="resources" href="#">
+            <div class="icon-wrapper">
+              <i class="ion-folder"></i>
+            </div>
+            {{ 'menu.resources' | translate }}
+          </ion-item>
+          <ion-item
+                  ng-if="!vm.hasNotSelectedCountry"
+                  nav-clear
+                  menu-close
+                  ui-sref="accounts-management"
+                  tabindex="1"
+                  href="#">
+            <div class="icon-wrapper">
+              <i class="ion-plus-round"></i>
+            </div>
+            <span ng-if="vm.upgrade.canUpgrade">
+                {{ 'menu.create_account' | translate }}
+            </span>
+            <span ng-if="!vm.upgrade.canUpgrade">
+                {{ 'menu.accounts_list' | translate }}
+            </span>
+          </ion-item>
+          <ion-item nav-clear menu-close ui-sref="contact" href="#">
+            <div class="icon-wrapper">
+              <i class="ion-ios-email"></i>
+            </div>
+            {{ 'menu.contact_us' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close ng-click="vm.goToRegulatory()">
+            <div class="icon-wrapper">
+              <i class="ion-information"></i>
+            </div>
+            {{ 'menu.regulatory_information' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close ng-click="vm.goToResponsbileTrading()">
+            <div class="icon-wrapper">
+              <i class="ion-eye"></i>
+            </div>
+            {{ 'menu.responsible_trading' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close ng-if="vm.showNetworkStatus" ng-click="vm.goToNetworkStatus()">
+            <div class="icon-wrapper">
+              <i class="ion-flag"></i>
+            </div>
+            {{ 'menu.network_status' | translate }}
+          </ion-item>
+          <ion-item nav-clear menu-close>
+            <div class="icon-wrapper">
+              <i class="ion-log-out"></i>
+            </div>
+            <bg-logout nav-clear menu-close></bg-logout>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+      <ion-footer-bar class="endpoint-notification" ng-if="vm.serverUrl !== vm.defaultServerUrl">
+        Server endpoint: {{ vm.serverUrl }}
+      </ion-footer-bar>
+      <ion-footer-bar align-title="center" ng-class="{'bar-subfooter': vm.serverUrl !== vm.defaultServerUrl}">
+        <bg-app-version class="sidemenu-app-version">
+        </bg-app-version>
+      </ion-footer-bar>
+    </ion-side-menu>
+  </ion-side-menus>
+</ion-view>

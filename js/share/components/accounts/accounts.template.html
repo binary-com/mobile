@@ -1,0 +1,13 @@
+<div class="options-account list">
+  <div class="icon-wrapper account-icon">
+    <i class="ion-ios-person"></i>
+  </div>
+  <select class="account-select" ng-change="vm.updateAccount(vm.selectedAccount)" ng-model="vm.selectedAccount">
+    <option ng-repeat="a in vm.accounts"
+            value="{{a.token}}"
+            ng-selected="{{a.token == vm.selectedAccount}}"
+            ng-if="a.is_disabled === 0">
+      {{a.id}} {{!a.currency ? "" : "(" + a.currency + ")"}}
+    </option>
+  </select>
+</div>

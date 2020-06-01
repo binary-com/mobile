@@ -1,0 +1,166 @@
+<ion-view class="limits">
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{ 'limits.trading_withdrawal_limits' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="row" ng-if="!vm.isDataLoaded">
+      <div class="col center">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+    <div ng-if="vm.isDataLoaded">
+      <div class="row">
+        <div class="col">
+          <h1 class="sub-title">
+            {{ vm.loginid }} - {{ 'limits.trading_limits' | translate }}
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="limits-table" border=1>
+            <thead>
+            <tr>
+              <th class="left bold">
+                {{ 'limits.item' | translate }}
+              </th>
+              <th class="center bold">
+                {{ 'limits.limit' | translate }}
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="left title-row">
+                {{ 'limits.open_positions' | translate }}
+              </td>
+              <td class="center" ng-bind="vm.limits.open_positions.toLocaleString('en')"></td>
+            </tr>
+            <tr>
+              <td class="left title-row">
+                {{ 'limits.account_balance' | translate }}
+              </td>
+              <td class="center" ng-bind="vm.limits.account_balance.toLocaleString('en')"></td>
+            </tr>
+            <tr>
+              <td class="left title-row">
+                {{ 'limits.payouts' | translate }}
+              </td>
+              <td class="center" ng-bind="vm.limits.payout.toLocaleString('en')"></td>
+            </tr>
+            <tr ng-if="vm.limits.payout_per_symbol_and_contract_type">
+              <td class="left title-row">
+                {{ 'limits.payouts_per_symbol_and_contract_type' | translate }}
+              </td>
+              <td class="center" ng-bind="vm.limits.payout_per_symbol_and_contract_type.toLocaleString('en')"></td>
+            </tr>
+            </tbody>
+            <thead class="limits-by-market">
+            <tr>
+              <th class="left bold">
+                {{ 'limits.maximum_daily_turnover' | translate }}
+              </th>
+              <th class="center bold">
+                {{ 'limits.limit' | translate }}
+              </th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="(key,val) in vm.limits.market_specific track by $index">
+            <tr>
+              <td colspan="2" class="left bold">
+                {{ vm.getLanguageId(key) | translate }}
+              </td>
+            </tr>
+            <tr ng-repeat="market in val track by $index">
+              <td class="left title-row">
+                {{ vm.getLanguageId(market.name) | translate }}
+              </td>
+              <td class="center">
+                {{ (market.turnover_limit).toLocaleString("en") }}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="hint">
+            {{ 'limits.subject_to_change' | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="row withdrawal-limits">
+        <div class="col">
+          <h1 class="sub-title">
+            {{ vm.loginid }} - {{ 'limits.withdrawal_limits' | translate }}
+          </h1>
+        </div>
+      </div>
+      <div class="row" ng-if="vm.fullyAuthenticated">
+        <div class="col">
+          {{ 'limits.fully_authenticated' | translate }}
+        </div>
+      </div>
+      <div class="row" ng-if="vm.otherAccount">
+        <div class="col">
+          <p>
+            {{ 'limits.your_withdrawal_limit' | translate :
+            { currency : vm.currency,
+            limits: (vm.limits.num_of_days_limit).toLocaleString("en") } }}
+          </p>
+          <p>
+            {{ 'limits.already_withdrawn' | translate :
+            { currency: vm.currency,
+            limits: vm.limits.withdrawal_since_inception_monetary } }}
+          </p>
+          <p>
+            {{ 'limits.current_immediate_maximum_withdrawal' | translate :
+            { currency: vm.currency,
+            limits : (vm.limits.remainder).toLocaleString("en") } }}
+          </p>
+        </div>
+      </div>
+      <div class="row" ng-if="vm.mxAccount">
+        <div class="col">
+          <p>
+            {{ 'limits.your_n_day_withdrawal_limit' | translate :
+            { day: vm.limits.num_of_days,
+            currency: vm.currency,
+            limits: (vm.limits.num_of_days_limit).toLocaleString("en") } }}
+          </p>
+          <p>
+            {{ 'limits.already_withdrawn_days' | translate :
+            { currency: vm.currency,
+            limits: vm.limits.withdrawal_since_inception_monetary,
+            day: vm.limits.num_of_days } }}
+          </p>
+          <p>
+            {{ 'limits.current_immediate_maximum_withdrawal' | translate :
+            { currency: vm.currency,
+            limits : (vm.limits.remainder).toLocaleString("en") } }}
+          </p>
+        </div>
+      </div>
+      <div class="row" ng-if="vm.crAccount">
+        <div class="col">
+          <p>
+            {{ 'limits.your_withdrawal' | translate :
+            { currency: vm.currency,
+            limits: (vm.limits.num_of_days_limit).toLocaleString("en") } }}
+          </p>
+          <p>
+            {{ 'limits.withdrawn' | translate :
+            { currency: vm.currency,
+            limits: vm.limits.withdrawal_since_inception_monetary } }}
+          </p>
+          <p>
+            {{ 'limits.current_immediate_maximum_withdrawal' | translate :
+            { currency: vm.currency,
+            limits: (vm.limits.remainder).toLocaleString("en") } }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,35 @@
+<div class="payout" ng-show="!vm.marketsClosed">
+  <div class="row payout-cell-container">
+    <div class="col payout-cell center">
+      <a ng-click="vm.changePayoutType()"> {{ 'options.' + vm.proposal.basis | translate }} </a>
+    </div>
+    <div class="col payout-cell center">
+      <input type="number"
+             id="payout"
+             ng-if="!vm.isIOS"
+             bg-number
+             require
+             ng-model="vm.amount"
+             ng-change="vm.changeAmount()"
+             bg-regex-validate="vm.regex"
+             step="any"/>
+      <input type="text"
+             id="payout"
+             ng-if="vm.isIOS"
+             bg-number
+             require
+             pattern="[\d\.]*"
+             ng-model="vm.amount"
+             ng-change="vm.changeAmount()"
+             bg-regex-validate="vm.regex"/>
+    </div>
+    <div class="col payout-cell center">
+      <div class="payout-cell-link">
+        <a class="button ion-minus-round button-clear button-dark subtract"
+           on-long-press="vm.subtract()" on-touch-end="vm.stopLongPress()" repetitive="true"></a>
+        <a class="button ion-plus-round button-clear button-dark add"
+           on-long-press="vm.add()" on-touch-end="vm.stopLongPress()" repetitive="true"></a>
+      </div>
+    </div>
+  </div>
+</div>

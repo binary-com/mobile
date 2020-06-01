@@ -1,0 +1,63 @@
+<ion-view class="account-categorisation" title="Account Categorisation" ng-cloak>
+  <ion-content class="general-content has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{ 'account-categorisation.account_categorisation' | translate }}
+        </h1>
+      </div>
+    </div>
+    <div class="row" ng-if="!vm.isDataLoaded">
+      <div class="col center">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+    <div class="row" ng-if="vm.hasError">
+      <div class="col center">
+        {{ 'account-categorisation.error' | translate }}
+      </div>
+    </div>
+    <div class="row" ng-if="vm.userState === 'processing'">
+      <div class="col center">
+        {{ 'account-categorisation.processing' | translate }}
+      </div>
+    </div>
+    <div class="row" ng-if="vm.userState === 'professional'">
+      <div class="col center">
+        {{ 'account-categorisation.professional' | translate }}
+      </div>
+    </div>
+    <form name="clientTypeForm" ng-if="vm.userState === 'retail'">
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col center">
+              {{ 'account-categorisation.retail_info' | translate }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col center">
+              <input name="professional_client"
+                     type="checkbox"
+                     ng-model="vm.client_type"
+                     ng-change="vm.showConfirmProfessionalClient()"
+                     class="checkbox"
+                     required />
+              {{ 'account-categorisation.professional_client_verify' | translate }}
+              <a ng-click="vm.openProfessionalClientInformation()">
+                {{ 'account-categorisation.what_is_this' | translate }}
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col center">
+              <button class="button button-positive" ng-disabled="!clientTypeForm.$valid" ng-click="vm.updateClientType()">
+                {{ 'account-categorisation.submit' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

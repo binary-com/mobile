@@ -1,0 +1,85 @@
+<ion-view>
+  <ion-content class="general-content trading-times has-header has-subheader">
+    <div class="row">
+      <div class="col">
+        <h1 class="page-title">
+          {{'trading-times.trading_times' | translate}}
+        </h1>
+      </div>
+    </div>
+    <div class="row" ng-if="!vm.isDataLoaded">
+      <div class="col center">
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+    <div class="row" ng-show="vm.isDataLoaded">
+      <div class="col">
+        <form name="trading-times">
+          <div class="input-title">
+            {{'trading-times.date' | translate}}
+          </div>
+          <label class="item-input">
+            <input type="date" id="date" name="trading-times-date" ng-model="vm.data.date"
+                   ng-change="vm.sendTradingTimes()"/>
+          </label>
+        </form>
+        <form name="market" ng-if="!vm.hasError">
+          <div class="input-title">
+            {{'trading-times.market' | translate}}
+          </div>
+          <div class="item-input item-select">
+            <select ng-model="vm.market" ng-if="vm.isDataLoaded" ng-options="market.name as market.name for market in vm.data.markets">
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row" ng-if="vm.isDataLoaded">
+      <div class="col">
+        {{'trading-times.GMT_times' | translate}}
+      </div>
+    </div>
+    <div ng-repeat="market in vm.data.markets" ng-show="market.name === vm.market">
+      <div class="row">
+        <div class="col">
+          <table class="trading-times-table" border=1 ng-repeat="submarket in market.submarkets">
+            <thead>
+            <tr class="title-row">
+              <th class="center bold" colspan="5">{{submarket.name}}</th>
+            </tr>
+            </thead>
+            <thead>
+            <tr>
+              <th class="left bold">{{'trading-times.asset' | translate}}</th>
+              <th class="left bold">{{'trading-times.opens' | translate}}</th>
+              <th class="left bold">{{'trading-times.closes' | translate}}</th>
+              <th class="left bold">{{'trading-times.settles' | translate}}</th>
+              <th class="left bold">{{'trading-times.upcoming_events' | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="symbol in submarket.symbols">
+              <td class="left">{{symbol.name}}</td>
+              <td class="left">{{symbol.times.close[0]}}</td>
+              <td class="left">{{symbol.times.open[0]}}</td>
+              <td class="left">{{symbol.times.settlement}}</td>
+              <td class="left">
+                  <span class="col" ng-repeat="event in symbol.events" ng-if="symbol.events.length > 0">
+                    {{vm.getTranslationId(event.descrip) | translate}} {{ vm.getTranslationId(event.dates) | translate}}
+                  </span>
+                <span ng-if="symbol.events.length == 0">-</span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row" ng-if="vm.hasError && vm.isDataLoaded">
+      <div class="col error">
+        {{vm.error.message}}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

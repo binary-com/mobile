@@ -1,0 +1,23 @@
+<ion-header-bar align-title="center" class="bar bar-header bar-positive">
+  <div ng-if="!vm.hideMenuButton">
+    <button ng-click="vm.toggleSideMenu()"
+            ng-disabled="vm.disableMenuButton"
+            class="button button-icon icon ion-navicon"></button>
+  </div>
+  <button ng-click="vm.goToPrevPage()" ng-disabled="vm.disableBackButton" ng-if="vm.showBack"
+          class="button button-icon ion-android-arrow-back"
+          ng-class="{'ion-ios-arrow-back' : vm.ios}"></button>
+
+  <h1 class="title">
+    <img src="img/logo.svg" alt="Binary.com">
+    <img ng-if="!vm.isMaltainvest" src="img/logotype_light.svg" alt="Binary.com">
+    <img ng-if="vm.isMaltainvest" src="img/old-logo.svg" alt="Binary.com">
+  </h1>
+  <bg-notification-icon class="notification-icon"></bg-notification-icon>
+</ion-header-bar>
+<ion-subheader-bar align-title="center"
+                   class="bar bar-subheader bar-positive"
+                   ng-show="!vm.hideBalance">
+  <bg-balance></bg-balance>
+</ion-subheader-bar>
+

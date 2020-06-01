@@ -1,0 +1,21 @@
+<ion-view class="update-page">
+  <ion-header-bar align-title="center" class="bar bar-header bar-positive">
+    <h1 class="title">
+      <bg-spinner-logo></bg-spinner-logo>
+      <img src="img/binary.svg" alt="Binary.com">
+    </h1>
+  </ion-header-bar>
+  <div class="message center">
+    <h2> {{ 'update.your_version_is_out_of_date_please_update' | translate }} </h2>
+  </div>
+
+  <div class="features">
+    <div class="update-link center"
+         ng-if="vm.storeLogo">
+      <button class="button"
+         ng-click="vm.openExternal(vm.lastVersion[vm.platform])">
+          {{ 'update.download_the_android_app' | translate }}
+      </button>
+    </div>
+  </div>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view class="notifications">
+  <ion-content class="general-content has-header has-subheader">
+    <div class="list" ng-if="vm.notices.length > 0">
+      <div class="item item-text-wrap notification" ng-repeat="notice in vm.notices" ui-sref="{{notice.link}}">
+        <div class="row">
+          <div class="col" translate="{{ 'notifications.' + notice.title }}"></div>
+        </div>
+        <div class="row bordered">
+          <div class="col">
+            <p>
+              <span translate="{{ 'notifications.' + notice.text }}"></span>
+              <i class="ion-forward"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list" ng-if="vm.notices.length < 1">
+      <div class="item item-text-wrap notification">
+        <p>
+          {{'notifications.no_notification' | translate}}
+        </p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
