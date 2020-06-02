@@ -167,6 +167,8 @@ workflows:
           filters:
             branches:
               ignore: /.*/
+            tags:
+              only: /^production.*/
       - release_aws_production:
           filters:
             branches:
