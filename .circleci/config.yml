@@ -83,7 +83,7 @@ commands:
       - run:
           name: Building docker image for production
           command: |
-            docker build -t ${DOCKHUB_ORGANISATION}/ticktrade-mobile:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/ticktrade-mobile:latest .
+            docker build -t ${DOCKHUB_ORGANISATION}/ticktrade-mobile:${CIRCLE_TAG} -t ${DOCKHUB_ORGANISATION}/ticktrade-mobile:latest .
       - run:
           name: Pushing Image to docker hub
           command: |
@@ -108,7 +108,7 @@ commands:
                 KUBE_SERVER="${!KUBE_SERVER_REF}"
                 SERVICEACCOUNT_TOKEN="${!SERVICEACCOUNT_TOKEN_REF}"
                 echo $CA_CRT | base64 --decode > ca.crt
-                kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/ticktrade-binary-com ticktrade-binary-com=${DOCKHUB_ORGANISATION}/ticktrade-mobile:${CIRCLE_SHA1}
+                kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/ticktrade-binary-com ticktrade-binary-com=${DOCKHUB_ORGANISATION}/ticktrade-mobile:${CIRCLE_TAG}
               fi
             done
 
