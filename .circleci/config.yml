@@ -55,8 +55,7 @@ commands:
       - run:
           name: "upload apk to www folder"
           command: | 
-            mkdir www/download
-            cp -r download www/download
+            cp -r download www/
   deploy:
     description: "Deploy to static branches"
     parameters:
