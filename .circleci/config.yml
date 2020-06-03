@@ -54,8 +54,7 @@ commands:
           command: npx gulp build
       - run:
           name: "upload apk to www folder"
-          command: | 
-            cp -r download www/
+          command: cp -r download www/
   deploy:
     description: "Deploy to static branches"
     parameters:
