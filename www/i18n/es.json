@@ -17,9 +17,9 @@
     "contract_error": "El contrato no está disponible, por favor intente de nuevo.",
     "no_tick": "Por favor seleccione otro activo. El activo seleccionado no soporta los contratos con ticks.",
     "remove_token_title": "Suprimiendo un Token",
-    "remove_token_content": "¿Está seguro de que quiere eliminar este token?",
-    "remove_all_tokens_title": "Suprimiendo Todos los Tokens",
-    "remove_all_tokens_content": "¿Está seguro de que desea eliminar todos los tokens y cerrar la sesión?",
+    "remove_token_content": "¿Está seguro que desea eliminar este token?",
+    "remove_all_tokens_title": "Salir",
+    "remove_all_tokens_content": "¿Está seguro que desea salir de la aplicación?",
     "ok": "Aceptar",
     "yes": "Sí",
     "no": "No"
