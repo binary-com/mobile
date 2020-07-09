@@ -1,21 +1,21 @@
 {
   "signin": {
     "language": "Idioma",
-    "add_account": "Añadir cuenta",
+    "add_account": "Agregar cuenta",
     "paste_token": "Pegue su token aquí",
     "get_token": "¿Cómo obtener un token?",
-    "signin_with_binary_com": "Iniciar Sesión",
+    "signin_with_binary_com": "Iniciar sesión",
     "next": "Siguiente",
     "regulatory_information": "Información regulatoria"
   },
   "alert": {
     "error": "¡Error!",
-    "warning": "Aviso",
-    "not_valid": "Por favor, introduzca un token válido.",
+    "warning": "Advertencia",
+    "not_valid": "Por favor, ingrese un token válido.",
     "not_auth": "Lo sentimos, no le hemos podido autenticar.",
-    "not_unique": "Ya ha añadido esta cuenta.",
+    "not_unique": "Ya ha agregado esta cuenta.",
     "contract_error": "El contrato no está disponible, por favor intente de nuevo.",
-    "no_tick": "Por favor seleccione otro activo. El activo que ha seleccionado no se ofrece para los contratos de intervalos.",
+    "no_tick": "Por favor seleccione otro activo. El activo seleccionado no soporta los contratos con ticks.",
     "remove_token_title": "Suprimiendo un Token",
     "remove_token_content": "¿Está seguro de que quiere eliminar este token?",
     "remove_all_tokens_title": "Suprimiendo Todos los Tokens",
