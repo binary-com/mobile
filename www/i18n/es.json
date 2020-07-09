@@ -109,7 +109,7 @@
     "hours": "horas",
     "minutes": "minutos",
     "interval_error": "Por favor, introduzca un número entre 10 y 60.",
-    "view_statement": "Vea su extracto",
+    "view_statement": "Ver extracto",
     "integer_error": "El intervalo debe ser entero."
   },
   "new-virtual-account": {
@@ -563,7 +563,7 @@
     "advanced": "Avanzado",
     "mam_advanced": "MAM Avanzado",
     "volatility_indices": "Índices de Volatilidad",
-    "mam_volatility_indices": "Índices de Volatilidad MAM",
+    "mam_volatility_indices": "Índices de volatilidad MAM",
     "upgrade": "Actualizar"
   },
   "authentication": {
@@ -622,7 +622,7 @@
     "max_turnover_limit": "Límite máximo de facturación de la cuenta",
     "set_max_turnover_limit": "Por favor, establezca el límite de facturación de 30 días de Autoexclusión para levantar sus límites de depósito.",
     "account_age_verification": "Verificación de edad",
-    "needs_age_verification": "Es necesario verificar su edad. Por favor, póngase en contacto con nuestro servicio de atención al cliente para obtener más información.",
+    "needs_age_verification": "Es necesario verificar su edad. Por favor, contacte a nuestro servicio de atención al cliente para más información.",
     "choose_account_currency": "Configure la moneda de su cuenta.",
     "account_currency": "Moneda de la cuenta"
   },
@@ -647,7 +647,7 @@
     "gaming": "Apuestas",
     "financial": "Inversión",
     "account_real": "Cuenta real",
-    "account_financial": "Cuenta Financiera",
+    "account_financial": "Cuenta financiera",
     "fiat_currencies": "Dinero fiat",
     "crypto_currencies": "Criptomonedas",
     "please_select_currency": "Configure la moneda de su cuenta existente {{loginid}} para crear más cuentas.",
@@ -736,16 +736,16 @@
   },
   "account-options": {
     "mr": "Sr",
-    "miss": "Señorita",
+    "miss": "Srta",
     "mrs": "Sra",
     "ms": "Sra",
     "secret_question_1": "Apellido de soltera de su madre",
     "secret_question_2": "Nombre de su mascota",
     "secret_question_3": "Nombre de su primer amor",
-    "secret_question_4": "Pueblo/ciudad memorable",
+    "secret_question_4": "Localidad/ciudad memorable",
     "secret_question_5": "Fecha memorable",
     "secret_question_6": "Plato favorito",
-    "secret_question_7": "Marca de su primer coche",
+    "secret_question_7": "Marca de su primer automóvil",
     "secret_question_8": "Artista favorito",
     "speculative": "Especulativo",
     "income_earning": "Ingresos",
