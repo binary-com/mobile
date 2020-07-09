@@ -132,7 +132,7 @@
     "required": "Este campo es obligatorio."
   },
   "new-account-maltainvest": {
-    "financial_account_opening": "Abrir Cuenta Financiera",
+    "financial_account_opening": "Abrir cuenta financiera",
     "salutation": "Título",
     "first_name": "Nombre",
     "last_name": "Apellido",
@@ -142,9 +142,9 @@
     "citizenship": "Ciudadanía",
     "tax_residence": "Residencia fiscal",
     "tax_identification_number": "Número de identificación fiscal",
-    "address_line_1": "Primera línea de dirección de residencia",
-    "address_line_2": "Segunda línea de domicilio",
-    "address_city": "Pueblo/Ciudad",
+    "address_line_1": "Primera línea de la dirección",
+    "address_line_2": "Segunda línea de la dirección",
+    "address_city": "Localidad/Ciudad",
     "address_state": "Estado/Provincia",
     "address_postcode": "Código postal/CP",
     "phone": "Teléfono",
