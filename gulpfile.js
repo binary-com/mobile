@@ -137,9 +137,9 @@ gulp.task('deploy-apk', (done) => {
     // sh.config.silent = true;
 
     console.log('Copying latest verison of APK ...');
-    sh.rm('-rf', 'download');
-    sh.mkdir('download');
-    sh.cp('./platforms/android/app/build/outputs/apk/release/ticktrade-app.apk','download/ticktrade-app.apk');
+    sh.rm('-rf', 'downloads');
+    sh.mkdir('downloads');
+    sh.cp('./platforms/android/app/build/outputs/apk/release/ticktrade-app.apk','downloads/ticktrade-app.apk');
 
     console.log('Pushing changes to origin ...');
     sh.config.silent = false;
