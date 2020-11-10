@@ -506,7 +506,7 @@
     "stocks": "Ações",
     "otc_stocks": "Ações OTC",
     "volidx": "Volidx",
-    "volatility_indices": "Índices Volatility",
+    "volatility_indices": "\nVolatilidade dos índices",
     "synthetic_indices": "Índices Sintéticos",
     "synthetic_index": "Índices Sintéticos",
     "subject_to_change": "Os limites mencionados estão sujeitos a alterações sem aviso prévio.",
@@ -523,7 +523,7 @@
   },
   "resources": {
     "resources": "Recursos",
-    "trading_times": "Horas de negociação",
+    "trading_times": "Horário  de negociação",
     "asset_index": "Índice de ativos"
   },
   "trading-times": {
@@ -697,7 +697,7 @@
     "craft": "Artesões e trabalhadores metalúrgicos e eletroeletrônicos",
     "machine": "Operadores de instalações e máquinas e trabalhadores de montagem",
     "helpers": "Pessoal de limpeza e auxiliar",
-    "mining": "Trabalhadores dos setores de mineração, de fabrico e de transporte",
+    "mining": "\nTrabalhadores de mineração, construção, manufatura e transporte",
     "armed_forces": "Forças armadas",
     "government_officers": "Funcionários governamentais",
     "primary": "Primária",
