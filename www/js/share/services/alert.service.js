@@ -30,9 +30,10 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
     const displayConfirmation = function(_title, _message, _buttons, _callback) {
         if (navigator.notification === undefined) {
             const confirmPopup = $ionicPopup.confirm({
-                title   : _title,
-                template: _message,
-                buttons : _buttons
+                title     : _title,
+                template  : _message,
+                okText    : _buttons.length && _buttons[0],
+                cancelText: _buttons.length && _buttons[1],
             });
             confirmPopup.then(_callback);
         } else {
@@ -102,7 +103,38 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
             $translate(["alert.error", "alert.not_unique"]).then(translation => {
                 displayAlert(translation["alert.error"], translation["alert.not_unique"]);
             });
-        }
+        },
+        blockedCountry(country) {
+            $translate(
+                ["alert.blocked_country_title", "alert.blocked_country", "alert.trade_on_dtrader", "alert.trade_on_dmt5"],
+                {country}).then(translation => {
+                displayConfirmation(
+                    translation["alert.blocked_country_title"],
+                    translation["alert.blocked_country"],
+                    [translation["alert.trade_on_dtrader"], translation["alert.trade_on_dmt5"]],
+                    res => {
+                        if (!(typeof res === "boolean")) {
+                            if (res === 1) res = true;
+                            else res = false;
+                        }
+
+                        let link = `https://app.deriv.com/?lang=${localStorage.getItem("language") || "en"}`;
+
+                        if (!res) {
+                            link = `https://app.deriv.com/mt5?lang=${localStorage.getItem("language") || "en"}#real`;
+                        }
+
+                        let windowTarget = '_system';
+
+                        if(window.navigator.standalone) {
+                            windowTarget = '_self';
+                        }
+
+                        window.open(link, windowTarget);
+                    }
+                );
+            });
+        },
     };
 
     this.contractError = {

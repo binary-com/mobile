@@ -222,4 +222,6 @@ angular.module("binary").service("accountService", function(websocketService, ap
         });
         return allLoginids;
     }
+
+    this.isBlockedUser = (authorize) => authorize.country === 'au';
 });

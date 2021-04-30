@@ -78,6 +78,11 @@
         $scope.$on("authorize", (e, response, message) => {
             $ionicLoading.hide();
             if (response) {
+                if (accountService.isBlockedUser(response)) {
+                    alertService.accountError.blockedCountry('Australia');
+                    return;
+                }
+
                 if (accountService.isUnique(response.loginid)) {
                     let account = {};
                     const accountList = response.account_list;
