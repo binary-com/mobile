@@ -11,7 +11,9 @@
       <div class="row center">
         <div class="col col-75 branding">
           <img src="img/logomark.svg" class="logo" alt="Binary Logo">
-          <img src="img/logotype_dark.svg" class="slogan" alt="Binary.com">
+          <button class="button button-image" ng-click="vm.navigateToEndpoint()">
+              <img src="img/logotype_dark.svg" class="slogan" alt="Binary.com">
+          </button>
         </div>
       </div>
       <form ng-submit="vm.signIn()"

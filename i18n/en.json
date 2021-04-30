@@ -9,6 +9,8 @@
     "regulatory_information": "Regulatory Information"
   },
   "alert": {
+    "blocked_country": "Due to regulations, we’re unable to offer digital options in {{country}}.\nYou may continue to enjoy trading CFDs and multipliers.",
+    "blocked_country_title": "Digital options aren’t available in {{country}}",
     "error": "Error!",
     "warning": "Warning",
     "not_valid": "Please enter a valid token.",
@@ -16,11 +18,13 @@
     "not_unique": "You've already added this account.",
     "contract_error": "Contract not available, please try again.",
     "no_tick": "Please select another underlying, The underlying you've selected doesn't support ticks.",
+    "ok": "OK",
     "remove_token_title": "Removing a Token",
     "remove_token_content": "Are you sure you want to remove this token?",
     "remove_all_tokens_title": "Exit",
     "remove_all_tokens_content": "Are you sure you want to exit the app?",
-    "ok": "OK",
+    "trade_on_dmt5": "Trade CFDs on DMT5",
+    "trade_on_dtrader": "Trade multipliers on DTrader",
     "yes": "Yes",
     "no": "No"
   },

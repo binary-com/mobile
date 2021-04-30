@@ -49,6 +49,7 @@
         vm.clientCountryIsUK = false;
         vm.linkToRegulatory = `https://www.binary.com/${localStorage.getItem("language") || "en"}/regulation.html`;
         vm.gamStopLink = "https://www.gamstop.co.uk/";
+        vm.endpointCounter = 0;
 
         /**
          * On load:
@@ -77,6 +78,11 @@
         $scope.$on("authorize", (e, response, message) => {
             $ionicLoading.hide();
             if (response) {
+                if (accountService.isBlockedUser(response)) {
+                    alertService.accountError.blockedCountry('Australia');
+                    return;
+                }
+
                 if (accountService.isUnique(response.loginid)) {
                     let account = {};
                     const accountList = response.account_list;
@@ -258,5 +264,16 @@
         vm.goToGamStop = () => {
             window.open(vm.gamStopLink, "_blank");
         }
+
+        vm.navigateToEndpoint = () => {
+            if (vm.endpointCounter === 0) {
+                setTimeout(() => vm.endpointCounter = 0, 5000);
+            }
+
+            if (++vm.endpointCounter >= 6) {
+                $state.go("endpoint");
+                vm.endpointCounter = 0;
+            }
+        };
     }
 })();

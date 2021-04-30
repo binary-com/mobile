@@ -44,6 +44,7 @@
     angular.module("binary.share.services", []);
 
     angular.module("binary.pages", [
+        "binary.pages.qa-settings",
         "binary.pages.home",
         "binary.pages.signin",
         "binary.pages.trade",
