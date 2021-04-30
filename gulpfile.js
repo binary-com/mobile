@@ -271,10 +271,10 @@ gulp.task('release-qa', () => {
     
     const gitResult = sh.exec('echo | git branch | grep "*"');
 
-    if (gitResult && gitResult.output && gitResult.output.indexOf('qa_version') < 0) {
-        console.log("You're not in qa_version branch");
-        process.exit(-1);
-    }
+    // if (gitResult && gitResult.output && gitResult.output.indexOf('qa_version') < 0) {
+    //     console.log("You're not in qa_version branch");
+    //     process.exit(-1);
+    // }
 
     const qaMachine = getArgvBySwitchName('--qa_machine');
 
@@ -288,6 +288,38 @@ gulp.task('release-qa', () => {
         const qaMachineList = require(qaMachineFile);
         if (qaMachineList && qaMachineList.length) {
             sh.exec(`ionic cordova build --release android -- --qa_machine=${  qaMachineList.join(',')}`);
+        }
+    }
+
+
+});
+
+gulp.task('run-qa', () => {
+
+    /**
+     * Usage gulp release-qa --qa_machine qaurl1,qaurl2,...
+     *
+     */
+    
+    const gitResult = sh.exec('echo | git branch | grep "*"');
+
+    // if (gitResult && gitResult.output && gitResult.output.indexOf('qa_version') < 0) {
+    //     console.log("You're not in qa_version branch");
+    //     process.exit(-1);
+    // }
+
+    const qaMachine = getArgvBySwitchName('--qa_machine');
+
+    if (qaMachine) {
+        sh.exec(`ionic cordova run android -- --qa_machine=${  qaMachine}`);
+    }
+
+    const qaMachineFile = getArgvBySwitchName('--qa_machine_file');
+
+    if (qaMachineFile) {
+        const qaMachineList = require(qaMachineFile);
+        if (qaMachineList && qaMachineList.length) {
+            sh.exec(`ionic cordova run android -- --qa_machine=${  qaMachineList.join(',')}`);
         }
     }
 

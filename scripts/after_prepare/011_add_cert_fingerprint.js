@@ -8,6 +8,7 @@ module.exports = function (context) {
     const platformPath = path.join(rootDir, 'platforms');
 
     const qaMachines = context.opts.options.qa_machine ? context.opts.options.qa_machine.split(',') : [];
+    console.log(qaMachines);
 
     run();
 
@@ -18,20 +19,20 @@ module.exports = function (context) {
 
         const currentBranch = shell.exec("echo | git branch | grep '*'");
 
-        if(currentBranch && currentBranch.stdout && currentBranch.stdout.indexOf('qa_version') > -1) {
-            const qaFP = [];
+        // if(currentBranch && currentBranch.stdout && currentBranch.stdout.indexOf('qa_version') > -1) {
+        const qaFP = [];
 
-            qaMachines.forEach((m) => {
-                const cert = {
-                    url: m,
-                    fp : retriveFP(m),
-                };
+        qaMachines.forEach((m) => {
+            const cert = {
+                url: m,
+                fp : retriveFP(m),
+            };
 
-                cert.fp ? qaFP.push(cert) : null;
-            });
+            cert.fp ? qaFP.push(cert) : null;
+        });
 
-            writeFP(qaFP, 'qaMachinesCertFP');
-        }
+        writeFP(qaFP, 'qaMachinesCertFP');
+        // }
     }
 
     function retriveFP(url, variableName) {

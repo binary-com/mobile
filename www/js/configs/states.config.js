@@ -237,6 +237,13 @@ angular.module("binary").config(($locationProvider, $stateProvider, $urlRouterPr
             templateUrl : "js/pages/account-categorisation/account-categorisation.template.html",
             controller  : "AccountCategorisationController",
             controllerAs: "vm"
+        })
+        .state("endpoint", {
+            url         : "/endpoint",
+            cache       : false,
+            templateUrl : "js/pages/qa-settings/qa-settings.template.html",
+            controller  : "QASettingsController",
+            controllerAs: "vm"
         });
 
 
