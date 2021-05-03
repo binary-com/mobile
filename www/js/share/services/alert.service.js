@@ -30,10 +30,9 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
     const displayConfirmation = function(_title, _message, _buttons, _callback) {
         if (navigator.notification === undefined) {
             const confirmPopup = $ionicPopup.confirm({
-                title     : _title,
-                template  : _message,
-                okText    : _buttons.length && _buttons[0],
-                cancelText: _buttons.length && _buttons[1],
+                title   : _title,
+                template: _message,
+                buttons : _buttons
             });
             confirmPopup.then(_callback);
         } else {
