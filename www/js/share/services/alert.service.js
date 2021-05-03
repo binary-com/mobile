@@ -108,31 +108,42 @@ angular.module("binary").service("alertService", function($translate, $ionicPopu
             $translate(
                 ["alert.blocked_country_title", "alert.blocked_country", "alert.trade_on_dtrader", "alert.trade_on_dmt5"],
                 {country}).then(translation => {
-                displayConfirmation(
-                    translation["alert.blocked_country_title"],
-                    translation["alert.blocked_country"],
-                    [translation["alert.trade_on_dtrader"], translation["alert.trade_on_dmt5"]],
-                    res => {
-                        if (!(typeof res === "boolean")) {
-                            if (res === 1) res = true;
-                            else res = false;
-                        }
+                $ionicPopup.show({
+                    title   : translation["alert.blocked_country_title"],
+                    template: translation["alert.blocked_country"],
+                    buttons : [
+                        {
+                            text: translation["alert.trade_on_dtrader"],
+                            type: "button-secondary",
+                            onTap(e) {
+                                e.preventDefault();
+                                const link = `https://app.deriv.com/?lang=${localStorage.getItem("language") || "en"}`;
+                                let windowTarget = '_system';
 
-                        let link = `https://app.deriv.com/?lang=${localStorage.getItem("language") || "en"}`;
+                                if(window.navigator.standalone) {
+                                    windowTarget = '_self';
+                                }
 
-                        if (!res) {
-                            link = `https://app.deriv.com/mt5?lang=${localStorage.getItem("language") || "en"}#real`;
-                        }
+                                window.open(link, windowTarget);
+                            }
+                        },
+                        {
+                            text: translation["alert.trade_on_dmt5"],
+                            type: "button-secondary",
+                            onTap(e) {
+                                e.preventDefault();
+                                const link = `https://app.deriv.com/mt5?lang=${localStorage.getItem("language") || "en"}#real`;
+                                let windowTarget = '_system';
 
-                        let windowTarget = '_system';
+                                if(window.navigator.standalone) {
+                                    windowTarget = '_self';
+                                }
 
-                        if(window.navigator.standalone) {
-                            windowTarget = '_self';
-                        }
-
-                        window.open(link, windowTarget);
-                    }
-                );
+                                window.open(link, windowTarget);
+                            },
+                        },
+                    ],
+                });
             });
         },
     };
