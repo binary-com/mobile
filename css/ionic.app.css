@@ -10097,6 +10097,9 @@ button {
     color: #fff !important;
     background: #14602B !important; }
 
+.button-image {
+  background: transparent !important; }
+
 @media screen and (max-width: 480px) {
   .information-popup .popup-body .item {
     font-size: 1rem; }

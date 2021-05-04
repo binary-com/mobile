@@ -22,7 +22,7 @@
     function Oauth($scope, $ionicLoading, config, websocketService, alertService, accountService, languageService) {
         const vm = this;
 
-        let accounts = [];
+        vm.accounts = [];
 
         const authenticate = _token => {
             // Validate the token
@@ -35,9 +35,9 @@
         };
 
         const handleUrl = (url) => {
-            accounts = getAccountsFromUrl(url);
-            if (accounts.length > 0) {
-                authenticate(accounts[0].token);
+            vm.accounts = getAccountsFromUrl(url);
+            if (vm.accounts.length > 0) {
+                authenticate(vm.accounts[0].token);
             }
         }
 
@@ -50,9 +50,9 @@
         $scope.$on("authorize", (e, response) => {
             if (response) {
                 const accountList = response.account_list;
-                accounts.forEach((value, index) => {
+                vm.accounts.forEach((value, index) => {
                     if (index > 0) {
-                        let account = accounts[index];
+                        let account = vm.accounts[index];
                         account.email = response.email;
                         account.country = response.country;
                         if (accountList) {
@@ -99,11 +99,11 @@
                     return;
                 }
 
-                accounts = getAccountsFromUrl(url);
-                if (accounts && accounts.length) {
+                vm.accounts = getAccountsFromUrl(url);
+                if (vm.accounts && vm.accounts.length) {
                     authWindow.close();
 
-                    authenticate(accounts[0].token);
+                    authenticate(vm.accounts[0].token);
                 }
             });
         };

@@ -9,9 +9,9 @@
 (function() {
     angular.module("binary.pages.home.controllers").controller("HomeController", Home);
 
-    Home.$inject = ["$scope", "$state", "accountService", "analyticsService", "appStateService"];
+    Home.$inject = ["$scope", "$state", "accountService", "alertService", "analyticsService", "appStateService"];
 
-    function Home($scope, $state, accountService, analyticsService, appStateService) {
+    function Home($scope, $state, accountService, alertService, analyticsService, appStateService) {
         const vm = this;
         /**
         * wait untile authorization and decide
@@ -19,6 +19,12 @@
         */
         $scope.$on("authorize", (e, response) => {
             if (response) {
+
+                if (accountService.isBlockedUser(response)) {
+                    alertService.accountError.blockedCountry('Australia');
+                    return;
+                }
+
                 setTimeout(() => {
                     $state.go("trade");
                 }, 1000);
