@@ -131,7 +131,7 @@ gulp.task('deploy-apk', (done) => {
     }
 
     // sh.cd('tmp');
-    console.log('Fetching gh-pages ...');
+    // console.log('Fetching gh-pages ...');
     // sh.config.silent = false;
     // sh.exec(`git clone ${ remoteUrl } -b gh-pages ./`);
     // sh.config.silent = true;
