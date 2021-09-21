@@ -457,7 +457,7 @@
     "password_not_match": "Введенные пароли не совпадают.",
     "required": "Это поле является обязательным.",
     "password_pattern_error": "Пароль должен состоять из заглавных, строчных букв и цифр.",
-    "password_changed_text": "Ваш пароль изменён. Пожалуйста, войдите снова.",
+    "password_changed_text": "Ваш пароль изменен. Пожалуйста, войдите снова.",
     "range_length_error": "Запись в этом поле должна быть в пределах {{min}}-{{max}} знаков."
   },
   "financial-assessment": {
@@ -513,7 +513,7 @@
     "trading_limits": "Торговые лимиты",
     "withdrawal_limits": "Лимиты на вывод",
     "your_withdrawal_limit": "Ваш лимит на вывод составляет {{currency}} {{limits}} (или эквивалентную сумму в другой валюте).",
-    "already_withdrawn": "Вы уже вывели сумму, равную {{currency}} {{limits}} (или её эквивалент в другой валюте).",
+    "already_withdrawn": "Вы уже вывели сумму, равную {{currency}} {{limits}} (или ее эквивалент в другой валюте).",
     "current_immediate_maximum_withdrawal": "Поэтому максимальная сумма, доступная к выводу на данный момент (если на счете есть средства) составляет {{currency}} {{limits}} (или эквивалентную сумму в другой валюте).",
     "fully_authenticated": "Ваш счет полностью авторизован, и лимит на вывод был снят.",
     "your_n_day_withdrawal_limit": "Ваш лимит на вывод за {{day}} дней в настоящее время составляет {{currency}} {{limits}} (или эквивалентную сумму в другой валюте).",
@@ -607,7 +607,7 @@
   },
   "notifications": {
     "no_notification": "У вас нет новых уведомлений.",
-    "please_authenticate": "Пройдите аутентификацию счёта, чтобы снять торговые лимиты и ограничения на вывод.",
+    "please_authenticate": "Authenticate your account now to take full advantage of all withdrawal options available.",
     "account_authentication": "Аутентификация счёта",
     "please_contact": "Ваш счёт заблокирован. Пожалуйста, свяжитесь с нашей службой поддержки для получения помощи.",
     "account_restriction": "Ограничения счета",
