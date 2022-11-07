@@ -1,6 +1,10 @@
-[![Build Status](https://travis-ci.org/binary-com/mobile.svg?branch=dev)](https://travis-ci.org/binary-com/mobile)
+# :warning: Deprecation notice
+This repository used to contain the source code for ticktrade application and [ticktrade.binary.com](https://ticktrade.binary.com)
+
+**ticktrade** was discontinued on Wednesday 19 October 2022.
 
 # Tick Trade Mobile Application
+[![Build Status](https://travis-ci.org/binary-com/mobile.svg?branch=dev)](https://travis-ci.org/binary-com/mobile)
 
 - Make sure you have node.js installed
 
